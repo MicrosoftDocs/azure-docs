@@ -52,7 +52,7 @@ In this preview, you can add conditions to built-in roles or custom roles. The b
 - [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
 - [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner).
 
-You can use conditions with custom roles so long as the role includes [actions that support conditions](storage-auth-abac-attributes.md#actions-and-suboperations).
+You can use conditions with custom roles so long as the role includes [actions that support conditions](storage-auth-abac-attributes.md#azure-storage-actions-and-suboperations).
 
 If you're working with conditions based on [blob index tags](../blobs/storage-manage-find-blobs.md), you should use the *Storage Blob Data Owner* since permissions for tag operations are included in this role.
 

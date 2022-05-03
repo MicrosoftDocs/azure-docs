@@ -119,7 +119,7 @@ Once you have the Add role assignment condition page open, you can review the ba
 
 1. In the **Operator** list, select an operator.
 
-    For more information, see [Operators](conditions-format.md#operators).
+    For more information, see [Azure role assignment condition format and syntax](conditions-format.md).
 
 1. In the **Value** box, enter a value for the right side of the expression.
 
