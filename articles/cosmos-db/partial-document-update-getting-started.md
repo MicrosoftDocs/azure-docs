@@ -20,23 +20,7 @@ This article provides examples illustrating for how to use Partial Document Upda
 - Conditional patch syntax based on filter predicate
 - Executing patch operation as part of a Transaction
 
-## Implement using an SDK
-
-The following examples make a few assumptions about your code:
-
-- Your code already has a variable referencing your container named ``container``.
-- The container already has a document with the following content:
-    ```json
-    {
-     "id": "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
-     "name": "R-410 Road Bicycle",
-     "price": 455.95,
-     "used": false,
-     "categoryId": "road-bikes"
-    }
-    ```
-
-### [.NET](#tab/dotnet)
+## [.NET](#tab/dotnet)
 
 Support for Partial document update (Patch API) in the [Azure Cosmos DB .NET v3 SDK](sql/sql-api-sdk-dotnet-standard.md) is available from version *3.23.0* onwards. You can download it from the [NuGet Gallery](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.23.0)
 
@@ -46,68 +30,88 @@ Support for Partial document update (Patch API) in the [Azure Cosmos DB .NET v3 
 - Executing a single patch operation
 
     ```csharp
-    ItemResponse<SalesOrder> response = await container.PatchItemAsync<SalesOrder>(
-        id: order.Id,
-        partitionKey: new PartitionKey(order.AccountNumber),
-        patchOperations: new[] { PatchOperation.Replace("/TotalDue", 0) });
+    ItemResponse<Product> response = await container.PatchItemAsync<Product>(
+        id: "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
+        partitionKey: new PartitionKey("road-bikes"),
+        patchOperations: new[] {
+            PatchOperation.Increment("/price", 50)
+        }
+    );
     
-    SalesOrder updated = response.Resource;
+    Product updated = response.Resource;
     ```
 
 - Combining multiple patch operations
 
     ```csharp
-    List<PatchOperation> patchOperations = new List<PatchOperation>();
-    patchOperations.Add(PatchOperation.Add("/nonExistentParent/Child", "bar"));
-    patchOperations.Add(PatchOperation.Remove("/cost"));
-    patchOperations.Add(PatchOperation.Increment("/taskNum", 6));
-    patchOperations.Add(PatchOperation.Set("/existingPath/newproperty",value));
+    List<PatchOperation> operations = new ()
+    {
+        PatchOperation.Add($"/color", "silver"),
+        PatchOperation.Remove("/used"),
+        PatchOperation.Set("/price", 355.45)
+    };
     
-    container.PatchItemAsync<item>(
-                    id: 5,
-                    partitionKey: new PartitionKey("task6"),
-                    patchOperations: patchOperations );
+    ItemResponse<Product> response = await container.PatchItemAsync<Product>(
+        id: "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
+        partitionKey: new PartitionKey("road-bikes"),
+        patchOperations: operations
+    );
     ```
 
 - Conditional patch syntax based on filter predicate
 
     ```csharp
-    PatchItemRequestOptions patchItemRequestOptions = new PatchItemRequestOptions
+    PatchItemRequestOptions options = new()
     {
-        FilterPredicate = "from c where (c.TotalDue = 0 OR NOT IS_DEFINED(c.TotalDue))"
+        FilterPredicate = "FROM products p WHERE p.used = false"
     };
-    response = await container.PatchItemAsync<SalesOrder>(
-        id: order.Id,
-        partitionKey: new PartitionKey(order.AccountNumber),
-        patchOperations: new[] { PatchOperation.Replace("/ShippedDate", DateTime.UtcNow) },
-        patchItemRequestOptions);
     
-    SalesOrder updated = response.Resource;
+    List<PatchOperation> operations = new ()
+    {
+        PatchOperation.Replace($"/price", 100.0),
+    };
+    
+    ItemResponse<Product> response = await container.PatchItemAsync<Product>(
+        id: "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
+        partitionKey: new PartitionKey("road-bikes"),
+        patchOperations: operations,
+        requestOptions: options
+    );
     ```
 
 - Executing patch operation as a part of a Transaction
 
     ```csharp
-    List<PatchOperation> patchOperationsUpdateTask = new List<PatchOperation>()
-                {
-                    PatchOperation.Add("/children/1/pk", "patched"),
-                    PatchOperation.Remove("/description"),
-                    PatchOperation.Add("/taskNum", 8),
-    		        PatchOperation.Replace("/taskNum", 12)
-                };
+    TransactionalBatchPatchItemRequestOptions options = new()
+    {
+        FilterPredicate = "FROM products p WHERE p.used = false"
+    };
     
-    TransactionalBatchPatchItemRequestOptions requestOptionsFalse = new TransactionalBatchPatchItemRequestOptions()
-                {
-                    FilterPredicate = "from c where c.taskNum = 3"
-                };
+    List<PatchOperation> operations = new ()
+    {
+        PatchOperation.Add($"/new", true),
+        PatchOperation.Remove($"/used")
+    };
     
-    TransactionalBatchInternal transactionalBatchInternalFalse = (TransactionalBatchInternal)containerInternal.CreateTransactionalBatch(new Cosmos.PartitionKey(testItem.pk));
-    transactionalBatchInternalFalse.PatchItem(id: testItem1.id, patchOperationsUpdateTaskNum12, requestOptionsFalse);
-    transactionalBatchInternalFalse.PatchItem(id: testItem2.id, patchOperationsUpdateTaskNum12, requestOptionsFalse);
-    transactionalBatchInternalFalse.ExecuteAsync());
+    TransactionalBatch batch = container.CreateTransactionalBatch(
+        partitionKey: new PartitionKey("road-bikes")
+    );
+    batch.PatchItem(
+        id: "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
+        patchOperations: operations,
+        requestOptions: options
+    );
+    batch.PatchItem(
+        id: "892f609b-8885-44df-a9ed-cce6c0bd2b9e",
+        patchOperations: operations,
+        requestOptions: options
+    );
+    
+    TransactionalBatchResponse response = await batch.ExecuteAsync();
+    bool success = response.IsSuccessStatusCode;
     ```
 
-### [Java](#tab/java)
+## [Java](#tab/java)
 
 Support for Partial document update (Patch API) in the [Azure Cosmos DB Java v4 SDK](sql/sql-api-sdk-java-v4.md) is available from version *4.21.0* onwards. You can either add it to the list of dependencies in your `pom.xml` or download it directly from [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos).
 
@@ -173,7 +177,7 @@ Support for Partial document update (Patch API) in the [Azure Cosmos DB Java v4 
     }
     ```
 
-### [Node.js](#tab/nodejs)
+## [Node.js](#tab/nodejs)
 
 Support for Partial document update (Patch API) in the [Azure Cosmos DB JavaScript SDK](sql/sql-api-sdk-node.md) is available from version *3.15.0* onwards. You can download it from the [npm Registry](https://www.npmjs.com/package/@azure/cosmos/v/3.15.0)
 
