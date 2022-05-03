@@ -18,7 +18,8 @@ Normally the Translator service retains profanity that is present in the source 
 
 If you want to avoid seeing profanity in the translation, even if profanity is present in the source text, use the profanity filtering option available in the Translate() method. This option allows you to choose whether you want the profanity deleted, marked with appropriate tags, or no action taken.
 
-The Translate() method takes the "options" parameter, which contains the new element "ProfanityAction". The accepted values of ProfanityAction are "NoAction", "Marked" and "Deleted." For the value of "Marked", additional optional element "ProfanityMarker" can take the values "Asterisk" (default) and "Tag".
+The Translate() method takes the "options" parameter, which contains the new element "ProfanityAction." The accepted values of ProfanityAction are "NoAction," "Marked," and "Deleted." For the value of "Marked," an additional, optional element "ProfanityMarker" can take the values "Asterisk" (default) and "Tag."
+
 
 ## Accepted values and examples of ProfanityMarker and ProfanityAction
 | ProfanityAction value | ProfanityMarker value | Action | Example: Source - Spanish| Example: Target - English|
