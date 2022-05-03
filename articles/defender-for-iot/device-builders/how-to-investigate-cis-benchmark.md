@@ -1,7 +1,7 @@
 ---
 title: Investigate CIS benchmark recommendation
 description: Perform basic and advanced investigations based on OS baseline recommendations.
-ms.date: 04/05/2022
+ms.date: 05/03/2022
 ms.topic: how-to
 ---
 
