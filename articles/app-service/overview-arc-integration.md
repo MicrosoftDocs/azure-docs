@@ -28,7 +28,7 @@ The following public preview limitations apply to App Service Kubernetes environ
 | Supported Azure regions                                 | East US, West Europe                                                                  |
 | Cluster networking requirement                          | Must support `LoadBalancer` service type |
 | Cluster storage requirement                             | Must have cluster attached storage class available for use by the extension to support deployment and build of code-based apps where applicable                      |
-| Feature: Networking                                     | [Not available (rely on cluster networking)](#are-networking-features-supported)      |
+| Feature: Networking                                     | [Not available (rely on cluster networking)](#are-all-networking-features-supported)      |
 | Feature: Managed identities                             | [Not available](#are-managed-identities-supported)                                    |
 | Feature: Key vault references                           | Not available (depends on managed identities)                                         |
 | Feature: Pull images from ACR with managed identity     | Not available (depends on managed identities)                                         |
@@ -68,7 +68,7 @@ Only one Kubernetes environment resource can be created in a custom location. In
 - [Which built-in application stacks are supported?](#which-built-in-application-stacks-are-supported)
 - [Are all app deployment types supported?](#are-all-app-deployment-types-supported)
 - [Which App Service features are supported?](#which-app-service-features-are-supported)
-- [Are all networking features supported?](#are-networking-features-supported)
+- [Are all networking features supported?](#are-all-networking-features-supported)
 - [Are managed identities supported?](#are-managed-identities-supported)
 - [Are there any scaling limits?](#are-there-any-scaling-limits)
 - [What logs are collected?](#what-logs-are-collected)
