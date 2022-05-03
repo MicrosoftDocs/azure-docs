@@ -41,7 +41,7 @@ Follow these steps to create a new console application and install the Speech SD
 1. Copy the [scenarios/csharp/dotnet/captioning/](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/captioning_sample/scenarios/csharp/dotnet/captioning/) sample files from GitHub into your project directory. Overwrite the local copy of `Program.cs` with the file that you copy from GitHub.
 1. Build the project with the .NET CLI.
     ```dotnetcli
-    dotnet add package Microsoft.CognitiveServices.Speech
+    dotnet build
     ```
 1. Run the application with your preferred command line arguments. See [usage and arguments](#usage-and-arguments) for the available options. Here is an example:
     ```dotnetcli
