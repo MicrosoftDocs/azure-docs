@@ -5,31 +5,33 @@ description: You can simplify the task of migrating between Azure Data Lake Stor
 author: normesta
 ms.topic: how-to
 ms.author: normesta
-ms.date: 12/21/2021
+ms.date: 05/04/2022
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
 ---
 
-# Migrate Azure Data Lake Storage from Gen1 to Gen2 by using the Azure portal (preview)
+# Migrate Azure Data Lake Storage from Gen1 to Gen2 by using the Azure portal
 
 You can reduce the number of steps required to complete a migration by using the Azure portal. Data and metadata (such as timestamps and ACLs) automatically move to your Gen2-enabled account. If you perform a complete migration, you won't have to point your workloads to Gen2 because requests are redirected automatically.
 
-> [!IMPORTANT]
-> Migrating from Gen1 to Gen2 by using the Azure portal is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> [!NOTE]
+> Large customers with more than 100TB of data or more than 200 million streams might not be able to use the Azure portal to migrate from Azure Data Lake Storage Gen1 to Gen2. If the migration button is not enabled in the Azure portal for your account, contact your Microsoft account team for migration assistance.
 
-This article guides through the following tasks:
+> [!WARNING]
+> Azure Data Lake Storage Gen2 doesn't support Azure Data Lake Analytics applications. If you have any, you'll need to move them before migrating from Gen1 to Gen2. See [Move Azure Data Lake Analytics applications](#move-azure-data-lake-analytics-applications) for more information.
 
-- Step 1: Enroll in the preview
+This article guides you through the following tasks:
 
-- Step 2: Create a storage account that has Gen2 capabilities
+- Step 1: Create a storage account that has Gen2 capabilities
 
-- Step 3: Verify RBAC role assignments
+- Step 2: Verify RBAC role assignments
+
+- Step 3: Move Azure Data Lake Analytics applications (if any)
 
 - Step 4: Perform the migration
 
-- Step 5. Test your applications
+- Step 5: Test your applications
 
 - Step 6: Complete the migration
 
@@ -37,12 +39,6 @@ Be sure to read the general guidance about how to migrate from Gen1 to Gen2. For
 
 > [!NOTE]
 > For easier reading, this article uses the term *Gen1* to refer to Azure Data Lake Storage Gen1, and the term *Gen2* to refer to Azure Data Lake Storage Gen2.
-
-## Enroll in the preview
-
-To enroll in the preview, see [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4SeyCfCfrtBlHWFupvoz_BUMEFNQzBSQTE0OU1aM0hXMDlBNEwzVTYyRy4u&wdLOR=cBC075B83-9324-4399-B94E-05A919D007C9). After you've enrolled, create a storage account with Gen2 capabilities (see next section).
-
-Microsoft will contact you in approximately seven days to ensure that your new account is enabled for migration.
 
 ## Create a storage account with Gen2 capabilities
 
@@ -71,6 +67,10 @@ For Gen2, ensure that the [Storage Blob Data Owner](../../role-based-access-cont
 
 For Gen1, ensure that the [Owner](../../role-based-access-control/built-in-roles.md#owner) role has been assigned to your Azure AD identity in the scope of the Gen1 account, parent resource group, or subscription.
 
+## Move Azure Data Lake Analytics applications
+
+Azure Data Lake Storage Gen2 doesn't support Azure Data Lake Analytics applications. If you have any, make sure to move them to Azure Synapse Analytics or another supported workload before you migrate from Gen1 to Gen2. Note that if your account is tied with Azure Data Lake Analytics, you can't simply detach your Azure Data Lake Storage Gen1 account. In order to preserve business continuity, you must first move your compute to the alternative compute solution you've chosen (still running on Gen1) and then move the data.
+
 ## Perform the migration
 
 Before you begin, decide whether to copy only data or perform a complete migration.
@@ -78,9 +78,6 @@ Before you begin, decide whether to copy only data or perform a complete migrati
 If you copy only the data, both accounts remain active after the migration is completed. During the migration, your Gen1 account will become read-only. You can then update your compute workloads to use your new Gen2 enabled storage account. Once you've verified that your applications and workloads work as expected, you can retire the Gen1 account. Microsoft recommends this option.
 
 If you perform a complete migration, data is copied from Gen1 to Gen2. Then, your Gen1 URI is redirected to your Gen2 URI. After the migration completes, you won't have access to your Gen1 account and all Gen1 requests will be redirected to your Gen2 enabled account. Your Gen1 account will no longer be available for data operations, and you will no longer be billed for the data in your Gen1 account. You can delete your Gen1 account once your pipelines are running on your Gen2 enabled account.
-
-> [!NOTE]
-> Gen2 doesn't support Azure Data Lake Analytics applications. If you have any, make sure to move them to Azure Synapse Analytics or another supported workload before you migrate from Gen1 to Gen2.
 
 ### Option 1: Copy data from Gen1 to Gen2
 
