@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/21/2022
+ms.date: 05/03/2022
 ---
 
 # Create an index for multiple languages in Azure Cognitive Search
@@ -21,10 +21,26 @@ A multilingual search application supports searching over and retrieving results
 
 The success of this technique hinges on the integrity of field content. By itself, Azure Cognitive Search does not translate strings or perform language detection as part of query execution. It's up to you to make sure that fields contain the strings you expect.
 
+## Need text translation?
+
+The approach described in this article assumes that you already have translated strings in place. If that's not the case, you can attach Cognitive Services to an enrichment pipeline that invokes text translation during data ingestion.
+
+Text translation takes a dependency on the indexer feature and Cognitive Services, but all setup is done within Azure Cognitive Search. To include text translation, follow these steps:
+
+1. Verify your content is in a [supported data source](search-indexer-overview.md#supported-data-sources).
+
+1. [Create a data source](search-howto-create-indexers.md#prepare-external-data) that points to your content.
+
+1. [Create a skillset](cognitive-search-defining-skillset.md) that includes the [Text Translation skill](cognitive-search-skill-text-translation.md). The Text Translation skill operates over a single string. If you have multiple fields, you can use the [Text Merger skill](cognitive-search-skill-textmerger.md) to consolidate the string input into one long string, passing that string as an input to Text Translation.  Alternatively, you can create a skillset that calls Text Translation multiple times, once for each field.
+
+1. Create an index that includes fields for translated strings. The majority of this article covers index design and field definitions for indexing and querying multi-language content.
+
+1. [Attach a multi-region Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to your skillset.
+
+1. [Create and run the indexer](search-howto-create-indexers.md).
+
 > [!TIP]
-> If text translation is a requirement, you can [create a skillset](cognitive-search-defining-skillset.md) that adds [text translation](cognitive-search-skill-text-translation.md) to the indexing pipeline. This approach requires [using an indexer](search-howto-create-indexers.md) and [attaching a Cognitive Services resource](cognitive-search-attach-cognitive-services.md).
->
-> Text translation is built into the [Import data wizard](cognitive-search-quickstart-blob.md). If you have a [supported data source](search-indexer-overview.md#supported-data-sources) with text you'd like to translate, you can step through the wizard to try out the language detection and translation functionality.
+> Text translation is built into the [Import data wizard](cognitive-search-quickstart-blob.md). If you have a [supported data source](search-indexer-overview.md#supported-data-sources) with text you'd like to translate, you can step through the wizard to try out the language detection and translation functionality before writing any code.
 
 ## Define fields for content in different languages
 
