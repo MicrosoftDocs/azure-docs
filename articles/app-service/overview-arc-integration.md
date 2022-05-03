@@ -97,7 +97,7 @@ During the preview period, certain App Service features are being validated. Whe
 
 ### Are all networking features supported?
 
-No. Networking features such as hybrid connections or Virtual Network integration, are not supported.  [Access restriction])(app-service-ip-restrictions.md) support was added in April 2022. Networking should be handled directly in the networking rules in the Kubernetes cluster itself.
+No. Networking features such as hybrid connections or Virtual Network integration, are not supported.  [Access restriction](app-service-ip-restrictions.md) support was added in April 2022. Networking should be handled directly in the networking rules in the Kubernetes cluster itself.
 
 ### Are managed identities supported?
 
