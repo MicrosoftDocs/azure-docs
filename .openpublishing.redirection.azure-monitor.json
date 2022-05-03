@@ -6,6 +6,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/essentials/activity-logs-insights.md",
+            "redirect_url": "/azure/azure-monitor/essentials/activity-log",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/application-insights/app-insights-performance-counters.md",
             "redirect_url": "/azure/azure-monitor/app/performance-counters",
             "redirect_document_id": true
