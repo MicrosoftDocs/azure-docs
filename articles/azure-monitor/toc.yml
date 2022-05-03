@@ -430,8 +430,6 @@ items:
       href: essentials/platform-logs-overview.md
     - name: Activity log
       href: essentials/activity-log.md
-    - name: Activity log insights
-      href: essentials/activity-logs-insights.md
     - name: Resource logs
       href: essentials/resource-logs.md
     - name: Diagnostic settings
@@ -719,7 +717,7 @@ items:
       href: alerts/alerts-resource-move.md
     - name: IT Service Management
       items:
-      - name: ITSM Connector Overview
+      - name: Integrate with ITSM Providers
         href: alerts/itsmc-overview.md
       - name: Connect using a Secure Webhook action
         items:
@@ -735,18 +733,10 @@ items:
             href: alerts/itsmc-secure-webhook-connections-servicenow.md
       - name: Connect using an ITSM action
         items:
+          - name: Connect ServiceNow with an ITSM Connector
+            href: alerts/itsmc-connections-servicenow.md
           - name: Configure Azure for an ITSM Connector
             href: alerts/itsmc-definition.md
-          - name: ITSM Connector partners setup
-            items:
-            - name: ServiceNow ITSM
-              href: alerts/itsmc-connections-servicenow.md
-            - name: System Center Service Manager
-              items:
-              - name: Setup
-                href: alerts/itsmc-connections-scsm.md
-              - name: Create a Service Manager web app
-                href: alerts/itsmc-service-manager-script.md
           - name: Data Synced From Your ITSM Product
             href: alerts/itsmc-synced-data.md
           - name: Troubleshooting problems in ITSM Connector
