@@ -34,9 +34,12 @@ The following image illustrates when you create a service mesh, set the applianc
 ## Activate high availability (HA)
 
 1.	Sign in to HCX Manager UI using either cloudadmin@vsphere.local or access HCX UI using vCenter HCX Plugin.
-1. Navigate to **Infrastructure**, then **Interconnect**
+1. Navigate to **Infrastructure**, then **Interconnect**.
 1. Select **Service Mesh**, then select **View Appliances**.
     
     :::image type="content" source="media/hcx/interconnect-service-mesh-view-appliances.png" alt-text="Image shows step to select service mesh and the View Appliances option."lightbox="media/hcx/interconnect-service-mesh-view-appliances.png":::  
 
-1. Select **Network Extension Appliance**, 
+1. Select **Network Extension Appliance**, then select **Activate High Quality**.
+1. Confirm by choosing **Activate HA**.
+    1. Activating HA initiates the process to create an HA group. The process automatically selects an HA partner from the available NE Appliances.
+1. After the HA group is created, the Active and Standby roles for the local and remote appliances display on the HA Management page.
