@@ -12,7 +12,7 @@ ms.custom:
 
 # Z-fighting mitigation
 
-When two surfaces overlap, it isn't clear which one should be rendered on top of the other. The result even varies per pixel, resulting in camera view-dependent artifacts. When the camera or the mesh moves, these patterns flicker noticeably. This artifact is called *z-fighting*. For AR and VR applications, the problem is intensified because head-mounted devices naturally always move. To prevent viewer discomfort, Azure Remote Rendering offers z-fighting mitigation functionality.
+When two surfaces overlap, it isn't clear which one should be rendered on top of the other. The result even varies per pixel, resulting in camera view-dependent artifacts. When the camera or the mesh moves, these patterns flicker noticeably. This artifact is called *z-fighting*. For augmented reality and virtual reality applications, the problem is intensified because head-mounted devices naturally always move. To prevent viewer discomfort, Azure Remote Rendering offers z-fighting mitigation functionality.
 
 ## Z-fighting mitigation modes
 
