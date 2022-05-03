@@ -39,6 +39,8 @@ Enabling change feed and blob versioning may incur additional costs. For more de
 
 Object replication is supported for general-purpose v2 storage accounts and premium block blob accounts. Both the source and destination accounts must be either general-purpose v2 or premium block blob accounts. Object replication supports block blobs only; append blobs and page blobs are not supported.
 
+Customer-managed failover is not supported for either the source or the destination account in an object replication policy.
+
 ## How object replication works
 
 Object replication asynchronously copies block blobs in a container according to rules that you configure. The contents of the blob, any versions associated with the blob, and the blob's metadata and properties are all copied from the source container to the destination container.
