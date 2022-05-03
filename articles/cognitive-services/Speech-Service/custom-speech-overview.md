@@ -25,7 +25,11 @@ The baseline model may not be sufficient if the audio contains ambient noise or 
 
 Custom Speech models are created by adapting a chosen base model with data from your particular customer scenario. Once you create a custom model, the speech recognition accuracy and quality will remain consistent, even if the base model from which it was adapted gets updated.
 
-Base models are updated periodically to improve accuracy and quality. We recommend that if you use base models, use the latest default base models. But with Custom Speech you can take a snapshot of a particular base model that won't change for a [limited time](how-to-custom-speech-model-and-endpoint-lifecycle.md).
+Base models are updated periodically to improve accuracy and quality. We recommend that if you use base models, use the latest default base models. But with Custom Speech you can take a snapshot of a particular base model without training it. In this case, "custom" means that speech recognition is pinned to a base model from a particular point in time.
+
+Whether you train a new model or use a snapshot of a base model, you can use the model for a limited time. For more information, see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md).
+
+## Choose your model
 
 The best way to see if the base model will suffice is to analyze the transcription produced from the baseline model and compare it with a human-generated transcript for the same audio. You can use Speech Studio to compare the transcripts and obtain a word error rate (WER) score. If there are multiple incorrect word substitutions when evaluating the results, then training a custom model to recognize those words is recommended.
 
@@ -58,9 +62,6 @@ Here's more information about the sequence of steps that the diagram shows:
 
 1. [Train and deploy a model](how-to-custom-speech-train-model.md). Improve the accuracy of your speech-to-text model by providing written transcripts (from 10 to 1,000 hours), and related text (<200 MB), along with your audio test data. This data helps to train the speech-to-text model. After training, retest. If you're satisfied with the result, you can deploy your model to a custom endpoint.
 
-## Model and endpoint lifecycle
-
-Older models typically become less useful over time because the newest model usually has higher accuracy. Therefore, base models as well as custom models and endpoints created through the portal are subject to expiration after one year for adaptation, and two years for decoding. For more information, see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md).
 
 ## Create a project
 

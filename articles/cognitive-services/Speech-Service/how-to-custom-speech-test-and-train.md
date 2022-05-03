@@ -130,16 +130,29 @@ Expected utterances often follow a certain pattern. One common pattern is that u
 * "I have a question about `product`," where `product` is a list of possible products. 
 * "Make that `object` `color`," where `object` is a list of geometric shapes and `color` is a list of colors. 
 
-For a list of supported base models and locales for training with structured text, see [Language support](language-support.md#speech-to-text). You must use the latest base model for these locales. For locales that don't support training with structured text, the service will take any training sentences that don't reference any classes as part of training with plain-text data.
+For a list of supported base models and locales for training with structured text, see [Language support](language-support.md#speech-to-text). You must use the latest base model for these locales. For locales that don't support training with structured text, the service will take any training sentences that don't reference any classes as part of training with plain-text data. 
 
 To simplify the creation of training data and to enable better modeling inside the Custom Language model, you can use a structured text in Markdown format to define lists of items. You can then reference these lists inside your training utterances. The Markdown format also supports specifying the phonetic pronunciation of words. 
+
+Here are details about the Markdown format:
+
+| Property | Description | Limits |
+|----------|-------|--------|
+|`@list`|A list of items that can be referenced in an example sentence.|Maximum of 10 lists. Maximum of 4,000 items per list.|
+|`speech:phoneticlexicon`|A list of phonetic pronunciations according to the [Universal Phone Set](customize-pronunciation.md). Pronunciation is adjusted for each instance where the word appears in a list or training sentence. For example, if you have a word that sounds like "cat" and you want to adjust the pronunciation to "k ae t", you would add `- cat/k ae t` to the `speech:phoneticlexicon` list.|Maximum of 15,000 entries. Maximum of 2 pronunciations per word.|
+|`#ExampleSentences`|Example sentences should reflect the range of speech that your model should expect.|Maximum of 50,000 example sentences|
+|`//`|Comments follow a double slash (`//`) .|Not applicable|
+
+// Here are example training sentences. They are grouped into two sections to help organize them.
+// You can refer to one of the lists we declared earlier by using {@listname}. You can refer to multiple lists in the same training sentence.
+// A training sentence does not have to refer to a list.
 
 The Markdown file should have an .md extension. The syntax of the Markdown is the same as that from the Language Understanding models, in particular list entities and example utterances. For more information about the complete Markdown syntax, see the <a href="/azure/bot-service/file-format/bot-builder-lu-file-format" target="_blank"> Language Understanding Markdown</a>.
 
 Here's an example of the Markdown format:
 
 ```markdown
-// This is a comment
+// This is a comment because it follows a double slash (`//`).
 
 // Here are three separate lists of items that can be referenced in an example sentence. You can have up to 10 of these.
 @ list food =
@@ -151,6 +164,7 @@ Here's an example of the Markdown format:
 @ list pet =
 - cat
 - dog
+- fish
 
 @ list sports =
 - soccer
@@ -160,40 +174,26 @@ Here's an example of the Markdown format:
 - baseball
 - football
 
-// This is a list of phonetic pronunciations. 
-// This adjusts the pronunciation of every instance of these words in a list or example training sentences. 
+// List of phonetic pronunciations
 @ speech:phoneticlexicon
 - cat/k ae t
-- cat/f i l ai n
+- fish/f ih sh
 
-// Here are example training sentences. They are grouped into two sections to help organize them.
-// You can refer to one of the lists we declared earlier by using {@listname}. You can refer to multiple lists in the same training sentence.
-// A training sentence does not have to refer to a list.
-# SomeTrainingSentence
+// Here are two sections of training sentences. 
+# TrainingSentences_Section1
 - you can include sentences without a class reference
 - what {@pet} do you have
 - I like eating {@food} and playing {@sports}
 - my {@pet} likes {@food}
 
-# SomeMoreSentence
+# TrainingSentences_Section2
 - you can include more sentences without a class reference
 - or more sentences that have a class reference like {@pet} 
 ```
 
-Like plain text, training with structured text typically takes a few minutes. Also, your example sentences and lists should reflect the type of spoken input that you expect in production. For pronunciation entries, see the description of the [Universal Phone Set](phone-sets.md).
+Like plain text, training with structured text typically takes a few minutes. Also, your example sentences and lists should reflect the type of spoken input that you expect in production. 
 
-The following table specifies the limits and other properties for the Markdown format:
-
-| Property | Value |
-|----------|-------|
-| Text encoding | UTF-8 BOM |
-| Maximum file size | 200 MB |
-| Maximum number of example sentences | 50,000 |
-| Maximum number of list classes | 10 |
-| Maximum number of items in a list class | 4,000 |
-| Maximum number of `speech:phoneticlexicon` entries | 15,000 |
-| Maximum number of pronunciations per word | 2 |
-
+The maximum file size is 200 MB, and the text encoding must be UTF-8 BOM. 
 
 ## Pronunciation data for training
 
