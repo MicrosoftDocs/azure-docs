@@ -2,6 +2,11 @@
   href: introduction.md
 - name: Switch to current version documentation
   href: ../index.yml
+- name: Overview
+  items:
+  - name: Architecture & terms
+    displayName: architecture, concepts, definitions, glossary
+    href: concept-azure-machine-learning-architecture.md
 - name: Concepts
   items:
   - name: Manage the ML lifecycle (MLOps)
@@ -11,6 +16,11 @@
       href: concept-model-management-and-deployment.md
     - name: MLflow
       href: concept-mlflow-v1.md
+- name: Tutorials
+  expanded: true
+  items:
+    - name: "Build a training pipeline (Python)"
+      href: "tutorial-pipeline-python-sdk.md"
 - name: How-to guides
   items:
   - name: Install and set up the CLI (v1)
@@ -24,6 +34,9 @@
     - name: Use automated ML (Python)
       displayName: SDK, automl
       href: how-to-configure-auto-train-v1.md
+  - name: Create & manage compute cluster
+    displayName: compute target, low priority, managed identity
+    href: how-to-create-attach-compute-cluster.md
   - name: Track experiments with MLflow 
     displayName: log, monitor, metrics, model registry, register
     href: how-to-use-mlflow.md  

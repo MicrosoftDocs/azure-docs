@@ -155,7 +155,7 @@ You can also enable Azure Application Insights from Azure Machine Learning studi
 
 ### Query logs for deployed models
 
-Logs of real-time endpoints are customer data. You can use the `get_logs()` function to retrieve logs from a previously deployed web service. The logs may contain detailed information about any errors that occurred during deployment.
+Logs of online endpoints are customer data. You can use the `get_logs()` function to retrieve logs from a previously deployed web service. The logs may contain detailed information about any errors that occurred during deployment.
 
 ```python
 from azureml.core import Workspace
