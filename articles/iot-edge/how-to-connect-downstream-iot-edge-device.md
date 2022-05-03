@@ -165,9 +165,8 @@ the examples, we'll use `/var/secrets` for the certificates and keys directory a
     Example output from `ls -l` command on a parent device.
 
     ```output
-    -rw-r--r-- 1 aziotcs root 5672 Apr 20 23:34 iot-edge-device-identity-parent-full-chain.cert.pem
-    -r--r--r-- 1 aziotcs root 1712 Apr 20 23:34 iot-edge-device-identity-parent.cert.pem
-    -r--r--r-- 1 aziotks root 1675 Apr 20 23:34 iot-edge-device-identity-parent.key.pem
+    -r--r--r-- 1 aziotcs root 1923 May  3 17:28 iot-edge-device-ca-gateway.cert.pem
+    -r--r--r-- 1 aziotks root 3243 May  3 17:28 iot-edge-device-ca-gateway.key.pem
     ```
 
 For more information on installing certificates on a device, see [Manage certificates on an IoT Edge device](how-to-manage-device-certificates.md).
