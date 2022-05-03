@@ -21,11 +21,12 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 ## Prerequisites
 
 * [Create a new Synapse workspace](https://ms.portal.azure.com/#create/Microsoft.Synapse) to get Synapse link for Azure SQL Database. Ensure to check “Disable Managed virtual network” and “Allow connections from all IP address” when creating Synapse workspace.
+
 * Make sure your Azure SQL database service tiers is above Standard 3, as Synapse link for Azure SQL Database is not supported on Free, Basic or Standard tier (S0,S1,S2) of Azure SQL database.
 
 ## Configure your source Azure SQL Database
 
-1. Go to Azure portal, navigate to the your Azure SQL Server, open **Identity**, then set **System assigned managed identity** to **On**.
+1. Go to Azure portal, navigate to your Azure SQL Server, select **Identity**, and then set **System assigned managed identity** to **On**.
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/set-identity-sql-database.png" alt-text="Screenshot of turning on system assigned managed identity.":::
 
