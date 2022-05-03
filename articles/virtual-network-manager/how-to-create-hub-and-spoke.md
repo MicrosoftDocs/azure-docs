@@ -74,7 +74,7 @@ This section will guide you through how to create a hub-and-spoke configuration 
     | Name | Enter a *name* for this configuration. |
     | Description | *Optional* Enter a description about what this configuration will do. |
 
-1. Select **Next: Topology >**. Select **Hub and Spoke** under the **Topology** setting. This will reveal additional settings.
+1. Select **Next: Topology >**. Select **Hub and Spoke** under the **Topology** setting. This selection will reveal more settings.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/hub-configuration.png" alt-text="Screenshot of selecting a hub for the connectivity configuration.":::
 
@@ -93,7 +93,7 @@ This section will guide you through how to create a hub-and-spoke configuration 
     | Setting | Value |
     | ------- | ----- |
     | Direct connectivity | Select **Enable peering within network group** if you want to establish VNet peering between virtual networks in the network group of the same region. |
-    | Gateway | Select **Hub as a gateway** if you have a virtual network gateway in the hub virtual network that you want this network group to use to pass traffic to on-premises. This will not be available unless a virtual network gateway is deployed in the hub virtual network. |
+    | Gateway | Select **Hub as a gateway** if you have a virtual network gateway in the hub virtual network that you want this network group to use to pass traffic to on-premises. This option won't be available unless a virtual network gateway is deployed in the hub virtual network. |
     | Global Mesh | Select **Enable mesh connectivity across regions** if you want to establish VNet peering for all virtual networks in the network group across regions. This option requires you select **Enable peering within network group** first.  |
 
     Select the settings you want to enable for each network group.
@@ -102,7 +102,7 @@ This section will guide you through how to create a hub-and-spoke configuration 
 
 ## Deploy the hub and spoke configuration
 
-To have this configuration take effect in your environment, you'll need to deploy the configuration to the regions where your selected virtual network are created.
+To have this configuration take effect in your environment, you'll need to deploy the configuration to the regions where your selected virtual networks are created.
 
 > [!NOTE]
 > Make sure the virtual network gateway has been successfully deployed before deploying the connectivity configuration. If you deploy a hub and spoke configuration with **Use the hub as a gateway** enabled and there's no gateway, the deployment will fail. For more information, see [use hub as a gateway](concept-connectivity-configuration.md#use-hub-as-a-gateway). 
@@ -119,17 +119,17 @@ To have this configuration take effect in your environment, you'll need to deplo
 
     | Setting | Value |
     | ------- | ----- |
-    | Configurations | Select elect **Include connectivity configurations in your goal state**. This will reveal additional options. |
+    | Configurations | Select elect **Include connectivity configurations in your goal state**. This will reveal more options. |
     | Connectivity Configurations | Select the name of the connectivity configuration you created in the previous section. |
     | Target regions | Select all the regions that include virtual networks you need configuration applied to. |
 
-1. Select **Deploy**. You will see the deployment show up in the list for those regions. The deployment of the configuration can take several minutes to complete. You can select the **Refresh** button to check on the status of the deployment.
+1. Select **Deploy**. You'll see the deployment shows up in the list for those regions. The deployment of the configuration can take several minutes to complete. You can select the **Refresh** button to check on the status of the deployment.
 
     :::image type="content" source="./media/how-to-create-hub-and-spoke/deploy-status.png" alt-text="Screenshot of spoke network groups settings." lightbox="./media/how-to-create-hub-and-spoke/deploy-status-expanded.png":::
 
 ## Confirm deployment
 
-1. Go to one of the virtual networks in the portal and select **Peerings** under *Settings*. You should see a new peering connection create between the hub and the spokes virtual network with *ANM* in the name.
+1. Go to one of the virtual networks in the portal and select **Peerings** under *Settings*. You should see a new peering connection created between the hub and the spokes virtual network with *ANM* in the name.
 
 1. To test *direct connectivity* between spokes, deploy a virtual machine into each spokes virtual network. Then initiate an ICMP request from one virtual machine to the other.
 
