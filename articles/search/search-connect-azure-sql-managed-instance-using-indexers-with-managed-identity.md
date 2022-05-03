@@ -77,9 +77,10 @@ In this step you will give your Azure Cognitive Search service permission to rea
 1. Select **Access control (IAM)**.
 1. Select **Add** then **Add role assignment**.
 
-   :::image type="content" source="media/search-connect-azure-sql-managed-instance-using-indexers-with-managed-identity/access-control-add-role-assignment.png" alt-text="Showing screenshot of the Access Control page.":::
+   :::image type="content" source="media/search-connect-azure-sql-managed-instance-using-indexers-with-managed-identity/access-control-add-role-assignment.png" alt-text="Showing screenshot of the Access Control page." lightbox="media/search-connect-azure-sql-managed-instance-using-indexers-with-managed-identity/access-control-add-role-assignment.png":::
 
-4. Select the appropriate **Reader** role.
+
+4. Select **Reader** role.
 1. Leave **Assign access to** as **Azure AD user, group or service principal**.
 1. If you're using a system-assigned managed identity, search for your search service, then select it. If you're using a user-assigned managed identity, search for the name of the user-assigned managed identity, then select it. Select **Save**.
 
