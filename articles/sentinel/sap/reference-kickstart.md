@@ -197,7 +197,7 @@ If set to `cfgf`, configuration file stored locally will be used to store secret
 
 **Required:** No. If [Secret storage location](#secret-storage-location) is set to `kvsi` or `kvmi`, the script will prompt for the value if not supplied. 
 
-**Explanation:** If [Secret storage location](#secret-storage-location) is set to `kvsi` or `kvmi`, then the key vault name should be entered here.
+**Explanation:** If [Secret storage location](#secret-storage-location) is set to `kvsi` or `kvmi`, then the key vault name (in FQDN format) should be entered here.
  
 #### Log Analytics workspace ID
 
