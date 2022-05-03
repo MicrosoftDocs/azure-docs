@@ -18,7 +18,7 @@ In this article, learn how to configure and use Apache JMeter user properties wi
 - You want to use the JMX test script in multiple deployment environments with different application endpoints.
 - Your test script needs to accommodate multiple load patterns, such as smoke tests, peak load, or soak tests.
 
-Azure Load Testing uses the standard [Apache JMeter properties](https://jmeter.apache.org/usermanual/test_plan.html#properties) and allows you to upload a user properties file. You can configure one properties file per load test.
+Azure Load Testing uses the standard [Apache JMeter properties](https://jmeter.apache.org/usermanual/test_plan.html#properties) and allows you to upload a user properties file. You can configure one user properties file per load test.
 
 Alternately, you can also [use environment variables and secrets in Azure Load Testing](./how-to-parameterize-load-tests.md) to make your tests configurable.
 
@@ -56,15 +56,17 @@ To add a user properties file to your load test by using the Azure portal, follo
 
 1. Select the **Test plan** tab.
 1. Select the properties file from your computer, and then select **Upload** to upload the file to Azure.
+
+    :::image type="content" source="media/how-to-configure-user-properties/edit-test-upload-properties.png" alt-text="Screenshot of the 'Test plan' tab on the 'Edit test' pane.":::
   
-      :::image type="content" source="media/how-to-configure-user-properties/edit-test-upload-properties.png" alt-text="Screenshot of the 'Test plan' tab on the 'Edit test' pane.":::
-  
+1. Mark the file as a user properties file by selecting **User properties** for the dropdown list.
+
 1. Select **Apply** to modify the test, or **Review + create**, and then **Create** to create the new test.
 ::: zone-end
 
 ::: zone pivot="experience-pipelines,experience-ghactions"
 
-If you run a load test within your CI/CD workflow, you add the user properties file to the source control repository. You can then specify this properties file in the [load test configuration YAML file](./reference-test-config-yaml.md).
+If you run a load test within your CI/CD workflow, you add the user properties file to the source control repository. You then specify this properties file in the [load test configuration YAML file](./reference-test-config-yaml.md).
 
 For more information about running a load test in a CI/CD workflow, see the [Automated regression testing tutorial](./tutorial-cicd-azure-pipelines.md).
 
@@ -72,15 +74,17 @@ To add a user properties file to your load test, follow these steps:
 
 1. Add the *.properties* file to the source control repository.
 1. Open your YAML test configuration file in Visual Studio Code or your editor of choice.
-1. Add the *.properties* file to the `configurationFiles` setting. You can use wildcards or specify multiple individual files.
+1. Specify the *.properties* file in the `properties.userPropertyFile` setting.
 
     ```yaml
     testName: MyTest
     testPlan: SampleApp.jmx
     description: Configure a load test with peak load properties.
     engineInstances: 1
+    properties:
+      userPropertyFile: 'peak-load.properties'
     configurationFiles:
-    - peak-load.properties
+      - 'input-data.csv'
     ```
 
     > [!NOTE]
