@@ -1,5 +1,5 @@
 ---
-title: External call data transformation in mapping data flow
+title: External call data transformation in mapping data flows
 description: Call external custom endpoints for mapping data flows
 author: kromerm
 ms.author: makromer
@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 05/03/2022
 ---
 
-# External call transformation in mapping data flow
+# External call transformation in mapping data flows
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
-The external call transformation enables data engineers to call out to external REST end points row-by-row in order to add custom or 3rd party results into your data flow streams.
+The external call transformation enables data engineers to call out to external REST end points row-by-row in order to add custom or third party results into your data flow streams.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWPXGN]
 
 ## Configuration
 
-In the external call transformation configuration panel, you will first pick the type of external endpoint you wish to connect to. Next step is to map incoming columns. Finally, define an output data structure to be consumed by downstream transformations.
+In the external call transformation configuration panel, you'll first pick the type of external endpoint you wish to connect to. Next step is to map incoming columns. Finally, define an output data structure to be consumed by downstream transformations.
 
 :::image type="content" source="media/data-flow/external-call-001.png" alt-text="External call":::
 
@@ -35,7 +35,7 @@ You can choose auto-mapping to pass all input columns to the endpoint. Optionall
 
 ### Output
 
-This is where you will define the data structure for the output of the external call. You can define the structure for the body as well as choose how to store the headers and the status returned from the external call.
+This is where you'll define the data structure for the output of the external call. You can define the structure for the body as well as choose how to store the headers and the status returned from the external call.
 
 If you choose to store the body, headers, and status, first choose a column name for each so that they can be consumed by downstream data transformations.
 
