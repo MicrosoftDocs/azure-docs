@@ -40,7 +40,7 @@ To deploy the cluster, follow these steps:
 
    ```Bicep
    @description('The instance name of the Azure Spring Apps resource')
-   param springCloudInstanceName string
+   param springInstanceName string
 
    @description('The name of the Application Insights instance for Azure Spring Apps')
    param appInsightsName string
@@ -49,21 +49,21 @@ To deploy the cluster, follow these steps:
    param laWorkspaceResourceId string
 
    @description('The resourceID of the Azure Spring Apps App Subnet')
-   param springCloudAppSubnetID string
+   param springAppSubnetID string
 
    @description('The resourceID of the Azure Spring Apps Runtime Subnet')
-   param springCloudRuntimeSubnetID string
+   param springRuntimeSubnetID string
 
    @description('Comma-separated list of IP address ranges in CIDR format. The IP ranges are reserved to host underlying Azure Spring Apps    infrastructure, which should be 3 at least /16 unused IP ranges, must not overlap with any Subnet IP ranges')
-   param springCloudServiceCidrs string = '10.0.0.0/16,10.2.0.0/16,10.3.0.1/16'
+   param springServiceCidrs string = '10.0.0.0/16,10.2.0.0/16,10.3.0.1/16'
 
    @description('The tags that will be associated to the Resources')
    param tags object = {
      environment: 'lab'
    }
 
-   var springCloudSkuName = 'S0'
-   var springCloudSkuTier = 'Standard'
+   var springSkuName = 'S0'
+   var springSkuTier = 'Standard'
    var location = resourceGroup().location
 
    resource appInsights 'Microsoft.Insights/components@2020-02-02-preview' = {
@@ -79,34 +79,34 @@ To deploy the cluster, follow these steps:
      }
    }
 
-   resource springCloudInstance 'Microsoft.AppPlatform/Spring@2020-07-01' = {
-     name: springCloudInstanceName
+   resource springInstance 'Microsoft.AppPlatform/Spring@2020-07-01' = {
+     name: springInstanceName
      location: location
      tags: tags
      sku: {
-       name: springCloudSkuName
-       tier: springCloudSkuTier
+       name: springSkuName
+       tier: springSkuTier
      }
      properties: {
        networkProfile: {
-         serviceCidr: springCloudServiceCidrs
-         serviceRuntimeSubnetId: springCloudRuntimeSubnetID
-         appSubnetId: springCloudAppSubnetID
+         serviceCidr: springServiceCidrs
+         serviceRuntimeSubnetId: springRuntimeSubnetID
+         appSubnetId: springAppSubnetID
        }
      }
    }
 
-   resource springCloudMonitoringSettings 'Microsoft.AppPlatform/Spring/monitoringSettings@2020-07-01' = {
-     name: '${springCloudInstance.name}/default'
+   resource springMonitoringSettings 'Microsoft.AppPlatform/Spring/monitoringSettings@2020-07-01' = {
+     name: '${springInstance.name}/default'
      properties: {
        traceEnabled: true
        appInsightsInstrumentationKey: appInsights.properties.InstrumentationKey
      }
    }
 
-   resource springCloudDiagnostics 'microsoft.insights/diagnosticSettings@2017-05-01-preview' = {
+   resource springDiagnostics 'microsoft.insights/diagnosticSettings@2017-05-01-preview' = {
      name: 'monitoring'
-     scope: springCloudInstance
+     scope: springInstance
      properties: {
        workspaceId: laWorkspaceResourceId
        logs: [
