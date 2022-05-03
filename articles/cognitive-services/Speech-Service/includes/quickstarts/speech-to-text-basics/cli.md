@@ -34,7 +34,7 @@ Speak into the microphone, and you see transcription of your words into text in 
 
 ```console
 Connection CONNECTED...
-RECOGNIZED: Text=I'm excited to try speech to text.
+RECOGNIZED: I'm excited to try speech to text.
 ```
 
 > [!div class="nextstepaction"]

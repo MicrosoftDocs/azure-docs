@@ -6,4 +6,4 @@ ms.date: 03/13/2022
 ms.author: eur
 ---
 
-In this quickstart, you run a console app to create captions with speech to text.
+In this quickstart, you run a console app to create [captions](~/articles/cognitive-services/speech-service/captioning-concepts.md) with speech to text.

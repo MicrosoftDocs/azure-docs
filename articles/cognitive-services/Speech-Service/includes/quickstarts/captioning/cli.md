@@ -46,6 +46,9 @@ To recognize audio from a file and output both WebVtt (`vtt`) and SRT (`srt`) ca
     }
     ```
 
+
+## Usage and arguments
+
 Here are details about the optional arguments from the previous command:
 
 - `--file caption.this.mp4 --format any`: Input audio from file. The default input is the microphone. For compressed audio files such as MP4, install GStreamer and see [How to use compressed input audio](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).

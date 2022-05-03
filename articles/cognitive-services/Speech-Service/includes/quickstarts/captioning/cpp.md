@@ -24,28 +24,42 @@ You must also install [GStreamer](~/articles/cognitive-services/speech-service/h
 
 Follow these steps to create a new console application and install the Speech SDK.
 
-1. Create a new C++ console project in Visual Studio.
-1. Install the Speech SDK in your new project with the NuGet package manager.
+1. Download or copy the sample code for the captioning scenario from [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/captioning_sample/scenarios/cpp/windows/captioning/).
+1. Open `captioning.sln` in Visual Studio. Otherwise you can create a new C++ console app and add the sample files. 
+1. Install the Speech SDK in your project with the NuGet package manager.
     ```powershell
     Install-Package Microsoft.CognitiveServices.Speech
     ```
-1. Replace the contents of `captioning.cpp` with the code that you copy from the [captioning sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/captioning_sample/scenarios/cpp/windows/captioning/captioning.cpp) at GitHub.
-
-// 64-bit
-// - In Windows, place the following files from the Speech SDK in the same folder as your compiled .exe:
-// - Microsoft.CognitiveServices.Speech.core.dll
-// - Microsoft.CognitiveServices.Speech.extension.audio.sys.dll
-
-`cl.exe /Zi /EHsc /std:c++17 /nologo /I <speech sdk>\build\native\include\cxx_api /I <speech sdk>\build\native\include\c_api <code folder>\helper.cpp <code folder>\captioning.cpp <speech sdk>\build\native\x64\Release\Microsoft.CognitiveServices.Speech.core.lib`
-
-1. Install [GStreamer](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md) for compressed input audio.
-1. Make sure that you have an input file named `caption.this.mp4` in the path.
-1. Run the following command to output captions from the video file:
-    ```console
-    captioning.exe --input caption.this.mp4 --format any --output caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases Contoso;Jesse;Rehaan
+1. Make sure the compiler is set to **ISO C++17 Standard (/std:c++17)** at **Project** > **Properties** > **General** > **C++ Language Standard**.
+1. Enter your preferred command line arguments at **Project** > **Properties** > **Debugging** > **Command Arguments**. See [usage and arguments](#usage-and-arguments) for the available options. Here is an example. Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region:
     ```
+    --key YourSubscriptionKey --region YourServiceRegion --input c:\caption\caption.this.mp4 --format any --output c:\caption\caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases "Contoso;Jesse;Rehaan"
+    ```
+1. Make sure that the specified arguments for `--input` file and `--output` path exist. Otherwise you must change the path.
+1. Build and run the console application. The output file with complete captions is written to `c:\caption\caption.output.txt`. Intermediate results are shown in the console:
+    ```console
+    00:00:00,180 --> 00:00:01,600
+    Welcome to
+    
+    00:00:00,180 --> 00:00:01,820
+    Welcome to applied
+    
+    00:00:00,180 --> 00:00:02,420
+    Welcome to applied mathematics
+    
+    00:00:00,180 --> 00:00:02,930
+    Welcome to applied mathematics course
+    
+    00:00:00,180 --> 00:00:03,100
+    Welcome to applied Mathematics course 2
+    
+    00:00:00,180 --> 00:00:03,230
+    Welcome to applied Mathematics course 201.
+    ```
+    
+## Usage and arguments
 
-Usage: `captioning --input <input file> --key <key> --region <region>`
+Usage: `captioning --key <key> --region <region> --input <input file>`
 
 [!INCLUDE [Usage arguments](usage-arguments.md)]
 
