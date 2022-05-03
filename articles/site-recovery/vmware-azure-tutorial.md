@@ -3,7 +3,7 @@ title: Set up VMware VM disaster recovery to Azure with Azure Site Recovery - Cl
 description: Learn how to set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery - Classic.
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/12/2019
+ms.date: 02/05/2022
 ms.custom: MVC
 
 ---
@@ -13,7 +13,7 @@ This article describes how to enable replication for on-premises VMware VMs, for
 
 For information about disaster recovery in Azure Site Recovery  Preview, see [this article](vmware-azure-set-up-replication-tutorial-preview.md)
 
-This is the third tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises VMware VMs. In the previous tutorial, we [prepared the on-premises VMware environment](vmware-azure-tutorial-prepare-on-premises.md) for disaster recovery to Azure.
+This is the third tutorial in a series that shows how to set up disaster recovery to Azure for on-premises VMware VMs. In the previous tutorial, we [prepared the on-premises VMware environment](vmware-azure-tutorial-prepare-on-premises.md) for disaster recovery to Azure.
 
 
 In this tutorial, you learn how to:
@@ -165,7 +165,8 @@ Select and verify target resources.
 - The policy is automatically associated with the configuration server.
 - A matching policy is automatically created for failback by default. For example, if the replication policy is **rep-policy**, then the failback policy is **rep-policy-failback**. This policy isn't used until you initiate a failback from Azure.
 
-Note: In VMware-to-Azure scenario the crash-consistent snapshot is taken at 5 min interval.
+> [!Note]
+> In VMware-to-Azure scenario the crash-consistent snapshot is taken at 5 min interval.
 
 ## Enable replication
 

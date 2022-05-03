@@ -5,7 +5,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/2/2019
+ms.date: 05/02/2022
 ms.author: mayg
 
 ---

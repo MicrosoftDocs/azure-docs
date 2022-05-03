@@ -42,7 +42,7 @@ For more information about version 9.23, see [Update Rollup 35 for Azure Site Re
 
 During a push installation of the Mobility service, the following steps are performed:
 
-1. The agent is pushed to the source machine. Copying the agent to the source machine can fail due to multiple environmental errors. Follow [our guidance](vmware-azure-troubleshoot-push-install.md) to troubleshoot push installation failures.
+1. The agent is pushed to the source machine. Copying the agent to the source machine can fail due to multiple environmental errors. Refer to [our guidance](vmware-azure-troubleshoot-push-install.md) to troubleshoot push installation failures.
 1. After the agent is successfully copied to the server, a prerequisite check is performed on the server.
    - If all prerequisites are met, the installation begins.
    - If one or more [prerequisites](vmware-physical-azure-support-matrix.md) aren't met, the installation fails.  
@@ -415,7 +415,7 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
 
   ![Image showing download configuration file option for Mobility Service](./media/vmware-physical-mobility-service-overview-preview/download-configuration-file.png)
 
-This will download the Mobility Service configuration file. Copy this file to a local folder in your source machine. You can place it in the same folder as the Mobility Service installer.
+This downloads the Mobility Service configuration file. Copy the downloaded file to a local folder in your source machine. You can place it in the same folder as the Mobility Service installer.
 
 See information about [upgrading the mobility services](upgrade-mobility-service-preview.md).
 

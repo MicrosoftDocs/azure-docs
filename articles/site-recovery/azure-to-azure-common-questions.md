@@ -56,7 +56,7 @@ Yes. Site Recovery supports disaster recovery of VMs that have Azure Disk Encryp
 
 When you allow Site Recovery to manage updates for the Mobility service extension running on replicated Azure VMs, it deploys a global runbook (used by Azure services), via an Azure automation account. You can use the automation account that Site Recovery creates, or select to use an existing automation account.
 
-Currently, in the portal, you can only select an automation account in the same resource group as the vault. You can select an automation account from a different resource group using PowerShell. [Learn more](azure-to-azure-autoupdate.md#enable-automatic-updates).
+Currently, in the portal, you can only select an automation account in the same resource group as the vault. You can select an automation account from a different resource group using PowerShell. [Learn more](azure-to-azure-autoupdate.md#enable-automatic-updates) about enabling automatic updates.
 
 ### If I use a customer automation account that's not in the vault resource group, can I delete the default runbook?
 
@@ -80,7 +80,7 @@ Support for this is limited to a few regions. [Learn more](azure-to-azure-how-to
 
 ### Can I exclude disks from replication?
 
-Yes, you can exclude disks when you set up replication, using PowerShell. [Learn more](azure-to-azure-exclude-disks.md).
+Yes, you can exclude disks when you set up replication, using PowerShell. [Learn more](azure-to-azure-exclude-disks.md) about excluding disks.
 
 ### Can I replicate new disks added to replicated VMs?
 

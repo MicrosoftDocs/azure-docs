@@ -302,7 +302,7 @@
         href: ./hybrid-how-to-enable-replication-private-endpoints.md
       - name: Deploy the Mobility service
         items:
-        - name: Mobility service overview and installation
+        - name: About Mobility service for VMware VMs and physical servers
           href: vmware-physical-mobility-service-overview.md
         - name: Prepare for push installation
           href: vmware-azure-install-mobility-service.md

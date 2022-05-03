@@ -53,11 +53,11 @@ You can manage target resources as follows:
 
 ## Replication policy 
 
-When you enable Azure VM replication, by default Site Recovery creates a new replication policy with the default settings summarized in the table.
+When you enable Azure VM replication, Site Recovery creates a new replication policy with the default settings summarized in the table, by default.
 
 **Policy setting** | **Details** | **Default**
 --- | --- | ---
-**Recovery point retention** | Specifies how long Site Recovery keeps recovery points | 1 day
+**Recovery point retention** | Specifies how long Site Recovery keeps recovery points. | 1 day
 **App-consistent snapshot frequency** | How often Site Recovery takes an app-consistent snapshot. | 0 hours (Disabled)
 
 ### Managing replication policies
