@@ -65,7 +65,7 @@ To apply the IP filter rules to the built-in Event Hub compatible endpoint, chec
 
 By enabling this option, your IP filter rules are replicated to the built-in endpoint, so only trusted IP ranges can access it.
 
-If you disable this option, the built-in endpoint is accessible to all IP addresses. This behavior may be useful if you want to read from the endpoint with services with changing IP addresses like Azure Stream Analytics.
+If you disable this option, the built-in endpoint is accessible to all IP addresses. This behavior may be useful if you want to read from the endpoint with services with source IP addresses which may change over time like Azure Stream Analytics.
 
 ## How filter rules are applied
 
@@ -74,7 +74,7 @@ The IP filter rules are applied at the IoT Hub service level. Therefore, the IP 
 Any connection attempt from an IP address that isn't explicitly allowed receives an unauthorized 401 status code and description. The response message does not mention the IP rule. Rejecting IP addresses can prevent other Azure services such as Azure Stream Analytics, Azure Virtual Machines, or the Device Explorer in Azure portal from interacting with the IoT hub.
 
 > [!NOTE]
-> If you must use Azure Stream Analytics (ASA) to read messages from an IoT hub with IP filter enabled, **disable** the **Apply IP filters to the built-in endpoint** option, and then use the event hub-compatible name and endpoint of your IoT hub to manually add an [Event Hubs stream input](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-event-hubs) in the ASA.
+> If you want to use Azure Stream Analytics (ASA) to read messages from an IoT hub with IP filter enabled, **disable** the **Apply IP filters to the built-in endpoint** option, and then use the event hub-compatible name and endpoint of your IoT hub to manually add an [Event Hubs stream input](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-event-hubs) in the ASA.
 
 ### Ordering
 
