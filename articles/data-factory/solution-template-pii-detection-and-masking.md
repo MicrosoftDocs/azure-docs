@@ -19,10 +19,10 @@ This article describes a solution template that you can use to detect and mask P
 
 ## About this solution template
 
-This template retrieves a dataset from Azure Data Lake Storage Gen2 source. Then, it creates the request body and uses the external call transformation to call Azure Cognitive Services and mask PII before loading to the destination sink. 
+This template retrieves a dataset from Azure Data Lake Storage Gen2 source. Then, it creates the request body with a derived column and uses the external call transformation to call Azure Cognitive Services and mask PII before loading to the destination sink. 
 
 The template contains one activity: 
--	**Data flow** to detect and mask PII data
+-  **Data flow** to detect and mask PII data
 
 This template defines 3 parameters: 
 -  *sourceFileSystem* is the folder path where you can read the files from the source store. You need to replace the default value with your own folder path.
@@ -31,48 +31,47 @@ This template defines 3 parameters:
 
 ## Prerequisites
 
-*	Azure Cognitive Services Resource (endpoint URL and key)
-	* Create a new resource [here](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)
+*  Azure Cognitive Services Resource Endpoint URL and Key (create a new resource [here](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics))
 
 ## How to use this solution template
 
 1. Go to template **PII detection and masking**. Create a **New** connection to your source storage store or choose an existing connection. The source storage store is where you want to copy files from.
 
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-1.png" alt-text="Screenshot of how to create a new connection or select an existing connection to the source in template set up.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-1.png" alt-text="Screenshot of how to create a new connection or select an existing connection to the source in template set up using a drop down menu.":::
 
 2.	Create a **New** connection to your destination storage store or choose an existing connection.
 
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-2.png" alt-text="Screenshot of how to create a new connection or select an existing connection to Cognitive Services in template set up.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-2.png" alt-text="Screenshot of how to create a new connection or select an existing connection to Cognitive Services in template set up using a drop down menu.":::
 
 3. Select **Use this template**. 
 
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-3.png" alt-text="Screenshot of which button to choose to successfully use this template to generate a pipeline.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-3.png" alt-text="Screenshot of button in bottom left corner to select in order to successfully select template and generate a pipeline.":::
 
 4. You should see the following pipeline: 
 
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-4.png" alt-text="Screenshot of the pipeline view.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-4.png" alt-text="Screenshot of the pipeline view with one dataflow activity.":::
 
 5. Clicking into the dataflow activity will show the following dataflow: 
 
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-5.png" alt-text="Screenshot of the dataflow view.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-5.png" alt-text="Screenshot of the dataflow view with source leading to three transformations which then lead to the sink.":::
 
 6. Turn on **Data flow debug**. 
 
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-6.png" alt-text="Screenshot of Data flow debug button.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-6.png" alt-text="Screenshot of Data flow debug button found on the top banner of the screen.":::
 
 7. Update **Parameters** in **Debug Settings** and **Save**. 
 
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-7.png" alt-text="Screenshot of Debug settings button.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-7.png" alt-text="Screenshot of Debug settings button on the top banner of the screen to the right of debug button.":::
   
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-7b.png" alt-text="Screenshot of where to update paramters in Debug settings.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-7b.png" alt-text="Screenshot of where to update paramters in Debug settings on a panel on the right side of the screen.":::
 
 8. Preview the results in **Data Preview**. 
 
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-8.png" alt-text="Screenshot of Dataflow data preview.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-8.png" alt-text="Screenshot of Dataflow data preview at the bottom of the screen.":::
   
 9. When data preview results are as expected, update the **Parameters**.
 
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-9.png" alt-text="Screenshot of where to update dataflow parameters":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-9.png" alt-text="Screenshot of where to update dataflow parameters at the bottom of the scrren under Parameters.":::
 
 10. Return to pipeline and select **Debug**. Review results and publish. 
 
