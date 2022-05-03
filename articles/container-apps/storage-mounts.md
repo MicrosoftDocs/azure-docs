@@ -104,7 +104,7 @@ Same as the create YAML and create app steps in Azure Files
     # [Bash](#tab/bash)
 
     ```azurecli
-    RESOURCE_GROUP="my-container-apps-storage"
+    RESOURCE_GROUP="<YOUR_RESOURCE_GROUP_NAME>"
     ENVIRONMENT_NAME="<YOUR_ENVIRONMENT_NAME>"
     STORAGE_ACCOUNT_NAME="<YOUR_STORAGE_ACCOUNT_NAME>"
     STORAGE_KEY="<YOUR_STORAGE_ACCOUNT_KEY>"
