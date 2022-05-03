@@ -22,13 +22,21 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 * [Create a new Synapse workspace](https://ms.portal.azure.com/#create/Microsoft.Synapse) to get Synapse link for Azure SQL Database. Ensure to check “Disable Managed virtual network” and “Allow connections from all IP address” when creating Synapse workspace.
 
+* Make sure your Azure SQL database service tiers is above Standard 3, as Synapse link for Azure SQL Database is not supported on Free, Basic or Standard tier (S0,S1,S2) of Azure SQL database.
+
 ## Configure your source Azure SQL Database
+
+1. Go to Azure portal, navigate to your Azure SQL Server, select **Identity**, and then set **System assigned managed identity** to **On**.
+
+   :::image type="content" source="../media/connect-synapse-link-sql-database/set-identity-sql-database.png" alt-text="Screenshot of turning on system assigned managed identity.":::
+
+1. Navigate to **Networking**, then check **Allow Azure services and resources to access this server**. 
+
+   :::image type="content" source="../media/connect-synapse-link-sql-database/configure-network-firewall-sql-database.png" alt-text="Screenshot of configuring firewalls for your SQL DB using Azure portal.":::
 
 1. Using Microsoft SQL Server Management Studio (SSMS) or Azure Data Studio, connect to the source Azure SQL Server with administrative privileges.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/connect-sql-server-management-studio.png" alt-text="Connect to SQL Server Management Studio with your log in credentials.":::
-
-1. Connect to your source SQL database. If you're using SSMS, expand **Databases**, right select the database you created above, and select **New Query**.
+1. Expand **Databases**, right select the database you created above, and select **New Query**.
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/ssms-new-query.png" alt-text="Select your database and create a new query.":::
 
@@ -37,8 +45,8 @@ This article provides a step-by-step guide for getting started with Azure Synaps
    **You can skip this step** if you instead want to have your Synapse workspace connect to your source Azure SQL Database via SQL authentication.
 
    ```sql
-   CREATE USER workspacename FROM EXTERNAL PROVIDER;
-   ALTER ROLE [db_owner] ADD MEMBER workspacename;
+   CREATE USER <workspace name> FROM EXTERNAL PROVIDER;
+   ALTER ROLE [db_owner] ADD MEMBER <workspace name>;
    ```
 
 1. You can create a table with your own schema; the following is just an example for a `CREATE TABLE` query. You can also insert some rows into this table to ensure there's data to be replicated.
@@ -46,23 +54,6 @@ This article provides a step-by-step guide for getting started with Azure Synaps
    ```sql
    CREATE TABLE myTestTable1 (c1 int primary key, c2 int, c3 nvarchar(50)) 
    ```
-
-1. If it isn't already enabled, enable the source Azure SQL server's system-assigned managed identity for your source logical server using [Azure PowerShell](https://shell.azure.com/). This managed identity will be used by your source Azure SQL server to send changes from the source database to your Synapse workspace.
-
-   ```azurepowershell
-   Set-AzSqlServer -ResourceGroupName <resource group name> -ServerName <source server name> -AssignIdentity
-   ```
-
-   Then, run this to check that the system-assigned identity has been created:
-
-   ```azurepowershell
-   $x = Get-AzSqlServer -ResourceGroupName <resource group name> -ServerName <source server name>
-   $x.Identity
-   ```
-
-1. Make sure to update your source Azure SQL Database's firewall rules as needed, to allow access from your Synapse workspace. To do this within the Azure portal, navigate to the source Azure SQL Database, open **Firewalls and virtual networks**, then set **Allow Azure services and resources to access this server** to **Yes**.
-
-   :::image type="content" source="../media/connect-synapse-link-sql-database/configure-firewall-sql-database.png" alt-text="Configure firewalls and virtual networks for your SQL DB using Azure portal.":::
 
 ## Create your target Synapse SQL pool
 
