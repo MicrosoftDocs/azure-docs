@@ -56,7 +56,7 @@ This process takes about 30 minutes.
 
 ## Download a new activation file
 
-This procedure is relevant only if you are updating sensors from software versions earlier than 22.1.x. Such updates require a new activation file for each sensor, which you'll use to [re-activate the sensor](#reactivate-your-sensor) after the update is complete.
+This procedure is relevant only if you are updating sensors from software versions earlier than 22.1.x. Such updates require a new activation file for each sensor, which you'll use to [activate the sensor](#apply-your-activation-file) before you [update the software](#update-your-sensors).
 
 **To prepare your sensor for update**:
 

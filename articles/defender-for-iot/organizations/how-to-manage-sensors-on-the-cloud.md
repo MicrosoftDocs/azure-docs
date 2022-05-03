@@ -51,8 +51,6 @@ Onboard a sensor by registering it with Microsoft Defender for IoT and downloadi
 
     1. In the **Sensor version** field, select which software version is installed on your sensor machine. We recommend that you select **22.X and above** to get all of the latest features and enhancements.
 
-        If you haven't yet upgraded to version 22.x, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version) and [Reactivate a sensor for upgrades to version 22.x](#reactivate-a-sensor-for-upgrades-to-version-22x-from-a-legacy-version).
-
     1. In the **Site** section, select the **Resource name** and enter the **Display name** for your site. Add any tags as needed to help you identify your sensor.
 
     1. In the **Zone** field, select a zone from the menu, or select **Create Zone** to create a new one.
@@ -99,9 +97,9 @@ In such cases, do the following:
 
 ### Reactivate a sensor for upgrades to version 22.x from a legacy version
 
-If you're updating your sensor version from a legacy version to 22.1.x or higher, you'll need a different activation procedure than for earlier releases.
+If you're updating your sensor version from a legacy version to 22.1.x or higher, you'll need a different activation file than for earlier releases.
 
-Make sure that you've started with the relevant updates steps for this update. For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).
+Make sure that you've started with the relevant updates steps for this update. For more information, see [Update OT system software](update-ot-software.md).
 
 > [!NOTE]
 > After upgrading to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
