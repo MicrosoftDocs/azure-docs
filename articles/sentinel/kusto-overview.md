@@ -9,7 +9,7 @@ ms.date: 01/06/2022
 
 # Kusto Query Language in Microsoft Sentinel
 
-Kusto Query Language is the language you will use to work with and manipulate data in Microsoft Sentinel. The logs you feed into your workspace aren't worth much if you can't analyze them and get the important information hidden in all that data. Kusto Query Language has not only the power and flexibility to get that information, but the simplicity to help you get started quickly. If you have a background in scripting or working with databases, a lot of the content of this article will feel very familiar. If not, don't worry, as the intuitive nature of the language will quickly enable you to start writing your own queries and driving value for your organization.
+Kusto Query Language is the language you will use to work with and manipulate data in Microsoft Sentinel. The logs you feed into your workspace aren't worth much if you can't analyze them and get the important information hidden in all that data. Kusto Query Language has not only the power and flexibility to get that information, but the simplicity to help you get started quickly. If you have a background in scripting or working with databases, a lot of the content of this article will feel very familiar. If not, don't worry, as the intuitive nature of the language quickly enables you to start writing your own queries and driving value for your organization.
 
 This article introduces the basics of Kusto Query Language, covering some of the most used functions and operators, which should address 75 to 80 percent of the queries you will write day to day. When you'll need more depth, or to run more advanced queries, you can take advantage of the new **Advanced KQL for Microsoft Sentinel** workbook (see this [introductory blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/advanced-kql-framework-workbook-empowering-you-to-become-kql/ba-p/3033766)). See also the [official Kusto Query Language documentation](/azure/data-explorer/kusto/query/) as well as a variety of online courses (such as [Pluralsight's](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)).
 
@@ -23,9 +23,9 @@ Microsoft Sentinel is built on top of the Azure Monitor service and it uses Azur
 
 [Kusto Query Language](/azure/data-explorer/kusto/query/) was developed as part of the [Azure Data Explorer](/azure/data-explorer/) service, and it’s therefore optimized for searching through big-data stores in a cloud environment. Inspired by famed undersea explorer Jacques Cousteau (and pronounced accordingly "koo-STOH"), it’s designed to help you dive deep into your oceans of data and explore their hidden treasures. 
 
-Kusto Query Language is also used in Azure Monitor (and therefore in Microsoft Sentinel), including some additional Azure Monitor features, to retrieve, visualize, analyze, and parse data in Log Analytics data stores. In Microsoft Sentinel, you're using tools based on Kusto Query Language whenever you’re visualizing and analyzing data and hunting for threats, whether in existing rules and workbooks, or in building your own.
+Kusto Query Language is also used in Azure Monitor (and therefore in Microsoft Sentinel), including some additional Azure Monitor features, which allow you to retrieve, visualize, analyze, and parse data in Log Analytics data stores. In Microsoft Sentinel, you're using tools based on Kusto Query Language whenever you’re visualizing and analyzing data and hunting for threats, whether in existing rules and workbooks, or in building your own.
 
-Because Kusto Query Language is a part of nearly everything you do in Microsoft Sentinel, a clear understanding of how it works will help you get that much more out of your SIEM.
+Because Kusto Query Language is a part of nearly everything you do in Microsoft Sentinel, a clear understanding of how it works helps you get that much more out of your SIEM.
 
 ## What is a query?
 
@@ -105,7 +105,7 @@ In Kusto Query Language, most of the data types follow standard conventions and 
 | `string`   |                    | `System.String`                   |
 | `timespan` | `Time`             | `System.TimeSpan`                 |
 | `decimal`  |                    | `System.Data.SqlTypes.SqlDecimal` |
-| | | |
+
 
 While most of the data types are standard, you might be less familiar with types like *dynamic*, *timespan*, and *guid*.
 
@@ -136,7 +136,7 @@ While most of the data types are standard, you might be less familiar with types
 | `Ms` | milliseconds |
 | `Microsecond` | microseconds |
 | `Tick` | nanoseconds |
-| | |
+
 
 ***Guid*** is a datatype representing a 128-bit, globally-unique identifier, which follows the standard format of [8]-[4]-[4]-[4]-[12], where each [number] represents the number of characters and each character can range from 0-9 or a-f.
 

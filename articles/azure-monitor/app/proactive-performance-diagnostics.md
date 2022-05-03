@@ -3,7 +3,6 @@ title: Smart detection - performance anomalies | Microsoft Docs
 description: Smart detection analyzes your app telemetry and warns you of potential problems. This feature needs no setup.
 ms.topic: conceptual
 ms.date: 05/04/2017
-ms.reviewer: antonfr
 ---
 
 # Smart detection - Performance Anomalies
@@ -51,7 +50,7 @@ Smart detection notifications are enabled by default. They are sent to users tha
   
   ![Smart Detection Settings](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
-  * You can use the **unsubscribe** link in the smart detection email to stop receiving the email notifications.
+  * You can disable the default notification, and replace it with a specified list of emails.
 
 Emails about smart detection performance anomalies are limited to one email per day per Application Insights resource. The email will be sent only if there is at least one new issue that was detected on that day. You won't get repeats of any message. 
 

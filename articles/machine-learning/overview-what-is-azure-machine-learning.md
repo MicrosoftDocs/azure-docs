@@ -5,8 +5,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: overview
-ms.author: cgronlun
-author: cjgronlund
+ms.author: sgilley
+author: sdgilley
 ms.date: 08/03/2021
 ms.custom: devx-track-python
 adobe-target: true

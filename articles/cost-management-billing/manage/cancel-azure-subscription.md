@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/06/2021
+ms.date: 03/09/2022
 ms.author: banders
 ---
 
@@ -55,6 +55,16 @@ An account administrator without the service administrator or subscription owner
 ## Cancel a support plan
 
 If you purchased your support plan through the Azure website, Azure portal, or if you have one under a Microsoft Customer Agreement, you can cancel a support plan. If you purchased your support plan through a Microsoft representative or partner, contact them for assistance. 
+
+### Cancel a support plan bought from the Azure portal
+
+1. In the Azure portal, navigate to **Cost Management + Billing**.
+1. On the Overview page, find your plan and then select it.
+1. On the support plan page, select **Cancel**.
+1. In the Cancel support window, verify that you want to cancel and select **Yes, cancel**.  
+    :::image type="content" source="./media/cancel-azure-subscription/cancel-legacy-support-plan.png" alt-text="Screenshot showing the legacy Cancel support plan page." lightbox="./media/cancel-azure-subscription/cancel-legacy-support-plan.png" :::
+
+### Cancel a support plan for a Microsoft Customer Agreement
 
 1. In the Azure portal, navigate to **Cost Management + Billing**.
 1. Under **Billing**, select **Recurring charges**.

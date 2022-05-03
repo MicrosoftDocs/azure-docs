@@ -4,7 +4,8 @@ titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Nevis for passwordless authentication 
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to

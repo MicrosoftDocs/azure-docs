@@ -1,12 +1,12 @@
 ---
 title: Create an IoT Edge device - Azure IoT Edge | Microsoft Docs
 description: Learn about the platform and provisioning options for creating an IoT Edge device
-author: kgremban
+author: PatAltimore
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 11/11/2021
-ms.author: kgremban
+ms.author: patricka
 ---
 
 # Create an IoT Edge device

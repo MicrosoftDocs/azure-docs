@@ -1,18 +1,18 @@
 ---
-title: How to review Synapse RBAC role assignments in Synapse Studio
-description: This article describes how to review Synapse RBAC role assignments using Synapse Studio
+title: How to review Azure Synapse RBAC role assignments in Synapse Studio
+description: This article describes how to review Azure Synapse RBAC role assignments using Synapse Studio
 author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice: security
-ms.date: 12/1/2020
+ms.date: 3/07/2022
 ms.author: mesrivas
-ms.reviewer: sngun
+ms.reviewer: sngun, wiassaf
 ---
 
 # How to review Synapse RBAC role assignments
 
-Synapse RBAC roles are used to assign permissions to users, groups, and other security principals to enable access and use of Synapse resources.  [Learn more](./synapse-workspace-synapse-rbac.md)
+Synapse RBAC roles are used to assign permissions to users, groups, and other security principals to enable access and use of Synapse resources. For more information, see [What is Synapse role-based access control (RBAC)?](./synapse-workspace-synapse-rbac.md)
 
 This article explains how to review the current role assignments for a workspace.
 

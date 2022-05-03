@@ -3,11 +3,11 @@ title: Microsoft Teams on Azure Virtual Desktop - Azure
 description: How to use Microsoft Teams on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 02/14/2022
+ms.date: 04/25/2022
 ms.author: helohr
 manager: femila
 ---
-# Use Microsoft Teams on Azure Virtual desktop
+# Use Microsoft Teams on Azure Virtual Desktop
 
 >[!IMPORTANT]
 >Media optimization for Teams is supported for Microsoft 365 Government (GCC) and GCC-High environments. Media optimization for Teams is not supported for Microsoft 365 DoD.
@@ -15,7 +15,7 @@ manager: femila
 >[!NOTE]
 >Media optimization for Microsoft Teams is only available for the following two clients:
 >
->- Windows Desktop and client on Windows 10 machines. Windows Desktop client version 1.2.1026.0 or later.
+>- Windows Desktop client for Windows 10 or 11 machines, version 1.2.1026.0 or later.
 >- macOS Remote Desktop client, version 10.7.7 or later (preview)
 
 > [!IMPORTANT]
@@ -32,11 +32,11 @@ Before you can use Microsoft Teams on Azure Virtual Desktop, you'll need to do t
 
 - [Prepare your network](/microsoftteams/prepare-network/) for Microsoft Teams.
 - Install the [Remote Desktop client](./user-documentation/connect-windows-7-10.md) on a Windows 10 or Windows 10 IoT Enterprise device that meets the Microsoft Teams [hardware requirements for Teams](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
-- Connect to a Windows 10 Multi-session or Windows 10 Enterprise virtual machine (VM).
+- Connect to a Windows 10 or 11 Multi-session or Windows 10 or 11 Enterprise virtual machine (VM).
 
 ## Install the Teams desktop app
 
-This section will show you how to install the Teams desktop app on your Windows 10 Multi-session or Windows 10 Enterprise VM image. To learn more, check out [Install or update the Teams desktop app on VDI](/microsoftteams/teams-for-vdi#install-or-update-the-teams-desktop-app-on-vdi).
+This section will show you how to install the Teams desktop app on your Windows 10 or 11 Multi-session or Windows 10 or 11 Enterprise VM image. To learn more, check out [Install or update the Teams desktop app on VDI](/microsoftteams/teams-for-vdi#install-or-update-the-teams-desktop-app-on-vdi).
 
 ### Prepare your image for Teams
 
@@ -165,7 +165,7 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 
 ### Calls and meetings
 
-- The Teams desktop client in Azure Virtual Desktop environments doesn't support creating live events, but you can join live events. For now, we recommend you create live events from the [Teams web client](https://teams.microsoft.com) in your remote session instead.
+- The Teams desktop client in Azure Virtual Desktop environments doesn't support creating live events, but you can join live events. For now, we recommend you create live events from the [Teams web client](https://teams.microsoft.com) in your remote session instead. When watching a live event in the browser, [enable multimedia redirection (MMR) for Teams live events](multimedia-redirection.md#how-to-use-mmr-for-teams-live-events) for smoother playback.
 - Calls or meetings don't currently support application sharing. Desktop sessions support desktop sharing.
 - Give control and take control aren't currently supported.
 - Teams on Azure Virtual Desktop only supports one incoming video input at a time. This means that whenever someone tries to share their screen, their screen will appear instead of the meeting leader's screen.

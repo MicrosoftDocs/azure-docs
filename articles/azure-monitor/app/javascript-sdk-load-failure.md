@@ -100,6 +100,8 @@ If there are exceptions being reported in the SDK script (for example ai.2.min.j
 
 To check for faulty configuration, change the configuration passed into the snippet (if not already) so that it only includes your instrumentation key as a string value.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ```js
 src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
 cfg: {

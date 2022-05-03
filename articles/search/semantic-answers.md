@@ -8,13 +8,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/02/2021
+ms.date: 03/16/2022
 ---
 
 # Return a semantic answer in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and beta SDKs. These features are billable. For more information about, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and beta SDKs. This feature is billable (see [Availability and pricing](semantic-search-overview.md#availability-and-pricing)).
 
 When invoking [semantic ranking and captions](semantic-how-to-query-request.md), you can optionally extract content from the top-matching documents that "answers" the query directly. One or more answers can be included in the response, which you can then render on a search page to improve the user experience of your app.
 
@@ -28,11 +28,11 @@ All prerequisites that apply to [semantic queries](semantic-how-to-query-request
 
 + Query strings entered by the user must be recognizable as a question (what, where, when, how).
 
-+ Search documents in the index must contain text having the characteristics of an answer, and that text must exist in one of the fields listed in the [semantic configuration](semantic-how-to-query-request.md#create-a-semantic-configuration). For example, given a query "what is a hash table", if none of the fields in the semantic configuration contain passages that include "A hash table is ..." , then it's unlikely an answer will be returned.
++ Search documents in the index must contain text having the characteristics of an answer, and that text must exist in one of the fields listed in the [semantic configuration](semantic-how-to-query-request.md#create-a-semantic-configuration). For example, given a query "what is a hash table", if none of the fields in the semantic configuration contain passages that include "A hash table is ...", then it's unlikely an answer will be returned.
 
 ## What is a semantic answer?
 
-A semantic answer is a substructure of a [semantic query response](semantic-how-to-query-request.md). It consists of one or more verbatim passages from a search document, formulated as an answer to a query that looks like a question. For an answer to be returned, phrases or sentences must exist in a search document that have the language characteristics of an answer, and the query itself must be posed as a question.
+A semantic answer is a substructure of a [semantic query response](semantic-how-to-query-request.md). It consists of one or more verbatim passages from a search document, formulated as an answer to a query that looks like a question. To return an answer, phrases or sentences must exist in a search document that have the language characteristics of an answer, and the query itself must be posed as a question.
 
 Cognitive Search uses a machine reading comprehension model to pick the best answer. The model produces a set of potential answers from the available content, and when it reaches a high enough confidence level, it will propose one as an answer.
 
@@ -42,11 +42,11 @@ Answers are returned as an independent, top-level object in the query response p
 
 ## Formulate a query rest for "answers"
 
-The approach for listing fields in priority order has changed recently, with "semanticConfiguration" replacing "searchFields". If you are currently using searchFields, update your code to the 2021-04-30-Preview API version and use "semanticConfiguration" instead.
+The approach for listing fields in priority order has changed recently, with "semanticConfiguration" replacing "searchFields". If you're currently using searchFields, update your code to the 2021-04-30-Preview API version and use "semanticConfiguration" instead.
 
 ### [**Semantic Configuration (recommended)**](#tab/semanticConfiguration)
 
-To return a semantic answer, the query must have the semantic "queryType", "queryLanguage", "semanticConfiguration", and the "answers" parameter. Specifying the "answers" parameter does not guarantee that you will get an answer, but the request must include this parameter if answer processing is to be invoked at all.
+To return a semantic answer, the query must have the semantic "queryType", "queryLanguage", "semanticConfiguration", and the "answers" parameters. Specifying these parameters doesn't guarantee an answer, but the request must include them for answer processing to occur.
 
 The "semanticConfiguration" parameter is crucial to returning a high-quality answer. 
 
@@ -68,13 +68,13 @@ The "semanticConfiguration" parameter is crucial to returning a high-quality ans
 
 + "queryLanguage" must be one of the values from the [supported languages list (REST API)](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
 
-+ A "semanticConfiguration" determines which string fields provide tokens to the extraction model. The same fields that produce captions also produce answers. For precise guidance on how to create an effective semantic configuration, see [Create a semantic configuration](semantic-how-to-query-request.md#searchfields). 
++ A "semanticConfiguration" determines which string fields provide tokens to the extraction model. The same fields that produce captions also produce answers. See [Create a semantic configuration](semantic-how-to-query-request.md#searchfields) for details. 
 
-+ For "answers", parameter construction is `"answers": "extractive"`, where the default number of answers returned is one. You can increase the number of answers by adding a `count` as shown in the above example, up to a maximum of ten.  Whether you need more than one answer depends on the user experience of your app, and how you want to render results.
++ For "answers", parameter construction is `"answers": "extractive"`, where the default number of answers returned is one. You can increase the number of answers by adding a `count` as shown in the above example, up to a maximum of 10.  Whether you need more than one answer depends on the user experience of your app, and how you want to render results.
 
 ### [**searchFields**](#tab/searchFields)
 
-To return a semantic answer, the query must have the semantic "queryType", "queryLanguage", "searchFields", and the "answers" parameter. Specifying the "answers" parameter does not guarantee that you will get an answer, but the request must include this parameter if answer processing is to be invoked at all.
+To return a semantic answer, the query must have the semantic "queryType", "queryLanguage", "searchFields", and the "answers" parameter. Specifying the "answers" parameter doesn't guarantee that you'll get an answer, but the request must include this parameter if answer processing is to be invoked at all.
 
 The "searchFields" parameter is crucial to returning a high-quality answer, both in terms of content and order (see below). 
 
@@ -95,9 +95,9 @@ The "searchFields" parameter is crucial to returning a high-quality answer, both
 
 + "queryLanguage" must be one of the values from the [supported languages list (REST API)](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
 
-+ "searchFields" determines which string fields provide tokens to the extraction model. The same fields that produce captions also produce answers. For precise guidance on how to set this field so that it works for both captions and answers, see [Set searchFields](semantic-how-to-query-request.md#searchfields). 
++ "searchFields" determines which string fields provide tokens to the extraction model. The same fields that produce captions also produce answers. See [Set searchFields](semantic-how-to-query-request.md#searchfields) for details. 
 
-+ For "answers", parameter construction is `"answers": "extractive"`, where the default number of answers returned is one. You can increase the number of answers by adding a `count` as shown in the above example, up to a maximum of ten.  Whether you need more than one answer depends on the user experience of your app, and how you want to render results.
++ For "answers", parameter construction is `"answers": "extractive"`, where the default number of answers returned is one. You can increase the number of answers by adding a `count` as shown in the above example, up to a maximum of 10.  Whether you need more than one answer depends on the user experience of your app, and how you want to render results.
 
 ---
 
@@ -154,11 +154,11 @@ Within @search.answers:
 
 + **"text"** and **"highlights"** provide identical content, in both plain text and with highlights. 
 
-  By default, highlights are styled as `<em>`, which you can override using the existing highlightPreTag and highlightPostTag parameters. As noted elsewhere, the substance of an answer is verbatim content from a search document. The extraction model looks for characteristics of an answer to find the appropriate content, but does not compose new language in the response.
+  By default, highlights are styled as `<em>`, which you can override using the existing highlightPreTag and highlightPostTag parameters. As noted elsewhere, the substance of an answer is verbatim content from a search document. The extraction model looks for characteristics of an answer to find the appropriate content, but doesn't compose new language in the response.
 
 + **"score"** is a confidence score that reflects the strength of the answer. If there are multiple answers in the response, this score is used to determine the order. Top answers and top captions can be derived from different search documents, where the top answer originates from one document, and the top caption from another, but in general you will see the same documents in the top positions within each array.
 
-Answers are followed by the **"value"** array, which always includes scores, captions, and any fields that are retrievable by default. If you specified the select parameter, the "value" array is limited to the fields that you specified. For more information about items in the response, see [Create a semantic query](semantic-how-to-query-request.md).
+Answers are followed by the **"value"** array, which always includes scores, captions, and any fields that are retrievable by default. If you specified the select parameter, the "value" array is limited to the fields that you specified. See [Create a semantic query](semantic-how-to-query-request.md) for details.
 
 ## Tips for producing high-quality answers
 
@@ -166,9 +166,9 @@ For best results, return semantic answers on a document corpus having the follow
 
 + The "semanticConfiguration" must include fields that offer sufficient text in which an answer is likely to be found. Fields more likely to contain answers should be listed first in "prioritizedContentFields". Only verbatim text from a document can appear as an answer.
 
-+ Query strings must not be null (search=`*`) and the string should have the characteristics of a question, as opposed to a keyword search (a sequential list of arbitrary terms or phrases). If the query string does not appear to be answer, answer processing is skipped, even if the request specifies "answers" as a query parameter.
++ Query strings must not be null (search=`*`) and the string should have the characteristics of a question, as opposed to a keyword search (a sequential list of arbitrary terms or phrases). If the query string doesn't appear to be answer, answer processing is skipped, even if the request specifies "answers" as a query parameter.
 
-+ Semantic extraction and summarization have limits over how many tokens per document can be analyzed in a timely fashion. In practical terms, if you have large documents that run into hundreds of pages, you should try to break the content up into smaller documents first.
++ Semantic extraction and summarization have limits over how many tokens per document can be analyzed in a timely fashion. In practical terms, if you have large documents that run into hundreds of pages, try to break up the content into smaller documents first.
 
 ## Next steps
 

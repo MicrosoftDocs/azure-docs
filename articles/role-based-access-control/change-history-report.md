@@ -126,7 +126,7 @@ Properties              :
 
 ## Azure CLI
 
-To view activity logs with the Azure CLI, use the [az monitor activity-log list](/cli/azure/monitor/activity-log#az_monitor_activity_log_list) command.
+To view activity logs with the Azure CLI, use the [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) command.
 
 This command lists the activity logs in a resource group from March 1, looking forward seven days:
 

@@ -1,20 +1,22 @@
 ---
 title: 'Quickstart: Create server - Azure CLI - Azure Database for PostgreSQL - single server'
 description: In this quickstart guide, you'll create an Azure Database for PostgreSQL server by using the Azure CLI.
-author: sunilagarwal
-ms.author: sunila
 ms.service: postgresql
-ms.devlang: azurecli
+ms.subservice: single-server
 ms.topic: quickstart
-ms.date: 01/26/2022 
+ms.author: sunila
+author: sunilagarwal
+ms.devlang: azurecli
 ms.custom: mvc, devx-track-azurecli, mode-api
+ms.date: 01/26/2022 
 ---
+
 # Quickstart: Create an Azure Database for PostgreSQL server by using the Azure CLI
 
 This quickstart shows how to use [Azure CLI](/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create a single Azure Database for PostgreSQL server in five minutes.
 
 > [!TIP]
-> Consider using the simpler [az postgres up](/cli/azure/postgres#az_postgres_up) Azure CLI command. Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).
+> Consider using the simpler [az postgres up](/cli/azure/postgres#az-postgres-up) Azure CLI command. Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -28,19 +30,19 @@ The following values are used in subsequent commands to create the database and 
 
 Change the location as appropriate for your environment. Replace `0.0.0.0` with the IP address range to match your specific environment. Use the public IP address of the computer you're using to restrict access to the server to only your IP address.
 
-:::code language="azurecli" source="~/azure_cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh" range="4-18":::
+:::code language="azurecli" source="~/azure_cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh" id="SetParameterValues":::
 
 ## Create a resource group
 
 Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
-:::code language="azurecli" source="~/azure_cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh" range="20-22":::
+:::code language="azurecli" source="~/azure_cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh" id="CreateResourceGroup":::
 
 ## Create a server
 
 Create a server with the [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) command.
 
-:::code language="azurecli" source="~/azure_cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh" range="24-27":::
+:::code language="azurecli" source="~/azure_cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh" id="CreateServer":::
 
 > [!NOTE]
 >
@@ -56,9 +58,9 @@ Create a server with the [az postgres server create](/cli/azure/postgres/server#
 
 ## Configure a server-based firewall rule
 
-Create a firewall rule with the [az postgres server firewall-rule create](/cli/azure/postgre/server/firewall-rule) command to give your local environment access to connect to the server.
+Create a firewall rule with the [az postgres server firewall-rule create](/cli/azure/mysql/server/firewall-rule) command to give your local environment access to connect to the server.
 
-:::code language="azurecli" source="~/azure_cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh" range="29-31":::
+:::code language="azurecli" source="~/azure_cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh" id="CreateFirewallRule":::
 
 > [!TIP]
 > If you don't know your IP address, go to [WhatIsMyIPAddress.com](https://whatismyipaddress.com/) to get it.
@@ -70,7 +72,7 @@ Create a firewall rule with the [az postgres server firewall-rule create](/cli/a
 
 To list the existing server firewall rules, run the [az postgres server firewall-rule list](/cli/azure/postgres/server/firewall-rule) command.
 
-:::code language="azurecli" source="~/azure_cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh" range="33-36":::
+:::code language="azurecli" source="~/azure_cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh" id="ListFirewallRules":::
 
 The output lists the firewall rules, if any, by default in JSON format. You may use the switch `--output table` for a more readable table format as the output.
 
@@ -101,7 +103,7 @@ psql --host=<server_name>.postgres.database.azure.com --port=5432 --username=<ad
 
 ## Clean up resources
 
-Use the following command to remove the resource group and all resources associated with it using the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command - unless you have an ongoing need for these resources. Some of these resources may take a while to create, as well as to delete.
+Use the following command to remove the resource group and all resources associated with it using the [az group delete](/cli/azure/vm/extension#az-vm-extension-set) command - unless you have an ongoing need for these resources. Some of these resources may take a while to create, as well as to delete.
 
 ```azurecli
 az group delete --name $resourceGroup

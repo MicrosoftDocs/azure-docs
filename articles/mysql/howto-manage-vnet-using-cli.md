@@ -44,7 +44,7 @@ VNets and Azure service resources can be in the same or different subscriptions.
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mysql/create-mysql-server-vnet/create-mysql-server.sh" range="4-51":::
+:::code language="azurecli" source="~/azure_cli_scripts/mysql/create-mysql-server-vnet/create-mysql-server.sh" id="FullScript":::
 
 ## Clean up resources
 

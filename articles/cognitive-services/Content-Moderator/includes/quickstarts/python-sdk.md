@@ -46,7 +46,7 @@ After installing Python, you can install the Content Moderator client library wi
 pip install --upgrade azure-cognitiveservices-vision-contentmoderator
 ```
 
-### Create a new python application
+### Create a new Python application
 
 Create a new Python script and open it in your preferred editor or IDE. Then add the following `import` statements to the top of the file.
 

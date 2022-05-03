@@ -25,7 +25,7 @@ This script creates a virtual machine scale set that uses a custom VM image as t
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine-scale-sets/use-custom-vm-image/create-use-custom-vm-image.sh" range="4-55":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine-scale-sets/use-custom-vm-image/create-use-custom-vm-image.sh" id="FullScript":::
 
 ## Clean up resources
 

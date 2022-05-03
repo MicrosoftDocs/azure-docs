@@ -128,7 +128,7 @@ If you are logged into Azure CLI using a service principal, to enable this featu
 | `--resource-group, --g` | Resource group of the custom location  | 
 | `--namespace` | Namespace in the cluster bound to the custom location being created |
 | `--host-resource-id` | Azure Resource Manager identifier of the Azure Arc-enabled Kubernetes cluster (connected cluster) |
-| `--cluster-extension-ids` | Azure Resource Manager identifiers of the cluster extension instances installed on the connected cluster. Provide a space-seperated list of the cluster extension IDs  |
+| `--cluster-extension-ids` | Azure Resource Manager identifiers of the cluster extension instances installed on the connected cluster. Provide a space-separated list of the cluster extension IDs  |
 
 **Optional parameters**
 
@@ -189,7 +189,7 @@ az customlocation update -n <customLocationName> -g <resourceGroupName> --namesp
 
 | Parameter name | Description |
 |--------------|------------|
-| `--cluster-extension-ids` | Associate new cluster extensions to this custom location by providing Azure Resource Manager identifiers of the cluster extension instances installed on the connected cluster. Provide a space-seperated list of the cluster extension IDs |
+| `--cluster-extension-ids` | Associate new cluster extensions to this custom location by providing Azure Resource Manager identifiers of the cluster extension instances installed on the connected cluster. Provide a space-separated list of the cluster extension IDs |
 | `--tags` | Add new tags in addition to existing tags. Space-separated list of tags: key[=value] [key[=value] ...]. |
 
 ## Patch a custom location
@@ -211,7 +211,7 @@ az customlocation patch -n <customLocationName> -g <resourceGroupName> --namespa
 
 | Parameter name | Description |
 |--------------|------------|
-| `--cluster-extension-ids` | Associate new cluster extensions to this custom location by providing Azure Resource Manager identifiers of the cluster extension instances installed on the connected cluster. Provide a space-seperated list of the cluster extension IDs |
+| `--cluster-extension-ids` | Associate new cluster extensions to this custom location by providing Azure Resource Manager identifiers of the cluster extension instances installed on the connected cluster. Provide a space-separated list of the cluster extension IDs |
 | `--tags` | Add new tags in addition to existing tags. Space-separated list of tags: key[=value] [key[=value] ...]. |
 
 ## Delete a custom location

@@ -110,6 +110,8 @@ Consider the following when configuring Virtual WAN routing:
 * When using Azure Firewall in multiple regions, all spoke virtual networks must be associated to the same route table. For example, having a subset of the VNets going through the Azure Firewall while other VNets bypass the Azure Firewall in the same virtual hub is not possible.
 * You may specify multiple next hop IP addresses on a single Virtual Network connection. However, Virtual Network Connection does not support ‘multiple/unique’ next hop IP to the ‘same’ network virtual appliance in a SPOKE Virtual Network 'if' one of the routes with next hop IP is indicated to be public IP address or 0.0.0.0/0 (internet)
 * All information pertaining to 0.0.0.0/0 route is confined to a local hub's route table. This route does not propagate across hubs.
+* You can only use Virtual WAN to program routes in a spoke if the prefix is shorter (less specific) than the virtual network prefix. For example, in the diagram above the spoke VNET1 has the prefix 10.1.0.0/16: in this case, Virtual WAN would not be able to inject a route that matches the virtual network prefix (10.1.0.0/16) or any of the subnets (10.1.0.0/24, 10.1.1.0/24). In other words, Virtual WAN cannot attract traffic between two subnets that are in the same virtual network.
+
 ## Next steps
 
 * To configure routing, see [How to configure virtual hub routing](how-to-virtual-hub-routing.md).

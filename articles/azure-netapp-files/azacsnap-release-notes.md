@@ -12,13 +12,27 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/20/2022
+ms.date: 03/08/2022
 ms.author: phjensen
 ---
 
 # Release Notes for Azure Application Consistent Snapshot tool
 
 This page lists major changes made to AzAcSnap to provide new functionality or resolve defects.
+
+## Mar-2022
+
+### AzAcSnap v5.1 Preview (Build: 20220302.81795)
+
+AzAcSnap v5.1 Preview (Build: 20220302.81795) has been released with the following new features:
+
+- Azure Key Vault support for securely storing the Service Principal.
+- A new option for `-c backup --volume` which has the `all` parameter value.
+
+Details of these new features are in the AzAcSnap Preview documentation.
+
+Read about the new features and how to use the [AzAcSnap Preview](azacsnap-preview.md).
+Download the [latest release of the Preview installer](https://aka.ms/azacsnap-preview-installer).
 
 ## Feb-2022
 
@@ -27,8 +41,6 @@ This page lists major changes made to AzAcSnap to provide new functionality or r
 AzAcSnap v5.1 Preview (Build: 20220220.55340) has been released with the following fixes and improvements:
 
 - Resolved failure in matching `--dbsid` command line option with `sid` entry in the JSON configuration file for Oracle databases when using the `-c restore` command.
-
-Download the [latest release of the Preview installer](https://aka.ms/azacsnap-preview-installer) and read about the new features and how to use the [AzAcSnap Preview](azacsnap-preview.md).
 
 ### AzAcSnap v5.1 Preview (Build: 20220203.77807)
 

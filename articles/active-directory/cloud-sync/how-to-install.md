@@ -7,7 +7,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/31/2021
+ms.date: 03/01/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -107,6 +107,29 @@ By default, the Azure Active Directory (Azure AD) Connect provisioning agent ins
 
 - In step #7 above, instead of click **Open file**, go to start run and navigate to the **AADConnectProvisioningAgentSetup.exe** file.  In the run box, after the executable, enter **ENVIRONMENTNAME=AzureUSGovernment** and click **Ok**.
  [![Screenshot showing US govt cloud install](media/how-to-install/new-install-12.png)](media/how-to-install/new-install-12.png#lightbox)</br>
+
+## Password hash synchronization and FIPS with cloud sync
+If your server has been locked down according to Federal Information Processing Standard (FIPS), then MD5 is disabled.
+
+**To enable MD5 for password hash synchronization, perform the following steps:**
+
+1. Go to %programfiles%\Microsoft Azure AD Connect Provisioning Agent.
+2. Open AADConnectProvisioningAgent.exe.config.
+3. Go to the configuration/runtime node at the top of the file.
+4. Add the following node: `<enforceFIPSPolicy enabled="false"/>`
+5. Save your changes.
+
+For reference, this snippet is what it should look like:
+
+```
+    <configuration>
+        <runtime>
+            <enforceFIPSPolicy enabled="false"/>
+        </runtime>
+    </configuration>
+```
+
+For information about security and FIPS, see [Azure AD password hash sync, encryption, and FIPS compliance](https://blogs.technet.microsoft.com/enterprisemobility/2014/06/28/aad-password-sync-encryption-and-fips-compliance/).
 
 
 ## Next steps 

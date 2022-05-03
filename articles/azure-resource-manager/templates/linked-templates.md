@@ -20,6 +20,9 @@ For a tutorial, see [Tutorial: Deploy a linked template](./deployment-tutorial-l
 > If the linked or nested template targets a different resource group, that deployment uses incremental mode.
 >
 
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [modules](../bicep/modules.md).
+
 ## Nested template
 
 To nest a template, add a [deployments resource](/azure/templates/microsoft.resources/deployments) to your main template. In the `template` property, specify the template syntax.

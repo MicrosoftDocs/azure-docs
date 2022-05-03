@@ -1,25 +1,25 @@
 ---
 title: Enrich a Cognitive Search index with custom classes
 titleSuffix: Azure Cognitive Services
-description: Improve your cognitive search indices using custom classifications
+description: Improve your cognitive search indices using custom text classification
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
-ms.date: 02/02/2022
+ms.date: 02/28/2022
 ms.author: aahi
 ms.custom: 
 ---
 
-# Tutorial: Enrich Cognitive search index with custom classifications from your data
+# Tutorial: Enrich Cognitive search index with custom classes from your data
 
-With the abundance of electronic documents within the enterprise, the problem of search through them becomes a tiring and expensive task. [Azure Cognitive Search](../../../../search/search-create-service-portal.md) helps with searching through your files based on their indices. Custom classification helps in enriching the indexing of these files by classifying them into your custom classes.
+With the abundance of electronic documents within the enterprise, the problem of search through them becomes a tiring and expensive task. [Azure Cognitive Search](../../../../search/search-create-service-portal.md) helps with searching through your files based on their indices. Custom text classification helps in enriching the indexing of these files by classifying them into your custom classes.
 
 In this tutorial, you will learn how to:
 
-* Create a custom classification project.
+* Create a custom text classification project.
 * Publish Azure function.
 * Add Index to your Azure Cognitive search.
 
@@ -33,27 +33,11 @@ In this tutorial, you will learn how to:
 
 * An [Azure function app](../../../../azure-functions/functions-create-function-app-portal.md)
 
-* Download this [sample data](). <!-- TODO: add link to sample data here (Movies)-->
+* Download this [sample data](https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/language-service/Custom%20text%20classification/Custom%20multi%20classification%20-%20movies%20summary.zip).
 
-## Create a custom classification project through Language studio
+## Create a custom text classification project through Language studio
 
-1. Log in to [Language Studio](https://aka.ms/languageStudio). A window will appear to let you select your subscription and Language resource. Select the resource you created in the above step.
-
-2. Under the **Classify text** section of Language Studio, select **custom text classification** from the available services, and select it.
-       
-3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
-
-4. If you’ve created your resource using the steps in [Create a project](../how-to/create-project.md#azure-resources), the **Connect storage** step will be completed already. If not, you need to assign [roles for your storage account](../how-to/create-project.md#roles-for-your-storage-account) before connecting it to your resource.
-
-5. Select your project type. For this tutorial, we'll create a multi-label classification project where you can assign multiple classes to the same file. Then click **Next**. See [project types](../glossary.md#project-types) in the FAQ for more information.
-
-6. Enter project information, including a name, description, and the language of the files in your project. You won’t be able to change the name of your project later.
-    >[!TIP]
-    > Your dataset doesn't have to be entirely in the same language. You can have multiple files, each with different supported languages. If your dataset contains files of different languages or if you expect different languages during runtime, select **enable multi-lingual dataset** when you enter the basic information for your project.
-
-7. Select the container where you’ve uploaded your data. For this tutorial we'll use the tags file you downloaded from the sample data.
-
-8. Review the data you entered and select **Create Project**.
+[!INCLUDE [Create a project using Language Studio](../includes/create-project.md)]
 
 ## Train your model
 
@@ -61,9 +45,11 @@ In this tutorial, you will learn how to:
 
 ## Deploy your model
 
-1. Select **Deploy model** from the left side menu.
+To deploy your model, go to your project in [Language Studio](https://aka.ms/custom-classification). You can also use the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2022-03-01-preview/operations/Projects_TriggerImportProjectJob).
 
-2. Select the model you want to deploy and from the top menu click on **Deploy model**. If you deploy your model through Language Studio, your `deployment-name` will be `prod`.
+[!INCLUDE [Deploy a model using Language Studio](../includes/deploy-model-language-studio.md)]
+
+If you deploy your model through Language Studio, your `deployment-name` will be `prod`.
 
 ## Use CogSvc language utilities tool for Cognitive search integration
  
@@ -104,7 +90,7 @@ In this tutorial, you will learn how to:
 
         :::image type="content" source="../../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint screen in the Azure portal" lightbox="../../media/azure-portal-resource-credentials.png":::
 
-6. Get your custom classification project secrets
+6. Get your custom text classification project secrets
 
     1. You will need your **project-name**, project names are case-sensitive.
 

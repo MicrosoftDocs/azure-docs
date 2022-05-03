@@ -10,7 +10,7 @@ ms.custom: devx-track-java
 # Telemetry processors (preview) - Azure Monitor Application Insights for Java
 
 > [!NOTE]
-> The telemetry processors feature is in preview.
+> The telemetry processors feature is designated as preview because we cannot guarantee backwards compatibility from release to release due to the experimental state of the attribute [semantic conventions](https://opentelemetry.io/docs/reference/specification/trace/semantic_conventions). However, the feature has been tested and is supported in production.
 
 Application Insights Java 3.x can process telemetry data before the data is exported.
 
@@ -236,7 +236,9 @@ To configure this option, under `include` or `exclude` (or both), specify at lea
 The include-exclude configuration allows more than one specified condition.
 All specified conditions must evaluate to true to result in a match. 
 
-* **Required field**: `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted. Possible values are `regexp` and `strict`. 
+* **Required field**: `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted.
+  Possible values are `regexp` and `strict`. Regular expression matches are performed against the entire attribute value,
+  so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
 
 * **Optional fields**: 
     * `spanNames` must match at least one of the items. 
@@ -383,7 +385,9 @@ To configure this option, under `include` or `exclude` (or both), specify at lea
 The include-exclude configuration allows more than one specified condition.
 All specified conditions must evaluate to true to result in a match. 
 
-* **Required field**: `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted. Possible values are `regexp` and `strict`. 
+* **Required field**: `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted.
+  Possible values are `regexp` and `strict`. Regular expression matches are performed against the entire attribute value,
+  so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
 
 * **Optional fields**: 
     * `spanNames` must match at least one of the items. 
@@ -506,7 +510,9 @@ The include-exclude configuration allows more than one specified condition.
 All specified conditions must evaluate to true to result in a match. 
 
 * **Required field**: 
-  * `matchType` controls how items in `attributes` arrays are interpreted. Possible values are `regexp` and `strict`. 
+  * `matchType` controls how items in `attributes` arrays are interpreted. Possible values are `regexp` and `strict`.
+     Regular expression matches are performed against the entire attribute value,
+     so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
   * `attributes` specifies the list of attributes to match. All of these attributes must match exactly to result in a match.
     
 > [!NOTE]
@@ -566,7 +572,9 @@ To configure this option, under `exclude`, specify the `matchType` one or more `
 
 * **Required field**:
   * `matchType` controls how items in `metricNames` are matched. Possible values are `regexp` and `strict`.
-  * `metricNames` must match at least one of the items.
+     Regular expression matches are performed against the entire attribute value,
+     so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
+   * `metricNames` must match at least one of the items.
 
 ### Sample usage
 

@@ -60,6 +60,9 @@ To secure a custom domain in a TLS binding, the certificate has additional requi
 
 The free App Service managed certificate is a turn-key solution for securing your custom DNS name in App Service. It's a TLS/SSL server certificate that's fully managed by App Service and renewed continuously and automatically in six-month increments, 45 days before expiration, as long as the prerequisites set-up remain the same without any action required from you. All the associated bindings will be updated with the renewed certificate. You create the certificate and bind it to a custom domain, and let App Service do the rest.
 
+> [!IMPORTANT]
+> Because Azure fully manages the certificates on your behalf, any aspect of the managed certificate, including the root issuer, can be changed at anytime. These changes are outside of your control. You should avoid having a hard dependency or practice certificate "pinning" to the managed certificate, or to any part of the certificate hierarchy. If you need the certificate pinning behavior, add a certificate to your custom domain using any other available method in this article.
+
 The free certificate comes with the following limitations:
 
 - Does not support wildcard certificates.

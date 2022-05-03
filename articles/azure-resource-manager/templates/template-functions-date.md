@@ -2,7 +2,7 @@
 title: Template functions - date
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with dates.
 ms.topic: conceptual
-ms.date: 02/11/2022
+ms.date: 03/10/2022
 ---
 
 # Date functions for ARM templates
@@ -20,6 +20,8 @@ Resource Manager provides the following functions for working with dates in your
 `dateTimeAdd(base, duration, [format])`
 
 Adds a time duration to a base value. ISO 8601 format is expected.
+
+In Bicep, use the [dateTimeAdd](../bicep/bicep-functions-date.md#datetimeadd) function.
 
 ### Parameters
 
@@ -56,6 +58,8 @@ The next example template shows how to set the start time for an Automation sche
 `utcNow(format)`
 
 Returns the current (UTC) datetime value in the specified format. If no format is provided, the ISO 8601 (`yyyyMMddTHHmmssZ`) format is used. **This function can only be used in the default value for a parameter.**
+
+In Bicep, use the [utcNow](../bicep/bicep-functions-date.md#utcnow) function.
 
 ### Parameters
 

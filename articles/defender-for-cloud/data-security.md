@@ -2,6 +2,8 @@
 title: Microsoft Defender for Cloud data security | Microsoft Docs
 description: Learn how data is managed and safeguarded in Microsoft Defender for Cloud.
 ms.topic: overview
+ms.author: benmansheim
+author: bmansheim
 ms.date: 11/09/2021
 ---
 # Microsoft Defender for Cloud data security
@@ -54,7 +56,7 @@ You can specify the workspace and region where data collected from your machines
 | Japan                                       | Japan          |
 | China                                       | China          |
 | Australia                                   | Australia      |
-|                                             |                |
+
 
 > [!NOTE]
 > **Microsoft Defender for Storage** stores artifacts regionally according to the location of the related Azure resource. Learn more in [Introduction to Microsoft Defender for Storage](defender-for-storage-introduction.md).
@@ -69,7 +71,7 @@ Customers can access Defender for Cloud related data from the following data str
 | [Azure Monitor logs](../azure-monitor/data-platform.md)                      | All security alerts.                                                                                                                                                                                                |
 | [Azure Resource Graph](../governance/resource-graph/overview.md)                      | Security alerts, security recommendations, vulnerability assessment results, secure score information, status of compliance checks, and more.                                                                       |
 | [Microsoft Defender for Cloud REST API](/rest/api/securitycenter/) | Security alerts, security recommendations, and more.                                                                                                                                                                |
-|                                                                                       |                                                                                                                                                                                                                     |
+
 
 ## Next steps
 

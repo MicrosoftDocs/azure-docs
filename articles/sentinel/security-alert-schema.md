@@ -63,7 +63,7 @@ Because alerts come from many sources, not all fields are used by all providers.
 | **VendorOriginalId** | string | Unique ID for the specific alert instance, set by the originating product. |
 | **WorkspaceResourceGroup** | string | DEPRECATED |
 | **WorkspaceSubscriptionId** | string | DEPRECATED |
-|  |  |  |
+
 
 ## Next steps
 

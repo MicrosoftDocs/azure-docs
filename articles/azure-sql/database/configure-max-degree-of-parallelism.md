@@ -2,7 +2,7 @@
 title: "Configure the max degree of parallelism (MAXDOP)"
 titleSuffix: Azure SQL Database 
 description: Learn about the max degree of parallelism (MAXDOP). 
-ms.date: "04/12/2021"
+ms.date: "04/06/2022"
 services: sql-database
 dev_langs: 
  - "TSQL"
@@ -40,7 +40,6 @@ ms.reviewer: kendralittle, mathoma
 | = 1 | The database engine uses a single serial thread to execute queries. Parallel threads are not used. | 
 | > 1 | The database engine sets the number of additional [schedulers](/sql/relational-databases/thread-and-task-architecture-guide#sql-server-task-scheduling) to be used by parallel threads to the MAXDOP value, or the total number of logical processors, whichever is smaller. |
 | = 0 | The database engine sets the number of additional [schedulers](/sql/relational-databases/thread-and-task-architecture-guide#sql-server-task-scheduling) to be used by parallel threads to the total number of logical processors or 64, whichever is smaller. | 
-| | |
 
 > [!Note]
 > Each query executes with at least one scheduler, and one worker thread on that scheduler.
@@ -72,7 +71,7 @@ ms.reviewer: kendralittle, mathoma
 > [!Tip]
 > We recommend that customers avoid setting MAXDOP to 0 even if it does not appear to cause problems currently.
 
-  Excessive parallelism becomes most problematic when there are more concurrent requests than can be supported by the CPU and worker thread resources provided by the service objective. Avoid MAXDOP 0 to reduce the risk of potential future problems due to excessive parallelism if a database is scaled up, or if future hardware generations in Azure SQL Database provide more cores for the same database service objective.
+  Excessive parallelism becomes most problematic when there are more concurrent requests than can be supported by the CPU and worker thread resources provided by the service objective. Avoid MAXDOP 0 to reduce the risk of potential future problems due to excessive parallelism if a database is scaled up, or if future hardware configurations in Azure SQL Database provide more cores for the same database service objective.
 
 ### Modifying MAXDOP 
 

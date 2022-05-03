@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 04/06/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -30,6 +30,8 @@ Bringing your devices to Azure AD maximizes user productivity through single sig
 - Enterprise administrator credentials for each of the on-premises Active Directory Domain Services forests.
 - (**For federated domains**) At least Windows Server 2012 R2 with Active Directory Federation Services installed.
 - Users can register their devices with Azure AD. More information about this setting can be found under the heading **Configure device settings**, in the article, [Configure device settings](device-management-azure-portal.md#configure-device-settings).
+
+### Network connectivity requirements
 
 Hybrid Azure AD join requires devices to have access to the following Microsoft resources from inside your organization's network:  
 
@@ -139,6 +141,7 @@ If you experience issues with completing hybrid Azure AD join for domain-joined 
 - [Troubleshooting devices using dsregcmd command](./troubleshoot-device-dsregcmd.md)
 - [Troubleshoot hybrid Azure AD join for Windows current devices](troubleshoot-hybrid-join-windows-current.md)
 - [Troubleshoot hybrid Azure AD join for Windows downlevel devices](troubleshoot-hybrid-join-windows-legacy.md)
+- [Troubleshoot pending device state](/troubleshoot/azure/active-directory/pending-devices)
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 02/27/2022
+ms.date: 03/01/2022
 author: elazark
 ms.author: elazarK
 ---
@@ -57,6 +57,8 @@ There are 2 dedicated Defender for Cloud recommendations you can use to install 
 
 1. From Defender for Cloud's **Recommendations** page, search for one of the recommendations by name.
 
+    :::image type="content" source="../media/defender-for-containers-enable-plan-gke/recommendation-search.png" alt-text="Screenshot showing how to search for the recommendation." lightbox="../media/defender-for-containers-enable-plan-gke/recommendation-search-expanded.png":::
+
 1. Select an unhealthy GKE cluster.
 
     > [!IMPORTANT]
@@ -64,8 +66,11 @@ There are 2 dedicated Defender for Cloud recommendations you can use to install 
     >
     > Don't select the clusters by their hyperlinked names: select anywhere else in the relevant row.
 
+1. Select the name of the unhealthy resource.
 
-1. Select the **Fix** button.
+1. Select **Fix**.
+
+    :::image type="content" source="../media/defender-for-containers-enable-plan-gke/fix-button.png" alt-text="Screenshot showing the location of the fix button.":::
 
 1. Defender for Cloud will generate a script in the language of your choice: 
     - For Linux, select **Bash**.

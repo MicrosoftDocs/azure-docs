@@ -13,7 +13,7 @@ ms.reviewer: mathoma
 ms.date: 01/26/2022 
 ---
 
-# Use CLI to configure active geo-replication for a pooled database in Azure SQL Database
+# Configure active geo-replication for a pooled database in Azure SQL Database using the Azure CLI
 
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
@@ -29,7 +29,7 @@ This Azure CLI script example configures active geo-replication for a pooled dat
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/setup-geodr-and-failover/setup-geodr-and-failover-elastic-pool.sh" range="4-47":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/setup-geodr-and-failover/setup-geodr-and-failover-elastic-pool.sh" id="FullScript":::
 
 ## Clean up resources
 
@@ -53,4 +53,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../../../azure-sql/database/az-cli-script-samples-content-guide.md).
+Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](/azure/azure-sql/database/az-cli-script-samples-content-guide).

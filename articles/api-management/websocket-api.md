@@ -114,6 +114,7 @@ Below are the current restrictions of WebSocket support in API Management:
 * WebSocket APIs are not supported yet in the [self-hosted gateway](./self-hosted-gateway-overview.md).
 * Azure CLI, PowerShell, and SDK currently do not support management operations of WebSocket APIs.
 * 200 active connections limit per unit.
+* Websockets APIs support the following valid buffer types for messages: Close, BinaryFragment, BinaryMessage, UTF8Fragment, and UTF8Message.
 
 ### Unsupported policies
 

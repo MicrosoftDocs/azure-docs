@@ -11,7 +11,7 @@ ms.topic: reference
 author: vladai78
 ms.author: vladiv
 ms.reviewer: mathoma, vladiv, sachinp, wiassaf
-ms.date: 02/02/2022
+ms.date: 04/06/2022
 ---
 # Overview of Azure SQL Managed Instance resource limits
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -25,16 +25,16 @@ This article provides an overview of the technical characteristics and resource 
 > [!NOTE]
 > For differences in supported features and T-SQL statements see [Feature differences](../database/features-comparison.md) and [T-SQL statement support](transact-sql-tsql-differences-sql-server.md). For general differences between service tiers for Azure SQL Database and SQL Managed Instance review [General Purpose](../database/service-tier-general-purpose.md) and [Business Critical](../database/service-tier-business-critical.md) service tiers. 
 
-## Hardware generation characteristics
+## Hardware configuration characteristics
 
-SQL Managed Instance has characteristics and resource limits that depend on the underlying infrastructure and architecture. SQL Managed Instance can be deployed on multiple hardware generations. 
+SQL Managed Instance has characteristics and resource limits that depend on the underlying infrastructure and architecture. SQL Managed Instance can be deployed on multiple hardware configurations.
 
 > [!NOTE]
-> The Gen5 hardware generation has been renamed to the **standard-series (Gen5)**, and we are introducing two new hardware generations in limited preview: **premium-series** and **memory optimized premium-series**.
+> The Gen5 hardware has been renamed to the **standard-series (Gen5)**. We are introducing two new hardware configurations in limited preview: **premium-series** and **memory optimized premium-series**.
 
-For information on previous generation hardware generations, see [Previous generation hardware generation details](#previous-generation-hardware) later in this article. 
+For information on previously available hardware, see [Previously available hardware](#previously-available-hardware) later in this article.
 
-Hardware generations have different characteristics, as described in the following table:
+Hardware configurations have different characteristics, as described in the following table:
 
 |    | **Standard-series (Gen5)** | **Premium-series (preview)** | **Memory optimized premium-series (preview)** | 
 |:-- |:-- |:-- |:-- |
@@ -47,37 +47,34 @@ Hardware generations have different characteristics, as described in the followi
 \* Dependent on [the number of vCores](#service-tier-characteristics).
 
 >[!NOTE]
-> If your business requires storage sizes greater than the available resource limits for Azure SQL Managed Instance, consider the Azure SQL Database [Hyperscale service tier](../database/service-tier-hyperscale.md).
+> If your workload requires storage sizes greater than the available resource limits for Azure SQL Managed Instance, consider the Azure SQL Database [Hyperscale service tier](../database/service-tier-hyperscale.md).
 
+### Regional support for premium-series hardware (preview)
 
-### Regional support for premium-series hardware generations (preview)
-
-Support for the premium-series hardware generations (public preview) is currently available only in these specific regions: <br>
+Support for the premium-series hardware (public preview) is currently available only in these specific regions: <br>
 
 | Region | **Premium-series** | **Memory optimized premium-series** | 
 |:--- |:--- |:--- |
-| Australia Central | Yes | | 
 | Australia East | Yes | Yes | 
 | Canada Central | Yes | | 
 | Canada East | Yes | | 
-| Central US | Yes | | 
-| East US | Yes | | 
-| East US 2 | Yes | | 
-| Germany West Central |  | Yes | 
+| Central US | Yes | Yes | 
+| Germany West Central | Yes | Yes | 
 | Japan East | Yes | | 
 | Korea Central | Yes | | 
-| North Central US | Yes | | 
+| North Central US | Yes | Yes | 
 | North Europe | Yes | | 
 | South Central US | Yes | Yes | 
 | Southeast Asia | Yes |  | 
+| UK South | Yes | Yes | 
 | West Europe | | Yes | 
-| West US | Yes | Yes |  
+| West US | Yes | |  
 | West US 2 | Yes | Yes | 
 | West US 3 | Yes | Yes | 
 
-### In-memory OLTP available space 
+### In-memory OLTP available space
 
-The amount of in-memory OLTP space in [Business Critical](../database/service-tier-business-critical.md) service tier depends on the number of vCores and hardware generation. The following table lists the limits of memory that can be used for in-memory OLTP objects.
+The amount of In-memory OLTP space in [Business Critical](../database/service-tier-business-critical.md) service tier depends on the number of vCores and hardware configuration. The following table lists the limits of memory that can be used for In-memory OLTP objects.
 
 | **vCores** | **Standard-series (Gen5)** | **Premium-series** | **Memory optimized premium-series** | 
 |:--- |:--- |:--- |:--- |
@@ -108,13 +105,13 @@ SQL Managed Instance has two service tiers: [General Purpose](../database/servic
 | Max number of database files per instance | Up to 280, unless the instance storage size or [Azure Premium Disk storage allocation space](doc-changes-updates-known-issues.md#exceeding-storage-space-with-small-database-files) limit has been reached. | 32,767 files per database, unless the instance storage size limit has been reached. |
 | Max data file size | Maximum size of each data file is 8 TB. Use at least two data files for databases larger than 8 TB. | Up to currently available instance size (depending on the number of vCores). |
 | Max log file size | Limited to 2 TB and currently available instance storage size. | Limited to 2 TB and currently available instance storage size. |
-| Data/Log IOPS (approximate) | Up to 30-40 K IOPS per instance*, 500 - 7500 per file<br/>\*[Increase file size to get more IOPS](#file-io-characteristics-in-general-purpose-tier)| 16 K - 320 K (4000 IOPS/vCore)<br/>Add more vCores to get better IO performance. |
+| Data/Log IOPS (approximate) | 500 - 7500 per file<br/>\*[Increase file size to get more IOPS](#file-io-characteristics-in-general-purpose-tier)| 16 K - 320 K (4000 IOPS/vCore)<br/>Add more vCores to get better IO performance. |
 | Log write throughput limit (per instance) | 3 MB/s per vCore<br/>Max 120 MB/s per instance<br/>22 - 65 MB/s per DB (depending on log file size)<br/>\*[Increase the file size to get better IO performance](#file-io-characteristics-in-general-purpose-tier) | 4 MB/s per vCore<br/>Max 96 MB/s |
 | Data throughput (approximate) | 100 - 250 MB/s per file<br/>\*[Increase the file size to get better IO performance](#file-io-characteristics-in-general-purpose-tier) | Not limited. |
 | Storage IO latency (approximate) | 5-10 ms | 1-2 ms |
 | In-memory OLTP | Not supported | Available, [size depends on number of vCore](#in-memory-oltp-available-space) |
 | Max sessions | 30000 | 30000 |
-| Max concurrent workers | 105 * number of vCores + 800 | 105 * vCore count + 800 |
+| Max concurrent workers | 105 * number of vCores + 800 | 105 * number of vCores + 800 |
 | [Read-only replicas](../database/read-scale-out.md) | 0 | 1 (included in price) |
 | Compute isolation | Not supported as General Purpose instances may share physical hardware with other instances| **Standard-series (Gen5)**:<br/> Supported for 40, 64, 80 vCores<BR> **Premium-series**: Supported for 64, 80 vCores <BR> **Memory optimized premium-series**: Supported for 64 vCores |
 
@@ -124,7 +121,7 @@ A few additional considerations:
 - **Currently available instance storage size** is the difference between reserved instance size and the used storage space.
 - Both data and log file size in the user and system databases are included in the instance storage size that is compared with the max storage size limit. Use the [sys.master_files](/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql) system view to determine the total used space by databases. Error logs are not persisted and not included in the size. Backups are not included in storage size.
 - Throughput and IOPS in the General Purpose tier also depend on the [file size](#file-io-characteristics-in-general-purpose-tier) that is not explicitly limited by the SQL Managed Instance.
-  You can create another readable replica in a different Azure region using [auto-failover groups](../database/auto-failover-group-configure.md)
+  You can create another readable replica in a different Azure region using [auto-failover groups](auto-failover-group-configure-sql-mi.md)
 - Max instance IOPS depend on the file layout and distribution of workload. As an example, if you create 7 x 1 TB files with max 5 K IOPS each and seven small files (smaller than 128 GB) with 500 IOPS each, you can get 38500 IOPS per instance (7x5000+7x500) if your workload can use all files. Note that some IOPS are also used for auto-backups.
 
 Find more information about the [resource limits in SQL Managed Instance pools in this article](instance-pools-overview.md#resource-limitations).
@@ -227,13 +224,14 @@ The following table shows the **default regional limits** for supported subscrip
 
 If you need more instances in your current regions, send a support request to extend the quota using the Azure portal. For more information, see [Request quota increases for Azure SQL Database](../database/quota-increase-request.md).
 
-## Previous generation hardware
+## Previously available hardware
 
-This section includes details on previous generation hardware generations. Consider [moving your instance of SQL Managed Instance to the standard-series (Gen5)](../database/service-tiers-vcore.md) hardware to experience a wider range of vCore and storage scalability, accelerated networking, best IO performance, and minimal latency.
+This section includes details on previously available hardware. Consider [moving your instance of SQL Managed Instance to the standard-series (Gen5)](../database/service-tiers-vcore.md) hardware to experience a wider range of vCore and storage scalability, accelerated networking, best IO performance, and minimal latency.
 
-- Gen4 is being phased out and is not available for new deployments. 
+> [!IMPORTANT]
+> Gen4 hardware is being retired and is not available for new deployments.
 
-### Hardware generation characteristics
+### Hardware characteristics
 
 |   | **Gen4** | 
 | --- | --- | 
@@ -243,9 +241,9 @@ This section includes details on previous generation hardware generations. Consi
 | **Max In-Memory OLTP memory** |  Instance limit: 1-1.5 GB per vCore |
 | **Max instance reserved storage** |  General Purpose: 8 TB <br/>Business Critical: 1 TB | 
 
-### In-memory OLTP available space 
+### In-memory OLTP available space
 
-The amount of In-memory OLTP space in [Business Critical](../database/service-tier-business-critical.md) service tier depends on the number of vCores and hardware generation. The following table lists limits of memory that can be used for In-memory OLTP objects.
+The amount of In-memory OLTP space in [Business Critical](../database/service-tier-business-critical.md) service tier depends on the number of vCores and hardware configuration. The following table lists limits of memory that can be used for In-memory OLTP objects.
 
 | In-memory OLTP space    |  **Gen4** |
 | --- |  --- |

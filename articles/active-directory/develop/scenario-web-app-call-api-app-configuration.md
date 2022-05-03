@@ -49,7 +49,7 @@ In the following example, the `GraphBeta` section specifies these settings.
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",
     "ClientId": "[Client_id-of-web-app-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
-    "TenantId": "common"
+    "TenantId": "common",
 
    // To call an API
    "ClientSecret": "[Copy the client secret added to the app from the Azure portal]",
@@ -70,7 +70,7 @@ Instead of a client secret, you can provide a client certificate. The following 
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",
     "ClientId": "[Client_id-of-web-app-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
-    "TenantId": "common"
+    "TenantId": "common",
 
    // To call an API
    "ClientCertificates": [

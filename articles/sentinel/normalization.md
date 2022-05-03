@@ -1,11 +1,10 @@
 ---
 title: Normalization and the Advanced Security Information Model (ASIM) | Microsoft Docs
 description: This article explains how Microsoft Sentinel normalizes data from many different sources using the Advanced Security Information Model (ASIM)
-author: batamig
+author: oshezaf
 ms.topic: conceptual
 ms.date: 11/09/2021
-ms.author: bagol
-ms.custom: ignite-fall-2021
+ms.author: ofshezaf
 ---
 
 # Normalization and the Advanced Security Information Model (ASIM) (Public preview)
@@ -62,7 +61,7 @@ ASIM includes the following components:
 |**Normalized schemas**     |   Cover standard sets of predictable event types that you can use when building unified capabilities. <br><br>Each schema defines the fields that represent an event, a normalized column naming convention, and a standard format for the field values. <br><br> ASIM currently defines the following schemas:<br> - [Authentication Event](authentication-normalization-schema.md)<br> - [DHCP Activity](dhcp-normalization-schema.md)<br> - [DNS Activity](dns-normalization-schema.md)<br> - [File Activity](file-event-normalization-schema.md)  <br> - [Network Session](./network-normalization-schema.md)<br> - [Process Event](process-events-normalization-schema.md)<br> - [Registry Event](registry-event-normalization-schema.md)<br>- [User Management](user-management-normalization-schema.md)<br> - [Web Session](web-normalization-schema.md)<br><br>For more information, see [ASIM schemas](normalization-about-schemas.md).  |
 |**Parsers**     |  Map existing data to the normalized schemas using [KQL functions](/azure/data-explorer/kusto/query/functions/user-defined-functions). <br><br>Many ASIM parsers are available out of the box with Microsoft Sentinel. More parsers, and versions of the built-in parsers that can be modified can be deployed from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelASim). <br><br>For more information, see [ASIM parsers](normalization-about-parsers.md).     |
 |**Content for each normalized schema**     |    Includes analytics rules, workbooks, hunting queries, and more. Content for each normalized schema works on any normalized data without the need to create source-specific content. <br><br>For more information, see [ASIM content](normalization-content.md).   |
-| | |
+
 
 ### ASIM terminology
 
@@ -73,7 +72,7 @@ ASIM uses the following terms:
 |**Reporting device**     |   The system that sends the records to Microsoft Sentinel. This system may not be the subject system for the record that's being sent.      |
 |**Record**     |A unit of data sent from the reporting device. A record is often referred to as `log`, `event`, or `alert`, but can also be other types of data.         |
 |**Content**, or **Content Item**     |The different, customizable, or user-created artifacts than can be used with Microsoft Sentinel. Those artifacts include, for example, Analytics rules, Hunting queries and workbooks. A content item is one such artifact.|
-| | |
+
 
 <br>
 

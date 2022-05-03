@@ -149,9 +149,18 @@ OnPrem FPGA, both the management endpoint (Device ID 5004) and role endpoint (De
 On Azure NP VMs, the XDMA 2.1 platform only supports Host_Mem(SB) and DDR data retention features. 
 <br>
 To enable Host_Mem(SB) (up to 1 Gb RAM):  sudo xbutil host_mem --enable --size 1g 
-
+<br>
 To disable Host_Mem(SB): sudo xbutil host_mem --disable 
+<br>
 
+<br>
+Starting on XRT2021.1:
+
+OnPrem FPGA in Linux exposes
+[M2M data transfer](https://xilinx.github.io/XRT/master/html/m2m.html).
+<br>
+This feature is not supported in Azure NP VMs.
+ 
 **Q:** Can I run xbmgmt commands? 
 
 **A:** No, on Azure VMs there's no management support directly from the Azure VM. 

@@ -4,7 +4,7 @@ description: Learn how to do Apache Kafka operations using a Kafka REST proxy on
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.date: 04/03/2020
+ms.date: 04/01/2022
 ---
 
 # Interact with Apache Kafka clusters in Azure HDInsight using a REST proxy
@@ -69,10 +69,10 @@ The steps below use the Azure portal. For an example using Azure CLI, see [Creat
 
 ## Client application sample
 
-You can use the python code below to interact with the REST proxy on your Kafka cluster. To use the code sample, follow these steps:
+You can use the Python code below to interact with the REST proxy on your Kafka cluster. To use the code sample, follow these steps:
 
 1. Save the sample code on a machine with Python installed.
-1. Install required python dependencies by executing `pip3 install msal`.
+1. Install required Python dependencies by executing `pip3 install msal`.
 1. Modify the code section **Configure these properties** and update the following properties for your environment:
 
     |Property |Description |
@@ -82,7 +82,7 @@ You can use the python code below to interact with the REST proxy on your Kafka 
     |Client Secret|The secret for the application that you registered in the security group.|
     |Kafkarest_endpoint|Get this value from the **Properties** tab in the cluster overview as described in the [deployment section](#create-a-kafka-cluster-with-rest-proxy-enabled). It should be in the following format – `https://<clustername>-kafkarest.azurehdinsight.net`|
 
-1. From the command line, execute the python file by executing `sudo python3 <filename.py>`
+1. From the command line, execute the Python file by executing `sudo python3 <filename.py>`
 
 This code does the following action:
 
@@ -92,7 +92,7 @@ This code does the following action:
 For more information about getting OAuth tokens in Python, see [Python AuthenticationContext class](/python/api/adal/adal.authentication_context.authenticationcontext). You might see a delay while `topics` that aren't created or deleted through the Kafka REST proxy are reflected there. This delay is because of cache refresh. The **value** field of the Producer API has been enhanced. Now, it accepts JSON objects and any serialized form.
 
 ```python
-#Required python packages
+#Required Python packages
 #pip3 install msal
 
 import json

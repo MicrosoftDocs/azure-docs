@@ -4,9 +4,9 @@ description: Set up plan listing details for an Azure Container offer in Microso
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
-ms.date: 03/30/2021
+author: aarathin
+ms.author: aarathin
+ms.date: 03/15/2022
 ---
 
 # Set up plan listing details for an Azure Container offer

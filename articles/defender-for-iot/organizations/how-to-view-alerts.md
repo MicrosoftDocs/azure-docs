@@ -42,7 +42,7 @@ This section describes how to view and filter alerts details on your sensor.
 
 - Select **Alerts** from the side menu. The  page displays the alerts detected by your sensor.
 
-    :::image type="content" source="media/how-to-view-alerts/view-alerts-main-page.png" alt-text="Alerts page on sensor" lightbox="media/how-to-view-alerts/view-alerts-main-page.png":::
+    :::image type="content" source="media/how-to-view-alerts/view-alerts-main-page.png" alt-text="Screenshot of the sensor Alerts page." lightbox="media/how-to-view-alerts/view-alerts-main-page.png":::
 
 The following information is available from the Alerts page:
 
@@ -79,15 +79,15 @@ Use filter, grouping and text search tools to view alerts of interest to you.
 1. Select **Add filter**.
 1. Define a filter and select **Apply**.
 
-    :::image type="content" source="media/how-to-view-alerts/alerts-filter.png" alt-text="Alert filter options":::
+    :::image type="content" source="media/how-to-view-alerts/alerts-filter.png" alt-text="Screenshot of Alert filter options.":::
 
 **About the Groups type**
 
 The **Groups** option refers to the Device groups you created in the Device map and inventory.
 
-:::image type="content" source="media/how-to-view-alerts/alert-map-groups.png" alt-text="Groups filter option":::
+:::image type="content" source="media/how-to-view-alerts/alert-map-groups.png" alt-text="Screenshot of the Groups filter option.":::
 
-:::image type="content" source="media/how-to-view-alerts/view-alerts-map-groups.png" alt-text="Groups filter reflected in Device map":::
+:::image type="content" source="media/how-to-view-alerts/view-alerts-map-groups.png" alt-text="Screenshot of the Groups filter reflected in the Device map.":::
 
 **To view alerts based on a pre-defined category:**
 
@@ -110,11 +110,11 @@ Gain contextual insight about alert activity by:
 
 - Viewing source and destination devices in map view with other connected devices. Select **Map View** to see the map.
 
-    :::image type="content" source="media/how-to-view-alerts/view-alerts-map.png" alt-text="Map view of source and detected device from alert" lightbox="media/how-to-view-alerts/view-alerts-map.png" :::
+    :::image type="content" source="media/how-to-view-alerts/view-alerts-map.png" alt-text="Screenshot of a map view of the source and detected devices from an alert." lightbox="media/how-to-view-alerts/view-alerts-map.png" :::
  
 - Viewing an Event timeline with recent activity of the device. Select **Event Timeline** and use the filter options to customize the information displayed. 
  
-    :::image type="content" source="media/how-to-view-alerts/alert-event-timeline.png" alt-text="Alert timeline for selected alert from Alerts page" lightbox="media/how-to-view-alerts/alert-event-timeline.png" :::
+    :::image type="content" source="media/how-to-view-alerts/alert-event-timeline.png" alt-text="Screenshot of an alert timeline for the selected alert from the Alerts page." lightbox="media/how-to-view-alerts/alert-event-timeline.png" :::
 
 ### Remediate the alert incident
 
@@ -126,11 +126,11 @@ Remediation steps will help SOC teams better understand OT issues and resolution
 1. Select an alert from the Alerts page.
 1. In the side pane, select **Take action.**
 
-    :::image type="content" source="media/how-to-view-alerts/alert-remediation-rename.png" alt-text="Take action section of alert":::
+    :::image type="content" source="media/how-to-view-alerts/alert-remediation-rename.png" alt-text="Screenshot of the alert's Take action section.":::
 
 Your administrator may have added guidance to help you complete the remediation or alert handling. If created comments will appear in the Alert Details section.
 
-:::image type="content" source="media/how-to-view-alerts/alert-comments.png" alt-text="Alert comments added to alert details section of Alert dialog box":::
+:::image type="content" source="media/how-to-view-alerts/alert-comments.png" alt-text="Screenshot of alert comments added to the alert details section of the Alert dialog box.":::
 
 After taking remediation steps, you may want to change the alert status to close the alert.
 
@@ -172,7 +172,7 @@ Viewing alerts in the portal provides significant advantages. For example, it le
 - View alerts based on the site
 - Change the severity of an alert
 
-    :::image type="content" source="media/how-to-view-alerts/alert-cloud-mitre.png" alt-text="Sample of alert as shown in cloud":::
+    :::image type="content" source="media/how-to-view-alerts/alert-cloud-mitre.png" alt-text="Screenshot of a sample alert shown in the Azure portal.":::
 
 ### Manage alert events
 
@@ -188,6 +188,8 @@ You can manage an alert incident by:
 
 ## Next steps
 
-[Manage the alert event](how-to-manage-the-alert-event.md)
+For more information, see:
 
-[Accelerate alert workflows](how-to-accelerate-alert-incident-response.md)
+- [Manage the alert event](how-to-manage-the-alert-event.md)
+
+- [Accelerate alert workflows](how-to-accelerate-alert-incident-response.md)

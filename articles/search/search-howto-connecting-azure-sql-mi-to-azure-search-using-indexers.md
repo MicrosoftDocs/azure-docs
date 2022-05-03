@@ -8,14 +8,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/26/2021
+ms.date: 03/10/2022
 ---
 
 # Indexer connections to Azure SQL Managed Instance through a public endpoint
 
-If you are setting up an [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) that connects to an Azure SQL managed instance, you'll need to enable a public endpoint on the managed instance as a prerequisite. By default, an indexer connects to a managed instance over a public endpoint. You can also use a [private endpoint](search-indexer-howto-access-private.md).
+If you are setting up an [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) that connects to an Azure SQL managed instance, you'll need to enable a public endpoint on the managed instance as a prerequisite. By default, an indexer connects to a managed instance over a public endpoint. 
 
-This article provides basic steps that include collecting information necessary for data source configuration. For more information and methodologies, see [Configure public endpoint in Azure SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md).
+This article provides basic steps that include collecting information necessary for data source configuration. For more information and methodologies, see [Configure public endpoint in Azure SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure).
 
 ## Enable a public endpoint
 

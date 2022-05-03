@@ -14,7 +14,7 @@ Each parent resource accepts only certain resource types as child resources. The
 In an Azure Resource Manager template (ARM template), you can specify the child resource either within the parent resource or outside of the parent resource. The values you provide for the resource name and resource type vary based on whether the child resource is defined inside or outside of the parent resource.
 
 > [!TIP]
-> For an improved authoring experience, you can use Bicep rather than JSON to develop templates. For more information about Bicep syntax, see [child resources](../bicep/child-resource-name-type.md).
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [child resources](../bicep/child-resource-name-type.md).
 
 ## Within parent resource
 

@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create an Azure Purview account using Python'
-description: Create an Azure Purview account using Python.
+title: 'Quickstart: Create a Microsoft Purview account using Python'
+description: Create a Microsoft Purview account using Python.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
@@ -10,13 +10,13 @@ ms.date: 09/27/2021
 ms.custom: mode-api
 ---
 
-# Quickstart: Create an Azure Purview account using Python
+# Quickstart: Create a Microsoft Purview account using Python
 
-In this quickstart, you’ll create an Azure Purview account programatically using Python. [Python reference for Azure Purview](/python/api/azure-mgmt-purview/) is available, but this article will take you through all the steps needed to create an account with Python.
+In this quickstart, you’ll create a Microsoft Purview account programatically using Python. [Python reference for Microsoft Purview](/python/api/azure-mgmt-purview/) is available, but this article will take you through all the steps needed to create an account with Python.
 
-Azure Purview is a data governance service that helps you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, Azure Purview creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end-to-end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
+Microsoft Purview is a data governance service that helps you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, Microsoft Purview creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end-to-end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
 
-For more information about Azure Purview, [see our overview page](overview.md). For more information about deploying Azure Purview across your organization, [see our deployment best practices](deployment-best-practices.md).
+For more information about Microsoft Purview, [see our overview page](overview.md). For more information about deploying Microsoft Purview across your organization, [see our deployment best practices](deployment-best-practices.md).
 
 [!INCLUDE [purview-quickstart-prerequisites](includes/purview-quickstart-prerequisites.md)]
 
@@ -29,13 +29,13 @@ For more information about Azure Purview, [see our overview page](overview.md). 
     pip install azure-mgmt-resource
     ```
 
-3. To install the Python package for Azure Purview, run the following command:
+3. To install the Python package for Microsoft Purview, run the following command:
 
     ```python
     pip install azure-mgmt-purview
     ```
 
-    The [Python SDK for Azure Purview](https://github.com/Azure/azure-sdk-for-python) supports Python 2.7, 3.3, 3.4, 3.5, 3.6 and 3.7.
+    The [Python SDK for Microsoft Purview](https://github.com/Azure/azure-sdk-for-python) supports Python 2.7, 3.3, 3.4, 3.5, 3.6 and 3.7.
 
 4. To install the Python package for Azure Identity authentication, run the following command:
 
@@ -73,7 +73,7 @@ For more information about Azure Purview, [see our overview page](overview.md). 
     # The purview name. It must be globally unique.
     purview_name = '<purview account name>'
 
-    # Location name, where Azure Purview account must be created.
+    # Location name, where Microsoft Purview account must be created.
     location = '<location name>'    
 
     # Specify your Active Directory client ID, client secret, and tenant ID
@@ -98,7 +98,7 @@ For more information about Azure Purview, [see our overview page](overview.md). 
        
     try:
 	    pa = (purview_client.accounts.begin_create_or_update(rg_name, purview_name, purview_resource)).result()
-	    print("location:", pa.location, " Azure Purview Account Name: ", pa.name, " Id: " , pa.id ," tags: " , pa.tags)  
+	    print("location:", pa.location, " Microsoft Purview Account Name: ", pa.name, " Id: " , pa.id ," tags: " , pa.tags)  
     except:
 	    print("Error")
 	    print_item(pa)
@@ -107,7 +107,7 @@ For more information about Azure Purview, [see our overview page](overview.md). 
         pa = (purview_client.accounts.get(rg_name, purview_name))  
         print(getattr(pa,'provisioning_state'))
         if getattr(pa,'provisioning_state') != "Failed" :
-            print("Error in creating Azure Purview account")
+            print("Error in creating Microsoft Purview account")
             break
         time.sleep(30)      
       ```
@@ -157,7 +157,7 @@ Here’s the full Python code:
        
     try:
 	    pa = (purview_client.accounts.begin_create_or_update(rg_name, purview_name, purview_resource)).result()
-	    print("location:", pa.location, " Azure Purview Account Name: ", purview_name, " Id: " , pa.id ," tags: " , pa.tags) 
+	    print("location:", pa.location, " Microsoft Purview Account Name: ", purview_name, " Id: " , pa.id ," tags: " , pa.tags) 
     except:
 	    print("Error in submitting job to create account")
 	    print_item(pa)
@@ -166,7 +166,7 @@ Here’s the full Python code:
         pa = (purview_client.accounts.get(rg_name, purview_name))  
         print(getattr(pa,'provisioning_state'))
         if getattr(pa,'provisioning_state') != "Failed" :
-            print("Error in creating Azure Purview account")
+            print("Error in creating Microsoft Purview account")
             break
         time.sleep(30)    
 
@@ -176,11 +176,11 @@ main()
 
 ## Run the code
 
-Build and start the application. The console prints the progress of Azure Purview account creation. Wait until it’s completed.
+Build and start the application. The console prints the progress of Microsoft Purview account creation. Wait until it’s completed.
 Here’s the sample output:
 
 ```console
-location: southcentralus  Azure Purview Account Name:  purviewpython7  Id:  /subscriptions/8c2c7b23-848d-40fe-b817-690d79ad9dfd/resourceGroups/Demo_Catalog/providers/Microsoft.Purview/accounts/purviewpython7  tags:  None
+location: southcentralus  Microsoft Purview Account Name:  purviewpython7  Id:  /subscriptions/8c2c7b23-848d-40fe-b817-690d79ad9dfd/resourceGroups/Demo_Catalog/providers/Microsoft.Purview/accounts/purviewpython7  tags:  None
 Creating
 Creating
 Succeeded
@@ -188,9 +188,9 @@ Succeeded
 
 ## Verify the output
 
-Go to the **Azure Purview accounts** page in the Azure portal and verify the account created using the above code.
+Go to the **Microsoft Purview accounts** page in the Azure portal and verify the account created using the above code.
 
-## Delete Azure Purview account
+## Delete Microsoft Purview account
 
 To delete purview account, add the following code to the program, then run:
 
@@ -200,10 +200,10 @@ pa = purview_client.accounts.begin_delete(rg_name, purview_name).result()
 
 ## Next steps
 
-The code in this tutorial creates a purview account and  deletes a purview account. You can now download the python SDK and learn about other resource provider actions you can perform for an Azure Purview account.
+The code in this tutorial creates a purview account and  deletes a purview account. You can now download the Python SDK and learn about other resource provider actions you can perform for a Microsoft Purview account.
 
-Follow these next articles to learn how to navigate the Azure Purview Studio, create a collection, and grant access to Azure Purview.
+Follow these next articles to learn how to navigate the Microsoft Purview governance portal, create a collection, and grant access to Microsoft Purview.
 
-* [How to use the Azure Purview Studio](use-azure-purview-studio.md)
+* [How to use the Microsoft Purview governance portal](use-azure-purview-studio.md)
 * [Create a collection](quickstart-create-collection.md)
-* [Add users to your Azure Purview account](catalog-permissions.md)
+* [Add users to your Microsoft Purview account](catalog-permissions.md)

@@ -40,7 +40,7 @@ Azure Spring Cloud intelligently schedules your applications on the underlying K
 
 ### In which regions is Azure Spring Cloud available?
 
-East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West Europe, North Europe, UK South, Southeast Asia, Australia East, Canada Central, UAE North, Central India, Korea Central, East Asia, Japan East, South Africa North, Brazil South, France Central, China East 2(Mooncake), and China North 2(Mooncake). [Learn More](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
+East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West US 3, West Europe, North Europe, UK South, Southeast Asia, Australia East, Canada Central, UAE North, Central India, Korea Central, East Asia, Japan East, South Africa North, Brazil South, France Central, China East 2(Mooncake), and China North 2(Mooncake). [Learn More](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
 
 ### Is any customer data stored outside of the specified region?
 
@@ -75,10 +75,6 @@ If you encounter any issues with Azure Spring Cloud, create an [Azure Support Re
 For the quickest way to get started with Azure Spring Cloud, follow the instructions in [Quickstart: Launch an application in Azure Spring Cloud by using the Azure portal](./quickstart.md).
 
 ::: zone pivot="programming-language-java"
-### What Java runtime does Azure Spring Cloud support?
-
-Azure Spring Cloud supports Java 8 and 11. See [Java runtime and OS versions](#java-runtime-and-os-versions)
-
 ### Is Spring Boot 2.4.x supported?
 We've identified an issue with Spring Boot 2.4 and are currently working with the Spring community to resolve it. In the meantime, please include these two dependencies to enable TLS authentication between your apps and Eureka.
 
@@ -150,7 +146,7 @@ You can delete Spring Cloud's diagnostic settings by using Azure CLI:
 
 ### Which versions of Java runtime are supported in Azure Spring Cloud?
 
-Azure Spring Cloud supports Java LTS versions with the most recent builds, currently June 2020, Java 8 and Java 11 are supported. See [Install the JDK for Azure and Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
+Azure Spring Cloud supports Java LTS versions with the most recent builds, currently Java 8, Java 11, and Java17 are supported. For more information, see [Install the JDK for Azure and Azure Stack](/azure/developer/java/fundamentals/java-jdk-install).
 
 ### Who built these Java runtimes?
 

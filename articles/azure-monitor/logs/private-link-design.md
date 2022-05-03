@@ -90,7 +90,7 @@ The AMPLS object has the following limits:
 
 In the below diagram:
 * Each VNet connects to only **one** AMPLS object.
-* AMPLS A connects to two workspaces and one Application Insight component, using 2 of the possible 300 Log Analytics workspaces and 1 of the possible 1 Application Insights components it can connect to.
+* AMPLS A connects to two workspaces and one Application Insight component, using 2 of the possible 300 Log Analytics workspaces and 1 of the possible 1000 Application Insights components it can connect to.
 * Workspace2 connects to AMPLS A and AMPLS B, using two of the five possible AMPLS connections.
 * AMPLS B is connected to Private Endpoints of two VNets (VNet2 and VNet3), using two of the 10 possible Private Endpoint connections.
 

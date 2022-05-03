@@ -128,7 +128,7 @@ The Wingtip application uses [*Azure Traffic Manager*](../../traffic-manager/tr
     | .*&lt;user&gt;* | *af1* in the example. |
     | .trafficmanager.net/ | Traffic Manager, base URL. |
     | fabrikamjazzclub | Identifies the tenant named Fabrikam Jazz Club. |
-    | &nbsp; | &nbsp; |
+
 
 - The tenant name is parsed from the URL by the events app.
 - The tenant name is used to create a key.

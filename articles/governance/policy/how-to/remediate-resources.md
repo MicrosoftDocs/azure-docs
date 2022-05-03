@@ -17,8 +17,8 @@ understand and accomplish remediation with Azure Policy.
 
 When Azure Policy starts a template deployment when evaluating **deployIfNotExists** policies or modifies a resource  when evaluating **modify** policies, it does so using
 a [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md) that is associated with the policy assignment.
-Policy assignments can either use a system assigned managed identity that is created by the policy service or a user assigned identity provided by the user.  The managed identity needs to be granted the appropriate roles required for remediating resources
-to grant the managed identity. If the managed identity is missing roles, an error is displayed
+Policy assignments can either use a system assigned managed identity that is created by the policy service or a user assigned identity provided by the user. The managed identity needs to be assigned the minimum role(s) required to remediate resources.
+If the managed identity is missing roles, an error is displayed
 during the assignment of the policy or an initiative. When using the portal, Azure Policy
 automatically grants the managed identity the listed roles once assignment starts. When using SDK,
 the roles must manually be granted to the managed identity. The _location_ of the managed identity
@@ -35,6 +35,8 @@ doesn't impact its operation with Azure Policy.
 > - If a resource modified by **deployIfNotExists** or **modify** is outside the scope of the policy
 >   assignment
 > - If the template accesses properties on resources outside the scope of the policy assignment
+>
+> Also, changing a a policy definition does not update the assignment or the associated managed identity.
 
 ## Configure policy definition
 

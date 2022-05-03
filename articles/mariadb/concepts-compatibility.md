@@ -17,10 +17,6 @@ Azure Database for MariaDB uses the community edition of MariaDB server. Therefo
 
 The goal is to support the three most recent versions MariaDB drivers, and efforts with authors from the open source community to constantly improve the functionality and usability of MariaDB drivers continue. A list of drivers that have been tested and found to be compatible with Azure Database for MariaDB 10.2 is provided in the following table:
 
-> [!WARNING]
-> The MySQL 8.0.27 client is incompatible with Azure Database for MariaDB - Single Server. All connections from the MySQL 8.0.27 client created either via mysql.exe or workbench will fail. As a workaround, consider using an earlier version of the client (prior to MySQL 8.0.27).
-
-
 **Driver** | **Links** | **Compatible Versions** | **Incompatible Versions** | **Notes**
 ---|---|---|---|---
 PHP | https://secure.php.net/downloads.php | 5.5, 5.6, 7.x | 5.3 | For PHP 7.0 connection with SSL MySQLi, add MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT in the connection string. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> PDO set: ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` option to false.

@@ -69,7 +69,7 @@ On the **Connect to Azure AD** page, enter a global admin account and password. 
 You might want to use an account in the default *onmicrosoft.com* domain, which comes with your Azure AD tenant. This account is used only to create a service account in Azure AD. It's not used after the installation finishes.
  
 >[!NOTE]
->A best practice is to avoid using on-premises synced accounts for Azure AD role assignments. If the on premises account is compromised, this can be used to compromise your Azure AD resources as well.  For a complete list of best practices refer to [Best practices for Azure AD roles](https://docs.microsoft.com/azure/active-directory/roles/best-practices)
+>A best practice is to avoid using on-premises synced accounts for Azure AD role assignments. If the on premises account is compromised, this can be used to compromise your Azure AD resources as well.  For a complete list of best practices refer to [Best practices for Azure AD roles](../roles/best-practices.md)
  
 ![Screenshot showing the "Connect to Azure AD" page.](./media/how-to-connect-install-custom/connectaad.png)
 
@@ -208,7 +208,7 @@ On the next page, you can select optional features for your scenario.
 | Optional features | Description |
 | --- | --- |
 | Exchange hybrid deployment |The Exchange hybrid deployment feature allows for the coexistence of Exchange mailboxes both on-premises and in Microsoft 365. Azure AD Connect synchronizes a specific set of [attributes](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) from Azure AD back into your on-premises directory. |
-| Exchange mail public folders | The Exchange mail public folders feature allows you to synchronize mail-enabled public-folder objects from your on-premises instance of Active Directory to Azure AD. |
+| Exchange mail public folders | The Exchange mail public folders feature allows you to synchronize mail-enabled public-folder objects from your on-premises instance of Active Directory to Azure AD. Note that it is not supported to sync groups that contain public folders as members, and attempting to do so will result in a synchronization error. |
 | Azure AD app and attribute filtering |By enabling Azure AD app and attribute filtering, you can tailor the set of synchronized attributes. This option adds two more configuration pages to the wizard. For more information, see [Azure AD app and attribute filtering](#azure-ad-app-and-attribute-filtering). |
 | Password hash synchronization |If you selected federation as the sign-in solution, you can enable password hash synchronization. Then you can use it as a backup option.  </br></br>If you selected pass-through authentication, you can enable this option to ensure support for legacy clients and to provide a backup.</br></br> For more information, see [Password hash synchronization](how-to-connect-password-hash-synchronization.md).|
 | Password writeback |Use this option to ensure that password changes that originate in Azure AD are written back to your on-premises directory. For more information, see [Getting started with password management](../authentication/tutorial-enable-sspr.md). |

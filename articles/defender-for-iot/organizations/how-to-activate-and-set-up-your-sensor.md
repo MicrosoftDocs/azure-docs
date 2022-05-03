@@ -41,12 +41,12 @@ Your sensor was onboarded to Microsoft Defender for IoT in a specific management
 
 | Mode type | Description |
 |--|--|
-| **Cloud connected mode** | Information that the sensor detects is displayed in the sensor console. Alert information is also delivered through the IoT hub and can be shared with other Azure services, such as Microsoft Sentinel. You can also enable automatic threat intelligence updates. |
+| **Cloud connected mode** | Information that the sensor detects is displayed in the sensor console. Alert information is also delivered to Azure and can be shared with other Azure services, such as Microsoft Sentinel. You can also enable automatic threat intelligence updates. |
 | **Locally connected mode** | Information that the sensor detects is displayed in the sensor console. Detection information is also shared with the on-premises management console, if the sensor is connected to it. |
 
 A locally connected, or cloud-connected activation file was generated and downloaded for this sensor during onboarding. The activation file contains instructions for the management mode of the sensor. *A unique activation file should be uploaded to each sensor you deploy.*  The first time you sign in, you need to upload the relevant activation file for this sensor.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-activation-file-download-button.png" alt-text="Defender for IoT in the Azure portal, onboard sensor.":::
+:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/defender-for-iot-activation-file-download-button.png" alt-text="Screenshot of the download activation file for Defender for IoT sensors in the Azure portal.":::
 
 ### About certificates
 
@@ -76,7 +76,7 @@ For more information about working with certificates, see [Manage certificates](
 
 1. Go to the sensor console from your browser by using the IP defined during the installation. The sign-in dialog box opens.
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-1.png" alt-text="Sensor log in screen":::
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-1.png" alt-text="Screenshot of a Defender for IoT sensor sign-in page.":::
 
 
 1. Enter the credentials defined during the sensor installation, or select the **Password recovery** option. If you purchased a preconfigured sensor from Arrow, generate a password first. For more information on password recovery, see [Investigate password failure at initial sign-in](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#investigate-password-failure-at-initial-sign-in).
@@ -84,7 +84,7 @@ For more information about working with certificates, see [Manage certificates](
 
 1. Select **Login/Next**.  The **Sensor Network Settings** tab opens.
 
-      :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-wizard-activate.png" alt-text="log in to sensor":::   
+      :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-wizard-activate.png" alt-text="Screenshot of the sensor network settings options when signing into the sensor.":::   
 
 1. Use this tab if you want to change the sensor network configuration before activation. The configuration parameters were defined during the software installation, or when you purchased a preconfigured sensor. The following parameters were defined:
 
@@ -98,11 +98,11 @@ For more information about working with certificates, see [Manage certificates](
     
     If you want to work with a proxy, enable the proxy toggle and add the proxy host, port and username.
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-wizard-activate-proxy.png" alt-text="Initial Log in to sensor using a proxy":::
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-wizard-activate-proxy.png" alt-text="Screenshot of the proxy options for signing in to a sensor.":::
 
 1. Select **Next.** The Activation tab opens.
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/wizard-upload-activation-file.png" alt-text="First time log in activation file":::
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/wizard-upload-activation-file.png" alt-text="Screenshot of a first time activation file upload option.":::
 
 1. Select **Upload** and go to the activation file that you downloaded during the sensor onboarding.
 
@@ -112,12 +112,12 @@ For more information about working with certificates, see [Manage certificates](
 
     It is **not recommended** to use a locally generated certificate in a production environment.
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/wizard-upload-activation-certificates-1.png" alt-text="Initial sensor login certificates":::
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/wizard-upload-activation-certificates-1.png" alt-text="Screenshot of the SSL/TLS Certificates page when signing in to a sensor.":::
 
 1. Enable the **Import trusted CA certificate (recommended)** toggle.
 1. Define a certificate name.
 1. Upload the Key, CRT, and PEM files.
-1. Enter a passphrase and upload a PEM file if required.
+1. Enter a passphrase and upload a PEM file if necessary.
 1. It's recommended to select **Enable certificate validation** to validate the connections between management console and connected sensors.
 
 1. Select **Finish**.  
@@ -131,7 +131,7 @@ For information about uploading a new certificate, supported certificate paramet
 
 For users with versions prior to 10.0, your license may expire, and the following alert will be displayed.
 
-  :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/activation-popup.png" alt-text="When your license expires you’ll need to update your license through the activation file.":::
+  :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/activation-popup.png" alt-text="Screenshot of a license expiration popup message.":::
 
 **To activate your license:**
 
@@ -145,7 +145,7 @@ For users with versions prior to 10.0, your license may expire, and the followin
 
 1. Paste the string into space provided.
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/add-license.png" alt-text="Paste the string into the provided field.":::
+    :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/add-license.png" alt-text="Screenshot of the license activation box and button.":::
 
 1. Select **Activate**.
 
@@ -153,15 +153,15 @@ For users with versions prior to 10.0, your license may expire, and the followin
 
 After first-time activation, the Microsoft Defender for IoT sensor console opens after sign-in without requiring an activation file or certificate definition. You only need your sign-in credentials.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-1.png" alt-text="Sensor login after initial activation":::
+:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-1.png" alt-text="Screenshot of the sensor sign-in page after the initial activation.":::
 
-After your sign in, the Microsoft Defender for IoT sensor console opens.
+After your sign-in, the Microsoft Defender for IoT sensor console opens.
 
-  :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/initial-dashboard.png" alt-text="Screenshot that shows the Defender for IoT initial dashboard." lightbox="media/how-to-activate-and-set-up-your-sensor/initial-dashboard.png":::
+  :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/initial-dashboard.png" alt-text="Screenshot of the initial sensor console dashboard Overview page." lightbox="media/how-to-activate-and-set-up-your-sensor/initial-dashboard.png":::
 
 ## Initial setup and learning (for administrators)
 
-After your first sign in, the Microsoft Defender for IoT sensor starts to monitor your network automatically. Network devices will appear in the device map and device inventory sections. Microsoft Defender for IoT will begin to detect and alert you on all security and operational incidents that occur in your network. You can then create reports and queries based on the detected information.
+After your first sign-in, the Microsoft Defender for IoT sensor starts to monitor your network automatically. Network devices will appear in the device map and device inventory sections. Microsoft Defender for IoT will begin to detect and alert you on all security and operational incidents that occur in your network. You can then create reports and queries based on the detected information.
 
 Initially this activity is carried out in the Learning mode, which instructs your sensor to learn your network's usual activity. For example, the sensor learns devices discovered in your network, protocols detected in the network, and file transfers that occur between specific devices. This activity becomes your network's baseline activity.
 
@@ -198,7 +198,7 @@ Before you sign in, verify that you have:
 - The sensor IP address.
 - Sign in credentials that your administrator provided.
  
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-1.png" alt-text="Sensor login after initial setup":::
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-1.png" alt-text="Screenshot of the sensor sign-in page after the initial setup.":::
 
 
 ## Console tools: Overview
@@ -209,16 +209,16 @@ You can access console tools from the side menu.  Tools help you:
 - Set up your sensor for maximum performance
 - Create and manage users 
 
-   :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/main-page-side-bar.png" alt-text="The main menu of the sensor console on the left side of the screen":::
+   :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/main-page-side-bar.png" alt-text="Screenshot of the sensor console's main menu on the left.":::
 
 ### Discover
 
 | Tools| Description |
 | -----------|--|
-| Overview | View a dashboard with high-level information about your sensor deployment, alerts, traffic, and more. <!--- For more information, see TBD --->|
+| Overview | View a dashboard with high-level information about your sensor deployment, alerts, traffic, and more. |
 | Device map | View the network devices, device connections, Purdue levels, and device properties in a map. Various zoom, highlight, and filter options are available to help you gain the insight you need. For more information, see [Investigate sensor detections in the Device Map](how-to-work-with-the-sensor-device-map.md#investigate-sensor-detections-in-the-device-map). |
 | Device inventory | The Device inventory displays a list of device attributes that this sensor detects. Options are available to: <br /> - Sort, or filter the information according to the table fields, and see the filtered information displayed. <br /> - Export information to a CSV file. <br /> - Import Windows registry details. For more information, see [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md#investigate-sensor-detections-in-an-inventory).|
-| Alerts | Alerts are triggered when sensor engines detect changes or suspicious activity in network traffic that require your attention.  For more information, see [View alerts on your sensor](how-to-view-alerts.md#view-alerts-on-your-sensor).|
+| Alerts | Alerts are triggered when sensor engines detect changes or suspicious activity in network traffic that requires your attention.  For more information, see [View alerts on your sensor](how-to-view-alerts.md#view-alerts-on-your-sensor).|
 
 ### Analyze
 
@@ -248,24 +248,27 @@ You can access console tools from the side menu.  Tools help you:
 
 ## Review system messages
 
- System messages provide general information about your sensor that may require your attention, for example if:
-  - your sensor activation file is expired or will expire soon
-  - your sensor isn't detecting traffic
+System messages provide general information about your sensor that may require your attention, for example if:
+
+- your sensor activation file is expired or will expire soon
+- your sensor isn't detecting traffic
 - your sensor SSL certificate is expired or will expire soon
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/system-messages.png" alt-text="System messages screen on main sensor console page, viewed by selecting the bell icon":::
+:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/system-messages.png" alt-text="Screenshot of the System messages area on the sensor console page, displayed after selecting the bell icon.":::
  
 **To review system messages:**
 1. Sign into the sensor
 1. Select the **System Messages** icon (Bell icon).
 
 
-## See also
+## Next steps
 
-[Threat intelligence research and packages ](how-to-work-with-threat-intelligence-packages.md)
+For more information, see:
 
-[Onboard a sensor](getting-started.md#onboard-a-sensor)
+- [Threat intelligence research and packages ](how-to-work-with-threat-intelligence-packages.md)
 
-[Manage sensor activation files](how-to-manage-individual-sensors.md#manage-sensor-activation-files)
+- [Onboard a sensor](tutorial-onboarding.md#onboard-and-activate-the-virtual-sensor)
 
-[Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
+- [Manage sensor activation files](how-to-manage-individual-sensors.md#manage-sensor-activation-files)
+
+- [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)

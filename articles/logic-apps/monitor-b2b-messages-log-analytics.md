@@ -10,6 +10,10 @@ ms.date: 01/30/2020
 
 # Set up Azure Monitor logs and collect diagnostics data for B2B messages in Azure Logic Apps
 
+> [!NOTE]
+> This article applies only to Consumption logic apps. For information about monitoring Standard logic apps, review 
+> [Enable or open Application Insights after deployment for Standard logic apps](create-single-tenant-workflows-azure-portal.md#enable-open-application-insights).
+
 After you set up B2B communication between trading partners in your integration account, those partners can exchange messages by using protocols such as AS2, X12, and EDIFACT. To check that this communication works the way you expect, you can set up [Azure Monitor logs](../azure-monitor/logs/data-platform-logs.md) for your integration account. [Azure Monitor](../azure-monitor/overview.md) helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. By using Azure Monitor logs, you can record and store data about runtime data and events, such as trigger events, run events, and action events in a [Log Analytics workspace](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). For messages, logging also collects information such as:
 
 * Message count and status

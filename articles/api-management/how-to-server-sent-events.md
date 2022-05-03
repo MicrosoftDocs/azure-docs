@@ -46,5 +46,5 @@ Follow these guidelines when using API Management to reach a backend API that im
 
 ## Next steps
 
-* Learn more about [configuring policies](/api-management-howto-policies.md) in API Management.
+* Learn more about [configuring policies](./api-management-howto-policies.md) in API Management.
 * Learn about API Management [capacity](api-management-capacity.md).

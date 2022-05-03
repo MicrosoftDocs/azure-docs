@@ -21,7 +21,7 @@ ms.author: eur
 The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK in the next section of this article, but first check the [platform-specific installation instructions](../../../quickstarts/setup-platform.md?pivots=programming-language-csharp) for any more requirements.
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
 ## Recognize speech from a microphone
 
@@ -36,14 +36,14 @@ Follow these steps to create a new console application and install the Speech SD
     dotnet add package Microsoft.CognitiveServices.Speech
     ```
 1. Replace the contents of `Program.cs` with the following code. 
-    
+
     ```csharp
     using System;
     using System.IO;
     using System.Threading.Tasks;
     using Microsoft.CognitiveServices.Speech;
     using Microsoft.CognitiveServices.Speech.Audio;
-    
+
     class Program 
     {
         static string YourSubscriptionKey = "YourSubscriptionKey";
@@ -62,27 +62,27 @@ Follow these steps to create a new console application and install the Speech SD
                 case ResultReason.Canceled:
                     var cancellation = CancellationDetails.FromResult(speechRecognitionResult);
                     Console.WriteLine($"CANCELED: Reason={cancellation.Reason}");
-            
+
                     if (cancellation.Reason == CancellationReason.Error)
                     {
                         Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
                         Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
-                        Console.WriteLine($"CANCELED: Double check the speech resource key and region.");
+                        Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
                     }
                     break;
             }
         }
-    
+
         async static Task Main(string[] args)
         {
             var speechConfig = SpeechConfig.FromSubscription(YourSubscriptionKey, YourServiceRegion);        
             speechConfig.SpeechRecognitionLanguage = "en-US";
-            
+
             //To recognize speech from an audio file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
             //using var audioConfig = AudioConfig.FromWavFileInput("YourAudioFile.wav");
             using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
             using var speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
-    
+
             Console.WriteLine("Speak into your microphone.");
             var speechRecognitionResult = await speechRecognizer.RecognizeOnceAsync();
             OutputSpeechRecognitionResult(speechRecognitionResult);
@@ -109,7 +109,7 @@ RECOGNIZED: Text=I'm excited to try speech to text.
 This example uses the `RecognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Recognize-speech-from-a-microphone" target="_target">I ran into an issue</a>
 
 ## Clean up resources
 

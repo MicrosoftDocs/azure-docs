@@ -28,7 +28,7 @@ Alerts are managed from the Alerts page on the sensor.
 1. Select **Alerts** from the sensor console, side pane.
 1. Review the alerts details and decide how to manage the alert.
 
-    :::image type="content" source="media/how-to-manage-the-alert-event/main-alerts-screen.png" alt-text="Main sensor alerts screen":::
+    :::image type="content" source="media/how-to-manage-the-alert-event/main-alerts-screen.png" alt-text="Screenshot of the main sensor alerts screen.":::
 
 See [View alerts on your sensor](how-to-view-alerts.md#view-alerts-on-your-sensor) for information on:
 - the kind of alert information available  
@@ -46,12 +46,12 @@ Remediation steps help SOC teams better understand Operational Technology (OT) i
 1. In the side pane, select **Take action.**
 1. Review remediation steps.
 
-    :::image type="content" source="media/how-to-manage-the-alert-event/remediation-steps.png" alt-text="Sample remediation steps for alert action":::
+    :::image type="content" source="media/how-to-manage-the-alert-event/remediation-steps.png" alt-text="Screenshot of a sample set of remediation steps for alert action.":::
 
 
 Your administrator may have added instructions or comments to help you complete remediation or alert handling. If created, comments appear in the Alert Details section.
 
-:::image type="content" source="media/how-to-view-alerts/alert-comments.png" alt-text="Alert comments added to alert details section of Alert dialog box":::
+:::image type="content" source="media/how-to-view-alerts/alert-comments.png" alt-text="Screenshot of alert comments added to alert details section of Alert dialog box.":::
 
 After taking remediation steps, you may want to change the alert status to Close the alert.
 
@@ -82,7 +82,7 @@ When you want to approve these changes, you can instruct Defender for IoT to *le
 
 1. Enable the **Alert Learn** toggle.
 
-    :::image type="content" source="media/how-to-manage-the-alert-event/learn-remediation.png" alt-text="Learn option for Policy alert":::
+    :::image type="content" source="media/how-to-manage-the-alert-event/learn-remediation.png" alt-text="Screenshot of the Learn option for Policy alerts.":::
 
 After learning the traffic, configurations, or activity are considered valid. An alert will no longer be triggered for this activity.
 
@@ -100,7 +100,7 @@ Learned traffic can be unlearned. When the sensor unlearns traffic, alerts are r
 
 **To unlearn an alert**
 
-1. Navigate alert you learned.
+1. Navigate to the alert you learned.
  
 1. Disable the **Alert learn** toggle.
 
@@ -118,7 +118,7 @@ Under certain circumstances, you might want to instruct your sensor to ignore a 
 
 In these situations, learning isn't available. You can mute the alert event when learning can't be carried out and you want to suppress the alert and remove the device when calculating risks and attack vectors.
 
-:::image type="content" source="media/how-to-manage-the-alert-event/mute-alert.png" alt-text="Alert with Mute action":::
+:::image type="content" source="media/how-to-manage-the-alert-event/mute-alert.png" alt-text="Screenshot of an alert with the Mute action.":::
 
 A muted scenario includes the network devices and traffic detected for an event. The alert title describes the traffic that is being muted.
 
@@ -155,7 +155,7 @@ If the traffic is detected again, the alert will be retriggered.
 1. Select an alert. The Alert Details section opens.
 1. Select the dropdown arrow in the Status field and select **Closed**.
 
-    :::image type="content" source="media/how-to-manage-the-alert-event/close-alert.png" alt-text="Option to close an alert from the Alerts page":::
+    :::image type="content" source="media/how-to-manage-the-alert-event/close-alert.png" alt-text="Screenshot of the option to close an alert from the Alerts page.":::
 
 **To close multiple alerts:**
 
@@ -163,13 +163,13 @@ If the traffic is detected again, the alert will be retriggered.
 1. Select **Change Status** from the action items on the top of the page.
 1. Select **Closed** and **Apply.**
 
-    :::image type="content" source="media/how-to-manage-the-alert-event/multiple-close.png" alt-text="Selecting multiple alerts to close from the Alerts page":::
+    :::image type="content" source="media/how-to-manage-the-alert-event/multiple-close.png" alt-text="Screenshot of selecting multiple alerts to close from the Alerts page.":::
 
 Change the alert status to **New** if further investigation is required.
 
 To view closed alerts on the Alerts page, verify that the **Status** filter is defined to show **Closed** alerts.
 
-:::image type="content" source="media/how-to-manage-the-alert-event/show-closed-status.png" alt-text="Alerts page status filter choosing closed alerts":::
+:::image type="content" source="media/how-to-manage-the-alert-event/show-closed-status.png" alt-text="Screenshot of the Alerts page status filter with closed alerts selected.":::
 
 ## Export alert information
 
@@ -201,7 +201,7 @@ Viewing and managing alerts in the portal provides significant advantages. For e
 - Integrate alert details with Microsoft Sentinel
 - Change the severity of an alert
 
-    :::image type="content" source="media/how-to-view-alerts/alert-cloud-mitre.png" alt-text="Sample of alert as shown in cloud":::
+    :::image type="content" source="media/how-to-view-alerts/alert-cloud-mitre.png" alt-text="Screenshot of a sample alert shown in the Azure portal.":::
 
 Users working with alerts on the Defender for IoT portal on Azure should understand how alert management between the portal and the sensor operates.
 
@@ -212,7 +212,9 @@ Users working with alerts on the Defender for IoT portal on Azure should underst
 | **Managing alerts on your sensor**  | If you change the status of an alert, or learn or mute an alert on a sensor, the changes are not updated in the Defender for IoT Alerts page on the portal. This means that this alert will stay open on the portal. However another alert  won't be triggered from sensor for this activity.
 | **Managing alerts in the portal Alerts page** | Changing the status of an alert on the Azure portal, Alerts page or changing the alert severity on the portal, does not impact the alert status or severity in on-premises sensors.
 
-## See also
+## Next steps
+
+For more information, see:
 
 - [Detection engines and alerts](concept-key-concepts.md#detection-engines-and-alerts)
 

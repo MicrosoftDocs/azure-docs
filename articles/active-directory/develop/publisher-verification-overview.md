@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 06/01/2021
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: jesakowi
+ms.reviewer: ardhanap, jesakowi
 ---
 
 # Publisher verification
@@ -48,6 +48,8 @@ There are a few pre-requisites for publisher verification, some of which will ha
 
 -  An MPN ID for a valid [Microsoft Partner Network](https://partner.microsoft.com/membership) account that has completed the [verification](/partner-center/verification-responses) process. This MPN account must be the [Partner global account (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) for your organization. 
 
+-  The Azure AD tenant where the app is registered must be associated with the Partner Global account. If it's not the primary tenant associated with the PGA, follow the steps to [set up the MPN partner global account as a multi-tenant account and associate the Azure AD tenant](/partner-center/multi-tenant-account#add-an-azure-ad-tenant-to-your-account). 
+
 -  An app registered in an Azure AD tenant, with a [Publisher Domain](howto-configure-publisher-domain.md) configured.
 
 -  The domain of the email address used during MPN account verification must either match the publisher domain configured on the app or a DNS-verified [custom domain](../fundamentals/add-custom-domain.md) added to the Azure AD tenant. 
@@ -58,7 +60,7 @@ There are a few pre-requisites for publisher verification, some of which will ha
 
     -  In Partner Center this user must have of the following [roles](/partner-center/permissions-overview): MPN Admin, Accounts Admin, or a Global Admin (this is a shared role mastered in Azure AD).
     
--  The user performing verification must sign in using [multifactor authentication](../authentication/howto-mfa-getstarted.md).
+-  The user performing verification must sign in using [multi-factor authentication](../authentication/howto-mfa-getstarted.md).
 
 -  The publisher agrees to the [Microsoft identity platform for developers Terms of Use](/legal/microsoft-identity-platform/terms-of-use).
 

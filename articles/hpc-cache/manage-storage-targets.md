@@ -124,7 +124,7 @@ To remove a storage target, open the **Storage targets** page. Click the '...' n
 
 [Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
-Use [az hpc-cache storage-target remove](/cli/azure/hpc-cache/storage-target#az_hpc_cache_storage_target_remove) to delete a storage target from the cache.
+Use [az hpc-cache storage-target remove](/cli/azure/hpc-cache/storage-target#az-hpc-cache-storage-target-remove) to delete a storage target from the cache.
 
 ```azurecli
 $ az hpc-cache storage-target remove --resource-group cache-rg --cache-name doc-cache0629 --name blob1

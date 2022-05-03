@@ -55,13 +55,13 @@ The flexibility of Azure allows for a number of programmatic methods for enablin
 
 Use any of the following tools to enable Microsoft Defender for your subscription: 
 
-| Method       | Instructions                                                                                                                                       |
-|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| REST API     | [Pricings API](/rest/api/securitycenter/pricings)                                                                                                  |
-| Azure CLI    | [az security pricing](/cli/azure/security/pricing)                                                                                                 |
-| PowerShell   | [Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)                                                                      |
+| Method       | Instructions      |
+|--------------|----------------------|
+| REST API     | [Pricings API](/rest/api/securitycenter/pricings)   |
+| Azure CLI    | [az security pricing](/cli/azure/security/pricing)  |
+| PowerShell   | [Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)  |
 | Azure Policy | [Bundle Pricings](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/ARM%20Templates/Set-ASC-Bundle-Pricing.json) |
-|              |                                                                                                                                                    |
+
 
 ### Enable Microsoft Defender for Azure SQL Database at the resource level
 

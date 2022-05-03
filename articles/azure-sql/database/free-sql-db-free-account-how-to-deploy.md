@@ -139,7 +139,7 @@ The following table describes the values on the track usage page:
 |**Meter** | Identifies the unit of measure for the service being consumed. For example, the meter for Azure SQL Database is *SQL Database, Single Standard, S0 DTUs*, which tracks the number of S0 databases used per day, and has a monthly limit of 1. | 
 | **Usage/limit** | The usage of the meter for the current month, and the limit for the meter.
 | **Status**| The current status of your usage of the service defined by the meter. The possible values for status are: </br> **Not in use**: You haven't used the meter or the usage for the meter hasn't reached the billing system. </br> **Exceeded on \<Date\>**: You've exceeded the limit for the meter on \<Date\>. </br> **Unlikely to Exceed**: You're unlikely to exceed the limit for the meter. </br>**Exceeds on \<Date\>**: You're likely to exceed the limit for the meter on \<Date\>. | 
-| | | 
+
 
 >[!IMPORTANT]
 > - With an Azure free account, you also get $200 in credit to use in 30 days. During this time, any usage of the service beyond the free monthly amount is deducted from this credit.

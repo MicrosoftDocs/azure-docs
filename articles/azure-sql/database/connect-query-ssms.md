@@ -36,7 +36,7 @@ Completing this quickstart requires the following items:
   |||[Connectivity from on-site](../managed-instance/point-to-site-p2s-configure.md) | [Connect to SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) | [Restore Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) |
   |||Restore or import Adventure Works from [BACPAC](database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Restore or import Adventure Works from [BACPAC](database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
-  |||
+
 
   > [!IMPORTANT]
   > The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
@@ -76,7 +76,6 @@ In SSMS, connect to your server.
    | **Authentication** | SQL Server Authentication | This tutorial uses SQL Authentication. |
    | **Login** | Server admin account user ID | The user ID from the server admin account used to create the server. |
    | **Password** | Server admin account password | The password from the server admin account used to create the server. |
-   ||||
 
    ![connect to server](./media/connect-query-ssms/connect.png)  
 

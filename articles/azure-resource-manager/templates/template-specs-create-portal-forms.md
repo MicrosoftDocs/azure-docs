@@ -305,7 +305,7 @@ New-AzTemplateSpec `
   -UIFormDefinitionFile keyvaultform.json
 ```
 
-For Azure CLI, use [az ts create](/cli/azure/ts#az_ts_create) and provide the form in the `--ui-form-definition` parameter.
+For Azure CLI, use [az ts create](/cli/azure/ts#az-ts-create) and provide the form in the `--ui-form-definition` parameter.
 
 ```azurecli
 az ts create \

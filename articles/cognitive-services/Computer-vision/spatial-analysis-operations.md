@@ -29,12 +29,6 @@ The Spatial Analysis container implements the following operations:
 
 All of the above operations are also available in the `.debug` version of the service (for example, `cognitiveservices.vision.spatialanalysis-personcount.debug`). Debug has the capability to visualize video frames as they're being processed. You'll need to run `xhost +` on the host computer to enable the visualization of video frames and events.
 
-Spatial Analysis can also be run with [Live Video Analytics](../../azure-video-analyzer/video-analyzer-docs/overview.md) as the Video AI module. Append `.livevideoanalytics` to the operation (for example, `cognitiveservices.vision.spatialanalysis-personcount.livevideoanalytics`).
-
-<!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
-
-
-Live Video Analytics operations are also available in the `.debug` version (for example, you can use `cognitiveservices.vision.spatialanalysis-personcount.livevideoanalytics.debug`).
 
 > [!IMPORTANT]
 > The Computer Vision AI models detect and locate human presence in video footage and output a bounding box around the human body. The AI models do not attempt to discover the identities or demographics of individuals.

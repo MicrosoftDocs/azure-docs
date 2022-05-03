@@ -46,111 +46,44 @@ Follow these steps to list Azure AD roles for a user using the Azure portal. You
 
 Follow these steps to list Azure AD roles assigned to a user using PowerShell.
 
-1. Install AzureADPreview and Microsoft.Graph module using [Install-module](/powershell/azure/active-directory/install-adv2).
+1. Install Microsoft.Graph module using [Install-module](/powershell/azure/active-directory/install-adv2).
   
     ```powershell
-    Install-module -name AzureADPreview
     Install-module -name Microsoft.Graph
     ```
-  
-2. Open a PowerShell window and use [Import-Module](/powershell/module/microsoft.powershell.core/import-module) to import the AzureADPreview module. For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
-    ```powershell
-    Import-Module -Name AzureADPreview -Force
-    ```
-
-3. In a PowerShell window, use [Connect-AzureAD](/powershell/module/azuread/connect-azuread) to sign in to your tenant.
-
-    ```powershell
-    Connect-AzureAD
-    ```
-4. Use [Get-AzureADMSRoleAssignment](/powershell/module/azuread/get-azureadmsroleassignment) to get roles assigned directly to a user.
-
-    ```powershell
-    #Get the user
-    $userId = (Get-AzureADUser -Filter "userPrincipalName eq 'alice@contoso.com'").ObjectId
-
-    #Get direct role assignments to the user
-    $directRoles = (Get-AzureADMSRoleAssignment -Filter "principalId eq '$userId'").RoleDefinitionId
-    ```
-
-5. To get transitive roles assigned to the user, use the following cmdlets.
-  
-    a. Use [Get-AzureADMSGroup](/powershell/module/azuread/get-azureadmsgroup) to get the list of all role assignable groups.  
+3. In a PowerShell window, Use [Connect-MgGraph](/powershell/microsoftgraph/get-started) to sign into and use Microsoft Graph PowerShell cmdlets.
   
       ```powershell
-      $roleAssignableGroups = (Get-AzureADMsGroup -All $true | Where-Object IsAssignableToRole -EQ 'True').Id
+      Connect-MgGraph
       ```
 
-    b. Use [Connect-MgGraph](/graph/powershell/get-started) to sign into and use Microsoft Graph PowerShell cmdlets.
-  
-      ```powershell
-      Connect-MgGraph -Scopes "User.Read.All”
-      ```
-  
-    c. Use [checkMemberObjects](/graph/api/user-checkmemberobjects) API to figure out which of the role assignable groups the user is member of. 
-    
-      ```powershell
-      $uri = "https://graph.microsoft.com/v1.0/directoryObjects/$userId/microsoft.graph.checkMemberObjects"
+4. Use the [List transitiveRoleAssignments](/graph/api/rbacapplication-list-transitiveroleassignments) API to get roles assigned directly and transitively to a user.
 
-      $userRoleAssignableGroups = (Invoke-MgGraphRequest -Method POST -Uri $uri -Body @{"ids"= $roleAssignableGroups}).value
-      ```
-  
-    d. Use [Get-AzureADMSRoleAssignment](/powershell/module/azuread/get-azureadmsroleassignment) to loop through the groups and get the roles assigned to them.
-  
       ```powershell
-      $transitiveRoles=@()
-      foreach($item in $userRoleAssignableGroups){
-          $transitiveRoles += (Get-AzureADMSRoleAssignment -Filter "principalId eq '$item'").RoleDefinitionId
-      }
+      $response = $null
+      $uri = "https://graph.microsoft.com/beta/roleManagement/directory/transitiveRoleAssignments?`$count=true&`$filter=principalId eq '6b937a9d-c731-465b-a844-2d5b5368c161'"
+      $method = 'GET'
+      $headers = @{'ConsistencyLevel' = 'eventual'}
+      
+      $response = (Invoke-MgGraphRequest -Uri $uri -Headers $headers -Method $method -Body $null).value
       ```
 
-6. Combine both direct and transitive role assignments of the user.
-  
-    ```powershell
-    $allRoles = $directRoles + $transitiveRoles
-    ```
-  
 ## Microsoft Graph API
 
 Follow these steps to list Azure AD roles assigned to a user using the Microsoft Graph API in [Graph Explorer](https://aka.ms/ge).
 
 1. Sign in to the [Graph Explorer](https://aka.ms/ge).
 
-1. Use the [List unifiedRoleAssignments](/graph/api/rbacapplication-list-roleassignments) API to get roles assigned directly to a user. Add following query to the URL and select **Run query**.
+1. Use the [List transitiveRoleAssignments](/graph/api/rbacapplication-list-transitiveroleassignments) API to get roles assigned directly and transitively to a user. Add following query to the URL.
 
    ```http
-   GET https://graph.microsoft.com/v1.0/rolemanagement/directory/roleAssignments?$filter=principalId eq '55c07278-7109-4a46-ae60-4b644bc83a31'
+   GET https://graph.microsoft.com/beta/rolemanagement/directory/transitiveRoleAssignments?$count=true&$filter=principalId eq '6b937a9d-c731-465b-a844-2d5b5368c161'
    ```
   
-3. To get transitive roles assigned to the user, follow these steps.
+3. Navigate to **Request headers** tab. Add `ConsistencyLevel` as key and `Eventual` as its value. 
 
-    a. Use the [List groups](/graph/api/group-list) API to get the list of all role assignable groups.
-  
-      ```http
-      GET https://graph.microsoft.com/v1.0/groups?$filter=isAssignableToRole eq true 
-      ```
-  
-    b. Pass this list to the [checkMemberObjects](/graph/api/user-checkmemberobjects) API to figure out which of the role assignable groups the user is member of. 
-    
-      ```http
-      POST https://graph.microsoft.com/v1.0/users/55c07278-7109-4a46-ae60-4b644bc83a31/checkMemberObjects
-      {
-          "ids": [
-              "936aec09-47d5-4a77-a708-db2ff1dae6f2",
-              "5425a4a0-8998-45ca-b42c-4e00920a6382",
-              "ca9631ad-2d2a-4a7c-88b7-e542bd8a7e12",
-              "ea3cee12-360e-411d-b0ba-2173181daa76",
-              "c3c263bb-b796-48ee-b4d2-3fbc5be5f944"
-          ]
-      }
-      ```
-  
-    c. Use the [List unifiedRoleAssignments](/graph/api/rbacapplication-list-roleassignments) API to loop through the groups and get the roles assigned to them.
-  
-      ```http
-      GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments?$filter=principalId eq '5425a4a0-8998-45ca-b42c-4e00920a6382' 
-      ```
+5. Select **Run query**.
 
 ## Next steps
 

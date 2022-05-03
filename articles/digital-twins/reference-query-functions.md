@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language functions
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 11/23/2021
+ms.date: 02/25/2022
 ms.topic: article
 ms.service: digital-twins
 
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Azure Digital Twins query language reference: Functions
 
-This document contains reference information on **functions** for the [Azure Digital Twins query language](concepts-query-language.md).
+This document contains reference information on *functions* for the [Azure Digital Twins query language](concepts-query-language.md).
 
 ## CONTAINS
 
@@ -113,7 +113,7 @@ A Boolean value indicating if the property has been assigned a value.
 
 ### Example
 
-The following query returns all digital twins who have a defined *Location* property.
+The following query returns all digital twins who have a defined `Location` property.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsDefinedExample":::
 

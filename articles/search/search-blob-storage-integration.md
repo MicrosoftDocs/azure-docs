@@ -32,9 +32,11 @@ Output is always an Azure Cognitive Search index, used for fast text search, ret
 
 Once the index is created and populated, it exists independently of your blob container, but you can re-run indexing operations to refresh your index based on changed documents. Timestamp information on individual blobs is used for change detection. You can opt for either scheduled execution or on-demand indexing as the refresh mechanism.
 
-## Required resources
+## Resources used in a blob-search solution
 
-You need both Azure Cognitive Search and Azure Blob Storage. Within blob storage, you need a container that provides source content.
+You need Azure Cognitive Search, Azure Blob Storage, and a client. Cognitive Search is typically one of several components in a solution, where your application code issues query API requests and handles the response. You might also write application code to handle indexing, although for proof-of-concept testing and impromptu tasks, it's common to use the Azure portal as the search client. 
+
+Within Blob Storage, you'll need a container that provides source content. You can set file inclusion and exclusion criteria, and specify which parts of a blob are indexed in Cognitive Search.
 
 You can start directly in your Storage Account portal page. 
 
@@ -48,7 +50,21 @@ You can start directly in your Storage Account portal page.
 
 The wizard is the best place to start, but you'll discover more flexible options when you [configure a blob indexer](search-howto-indexing-azure-blob-storage.md) yourself. You can call the REST APIs using a tool like Postman or Visual Studio Code. [Tutorial: Index and search semi-structured data (JSON blobs) in Azure Cognitive Search](search-semi-structured-data.md) walks you through the steps of calling the REST API in Postman.
 
-## Use a Blob indexer
+## How blobs are indexed
+
+By default, most blobs are indexed as a single search document in the index, including blobs with structured content, such as JSON or CSV, which are indexed as a single chunk of text. However, for JSON or CSV documents that have an internal structure (delimiters), you can assign parsing modes to generate individual search documents for each line or element:
+
++ [Indexing JSON blobs](search-howto-index-json-blobs.md)
++ [Indexing CSV blobs](search-howto-index-csv-blobs.md)
+
+A compound or embedded document (such as a ZIP archive, a Word document with embedded Outlook email containing attachments, or an .MSG file with attachments) is also indexed as a single document. For example, all images extracted from the attachments of an .MSG file will be returned in the normalized_images field. If you have images, consider adding [AI enrichment](cognitive-search-concept-intro.md) to get more search utility from that content.
+
+Textual content of a document is extracted into a string field named "content". You can also extract standard and user-defined metadata.
+
+  > [!NOTE]
+  > Azure Cognitive Search imposes [indexer limits](search-limits-quotas-capacity.md#indexer-limits) on how much text it extracts depending on the pricing tier. A warning will appear in the indexer status response if documents are truncated.  
+
+## Use a Blob indexer for content extraction
 
 An *indexer* is a data-source-aware subservice in Cognitive Search, equipped with internal logic for sampling data, reading metadata data, retrieving data, and serializing data from native formats into JSON documents for subsequent import. 
 
@@ -68,6 +84,37 @@ By running a Blob indexer over a container, you can extract text and metadata fr
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
+<a name="PartsOfBlobToIndex"></a> 
+
+### Controlling which blobs are indexed
+
+You can control which blobs are indexed, and which are skipped, by the blob's file type or by setting properties on the blob themselves, causing the indexer to skip over them.
+
+Include specific file extensions by setting `"indexedFileNameExtensions"` to a comma-separated list of file extensions (with a leading dot). Exclude specific file extensions by setting `"excludedFileNameExtensions"` to the extensions that should be skipped. If the same extension is in both lists, it will be excluded from indexing.
+
+```http
+PUT /indexers/[indexer name]?api-version=2020-06-30
+{
+    "parameters" : { 
+        "configuration" : { 
+            "indexedFileNameExtensions" : ".pdf, .docx",
+            "excludedFileNameExtensions" : ".png, .jpeg" 
+        } 
+    }
+}
+```
+
+### Add "skip" metadata the blob
+
+The indexer configuration parameters apply to all blobs in the container or folder. Sometimes, you want to control how *individual blobs* are indexed.
+
+Add the following metadata properties and values to blobs in Blob Storage. When the indexer encounters this property, it will skip the blob or its content in the indexing run.
+
+| Property name | Property value | Explanation |
+| ------------- | -------------- | ----------- |
+| "AzureSearch_Skip" |`"true"` |Instructs the blob indexer to completely skip the blob. Neither metadata nor content extraction is attempted. This is useful when a particular blob fails repeatedly and interrupts the indexing process. |
+| "AzureSearch_SkipContent" |`"true"` |This is equivalent to the `"dataToExtract" : "allMetadata"` setting described [above](#PartsOfBlobToIndex) scoped to a particular blob. | 
+
 ### Indexing blob metadata
 
 A common scenario that makes it easy to sort through blobs of any content type is to [index both custom metadata and system properties](search-blob-metadata-properties.md) for each blob. In this way, information for all blobs is indexed regardless of document type, stored in an index in your search service. Using your new index, you can then proceed to sort, filter, and facet across all Blob storage content.
@@ -76,10 +123,6 @@ A common scenario that makes it easy to sort through blobs of any content type i
 > Blob Index tags are natively indexed by the Blob storage service and exposed for querying. If your blobs' key/value attributes require indexing and filtering capabilities, Blob Index tags should be leveraged instead of metadata.
 >
 > To learn more about Blob Index, see [Manage and find data on Azure Blob Storage with Blob Index](../storage/blobs/storage-manage-find-blobs.md).
-
-### Indexing JSON blobs
-
-Indexers can be configured to extract structured content found in blobs that contain JSON. An indexer can read JSON blobs and parse the structured content into the appropriate fields of a search document. Indexers can also take blobs that contain an array of JSON objects and map each element to a separate search document. You can set a parsing mode to affect the type of JSON object created by the indexer.
 
 ## Search blob content in a search index 
 

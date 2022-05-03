@@ -5,9 +5,9 @@ services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Securit
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
-ms.date: 03/30/2021
+author: aarathin
+ms.author: aarathin
+ms.date: 03/15/2022
 ---
 
 # Plan an Azure container offer

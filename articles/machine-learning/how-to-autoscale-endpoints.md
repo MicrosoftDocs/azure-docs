@@ -8,7 +8,8 @@ ms.topic: how-to
 ms.author: seramasu
 author: rsethur
 ms.reviewer: laobri
-ms.custom: devplatv2
+ms.custom: devplatv2, cliv2
+
 ms.date: 11/03/2021
 
 ---

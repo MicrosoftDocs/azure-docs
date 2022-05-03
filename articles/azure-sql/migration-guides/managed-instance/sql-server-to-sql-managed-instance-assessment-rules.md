@@ -9,7 +9,7 @@ ms.topic: how-to
 author: rajeshsetlem
 ms.author: rsetlem
 ms.reviewer: mathoma
-ms.date: 12/15/2020
+ms.date: 04/06/2022
 ---
 # Assessment rules for SQL Server to  Azure SQL Managed Instance migration
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -314,7 +314,7 @@ The size of the database is greater than maximum instance reserved storage. **Th
 **Recommendation**   
 Evaluate if the data can be archived compressed or sharded into multiple databases. Alternatively, migrate to SQL Server on Azure Virtual Machine.
 
-More information: [Hardware generation characteristics of Azure SQL Managed Instance ](../../managed-instance/resource-limits.md#hardware-generation-characteristics)
+More information: [Hardware characteristics of Azure SQL Managed Instance ](../../managed-instance/resource-limits.md#hardware-configuration-characteristics)
 
 
 
@@ -330,7 +330,7 @@ The size of all databases is greater than maximum instance reserved storage.
 **Recommendation**   
 Consider migrating the databases to different Azure SQL Managed Instances or to SQL Server on Azure Virtual Machine if all the databases must exist on the same instance. 
 
-More information: [Hardware generation characteristics of Azure SQL Managed Instance ](../../managed-instance/resource-limits.md#hardware-generation-characteristics)
+More information: [Hardware characteristics of Azure SQL Managed Instance ](../../managed-instance/resource-limits.md#hardware-configuration-characteristics)
 
 
 ## Multiple log files<a id="MultipleLogFiles<"></a>

@@ -2,52 +2,134 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 02/15/2022
+ms.date: 03/22/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
-This article lists new features and feature enhancements for Defender for IoT in February 2022.
+This article lists Microsoft Defender for IoT's new features and enhancements for end-user organizations from the last nine months.
+
+Features released earlier than nine months ago are listed in [What's new archive for in Microsoft Defender for IoT for organizations](release-notes-archive.md).
 
 Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Versioning and support for Defender for IoT
+## Versioning and support for on-premises software versions
 
-Listed below are the support, breaking change policies for Microsoft Defender for IoT, and the versions of Microsoft Defender for IoT that are currently available.
+The Defender for IoT architecture uses on-premises sensors and management servers. This section describes the servicing information and timelines for the available on-premises software versions.
 
-### Servicing information and timelines
+- Each General Availability (GA) version of the Defender for IoT sensor and on-premises management console software is supported for nine months after release. Fixes and new functionality are applied to each new version and are not applied to older versions.
 
-Each General Availability (GA) version of the Defender for IoT sensor and on-premises management console is supported for nine months after release. Fixes and new functionality will be applied to the current GA version that is currently supported and won't be applied to older GA versions.
+- Software update packages include new functionality and security patches. Urgent, high-risk security updates are applied in minor versions that may be released throughout the quarter.
 
-The Defender for IoT sensor and on-premises management console update packages includes new functionality and security patches. Urgent, high-risk security updates will be applied to minor releases occurring during the quarter.
+For more information, see the [Microsoft Security Development Lifecycle practices](https://www.microsoft.com/en-us/securityengineering/sdl/), which describes Microsoft's SDK practices, including training, compliance, threat modeling, design requirements, tools such as Microsoft Component Governance, pen testing, and more.
 
-*Making changes to packages manually might have detrimental effects on the sensor and on-premises management console. In such cases, Microsoft is unable to provide support for your deployment.*
+> [!IMPORTANT]
+> Manual changes to software packages may have detrimental effects on the sensor and on-premises management cosnole. Microsoft is unable to support deployments with manual changes made to packages.
+>
 
-### Versions and support dates
+**Current versions of the sensor and on-premises management console software include**:
 
 | Version | Date released | End support date |
 |--|--|--|
-| 22.1 | 02/2022 | 10/2022 |
-| 10.0 | 01/2021 | 10/2021 |
-| 10.3 | 04/2021 | 01/2022 |
-| 10.5.2 | 10/2021 | 07/2022 |
-| 10.5.3 | 10/2021 | 07/2022 |
+| 22.1.4 | 04/2022 | 12/2022 |
+| 22.1.3 | 03/2022 | 11/2022 |
+| 22.1.1 | 02/2022 | 10/2022 |
+| 10.5.5 | 12/2021 | 09/2022 |
 | 10.5.4 | 12/2021 | 09/2022 |
+| 10.5.3 | 10/2021 | 07/2022 |
+| 10.5.2 | 10/2021 | 07/2022 |
+
+## April 2022
+
+**Sensor software version**: 22.1.4
+
+### Extended device property data in the Device inventory
+
+Starting for sensors updated to version 22.1.4, the **Device inventory** page on the Azure portal shows extended data for the following fields:
+
+- **Description**
+- **Tags**
+- **Protocols**
+- **Scanner**
+- **Last Activity**
+
+For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
+
+
+## March 2022
+
+- [Use Azure Monitor workbooks with Microsoft Defender for IoT](#use-azure-monitor-workbooks-with-microsoft-defender-for-iot-public-preview)
+- [IoT OT Threat Monitoring with Defender for IoT solution GA](#iot-ot-threat-monitoring-with-defender-for-iot-solution-ga)
+- [Edit and delete devices from the Azure portal](#edit-and-delete-devices-from-the-azure-portal-public-preview)
+- [Key state alert updates](#key-state-alert-updates-public-preview)
+- [Sign out of a CLI session](#sign-out-of-a-cli-session)
+
+### Use Azure Monitor workbooks with Microsoft Defender for IoT (Public preview)
+
+[Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md) provide graphs and dashboards that visually reflect your data, and are now available directly in Microsoft Defender for IoT with data from [Azure Resource Graph](../../governance/resource-graph/index.yml).
+
+In the Azure portal, use the new Defender for IoT **Workbooks** page to view workbooks created by Microsoft and provided out-of-the-box, or create custom workbooks of your own.
+
+:::image type="content" source="media/release-notes/workbooks.png" alt-text="Screenshot of the new Workbooks page." lightbox="media/release-notes/workbooks.png":::
+
+For more information, see [Use Azure Monitor workbooks in Microsoft Defender for IoT](workbooks.md).
+
+### IoT OT Threat Monitoring with Defender for IoT solution GA
+
+The IoT OT Threat Monitoring with Defender for IoT solution in Microsoft Sentinel is now GA. In the Azure portal, use this solution to help secure your entire OT environment, whether you need to protect existing OT devices or build security into new OT innovations.
+
+For more information, see [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md) and [Tutorial: Integrate Defender for IoT and Sentinel](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended).
+
+### Edit and delete devices from the Azure portal (Public preview)
+
+The **Device inventory** page in the Azure portal now supports the ability to edit device details, such as security, classification, location, and more:
+
+:::image type="content" source="media/release-notes/edit-device-details.png" alt-text="Screenshot of the Device inventory page showing the Edit pane." lightbox="media/release-notes/edit-device-details.png":::
+
+For more information, see [Edit device details](how-to-manage-device-inventory-for-organizations.md#edit-device-details).
+
+You can only delete devices from Defender for IoT if they've been inactive for more than 14 days.  For more information, see [Delete a device](how-to-manage-device-inventory-for-organizations.md#delete-a-device).
+
+### Key state alert updates (Public preview)
+
+Defender for IoT now supports the Rockwell protocol for PLC operating mode detections.
+
+For the Rockwell protocol, the **Device inventory** pages in both the Azure portal and the sensor console now indicate the PLC operating mode key and run state, and whether the device is currently in a secure mode.
+
+If the device's PLC operating mode is ever switched to an unsecured mode, such as *Program* or *Remote*, a **PLC Operating Mode Changed** alert is generated.
+
+For more information, see [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md).
+
+### Sign out of a CLI session
+
+Starting in this version, CLI users are automatically signed out of their session after 300 inactive seconds. To sign out manually, use the new `logout` CLI command.
+
+For more information, see [Work with Defender for IoT CLI commands](references-work-with-defender-for-iot-cli-commands.md).
+
 
 ## February 2022
 
+- [New sensor installation wizard](#new-sensor-installation-wizard)
 - [Sensor redesign and unified Microsoft product experience](#sensor-redesign-and-unified-microsoft-product-experience)
 - [Enhanced sensor Overview page](#enhanced-sensor-overview-page)
 - [New support diagnostics log](#new-support-diagnostics-log)
 - [Alert updates](#alert-updates)
-- [New sensor installation wizard](#new-sensor-installation-wizard)
-- [Containerized sensor installation](#containerized-sensor-installation)
-- [Upgrade to version 22.1](#upgrade-to-version-221)
+- [Custom alert updates](#custom-alert-updates)
+- [CLI command updates](#cli-command-updates)
+- [Update to version 22.1.x](#update-to-version-221x)
 - [New connectivity model and firewall requirements](#new-connectivity-model-and-firewall-requirements)
 - [Protocol improvements](#protocol-improvements)
 - [Modified, replaced, or removed options and configurations](#modified-replaced-or-removed-options-and-configurations)
+
+### New sensor installation wizard
+
+Previously, you needed to use separate dialogs to upload a sensor activation file, verify your sensor network configuration, and configure your SSL/TLS certificates.
+
+Now, when installing a new sensor or a new sensor version, our installation wizard provides a streamlined interface to do all these tasks from a single location. 
+
+For more information, see [Defender for IoT installation](how-to-install-software.md).
 
 ### Sensor redesign and unified Microsoft product experience
 
@@ -159,15 +241,9 @@ The sensor console's **Custom alert rules** page now provides:
 
     :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/protocol-support-custom-alerts.png" alt-text="Screenshot of the updated Custom alerts dialog. "lightbox="media/how-to-manage-sensors-on-the-cloud/protocol-support-custom-alerts.png":::
 
-### New sensor installation wizard
+For more information and the updated custom alert procedure, see [Customize alert rules](how-to-accelerate-alert-incident-response.md#customize-alert-rules).
 
-Previously, you needed to use separate dialogs to upload a sensor activation file, verify your sensor network configuration, and configure your SSL/TLS certificates.
-
-Now, when installing a new sensor or a new sensor version, our installation wizard provides a streamlined interface to do all these tasks from a single location. 
-
-For more information, see [Defender for IoT installation](how-to-install-software.md).
-
-### Containerized sensor installation
+### CLI command updates
 
 The Defender for Iot sensor software installation is now containerized. With the now-containerized sensor, you can use the *cyberx_host* user to investigate issues with other containers or the operating system, or to send files via FTP.
 
@@ -181,28 +257,34 @@ As part of the containerized sensor, the following CLI commands have been modifi
 |`cyberx-xsense-reload-interfaces`     |  `sudo dpkg-reconfigure iot-sensor`      |
 |`cyberx-xsense-reconfigure-hostname`     | `sudo dpkg-reconfigure iot-sensor`       |
 | `cyberx-xsense-system-remount-disks` |`sudo dpkg-reconfigure iot-sensor` |
-| | |
 
 The `sudo cyberx-xsense-limit-interface-I eth0 -l value` CLI command was removed. This command was used to limit the interface bandwidth that the sensor uses for day-to-day procedures, and is no longer supported.
 
 For more information, see [Defender for IoT installation](how-to-install-software.md) and [Work with Defender for IoT CLI commands](references-work-with-defender-for-iot-cli-commands.md).
 
-### Upgrade to version 22.1
+### Update to version 22.1.x
 
-Upgrade your sensor versions directly to 22.1. Make sure that you've downloaded and upgraded your sensor machine, and then reactivated your sensor from the Azure portal using the new activation file.
+To use all of Defender for IoT's latest features, make sure to update your sensor software versions to 22.1.x.
 
-For more information, see:
-
-- [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version)
-- [Reactivate a sensor for upgrades to version 22.x from a legacy version](how-to-manage-sensors-on-the-cloud.md#reactivate-a-sensor-for-upgrades-to-version-22x-from-a-legacy-version)
+If you're on a legacy version, you may need to run a series of updates in order to get to the latest version. You'll also need to update your firewall rules and re-activate your sensor with a new activation file.
 
 After you've upgraded to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
 
+For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version) and [Update sensor versions from the on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md#update-sensor-versions).
+
+> [!NOTE]
+> Upgrading to version 22.1.x is a large update, and you should expect the update process to require more time than previous updates.
+>
+
 ### New connectivity model and firewall requirements
 
-With this version, users are only required to install sensors and connect to Defender for IoT on the Azure portal. Defender for IoT no longer requires you to install, pay for, or manage an IoT Hub.
+Defender for IoT version 22.1.x supports a new set of sensor connection methods that provide simplified deployment, improved security, scalability, and flexible connectivity.
 
-This new connectivity model requires that you open a new firewall rule. For more information, see [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
+In addition to [migration steps](connect-sensors.md#migration-for-existing-customers), this new connectivity model requires that you open a new firewall rule. For more information, see:
+
+- **New firewall requirements**: [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
+- **Architecture**: [Sensor connection methods](architecture-connections.md)
+- **Connection procedures**: [Connect your sensors to Microsoft Defender for IoT](connect-sensors.md)
 
 ### Protocol improvements
 
@@ -377,154 +459,6 @@ Webhook extended can be used to send extra data to the endpoint. The extended fe
 ### Unicode support for certificate passphrases
 
 Unicode characters are now supported when working with sensor certificate passphrases. For more information, see [About certificates](how-to-deploy-certificates.md#about-certificates)
-
-## April 2021
-
-### Work with automatic threat Intelligence updates (Public Preview)
-
-New threat intelligence packages can now be automatically pushed to cloud connected sensors as they're released by Microsoft Defender for IoT. This is in addition to downloading threat intelligence packages and then uploading them to sensors.
-
-Working with automatic updates helps reduce operational efforts and ensure greater security.
-Enable automatic updating by onboarding your cloud connected sensor on the Defender for IoT portal with the **Automatic Threat Intelligence Updates** toggle turned on.
-
-If you would like to take a more conservative approach to updating your threat intelligence data, you can manually push packages from the Microsoft Defender for IoT portal to cloud connected sensors only when you feel it's required.
-This gives you the ability to control when a package is installed, without the need to download and then upload it to your sensors. Manually push updates to sensors from the Defender for IoT **Sites and Sensors** page.
-
-You can also review the following information about threat intelligence packages:
-
-- Package version installed
-- Threat intelligence update mode
-- Threat intelligence update status
-
-### View cloud connected sensor information (Public Preview)
-
-View important operational information about cloud connected sensors on the **Sites and Sensors** page.
-
-- The sensor version installed
-- The sensor connection status to the cloud.
-- The last time the sensor was detected connecting to the cloud.
-
-### Alert API enhancements
-
-New fields are available for users working with alert APIs.
-
-**On-premises management console**
-
-- Source and destination address
-- Remediation steps
-- The name of sensor defined by the user
-- The name of zone associated with the sensor
-- The name of site associated with the sensor
-
-**Sensor**
-
-- Source and destination address
-- Remediation steps
-
-API version 2 is required when working with the new fields.
-
-### Features delivered as Generally Available (GA)
-
-The following features were previously available for Public Preview, and are now Generally Available (GA) features:
-
-- Sensor - enhanced custom alert rules
-- On-premises management console - export alerts
-- Add second network interface to On-premises management console
-- Device builder - new micro agent
-
-## March 2021
-
-### Sensor - enhanced custom alert rules (Public Preview)
-
-You can now create custom alert rules based on the day, group of days and time-period network activity was detected.  Working with day and time rule conditions is useful, for example in cases where alert severity is derived by the time the alert event takes place. For example, create a custom rule that triggers a high severity alert when network activity is detected on a weekend or in the evening.
-
-This feature is available on the sensor with the release of version 10.2.
-
-### On-premises management console - export alerts (Public Preview)
-
-Alert information can now be exported to a .csv file from the on-premises management console. You can export information of all alerts detected or export information based on the filtered view.
-
-This feature is available on the on-premises management console with the release of version 10.2.
-
-### Add second network interface to On-premises management console (Public Preview)
-
-You can now enhance the security of your deployment by adding a second network interface to your on-premises management console. This feature allows your on-premises management to have its connected sensors on one secure network, while allowing your users to access the on-premises management console through a second separate network interface.
-
-This feature is available on the on-premises management console with the release of version 10.2.
-
-## January 2021
-
-- [Security](#security)
-- [Onboarding](#onboarding)
-- [Usability](#usability)
-- [Other updates](#other-updates)
-
-### Security
-
-Certificate and password recovery enhancements were made for this release.
-
-#### Certificates
-
-This version lets you:
-
-- Upload SSL certificates directly to the sensors and on-premises management consoles.
-- Perform validation between the on-premises management console and connected sensors, and between a management console and a High Availability management console. Validation is based on expiration dates, root CA authenticity, and Certificate Revocation Lists.  If validation fails, the session won't continue.
-
-For upgrades:
-
-- There's no change in SSL certificate or validation functionality during the upgrade.
-- After upgrading, sensor and on-premises management console administrative users can replace SSL certificates, or activate SSL certificate validation from the System Settings, SSL Certificate window.  
-
-For Fresh Installations:
-
-- During first-time sign-in, users are required to either use an SSL Certificate (recommended) or a locally generated self-signed certificate (not recommended)
-- Certificate validation is turned on by default for fresh installations.
-
-#### Password recovery
-  
-Sensor and on-premises management console Administrative users can now recover passwords from the Microsoft Defender for IoT portal. Previously password recovery required intervention by the support team.
-
-### Onboarding
-
-#### On-premises management console - committed devices
-
-Following initial sign-in to the on-premises management console, users are now required to upload an activation file. The file contains the aggregate number of devices to be monitored on the organizational  network. This number is referred to as the number of committed devices.
-Committed devices are defined during the onboarding process on the Microsoft Defender for IoT portal, where the activation file is generated.
-First-time users and users upgrading are required to upload the activation file.
-After initial activation, the number of devices detected on the network might exceed the number of committed devices. This event might happen, for example, if you connect more sensors to the management console. If there's a discrepancy between the number of detected devices and the number of committed devices, a warning appears in the management console. If this event occurs, you should upload a new activation file.
-
-#### Pricing page options
-
-Pricing page lets you onboard new subscriptions to Microsoft Defender for IoT and define committed devices in your network.  
-Additionally, the Pricing page now lets you manage existing subscriptions associated with a sensor and update device commitment.
-
-#### View and manage onboarded sensors
-
-A new Site and Sensors portal page lets you:
-
-- Add descriptive information about the sensor. For example, a zone associated with the sensor, or free-text tags.
-- View and filter sensor information. For example, view details about sensors that are cloud connected or locally managed or view information about sensors in a specific zone.  
-
-### Usability
-
-#### Azure Sentinel new connector page
-
-The Microsoft Defender for IoT data connector page in Azure Sentinel has been redesigned. The data connector is now based on subscriptions rather than IoT Hubs; allowing customers to better manage their configuration connection to Azure Sentinel.
-
-#### Azure portal permission updates  
-
-Security Reader and Security Administrator support has been added.
-
-### Other updates
-
-#### Access group - zone permissions
-
-The on-premises management console Access Group rules won't include the option to grant access to a specific zone. There's no change in defining rules that use sites, regions, and business units.   Following upgrade, Access Groups that contained rules allowing access to specific zones will be modified to allow access to its parent site, including all its zones.
-
-#### Terminology changes
-
-The term asset has been renamed device in the sensor and on-premises management console, reports, and other solution interfaces.
-In sensor and on-premises management console Alerts,  the term Manage this Event has been named Remediation Steps.
 
 ## Next steps
 

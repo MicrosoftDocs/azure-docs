@@ -1,13 +1,10 @@
 ---
 title: Mobile Apps bindings for Azure Functions 
 description: Understand how to use Azure Mobile Apps bindings in Azure Functions.
-author: craigshoemaker
-
 ms.topic: reference
 ms.devlang: csharp, javascript
 ms.custom: devx-track-csharp
 ms.date: 11/21/2017
-ms.author: cshoe
 ---
 
 # Mobile Apps bindings for Azure Functions 
@@ -18,8 +15,6 @@ ms.author: cshoe
 This article explains how to work with [Azure Mobile Apps](/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop) bindings in Azure Functions. Azure Functions supports input and output bindings for Mobile Apps.
 
 The Mobile Apps bindings let you read and update data tables in mobile apps.
-
-[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## Packages - Functions 1.x
 

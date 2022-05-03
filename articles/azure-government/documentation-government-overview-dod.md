@@ -7,7 +7,7 @@ ms.service: azure-government
 ms.topic: article
 ms.custom: references_regions
 recommendations: false
-ms.date: 01/25/2022
+ms.date: 03/07/2022
 ---
 
 # Department of Defense (DoD) in Azure Government
@@ -23,7 +23,7 @@ Azure Government offers the following regions to DoD mission owners and their pa
 |US Gov Arizona </br> US Gov Texas </br> US Gov Virginia|FedRAMP High, DoD IL4, DoD IL5|145|
 |US DoD Central </br> US DoD East|DoD IL5|60|
 
-**Azure Government regions** (US Gov Arizona, US Gov Texas, and US Gov Virginia) are intended for US federal (including DoD), state, and local government agencies, and their partners. **Azure Government DoD regions** (US DoD Central and US DoD East) are reserved for exclusive DoD use. Separate DoD IL5 PAs are in place for Azure Government regions (US Gov Arizona, US Gov Texas, and US Gov Virginia) vs. Azure Government DoD regions (US DoD Central and US DoD East).
+**Azure Government regions** (US Gov Arizona, US Gov Texas, and US Gov Virginia) are intended for US federal (including DoD), state, and local government agencies, and their partners. **Azure Government DoD regions** (US DoD Central and US DoD East) are reserved for exclusive DoD use. Separate DoD IL5 PAs are in place for Azure Government regions (US Gov Arizona, US Gov Texas, and US Gov Virginia) vs. Azure Government DoD regions (US DoD Central and US DoD East). For service availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
 
 The primary differences between DoD IL5 PAs that are in place for Azure Government regions (US Gov Arizona, US Gov Texas, and US Gov Virginia) vs. Azure Government DoD regions (US DoD Central and US DoD East) are:
 
@@ -146,6 +146,9 @@ All Azure Government regions are built to support DoD customers, including:
 - The United States Coast Guard
 - The unified combatant commands
 - Other offices, agencies, activities, and commands under the control or supervision of any approved entity named above
+
+### What services are available in Azure Government?
+For service availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
 
 ### What services are part of your IL5 authorization scope?
 For a complete list of services in scope for DoD IL5 PA in Azure Government regions (US Gov Arizona, US Gov Texas, and US Gov Virginia), see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). For a complete list of services in scope for DoD IL5 PA in Azure Government DoD regions (US DoD Central and US DoD East), see [Azure Government DoD regions IL5 audit scope](#azure-government-dod-regions-il5-audit-scope) in this article.

@@ -6,13 +6,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: trkeya
 ms.author: trkeya
-ms.date: 07/09/2021
+ms.date: 04/21/2022
 ms.custom: contperf-fy21q2
 ---
 
 # Update existing offers in the commercial marketplace
 
 This article explains how to make updates to existing offers and plans, and also how to remove an offer from the commercial marketplace. You can view your offers in the [Commercial Marketplace portal](https://go.microsoft.com/fwlink/?linkid=2165935.) in Partner Center.
+
+## Request access to manage an offer
+
+If you see an offer you need to update but don’t have access, contact the publisher owner(s) associated with the offer. On the [**Marketplace offers**](https://partner.microsoft.com/dashboard/marketplace-offers/overview) page, the owner list for an inaccessible offer is available by selecting **Request access** in the **Status** column of the table. A publisher owner can grant you the _developer_ or _manager_ role for the offer by following the instructions to [add existing users](add-manage-users.md#add-existing-users) to their account.
+
+> [!NOTE]
+> Requesting access to an offer will give you access permissions to all the offers associated with the same publisher.
 
 ## Update a published offer
 

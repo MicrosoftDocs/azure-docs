@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: kcheeeung
 ms.author: kecheung
-ms.date: 05/21/2021
+ms.date: 03/04/2022
 ---
 
 # Scenario: Apache Hive logs are filling up the disk space on the head nodes in Azure HDInsight
@@ -21,14 +21,14 @@ In a HDI 4.0 Apache Hive/LLAP cluster, unwanted logs are taking up the entire di
 
 ## Cause
 
-Automatic hive log deletion is not configured in the advanced hive-log4j2 configurations. The default size limit of 60GB takes too much space for the customer's usage pattern.
+Automatic hive log deletion is not configured in the advanced hive-log4j2 configurations. The default size limit of 60GB takes too much space for the customer's usage pattern. By default, the amount of logs kept is defined by this equation `MB logs/day = appender.RFA.strategy.max * 10MB`.
 
 ## Resolution
 
 1. Go to the Hive component summary on the Ambari portal and select the **Configs** tab.
 
 2. Go to the `Advanced hive-log4j2` section in **Advanced settings**.
-
+    - Optionally, you can lower the value of `appender.RFA.strategy.max` to decrease the total megabytes of logs kept in a day.
 3. Make sure you have these settings. If you don't see any related settings, append these settings:
     ```
     # automatically delete hive log

@@ -241,7 +241,7 @@ az logic workflow show --name $logicAppName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-For more information, see [Azure CLI: az logic workflow show](/cli/azure/logic/workflow#az_logic_workflow_show).
+For more information, see [Azure CLI: az logic workflow show](/cli/azure/logic/workflow#az-logic-workflow-show).
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -299,7 +299,7 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-For more information, see [Azure CLI: az group delete](/cli/azure/group#az_group_delete).
+For more information, see [Azure CLI: az group delete](/cli/azure/group#az-group-delete).
 
 ### [PowerShell](#tab/azure-powershell)
 

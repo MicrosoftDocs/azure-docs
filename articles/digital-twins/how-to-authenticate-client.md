@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to write authentication code in a client application
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 1/3/2022
+ms.date: 02/22/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -67,6 +67,8 @@ To use the default Azure credentials, you'll need the Azure Digital Twins instan
 Here's a code sample to add a `DefaultAzureCredential` to your project:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="DefaultAzureCredential_full":::
+
+[!INCLUDE [Azure Digital Twins: DefaultAzureCredential known issue note](../../includes/digital-twins-defaultazurecredential-note.md)]
 
 #### Set up local Azure credentials
 

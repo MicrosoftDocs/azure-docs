@@ -212,7 +212,7 @@ Step through the code in your debugger and check your [Azure portal](https://por
 
 ## Use the storage emulator
 
-This quickstart created a container and blob on the Azure cloud. You can also use the Azure Blob storage npm package to create these resources locally on the [Azure Storage emulator](/azure/storage/common/storage-use-emulator) for development and testing. 
+This quickstart created a container and blob on the Azure cloud. You can also use the Azure Blob storage npm package to create these resources locally on the [Azure Storage emulator](../common/storage-use-emulator.md) for development and testing. 
 
 ## Clean up 
 

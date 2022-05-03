@@ -81,7 +81,8 @@ The following PerfMon counters can help validate the compute health of a SQL Ser
 
 ## Next steps
 
-To learn more, see the other articles in this series:
+To learn more, see the other articles in this best practices series:
+
 - [Quick checklist](performance-guidelines-best-practices-checklist.md)
 - [VM size](performance-guidelines-best-practices-vm-size.md)
 - [Storage](performance-guidelines-best-practices-storage.md)

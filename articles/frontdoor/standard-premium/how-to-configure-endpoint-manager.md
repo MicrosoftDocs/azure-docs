@@ -33,11 +33,11 @@ To create an Azure Front Door profile, see [Create a new Azure Front Door Standa
 
 1. Select **Endpoint Manager**. Then select **Add an Endpoint** to create a new Endpoint.
    
-    :::image type="content" source="../media/how-to-configure-endpoint-manager/select-create-endpoint.png" alt-text="Screenshot of add an endpoint through Endpoint Manager.":::
+    :::image type="content" source="../media/how-to-configure-endpoints/select-create-endpoint.png" alt-text="Screenshot of add an endpoint through Endpoint Manager.":::
 
 1. On the **Add an endpoint** page, enter, and select the following settings.
     
-    :::image type="content" source="../media/how-to-configure-endpoint-manager/create-endpoint-page.png" alt-text="Screenshot of add an endpoint page.":::
+    :::image type="content" source="../media/how-to-configure-endpoints/create-endpoint-page.png" alt-text="Screenshot of add an endpoint page.":::
 
     | Settings | Value |
     | -------- | ----- |
@@ -51,23 +51,23 @@ To create an Azure Front Door profile, see [Create a new Azure Front Door Standa
 
 1. On the **Edit Endpoint** page, select **+ Add** under Domains.
    
-    :::image type="content" source="../media/how-to-configure-endpoint-manager/select-add-domain.png" alt-text="Screenshot of select domain on Edit Endpoint page.":::
+    :::image type="content" source="../media/how-to-configure-endpoints/select-add-domain.png" alt-text="Screenshot of select domain on Edit Endpoint page.":::
 
 ### Add Domain
 
 1. On the **Add Domain** page, choose to associate a domain *from your Azure Front Door profile* or *add a new domain*. For information about how to create a brand new domain, see [Create a new Azure Front Door Standard/Premium custom domain](how-to-add-custom-domain.md).
 
-    :::image type="content" source="../media/how-to-configure-endpoint-manager/add-domain-page.png" alt-text="Screenshot of Add a domain page.":::
+    :::image type="content" source="../media/how-to-configure-endpoints/add-domain-page.png" alt-text="Screenshot of Add a domain page.":::
 
 1. Select **Add** to add the domain to current endpoint. The selected domain should appear within the Domain panel.
 
-    :::image type="content" source="../media/how-to-configure-endpoint-manager/domain-in-domainview.png" alt-text="Screenshot of domains in domain view.":::
+    :::image type="content" source="../media/how-to-configure-endpoints/domain-in-domainview.png" alt-text="Screenshot of domains in domain view.":::
 
 ### Add Origin Group
 
 1. Select **Add** at the Origin groups view. The **Add an origin group** page appears 
 
-    :::image type="content" source="../media/how-to-configure-endpoint-manager/add-origin-group-view.png" alt-text="Screenshot of add an origin group page":::
+    :::image type="content" source="../media/how-to-configure-endpoints/add-origin-group-view.png" alt-text="Screenshot of add an origin group page":::
 
 1. For **Name**, enter a unique name for the new origin group
 
@@ -106,7 +106,7 @@ Load-balancing settings for the origin group define how we evaluate health probe
 
 Select **Add** to add the origin group to current endpoint. The origin group should appear within the Origin group panel
 
-:::image type="content" source="../media/how-to-configure-endpoint-manager/origin-in-origin-group.png" alt-text="Screenshot of origins in origin group.":::
+:::image type="content" source="../media/how-to-configure-endpoints/origin-in-origin-group.png" alt-text="Screenshot of origins in origin group.":::
 
 ### Add Route
 
@@ -116,13 +116,13 @@ Select **Add** at the Routes view, the **Add a route** page appears. For inform
 
 1. Select **Add** at the Security view, The **Add a WAF policy** page appears
  
-    :::image type="content" source="../media/how-to-configure-endpoint-manager/add-waf-policy-page.png" alt-text="Screenshot of add a WAF policy page.":::
+    :::image type="content" source="../media/how-to-configure-endpoints/add-waf-policy-page.png" alt-text="Screenshot of add a WAF policy page.":::
 
 1. **WAF Policy**: select a WAF policy you like apply for the selected domain within this endpoint. 
   
    Select **Create New** to create a brand new WAF policy.
 
-    :::image type="content" source="../media/how-to-configure-endpoint-manager/create-new-waf-policy.png" alt-text="Screenshot of create a new WAF policy.":::
+    :::image type="content" source="../media/how-to-configure-endpoints/create-new-waf-policy.png" alt-text="Screenshot of create a new WAF policy.":::
    
     **Name**: enter a unique name for the new WAF policy. You could edit this policy with more configuration from the Web Application Firewall page.
 
@@ -130,13 +130,13 @@ Select **Add** at the Routes view, the **Add a route** page appears. For inform
 
 1. Select **Add** button. The WAF policy should appear within the Security panel
 
-    :::image type="content" source="../media/how-to-configure-endpoint-manager/waf-in-security-view.png" alt-text="Screenshot of WAF policy in security view.":::
+    :::image type="content" source="../media/how-to-configure-endpoints/waf-in-security-view.png" alt-text="Screenshot of WAF policy in security view.":::
 
 ## Clean up resources
 
 To delete an endpoint when it's no longer needed, select **Delete Endpoint** at the end of the endpoint row 
 
-:::image type="content" source="../media/how-to-configure-endpoint-manager/delete-endpoint.png" alt-text="Screenshot of how to delete an endpoint.":::
+:::image type="content" source="../media/how-to-configure-endpoints/delete-endpoint.png" alt-text="Screenshot of how to delete an endpoint.":::
 
 ## Next steps
 

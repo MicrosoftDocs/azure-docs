@@ -9,7 +9,7 @@ ms.topic: conceptual
 ---
 
 # Server graceful shutdown
-Microsoft Azure SignalR Service provides two modes for gracefully shutdown a server. 
+Microsoft Azure SignalR Service provides two modes for gracefully shutdown a SignalR Hub server when Azure SignalR Service is configured as **Default mode** that Azure SignalR Service acts as a proxy between the SignalR Clients and the SignalR Hub Server.
 
 The key advantage of using this feature is to prevent your customer from experiencing unexpectedly connection drops. 
 

@@ -209,11 +209,11 @@ run.log("scalar_value", 0.95)
 # Python print statement
 print("I am a python print statement, I will be sent to the driver logs.")
 
-# Initialize python logger
+# Initialize Python logger
 logger = logging.getLogger(__name__)
 logger.setLevel(args.log_level)
 
-# Plain python logging statements
+# Plain Python logging statements
 logger.debug("I am a plain debug statement, I will be sent to the driver logs.")
 logger.info("I am a plain info statement, I will be sent to the driver logs.")
 

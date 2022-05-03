@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/16/2022
+ms.date: 03/1/2022
 
 ms.author: justinha
 author: justinha
 manager: karenhoran
-ms.reviewer: rhicock
+ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
 ---
@@ -21,6 +21,8 @@ Before combined registration, users registered authentication methods for Azure 
 
 > [!NOTE]
 > Starting on August 15th 2020, all new Azure AD tenants will be automatically enabled for combined registration. 
+> 
+> After Sept. 30th, 2022, all users will register security information through the combined registration experience. 
 
 This article outlines what combined security registration is. To get started with combined security registration, see the following article:
 

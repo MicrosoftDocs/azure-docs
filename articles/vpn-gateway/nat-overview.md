@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 12/02/2021
+ms.date: 03/15/2022
 ms.author: cherylmc
 
 ---
@@ -66,8 +66,8 @@ Once a NAT rule is defined for a connection, the effective address space for the
 * Advertised routes: Azure VPN gateway will advertise the External Mapping (post-NAT) prefixes of the EgressSNAT rules for the VNet address space, and the learned routes with post-NAT address prefixes from other connections.
 
 * BGP peer IP address consideration for a NAT'ed on-premises network:
-   * APIPA (169.254.0.1 to 169.254.255.254) address: No NAT rule is required; specify the APIPA address in the Local Network Gateway directly.
-   * Non-APIPA address: Specify the **translated** or **post-NAT** IP address on the Local Network Gateway. Use the **translated** or **post-NAT** Azure BGP IP address(es) to configure the on-premises VPN routers. Ensure the NAT rules are defined for the intended translation.
+   * APIPA (169.254.0.1 to 169.254.255.254) address: NAT is not supported with BGP APIPA addresses.
+   * Non-APIPA address: Exclude the BGP Peer IP addresses from the NAT range.
 
 > [!NOTE]
 > The learned routes on connections without IngressSNAT rules will not be converted. The VNet routes advertised to connections without EgressSNAT rules will also not be converted.

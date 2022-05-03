@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 12/10/2021
+ms.date: 03/16/2022
 ms.author: aahi
 ms.custom: language-service-summarization, ignite-fall-2021
 ---
@@ -37,7 +37,11 @@ Extractive summarization returns a rank score as a part of the system response a
 
 There is another feature in Azure Cognitive Service for Language, [key phrases extraction](./../../key-phrase-extraction/how-to/call-api.md), that can extract key information. When deciding between key phrase extraction and extractive summarization, consider the following:
 * key phrase extraction returns phrases while extractive summarization returns sentences
-* extractive summarization returns sentences together with a rank score. Top ranked sentences will be returned per request
+* extractive summarization returns sentences together with a rank score, and. Top ranked sentences will be returned per request
+* extractive summarization also returns the following positional information:
+    * offset: The start position of each extracted sentence, and
+    * Length: is the length of each extracted sentence.
+
 
 ## Determine how to process the data (optional)
 
@@ -51,7 +55,7 @@ When you submit documents to be processed by key phrase extraction, you can spec
 
 ## Submitting data
 
-You submit documents to the API as strings of text. Analysis is performed upon receipt of the request. Because the API is [asynchronous](../../concepts/use-asynchronously.md), there may be a delay between sending an API request, and receiving the results.  For information on the size and number of requests you can send per minute and second, see the data limits below.
+You submit documents to the API as strings of text. Analysis is performed upon receipt of the request. Because the API is [asynchronous](../../concepts/use-asynchronously.md), there may be a delay between sending an API request, and receiving the results.
 
 When using this feature, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
 
@@ -83,30 +87,9 @@ Using the above example, the API might return the following summarized sentences
 
 *"At the intersection of all three, there’s magic—what we call XYZ-code as illustrated in Figure 1—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better."*
 
+## Service and data limits
 
-## Data limits
-
-This section describes the limits for the size, and rates that you can send data to the Text Summarization API. Note that pricing is not affected by the data limits or rate limits. Pricing is subject to your Language resource [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
-
-> [!NOTE]
-> * If you need to analyze larger documents than the limit allows, you can break the text into smaller chunks of text before sending them to the API. 
-> * A document is a single string of text characters.  
-
-| Limit | Value |
-|------------------------|---------------|
-| Maximum number of characters per request  | 125K characters across all submitted documents, as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
-| Max Documents Per Request | 25 |
-
-If a document exceeds the limits, the API will reject the entire request and return a `400 bad request` error if any document within it exceeds the maximum size.
-
-### Rate limits
-
-Your rate limit will vary with your [pricing tier](https://aka.ms/unifiedLanguagePricing).
-
-| Tier          | Requests per second | Requests per minute |
-|---------------|---------------------|---------------------|
-| S / Multi-service | 1000                | 1000                |
-| S0 / F0         | 100                 | 300                 |
+[!INCLUDE [service limits article](../../includes/service-limits-link.md)]
 
 ## See also
 

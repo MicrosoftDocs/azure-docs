@@ -25,12 +25,12 @@ Azure Arc allows you to manage your hybrid IT estate with a single pane of glass
         - _For Linux:_ On all target Linux servers, allow inbound connections on port 22 (SSH).
         - You can also add the IP addresses of the remote machines (discovered servers) to the WinRM TrustedHosts list on the appliance. 
     2. The Azure Migrate appliance should have a network line of sight to the target servers. 
-- Be sure to verify the [prerequisites for Azure Arc](../azure-arc/servers/agent-overview.md#prerequisites) and review the following considerations:
+- Be sure to verify the [prerequisites for Azure Arc](../azure-arc/servers/prerequisites.md) and review the following considerations:
     - Onboarding to Azure Arc can only be initiated after the vCenter Server discovery and software inventory is completed. It may take up to 6 hours for software inventory to complete after it is turned on.
     -  The [Azure Arc Hybrid Connected Machine agent](../azure-arc/servers/learn/quick-enable-hybrid-vm.md) will be installed on the discovered servers during the Arc onboarding process. Make sure you provide credentials with administrator permissions on the servers to install and configure the agent. On Linux, provide the root account, and on Windows, provide an account that is a member of the Local Administrators group. 
-    - Verify that the servers are running [a supported operating system](../azure-arc/servers/agent-overview.md#supported-operating-systems).
-    - Ensure that the Azure account is granted assignment to the [required Azure roles](../azure-arc/servers/agent-overview.md#required-permissions).
-    - Make sure [the required URLs](../azure-arc/servers/agent-overview.md#networking-configuration) are not blocked if the discovered servers connect through a firewall or proxy server to communicate over the Internet.
+    - Verify that the servers are running [a supported operating system](../azure-arc/servers/prerequisites.md#supported-operating-systems).
+    - Ensure that the Azure account is granted assignment to the [required Azure roles](../azure-arc/servers/prerequisites.md#required-permissions).
+    - Make sure [the required URLs](../azure-arc/servers/network-requirements.md#urls) are not blocked if the discovered servers connect through a firewall or proxy server to communicate over the Internet.
     - Review the [regions supported](../azure-arc/servers/overview.md#supported-regions) for Azure Arc. 
     - Azure Arc-enabled servers supports up to 5,000 machine instances in a resource group.
 
@@ -175,7 +175,7 @@ Unable to connect to server. Either you have provided incorrect credentials on t
 - The server hosts an unsupported operating system for Azure Arc onboarding.
 
 **Recommended actions**  
-- [Review the supported operating systems](../azure-arc/servers/agent-overview.md#supported-operating-systems) for Azure Arc. 
+- [Review the supported operating systems](../azure-arc/servers/prerequisites.md#supported-operating-systems) for Azure Arc. 
  
 ### Error 10002 - ScriptExecutionTimedOutOnVm  
 

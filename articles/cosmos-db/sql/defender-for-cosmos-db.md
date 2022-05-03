@@ -50,7 +50,7 @@ You can configure Microsoft Defender protection in any of several ways, describe
 
 # [REST API](#tab/rest-api)
 
-Use Rest API commands to create, update, or get the Azure Defender setting for a specific Azure Cosmos DB account.
+Use REST API commands to create, update, or get the Azure Defender setting for a specific Azure Cosmos DB account.
 
 * [Advanced Threat Protection - Create](/rest/api/securitycenter/advancedthreatprotection/create)
 * [Advanced Threat Protection - Get](/rest/api/securitycenter/advancedthreatprotection/get)
@@ -66,7 +66,7 @@ Use the following PowerShell cmdlets:
 # [ARM template](#tab/arm-template)
 
 Use an Azure Resource Manager (ARM) template to set up Azure Cosmos DB with Azure Defender protection enabled. For more information, see
-[Create a CosmosDB Account with Advanced Threat Protection](https://azure.microsoft.com/resources/templates/cosmosdb-advanced-threat-protection-create-account/).
+[Create a CosmosDB Account with Advanced Threat Protection](https://azure.microsoft.com/resources/templates/microsoft-defender-cosmosdb-create-account/).
 
 # [Azure Policy](#tab/azure-policy)
 

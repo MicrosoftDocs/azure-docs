@@ -112,6 +112,8 @@
       href: service-bus-outages-disasters.md
     - name: Throttling
       href: service-bus-throttling.md
+    - name: Enforce minimum required TLS version
+      href: transport-layer-security-enforce-minimum-version.md
   - name: Federation 
     items:
       - name: Message replication and cross-region federation
@@ -158,22 +160,10 @@
     items:
     - name: Create a namespace
       href: service-bus-create-namespace-portal.md
-    - name: Send and receive messages (old versions/packages)
-      items:
-      - name: .NET (Microsoft.Azure.ServiceBus)
-        href: service-bus-dotnet-get-started-with-queues-legacy.md
-      - name: Java (azure-servicebus)
-        href: service-bus-java-how-to-use-queues-legacy.md 
-      - name: PHP
-        href: service-bus-php-how-to-use-queues.md
-    - name: Publish and subscribe for messages (old versions/packages)
-      items:
-      - name: .NET (Microsoft.Azure.ServiceBus)
-        href: service-bus-dotnet-how-to-use-topics-subscriptions-legacy.md        
-      - name: Java (azure-servicebus)
-        href: service-bus-java-how-to-use-topics-subscriptions-legacy.md        
-      - name: PHP
-        href: service-bus-php-how-to-use-topics-subscriptions.md
+    - name: Send and receive messages using PHP
+      href: service-bus-php-how-to-use-queues.md
+    - name: Publish and subscribe for messages using PHP
+      href: service-bus-php-how-to-use-topics-subscriptions.md
     - name: Set subscription filters and actions
       href: service-bus-filter-examples.md    
     - name: Message handling
@@ -273,6 +263,12 @@
       href: configure-customer-managed-key.md
     - name: Disable local or SAS authentication
       href: disable-local-authentication.md
+    - name: Configure minimum required TLS version
+      href: transport-layer-security-configure-minimum-version.md
+    - name: Audit minimum required TLS version
+      href: transport-layer-security-audit-minimum-version.md
+    - name: Configure TLS version for client
+      href: transport-layer-security-configure-client-version.md
   - name: Troubleshoot
     items:
     - name: Troubleshooting guide
@@ -300,25 +296,21 @@
     - name: Migrate from azure-servicebus to azure-messaging-servicebus
       href: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/migration-guide.md
     - name: azure-messaging-servicebus (latest)
-      href: /java/api/com.azure.messaging.servicebus?view=azure-java-stable
+      href: /java/api/com.azure.messaging.servicebus
     - name: azure-servicebus  
-      href: /java/api/com.microsoft.azure.servicebus?view=azure-java-stable
+      href: /java/api/com.microsoft.azure.servicebus
   - name: Python
     items: 
+    - name: azure-servicebus version 7
+      href: /python/api/overview/azure/servicebus
     - name: Migrate from azure-servicebus version 0.50 to version 7
       href: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/migration_guide.md
-    - name: azure-servicebus version 7
-      href: /python/api/overview/azure/servicebus?view=azure-python-preview
-    - name: azure-servicebus version 0.50
-      href: /python/api/overview/azure/servicebus
   - name: JavaScript
     items:
+    - name: azure/service-bus version 7 
+      href: /javascript/api/overview/azure/service-bus
     - name: Migrate from version 1 to version 7
       href: https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/migrationguide.md
-    - name: azure/service-bus version 7 
-      href: /javascript/api/overview/azure/service-bus?view=azure-node--preview
-    - name: azure/service-bus version 1 
-      href: /javascript/api/overview/azure/service-bus
   - name: Go
     href: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azservicebus      
   - name: PHP

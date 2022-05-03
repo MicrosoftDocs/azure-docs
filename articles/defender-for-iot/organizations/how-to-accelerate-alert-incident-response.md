@@ -1,7 +1,7 @@
 ---
 title: Accelerate alert workflows
 description: Improve alert and incident workflows.
-ms.date: 11/09/2021
+ms.date: 03/10/2022
 ms.topic: how-to
 ---
 
@@ -93,126 +93,48 @@ Alert groups are predefined. For details about alerts associated with alert grou
 
 ## Customize alert rules
 
-Use custom alert rules to more specifically pinpoint activity of interest to you.
-You can add custom alert rules based on:
+Add custom alert rule to pinpoint specific activity as needed for your organization such as for specific protocols, source or destination addresses, or a combination of parameters.
 
-- A category, for example a standard protocol, or port or file.
+For example, you might want to define an alert for an environment running MODBUS to detect any write commands to a memory register, on a specific IP address and ethernet destination. Another example would be an alert for any access to a specific IP address.
 
-- Traffic detections based proprietary protocols developed in a Horizon plugin. (Horizon Open Development Environment ODE).
+Use custom alert rule actions to instruct Defender for IT to take specific action when the alert is triggered, such as allowing users to access PCAP files from the alert, assigning alert severity, or generating an event that shows in the event timeline. Alert messages indicate that the alert was generated from a custom alert rule.
 
-- Source and destination addresses
+**To create a custom alert rule**:
 
-- A combination of protocol fields from all protocol layers. For example, in an environment running MODBUS, you may want to generate an alert when the sensor detects a write command to a memory register on a specific IP address and ethernet destination, or an alert when any access is performed to a specific IP address.
+1. On the sensor console, select **Custom alert rules** > **+ Create rule**.
 
-If the sensor detects the activity described in the rule, the alert is sent.  
+1. In the **Create custom alert rule** pane that shows on the right, define the following fields:
 
-You can also use alert rule actions to instruct Defender for IoT to:
+    - **Alert name**. Enter a meaningful name for the alert.
 
-- Allow users to access PCAP file from the alert.
-- Assign an alert severity.
-- Generate an event rather than alert. The detected information will appear in the event timeline.
+    - **Alert protocol**.  Select the protocol you want to detect. In specific cases, select one of the following protocols:
 
+        - For a database data or structure manipulation event, select **TNS** or **TDS**
+        - For a file event, select **HTTP**, **DELTAV**, **SMB**, or **FTP**, depending on the file type
+        - For a package download event, select **HTTP**
+        - For an open ports (dropped) event, select **TCP** or **UDP**, depending on the port type.
 
-The alert message indicates that a user-defined rule triggered the alert.
+        To create rules that monitor for specific changes in one of your OT protocols, such as S7 or CIP, use any parameters found on that protocol, such as `tag` or `sub-function`.
+        
+    - **Message**.  Define a message to display when the alert is triggered. Alert messages support alphanumeric characters and any traffic variables detected. For example, you might want to include the detected source and destination addresses. Use curly brackets (**{}**) to add variables to the alert message.
 
+    - **Direction**.  Enter a source and/or destination IP address where you want to detect traffic.
 
-### Create custom alerts
+    - **Conditions**. Define one or more conditions that must be met to trigger the alert. Select the **+** sign to create a condition set with multiple conditions that use the **AND** operator. If you select a MAC address or IP address as a variable, you must convert the value from a dotted-decimal address to decimal format.
 
-**To create a custom alert rule:**
+    - **Detected**. Define a date and/or time range for the traffic you want to detect.
+    - **Action**. Define an action you want Defender for IoT to take automatically when the alert is triggered. 
 
-1. Select **Custom Alerts** from the side menu of a sensor.
-  
-1. Select **Create rule** (**+**). 
+To edit a custom alert rule, select the rule and then select the options (**...**) menu > **Edit**. Modify the alert rule as needed and save your changes.
 
-    :::image type="content" source="media/how-to-work-with-alerts-sensor/custom-alerts-rules.png" alt-text="Create custom alert rules":::
+Edits made to custom alert rules, such as changing a severity level or protocol, are tracked in the **Event timeline** page on the sensor console. For more information, see [Track sensor activity](how-to-track-sensor-activity.md).
 
-1. Define an alert name.
-1. Select protocol to detect.
-1. Define a message to display. Alert messages can contain alphanumeric characters you enter, as well as traffic variables detected. For example, include the detected source and destination addresses in the alert messages. Use { } to add variables to the message
-1. Select the engine that should detect the activity.
-1. **Select the source and destination devices that pairs for which activity should be detected.** 
+**To enable or disable custom alert rules**
 
-#### Create rule conditions
+You can disable custom alert rules to prevent them from running without deleting them altogether.
 
-Define one or several rule conditions. Two categories of conditions can be created:
+In the **Custom alert rules** page, select one or more rules, and then select **Enable**, **Disable**, or **Delete** in the toolbar as needed.
 
-**Condition based on unique values**
+## Next steps
 
-Create conditions based on unique values associated with the category selected. Rule conditions can comprise one or several sets of fields, operators, and values. Create condition sets, by using AND.
-
-**To create a rule condition:**
-
-1. Select a **Variable**. Variables represent fields configured in the plugin.
-
-7. Select an **Operator**:
-
-    - (==) Equal to 
-    
-    - (!=) Not equal to 
-    
-    - (>) Greater than
-    
-    
-    - In Range
-    
-    - Not in Range
-    - Same as (field X same as field Y)
-     
-    - (>=) Greater than or equal to
-    - (<) Less than 
-    
-    - (<=) Less than or equal to
-
-8. Enter a **Value** as a number. If the variable you selected is a MAC address or IP address, the value must be converted from a dotted-decimal address to decimal format. Use an IP address conversion tool, for example <https://www.ipaddressguide.com/ip>.
-
-    :::image type="content" source="media/how-to-work-with-alerts-sensor/custom-rule-conditions.png" alt-text="Custom rule condition":::
-
-9. Select  plus (**+**) to create a condition set.
-
-When the rule condition or condition set is met, the alert is sent. You will be notified if the condition logic is not valid.
-
-**Condition Based when activity took place**
-
-Create conditions based on when the activity was detected. In the Detected section, select a time period and day in which the detection must occur in order to send the alert. You can choose to send the alert if the activity is detected:
-- any time throughout the day 
-- during working hours
-- after working hours
-- a specific time
-
-Use the Define working hours option to instruct Defender for IoT working hours for your organization.
-
-#### Define rule actions
-
-The following actions can be defined for the rule:
-
-- Indicate if the rule triggers an **Alarm** or **Event**.
-- Assign a severity level to the alert (Critical, Major, Minor, Warning).
-- Indicate if the alert will include a PCAP file.
-
-The rule is added to the **Customized Alerts Rules** page.
-
-:::image type="content" source="media/how-to-work-with-alerts-sensor/custom-alerts-page.png" alt-text="Custom alerts main page" lightbox="media/how-to-work-with-alerts-sensor/custom-alerts-page.png":::
-
-### Managing customer alert rules
-
-Manage the rules you create from the Custom alert rules page, for example:
-
-
-- Review the last time the rule was triggered, the number of times the alert was triggered for the rule in the last week, or the last time the rule was modified.
-- Enable or disable rules.
-- Delete rules.
-
-Select the checkbox next to multiple rules to perform a bulk enable/disable or delete. 
-
-### Tracking changes to custom alert rules
-
-Changes made to custom alert rules are tracked in the event timeline. For example if a user changes a severity level, the protocol detected or any other rule parameter.
-
-**To view changes to the alert rule:**
-
-1. Navigate to the Event timeline page.
-
-
-### See also
-
-[Manage the alert event](how-to-manage-the-alert-event.md)
+For more information, see [Manage the alert event](how-to-manage-the-alert-event.md).

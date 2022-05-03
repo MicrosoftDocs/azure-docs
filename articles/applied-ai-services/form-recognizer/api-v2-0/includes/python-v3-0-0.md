@@ -39,7 +39,7 @@ pip install azure-ai-formrecognizer
 > [!NOTE]
 > The Form Recognizer 3.0.0 SDK reflects API v2.0
 
-### Create a new python application
+### Create a new Python application
 
 Create a new Python application in your preferred editor or IDE. Then import the following libraries.
 

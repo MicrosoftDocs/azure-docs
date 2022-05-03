@@ -1,23 +1,20 @@
 ---
-title: Store profiles in the FHIR service in Azure Healthcare APIs
+title: Store profiles in FHIR service in Azure Health Data Services
 description: This article describes how to store profiles in the FHIR service
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 12/22/2021
-ms.author: cavoeg
+ms.date: 03/01/2022
+ms.author: mikaelw
 ---
 
-# Store profiles in the FHIR service
-
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Store profiles in FHIR service
 
 HL7 FHIR defines a standard and interoperable way to store and exchange healthcare data. Even within the base FHIR specification, it can be helpful to define other rules or extensions based on the context that FHIR is being used. For such context-specific uses of FHIR, **FHIR profiles** are used for the extra layer of specifications.
 [FHIR profile](https://www.hl7.org/fhir/profiling.html) allows you to narrow down and customize resource definitions using constraints and extensions.
 
-The FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) allows validating resources against profiles to see if the resources conform to the profiles. This article guides you through the basics of FHIR profiles and how to store them. For more information about FHIR profiles outside of this article, visit [HL7.org](https://www.hl7.org/fhir/profiling.html).
+The FHIR service in Azure Health Data Services (hereby called FHIR service) allows validating resources against profiles to see if the resources conform to the profiles. This article guides you through the basics of FHIR profiles and how to store them. For more information about FHIR profiles outside of this article, visit [HL7.org](https://www.hl7.org/fhir/profiling.html).
 
 ## FHIR profile: the basics
 
@@ -38,7 +35,7 @@ For example:
 - `http://hl7.org/fhir/StructureDefinition/bmi` is another base profile that defines how to represent Body Mass Index (BMI) observations.
 - `http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance` is a US Core profile that sets minimum expectations for `AllergyIntolerance` resource associated with a patient, and it identifies mandatory fields such as extensions and value sets.
 
-When a resource conforms to a profile, the profile is specified inside the `profile` element of the resource. Below you can see an example of the beginning of a 'Patient' resource which has http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Patient profile.
+When a resource conforms to a profile, the profile is specified inside the `profile` element of the resource. Below you can see an example of the beginning of a 'Patient' resource, which has http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Patient profile.
 
 ```json
 {
@@ -85,7 +82,7 @@ To store profiles to the FHIR server, you can `POST` the `StructureDefinition` w
 }
 ```
 
-For example, if you'd like to store the `us-core-allergyintolerance` profile, you'd use the following rest command with the US Core allergy intolerance profile in the body. We have included a snippet of this profile for the example.
+For example, if you'd like to store the `us-core-allergyintolerance` profile, you'd use the following rest command with the US Core allergy intolerance profile in the body. We've included a snippet of this profile for the example.
 
 ```rest
 POST https://myworkspace-myfhirserver.fhir.azurehealthcareapis.com/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
@@ -118,7 +115,7 @@ POST https://myworkspace-myfhirserver.fhir.azurehealthcareapis.com/StructureDefi
   ],
     "description" : "Defines constraints and extensions on the AllergyIntolerance resource for the minimal set of data to query and retrieve allergy information.",
 ```
-For more examples, see the [US Core sample REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/USCore.http) on the open-source site that walks through storing US Core profiles. To get the most up to date profiles you should get the profiles directly from HL7 and the implementation guide that defines them.
+For more examples, see the [US Core sample REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/USCore.http) on the open-source site that walks through storing US Core profiles. To get the most up to date profiles, you should get the profiles directly from HL7 and the implementation guide that defines them.
 
 ### Viewing profiles
 
@@ -160,7 +157,7 @@ This will return the `StructureDefinition` resource for US Core Goal profile, th
 > You'll only see the profiles that you've loaded into the FHIR service.
 
 
-The FHIR service does not return `StructureDefinition` instances for the base profiles, but they can be found easily on the HL7 website, such as:
+FHIR service doesn't return `StructureDefinition` instances for the base profiles, but they can be found easily on the HL7 website, such as:
 
 - `http://hl7.org/fhir/Observation.profile.json.html`
 - `http://hl7.org/fhir/Patient.profile.json.html`

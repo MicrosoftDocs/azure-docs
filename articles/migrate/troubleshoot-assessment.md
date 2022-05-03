@@ -18,7 +18,7 @@ This table lists help for fixing the following assessment readiness issues.
 
 **Issue** | **Fix**
 --- | ---
-Unsupported boot type | Azure doesn't support VMs with an EFI boot type. Convert the boot type to BIOS before you run a migration. <br/><br/>You can use Azure Migrate Server Migration to handle the migration of such VMs. It will convert the boot type of the VM to BIOS during the migration.
+Unsupported boot type | Azure does not support UEFI boot type for VMs with the Operating Systems: Windows Server 2003/Windows Server 2003 R2/Windows Server 2008/Windows Server 2008 R2. Check list of Operating Systems that support UEFI-based machines [here](./common-questions-server-migration.md#which-operating-systems-are-supported-for-migration-of-uefi-based-machines-to-azure)
 Conditionally supported Windows operating system | The operating system has passed its end-of-support date and needs a Custom Support Agreement for [support in Azure](/troubleshoot/azure/virtual-machines/server-software-support). Consider upgrading before you migrate to Azure. Review information about [preparing servers running Windows Server 2003](prepare-windows-server-2003-migration.md) for migration to Azure.
 Unsupported Windows operating system | Azure supports only [selected Windows OS versions](/troubleshoot/azure/virtual-machines/server-software-support). Consider upgrading the server before you migrate to Azure.
 Conditionally endorsed Linux OS | Azure endorses only [selected Linux OS versions](../virtual-machines/linux/endorsed-distros.md). Consider upgrading the server before you migrate to Azure. For more information, see [this website](#linux-vms-are-conditionally-ready-in-an-azure-vm-assessment).
@@ -29,7 +29,7 @@ Requires a Microsoft Visual Studio subscription | The server is running a Window
 VM not found for the required storage performance | The storage performance (input/output operations per second [IOPS] and throughput) required for the server exceeds Azure VM support. Reduce storage requirements for the server before migration.
 VM not found for the required network performance | The network performance (in/out) required for the server exceeds Azure VM support. Reduce the networking requirements for the server.
 VM not found in the specified location | Use a different target location before migration.
-One or more unsuitable disks | One or more disks attached to the VM don't meet Azure requirements.<br/><br/> Azure Migrate: Discovery and assessment assesses the disks based on the disk limits for Ultra disks (64 TB).<br/><br/> For each disk attached to the VM, make sure that the size of the disk is <64 TB (supported by Ultra SSD disks).<br/><br/> If it isn't, reduce the disk size before you migrate to Azure, or use multiple disks in Azure and [stripe them together](../virtual-machines/premium-storage-performance.md#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by Azure [managed virtual machine disks](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits).
+One or more unsuitable disks | One or more disks attached to the VM don't meet Azure requirements.<br><br> Azure Migrate: Discovery and assessment assesses the disks based on the disk limits for Ultra disks (64 TB).<br><br> For each disk attached to the VM, make sure that the size of the disk is <64 TB (supported by Ultra SSD disks).<br><br> If it isn't, reduce the disk size before you migrate to Azure, or use multiple disks in Azure and [stripe them together](../virtual-machines/premium-storage-performance.md#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by Azure [managed virtual machine disks](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits).
 One or more unsuitable network adapters | Remove unused network adapters from the server before migration.
 Disk count exceeds limit | Remove unused disks from the server before migration.
 Disk size exceeds limit | Azure Migrate: Discovery and assessment supports disks with up to 64-TB size (Ultra disks). Shrink disks to less than 64 TB before migration, or use multiple disks in Azure and [stripe them together](../virtual-machines/premium-storage-performance.md#disk-striping) to get higher storage limits.
@@ -180,6 +180,10 @@ This result is possible because not all VM sizes that support Ultra disk are pre
 ## Why is my assessment showing a warning that it was created with an invalid offer?
 
 Your assessment was created with an offer that is no longer valid and hence, the **Edit** and **Recalculate** buttons are disabled. You can create a new assessment with any of the valid offers - *Pay as you go*, *Pay as you go Dev/Test*, and *Enterprise Agreement*. You can also use the **Discount(%)** field to specify any custom discount on top of the Azure offer. [Learn more](how-to-create-assessment.md).
+
+## Why is my assessment showing a warning that it was created with a target Azure location that has been deprecated?
+
+Your assessment was created with an Azure region that has been deprecated and hence the **Edit** and **Recalculate** buttons are disabled. You can [create a new assessment](how-to-create-assessment.md) with any of the valid target locations. [Learn more.](concepts-assessment-calculation.md#whats-in-an-azure-vm-assessment)
 
 ## Why is my assessment showing a warning that it was created with an invalid combination of Reserved Instances, VM uptime, and Discount (%)?
 

@@ -8,6 +8,8 @@ ms.topic: how-to
 ms.date: 05/04/2019
 ms.reviewer: cynthn 
 ms.custom: devx-track-azurecli
+author: sandeepraichura
+ms.author: saraic
 ---
 # Share gallery VM images across Azure tenants using the Azure CLI
 

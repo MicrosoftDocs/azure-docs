@@ -247,7 +247,7 @@ except Exception as ex:
     print(ex)
 ```
 
-In your console window, navigate to the directory containing the *app-configuration-quickstart.py* file and execute the following python command to run the app:
+In your console window, navigate to the directory containing the *app-configuration-quickstart.py* file and execute the following Python command to run the app:
 
 ```console
 python app-configuration-quickstart.py
