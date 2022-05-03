@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 11/24/2021
+ms.date: 05/03/2022
 ---
 
 # External call transformation in mapping data flow
@@ -35,7 +35,11 @@ You can choose auto-mapping to pass all input columns to the endpoint. Optionall
 
 ### Output
 
-Here is where you will define the data structure for the output of the external call, which will be consumed by downstream data transformations. You can define the data structure manually using ADF data flow syntax to define the column names and data types or click on "import projection" and allow ADF to detect the schema output from the external call. Here is an example schema definition structure as output from a weather REST API GET call:
+Here is where you will define the data structure for the output of the external call for the body as well as choosing how to store the headers and the status returned from the external call.
+
+If you choose to store the body, headers, and status, choose a column name for each so that they can be consumed by downstream data transformations.
+
+You can define the body data structure manually using ADF data flow syntax to define the column names and data types or click on "import projection" and allow ADF to detect the schema output from the external call. Here is an example schema definition structure as output from a weather REST API GET call:
 
 ```
 ({@context} as string[],
