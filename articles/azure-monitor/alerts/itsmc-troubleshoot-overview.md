@@ -74,7 +74,7 @@ The following sections identify common symptoms, possible causes, and resolution
 
 ### Work items are not created
 
-**Cause**: There can be several reasons for this symptom:
+**Cause**: There can be several reasons for this:
 
 * Code was modified on the ServiceNow side.
 * Permissions are misconfigured.
@@ -92,7 +92,7 @@ The following sections identify common symptoms, possible causes, and resolution
 
 ### Sync connection 
 
-**Cause**: There can be several reasons for this symptom:
+**Cause**: There can be several reasons for this:
 
 * Templates are not shown as a part of the action definition dropdown and an error message is shown: "Can't retrieve the template configuration, see the connector logs for more information."
 * Values are not shown in the dropdowns of the default fields as a part of the action definition and an error message is shown: "No values found for the following fields: \<field names\>."
@@ -102,11 +102,11 @@ The following sections identify common symptoms, possible causes, and resolution
 * [Sync the connector](itsmc-resync-servicenow.md).
 * Check the [dashboard](itsmc-dashboard.md) and review the errors in the section for connector status. Then review the [common errors and their resolutions](itsmc-dashboard-errors.md)
 
-### Configuration Item is showing blank in incidents received from ServiceNow
-**Cause**: There can be several reasons for this symptom:
-* Only Log alerts supports configurtaion item, the alert can be from other type
-* The search results must have column Computer or Resource in order to have the configuration item
-* The values in the configurtaion item fied does not match to an entry in the CMDB
+### Configuration Item is blank in incidents received from ServiceNow
+**Cause**: There can be several reasons for this:
+* Only Log alerts supports the configuration item but the alert is another type of alert
+* To contain the configuration item, the search results must include the **Computer** or **Resource** column 
+* The values in the configuration item field do not match an entry in the CMDB
 
 **Resolution**: 
 * Check whether it is log alert - if not configuration item not supported
