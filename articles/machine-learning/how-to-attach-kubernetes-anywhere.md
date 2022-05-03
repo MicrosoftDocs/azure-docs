@@ -24,7 +24,7 @@ In this article, you can learn about steps to configure and attach an existing K
 
 1. A running Kubernetes cluster - **We recommend minimum of 4 vCPU cores and 8GB memory, around 2 vCPU cores and 3GB memory will be used by Azure Arc agent and AzureML extension components**.
 1. Connect your Kubernetes cluster to Azure Arc. Please follow instructions in [connect existing Kubernetes cluster to Azure Arc](https://docs.microsoft.com/azure/azure-arc/kubernetes/quickstart-connect-cluster).
-   * if you have Azure RedHat OpenShift Service (ARO) cluster or OpenShift Container Patform (OCP) cluster, follow an additional prerequisite step [here](./docs/deploy-on-ocp.md) before AzureML extension deployment.
+   * if you have Azure RedHat OpenShift Service (ARO) cluster or OpenShift Container Patform (OCP) cluster, follow additional prerequisite step [here](#Appendix-I-Prerequisites-for-ARO-and-OCP) before AzureML extension deployment.
 1. If you have an AKS cluster in Azure, please register the AKS-ExtensionManager feature flag by using the ```az feature register --namespace "Microsoft.ContainerService" --name "AKS-ExtensionManager``` command. **Azure Arc connection is not required and not recommended**. 
 1. [Install or upgrade Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to version >=2.16.0
 1. Install the Azure CLI extension ```k8s-extension``` (version>=1.0.0) by running ```az extension add --name k8s-extension```
@@ -33,7 +33,7 @@ In this article, you can learn about steps to configure and attach an existing K
 
 AzureML extension consists of a set of system componenents deployed to your Kubernetes cluster so you can enable your cluster to run an AzureML workload - model training jobs or model endpoints. You can use an Azure CLI command ```k8s-extension create``` to deploy AzureML extension.
 
-For a detailed list of AzureML extension system componenents, please see appendix [AzureML extension componenets](#appendix-i-azureml-extension-components).
+For a detailed list of AzureML extension system componenents, please see appendix [AzureML extension componenets](#appendix-ii-azureml-extension-components).
 
 ## Key considerations for AzureML extension deployment
 
@@ -44,38 +44,36 @@ AzureML extension allows you to specify configuration settings needed for differ
       * Type ```LoadBalancer```. Exposes ```azureml-fe``` externally using a cloud provider's load balancer. To specify this value, please ensure that your cluster supports load balancer provisioning. Note most on-premises Kubernetes clusters might not support external load balancer.
       * Type ```NodePort```. Exposes ```azureml-fe``` on each Node's IP at a staic port. You'll be able to contact ```azureml-fe```, from outside of cluster, by requesting ```<NodeIP>:<NodePort>```. Using ```NodePort``` also allows you to set up your own load balancing solution and SSL termination for ```azureml-fe```.
       * Type ```ClusterIP```. Exposes ```azureml-fe``` on a cluster-internal IP, and it makes ```azureml-fe``` only reachable from within the cluster. For ```azureml-fe``` to serve inference requests coming outside of cluster, it requires you to set up your own load balancing solution and SSL termination for ```azureml-fe```. 
-
-    For more information about ```azureml-fe``` router service, please refer to documentation [here](./azureml-fe.md)
    * For inference workload support, to ensure high availability of ```azureml-fe``` routing service, AzureML extension deployment by default creates 3 replicas of ```azureml-fe``` for clusters having 3 nodes or more. If your cluster has **less than 3 nodes**, please set ```inferenceLoadbalancerHA=False```.
    * For inference workload support, you would also want to consider using **HTTPS** to restrict access to model endpoints and secure the data that clients submit. For this purpose, you would need to specify either ```sslSecret``` config setting or combination of ```sslCertPemFile``` and ```sslCertKeyFile``` config settings. By default, AzureML extension deployment expects **HTTPS** support required, and you would need to provide above config setting. For development or test purposes, **HTTP** support is conveniently supported through config setting ```allowInsecureConnections=True```.
 
-For a complete list of configuration settings available to choose at AzureML deployment time, please see appendix [Review AzureML extension config settings](#appendix-ii-review-azureml-deployment-configuration-settings)
+For a complete list of configuration settings available to choose at AzureML deployment time, please see appendix [Review AzureML extension config settings](#appendix-iii-review-azureml-deployment-configuration-settings)
 
 ## Deploy AzureML extension - example scenarios
 
 ### Using AKS in Azure for a quick POC, both training and inference workloads support
 
-Please ensure you have fulfilled [prerequisites](./../README.md#prerequisites). For AzureML extension deployment on AKS, please make sure to specify ```managedClusters``` value for ```--cluster-type``` parameter. Run the following Azure CLI command to deploy AzureML extension:
+Please ensure you have fulfilled [prerequisites](#prerequisites). For AzureML extension deployment on AKS, please make sure to specify ```managedClusters``` value for ```--cluster-type``` parameter. Run the following Azure CLI command to deploy AzureML extension:
 ```azurecli
    az k8s-extension create --name azureml-extension --extension-type Microsoft.AzureML.Kubernetes --config enableTraining=True enableInference=True inferenceRouterServiceType=LoadBalancer allowInsecureConnections=True inferenceLoadBalancerHA=False --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
 ```
 
 ### Using Minikube on your desktop for a quick POC, training workload support only
 
-Please ensure you have fulfilled [prerequisites](./../README.md#prerequisites). Since this would be an Azure Arc connected cluster, you would need to specify ```connectedClusters``` value for ```--cluster-type``` parameter. Run following simple Azure CLI command to deploy AzureML extension:
+Please ensure you have fulfilled [prerequisites](#prerequisites). Since this would be an Azure Arc connected cluster, you would need to specify ```connectedClusters``` value for ```--cluster-type``` parameter. Run following simple Azure CLI command to deploy AzureML extension:
 ```azurecli
    az k8s-extension create --name azureml-extension --extension-type Microsoft.AzureML.Kubernetes --config enableTraining=True --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <your-RG-name> --scope cluster
 ```
 
 ### Enable an AKS cluster in Azure for production training and inference workload
 
-Please ensure you have fulfilled [prerequisites](./../README.md#prerequisites). Assuming your cluster has more than 3 nodes, and you will use an Azure public load balancer and HTTPS for inference workload support, run following Azure CLI command to deploy AzureML extension:
+Please ensure you have fulfilled [prerequisites](#prerequisites). Assuming your cluster has more than 3 nodes, and you will use an Azure public load balancer and HTTPS for inference workload support, run following Azure CLI command to deploy AzureML extension:
 ```azurecli
    az k8s-extension create --name azureml-extension --extension-type Microsoft.AzureML.Kubernetes --config enableTraining=True enableInference=True inferenceRouterServiceType=LoadBalancer --config-protected sslCertPemFile=<file-path-to-cert-PEM> sslCertKeyFile=<file-path-to-cert-KEY> --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
 ```
 ### Enable an Azure Arc connected cluster anywhere for production training and inference workload
 
-Please ensure you have fulfilled [prerequisites](./../README.md#prerequisites). Assuming your cluster has more than 3 nodes, you will use a NodePort service type and HTTPS for inference workload support, run following Azure CLI command to deploy AzureML extension:
+Please ensure you have fulfilled [prerequisites](#prerequisites). Assuming your cluster has more than 3 nodes, you will use a NodePort service type and HTTPS for inference workload support, run following Azure CLI command to deploy AzureML extension:
 ```azurecli
    az k8s-extension create --name azureml-extension --extension-type Microsoft.AzureML.Kubernetes --config enableTraining=True enableInference=True inferenceRouterServiceType=NodePort --config-protected sslCertPemFile=<file-path-to-cert-PEM> sslCertKeyFile=<file-path-to-cert-KEY> --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <your-RG-name> --scope cluster
 ```
@@ -332,7 +330,29 @@ deployments:
 
 In the above example, replace `<instance_type_name>` with the name of the instance type you wish to select. If there is no `instance_type` property specified, the system will use `defaultinstancetype` to deploy model.
 
-### Appendix I: AzureML extension components
+### Appendix I: Prerequisites for ARO and OCP
+
+For AzureML extension deployment on ARO or OCP cluster, grant privileged access to AzureML service accounts, run ```oc edit scc privileged``` command, and add following service accounts under "users:":
+
+   * ```system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa```
+   * ```system:serviceaccount:azureml:{EXTENSION-NAME}-kube-state-metrics``` 
+   * ```system:serviceaccount:azureml:cluster-status-reporter```
+   * ```system:serviceaccount:azureml:prom-admission```
+   * ```system:serviceaccount:azureml:default```
+   * ```system:serviceaccount:azureml:prom-operator```
+   * ```system:serviceaccount:azureml:csi-blob-node-sa```
+   * ```system:serviceaccount:azureml:csi-blob-controller-sa```
+   * ```system:serviceaccount:azureml:load-amlarc-selinux-policy-sa```
+   * ```system:serviceaccount:azureml:azureml-fe```
+   * ```system:serviceaccount:azureml:prom-prometheus```
+   * ```system:serviceaccount:{KUBERNETES-COMPUTE-NAMESPACE}:default```
+   * ```system:serviceaccount:azureml:azureml-ingress-nginx```
+   * ```system:serviceaccount:azureml:azureml-ingress-nginx-admission```
+   > **<span stype="color:yellow">Notes</span>**
+      >* **{EXTENSION-NAME}:** is the extension name specified with ```az k8s-extension create --name``` CLI command. 
+      >* **{KUBERNETES-COMPUTE-NAMESPACE}:** is the namespace of kubernetes compute specified with ```az ml compute attach --namespace``` CLI command. Skip configuring 'system:serviceaccount:{KUBERNETES-COMPUTE-NAMESPACE}:default' if no namespace specified with ```az ml compute attach ``` CLI command.
+
+### Appendix II: AzureML extension components
 
 Upon AzureML extension deployment completes, it will create following resources in Azure cloud:
    |Resource name |Resource type | Description |
@@ -351,7 +371,7 @@ Upon AzureML extension deployment completes, it will create following resources 
    |{EXTENSION-NAME}-prometheus-operator|Kubernetes deployment|**&check;**|**&check;**|**&check;**| Provide Kubernetes native deployment and management of Prometheus and related monitoring components.|N/A|
    |amlarc-identity-controller|Kubernetes deployment|N/A|**&check;**|**&check;**|Request and renew Azure Blob/Azure Container Registry token through managed identity.|Token exchange with cloud token service for authentication and authorization of Azure Contianer Registry and Azure Blob used by inference/model deployment.|
    |amlarc-identity-proxy|Kubernetes deployment|N/A|**&check;**|**&check;**|Request and renew Azure Blob/Azure Container Registry token  through managed identity.|Token exchange with cloud token service for authentication and authorization of Azure Contianer Registry and Azure Blob used by inference/model deployment.|
-   |[azureml-fe](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#azure-ml-router)|Kubernetes deployment|N/A|**&check;**|**&check;**|The front-end component that routes incoming inference requests to deployed services.|azureml-fe service logs are sent to Azure Blob.|
+   |[azureml-fe](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#azure-ml-router)|Kubernetes deployment|N/A|**&check;**|**&check;**|The front-end component that routes incoming inference requests to deployed services.|azureml-fe service logs are sent to Azure Blob.|
    |inference-operator-controller-manager|Kubernetes deployment|N/A|**&check;**|**&check;**|Manage the lifecycle of inference endpoints. |N/A|
    |cluster-status-reporter|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Gather the cluster information, like cpu/gpu/memory usage, cluster healthness.|N/A|
    |csi-blob-controller|Kubernetes deployment|**&check;**|N/A|**&check;**|Azure Blob Storage Container Storage Interface(CSI) driver.|N/A|
@@ -371,9 +391,9 @@ Upon AzureML extension deployment completes, it will create following resources 
 > **<span stype="color:orane">Notes**:</span>
    > * **{EXTENSION-NAME}:** This is the extension name specified with ```az k8s-extension create --name``` CLI command. 
 
-### Appendix II: Review AzureML deployment configuration settings
+### Appendix III: Review AzureML deployment configuration settings
 
-Use ```k8s-extension create``` CLI command to deploy AzureML extension, review list of required and optional parameters for ```k8s-extension create``` CLI command [here](https://docs.microsoft.com/en-us/cli/azure/k8s-extension?view=azure-cli-latest#az_k8s_extension_create). For AzureML extension deployment configurations, use ```--config``` or ```--config-protected``` to specify list of ```key=value``` pairs. Following is the list of configuration settings available to be used for different AzureML extension deployment scenario ns.
+Use ```k8s-extension create``` CLI command to deploy AzureML extension, review list of required and optional parameters for ```k8s-extension create``` CLI command [here](https://docs.microsoft.com/cli/azure/k8s-extension?view=azure-cli-latest#az_k8s_extension_create). For AzureML extension deployment configurations, use ```--config``` or ```--config-protected``` to specify list of ```key=value``` pairs. Following is the list of configuration settings available to be used for different AzureML extension deployment scenario ns.
    |Configuration Setting Key Name |Description  |Training |Inference |Training and Inference
    |--|--|--|--|--|
    |```enableTraining``` |```True``` or ```False```, default ```False```. **Must** be set to ```True``` for AzureML extension deployment with Machine Learning model training support.  |  **&check;**| N/A |  **&check;** |
@@ -381,7 +401,7 @@ Use ```k8s-extension create``` CLI command to deploy AzureML extension, review l
    | ```allowInsecureConnections``` |```True``` or ```False```, default False. This **must** be set to ```True``` for AzureML extension deployment with HTTP endpoints support for inference, when ```sslCertPemFile``` and ```sslKeyPemFile``` are not provided. |N/A| Optional | Optional |
    | ```inferenceRouterServiceType``` |```loadBalancer``` or ```nodePort```.  **Must** be set for ```enableInference=true```. | N/A| **&check;** |   **&check;** |
    | ```internalLoadBalancerProvider``` | This config is only applicable for Azure Kubernetes Service(AKS) cluster now. **Must** be set to ```azure``` to allow the inference router use internal load balancer.  | N/A| Optional | Optional |
-   |```sslSecret```| The Kubernetes secret name under azureml namespace to store `cert.pem` (PEM-encoded SSL cert) and `key.pem` (PEM-encoded SSL key), required for AzureML extension deployment with HTTPS endpoint support for inference, when  ``allowInsecureConnections`` is set to False. Use this config or give static cert and key file path in configuration protected settings. See sample secret yaml [file](../files/sslsecret.yaml). |N/A| Optional | Optional |
+   |```sslSecret```| The Kubernetes secret name under azureml namespace to store `cert.pem` (PEM-encoded SSL cert) and `key.pem` (PEM-encoded SSL key), required for AzureML extension deployment with HTTPS endpoint support for inference, when  ``allowInsecureConnections`` is set to False. Use this config or give static cert and key file path in configuration protected settings. |N/A| Optional | Optional |
    |```sslCname``` |A SSL CName to use if enabling SSL validation on the cluster.   | N/A | N/A |  required when using HTTPS endpoint |
    | ```inferenceLoadBalancerHA``` |```True``` or ```False```, default ```True```. By default, AzureML extension will deploy 3 ingress controller replicas for high availability, which requires at least 3 workers in a cluster. Set this to ```False``` if you have fewer than 3 workers and want to deploy AzureML extension for development and testing only, in this case it will deploy one ingress controller replica only. | N/A| Optional | Optional |
    |```openshift``` | ```True``` or ```False```, default ```False```. Set to ```True``` if you deploy AzureML extension on ARO or OCP cluster. The deployment process will automatically compile a policy package and load policy package on each node so AzureML services operation can function properly.  | Optional| Optional | Optional |
@@ -391,7 +411,7 @@ Use ```k8s-extension create``` CLI command to deploy AzureML extension, review l
    |```reuseExistingPromOp```|```True``` or ```False```, default ```False```. AzureML extension needs prometheus operator to manage prometheus. Set to ```True``` to reuse existing prometheus operator. Compatible [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/README.md) helm chart versions are from 9.3.4 to 30.0.1.| Optional| Optional |  Optional |
  |```volcanoScheduler.enable```| ```True``` or ```False```, default ```True```. AzureML extension needs volcano scheduler to schedule the job. Set to ```False``` to reuse existing volcano scheduler. Supported volcano scheduler versions are 1.4, 1.5. | Optional| N/A | Optional |
  |```logAnalyticsWS```  |```True``` or ```False```, default ```False```. AzureML extension integrates with Azure LogAnalytics Workspace to provide log viewing and analysis capability through LogAalytics Workspace. This setting must be explicitly set to ```True``` if a customer wants to use this capability. LogAnalytics Workspace cost may apply.  |N/A |Optional |Optional |
- |```installDcgmExporter```  |```True``` or ```False```, default ```False```. Dcgm-exporter is used to collect GPU metrics for GPU jobs. Specify ```installDcgmExporter``` flag to ```true``` to enable the build-in dcgm-exporter. But if you want to utilize your own dcgm-exporter, please refer to [DCGM exporter](./troubleshooting.md#dcgm) |N/A |Optional |Optional |
+ |```installDcgmExporter```  |```True``` or ```False```, default ```False```. Dcgm-exporter is used to collect GPU metrics for GPU jobs. Specify ```installDcgmExporter``` flag to ```true``` to enable the build-in dcgm-exporter. |N/A |Optional |Optional |
 
    |Configuration Protected Setting Key Name |Description  |Training |Inference |Training and Inference
    |--|--|--|--|--|
