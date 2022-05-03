@@ -16,7 +16,7 @@ ms.subservice: data-lake-storage-gen2
 You can reduce the number of steps required to complete a migration by using the Azure portal. Data and metadata (such as timestamps and ACLs) automatically move to your Gen2-enabled account. If you perform a complete migration, you won't have to point your workloads to Gen2 because requests are redirected automatically.
 
 > [!NOTE]
-> Large customers with more than 100TB of data or more than 200 million streams might not be able to use the Azure portal to migrate from Azure Data Lake Storage Gen1 to Gen2. If the **Migrate data** button is not enabled in the Azure portal for your Gen1 account, contact your Microsoft account team for migration assistance.
+> Your account may not qualify for portal-based migration based on certain compatibility constraints. If the **Migrate data** button is not enabled in the Azure portal for your Gen1 account, you can [email the Azure Data Lake Storage migration team](mailto:ADLSGen1toGen2MigrationQA@service.microsoft.com). You can also get answers from community experts in [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-data-lake-storage.html). If you have a support plan, you can [file a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 > [!WARNING]
 > Azure Data Lake Storage Gen2 doesn't support Azure Data Lake Analytics applications. If you have any, you'll need to move them before migrating from Gen1 to Gen2. See [Move Azure Data Lake Analytics applications](#move-azure-data-lake-analytics-applications) for more information.
