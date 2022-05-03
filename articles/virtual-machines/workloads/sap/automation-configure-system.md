@@ -59,12 +59,18 @@ The table below contains the parameters that define the environment settings and
 > | `use_prefix`            | Controls if the resource naming includes the prefix, DEV-WEEU-SAP01-X00_xxxx | Optional   |
 > | 'name_override_file'    | Name override file                                       | Optional   |
 
+
 ## Resource Group Parameters
 
 The table below contains the parameters that define the resource group.
 
-> | `resource_group_name`   | Name of the resource group to be created | Optional   |
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                | Description                                              | Type       |
+> | ----------------------- | -------------------------------------------------------- | ---------- |
+> | `resource_group_name`   | Name of the resource group to be created                 | Optional   |  
 > | `resource_group_arm_id` | Azure resource identifier for an existing resource group | Optional   |
+
 
 ### Database Tier Parameters
 
