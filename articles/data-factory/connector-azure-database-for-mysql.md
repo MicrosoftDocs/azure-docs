@@ -26,7 +26,7 @@ This connector is specialized for
 
 ## Prerequisites
 
-This quickstart uses the resources created in either of these guides as a starting point:
+This quickstart requires the following resources and configuration mentioned below as a starting point:
 
 - An existing Azure databsae for MySQL Single server or MySQL Flexible Server.
 - Enable **Allow public access from any Azure service within Azure to this server** in networking page of the MySQL server . This will allow you to use Data factory studio.
