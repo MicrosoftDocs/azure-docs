@@ -308,13 +308,7 @@ By default, the HTTP action and APIConnection actions follow the [standard async
 
 ### Retry policy
 
-| Name | Multi-tenant limit | Single-tenant limit | Notes |
-|------|--------------------|---------------------|-------|
-| Retry attempts | - Default: 4 attempts <br> - Max: 90 attempts | - Default: 4 attempts | To change the default limit in the multi-tenant service, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). <p><p>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
-| Retry interval | None | Default: 7 sec | To change the default limit in the multi-tenant service, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). <p><p>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
-| Retry max delay | Default: 1 day | Default: 1 hour | To change the default limit in the multi-tenant service, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). <p><p>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
-| Retry min delay | Default: 5 sec | Default: 5 sec | To change the default limit in the multi-tenant service, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). <p><p>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
-|||||
+For more information about retry policies, settings, limits, and other options, review [Retry policies](logic-apps-exception-handling.md#retry-policy-limits).
 
 <a name="authentication-limits"></a>
 
