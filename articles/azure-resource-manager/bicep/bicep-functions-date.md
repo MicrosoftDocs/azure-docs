@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to work with dates.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 05/02/2022
+ms.date: 05/03/2022
 ---
 
 # Date functions for Bicep
@@ -163,7 +163,7 @@ The output is:
 
 The next example uses the epoch time value to set the expiration for a key in a key vault.
 
-:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.storage/storage-blob-encryption-with-cmk/main.bicep":::
+:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.storage/storage-blob-encryption-with-cmk/main.bicep" highlight="20,65":::
 
 ## utcNow
 
