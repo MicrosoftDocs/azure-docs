@@ -39,12 +39,12 @@ The following settings allow you to configure your automated ML experiment.
 |**Split data into train/validation sets**| ✓|✓
 |**Supports ML tasks: classification, regression, & forecasting**| ✓| ✓
 |**Supports computer vision tasks (preview): image classification, object detection & instance segmentation**| ✓| 
+|**NLP-Text**| ✓| ✓
 |**Optimizes based on primary metric**| ✓| ✓
 |**Supports Azure ML compute as compute target** | ✓|✓
 |**Configure forecast horizon, target lags & rolling window**|✓|✓
 |**Set exit criteria** |✓|✓ 
 |**Set concurrent iterations**| ✓|✓
-|**Drop columns**| ✓|✓
 |**Block algorithms**|✓|✓
 |**Cross validation** |✓|✓
 |**Supports training on Azure Databricks clusters**| ✓|
@@ -74,7 +74,6 @@ These settings allow you to review and control your experiment runs and its chil
 |**Run summary table**| ✓|✓|
 |**Cancel runs & child runs**| ✓|✓|
 |**Get guardrails**| ✓|✓|
-|**Pause & resume runs**| ✓| |
 
 ## When to use AutoML: classification, regression, forecasting, computer vision & NLP
 

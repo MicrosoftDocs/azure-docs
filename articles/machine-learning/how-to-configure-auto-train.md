@@ -68,7 +68,7 @@ except Exception as ex:
 
 ## Data source and format
 
-Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into a **Pandas DataFrame** or an **MLtable**.
+Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into a **MLtable**.
 
 Requirements for training data in machine learning:
 - Data must be in tabular form.
