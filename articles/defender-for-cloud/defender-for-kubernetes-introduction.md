@@ -9,8 +9,6 @@ author: bmansheim
 
 # Introduction to Microsoft Defender for Kubernetes (deprecated)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Defender for Cloud provides real-time threat protection for your Azure Kubernetes Service (AKS) containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers.
 
 Threat protection at the cluster level is provided by the analysis of the Kubernetes audit logs. 
