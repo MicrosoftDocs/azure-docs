@@ -62,7 +62,7 @@ The preceding command also outputs the `each` and `all` results to the specified
 
 ## Output to multiple files
 
-For translations with `spx translate`, separate SRT and VTT files are created for the source language (such as `--source en-US`) and each target language (such as `--target de;fr;zh-Hant`).
+For translations with `spx translate`, separate files are created for the source language (such as `--source en-US`) and each target language (such as `--target de;fr;zh-Hant`).
 
 For example, to output translated SRT and WebVTT captions, run the following command: 
 
