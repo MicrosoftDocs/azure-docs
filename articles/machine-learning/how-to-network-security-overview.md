@@ -148,8 +148,8 @@ In this section, you learn how Azure Machine Learning securely communicates betw
 
 ## Secure the inferencing environment (v2)
 
-[!INCLUDE [sdk v2](../../../includes/machine-learning-sdk-v2.md)]
-[!INCLUDE [cli v2](../../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 You can enable network isolation for managed online endpoints to secure the following network traffic:
 
@@ -163,8 +163,8 @@ For more information, see [Enable network isolation for managed online endpoints
 
 ## Secure the inferencing environment (v1)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 In this section, you learn the options available for securing an inferencing environment. When doing a v1 deployment, we recommend that you use Azure Kubernetes Services (AKS) clusters for high-scale, production deployments.
 
