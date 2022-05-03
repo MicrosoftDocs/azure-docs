@@ -126,8 +126,8 @@ The following Docker examples are for the Read OCR container.
 ### Basic example
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.2 \
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2022-04-30 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -137,8 +137,8 @@ ApiKey={API_KEY}
 ### Logging example 
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.2 \
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2022-04-30 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -150,7 +150,7 @@ Logging:Console:LogLevel:Default=Information
 ### Basic example
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
 mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -161,7 +161,7 @@ ApiKey={API_KEY}
 ### Logging example 
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
 mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
 Eula=accept \
 Billing={ENDPOINT_URI} \
