@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) drivers for Azure Disks on Azure Ku
 description: Learn how to use the Container Storage Interface (CSI) drivers for Azure disks in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 03/09/2022
+ms.date: 04/06/2022
 author: palma21
 
 ---
@@ -260,102 +260,9 @@ Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdc         15G   46M   15G   1% /mnt/azuredisk
 ```
 
-## Shared disk
-
-[Azure shared disks](../virtual-machines/disks-shared.md) is an Azure managed disks feature that enables attaching an Azure disk to agent nodes simultaneously. Attaching a managed disk to multiple agent nodes allows you, for example, to deploy new or migrate existing clustered applications to Azure.
-
-> [!IMPORTANT]
-> Currently, only raw block device (`volumeMode: Block`) is supported by the Azure disk CSI driver. Applications should manage the coordination and control of writes, reads, locks, caches, mounts, and fencing on the shared disk, which is exposed as a raw block device.
-
-Let's create a file called `shared-disk.yaml` by copying the following command that contains the shared disk storage class and PVC:
-
-```yaml
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: managed-csi-shared
-provisioner: disk.csi.azure.com
-parameters:
-  skuname: Premium_LRS
-  maxShares: "2"
-  cachingMode: None  # ReadOnly cache is not available for premium SSD with maxShares>1
-reclaimPolicy: Delete
----
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: pvc-azuredisk-shared
-spec:
-  accessModes:
-    - ReadWriteMany
-  resources:
-    requests:
-      storage: 256Gi  # minimum size of shared disk is 256GB (P15)
-  volumeMode: Block
-  storageClassName: managed-csi-shared
-```
-
-Create the storage class with the [kubectl apply][kubectl-apply] command, and specify your `shared-disk.yaml` file:
-
-```console
-$ kubectl apply -f shared-disk.yaml
-
-storageclass.storage.k8s.io/managed-csi-shared created
-persistentvolumeclaim/pvc-azuredisk-shared created
-```
-
-Now let's create a file called `deployment-shared.yml` by copying the following command:
-
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  labels:
-    app: nginx
-  name: deployment-azuredisk
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: nginx
-  template:
-    metadata:
-      labels:
-        app: nginx
-      name: deployment-azuredisk
-    spec:
-      containers:
-        - name: deployment-azuredisk
-          image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
-          volumeDevices:
-            - name: azuredisk
-              devicePath: /dev/sdx
-      volumes:
-        - name: azuredisk
-          persistentVolumeClaim:
-            claimName: pvc-azuredisk-shared
-```
-
-Create the deployment with the [kubectl apply][kubectl-apply] command, and specify your `deployment-shared.yml` file:
-
-```console
-$ kubectl apply -f deployment-shared.yml
-
-deployment/deployment-azuredisk created
-```
-
-Finally, let's check the block device inside the pod:
-
-```console
-# kubectl exec -it deployment-sharedisk-7454978bc6-xh7jp sh
-/ # dd if=/dev/zero of=/dev/sdx bs=1024k count=100
-100+0 records in
-100+0 records out/s
-```
-
 ## Windows containers
 
-The Azure disk CSI driver also supports Windows nodes and containers. If you want to use Windows containers, follow the [Windows containers tutorial](windows-container-cli.md) to add a Windows node pool.
+The Azure disk CSI driver also supports Windows nodes and containers. If you want to use Windows containers, follow the [Windows containers quickstart][aks-quickstart-cli] to add a Windows node pool.
 
 After you have a Windows node pool, you can now use the built-in storage classes like `managed-csi`. You can deploy an example [Windows-based stateful set](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) that saves timestamps into the file `data.txt` by deploying the following command with the [kubectl apply][kubectl-apply] command:
 
@@ -399,8 +306,8 @@ $ kubectl exec -it busybox-azuredisk-0 -- cat c:\mnt\azuredisk\data.txt # on Win
 [az-snapshot-create]: /cli/azure/snapshot#az_snapshot_create
 [az-disk-create]: /cli/azure/disk#az_disk_create
 [az-disk-show]: /cli/azure/disk#az_disk_show
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md

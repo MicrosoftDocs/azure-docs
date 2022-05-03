@@ -94,7 +94,7 @@ Before you get started, make sure to:
            {
                cout << "CANCELED: ErrorCode=" << (int)cancellation->ErrorCode << std::endl;
                cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails << std::endl;
-               cout << "CANCELED: Did you update the subscription info?" << std::endl;
+               cout << "CANCELED: Did you set the speech resource key and region values?" << std::endl;
            }
        }
    }

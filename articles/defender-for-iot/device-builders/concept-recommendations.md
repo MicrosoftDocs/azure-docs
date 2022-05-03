@@ -12,6 +12,9 @@ Security recommendations are actionable and aim to aid customers in complying wi
 
 In this article, you will find a list of recommendations, which can be triggered on your IoT Hub.
 
+> [!NOTE]
+> The Microsoft Defender for IoT legacy experience under IoT Hub has been replaced by our new Defender for IoT standalone experience, in the Defender for IoT area of the Azure portal. The legacy experience under IoT Hub will not be supported after **March 31, 2023**.
+
 ## Built in recommendations in IoT Hub
 
 Recommendation alerts provide insight and suggestions for actions to improve the security posture of your environment.

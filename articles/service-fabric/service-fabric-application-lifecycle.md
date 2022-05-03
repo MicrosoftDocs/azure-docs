@@ -8,6 +8,9 @@ ms.date: 1/19/2018
 # Service Fabric application lifecycle
 As with other platforms, an application on Azure Service Fabric usually goes through the following phases: design, development, testing, deployment, upgrading, maintenance, and removal. Service Fabric provides first-class support for the full application lifecycle of cloud applications, from development through deployment, daily management, and maintenance to eventual decommissioning. The service model enables several different roles to participate independently in the application lifecycle. This article provides an overview of the APIs and how they are used by the different roles throughout the phases of the Service Fabric application lifecycle.
 
+[Check this page for a training video that describes how to manage your application lifecycle:](/shows/building-microservices-applications-on-azure-service-fabric/application-lifetime-management-in-action)
+
+
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
 ## Service model roles
@@ -67,10 +70,44 @@ See the [Application upgrade tutorial](service-fabric-application-upgrade-tutori
 ## Remove
 1. An *operator* can delete a specific instance of a running service in the cluster without removing the entire application using the [**DeleteServiceAsync** method](/dotnet/api/system.fabric.fabricclient.servicemanagementclient), the [**Remove-ServiceFabricService** cmdlet](/powershell/module/servicefabric/remove-servicefabricservice), or the [**Delete Service** REST operation](/rest/api/servicefabric/delete-a-service).  
 2. An *operator* can also delete an application instance and all of its services using the [**DeleteApplicationAsync** method](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), the [**Remove-ServiceFabricApplication** cmdlet](/powershell/module/servicefabric/remove-servicefabricapplication), or the [**Delete Application** REST operation](/rest/api/servicefabric/delete-an-application).
-3. Once the application and services have stopped, the *operator* can unprovision the application type using the [**UnprovisionApplicationAsync** method](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), the  [**Unregister-ServiceFabricApplicationType** cmdlet](/powershell/module/servicefabric/unregister-servicefabricapplicationtype), or the [**Unprovision an Application** REST operation](/rest/api/servicefabric/unprovision-an-application). Unprovisioning the application type does not remove the application package from the ImageStore. You must remove the application package manually.
+3. Once the application and services have stopped, the *operator* can unprovision the application type using the [**UnprovisionApplicationAsync** method](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), the  [**Unregister-ServiceFabricApplicationType** cmdlet](/powershell/module/servicefabric/unregister-servicefabricapplicationtype), or the [**Unprovision an Application** REST operation](/rest/api/servicefabric/unprovision-an-application). Unprovisioning the application type does not remove the application package from the ImageStore. 
 4. An *operator* removes the application package from the ImageStore using the [**RemoveApplicationPackage** method](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient) or the [**Remove-ServiceFabricApplicationPackage** cmdlet](/powershell/module/servicefabric/remove-servicefabricapplicationpackage).
 
 See [Deploy an application](service-fabric-deploy-remove-applications.md) for examples.
+
+## Cleaning up files and data on nodes
+
+The replication of application files will distribute eventually the files to all nodes depending on balancing actions. This can create disk pressure depending on the number of applications and their file size.
+Even when no active instance is running on a node, the files from a former instance will be kept. The same is true for data from reliable collections used by stateful services. This serves the purpose of higher availability. In case of a new application instance on the same node no files must be copied. For reliable collections, only the delta must be replicated.
+
+To remove the application binaries completely you have to unregister the application type.
+
+Recommendations to reduce disk pressure:
+
+1. [Remove-ServiceFabricApplicationPackage](service-fabric-deploy-remove-applications.md#remove-an-application-package-from-the-image-store) this removes the package from temporary upload location.
+1. [Unregister-ServiceFabricApplicationType](service-fabric-deploy-remove-applications.md#unregister-an-application-type) releases storage space by removing the application type files from image store service and all nodes. The deletion manager runs every hour per default.
+1. [CleanupUnusedApplicationTypes](service-fabric-cluster-fabric-settings.md)
+    cleans up old unused application versions automatically.
+    ```ARM template
+    {
+      "name": "Management",
+      "parameters": [
+        {
+          "name": "CleanupUnusedApplicationTypes",
+          "value": true
+        },
+        {
+          "name": "MaxUnusedAppTypeVersionsToKeep",
+          "value": "3"
+        }
+      ]
+    }
+    ```
+1.  [Remove-ServiceFabricClusterPackage](/powershell/module/servicefabric/remove-servicefabricclusterpackage) removes old unused runtime installation binaries.
+
+>[!Note]
+> A feature is under development to allow Service Fabric to delete application folders once the application is evacuated from the node.
+
 
 ## Next steps
 For more information on developing, testing, and managing Service Fabric applications and services, see:

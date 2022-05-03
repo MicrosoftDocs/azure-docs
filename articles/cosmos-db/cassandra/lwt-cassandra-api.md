@@ -13,11 +13,6 @@ ms.custom: template-how-to
 # Azure Cosmos DB Cassandra API Lightweight Transactions with Conditions
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
-> [!IMPORTANT]
-> Lightweight Transactions for Azure Cosmos DB API for Cassandra is currently in public preview.
-> This preview version is provided without a service level agreement. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Apache Cassandra as most NoSQL database platforms gives precedence to availability and partition-tolerance above consistency as it does not support ACID transactions as in relational database. For details on how consistency level works with LWT see [Azure Cosmos DB Cassandra API consistency levels](apache-cassandra-consistency-mapping.md). Cassandra supports lightweight transactions(LWT) which borders on ACID. It helps perform a read before write, for operations that require the data insert or update must be unique. 
 
 ## LWT support within Azure Cosmos DB Cassandra API

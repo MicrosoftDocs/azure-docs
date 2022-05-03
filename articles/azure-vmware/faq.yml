@@ -30,7 +30,7 @@ sections:
         answer: You can find information about guest operating system compatibility with vSphere by using the [VMware Compatibility Guide](https://www.vmware.com/resources/compatibility/search.php?deviceCategory=software&details=1&releases=485&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc&testConfig=16). To identify the version of vSphere running in Azure VMware Solution, see [VMware software versions](concepts-private-clouds-clusters.md#vmware-software-versions).
           
       - question: What does the change control process look like?
-        answer: Updates made follows Microsoft Azure's standard change management process. Customers are responsible for any workload administration tasks and the associated change management processes.
+        answer: Updates made follow Microsoft Azure's standard change management process. Customers are responsible for any workload administration tasks and the associated change management processes.
 
       - question: How is this version different from Azure VMware Solution by CloudSimple?
         answer: With the new Azure VMware Solution, Microsoft and VMware have a direct cloud provider partnership. The new solution is designed, built, and supported by Microsoft and endorsed by VMware. Architecturally, the solutions are consistent, with the VMware technology stack running on a dedicated Azure infrastructure.
@@ -40,7 +40,7 @@ sections:
     questions:
 
       - question: Is there an SLA on disk replacement when failures occur? 
-        answer: Any host with disk issues are replaced. It rolls up to 99.9 SLA availability of the Azure VMware Solution service.
+        answer: Any hosts with disk issues are replaced. It rolls up to 99.9 SLA availability of the Azure VMware Solution service.
 
       - question: How will pricing be structured for Azure VMware Solution?
         answer: For general questions on pricing, see the Azure VMware Solution [pricing](https://azure.microsoft.com/pricing/details/azure-vmware) page. 
@@ -137,6 +137,9 @@ sections:
       - question: Is NSX required in on-premises environments or networks that connect to a private cloud?
         answer: No, you aren't required to use NSX on-premises.
 
+      - question: Is NSX-T Identity Firewall supported with Azure VMware Solution?
+        answer: Yes, NSX-T Identity Firewall is supported with Azure VMware Solution.
+        
       - question: Is VMware Horizon 8 2012 compatible with Azure VMware Solution?
         answer: Yes.
 
@@ -270,7 +273,7 @@ sections:
     questions:
 
       - question: What is the correct storage policy for the dedup setup?
-        answer: Use the *thin_provision* storage policy for your VM template.  The default is *thick_provision*.
+        answer: Use the *thin_provision* storage policy for your VM template.
 
       - question: What is the storage capacity of each host?
         answer: Each ESXi host has two vSAN disk groups with a capacity tier of 15.2TB and a 3.2-TB NVMe cache tier (1.6 TB in each disk group).      
@@ -283,15 +286,10 @@ sections:
 
       - question: What is the Fault tolerance of hardware failure on the vSAN?
         answer: |
-          FTT-1, RAID-1 (mirroring) with Object Space reservation set to Thick Provisioning is the Default Storage policy for the SDDC.
+          RAID-1, FTT-1, with Object Space reservation set to Thin Provisioning is the Default Storage policy for the software-defined datacenters (SDDCs).
           
-          :::image type="content" source="media/concepts/vsphere-vm-storage-policies.png" alt-text="Screenshot that shows the vSphere Client VM Storage Policies.":::  
-
-      - question: Why is thick provisioning the default vSAN policy in Azure VMware Solution?
+      - question: What is the difference between thick provisioning and thin provisioning? 
         answer: Thick provisioning is reserved or pre-allocated storage space.  Thick provisioning protects systems by allowing them to function even if the vSAN datastore is full because the space is already reserved. For example, suppose you create a 10GB virtual disk with thick provisioning. In that case, the full amount of virtual disk storage capacity is pre-allocated on the physical storage where the virtual disk is created and consumes all the space allocated to it in the datastore.  It won't allow other VMs to share the space from the datastore. A thin-provisioned virtual disk consumes the space that it needs initially and grows to the data space demand used in the datastore.
-
-      - question: Can I create a new VM in Azure VMware Solution with thin provisioning even if the default vSAN policy is thick provisioning?
-        answer: Yes. Outside of the default (thick_provision), you can create VMs with FTT1 thin provisioning. 
 
       - question: How many disks can fail on the vSAN before data loss occurs? 
         answer: It depends on how you plan your application workloads to run inside the SDDC (private cloud). Microsoft governs these failures regularly and replaces the hardware when such events are detected from an infrastructure perspective. As a default, a setting of FFT-1 is used, which accommodates a single host's failure.
