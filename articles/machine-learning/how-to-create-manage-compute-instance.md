@@ -435,7 +435,7 @@ Logs from the setup script execution appear in the logs folder in the compute in
 
 You can set up additional services, such as RStudio, when creating a compute instance. Follow these steps in studio to set up a custom service on your compute instance
 
-1.	Fill out the form to [create a new compute instance](#create)
+1.	Fill out the form to [create a new compute instance](?tabs=azure-studio#create)
 1.	Select **Next: Advanced Settings**
 1.	Select **Add Service** under the **Custom Service Setup (RStudio Workbench, etc)** section
  
@@ -443,7 +443,7 @@ You can set up additional services, such as RStudio, when creating a compute ins
  
 ### Setup RStudio Workbench
 
-RStudio is one of the most popular IDEs among R developers for ML and data science projects. You can easily set up RStudio Workbench to run on AzureML compute instance, using your own RStudio license, and access the rich feature set that RStudio Workbench offers.
+RStudio is one of the most popular IDEs among R developers for ML and data science projects. You can easily set up RStudio Workbench to run on your compute instance, using your own RStudio license, and access the rich feature set that RStudio Workbench offers.
 
 1.	Follow the steps listed above to **Add service** when creating your compute instance.
 1.	Select **RStudio Workbench (bring your own license)** in the **Service** dropdown and enter your RStudio Workbench license key in the **License key** field. You can get your RStudio Workbench license or trial license [from RStudio](https://www.rstudio.com/). 
@@ -457,25 +457,32 @@ To use RStudio open source, set up a custom service as follows:
 
 1.	Follow the steps listed above to **Add service** when creating your compute instance.
 1.	Select **Custom Service** on the **Service** dropdown 
-1.	Configure the Service name you would like to use, and set up the service to run on Service port 8787. 
-1. Point the Docker image to rocker/rstudio:latest. 
-1. Add the Environment variables DISABLE_AUTH: true. 
-1. Add the Bind mounts /home/azureuser: /home/rstudio. 
+1.	Configure the Service name you would like to use.
+1. Set up the service to run on **Service port** `8787`. 
+1. Point the **Docker image** to `docker.io/rocker/ml-verse:4`. 
+1. Add the following **Environment variables**:
+    * `DISABLE_AUTH: true`
+    * `ROOT: true`
+    * `USERID: 1001`
+    * `GROUPID: 1001`
+    * `USER: azureuser`
+1. Add the **Bind mounts** `/home/azureuser: /home/azureuser`.
 1. Select **Add service** to set up RStudio as a custom service on your compute instance.
+
  
-:::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-open-source.png" alt-text="Screenshot shows form to set up RStudio as a custom service":::
+:::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-open-source.png" alt-text="Screenshot shows form to set up RStudio as a custom service" lightbox="media/how-to-create-manage-compute-instance/rstudio-open-source.png":::
  
 ### Setup other custom services
 
 Set up additional custom services on your compute instance by providing the service on a Docker image.
 
-1.	Follow the steps listed above to Add service when creating your compute instance.
+1.	Follow the steps listed above to **Add service** when creating your compute instance.
 1.	Select **Custom Service** on the **Service** dropdown. 
 1. Configure the **Service name**, the **Service port** you wish to run the service on, and the **Docker image** that contains your service.
 1. Optionally, add **Environment variables** and **Bind mounts** you wish to use for your service.
 1. Select **Add service** to set up the custom service on your compute instance.
 
-:::image type="content" source="media/how-to-create-manage-compute-instance/custom-service.png" alt-text="Screenshot show custom service settings.":::
+:::image type="content" source="media/how-to-create-manage-compute-instance/custom-service.png" alt-text="Screenshot show custom service settings." lightbox="media/how-to-create-manage-compute-instance/custom-service.png":::
 
 ### Accessing custom services in studio
 
