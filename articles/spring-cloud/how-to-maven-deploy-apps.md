@@ -29,9 +29,9 @@ This article shows you how to use the Azure Spring Apps Maven plugin to configur
 * [Apache Maven](https://maven.apache.org/download.cgi)
 * [Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli) with the Azure Spring Apps extension. You can install the extension by using the following command: `az extension add --name spring`
 
-## Generate a Spring Cloud project
+## Generate a Spring project
 
-To create a Spring Cloud project for use in this article, use the following steps:
+To create a Spring project for use in this article, use the following steps:
 
 1. Navigate to [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.7&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client) to generate a sample project with the recommended dependencies for Azure Spring Apps. This link uses the following URL to provide default settings for you.
 
