@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell
 
 # Calculate the size of a blob container with PowerShell
 
-This script calculates the size of a container in Azure Blob Storage by totaling the size of the blobs in the container.
+This script calculates the size of a container in Azure Blob Storage. It first displays the total number of bytes used by the blobs within the container, then displays their individual names and lengths.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
