@@ -80,11 +80,11 @@ When a new Microsoft 365 group is created, a welcome email notification is sent 
 
 ## Check processing status for a rule
 
-You can see the membership processing status and the last updated date on the **Overview** page for the group.
+You can see the dynamic rule processing status and the last membership change date on the **Overview** page for the group.
   
-  ![display of dynamic group status](./media/groups-create-rule/group-status.png)
+  ![display of dynamic group status](https://user-images.githubusercontent.com/72089901/166579250-98185558-a583-4743-a6e5-9a7a44f8c203.png)
 
-The following status messages can be shown for **Membership processing** status:
+The following status messages can be shown for **Dynamic rule processing** status:
 
 - **Evaluating**:  The group change has been received and the updates are being evaluated.
 - **Processing**: Updates are being processed.
@@ -92,7 +92,7 @@ The following status messages can be shown for **Membership processing** status:
 - **Processing error**:  Processing couldn't be completed because of an error evaluating the membership rule.
 - **Update paused**: Dynamic membership rule updates have been paused by the administrator. MembershipRuleProcessingState is set to “Paused”.
 
-The following status messages can be shown for **Membership last updated** status:
+The following status messages can be shown for **Last membership change** status:
 
 - &lt;**Date and time**&gt;: The last time the membership was updated.
 - **In Progress**: Updates are currently in progress.
