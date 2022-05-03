@@ -34,6 +34,14 @@
   - name: Track experiments with MLflow 
     displayName: log, monitor, metrics, model registry, register
     href: how-to-use-mlflow.md  
+  - name: Network security
+    items:
+      - name: Secure inferencing environment
+        displayName: vnet
+        href: how-to-secure-inferencing-vnet.md
+      - name: Configure secure web services
+        displayName: ssl, tls
+        href: how-to-secure-web-service.md
   - name: Train models
     items: 
       - name: Train with SDK v1
