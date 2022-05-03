@@ -1,12 +1,12 @@
 ---
-title: Configure SAP Transport Management System | Microsoft Docs
+title: Configure SAP Transport Management System to connect from Microsoft Sentinel | Microsoft Docs
 description: This article shows you how to configure the SAP Transport Management System in the event of an error or in a lab environment where it hasn't already been configured, in order to successfully deploy the Continuous Threat Monitoring solution for SAP in Microsoft Sentinel.
 author: MSFTandrelom
 ms.author: andrelom
 ms.topic: how-to
 ms.date: 04/07/2022
 ---
-# Configure SAP Transport Management System
+# Configure SAP Transport Management System to connect from Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
@@ -20,6 +20,8 @@ SAP's Transport Management System is normally already configured on production s
 If you get this error running the **STMS_IMPORT** transaction while [preparing your SAP environment](preparing-sap.md), you'll need to configure the Transport Management System.
 
 ![Error while running STMS_IMPORT transaction](./media/configure-transport/stms-import-error.png "Error while running STMS_IMPORT transaction")
+
+## Configure Transport Management System
 
 The following steps show the process for configuring the Transport Management System.
 

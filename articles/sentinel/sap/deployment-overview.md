@@ -1,5 +1,5 @@
 ---
-title: Deploy Continuous Threat Monitoring for SAP | Microsoft Docs
+title: Deploy Continuous Threat Monitoring for SAP in Microsoft Sentinel | Microsoft Docs
 description: This article introduces you to the process of deploying the Microsoft Sentinel Continuous Threat Monitoring solution for SAP.
 author: MSFTandrelom
 ms.author: andrelom
@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 04/12/2022
 ---
 
-# Deploy Continuous Threat Monitoring for SAP
+# Deploy Continuous Threat Monitoring for SAP in Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
@@ -36,7 +36,7 @@ Follow your deployment journey through this series of articles, in which you'll 
 | **3. Prepare SAP environment** | [Deploying SAP CRs and configuring authorization](preparing-sap.md) |
 | **4. Deploy data connector agent** | [Deploy and configure the data connector agent container](deploy-data-connector-agent-container.md) |
 | **5. Deploy SAP security content** | [Deploy SAP security content](deploy-sap-security-content.md)
-| **6. Optional steps** | <li>[Configure auditing](configure-audit.md)<li>[Configure SAP data connector to use SNC](configure-snc.md)
+| **6. Optional steps** | - [Configure auditing](configure-audit.md)<br>- [Configure SAP data connector to use SNC](configure-snc.md)
 
 > [!NOTE]
 > Extra steps are required to configure communications between SAP data connector and SAP over a Secure Network Communications (SNC) connection. This is covered in [Deploy the Microsoft Sentinel SAP data connector with SNC](configure-snc.md) section of the guide.

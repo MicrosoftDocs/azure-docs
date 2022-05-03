@@ -1229,7 +1229,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Syslog**](connect-syslog.md), with, [ASIM parsers](normalization-about-parsers.md) based on Kusto functons |
+| **Data ingestion method** | [**Syslog**](connect-syslog.md), with, [ASIM parsers](normalization-about-parsers.md) based on Kusto functions |
 | **Log Analytics table(s)** | [Syslog](/azure/azure-monitor/reference/tables/syslog) |
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Supported by** | Microsoft |

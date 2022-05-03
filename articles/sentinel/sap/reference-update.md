@@ -1,5 +1,5 @@
 ---
-title: Continuous Threat Monitoring for SAP container update script reference | Microsoft Docs
+title: Microsoft Sentinel Continuous Threat Monitoring for SAP container update script reference | Microsoft Docs
 description: Description of command line options available with update deployment script
 author: MSFTandrelom
 ms.author: andrelom
@@ -14,13 +14,13 @@ ms.date: 03/02/2022
 > [!IMPORTANT]
 > The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Script overview
-
 The SAP data collector agent container uses an update script (available at [Microsoft Azure Sentinel SAP Continuous Threat Monitoring GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP)) to simplify the update process.
 
-During the update process, the script identifies any containers running the SAP data collector agent, downloads an updated container image from the Azure Container registry, copies mounted directory settings, copies environment variables, renames the existing container with an `-OLD` suffix, and finally creates a container using the updated image. The script then starts the container with an additional `--sapconinstanceupdate` switch that verifies that the updated container can start and connect to the SAP system properly. When the container reports a successful start, the script removes the old container. It then recreates the new container to run without the `--sapconinstanceupdate` switch in order to start in normal operation mode and continue to collect data from the SAP system.
+This article shows how the script's behavior can be customized by configuring its parameters.
 
-The script's behavior can be customized with a number of parameters as shown below.
+## Script overview
+
+During the update process, the script identifies any containers running the SAP data collector agent, downloads an updated container image from the Azure Container registry, copies mounted directory settings, copies environment variables, renames the existing container with an `-OLD` suffix, and finally creates a container using the updated image. The script then starts the container with an additional `--sapconinstanceupdate` switch that verifies that the updated container can start and connect to the SAP system properly. When the container reports a successful start, the script removes the old container. It then recreates the new container to run without the `--sapconinstanceupdate` switch in order to start in normal operation mode and continue to collect data from the SAP system.
 
 ## Parameter reference
 

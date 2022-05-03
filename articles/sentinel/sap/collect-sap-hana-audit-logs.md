@@ -1,5 +1,5 @@
 ---
-title: Collect SAP HANA audit logs | Microsoft Docs
+title: Collect SAP HANA audit logs in Microsoft Sentinel | Microsoft Docs
 description: This article explains how to collect audit logs from your SAP HANA database.
 author: msftandrelom
 ms.author: andrelom
@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 03/02/2022
 ---
 
-# Collect SAP HANA audit logs
+# Collect SAP HANA audit logs in Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
@@ -17,6 +17,8 @@ This article explains how to collect audit logs from your SAP HANA database.
 > The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 If you have SAP HANA database audit logs configured with Syslog, you'll also need to configure your Log Analytics agent to collect the Syslog files.
+
+## Collect SAP HANA audit logs
 
 1. Make sure that the SAP HANA audit log trail is configured to use Syslog, as described in *SAP Note 0002624117*, which is accessible from the [SAP Launchpad support site](https://launchpad.support.sap.com/#/notes/0002624117). For more information, see:
 

@@ -1,5 +1,5 @@
 ---
-title: Continuous Threat Monitoring for SAP container kickstart deployment script reference | Microsoft Docs
+title: Microsoft Sentinel Continuous Threat Monitoring for SAP container kickstart deployment script reference | Microsoft Docs
 description: Description of command line options available with kickstart deployment script
 author: MSFTandrelom
 ms.author: andrelom

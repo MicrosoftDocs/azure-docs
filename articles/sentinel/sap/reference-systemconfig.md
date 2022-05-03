@@ -1,5 +1,5 @@
 ---
-title: Continuous Threat Monitoring for SAP container configuration file reference | Microsoft Docs
+title: Microsoft Sentinel Continuous Threat Monitoring for SAP container configuration file reference | Microsoft Docs
 description: Description of settings available in systemconfig.ini file
 author: MSFTandrelom
 ms.author: andrelom
@@ -13,11 +13,9 @@ ms.date: 03/03/2022
 > [!IMPORTANT]
 > The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Systemconfig file description
-
 The *systemconfig.ini* file is used to configure behavior of the data collector. Configuration options are grouped into several sections. This article lists options available and provides an explanation to the options.
 
-### Systemconfig configuration file sections
+## Systemconfig configuration file sections
 
 | Section name | Description |
 | ------------ | ----------- |
@@ -30,7 +28,7 @@ The *systemconfig.ini* file is used to configure behavior of the data collector.
 | [Connector Configuration](#connector-configuration-section) | This section defines miscellaneous connector options. |
 | [ABAP Table Selector](#abap-table-selector-section) | This section defines which User Master Data logs get extracted from the ABAP system. |
 
-### Secrets Source section
+## Secrets Source section
 ```systemconfig.ini
 secrets=AZURE_KEY_VAULT|DOCKER_SECRETS|DOCKER_FIXED
 
@@ -41,7 +39,7 @@ intprefix=<prefix>
 # intprefix - Prefix for variables created in Azure Key Vault
 ```
 
-### ABAP Central Instance section
+## ABAP Central Instance section
 ```systemconfig.ini
 [ABAP Central Instance]
 auth_type=PLAIN_USER_AND_PASSWORD|SNC_WITH_X509
@@ -95,7 +93,7 @@ x509cert=<server certificate>
 # Base64 encoded server certificate value in a single line (with leading ----BEGIN-CERTIFICATE--- and trailing ----END-CERTIFICATE---- removed)
 ```
 
-### Azure Credentials section
+## Azure Credentials section
 ```systemconfig.ini
 [Azure Credentials]
 loganalyticswsid=<workspace ID>
@@ -105,7 +103,7 @@ publickey=<publickey>
 # Log Analytics workspace primary or secondary key. Used only when secrets setting in Secrets Source section is set to DOCKER_FIXED
 ```
 
-### File Extraction ABAP section
+## File Extraction ABAP section
 ```systemconfig.ini
 [File Extraction ABAP]
 osuser = <SAPControl username>
@@ -130,7 +128,7 @@ abaptz = <timezone>
 
 ```
 
-### File Extraction JAVA section
+## File Extraction JAVA section
 ```systemconfig.ini
 [File Extraction JAVA]
 javaosuser = <username>
@@ -153,7 +151,7 @@ javatz = <timezone>
 # example - For OS Timezone = NZST (New Zealand Standard Time) use abaptz = GMT+12
 ```
 
-#### Logs Activation Status section
+### Logs Activation Status section
 ```systemconfig.ini
 [Logs Activation Status]
 # The following logs are retrieved using RFC interface
@@ -177,7 +175,7 @@ GW = <True/False>
 JAVAFilesLogs = <True/False>
 ```
 
-#### Connector Configuration section
+### Connector Configuration section
 ```systemconfig.ini
 extractuseremail = <True/False>
 apiretry = <True/False>
@@ -188,7 +186,7 @@ timechunk = <value>
 # Default timechunk value is 60 (minutes). For certain tables, data connector retrieves data from the ABAP server using timechunks (collecting all events that occurred within a certain timestamp). On busy systems this may result in large datasets, so to reduce memory and CPU utilization footprint, consider configuring to a smaller value.
 ```
 
-#### ABAP Table Selector section
+### ABAP Table Selector section
 ```systemconfig.ini
 [ABAP Table Selector]
 # Specify True or False to configure whether table should be collected from the SAP system

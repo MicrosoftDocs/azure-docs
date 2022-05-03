@@ -45,7 +45,7 @@ However, some environments may require the connection be over an encrypted chann
 
 1. Select the **Export certificate** button at the bottom of the page.
 
-    ![Export server certificate](./media/configure-snc/export_server_certificate.png "Export server certificate")
+    ![Screenshot showing how to export a server certificate.](./media/configure-snc/export-server-certificate.png)
 
 1. In the **Export Certificate** dialog box, select **Base64** as the file format, select the double boxes icon next to the **File Path** field, and select a filename to export the certificate to, then select the green checkmark to export the certificate.
 
@@ -82,11 +82,11 @@ This section explains how to import a certificate so that it's trusted by your A
 
 1. Review the output, identify whether the target user already has an associated SNC name. If not, select **New Entries**.
 
-    ![New entry in USRACLEXT](./media/configure-snc/usraclext_new_entry.png "New entry in USRACLEXT")
+    ![Screenshot showing how to create a new entry in USER A C L E X T table.](./media/configure-snc/usraclext-new-entry.png)
 
 1. Type the target user's username in the **User** field and the user's certificate subject name prefixed with **p:** in the **SNC Name** field, then select **Save**.
 
-    ![New user in USRACLEXT](./media/configure-snc/usraclext_new_user.png "New user in USRACLEXT")
+    ![Screenshot showing how to create a new user in USER A C L E X T table.](./media/configure-snc/usraclext-new-user.png)
 
 ### Grant logon rights using certificate
 
@@ -100,11 +100,11 @@ This section explains how to import a certificate so that it's trusted by your A
 
 1. Review the output, identify whether the target user already has an associated SNC name. If not, select **New Entries**.
 
-    ![New entry in VSNCSYSACL](./media/configure-snc/vsncsysacl_new_entry.png "New entry in VSNCSYSACL")
+    ![Screenshot showing how to create a new entry in the V S N C SYS A C L table.](./media/configure-snc/vsncsysacl-new-entry.png)
 
 1. Enter your system ID and user certificate subject name with a **p:** prefix.
 
-    ![New user in VSNCSYSACL](./media/configure-snc/vsncsysacl_new_user.png "New user in VSNCSYSACL")
+    ![Screenshot showing how to create a new user in the V S N C SYS A C L table.](./media/configure-snc/vsncsysacl-new-user.png)
 
 1. Ensure **Entry for RFC activated** and **Entry for certificate activated** checkboxes are marked, then select **Save**.
 

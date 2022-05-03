@@ -1,5 +1,5 @@
 ---
-title: Update SAP data connector | Microsoft Docs
+title: Update Microsoft Sentinel's SAP data connector agent | Microsoft Docs
 description: This article shows you how to update an already existing SAP data connector to its latest version.
 author: MSFTandrelom
 ms.author: andrelom
@@ -7,7 +7,7 @@ ms.topic: reference
 ms.date: 03/02/2022
 ---
 
-# Update SAP data connector
+# Update Microsoft Sentinel's SAP data connector agent
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
@@ -17,6 +17,8 @@ This article shows you how to update an already existing SAP data connector to i
 > The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 If you have a Docker container already running with an earlier version of the SAP data connector, run the SAP data connector update script to get the latest features available.
+
+## Update SAP data connector agent
 
 Make sure that you have the most recent versions of the relevant deployment scripts from the Microsoft Sentinel GitHub repository. 
 

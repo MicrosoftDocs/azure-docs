@@ -1,5 +1,5 @@
 ---
-title: Deploy SAP security content | Microsoft Docs
+title: Deploy SAP security content in Microsoft Sentinel | Microsoft Docs
 description: This article shows you how to deploy Microsoft Sentinel security content into your Microsoft Sentinel workspace. This content makes up the remaining parts of the Continuous Threat Monitoring solution for SAP.
 author: MSFTandrelom
 ms.author: andrelom
@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 04/27/2022
 ---
 
-# Deploy SAP security content
+# Deploy SAP security content in Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 

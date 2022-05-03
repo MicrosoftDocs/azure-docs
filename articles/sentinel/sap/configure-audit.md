@@ -1,5 +1,5 @@
 ---
-title: Enable and configure SAP auditing | Microsoft Docs
+title: Enable and configure SAP auditing for Microsoft Sentinel | Microsoft Docs
 description: This article shows you how to enable and configure auditing for the Microsoft Sentinel Continuous Threat Monitoring solution for SAP, so that you can have complete visibility into your SAP solution.
 author: MSFTandrelom
 ms.author: andrelom
@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 04/27/2022
 ---
 
-# Enable and configure SAP auditing
+# Enable and configure SAP auditing for Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
@@ -26,7 +26,7 @@ Some installations of SAP systems may not have audit log enabled by default. For
 
 1. Sign in to the SAP GUI and run the **RSAU_CONFIG** transaction.
 
-   ![Run RSAU_CONFIG transaction](./media/configure-audit/rsau_config.png "Run RSAU_CONFIG transaction")
+   ![Screenshot showing how to run the R S A U CONFIG transaction.](./media/configure-audit/rsau-config.png)
 
 1. In the **Security Audit Log - Display of Current Configuration** window, find the **Parameter** section within the **Configuration** section. Under **General Parameters**, see that the **Static security audit active** checkbox is marked.
 
@@ -45,11 +45,11 @@ Some installations of SAP systems may not have audit log enabled by default. For
 
 1. If you changed any settings in the **Security Audit Log Configuration - Parameter** section, select **Save** to save the changes. Auditing will be activated only after the server is rebooted.
 
-    ![RSAU_CONFIG parameters](./media/configure-audit/rsau_config_parameter.png "Set RSAU_CONFIG paramters")
+    ![Screenshot showing R S A U CONFIG parameters.](./media/configure-audit/rsau-config-parameter.png)
 
 1. Right-click **Static Configuration** and select **Create Profile**.
 
-    ![RSAU_CONFIG create profile](./media/configure-audit/create_profile.png "RSAU_CONFIG create profile")
+    ![Screenshot showing R S A U CONFIG create profile screen.](./media/configure-audit/create-profile.png)
 
 1. Specify a name for the profile in the **Profile/Filter Number** field.
 
@@ -65,7 +65,7 @@ Some installations of SAP systems may not have audit log enabled by default. For
 
 1. Select **Save**.
 
-    ![Static profile settings](./media/configure-audit/create_profile_settings.png "Static profile settings")
+    ![Screenshot showing Static profile settings.](./media/configure-audit/create-profile-settings.png)
 
 1. You'll see that the **Static Configuration** section displays the newly created profile. Right-click the profile and select **Activate**.
 
