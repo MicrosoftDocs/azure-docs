@@ -45,7 +45,7 @@ This template defines 3 parameters:
 
 3. Select **Use this template**. 
 
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-3.png" alt-text="Screenshot of button in bottom left corner to select in order to successfully select template and generate a pipeline.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-3.png" alt-text="Screenshot of button in bottom left corner to finish creating pipeline.":::
 
 4. You should see the following pipeline: 
 
@@ -57,13 +57,13 @@ This template defines 3 parameters:
 
 6. Turn on **Data flow debug**. 
 
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-6.png" alt-text="Screenshot of Data flow debug button found on the top banner of the screen.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-6.png" alt-text="Screenshot of Data flow debug button found in the top banner of the screen.":::
 
 7. Update **Parameters** in **Debug Settings** and **Save**. 
 
 	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-7.png" alt-text="Screenshot of Debug settings button on the top banner of the screen to the right of debug button.":::
   
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-7b.png" alt-text="Screenshot of where to update paramters in Debug settings on a panel on the right side of the screen.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-7b.png" alt-text="Screenshot of where to update paramters in Debug settings in a panel on the right side of the screen.":::
 
 8. Preview the results in **Data Preview**. 
 
@@ -71,11 +71,11 @@ This template defines 3 parameters:
   
 9. When data preview results are as expected, update the **Parameters**.
 
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-9.png" alt-text="Screenshot of where to update dataflow parameters at the bottom of the scrren under Parameters.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-9.png" alt-text="Screenshot of dataflow parameters at the bottom of the screen under Parameters.":::
 
 10. Return to pipeline and select **Debug**. Review results and publish. 
 
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-10.png" alt-text="Screenshot of the results that return when the pipeline is triggered.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-10.png" alt-text="Screenshot of the results that return after the pipeline is triggered.":::
 
 ## Next steps
 
