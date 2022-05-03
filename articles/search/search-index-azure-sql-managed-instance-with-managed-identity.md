@@ -48,9 +48,6 @@ Follow these steps to assign the search service system managed identity permissi
 
 3. From the left pane, locate the SQL database you will be using as data source for indexing and right-click it. Select **New Query**. 
 
-   :::image type="content" source="media/search-index-azure-sql-managed-instance-with-managed-identity/new-sql-query.png" alt-text="Showing screenshot of the SQL new query.":::
-
-
 4. In the T-SQL window, copy the following commands and include the brackets around your search service name. Click on **Execute**.
 
     
@@ -59,7 +56,6 @@ Follow these steps to assign the search service system managed identity permissi
     EXEC sp_addrolemember 'db_datareader', [insert your search service name here or user-assigned managed identity name];
     ```
 
-   :::image type="content" source="media/search-index-azure-sql-managed-instance-with-managed-identity/execute-sql-query.png" alt-text="Showing screenshot of T-SQL commands and Execute query.":::
 
 If you later change the search service system identity after assigning permissions, you must remove the role membership and remove the user in the SQL database, then repeat the permission assignment. Removing the role membership and user can be accomplished by running the following commands:
 
