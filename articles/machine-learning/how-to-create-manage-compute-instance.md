@@ -435,7 +435,7 @@ Logs from the setup script execution appear in the logs folder in the compute in
 
 You can set up additional services, such as RStudio, when creating a compute instance. Follow these steps in studio to set up a custom service on your compute instance
 
-1.	Fill out the form to [create a new compute instance](#create-instance)
+1.	Fill out the form to [create a new compute instance](#create)
 1.	Select **Next: Advanced Settings**
 1.	Select **Add Service** under the **Custom Service Setup (RStudio Workbench, etc) ** section
  
