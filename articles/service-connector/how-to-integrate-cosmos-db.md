@@ -5,12 +5,12 @@ author: shizn
 ms.author: xshi
 ms.service: service-connector
 ms.topic: how-to 
-ms.date: 11/11/2021
+ms.date: 05/03/2022
 ---
 
 # Integrate Azure Cosmos DB with Service Connector
 
-This page shows the supported authentication types and client types of Azure Cosmos DB using Service Connector. You might still be able to connect to Azure Cosmos DB in other programming languages without using Service Connector. This page also shows default environment variable name and value (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+This page shows the supported authentication types and client types of Azure Cosmos DB using Service Connector. You might still be able to connect to Azure Cosmos DB in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
 
 ## Supported compute service
 
