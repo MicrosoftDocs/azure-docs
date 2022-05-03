@@ -94,7 +94,7 @@ There are two options to add DNS servers for the P2S clients. The first method i
       </azvpnprofile>
    ```
 
-### For User VPN (point-to-site),  how many clients are supported and what is the aggregate throughput of the Gateway?
+### For User VPN (point-to-site)- how many clients are supported?
 
 The table below describes the number of concurrent connections and aggregate throughput of the Point-to-site VPN Gateway supported at different scale units.
 
