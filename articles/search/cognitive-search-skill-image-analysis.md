@@ -8,7 +8,7 @@ ms.author: chalton
 
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 04/29/2022
+ms.date: 05/03/2022
 ---
 
 # Image Analysis cognitive skill
@@ -51,12 +51,15 @@ Parameters are case-sensitive.
 
 | Output name   | Description                   |
 |---------------|-------------------------------|
-| `categories` | Complex type that ...  |
-| `description` | Complex type that ...  |
-| `faces` | Complex type that ... |
-| `tags` | Complex type that ...  |
+| `adult` | Complex type consisting of boolean fields (`isAdultContent`, `isGoryContent`, `isRacyContent`) and double type scores (`AdultScore`, `GoreScore`, `RacyScore`). |
+| `brands` | Complex type consisting of `Name` (string) and a `Confidence` score (double). It also returns a `Rectangle` with the four integers that demarcate the image area. |
+| `categories` | Complex type consisting of a `Name` (string), `Score` (double), and `Detail` that contains celebrity or landmark details. A celebrity detail consists of a name, confidence score, and face bounding box. A landmark detail consists of a name and confidence score.|
+| `description` | Complex type consisting of lists of `Tags` and `Caption` (an array consisting of `Text` (string) and `Confidence` (double)). |
+| `faces` | Complex type consisting of `Age`, `Gender`, and `FaceBoundingBox` having four integers that demarcate the image area.|
+| `objects` | Complex type that describes the visual feature. It consists of `Object` (string), `Confidence` (double), `Rectangle` (four integers that demarcate the image area), and an `ObjectHierarchyParent` that contains a child object, confidence and parent. |
+| `tags` | Complex type consisting of `Name` (string), `Hint` (string), and `Confidence` (double). |
 
-<!-- No adult, brands, object outputs -->
+<!-- Portal (skillset designer) doesn't support inline editing for adult, brands, object outputs -->
 
 ## Sample skill definition
 
