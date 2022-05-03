@@ -1284,7 +1284,7 @@
           href: mongodb/estimate-ru-capacity-planner.md
         - name: Optimize write performance
           href: mongodb/optimize-write-performance.md
-        - name: Create a container - MongoDB API
+        - name: Create a collection - MongoDB API
           href: mongodb/how-to-create-container-mongodb.md
         - name: Provision throughput- MongoDB API
           displayName: request units, RUs, RU, collection level
@@ -1602,8 +1602,6 @@
               href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
         - name: Set up Azure DevOps CI/CD pipeline
           href: tutorial-setup-ci-cd.md
-        - name: Use Azure Storage Explorer
-          href: storage-explorer.md
         - name: Use Azure Cosmos DB Explorer
           href: data-explorer.md
     - name: Analytics and BI with Azure Synapse Link

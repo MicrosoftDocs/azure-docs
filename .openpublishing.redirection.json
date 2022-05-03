@@ -24204,7 +24204,22 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/sql-database/sql-database-managed-instance-create-manage",
+       "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-tutorial.md",
+       "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial-multi-subnet",
+       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/index.md",
+      "redirect_url": "/azure/azure-sql/database/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/sql-database-managed-instance-create-manage.md",
       "redirect_url": "/azure/azure-sql/managed-instance/instance-create-quickstart",
       "redirect_document_id": false
     },          
