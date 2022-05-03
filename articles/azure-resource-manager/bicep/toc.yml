@@ -63,6 +63,8 @@
       href: ../../hdinsight/hbase/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: HDInsight - Interactive Query
       href: ../../hdinsight/interactive-query/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: HDInsight - Kafka
+      href: ../../hdinsight/kafka/apache-kafka-quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Compute
     items:
     - name: Batch
