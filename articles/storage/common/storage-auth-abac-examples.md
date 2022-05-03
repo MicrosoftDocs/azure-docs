@@ -95,8 +95,8 @@ This condition requires that any new blobs must include a blob index tag key of 
 
 There are two permissions that allow you to create new blobs, so you must target both. You must add this condition to any role assignments that include one of the following permissions.
 
-- /blobs/write (create or update)
-- /blobs/add/action (create)
+- `/blobs/write` (create or update)
+- `/blobs/add/action` (create)
 
 ![Diagram of example 2 condition showing new blobs must include a tag.](./media/storage-auth-abac-examples/example-2.png)
 
@@ -164,8 +164,8 @@ This condition requires that any existing blobs be tagged with at least one of t
 
 There are two permissions that allow you to update tags on existing blobs, so you must target both. You must add this condition to any role assignments that include one of the following permissions.
 
-- /blobs/write (update or create, cannot exclude create)
-- /blobs/tags/write
+- `/blobs/write` (update or create, cannot exclude create)
+- `/blobs/tags/write`
 
 ![Diagram of example 3 condition showing existing blobs must have tag keys.](./media/storage-auth-abac-examples/example-3.png)
 
@@ -232,8 +232,8 @@ This condition requires that any existing blobs to have a blob index tag key of 
 
 There are two permissions that allow you to update tags on existing blobs, so you must target both. You must add this condition to any role assignments that include one of the following permissions.
 
-- /blobs/write (update or create, cannot exclude create)
-- /blobs/tags/write
+- `/blobs/write` (update or create, cannot exclude create)
+- `/blobs/tags/write`
 
 ![Diagram of example 4 condition showing existing blobs must have a tag key and values.](./media/storage-auth-abac-examples/example-4.png)
 
@@ -312,10 +312,10 @@ This condition allows users to read, write, or delete blobs in storage container
 
 There are four permissions for read, write, and delete of existing blobs, so you must target all permissions. You must add this condition to any role assignments that include one of the following permissions.
 
-- /blobs/delete
-- /blobs/read
-- /blobs/write (update or create)
-- /blobs/add/action (create)
+- `/blobs/delete`
+- `/blobs/read`
+- `/blobs/write` (update or create)
+- `/blobs/add/action` (create)
 
 Suboperations are not used in this condition because the subOperation is needed only when conditions are authored based on tags.
 
@@ -389,7 +389,7 @@ This condition allows read access to storage containers named blobs-example-cont
 
 You must add this condition to any role assignments that include the following permission.
 
-- /blobs/read
+- `/blobs/read`
 
 ![Diagram of example 6 condition showing read access to blobs in named containers with a path.](./media/storage-auth-abac-examples/example-6.png)
 
@@ -457,8 +457,8 @@ This condition allows a partner (an Azure AD guest user) to drop files into stor
 
 You must add this condition to any role assignments that include the following permissions.
 
-- /blobs/write (create or update)
-- /blobs/add/action (create)
+- `/blobs/write` (create or update)
+- `/blobs/add/action` (create)
 
 ![Diagram of example 7 condition showing write access to blobs in named containers with a path.](./media/storage-auth-abac-examples/example-7.png)
 
@@ -531,7 +531,7 @@ This condition allows a user to read blobs with a blob index tag key of Program,
 
 You must add this condition to any role assignments that includes the following permission.
 
-- /blobs/read
+- `/blobs/read`
 
 ![Diagram of example 8 condition showing read access to blobs with a tag and a path.](./media/storage-auth-abac-examples/example-8.png)
 
@@ -619,6 +619,10 @@ This condition allows a user to read blobs with a version ID of 2022-06-01T23:38
 
 Notice that the condition includes a `NOT Exists` expression for the version ID attribute. This expression is included so that the Azure portal can list list the current version of the blob.
 
+You must add this condition to any role assignments that includes the following permission.
+
+- `/blobs/read`
+
 ![Diagram of condition showing read access to a specific blob version.](./media/storage-auth-abac-examples/read-specific-blob-version.png)
 
 ```
@@ -657,6 +661,11 @@ Here are the settings to add this condition using the Azure portal.
 
 This condition allows a user to delete versions of a blob that are older than 06/01/2022.
 
+You must add this condition to any role assignments that include the following permissions.
+
+- `/blobs/delete`
+- `/blobs/deleteBlobVersion/action`
+
 ![Diagram of condition showing delete access to old blob versions.](./media/storage-auth-abac-examples/delete-old-blob-versions.png)
 
 ```
@@ -689,7 +698,11 @@ Here are the settings to add this condition using the Azure portal.
 
 This condition allows a user to read current blob versions and any blob snapshots.
 
-![Diagram of condition showing delete access to old blob versions.](./media/storage-auth-abac-examples/read-blob-current-version-blob-snapshot.png)
+![Diagram of condition showing read access to current blob versions and any blob snapshots.](./media/storage-auth-abac-examples/read-blob-current-version-blob-snapshot.png)
+
+You must add this condition to any role assignments that includes the following permission.
+
+- `/blobs/read`
 
 ```
 (
@@ -736,6 +749,10 @@ Here are the settings to add this condition using the Azure portal.
 
 This condition allows a user to read blobs with with encryption scope validScope1 or validScope2.
 
+You must add this condition to any role assignments that includes the following permission.
+
+- `/blobs/read`
+
 ![Diagram of condition showing read access to blobs with encryption scope validScope1 or validScope2.](./media/storage-auth-abac-examples/encryption-scope-read-blobs.png)
 
 ```
@@ -768,6 +785,12 @@ Here are the settings to add this condition using the Azure portal.
 This condition allows read and write access to blobs if the user has a [custom security attribute](../../active-directory/fundamentals/custom-security-attributes-overview.md) that matches the blob index tag.
  
 For example, if Brenda has the attribute `Project=Baker`, she can only read and write blobs with the `Project=Baker` blob index tag. Similarly, Chandra can only read and write blobs with `Project=Cascade`.
+
+You must add this condition to any role assignments that includes the following permissions.
+
+- `/blobs/read`
+- `/blobs/write`
+- `/blobs/add/action`
 
 For more information, see [Allow read access to blobs based on tags and custom security attributes](../../role-based-access-control/conditions-custom-security-attributes.md).
 
@@ -828,6 +851,10 @@ Here are the settings to add this condition using the Azure portal.
 This condition allows read access to blobs if the user has a [custom security attribute](../../active-directory/fundamentals/custom-security-attributes-overview.md) with any values that matches the blob index tag.
  
 For example, if Chandra has the Project attribute with the values Baker and Cascade, she can only read blobs with the `Project=Baker` or `Project=Cascade` blob index tag.
+
+You must add this condition to any role assignments that includes the following permission.
+
+- `/blobs/read`
 
 For more information, see [Allow read access to blobs based on tags and custom security attributes](../../role-based-access-control/conditions-custom-security-attributes.md).
 
