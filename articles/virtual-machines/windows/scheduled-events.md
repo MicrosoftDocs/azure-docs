@@ -97,7 +97,7 @@ Scheduled Events is disabled for your service if it does not make a request for 
 ### User-initiated maintenance
 User-initiated VM maintenance via the Azure portal, API, CLI, or PowerShell results in a scheduled event. You then can test the maintenance preparation logic in your application, and your application can prepare for user-initiated maintenance.
 
-If you restart a VM, an event with the type `Reboot` is scheduled. If you redeploy a VM, an event with the type `Redeploy` is scheduled.
+If you restart a VM, an event with the type `Reboot` is scheduled. If you redeploy a VM, an event with the type `Redeploy` is scheduled. Typically events with a user event source can be immediately approved to avoid a delay on user-initiated actions. 
 
 ## Use the API
 
@@ -115,6 +115,22 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 ```
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri "http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01" | ConvertTo-Json -Depth 64
 ```
+#### Python sample
+````
+import json
+import requests
+
+metadata_url ="http://169.254.169.254/metadata/scheduledevents"
+header = {'Metadata' : 'true'}
+query_params = {'api-version':'2020-07-01'}
+
+def get_scheduled_events():           
+    resp = requests.get(metadata_url, headers = header, params = query_params)
+    data = resp.json()
+    return data
+
+````
+
 
 A response contains an array of scheduled events. An empty array means that currently no events are scheduled.
 In the case where there are scheduled events, the response contains an array of events. 
@@ -164,6 +180,7 @@ Each event is scheduled a minimum amount of time in the future based on the even
 
 > [!NOTE] 
 > In some cases, Azure is able to predict host failure due to degraded hardware and will attempt to mitigate disruption to your service by scheduling a migration. Affected virtual machines will receive a scheduled event with a `NotBefore` that is typically a few days in the future. The actual time varies depending on the predicted failure risk assessment. Azure tries to give 7 days' advance notice when possible, but the actual time varies and might be smaller if the prediction is that there is a high chance of the hardware failing imminently. To minimize risk to your service in case the hardware fails before the system-initiated migration, we recommend that you self-redeploy your virtual machine as soon as possible.
+
 >[!NOTE]
 > In the case the host node experiences a hardware failure Azure will bypass the minimum notice period an immediately begin the recovery process for affected virtual machines. This reduces recovery time in the case that the affected VMs are unable to respond. During the recovery process an event will be created for all impacted VMs with EventType = Reboot and EventStatus = Started
 
@@ -173,7 +190,7 @@ You can poll the endpoint for updates as frequently or infrequently as you like.
 
 ### Start an event 
 
-After you learn of an upcoming event and finish your logic for graceful shutdown, you can approve the outstanding event by making a `POST` call to Metadata Service with `EventId`. This call indicates to Azure that it can shorten the minimum notification time (when possible). 
+After you learn of an upcoming event and finish your logic for graceful shutdown, you can approve the outstanding event by making a `POST` call to Metadata Service with `EventId`. This call indicates to Azure that it can shorten the minimum notification time (when possible). The event may not start immediately upon approval, in some cases Azure will require the approval of all the VMs hosted on the node before proceeding with the event. 
 
 The following JSON sample is expected in the `POST` request body. The request should contain a list of `StartRequests`. Each `StartRequest` contains `EventId` for the event you want to expedite:
 ```
@@ -186,6 +203,9 @@ The following JSON sample is expected in the `POST` request body. The request sh
 }
 ```
 
+The service will always return a 200 success code in the case of a valid event ID, even if it was already approved by a different VM. A 400 error code indicates that the request header or payload was malformed. 
+
+
 #### Bash sample
 ```
 curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01
@@ -194,9 +214,81 @@ curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-
 ```
 Invoke-RestMethod -Headers @{"Metadata" = "true"} -Method POST -body '{"StartRequests": [{"EventId": "5DD55B64-45AD-49D3-BBC9-F57D4EA97BD7"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01 | ConvertTo-Json -Depth 64
 ```
+#### Python sample
+````
+import json
+import requests
+
+def confirm_scheduled_event(event_id):  
+   # This payload confirms a single event with id event_id
+   payload = json.dumps({"StartRequests": [{"EventId": event_id }]})
+   response = requests.post(metadata_url, headers= header, params = query_params, data = payload)    
+   return response.status_code
+
+````
 
 > [!NOTE] 
 > Acknowledging an event allows the event to proceed for all `Resources` in the event, not just the VM that acknowledges the event. Therefore, you can choose to elect a leader to coordinate the acknowledgement, which might be as simple as the first machine in the `Resources` field.
+
+## Example responses
+The following is an example of a series of events that were seen by two VMs that were live migrated to another node. 
+
+The `DocumentIncarnation` is changing every time there is new information in `Events`. An approval of the event would allow the freeze to proceed for both WestNO_0 and WestNO_1. The `DurationInSeconds` of -1 indicates that the platform does not know how long the operation will take. 
+
+```JSON
+{
+    "DocumentIncarnation":  1,
+    "Events":  [
+               ]
+}
+
+{
+    "DocumentIncarnation":  2,
+    "Events":  [
+                   {
+                       "EventId":  "C7061BAC-AFDC-4513-B24B-AA5F13A16123",
+                       "EventStatus":  "Scheduled",
+                       "EventType":  "Freeze",
+                       "ResourceType":  "VirtualMachine",
+                       "Resources":  [
+                                         "WestNO_0",
+                                         "WestNO_1"
+                                     ],
+                       "NotBefore":  "Mon, 11 Apr 2022 22:26:58 GMT",
+                       "Description":  "Virtual machine is being paused because of a memory-preserving Live Migration operation.",
+                       "EventSource":  "Platform",
+                       "DurationInSeconds":  -1
+                   }
+               ]
+}
+
+{
+    "DocumentIncarnation":  3,
+    "Events":  [
+                   {
+                       "EventId":  "C7061BAC-AFDC-4513-B24B-AA5F13A16123",
+                       "EventStatus":  "Started",
+                       "EventType":  "Freeze",
+                       "ResourceType":  "VirtualMachine",
+                       "Resources":  [
+                                         "WestNO_0",
+                                         "WestNO_1"
+                                     ],
+                       "NotBefore":  "",
+                       "Description":  "Virtual machine is being paused because of a memory-preserving Live Migration operation.",
+                       "EventSource":  "Platform",
+                       "DurationInSeconds":  -1
+                   }
+               ]
+}
+
+{
+    "DocumentIncarnation":  4,
+    "Events":  [
+               ]
+}
+
+```
 
 ## Python Sample 
 
@@ -204,46 +296,90 @@ The following sample queries Metadata Service for scheduled events and approves 
 
 ```python
 #!/usr/bin/python
-
 import json
-import socket
-import urllib2
+import requests
+from time import sleep
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01"
-this_host = socket.gethostname()
+# The URL to access the metadata service
+metadata_url ="http://169.254.169.254/metadata/scheduledevents"
+# This must be sent otherwise the request will be ignored
+header = {'Metadata' : 'true'}
+# Current version of the API
+query_params = {'api-version':'2020-07-01'}
 
-
-def get_scheduled_events():
-    req = urllib2.Request(metadata_url)
-    req.add_header('Metadata', 'true')
-    resp = urllib2.urlopen(req)
-    data = json.loads(resp.read())
+def get_scheduled_events():           
+    resp = requests.get(metadata_url, headers = header, params = query_params)
+    data = resp.json()
     return data
 
+def confirm_scheduled_event(event_id):  
+    # This payload confirms a single event with id event_id
+    # You can confirm multiple events in a single request if needed      
+    payload = json.dumps({"StartRequests": [{"EventId": event_id }]})
+    response = requests.post(metadata_url, 
+                            headers= header,
+                            params = query_params, 
+                            data = payload)    
+    return response.status_code
 
-def handle_scheduled_events(data):
-    for evt in data['Events']:
-        eventid = evt['EventId']
-        status = evt['EventStatus']
-        resources = evt['Resources']
-        eventtype = evt['EventType']
-        resourcetype = evt['ResourceType']
-        notbefore = evt['NotBefore'].replace(" ", "_")
-	description = evt['Description']
-	eventSource = evt['EventSource']
-        if this_host in resources:
-            print("+ Scheduled Event. This host " + this_host +
-                " is scheduled for " + eventtype + 
-		" by " + eventSource + 
-		" with description " + description +
-		" not before " + notbefore)
-            # Add logic for handling events here
+def log(event): 
+    # This is an optional placeholder for logging events to your system 
+    print(event["Description"])
+    return
 
+def advanced_sample(last_document_incarnation): 
+    # Poll every second to see if there are new scheduled events to process
+    # Since some events may have necessarily short warning periods, it is 
+    # recommended to poll frequently
+    found_document_incarnation = last_document_incarnation
+    while (last_document_incarnation == found_document_incarnation):
+        sleep(1)
+        payload = get_scheduled_events()    
+        found_document_incarnation = payload["DocumentIncarnation"]        
+        
+    # We recommend processing all events in a document incarnation together, 
+    # even if you won't be actioning on them right away
+    for event in payload["Events"]:
+        # Events that have already started, logged for tracking
+        if (event["EventStatus"] == "Started"):
+            log(event)
+            
+        # Approve all user initiated events. These are typically created by an 
+        # administrator and approving them immediately can help to avoid delays 
+        # in admin actions
+        elif (event["EventSource"] == "User"):
+            confirm_scheduled_event(event["EventId"])            
+            
+        # For this application, freeze events less that 9 seconds are considered
+        # no impact. This will immediately approve them
+        elif (event["EventType"] == "Freeze" and 
+            int(event["DurationInSeconds"]) >= 0  and 
+            int(event["DurationInSeconds"]) < 9):
+            confirm_scheduled_event(event["EventId"])
+            
+        # Events that may be impactful (eg. Reboot or redeploy) may need custom 
+        # handling for your application
+        else: 
+            #TODO Custom handling for impactful events
+            log(event)
+    print("Processed events from document: " + str(found_document_incarnation))
+    return found_document_incarnation
 
 def main():
-    data = get_scheduled_events()
-    handle_scheduled_events(data)
+    # This will track the last set of events seen 
+    last_document_incarnation = "-1"
 
+    input_text = "\
+        Press 1 to poll for new events \n\
+        Press 2 to exit \n "
+    program_exit = False 
+
+    while program_exit == False:
+        user_input = input(input_text)    
+        if (user_input == "1"):                        
+            last_document_incarnation = advanced_sample(last_document_incarnation)
+        elif (user_input == "2"):
+            program_exit = True       
 
 if __name__ == '__main__':
     main()
@@ -251,6 +387,8 @@ if __name__ == '__main__':
 
 ## Next steps 
 - Review the Scheduled Events code samples in the [Azure Instance Metadata Scheduled Events GitHub repository](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
+- Review the nodejs Scheduled Events code samples in [Azure Samples GitHub repository](https://github.com/Azure/vm-scheduled-events).
 - Read more about the APIs that are available in the [Instance Metadata Service](instance-metadata-service.md).
 - Learn about [planned maintenance for Windows virtual machines in Azure](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json).
 - Learn how to [monitor scheduled events for your VMs through Log Analytics](./scheduled-event-service.md).
+- Learn how to log scheduled events using Azure Event Hub in the [Azure Samples GitHub repository](https://github.com/Azure-Samples/virtual-machines-python-scheduled-events-central-logging).
