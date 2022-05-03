@@ -50,6 +50,7 @@ The following image shows a view of the HPE ProLiant Dl360 back panel:
 ## HPE DL360 BOM
 
 |PN	|Description	|Quantity|
+|-------------- | --------------| --------- |
 |P19766-B21 	| HPE DL360 Gen10 8SFF NC CTO Server	|1|
 |P19766-B21 	| Europe - Multilingual Localization	|1|
 |P24479-L21 	| Intel Xeon-S 4215 R FIO Kit for DL360 G10	|1|
