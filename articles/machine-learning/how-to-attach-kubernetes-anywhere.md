@@ -394,7 +394,7 @@ Upon AzureML extension deployment completes, it will create following resources 
 ### Appendix III: Review AzureML deployment configuration settings
 
 Use ```k8s-extension create``` CLI command to deploy AzureML extension, review list of required and optional parameters for ```k8s-extension create``` CLI command [here](https://docs.microsoft.com/cli/azure/k8s-extension?view=azure-cli-latest#az_k8s_extension_create). For AzureML extension deployment configurations, use ```--config``` or ```--config-protected``` to specify list of ```key=value``` pairs. Following is the list of configuration settings available to be used for different AzureML extension deployment scenario ns.
-   |Configuration Setting Key Name |Description  |Training |Inference |Training and Inference
+   |Configuration Setting Key Name |Description  |Training |Inference |Training and Inference |
    |--|--|--|--|--|
    |```enableTraining``` |```True``` or ```False```, default ```False```. **Must** be set to ```True``` for AzureML extension deployment with Machine Learning model training support.  |  **&check;**| N/A |  **&check;** |
    | ```enableInference``` |```True``` or ```False```, default ```False```.  **Must** be set to ```True``` for AzureML extension deployment with Machine Learning inference support. |N/A| **&check;** |  **&check;** |
@@ -413,7 +413,7 @@ Use ```k8s-extension create``` CLI command to deploy AzureML extension, review l
  |```logAnalyticsWS```  |```True``` or ```False```, default ```False```. AzureML extension integrates with Azure LogAnalytics Workspace to provide log viewing and analysis capability through LogAalytics Workspace. This setting must be explicitly set to ```True``` if a customer wants to use this capability. LogAnalytics Workspace cost may apply.  |N/A |Optional |Optional |
  |```installDcgmExporter```  |```True``` or ```False```, default ```False```. Dcgm-exporter is used to collect GPU metrics for GPU jobs. Specify ```installDcgmExporter``` flag to ```true``` to enable the build-in dcgm-exporter. |N/A |Optional |Optional |
 
-   |Configuration Protected Setting Key Name |Description  |Training |Inference |Training and Inference
+   |Configuration Protected Setting Key Name |Description  |Training |Inference |Training and Inference |
    |--|--|--|--|--|
    | ```sslCertPemFile```, ```sslKeyPemFile``` |Path to SSL certificate and key file (PEM-encoded), required for AzureML extension deployment with HTTPS endpoint support for inference, when  ``allowInsecureConnections`` is set to False. | N/A| Optional | Optional |
 
