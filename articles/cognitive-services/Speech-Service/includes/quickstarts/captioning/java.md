@@ -18,6 +18,8 @@ ms.author: eur
 
 Before you can do anything, you need to install the Speech SDK. The sample in this quickstart works with the [Java Runtime](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-java&tabs=jre).
 
+You must also install [GStreamer](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md) for compressed input audio.
+
 ## Create captions from speech
 
 Follow these steps to create a new console application for speech recognition.
@@ -25,35 +27,20 @@ Follow these steps to create a new console application for speech recognition.
 1. Open a command prompt where you want the new project, and create a new file named `Captioning.java`.
 1. Replace the contents of `Captioning.java` with the code that you copy from the [captioning sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/captioning_sample/scenarios/csharp/dotnet/captioning/Program.cs) at GitHub.
 
-Build and run your new console application. Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. 
 
-```console
-java Captioning -- [-f] [-h] [-i file] [-l languages] [-m] [-o file] [-p phrases] [-q] [-r number] [-s] [-t] [-u] YourSubscriptionKey YourServiceRegion
-```
+// This assumes you have Speech SDK .jar files installed. 
+// NOTE This is for Windows. In Linux, use : as delimiter instead of ;
+javac Captioning.java -cp .;target\dependency\*
 
-Usage options include:
+1. Make sure that you have an input file named `caption.this.mp4` in the path.
+1. Run the following command to output captions from the video file:
+    ```console
+    java -cp .;target\dependency\* Captioning --input caption.this.mp4 --format any --output caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases Contoso;Jesse;Rehaan
+    ```
 
-- `-h`: Show this help and stop
+Usage: `java -cp .;target\dependency\* Captioning --input <input file> --key <key> --region <region>`
 
-- `-o file`: Output captions to the specified `file`. This flag is required.
-
-- `-f`: Removes profane words. This setting overrides `-m` if set.
-
-- `-m`: Replaces letters in profane words with asterisk (*) characters. This setting is overridden by `-f` if set.
-
-- `-i`: Input speech from the specified `file`. If this is not set, audio input is from the default microphone. For compressed audio files such as MP4, install GStreamer and use `PullAudioInputStream` or `PushAudioInputStream`. For more information, see [How to use compressed input audio](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).
-
-- `-l languages`: Enable language identification for specified *languages`.  The comma delimited phrases must be in quotes. Example: "en-US,ja-JP"
-
-- `-p phrases`: Add specified `phrases` to the phrase list. The semicolon delimited phrases must be in quotes. Example: "Constoso;Jessie;Rehaan"
-
-- `-q`: Suppress console output (except errors)
-
-- `-r number`: Set stable partial result threshold to the `number`. 
-
-- `-s`: Emit SRT caption format instead of the default WebVTT format.
-
-- `-t`: Capitalize intermediate results
+[!INCLUDE [Usage arguments](usage-arguments.md)]
 
 ## Clean up resources
 

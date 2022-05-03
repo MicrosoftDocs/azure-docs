@@ -18,6 +18,8 @@ ms.author: eur
 
 Install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser). Check the [platform-specific installation instructions](../../../quickstarts/setup-platform.md?pivots=programming-language-go) for any more requirements.
 
+You must also install [GStreamer](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md) for compressed input audio.
+
 ## Create captions from speech
 
 Follow these steps to create a new GO module.
@@ -32,37 +34,17 @@ go mod init captioning
 go get github.com/Microsoft/cognitive-services-speech-sdk-go
 ```
 
-Now build and run the code:
 
-```cmd
-go build
-go run captioning -- [-f] [-h] [-i file] [-l languages] [-m] [-o file] [-p phrases] [-q] [-r number] [-s] [-t] [-u] YourSubscriptionKey YourServiceRegion
-```
+1. Make sure that you have an input file named `caption.this.mp4` in the path.
+1. Now build and run the code to output captions from the video file:
+    ```console
+    go build
+    go run captioning.go helper.go --input caption.this.mp4 --format any --output caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases Contoso;Jesse;Rehaan
+    ```
 
-Usage options include:
+Usage: `go run captioning.go helper.go --input <input file> --key <key> --region <region>`
 
-- `-h`: Show this help and stop
-
-- `-o file`: Output captions to the specified `file`. This flag is required.
-
-- `-f`: Removes profane words. This setting overrides `-m` if set.
-
-- `-m`: Replaces letters in profane words with asterisk (*) characters. This setting is overridden by `-f` if set.
-
-- `-i`: Input speech from the specified `file`. If this is not set, audio input is from the default microphone. For compressed audio files such as MP4, install GStreamer and use `PullAudioInputStream` or `PushAudioInputStream`. For more information, see [How to use compressed input audio](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).
-
-- `-l languages`: Enable language identification for specified *languages`.  The comma delimited phrases must be in quotes. Example: "en-US,ja-JP"
-
-- `-p phrases`: Add specified `phrases` to the phrase list. The semicolon delimited phrases must be in quotes. Example: "Constoso;Jessie;Rehaan"
-
-- `-q`: Suppress console output (except errors)
-
-- `-r number`: Set stable partial result threshold to the `number`. 
-
-- `-s`: Emit SRT caption format instead of the default WebVTT format.
-
-- `-t`: Capitalize intermediate results
-
+[!INCLUDE [Usage arguments](usage-arguments.md)]
 
 ## Clean up resources
 

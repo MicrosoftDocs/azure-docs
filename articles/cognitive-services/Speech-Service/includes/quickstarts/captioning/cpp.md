@@ -18,6 +18,8 @@ ms.author: eur
 
 The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK in the next section of this article, but first check the [platform-specific installation instructions](../../../quickstarts/setup-platform.md?pivots=programming-language-cpp) for any more requirements.
 
+You must also install [GStreamer](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md) for compressed input audio.
+
 ## Create captions from speech
 
 Follow these steps to create a new console application and install the Speech SDK.
@@ -29,43 +31,23 @@ Follow these steps to create a new console application and install the Speech SD
     ```
 1. Replace the contents of `captioning.cpp` with the code that you copy from the [captioning sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/captioning_sample/scenarios/cpp/windows/captioning/captioning.cpp) at GitHub.
 
-Run the captions console application with the following command. Make sure that you have an input file named `caption.this.mp4` in the path.
+// 64-bit
+// - In Windows, place the following files from the Speech SDK in the same folder as your compiled .exe:
+// - Microsoft.CognitiveServices.Speech.core.dll
+// - Microsoft.CognitiveServices.Speech.extension.audio.sys.dll
 
-```console
-captioning.exe --input caption.this.mp4 --format any --output caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases Contoso;Jesse;Rehaan
-```
+cl.exe /Zi /EHsc /std:c++17 /nologo /I <speech sdk>\build\native\include\cxx_api /I <speech sdk>\build\native\include\c_api <code folder>\helper.cpp <code folder>\captioning.cpp <speech sdk>\build\native\x64\Release\Microsoft.CognitiveServices.Speech.core.lib
 
-Connection options include:
+1. Install [GStreamer](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md) for compressed input audio.
+1. Make sure that you have an input file named `caption.this.mp4` in the path.
+1. Run the following command to output captions from the video file:
+    ```console
+    captioning.exe --input caption.this.mp4 --format any --output caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases Contoso;Jesse;Rehaan
+    ```
 
-- `--key`: Your Speech resource key. 
-- `--region REGION`: Your Speech resource region. Examples: `westus`, `eastus`
+Usage: `captioning --input <input file> --key <key> --region <region>`
 
-Input options include:
-
-- `--input FILE`: Input audio from file. The default input is the microphone. 
-- `--url URL`: Input audio from URL. The default input is the microphone.
-- `--format FORMAT`: Use compressed audio format. Valid only with `--file` or `--url`. Valid values are `alaw`, `any`, `flac`, `mp3`, `mulaw`, and `ogg_opus`. The default value is `any`. For compressed audio files such as MP4, install GStreamer and see [How to use compressed input audio](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).
-
-Language options include:
-
-- `--languages LANG1,LANG2`: Enable language identification for specified languages. For example: `en-US,ja-JP`. For more information, see [Language identification](~/articles/cognitive-services/speech-service/language-identification.md).
-
-Recognition options include:
-
-- `--recognizing`: Output `Recognizing` event results. The default output is `Recognized` event results only. These are always written to the console, never to an output file. The `--quiet` option overrides this. For more information, see [Get speech recognition results](~/articles/cognitive-services/speech-service/get-speech-recognition-results.md).
-
-Accuracy options include:
-
-- `--phrases PHRASE1;PHRASE2`: You can specify a list of phrases to be recognized, such as `Contoso;Jesse;Rehaan`. For more information, see [Improve recognition with phrase list](~/articles/cognitive-services/speech-service/improve-accuracy-phrase-list.md).
-
-Output options include:
-
-- `--help`: Show this help and stop
-- `--output FILE`: Output captions to the specified `file`. This flag is required.
-- `--srt`: Output captions in SRT (SubRip Text) format. The default format is WebVTT (Web Video Text Tracks). For more information about SRT and WebVTT caption file formats, see [Caption output format](~/articles/cognitive-services/speech-service/captioning-concepts.md#caption-output-format).
-- `--quiet`: Suppress console output, except errors.
-- `--profanity OPTION`: Valid values: raw, remove, mask. For more information, see [Profanity filter](~/articles/cognitive-services/speech-service/captioning-concepts.md#profanity-filter) concepts.
-- `--threshold NUMBER`: Set stable partial result threshold. The default value with this code example is `3`. For more information, see [Get partial results](~/articles/cognitive-services/speech-service/captioning-concepts.md#get-partial-results) concepts.
+[!INCLUDE [Usage arguments](usage-arguments.md)]
 
 ## Clean up resources
 

@@ -16,6 +16,8 @@ ms.author: eur
 
 [!INCLUDE [SPX Setup](../../spx-setup-quick.md)]
 
+You must also install [GStreamer](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md) for compressed input audio.
+
 ## Create captions from speech
 
 With the [Speech CLI](~/articles/cognitive-services/speech-service/spx-overview.md), you can output both SRT (SubRip Text) and WebVTT (Web Video Text Tracks) captions from any type of media that contains audio. 
@@ -29,21 +31,21 @@ To recognize audio from a file and output both WebVtt (`vtt`) and SRT (`srt`) ca
     spx recognize --file caption.this.mp4 --format any --output vtt file - --output srt file - --output each file - @output.each.detailed --property SpeechServiceResponse_StablePartialResultThreshold=5 --profanity masked --phrases "Constoso;Jessie;Rehaan"
     ```
 
-The SRT and WebVTT captions are output to the console as shown here:
-
-```console
-1
-00:00:00,180 --> 00:00:03,230
-Welcome to applied Mathematics course 201.
-WEBVTT
-
-00:00:00.180 --> 00:00:03.230
-Welcome to applied Mathematics course 201.
-{
-  "ResultId": "561a0ea00cc14bb09bd294357df3270f",
-  "Duration": "00:00:03.0500000"
-}
-```
+    The SRT and WebVTT captions are output to the console as shown here:
+    
+    ```console
+    1
+    00:00:00,180 --> 00:00:03,230
+    Welcome to applied Mathematics course 201.
+    WEBVTT
+    
+    00:00:00.180 --> 00:00:03.230
+    Welcome to applied Mathematics course 201.
+    {
+      "ResultId": "561a0ea00cc14bb09bd294357df3270f",
+      "Duration": "00:00:03.0500000"
+    }
+    ```
 
 Here are details about the optional arguments from the previous command:
 

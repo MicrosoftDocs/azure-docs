@@ -26,6 +26,8 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 
 For more information on `require`, see the [require documentation](https://nodejs.org/en/knowledge/getting-started/what-is-require/).
 
+You must also install [GStreamer](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md) for compressed input audio.
+
 ## Create captions from speech
 
 Follow these steps to create a new console application for speech recognition.
@@ -39,30 +41,26 @@ Build and run your new console application. Replace `YourSubscriptionKey` with y
 node.exe Captioning.js -- [-f] [-h] [-i file] [-l languages] [-m] [-o file] [-p phrases] [-q] [-r number] [-s] [-t] [-u] YourSubscriptionKey YourServiceRegion
 ```
 
-Usage options include:
+// To install Typescript and Speech SDK
+npm install typescript
+npm install microsoft-cognitiveservices-speech-sdk
+npm install @types/node
 
-- `-h`: Show this help and stop
+// To compile/run sample
+npx
+tsc captioning.ts
+node captioning.js --input <input file> --key <key> --region <region>
 
-- `-o file`: Output captions to the specified `file`. This flag is required.
 
-- `-f`: Removes profane words. This setting overrides `-m` if set.
+1. Make sure that you have an input file named `caption.this.mp4` in the path.
+1. Run the following command to output captions from the video file:
+    ```console
+    node captioning.js --input caption.this.mp4 --format any --output caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases Contoso;Jesse;Rehaan
+    ```
 
-- `-m`: Replaces letters in profane words with asterisk (*) characters. This setting is overridden by `-f` if set.
+Usage: `node captioning.js --input <input file> --key <key> --region <region>`
 
-- `-i`: Input speech from the specified `file`. If this is not set, audio input is from the default microphone.
-
-- `-l languages`: Enable language identification for specified *languages`.  The comma delimited phrases must be in quotes. Example: "en-US,ja-JP"
-
-- `-p phrases`: Add specified `phrases` to the phrase list. The semicolon delimited phrases must be in quotes. Example: "Constoso;Jessie;Rehaan"
-
-- `-q`: Suppress console output (except errors)
-
-- `-r number`: Set stable partial result threshold to the `number`. 
-
-- `-s`: Emit SRT caption format instead of the default WebVTT format.
-
-- `-t`: Capitalize intermediate results
-
+[!INCLUDE [Usage arguments](usage-arguments.md)]
 
 ## Clean up resources
 
