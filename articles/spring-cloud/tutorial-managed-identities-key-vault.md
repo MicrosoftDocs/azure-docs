@@ -71,10 +71,10 @@ az keyvault secret set \
 After installing corresponding extension, create an Azure Spring Apps instance with the Azure CLI command `az spring create`.
 
 ```azurecli
-az extension add --name spring-cloud
+az extension add --name spring
 az spring create \
     --resource-group <your-resource-group-name> \
-    --name <your-Azure-Spring-Cloud-instance-name>
+    --name <your-Azure-Spring-Apps-instance-name>
 ```
 
 ### [System-assigned managed identity](#tab/system-assigned-managed-identity)
@@ -85,7 +85,7 @@ The following example creates an app named `springapp` with a system-assigned ma
 az spring app create \
     --resource-group <your-resource-group-name> \
     --name "springapp" \
-    --service <your-Azure-Spring-Cloud-instance-name> \
+    --service <your-Azure-Spring-Apps-instance-name> \
     --assign-endpoint true \
     --system-assigned
 export SERVICE_IDENTITY=$(az spring app show --name "springapp" -s "myspringcloud" -g "myResourceGroup" | jq -r '.identity.principalId')
@@ -109,13 +109,13 @@ The following example creates an app named `springapp` with a user-assigned mana
 az spring app create \
     --resource-group <your-resource-group-name> \
     --name "springapp" \
-    --service <your-Azure-Spring-Cloud-instance-name> \
+    --service <your-Azure-Spring-Apps-instance-name> \
     --assign-endpoint true \
     --user-assigned $USER_IDENTITY_RESOURCE_ID
 az spring app show \
     --resource-group <your-resource-group-name> \
     --name "springapp" \
-    --service <your-Azure-Spring-Cloud-instance-name>
+    --service <your-Azure-Spring-Apps-instance-name>
 ```
 
 ---
@@ -230,7 +230,7 @@ azure.keyvault.client-id={Client ID of user-assigned managed identity}
    az spring app deploy \
        --resource-group <your-resource-group-name> \
        --name "springapp" \
-       --service <your-Azure-Spring-Cloud-instance-name> \
+       --service <your-Azure-Spring-Apps-instance-name> \
        --jar-path target/demo-0.0.1-SNAPSHOT.jar
    ```
 
@@ -288,7 +288,7 @@ To build the sample, use the following steps:
    az spring app deploy \
        --resource-group <your-resource-group-name> \
        --name "springapp" \
-       --service <your-Azure-Spring-Cloud-instance-name> \
+       --service <your-Azure-Spring-Apps-instance-name> \
        --jar-path target/asc-managed-identity-keyvault-sample-0.1.0.jar
    ```
 

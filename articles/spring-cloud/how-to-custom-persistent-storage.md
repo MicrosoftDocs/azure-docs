@@ -87,7 +87,7 @@ You can enable your own storage with the Azure CLI by using the following steps.
     ```azurecli
    az spring storage add \
        --resource-group <resource-group-name> \
-       --service <Azure-Spring-Cloud-instance-name> \
+       --service <Azure-Spring-Apps-instance-name> \
        --name <storage-resource-name> \
        --storage-type StorageAccount \
        --account-name <account-name> \
@@ -99,7 +99,7 @@ You can enable your own storage with the Azure CLI by using the following steps.
    ```azurecli
    az spring app create \
        --resource-group <resource-group-name> \
-       --service <Azure-Spring-Cloud-instance-name> \
+       --service <Azure-Spring-Apps-instance-name> \
        --name <app-name> \
        --persistent-storage <path-to-JSON-file>
    ```
@@ -140,7 +140,7 @@ You can enable your own storage with the Azure CLI by using the following steps.
    ```azurecli
    az spring app append-persistent-storage \
        --resource-group <resource-group-name> \
-       --service <Azure-Spring-Cloud-instance-name> \
+       --service <Azure-Spring-Apps-instance-name> \
        --name <app-name> \
        --persistent-storage-type AzureFileVolume \
        --share-name <Azure-file-share-name> \
@@ -153,7 +153,7 @@ You can enable your own storage with the Azure CLI by using the following steps.
    ```azurecli
    az spring storage list-persistent-storage \
        --resource-group <resource-group-name> \
-       --service <Azure-Spring-Cloud-instance-name> \
+       --service <Azure-Spring-Apps-instance-name> \
        --name <storage-resource-name>
    ```
 

@@ -22,11 +22,11 @@ Azure Spring Apps enables log streaming in Azure CLI to get real-time applicatio
 
 ## Prerequisites
 
-* Install [Azure CLI extension](/cli/azure/install-azure-cli) for Spring Cloud, minimum version 0.2.0 .
-* An instance of **Azure Spring Apps** with a running application, for example [Spring Cloud app](./quickstart.md).
+* [Azure CLI extension](/cli/azure/install-azure-cli) for Azure Spring Apps, minimum version 0.2.0.
+* An instance of **Azure Spring Apps** with a running application. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
 
 > [!NOTE]
-> The Azure Spring Apps CLI extension is updated from version 0.2.0 to 0.2.1. This change affects the syntax of the command for log streaming: `az spring app log tail` is replaced by `az spring app logs`. The command: `az spring app log tail` will be deprecated in a future release. If you have been using version 0.2.0, you can upgrade to 0.2.1. First, remove the old version with the command: `az extension remove --name spring-cloud`.  Then, install 0.2.1 by the command: `az extension add --name spring-cloud`.
+> The Azure Spring Apps CLI extension is updated from version 0.2.0 to 0.2.1. This change affects the syntax of the command for log streaming: `az spring app log tail` is replaced by `az spring app logs`. The command: `az spring app log tail` will be deprecated in a future release. If you have been using version 0.2.0, you can upgrade to 0.2.1. First, remove the old version with the command: `az extension remove --name spring`.  Then, install 0.2.1 by the command: `az extension add --name spring`.
 
 ## Use CLI to tail logs
 
@@ -106,7 +106,7 @@ az spring app logs --help
 ### Format JSON structured logs
 
 > [!NOTE]
-> Requires spring-cloud extension version 2.4.0 or later.
+> Requires spring extension version 2.4.0 or later.
 
 When the [Structured application log](./structured-app-log.md) is enabled for the app, the logs are printed in JSON format. This makes it difficult to read. The `--format-json` argument can be used to format the JSON logs into human readable format.
 

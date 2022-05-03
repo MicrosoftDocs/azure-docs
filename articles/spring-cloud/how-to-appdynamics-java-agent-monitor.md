@@ -57,7 +57,7 @@ To activate an application through the Azure CLI, use the following steps.
     ```azurecli
     az spring app create \
         --resource-group "<your-resource-group-name>" \
-        --service "<your-Azure-Spring-Cloud-instance-name>" \
+        --service "<your-Azure-Spring-Apps-instance-name>" \
         --name "<your-app-name>" \
         --is-public true
     ```
@@ -67,7 +67,7 @@ To activate an application through the Azure CLI, use the following steps.
     ```azurecli
     az spring app deploy \
         --resource-group "<your-resource-group-name>" \
-        --service "<your-Azure-Spring-Cloud-instance-name>" \
+        --service "<your-Azure-Spring-Apps-instance-name>" \
         --name "<your-app-name>" \
         --jar-path app.jar \
         --jvm-options="-javaagent:/opt/agents/appdynamics/java/javaagent.jar" \

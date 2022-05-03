@@ -146,7 +146,7 @@ To deploy the Azure Spring Apps cluster using the Azure CLI script, follow these
 1. Add the required extensions to Azure CLI.
 
    ```azurecli
-   az extension add --name spring-cloud
+   az extension add --name spring
    ```
 
 1. Choose a deployment location from the regions where Azure Spring Apps is available, as shown in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud&regions=all).

@@ -49,7 +49,7 @@ Before you begin, ensure that your Azure subscription has the required dependenc
 Install the Azure Spring Apps extension for the Azure CLI with the following command
 
 ```azurecli
-az extension add --name spring-cloud
+az extension add --name spring
 ```
 
 ## Provision a service instance using the Azure CLI

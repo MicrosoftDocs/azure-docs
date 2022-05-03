@@ -46,7 +46,7 @@ This article uses the Spring Petclinic sample to walk through the required steps
    ```azurecli
    az spring app create \
       --resource-group <your-resource-group-name> \
-      --service <your-Azure-Spring-Cloud-instance-name> \
+      --service <your-Azure-Spring-Apps-instance-name> \
       --name <your-app-name> \
       --is-public true
    ```
@@ -62,7 +62,7 @@ Use the following steps to enable custom persistent storage:
    ```azurecli
    az spring app append-persistent-storage \
       --resource-group <your-resource-group-name> \
-      --service <your-Azure-Spring-Cloud-instance-name> \
+      --service <your-Azure-Spring-Apps-instance-name> \
       --name <your-app-name> \
       --persistent-storage-type AzureFileVolume \
       --share-name <your-Azure-file-share-name> \

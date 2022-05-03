@@ -37,7 +37,7 @@ After you deploy an application, you can start, stop, and delete it by using the
 First, install the Azure Spring Apps extension for the Azure CLI as follows:
 
 ```azurecli
-az extension add --name spring-cloud
+az extension add --name spring
 ```
 
 Next, select any of these Azure CLI operations:

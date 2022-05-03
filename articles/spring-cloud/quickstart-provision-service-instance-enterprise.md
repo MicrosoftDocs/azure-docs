@@ -71,7 +71,7 @@ It takes about 5 minutes to finish the resource provisioning.
 1. Update Azure CLI with the Azure Spring Apps extension by using the following command:
 
    ```azurecli
-   az extension update --name spring-cloud
+   az extension update --name spring
    ```
 
 1. Sign in to the Azure CLI and choose your active subscription by using the following command:

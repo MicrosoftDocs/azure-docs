@@ -73,7 +73,7 @@ If you already have a virtual network to host an Azure Spring Apps instance, ski
     |-----------------|--------------------------------------------------|
     | Subscription    | Select your subscription.                        |
     | Resource group  | Select your resource group, or create a new one. |
-    | Name            | Enter **azure-spring-cloud-vnet**.               |
+    | Name            | Enter **azure-spring-apps-vnet**.               |
     | Location        | Select **East US**.                              |
 
 1. Select **Next: IP Addresses**.
@@ -97,7 +97,7 @@ If you already have a virtual network to host an Azure Spring Apps instance, ski
    RESOURCE_GROUP='my-resource-group'
    LOCATION='eastus'
    SPRING_CLOUD_NAME='spring-cloud-name'
-   VIRTUAL_NETWORK_NAME='azure-spring-cloud-vnet'
+   VIRTUAL_NETWORK_NAME='azure-spring-apps-vnet'
    ```
 
 1. Sign in to the Azure CLI and choose your active subscription.
@@ -143,7 +143,7 @@ Azure Spring Apps requires **Owner** permission to your virtual network, in orde
 
 #### [Portal](#tab/azure-portal)
 
-Select the virtual network **azure-spring-cloud-vnet** you previously created.
+Select the virtual network **azure-spring-apps-vnet** you previously created.
 
 1. Select **Access control (IAM)**, and then select **Add** > **Add role assignment**.
 
@@ -201,14 +201,14 @@ To deploy an Azure Spring Apps instance in the virtual network:
 
 1. Select the same resource group and region as the virtual network.
 
-1. For **Name** under **Service Details**, select **azure-spring-cloud-vnet**.
+1. For **Name** under **Service Details**, select **azure-spring-apps-vnet**.
 
 1. Select the **Networking** tab, and select the following values:
 
     | Setting                            | Value                               |
     |------------------------------------|-------------------------------------|
     | Deploy in your own virtual network | Select **Yes**.                     |
-    | Virtual network                    | Select **azure-spring-cloud-vnet**. |
+    | Virtual network                    | Select **azure-spring-apps-vnet**. |
     | Service runtime subnet             | Select **service-runtime-subnet**.  |
     | Spring apps subnet                 | Select **apps-subnet**.             |
 

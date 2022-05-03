@@ -35,7 +35,7 @@ Use the following command to generate a heap dump of your app in Azure Spring Ap
 ```azurecli
 az spring app deployment generate-heap-dump \
     --resource-group <resource-group-name> \
-    --service <Azure-Spring-Cloud-instance-name> \
+    --service <Azure-Spring-Apps-instance-name> \
     --app <app-name> \
     --deployment <deployment-name> \
     --app-instance <app-instance name> \
@@ -49,7 +49,7 @@ Use the following command to generate a thread dump of your app in Azure Spring 
 ```azurecli
 az spring app deployment generate-thread-dump \
     --resource-group <resource-group-name> \
-    --service <Azure-Spring-Cloud-instance-name> \
+    --service <Azure-Spring-Apps-instance-name> \
     --app <app-name> \
     --deployment <deployment-name> \
     --app-instance <app-instance name> \
@@ -63,7 +63,7 @@ Use the following command to start JFR for your app in Azure Spring Apps.
 ```azurecli
 az spring app deployment start-jfr \
     --resource-group <resource-group-name> \
-    --service <Azure-Spring-Cloud-instance-name> \
+    --service <Azure-Spring-Apps-instance-name> \
     --app <app-name> \
     --deployment <deployment-name> \
     --app-instance <app-instance name> \

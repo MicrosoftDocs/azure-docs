@@ -83,7 +83,7 @@ The following procedure creates a private DNS zone for an application in the pri
    ```azurecli
    SUBSCRIPTION='subscription-id'
    RESOURCE_GROUP='my-resource-group'
-   VIRTUAL_NETWORK_NAME='azure-spring-cloud-vnet'
+   VIRTUAL_NETWORK_NAME='azure-spring-apps-vnet'
    ```
 
 1. Sign in to the Azure CLI and choose your active subscription.
@@ -115,7 +115,7 @@ To link the private DNS zone to the virtual network, you need to create a virtua
 
 2. On the left pane, select **Virtual network links**, then select **Add**.
 
-4. Enter *azure-spring-cloud-dns-link* for the **Link name**.
+4. Enter *azure-spring-apps-dns-link* for the **Link name**.
 
 5. For **Virtual network**, select the virtual network you created as explained in [Deploy Azure Spring Apps in your Azure virtual network (VNet injection)](./how-to-deploy-in-azure-virtual-network.md).
 
@@ -130,7 +130,7 @@ Link the private DNS zone you created to the virtual network holding your Azure 
    ```azurecli
    az network private-dns link vnet create \
        --resource-group $RESOURCE_GROUP \
-       --name azure-spring-cloud-dns-link \
+       --name azure-spring-apps-dns-link \
        --zone-name private.azuremicroservices.io \
        --virtual-network $VIRTUAL_NETWORK_NAME \
        --registration-enabled false

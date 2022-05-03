@@ -37,7 +37,7 @@ To set up blue-green deployment in Azure Spring Apps, follow the instructions in
 Install the Azure Spring Apps extension for the Azure CLI by using the following command:
 
 ```azurecli
-az extension add --name spring-cloud
+az extension add --name spring
 ```
 
 ## Prepare the app and deployments
