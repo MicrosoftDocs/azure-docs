@@ -14,8 +14,6 @@ ms.date: 11/09/2021
 
 # Cross-tenant management in Defender for Cloud
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Cross-tenant management enables you to view and manage the security posture of multiple tenants in Defender for Cloud by leveraging [Azure Lighthouse](../lighthouse/overview.md). Manage multiple tenants efficiently, from a single view, without having to sign in to each tenant's directory.
 
 - Service providers can manage the security posture of resources, for multiple customers, from within their own tenant.

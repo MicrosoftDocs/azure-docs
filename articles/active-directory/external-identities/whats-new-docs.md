@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory External Identities"
 description: "New and updated documentation for the Azure Active Directory External Identities."
-ms.date: 03/31/2022
+ms.date: 05/02/2022
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -14,6 +14,22 @@ manager: CelesteDG
 # Azure Active Directory External Identities: What's new
 
 Welcome to what's new in Azure Active Directory External Identities documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the External Identities service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## April 2022
+
+### Updated articles
+
+- [Email one-time passcode authentication](one-time-passcode.md)
+- [Configure external collaboration settings](external-collaboration-settings-configure.md)
+- [Add a self-service sign-up user flow to an app](self-service-sign-up-user-flow.md)
+- [B2B direct connect overview (Preview)](b2b-direct-connect-overview.md)
+- [Azure Active Directory B2B collaboration invitation redemption](redemption-experience.md)
+- [Federation with SAML/WS-Fed identity providers for guest users (preview)](direct-federation.md)
+- [Azure Active Directory External Identities: What's new](whats-new-docs.md)
+- [Azure Active Directory B2B best practices](b2b-fundamentals.md)
+- [Troubleshooting Azure Active Directory B2B collaboration](troubleshoot.md)
+- [Properties of an Azure Active Directory B2B collaboration user](user-properties.md)
+- [B2B collaboration overview](what-is-b2b.md)
 
 ## March 2022
 
@@ -61,10 +77,3 @@ Welcome to what's new in Azure Active Directory External Identities documentatio
 - [Troubleshooting Azure Active Directory B2B collaboration](troubleshoot.md)
 - [Properties of an Azure Active Directory B2B collaboration user](user-properties.md)
 - [Authentication and Conditional Access for External Identities](authentication-conditional-access.md)
-
-## January 2022
-
-### Updated articles
-
-- [Properties of an Azure Active Directory B2B collaboration user](user-properties.md)
-- [Azure Active Directory B2B collaboration invitation redemption](redemption-experience.md)
