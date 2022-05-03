@@ -7,7 +7,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/essentials/activity-logs-insights.md",
-            "redirect_url": "/articles/azure-monitor/essentials/activity-logs",
+            "redirect_url": "/azure/azure-monitor/essentials/activity-logs",
             "redirect_document_id": false
         },
         {
