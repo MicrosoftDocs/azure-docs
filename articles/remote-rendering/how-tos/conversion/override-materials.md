@@ -14,13 +14,13 @@ The material settings in the source model define the [PBR materials](../../overv
 Sometimes the default conversion doesn't give the desired results and you need to make changes. For more information, see [Material mapping for model formats](../../reference/material-mapping.md).
 
 When a model is converted for use in Azure Remote Rendering, you can provide a material override file to customize how material conversion is done on a per-material basis.
-If a file called `<modelName>.MaterialOverrides.json` is found in the input container with the input model `<modelName>.<ext>`, it's used as the material override file.
+If a file called *\<modelName>.MaterialOverrides.json* is found in the input container with the input model *\<modelName>.\<ext>*, it's used as the material override file.
 
 ## The override file used during conversion
 
-As a simple example, take a box model that has a single material, called "Default".
+As a simple example, take a box model that has a single material, called `Default`.
 Its albedo color needs to be adjusted for use in Remote Rendering.
-In this case, a `box.MaterialOverrides.json` file can be created as follows:
+In this case, a *box.MaterialOverrides.json* file can be created as follows:
 
 ```json
 [
@@ -36,7 +36,7 @@ In this case, a `box.MaterialOverrides.json` file can be created as follows:
 ]
 ```
 
-The `box.MaterialOverrides.json` file is placed in the input container with `box.fbx`, which tells the conversion service to apply the new settings.
+The *box.MaterialOverrides.json* file is placed in the input container with *box.fbx*, which tells the conversion service to apply the new settings.
 
 ### Color materials
 
@@ -80,7 +80,7 @@ By default, an entry in the material overrides file applies when its name matche
 Since it's common that the same override should apply to multiple materials, you can optionally provide a regular expression as the entry name.
 The field `nameMatching` has a default value `exact`, but it can be set to `regex` to state that the entry should apply to every matching material.
 The syntax used is the same syntax used for JavaScript. 
-The following example shows an override that applies to materials with names like "Material2", "Material01" and "Material999".
+The following example shows an override that applies to materials with names like `Material2`, `Material01` and `Material999`.
 
 ```json
 [

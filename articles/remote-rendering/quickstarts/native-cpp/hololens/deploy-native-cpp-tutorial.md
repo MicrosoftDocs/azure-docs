@@ -59,7 +59,7 @@ Switch the build configuration to *Debug* (or *Release*) and *ARM64*. Make sure 
 
 ![Screenshot shows the Visual Studio configuration area with values as described.](media/vs-config-native-cpp-tutorial.png)
 
-Since the account credentials are hardcoded in the tutorial's source code, change them to valid credentials. Open the file `HolographicAppMain.cpp` inside Visual Studio and change the part where the client is created inside the constructor of class `HolographicAppMain`:
+Since the account credentials are hardcoded in the tutorial's source code, change them to valid credentials. Open the file *HolographicAppMain.cpp* inside Visual Studio and change the part where the client is created inside the constructor of class `HolographicAppMain`:
 
 ```cpp
 // 2. Create Client
@@ -94,7 +94,7 @@ Now you can compile the application.
 
 The sample app launches and a text panel appears that informs you about the current application state. The status at startup time is either starting a new session or connecting to an existing session. After model loading finishes, the built-in engine model appears right at your head position. Occlusion-wise, the engine model interacts properly with the spinning cube that is rendered locally.
 
- If you want to launch the sample a second time later, you can also find it from the HoloLens start menu. It might have an expired session ID compiled into it.
+ If you want to launch the sample again later, you can also find it from the HoloLens start menu. It might have an expired session ID compiled into it.
 
 ## Next steps
 

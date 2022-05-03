@@ -37,11 +37,11 @@ If the app is running on a HoloLens:
 
 This panel shows graphs of all per-frame performance values exposed by the server. The values currently include the frame time, FPS, CPU and memory usage, memory stats like overall RAM usage, object counts, etc.
 
-To visualize one of these parameters, select the **Add New** button and select one of the available values shown in the dialog. This action adds a new scrolling chart to the panel, tracing the values in real time. On its right you can see the *minimum*, *maximum* and *current* value.
+To visualize one of these parameters, select the **Add New** button and select one of the available values shown in the dialog box. This action adds a new scrolling chart to the panel, tracing the values in real time. On its right you can see the *minimum*, *maximum* and *current* value.
 
 You can pan the graph, by dragging its content with the mouse, however, panning horizontally is only possible when ArrInspector is in the paused state.
 
-Holding CTRL while dragging, allows you to zoom. Horizontal zoom can also be controlled with the slider at the bottom.
+Holding **Ctrl** while dragging, allows you to zoom. Horizontal zoom can also be controlled with the slider at the bottom.
 
 The vertical range is by default computed based on the values currently displayed, and min and max values are shown in the text-boxes on the right. When the values are set manually, either by typing them directly into the textbox, or by panning/zooming, the graph uses those values. To restore the automatic vertical framing, select  the icon in the top-right corner.
 
@@ -51,7 +51,7 @@ The vertical range is by default computed based on the values currently displaye
 
 ![Screenshot shows the Log panel, which displays log messages.](./media/log-panel.png)
 
-The log panel shows a list of log messages generated on the server side. On connection it shows up to 200 previous log messages, and prints new ones as they happen.
+The Log panel shows a list of log messages generated on the server side. On connection it shows up to 200 previous log messages, and prints new ones as they happen.
 
 You can filter the list based on the log type `[Error/Warning/Info/Debug]` using the buttons at the top.
 :::image type="icon" source="./media/log-filter.png" alt-text="Log Filter Buttons":::
@@ -66,17 +66,17 @@ This panel is used to capture timing information from the server and download it
 
 ![Screenshot shows the Scene Inspection panel with FORWARD selected.](./media/scene-inspection-panel.png)
 
-This panel shows the structure of the rendered scene. The object hierarchy is on the left, the content of the selected object is on the right. The panel is read-only and is updated in real time.
+The Scene Inspection panel shows the structure of the rendered scene. The object hierarchy is on the left, the content of the selected object is on the right. The panel is read-only and is updated in real time.
 
 ## The VM Debug Information panel
 
 ![Screenshot shows the V M Debug Information panel.](./media/state-debugger-panel.png)
 
-This panel offers some debug functionality.
+The VM Debug Information panel offers some debug functionality.
 
 ### Restart service
 
-The **Restart Service** button restarts the runtime on the virtual machine that arrInspector is connected to. Any attached client gets disconnected and the arrInspector page must be reloaded to connect to the restarted service.
+The **Restart Service** button restarts the runtime on the virtual machine that ArrInspector is connected to. Any attached client gets disconnected and the ArrInspector page must be reloaded to connect to the restarted service.
 
 ### Collect debug information
 
@@ -103,4 +103,4 @@ In the top-right corner, a switch allows you to pause live update of the panels.
 
 ![Screenshot shows the control to pause live updates.](./media/pause-mode.png)
 
-When re-enabling live update, all panels are reset.
+When re-enabling live updates, all panels are reset.
