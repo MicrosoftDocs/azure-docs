@@ -5,7 +5,7 @@ author: nickomang
 ms.author: nickoman
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 04/29/2022
+ms.date: 05/03/2022
 ms.custom: template-quickstart, mode-other
 ---
 
