@@ -277,15 +277,15 @@ The following JSON demonstrates a complete *appsettings.json* file:
 
 Now you're ready to issue your first verified credential expert card by running the sample application.
 
-1. From Visual Studio Code, run the *Verifiable_credentials_DotNet* project. Or, from the command shell, run the following commands:
+1. From Visual Studio Code, run the *Verifiable_credentials_DotNet* project. Or, from your operating system's command line, run:
 
-    ```console
+    ```
     cd active-directory-verifiable-credentials-dotnet/1-asp-net-core-api-idtokenhint  dotnet build "AspNetCoreVerifiableCredentials.csproj" -c Debug -o .\\bin\\Debug\\netcoreapp3.  dotnet run
     ```
 
-1. In another terminal, run the following command. This command runs [ngrok](https://ngrok.com/) to set up a URL on 3000, and make it publicly available on the internet.
+1. In another command prompt window, run the following command. This command runs [ngrok](https://ngrok.com/) to set up a URL on 5000, and make it publicly available on the internet.
 
-    ```console
+    ```
     ngrok http 5000
     ```
 
