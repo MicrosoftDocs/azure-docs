@@ -95,7 +95,7 @@ Yes. You can create a route table and associate it to a subnet. For more informa
 For inbound traffic, NSG inbound rules are processed. For outbound, NSG outbound rules are processed followed by UDR rules.
 
 ### What would be the behavior when I apply NSG at NIC and subnet for a VM?
-When NSGs are applied both at NIC & Subnets for a VM, subnet level NSG followed by NIC level NSG is processed for inbound and NIC level NSG followed by sunet level NSG for outbound traffic.
+When NSGs are applied both at NIC & Subnets for a VM, subnet level NSG followed by NIC level NSG is processed for inbound and NIC level NSG followed by subnet level NSG for outbound traffic.
 
 ### Do VNets support multicast or broadcast?
 No. Multicast and broadcast are not supported.
