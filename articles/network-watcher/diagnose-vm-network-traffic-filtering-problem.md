@@ -55,7 +55,7 @@ If you already have a network watcher enabled in at least one region, skip to th
 
 1. In the **Home** portal, select **More services**. In the **Filter box**, enter *Network Watcher*. When **Network Watcher** appears in the results, select it.
 1. Enable a network watcher in the East US region, because that's the region the VM was deployed to in a previous step. Select **Add**, to expand it, and then select **Region** under **Subscription**, as shown in the following picture:
-    :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png" alt-text="Screenshot of how to Enable Network Watcher.":::
+    :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png" alt-text="Screenshot of how to Enable Network Watcher." lightbox="./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png":::
 1. Select your region then select **Add**.
 
 ### Use IP flow verify
