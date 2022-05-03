@@ -27,7 +27,7 @@ Service Bus destinations let you configure the connection with a *connection str
 
 This article shows how to create a managed identity in the Azure portal. You can also use the Azure CLI to create a manged identity. To learn more, see [Assign a managed identity access to a resource using Azure CLI](../../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
-## [Connection string](#tab/service-bus)
+# [Connection string](#tab/service-bus)
 
 ### Create a Service Bus queue or topic destination
 
@@ -61,7 +61,7 @@ To create the Service Bus destination in IoT Central on the **Data export** page
 
 1. Select **Save**.
 
-## [Managed identity](#tab/service-bus)
+# [Managed identity](#tab/service-bus)
 
 ### Create a Service Bus queue or topic destination
 

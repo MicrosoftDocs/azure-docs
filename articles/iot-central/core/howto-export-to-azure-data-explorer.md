@@ -31,7 +31,7 @@ Azure Data Explorer destinations let you configure the connection with a *servic
 
 This article shows how to create a managed identity using the Azure CLI. You can also use the Azure portal to create a manged identity.
 
-## [Service principal](#tab/data-explorer)
+# [Service principal](#tab/data-explorer)
 
 ### Create an Azure Data Explorer destination
 
@@ -101,7 +101,7 @@ To create the Azure Data Explorer destination in IoT Central on the **Data expor
 
     :::image type="content" source="media/howto-export-data/export-destination.png" alt-text="Screenshot of Azure Data Explorer export destination.":::
 
-## [Managed identity](#tab/data-explorer)
+# [Managed identity](#tab/data-explorer)
 
 ### Create an Azure Data Explorer destination
 
