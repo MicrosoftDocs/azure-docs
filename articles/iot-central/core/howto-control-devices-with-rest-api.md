@@ -30,6 +30,8 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 > [!TIP]
 > The [preview API](/rest/api/iotcentral/1.2-previewdataplane/devices) includes support for the new [organizations feature](howto-create-organizations.md).
 
+[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
+
 ## Components and modules
 
 Components let you group and reuse device capabilities. To learn more about components and device models, see the [IoT Plug and Play modeling guide](../../iot-develop/concepts-modeling-guide.md).
