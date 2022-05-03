@@ -158,7 +158,7 @@ Automated ML's NLP capability is triggered through `AutoMLConfig`, which is the 
 However, there are key differences: 
 * You can ignore `primary_metric`, as it is only for reporting purpose. Currently, automated ML only trains one model per run for NLP and there is no model selection.
 * The `label_column_name` parameter is only required for multi-class and multi-label text classification tasks. 
-* If the majority of the samples in your dataset contain more than 128 words, it's considered long range. For this scenario, you can enable the long range text option with the `enable_long_range_text=True` parameter in your `AutoMLConfig`. Doing so, helps improve model performance but requires a longer training times.
+* If the majority of the samples in your dataset contain more than 128 words, it's considered long range. For this scenario, you can enable the long range text option with the `enable_long_range_text=True` parameter in your `AutoMLConfig`. Doing so, helps improve model performance but requires longer training times.
    * If you enable long range text, then a GPU with higher memory is required such as, [NCv3](../../virtual-machines/ncv3-series.md) series  or  [ND](../../virtual-machines/nd-series.md)  series.
    * The `enable_long_range_text` parameter is only available for multi-class classification tasks.
 
