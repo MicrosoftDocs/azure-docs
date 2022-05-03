@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devx-track-azurecli, references_regions, cliv1, sdkv1
+ms.custom: devx-track-azurecli, references_regions, cliv1
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
@@ -16,10 +16,6 @@ ms.date: 05/02/2022
 # Create and manage an Azure Machine Learning compute instance with CLI v1
 
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
-
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning CLI version you are using:"]
-> * [v1](how-to-create-manage-compute-instance.md)
-> * [v2 (preview)](../how-to-create-manage-compute-instance.md)
 
 Learn how to create and manage a [compute instance](concept-compute-instance.md) in your Azure Machine Learning workspace with CLI v1. 
 

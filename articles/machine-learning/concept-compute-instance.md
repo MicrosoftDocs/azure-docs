@@ -41,7 +41,7 @@ A compute instance is a fully managed cloud-based workstation optimized for your
 * Secure your compute instance with **[No public IP (preview)](./how-to-secure-training-vnet.md#no-public-ip)**
 * The compute instance is also a secure training compute target similar to compute clusters, but it is single node.
 * You can [create a compute instance](how-to-create-manage-compute-instance.md?tabs=python#create) yourself, or an administrator can **[create a compute instance on your behalf](how-to-create-manage-compute-instance.md?tabs=python#create-on-behalf-(preview))**.
-* You can also **[use a setup script (preview)](how-to-create-manage-compute-instance.md#setup-script)**  for an automated way to customize and configure the compute instance as per your needs.
+* You can also **[use a setup script (preview)](how-to-create-manage-compute-instance.md#customize-the-compute-instance-with-a-script-(preview))**  for an automated way to customize and configure the compute instance as per your needs.
 * To save on costs, **[create  a schedule (preview)](how-to-create-manage-compute-instance.md#schedule)** to automatically start and stop the compute instance.
 
 
@@ -103,7 +103,7 @@ Do not store training data on the notebooks file share. You can use the `/tmp` d
 
 As an administrator, you can **[create a compute instance for others in the workspace (preview)](how-to-create-manage-compute-instance.md#create-on-behalf-(preview))**.
 
-You can also **[use a setup script (preview)](how-to-create-manage-compute-instance.md#setup-script)**  for an automated way to customize and configure the compute instance.
+You can also **[use a setup script (preview)](how-to-create-manage-compute-instance.md#customize-the-compute-instance-with-a-script-(preview))**  for an automated way to customize and configure the compute instance.
 
 To create a compute instance for yourself, use your workspace in Azure Machine Learning studio, [create a new compute instance](how-to-create-manage-compute-instance.md?tabs=azure-studio#create) from either the **Compute** section or in the **Notebooks** section when you are ready to run one of your notebooks.
 

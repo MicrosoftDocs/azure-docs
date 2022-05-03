@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devx-track-azurecli, references_regions, cliv1, sdkv1
+ms.custom: devx-track-azurecli, references_regions, cliv2, sdkv1
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
@@ -24,9 +24,10 @@ In this article, you learn how to:
 * [Create](#create) a compute instance
 * [Manage](#manage) (start, stop, restart, delete) a compute instance
 * [Create  a schedule](#schedule) to automatically start and stop the compute instance (preview)
-* [Use a setup script](#setup-script) to customize and configure the compute instance
+* [Use a setup script](#customize-the-compute-instance-with-a-script-(preview)) to customize and configure the compute instance
 
 Compute instances can run jobs securely in a [virtual network environment](how-to-secure-training-vnet.md), without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container.
+
 > [!NOTE]
 > This article shows CLI v2 in the sections below. If you are still using CLI v1, see [Create an Azure Machine Learning compute cluster CLI v1)](v1/how-to-create-manage-compute-instance.md).
 
@@ -49,7 +50,7 @@ Creating a compute instance is a one time process for your workspace. You can re
 
 The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance does not release quota to ensure you will be able to restart the compute instance. It is not possible to change the virtual machine size of compute instance once it is created.
 
-<a name="create-instance"></a> The following example demonstrates how to create a compute instance:
+The following example demonstrates how to create a compute instance:
 
 # [Python](#tab/python)
 
@@ -92,13 +93,16 @@ For more information on the classes, methods, and parameters used in this exampl
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-```azurecli-interactive
-az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
+```azurecli
+az ml compute create -f create-instance.yml
 ```
 
-For more information, see the [az ml computetarget create computeinstance](/cli/azure/ml(v1)/computetarget/create#az-ml-computetarget-create-computeinstance) reference.
+Where the file *create-instance.yml* is:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/instance-basic.yml":::
+
 
 # [Studio](#tab/azure-studio)
 
@@ -126,7 +130,7 @@ For more information, see the [az ml computetarget create computeinstance](/cli/
     * Enable SSH access.  Follow the [detailed SSH access instructions](#enable-ssh) below.
     * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). You can also select __No public IP__ (preview) to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these [network requirements](./how-to-secure-training-vnet.md) for virtual network setup. 
     * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#create-on-behalf-(preview)).
-    * Provision with a setup script (preview) - for more details about how to create and use a setup script, see [Customize the compute instance with a script](#setup-script).
+    * Provision with a setup script (preview) - for more details about how to create and use a setup script, see [Customize the compute instance with a script](#customize-the-compute-instance-with-a-script-(preview)).
     * Add schedule (preview). Schedule times for the compute instance to automatically start and/or shutdown. See [schedule details](#schedule) below.
 
 
@@ -191,6 +195,19 @@ Schedules can also be defined for [create on behalf of](#create-on-behalf-(previ
 
 Once the compute instance is created, you can view, edit, or add new schedules from the compute instance details section.
 Please note timezone labels don't account for day light savings. For instance,  (UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna is actually UTC+02:00 during day light savings.
+
+### Create a schedule with CLI
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```azurecli
+az ml compute create -f create-instance.yml
+```
+
+Where the file *create-instance.yml* is:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/instance-schedule.yml":::
+
 
 ### Create a schedule with a Resource Manager template
 
@@ -312,7 +329,7 @@ Following is a sample policy to default a shutdown schedule at 10 PM PST.
 }    
 ```
 
-## <a name="setup-script"></a> Customize the compute instance with a script (preview)
+## Customize the compute instance with a script (preview)
 
 Use a setup script for an automated way to customize and configure the compute instance at provisioning time. As an administrator, you can write a customization script to be used to provision all compute instances in the workspace according to your requirements.
 
@@ -470,41 +487,33 @@ In the examples below, the name of the compute instance is **instance**
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-In the examples below, the name of the compute instance is **instance**
+In the examples below, the name of the compute instance is **instance**, in workspace **my-workspace**, in resource group **my-resource-group**.
 
 * Stop
 
-    ```azurecli-interactive
-    az ml computetarget stop computeinstance -n instance -v
+    ```azurecli
+    az ml compute stop --name instance --resource-group my-resource-group --workspace-name my-workspace
     ```
-
-    For more information, see [az ml computetarget stop computeinstance](/cli/azure/ml(v1)/computetarget/computeinstance#az-ml-computetarget-computeinstance-stop).
 
 * Start
 
-    ```azurecli-interactive
-    az ml computetarget start computeinstance -n instance -v
+    ```azurecli
+    az ml compute start --name instance --resource-group my-resource-group --workspace-name my-workspace
     ```
-
-    For more information, see [az ml computetarget start computeinstance](/cli/azure/ml(v1)/computetarget/computeinstance#az-ml-computetarget-computeinstance-start).
 
 * Restart
 
-    ```azurecli-interactive
-    az ml computetarget restart computeinstance -n instance -v
+    ```azurecli
+    az ml compute restart --name instance --resource-group my-resource-group --workspace-name my-workspace
     ```
-
-    For more information, see [az ml computetarget restart computeinstance](/cli/azure/ml(v1)/computetarget/computeinstance#az-ml-computetarget-computeinstance-restart).
 
 * Delete
 
-    ```azurecli-interactive
-    az ml computetarget delete -n instance -v
+    ```azurecli
+    az ml compute delete --name instance --resource-group my-resource-group --workspace-name my-workspace
     ```
-
-    For more information, see [az ml computetarget delete computeinstance](/cli/azure/ml(v1)/computetarget#az-ml-computetarget-delete).
 
 # [Studio](#tab/azure-studio)
 <a name="schedule"></a>

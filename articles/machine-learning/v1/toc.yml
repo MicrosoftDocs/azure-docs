@@ -28,12 +28,17 @@
     href: reference-azure-machine-learning-cli.md
   - name: Set up software environments CLI (v1)
     href: how-to-use-environments.md
-  - name: Create & manage compute cluster
-    displayName: compute target, low priority, managed identity
-    href: how-to-create-attach-compute-cluster.md
   - name: Track experiments with MLflow 
     displayName: log, monitor, metrics, model registry, register
     href: how-to-use-mlflow.md  
+  - name: Create & manage compute resources
+  items:
+    - name: Compute instance
+      displayName: compute target
+      href: how-to-create-manage-compute-instance.md
+    - name: Compute cluster
+      displayName: compute target, low priority, managed identity
+      href: how-to-create-attach-compute-cluster.md
   - name: Train models
     items: 
       - name: Train with SDK v1
