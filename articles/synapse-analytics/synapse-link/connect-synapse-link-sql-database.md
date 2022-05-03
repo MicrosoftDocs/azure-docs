@@ -36,7 +36,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 1. Using Microsoft SQL Server Management Studio (SSMS) or Azure Data Studio, connect to the source Azure SQL Server with administrative privileges.
 
-1. Connect to your source SQL database. If you're using SSMS, expand **Databases**, right select the database you created above, and select **New Query**.
+1. Expand **Databases**, right select the database you created above, and select **New Query**.
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/ssms-new-query.png" alt-text="Select your database and create a new query.":::
 
