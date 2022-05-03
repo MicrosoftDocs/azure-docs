@@ -33,13 +33,13 @@ To add text translation, follow these steps:
 
 1. [Create a skillset](cognitive-search-defining-skillset.md) that includes the [Text Translation skill](cognitive-search-skill-text-translation.md). 
 
-  The Text Translation skill operates over a single string. If you have multiple fields, can create a skillset that calls Text Translation multiple times, once for each field. Alternatively, you can use the [Text Merger skill](cognitive-search-skill-textmerger.md) to consolidate the content of multiple fields into one long string, passing that string as a Text Translation skill input.
+   The Text Translation skill takes a single string as input. If you have multiple fields, can create a skillset that calls Text Translation multiple times, once for each field. Alternatively, you can use the [Text Merger skill](cognitive-search-skill-textmerger.md) to consolidate the content of multiple fields into one long string.
 
 1. Create an index that includes fields for translated strings. Most of this article covers index design and field definitions for indexing and querying multi-language content.
 
 1. [Attach a multi-region Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to your skillset.
 
-1. [Create and run the indexer](search-howto-create-indexers.md).
+1. [Create and run the indexer](search-howto-create-indexers.md), and then apply the guidance in this article to query just the fields of interest.
 
 > [!TIP]
 > Text translation is built into the [Import data wizard](cognitive-search-quickstart-blob.md). If you have a [supported data source](search-indexer-overview.md#supported-data-sources) with text you'd like to translate, you can step through the wizard to try out the language detection and translation functionality before writing any code.
