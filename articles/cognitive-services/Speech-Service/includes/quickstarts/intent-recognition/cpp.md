@@ -103,7 +103,7 @@ At this point, your code should look like this:
 > [!NOTE]
 > We've added some comments to this version.
 
-:::code language="cpp" source="~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp" id="code":::
+:::code language="cpp" source="~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp":::
 
 ## Build and run your app
 

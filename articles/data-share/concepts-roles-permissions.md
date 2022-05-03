@@ -47,15 +47,17 @@ To create a role assignment for the data share resource's managed identity manua
 
 1. Navigate to the Azure data store.
 
-1. Select **Access Control (IAM)**.
+1. Select **Access control (IAM)**.
 
 1. Select **Add > Add role assignment**.
 
    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
-1. On the **Roles** tab, select one of the roles listed in the role assignment table in the previous section.
+1. On the **Role** tab, select one of the roles listed in the role assignment table in the previous section.
 
 1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
+
+1. Select your Azure subscription.
 
 1. Select **System-assigned managed identity**, search for your Azure Data Share resource, and then select it.
 
@@ -72,15 +74,17 @@ Alternatively, user can have owner of the storage account add the data share res
 
 1. Navigate to the Azure data store.
 
-1. Select **Access Control (IAM)**.
+1. Select **Access control (IAM)**.
 
 1. Select **Add > Add role assignment**.
 
    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
-1. On the **Roles** tab, select one of the roles listed in the role assignment table in the previous section. For example, for a storage account, select Storage Blob Data Reader.
+1. On the **Role** tab, select one of the roles listed in the role assignment table in the previous section. For example, for a storage account, select Storage Blob Data Reader.
 
 1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
+
+1. Select your Azure subscription.
 
 1. Select **System-assigned managed identity**, search for your Azure Data Share resource, and then select it.
 

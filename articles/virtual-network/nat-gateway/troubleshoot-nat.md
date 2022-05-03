@@ -161,7 +161,7 @@ If you are still having trouble, open a support case for further troubleshooting
 
 ### Virtual appliance UDRs and VPN ExpressRoute override NAT gateway for routing outbound traffic
 
-When forced tunneling with a custom UDR is enabled to direct traffic to a virtual appliance or VPN through ExpressRoute, the UDR or ExpressRoute takes precedence over NAT gateway for directing internet bound traffic. To learn more, see [custom UDRs](/azure/virtual-network/virtual-networks-udr-overview#custom-routes). 
+When forced tunneling with a custom UDR is enabled to direct traffic to a virtual appliance or VPN through ExpressRoute, the UDR or ExpressRoute takes precedence over NAT gateway for directing internet bound traffic. To learn more, see [custom UDRs](../virtual-networks-udr-overview.md#custom-routes). 
 
 The order of precedence for internet routing configurations is as follows: 
 

@@ -54,7 +54,7 @@ items:
       href: logs/tutorial-custom-logs.md
     - name: Resource manager templates
       displayName: Custom logs
-      href: logs/tutorial-custom-logs.md
+      href: logs/tutorial-custom-logs-api.md
   - name: Ingestion-time transformations
     items:
     - name: Azure portal
@@ -101,7 +101,7 @@ items:
       href: logs/resource-manager-cluster.md
     - name: Log queries
       href: logs/resource-manager-log-queries.md
-    - name: SQL insights
+    - name: SQL Insights (preview)
       href: insights/resource-manager-sql-insights.md
     - name: Workbooks
       href: visualize/resource-manager-workbooks.md
@@ -1016,8 +1016,10 @@ items:
         href: app/profiler-servicefabric.md
       - name: Enable Profiler for an Azure VM
         href: app/profiler-vm.md
-      - name: Profiler for Linux App services (preview)
+      - name: Enable Profiler for Linux App services (preview)
         href: app/profiler-aspnetcore-linux.md
+      - name: Enable Profiler for a Container
+        href: app/profiler-containers.md
       - name: Profiler Settings
         href: app/profiler-settings.md
       - name: Track Requests for Profiling
@@ -1327,18 +1329,6 @@ items:
       href: insights/network-insights-overview.md
     - name: Key Vault
       href: insights/key-vault-insights-overview.md
-    - name: SQL insights (preview)
-      items:
-      - name: Overview
-        href: insights/sql-insights-overview.md
-      - name: FAQ
-        href: /azure/azure-monitor/faq#sql-insights-(preview)
-      - name: Enable
-        href: insights/sql-insights-enable.md
-      - name: Alerts
-        href: insights/sql-insights-alerts.md
-      - name: Troubleshoot
-        href: insights/sql-insights-troubleshoot.md
     - name: Storage
       displayName: storage, monitor, insights, storage accounts, azure storage
       href: ../storage/common/storage-insights-overview.md?toc=/azure/azure-monitor/toc.json
@@ -1508,6 +1498,8 @@ items:
     href: service-limits.md
   - name: Terminology changes
     href: terminology.md
+  - name: Data reference
+    href: /azure/azure-monitor/reference/
   - name: Monitoring data reference
     href: azure-monitor-monitoring-reference.md 
   - name: Supported metrics
@@ -1570,6 +1562,8 @@ items:
         href: app/data-model-event-telemetry.md
       - name: Metric
         href: app/data-model-metric-telemetry.md
+      - name: PageView
+        href: app/data-model-pageview-telemetry.md
       - name: Context
         href: app/data-model-context.md
       - name: Integration with Azure Functions
@@ -1654,7 +1648,7 @@ items:
 - name: Resources
   items:
   - name: Azure updates
-    href: https://azure.microsoft.com/en-us/updates/?category=management-tools
+    href: https://azure.microsoft.com/updates/?category=management-tools
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/monitor/
   - name: Pricing calculator

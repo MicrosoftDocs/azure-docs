@@ -41,7 +41,7 @@ Review this section to familiarize yourself with considerations for designing vi
 
 ### Connect to Azure services with Private Link
 
-When you connect your private network to Azure services such as Storage, SQL, Cosmos DB, or any other [Azure service listed here](/azure/private-link/availability), the recommended approach is to use [Private Link](../../private-link/private-link-overview.md). 
+When you connect your private network to Azure services such as Storage, SQL, Cosmos DB, or any other [Azure service listed here](../../private-link/availability.md), the recommended approach is to use [Private Link](../../private-link/private-link-overview.md). 
 
 Private Link uses the private IP addresses of your virtual machines or other compute resources from your Azure network to connect privately and securely to Azure PaaS services over the Azure backbone network instead of over the internet. Private Link should be used when possible to connect to Azure services since it frees up SNAT ports for making outbound connections to the internet. To learn more about how NAT gateway uses SNAT ports, see [Source Network Address Translation](#source-network-address-translation).
 

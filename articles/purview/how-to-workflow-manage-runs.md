@@ -16,9 +16,9 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 This article outlines how to manage workflows that are already running.
 
-1. To view workflow runs you triggered, sign in to the [Microsoft Purview Studio](https://web.purview.azure.com/resource/), select the Management center, and select **Workflow runs**. 
+1. To view workflow runs you triggered, sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/), select the Management center, and select **Workflow runs**. 
 
-    :::image type="content" source="./media/how-to-workflow-manage-runs/select-workflow-runs.png" alt-text="Screenshot of the management menu in the Microsoft Purview studio. The Workflow runs tab is highlighted.":::
+    :::image type="content" source="./media/how-to-workflow-manage-runs/select-workflow-runs.png" alt-text="Screenshot of the management menu in the Microsoft Purview governance portal. The Workflow runs tab is highlighted.":::
 
 1. You'll be presented with the list of workflow runs and their statuses.
 
