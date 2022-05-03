@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/26/2022
+ms.date: 05/02/2022
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
@@ -84,7 +84,7 @@ The source and destination accounts may be in the same region or in different re
 
 ### Replication rules
 
-Replication rules specify how Azure Storage will replicate blobs from a source container to a destination container. You can specify up to 1,000 replication rules for each replication policy. Each replication rule defines a single source and destination container, and each source and destination container can be used in only one rule, meaning that a maximum of 1,000 source containers and 1,000 destination containers may participate in a single replication policy.
+Replication rules specify how Azure Storage will replicate blobs from a source container to a destination container. You can specify up to 1000 replication rules for each replication policy. Each replication rule defines a single source and destination container, and each source and destination container can be used in only one rule, meaning that a maximum of 1000 source containers and 1000 destination containers may participate in a single replication policy.
 
 When you create a replication rule, by default only new block blobs that are subsequently added to the source container are copied. You can specify that both new and existing block blobs are copied, or you can define a custom copy scope that copies block blobs created from a specified time onward.
 
