@@ -2,7 +2,7 @@
 title: 'App Service on Azure Arc'
 description: An introduction to App Service integration with Azure Arc for Azure operators.
 ms.topic: article
-ms.date: 03/09/2022
+ms.date: 05/03/2022
 ---
 
 # App Service, Functions, and Logic Apps on Azure Arc (Preview)
@@ -198,6 +198,27 @@ If your extension was in the stable version and auto-upgrade-minor-version is se
 
 ```azurecli-interactive
     az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.12.2
+```
+
+### Application services extension v 0.13.0 (April 2022)
+
+- Added support for Application Insights codeless integration for Node JS applications
+- Added support for [Access Restrictions](app-service-ip-restrictions) via CLI
+- More details provided when extension fails to install, to assist with troubleshooting issues 
+
+If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension upgrades automatically. To manually upgrade the extension to the latest version, you can run the command:
+
+```azurecli-interactive
+    az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.13.0
+```
+### Application services extension v 0.13.1 (April 2022)
+
+- Update to resolve upgrade failures seen during auto upgrade of clusters to v 0.13.0
+
+If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension upgrades automatically. To manually upgrade the extension to the latest version, you can run the command:
+
+```azurecli-interactive
+    az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.13.1
 ```
 
 ## Next steps
