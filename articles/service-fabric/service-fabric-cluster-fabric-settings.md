@@ -61,10 +61,15 @@ The following is a list of Fabric settings that you can customize, organized by 
 | --- | --- | --- | --- |
 |DeployedState |wstring, default is L"Disabled" |Static |2-stage removal of CSS. |
 |EnableSecretMonitoring|bool, default is FALSE |Static |Must be enabled to use Managed KeyVaultReferences. Default may become true in the future. Read more at [https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references)|
-|ReplicationBatchSendInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(15)|Static|Specify timespan in seconds. Determines the amount of time that the replicator waits after receiving an operation before force sending a batch.|
-|ReplicationBatchSize|uint, default is 1|Static|Specifies the number of operations to be sent between primary and secondary replicas. If zero the primary sends one record per operation to the secondary. Otherwise the primary replica aggregates log records until the config value is reached.  This will reduce network traffic.|
 |SecretMonitoringInterval|TimeSpan, default is Common::TimeSpan::FromMinutes(15) |Static |The rate at which Service Fabric will poll Key Vault for changes when using Managed KeyVaultReferences. This rate is a best effort, and changes in Key Vault may be reflected in the cluster earlier or later than the interval. Read more at [https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references) |
 |UpdateEncryptionCertificateTimeout |TimeSpan, default is Common::TimeSpan::MaxValue |Static |Specify timespan in seconds. The default has changed to TimeSpan::MaxValue; but overrides are still respected. May be deprecated in the future. |
+
+## CentralSecretService/Replication
+
+| **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
+| --- | --- | --- | --- |
+|ReplicationBatchSendInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(15)|Static|Specify timespan in seconds. Determines the amount of time that the replicator waits after receiving an operation before force sending a batch.|
+|ReplicationBatchSize|uint, default is 1|Static|Specifies the number of operations to be sent between primary and secondary replicas. If zero the primary sends one record per operation to the secondary. Otherwise the primary replica aggregates log records until the config value is reached.  This will reduce network traffic.|
 
 ## ClusterManager
 
@@ -90,14 +95,19 @@ The following is a list of Fabric settings that you can customize, organized by 
 |QuorumLossWaitDuration |Time in seconds, default is MaxValue |Not Allowed| Specify timespan in seconds. The QuorumLossWaitDuration for ClusterManager. |
 |ReplicaRestartWaitDuration |Time in seconds, default is (60.0 \* 30)|Not Allowed|Specify timespan in seconds. The ReplicaRestartWaitDuration for ClusterManager. |
 |ReplicaSetCheckTimeoutRollbackOverride |Time in seconds, default is 1200 |Dynamic| Specify timespan in seconds. If ReplicaSetCheckTimeout is set to the maximum value of DWORD; then it's overridden with the value of this config for the purposes of rollback. The value used for roll-forward is never overridden. |
-|ReplicationBatchSendInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(15)|Static|Specify timespan in seconds. Determines the amount of time that the replicator waits after receiving an operation before force sending a batch.|
-|ReplicationBatchSize|uint, default is 1|Static|Specifies the number of operations to be sent between primary and secondary replicas. If zero the primary sends one record per operation to the secondary. Otherwise the primary replica aggregates log records until the config value is reached.  This will reduce network traffic.|
 |SkipRollbackUpdateDefaultService | Bool, default is false |Dynamic|The CM will skip reverting updated default services during application upgrade rollback. |
 |StandByReplicaKeepDuration | Time in seconds, default is (3600.0 \* 2)|Not Allowed|Specify timespan in seconds. The StandByReplicaKeepDuration for ClusterManager. |
 |TargetReplicaSetSize |Int, default is 7 |Not Allowed|The TargetReplicaSetSize for ClusterManager. |
 |UpgradeHealthCheckInterval |Time in seconds, default is 60 |Dynamic|The frequency of health status checks during a monitored application upgrades |
 |UpgradeStatusPollInterval |Time in seconds, default is 60 |Dynamic|The frequency of polling for application upgrade status. This value determines the rate of update for any GetApplicationUpgradeProgress call |
 |CompleteClientRequest | Bool, default is false |Dynamic| Complete client request when accepted by CM. |
+
+## ClusterManager/Replication
+
+| **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
+| --- | --- | --- | --- |
+|ReplicationBatchSendInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(15)|Static|Specify timespan in seconds. Determines the amount of time that the replicator waits after receiving an operation before force sending a batch.|
+|ReplicationBatchSize|uint, default is 1|Static|Specifies the number of operations to be sent between primary and secondary replicas. If zero the primary sends one record per operation to the secondary. Otherwise the primary replica aggregates log records until the config value is reached.  This will reduce network traffic.|
 
 ## Common
 
@@ -223,7 +233,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |UserRoleClientX509FindValueSecondary |string, default is "" |Dynamic|Search filter value used to locate certificate for default user role FabricClient. |
 |UserRoleClientX509StoreName |string, default is "My" |Dynamic|Name of the X.509 certificate store that contains certificate for default user role FabricClient. |
 
-## Failover
+## Failover/Replication
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
@@ -315,8 +325,6 @@ The following is a list of Fabric settings that you can customize, organized by 
 |PrimaryAccountUserName | string, default is "" |Static|The primary account Username of the principal to ACL the FileStoreService shares. |
 |PrimaryAccountUserPassword | SecureString, default is empty |Static|The primary account password of the principal to ACL the FileStoreService shares. |
 |QueryOperationTimeout | Time in seconds, default is 60 |Dynamic|Specify timespan in seconds. The timeout for performing query operation. |
-|ReplicationBatchSendInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(15)|Static|Specify timespan in seconds. Determines the amount of time that the replicator waits after receiving an operation before force sending a batch.|
-|ReplicationBatchSize|uint, default is 1|Static|Specifies the number of operations to be sent between primary and secondary replicas. If zero the primary sends one record per operation to the secondary. Otherwise the primary replica aggregates log records until the config value is reached.  This will reduce network traffic.|
 |SecondaryAccountNTLMPasswordSecret | SecureString, default is empty |Static| The password secret which used as seed to generated same password when using NTLM authentication. |
 |SecondaryAccountNTLMX509StoreLocation | string, default is "LocalMachine" |Static|The store location of the X509 certificate used to generate HMAC on the SecondaryAccountNTLMPasswordSecret when using NTLM authentication. |
 |SecondaryAccountNTLMX509StoreName | string, default is "MY" |Static|The store name of the X509 certificate used to generate HMAC on the SecondaryAccountNTLMPasswordSecret when using NTLM authentication. |
@@ -326,6 +334,13 @@ The following is a list of Fabric settings that you can customize, organized by 
 |SecondaryAccountUserPassword | SecureString, default is empty |Static|The secondary account password of the principal to ACL the FileStoreService shares. |
 |SecondaryFileCopyRetryDelayMilliseconds|uint, default is 500|Dynamic|The file copy retry delay (in milliseconds).|
 |UseChunkContentInTransportMessage|bool, default is TRUE|Dynamic|The flag for using the new version of the upload protocol introduced in v6.4. This protocol version uses service fabric transport to upload files to image store which provides better performance than SMB protocol used in previous versions. |
+
+## FileStoreService/Replication
+
+| **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
+| --- | --- | --- | --- |
+|ReplicationBatchSendInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(15)|Static|Specify timespan in seconds. Determines the amount of time that the replicator waits after receiving an operation before force sending a batch.|
+|ReplicationBatchSize|uint, default is 1|Static|Specifies the number of operations to be sent between primary and secondary replicas. If zero the primary sends one record per operation to the secondary. Otherwise the primary replica aggregates log records until the config value is reached.  This will reduce network traffic.|
 
 ## HealthManager
 
@@ -481,7 +496,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, default is None|Dynamic|Determines the part of the load that sticks with replica when swapped It takes value between 0 (load doesn't stick with replica) and 1 (load sticks with replica - default) |
 
-## Naming
+## Naming/Replication
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
@@ -636,7 +651,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ServiceApiHealthDuration | Time in seconds, default is 30 minutes |Dynamic| Specify timespan in seconds. ServiceApiHealthDuration defines how long do we wait for a service API to run before we report it unhealthy. |
 |ServiceReconfigurationApiHealthDuration | Time in seconds, default is 30 |Dynamic| Specify timespan in seconds. ServiceReconfigurationApiHealthDuration defines how long do we wait for a service API to run before we report unhealthy. This applies to API calls that impact availability.|
 
-## RepairManager
+## RepairManager/Replication
 | **Parameter** | **Allowed Values** | **Upgrade Policy**| **Guidance or Short Description** |
 | --- | --- | --- | --- |
 |ReplicationBatchSendInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(15)|Static|Specify timespan in seconds. Determines the amount of time that the replicator waits after receiving an operation before force sending a batch.|
