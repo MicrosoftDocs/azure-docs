@@ -24,7 +24,7 @@ This article details some of the differences between these versions, how you can
 
 ## Languages
 
-Starting with version 2.x, the runtime uses a language extensibility model, and all functions in a function app must share the same language. You chose the language of functions in your function app when you create the app. The language of your function app is maintained in the [FUNCTIONS\_WORKER\_RUNTIME](functions-app-settings.md#functions_worker_runtime) setting, and shouldn't be changed when there are existing functions. 
+All functions in a function app must share the same language. You chose the language of functions in your function app when you create the app. The language of your function app is maintained in the [FUNCTIONS\_WORKER\_RUNTIME](functions-app-settings.md#functions_worker_runtime) setting, and shouldn't be changed when there are existing functions. 
 
 The following table indicates which programming languages are currently supported in each runtime version.
 
@@ -32,13 +32,13 @@ The following table indicates which programming languages are currently supporte
 
 ## <a name="creating-1x-apps"></a>Run on a specific version
 
-By default, function apps created in the Azure portal and by the Azure CLI are set to version 4.x. You can modify this version if needed. You can only downgrade the runtime version to 1.x after you create your function app but before you add any functions. Moving between 2.x and 3.x is allowed even with apps that have existing functions. Before moving an app with existing functions, be aware of any breaking changes between versions:
+By default, function apps created in the Azure portal and by the Azure CLI are set to version 4.x. You can modify this version if needed. You can only downgrade the runtime version to 1.x after you create your function app but before you add any functions. Moving to a later version is allowed even with apps that have existing functions. When your app has existing functions, be aware of any breaking changes between versions before moving to a later runtime version. The following sections detail changes between versions:
 
 + [Between 3.x and 4.x](#breaking-changes-between-3x-and-4x) 
 + [Between 2.x and 3.x](#breaking-changes-between-2x-and-3x)
 + [Between 1.x and later versions](#migrating-from-1x-to-later-versions)
 
-Before making a change to the major version of the runtime, you should first test your existing code by deploying to another function app running on the latest major version. This testing helps to make sure it runs correctly after the upgrade. 
+Before making a change to the major version of the runtime, you should first test your existing code by deploying to another function app running on the latest major version. This testing helps to make sure it runs correctly after the upgrade. You can also verify your code locally by using the runtime-specific version of the [Azure Functions Core Tools](functions-run-local.md), which includes the Functions runtime. 
 
 Downgrades to v2.x aren't supported. When possible, you should always run your apps on the latest supported version of the Functions runtime. 
 
@@ -54,13 +54,13 @@ The version of the Functions runtime used by published apps in Azure is dictated
 | `~1` | 1.x |
 
 >[!IMPORTANT]
-> Don't arbitrarily change this setting, because other app setting changes and changes to your function code may be required.
+> Don't arbitrarily change this app setting, because other app setting changes and changes to your function code may be required. You should instead change this setting in the **Function runtime settings** tab of the function app **Configuration** in the Azure portal when you are ready to make a major version upgrade.
 
 To learn more, see [How to target Azure Functions runtime versions](set-runtime-version.md).  
 
 ### Pinning to a specific minor version
 
-To resolve issues with your function app running on the latest major version, you have to pin your app to a specific minor version. This gives you time to get your app running correctly on the latest major version. The way that you pin to a minor version differs between Windows and Linux. To learn more, see [How to target Azure Functions runtime versions](set-runtime-version.md).
+To resolve issues your function app may have when running on the latest major version, you have to temporatily pin your app to a specific minor version. This gives you time to get your app running correctly on the latest major version. The way that you pin to a minor version differs between Windows and Linux. To learn more, see [How to target Azure Functions runtime versions](set-runtime-version.md).
 
 Older minor versions are periodically removed from Functions. For the latest news about Azure Functions releases, including the removal of specific older minor versions, monitor [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues). 
 

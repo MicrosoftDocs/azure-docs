@@ -254,7 +254,7 @@ C# class library functions can include the NuGet packages for [binding extension
 This same process works for any other file you need to add to your app. 
 
 > [!IMPORTANT]
-> When possible, you shouldn't edit files directly in your function app in Azure. We recommend [downloading your app files locally](deployment-zip-push.md#download-your-function-app-files), using [Core Tools to install extensions](functions-run-local.md#install-extensions) and other packages, and then [republishing your app using Core Tools](functions-run-local.md#publish) or one of the other [supported deployment methods](functions-deployment-technologies.md#deployment-methods). 
+> When possible, you shouldn't edit files directly in your function app in Azure. We recommend [downloading your app files locally](deployment-zip-push.md#download-your-function-app-files), using [Core Tools to install extensions](functions-run-local.md#install-extensions) and other packages, validating your changes, and then [republishing your app using Core Tools](functions-run-local.md#publish) or one of the other [supported deployment methods](functions-deployment-technologies.md#deployment-methods). 
 
 The Functions editor built into the Azure portal lets you update your function code and and configuration (function.json) files directly in the portal. 
 
