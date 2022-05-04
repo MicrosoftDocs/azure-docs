@@ -65,20 +65,16 @@ Use the following instructions to run the script, depending on the Operating Sys
 Follow these instructions to run the script on a Windows machine.
 
 1. Open a new PowerShell window and verify if Azure CLI is successfully installed in the workstation, use the following command:
-
-`az`
+   `az`
 
 1. Navigate to the folder where you've downloaded the PowerShell script:
-
-*cd C:\Users\ContosoUser\Downloads*
+   *cd C:\Users\ContosoUser\Downloads*
 
 1. Run the following command to allow the script to run since it's an unsigned script (if you close the session before you complete all the steps, run this command again for the new session):
-
-`Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
+   `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
 
 1. Run the script:
-
-`./resource-bridge-onboarding-script.ps1`
+   `./resource-bridge-onboarding-script.ps1`
 
 ### Linux
 
