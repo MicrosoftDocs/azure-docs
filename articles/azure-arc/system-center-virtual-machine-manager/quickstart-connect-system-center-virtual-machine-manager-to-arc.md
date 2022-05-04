@@ -110,7 +110,7 @@ Once the command execution is completed, your setup is complete, and you can try
 
 If for any reason, the appliance creation fails, you need to retry it. Run the command with ```-Force``` to clean up and onboard again.
 
-``` powershell-interactive
+```powershell-interactive
  ./resource-bridge-onboarding-script.ps1-Force -Subscription <Subscription> -ResourceGroup <ResourceGroup> -AzLocation <AzLocation> -ApplianceName <ApplianceName> -CustomLocationName <CustomLocationName> -VMMservername <VMMservername>
 ```
 
