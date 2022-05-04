@@ -120,12 +120,14 @@ Isolated process isn't currently supported.
 -->
 ---
 
+::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
 
 > [!NOTE]
 > In the current preview, Azure SQL bindings are only supported by [C# class library functions](functions-dotnet-class-library.md). 
 
 ::: zone-end
+
 <!---### Use these pivots when we get other non-C# languages added. ###
 ::: zone pivot="programming-language-javascript"
 
