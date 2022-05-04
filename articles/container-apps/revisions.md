@@ -12,13 +12,24 @@ ms.custom: ignite-fall-2021
 
 # Revisions in Azure Container Apps Preview
 
-A revision is an immutable snapshot of a container app.
+Azure Container Apps manages container app versioning by creating revisions.   A revision is an immutable snapshot of a container app version.  
 
 - The first revision is automatically created when you deploy your container app.
 - New revisions are automatically created when a container app's `template` configuration changes.
 - While revisions are immutable, they're affected by changes to global configuration values, which apply to all revisions.
 
 :::image type="content" source="media/revisions/azure-container-apps-revisions.png" alt-text="Azure Container Apps: Containers":::
+
+
+## Revision modes
+
+By default, a container app is in *single revision mode*.  In this mode, only one revision is active at a time.  When new revisions are created, the new revision replaces the active revision.
+
+When you set the revision mode to *multiple*, you can run multiple revisions of your app simultaneously. While in *multiple revision mode*, new revisions are activated along side of active revisions.  
+
+For apps with HTTP ingress enabled, you must manage the how HTTP traffic is split between revisions. By default a new revision is not  a percentage of traffic. You can configure traffic splitting from the **Revision management* page of your container app in the Azure portal, using Azure CLI commands, or  in the ARM template.  Configuring traffic splitting in an ARM template will not trigger the creation of a new revision.
+
+## Use cases
 
 Revisions are most useful when you enable [ingress](ingress.md) to make your container app accessible via HTTP.  Revisions are often used when you want to direct traffic from one snapshot of your container app to the next. Typical traffic direction strategies include [A/B testing](https://wikipedia.org/wiki/A/B_testing) and [BlueGreen deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html).
 
