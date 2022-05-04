@@ -1560,8 +1560,6 @@ items:
         href: app/data-model-context.md
       - name: Integration with Azure Functions
         href: app/azure-functions-supported-features.md
-      - name: Workspace-based schema
-        href: app/apm-tables.md
   - name: Azure PowerShell
     items:
     - name: Azure Monitor
