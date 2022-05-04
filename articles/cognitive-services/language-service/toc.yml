@@ -812,13 +812,13 @@ items:
 - name: Summarization (preview)
   items:
   - name: Overview
-    href: text-summarization/overview.md
+    href: document-summarization/overview.md
   - name: Document summarization quickstart
-    href: text-summarization/quickstart.md
+    href: document-summarization/quickstart.md
   - name: Conversation summarization quickstart
     href: conversation-summarization/quickstart.md
   - name: Document summarization language support
-    href: text-summarization/language-support.md
+    href: document-summarization/language-support.md
   - name: Conversation summarization language support
     href: conversation-summarization/language-support.md
   - name: Responsible use of AI
@@ -835,7 +835,7 @@ items:
   - name: How-to guides
     items:
     - name: Call the document summarization API
-      href: text-summarization/how-to/call-api.md
+      href: document-summarization/how-to/call-api.md
     - name: Call the conversation summarization API
       href: conversation-summarization/how-to/call-api.md
   - name: Reference
