@@ -81,7 +81,7 @@ Once you store the script, specify it during creation of your compute instance:
 1. Browse to the shell script you saved.  Or upload a script from your computer.
 1. Add command arguments as needed.
 
-:::image type="content" source="media/how-to-create-manage-compute-instance/setup-script.png" alt-text="Provisiona compute instance with a setup script in the studio.":::
+:::image type="content" source="media/how-to-create-manage-compute-instance/setup-script.png" alt-text="Provision a compute instance with a setup script in the studio.":::
 
 > [!TIP]
 > If workspace storage is attached to a virtual network you might not be able to access the setup script file unless you are accessing the studio from within virtual network.
