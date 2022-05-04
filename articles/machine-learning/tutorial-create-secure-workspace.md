@@ -252,7 +252,7 @@ To create a virtual network, use the following steps:
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/machine-learning-create.png" alt-text="{alt-text}":::
 
-1. From the __Basics__ tab, select the __subscription__, __resource group__, and __Region__ you previously used for the virtual network. Use the follow values for the other fields:
+1. From the __Basics__ tab, select the __subscription__, __resource group__, and __Region__ you previously used for the virtual network. Use the following values for the other fields:
     * __Workspace name__: A unique name for your workspace.
     * __Storage account__: Select the storage account you created previously.
     * __Key vault__: Select the key vault you created previously.
@@ -410,7 +410,7 @@ A compute cluster is used by your training jobs. A compute instance provides a J
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-compute-instance-vm.png" alt-text="Screenshot of compute instance vm settings":::
 
-1. From the __Advanced Settings__ dialog, , set the __Subnet__ to __Training__, and then select __Create__.
+1. From the __Advanced Settings__ dialog, set the __Subnet__ to __Training__, and then select __Create__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-compute-instance-settings.png" alt-text="Screenshot of compute instance settings":::
 

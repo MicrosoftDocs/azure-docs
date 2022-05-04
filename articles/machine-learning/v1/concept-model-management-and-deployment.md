@@ -158,7 +158,7 @@ Azure ML gives you the capability to track the end-to-end audit trail of all of 
 
 
 ## Notify, automate, and alert on events in the ML lifecycle
-Azure ML publishes key events to Azure EventGrid, which can be used to notify and automate on events in the ML lifecycle. For more information, please see [this document](../how-to-use-event-grid.md).
+Azure ML publishes key events to Azure Event Grid, which can be used to notify and automate on events in the ML lifecycle. For more information, please see [this document](../how-to-use-event-grid.md).
 
 
 ## Monitor for operational & ML issues
