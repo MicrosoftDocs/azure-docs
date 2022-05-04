@@ -126,7 +126,7 @@ A pre-upgrade validator is available to help identify potential issues when migr
 
 1. In *Search for common problems or tools*, enter and select **Functions 4.x Pre-Upgrade Validator**
 
-Once you have validated that the app can be upgraded, you can begin the process of migration. 
+Once you have validated that the app can be upgraded, you can begin the process of migration. See the subsections below for instructions for [migration without slots](#migration-without-slots) and [migration with slots](#migration-with-slots).
 
 > [!NOTE]
 > If you are using a slot to manage the migration, you will need to set the `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS` application setting to "0" on _both_ slots. This allows the version changes you make to be included in the slot swap operation. You can then upgrade your staging (non-production) slot, and then you can perform the swap.
@@ -135,6 +135,8 @@ To migrate an app from 3.x to 4.x, you will:
 
 - Set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4`
 - **For Windows function apps only**, enable .NET 6.0 through the `netFrameworkVersion` setting
+
+##### Migration without slots
 
 You can use the following Azure CLI or Azure PowerShell commands to perform this upgrade directly on a site without slots:
 
@@ -157,6 +159,8 @@ Set-AzWebApp -NetFrameworkVersion v6.0 -Name <APP_NAME> -ResourceGroupName <RESO
 ```
 
 ---
+
+##### Migration with slots
 
 You can use the following Azure CLI commands to perform this upgrade using deployment slots:
 
