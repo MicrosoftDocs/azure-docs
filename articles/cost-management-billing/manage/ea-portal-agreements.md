@@ -3,7 +3,7 @@ title: Azure EA agreements and amendments
 description: This article explains how Azure EA agreements and amendments affect your Azure EA portal use.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/22/2021
+ms.date: 04/28/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -88,7 +88,7 @@ Please make sure to review the commercial information - monetary balance informa
 
 1. From the Enterprise Portal, click **Reports** on the left navigation.
 1. Under _Usage Summary_, click the blue **Markup** wording.
-1. Enter the markup percentage (between -100 to 100) and click **Preview**.
+1. Enter the markup percentage (between 0 to 100) and click **Preview**.
 
 
 **Step Two: Review and validate**

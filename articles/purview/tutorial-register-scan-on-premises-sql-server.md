@@ -17,7 +17,7 @@ Microsoft Purview is designed to connect to data sources to help you manage sens
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * Sign in to the Microsoft Purview Studio.
+> * Sign in to the Microsoft Purview governance portal.
 > * Create a collection in Microsoft Purview.
 > * Create a self-hosted integration runtime.
 > * Store credentials in an Azure Key Vault.
@@ -32,11 +32,11 @@ In this tutorial, you'll learn how to:
 - An Microsoft Purview account. If you don't already have one, you can [follow our quickstart guide to create one](create-catalog-portal.md).
 - An [on-premises SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads).
 
-## Sign in to Microsoft Purview Studio
+## Sign in to the Microsoft Purview governance portal
 
-To interact with Microsoft Purview, you'll connect to the [Microsoft Purview Studio](https://web.purview.azure.com/resource/) through the Azure portal. You can find the studio by going to your Microsoft Purview account in the [Azure portal](https://portal.azure.com), and selecting the **Open Microsoft Purview Studio** tile on the overview page.
+To interact with Microsoft Purview, you'll connect to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/) through the Azure portal. You can find the studio by going to your Microsoft Purview account in the [Azure portal](https://portal.azure.com), and selecting the **Open Microsoft Purview governance portal** tile on the overview page.
 
-:::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/open-purview-studio.png" alt-text="Screenshot of Microsoft Purview window in Azure portal, with Microsoft Purview Studio button highlighted." border="true":::
+:::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/open-purview-studio.png" alt-text="Screenshot of Microsoft Purview window in Azure portal, with the Microsoft Purview governance portal button highlighted." border="true":::
 
 ## Create a collection
 
@@ -44,38 +44,38 @@ Collections in Microsoft Purview are used to organize assets and sources into a 
 
 ### Check permissions
 
-To create and manage collections in Microsoft Purview, you'll need to be a **Collection Admin** within Microsoft Purview. We can check these permissions in the [Microsoft Purview Studio](use-azure-purview-studio.md).
+To create and manage collections in Microsoft Purview, you'll need to be a **Collection Admin** within Microsoft Purview. We can check these permissions in the [Microsoft Purview governance portal](use-azure-purview-studio.md).
 
 1. Select **Data Map > Collections** from the left pane to open the collection management page.
 
-    :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/find-collections.png" alt-text="Screenshot of Microsoft Purview studio window, opened to the Data Map, with the Collections tab selected." border="true":::
+    :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/find-collections.png" alt-text="Screenshot of the Microsoft Purview governance portal window, opened to the Data Map, with the Collections tab selected." border="true":::
 
 1. Select your root collection. The root collection is the top collection in your collection list and will have the same name as your Microsoft Purview account. In our example below, it is called Microsoft Purview Account.
 
-    :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/select-root-collection.png" alt-text="Screenshot of Microsoft Purview studio window, opened to the Data Map, with the root collection highlighted." border="true":::
+    :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/select-root-collection.png" alt-text="Screenshot of the Microsoft Purview governance portal window, opened to the Data Map, with the root collection highlighted." border="true":::
 
 1. Select **Role assignments** in the collection window.
 
-    :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/role-assignments.png" alt-text="Screenshot of Microsoft Purview studio window, opened to the Data Map, with the role assignments tab highlighted." border="true":::
+    :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/role-assignments.png" alt-text="Screenshot of the Microsoft Purview governance portal window, opened to the Data Map, with the role assignments tab highlighted." border="true":::
 
 1. To create a collection, you'll need to be in the collection admin list under role assignments. If you created the Microsoft Purview account, you should be listed as a collection admin under the root collection already. If not, you'll need to contact the collection admin to grant you permission.
 
-    :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/collection-admins.png" alt-text="Screenshot of Microsoft Purview studio window, opened to the Data Map, with the collection admin section highlighted." border="true":::
+    :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/collection-admins.png" alt-text="Screenshot of the Microsoft Purview governance portal window, opened to the Data Map, with the collection admin section highlighted." border="true":::
 
 ### Create the collection
 
 1. Select **+ Add a collection**. Again, only [collection admins](#check-permissions) can manage collections.
 
-    :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/select-add-a-collection.png" alt-text="Screenshot of Microsoft Purview studio window, showing the new collection window, with the 'add a collection' buttons highlighted." border="true":::
+    :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/select-add-a-collection.png" alt-text="Screenshot of the Microsoft Purview governance portal window, showing the new collection window, with the 'add a collection' buttons highlighted." border="true":::
 
 1. In the right panel, enter the collection name and description. If needed you can also add users or groups as collection admins to the new collection.
 1. Select **Create**.
 
-    :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/create-collection.png" alt-text="Screenshot of Microsoft Purview studio window, showing the new collection window, with a display name and collection admins selected, and the create button highlighted." border="true":::
+    :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/create-collection.png" alt-text="Screenshot of the Microsoft Purview governance portal window, showing the new collection window, with a display name and collection admins selected, and the create button highlighted." border="true":::
 
 1. The new collection's information will reflect on the page.
 
-    :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/created-collection.png" alt-text="Screenshot of Microsoft Purview studio window, showing the newly created collection window." border="true":::
+    :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/created-collection.png" alt-text="Screenshot of the Microsoft Purview governance portal window, showing the newly created collection window." border="true":::
 
 ## Create a self-hosted integration runtime
 
@@ -83,7 +83,7 @@ The Self-Hosted Integration Runtime (SHIR) is the compute infrastructure used by
 
 This tutorial assumes the machine where you'll install your self-hosted integration runtime can make network connections to the internet. This connection allows the SHIR to communicate between your source and Microsoft Purview. If your machine has a restricted firewall, or if you would like to secure your firewall, look into the [network requirements for the self-hosted integration runtime](manage-integration-runtimes.md#networking-requirements).
 
-1. On the home page of Microsoft Purview Studio, select **Data Map** from the left navigation pane.
+1. On the home page of the Microsoft Purview governance portal, select **Data Map** from the left navigation pane.
 
 1. Under **Source management** on the left pane, select **Integration runtimes**, and then select **+ New**.
 
@@ -159,7 +159,7 @@ If you would like to create a new login and user to be able to scan your SQL ser
    :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/create-credential-secret.png" alt-text="Add values to key vault credential.":::
 
 1. Select **Create** to complete.
-1. In the [Microsoft Purview Studio](#sign-in-to-microsoft-purview-studio), navigate to the **Management** page in the left menu.
+1. In the [Microsoft Purview governance portal](#sign-in-to-the-microsoft-purview-governance-portal), navigate to the **Management** page in the left menu.
 
    :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/select-management.png" alt-text="Select Management page on left menu.":::
 
@@ -195,7 +195,7 @@ If you would like to create a new login and user to be able to scan your SQL ser
 
 ## Register SQL Server
 
-1. Navigate to your Microsoft Purview account in the [Azure portal](https://portal.azure.com), and select the [Microsoft Purview Studio](#sign-in-to-microsoft-purview-studio).
+1. Navigate to your Microsoft Purview account in the [Azure portal](https://portal.azure.com), and select the [Microsoft Purview governance portal](#sign-in-to-the-microsoft-purview-governance-portal).
 
 1. Under Sources and scanning in the left navigation, select **Integration runtimes**. Make sure a self-hosted integration runtime is set up. If it's not set up, follow the steps mentioned [here](manage-integration-runtimes.md) to create a self-hosted integration runtime for scanning on an on-premises or Azure VM that has access to your on-premises network.
 
@@ -211,7 +211,7 @@ If you would like to create a new login and user to be able to scan your SQL ser
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in the Microsoft Purview Studio.
+1. Select the **Data Map** tab on the left pane in the Microsoft Purview governance portal.
 
 1. Select the SQL Server source that you registered.
 
@@ -241,7 +241,7 @@ If you're not going to continue to use this Microsoft Purview or SQL source movi
 
 ### Remove SHIR from Microsoft Purview
 
-1. On the home page of [Microsoft Purview Studio](https://web.purview.azure.com/resource/), select **Data Map** from the left navigation pane.
+1. On the home page of [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/), select **Data Map** from the left navigation pane.
 
 1. Under **Source management** on the left pane, select **Integration runtimes**.
 

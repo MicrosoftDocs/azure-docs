@@ -29,11 +29,11 @@ This article outlines how to register Azure Data Explorer, and how to authentica
 
 * An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview Studio. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 
-This section describes how to register Azure Data Explorer in Microsoft Purview using the [Microsoft Purview Studio](https://web.purview.azure.com/).
+This section describes how to register Azure Data Explorer in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Authentication for registration
 
@@ -121,7 +121,7 @@ Follow the steps below to scan Azure Data Explorer to automatically identify ass
 
 To create and run a new scan, follow these steps:
 
-1. Select the **Data Map** tab on the left pane in the [Microsoft Purview Studio](https://web.purview.azure.com/resource/).
+1. Select the **Data Map** tab on the left pane in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
 1. Select the Azure Data Explorer source that you registered.
 
@@ -151,6 +151,6 @@ To create and run a new scan, follow these steps:
 
 Now that you have registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
-- [Data insights in Microsoft Purview](concept-insights.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

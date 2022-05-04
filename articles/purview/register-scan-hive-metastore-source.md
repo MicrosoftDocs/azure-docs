@@ -44,7 +44,7 @@ When setting up scan, you can choose to scan an entire Hive metastore database, 
 
 * You must have an active [Microsoft Purview account](create-catalog-portal.md).
 
-* You need Data Source Administrator and Data Reader permissions to register a source and manage it in Microsoft Purview Studio. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
+* You need Data Source Administrator and Data Reader permissions to register a source and manage it in the Microsoft Purview governance portal. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](manage-integration-runtimes.md).
 
@@ -59,7 +59,7 @@ When setting up scan, you can choose to scan an entire Hive metastore database, 
 
 ## Register
 
-This section describes how to register a Hive Metastore database in Microsoft Purview by using [Microsoft Purview Studio](https://web.purview.azure.com/).
+This section describes how to register a Hive Metastore database in Microsoft Purview by using [the Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 The only supported authentication for a Hive Metastore database is Basic Authentication.
 
@@ -194,6 +194,6 @@ Go to the asset -> lineage tab, you can see the asset relationship when applicab
 
 Now that you've registered your source, use the following guides to learn more about Microsoft Purview and your data:
 
-- [Data insights in Microsoft Purview](concept-insights.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search the data catalog](how-to-search-catalog.md)

@@ -4,8 +4,9 @@ description: Learn how Private link works for Azure Database for PostgreSQL - Si
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.author: sumuth
-author: mksuni
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.date: 03/10/2020
 ---
 

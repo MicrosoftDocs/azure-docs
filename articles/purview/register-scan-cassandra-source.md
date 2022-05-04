@@ -41,7 +41,7 @@ When setting up scan, you can choose to scan an entire Cassandra instance, or sc
 
 * An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview Studio. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 
 **If your data store is not publically accessible** (if your data store limits access from on-premises network, private network or specific IPs, etc.) you need to configure a self-hosted integration runtime to connect to it:
@@ -54,7 +54,7 @@ When setting up scan, you can choose to scan an entire Cassandra instance, or sc
 
 ## Register
 
-This section describes how to register Cassandra in Microsoft Purview using the [Microsoft Purview Studio](https://web.purview.azure.com/).
+This section describes how to register Cassandra in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Steps to register
 
@@ -154,6 +154,6 @@ Go to the asset -> lineage tab, you can see the asset relationship when applicab
 
 Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
-- [Data insights in Microsoft Purview](concept-insights.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

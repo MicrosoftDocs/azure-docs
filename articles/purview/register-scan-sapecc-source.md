@@ -47,7 +47,7 @@ When scanning SAP ECC source, Microsoft Purview supports:
 
 * An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview Studio. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
@@ -73,7 +73,7 @@ When scanning SAP ECC source, Microsoft Purview supports:
 
 ## Register
 
-This section describes how to register SAP ECC in Microsoft Purview using the [Microsoft Purview Studio](https://web.purview.azure.com/).
+This section describes how to register SAP ECC in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Authentication for registration
 
@@ -135,7 +135,7 @@ Follow the steps below to scan SAP ECC to automatically identify assets and clas
 
     1. **Maximum memory available:** Maximum memory (in GB) available on the Self-hosted Integration Runtime machine to be used by scanning processes. This is dependent on the size of SAP ECC source to be scanned. It's recommended to provide large available memory, for example,  100.
 
-        :::image type="content" source="media/register-scan-sapecc-source/scan-sapecc.png" alt-text="scan SAPECC" border="true":::
+        :::image type="content" source="media/register-scan-sapecc-source/scan-sapecc-inline.png" alt-text="scan SAPECC" lightbox="media/register-scan-sapecc-source/scan-sapecc-expanded.png" border="true":::
 
 1. Select **Continue**.
 
@@ -158,6 +158,6 @@ Go to the asset -> lineage tab, you can see the asset relationship when applicab
 
 Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
-- [Data insights in Microsoft Purview](concept-insights.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

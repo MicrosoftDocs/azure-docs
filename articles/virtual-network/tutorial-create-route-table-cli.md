@@ -8,14 +8,13 @@ manager: mtillman
 editor: ''
 tags: azure-resource-manager
 # Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
-
-ms.assetid: 
+ 
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/13/2018
+ms.date: 04/20/2022
 ms.author: mbender
 ms.custom: devx-track-azurecli
 ---
@@ -117,7 +116,7 @@ az network vnet subnet update \
 
 An NVA is a VM that performs a network function, such as routing, firewalling, or WAN optimization.
 
-Create an NVA in the *DMZ* subnet with [az vm create](/cli/azure/vm). When you create a VM, Azure creates and assigns a network interface 'myVmNvaVMNic' and a public IP address to the VM, by default. The `--public-ip-address ""` parameter instructs Azure not to create and assign a public IP address to the VM, since the VM doesn't need to be connected to from the internet. If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option.
+Create an NVA in the *DMZ* subnet with [az vm create](/cli/azure/vm). When you create a VM, Azure creates and assigns a network interface *myVmNvaVMNic* and a public IP address to the VM, by default. The `--public-ip-address ""` parameter instructs Azure not to create and assign a public IP address to the VM, since the VM doesn't need to be connected to from the internet. If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option.
 
 ```azurecli-interactive
 az vm create \
@@ -217,6 +216,8 @@ When prompted for a password, enter the password you selected in [Create virtual
 Use the following command to install trace route on the *myVmPrivate* VM:
 
 ```bash
+sudo apt-get update
+sudo apt-get upgrade
 sudo apt-get install traceroute
 ```
 

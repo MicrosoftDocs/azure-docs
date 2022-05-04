@@ -178,7 +178,7 @@ Use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-i
     --output tsv
 ```
 
-```bash
+```azurecli
 user@Azure:~$ az network public-ip show \
 >     --resource-group myResourceGroup \
 >     --name myPublicIP-IPv4 \
@@ -195,7 +195,7 @@ user@Azure:~$ az network public-ip show \
     --output tsv
 ```
 
-```bash
+```azurecli
 user@Azure:~$ az network public-ip show \
 >     --resource-group myResourceGroup \
 >     --name myPublicIP-IPv6 \
