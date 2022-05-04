@@ -31,6 +31,9 @@
   - name: Track experiments with MLflow 
     displayName: log, monitor, metrics, model registry, register
     href: how-to-use-mlflow.md  
+  - name: Auto-train a natural language processing model
+    displayName: nlp, auto ML, automl, SDK
+    href: how-to-auto-train-nlp-models-v1.md
   - name: Create & manage compute resources
     items:
     - name: Compute instance
