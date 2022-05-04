@@ -47,7 +47,7 @@ When a client sends a request to Service Bus namespace, the client establishes a
 Here're a few important points to consider:
 
 - A network trace would show the successful establishment of a TCP connection and successful TLS negotiation, before a 401 is returned if the TLS version used is less than the minimum TLS version configured.
-- Penetration scanning on `yournamespace.servicebus.windows.net` will indicate the support for TLS 1.0, TLS 1.1, and TLS 1.2, as the service continues to support all these protocols. The minimum TLS version, enforced at the namespace level, indicates what the lowest TLS version the namespace will support. 
+- Penetration or endpoint scanning on `yournamespace.servicebus.windows.net` will indicate the support for TLS 1.0, TLS 1.1, and TLS 1.2, as the service continues to support all these protocols. The minimum TLS version, enforced at the namespace level, indicates what the lowest TLS version the namespace will support. 
 
 ## Next steps
 
