@@ -45,6 +45,7 @@ The Hybrid Runbook Worker feature supports the following operating systems:
 * Windows 10 Enterprise (including multi-session) and Pro
 * Windows 8 Enterprise and Pro
 * Windows 7 SP1
+* Windows Server 2022 (including Server Core)
 
 ### Minimum requirements
 
