@@ -337,6 +337,8 @@
     href: troubleshoot-authorization.md
   - name: Connection quality issues
     href: troubleshoot-connection-quality.md
+  - name: Sign-in screen is blank
+    href: https://docs.microsoft.com/troubleshoot/azure/virtual-desktop/windows-virtual-desktop-blank-screen
 - name: Reference
   items:
   - name: Desktop virtualization - Microsoft Cloud Adoption Framework for Azure
