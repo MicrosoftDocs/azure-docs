@@ -5,9 +5,8 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 04/04/2022
 ms.author: cshoe
-ms.custom: ignite-fall-2021
 ---
 
 # Connect applications in Azure Container Apps Preview
