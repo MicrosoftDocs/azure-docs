@@ -55,7 +55,7 @@
       href: how-to-use-a-managed-identity.md
     - name: Move between regions
       href: how-to-move-between-regions.md
-    - name: Monitoring Azure Load Testing
+    - name: Monitor Azure Load Testing
       href: monitor-load-testing.md
 - name: Reference
   items:

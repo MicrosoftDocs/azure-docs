@@ -46,4 +46,4 @@ Operational log entries include elements listed in the following table:
 
 <!-- replace below with the proper link to your main monitoring service article -->
 - See [Monitoring Azure Load Testing](monitor-load-testing.md) for a description of monitoring Azure Load Testing.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
