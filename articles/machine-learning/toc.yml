@@ -492,6 +492,8 @@
               - name: Visualize runs with TensorBoard
                 displayName: log, monitor, metrics
                 href: how-to-monitor-tensorboard.md
+              - name: Migrate from SDK v1 logging to SDK v2
+                href: reference-migrate-sdk-v1-mlflow-tracking.md
           - name: Use Key Vault when training
             displayName: secrets keyvault
             href: how-to-use-secrets-in-runs.md
