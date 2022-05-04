@@ -4,6 +4,7 @@ description: 'Learn about read replicas in Azure Database for MySQL: choosing re
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 06/17/2021
 ms.custom: references_regions

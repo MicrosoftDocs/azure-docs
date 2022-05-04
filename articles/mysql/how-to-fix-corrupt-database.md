@@ -4,6 +4,7 @@ description: In this article, you'll learn about how to fix database corruption 
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: troubleshooting
 ms.date: 09/21/2020
 ---

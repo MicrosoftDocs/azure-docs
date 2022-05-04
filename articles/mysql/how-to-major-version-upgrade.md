@@ -4,6 +4,7 @@ description: This article describes how you can upgrade major version for Azure 
 author: Bashar-MSFT
 ms.author: bahusse
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: how-to
 ms.date: 1/28/2021
 ---

@@ -4,6 +4,7 @@ description: Describes the connectivity architecture for your Azure Database for
 author: Bashar-MSFT
 ms.author: bahusse
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 10/15/2021
 ---

@@ -4,6 +4,7 @@ description: This article describes some recommendations to monitor and tune per
 author: Bashar-MSFT
 ms.author: bahusse
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 1/28/2021
 ---

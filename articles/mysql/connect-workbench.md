@@ -4,6 +4,7 @@ description: This Quickstart provides the steps to use MySQL Workbench to connec
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.custom: mvc, mode-other
 ms.topic: quickstart
 ms.date: 5/26/2020

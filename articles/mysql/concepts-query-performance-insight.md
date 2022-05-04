@@ -4,6 +4,7 @@ description: This article describes the Query Performance Insight feature in Azu
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 01/12/2022
 ---

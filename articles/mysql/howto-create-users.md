@@ -4,6 +4,7 @@ description: This article describes how to create new user accounts to interact 
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: how-to
 ms.date: 02/17/2022
 ---

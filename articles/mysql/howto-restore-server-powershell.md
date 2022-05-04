@@ -4,6 +4,7 @@ description: Learn how to backup and restore a server in Azure Database for MySQ
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 4/28/2020

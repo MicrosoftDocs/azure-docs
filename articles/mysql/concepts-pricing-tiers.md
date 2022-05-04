@@ -4,6 +4,7 @@ description: Learn about the various pricing tiers for Azure Database for MySQL 
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 02/07/2022
 ---

@@ -4,6 +4,7 @@ description: Learn about the Query Store feature in Azure Database for MySQL to 
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 5/12/2020
 ---

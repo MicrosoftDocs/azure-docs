@@ -3,6 +3,7 @@ title: Troubleshoot common errors - Azure Database for MySQL
 description: Learn how to troubleshoot common migration errors encountered by users new to the Azure Database for MySQL service
 author: savjani
 ms.service: mysql
+ms.subservice: single-server
 ms.author: pariks
 ms.custom: mvc
 ms.topic: troubleshooting

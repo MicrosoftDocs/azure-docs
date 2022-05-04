@@ -4,6 +4,7 @@ description: Learn about Azure Advisor recommendations for MySQL.
 author: alau-ms
 ms.author: alau
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 04/08/2021
 ---

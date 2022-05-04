@@ -4,6 +4,7 @@ description: "This quickstart provides a C# (.NET) code sample you can use to co
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.custom: mvc, devx-track-csharp, mode-other
 ms.devlang: csharp
 ms.topic: quickstart

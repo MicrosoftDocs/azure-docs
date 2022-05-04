@@ -4,6 +4,7 @@ description: Learn how to set up and manage data encryption for your Azure Datab
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: how-to
 ms.date: 01/13/2020 
 ms.custom: devx-track-azurecli

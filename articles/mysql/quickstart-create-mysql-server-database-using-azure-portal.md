@@ -4,6 +4,7 @@ description: This article walks you through using the Azure portal to create a s
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
 ms.date: 11/04/2020

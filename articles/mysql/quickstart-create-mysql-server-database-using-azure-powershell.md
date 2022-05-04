@@ -4,6 +4,7 @@ description: This quickstart describes how to use PowerShell to create an Azure 
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 04/28/2020

@@ -4,6 +4,7 @@ description: This article describes how to configure and access the audit logs i
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 6/24/2020 

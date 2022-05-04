@@ -4,6 +4,7 @@ description: This topic provides considerations and guidelines for working with 
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 3/18/2020
 ---

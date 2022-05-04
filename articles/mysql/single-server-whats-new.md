@@ -3,6 +3,7 @@ title: What's new in Azure Database for MySQL Single Server
 description: Learn about recent updates to Azure Database for MySQL - Single server, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
 author: hjtoland3
 ms.service: mysql
+ms.subservice: single-server
 ms.author: jtoland
 ms.custom: mvc
 ms.topic: conceptual

@@ -6,6 +6,7 @@ ms.topic: reference
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure Database for MySQL

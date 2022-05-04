@@ -4,6 +4,7 @@ description: Learn how to validate the encryption of the Azure Database for MySQ
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: how-to
 ms.date: 04/28/2020
 ---

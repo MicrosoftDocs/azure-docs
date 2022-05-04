@@ -4,6 +4,7 @@ description: This article describes the Planned maintenance notification feature
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 10/21/2020
 ---

@@ -4,6 +4,7 @@ description: Information for configuring Azure Database for MySQL and associated
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 07/09/2020
 ---

@@ -4,6 +4,7 @@ description: Learn how to set up and manage read replicas in Azure Database for 
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: how-to
 ms.date: 06/17/2020 
 ms.custom: devx-track-azurepowershell

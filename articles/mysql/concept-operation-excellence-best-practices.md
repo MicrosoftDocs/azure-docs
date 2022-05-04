@@ -4,6 +4,7 @@ description: This article describes the best practices to operate your MySQL dat
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 11/23/2020
 ---

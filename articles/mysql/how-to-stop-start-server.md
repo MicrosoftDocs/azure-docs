@@ -4,6 +4,7 @@ description: This article describes how to stop/start operations in Azure Databa
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: how-to
 ms.date: 09/21/2020
 ---

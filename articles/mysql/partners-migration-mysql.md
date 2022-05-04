@@ -4,6 +4,7 @@ description: Lists of third-party migration partners with solutions that support
 author: HJToland3
 ms.author: jtoland
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 08/18/2021
 ---

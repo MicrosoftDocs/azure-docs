@@ -4,6 +4,7 @@ description: Learn how to profile query performance in Azure Database for MySQL 
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: troubleshooting
 ms.date: 3/30/2022
 ---

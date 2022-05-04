@@ -4,6 +4,7 @@ description: This article describes what factors to consider before you deploy A
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 08/26/2020
 ---
