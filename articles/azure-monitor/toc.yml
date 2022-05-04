@@ -138,21 +138,6 @@ items:
     - name: Logs
       displayName: Azure Monitor Logs, Logs, Log Analytics, log query, log queries, query, queries
       href: logs/data-platform-logs.md
-  - name: Workspaces
-    items:
-    - name: Overview
-      href: logs/log-analytics-workspace-overview.md
-    - name: Design a workspace deployment
-      href: logs/design-logs-deployment.md
-    - name: Design for service providers
-      href: logs/service-providers.md
-    - name: Dedicated clusters
-      href: logs/logs-dedicated-clusters.md
-    - name: Availability zones
-      href: logs/availability-zones.md
-    - name: Log data ingestion time
-      displayName: latency
-      href: logs/data-ingestion-time.md
   - name: Data collection rules
     href: essentials/data-collection-rule-overview.md
   - name: Usage and cost
@@ -304,12 +289,25 @@ items:
           href: logs/search-jobs.md
         - name: Restore logs
           href: logs/restore.md
+      - name: Design
+        items:
+        - name: Design a workspace deployment
+          href: logs/workspace-design.md
+        - name: Design for service providers
+          href: logs/workspace-design-service-providers.md
+        - name: Dedicated clusters
+          href: logs/logs-dedicated-clusters.md
+        - name: Availability zones
+          href: logs/availability-zones.md
       - name: Monitor
         items:
         - name: Monitor a workspace
           href: logs/monitor-workspace.md
         - name: Analyze usage and cost
           href: logs/analyze-usage.md
+        - name: Log data ingestion time
+          displayName: latency
+          href: logs/data-ingestion-time.md
       - name: Move and delete
         items:
         - name: Move a workspace
