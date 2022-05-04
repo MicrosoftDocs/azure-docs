@@ -15,7 +15,7 @@ This new version of Start/Stop VMs v2 (preview) provides a decentralized low-cos
 
 > [!NOTE]
 > Automatic updating functionality was introduced on April 28th, 2022. This new auto update feature helps you stay on the latest version of the solution. This feature is enabled by default when you perform a new installation. 
-    > If you deployed your solution before this date, you can reinstall to the latest version from our [GitHub repository](https://github.com/microsoft/startstopv2-deployments)
+> If you deployed your solution before this date, you can reinstall to the latest version from our [GitHub repository](https://github.com/microsoft/startstopv2-deployments)
     
 ## Overview
 
