@@ -24,7 +24,7 @@ The [Azure CLI](/cli/azure) is a set of commands used to create and manage Azure
 
 ## View supported target service types
 
-Use the Azure CLI [az spring-cloud connection](./quickstart-cli-spring-cloud-connection?tabs=Using-access-key) command to create and manage service connections to your Spring Cloud application. 
+Use the Azure CLI [[az spring-cloud connection](quickstart-cli-spring-cloud-connection.md)] command to create and manage service connections to your Spring Cloud application. 
 
 ```azurecli-interactive
 az provider register -n Microsoft.ServiceLinker
@@ -55,7 +55,7 @@ az spring-cloud connection create storage-blob --secret
 > [!IMPORTANT]
 > To use Managed Identity, you must have permission to manage [role assignments in Azure Active Directory](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). If you don't have this permission, your connection creation will fail. You can ask your subscription owner to grant you a role assignment permission or use an access key to create the connection.
 
-Use the Azure CLI [az spring-cloud connection](./quickstart-cli-spring-cloud-connection?tabs=Using-access-key) command to create a service connection to a Blob Storage with System-assigned Managed Identity, providing the following information:
+Use the Azure CLI [az spring-cloud connection](quickstart-cli-spring-cloud-connection.md) command to create a service connection to a Blob Storage with System-assigned Managed Identity, providing the following information:
 
 - **Spring Cloud resource group name:** the resource group name of the Spring Cloud.
 - **Spring Cloud name:** the name of your Spring Cloud.
@@ -74,7 +74,7 @@ az spring-cloud connection create storage-blob --system-identity
 
 ## View connections
 
-Use the Azure CLI [az spring-cloud connection](./quickstart-cli-spring-cloud-connection?tabs=Using-access-key) command to list connection to your Spring Cloud application, providing the following information:
+Use the Azure CLI [az spring-cloud connection](quickstart-cli-spring-cloud-connection.md) command to list connection to your Spring Cloud application, providing the following information:
 
 ```azurecli-interactive
 az spring-cloud connection list -g <your-spring-cloud-resource-group> --spring-cloud <your-spring-cloud-name>

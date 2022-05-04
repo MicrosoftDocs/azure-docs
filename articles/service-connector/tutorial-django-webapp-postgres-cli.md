@@ -12,7 +12,7 @@ zone_pivot_groups: postgres-server-options
 # Tutorial: Using Service Connector to build a Django app with Postgres on Azure App Service
 
 > [!NOTE]
-> You are using Service Connector that makes it easier to connect your web app to database service in this tutorial. The tutorial here is a modification of the [App Service tutorial](../app-service/tutorial-python-postgresql-app.md) to use this feature so you will see similarities. Look into section [4.2 Configure environment variables to connect the database](#42-configure-environment-variables-to-connect-the-database) in this tutorial to see where Service Connector comes into play and simplifies the connection process given in the App Service tutorial.
+> You are using Service Connector that makes it easier to connect your web app to database service in this tutorial. The tutorial here is a modification of the [App Service tutorial](../app-service/tutorial-python-postgresql-app.md) to use this feature so you will see similarities. Look into section [Configure environment variables to connect the database](#configure-environment-variables-to-connect-the-database) in this tutorial to see where Service Connector comes into play and simplifies the connection process given in the App Service tutorial.
 
 ::: zone pivot="postgres-single-server"
 
@@ -32,9 +32,9 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 
 ::: zone pivot="postgres-flexible-server"
 
-This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](overview.md) and connect it to an [Azure Database for PostgreSQL Flexible server](../postgresql/flexible-server/index.yml) database. If you cannot use PostgreSQL Flexible server, then select the Single Server option above. 
+This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](overview.md) and connect it to an [Azure Database for PostgreSQL Flexible server](../postgresql/flexible-server/index.yml) database. If you can't use PostgreSQL Flexible server, then select the Single Server option above. 
 
-In this tutorial, you will use the Azure CLI to complete the following tasks:
+In this tutorial, you'll use the Azure CLI to complete the following tasks:
 
 > [!div class="checklist"]
 > * Set up your initial environment with Python and the Azure CLI
@@ -126,10 +126,10 @@ git checkout flexible-server
 Visit [https://github.com/Azure-Samples/djangoapp](https://github.com/Azure-Samples/djangoapp).
 
 ::: zone pivot="postgres-flexible-server"
-For Flexible server, select the branches control that says "master" and select the flexible-server branch instead.
+For Flexible server, select the branches control that says "master" and then select the **flexible-server** branch.
 ::: zone-end
 
-Select **Clone**, and then select **Download ZIP**. 
+Select **Code**, and then select **Download ZIP**. 
 
 Unpack the ZIP file into a folder named *djangoapp*. 
 
@@ -166,18 +166,19 @@ Install the `db-up` extension for the Azure CLI:
 az extension add --name db-up
 ```
 
-If the `az` command is not recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#1-set-up-your-initial-environment).
+If the `az` command isn't recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#set-up-your-initial-environment).
 
 Then create the Postgres database in Azure with the [`az postgres up`](/cli/azure/postgres#az-postgres-up) command:
 
 ```azurecli
 az postgres up --resource-group ServiceConnector-tutorial-rg --location eastus --sku-name B_Gen5_1 --server-name <postgres-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
 ```
+
 Replace the following placeholder texts with your own data:
 - **Replace** *`<postgres-server-name>`* with a name that's **unique across all Azure** (the server endpoint becomes `https://<postgres-server-name>.postgres.database.azure.com`). A good pattern is to use a combination of your company name and another unique value.
-- For *`<admin-username>`* and *`<admin-password>`*, specify credentials to create an administrator user for this Postgres server. The admin username can't be *azure_superuser*, *azure_pg_admin*, *admin*, *administrator*, *root*, *guest*, or *public*. It can't start with *pg_*. The password must contain **8 to 128 characters** from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (for example, !, #, %). The password cannot contain username.
-- Do not use the `$` character in the username or password. You will later create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps.
-- The B_Gen5_1 (Basic, Gen5, 1 core) [pricing tier](../postgresql/concepts-pricing-tiers.md) used here is the least expensive. For production databases, omit the `--sku-name` argument to use the GP_Gen5_2 (General Purpose, Gen 5, 2 cores) tier instead.
+- For *`<admin-username>`* and *`<admin-password>`*, specify credentials to create an administrator user for this Postgres server. The admin username can't be *azure_superuser*, *azure_pg_admin*, *admin*, *administrator*, *root*, *guest*, or *public*. It can't start with *pg_*. The password must contain **8 to 128 characters** from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (for example, *!*, *#*, *%*). The password can't contain a username.
+- Don't use the `$` character in the username or password. You'll later create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps.
+- The `*B_Gen5_1*` (Basic, Gen5, 1 core) [pricing tier](../postgresql/concepts-pricing-tiers.md) used here is the least expensive. For production databases, omit the `--sku-name` argument to use the GP_Gen5_2 (General Purpose, Gen 5, 2 cores) tier instead.
 
 This command performs the following actions, which may take a few minutes:
 
@@ -191,11 +192,14 @@ This command performs the following actions, which may take a few minutes:
 
 You can do all the steps separately with other `az postgres` and `psql` commands, but `az postgres up` does all the steps together.
 
-When the command completes, it outputs a JSON object that contains different connection strings for the database along with the server URL, a generated user name (such as "joyfulKoala@msdocs-djangodb-12345"), and a GUID password. **Copy the user name and password to a temporary text file** as you need them later in this tutorial.
+When the command completes, it outputs a JSON object that contains different connection strings for the database along with the server URL, a generated user name (such as "joyfulKoala@msdocs-djangodb-12345"), and a GUID password. 
+
+> [!IMPORTANT]
+> Copy the user name and password to a temporary text file as you will need them later in this tutorial.
 
 <!-- not all locations support az postgres up -->
 > [!TIP]
-> `-l <location-name>`, can be set to any one of the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/). You can get the regions available to your subscription with the [`az account list-locations`](/cli/azure/account#az-account-list-locations) command. For production apps, put your database and your app in the same location.
+> `-l <location-name>` can be set to any [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/). You can get the regions available to your subscription with the [`az account list-locations`](/cli/azure/account#az-account-list-locations) command. For production apps, put your database and your app in the same location.
 
 ::: zone-end
 
@@ -219,7 +223,7 @@ When the command completes, it outputs a JSON object that contains different con
     az postgres flexible-server create --sku-name Standard_B1ms --public-access all
     ```
     
-    If the `az` command is not recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#1-set-up-your-initial-environment).
+    If the `az` command isn't recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#set-up-your-initial-environment).
     
     The [az postgres flexible-server create](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-create) command performs the following actions, which take a few minutes:
     
@@ -348,7 +352,7 @@ Having issues? Refer first to the [Troubleshooting guide](../app-service/configu
 
 ### Run Django database migrations
 
-Django database migrations ensure that the schema in the PostgreSQL on Azure database match those described in your code.
+Django database migrations ensure that the schema in the PostgreSQL on Azure database matches with your code.
 
 1. Run `az webpp ssh` to open an SSH session for the web app in the browser:
 
@@ -371,7 +375,7 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
 
 1. The `createsuperuser` command prompts you for superuser credentials. For the purposes of this tutorial, use the default username `root`, press **Enter** for the email address to leave it blank, and enter `Pollsdb1` for the password.
 
-1. If you see an error that the database is locked, make sure that you ran the `az webapp settings` command in the previous section. Without those settings, the migrate command cannot communicate with the database, resulting in the error.
+1. If you see an error that the database is locked, make sure that you ran the `az webapp settings` command in the previous section. Without those settings, the migrate command can't communicate with the database, resulting in the error.
 
 Having issues? Refer first to the [Troubleshooting guide](../app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
     
@@ -383,13 +387,13 @@ Having issues? Refer first to the [Troubleshooting guide](../app-service/configu
     az webapp browse
     ```
 
-    If you see "Application Error", then it's likely that you either didn't create the required settings in the previous step, [Configure environment variables to connect the database](#42-configure-environment-variables-to-connect-the-database), or that those value contain errors. Run the command `az webapp config appsettings list` to check the settings.
+    If you see "Application Error", then it's likely that you either didn't create the required settings in the previous step "[Configure environment variables to connect the database](#configure-environment-variables-to-connect-the-database)", or that these values contain errors. Run the command `az webapp config appsettings list` to check the settings.
 
     After updating the settings to correct any errors, give the app a minute to restart, then refresh the browser.
 
 1. Browse to the web app's admin page by appending `/admin` to the URL, for example, `http://<app-name>.azurewebsites.net/admin`. Sign in using Django superuser credentials from the previous section (`root` and `Pollsdb1`). Under **Polls**, select **Add** next to **Questions** and create a poll question with some choices.
 
-1. Return to the main the website (`http://<app-name>.azurewebsites.net`) to confirm that the questions are now presented to the user. Answer questions however you like to generate some data in the database.
+1. Return to the main website (`http://<app-name>.azurewebsites.net`) to confirm that the questions are now presented to the user. Answer questions however you like to generate some data in the database.
 
 **Congratulations!** You're running a Python Django web app in Azure App Service for Linux, with an active Postgres database.
 
@@ -399,7 +403,7 @@ Having issues? Refer first to the [Troubleshooting guide](../app-service/configu
 
 ## Clean up resources
 
-If you'd like to keep the app or continue to the additional tutorials, skip ahead to [Next steps](#next-steps). Otherwise, to avoid incurring ongoing charges you can delete the resource group created for this tutorial:
+If you'd like to keep the app or continue to additional tutorials, skip ahead to [Next steps](#next-steps). Otherwise, to avoid incurring ongoing charges you can delete the resource group created for this tutorial:
 
 ```azurecli
 az group delete --name ServiceConnector-tutorial-rg --no-wait

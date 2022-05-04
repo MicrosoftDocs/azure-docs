@@ -81,7 +81,7 @@ This page shows the supported authentication types and client types of Azure Ser
 | Default environment variable name       | Description           | Sample value                                   |
 | --------------------------------------- | --------------------- | ---------------------------------------------- |
 | spring.cloud.azure.servicebus.namespace | Service Bus namespace | `{ServiceBusNamespace}.servicebus.windows.net` |
-| spring.cloud.azure.client-id            | Your client ID        | `{yourClientID}                      `         |
+| spring.cloud.azure.client-id            | Your client ID        | `{yourClientID}`         |
 
 #### Spring Boot service principal
 
