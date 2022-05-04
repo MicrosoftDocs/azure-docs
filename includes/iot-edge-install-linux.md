@@ -44,13 +44,6 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
     sudo apt install ./packages-microsoft-prod.deb
     ```
 
-* **10 (Buster)**:
-
-    ```bash
-    curl https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb > ./packages-microsoft-prod.deb 
-    sudo apt install ./packages-microsoft-prod.deb
-    ```
-
 > [!TIP]
 > If you gave the "root" account a password during the OS install, you will not need 'sudo' and can run the above command by starting with 'apt'.
 
