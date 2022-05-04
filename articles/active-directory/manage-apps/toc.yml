@@ -166,44 +166,44 @@
         href: secure-hybrid-access-integrations.md
       - name: Datawiza
         href: datawiza-with-azure-ad.md 
-    - name: F5
-      items:
-      - name: Deploy F5 BIG-IP in Azure
-        href: f5-bigip-deployment-guide.md
-      - name: F5 BIG-IP and Azure AD integration
+      - name: F5
         items:
-        - name: Integrate F5 BIG-IP with Azure AD
-          href: f5-aad-integration.md
-        - name: Easy Button guided configuration
+        - name: Deploy F5 BIG-IP in Azure
+          href: f5-bigip-deployment-guide.md
+        - name: F5 BIG-IP and Azure AD integration
           items:
-          - name: Kerberos
-            href: f5-big-ip-kerberos-easy-button.md
-          - name: Headers
-            href: f5-big-ip-headers-easy-button.md
-          - name: Headers and LDAP
-            href: f5-big-ip-ldap-header-easybutton.md
-          - name: Oracle EBS
-            href: f5-big-ip-oracle-enterprise-business-suite-easy-button.md
-          - name: Oracle JDE
-            href: f5-big-ip-oracle-jde-easy-button.md
-          - name: Oracle PeopleSoft
-            href: f5-big-ip-oracle-peoplesoft-easy-button.md
-          - name: SAP ERP
-            href: f5-big-ip-sap-erp-easy-button.md
-        - name: Advanced configuration
-          items:
-            - name: Headers
-              href: f5-big-ip-header-advanced.md
+          - name: Integrate F5 BIG-IP with Azure AD
+            href: f5-aad-integration.md
+          - name: Easy Button guided configuration
+            items:
             - name: Kerberos
-              href: f5-big-ip-kerberos-advanced.md
-            - name: Form-based
-              href: f5-big-ip-forms-advanced.md 
-            - name: SSL-VPN
-              href: f5-aad-password-less-vpn.md  
-            - name: B2C
-              href: ../../active-directory-b2c/partner-f5.md
-    - name: Silverfort
-      href: silverfort-azure-ad-integration.md
+              href: f5-big-ip-kerberos-easy-button.md
+            - name: Headers
+              href: f5-big-ip-headers-easy-button.md
+            - name: Headers and LDAP
+              href: f5-big-ip-ldap-header-easybutton.md
+            - name: Oracle EBS
+              href: f5-big-ip-oracle-enterprise-business-suite-easy-button.md
+            - name: Oracle JDE
+              href: f5-big-ip-oracle-jde-easy-button.md
+            - name: Oracle PeopleSoft
+              href: f5-big-ip-oracle-peoplesoft-easy-button.md
+            - name: SAP ERP
+              href: f5-big-ip-sap-erp-easy-button.md
+          - name: Advanced configuration
+            items:
+              - name: Headers
+                href: f5-big-ip-header-advanced.md
+              - name: Kerberos
+                href: f5-big-ip-kerberos-advanced.md
+              - name: Form-based
+                href: f5-big-ip-forms-advanced.md 
+              - name: SSL-VPN
+                href: f5-aad-password-less-vpn.md  
+              - name: B2C
+                href: ../../active-directory-b2c/partner-f5.md
+      - name: Silverfort
+        href: silverfort-azure-ad-integration.md
     - name: Single sign-on
       items:
       - name: Linked
