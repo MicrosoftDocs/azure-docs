@@ -27,7 +27,7 @@ Additional details on eligible subscription types are as follows:
 | Toll-Free and Local (Geographic) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement* |
 | Short-Codes                      | Modern Customer Agreement (Field Led) and Enterprise Agreement Only                                       |
 
-\* As per the telephony regulations in Italy, reselling of telephone numbers is not allowed. As a result, CSP and LSP are not allowed resell Italian numbers. 
+\* Allowing the purchase of Italian phone numbers for CSP and LSP customers is planned only for General Availability launch. 
 
 ## Number capabilities
 
@@ -112,7 +112,7 @@ The tables below summarize current availability:
 
 \* Available through Azure Bot Framework and Dynamics only
 
-\** As per the telephony regulations in Italy, reselling of telephone numbers is not allowed. As a result, CSP and LSP are not allowed resell Italian numbers.
+\** Allowing the purchase of Italian phone numbers for CSP and LSP customers is planned only for General Availability launch.
 
 ## Customers with Sweden Azure Billing Addresses
 
