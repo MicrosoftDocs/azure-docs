@@ -32,13 +32,20 @@ In this tutorial, you learn how to:
 > * Configure authentication for the web app.
 > * Limit access to the web app to users in your organization.
 
+## Prerequisites
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Create and publish a web app on App Service
 
 For this tutorial, you need a web app deployed to App Service. You can use an existing web app, or you can follow the [ASP.NET Core quickstart](/azure/app-service/quickstart-dotnetcore.md) to create and publish a new web app to App Service.
 
-Whether you use an existing web app or create a new one, take note of the web app name and the name of the resource group that the web app is deployed to. You need these names throughout this tutorial. 
+Whether you use an existing web app or create a new one, take note of the following:
+
+- web app name 
+- name of the resource group that the web app is deployed to 
+
+You need these names throughout this tutorial. 
 
 ## Configure authentication and authorization
 
