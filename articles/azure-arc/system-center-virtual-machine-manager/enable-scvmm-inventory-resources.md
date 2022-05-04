@@ -52,7 +52,7 @@ To enable the existing virtual machines in Azure, follow these steps:
 
 1. Go to **SCVMZM inventory** resource blade, select **Virtual machines** and then select the VMs you want to enable and select **Enable in Azure**.
 
-    :::image type="content" source="media/enable-scvmm-inventory-resources/scvmm-enable-exisiting-vm-inline.png" alt-text="Screenshot of how to enable existing virtual machines in Azure." lightbox="media/enable-scvmm-inventory-resources/scvmm-enable-exisiting-vm-expanded.png":::
+    :::image type="content" source="media/enable-scvmm-inventory-resources/scvmm-enable-existing-vm-inline.png" alt-text="Screenshot of how to enable existing virtual machines in Azure." lightbox="media/enable-scvmm-inventory-resources/scvmm-enable-existing-vm-expanded.png":::
 
 1. Select your **Azure subscription** and **Resource group**.
 
