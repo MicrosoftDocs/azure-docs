@@ -12,6 +12,8 @@ ms.subservice: azure-arc-data
 ---
 
 # az arcdata resource-kind
+
+Resource-kind commands to define and template custom resources on your cluster.
 ## Commands
 | Command | Description|
 | --- | --- |
