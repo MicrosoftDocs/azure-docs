@@ -12,40 +12,51 @@ adobe-target: true
 
 # What is Microsoft Dev Box Preview?
 
-Microsoft Dev Box gives you self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations. These workstations are called dev boxes. 
+Microsoft Dev Box gives you self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations called Dev Boxes. You can set up Dev Boxes with the tools, source code, and pre-built binaries specific to your project, so you can immediately start work. Whether you’re a developer, tester, or QA professional, you can use Dev Boxes in your day-to-day workflows. You can even move between projects or tasks by using multiple Dev Boxes. 
 
-Several roles within an organization collaborate to successfully deploy, manage, and operate resources in a Dev Box environment. DevCenter owners work with enterprise IT to configure the initial networking and security settings, define DevCenters for the organization, and create projects within those DevCenters. Project Admins create and manage Dev Box pools for projects, and Dev Box Users create and manage their own dev boxes.
+The Dev Box service was designed with three distinct personas in mind: DevCenter Owners, Project Admins, and Dev Box Users. DevCenter Owners create and manage DevCenters, top-level Dev Box resources that represent the units of organization within an enterprise. They work with Project Admins to create projects and define images for Dev Boxes. Dev box image definitions can use any developer IDE, SDK, or internal tool that runs on Windows. Project admins organize Dev Box Definitions into Pools for their projects and manage access for Dev Box Users. As a Dev Box User, you can select one or more Dev Boxes from the Dev Box Pools that a Project Admins gives you access to. 
 
-## How does Microsoft Dev Box work?
+Dev Box bridges the gap between development teams and IT, bringing control of project resources closer to the DevCenter owners and project admins. 
 
-![Diagram that shows the Microsoft Dev Box service structure.](./media/overview-what-is-microsoft-dev-box/service-structure.png)
+## Key capabilities
+### For Dev Box Users
+- **Get started quickly** 
+    - Create new Dev Boxes from a predefined pool whenever you need them and delete them when you are done. 
+    - Use separate Dev Boxes for separate projects or tasks. 
+- **Handle demanding workloads** 
+    - With a range of SKUs from 4 to 32 cores and up to 128 GB of memory, Dev Boxes can scale to meet demanding workloads.
+- **Use multiple Dev Boxes to isolate and parallelize work** 
+    - Tasks which take considerable time, like a full re-build before submitting a PR can run in the background while you create a new Dev Box to start the next task. 
+    - You can safely test changes in your code, or make significant edits without affecting your primary workspace.
+- **Access from anywhere** 
+    - Dev boxes can be accessed from any device and from any OS. Use a web browser while on the road or remote desktop from your Windows, Mac, or Linux desktop. 
 
-Dev Box uses a hierarchical structure to assign permissions for management tasks at the appropriate level and provide access to resources where they are required. The key objects in this structure are as follows: 
+### For Project Admins and developer teams
+**Use Dev Box Pools to separate projects** 
+- Create Dev Box Pools, add appropriate Dev Box Definitions, and assign access for only Dev Box Users working on those specific projects. 
+- Each Pool brings together an SKU, a custom image, and a network configuration that automatically joins the Dev Box to your native Azure Active Directory (AAD) or Active Directory domain. This combination gives teams flexibility to define specific development environments for any scenario.
 
-- *DevCenter* - A DevCenter is a top-level resource that reflects the units of organization within an enterprise. 
-- *Dev box definition* - A dev box definition details the configuration of the source image and virtual machine size.  
-- *Project* - A project is a resource associated with a DevCenter. Projects reflect the workgroups within an organization. 
-- *Dev box pool* - A dev box pool is a resource associated with a project. It consists of the configuration and network information for a given group of dev boxes.  
-- *Dev box* - A dev box is an instance of a virtual machine configured for developer use. 
+**Control costs**
+- Dev Box brings cost control within the reach of Project Admins. 
+- Use start/stop schedules for individual Dev Box Pools to make sure Dev Boxes are available at the start of day and are only running when needed. 
+- Hibernation ensures that stopping a Dev Box will not cause the loss of anyone’s work.
 
-### DevCenter owner
-A DevCenter owner is responsible for creating and managing DevCenters for the organization.  As a DevCenter owner, you set up the environment to support Dev Box services by configuring network connections, security and access policies, update policies, and audit policies. In large complex enterprises you might work closely with the enterprise IT team to configure appropriate virtual networks. When the initial configuration is complete you define one or more DevCenters for the enterprise. 
+**Streamline collaboration**
+- Dev Boxes are deployed in Dev Box User’s local region and connected via Azure’s Global Network, so all your users get the benefit of a high-fidelity remote experience and gigabit connection speed for transferring data.
 
-Next, you create projects within the DevCenter and assign permissions for a project admin to manage each project.
+**Team scenarios**
+- Create Dev Boxes for various roles on a team. Standard Dev Boxes might be configured with admin rights, giving full-time developers greater control, while more restricted permissions are applied for contractors.
 
-### Project admin
-A project admin manages one or more projects within a DevCenter. A project admin is usually a lead or senior developer who has a detailed understanding of the virtual machine requirements for the workloads in their project. As a project admin, you assist the DevCenter owner by gathering requirements for the dev boxes in your project. The DevCenter owner creates dev box definitions based on those requirements. 
+### For IT admins and DevCenter Owners
+**Manage Dev Boxes like any other device**
+- Manage Dev Boxes enrolled in Intune like any other Windows 365 device on your network. Dev Boxes are managed with Microsoft Endpoint Manager alongside the other deployed devices. 
+- Keep all Windows devices up to date by using Intune’s expedited quality updates to deploy zero-day patches across your organization. 
+- If a Dev Box is compromised, you can isolate it while helping the Dev Box User get back up and running on a new Dev Box.
 
-To create a dev box pool, you select the definitions of dev boxes suitable for your project.
+**Provide secure access in a secure environment**
+- Access controls in AAD enable you to organize access by project or user type. You can automatically join Dev Boxes natively to an ADD or Active Directory domain, set conditional access polices that require users to connect via a compliant device, require multi-factor authentication (MFA) sign in, or configure risk-based sign in polices for Dev Boxes that access sensitive source code and customer data.
 
-### Dev box user
-A dev box user might be a developer, a tester, or a QA professional, selects a pool in a project they have access to, and creates a dev box from that pool.
 
-Microsoft Dev Box enables you to be productive on a project very quickly. As a dev box user, you can do the following:
-
-- Create and manage dev boxes.
-- Delete dev boxes when they are no longer required. 
-- Create dev boxes for multiple projects. 
 
 ## Next steps
 
