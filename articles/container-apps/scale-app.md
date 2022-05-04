@@ -78,7 +78,7 @@ In the following example, the container app scales out up to five replicas and c
 }
 ```
 
-### Add an HTTP scale trigger
+### Add an HTTP scale trigger to a Container App in single-revision mode
 
 > [!NOTE]
 > Revisions are immutable. Changing scale rules automatically generates a new revision.
@@ -97,7 +97,7 @@ In the following example, the container app scales out up to five replicas and c
 
 1. Select **HTTP scaling** and enter a **Rule name** and the number of **Concurrent requests** for your scale rule and then select **Add**.
 
-    :::image type="content" source="media/scalers/http-scale-rule.png" alt-text="A screenshot showing how to add an http scale rule.":::
+    :::image type="content" source="media/scalers/http-scale-rule.png" alt-text="A screenshot showing how to add an h t t p scale rule.":::
 
 1. Select **Create** when you are done.
 
