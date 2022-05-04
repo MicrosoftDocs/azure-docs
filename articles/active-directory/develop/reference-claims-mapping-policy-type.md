@@ -10,9 +10,9 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/04/2022
+ms.date: 03/04/2022
 ms.author: ryanwi
-ms.reviewer: paulgarn, hirsin, jeedes, luleon
+ms.reviewer: paulgarn, ludwignick, jeedes, luleon
 ---
 
 # Claims mapping policy type
@@ -30,6 +30,10 @@ There are certain sets of claims that define how and when they're used in tokens
 | Core claim set | Are present in every token regardless of the policy. These claims are also considered restricted, and can't be modified. |
 | Basic claim set | Includes the claims that are emitted by default for tokens (in addition to the core claim set). You can [omit or modify basic claims](active-directory-claims-mapping.md#omit-the-basic-claims-from-tokens) by using the claims mapping policies. |
 | Restricted claim set | Can't be modified using policy. The data source cannot be changed, and no transformation is applied when generating these claims. |
+
+This section lists:
+- [Table 1: JSON Web Token (JWT) restricted claim set](#table-1-json-web-token-jwt-restricted-claim-set)
+- [Table 2: SAML restricted claim set](#table-2-saml-restricted-claim-set)
 
 ### Table 1: JSON Web Token (JWT) restricted claim set
 
@@ -175,6 +179,8 @@ There are certain sets of claims that define how and when they're used in tokens
 
 ### Table 2: SAML restricted claim set
 
+The following table lists the SAML claims that are by default in the restricted claim set.
+
 | Claim type (URI) |
 | ----- |
 |`http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged`|
@@ -200,8 +206,27 @@ There are certain sets of claims that define how and when they're used in tokens
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/role`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/wids`|
 |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`|
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`  |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` |
 
+These claims are restricted by default, but are not restricted if you [set the AcceptMappedClaims property](active-directory-claims-mapping.md#update-the-application-manifest) to `true` in your app manifest *or* have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key):
 
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid`
+- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid`
+- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname`
+
+These claims are restricted by default, but are not restricted if you have a [custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key):
+
+ - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`
+ - `http://schemas.microsoft.com/ws/2008/06/identity/claims/role`
+ 
 ## Claims mapping policy properties
 
 To control what claims are emitted and where the data comes from, use the properties of a claims mapping policy. If a policy is not set, the system issues tokens that include the core claim set, the basic claim set, and any [optional claims](active-directory-optional-claims.md) that the application has chosen to receive.
@@ -299,6 +324,20 @@ The ID element identifies which property on the source provides the value for th
 | User | employeeid | Employee ID |
 | User | facsimiletelephonenumber | Facsimile Telephone Number |
 | User | assignedroles | list of App roles assigned to user|
+| User | accountEnabled | Account Enabled |
+| User | consentprovidedforminor | Consent Provided For Minor |
+| User | createddatetime | Created Date/Time| 
+| User | creationtype | Creation Type |
+| User | lastpasswordchangedatetime | Last Password Change Date/Time |
+| User | mobilephone | Mobile Phone |
+| User | officelocation | Office Location |
+| User | onpremisesdomainname | On-Premises Domain Name |
+| User | onpremisesimmutableid | On-Premises Imutable ID |
+| User | onpremisessyncenabled | On-Premises Sync Enabled |
+| User | preferreddatalocation | Preffered Data Location |
+| User | proxyaddresses | Proxy Addresses |
+| User | usertype | User Type |
+| User | telephonenumber| Business Phones / Office Phones |
 | application, resource, audience | displayname | Display Name |
 | application, resource, audience | objectid | ObjectID |
 | application, resource, audience | tags | Service Principal Tag |
@@ -390,6 +429,7 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 | User | userprincipalname|User Principal Name|
 | User | onpremisessamaccountname|On Premises Sam Account Name|
 | User | employeeid|Employee ID|
+| User | telephonenumber| Business Phones / Office Phones |
 | User | extensionattribute1 | Extension Attribute 1 |
 | User | extensionattribute2 | Extension Attribute 2 |
 | User | extensionattribute3 | Extension Attribute 3 |

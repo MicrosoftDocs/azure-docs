@@ -8,7 +8,8 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: tutorial
 ms.date: 10/01/2021
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.custom: template-tutorial #Required; leave this attribute/value as-is., devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Tutorial: Configure routing preference for an Azure Kubernetes service using the Azure CLI
@@ -29,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. The following example creates a resource group in the **East US** Azure region:
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group in the **East US** Azure region:
 
 ```azurecli-interactive
   az group create \
@@ -40,7 +41,7 @@ Create a resource group with the [az group create](/cli/azure/group#az_group_cre
 
 ## Create public IP with Internet routing preference
 
-Create a public IP address with routing preference of **Internet** type using command [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create).
+Create a public IP address with routing preference of **Internet** type using command [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create).
 
 The following command creates a new public IP with **Internet** routing preference in the **East US** Azure region.
 
@@ -58,7 +59,7 @@ The following command creates a new public IP with **Internet** routing preferen
 
 ## Create Kubernetes cluster with public IP
 
-Place the ID of the public IP created previously into a variable for later use. Use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) to retrieve the public IP ID.
+Place the ID of the public IP created previously into a variable for later use. Use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) to retrieve the public IP ID.
 
 The following command retrieves the public IP ID and places it in a variable to use in the next command.
 
@@ -70,7 +71,7 @@ The following command retrieves the public IP ID and places it in a variable to 
     --output tsv)
 ```
 
-Use [az aks create](/cli/azure/aks#az_aks_create) to create the Kubernetes cluster.
+Use [az aks create](/cli/azure/aks#az-aks-create) to create the Kubernetes cluster.
 
 The following command creates the Kubernetes cluster and uses the variable for the public IP created in the previous step.
 
@@ -91,7 +92,7 @@ To validate, search for the public IP created in the earlier step in Azure porta
 
 ## Clean up resources
 
-When no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, public IP, AKS cluster, and all related resources.
+When no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, public IP, AKS cluster, and all related resources.
 
 ```azurecli-interactive
   az group delete \

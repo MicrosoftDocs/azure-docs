@@ -7,7 +7,7 @@ ms.reviewer: emuench
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/30/2021
+ms.date: 03/16/2022
 ---
 
 # Plan a consulting service offer
@@ -118,7 +118,7 @@ When you create your consulting service offer in Partner Center, you’ll enter 
 
 To help create your offer more easily, prepare some of these items ahead of time. The following items are required unless otherwise noted.
 
-**Name**: This name will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It can't contain emojis (unless they're the trademark and copyright symbols) and must be limited to 50 characters. The name must include the duration and service type of the offer to maximize search engine optimization (SEO). The required format is *Name: Duration + type*. Don’t include your company name unless it’s also the product name. Here are some examples:
+**Name**: This name will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It can't contain emojis (unless they're the trademark and copyright symbols) and must be limited to 200 characters. The name must include the duration and service type of the offer to maximize search engine optimization (SEO). The required format is *Name: Duration + type*. Don’t include your company name unless it’s also the product name. Here are some examples:
 
 |Don't say |Say |
 |---|---|
@@ -151,7 +151,7 @@ Here are some tips for writing your description:
 * If the price of your offer is estimated, explain what variables will determine the final price.
 * Use industry-specific vocabulary.
 
-You can use HTML tags to format your description. You can enter up to 2,000 characters of text in this box, including HTML tags and spaces. For information about HTML formatting, see [HTML tags supported in the commercial marketplace offer descriptions](./supported-html-tags.md).
+You can use HTML tags to format your description. You can enter up to 5,000 characters of text in this box, including HTML tags and spaces. For information about HTML formatting, see [HTML tags supported in the commercial marketplace offer descriptions](./supported-html-tags.md).
 
 **Search keywords** (optional): Provide up to three search keywords that customers can use to find your offer in the online stores. You don't need to include the offer **Name** and **Description**.
 

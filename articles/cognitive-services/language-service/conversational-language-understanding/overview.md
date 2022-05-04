@@ -27,4 +27,3 @@ Conversational language understanding applies custom machine-learning intelligen
 * Robust and semantically aware classification and extraction models.
 * Simplified model building experience, using Language Studio.
 * Natively multilingual models that let you to train in one language, and test in others.
-* Orchestration project types that allow you to connect services including other Conversational Language Understanding projects, custom question answering knowledge bases, and LUIS applications.

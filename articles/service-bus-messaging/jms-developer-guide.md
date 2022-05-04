@@ -2,7 +2,7 @@
 title: Azure Service Bus JMS 2.0 developer guide
 description: How to use the Java Message Service (JMS) 2.0 API to communicate with Azure Service Bus
 ms.topic: article
-ms.date: 01/17/2021
+ms.date: 02/12/2022
 ---
 
 # Azure Service Bus JMS 2.0 developer guide

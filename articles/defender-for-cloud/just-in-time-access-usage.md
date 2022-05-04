@@ -6,19 +6,17 @@ ms.date: 01/06/2022
 ---
 # Secure your management ports with just-in-time access
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Lock down inbound traffic to your Azure Virtual Machines with Microsoft Defender for Cloud's just-in-time (JIT) virtual machine (VM) access feature. This reduces exposure to attacks while providing easy access when you need to connect to a VM.
 
 For a full explanation about how JIT works and the underlying logic, see [Just-in-time explained](just-in-time-access-overview.md).
+
+For a full explanation of the privilege requirements, see [What permissions are needed to configure and use JIT?](just-in-time-access-overview.md#what-permissions-are-needed-to-configure-and-use-jit).
 
 This page teaches you how to include JIT in your security program. You'll learn how to: 
 
 - **Enable JIT on your VMs** - You can enable JIT with your own custom options for one or more VMs using Defender for Cloud, PowerShell, or the REST API. Alternatively, you can enable JIT with default, hard-coded parameters, from Azure virtual machines. When enabled, JIT locks down inbound traffic to your Azure VMs by creating a rule in your network security group.
 - **Request access to a VM that has JIT enabled** - The goal of JIT is to ensure that even though your inbound traffic is locked down, Defender for Cloud still provides easy access to connect to VMs when needed. You can request access to a JIT-enabled VM from Defender for Cloud, Azure virtual machines, PowerShell, or the REST API.
 - **Audit the activity** - To ensure your VMs are secured appropriately, review the accesses to your JIT-enabled VMs as part of your regular security checks.   
-
-
 
 ## Availability
 
@@ -28,7 +26,7 @@ This page teaches you how to include JIT in your security program. You'll learn 
 | Supported VMs:                  | :::image type="icon" source="./media/icons/yes-icon.png"::: VMs deployed through Azure Resource Manager.<br>:::image type="icon" source="./media/icons/no-icon.png"::: VMs deployed with classic deployment models. [Learn more about these deployment models](../azure-resource-manager/management/deployment-models.md).<br>:::image type="icon" source="./media/icons/no-icon.png"::: VMs protected by Azure Firewalls<sup>[1](#footnote1)</sup> controlled by [Azure Firewall Manager](../firewall-manager/overview.md). |
 | Required roles and permissions: | **Reader** and **SecurityReader** roles can both view the JIT status and parameters.<br>To create custom roles that can work with JIT, see [What permissions are needed to configure and use JIT?](just-in-time-access-overview.md#what-permissions-are-needed-to-configure-and-use-jit).<br>To create a least-privileged role for users that need to request JIT access to a VM, and perform no other JIT operations, use the [Set-JitLeastPrivilegedRole script](https://github.com/Azure/Azure-Security-Center/tree/main/Powershell%20scripts/JIT%20Scripts/JIT%20Custom%20Role) from the Defender for Cloud GitHub community pages. |
 | Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts                                                                                                                                                                                                                                                                                                                                                     |
-|||
+
 
 <sup><a name="footnote1"></a>1</sup> For any VM protected by Azure Firewall, JIT will only fully protect the machine if it's in the same VNET as the firewall. VMs using VNET peering will not be fully protected.
 
@@ -121,7 +119,7 @@ You can enable JIT on a VM from the Azure virtual machines pages of the Azure po
 > [!TIP]
 > If a VM already has just-in-time enabled, when you go to its configuration page you'll see that just-in-time is enabled and you can use the link to open the just-in-time VM access page in Defender for Cloud, and view and change the settings.
 
-1. From the [Azure portal](https://ms.portal.azure.com), search for and select **Virtual machines**. 
+1. From the [Azure portal](https://portal.azure.com), search for and select **Virtual machines**. 
 
 1. Select the virtual machine you want to protect with JIT.
 

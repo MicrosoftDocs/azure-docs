@@ -7,8 +7,8 @@ metadata:
   title: Microsoft Defender for Cloud documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Get started with Defender for Cloud, learn how to secure your workloads, limit risks, and detect and respond to attacks with our quickstarts & tutorials. # Required; article description that is displayed in search results. < 160 chars.
   services: defender-for-cloud
-  author: memildin
-  ms.author: memildin
+  author: elkrieger
+  ms.author: elkrieger
   manager: raynew
   ms.topic: landing-page # Required
   ms.collection: collection
@@ -43,8 +43,6 @@ landingContent:
             url: release-notes.md
           - text: Important upcoming changes
             url: upcoming-changes.md
-          - text: Multi-cloud security - Defend AWS EKS clusters
-            url: defender-for-kubernetes-introduction.md#protect-amazon-elastic-kubernetes-service-clusters
           - text: Connect AWS accounts with environment settings
             url: quickstart-onboard-aws.md
           - text: Threat and vulnerability management vulnerability assessment

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/26/2021
+ms.date: 01/28/2022
 ms.author: alkohli
 ---
 
@@ -30,8 +30,6 @@ The following new features are available in the Azure Stack Edge 2110 release.
 - **High-performance network virtual machines** - Beginning this release, high-performance network virtual machines can be deployed on your Azure Stack Edge device. For more information, see [Deploy high-performance network virtual machines on Azure Stack Edge](azure-stack-edge-gpu-deploy-virtual-machine-high-performance-network.md).
 - **Certificates for Edge container registry and Kubernetes dashboard** - Certificates for Edge container registry and Kubernetes dashboard are now supported. You can create and upload certificates via the local UI. For more information, see [Kubernetes certificates](azure-stack-edge-gpu-certificates-overview.md#kubernetes-certificates) and [Upload Kubernetes certificates](azure-stack-edge-gpu-manage-certificates.md#upload-kubernetes-certificates).
 - **Metallb in BGP mode** - Starting this release, you can configure load balancing on your Azure Stack Edge device using MetalLB via Border Gateway Protocol (BGP). Configuration is done by connecting to the PowerShell interface of the device and then running specific cmdlets. For more information, see [Configure load balancing with MetalLB on your Azure Stack Edge device](azure-stack-edge-gpu-configure-metallb-bgp-mode.md).
-
-
 
 ## Issues fixed in 2110 release
 
@@ -59,7 +57,7 @@ The following table provides a summary of known issues in the 2110 release.
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
 |**1.**|Preview features |For this release, the following features: Local Azure Resource Manager, VMs, Cloud management of VMs, Kubernetes cloud management, VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R, Multi-process service (MPS), and Multi-Access Edge Computing (MEC) for Azure Stack Edge Pro GPU  - are all available in preview.  |These features will be generally available in later releases. |
-
+|**2.**|Certificates|Alerts related to signing chain certificates aren't removed from the portal even after uploading new signing chain certificates.| |
 
 
 ## Known issues from previous releases
@@ -84,7 +82,7 @@ The following table provides a summary of known issues carried over from the pre
 |**14.**|Certificates |In certain instances, certificate state in the local UI may take several seconds to update. |The following scenarios in the local UI may be affected.<ul><li>**Status** column in **Certificates** page.</li><li>**Security** tile in **Get started** page.</li><li>**Configuration** tile in **Overview** page.</li></ul>  |
 |**15.**|Compute + Kubernetes |Compute/Kubernetes does not support NTLM web proxy. ||
 |**16**|Internet Explorer|If enhanced security features are enabled, you may not be able to access local web UI pages. | Disable enhanced security, and restart your browser.|
-|**17.**|Kubernetes |Kubernetes doesn't support ":" in environment variable names that are used by .NET applications. This is also required for Event grid IoT Edge module to function on Azure Stack Edge device and other applications. For more information, see [ASP.NET core documentation](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration#environment-variables).|Replace ":" by double underscore. For more information,see [Kubernetes issue](https://github.com/kubernetes/kubernetes/issues/53201)|
+|**17.**|Kubernetes |Kubernetes doesn't support ":" in environment variable names that are used by .NET applications. This is also required for Event Grid IoT Edge module to function on Azure Stack Edge device and other applications. For more information, see [ASP.NET core documentation](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration#environment-variables).|Replace ":" by double underscore. For more information,see [Kubernetes issue](https://github.com/kubernetes/kubernetes/issues/53201)|
 |**18.** |Azure Arc + Kubernetes cluster |By default, when resource `yamls` are deleted from the Git repository, the corresponding resources are not deleted from the Kubernetes cluster.  |To allow the deletion of resources when they're deleted from the git repository, set `--sync-garbage-collection` in Arc OperatorParams. For more information, see [Delete a configuration](../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md#additional-parameters). |
 |**19.**|NFS |Applications that use NFS share mounts on your device to write data should use Exclusive write. That ensures the writes are written to the disk.| |
 |**20.**|Compute configuration |Compute configuration fails in network configurations where gateways or switches or routers respond to Address Resolution Protocol (ARP) requests for systems that do not exist on the network.| |
@@ -95,6 +93,7 @@ The following table provides a summary of known issues carried over from the pre
 |**25.**|Multi-Access Edge Compute (MEC) |If Azure Stack Edge is running 2106, and a Network Function Device resource is created and the Azure Stack Edge is then updated to 2110, when you deploy the Network Function, the deployment will fail. The virtual network is not being created after the device is updated to 2110. The failure does not occur if there is an existing Network Function deployment on Azure Stack Edge. | To work around this issue, re-register the same device resource using the `Invoke-MecRegister` cmdlet on your Azure Stack Edge and use the activation key from the Azure Stack Edge resource. Alternatively, you can create virtual switches via the following commands: <ul><li> `Add-HcsExternalVirtualSwitch -InterfaceAlias  Port5 -WaitForSwitchCreation $true -switchName mec-vswitch-LAN  -SupportsAcceleratedNetworking $true` </li><li> `Add-HcsExternalVirtualSwitch -InterfaceAlias  Port6 -WaitForSwitchCreation $true -switchName mec-vswitch-WAN -SupportsAcceleratedNetworking $true` </li></ul>  |
 |**26.**|Multi-Access Edge Compute (MEC) |Azure Stack Edge was updated to version 2110 while the Network Functions VMs were running. In these instances, the update may fail when trying to stop the virtual machines that are connected to the Mellanox Ethernet adapter. The following error is seen in the event log: *The network interface "Mellanox ConnectX-4 Lx Ethernet Adapter" has begun resetting. There will be a momentary disruption in network connectivity while the hardware resets. Reason: The network driver did not respond to an OID request in a timely fashion. This network interface has reset 3 time(s) since it was last initialized.*  |To work around this issue, reboot your Azure Stack Edge and retry updating the device. |
 
+## Next steps
 
 - [Update your device](azure-stack-edge-gpu-install-update.md)
 

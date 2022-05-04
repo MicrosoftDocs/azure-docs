@@ -1,6 +1,6 @@
 ---
 title: 'Register and scan Azure Cosmos Database (SQL API)'
-description: This article outlines the process to register an Azure Cosmos data source (SQL API) in Azure Purview including instructions to authenticate and interact with the Azure Cosmos database
+description: This article outlines the process to register an Azure Cosmos data source (SQL API) in Microsoft Purview including instructions to authenticate and interact with the Azure Cosmos database
 author: athenads
 ms.author: athenadsouza
 ms.service: purview
@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
 ---
-# Connect to Azure Cosmos database (SQL API) in Azure Purview
+# Connect to Azure Cosmos database (SQL API) in Microsoft Purview
 
-This article outlines the process to register an Azure Cosmos database (SQL API) in Azure Purview including instructions to authenticate and interact with the Azure Cosmos database source
+This article outlines the process to register an Azure Cosmos database (SQL API) in Microsoft Purview including instructions to authenticate and interact with the Azure Cosmos database source
 
 ## Supported capabilities
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)|No|No** |
+| [Yes](#register) | [Yes](#scan)|[No](#scan) | [Yes](#scan)|[Yes](#scan)|No|No** |
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
@@ -24,9 +24,9 @@ This article outlines the process to register an Azure Cosmos database (SQL API)
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Purview resource](create-catalog-portal.md).
+* An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 
@@ -34,13 +34,11 @@ This section will enable you to register the Azure Cosmos database (SQL API) and
 
 ### Steps to register
 
-It is important to register the data source in Azure Purview prior to setting up a scan for the data source.
+It is important to register the data source in Microsoft Purview prior to setting up a scan for the data source.
 
-1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Purview accounts** page and select your _Purview account_
+1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Microsoft Purview accounts** page and select your _Purview account_
 
-    :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-purview-acct.png" alt-text="Screenshot that shows the Purview account used to register the data source":::
-
-1. **Open Purview Studio** and navigate to the **Data Map --> Collections**
+1. **Open Microsoft Purview governance portal** and navigate to the **Data Map --> Collections**
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-open-purview-studio.png" alt-text="Screenshot that navigates to the Sources link in the Data Map":::
 
@@ -72,10 +70,10 @@ In order to have access to scan the data source, an authentication method in the
 
 There is only one way to set up authentication for Azure Cosmos Database:
 
-**Account Key** - Secrets can be created inside an Azure Key Vault to store credentials in order to enable access for Azure Purview to scan data sources securely using the secrets. A secret can be a storage account key, SQL login password or a password.
+**Account Key** - Secrets can be created inside an Azure Key Vault to store credentials in order to enable access for Microsoft Purview to scan data sources securely using the secrets. A secret can be a storage account key, SQL login password or a password.
 
 > [!Note]
-> You need to deploy an _Azure key vault_ resource in your subscription and assign _Azure Purview account’s_ MSI with required access permission to secrets inside _Azure key vault_.
+> You need to deploy an _Azure key vault_ resource in your subscription and assign _Microsoft Purview account’s_ MSI with required access permission to secrets inside _Azure key vault_.
 
 #### Using Account Key for scanning
 
@@ -102,12 +100,12 @@ You need to get your access key and store in the key vault:
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-key-vault-options.png" alt-text="Screenshot that shows the key vault option to enter the secret values":::
 
-1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the key to set up your scan.
 
 ### Creating the scan
 
-1. Open your **Purview account** and select the **Open Purview Studio**
+1. Open your **Microsoft Purview account** and select the **Open Microsoft Purview governance portal**
 1. Navigate to the **Data map** --> **Sources** to view the collection hierarchy
 1. Select the **New Scan** icon under the **Azure Cosmos database** registered earlier
 
@@ -185,8 +183,8 @@ Scans can be managed or run again on completion.
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Purview and your data.
+Now that you have registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
-- [Data insights in Azure Purview](concept-insights.md)
-- [Lineage in Azure Purview](catalog-lineage-user-guide.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
+- [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

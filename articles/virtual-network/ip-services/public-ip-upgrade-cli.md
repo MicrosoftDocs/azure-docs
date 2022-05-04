@@ -7,14 +7,15 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 05/20/2021
-ms.custom: template-how-to 
+ms.custom: template-how-to , devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Upgrade a public IP address using the Azure CLI
 
-Azure public IP addresses are created with a SKU, either basic or standard. The SKU determines their functionality including allocation method, feature support, and resources they can be associated with. 
+Azure public IP addresses are created with a SKU, either Basic or Standard. The SKU determines their functionality including allocation method, feature support, and resources they can be associated with. 
 
-In this article, you'll learn how to upgrade a static basic SKU public IP address to standard SKU using the Azure CLI.
+In this article, you'll learn how to upgrade a static Basic SKU public IP address to Standard SKU using the Azure CLI.
 
 ## Prerequisites
 
@@ -27,7 +28,12 @@ In this article, you'll learn how to upgrade a static basic SKU public IP addres
 
 ## Upgrade public IP address
 
-In this section, you'll use the Azure CLI and upgrade your static basic SKU public IP to the standard SKU.
+In this section, you'll use the Azure CLI and upgrade your static Basic SKU public IP to the Standard SKU.
+
+In order to upgrade a public IP, it must not be associated with any resource (see [this page](/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) for more information about how to disassociate public IPs).
+
+>[!IMPORTANT]
+>Public IPs upgraded from Basic to Standard SKU continue to have no [availability zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).  This means they cannot be associated with an Azure resource that is either zone-redundant or tied to a pre-specified zone in regions where this is offered.
 
 ```azurecli-interactive
 az network public-ip update \

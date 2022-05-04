@@ -3,8 +3,8 @@ title: Set up logging to monitor logic apps in Azure Security Center
 description: Monitor the health of your Logic Apps resources in Azure Security Center by setting up diagnostic logging. 
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm
-ms.topic: conceptual
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 12/07/2020
 ---
 
@@ -17,8 +17,10 @@ When you monitor your Logic Apps resources in [Microsoft Azure Security Center](
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, [create a free Azure account](https://azure.microsoft.com/free/) before you start.
+* An Azure subscription. If you don't have a subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 * Existing logic apps with [diagnostic logging enabled](#enable-diagnostic-logging).
+
 * A Log Analytics workspace, which is required to enable logging for your logic app. If you don't have a workspace, first [create your workspace](../azure-monitor/logs/quick-create-workspace.md).
 
 ## Enable diagnostic logging

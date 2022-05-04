@@ -6,8 +6,6 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/07/2020
-author: mattmccleary
-ms.author: mmcc
 ms.devlang: javascript
 ---
 
@@ -20,6 +18,9 @@ The Angular plugin for the Application Insights JavaScript SDK, enables:
 
 > [!WARNING]
 > Angular plugin is NOT ECMAScript 3 (ES3) compatible.
+
+> [!IMPORTANT]
+> When we add support for a new Angular version, our NPM package becomes incompatible with down-level Angular versions. Continue to use older NPM packages until you're ready to upgrade your Angular version.
 
 ## Getting started
 
@@ -78,6 +79,23 @@ import { ApplicationinsightsAngularpluginErrorService } from '@microsoft/applica
 })
 export class AppModule { }
 ```
+
+## Enable Correlation
+
+Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
+
+In JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. To enable correlation please reference [JavaScript client-side correlation documentation](./javascript.md#enable-correlation).
+
+### Route tracking
+
+The Angular Plugin automatically tracks route changes and collects other Angular specific telemetry. 
+
+> [!NOTE]
+> `enableAutoRouteTracking` should be set to `false` if it set to true then when the route changes duplicate PageViews may be sent.
+
+### PageView
+
+If a custom `PageView` duration is not provided, `PageView` duration defaults to a value of 0. 
 
 ## Next steps
 

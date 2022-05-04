@@ -4,15 +4,15 @@ description: Migrate your legacy QnAMaker knowledge bases to custom question ans
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.author: diagarw
-author: DishaAgarwal
-ms.date: 11/02/2021
+ms.author: jboback
+author: jboback
+ms.date: 01/23/2022
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
 # Migrate from QnA Maker to custom question answering
 
-Custom question answering was introduced in May 2021 with several new features including enhanced relevance using a deep learning ranker, precise answers, and end-to-end region support. Each custom question answering project is equivalent to a knowledge base in QnA Maker. You can easily migrate knowledge bases from a QnA Maker resource to custom question answering projects within a [language resource](https://aka.ms/create-language-resource). You can also choose to migrate knowledge bases from multiple QnA Maker resources to a specific language resource.
+Custom question answering, a feature of Azure Cognitive Service for Language was introduced in May 2021 with several new capabilities including enhanced relevance using a deep learning ranker, precise answers, and end-to-end region support. Each custom question answering project is equivalent to a knowledge base in QnA Maker. You can easily migrate knowledge bases from a QnA Maker resource to custom question answering projects within a [language resource](https://aka.ms/create-language-resource). You can also choose to migrate knowledge bases from multiple QnA Maker resources to a specific language resource.
 
 To successfully migrate knowledge bases, **the account performing the migration needs contributor access to the selected QnA Maker and language resource**. When a knowledge base is migrated, the following details are copied to the new custom question answering project:
 
@@ -22,7 +22,11 @@ To successfully migrate knowledge bases, **the account performing the migration 
 
 Resource level settings such as Role-based access control (RBAC) are not migrated to the new resource. These resource level settings would have to be reconfigured for the language resource post migration. You will also need to [re-enable analytics](analytics.md) for the language resource.
 
-## Steps to migrate
+## Steps to migrate SDKs
+
+This [SDK Migration Guide](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.QuestionAnswering_1.1.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/MigrationGuide.md) is intended to assist in the migration to the new Question Answering client library, [Azure.AI.Language.QuestionAnswering](https://www.nuget.org/packages/Azure.AI.Language.QuestionAnswering), from the old one, [Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker). It will focus on side-by-side comparisons for similar operations between the two packages.
+
+## Steps to migrate knowledge bases
 
 You can follow the steps below to migrate knowledge bases:
 

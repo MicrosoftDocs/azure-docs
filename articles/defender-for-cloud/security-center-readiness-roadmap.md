@@ -6,8 +6,6 @@ ms.date: 11/09/2021
 ---
 # Defender for Cloud readiness roadmap
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This document provides you a readiness roadmap that will assist you to get started with Defender for Cloud.
 
 ## Understanding Defender for Cloud
@@ -50,16 +48,12 @@ Articles
 - [Protecting Azure SQL service and data in Defender for Cloud](./implement-security-recommendations.md)
 
 
-Video    
-- [Mitigating Security Issues using Defender for Cloud](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
-
 ### Defender for Cloud for incident response
 To reduce costs and damage, it's important to have an incident response plan in place before an attack takes place. You can use Defender for Cloud in different stages of an incident response.
 
 Use the following resources to understand how Defender for Cloud can be incorporated in your incident response process.
 
 Videos    
-* [Defender for Cloud in Incident Response](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response)
 * [Respond quickly to threats with next-generation security operation, and investigation](https://youtu.be/e8iFCz5RM4g)
 
 Articles    
@@ -90,7 +84,7 @@ Articles
 * [Defender for Cloud Documentation Page](./index.yml)
 * [Defender for Cloud REST API Documentation Page](/previous-versions/azure/reference/mt704034(v=azure.100))
 * [Defender for Cloud frequently asked questions (FAQ)](./faq-general.yml)
-* [Pricing page](https://azure.microsoft.com/pricing/details/security-center/)
+* [Pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)
 * [Identity security best practices](../security/fundamentals/identity-management-best-practices.md)
 * [Network security best practices](../security/fundamentals/network-best-practices.md)
 * [PaaS recommendations](../security/fundamentals/paas-deployments.md)

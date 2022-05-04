@@ -3,7 +3,7 @@ title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 11/18/2021
+ms.date: 01/22/2022
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -118,13 +118,81 @@ To update your app to Azure Functions 4.x, update your local installation of [Az
 
 #### Azure
 
-To migrate an app from 3.x to 4.x, set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` with the following Azure CLI command:
+A pre-upgrade validator is available to help identify potential issues when migrating a function app to 4.x. Before you migrate an existing app, follow these steps to run the validator:
 
-```bash
-az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
+1. In the Azure portal, navigate to your function app
+
+1. Open the *Diagnose and solve problems* blade
+
+1. In *Search for common problems or tools*, enter and select **Functions 4.x Pre-Upgrade Validator**
+
+Once you have validated that the app can be upgraded, you can begin the process of migration. See the subsections below for instructions for [migration without slots](#migration-without-slots) and [migration with slots](#migration-with-slots).
+
+> [!NOTE]
+> If you are using a slot to manage the migration, you will need to set the `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS` application setting to "0" on _both_ slots. This allows the version changes you make to be included in the slot swap operation. You can then upgrade your staging (non-production) slot, and then you can perform the swap.
+
+To migrate an app from 3.x to 4.x, you will:
+
+- Set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4`
+- **For Windows function apps only**, enable .NET 6.0 through the `netFrameworkVersion` setting
+
+##### Migration without slots
+
+You can use the following Azure CLI or Azure PowerShell commands to perform this upgrade directly on a site without slots:
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
 
 # For Windows function apps only, also enable .NET 6.0 that is needed by the runtime
-az functionapp config set --net-framework-version v6.0 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
+az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Update-AzFunctionAppSetting -AppSetting @{FUNCTIONS_EXTENSION_VERSION = "~4"} -Name <APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -Force
+
+# For Windows function apps only, also enable .NET 6.0 that is needed by the runtime
+Set-AzWebApp -NetFrameworkVersion v6.0 -Name <APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME>
+```
+
+---
+
+##### Migration with slots
+
+You can use the following Azure CLI commands to perform this upgrade using deployment slots:
+
+First, update the production slot with `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0`. If your app can tolerate a restart (which impacts availability), it is recommended that you update the setting directly on the production slot, possibly at a time of lower traffic. If you instead choose to swap this setting into place, you should immediately update the staging slot after the swap. A consequence of swapping when only staging has `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0` is that it will remove the `FUNCTIONS_EXTENSION_VERSION` setting in staging, putting the slot into a bad state. Updating the staging slot with a version right after the swap enables you to roll your changes back if necessary. However, in such a situation, you should still be prepared to directly update settings on production to remove `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0` before the swap back.
+
+```azurecli
+# Update production with WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS
+az functionapp config appsettings set --settings WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0  -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> 
+
+# OR
+
+# Alternatively get production prepared with WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS via a swap
+az functionapp config appsettings set --settings WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0  -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
+# The swap actions should be accompanied with a version specification for the slot. You may see errors from staging during the time between these actions.
+az functionapp deployment slot swap -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME> --target-slot production
+az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~3 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
+```
+
+After the production slot has `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0` configured, you can configure everything else in the staging slot and then swap: 
+
+```azurecli
+# Get staging configured with WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS
+az functionapp config appsettings set --settings WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
+# Get staging configured with the new extension version
+az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
+# For Windows function apps only, also enable .NET 6.0 that is needed by the runtime
+az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
+
+# Be sure to confirm that your staging environment is working as expected before swapping.
+
+# Swap to migrate production to the new version
+az functionapp deployment slot swap -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME> --target-slot production
 ```
 
 ### Breaking changes between 3.x and 4.x
@@ -140,6 +208,8 @@ The following are some changes to be aware of before upgrading a 3.x app to 4.x.
 - Azure Functions 4.x enforces [minimum version requirements](https://github.com/Azure/Azure-Functions/issues/1987) for extensions. Upgrade to the latest version of affected extensions. For non-.NET languages, [upgrade](./functions-bindings-register.md#extension-bundles) to extension bundle version 2.x or later. ([#1987](https://github.com/Azure/Azure-Functions/issues/1987))
 
 - Default and maximum timeouts are now enforced in 4.x Linux consumption function apps. ([#1915](https://github.com/Azure/Azure-Functions/issues/1915))
+
+- Azure Functions 4.x uses Azure.Identity and Azure.Security.KeyVault.Secrets for the Key Vault provider and has deprecated the use of Microsoft.Azure.KeyVault. See the Key Vault option in [Secret Repositories](security-concepts.md#secret-repositories) for more information on how to configure function app settings. ([#2048](https://github.com/Azure/Azure-Functions/issues/2048))
 
 - Function apps that share storage accounts will fail to start if their computed hostnames are the same. Use a separate storage account for each function app. ([#2049](https://github.com/Azure/Azure-Functions/issues/2049))
 
@@ -198,7 +268,7 @@ The main differences between versions when running .NET class library functions 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-* Output bindings assigned through `context.done` or return values now behave the same as setting in `context.bindings`.
+* Output bindings assigned through 1.x `context.done` or return values now behave the same as setting in 2.x+ `context.bindings`.
 
 * Timer trigger object is camelCase instead of PascalCase
 

@@ -44,7 +44,7 @@ You can quickly add additional parameters by selecting **New parameter** and spe
 
 Once you've created a data flow with parameters, you can execute it from a pipeline with the Execute Data Flow Activity. After you add the activity to your pipeline canvas, you will be presented with the available data flow parameters in the activity's **Parameters** tab.
 
-When assigning parameter values, you can use either the [pipeline expression language](control-flow-expression-language-functions.md) or the [data flow expression language](data-flow-expression-functions.md) based on spark types. Each mapping data flow can have any combination of pipeline and data flow expression parameters.
+When assigning parameter values, you can use either the [pipeline expression language](control-flow-expression-language-functions.md) or the [data flow expression language](data-transformation-functions.md) based on spark types. Each mapping data flow can have any combination of pipeline and data flow expression parameters.
 
 :::image type="content" source="media/data-flow/parameter-assign.png" alt-text="Screenshot shows the Parameters tab with Data Flow expression selected for the value of myparam.":::
 

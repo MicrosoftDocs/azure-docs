@@ -11,7 +11,9 @@ ms.custom: devx-track-java
 
 # Use a managed identity to connect Azure SQL Database to an Azure Spring Cloud app
 
-**This article applies to:** ✔️ Java
+**This article applies to:** ✔️ Java ❌ C#
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 This article shows you how to create a managed identity for an Azure Spring Cloud app and use it to access Azure SQL Database.
 
@@ -56,5 +58,5 @@ Rebuild the app and deploy it to the Azure Spring Cloud app provisioned in the s
 
 * [How to access Storage blob with managed identity in Azure Spring Cloud](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/managed-identity-storage-blob)
 * [How to enable system-assigned managed identity for applications in Azure Spring Cloud](./how-to-enable-system-assigned-managed-identity.md)
-* [Learn more about managed identities for Azure resources](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
+* [Learn more about managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
 * [Authenticate Azure Spring Cloud with Key Vault in GitHub Actions](./github-actions-key-vault.md)

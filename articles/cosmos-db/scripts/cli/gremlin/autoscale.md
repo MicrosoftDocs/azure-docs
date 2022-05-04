@@ -1,47 +1,52 @@
 ---
-title: Create a Gremlin database and graph with autoscale for Azure Cosmos DB
-description: Create a Gremlin database and graph with autoscale for Azure Cosmos DB
+title: Azure Cosmos DB Gremlin database and graph with autoscale
+description: Use this Azure CLI script to create an Azure Cosmos DB Gremlin API account, database, and graph with autoscale.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
-ms.date: 7/29/2020
+ms.date: 05/02/2022
+ms.custom: kr2b-contr-experiment
 ---
 
-# Create an Azure Cosmos Gremlin API account, database and graph with autoscale using Azure CLI
-[!INCLUDE[appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
+# Use Azure CLI to create a Gremlin API account, database, and graph with autoscale
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
 
-- This article requires version 2.9.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+The script in this article creates an Azure Cosmos DB Gremlin API account, database, and graph with autoscale.
+
+## Prerequisites
+
+- [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
+
+- This script requires Azure CLI version 2.30 or later.
+
+  - You can run the script in the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/quickstart). When Cloud Shell opens, make sure to select **Bash** in the environment field at the upper left of the shell window. Cloud Shell has the latest version of Azure CLI.
+
+    [![Launch Cloud Shell in a new window](../../../../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+
+  - If you prefer, you can [install Azure CLI](/cli/azure/install-azure-cli) to run the script locally. Run [az version](/cli/azure/reference-index?#az-version) to find your Azure CLI version, and run [az upgrade](/cli/azure/reference-index?#az-upgrade) if you need to upgrade. Sign in to Azure by running [az login](/cli/azure/reference-index#az-login).
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/gremlin/autoscale.sh "Create an Azure Cosmos DB Gremlin API account, database, and graph with autoscale.")]
+This script uses the following commands:
 
-## Clean up deployment
+- [az group create](/cli/azure/group#az-group-create) creates a resource group to store all resources.
+- [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) with the `--capabilities EnableGremlin` parameter creates a Gremlin-enabled Azure Cosmos DB account.
+- [az cosmosdb gremlin database create](/cli/azure/cosmosdb/gremlin/database#az-cosmosdb-gremlin-database-create) creates an Azure Cosmos DB Gremlin database.
+- [az cosmosdb gremlin graph create](/cli/azure/cosmosdb/gremlin/graph#az-cosmosdb-gremlin-graph-create) with the `--max-throughput` parameter set to minimum `4000` creates an Azure Cosmos DB Gremlin graph with autoscale.
 
-After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/gremlin/autoscale.sh" id="FullScript":::
 
-```azurecli-interactive
-az group delete --name $resourceGroupName
+## Delete resources
+
+If you don't need the resources the script created, use the [az group delete](/cli/azure/group#az-group-delete) command to delete the resource group and all resources it contains, including the Azure Cosmos DB account and database.
+
+```azurecli
+az group delete --name $resourceGroup
 ```
-
-## Script explanation
-
-This script uses the following commands. Each command in the table links to command specific documentation.
-
-| Command | Notes |
-|---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | Creates an Azure Cosmos DB account. |
-| [az cosmosdb gremlin database create](/cli/azure/cosmosdb/gremlin/database#az_cosmosdb_gremlin_database_create) | Creates an Azure Cosmos Gremlin database. |
-| [az cosmosdb gremlin graph create](/cli/azure/cosmosdb/gremlin/graph#az_cosmosdb_gremlin_graph_create) | Creates an Azure Cosmos Gremlin graph. |
-| [az group delete](/cli/azure/resource#az_resource_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
-For more information on the Azure Cosmos DB CLI, see [Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb).
-
-All Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI GitHub Repository](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
+[Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb)

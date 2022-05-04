@@ -1,10 +1,12 @@
 ---
 title: Scheduled maintenance - Azure Database for PostgreSQL - Flexible server
 description: This article describes the scheduled maintenance feature in Azure Database for PostgreSQL - Flexible server.
-author: niklarin
-ms.author: nlarin
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
+ms.author: gennadyk
+author: GennadNY
+ms.reviewer: 
 ms.date: 11/30/2021
 ---
 

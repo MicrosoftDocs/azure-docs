@@ -54,7 +54,7 @@ and Arc-enabled servers, review the following details.
 Before you can use the guest configuration feature of Azure Policy, you must
 register the `Microsoft.GuestConfiguration` resource provider. If assignment of
 a guest configuration policy is done through the portal, or if the subscription
-is enrolled in Azure Security Center, the resource provider is registered
+is enrolled in Microsoft Defender for Cloud, the resource provider is registered
 automatically. You can manually register through the
 [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal),
 [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell),
@@ -256,7 +256,7 @@ for the same definitions using the same parameter values as machines in the prim
 
 Guest configuration stores/processes customer data. By default, customer data is replicated to the
 [paired region.](../../../availability-zones/cross-region-replication-azure.md)
-For single resident region all customer data is stored and processed in the region.
+For the regions: Singapore, Brazil South, and East Asia all customer data is stored and processed in the region.
 
 ## Troubleshooting guest configuration
 

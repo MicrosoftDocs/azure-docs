@@ -3,15 +3,14 @@ title: Troubleshoot problems signing in to an application from My Apps portal
 titleSuffix: Azure AD
 description: Troubleshoot problems signing in to an application from Azure AD My Apps
 services: active-directory
-author: davidmu1
+author: lnalepa
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/11/2017
-ms.author: davidmu
-ms.reviewer: lenalepa
+ms.date: 02/01/2022
+ms.author: lenalepa
 ms.custom: contperf-fy21q2
 ---
 
@@ -209,14 +208,8 @@ To check if you have the correct deep link, follow these steps:
 4. Select **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 5. Select **All Applications** to view a list of all your applications.
    - If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
-6. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
-7. Open the **Azure Active Directory Extension** by selecting **All services** at the top of the main left-hand navigation menu.
-8. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-9. Select **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-10. Select **All Applications** to view a list of all your applications.
-    - If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
-11. Select the application you want the check the deep link for.
-12. Find the label **User Access URL**. Your deep link should match this URL.
+6. Select the application you want the check the deep link for.
+7. Find the label **User Access URL**. Your deep link should match this URL.
 
 ## Contact support
 

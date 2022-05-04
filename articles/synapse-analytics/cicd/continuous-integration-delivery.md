@@ -160,6 +160,14 @@ Use the [Synapse workspace deployment](https://marketplace.visualstudio.com/item
 
     :::image type="content" source="media/create-release-artifacts-deployment.png" lightbox="media/create-release-artifacts-deployment.png" alt-text="Screenshot that shows setting up the Synapse deployment task for the workspace.":::
 
+1. The deployment of managed private endpoint is only supported in version 2.x. please make sure you select the right version and check the **Deploy managed private endpoints in template**.
+
+    :::image type="content" source="media/deploy-private-endpoints.png" alt-text="Screenshot that shows selecting version 2.x to deploy private endpoints with synapse deployment task.":::
+
+1. To manage triggers, you can use trigger toggle to stop the triggers before deployment. And you can also add a task to restart the triggers after the deployment task. 
+
+    :::image type="content" source="media/toggle-trigger.png" alt-text="Screenshot that shows managing triggers before and after deployment.":::
+
 > [!IMPORTANT]
 > In CI/CD scenarios, the integration runtime type in different environments must be the same. For example, if you have a self-hosted integration runtime in the development environment, the same integration runtime must be self-hosted in other environments, such as in test and production. Similarly, if you're sharing integration runtimes across multiple stages, the integration runtimes must be linked and self-hosted in all environments, such as in development, test, and production.
 
@@ -173,7 +181,7 @@ After you save all changes, you can select **Create release** to manually create
 
 In this section, you'll learn how to create GitHub workflows by using GitHub Actions for Azure Synapse workspace deployment.
 
-You can use the [GitHub Action for Azure Resource Manager template](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) to automate deploying an ARM template to Azure for the workspace and compute pools.
+You can use the [GitHub Actions for Azure Resource Manager template](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) to automate deploying an ARM template to Azure for the workspace and compute pools.
 
 ### Workflow file
 
@@ -268,7 +276,7 @@ In your GitHub repository, go to **Actions**.
 
 If you use automated CI/CD and want to change some properties during deployment, but the properties aren't parameterized by default, you can override the default parameter template.
 
-To override the default parameter template, create a custom parameter template named*template-parameters-definition.json* in the root folder of your Git collaboration branch. You must use this exact file name. When Azure Synapse workspace publishes from the collaboration branch, it reads this file and uses its configuration to generate the parameters. If Azure Synapse workspace doesn't find that file, is uses the default parameter template.
+To override the default parameter template, create a custom parameter template named *template-parameters-definition.json* in the root folder of your Git collaboration branch. You must use this exact file name. When Azure Synapse workspace publishes from the collaboration branch, it reads this file and uses its configuration to generate the parameters. If Azure Synapse workspace doesn't find that file, is uses the default parameter template.
 
 ### Custom parameter syntax
 
@@ -293,30 +301,32 @@ Here's an example of what a parameter template definition looks like:
 
 ```json
 {
-"Microsoft.Synapse/workspaces/notebooks": {
-        "properties":{
-            "bigDataPool":{
+    "Microsoft.Synapse/workspaces/notebooks": {
+        "properties": {
+            "bigDataPool": {
                 "referenceName": "="
             }
         }
     },
     "Microsoft.Synapse/workspaces/sqlscripts": {
-	 "properties": {
-         "content":{
-             "currentConnection":{
-                    "*":"-"
-                 }
-            } 
+        "properties": {
+            "content": {
+                "currentConnection": {
+                    "*": "-"
+                }
+            }
         }
-	},
+    },
     "Microsoft.Synapse/workspaces/pipelines": {
         "properties": {
-            "activities": [{
-                 "typeProperties": {
-                    "waitTimeInSeconds": "-::int",
-                    "headers": "=::object"
+            "activities": [
+                {
+                    "typeProperties": {
+                        "waitTimeInSeconds": "-::int",
+                        "headers": "=::object"
+                    }
                 }
-            }]
+            ]
         }
     },
     "Microsoft.Synapse/workspaces/integrationRuntimes": {
@@ -342,7 +352,7 @@ Here's an example of what a parameter template definition looks like:
         "*": {
             "properties": {
                 "typeProperties": {
-                     "*": "="
+                    "*": "="
                 }
             }
         },

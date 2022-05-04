@@ -12,22 +12,24 @@ ms.subservice: azure-arc-data
 ---
 
 # az arcdata dc status
+
+Status commands.
 ## Commands
 | Command | Description|
 | --- | --- |
 [az arcdata dc status show](#az-arcdata-dc-status-show) | Show the status of the data controller.
 ## az arcdata dc status show
 Show the status of the data controller.
-```bash
+```azurecli
 az arcdata dc status show 
 ```
 ### Examples
 Show the status of the data controller in a particular kubernetes namespace.
-```bash
+```azurecli
 az arcdata dc status show --k8s-namespace namespace --use-k8s
 ```
 Show the status of a directly connected data controller in a particular resource group.
-```bash
+```azurecli
 az arcdata dc status show --resource-group resource-group    
 ```
 ### Global Arguments

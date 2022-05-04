@@ -39,7 +39,7 @@ When you receive this error while doing a management task, check the values you 
 - Resource group name
 - Subscription
 
-If you're using PowerShell or Azure CLI, check that you're running commands in the subscription that contains the resource. You can change the subscription with [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) or [az account set](/cli/azure/account#az_account_set). Many commands provide a subscription parameter that lets you specify a different subscription than the current context.
+If you're using PowerShell or Azure CLI, check that you're running commands in the subscription that contains the resource. You can change the subscription with [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) or [az account set](/cli/azure/account#az-account-set). Many commands provide a subscription parameter that lets you specify a different subscription than the current context.
 
 If you can't verify the properties, sign in to the [Microsoft Azure portal](https://portal.azure.com). Find the resource you're trying to use and examine the resource name, resource group, and subscription.
 
@@ -51,7 +51,7 @@ For example, when you deploy a web app, the App Service plan must exist. If you 
 
 # [Bicep](#tab/bicep)
 
-Use an [implicit dependency](../bicep/resource-declaration.md#implicit-dependency) rather than the [resourceId](../bicep/bicep-functions-resource.md#resourceid) function. The dependency is created using a resource's [symbolic name](../bicep/file.md#bicep-format) and ID property.
+Use an [implicit dependency](../bicep/resource-dependencies.md#implicit-dependency) rather than the [resourceId](../bicep/bicep-functions-resource.md#resourceid) function. The dependency is created using a resource's [symbolic name](../bicep/file.md#bicep-format) and ID property.
 
 For example, the web app's `serverFarmId` property uses `servicePlan.id` to create a dependency on the App Service plan.
 
@@ -67,7 +67,7 @@ resource servicePlan 'Microsoft.Web/serverfarms@2021-02-01' = {
   ...
 ```
 
-For most deployments, it's not necessary to use `dependsOn` to create an [explicit dependency](../bicep/resource-declaration.md#explicit-dependency).
+For most deployments, it's not necessary to use `dependsOn` to create an [explicit dependency](../bicep/resource-dependencies.md#explicit-dependency).
 
 Avoid setting dependencies that aren't needed. Unnecessary dependencies prolong the deployment's duration because resources aren't deployed in parallel. Also, you might create circular dependencies that block the deployment.
 
@@ -119,7 +119,7 @@ When you see dependency problems, you need to gain insight into the order of res
 
 # [Bicep](#tab/bicep)
 
-Bicep uses the symbolic name to create an [implicit dependency](../bicep/resource-declaration.md#implicit-dependency) on another resource. The [existing](../bicep/resource-declaration.md#existing-resources) keyword references a deployed resource. If an existing resource is in a different resource group than the resource you want to deploy, include [scope](../bicep/bicep-functions-scope.md#resource-group-example) and use the [resourceGroup](../bicep/bicep-functions-scope.md#resourcegroup) function.
+Bicep uses the symbolic name to create an [implicit dependency](../bicep/resource-dependencies.md#implicit-dependency) on another resource. The [existing](../bicep/existing-resource.md) keyword references a deployed resource. If an existing resource is in a different resource group than the resource you want to deploy, include [scope](../bicep/bicep-functions-scope.md#resource-group-example) and use the [resourceGroup](../bicep/bicep-functions-scope.md#resourcegroup) function.
 
 In this example, a web app is deployed that uses an existing App Service plan from another resource group.
 
@@ -158,7 +158,7 @@ The following example gets the resource ID for a resource that exists in a diffe
 
 # [Bicep](#tab/bicep)
 
-If you're deploying a resource with a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you must wait until that resource is deployed before retrieving values on the managed identity. Use an [implicit dependency](../bicep/resource-declaration.md#implicit-dependency) for the resource that the identity is applied to. This approach ensures the resource and the managed identity are deployed before Resource Manager uses the dependency.
+If you're deploying a resource with a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you must wait until that resource is deployed before retrieving values on the managed identity. Use an [implicit dependency](../bicep/resource-dependencies.md#implicit-dependency) for the resource that the identity is applied to. This approach ensures the resource and the managed identity are deployed before Resource Manager uses the dependency.
 
 You can get the principal ID and tenant ID for a managed identity that's applied to a virtual machine. For example, if a virtual machine resource has a symbolic name of `vm`, use the following syntax:
 
@@ -203,7 +203,7 @@ Or, to get the tenant ID for a managed identity that is applied to a virtual mac
 
 # [Bicep](#tab/bicep)
 
-You can use a resource's symbolic name to get values from a resource. You can reference a storage account in the same resource group or another resource group using a symbolic name. To get a value from a deployed resource, use the [existing](../bicep/resource-declaration.md#existing-resources) keyword. If a resource is in a different resource group, use `scope` with the [resourceGroup](../bicep/bicep-functions-scope.md#resourcegroup) function. For most cases, the [reference](../bicep/bicep-functions-resource.md#reference) function isn't needed.
+You can use a resource's symbolic name to get values from a resource. You can reference a storage account in the same resource group or another resource group using a symbolic name. To get a value from a deployed resource, use the [existing](../bicep/existing-resource.md) keyword. If a resource is in a different resource group, use `scope` with the [resourceGroup](../bicep/bicep-functions-scope.md#resourcegroup) function. For most cases, the [reference](../bicep/bicep-functions-resource.md#reference) function isn't needed.
 
 The following example references an existing storage account in a different resource group.
 

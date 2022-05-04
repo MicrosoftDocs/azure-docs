@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Configure immediate blocking by a specified Palo Alto firewall
 
-In cases, such as malware-related alerts, you can enable automatic blocking. Defender for IoT forwarding rules are utilized to send a blocking command directly to a specific Palo Alto firewall.
+In cases, such as malware-related alerts, you can enable automatic blocking. Defender for IoT forwarding rules is utilized to send a blocking command directly to a specific Palo Alto firewall.
 
 When Defender for IoT identifies a critical threat, it sends an alert that includes an option of blocking the infected source. Selecting **Block Source** in the alert’s details activates the forwarding rule, which sends the blocking command to the specified Palo Alto firewall.
 
@@ -41,13 +41,9 @@ When Defender for IoT identifies a critical threat, it sends an alert that inclu
 
 1. In the left pane, select **Forwarding**.
 
-1. Select **Create Forwarding Rule**.
-
-    :::image type="content" source="media/tutorial-palo-alto/forwarding.png" alt-text="Screenshot of the forwarding alert screen.":::
+1. Select **Create rule**.
 
 1. From the Actions drop down menu, select **Send to Palo Alto NGFW**.
-
-   :::image type="content" source="media/tutorial-palo-alto/forward-rule.png" alt-text="Screenshot of the create Forwarding Rule screen.":::
 
 1. In the Actions pane, set the following parameters:
 
@@ -66,7 +62,7 @@ When Defender for IoT identifies a critical threat, it sends an alert that inclu
 
 1. Select **Submit**.
 
-You will then need to block any suspicious source.
+You'll then need to block any suspicious source.
 
 **To block a suspicious source**:
 
@@ -108,27 +104,22 @@ The first step in creating Panorama blocking policies in Defender for IoT is to 
 
 **To configure DNS lookup**:
 
-1. In the left pane, select **System Settings**.
+1. In the console left pane, select **System settings** > **Network monitoring** > **DNS Reverse Lookup**.
+1. Select **Add DNS server**.
+1. In the **Schedule Reverse Lookup** field define the scheduling options:
+      - By specific times: Specify when to perform the reverse lookup daily.
+    - By fixed intervals (in hours): Set the frequency for performing the reverse lookup.
+1. In the **Number of Labels** field instruct Defender for IoT to automatically resolve network IP addresses to device FQDNs. <br />To configure DNS FQDN resolution, add the number of domain labels to display. Up to 30 characters are displayed from left to right.
+1. Add the following server details:
 
-1. Select the **DNS Settings** :::image type="icon" source="media/tutorial-palo-alto/settings.png"::: button.
-
-1. In the **Edit DNS Settings** dialog box, set the following parameters:
-
-   - **Status**: The status of the DNS resolver.
-
-   - **DNS Server Address**: Enter the IP address, or the FQDN of the network DNS Server.
+    - **DNS Server Address**: Enter the IP address, or the FQDN of the network DNS Server.
    - **DNS Server Port**: Enter the port used to query the DNS server.
    - **Subnets**: Set the Dynamic IP address subnet range. The range that Defender for IoT reverses lookup their IP address in the DNS server to match their current FQDN name.
-   - **Schedule Reverse Lookup**: Define the scheduling options as follows:
-     - By specific times: Specify when to perform the reverse lookup daily.
-     - By fixed intervals (in hours): Set the frequency for performing the reverse lookup.
-   - **Number of Labels**: Instruct Defender for IoT to automatically resolve network IP addresses to device FQDNs. <br />To configure DNS FQDN resolution, add the number of domain labels to display. Up to 30 characters are displayed from left to right.
 
-    :::image type="content" source="media/tutorial-palo-alto/configuration.png" alt-text="Screenshot of the Configure the DNS settings screen.":::
+1. Select **Save**.
+1. Turn on the **Enabled** toggle to activate the lookup.
 
-1. Select **SAVE**.
-
-To ensure your DNS settings are correct, select **Lookup Test**. The test ensures that the DNS server IP address, and DNS server port are set correctly.
+1. To ensure your DNS settings are correct, select **Test**. The test ensures that the DNS server IP address, and DNS server port are set correctly.
 
 ## Block suspicious traffic with the Palo Alto firewall
 
@@ -181,7 +172,7 @@ Suspicious traffic will need to be blocked with the Palo Alto firewall. You can 
 
 1. Select **Submit**.
 
-You will then need to block the suspicious source.
+You'll then need to block the suspicious source.
 
 **To block the suspicious source**:
 

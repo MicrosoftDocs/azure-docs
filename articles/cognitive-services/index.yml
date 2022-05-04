@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
 title: Azure Cognitive Services documentation
-summary: Learn how to build intelligent and supported algorithms into apps, websites, and bots to see, hear, speak, understand, and interpret your user needs.
+summary: Learn how to use ready-made AI services to build intelligent apps, websites, and bots. Develop software that can see, hear, speak, and interpret your user's needs.
 brand: azure
 
 metadata:
@@ -111,18 +111,15 @@ conceptualContent:
         - url: ./cognitive-services-container-support.md
           itemType: overview
           text: What are Cognitive Service containers?
-        - url: ./containers/container-reuse-recipe.md
-          itemType: learn
-          text: Create containers for reuse
         - url: ./containers/azure-container-instance-recipe.md
           itemType: how-to-guide
           text: Deploy and run container on Azure Container Instance
-        - url: ./containers/azure-kubernetes-recipe.md
-          itemType: deploy
-          text: Deploy to Azure Kubernetes Service
         - url: ./containers/docker-compose-recipe.md
           itemType: get-started
           text: Use Docker Compose to deploy multiple containers
+        - url: ./containers/disconnected-containers.md
+          itemType: get-started
+          text: Use Docker containers disconnected from the internet
         - url: ./containers/container-faq.yml
           itemType: reference
           text: Cognitive Services containers FAQ

@@ -1,12 +1,12 @@
 ---
 title: Automatic device management at scale with Azure IoT Hub | Microsoft Docs
 description: Use Azure IoT Hub automatic configurations to manage multiple IoT devices and modules
-author: eross-msft
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/26/2021
-ms.author: lizross
+ms.author: kgremban
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
 
@@ -36,7 +36,7 @@ Automatic module configurations require the use of module twins to synchronize s
 
 ## Use tags to target twins
 
-Before you create a configuration, you must specify which devices or modules you want to affect. Azure IoT Hub identifies devices and using tags in the device twin, and identifies modules using tags in the module twin. Each device or modules can have multiple tags, and you can define them any way that makes sense for your solution. For example, if you manage devices in different locations, add the following tags to a device twin:
+Before you create a configuration, you must specify which devices or modules you want to affect. Azure IoT Hub identifies devices using tags in the device twin, and identifies modules using tags in the module twin. Each device or modules can have multiple tags, and you can define them any way that makes sense for your solution. For example, if you manage devices in different locations, add the following tags to a device twin:
 
 ```json
 "tags": {
@@ -61,7 +61,7 @@ There are five steps to create a configuration. The following sections walk thro
 
 ### Name and Label
 
-1. Give your configuration a unique name that is up to 128 lowercase letters. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`.
+1. Give your configuration a unique name that is up to 128 characters long. Lowercase letters and the following special characters are allowed: `-+%_*!'`. Spaces are not allowed.
 
 2. Add labels to help track your configurations. Labels are **Name**, **Value** pairs that describe your configuration. For example, `HostPlatform, Linux` or `Version, 3.0.1`.
 
@@ -69,7 +69,7 @@ There are five steps to create a configuration. The following sections walk thro
 
 ### Specify Settings
 
-This section defines the content to be set in targeted device or module twins. There are two inputs for each set of settings. The first is the twin path, which is the path to the JSON section within the twin desired properties that will be set.  The second is the JSON content to be inserted in that section. 
+This section defines the content to be set in targeted device twin or module twin desired properties. There are two inputs for each set of settings. The first is the twin path, which is the path to the JSON section within the twin desired properties that will be set. The second is the JSON content to be inserted in that section. 
 
 For example, you could set the twin path to `properties.desired.chiller-water` and then provide the following JSON content: 
 
@@ -151,7 +151,7 @@ To view the details of a configuration and monitor the devices running it, use t
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT hub. 
 
-2. Select **IoT device configuration**.
+2. Select **Configurations** in Device management.
 
 3. Inspect the configuration list. For each configuration, you can view the following details:
 
@@ -195,16 +195,16 @@ To modify a configuration, use the following steps:
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT hub. 
 
-2. Select **IoT device configuration**. 
+2. Select **Configurations** in Device management. 
 
 3. Select the configuration that you want to modify. 
 
 4. Make updates to the following fields: 
 
-   * Target condition 
-   * Labels 
    * Priority 
    * Metrics
+   * Target condition 
+   * Labels 
 
 4. Select **Save**.
 
@@ -216,7 +216,7 @@ When you delete a configuration, any device twins take on their next highest pri
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT hub. 
 
-2. Select **IoT device configuration**. 
+2. Select **Configurations** in Device management.
 
 3. Use the checkbox to select the configuration that you want to delete. 
 

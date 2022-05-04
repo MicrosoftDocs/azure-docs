@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-ms.custom: deploy
-ms.author: jordane
-author: jpe316
+ms.custom: deploy, cliv1
+ms.author: larryfr
+author: blackmist
 ms.reviewer: larryfr
 ms.date: 10/21/2021
 ---
@@ -33,7 +33,7 @@ For information on quota and region availability for ACI, see [Quotas and region
 
 - A machine learning model registered in your workspace. If you don't have a registered model, see [How and where to deploy models](how-to-deploy-and-where.md).
 
-- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
+- The [Azure CLI extension (v1) for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
 
 - The __Python__ code snippets in this article assume that the following variables are set:
 
@@ -81,6 +81,8 @@ For more information on the classes, methods, and parameters used in this exampl
 
 ### Using the Azure CLI
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
 To deploy using the CLI, use the following command. Replace `mymodel:1` with the name and version of the registered model. Replace `myservice` with the name to give this service:
 
 ```azurecli-interactive
@@ -89,7 +91,7 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc depl
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aci-deploy-config.md)]
 
-For more information, see the [az ml model deploy](/cli/azure/ml/model#az_ml_model_deploy) reference. 
+For more information, see the [az ml model deploy](/cli/azure/ml/model#az-ml-model-deploy) reference. 
 
 ## Using VS Code
 

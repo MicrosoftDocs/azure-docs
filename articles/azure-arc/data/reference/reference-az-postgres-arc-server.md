@@ -12,6 +12,8 @@ ms.subservice: azure-arc-data
 ---
 
 # az postgres arc-server
+
+Manage Azure Arc enabled PostgreSQL Hyperscale server groups.
 ## Commands
 | Command | Description|
 | --- | --- |
@@ -23,25 +25,25 @@ ms.subservice: azure-arc-data
 [az postgres arc-server endpoint](reference-az-postgres-arc-server-endpoint.md) | Manage Azure Arc enabled PostgreSQL Hyperscale server group endpoints.
 ## az postgres arc-server create
 To set the password of the server group, please set the environment variable AZDATA_PASSWORD
-```bash
+```azurecli
 az postgres arc-server create 
 ```
 ### Examples
 Create an Azure Arc enabled PostgreSQL Hyperscale server group.
-```bash
+```azurecli
 az postgres arc-server create -n pg1 --k8s-namespace namespace --use-k8s
 ```
 Create an Azure Arc enabled PostgreSQL Hyperscale server group with engine settings. Both below examples are valid.
-```bash
+```azurecli
 az postgres arc-server create -n pg1 --engine-settings "key1=val1" --k8s-namespace namespace 
 az postgres arc-server create -n pg1 --engine-settings "key2=val2" --k8s-namespace namespace --use-k8s
 ```
 Create a PostgreSQL server group with volume claim mounts.
-```bash
+```azurecli
 az postgres arc-server create -n pg1 --volume-claim-mounts backup-pvc:backup 
 ```
 Create a PostgreSQL server group with specific memory-limit for different node roles.
-```bash
+```azurecli
 az postgres arc-server create -n pg1 --memory-limit "coordinator=2Gi,w=1Gi" --workers 1 --k8s-namespace namespace --use-k8s
 ```
 ### Global Arguments
@@ -57,20 +59,20 @@ JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more 
 Increase logging verbosity. Use `--debug` for full debug logs.
 ## az postgres arc-server edit
 Edit the configuration of an Azure Arc enabled PostgreSQL Hyperscale server group.
-```bash
+```azurecli
 az postgres arc-server edit 
 ```
 ### Examples
 Edit the configuration of an Azure Arc enabled PostgreSQL Hyperscale server group.
-```bash
+```azurecli
 az postgres arc-server edit --path ./spec.json -n pg1 --k8s-namespace namespace --use-k8s
 ```
 Edit an Azure Arc enabled PostgreSQL Hyperscale server group with engine settings for the coordinator node.
-```bash
+```azurecli
 az postgres arc-server edit -n pg1 --coordinator-settings "key2=val2" --k8s-namespace namespace
 ```
 Edits an Azure Arc enabled PostgreSQL Hyperscale server group and replaces existing engine settings with new setting key1=val1.
-```bash
+```azurecli
 az postgres arc-server edit -n pg1 --engine-settings "key1=val1" --replace-settings --k8s-namespace namespace
 ```
 ### Global Arguments
@@ -86,12 +88,12 @@ JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more 
 Increase logging verbosity. Use `--debug` for full debug logs.
 ## az postgres arc-server delete
 Delete an Azure Arc enabled PostgreSQL Hyperscale server group.
-```bash
+```azurecli
 az postgres arc-server delete 
 ```
 ### Examples
 Delete an Azure Arc enabled PostgreSQL Hyperscale server group.
-```bash
+```azurecli
 az postgres arc-server delete -n pg1 --k8s-namespace namespace --use-k8s
 ```
 ### Global Arguments
@@ -107,12 +109,12 @@ JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more 
 Increase logging verbosity. Use `--debug` for full debug logs.
 ## az postgres arc-server show
 Show the details of an Azure Arc enabled PostgreSQL Hyperscale server group.
-```bash
+```azurecli
 az postgres arc-server show 
 ```
 ### Examples
 Show the details of an Azure Arc enabled PostgreSQL Hyperscale server group.
-```bash
+```azurecli
 az postgres arc-server show -n pg1 --k8s-namespace namespace --use-k8s
 ```
 ### Global Arguments
@@ -128,12 +130,12 @@ JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more 
 Increase logging verbosity. Use `--debug` for full debug logs.
 ## az postgres arc-server list
 List Azure Arc enabled PostgreSQL Hyperscale server groups.
-```bash
+```azurecli
 az postgres arc-server list 
 ```
 ### Examples
 List Azure Arc enabled PostgreSQL Hyperscale server groups.
-```bash
+```azurecli
 az postgres arc-server list --k8s-namespace namespace --use-k8s
 ```
 ### Global Arguments

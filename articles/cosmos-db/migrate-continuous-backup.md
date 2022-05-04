@@ -5,13 +5,13 @@ author: kanshiG
 ms.author: govindk
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 12/08/2021
+ms.date: 04/08/2022
 ms.topic: how-to
-ms.reviewer: sngun
+ms.reviewer: wiassaf
 ---
 
 # Migrate an Azure Cosmos DB account from periodic to continuous backup mode
-[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+[!INCLUDE[appliesto-all-apis-except-cassandra](includes/appliesto-all-apis-except-cassandra.md)]
 
 Azure Cosmos DB accounts with periodic mode backup policy can be migrated to continuous mode using [Azure portal](#portal), [CLI](#cli), [PowerShell](#powershell), or [Resource Manager templates](#ARM-template). Migration from periodic to continuous mode is a one-way migration and it’s not reversible. After migrating from periodic to continuous mode, you can leverage the benefits of continuous mode.
 
@@ -29,9 +29,11 @@ The following are the key reasons to migrate into continuous mode:
 > You can migrate an account to continuous backup mode only if the following conditions are true. Also checkout the [point in time restore limitations](continuous-backup-restore-introduction.md#current-limitations) before migrating your account:
 >
 > * If the account is of type SQL API or API for MongoDB.
+> * If the account is of type Table API or Gremlin API. These two APIs are in preview.
 > * If the account has a single write region.
-> * If the account isn't enabled with customer managed keys(CMK).
 > * If the account isn't enabled with analytical store.
+>
+> If the account is using [customer-managed keys](./how-to-setup-cmk.md), a user-assigned managed identity must be declared in the Key Vault access policy and must be set as the default identity on the account.
 
 ## Permissions
 
@@ -159,7 +161,7 @@ az group deployment create -g <ResourceGroup> --template-file <ProvisionTemplate
 
 When migrating from periodic mode to continuous mode, you cannot run any control plane operations that performs account level updates or deletes. For example, operations such as adding or removing regions, account failover, updating backup policy etc. can't be run while the migration is in progress. The time for migration depends on the size of data and the number of regions in your account. Restore action on the migrated accounts only succeeds from the time when migration successfully completes.
 
-You can restore your account after the migration completes. If the migration completes at 1:00 PM PST, you can do point in time restore starting from 1.00 PM PST.
+You can restore your account after the migration completes. If the migration completes at 1:00 PM PST, you can do point in time restore starting from 1:00 PM PST.
 
 ## Frequently asked questions
 
@@ -167,9 +169,9 @@ You can restore your account after the migration completes. If the migration com
 Yes.
 
 #### Which accounts can be targeted for backup migration?
-Currently, SQL API and API for MongoDB accounts with single write region, that have shared, provisioned, or autoscale provisioned throughput support migration.
+Currently, SQL API and API for MongoDB accounts with single write region, that have shared, provisioned, or autoscale provisioned throughput support migration. Table API and Gremlin API are in preview.
 
-Accounts enabled with analytical storage, multiple-write regions, and Customer Managed Keys(CMK) are not supported for migration.
+Accounts enabled with analytical storage and multiple-write regions are not supported for migration.
 
 #### Does the migration take time? What is the typical time?
 Migration takes time and it depends on the size of data and the number of regions in your account. You can get the migration status using Azure CLI or PowerShell commands. For large accounts with 10s of terabytes of data, the migration can take up to few days to complete.

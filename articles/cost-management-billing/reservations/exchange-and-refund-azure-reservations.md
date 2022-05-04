@@ -6,23 +6,22 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 11/18/2021
+ms.date: 05/03/2022
 ms.author: banders
 ---
 
 # Self-service exchanges and refunds for Azure Reservations
 
-Azure Reservations provide flexibility to help meet your evolving needs. You can exchange reservations for another reservation of the same type. For example, you can return multiple compute reservations including Azure Dedicated Host, Azure VMware Solution, and Azure Virtual Machines with each other all at once. In other words, reservation products are interchangeable with each other if they're the same type of reservation. In an other example, you can exchange multiple SQL database reservation types including Managed Instances and Elastic Pool with each other.
-
+Azure Reservations provide flexibility to help meet your evolving needs. Reservation products are interchangeable with each other if they're the same type of reservation. For example, you can exchange multiple compute reservations including Azure Dedicated Host, Azure VMware Solution, and Azure Virtual Machines with each other all at once. In an other example, you can exchange multiple SQL database reservation types including Managed Instances and Elastic Pool with each other.
 However, you can't exchange dissimilar reservations. For example, you can't exchange a Cosmos DB reservation for SQL Database.
 
-You can also exchange a reservation to purchase another reservation of a similar type in a different region. For example, you can exchange a reservation that's in West US 2 for one that's in West Europe.
+You can also exchange a reservation to purchase another reservation of a similar type in a different region. For example, you can exchange a reservation that's in West US 2 region for one that's in West Europe region.
 
 When you exchange a reservation, you can change your term from one-year to three-year.
 
 You can also refund reservations, but the sum total of all canceled reservation commitment in your billing scope (such as EA, Microsoft Customer Agreement, and Microsoft Partner Agreement) can't exceed USD 50,000 in a 12 month rolling window.
 
-Azure Databricks reserved capacity, Azure VMware solution by CloudSimple reservation, Azure Red Hat Open Shift reservation, Red Hat plans and, SUSE Linux plans aren't eligible for refunds.
+Azure Databricks reserved capacity, Synapse Analytics Pre-purchase plan, Azure VMware solution by CloudSimple reservation, Azure Red Hat Open Shift reservation, Red Hat plans and, SUSE Linux plans aren't eligible for refunds.
 
 > [!NOTE]
 > - **You must have owner access on the Reservation Order to exchange or refund an existing reservation**. You can [Add or change users who can manage a reservation](./manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
@@ -65,7 +64,7 @@ If you are exchanging for a different size, series, region or payment frequency,
 
 ## How transactions are processed
 
-First, Microsoft cancels the existing reservation and refunds the pro-rated amount for that reservation. If there's an exchange, the new purchase is processed. Microsoft processes refunds using one of the following methods, depending on your account type and payment method:
+First, Microsoft cancels the existing reservation and refunds the pro-rated amount for that reservation. If there's an exchange, the new purchase is processed. Microsoft processes refunds using one of the following methods, depending on your account type and payment method.
 
 ### Enterprise agreement customers
 
@@ -106,6 +105,10 @@ Azure has the following policies for cancellations, exchanges, and refunds.
 - Refunds are calculated based on the lowest price of either your purchase price or the current price of the reservation.
 - Only reservation order owners can process a refund. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 - For CSP program, the 50,000 USD limit is per customer.
+
+Let's look at an example with the previous points in mind. If you bought a $300,000 reservation, you can exchange it at any time for another reservation that equals or costs more (of the remaining reservation balance, not the original purchase price). For this example:
+- There's no penalty or annual limits for exchanges. 
+- The refund that results from the exchange doesn't count against the refund limit. 
 
 ## Need help? Contact us.
 

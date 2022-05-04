@@ -1,13 +1,13 @@
 ---
 title: Create an Azure application offer in Azure Marketplace
 description: Create an Azure application offer for listing or selling in Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the commercial marketplace portal.
-author: aarathin
-ms.author: aarathin
+author: macerru
+ms.author: macerr
 ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 12/03/2021
+ms.date: 03/28/2022
 ---
 
 # Create an Azure application offer
@@ -17,10 +17,6 @@ As a commercial marketplace publisher, you can create an Azure application offer
 If you haven’t already done so, read [Plan an Azure application offer for the commercial marketplace](plan-azure-application-offer.md). It will provide the resources and help you gather the information and assets you’ll need when you create your offer.
 
 ## Create a new offer
-
-[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
-
-#### [Workspaces view](#tab/workspaces-view)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
@@ -43,32 +39,12 @@ If you haven’t already done so, read [Plan an Azure application offer for the 
      * This name is only visible in Partner Center and it’s different from the offer name and other values shown to customers.
      * The Offer alias can't be changed after you select **Create**.
 
-1. To generate the offer and continue, select  **Create**.
+1. Associate the new offer with a _publisher_. A publisher represents an account for your organization. You may have a need to create the offer under a particular publisher. If you don’t, you can simply accept the publisher account you’re signed in to.
 
-#### [Current view](#tab/current-view)
-
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-
-1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
-
-1. On the Overview page, select **+ New offer** > **Azure Application**.
-
-    ![Illustrates the left-navigation menu.](./media/create-new-azure-app-offer/new-offer-azure-app.png)
-
-1. In the **New offer** dialog box, enter an **Offer ID**. This is a unique identifier for each offer in your account. This ID is visible in the URL of the commercial marketplace listing and Azure Resource Manager templates, if applicable. For example, if you enter test-offer-1 in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-
-     * Each offer in your account must have a unique offer ID.
-     * Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters.
-     * The Offer ID can't be changed after you select **Create**.
-
-1. Enter an **Offer alias**. This is the name used for the offer in Partner Center.
-
-     * This name is only visible in Partner Center and it’s different from the offer name and other values shown to customers.
-     * The Offer alias can't be changed after you select **Create**.
+    > [!NOTE]
+    > The selected publisher must be enrolled in the [**Commercial Marketplace program**](marketplace-faq-publisher-guide.yml#how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace-) and cannot be modified after the offer is created.
 
 1. To generate the offer and continue, select  **Create**.
-
----
 
 ## Configure your Azure application offer setup details
 

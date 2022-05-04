@@ -1,11 +1,11 @@
 ---
 title: Azure File Sync cloud tiering policies | Microsoft Docs
 description: Details on how the date and volume free space policies work together for different scenarios.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: conceptual
 ms.date: 04/13/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ---
 

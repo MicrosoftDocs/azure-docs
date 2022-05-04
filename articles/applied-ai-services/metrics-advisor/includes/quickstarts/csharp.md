@@ -59,7 +59,7 @@ Build succeeded.
 If you are using an IDE other than Visual Studio you can install the Metrics Advisor client library for .NET with the following command:
 
 ```console
-dotnet add package Azure.AI.MetricsAdvisor --version 1.0.0
+dotnet add package Azure.AI.MetricsAdvisor --version 1.1.0
 ```
 
 > [!TIP]
@@ -151,64 +151,45 @@ Replace `connection_String` with your own SQL server connection string, and repl
 string sqlServerConnectionString = "<connection_String>";
 string sqlServerQuery = "<query>";
 
-var dataFeedName = "Sample data feed";
-var dataFeedSource = new SqlServerDataFeedSource(sqlServerConnectionString, sqlServerQuery);
-var dataFeedGranularity = new DataFeedGranularity(DataFeedGranularityType.Daily);
+var dataFeed = new DataFeed();
+dataFeed.Name = "Sample data feed";
 
-var dataFeedMetrics = new List<DataFeedMetric>()
-{
-    new DataFeedMetric("cost"),
-    new DataFeedMetric("revenue")
-};
-var dataFeedDimensions = new List<DataFeedDimension>()
-{
-    new DataFeedDimension("category"),
-    new DataFeedDimension("city")
-};
-var dataFeedSchema = new DataFeedSchema(dataFeedMetrics)
-{
-    DimensionColumns = dataFeedDimensions
-};
+dataFeed.DataSource = new SqlServerDataFeedSource(sqlServerConnectionString, sqlServerQuery);
+dataFeed.Granularity = new DataFeedGranularity(DataFeedGranularityType.Daily);
 
-var ingestionStartTime = DateTimeOffset.Parse("2020-01-01T00:00:00Z");
-var dataFeedIngestionSettings = new DataFeedIngestionSettings(ingestionStartTime);
+dataFeed.Schema = new DataFeedSchema();
+dataFeed.Schema.MetricColumns.Add(new DataFeedMetric("cost"));
+dataFeed.Schema.MetricColumns.Add(new DataFeedMetric("revenue"));
+dataFeed.Schema.DimensionColumns.Add(new DataFeedDimension("category"));
+dataFeed.Schema.DimensionColumns.Add(new DataFeedDimension("city"));
 
-var dataFeed = new DataFeed()
-{
-    Name = dataFeedName,
-    DataSource = dataFeedSource,
-    Granularity = dataFeedGranularity,
-    Schema = dataFeedSchema,
-    IngestionSettings = dataFeedIngestionSettings,
-};
+dataFeed.IngestionSettings = new DataFeedIngestionSettings(DateTimeOffset.Parse("2020-01-01T00:00:00Z"));
 
-Response<string> response = await adminClient.CreateDataFeedAsync(dataFeed);
 
-string dataFeedId = response.Value;
+Response<DataFeed> response = await adminClient.CreateDataFeedAsync(dataFeed);
 
-Console.WriteLine($"Data feed ID: {dataFeedId}");
+DataFeed createdDataFeed = response.Value;
 
-// Note that only the ID of the data feed is known at this point. You can perform another
-// service call to GetDataFeedAsync or GetDataFeed to get more information, such as status,
-// created time, the list of administrators, or the metric IDs.
-
-Response<DataFeed> response = await adminClient.GetDataFeedAsync(dataFeedId);
-
-DataFeed dataFeed = response.Value;
-
-Console.WriteLine($"Data feed status: {dataFeed.Status.Value}");
-Console.WriteLine($"Data feed created time: {dataFeed.CreatedTime.Value}");
+Console.WriteLine($"Data feed ID: {createdDataFeed.Id}");
+Console.WriteLine($"Data feed status: {createdDataFeed.Status.Value}");
+Console.WriteLine($"Data feed created time: {createdDataFeed.CreatedOn.Value}");
 
 Console.WriteLine($"Data feed administrators:");
-foreach (string admin in dataFeed.AdministratorEmails)
+foreach (string admin in createdDataFeed.Administrators)
 {
     Console.WriteLine($" - {admin}");
 }
 
 Console.WriteLine($"Metric IDs:");
-foreach (DataFeedMetric metric in dataFeed.Schema.MetricColumns)
+foreach (DataFeedMetric metric in createdDataFeed.Schema.MetricColumns)
 {
-    Console.WriteLine($" - {metric.MetricName}: {metric.MetricId}");
+    Console.WriteLine($" - {metric.Name}: {metric.Id}");
+}
+
+Console.WriteLine($"Dimensions:");
+foreach (DataFeedDimension dimension in createdDataFeed.Schema.DimensionColumns)
+{
+    Console.WriteLine($" - {dimension.Name}");
 }
 ```
 
@@ -254,29 +235,31 @@ Create an anomaly detection configuration to tell the service which data points 
 string metricId = "<metricId>";
 string configurationName = "Sample anomaly detection configuration";
 
-var hardThresholdSuppressCondition = new SuppressCondition(1, 100);
-var hardThresholdCondition = new HardThresholdCondition(AnomalyDetectorDirection.Down, hardThresholdSuppressCondition)
+var detectionConfiguration = new AnomalyDetectionConfiguration()
+{
+    MetricId = metricId,
+    Name = configurationName,
+    WholeSeriesDetectionConditions = new MetricWholeSeriesDetectionCondition()
+};
+
+var detectCondition = detectionConfiguration.WholeSeriesDetectionConditions;
+
+var hardSuppress = new SuppressCondition(1, 100);
+detectCondition.HardThresholdCondition = new HardThresholdCondition(AnomalyDetectorDirection.Down, hardSuppress)
 {
     LowerBound = 5.0
 };
 
-var smartDetectionSuppressCondition = new SuppressCondition(4, 50);
-var smartDetectionCondition = new SmartDetectionCondition(10.0, AnomalyDetectorDirection.Up, smartDetectionSuppressCondition);
+var smartSuppress = new SuppressCondition(4, 50);
+detectCondition.SmartDetectionCondition = new SmartDetectionCondition(10.0, AnomalyDetectorDirection.Up, smartSuppress);
 
-var detectionCondition = new MetricWholeSeriesDetectionCondition()
-{
-    HardThresholdCondition = hardThresholdCondition,
-    SmartDetectionCondition = smartDetectionCondition,
-    CrossConditionsOperator = DetectionConditionsOperator.Or
-};
+detectCondition.ConditionOperator = DetectionConditionOperator.Or;
 
-var detectionConfiguration = new AnomalyDetectionConfiguration(metricId, configurationName, detectionCondition);
+Response<AnomalyDetectionConfiguration> response = await adminClient.CreateDetectionConfigurationAsync(detectionConfiguration);
 
-Response<string> response = await adminClient.CreateDetectionConfigurationAsync(detectionConfiguration);
+AnomalyDetectionConfiguration createdDetectionConfiguration = response.Value;
 
-string detectionConfigurationId = response.Value;
-
-Console.WriteLine($"Anomaly detection configuration ID: {detectionConfigurationId}");
+Console.WriteLine($"Anomaly detection configuration ID: {createdDetectionConfiguration.Id}");
 ```
 
 ### Create a hook
@@ -285,19 +268,16 @@ Metrics Advisor supports the `EmailNotificationHook` and `WebNotificationHook` c
 
 ```csharp
 string hookName = "Sample hook";
-var emailsToAlert = new List<string>()
-{
-    "email1@sample.com",
-    "email2@sample.com"
-};
+var emailHook = new EmailNotificationHook(hookName);
 
-var emailHook = new EmailNotificationHook(hookName, emailsToAlert);
+emailHook.EmailsToAlert.Add("email1@sample.com");
+emailHook.EmailsToAlert.Add("email2@sample.com");
 
-Response<string> response = await adminClient.CreateHookAsync(emailHook);
+Response<NotificationHook> response = await adminClient.CreateHookAsync(emailHook);
 
-string hookId = response.Value;
+NotificationHook createdHook = response.Value;
 
-Console.WriteLine($"Hook ID: {hookId}");
+Console.WriteLine($"Hook ID: {createdHook.Id}");
 ```
 
 ##  Create an alert configuration

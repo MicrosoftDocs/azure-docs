@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Load New York Taxicab data'
 description: Tutorial uses Azure portal and SQL Server Management Studio to load New York Taxicab data from an Azure blob for Synapse SQL.
-services: synapse-analytics
 author: joannapea
 manager: craigg
 ms.service: synapse-analytics

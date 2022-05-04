@@ -1,13 +1,13 @@
 ---
 title: 'MLOps: ML model management'
 titleSuffix: Azure Machine Learning
-description: 'Learn about model management (MLOps) with Azure Machine Learning . Deploy, manage, track lineage and monitor your models to continuously improve them. '  
+description: 'Learn about model management (MLOps) with Azure Machine Learning. Deploy, manage, track lineage and monitor your models to continuously improve them. '  
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-author: jpe316
-ms.author:  jordane
+author: blackmist
+ms.author: larryfr
 ms.custom: seodec18, mktng-kw-nov2021
 ms.date: 11/04/2021
 ---
@@ -133,7 +133,7 @@ When deploying to Azure Kubernetes Service, you can use controlled rollout to en
 * Perform A/B testing by routing traffic to different versions of the endpoint.
 * Switch between endpoint versions by updating the traffic percentage in endpoint configuration.
 
-For more information, see [Controlled rollout of ML models](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview).
+For more information, see [Controlled rollout of ML models](./how-to-safely-rollout-managed-endpoints.md).
 
 ### Analytics
 
@@ -157,7 +157,7 @@ Azure ML gives you the capability to track the end-to-end audit trail of all of 
 
 
 ## Notify, automate, and alert on events in the ML lifecycle
-Azure ML publishes key events to Azure EventGrid, which can be used to notify and automate on events in the ML lifecycle. For more information, please see [this document](how-to-use-event-grid.md).
+Azure ML publishes key events to Azure Event Grid, which can be used to notify and automate on events in the ML lifecycle. For more information, please see [this document](how-to-use-event-grid.md).
 
 
 ## Monitor for operational & ML issues
@@ -204,7 +204,7 @@ Learn more by reading and exploring the following resources:
 
 + [How & where to deploy models](how-to-deploy-and-where.md) with Azure Machine Learning
 
-+ [Tutorial: Deploy an image classification model in ACI](tutorial-deploy-models-with-aml.md).
++ [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md).
 
 + [End-to-end MLOps examples repo](https://github.com/microsoft/MLOps)
 

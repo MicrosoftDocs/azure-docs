@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: Juliako #Required; your GitHub user alias, with correct capitalization.
   ms.author:  juliako #Required; microsoft alias of author; optional team alias.
-  ms.date: 11/04/2021 #Required; mm/dd/yyyy format.
+  ms.date: 01/03/2022 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -39,12 +39,14 @@ landingContent:
           - text: Analyze live video
             url: analyze-live-video-without-recording.md
         
-  - title: Create and deploy pipeline and topology
+  - title: Create and deploy pipelines and topologies
     linkLists:
       - linkListType: concept
         links:
           - text: Video pipelines
             url: pipeline.md
+          - text: List of topologies
+            url: pipeline-topologies-list.md
       - linkListType: tutorial
         links:
           - text: Detect object crossing virtual line
@@ -93,7 +95,7 @@ landingContent:
           - text: Tech community blogs
             url: https://techcommunity.microsoft.com/t5/azure-video-analyzer/bg-p/AzureVideoAnalyzerBlog
             
-  - title: Monitor, troubleshoot pipeline & topology
+  - title: Monitor and troubleshoot pipelines and topologies
     linkLists:
       - linkListType: how-to-guide
         links:

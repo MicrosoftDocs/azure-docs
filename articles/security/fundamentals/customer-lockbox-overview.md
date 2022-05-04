@@ -42,6 +42,7 @@ The following services are generally available for Customer Lockbox:
 - Azure Monitor
 - Azure Storage
 - Azure SQL Database
+- Azure SQL managed Instance
 - Azure subscription transfers
 - Azure Synapse Analytics
 - Virtual machines in Azure (covering remote desktop access, access to memory dumps, and managed disks)
@@ -65,7 +66,7 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 
 1. Someone at an organization has an issue with their Azure workload.
 
-2. After this person troubleshoots the issue, but can't fix it, they open a support ticket from the [Azure portal](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac). The ticket is assigned to an Azure Customer Support Engineer.
+2. After this person troubleshoots the issue, but can't fix it, they open a support ticket from the [Azure portal](https://portal.azure.com/signin/index/?feature.settingsportalinstance=mpac). The ticket is assigned to an Azure Customer Support Engineer.
 
 3. An Azure Support Engineer reviews the service request and determines the next steps to resolve the issue.
 

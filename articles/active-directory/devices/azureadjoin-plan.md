@@ -1,12 +1,12 @@
 ---
-title: How to plan your Azure Active Directory join implementation
+title: Plan your Azure Active Directory join deployment
 description: Explains the steps that are required to implement Azure AD joined devices in your environment.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 02/15/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,13 +17,13 @@ ms.collection: M365-identity-device-management
 ---
 # How to: Plan your Azure AD join implementation
 
-Azure AD join allows you to join devices directly to Azure AD without the need to join to on-premises Active Directory while keeping your users productive and secure. Azure AD join is enterprise-ready for both at-scale and scoped deployments.   
+Azure AD join allows you to join devices directly to Azure AD without the need to join to on-premises Active Directory while keeping your users productive and secure. Azure AD join is enterprise-ready for both at-scale and scoped deployments. SSO access to on-premises resources is also available to devices that are Azure AD joined. For more information, see [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md).
 
 This article provides you with the information you need to plan your Azure AD join implementation.
- 
+
 ## Prerequisites
 
-This article assumes that you are familiar with the [Introduction to device management in Azure Active Directory](./overview.md).
+This article assumes that you're familiar with the [Introduction to device management in Azure Active Directory](./overview.md).
 
 ## Plan your implementation
 
@@ -40,24 +40,22 @@ To plan your Azure AD join implementation, you should familiarize yourself with:
 
 ## Review your scenarios 
 
-While Hybrid Azure AD join may be preferred for certain scenarios, Azure AD join enables you to transition towards a cloud-first model with Windows. If you are planning to modernize your devices management and reduce device-related IT costs, Azure AD join provides a great foundation towards achieving those objectives.  
+While hybrid Azure AD join may be preferred for certain scenarios, Azure AD join enables you to transition towards a cloud-first model with Windows. If you're planning to modernize your devices management and reduce device-related IT costs, Azure AD join provides a great foundation towards achieving those goals.  
  
-You should consider Azure AD join if your goals align with the following criteria:
+Consider Azure AD join if your goals align with the following criteria:
 
-- You are adopting Microsoft 365 as the productivity suite for your users.
+- You're adopting Microsoft 365 as the productivity suite for your users.
 - You want to manage devices with a cloud device management solution.
 - You want to simplify device provisioning for geographically distributed users.
 - You plan to modernize your application infrastructure.
 
 ## Review your identity infrastructure  
 
-Azure AD join works with both, managed and federated environments.  
+Azure AD join works in managed and federated environments. We think most organizations will deploy hybrid Azure AD join with managed domains. Managed domain scenarios don't require configuring a federation server.
 
 ### Managed environment
 
 A managed environment can be deployed either through [Password Hash Sync](../hybrid/how-to-connect-password-hash-synchronization.md) or [Pass Through Authentication](../hybrid/how-to-connect-pta-quick-start.md) with Seamless Single Sign On.
-
-These scenarios don't require you to configure a federation server for authentication.
 
 ### Federated environment
 
@@ -72,28 +70,27 @@ When you're using AD FS, you need to enable the following WS-Trust endpoints:
  `/adfs/services/trust/2005/certificatemixed`
  `/adfs/services/trust/13/certificatemixed`
 
-If your identity provider does not support these protocols, Azure AD join does not work natively. 
+If your identity provider doesn't support these protocols, Azure AD join doesn't work natively. 
 
->[!NOTE]
+> [!NOTE]
 > Currently, Azure AD join does not work with [AD FS 2019 configured with external authentication providers as the primary authentication method](/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). Azure AD join defaults to password authentication as the primary method, which results in authentication failures in this scenario
-
 
 ### Smartcards and certificate-based authentication
 
 You can't use smartcards or certificate-based authentication to join devices to Azure AD. However, smartcards can be used to sign in to Azure AD joined devices if you have AD FS configured.
 
-**Recommendation:** Implement Windows Hello for Business for strong, password-less authentication to Windows 10 and above devices.
+**Recommendation:** Implement Windows Hello for Business for strong, password-less authentication to Windows 10 or newer.
 
 ### User configuration
 
 If you create users in your:
 
 - **On-premises Active Directory**, you need to synchronize them to Azure AD using [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md). 
-- **Azure AD**, no additional setup is required.
+- **Azure AD**, no extra setup is required.
 
-On-premises UPNs that are different from Azure AD UPNs are not supported on Azure AD joined devices. If your users use an on-premises UPN, you should plan to switch to using their primary UPN in Azure AD.
+On-premises UPNs that are different from Azure AD UPNs aren't supported on Azure AD joined devices. If your users use an on-premises UPN, you should plan to switch to using their primary UPN in Azure AD.
 
-UPN changes are only supported starting Windows 10 2004 update. Users on devices with this update will not have any issues after changing their UPNs. For devices prior to Windows 10 2004 update, users would have SSO and Conditional Access issues on their devices. They need to sign in to Windows through the "Other user" tile using their new UPN to resolve this issue. 
+UPN changes are only supported starting Windows 10 2004 update. Users on devices with this update won't have any issues after changing their UPNs. For devices before the Windows 10 2004 update, users would have SSO and Conditional Access issues on their devices. They need to sign in to Windows through the "Other user" tile using their new UPN to resolve this issue. 
 
 ## Assess your device management
 
@@ -101,15 +98,15 @@ UPN changes are only supported starting Windows 10 2004 update. Users on devices
 
 Azure AD join:
 
-- Is applicable to Windows 10 and Windows 11 devices. 
-- Is not applicable to previous versions of Windows or other operating systems. If you have Windows 7/8.1 devices, you must upgrade at least to Windows 10 to deploy Azure AD join.
-- Is supported for FIPS-compliant TPM 2.0 but not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support.
+- Supports Windows 10 and Windows 11 devices. 
+- Isn't supported on previous versions of Windows or other operating systems. If you have Windows 7/8.1 devices, you must upgrade at least to Windows 10 to deploy Azure AD join.
+- Is supported for FIPS-compliant TPM 2.0 but not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Azure AD join. Microsoft doesn't provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Contact your hardware OEM for support.
  
-**Recommendation:** Always use the latest Windows 10 release to take advantage of updated features.
+**Recommendation:** Always use the latest Windows release to take advantage of updated features.
 
 ### Management platform
 
-Device management for Azure AD joined devices is based on an MDM platform such as Intune, and MDM CSPs. Windows 10 has a built-in MDM agent that works with all compatible MDM solutions.
+Device management for Azure AD joined devices is based on an MDM platform such as Intune, and MDM CSPs. Starting in Windows 10 there is a built-in MDM agent that works with all compatible MDM solutions.
 
 > [!NOTE]
 > Group policies are not supported in Azure AD joined devices as they are not connected to on-premises Active Directory. Management of Azure AD joined devices is only possible through MDM
@@ -119,29 +116,29 @@ There are two approaches for managing Azure AD joined devices:
 - **MDM-only** - A device is exclusively managed by an MDM provider like Intune. All policies are delivered as part of the MDM enrollment process. For Azure AD Premium or EMS customers, MDM enrollment is an automated step that is part of an Azure AD join.
 - **Co-management** -  A device is managed by an MDM provider and SCCM. In this approach, the SCCM agent is installed on an MDM-managed device to administer certain aspects.
 
-If you are using Group Policies, evaluate your GPO and MDM policy parity by using [Group Policy analytics](/mem/intune/configuration/group-policy-analytics) in Microsoft Endpoint Manager. 
+If you're using Group Policies, evaluate your GPO and MDM policy parity by using [Group Policy analytics](/mem/intune/configuration/group-policy-analytics) in Microsoft Endpoint Manager. 
 
-Review supported and unsupported policies to determine whether you can use an MDM solution instead of Group policies. For unsupported policies, consider the following:
+Review supported and unsupported policies to determine whether you can use an MDM solution instead of Group policies. For unsupported policies, consider the following questions:
 
 - Are the unsupported policies necessary for Azure AD joined devices or users?
-- Are the unsupported policies applicable in a cloud driven deployment?
+- Are the unsupported policies applicable in a cloud-driven deployment?
 
-If your MDM solution is not available through the Azure AD app gallery, you can add it following the process 
+If your MDM solution isn't available through the Azure AD app gallery, you can add it following the process 
 outlined in [Azure Active Directory integration with MDM](/windows/client-management/mdm/azure-active-directory-integration-with-mdm). 
 
-Through co-management, you can use SCCM to manage certain aspects of your devices while policies are delivered through your MDM platform. Microsoft Intune enables co-management with SCCM. For more information on co-management for Windows 10 devices, see [What is co-management?](/configmgr/core/clients/manage/co-management-overview). If you use an MDM product other than Intune, please check with your MDM provider on applicable co-management scenarios.
+Through co-management, you can use SCCM to manage certain aspects of your devices while policies are delivered through your MDM platform. Microsoft Intune enables co-management with SCCM. For more information on co-management for Windows 10 or newer devices, see [What is co-management?](/configmgr/core/clients/manage/co-management-overview). If you use an MDM product other than Intune, check with your MDM provider on applicable co-management scenarios.
 
 **Recommendation:** Consider MDM only management for Azure AD joined devices.
 
 ## Understand considerations for applications and resources
 
-We recommend migrating applications from on-premises to cloud for a better user experience and access control. However, Azure AD joined devices can seamlessly provide access to both, on-premises and cloud applications. For more information, see [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md).
+We recommend migrating applications from on-premises to cloud for a better user experience and access control. Azure AD joined devices can seamlessly provide access to both, on-premises and cloud applications. For more information, see [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md).
 
 The following sections list considerations for different types of applications and resources.
 
 ### Cloud-based applications
 
-If an application is added to Azure AD app gallery, users get SSO through Azure AD joined devices. No additional configuration is required. Users get SSO on both, Microsoft Edge and Chrome browsers. For Chrome, you need to deploy the [Windows 10 Accounts extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
+If an application is added to Azure AD app gallery, users get SSO through Azure AD joined devices. No other configuration is required. Users get SSO on both, Microsoft Edge and Chrome browsers. For Chrome, you need to deploy the [Windows 10 Accounts extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
 
 All Win32 applications that:
 
@@ -174,7 +171,7 @@ Your users have SSO from Azure AD joined devices when a device has access to an 
 
 ### Printers
 
-We recommend deploying [Universal Print](/universal-print/fundamentals/universal-print-whatis) to have a cloud based print management solution without any on-premises dependencies. 
+We recommend deploying [Universal Print](/universal-print/fundamentals/universal-print-whatis) to have a cloud-based print management solution without any on-premises dependencies. 
 
 ###	On-premises applications relying on machine authentication
 
@@ -184,22 +181,21 @@ Azure AD joined devices don't support on-premises applications relying on machin
 
 ### Remote Desktop Services
 
-Remote desktop connection to an Azure AD joined devices requires the host machine to be either Azure AD joined or Hybrid Azure AD joined. Remote desktop from an unjoined or non-Windows device is not supported. For more information, see [Connect to remote Azure AD joined pc](/windows/client-management/connect-to-remote-aadj-pc)
+Remote desktop connection to an Azure AD joined devices requires the host machine to be either Azure AD joined or hybrid Azure AD joined. Remote desktop from an unjoined or non-Windows device isn't supported. For more information, see [Connect to remote Azure AD joined pc](/windows/client-management/connect-to-remote-aadj-pc)
 
-Starting Windows 10 2004 update, users can also use remote desktop from an Azure AD registered Windows 10 device to an Azure AD joined device. 
+Starting with the Windows 10 2004 update, users can also use remote desktop from an Azure AD registered Windows 10 or newer device to another Azure AD joined device. 
 
 ### RADIUS and Wi-Fi authentication
 
-Currently, Azure AD joined devices do not support RADIUS authentication for connecting to Wi-Fi access points, since RADIUS relies on presence of an on-premises computer object. As an alternative, you can use certificates pushed via Intune or user credentials to authenticate to Wi-Fi. 
-
+Currently, Azure AD joined devices don't support RADIUS authentication for connecting to Wi-Fi access points, since RADIUS relies on presence of an on-premises computer object. As an alternative, you can use certificates pushed via Intune or user credentials to authenticate to Wi-Fi. 
 
 ## Understand your provisioning options
-**Note**: Azure AD joined devices cannot be deployed using  System Preparation Tool (Sysprep) or similar imaging tools
+**Note**: Azure AD joined devices can’t be deployed using  System Preparation Tool (Sysprep) or similar imaging tools
 
-You can provision Azure AD join using the following approaches:
+You can provision Azure AD joined devices using the following approaches:
 
 - **Self-service in OOBE/Settings** - In the self-service mode, users go through the Azure AD join process either during Windows Out of Box Experience (OOBE) or from Windows Settings. For more information, see [Join your work device to your organization's network](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973). 
-- **Windows Autopilot** - Windows Autopilot enables pre-configuration of devices for a smoother experience in OOBE to perform an Azure AD join. For more information, see the [Overview of Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
+- **Windows Autopilot** - Windows Autopilot enables pre-configuration of devices for a smoother Azure AD join experience in OOBE. For more information, see the [Overview of Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
 - **Bulk enrollment** - Bulk enrollment enables an administrator driven Azure AD join by using a bulk provisioning tool to configure devices. For more information, see [Bulk enrollment for Windows devices](/intune/windows-bulk-enroll).
  
 Here’s a comparison of these three approaches 
@@ -213,14 +209,14 @@ Here’s a comparison of these three approaches
 | Require device OEM support | No | Yes | No |
 | Supported versions | 1511+ | 1709+ | 1703+ |
  
-Choose your deployment approach or approaches by reviewing the table above and reviewing the following considerations for adopting either approach:  
+Choose your deployment approach or approaches by reviewing the previous table and reviewing the following considerations for adopting either approach:  
 
 - Are your users tech savvy to go through the setup themselves? 
    - Self-service can work best for these users. Consider Windows Autopilot to enhance the user experience.  
 - Are your users remote or within corporate premises? 
    - Self-service or Autopilot work best for remote users for a hassle-free setup. 
 - Do you prefer a user driven or an admin-managed configuration? 
-   - Bulk enrollment works better for admin driven deployment to set up devices before handing over to users.     
+   - Bulk enrollment works better for admin-driven deployment to set up devices before handing over to users.     
 - Do you purchase devices from 1-2 OEMS, or do you have a wide distribution of OEM devices?  
    - If purchasing from limited OEMs who also support Autopilot, you can benefit from tighter integration with Autopilot. 
 
@@ -230,7 +226,7 @@ The Azure portal allows you to control the deployment of Azure AD joined devices
 
 ### Users may join devices to Azure AD
 
-Set this option to **All** or **Selected** based on the scope of your deployment and who you want to allow to setup an Azure AD joined device. 
+Set this option to **All** or **Selected** based on the scope of your deployment and who you want to set up an Azure AD joined device. 
 
 ![Users may join devices to Azure AD](./media/azureadjoin-plan/01.png)
 
@@ -242,7 +238,7 @@ Choose **Selected** and selects the users you want to add to the local administr
 
 ### Require multi-factor authentication (MFA) to join devices
 
-Select **“Yes** if you require users to perform MFA while joining devices to Azure AD.
+Select **“Yes** if you require users to do MFA while joining devices to Azure AD.
 
 ![Require multi-factor Auth to join devices](./media/azureadjoin-plan/03.png)
 
@@ -271,7 +267,7 @@ Select **Some** or **All** based on the scope of your deployment.
 Based on your scope, one of the following happens: 
 
 - **User is in MDM scope**: If you have an Azure AD Premium subscription, MDM enrollment is automated along with Azure AD join. All scoped users must have an appropriate license for your MDM. If MDM enrollment fails in this scenario, Azure AD join will also be rolled back.
-- **User is not in MDM scope**: If users are not in MDM scope, Azure AD join completes without any MDM enrollment. This results in an unmanaged device.
+- **User is not in MDM scope**: If users aren't in MDM scope, Azure AD join completes without any MDM enrollment. This scope results in an unmanaged device.
 
 ### MDM URLs
 
@@ -283,11 +279,11 @@ There are three URLs that are related to your MDM configuration:
 
 :::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="Screenshot of part of the Azure Active Directory M D M configuration section, with U R L fields for M D M terms of use, discovery, and compliance." border="false":::
 
-Each URL has a predefined default value. If these fields are empty, please contact your MDM provider for more information.
+Each URL has a predefined default value. If these fields are empty, contact your MDM provider for more information.
 
 ### MAM settings
 
-MAM does not apply to Azure AD join. 
+MAM doesn't apply to Azure AD join. 
 
 ## Configure enterprise state roaming
 
@@ -305,9 +301,5 @@ You can use this implementation to [require managed devices for cloud app access
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Join a new Windows 10 device with Azure AD during a first run](azuread-joined-devices-frx.md)
-> [Join your work device to your organization's network](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973)
-
-<!--Image references-->
-[1]: ./media/azureadjoin-plan/12.png
+- [Join a new Windows 10 device to Azure AD during a first run](azuread-joined-devices-frx.md)
+- [Join your work device to your organization's network](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973)

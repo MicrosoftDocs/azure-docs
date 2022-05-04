@@ -1,6 +1,6 @@
 ---
-title: Upgrade indirect mode Azure Arc data controller using Kubernetes tools
-description: Article explains how to upgrade indirect mode Azure Arc data controller using Kubernetes tools
+title: Upgrade indirectly connected Azure Arc data controller using Kubernetes tools
+description: Article describes how to upgrade an indirectly connected Azure Arc data controller using Kubernetes tools
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,7 +11,7 @@ ms.date: 12/09/2021
 ms.topic: how-to
 ---
 
-# Upgrade indirect mode Azure Arc data controller using Kubernetes tools
+# Upgrade an indirectly connected Azure Arc data controller using Kubernetes tools
 
 This article explains how to upgrade an indirectly connected Azure Arc-enabled data controller with Kubernetes tools.
 
@@ -28,7 +28,7 @@ In this article, you will apply a .yaml file to:
 > Some of the data services tiers and modes are generally available and some are in preview.
 > If you install GA and preview services on the same data controller, you can't upgrade in place.
 > To upgrade, delete all non-GA database instances. You can find the list of generally available 
-> and preview services in the [Release Notes](/azure/azure-arc/data/release-notes).
+> and preview services in the [Release Notes](./release-notes.md).
 
 ## Prerequisites
 

@@ -31,7 +31,7 @@ The key concepts around Azure Arc-enabled PostgreSQL Hyperscale are summarized b
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Nodes and tables
-It is important to know about a following concepts to benefit the most from Azure Arc-enabled Postgres Hyperscale:
+It is important to know about the following concepts to benefit the most from Azure Arc-enabled Postgres Hyperscale:
 - Specialized Postgres nodes in Azure Arc-enabled PostgreSQL Hyperscale: coordinator and workers
 - Types of tables: distributed tables, reference tables and local tables
 - Shards
@@ -47,7 +47,7 @@ The recommended distribution varies by the type of application and its query pat
 
 The first step in data modeling is to identify which of them more closely resembles your application.
 
-See details at [Determining application type](../../postgresql/hyperscale/concepts-app-type.md).
+See details at [Determining application type](../../postgresql/hyperscale/howto-app-type.md).
 
 
 ## Choose a distribution column
@@ -56,7 +56,7 @@ Why choose a distributed column?
 This is one of the most important modeling decisions you'll make. Azure Arc-enabled PostgreSQL Hyperscale stores rows in shards based on the value of the rows' distribution column. The correct choice groups related data together on the same physical nodes, which makes queries fast and adds support for all SQL features. 
 An incorrect choice makes the system run slowly and won't support all SQL features across nodes. This article gives distribution column tips for the two most common hyperscale scenarios.
 
-See details at [Choose distribution columns](../../postgresql/hyperscale/concepts-choose-distribution-column.md).
+See details at [Choose distribution columns](../../postgresql/hyperscale/howto-choose-distribution-column.md).
 
 
 ## Table colocation

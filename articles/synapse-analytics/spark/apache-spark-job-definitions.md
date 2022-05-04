@@ -48,7 +48,7 @@ In this section, you create an Apache Spark job definition for PySpark (Python).
 
 3. Select **Data** -> **Linked** -> **Azure Data Lake Storage Gen2**, and upload **wordcount.py** and **shakespeare.txt** into your ADLS Gen2 filesystem. 
 
-     ![upload python file](./media/apache-spark-job-definitions/upload-python-file.png)
+     ![upload Python file](./media/apache-spark-job-definitions/upload-python-file.png)
 
 4. Select **Develop** hub, select the '+' icon and select **Spark job definition** to create a new Spark job definition. 
 

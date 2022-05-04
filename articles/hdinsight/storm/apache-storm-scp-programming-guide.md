@@ -554,7 +554,7 @@ Here `microsoft.scp.example.HybridTopology.Generator` is the name of the Java sp
 
 ### Specify the Java classpath in a runSpec command
 
-If you want to submit topology that contains Java spouts or bolts, first compile them to produce JAR files. Then specify the java classpath that contains the JAR files when you submit topology. Here's an example:
+If you want to submit topology that contains Java spouts or bolts, first compile them to produce JAR files. Then specify the Java classpath that contains the JAR files when you submit topology. Here's an example:
 
 ```csharp
 bin\runSpec.cmd examples\HybridTopology\HybridTopology.spec specs examples\HybridTopology\net\Target -cp examples\HybridTopology\java\target\*

@@ -73,10 +73,19 @@ In this step, we will connect to the source SQL Server and create the backup fil
 1. Similarly, prepare the **BACKUP DATABASE** command as follows to create a backup file to the blob container.  Once you have substituted the values, run the query.
 
    ```sql
-   BACKUP DATABASE <database name> TO URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>'
+   BACKUP DATABASE <database name> TO URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>/<file name>.bak'
    ```
 
 1. Open Azure Storage Explorer and validate that the backup file created in previous step is visible in the Blob container
+
+Learn more about backup to URL here:
+
+- [SQL Server Backup and Restore with Azure Blob Storage](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
+
+- [Back up to URL docs](/sql/relational-databases/backup-restore/sql-server-backup-to-url)
+
+- [Back up to URL using SQL Server Management Studio (SSMS)](/sql/relational-databases/tutorial-sql-server-backup-and-restore-to-azure-blob-storage-service)
+
 
 ### Step 4: Restore the database from Azure blob storage to SQL Managed Instance - Azure Arc
 
@@ -102,7 +111,7 @@ In this step, we will connect to the source SQL Server and create the backup fil
 1. Prepare and run the **RESTORE DATABASE** command as follows to restore the backup file to a database on SQL Managed Instance - Azure Arc
 
    ```sql
-   RESTORE DATABASE <database name> FROM URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>/<file name>'
+   RESTORE DATABASE <database name> FROM URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>/<file name>.bak'
    WITH MOVE 'Test' to '/var/opt/mssql/data/<file name>.mdf'
    ,MOVE 'Test_log' to '/var/opt/mssql/data/<file name>.ldf'
    ,RECOVERY  
@@ -110,12 +119,6 @@ In this step, we will connect to the source SQL Server and create the backup fil
    ,STATS = 5;  
    GO
    ```
-
-Learn more about backup to URL here:
-
-[Backup to URL docs](/sql/relational-databases/backup-restore/sql-server-backup-to-url)
-
-[Backup to URL using SQL Server Management Studio (SSMS)](/sql/relational-databases/tutorial-sql-server-backup-and-restore-to-azure-blob-storage-service)
 
 -------
 
@@ -134,7 +137,7 @@ Backup the SQL Server database to your local file path like any typical SQL Serv
 
 ```sql
 BACKUP DATABASE Test
-TO DISK = 'c:\tmp\test.bak'
+TO DISK = 'C:\Backupfiles\test.bak'
 WITH FORMAT, MEDIANAME = 'Test' ;
 GO
 ```

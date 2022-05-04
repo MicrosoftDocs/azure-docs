@@ -89,6 +89,8 @@ The advantage of prefetching container images is that when tasks first start run
 
 To configure a container-enabled pool without prefetched container images, define `ContainerConfiguration` and `VirtualMachineConfiguration` objects as shown in the following examples. These examples use the Ubuntu Server for Azure Batch container pools image from the Marketplace.
 
+**Note**: Ubuntu server version used in the example is for illustration purposes. Feel free to change the node_agent_sku_id to the version you are using.
+
 ```python
 image_ref_to_use = batch.models.ImageReference(
     publisher='microsoft-azure-batch',

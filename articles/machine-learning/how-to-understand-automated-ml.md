@@ -3,7 +3,8 @@ title: Evaluate AutoML experiment results
 titleSuffix: Azure Machine Learning
 description: Learn how to view and evaluate charts and metrics for each of your automated machine learning experiment runs. 
 services: machine-learning
-ms.reviewer: nibaccam
+ms.author: larryfr
+author: blackmist
 ms.service: machine-learning
 ms.subservice: automl
 ms.date: 10/21/2021
@@ -262,10 +263,10 @@ Please refer to the metrics definitions from the [classification metrics](#class
 
 ![Classification report for image classification](./media/how-to-understand-automated-ml/image-classification-report.png)
 
-### Object detection and Instance segmentation metrics
+### Object detection and instance segmentation metrics
 
 Every prediction from an image object detection or instance segmentation  model is associated with a confidence score.
-The predictions with confidence score greater than score threshold are output as predictions and used in the metric calculation, the default value of which is model specific and can be referred from the [hyperparameter tuning](how-to-auto-train-image-models.md#model-specific-hyperparameters) page(`box_score_threshold` hyperparameter).
+The predictions with confidence score greater than score threshold are output as predictions and used in the metric calculation, the default value of which is model specific and can be referred from the [hyperparameter tuning](reference-automl-images-hyperparameters.md#model-specific-hyperparameters) page(`box_score_threshold` hyperparameter).
 
 The metric computation of an image object detection and instance segmentation model is based on an overlap measurement defined by a metric called **IoU** ([Intersection over Union](https://en.wikipedia.org/wiki/Jaccard_index)) which is computed by dividing the area of overlap between the ground-truth and the predictions by the area of union of the ground-truth and the predictions. The IoU computed from every prediction is compared with an **overlap threshold** called an IoU threshold which determines how much a prediction should overlap with a user-annotated ground-truth in order to be considered as a positive prediction. If the IoU computed from the prediction is less than the overlap threshold the prediction would not be considered as a positive prediction for the associated class.
 
@@ -281,7 +282,7 @@ The primary metric for the evaluation of image object detection and instance seg
 [COCO evaluation method](https://cocodataset.org/#detection-eval) uses a 101-point interpolated method for AP calculation along with averaging over ten IoU thresholds. AP@[.5:.95] corresponds to the average AP for IoU from 0.5 to 0.95 with a step size of 0.05. Automated ML logs all the twelve metrics defined by the COCO method including the AP and AR(average recall) at various scales in the application logs while the metrics user interface shows only the mAP  at an IoU threshold of 0.5. 
 
 > [!TIP]
-> The image object detection model evaluation can use coco metrics if the `validation_metric_type` hyperparameter is set to be 'coco' as explained in the [hyperparameter tuning](how-to-auto-train-image-models.md#task-specific-hyperparameters) section.
+> The image object detection model evaluation can use coco metrics if the `validation_metric_type` hyperparameter is set to be 'coco' as explained in the [hyperparameter tuning](reference-automl-images-hyperparameters.md#object-detection-and-instance-segmentation-task-specific-hyperparameters) section.
 
 #### Epoch-level metrics for object detection and instance segmentation
 The mAP, precision and recall values are logged at an epoch-level for image object detection/instance segmentation models. The mAP, precision and recall metrics are also logged at a class level with the name 'per_label_metrics'. The 'per_label_metrics' should be viewed as a table. 

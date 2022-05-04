@@ -349,7 +349,7 @@ print(connection_string)
 ```csharp
 using Microsoft.Spark.Extensions.Azure.Synapse.Analytics.Utils;
 
-string connectionString = TokenLibrary.getSecret("<AZURE KEY VAULT NAME>", "<SECRET KEY>", "<LINKED SERVICE NAME>");
+string connectionString = TokenLibrary.GetSecret("<AZURE KEY VAULT NAME>", "<SECRET KEY>", "<LINKED SERVICE NAME>");
 Console.WriteLine(connectionString);
 ```
 

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Speech SDK for Java (Windows, Linux, macOS) platform setup - Speech service"
 titleSuffix: Azure Cognitive Services
-description: Use this guide to set up your platform for using Java (Windows, Linux, macOS) with the Speech service SDK.
+description: Use this guide to set up your platform for using Java (Windows, Linux, macOS) with the Speech SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -13,42 +13,43 @@ ms.custom: devx-track-java
 ms.author: eur
 ---
 
-This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Java. If you just want the package name to get started on your own, the Java SDK is not available in the Maven central repository. Whether you're using Gradle or a `pom.xml` dependency file, you need to add a custom repository pointing to `https://csspeechstorage.blob.core.windows.net/maven/` (see below for package name).
+This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Java. If you just want the package name to get started on your own, the Java SDK is not available in the Maven central repository. Whether you're using Gradle or a *pom.xml* dependency file, you need to add a custom repository that points to `https://azureai.azureedge.net/maven/`. (See below for the package name.)
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 ## Supported operating systems
 
-- The Java Speech SDK package is available for these operating systems:
-  - Windows: 64-bit only
-  - Mac: macOS X version 10.14 or later
-  - Linux; see the list of [supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md).
+The Java Speech SDK package is available for these operating systems:
+
+- Windows: 64-bit only.
+- Mac: macOS X version 10.14 or later.
+- Linux: See the list of [supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md).
 
 ## Prerequisites
 
-- [Azul Zulu OpenJDK](https://www.azul.com/downloads/?package=jdk); The [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk) or your preferred JDK should also work. 
+- [Azul Zulu OpenJDK](https://www.azul.com/downloads/?package=jdk). The [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk) or your preferred JDK should also work. 
 
-- [Eclipse Java IDE](https://www.eclipse.org/downloads/) (requires Java already installed)
+- [Eclipse Java IDE](https://www.eclipse.org/downloads/). This IDE requires Java to already be installed.
 
-- On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) for your platform. Installing this for the first time may require a restart.
+- [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) for the Windows platform. Installing it for the first time might require a restart.
 
-- On Linux, see the [system requirements and setup instructions](~/articles/cognitive-services/speech-service/speech-sdk.md#get-the-speech-sdk).
+- For Linux, see the [system requirements and setup instructions](~/articles/cognitive-services/speech-service/speech-sdk.md#get-the-speech-sdk).
 
-## Gradle config
+## Gradle configurations
 
-Gradle configs require both a custom repository, and an explicit reference to the dependency extension `.jar`.
+Gradle configurations require both a custom repository and an explicit reference to the .jar dependency extension:
 
 ```groovy
 // build.gradle
 
 repositories {
     maven {
-        url "https://csspeechstorage.blob.core.windows.net/maven/"
+        url "https://azureai.azureedge.net/maven/"
     }
 }
 
 dependencies {
-    implementation group: 'com.microsoft.cognitiveservices.speech', name: 'client-sdk', version: "1.19.0", ext: "jar"
+    implementation group: 'com.microsoft.cognitiveservices.speech', name: 'client-sdk', version: "1.21.0", ext: "jar"
 }
 ```
 

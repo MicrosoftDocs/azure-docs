@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/15/2021
+ms.date: 04/19/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -34,9 +34,10 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - [Office 365](#office-365)
 - Azure Analysis Services
 - Azure DevOps
+- [Azure Data Explorer](/azure/data-explorer/security-conditional-access)
 - Azure Event Hubs
 - Azure Service Bus
-- [Azure SQL Database and Azure Synapse Analytics](../../azure-sql/database/conditional-access-configure.md)
+- [Azure SQL Database and Azure Synapse Analytics](/azure/azure-sql/database/conditional-access-configure)
 - Common Data Service
 - Microsoft Application Insights Analytics
 - [Microsoft Azure Information Protection](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
@@ -78,26 +79,36 @@ The Office 365 suite makes it possible to target these services all at once. We 
 
 Targeting this group of applications helps to avoid issues that may arise because of inconsistent policies and dependencies. For example: The Exchange Online app is tied to traditional Exchange Online data like mail, calendar, and contact information. Related metadata may be exposed through different resources like search. To ensure that all metadata is protected by as intended, administrators should assign policies to the Office 365 app.
 
-Administrators can exclude specific apps from policy if they wish, including the Office 365 suite and excluding the specific apps in policy.
+Administrators can exclude the entire Office 365 suite or specific Office 365 client apps from the Conditional Access policy.
 
 The following key applications are included in the Office 365 client app:
 
-   - Microsoft Forms
-   - Microsoft Stream
-   - Microsoft To-Do
-   - Microsoft Teams
-   - Exchange Online
-   - SharePoint Online
-   - Microsoft 365 Search Service
-   - Yammer
-   - Office Delve
-   - Office Online
-   - Office.com
-   - OneDrive
-   - Power Automate
-   - Power Apps
-   - Skype for Business Online
-   - Sway
+- Exchange Online
+- Microsoft 365 Search Service
+- Microsoft Forms
+- Microsoft Planner (ProjectWorkManagement)
+- Microsoft Stream
+- Microsoft Teams
+- Microsoft To-Do
+- Microsoft Flow
+- Microsoft Office 365 Portal
+- Microsoft Office client application
+- Microsoft Stream 
+- Microsoft To-Do WebApp
+- Microsoft Whiteboard Services
+- Office Delve
+- Office Online
+- OneDrive
+- Power Apps
+- Power Automate
+- Security & Compliance Center
+- SharePoint Online
+- Skype for Business Online
+- Skype and Teams Tenant Admin API
+- Sway
+- Yammer
+
+A complete list of all services included can be found in the article [Apps included in Conditional Access Office 365 app suite](reference-office-365-application-contents.md).
 
 ### Microsoft Azure Management
 
@@ -108,12 +119,22 @@ The Microsoft Azure Management application includes multiple services.
    - Classic deployment model APIs
    - Azure PowerShell
    - Azure CLI
-   - Visual Studio subscriptions administrator portal
    - Azure DevOps
    - Azure Data Factory portal
+   - Azure Event Hubs
+   - Azure Service Bus
+   - [Azure SQL Database](/azure/azure-sql/database/conditional-access-configure)
+   - SQL Managed Instance
+   - Azure Synapse
+   - Visual Studio subscriptions administrator portal
 
 > [!NOTE]
-> The Microsoft Azure Management application applies to Azure PowerShell, which calls the Azure Resource Manager API. It does not apply to Azure AD PowerShell, which calls Microsoft Graph.
+> The Microsoft Azure Management application applies to [Azure PowerShell](/powershell/azure/what-is-azure-powershell), which calls the [Azure Resource Manager API](../../azure-resource-manager/management/overview.md). It does not apply to [Azure AD PowerShell](/powershell/azure/active-directory/overview), which calls the [Microsoft Graph API](/graph/overview).
+
+For more information on how to set up a sample policy for Microsoft Azure Management, see [Conditional Access: Require MFA for Azure management](howto-conditional-access-policy-azure-management.md).
+
+>[!NOTE]
+>For Azure Government, you should target the Azure Government Cloud Management API application.
 
 ### Other applications
 
@@ -126,9 +147,9 @@ Administrators can add any Azure AD registered application to Conditional Access
 - Applications that use [password based single sign-on](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
 > [!NOTE]
-> Since Conditional Access policy sets the requirements for accessing a service you are not able to apply it to a client (public/native) application. Other words the policy is not set directly on a client (public/native) application, but is applied when a client calls a service. For example, a policy set on SharePoint service applies to the clients calling SharePoint. A policy set on Exchange applies to the attempt to access the email using Outlook client. That is why client (public/native) applications are not available for selection in the Cloud Apps picker and Conditional Access option is not available in the application settings for the client (public/native) application registered in your tenant. 
+> Since Conditional Access policy sets the requirements for accessing a service you are not able to apply it to a client (public/native) application. In other words, the policy is not set directly on a client (public/native) application, but is applied when a client calls a service. For example, a policy set on SharePoint service applies to the clients calling SharePoint. A policy set on Exchange applies to the attempt to access the email using Outlook client. That is why client (public/native) applications are not available for selection in the Cloud Apps picker and Conditional Access option is not available in the application settings for the client (public/native) application registered in your tenant. 
 
-Some applications do not appear in the picker at all. The only way to include these applications in a Conditional Access policy is to include **All apps**. 
+Some applications don't appear in the picker at all. The only way to include these applications in a Conditional Access policy is to include **All apps**. 
 
 ## User actions
 
@@ -160,9 +181,9 @@ Authentication contexts are managed in the Azure portal under **Azure Active Dir
 Create new authentication context definitions by selecting **New authentication context** in the Azure portal. Configure the following attributes:
 
 - **Display name** is the name that is used to identify the authentication context in Azure AD and across applications that consume authentication contexts. We recommend names that can be used across resources, like "trusted devices", to reduce the number of authentication contexts needed. Having a reduced set limits the number of redirects and provides a better end to end-user experience.
-- **Description** provides more information about the policies it is used by Azure AD administrators and those applying authentication contexts to resources.
+- **Description** provides more information about the policies it's used by Azure AD administrators and those applying authentication contexts to resources.
 - **Publish to apps** checkbox when checked, advertises the authentication context to apps and makes them available to be assigned. If not checked the authentication context will be unavailable to downstream resources. 
-- **ID** is read-only and used in tokens and apps for request-specific authentication context definitions. It is listed here for troubleshooting and development use cases. 
+- **ID** is read-only and used in tokens and apps for request-specific authentication context definitions. It's listed here for troubleshooting and development use cases. 
 
 #### Add to Conditional Access policy
 
@@ -174,7 +195,7 @@ Administrators can select published authentication contexts in their Conditional
 
 For more information about authentication context use in applications, see the following articles.
 
-- [Microsoft Information Protection sensitivity labels to protect SharePoint sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#more-information-about-the-dependencies-for-the-authentication-context-option)
+- [Use sensitivity labels to protect content in Microsoft Teams, Microsoft 365 groups, and SharePoint sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
 - [Microsoft Defender for Cloud Apps](/cloud-app-security/session-policy-aad?branch=pr-en-us-2082#require-step-up-authentication-authentication-context)
 - [Custom applications](../develop/developer-guide-conditional-access-authentication-context.md)
 

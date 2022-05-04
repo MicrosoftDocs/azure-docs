@@ -1,14 +1,14 @@
 ---
-title: Exporting de-identified data (preview) for FHIR service
+title: Exporting de-identified data for FHIR service
 description: This article describes how to set up and use de-identified export
 author: ranvijaykumar
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 12/06/2021
+ms.date: 02/15/2022
 ms.author: ranku
 ---
-# Exporting de-identified data (preview)
+# Exporting de-identified data
 
 > [!Note] 
 > Results when using the de-identified export will vary based on factors such as data inputted, and functions selected by the customer. Microsoft is unable to evaluate the de-identified export outputs or determine the acceptability for customer's use cases and compliance needs. The de-identified export is not guaranteed to meet any specific legal, regulatory, or compliance requirements.
@@ -17,13 +17,13 @@ The $export command can also be used to export de-identified data from the FHIR 
 
 ## Configuration file
 
-The anonymization engine comes with a sample configuration file to help meet the requirements of HIPAA Safe Harbor Method. The configuration file is a JSON file with 4 sections: `fhirVersion`, `processingErrors`, `fhirPathRules`, `parameters`. 
+The anonymization engine comes with a sample configuration file to help meet the requirements of HIPAA Safe Harbor Method. The configuration file is a JSON file with four sections: `fhirVersion`, `processingErrors`, `fhirPathRules`, `parameters`. 
 * `fhirVersion` specifies the FHIR version for the anonymization engine.
 * `processingErrors` specifies what action to take for the processing errors that may arise during the anonymization. You can _raise_ or _keep_ the exceptions based on your needs.
 * `fhirPathRules` specifies which anonymization method is to be used. The rules are executed in the order of appearance in the configuration file.
 * `parameters` sets rules for the anonymization behaviors specified in _fhirPathRules_.
 
-Here is a sample configuration file for R4:
+Here's a sample configuration file for R4:
 
 ```json
 {
@@ -46,7 +46,7 @@ Here is a sample configuration file for R4:
 }
 ```
 
-For more detailed information on each of these 4 sections of the configuration file, please check [here](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#configuration-file-format).
+For more detailed information on each of these four sections of the configuration file, select [here](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#configuration-file-format).
 ## Using $export command for the de-identified data
  `https://<<FHIR service base URL>>/$export?_container=<<container_name>>&_anonymizationConfig=<<config file name>>&_anonymizationConfigEtag=<<ETag on storage>>`
 

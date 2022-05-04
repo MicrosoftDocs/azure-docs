@@ -1,30 +1,30 @@
 ---
-title: Use additional context in multifactor authentication (MFA) notifications (Preview) - Azure Active Directory
+title: Use additional context in Microsoft Authenticator notifications (Preview) - Azure Active Directory
 description: Learn how to use additional context in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/08/2021
+ms.date: 03/23/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
 ---
-# How to use additional context in multifactor authentication (MFA) notifications (Preview) - Authentication Methods Policy
+# How to use additional context in Microsoft Authenticator notifications (Preview) - Authentication Methods Policy
 
-This topic covers how to improve the security of user sign-in by adding application location based on IP address in Microsoft Authenticator push notifications.  
+This topic covers how to improve the security of user sign-in by adding the application and location in Microsoft Authenticator push notifications.  
 
 ## Prerequisites
 
-Your organization will need to enable Microsoft Authenticator push notifications for some users or groups using the new Authentication Methods Policy API. 
+Your organization will need to enable Microsoft Authenticator push notifications for some users or groups using the new Authentication Methods Policy API.
 
 >[!NOTE]
 >Additional context can be targeted to only a single group, which can be dynamic or nested. On-premises synchronized security groups and cloud-only security groups are supported for the Authentication Method Policy.
 
 ## Passwordless phone sign-in and multifactor authentication 
 
-When a user receives a Passwordless phone sign-in or MFA push notification in the Microsoft Authenticator app, they'll see the name of the application that requests the approval and the app location based on its IP address.
+When a user receives a Passwordless phone sign-in or MFA push notification in the Microsoft Authenticator app, they'll see the name of the application that requests the approval and the location based on the IP address where the sign-in originated from.
 
 :::image type="content" border="false" source="./media/howto-authentication-passwordless-phone/location.png" alt-text="Screenshot of additional context in the MFA push notification.":::
 
@@ -33,6 +33,9 @@ The additional context can be combined with [number matching](how-to-mfa-number-
 :::image type="content" border="false" source="./media/howto-authentication-passwordless-phone/location-with-number-match.png" alt-text="Screenshot of additional context with number matching in the MFA push notification.":::
 
 ### Policy schema changes 
+
+>[!NOTE]
+>In Graph Explorer, ensure you've consented to the **Policy.Read.All** and **Policy.ReadWrite.AuthenticationMethod** permissions. 
 
 Identify a single target group for the schema configuration. Then use the following API endpoint to change the displayAppInformationRequiredState property to **enabled**:
 
@@ -187,6 +190,10 @@ To enable additional context in the Azure AD portal, complete the following step
 1. Select the **Authentication mode**, and then for **Show additional context in notifications (Preview)**, click **Enable**, and then click **Done**.
 
    ![Screenshot of enabling additional context.](media/howto-authentication-passwordless-phone/enable-additional-context.png)
+
+## Known issues
+
+Additional context is not supported for Network Policy Server (NPS). 
 
 ## Next steps
 

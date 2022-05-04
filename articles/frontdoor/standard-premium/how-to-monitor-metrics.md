@@ -1,34 +1,26 @@
 ---
-title: Monitoring metrics for Azure Front Door Standard/Premium
-description: This article describes the Azure Front Door Standard/Premium monitoring metrics.
+title: Monitoring metrics for Azure Front Door
+description: This article describes the Azure Front Door monitoring metrics.
 services: frontdoor
 author: duongau
 manager: KumudD
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 03/20/2022
 ms.author: yuajia
 ---
 
-# Real-time Monitoring in Azure Front Door Standard/Premium
+# Real-time Monitoring in Azure Front Door
 
-> [!Note]
-> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
+Azure Front Door is integrated with Azure Monitor and has 11 metrics to help monitor Azure Front Door in real-time to track, troubleshoot, and debug issues.  
 
-Azure Front Door Standard/Premium is integrated with Azure Monitor and has 11 metrics to help monitor Azure Front Door Standard/Premium in real-time to track, troubleshoot, and debug issues.  
-
-Azure Front Door Standard/Premium measures and sends its metrics in 60-second intervals. The metrics can take up to 3 mins to appear in the portal. Metrics can be displayed in charts or grid of your choice and are accessible via portal, PowerShell, CLI, and API. For more information, see [Azure Monitor metrics](../../azure-monitor/essentials/data-platform-metrics.md).  
+Azure Front Door measures and sends its metrics in 60-second intervals. The metrics can take up to 3 mins to appear in the portal. Metrics can be displayed in charts or grid of your choice and are accessible via portal, PowerShell, CLI, and API. For more information, see [Azure Monitor metrics](../../azure-monitor/essentials/data-platform-metrics.md).  
 
 The default metrics are free of charge. You can enable additional metrics for an extra cost. 
 
 You can configure alerts for each metric such as a threshold for 4XXErrorRate or 5XXErrorRate. When the error rate exceeds the threshold, it will trigger an alert as configured. For more information, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/alerts/alerts-metric.md). 
 
-> [!IMPORTANT]
-> Azure Front Door Standard/Premium (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## Metrics supported in Azure Front Door Standard/Premium
+## Metrics supported in Azure Front Door
 
 | Metrics  | Description | Dimensions |
 | ------------- | ------------- | ------------- |
@@ -44,9 +36,14 @@ You can configure alerts for each metric such as a threshold for 4XXErrorRate or
 | OriginHealth% | The percentage of successful health probes from AFD to origin.| Origin, Origin Group |
 | WAF request count | Matched WAF request. | Action, rule name, Policy Name |
 
+> [!NOTE]
+> If a request to the the origin timeout, the value for HttpStatusCode dimension will be **0**.
+>
+
+
 ## Access Metrics in Azure portal
 
-1. From the Azure portal menu, select **All Resources** >> **\<your-AFD Standard/Premium (Preview) -profile>**.
+1. From the Azure portal menu, select **All Resources** >> **\<your-AFD-profile>**.
 
 2. Under **Monitoring**, select **Metrics**:
 
@@ -74,5 +71,5 @@ Alert will be charged based on Azure Monitor. For more information about alerts,
 
 ## Next steps
 
-- Learn about [Azure Front Door Standard/Premium Reports](how-to-reports.md).
-- Learn about [Azure Front Door Standard/Premium Logs](how-to-logs.md).
+- Learn about [Azure Front Door reports](how-to-reports.md).
+- Learn about [Azure Front Door logs](how-to-logs.md).

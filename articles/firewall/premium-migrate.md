@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 12/06/2021
+ms.date: 03/30/2022
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -14,21 +14,32 @@ ms.custom: devx-track-azurepowershell
 
 You can migrate Azure Firewall Standard to Azure Firewall Premium to take advantage of the new Premium capabilities. For more information about Azure Firewall Premium features, see [Azure Firewall Premium features](premium-features.md).
 
-The following two examples show how to:
-- Migrate an existing standard policy using Azure PowerShell
-- Migrate an existing standard firewall (with classic rules) to Azure Firewall Premium  with a Premium policy.
+This article guides you with the required steps to manually migrate your Standard firewall and policy to Premium.
+
+Before you start the migration, understand the [performance considerations](#performance-considerations) and plan ahead for the required maintenance window. Typical down time of 20-30 minutes is expected.
+
+The following general steps are required for a successful migration:
+
+1. Create new Premium policy based on your existing Standard policy or classic rules. By the end of this step your new premium policy will include all your existing rules and policy settings.
+   - [Migrate Classic rules to Standard policy](#migrate-classic-rules-to-standard-policy)
+   - [Migrate an existing policy using Azure PowerShell](#migrate-an-existing-policy-using-azure-powershell)
+1. [Migrate Azure Firewall from Standard to Premium using stop/start](#migrate-azure-firewall-using-stopstart).
+1. [Attach the newly created Premium policy to your Premium Firewall](#attach-a-premium-policy-to-a-premium-firewall).
+
+> [!IMPORTANT]
+> Upgrading a Standard Firewall deployed in Southeast Asia with Availability Zones is not currently supported.
 
 If you use Terraform to deploy the Azure Firewall, you can use Terraform to migrate to Azure Firewall Premium. For more information, see [Migrate Azure Firewall Standard to Premium using Terraform](/azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json).
 
 ## Performance considerations
 
-Performance is a consideration when migrating from the standard SKU. IDPS and TLS inspection are compute intensive operations. The premium SKU uses a more powerful VM SKU which scales to a maximum throughput of 30 Gbps comparable with the standard SKU. The 30 Gbps throughput is supported when configured with IDPS in alert mode. Use of IDPS in deny mode and TLS inspection increases CPU consumption. Degradation in max throughput might occur. 
+Performance is a consideration when migrating from the standard SKU. IDPS and TLS inspection are compute intensive operations. The premium SKU uses a more powerful VM SKU, which scales to a maximum throughput of 30 Gbps comparable with the standard SKU. The 30-Gbps throughput is supported when configured with IDPS in alert mode. Use of IDPS in deny mode and TLS inspection increases CPU consumption. Degradation in max throughput might occur. 
 
-The firewall throughput might be lower than 30 Gbps when you have one or more signatures set to **Alert and Deny** or application rules with **TLS inspection** enabled. Microsoft recommends customers perform full scale testing in their Azure deployment to ensure the firewall service performance meets your expectations.
+The firewall throughput might be lower than 30 Gbps when you’ve one or more signatures set to **Alert and Deny** or application rules with **TLS inspection** enabled. Microsoft recommends customers perform full-scale testing in their Azure deployment to ensure the firewall service performance meets your expectations.
 
 ## Downtime
 
-Migrate your firewall during a planned maintenance time, as there will be some downtime during the migration.
+Migrate your firewall during a planned maintenance time, as there will be some downtime when you [Migrate Azure Firewall from Standard to Premium using stop/start](#migrate-azure-firewall-using-stopstart).
 
 ## Migrate Classic rules to Standard policy
 
@@ -49,14 +60,16 @@ You can also migrate existing Classic rules from Azure Firewall using Azure Powe
 
 `Transform-Policy.ps1` is an Azure PowerShell script that creates a new Premium policy from an existing Standard policy.
 
-Given a standard firewall policy ID, the script transforms it to a Premium Azure Firewall policy. The script first connects to your Azure account, pulls the policy, transforms/adds various parameters, and then uploads a new Premium policy. The new premium policy is named `<previous_policy_name>_premium`. In case of child policy transformation, link to parent policy will remain.
+Given a standard firewall policy ID, the script transforms it to a Premium Azure firewall policy. The script first connects to your Azure account, pulls the policy, transforms/adds various parameters, and then uploads a new Premium policy. The new premium policy is named `<previous_policy_name>_premium`. If it's a child policy transformation, a link to the parent policy will remain.
 
 Usage example:
 
 `Transform-Policy -PolicyId /subscriptions/XXXXX-XXXXXX-XXXXX/resourceGroups/some-resource-group/providers/Microsoft.Network/firewallPolicies/policy-name`
 
 > [!IMPORTANT]
-> The script doesn't migrate Threat Intelligence settings. You'll need to note those settings before proceeding and migrate them manually.
+> The script doesn't migrate Threat Intelligence and SNAT private ranges settings. You'll need to note those settings before proceeding and migrate them manually. Otherwise, you might encounter inconsistent traffic filtering with your new upgraded firewall.
+
+This script requires the latest Azure PowerShell. Run `Get-Module -ListAvailable Az` to see which versions are installed. If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
 ```azurepowershell
 <#
@@ -187,7 +200,7 @@ TransformPolicyToPremium -Policy $policy
 
 ## Migrate Azure Firewall using stop/start
 
-If you use Azure Firewall Standard SKU with Firewall Policy, you can use the Allocate/Deallocate method to migrate your Firewall SKU to Premium. This migration approach is supported on both VNet Hub and Secure Hub Firewalls. When you migrate a Secure Hub deployment, it will preserve the firewall public IP address.
+If you use Azure Firewall Standard SKU with firewall policy, you can use the Allocate/Deallocate method to migrate your Firewall SKU to Premium. This migration approach is supported on both VNet Hub and Secure Hub Firewalls. When you migrate a Secure Hub deployment, it will preserve the firewall public IP address.
 
 The minimum Azure PowerShell version requirement is 6.5.0. For more information, see [Az 6.5.0](https://www.powershellgallery.com/packages/Az/6.5.0).
 
@@ -203,7 +216,7 @@ The minimum Azure PowerShell version requirement is 6.5.0. For more information,
    ```
 
 
-- Allocate Firewall Premium
+- Allocate Firewall Premium (single public IP address)
 
    ```azurepowershell
    $azfw = Get-AzFirewall -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
@@ -214,6 +227,17 @@ The minimum Azure PowerShell version requirement is 6.5.0. For more information,
    Set-AzFirewall -AzureFirewall $azfw
    ```
 
+- Allocate Firewall Premium (multiple public IP addresses)
+
+   ```azurepowershell
+   $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+   $azfw.Sku.Tier="Premium"
+   $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+   $publicip1 = Get-AzPublicIpAddress -Name "Public IP1 Name" -ResourceGroupName "RG Name"
+   $publicip2 = Get-AzPublicIpAddress -Name "Public IP2 Name" -ResourceGroupName "RG Name"
+   $azfw.Allocate($vnet,@($publicip1,$publicip2))
+   Set-AzFirewall -AzureFirewall $azfw
+   ```
 - Allocate Firewall Premium in Forced Tunnel Mode
 
    ```azurepowershell
@@ -241,7 +265,7 @@ The minimum Azure PowerShell version requirement is 6.5.0. For more information,
 
    ```azurepowershell
    $azfw = Get-AzFirewall -Name -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
-   $hub = get-azvirtualhub -ResourceGroupName "<resource-group-name>" -name "<vWAN-name>"
+   $hub = get-azvirtualhub -ResourceGroupName "<resource-group-name>" -name "<vWANhub-name>"
    $azfw.Sku.Tier="Premium"
    $azfw.Allocate($hub.id)
    Set-AzFirewall -AzureFirewall $azfw

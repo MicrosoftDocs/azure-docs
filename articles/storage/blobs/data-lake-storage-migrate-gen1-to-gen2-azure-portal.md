@@ -220,7 +220,7 @@ Once the migration is complete, both in "Copy data" and "Complete migration" opt
 
 #### Gen1 doesn't have containers and Gen2 has them - what should I expect?
 
-When we copy the data over to your Gen2-enabled account, we automatically create a container named `Gen1`. If you choose to copy only data, then you can rename that container after the data copy is complete. If you perform a complete migration, and you plan to use the application compatibility layer, then you should avoid changing the container name. When you no longer want to use the compatibility layer, you can change the name of the container.
+When we copy the data over to your Gen2-enabled account, we automatically create a container named 'Gen1'. In Gen2 container names cannot be renamed and hence post migration data can be copied to new container in Gen2 as needed.
 
 #### What should I consider in terms of migration performance?
 

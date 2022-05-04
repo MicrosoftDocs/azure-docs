@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to ingest device telemetry messages from Azure IoT Hub to digital twins in an instance of Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/28/2021
+ms.date: 02/22/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -28,10 +28,10 @@ This how-to document walks through the process for writing a function that can i
 ## Prerequisites
 
 Before continuing with this example, you'll need to set up the following resources as prerequisites:
-* **An IoT hub**. For instructions, see the *Create an IoT Hub* section of this [IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md).
-* **An Azure Digital Twins instance** that will receive your device telemetry. For instructions, see [Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md).
+* An IoT hub. For instructions, see the [Create an IoT Hub section of this IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md).
+* An Azure Digital Twins instance that will receive your device telemetry. For instructions, see [Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md).
 
-This article also uses **Visual Studio**. You can download the latest version from [Visual Studio Downloads](https://visualstudio.microsoft.com/downloads/).
+This article also uses Visual Studio. You can download the latest version from [Visual Studio Downloads](https://visualstudio.microsoft.com/downloads/).
 
 ## Example telemetry scenario
 
@@ -42,7 +42,7 @@ This how-to outlines how to send messages from IoT Hub to Azure Digital Twins, u
 > [!NOTE]
 > This example uses a straightforward ID match between the device ID and a corresponding digital twin's ID, but it is possible to provide more sophisticated mappings from the device to its twin (such as with a mapping table).
 
-Whenever a temperature telemetry event is sent by the thermostat device, a function processes the telemetry and the *temperature* property of the digital twin should update. This scenario is outlined in a diagram below:
+Whenever a temperature telemetry event is sent by the thermostat device, a function processes the telemetry and the `Temperature` property of the digital twin should update. This scenario is outlined in a diagram below:
 
 :::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Diagram of IoT Hub device sending Temperature telemetry to a function in Azure, which updates a temperature property on a twin in Azure Digital Twins." border="false":::
 
@@ -54,11 +54,16 @@ To create a thermostat-type twin, you'll first need to upload the thermostat [mo
 
 [!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 
-You'll then need to **create one twin using this model**. Use the following command to create a thermostat twin named thermostat67, and set 0.0 as an initial temperature value.
+You'll then need to create one twin using this model. Use the following command to create a thermostat twin named thermostat67, and set 0.0 as an initial temperature value. There's one placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance).
 
 ```azurecli-interactive
-az dt twin create  --dt-name <instance-name> --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}'
+az dt twin create  --dt-name <instance-hostname-or-name> --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0}'
 ```
+
+>[!NOTE]
+>If you're using anything other than Cloud Shell in the Bash environment, you may need to escape certain characters in the inline JSON so that it's parsed correctly. 
+>
+>For more information, see [Use special characters in different shells](concepts-cli.md#use-special-characters-in-different-shells).
 
 When the twin is created successfully, the CLI output from the command should look something like this:
 ```json
@@ -100,7 +105,7 @@ To access Azure Digital Twins, your function app needs a system-managed identity
 
 ### Configure the function app
 
-Next, **assign an access role** for the function and **configure the application settings** so that it can access your Azure Digital Twins instance.
+Next, assign an access role for the function and configure the application settings so that it can access your Azure Digital Twins instance.
 
 [!INCLUDE [digital-twins-configure-function-app.md](../../includes/digital-twins-configure-function-app.md)]
 
@@ -114,30 +119,30 @@ In the [Azure portal](https://portal.azure.com/), navigate to your IoT Hub insta
 
 In the **Create Event Subscription** page, fill the fields as follows:
   1. For **Name**, choose whatever name you want for the event subscription.
-  2. For **Event Schema**, choose _Event Grid Schema_.
+  2. For **Event Schema**, choose **Event Grid Schema**.
   3. For **System Topic Name**, choose whatever name you want.
-  1. For **Filter to Event Types**, choose the _Device Telemetry_ checkbox and uncheck other event types.
-  1. For **Endpoint Type**, Select _Azure Function_.
-  1. For **Endpoint**, use the _Select an endpoint_ link to choose what Azure Function to use for the endpoint.
+  1. For **Filter to Event Types**, choose the **Device Telemetry** checkbox and uncheck other event types.
+  1. For **Endpoint Type**, Select **Azure Function**.
+  1. For **Endpoint**, use the **Select an endpoint** link to choose what Azure Function to use for the endpoint.
     
 :::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Screenshot of the Azure portal to create the event subscription details.":::
 
-In the _Select Azure Function_ page that opens up, verify or fill in the below details.
+In the **Select Azure Function** page that opens up, verify or fill in the below details.
  1. **Subscription**: Your Azure subscription.
  2. **Resource group**: Your resource group.
  3. **Function app**: Your function app name.
- 4. **Slot**: _Production_.
+ 4. **Slot**: **Production**.
  5. **Function**: Select the function from earlier, *IoTHubtoTwins*, from the dropdown.
 
-Save your details with the _Confirm Selection_ button.            
+Save your details with the **Confirm Selection** button.            
       
 :::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="Screenshot of the Azure portal to select the function.":::
 
-Select the _Create_ button to create the event subscription.
+Select the **Create** button to create the event subscription.
 
 ## Send simulated IoT data
 
-To test your new ingress function, use the device simulator from [Connect an end-to-end solution](./tutorial-end-to-end.md). That tutorial is driven by this [Azure Digital Twins end-to-end sample project written in C#](/samples/azure-samples/digital-twins-samples/digital-twins-samples). You'll be using the **DeviceSimulator** project in that repository.
+To test your new ingress function, use the device simulator from [Connect an end-to-end solution](./tutorial-end-to-end.md). That tutorial is driven by this [Azure Digital Twins end-to-end sample project written in C#](/samples/azure-samples/digital-twins-samples/digital-twins-samples). You'll be using the *DeviceSimulator* project in that repository.
 
 In the end-to-end tutorial, complete the following steps:
 1. [Register the simulated device with IoT Hub](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)
@@ -145,10 +150,10 @@ In the end-to-end tutorial, complete the following steps:
 
 ## Validate your results
 
-While running the device simulator above, the temperature value of your digital twin will be changing. In the Azure CLI, run the following command to see the temperature value.
+While running the device simulator above, the temperature value of your digital twin will be changing. In the Azure CLI, run the following command to see the temperature value. There's one placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance).
 
 ```azurecli-interactive
-az dt twin query --query-command "select * from digitaltwins" --dt-name <Digital-Twins-instance-name>
+az dt twin query --query-command "select * from digitaltwins" --dt-name <instance-hostname-or-name>
 ```
 
 Your output should contain a temperature value like this:

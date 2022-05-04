@@ -40,6 +40,8 @@
           - name: ARM template
             displayName: Resource Manager
             href: flexible-server/quickstart-create-arm-template.md
+      - name: Create and manage databases
+        href: flexible-server/how-to-create-manage-databases.md
       - name: Connect and query
         items:
           - name: Azure CLI
@@ -54,6 +56,8 @@
             href: flexible-server/connect-java.md
           - name: .NET
             href: flexible-server/connect-csharp.md
+          - name: Node.js
+            href: flexible-server/connect-nodejs.md
           - name: Connect to server in VNET
             href: flexible-server/quickstart-create-connect-server-vnet.md
       - name: Connect using TLS/SSL
@@ -160,6 +164,8 @@
           href: flexible-server/how-to-restart-server-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-restart-stop-start-server-cli.md
+      - name: Move Servers between regions
+        href: flexible-server/how-to-move-regions.md
     - name: Networking
       items:
       - name: Configure Private access (VNet Integration)
@@ -224,7 +230,31 @@
   - name: Samples
     items:
     - name: Azure CLI samples
-      href: flexible-server/sample-scripts-azure-cli.md
+      items: 
+      - name: Samples overview
+        href: flexible-server/sample-scripts-azure-cli.md
+      - name: Create server with public access
+        href: flexible-server/scripts/sample-cli-create-connect-public-access.md
+      - name: Create server with VNet integration
+        href: flexible-server/scripts/sample-cli-create-connect-private-access.md
+      - name: Monitor and scale a server
+        href: flexible-server/scripts/sample-cli-monitor-and-scale.md
+      - name: Restore a server
+        href: flexible-server/scripts/sample-cli-restore-server.md
+      - name: Configure zone-redundant HA
+        href: flexible-server/scripts/sample-cli-zone-redundant-ha.md
+      - name: Configure same-zone HA
+        href: flexible-server/scripts/sample-cli-same-zone-ha.md
+      - name: Restart, stop, start a server
+        href: flexible-server/scripts/sample-cli-restart-stop-start.md
+      - name: Change server parameters
+        href: flexible-server/scripts/sample-cli-change-server-parameters.md
+      - name: Create read replicas
+        href: flexible-server/scripts/sample-cli-read-replicas.md
+      - name: Configure audit logs
+        href: flexible-server/scripts/sample-cli-audit-logs.md
+      - name: Configure slow-query logs
+        href: flexible-server/scripts/sample-cli-slow-query-logs.md
 - name: Single Server
   items:
   - name: Single Server documentation
@@ -426,19 +456,8 @@
         displayName:  recommendation
       - name: Azure Advisor recommendations
         href: concepts-azure-advisor-recommendations.md
-    - name: Best Practices
+    - name: Tutorials
       items:
-      - name: Monitoring best practices
-        href: concept-monitoring-best-practices.md
-      - name: Performance best practices
-        href: concept-performance-best-practices.md
-      - name: Application Development best practices
-        href: app-development-best-practices.md
-        displayName: application
-      - name: Operational best practices
-        href: concept-operation-excellence-best-practices.md
-  - name: Tutorials
-    items:
     - name: Application Development
       items:
       - name: Design a database
@@ -592,7 +611,19 @@
   - name: Samples
     items:
     - name: Azure CLI samples
-      href: sample-scripts-azure-cli.md
+      items:
+      - name: Samples overview
+        href: sample-scripts-azure-cli.md
+      - name: Create a server
+        href: ./scripts/sample-create-server-and-firewall-rule.md
+      - name: Monitor and scale a server
+        href: ./scripts/sample-scale-server.md
+      - name: Change server configurations
+        href: ./scripts/sample-change-server-configuration.md
+      - name: Restore a server
+        href: ./scripts/sample-point-in-time-restore.md
+      - name: Enable server logs
+        href: ./scripts/sample-server-logs.md
     - name: Configure Java connection pooling
       href: sample-scripts-java-connection-pooling.md
 - name: Migration
@@ -633,12 +664,20 @@
   - name: Troubleshoot migration errors
     href: howto-troubleshoot-common-errors.md
     displayName: SUPER privilege, DBA role, Access is denied
-  - name: Troubleshoot query performance
-    href: howto-troubleshoot-query-performance.md
-    displayName: debug, performance issues, query performance
-  - name: How to use views in sys schema
-    href: howto-troubleshoot-sys-schema.md
-    displayName: sys schema, views
+  - name: Query performance
+    items: 
+    - name: Troubleshoot query performance
+      href: howto-troubleshoot-query-performance-new.md
+      displayName: debug, performance issues, query performance
+    - name: Profile query performance
+      href: howto-troubleshoot-query-performance.md
+      displayName: debug, performance issues, query performance
+  - name: Troubleshoot low memory issues
+    href: howto-troubleshoot-low-memory-issues.md
+    displayName: low memory, performance issues
+  - name: Troubleshoot high CPU utilization
+    href: howto-troubleshoot-high-cpu-utilization.md
+    displayName: cpu utilization, performance issues
   - name: Troubleshoot data encryption
     href: howto-data-encryption-troubleshoot.md
     displayName: encryption, security
@@ -648,6 +687,20 @@
   - name: Troubleshoot database corruption
     href: how-to-fix-corrupt-database.md
     displayName: corrupt data
+  - name: Tune performance using the sys_schema
+    href: howto-troubleshoot-sys-schema.md
+    displayName: sys schema, views
+- name: Best Practices
+  items:
+  - name: Monitoring best practices
+    href: concept-monitoring-best-practices.md
+  - name: Performance best practices
+    href: concept-performance-best-practices.md
+  - name: Application Development best practices
+    href: app-development-best-practices.md
+    displayName: application
+  - name: Operational best practices
+    href: concept-operation-excellence-best-practices.md
 - name: Reference
   items:
   - name: Azure CLI

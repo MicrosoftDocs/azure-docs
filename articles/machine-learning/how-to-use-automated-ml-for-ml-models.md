@@ -5,8 +5,8 @@ description: Learn how to set up AutoML training runs without a single line of c
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.author: nibaccam
-author: cartacioS
+ms.author: larryfr
+author: blackmist
 ms.reviewer: nibaccam
 ms.date: 11/15/2021
 ms.topic: how-to
@@ -111,7 +111,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
 
     Select **Next**.
 
-1. On the **Task type and settings** form, select the task type: classification, regression, or forecasting. See [supported task types](concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting--computer-vision) for more information.
+1. On the **Task type and settings** form, select the task type: classification, regression, or forecasting. See [supported task types](concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting-computer-vision--nlp) for more information.
 
     1. For **classification**, you can also enable deep learning.
     
@@ -276,6 +276,17 @@ To get explanations for a particular model,
 1. Once complete, navigate to the **Explanations (preview)** tab which contains the explanations dashboard. 
 
     ![Model explanation dashboard](media/how-to-use-automated-ml-for-ml-models/model-explanation-dashboard.png)
+
+## Edit and submit runs (preview)
+
+>[!IMPORTANT]
+> The ability to copy, edit and submit a new experiment based on an existing experiment is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
+
+In scenarios where you would like to create a new experiment based on the settings of an existing experiment, automated ML provides the option to do so with the **Edit and submit** button in the studio UI.  
+
+This functionality is limited to experiments initiated from the studio UI and requires the data schema for the new experiment to match that of the original experiment. 
+
+The **Edit and submit** button opens the **Create a new Automated ML run** wizard with the data, compute and experiment settings pre-populated. You can go through each form and edit selections as needed for your new experiment. 
 
 ## Deploy your model
 

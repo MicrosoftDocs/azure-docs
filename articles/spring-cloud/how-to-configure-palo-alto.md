@@ -1,8 +1,8 @@
 ---
 title: How to configure Palo Alto for Azure Spring Cloud
 description: How to configure Palo Alto for Azure Spring Cloud
-author: karlerickson
-ms.author: vaangadi
+author: KarlErickson
+ms.author: karler
 ms.topic: how-to
 ms.service: spring-cloud
 ms.date: 09/17/2021
@@ -12,6 +12,8 @@ ms.custom: devx-track-java, devx-track-azurecli
 # How to configure Palo Alto for Azure Spring Cloud
 
 **This article applies to:** ✔️ Java ✔️ C#
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 This article describes how to use Azure Spring Cloud with a Palo Alto firewall.
 
@@ -29,7 +31,7 @@ You should keep configuration information, such as rules and address wildcards, 
 ## Prerequisites
 
 * An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* A Palo Alto deployment. If you don't have a deployment, you can provision [Palo Alto from Azure Marketplace](https://ms.portal.azure.com/#create/paloaltonetworks.vmseries-ngfwbundle2).
+* A Palo Alto deployment. If you don't have a deployment, you can provision [Palo Alto from Azure Marketplace](https://portal.azure.com/#create/paloaltonetworks.vmseries-ngfwbundle2).
 * [PowerShell](/powershell/scripting/install/installing-powershell)
 * [Azure CLI](/cli/azure/install-azure-cli)
 

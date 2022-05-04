@@ -1,16 +1,14 @@
 ---
-title: IT Service Management Connector - Secure Export in Azure Monitor - Configuration with BMC
-description: This article shows you how to connect your ITSM products/services with BMC on Secure Export in Azure Monitor.
+title: IT Service Management Connector - Secure Webhook in Azure Monitor - Configuration with BMC
+description: This article shows you how to connect your ITSM products/services with BMC on Secure Webhook in Azure Monitor.
 ms.topic: conceptual
-author: nolavime
-ms.author: v-jysur
-ms.date: 12/31/2020
+ms.date: 03/30/2022
 
 ---
 
 # Connect BMC Helix to Azure Monitor
 
-The following sections provide details about how to connect your BMC Helix product and Secure Export in Azure.
+The following sections provide details about how to connect your BMC Helix product and Secure Webhook in Azure.
 
 ## Prerequisites
 
@@ -21,7 +19,7 @@ Ensure that you've met the following prerequisites:
 
 ## Configure the BMC Helix connection
 
-1. Use the following procedure in the BMC Helix environment in order to get the URI for the secure export:
+1. Use the following procedure in the BMC Helix environment in order to get the URI for the secure Webhook:
 
    1. Log in to Integration Studio.
    1. Search for the **Create Incident from Azure Alerts** flow.

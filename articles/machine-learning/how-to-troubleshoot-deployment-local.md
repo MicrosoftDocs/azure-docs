@@ -5,7 +5,8 @@ description: Try a local model deployment as a first step in troubleshooting mod
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.reviewer: luquinta
+ms.author: ssalgado
+author: ssalgadodev
 ms.date: 10/21/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2
@@ -149,5 +150,5 @@ Learn more about deployment:
 * [How to troubleshoot remote deployments](how-to-troubleshoot-deployment.md)
 * [Azure Machine Learning inference HTTP Server](how-to-inference-server-http.md)
 * [How to deploy and where](how-to-deploy-and-where.md)
-* [Tutorial: Train & deploy models](tutorial-train-models-with-aml.md)
+* [Tutorial: Train & deploy models](tutorial-train-deploy-notebook.md)
 * [How to run and debug experiments locally](./how-to-debug-visual-studio-code.md)

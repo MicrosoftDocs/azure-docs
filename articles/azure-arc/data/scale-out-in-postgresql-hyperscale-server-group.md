@@ -24,8 +24,8 @@ You scale in when you remove Postgres instances (Postgres Hyperscale worker node
 ## Get started
 If you are already familiar with the scaling model of Azure Arc-enabled PostgreSQL Hyperscale or Azure Database for PostgreSQL Hyperscale (Citus), you may skip this paragraph. If you are not, it is recommended you start by reading about this scaling model in the documentation page of Azure Database for PostgreSQL Hyperscale (Citus). Azure Database for PostgreSQL Hyperscale (Citus) is the same technology that is hosted as a service in Azure (Platform As A Service also known as PAAS) instead of being offered as part of Azure Arc-enabled Data Services:
 - [Nodes and tables](../../postgresql/hyperscale/concepts-nodes.md)
-- [Determine application type](../../postgresql/hyperscale/concepts-app-type.md)
-- [Choose a distribution column](../../postgresql/hyperscale/concepts-choose-distribution-column.md)
+- [Determine application type](../../postgresql/hyperscale/howto-app-type.md)
+- [Choose a distribution column](../../postgresql/hyperscale/howto-choose-distribution-column.md)
 - [Table colocation](../../postgresql/hyperscale/concepts-colocation.md)
 - [Distribute and modify tables](../../postgresql/hyperscale/howto-modify-distributed-tables.md)
 - [Design a multi-tenant database](../../postgresql/hyperscale/tutorial-design-database-multi-tenant.md)*
@@ -266,8 +266,8 @@ The scale-in operation is an online operation. Your applications continue to acc
 - Read about how to set server parameters in your Azure Arc-enabled PostgreSQL Hyperscale server group
 - Read the concepts and How-to guides of Azure Database for PostgreSQL Hyperscale to distribute your data across multiple PostgreSQL Hyperscale nodes and to benefit from all the power of Azure Database for Postgres Hyperscale. :
     * [Nodes and tables](../../postgresql/hyperscale/concepts-nodes.md)
-    * [Determine application type](../../postgresql/hyperscale/concepts-app-type.md)
-    * [Choose a distribution column](../../postgresql/hyperscale/concepts-choose-distribution-column.md)
+    * [Determine application type](../../postgresql/hyperscale/howto-app-type.md)
+    * [Choose a distribution column](../../postgresql/hyperscale/howto-choose-distribution-column.md)
     * [Table colocation](../../postgresql/hyperscale/concepts-colocation.md)
     * [Distribute and modify tables](../../postgresql/hyperscale/howto-modify-distributed-tables.md)
     * [Design a multi-tenant database](../../postgresql/hyperscale/tutorial-design-database-multi-tenant.md)*

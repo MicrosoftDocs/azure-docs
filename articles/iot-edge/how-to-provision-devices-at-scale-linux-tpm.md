@@ -1,9 +1,9 @@
 ---
 title: Create and provision devices with a virtual TPM on Linux - Azure IoT Edge
 description: Use a simulated TPM on a Linux device to test the Azure IoT Hub device provisioning service for Azure IoT Edge.
-author: kgremban
+author: PatAltimore
 manager: lizross
-ms.author: kgremban
+ms.author: patricka
 ms.date: 10/28/2021
 ms.topic: conceptual
 ms.service: iot-edge
@@ -99,7 +99,7 @@ A virtual switch enables your VM to connect to a physical network.
 
 Create a new VM from a bootable image file.
 
-1. Download a disk image file to use for your VM and save it locally. For example, [Ubuntu Server 18.04](http://releases.ubuntu.com/18.04/). For information about supported operating systems for IoT Edge devices, see [Azure IoT Edge supported systems](./support.md).
+1. Download a disk image file to use for your VM and save it locally. For example, [Ubuntu Server 20.04](http://releases.ubuntu.com/20.04/). For information about supported operating systems for IoT Edge devices, see [Azure IoT Edge supported systems](./support.md).
 
 1. In Hyper-V Manager, select **Action** > **New** > **Virtual Machine** on the **Actions** menu.
 
@@ -202,7 +202,7 @@ After the runtime is installed on your device, configure the device with the inf
 
 1. Update the values of `scope_id` and `registration_id` with your device provisioning service and device information. The `scope_id` value is the **ID Scope** from your device provisioning service instance's overview page.
 
-1. Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with the device provisioning service first and then fall back to the provisioning backup if that fails. If a device is set to dynamically provision itself, IoT Edge will restart and reprovision if a reprovisioning event is detected. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+1. Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. If a device is set to dynamically reprovision itself, IoT Edge (and all modules) will restart and reprovision if a reprovisioning event is detected, like if the device is moved from one IoT Hub to another. Specifically, IoT Edge checks for `bad_credential` or `device_disabled` errors from the SDK to detect the reprovision event. To trigger this event manually, disable the device in IoT Hub. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
 1. Save and close the file.
 

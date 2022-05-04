@@ -3,7 +3,7 @@ title: Use an App Service Environment
 description: Learn how to use your App Service Environment to host isolated applications.
 author: madsd
 ms.topic: article
-ms.date: 07/06/2021
+ms.date: 02/14/2022
 ms.author: madsd
 ---
 
@@ -30,10 +30,11 @@ To create an app in an App Service Environment:
 1. Enter a name for a new resource group, or select **Use existing** and select one from the dropdown list.
 1. Enter a name for the app. If you already selected an App Service plan in an App Service Environment, the domain name for the app reflects the domain name of the App Service Environment.
 1. For **Publish**, **Runtime stack**, and **Operating System**, make your selections as appropriate.
-1. For **Region**, select a pre-existing App Service Environment v3. You can't make a new one when you're creating your app.
+1. For **Region**, select a pre-existing App Service Environment v3. If you want to create a new App Service Environment, select a region.
   ![Screenshot that shows how to create an app in an App Service Environment.][1]
-1. Select an existing App Service plan, or create a new one. If you're creating a new app, select the size that you want for your App Service plan. The only SKU you can select for your app is an isolated v2 pricing SKU. Making a new App Service plan will normally take less than 20 minutes.
+1. Select an existing App Service plan, or create a new one. If you're creating a new plan, select the size that you want for your App Service plan. The only SKU you can select for your app is an Isolated v2 pricing SKU. Making a new App Service plan will normally take less than 20 minutes.
   ![Screenshot that shows pricing tiers and their features and hardware.][2]
+1. If you chose to create a new App Service Environment as part of creating your new App Service plan, fill out the name and virtual IP type.
 1. Select **Next: Monitoring**. If you want to enable Application Insights with your app, you can do it here during the creation flow.
 1.  Select **Next: Tags**, and add any tags you want to the app.
 1. Select **Review + create**. Make sure that the information is correct, and then select **Create**.
@@ -46,7 +47,7 @@ Every App Service app runs in an App Service plan. App Service Environments hold
 
 When you scale an App Service plan, the needed infrastructure is added automatically. Be aware that there's a time delay to scale operations while the infrastructure is being added. For example, when you scale an App Service plan, and you have another scale operation of the same operating system and size running, there might be a delay of a few minutes until the requested scale starts.
 
-A scale operation on one size and operating system won't affect scaling of the other combinations of size and operating system. For example, if you are scaling a Windows I2v2 App Service plan, a scale operation to a Windows I3v2 App Service plan starts immediately. Scaling normally takes less than 20 minutes.
+A scale operation on one size and operating system won't affect scaling of the other combinations of size and operating system. For example, if you are scaling a Windows I2v2 App Service plan, a scale operation to a Windows I3v2 App Service plan starts immediately. Scaling normally takes less than 15 minutes.
 
 In a multi-tenant App Service, scaling is immediate, because a pool of shared resources is readily available to support it. App Service Environment is a single-tenant service, so there's no shared buffer, and resources are allocated based on need.
 
@@ -109,6 +110,10 @@ Without additional changes, internet-based CI systems like GitHub and Azure DevO
 ## Storage
 
 You have 1 TB of storage for all the apps in your App Service Environment. An App Service plan in the isolated pricing SKU has a limit of 250 GB. In an App Service Environment, 250 GB of storage is added per App Service plan, up to the 1 TB limit. You can have more App Service plans than just four, but there is no additional storage beyond the 1 TB limit.
+
+## Monitoring
+
+The platform infrastructure in App Service Environment v3 is being monitored and managed by Microsoft, and is scaled as needed. As a customer, you should only monitor the App Service plans and the individual apps running and take appropriate actions. You will see some metrics visible for your App Service Environment, but these are used for older version only and will not omit any values for this version. If you are using v1 or v2 of App Service Environment, refer to [this section](.\using-an-ase.md#monitoring) for guidance on monitoring and scaling.
 
 ## Logging
 
@@ -205,7 +210,7 @@ To delete:
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
-[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: ../resources-kudu.md
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: ./integrate-with-application-gateway.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md

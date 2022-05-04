@@ -11,12 +11,11 @@ metadata:
   ms.service: active-directory
   ms.workload: identity
   ms.tgt_pltfrm: na
-  ms.topic: how-to
+  ms.topic: faq
   ms.date: 10/07/2019
   ms.subservice: hybrid
   ms.author: billmath
   ms.collection: M365-identity-device-management
-    
 title: 'Azure Active Directory Seamless Single Sign-On: Frequently asked questions'
 summary: In this article, we address frequently asked questions about Azure Active Directory Seamless Single Sign-On (Seamless SSO). Keep checking back for new content.
 
@@ -89,7 +88,7 @@ sections:
           Follow these steps on the on-premises server where you are running Azure AD Connect:
           
              > [!NOTE]
-             >You will need both domain administrator and global administrator credentials for the steps below.
+             >You will need both domain administrator and global administrator or hybrid identity administrator credentials for the steps below.
              >If you are not a domain admin and you were assigned permissions by the domain admin, you should call `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
           
              **Step 1. Get list of AD forests where Seamless SSO has been enabled**
@@ -97,7 +96,7 @@ sections:
              1. First, download, and install [Azure AD PowerShell](/powershell/azure/active-directory/overview).
              2. Navigate to the `$env:programfiles"\Microsoft Azure Active Directory Connect"` folder.
              3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
-             4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
+             4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator or Hybrid Identity Administrator credentials.
              5. Call `Get-AzureADSSOStatus | ConvertFrom-Json`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
           
              **Step 2. Update the Kerberos decryption key on each AD forest that it was set it up on**
@@ -144,7 +143,7 @@ sections:
              1. First, download, and install [Azure AD PowerShell](/powershell/azure/active-directory/overview).
              2. Navigate to the `$env:ProgramFiles"\Microsoft Azure Active Directory Connect"` folder.
              3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
-             4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
+             4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator or Hybrid Identity Adminstrator credentials.
              5. Call `Enable-AzureADSSO -Enable $false`.
              
              At this point Seamless SSO is disabled but the domains will remain configured in case you would like to enable Seamless SSO back. If you would like to remove the domains from Seamless SSO configuration completely, call the following cmdlet after you completed step 5 above: `Disable-AzureADSSOForest -DomainFqdn <fqdn>`.
@@ -159,7 +158,7 @@ sections:
              1. First, download, and install [Azure AD PowerShell](/powershell/azure/active-directory/overview).
              2. Navigate to the `$env:ProgramFiles"\Microsoft Azure Active Directory Connect"` folder.
              3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
-             4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
+             4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator or Hybrid Identity Adminstrator credentials.
              5. Call `Get-AzureADSSOStatus | ConvertFrom-Json`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
           
              **Step 3. Manually delete the `AZUREADSSO` computer account from each AD forest that you see listed.**

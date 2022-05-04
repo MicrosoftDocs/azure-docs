@@ -11,7 +11,7 @@
     expanded: true
     items:
     - name: List of app integration tutorials
-      href: /azure/active-directory/saas-apps/tutorial-list
+      href: ../saas-apps/tutorial-list.md
     - name: Add an on-premises app with Application Proxy
       href: application-proxy-add-on-premises-application.md
   - name: Samples
@@ -81,6 +81,8 @@
     items:
     - name: Configure with proxy servers
       href: application-proxy-configure-connectors-with-proxy-servers.md
+    - name: Add Traffic Manager
+      href: application-proxy-integrate-with-traffic-manager.md
     - name: Give mobile and desktop apps access to on-premises APIs
       href: application-proxy-secure-api-access.md 
     - name: Configure custom home page

@@ -6,22 +6,48 @@ ms.service: virtual-machines
 ms.subservice: 
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 11/19/2021
+ms.date: 01/20/2022
 ms.author: cynthn
-ms.custom: template-how-to 
-
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Delete a VM and attached resources
 
-By default, when you delete a VM it only deletes the VM resource, not the networking and disk resources. You can change this default behavior when you create a VM, or update an existing VM, to delete specific resources along with the VM. 
+Depending on how you delete a VM, it may only delete the VM resource, not the networking and disk resources. You can change the default settings for what other resources are deleted when you delete a VM.
 
 
 ## Set delete options when creating a VM
 
+### [Portal](#tab/portal2)
+
+1. Open the [portal](https://portal.azure.com).
+1. Select **+ Create a resource**.
+1. On the **Create a resource** page, under **Virtual machines**, select **Create**.
+1. Make your choices on the **Basics**, then select **Next : Disks >**. The **Disks** tab will open.
+1. Under **Disk options**, by default the OS disk is set to **Delete with VM**. If you don't want to delete the OS disk, clear the checkbox. If you're using an existing OS disk, the default is to detach the OS disk when the VM is deleted.
+
+    :::image type="content" source="media/delete/delete-disk.png" alt-text="Screenshot checkbox to choose to have the disk deleted when the VM is deleted.":::
+
+1. Under **Data disks**, you can either attach an existing data disk or create a new disk and attach it to the VM.
+
+    - If you choose **Create and attach a new disk**, the **Create a new disk** page will open and you can select whether to delete the disk when you delete the VM.
+        :::image type="content" source="media/delete/delete-data-disk.png" alt-text="Screenshot showing a checkbox to choose to delete the data disk when the VM is deleted.":::
+
+    - If you choose to **Attach an existing disk**, you'll be able to choose the disk, LUN, and whether you want to delete the data disk when you delete the VM.
+        :::image type="content" source="media/delete/delete-existing-data-disk.png" alt-text="Screenshot showing the checkbox to choose to delete the data disk when the VM is deleted.":::
+
+1. When you're done adding your disk information, select **Next : Networking >**. The **Networking** tab will open.
+1. Towards the bottom of the page, select **Delete public IP and NIC when VM is deleted**.
+
+    :::image type="content" source="media/delete/delete-networking.png" alt-text="Screenshot showing the checkbox to choose to delete the public IP and NIC when the VM is deleted.":::
+
+1. When you're done making selections, select **Review + create**. The **Review + create** page will open.
+1. You can verify which resources you have chosen to delete when you delete the VM.
+1. When you're satisfied with your selections, and validation passes, select **Create** to deploy the VM. 
+
 ### [CLI](#tab/cli2)
 
-To specify what happens to the attached resources when you delete a VM, use the `delete-option` parameters. Each can be set to either `Delete`, which permanently deletes the resource when you delete the VM, or `Detach` which only detaches the resource and leaves it in Azure so it can be reused later. Resources that you `Detach`, like disks, will continue to incur charges as applicable.
+To specify what happens to the attached resources when you delete a VM, use the `delete-option` parameters. Each can be set to either `Delete`, which permanently deletes the resource when you delete the VM, or `Detach` which only detaches the resource and leaves it in Azure so it can be reused later. The default for VMs created using the CLI is to detach the OS disk. Resources that you `Detach`, like disks, will continue to incur charges as applicable.
 
 - `--os-disk-delete-option` - OS disk.
 - `--data-disk-delete-option` - data disk.
@@ -43,7 +69,7 @@ az vm create \
 
 ### [PowerShell](#tab/powershell2)
 
-To specify what happens to the attached resources when you delete a VM, use the `DeleteOption` parameters. Each can be set to either `Delete`, which permanently deletes the resource when you delete the VM, or `Detach` which only detaches the resource and leaves it in Azure so it can be reused later. Resources that you `Detach`, like disks, will continue to incur charges as applicable.
+To specify what happens to the attached resources when you delete a VM, use the `DeleteOption` parameters. Each can be set to either `Delete`, which permanently deletes the resource when you delete the VM, or `Detach` which only detaches the resource and leaves it in Azure so it can be reused later. The default for VMs created using PowerShell is for the OS disk to be detached when you delete the VM. Resources that you `Detach`, like disks, will continue to incur charges as applicable.
 
 The `DeleteOption` parameters are:
 - `-OSDiskDeleteOption` - OS disk.
@@ -243,7 +269,7 @@ PATCH https://management.azure.com/subscriptions/subID/resourceGroups/resourcegr
 
 ### Q: Does this feature work with shared disks?
 
-A: For shared disks, you cannot set the ‘deleteOption’ property to ‘Delete’. You can leave it blank or set it to ‘Detach’
+A: For shared disks, you can't set the ‘deleteOption’ property to ‘Delete’. You can leave it blank or set it to ‘Detach’
 
 
 ### Q: Which Azure resources support this feature?
@@ -251,7 +277,7 @@ A: For shared disks, you cannot set the ‘deleteOption’ property to ‘Dele
 A: This feature is supported on all managed disk types used as OS disks and Data disks, NICs, and Public IPs
 
 
-### Q: Can I use this feature on disks and NICs that are not associated with a VM?
+### Q: Can I use this feature on disks and NICs that aren't associated with a VM?
 
 A: No, this feature is only available on disks and NICs associated with a VM.
 
@@ -270,7 +296,7 @@ A: Yes, you can use this feature for Spot VMs just the way you would for on-dema
 
 ### Q: How do I persist the disks, NIC, and Public IPs associated with a VM? 
 
-A: By default, disks, NICs, and Public IPs associated with a VM are persisted when the VM is deleted. If you configure these resources to be automatically deleted, you have the option to revert so that these resources are persisted after the VM is deleted. To persist these resources, set the `deleteOption` property to `Detach` and then these resources will then be persisted when the VM is deleted.
+A: By default, disks, NICs, and Public IPs associated with a VM are persisted when the VM is deleted. If you configure these resources to be automatically deleted, you can update the settings so that the resources remain after the VM is deleted. To keep these resources, set the `deleteOption` property to `Detach`.
 
 
 ## Next steps

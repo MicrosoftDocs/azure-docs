@@ -13,6 +13,8 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 **This article applies to:** ✔️ Java ✔️ C#
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 Azure Spring Cloud enables log streaming in Azure CLI to get real-time application console logs for troubleshooting. You can also [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md).
 
 ## Prerequisites
@@ -105,7 +107,7 @@ az spring-cloud app logs --help
 
 When the [Structured application log](./structured-app-log.md) is enabled for the app, the logs are printed in JSON format. This makes it difficult to read. The `--format-json` argument can be used to format the JSON logs into human readable format.
 
-```shell
+```azurecli
 # Raw JSON log
 $ az spring-cloud app logs --name auth-service
 {"timestamp":"2021-05-26T03:35:27.533Z","logger":"com.netflix.discovery.DiscoveryClient","level":"INFO","thread":"main","mdc":{},"message":"Disable delta property : false"}
@@ -119,7 +121,7 @@ $ az spring-cloud app logs --name auth-service --format-json
 
 The `--format-json` argument also takes optional customized format, using the keyword argument [format string syntax](https://docs.python.org/3/library/string.html#format-string-syntax).
 
-```shell
+```azurecli
 # Custom format
 $ az spring-cloud app logs --name auth-service --format-json="{message}{n}"
 Disable delta property : false

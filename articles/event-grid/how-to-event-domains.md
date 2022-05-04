@@ -117,7 +117,7 @@ New-AzEventGridSubscription `
 
 If you need a test endpoint to subscribe your events to, you can always deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the incoming events. You can send your events to your test website at `https://<your-site-name>.azurewebsites.net/api/updates`.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to deploy to Azure."></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="../media/template-deployments/deploy-to-azure.svg"  alt="Button to deploy to Azure."></a>
 
 Permissions that are set for a topic are stored in Azure Active Directory and must be deleted explicitly. Deleting an event subscription won't revoke a users access to create event subscriptions if they've write access on a topic.
 
@@ -201,7 +201,7 @@ For example, the following command lists all the topics with name containing `my
 az eventgrid topic list --odata-query "contains(name, 'mytopic')"
 ```
 
-For more information about this command, see [`az eventgrid topic list`](/cli/azure/eventgrid/topic?#az_eventgrid_topic_list). 
+For more information about this command, see [`az eventgrid topic list`](/cli/azure/eventgrid/topic?#az-eventgrid-topic-list). 
 
 
 ## Next steps

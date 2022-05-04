@@ -31,6 +31,22 @@ The following steps exemplify how to add these buttons to the app.
 </StackPanel>
 ```
 
+### Register Video Handler
+
+An UI component, like XAML's MediaElement, will require the app registering a configuration for rendering local and remote video feeds.
+Please add the following content between the `Package` tags of the `Package.appxmanifest`:
+
+```xml
+<Extensions>
+    <Extension Category="windows.activatableClass.inProcessServer">
+        <InProcessServer>
+            <Path>RtmMvrUap.dll</Path>
+            <ActivatableClass ActivatableClassId="VideoN.VideoSchemeHandler" ThreadingModel="both" />
+        </InProcessServer>
+    </Extension>
+</Extensions>
+```
+
 ### Setting up the app with Calling SDK APIs
 
 The Calling SDK APIs are in two different namespaces.
@@ -134,7 +150,7 @@ async (IAsyncOperation<CallAgent> asyncInfo, AsyncStatus asyncStatus) =>
 };
 ```
 
-Replace `<CALLEE>` with any other identity from your tenant. Alternatively, feel free to use `8:echo123` to talk to the ACS echo bot.
+Replace `<CALLEE>` with any other identity from your tenant. Alternatively, feel free to use `8:echo123` to talk to the Azure Communication Services echo bot.
 
 ## End a call
 

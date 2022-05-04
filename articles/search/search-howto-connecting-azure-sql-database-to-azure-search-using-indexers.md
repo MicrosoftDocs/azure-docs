@@ -1,50 +1,41 @@
 ---
-title: Index data from Azure SQL
+title: Azure SQL indexer
 titleSuffix: Azure Cognitive Search
-description: Set up an Azure SQL indexer to automate indexing of content and metadata for full text search in Azure Cognitive Search.
+description: Set up a search indexer to index data stored in Azure SQL Database for full text search in Azure Cognitive Search.
 
 manager: nitinme
-author: mgottein 
-ms.author: magottei
-ms.devlang: rest-api
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 06/26/2021
+ms.topic: how-to
+ms.date: 05/03/2022
 ---
 
 # Index data from Azure SQL
 
-This article shows you how to configure an Azure SQL indexer to extract content and make it searchable in Azure Cognitive Search. This workflow creates a search index on Azure Cognitive Search and loads it with existing content extracted from Azure SQL Database and Azure SQL managed instances.
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure SQL Database or an Azure SQL managed instance and makes it searchable in Azure Cognitive Search. 
 
-This article covers the mechanics of using [indexers](search-indexer-overview.md), but also describes features only available with Azure SQL Database or SQL Managed Instance (for example, integrated change tracking).
-
-You can set up an Azure SQL indexer by using any of these clients:
-
-* [Azure portal](https://ms.portal.azure.com)
-* Azure Cognitive Search [REST API](/rest/api/searchservice/Indexer-operations)
-* Azure Cognitive Search [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
-
-This article uses the REST APIs. 
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to Azure SQL. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
 ## Prerequisites
 
-* Data originates from a single table or view. If the data is scattered across multiple tables, you can create a single view of the data. A drawback to using view is that you won’t be able to use SQL Server integrated change detection to refresh an index with incremental changes. For more information, see [Capturing Changed and Deleted Rows](#CaptureChangedRows) below.
++ An [Azure SQL database](/azure/azure-sql/database/sql-database-paas-overview) with data in a single table or view. Use a table if you want the ability to [index incremental updates](#CaptureChangedRows) using SQL's native change detection capabilities.
 
-* Data types must compatible. Most but not all the SQL types are supported in a search index. For a list, see [Mapping data types](#TypeMapping).
++ Read permissions. Azure Cognitive Search supports SQL Server authentication, where the user name and password are provided on the connection string. Alternatively, you can [set up a managed identity and use Azure roles](search-howto-managed-identities-sql.md) to omit credentials on the connection.
 
-* Connections to a SQL Managed Instance must be over a public endpoint. For more information, see [Indexer connections through a public endpoint](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md).
++ A REST client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to send REST calls that create the data source, index, and indexer. 
 
-* Connections to SQL Server on an Azure virtual machine requires manual set up of a security certificate. For more information, see [Indexer connections to a SQL Server on an Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
++ If you're using the [Azure portal](https://portal.azure.com/) to create the data source, make sure that access to all public networks is enabled in the Azure SQL firewall while going through the instructions below. Otherwise, you need to enable access to all public networks during this setup and then disable it again, or instead, you must use REST API from a device with an authorized IP in the firewall rules, to perform these operations. If the Azure SQL firewall has public networks access disabled, there will be errors when connecting from the portal to it.
 
-Real-time data synchronization must not be an application requirement. An indexer can reindex your table at most every five minutes. If your data changes frequently, and those changes need to be reflected in the index within seconds or single minutes, we recommend using the [REST API](/rest/api/searchservice/AddUpdate-or-Delete-Documents) or [.NET SDK](search-get-started-dotnet.md) to push updated rows directly.
+<!-- Real-time data synchronization must not be an application requirement. An indexer can reindex your table at most every five minutes. If your data changes frequently, and those changes need to be reflected in the index within seconds or single minutes, we recommend using the [REST API](/rest/api/searchservice/AddUpdate-or-Delete-Documents) or [.NET SDK](search-get-started-dotnet.md) to push updated rows directly.
 
-Incremental indexing is possible. If you have a large data set and plan to run the indexer on a schedule, Azure Cognitive Search must be able to efficiently identify new, changed, or deleted rows. Non-incremental indexing is only allowed if you're indexing on demand (not on schedule), or indexing fewer than 100,000 rows. For more information, see [Capturing Changed and Deleted Rows](#CaptureChangedRows) below.
+Incremental indexing is possible. If you have a large data set and plan to run the indexer on a schedule, Azure Cognitive Search must be able to efficiently identify new, changed, or deleted rows. Non-incremental indexing is only allowed if you're indexing on demand (not on schedule), or indexing fewer than 100,000 rows. For more information, see [Capturing Changed and Deleted Rows](#CaptureChangedRows) below. -->
 
-Azure Cognitive Search supports SQL Server authentication, where the username and password are provided on the connection string. Alternatively, you can set up a managed identity and use Azure roles to omit credentials on the connection. For more information, see [Set up an indexer connection using a managed identity](search-howto-managed-identities-sql.md).
+## Define the data source
 
-## Create an Azure SQL Indexer
+The data source definition specifies the data to index, credentials, and policies for identifying changes in the data. A data source is defined as an independent resource so that it can be used by multiple indexers.
 
-1. Create the data source:
+1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
 
    ```http
     POST https://myservice.search.windows.net/datasources?api-version=2020-06-30
@@ -59,55 +50,128 @@ Azure Cognitive Search supports SQL Server authentication, where the username an
     }
    ```
 
-   The connection string can follow either of the below formats:
-    1. You can get the connection string from the [Azure portal](https://portal.azure.com); use the `ADO.NET connection string` option.
-    1. A managed identity connection string that does not include an account key with the following format: `Initial Catalog|Database=<your database name>;ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Sql/servers/<your SQL Server name>/;Connection Timeout=connection timeout length;`. To use this connection string, follow the instructions for [Setting up an indexer connection to an Azure SQL Database using a managed identity](search-howto-managed-identities-sql.md).
+1. Set "type" to `"azuresql"` (required).
 
-2. Create the target Azure Cognitive Search index if you don’t have one already. You can create an index using the [portal](https://portal.azure.com) or the [Create Index API](/rest/api/searchservice/Create-Index). Ensure that the schema of your target index is compatible with the schema of the source table - see [mapping between SQL and Azure Cognitive search data types](#TypeMapping).
+1. Set "credentials" to a connection string:
 
-3. Create the indexer by giving it a name and referencing the data source and target index:
+   + You can get the connection string from the [Azure portal](https://portal.azure.com). Use the `ADO.NET connection string` option.
 
-   ```http
-    POST https://myservice.search.windows.net/indexers?api-version=2020-06-30
+   + You can specify a managed identity connection string that does not include database secrets with the following format: `Initial Catalog|Database=<your database name>;ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Sql/servers/<your SQL Server name>/;Connection Timeout=connection timeout length;`.
+
+    To use this connection string, follow the instructions for [Setting up an indexer connection to an Azure SQL Database using a managed identity](search-howto-managed-identities-sql.md).
+
+## Add search fields to an index
+
+In a [search index](search-what-is-an-index.md), add fields to accept values from corresponding fields in the SQL database. Ensure that the search index schema is compatible with source schema, with [equivalent data types](#TypeMapping).
+
+1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store data:
+
+    ```http
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
-    api-key: admin-key
-
+    api-key: [Search service admin key]
     {
-        "name" : "myindexer",
-        "dataSourceName" : "myazuresqldatasource",
-        "targetIndexName" : "target index name"
+        "name": "mysearchindex",
+        "fields": [{
+            "name": "id",
+            "type": "Edm.String",
+            "key": true,
+            "searchable": false
+        }, 
+        {
+            "name": "description",
+            "type": "Edm.String",
+            "filterable": false,
+            "searchable": true,
+            "sortable": false,
+            "facetable": false,
+            "suggestions": true
+        }
+      ]
     }
-   ```
+    ```
 
-An indexer created in this way doesn’t have a schedule. It automatically runs once when it’s created. You can run it again at any time using a **run indexer** request:
+1. Create a document key field ("key": true) that uniquely identifies each search document. This is the only field that's required. Typically, the table's primary key is mapped to the index key field. The document key must be unique and non-null. The values can be numeric in source data, but in a search index, a key is always a string.
+
+1. Create additional fields for more searchable content. See [Create an index](search-how-to-create-search-index.md) for details.
+
+<a name="TypeMapping"></a>
+
+### Mapping data types
+
+| SQL data type | Cognitive Search field types | Notes |
+| ------------- | -------------------------------- | --- |
+| bit |Edm.Boolean, Edm.String | |
+| int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
+| bigint |Edm.Int64, Edm.String | |
+| real, float |Edm.Double, Edm.String | |
+| smallmoney, money decimal numeric |Edm.String |Azure Cognitive Search does not support converting decimal types into Edm.Double because doing so would lose precision |
+| char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |A SQL string can be used to populate a Collection(Edm.String) field if the string represents a JSON array of strings: `["red", "white", "blue"]` |
+| smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
+| uniqueidentifer |Edm.String | |
+| geography |Edm.GeographyPoint |Only geography instances of type POINT with SRID 4326 (which is the default) are supported |
+| rowversion |Not applicable |Row-version columns cannot be stored in the search index, but they can be used for change tracking |
+| time, timespan, binary, varbinary, image, xml, geometry, CLR types |Not applicable |Not supported |
+
+## Configure and run the Azure SQL indexer
+
+Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
+
+1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
+
+    ```http
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+    Content-Type: application/json
+    api-key: [search service admin key]
+    {
+        "name" : "[my-sqldb-indexer]",
+        "dataSourceName" : "[my-sqldb-ds]",
+        "targetIndexName" : "[my-search-index]",
+        "disabled": null,
+        "schedule": null,
+        "parameters": {
+            "batchSize": null,
+            "maxFailedItems": 0,
+            "maxFailedItemsPerBatch": 0,
+            "base64EncodeKeys": false,
+            "configuration": {
+                "queryTimeout": "00:05:00",
+                "disableOrderByHighWaterMarkColumn": false
+            }
+        },
+        "fieldMappings": [],
+        "encryptionKey": null
+    }
+    ```
+
+1. Under parameter configuration, you can set a timeout for SQL query execution. In the example above, the timeout is 5 minutes. The second configuration setting is "disableOrderByHighWaterMarkColumn". It causes the SQL query used by the [high water mark policy](#HighWaterMarkPolicy) to omit the ORDER BY clause.
+
+1. [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index.
+
+1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
+
+An indexer runs automatically when it's created. You can prevent this by setting "disabled" to true. To control indexer execution, [run an indexer on demand](search-howto-run-reset-indexers.md) or [put it on a schedule](search-howto-schedule-indexers.md).
+
+## Check indexer status
+
+To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/get-indexer-status) request:
 
 ```http
-    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2020-06-30
-    api-key: admin-key
+GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
+  Content-Type: application/json  
+  api-key: [admin key]
 ```
 
-You can customize several aspects of indexer behavior, such as batch size and how many documents can be skipped before an indexer execution fails. For more information, see [Create Indexer API](/rest/api/searchservice/Create-Indexer).
-
-You may need to allow Azure services to connect to your database. See [Connecting From Azure](../azure-sql/database/firewall-configure.md) for instructions on how to do that.
-
-To monitor the indexer status and execution history (number of items indexed, failures, etc.), use an **indexer status** request:
-
-```http
-    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
-    api-key: admin-key
-```
-
-The response should look similar to the following:
+The response includes status and the number of items processed. It should look similar to the following example:
 
 ```json
     {
-        "@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
         "status":"running",
         "lastResult": {
             "status":"success",
             "errorMessage":null,
-            "startTime":"2015-02-21T00:23:24.957Z",
-            "endTime":"2015-02-21T00:36:47.752Z",
+            "startTime":"2022-02-21T00:23:24.957Z",
+            "endTime":"2022-02-21T00:36:47.752Z",
             "errors":[],
             "itemsProcessed":1599501,
             "itemsFailed":0,
@@ -119,8 +183,8 @@ The response should look similar to the following:
             {
                 "status":"success",
                 "errorMessage":null,
-                "startTime":"2015-02-21T00:23:24.957Z",
-                "endTime":"2015-02-21T00:36:47.752Z",
+                "startTime":"2022-02-21T00:23:24.957Z",
+                "endTime":"2022-02-21T00:36:47.752Z",
                 "errors":[],
                 "itemsProcessed":1599501,
                 "itemsFailed":0,
@@ -132,65 +196,51 @@ The response should look similar to the following:
     }
 ```
 
-Execution history contains up to 50 of the most recently completed executions, which are sorted in the reverse chronological order (so that the latest execution comes first in the response).
-Additional information about the response can be found in [Get Indexer Status](/rest/api/searchservice/get-indexer-status)
-
-## Run indexers on a schedule
-
-You can also arrange the indexer to run periodically on a schedule. To do this, add the **schedule** property when creating or updating the indexer. The example below shows a PUT request to update the indexer:
-
-```http
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: admin-key
-
-    {
-        "dataSourceName" : "myazuresqldatasource",
-        "targetIndexName" : "target index name",
-        "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
-    }
-```
-
-The **interval** parameter is required. The interval refers to the time between the start of two consecutive indexer executions. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `P(nD)(T(nH)(nM))`. Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours.
-
-For more information about defining indexer schedules see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
+Execution history contains up to 50 of the most recently completed executions, which are sorted in the reverse chronological order so that the latest execution comes first.
 
 <a name="CaptureChangedRows"></a>
 
-## Capture new, changed, and deleted rows
+## Indexing new, changed, and deleted rows
 
-Azure Cognitive Search uses **incremental indexing** to avoid having to reindex the entire table or view every time an indexer runs. Azure Cognitive Search provides two change detection policies to support incremental indexing. 
+If your SQL database supports [change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server), a search indexer can pick up just the new and updated content on subsequent indexer runs. 
+
+To enable incremental indexing, set the "dataChangeDetectionPolicy" property in your data source definition. This property tells the indexer which change tracking mechanism is used on your table or view. 
+
+For Azure SQL indexers, there two change detection policies: 
+
++ "SqlIntegratedChangeTrackingPolicy" (applies to tables only)
+
++ "HighWaterMarkChangeDetectionPolicy" (works for tables and views)
 
 ### SQL Integrated Change Tracking Policy
 
-If your SQL database supports [change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server), we recommend using **SQL Integrated Change Tracking Policy**. This is the most efficient policy. In addition, it allows Azure Cognitive Search to identify deleted rows without you having to add an explicit "soft delete" column to your table.
+We recommend using "SqlIntegratedChangeTrackingPolicy" for its efficiency and its ability to identify deleted rows.
 
-#### Requirements 
+Database requirements:
 
-+ Database version requirements:
-  * SQL Server 2012 SP3 and later, if you're using SQL Server on Azure VMs.
-  * Azure SQL Database or SQL Managed Instance.
-+ Tables only (no views). 
-+ On the database, [enable change tracking](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) for the table. 
-+ No composite primary key (a primary key containing more than one column) on the table.  
++ SQL Server 2012 SP3 and later, if you're using SQL Server on Azure VMs
++ Azure SQL Database or SQL Managed Instance
++ Tables only (no views).
++ On the database, [enable change tracking](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) for the table
++ No composite primary key (a primary key containing more than one column) on the table
 
-#### Usage
+Change detection policies are added to data source definitions. To use this policy, create or update your data source like this:
 
-To use this policy, create or update your data source like this:
-
-```
+```http
+POST https://myservice.search.windows.net/datasources?api-version=2020-06-30
+Content-Type: application/json
+api-key: admin-key
     {
         "name" : "myazuresqldatasource",
         "type" : "azuresql",
         "credentials" : { "connectionString" : "connection string" },
-        "container" : { "name" : "table or view name" },
+        "container" : { "name" : "table name" },
         "dataChangeDetectionPolicy" : {
-           "@odata.type" : "#Microsoft.Azure.Search.SqlIntegratedChangeTrackingPolicy"
-      }
+            "@odata.type" : "#Microsoft.Azure.Search.SqlIntegratedChangeTrackingPolicy"
     }
 ```
 
-When using SQL integrated change tracking policy, do not specify a separate data deletion detection policy - this policy has built-in support for identifying deleted rows. However, for the deletes to be detected "automagically", the document key in your search index must be the same as the primary key in the SQL table. 
+When using SQL integrated change tracking policy, do not specify a separate data deletion detection policy. The SQL integrated change tracking policy has built-in support for identifying deleted rows. However, for the deleted rows to be detected automatically, the document key in your search index must be the same as the primary key in the SQL table. 
 
 > [!NOTE]  
 > When using [TRUNCATE TABLE](/sql/t-sql/statements/truncate-table-transact-sql) to remove a large number of rows from a SQL table, the indexer needs to be [reset](/rest/api/searchservice/reset-indexer) to reset the change tracking state to pick up row deletions.
@@ -199,52 +249,52 @@ When using SQL integrated change tracking policy, do not specify a separate data
 
 ### High Water Mark Change Detection policy
 
-This change detection policy relies on a "high water mark" column capturing the version or time when a row was last updated. If you're using a view, you must use a high water mark policy. The high water mark column must meet the following requirements.
+This change detection policy relies on a "high water mark" column in your table or view that captures the version or time when a row was last updated. If you're using a view, you must use a high water mark policy. 
 
-#### Requirements 
+The high water mark column must meet the following requirements:
 
-* All inserts specify a value for the column.
-* All updates to an item also change the value of the column.
-* The value of this column increases with each insert or update.
-* Queries with the following WHERE and ORDER BY clauses can be executed efficiently: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
++ All inserts specify a value for the column.
++ All updates to an item also change the value of the column.
++ The value of this column increases with each insert or update.
++ Queries with the following WHERE and ORDER BY clauses can be executed efficiently: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
 
-> [!IMPORTANT] 
+> [!NOTE]
 > We strongly recommend using the [rowversion](/sql/t-sql/data-types/rowversion-transact-sql) data type for the high water mark column. If any other data type is used, change tracking is not guaranteed to capture all changes in the presence of transactions executing concurrently with an indexer query. When using **rowversion** in a configuration with read-only replicas, you must point the indexer at the primary replica. Only a primary replica can be used for data sync scenarios.
 
-#### Usage
+Change detection policies are added to data source definitions. To use this policy, create or update your data source like this:
 
-To use a high water mark policy, create or update your data source like this:
-
-```
+```http
+POST https://myservice.search.windows.net/datasources?api-version=2020-06-30
+Content-Type: application/json
+api-key: admin-key
     {
         "name" : "myazuresqldatasource",
         "type" : "azuresql",
         "credentials" : { "connectionString" : "connection string" },
         "container" : { "name" : "table or view name" },
         "dataChangeDetectionPolicy" : {
-           "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-           "highWaterMarkColumnName" : "[a rowversion or last_updated column name]"
-      }
+            "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
+            "highWaterMarkColumnName" : "[a rowversion or last_updated column name]"
+        }
     }
 ```
 
-> [!WARNING]
+> [!NOTE]
 > If the source table does not have an index on the high water mark column, queries used by the SQL indexer may time out. In particular, the `ORDER BY [High Water Mark Column]` clause requires an index to run efficiently when the table contains many rows.
->
->
 
 <a name="convertHighWaterMarkToRowVersion"></a>
 
 ##### convertHighWaterMarkToRowVersion
 
-If you're using a [rowversion](/sql/t-sql/data-types/rowversion-transact-sql) data type for the high water mark column, consider using the `convertHighWaterMarkToRowVersion` indexer configuration setting. `convertHighWaterMarkToRowVersion` does two things:
+If you're using a [rowversion](/sql/t-sql/data-types/rowversion-transact-sql) data type for the high water mark column, consider setting the `convertHighWaterMarkToRowVersion` property in indexer configuration. Setting this property to true results in the following behaviors: 
 
-* Use the rowversion data type for the high water mark column in the indexer sql query. Using the correct data type improves indexer query performance.
-* Subtract 1 from the rowversion value before the indexer query runs. Views with 1 to many joins may have rows with duplicate rowversion values. Subtracting 1 ensures the indexer query doesn't miss these rows.
+* Uses the rowversion data type for the high water mark column in the indexer SQL query. Using the correct data type improves indexer query performance.
 
-To enable this feature, create or update the indexer with the following configuration:
+* Subtracts one from the rowversion value before the indexer query runs. Views with one-to-many joins may have rows with duplicate rowversion values. Subtracting 1one ensures the indexer query doesn't miss these rows.
 
-```
+To enable this property, create or update the indexer with the following configuration:
+
+```http
     {
       ... other indexer definition properties
      "parameters" : {
@@ -256,9 +306,9 @@ To enable this feature, create or update the indexer with the following configur
 
 ##### queryTimeout
 
-If you encounter timeout errors, you can use the `queryTimeout` indexer configuration setting to set the query timeout to a value higher than the default 5-minute timeout. For example, to set the timeout to 10 minutes, create or update the indexer with the following configuration:
+If you encounter timeout errors, set the `queryTimeout` indexer configuration setting to a value higher than the default 5-minute timeout. For example, to set the timeout to 10 minutes, create or update the indexer with the following configuration:
 
-```
+```http
     {
       ... other indexer definition properties
      "parameters" : {
@@ -270,9 +320,9 @@ If you encounter timeout errors, you can use the `queryTimeout` indexer configur
 
 ##### disableOrderByHighWaterMarkColumn
 
-You can also disable the `ORDER BY [High Water Mark Column]` clause. However, this is not recommended because if the indexer execution is interrupted by an error, the indexer has to re-process all rows if it runs later - even if the indexer has already processed almost all the rows by the time it was interrupted. To disable the `ORDER BY` clause, use the `disableOrderByHighWaterMarkColumn` setting in the indexer definition:  
+You can also disable the `ORDER BY [High Water Mark Column]` clause. However, this is not recommended because if the indexer execution is interrupted by an error, the indexer has to re-process all rows if it runs later, even if the indexer has already processed almost all the rows at the time it was interrupted. To disable the `ORDER BY` clause, use the `disableOrderByHighWaterMarkColumn` setting in the indexer definition:  
 
-```
+```http
     {
      ... other indexer definition properties
      "parameters" : {
@@ -281,13 +331,14 @@ You can also disable the `ORDER BY [High Water Mark Column]` clause. However, th
 ```
 
 ### Soft Delete Column Deletion Detection policy
+
 When rows are deleted from the source table, you probably want to delete those rows from the search index as well. If you use the SQL integrated change tracking policy, this is taken care of for you. However, the high water mark change tracking policy doesn’t help you with deleted rows. What to do?
 
 If the rows are physically removed from the table, Azure Cognitive Search has no way to infer the presence of records that no longer exist.  However, you can use the “soft-delete” technique to logically delete rows without removing them from the table. Add a column to your table or view and mark rows as deleted using that column.
 
 When using the soft-delete technique, you can specify the soft delete policy as follows when creating or updating the data source:
 
-```
+```http
     {
         …,
         "dataDeletionDetectionPolicy" : {
@@ -302,41 +353,6 @@ The **softDeleteMarkerValue** must be a string in the JSON representation of you
 
 If you are setting up a soft delete policy from the Azure portal, don't add quotes around the soft delete marker value. The field contents are already understood as a string and will be translated automatically into a JSON string for you. In the examples above, simply type `1`, `True` or `true` into the portal's field.
 
-<a name="TypeMapping"></a>
-
-## Mapping between SQL and Azure Cognitive Search data types
-| SQL data type | Allowed target index field types | Notes |
-| --- | --- | --- |
-| bit |Edm.Boolean, Edm.String | |
-| int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
-| bigint |Edm.Int64, Edm.String | |
-| real, float |Edm.Double, Edm.String | |
-| smallmoney, money decimal numeric |Edm.String |Azure Cognitive Search does not support converting decimal types into Edm.Double because this would lose precision |
-| char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |A SQL string can be used to populate a Collection(Edm.String) field if the string represents a JSON array of strings: `["red", "white", "blue"]` |
-| smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
-| uniqueidentifer |Edm.String | |
-| geography |Edm.GeographyPoint |Only geography instances of type POINT with SRID 4326 (which is the default) are supported |
-| rowversion |N/A |Row-version columns cannot be stored in the search index, but they can be used for change tracking |
-| time, timespan, binary, varbinary, image, xml, geometry, CLR types |N/A |Not supported |
-
-## Configuration Settings
-SQL indexer exposes several configuration settings:
-
-| Setting | Data type | Purpose | Default value |
-| --- | --- | --- | --- |
-| queryTimeout |string |Sets the timeout for SQL query execution |5 minutes ("00:05:00") |
-| disableOrderByHighWaterMarkColumn |bool |Causes the SQL query used by the high water mark policy to omit the ORDER BY clause. See [High Water Mark policy](#HighWaterMarkPolicy) |false |
-
-These settings are used in the `parameters.configuration` object in the indexer definition. For example, to set the query timeout to 10 minutes, create or update the indexer with the following configuration:
-
-```
-    {
-      ... other indexer definition properties
-     "parameters" : {
-            "configuration" : { "queryTimeout" : "00:10:00" } }
-    }
-```
-
 ## FAQ
 
 **Q: Can I use Azure SQL indexer with SQL databases running on IaaS VMs in Azure?**
@@ -347,19 +363,7 @@ Yes. However, you need to allow your search service to connect to your database.
 
 Not directly. We do not recommend or support a direct connection, as doing so would require you to open your databases to Internet traffic. Customers have succeeded with this scenario using bridge technologies like Azure Data Factory. For more information, see [Push data to an Azure Cognitive Search index using Azure Data Factory](../data-factory/v1/data-factory-azure-search-connector.md).
 
-**Q: Can I use Azure SQL indexer with databases other than SQL Server running in IaaS on Azure?**
-
-No. We don’t support this scenario, because we haven’t tested the indexer with any databases other than SQL Server.  
-
-**Q: Can I create multiple indexers running on a schedule?**
-
-Yes. However, only one indexer can be running on one node at one time. If you need multiple indexers running concurrently, consider scaling up your search service to more than one search unit.
-
-**Q: Does running an indexer affect my query workload?**
-
-Yes. Indexer runs on one of the nodes in your search service, and that node’s resources are shared between indexing and serving query traffic and other API requests. If you run intensive indexing and query workloads and encounter a high rate of 503 errors or increasing response times, consider [scaling up your search service](search-capacity-planning.md).
-
-**Q: Can I use a secondary replica in a [failover cluster](../azure-sql/database/auto-failover-group-overview.md) as a data source?**
+**Q: Can I use a secondary replica in a [failover cluster](/azure/azure-sql/database/auto-failover-group-overview) as a data source?**
 
 It depends. For full indexing of a table or view, you can use a secondary replica. 
 

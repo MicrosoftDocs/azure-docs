@@ -6,6 +6,7 @@ summary: This article presents use cases to get started using Microsoft Sentinel
 metadata:
   title: Microsoft Sentinel documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: This article presents use cases and scenarios to get started using Microsoft Sentinel. See and stop threats before they cause harm, with SIEM reinvented for a modern world. Microsoft Sentinel is your birds-eye view across the enterprise.# Required; article description that is displayed in search results. < 160 chars.
+  ms.service: microsoft-sentinel
   ms.topic: landing-page # Required
   author: yelevin #Required; your GitHub user alias, with correct capitalization.
   ms.author: yelevin #Required; microsoft alias of author; optional team alias.
@@ -98,6 +99,28 @@ landingContent:
             url: ./network-normalization-schema.md
 
  # Card (optional)
+  - title: Kusto Query Language in Microsoft Sentinel
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Kusto Query Language in Microsoft Sentinel
+            url: kusto-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Kusto Query Language tutorial (Azure Monitor)
+            url: /azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor
+      - linkListType: learn
+        links:
+          - text: Write your first query with Kusto Query Language
+            url: /learn/modules/write-first-query-kusto-query-language/
+          - text: More KQL learning and skilling resources
+            url: kusto-resources.md
+      - linkListType: reference
+        links:
+          - text: KQL quick reference guide
+            url: /azure/data-explorer/kql-quick-reference
+
+ # Card (optional)
   - title: Threat intelligence
     linkLists:
       - linkListType: concept
@@ -122,11 +145,11 @@ landingContent:
         links:
           - text: User and entity behavior analytics (UEBA)
             url: identify-threats-with-entity-behavior-analytics.md
-          - text: SOC-ML anomalies
+          - text: Customizable anomalies
             url: soc-ml-anomalies.md
       - linkListType: how-to-guide
         links:
-          - text: Use built-in-analytics to detect threats
+          - text: Use built-in analytics to detect threats
             url: detect-threats-built-in.md
           - text: Create custom detection rules
             url: detect-threats-custom.md

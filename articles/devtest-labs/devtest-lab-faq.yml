@@ -2,57 +2,24 @@
 metadata:
   title: 'Azure DevTest Labs FAQ'
   description: 'This article provides answers to some of the frequently asked questions (FAQ) about Azure DevTest Labs.'
-  ms.topic: troubleshooting
+  ms.topic: faq
   ms.service: azure
+  ms.author: rosemalcolm
+  author: RoseHJM
   ms.date: 07/17/2020 
   ms.custom: devx-track-azurepowershell, references_regions
-    
 title: Azure DevTest Labs FAQ
 summary: |
 
-  Get answers to some of the most common questions about Azure DevTest Labs.
-  
-  ## Blog post
-  Our DevTest Labs Team blog has been retired as of 20 March 2019. 
-
-  ### Where can I track feature updates from now on?
-  From now on, we'll be posting feature updates and informative blog posts on the Azure blog and Azure updates. These blog posts will also link to our documentation wherever required.
-          
-  Subscribe to the [DevTest Labs Azure Blog](https://azure.microsoft.com/blog/tag/azure-devtest-labs/) and [DevTest Labs Azure updates](https://azure.microsoft.com/updates/?product=devtest-lab) to stay informed about new features in DevTest Labs.
-          
-  ### What happens to the existing blog posts?
-  We're currently working on migrating existing blog posts (excluding outage updates) to our [DevTest Labs documentation](devtest-lab-overview.md). When the MSDN blog is deprecated, it will be redirected to the documentation overview for DevTest Labs. Once redirected, you can search for the article you're looking for in the 'Filter by' title. We haven't migrated all posts yet, but should be done by end of this month. 
-          
-  ### Where do I see outage updates?
-  We'll be posting outage updates using our Twitter handle from now onwards. Follow us on Twitter to get latest updates on outages and known bugs.
-
-  ### Twitter
-  Our Twitter handle: [@azlabservices](https://twitter.com/azlabservices)
+ 
 
 sections:
   - name: General
     questions:
       - question: |
-          What if my question isn't answered here?
-        answer: |
-          If your question isn't listed here, let us know, so we can help you find an answer.
-          
-          - Post a question at the end of this FAQ.
-          - To reach a wider audience, post a question on the [Microsoft Q&A question page for Azure DevTest Labs](/answers/topics/azure-devtestlabs.html). Engage with the Azure DevTest Labs team and other members of the community.
-          - For feature requests, submit your requests and ideas to [Azure DevTest Labs User Voice](https://feedback.azure.com/d365community/forum/502dba10-7726-ec11-b6e6-000d3a4f032c).
-          
-      - question: |
-          What is a Microsoft account?
-        answer: |
-          A Microsoft account is an account you use for almost everything you do with Microsoft devices and services. It’s an email address and password that you use to sign into Skype, Outlook.com, OneDrive, Windows phone, Azure, and Xbox Live. A single account means that your files, photos, contacts, and settings can follow you on any device.
-          
-          > [!NOTE]
-          > A Microsoft account used to be called a Windows Live ID.
-          
-      - question: |
           Why should I use Azure DevTest Labs?
         answer: |
-          Azure DevTest Labs can save your team time and money. Developers can create their own environments by using several different bases. They also can use artifacts to quickly deploy and configure applications. By using custom images and formulas, you can save virtual machines (VMs) as templates, and easily reproduce them across the team. DevTest Labs also offers several configurable policies that lab administrators can use to reduce waste and manage a team's environments. These policies include auto-shutdown, cost threshold, maximum VMs per user, and maximum VM size. For a more in-depth explanation of DevTest Labs, see the [overview](devtest-lab-overview.md) or the [introductory video](https://channel9.msdn.com/Blogs/Azure/what-is-azure-devtest-labs).
+          Azure DevTest Labs can save your team time and money. Developers can create their own environments by using several different bases. They also can use artifacts to quickly deploy and configure applications. By using custom images and formulas, you can save virtual machines (VMs) as templates, and easily reproduce them across the team. DevTest Labs also offers several configurable policies that lab administrators can use to reduce waste and manage a team's environments. These policies include auto-shutdown, cost threshold, maximum VMs per user, and maximum VM size. For a more in-depth explanation of DevTest Labs, see the [overview](devtest-lab-overview.md).
           
       - question: |
           What does "worry-free self-service" mean?
@@ -71,12 +38,7 @@ sections:
           - Create mass test environments for quality assurance testing.
           - Use artifacts and formulas to easily configure and reproduce an application in various environments.
           - Distribute VMs for hackathons (collaborative dev or test work), and then easily deprovision them when the event ends.
-          
-      - question: |
-          How am I billed for DevTest Labs?
-        answer: |
-          DevTest Labs is a free service. Creating labs and configuring policies, templates, and artifacts in DevTest Labs is free. You pay only for the Azure resources used in your labs, such as VMs, storage accounts, and virtual networks. For more information about the cost of lab resources, see [Azure DevTest Labs pricing](https://azure.microsoft.com/pricing/details/devtest-lab/).
-          
+             
   - name: Security
     questions:
       - question: |

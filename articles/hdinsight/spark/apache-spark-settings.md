@@ -120,7 +120,7 @@ Spark clusters in HDInsight include a number of components by default. Each of t
 |Component |Description|
 |---|---|
 |Spark Core|Spark Core, Spark SQL, Spark streaming APIs, GraphX, and Apache Spark MLlib.|
-|Anaconda|A python package manager.|
+|Anaconda|A Python package manager.|
 |Apache Livy|The Apache Spark REST API, used to submit remote jobs to an HDInsight Spark cluster.|
 |Jupyter Notebooks and Apache Zeppelin Notebooks|Interactive browser-based UI for interacting with your Spark cluster.|
 |ODBC driver|Connects Spark clusters in HDInsight to business intelligence (BI) tools such as Microsoft Power BI and Tableau.|

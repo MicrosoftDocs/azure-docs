@@ -4,7 +4,7 @@ description: Cognitive Services Data Loss Prevention capabilities allow customer
 author: gclarkmt #Required; your GitHub user alias, with correct capitalization.
 ms.author: gregc #Required; microsoft alias of author; optional team alias.
 ms.service: cognitive-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: conceptual #Required; leave this attribute/value as-is.
+ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 07/02/2021 #Required; mm/dd/yyyy format.
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
@@ -98,6 +98,7 @@ The following services support data loss prevention configuration:
 - Content Moderator
 - Custom Vision
 - Face
+- Form Recognizer
 - Speech Service
 - QnA Maker
 

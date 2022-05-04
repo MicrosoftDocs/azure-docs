@@ -2,12 +2,9 @@
 title: Dependency Tracking in Azure Application Insights with OpenCensus Python | Microsoft Docs
 description: Monitor dependency calls for your Python apps via OpenCensus Python.
 ms.topic: conceptual
-author: lzchen
-ms.author: lechen
 ms.date: 10/15/2019
 ms.devlang: python
 ms.custom: devx-track-python
-
 ---
 
 # Track dependencies with OpenCensus Python

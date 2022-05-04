@@ -3,9 +3,11 @@ title: Connect and query - Flexible Server PostgreSQL
 description: Links to quickstarts showing how to connect to your Azure Database for PostgreSQL Flexible Server and run queries.
 services: postgresql
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: how-to
-author: mksuni
-ms.author: sumuth
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.date: 11/30/2021
 ---
 

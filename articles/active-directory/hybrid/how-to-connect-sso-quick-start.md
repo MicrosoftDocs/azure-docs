@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 04/16/2019
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -82,7 +82,7 @@ After completion of the wizard, Seamless SSO is enabled on your tenant.
 
 Follow these instructions to verify that you have enabled Seamless SSO correctly:
 
-1. Sign in to the [Azure Active Directory administrative center](https://aad.portal.azure.com) with the global administrator credentials for your tenant.
+1. Sign in to the [Azure Active Directory administrative center](https://aad.portal.azure.com) with the global administrator or hybrid identity administrator credentials for your tenant.
 2. Select **Azure Active Directory** in the left pane.
 3. Select **Azure AD Connect**.
 4. Verify that the **Seamless single sign-on** feature appears as **Enabled**.

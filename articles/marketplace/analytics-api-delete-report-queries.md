@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 3/08/2021
+ms.date: 03/14/2022
 ---
 
 # Delete report queries API
@@ -27,17 +27,17 @@ This API deletes user-defined queries.
 | Authorization | string | Required. The Azure Active Directory (Azure AD) access token in the form `Bearer <token>` |
 | Content-Type | string | `Application/JSON` |
 
-**Path Parameter**
+**Path parameter**
 
 | **Parameter name** | **Type** | **Description** |
 | --- | --- | --- |
 | `queryId` | string | Filter to get details of only queries with the ID given in this argument |
 
-**Query Parameter**
+**Query parameter**
 
 None
 
-**Request Payload**
+**Request payload**
 
 None
 

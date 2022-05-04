@@ -41,10 +41,10 @@ To register for the feature, use the following command:
 Register-AzProviderFeature -FeatureName "LiveResize" -ProviderNamespace "Microsoft.Compute"
 ```
 
-It may take a few minutes for registration to take complete. To confirm that you've registered, use the following command:
+It may take a few minutes for registration to complete. To confirm that you've registered, use the following command:
 
 ```azurepowershell
-Register-AzProviderFeature -FeatureName "LiveResize" -ProviderNamespace "Microsoft.Compute"
+Get-AzProviderFeature -FeatureName "LiveResize" -ProviderNamespace "Microsoft.Compute"
 ```
 
 ## Resize a managed disk in the Azure portal

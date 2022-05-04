@@ -1,12 +1,11 @@
 ---
 title: Troubleshoot connections - Azure Database for PostgreSQL - Single Server
 description: Learn how to troubleshoot connection issues to Azure Database for PostgreSQL - Single Server.
-keywords: postgresql connection,connection string,connectivity issues,transient error,connection error
-author: sunilagarwal
-ms.author: sunila
-ms.reviewer: 
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: how-to
+ms.author: sunila
+author: sunilagarwal
 ms.date: 5/6/2019
 ---
 

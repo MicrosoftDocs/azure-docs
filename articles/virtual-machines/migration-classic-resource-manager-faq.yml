@@ -7,11 +7,9 @@ metadata:
   ms.service: virtual-machines
   ms.subservice: classic-to-arm-migration
   ms.workload: infrastructure-services
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 02/06/2020
   ms.author: tagore
-  
-    
 title: Frequently asked questions about classic to Azure Resource Manager migration
 summary: |
   > [!IMPORTANT]

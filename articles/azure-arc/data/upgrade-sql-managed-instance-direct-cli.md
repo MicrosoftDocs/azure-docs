@@ -1,6 +1,6 @@
 ---
-title: Upgrade a direct mode Azure Arc-enabled Managed Instance using the CLI
-description: Article describes how to upgrade a direct mode Azure Arc-enabled Managed Instance using the CLI
+title: Upgrade a directly connected Azure Arc-enabled Managed Instance using the CLI
+description: Article describes how to upgrade a directly connected Azure Arc-enabled Managed Instance using the CLI
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,7 +11,7 @@ ms.date: 11/10/2021
 ms.topic: how-to
 ---
 
-# Upgrade a direct mode Azure Arc-enabled Managed Instance using the CLI
+# Upgrade a directly connected Azure Arc-enabled Managed Instance using the CLI
 
 This article describes how to upgrade a SQL Managed Instance deployed on a directly connected Azure Arc-enabled data controller using the Azure CLI (`az`).
 
@@ -46,6 +46,14 @@ Preparing to upgrade sql sqlmi-1 in namespace arc to data controller version.
 ```
 
 ### General Purpose
+
+During a SQL Managed Instance General Purpose upgrade, the containers in the pod will be upgraded and will be reprovisioned. This will cause a short amount of downtime as the new pod is created. You will need to build resiliency into your application, such as connection retry logic, to ensure minimal disruption. Read [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview) for more information on architecting resiliency and [retry guidance for Azure Services](/azure/architecture/best-practices/retry-service-specific#sql-database-using-adonet).
+
+### Business Critical 
+
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-business-critical-upgrade.md)]
+
+### Upgrade
 
 To upgrade the Managed Instance, use the following command:
 

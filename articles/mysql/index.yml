@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 title:  Azure Database for MySQL documentation
-summary: "Azure Database for MySQL is a relational database service powered by the MySQL community edition.You can use either Single Server or Flexible Server to host a MySQL database in Azure. It's a fully managed database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability."
+summary: "Azure Database for MySQL is a relational database service powered by the MySQL community edition. You can use either Single Server or Flexible Server to host a MySQL database in Azure. It's a fully managed database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability."
 metadata:
-  description: "Azure Database for MySQL are a relational database service in the Microsoft cloud that is built for developers and powered by the MySQL community edition. You can choose either Single server or Flexible Server to deploy your MySQL database in Azure."
+  description: "Azure Database for MySQL is a relational database service in the Microsoft cloud that is built for developers and powered by the MySQL community edition. You can choose either Single server or Flexible Server to deploy your MySQL database in Azure."
   author: savjani
   ms.author: pariks
-  ms.date: 09/10/2021
+  ms.date: 04/27/2022
   ms.service: mysql
   ms.topic: landing-page
 
@@ -155,7 +155,7 @@ landingContent:
             url: howto-migrate-online.md
           - text: Azure Data migration guide
             url: https://datamigration.microsoft.com/scenario/mysql-to-azuremysql?step=1
-          - text: Troubleshoot common errors
+          - text: Troubleshoot migration errors
             url: howto-troubleshoot-common-errors.md
 
 # Card 6
@@ -182,8 +182,29 @@ landingContent:
           - text: Build a PHP (Laravel) web app with Single Server
             url: ../app-service/tutorial-php-mysql-app.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
 
-
 # Card 7
+  - title: Troubleshoot
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshoot migration errors
+            url: howto-troubleshoot-common-errors.md
+          - text: Troubleshoot query performance
+            url: howto-troubleshoot-query-performance-new.md
+          - text: Troubleshoot low memory issues
+            url: howto-troubleshoot-low-memory-issues.md
+          - text: Troubleshoot high CPU utilization
+            url: howto-troubleshoot-high-cpu-utilization.md
+          - text: Troubleshoot data encryption
+            url: howto-data-encryption-troubleshoot.md
+          - text: Troubleshoot replication latency
+            url: howto-troubleshoot-replication-latency.md
+          - text: Troubleshoot database corruption
+            url: how-to-fix-corrupt-database.md
+          - text: Tune performance using the sys_schema
+            url: howto-troubleshoot-sys-schema.md
+
+# Card 8
   - title: Reference
     linkLists:
       - linkListType: download

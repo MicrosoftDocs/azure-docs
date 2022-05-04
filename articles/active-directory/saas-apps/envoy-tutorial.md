@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Envoy | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Envoy'
 description: Learn how to configure single sign-on between Azure Active Directory and Envoy.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/25/2021
+ms.date: 02/23/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Envoy
+# Tutorial: Azure AD SSO integration with Envoy
 
 In this tutorial, you'll learn how to integrate Envoy with Azure Active Directory (Azure AD). When you integrate Envoy with Azure AD, you can:
 
@@ -27,6 +27,9 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Envoy single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -150,9 +153,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Envoy test user
 
-In this section, a user called Britta Simon is created in Envoy. Envoy supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Envoy, a new one is created after authentication.
+In this section, a user called Britta Simon is created in Envoy. 
 
-Envoy also supports automatic user provisioning, you can find more details [here](./envoy-provisioning-tutorial.md) on how to configure automatic user provisioning.
+Envoy supports automatic user provisioning, which you can read about [here](./envoy-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
