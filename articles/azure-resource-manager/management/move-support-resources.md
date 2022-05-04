@@ -612,14 +612,13 @@ Jump to a resource provider namespace:
 > | hostgroups | No | No | No |
 > | hostgroups / hosts | No | No | No |
 > | images | Yes | Yes | No |
-> | incremental snapshots | No | No | No |
 > | proximityplacementgroups | Yes | Yes | No |
 > | restorepointcollections | No | No | No |
 > | restorepointcollections / restorepoints | No | No | No |
 > | sharedvmextensions | No | No | No |
 > | sharedvmimages | No | No | No |
 > | sharedvmimages / versions | No | No | No |
-> | snapshots | Yes | Yes | No |
+> | snapshots | Yes - Full <br> No - Incremental | Yes - Full <br> No - Incremental | No - Full <br> No - Incremental |
 > | sshpublickeys | No | No | No |
 > | virtualmachines | Yes | Yes | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move Azure VMs. |
 > | virtualmachines / extensions | Yes | Yes | No |
