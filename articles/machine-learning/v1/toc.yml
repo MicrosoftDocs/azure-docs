@@ -44,19 +44,19 @@
       href: how-to-create-attach-compute-cluster.md
   - name: Network security
     items:
-      - name: Secure inferencing environment (v1)
-        displayName: vnet
-        href: ../how-to-secure-inferencing-vnet.md
-      - name: Configure secure web services (v1)
-        displayName: ssl, tls
-        href: ../how-to-secure-web-service.md
+    - name: Secure inferencing environment (v1)
+      displayName: vnet
+      href: ../how-to-secure-inferencing-vnet.md
+    - name: Configure secure web services (v1)
+      displayName: ssl, tls
+      href: ../how-to-secure-web-service.md
   - name: Train models
     items: 
-      - name: Train with SDK v1
-        href: how-to-attach-compute-targets.md
+    - name: Train with SDK v1
+      href: how-to-attach-compute-targets.md
     - name: Auto-train a natural language processing model
-        displayName: nlp, auto ML, automl, SDK
-        href: how-to-auto-train-nlp-models-v1.md
+      displayName: nlp, auto ML, automl, SDK
+      href: how-to-auto-train-nlp-models-v1.md
   - name: Deploy models
     items:
     - name: Azure Kubernetes Service
