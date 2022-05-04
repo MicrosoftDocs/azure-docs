@@ -11,7 +11,7 @@ This article lists significant changes to Azure Monitor documentation.
 
 ## April, 2022
 
-## General
+### General
 
 **New articles**
 
@@ -547,7 +547,7 @@ This article lists significant changes to Azure Monitor documentation.
 
 - [Enable VM insights by using Azure Policy](vm/vminsights-enable-policy.md)
 
-## Visualizations
+### Visualizations
 
 **Updated articles**
 
