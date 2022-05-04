@@ -32,7 +32,7 @@ In this article, you can learn about steps to configure and attach an existing K
 
 AzureML extension consists of a set of system componenents deployed to your Kubernetes cluster so you can enable your cluster to run an AzureML workload - model training jobs or model endpoints. You can use an Azure CLI command ```k8s-extension create``` to deploy AzureML extension.
 
-For a detailed list of AzureML extension system componenents, please see appendix [AzureML extension componenets](#appendix-i:-azureml-extension-components).
+For a detailed list of AzureML extension system componenents, please see appendix [AzureML extension componenets](#appendix-i-azureml-extension-components).
 
 ## Key considerations for AzureML extension deployment
 
@@ -46,7 +46,7 @@ AzureML extension allows you to specify configuration settings needed for differ
    * For inference workload support, to ensure high availability of ```azureml-fe``` routing service, AzureML extension deployment by default creates 3 replicas of ```azureml-fe``` for clusters having 3 nodes or more. If your cluster has **less than 3 nodes**, please set ```inferenceLoadbalancerHA=False```.
    * For inference workload support, you would also want to consider using **HTTPS** to restrict access to model endpoints and secure the data that clients submit. For this purpose, you would need to specify either ```sslSecret``` config setting or combination of ```sslCertPemFile``` and ```sslCertKeyFile``` config settings. By default, AzureML extension deployment expects **HTTPS** support required, and you would need to provide above config setting. For development or test purposes, **HTTP** support is conveniently supported through config setting ```allowInsecureConnections=True```.
 
-For a complete list of configuration settings available to choose at AzureML deployment time, please see appendix [Review AzureML extension config settings](#appendix-ii:-review-azureml-deployment-configuration-settings)
+For a complete list of configuration settings available to choose at AzureML deployment time, please see appendix [Review AzureML extension config settings](#appendix-ii-review-azureml-deployment-configuration-settings)
 
 ## Deploy AzureML extension - example scenarios
 
