@@ -4,6 +4,7 @@ description: This quickstart provides several ways to connect with Azure CLI wit
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: flexible-server
 ms.custom: mvc, devx-track-azurecli, mode-api
 ms.topic: quickstart
 ms.date: 03/01/2021

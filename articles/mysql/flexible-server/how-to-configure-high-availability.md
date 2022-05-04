@@ -4,6 +4,7 @@ description: This article describes how to enable or disable zone redundant high
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 09/21/2020
 ms.custom: references_regions

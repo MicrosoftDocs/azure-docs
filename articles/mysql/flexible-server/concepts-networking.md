@@ -4,6 +4,7 @@ description: Learn about connectivity and networking options in the Flexible Ser
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 9/23/2020
 ---

@@ -5,7 +5,6 @@ author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.subservice: single-server
-ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 08/11/2020
 ---

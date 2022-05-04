@@ -4,6 +4,7 @@ description: Get a conceptual overview of zone-redundant high availability in Az
 author: SudheeshGH
 ms.author: sunaray
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 08/26/2021
 ---

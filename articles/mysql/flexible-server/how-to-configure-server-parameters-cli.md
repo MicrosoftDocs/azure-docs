@@ -4,6 +4,7 @@ description: This article describes how to configure the service parameters in A
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 11/10/2020
