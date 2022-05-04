@@ -126,15 +126,25 @@ A pre-upgrade validator is available to help identify potential issues when migr
 
 1. In *Search for common problems or tools*, enter and select **Functions 4.x Pre-Upgrade Validator**
 
-To migrate an app from 3.x to 4.x, set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` with the following Azure CLI or Azure PowerShell commands:
+Once you have validated that the app can be upgraded, you can begin the process of migration. 
+
+> [!NOTE]
+> If you are using a slot to manage the migration, you will need to set the `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS` application setting to "0" on _both_ slots. This allows the version changes you make to be included in the slot swap operation. You can then upgrade your staging (non-production) slot, and then you can perform the swap.
+
+To migrate an app from 3.x to 4.x, you will:
+
+- Set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4`
+- **For Windows function apps only**, enable .NET 6.0 through the `netFrameworkVersion` setting
+
+You can use the following Azure CLI or Azure PowerShell commands to perform this upgrade directly on a site without slots:
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
+az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
 
 # For Windows function apps only, also enable .NET 6.0 that is needed by the runtime
-az functionapp config set --net-framework-version v6.0 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
+az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -147,6 +157,39 @@ Set-AzWebApp -NetFrameworkVersion v6.0 -Name <APP_NAME> -ResourceGroupName <RESO
 ```
 
 ---
+
+You can use the following Azure CLI commands to perform this upgrade using deployment slots:
+
+First, update the production slot with `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0`. If your app can tolerate a restart (which impacts availability), it is recommended that you update the setting directly on the production slot, possibly at a time of lower traffic. If you instead choose to swap this setting into place, you should immediately update the staging slot after the swap. A consequence of swapping when only staging has `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0` is that it will remove the `FUNCTIONS_EXTENSION_VERSION` setting in staging, putting the slot into a bad state. Updating the staging slot with a version right after the swap enables you to roll your changes back if necessary. However, in such a situation, you should still be prepared to directly update settings on production to remove `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0` before the swap back.
+
+```azurecli
+# Update production with WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS
+az functionapp config appsettings set --settings WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0  -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> 
+
+# OR
+
+# Alternatively get production prepared with WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS via a swap
+az functionapp config appsettings set --settings WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0  -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
+# The swap actions should be accompanied with a version specification for the slot. You may see errors from staging during the time between these actions.
+az functionapp deployment slot swap -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME> --target-slot production
+az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~3 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
+```
+
+After the production slot has `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0` configured, you can configure everything else in the staging slot and then swap: 
+
+```azurecli
+# Get staging configured with WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS
+az functionapp config appsettings set --settings WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
+# Get staging configured with the new extension version
+az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
+# For Windows function apps only, also enable .NET 6.0 that is needed by the runtime
+az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
+
+# Be sure to confirm that your staging environment is working as expected before swapping.
+
+# Swap to migrate production to the new version
+az functionapp deployment slot swap -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME> --target-slot production
+```
 
 ### Breaking changes between 3.x and 4.x
 

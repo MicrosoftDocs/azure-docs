@@ -12,6 +12,8 @@ Alternatively, check out [monitor and log in the service](../cloud/monitor-log-c
 
 ---
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 In this article, you'll learn how to receive events for remote monitoring from the Azure Video Analyzer IoT Edge module. 
 
 You'll also learn how to control the logs that the module generates.
