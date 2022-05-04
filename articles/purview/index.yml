@@ -139,7 +139,7 @@ landingContent:
     linkLists:
     - linkListType: how-to-guide
       links:
-        - text: View sensitivity label data estate insights
+        - text: View sensitivity label insights
           url: sensitivity-insights.md
         - text: View asset insights
           url: asset-insights.md

@@ -152,7 +152,7 @@ Find insights on your classified and labeled data in the Microsoft Purview Data 
 > [Classification insights](./classification-insights.md)
 
 > [!div class="nextstepaction"]
-> [Sensitivity label data estate insights](sensitivity-insights.md)
+> [Sensitivity label insights](sensitivity-insights.md)
 
 > [!div class="nextstepaction"]
 > [Overview of Labeling in Microsoft Purview](create-sensitivity-label.md)

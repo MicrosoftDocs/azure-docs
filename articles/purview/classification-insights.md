@@ -102,4 +102,4 @@ Learn more about Microsoft Purview insight reports
 > [Glossary insights](glossary-insights.md)
 
 > [!div class="nextstepaction"]
-> [Sensitivity labeling data estate insights](./sensitivity-insights.md)
+> [Sensitivity labeling insights](./sensitivity-insights.md)

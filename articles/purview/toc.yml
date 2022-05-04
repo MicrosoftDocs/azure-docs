@@ -281,7 +281,7 @@ items:
       href: glossary-insights.md
     - name: View classification insights
       href: classification-insights.md
-    - name: View sensitivity label data estate insights
+    - name: View sensitivity label insights
       href: sensitivity-insights.md
   - name: Networking & security
     items:

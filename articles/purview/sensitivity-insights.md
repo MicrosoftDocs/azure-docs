@@ -11,9 +11,9 @@ ms.date: 04/22/2022
 ms.custom: ignite-fall-2021
 ---
 
-# Sensitivity label data estate insights about your data in Microsoft Purview
+# Sensitivity label insights about your data in Microsoft Purview
 
-This how-to guide describes how to access, view, and filter security data estate insights provided by sensitivity labels applied to your data.
+This how-to guide describes how to access, view, and filter security insights provided by sensitivity labels applied to your data.
 
 > [!IMPORTANT]
 > Sensitivity labels in Microsoft Purview Data Estate Insights are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -24,7 +24,7 @@ In this how-to guide, you'll learn how to:
 
 > [!div class="checklist"]
 > - Launch your Microsoft Purview account from Azure.
-> - View sensitivity labeling data estate insights on your data
+> - View sensitivity labeling insights on your data
 > - Drill down for more sensitivity labeling details on your data
 
  
@@ -57,7 +57,7 @@ Microsoft Purview Data Estate Insights uses the same classifications, also known
 > [!NOTE]
 > After you have scanned your source types, give **Sensitivity labeling** Insights a couple of hours to reflect the new assets.
 
-**To view sensitivity labeling data estate insights:**
+**To view sensitivity labeling insights:**
 
 1. Go to the **Microsoft Purview** home page.
 

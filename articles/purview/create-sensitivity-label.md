@@ -26,7 +26,7 @@ For example, applying a sensitivity label ‘highly confidential’ to a documen
 Microsoft Purview allows you to apply sensitivity labels to assets, enabling you to classify and protect your data.
 
 * **Label travels with the data:** The sensitivity labels created in Microsoft Purview Information Protection can also be extended to the Microsoft Purview Data Map, SharePoint, Teams, Power BI, and SQL. When you apply a label on an office document and then scan it into the Microsoft Purview Data Map, the label will be applied to the data asset. While the label is applied to the actual file in Microsoft Purview Information Protection, it's only added as metadata in the Microsoft Purview map. While there are differences in how a label is applied to an asset across various services/applications, labels travel with the data and is recognized by all the services you extend it to.
-* **Overview of your data estate:** Microsoft Purview provides data estate insights into your data through pre-canned reports. When you scan data into the Microsoft Purview Data Map, we hydrate the reports with information on what assets you have, scan history, classifications found in your data, labels applied, glossary terms, etc.
+* **Overview of your data estate:** Microsoft Purview provides insights into your data through pre-canned reports. When you scan data into the Microsoft Purview Data Map, we hydrate the reports with information on what assets you have, scan history, classifications found in your data, labels applied, glossary terms, etc.
 * **Automatic labeling:** Labels can be applied automatically based on sensitivity of the data. When an asset is scanned for sensitive data, autolabeling rules are used to decide which sensitivity label to apply. You can create autolabeling rules for each sensitivity label, defining which classification/sensitive information type constitutes a label.
 * **Apply labels to files and database columns:** Labels can be applied to files in storage like Azure Data Lake, Azure Files, etc. and to schematized data like columns in Azure SQL DB, Cosmos DB, etc.
 
@@ -71,7 +71,7 @@ For more information, see the [SQL data discovery and classification documentati
 > [How to automatically label your content](./how-to-automatically-label-your-content.md)
 
 > [!div class="nextstepaction"]
-> [Sensitivity label data estate insights](sensitivity-insights.md)
+> [Sensitivity label insights](sensitivity-insights.md)
 
 > [!div class="nextstepaction"]
 > [Labeling Frequently Asked Questions](sensitivity-labels-frequently-asked-questions.yml)

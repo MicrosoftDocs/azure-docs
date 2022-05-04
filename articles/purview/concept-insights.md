@@ -51,7 +51,7 @@ In Microsoft Purview, sensitivity labels are used to identify classification typ
 
 Use the Labeling Insights report to identify the sensitivity labels found in your content and understand required actions, such as managing access to specific repositories or files.
 
-For more information, see [Sensitivity label data estate insights about your data in Microsoft Purview](sensitivity-insights.md).
+For more information, see [Sensitivity label insights about your data in Microsoft Purview](sensitivity-insights.md).
 
 ## Next steps
 
