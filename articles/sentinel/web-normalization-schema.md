@@ -68,7 +68,7 @@ When implementing custom parsers for the Web Session information model, name you
 
 ### Filtering parser parameters
 
-The `im` and `vim*` parsers support [filtering parameters](normalization-about-parsers.md#optimized-parsers). While these parsers are optional, they can improve your query performance.
+The `im` and `vim*` parsers support [filtering parameters](normalization-about-parsers.md#). While these parsers are optional, they can improve your query performance.
 
 The following filtering parameters are available:
 

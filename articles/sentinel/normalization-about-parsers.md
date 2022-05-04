@@ -29,7 +29,7 @@ _Im_Dns(starttime=ago(1d), responsecodename='NXDOMAIN')
   | summarize count() by SrcIpAddr, bin(TimeGenerated,15m)
 ```
 
-The example uses [filtering parameters](#optimized-parsers), which improve ASIM performance. The same example without filtering parameters would look like this:  
+The example uses [filtering parameters](#optimizing-parsing-using-parameters), which improve ASIM performance. The same example without filtering parameters would look like this:  
 
 ```kusto
 _Im_Dns
@@ -55,7 +55,7 @@ The following table lists unifying parsers available:
 | Web Session | _Im_WebSession |  
 
 
-## <a name="optimized-parsers"></a>Optimizing parsing using parameters
+## Optimizing parsing using parameters
 
 Using parsers may impact your query performance, primarily from filtering the results after parsing. For this reason, many parsers have optional filtering parameters, which enable you to filter before parsing and enhance query performance. With query optimization and pre-filtering efforts, ASIM parsers often provide better performance when compared to not using normalization at all.
 
@@ -71,7 +71,7 @@ Every schema that supports filtering parameters supports at least the `starttime
 
 For an example of using filtering parsers see [Unifying parsers](#unifying-parsers) above. 
 
-## <a name="next-steps"></a>Next steps
+## Next steps
 
 Learn more about ASIM parsers:
 

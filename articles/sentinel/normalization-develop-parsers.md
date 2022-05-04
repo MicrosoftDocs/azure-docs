@@ -33,7 +33,7 @@ To understand how parsers fit within the ASIM architecture, refer to the [ASIM a
 
 ## Custom parser development process
 
-The following workflow describe the high level steps in developing a custom ASIM, source-specific parser:
+The following workflow describes the high level steps in developing a custom ASIM, source-specific parser:
 
 1. [Collect sample logs](#collect-sample-logs).
 
@@ -59,7 +59,7 @@ This article guides you through the process's development, testing, and deployme
 
 ### Collect sample logs
 
-To built effective ASIM parsers, you need a representative set of logs, which in most case will require setting up the source system and connecting it to Microsoft Sentinel. If you do not have the source device available, cloud pay-as-you-go services let you deploy many devices for development and testing.
+To build effective ASIM parsers, you need a representative set of logs, which in most case will require setting up the source system and connecting it to Microsoft Sentinel. If you do not have the source device available, cloud pay-as-you-go services let you deploy many devices for development and testing.
 
 In addition, finding the vendor documentation and samples for the logs can help accelerate development and reduce mistakes by ensuring broad log format coverage.
 
@@ -138,7 +138,7 @@ To use this sample in your parser:
 
 #### Filtering based on parser parameters
 
-When developing [filtering parsers](normalization-about-parsers.md#optimized-parsers), make sure that your parser accepts the filtering parameters for the relevant schema, as documented in the reference article for that schema. Using an existing parser as a starting point ensures that your parser includes the correct function signature. In most cases, the actual filtering code is also similar for filtering parsers for the same schema.
+When developing [filtering parsers](normalization-about-parsers.md#optimizing-parsing-using-parameters), make sure that your parser accepts the filtering parameters for the relevant schema, as documented in the reference article for that schema. Using an existing parser as a starting point ensures that your parser includes the correct function signature. In most cases, the actual filtering code is also similar for filtering parsers for the same schema.
 
 When filtering, make sure that you:
 
@@ -248,7 +248,7 @@ When each source value maps to a target value, define the mapping using the `dat
 
 Notice that lookup is useful and efficient also when the mapping has only two possible values. 
 
-When the mapping condition are more complex use the the `iff` or `case` functions. The `iff` function enables mapping two values:
+When the mapping conditiond are more complex use the `iff` or `case` functions. The `iff` function enables mapping two values:
 
 ```KQL
 | extend EventResult = 
@@ -418,7 +418,7 @@ To contribute your parsers:
 | Step | Description |
 | ---- | ----------- | 
 | Develop the parsers | - Develop both a filtering parser and a parameter-less parser.<br>- Create a YAML file for the parser as described in [Deploying Parsers](#deploy-parsers) above.|
-| Test the parsers | - Make sure that your parsers pass all [testings](#test-parsers) with no errors.<br>- If any warnings are left, document them in the parser YAML file as descried below. |
+| Test the parsers | - Make sure that your parsers pass all [testings](#test-parsers) with no errors.<br>- If any warnings are left, document them in the parser YAML file as described below. |
 | Contribute | - Create a pull request against the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel)<br>- Add to the PR your parsers YAML files to the ASIM parser folders (`/Parsers/ASim<schema>/Parsers`)<br>- Adds representative sample data to the sample data folder (`/Sample Data`) |
 
 ### Documenting accepted warnings
@@ -437,7 +437,7 @@ Exceptions:
 
 The warning specified in the YAML file should be a short form of the warning message uniquely identifying. The value is used to match warning messages when performing automated testings and ignore them.  
 
-## <a name="next-steps"></a>Next steps
+## Next steps
 
 This article discusses developing ASIM parsers.
 
