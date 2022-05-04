@@ -68,8 +68,6 @@
       href: github-actions-cli.md
     - name: Use a custom VNET
       href: vnet-custom.md
-    - name: Use storage mounts
-      href: storage-mounts.md
     - name: Enable authentication
       items:
       - name: Azure Active Directory
@@ -84,6 +82,8 @@
         href: authentication-twitter.md
       - name: Custom OpenID Connect
         href: authentication-openid.md
+    - name: Use storage mounts
+      href: storage-mounts.md
 - name: Tutorials
   items:
     - name: Microservices with Dapr using the CLI
