@@ -24,19 +24,19 @@ Make sure to check back here often to keep up with new updates.
 
 Here's what changed in April 2022:
 
-## Intune device configuration for Windows multisession now generally available
+### Intune device configuration for Windows multisession now generally available
 
 Deploying Intune device configuration policies from Microsoft Endpoint Manager admin center to Windows multisession VMs on Azure Virtual Desktop is now generally available. Learn more at [Using Azure Virtual Desktop multi-session with Intune](/mem/intune/fundamentals/azure-virtual-desktop-multi-session) and[ our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/intune-device-configuration-for-azure-virtual-desktop-multi/ba-p/3294444).
 
-## Scheduled Agent Updates public preview
+### Scheduled Agent Updates public preview
 
 Scheduled Agent Updates is a new feature in public preview that lets IT admins specify the time and day the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent will update. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/scheduled-agent-updates-is-now-in-public-preview-on-azure/m-p/3285874).
 
-## RDP Shortpath for public networks now in public preview
+### RDP Shortpath for public networks now in public preview
 
 A new feature for RDP Shortpath is now in public preview. With this feature, RDP Shortpath can provide a direct UDP-based network transport for user sessions over public networks. Learn more at [Azure Virtual Desktop RDP Shortpath for public networks (preview)](shortpath-public.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-public-preview-of-azure-virtual-desktop-rdp-shortpath/m-p/3284763).
 
-## The Azure Virtual Desktop web client has a new URL
+### The Azure Virtual Desktop web client has a new URL
 
 Starting April 18, 2022, the Azure Virtual Desktop and Azure Virtual Desktop (classic) web clients will redirect to a new URL. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/reminder-the-avd-web-client-will-be-moving-to-a-new-url/m-p/3278231).
 
