@@ -151,31 +151,38 @@ With the policy applied, it can take up to 1 hour to propagate and for users to 
 
 ### PowerShell
 
-1. Open a PowerShell session as an administrator, then install the *AzureADPreview* module using the [Install-Module][Install-Module] cmdlet:
+> [!NOTE]
+> This configuration option uses HRD policy. For more information, see [homeRealmDiscoveryPolicy resource type](https://docs.microsoft.com/en-us/graph/api/resources/homeRealmDiscoveryPolicy?view=graph-rest-1.0).
+
+Once users with the *ProxyAddresses* attribute applied are synchronized to Azure AD using Azure AD Connect, you need to enable the feature for users to sign-in with email as an alternate login ID for your tenant. This feature tells the Azure AD login servers to not only check the sign-in identifier against UPN values, but also against *ProxyAddresses* values for the email address.
+
+During preview, you can currently only enable email as an alternate login ID using PowerShell or the Microsoft Graph API. You need *global administrator* privileges to complete the following steps:
+
+1. Open a PowerShell session as an administrator, then install the *Microsoft.Graph* module using the `Install-Module` cmdlet:
 
     ```powershell
-    Install-Module AzureADPreview
+    Install-Module Microsoft.Graph
     ```
 
-    If prompted, select **Y** to install NuGet or to install from an untrusted repository.
+    For more information on installation, see [Install the Microsoft Graph PowerShell SDK](https://docs.microsoft.com/en-us/graph/powershell/installation).
 
-1. Sign in to your Azure AD tenant as a *global administrator* using the [Connect-AzureAD][Connect-AzureAD] cmdlet:
+1. Sign-in to your Azure AD tenant using the `Connect-MgGraph` cmdlet:
 
     ```powershell
-    Connect-AzureAD
+    Connect-MgGraph -Scopes "Policy.ReadWrite.ApplicationConfiguration" -TenantId organizations
     ```
 
-    The command returns information about your account, environment, and tenant ID.
+    The command will ask you to authenticate using a web browser.
 
-1. Check if the *HomeRealmDiscoveryPolicy* already exists in your tenant using the [Get-AzureADPolicy][Get-AzureADPolicy] cmdlet as follows:
+1. Check if a *HomeRealmDiscoveryPolicy* already exists in your tenant using the `Get-MgPolicyHomeRealmDiscoveryPolicy` cmdlet as follows:
 
     ```powershell
-    Get-AzureADPolicy | Where-Object Type -eq "HomeRealmDiscoveryPolicy" | Format-List *
+    Get-MgPolicyHomeRealmDiscoveryPolicy
     ```
 
 1. If there's no policy currently configured, the command returns nothing. If a policy is returned, skip this step and move on to the next step to update an existing policy.
 
-    To add the *HomeRealmDiscoveryPolicy* policy to the tenant, use the [New-AzureADPolicy][New-AzureADPolicy] cmdlet and set the *AlternateIdLogin* attribute to *"Enabled": true* as shown in the following example:
+    To add the *HomeRealmDiscoveryPolicy* to the tenant, use the `New-MgPolicyHomeRealmDiscoveryPolicy` cmdlet and set the *AlternateIdLogin* attribute to *"Enabled": true* as shown in the following example:
 
     ```powershell
     $AzureADPolicyDefinition = @(
@@ -187,42 +194,38 @@ With the policy applied, it can take up to 1 hour to propagate and for users to 
          }
       } | ConvertTo-JSON -Compress
     )
+
     $AzureADPolicyParameters = @{
       Definition            = $AzureADPolicyDefinition
       DisplayName           = "BasicAutoAccelerationPolicy"
-      IsOrganizationDefault = $true
-      Type                  = "HomeRealmDiscoveryPolicy"
+      AdditionalProperties  = @{ IsOrganizationDefault = $true }
     }
-    New-AzureADPolicy @AzureADPolicyParameters
+
+    New-MgPolicyHomeRealmDiscoveryPolicy @AzureADPolicyParameters
     ```
 
     When the policy has been successfully created, the command returns the policy ID, as shown in the following example output:
 
     ```powershell
-    Id                                   DisplayName                 Type                     IsOrganizationDefault
-    --                                   -----------                 ----                     ---------------------
-    5de3afbe-4b7a-4b33-86b0-7bbe308db7f7 BasicAutoAccelerationPolicy HomeRealmDiscoveryPolicy True
+    Definition                                                           DeletedDateTime Description DisplayName                 Id            IsOrganizationDefault
+    ----------                                                           --------------- ----------- -----------                 --            ---------------------
+    {{"HomeRealmDiscoveryPolicy":{"AlternateIdLogin":{"Enabled":true}}}}                             BasicAutoAccelerationPolicy HRD_POLICY_ID True
     ```
 
 1. If there's already a configured policy, check if the *AlternateIdLogin* attribute is enabled, as shown in the following example policy output:
 
     ```powershell
-    Id : 5de3afbe-4b7a-4b33-86b0-7bbe308db7f7
-    OdataType :
-    AlternativeIdentifier :
-    Definition : {{"HomeRealmDiscoveryPolicy" :{"AlternateIdLogin":{"Enabled": true}}}}
-    DisplayName : BasicAutoAccelerationPolicy
-    IsOrganizationDefault : True
-    KeyCredentials : {}
-    Type : HomeRealmDiscoveryPolicy
+    Definition                                                           DeletedDateTime Description DisplayName                 Id            IsOrganizationDefault
+    ----------                                                           --------------- ----------- -----------                 --            ---------------------
+    {{"HomeRealmDiscoveryPolicy":{"AlternateIdLogin":{"Enabled":true}}}}                             BasicAutoAccelerationPolicy HRD_POLICY_ID True
     ```
 
-    If the policy exists but the *AlternateIdLogin* attribute that isn't present or enabled, or if other attributes exist on the policy you wish to preserve, update the existing policy using the [Set-AzureADPolicy][Set-AzureADPolicy] cmdlet.
+    If the policy exists but the *AlternateIdLogin* attribute that isn't present or enabled, or if other attributes exist on the policy you wish to preserve, update the existing policy using the `Update-MgPolicyHomeRealmDiscoveryPolicy` cmdlet.
 
     > [!IMPORTANT]
     > When you update the policy, make sure you include any old settings and the new *AlternateIdLogin* attribute.
 
-    The following example adds the *AlternateIdLogin* attribute and preserves the *AllowCloudPasswordValidation* attribute that may have already been set:
+    The following example adds the *AlternateIdLogin* attribute and preserves the *AllowCloudPasswordValidation* attribute that was previously set:
 
     ```powershell
     $AzureADPolicyDefinition = @(
@@ -235,24 +238,33 @@ With the policy applied, it can take up to 1 hour to propagate and for users to 
          }
       } | ConvertTo-JSON -Compress
     )
+
     $AzureADPolicyParameters = @{
-      ID                    = "b581c39c-8fe3-4bb5-b53d-ea3de05abb4b"
-      Definition            = $AzureADPolicyDefinition
-      DisplayName           = "BasicAutoAccelerationPolicy"
-      IsOrganizationDefault = $true
-      Type                  = "HomeRealmDiscoveryPolicy"
+      HomeRealmDiscoveryPolicyId = "HRD_POLICY_ID"
+      Definition                 = $AzureADPolicyDefinition
+      DisplayName                = "BasicAutoAccelerationPolicy"
+      AdditionalProperties       = @{ "IsOrganizationDefault" = $true }
     }
-    
-    Set-AzureADPolicy @AzureADPolicyParameters
+
+    Update-MgPolicyHomeRealmDiscoveryPolicy @AzureADPolicyParameters
     ```
 
     Confirm that the updated policy shows your changes and that the *AlternateIdLogin* attribute is now enabled:
 
     ```powershell
-    Get-AzureADPolicy | Where-Object Type -eq "HomeRealmDiscoveryPolicy" | Format-List *
+    Get-MgPolicyHomeRealmDiscoveryPolicy
     ```
 
-With the policy applied, it can take up to 1 hour to propagate and for users to be able to sign in using their alternate login ID.
+> [!NOTE]
+> With the policy applied, it can take up to an hour to propagate and for users to be able to sign-in using email as an alternate login ID.
+
+### Removing policies
+
+To remove an HRD policy, use the `Remove-MgPolicyHomeRealmDiscoveryPolicy` cmdlet:
+
+```powershell
+Remove-MgPolicyHomeRealmDiscoveryPolicy -HomeRealmDiscoveryPolicyId "HRD_POLICY_ID"
+```
 
 ## Enable staged rollout to test user sign-in with an email address  
 
