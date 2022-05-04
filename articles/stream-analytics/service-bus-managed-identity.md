@@ -9,7 +9,7 @@ ms.date: 05/04/2022
 ms.custom: subject-rbac-steps
 ---
 
-# Use managed identities to access Service Bus from an Azure Stream Analytics job
+# Use managed identities to access Service Bus from an Azure Stream Analytics job (preview)
 
 Azure Stream Analytics supports managed identity authentication for both Azure Service Bus output. Managed identities for Azure resources is a cross-Azure feature that enables you to create a secure identity associated with the deployment under which your application code runs. You can then associate that identity with access-control roles that grant custom permissions for accessing specific Azure resources that your application needs.
 
