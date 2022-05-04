@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 05/03/2022
 ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---
@@ -20,7 +20,6 @@ Azure Container Apps manages container app versioning by creating revisions.   A
 
 :::image type="content" source="media/revisions/azure-container-apps-revisions.png" alt-text="Azure Container Apps: Containers":::
 
-
 ## Revision modes
 
 By default, a container app is in *single revision mode*.  In this mode, only one revision is active at a time.  When new revisions are created, the new revision replaces the active revision.
@@ -31,7 +30,12 @@ For apps with HTTP ingress enabled, you must manage the how HTTP traffic is spli
 
 ## Use cases
 
-Revisions are most useful when you enable [ingress](ingress.md) to make your container app accessible via HTTP.  Revisions are often used when you want to direct traffic from one snapshot of your container app to the next. Typical traffic direction strategies include [A/B testing](https://wikipedia.org/wiki/A/B_testing) and [BlueGreen deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html).
+Revisions are an important way of versioning your container app.  With revisions you can 
+
+-  easily revert to an earlier revision.
+-  split traffic between revisions to A/B testing [A/B testing](https://wikipedia.org/wiki/A/B_testing
+-  gradually phase in a new revision in blue green deployments [BlueGreen deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html)
+
 
 The following diagram shows a container app with two revisions.
 
@@ -48,25 +52,40 @@ The scenario shown above presumes the container app is in following state:
 
 Changes made to a container app fall under one of two categories: *revision-scope* and *application-scope* changes. Revision-scope changes are any change that triggers a new revision, while application-scope changes don't create revisions.
 
+Revision-scope changes are internal to the container app, whereas application-scope changes are configuration settings that don't require changing the app itself.  Like flipping a switch on a machine as opposed to modifying the mechanisms inside.
+
 ### Revision-scope changes
 
-The following types of changes create a new revision:
+Revision-scope changes cause a new revision to be created when the container app is redeployed.  A revision-scope change is when you change something that modifies the container app itself.   Changes include 
 
-- Changes to containers
-- Add or update scaling rules
-- Changes to Dapr settings
-- Any change that affects the `template` section of the configuration
+- revision name
+- container configuration and images
+- scale rules for the container application
+
+Revision-scope changes are defined in the [`properties.template`](azure-resource-manager-api-spec.md#properties.template) section in the Container Apps resource template.
+
 
 ### Application-scope changes
 
-The following types of changes do not create a new revision:
+Application-scope changes do not trigger a new revision when they are deployed. An application scope change is when you change a configuration setting that does not permanently change the container app itself.  like flipping a switch on a machine as opposed to changing the internal mechanism.
 
-- Changes to [traffic splitting rules](revisions-manage.md#traffic-splitting)
-- Turning [ingress](ingress.md) on or off
-- Changes to [secret values](manage-secrets.md)
-- Any change outside the `template` section of the configuration
+Application-scope changes include changes to:
+
+- [secret values](manage-secrets.md)
+- Revision mode
+- Ingress configuration including:
+  - Turning [ingress](ingress.md) on or off
+  - [traffic splitting rules](revisions-manage.md#traffic-splitting)
+- Credentials for private container registries
+- Dapr settings
+
+Application-mode changes are defined in the [`configuration`](azure-resource-manager-api-spec.md#properties.configuration)  section of the container app resource template.
 
 While changes to secrets are an application-scope change, revisions must be [restarted](revisions.md) before a container recognizes new secret values.
+
+## Apply labels to revisions
+
+
 
 ## Activation state
 
