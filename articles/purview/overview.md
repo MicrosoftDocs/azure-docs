@@ -14,6 +14,9 @@ Microsoft Purview is a unified data governance service that helps you manage and
 
 :::image type="content" source="./media/overview/high-level-overview.png" alt-text="High-level architecture of Microsoft Purview, showing multi-cloud and on premises sources flowing into Microsoft Purview, and Microsoft Purview's apps (Data Catalog, Map, and Insights) allowing data consumers and data curators to view and manage metadata. This metadata is also being ported to external analytics services from Microsoft Purview for more processing." lightbox="./media/overview/high-level-overview-large.png":::
 
+>[!TIP]
+> Looking to govern your data in Microsoft 365 by keeping what you need and deleting what you don't? Use [Microsoft Purview Data Lifecycle Management](/microsoft-365/compliance/data-lifecycle-management).
+
 Microsoft Purview automates data discovery by providing data scanning and classification as a service for assets across your data estate. Metadata and descriptions of discovered data assets are integrated into a holistic map of your data estate. Atop this map, there are purpose-built apps that create environments for data discovery, access management, and insights about your data landscape.
 
 
