@@ -23,23 +23,23 @@ See the [list of known issues](reference-known-issues.md) to learn about known b
 ## April 29, 2022
 [Data Science VM – Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=overview) and [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
 
-Version 22.04.27
+Version `22.04.27`
 
 Main changes:
 
-- Plotly and summarytools R studio extensions runtime import fix.
-- Cudatoolkit and CUDNN upgraded to 13.1 and 2.8.1 respectively.
-- Fix Python 3.8 - AzureML notebook run, pinned matplotlib to 3.2.1 and cycler to 0.11.0 packages in Azureml_py38 environment.
+- `Plotly` and `summarytools` R studio extensions runtime import fix.
+- `Cudatoolkit` and `CUDNN` upgraded to 13.1 and 2.8.1 respectively.
+- Fix Python 3.8 - AzureML notebook run, pinned `matplotlib` to 3.2.1 and cycler to 0.11.0 packages in `Azureml_py38` environment.
 
 ## April 26, 2022
 [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
 
-Version: 22.04.21
+Version: `22.04.21`
 
 Main changes:
 
-- Plotly R studio extension patch.
-- Update Rscript env path to support latest R studio version 4.1.3.
+- `Plotly` R studio extension patch.
+- Update `Rscript` env path to support latest R studio version 4.1.3.
 
 ## April 14, 2022
 New DSVM offering for [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview) is currently live in the marketplace.
