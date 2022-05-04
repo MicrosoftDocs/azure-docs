@@ -1,5 +1,5 @@
 ---
-title: Monitoring Azure Load Testing
+title: Monitor Azure Load Testing
 description: Start here to learn how to monitor Azure Load Testing
 author: Sachid26
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.date: 04/22/2022
 
 
 
-# Monitoring Azure Load Testing
+# Monitor Azure Load Testing
 
 When you have critical applications and business processes relying on Azure resources, you want to monitor those resources for their availability, performance, and operation. 
 
@@ -39,7 +39,7 @@ The following sections build on this article by describing the specific data gat
 
 Azure Load Testing collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](/azure/azure-monitor/essentials/monitor-azure-resource#monitoring-data-from-Azure-resources). 
 
-See [Monitoring Azure Load Testing data reference](monitor-load-testing-reference.md) for detailed information on logs metrics created by Azure Load Testing.
+See [Monitor Azure Load Testing data reference](monitor-load-testing-reference.md) for detailed information on logs metrics created by Azure Load Testing.
 
 
 
@@ -51,7 +51,7 @@ Platform metrics and the Activity log are collected and stored automatically, bu
 Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
 
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Load Testing are listed in [Azure Load Testing monitoring data reference](monitor-load-testing-reference.md#resource-logs).
+See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Load Testing are listed in [Monitor Azure Load Testing data reference](monitor-load-testing-reference.md#resource-logs).
 
 
 The following sections describe which types of logs you can collect.
@@ -60,11 +60,11 @@ The following sections describe which types of logs you can collect.
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema). You can find the schema for Azure Load Testing resource logs in the [Azure Load Testing data reference](monitor-load-testing-reference.md#resource-logs).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema). You can find the schema for Azure Load Testing resource logs in the [Monitor Azure Load Testing data reference](monitor-load-testing-reference.md#resource-logs).
 
 The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
-For a list of resource logs types collected for Azure Load Testing, see [Monitoring Azure Load Testing data reference](monitor-load-testing-reference.md#resource-logs).
+For a list of resource logs types collected for Azure Load Testing, see [Monitor Azure Load Testing data reference](monitor-load-testing-reference.md#resource-logs).
 
 
 ### Sample Kusto queries
@@ -96,6 +96,6 @@ AzureLoadTestingOperation
 ## Next steps
 
 
-- See [Monitoring Azure Load Testing data reference](monitor-load-testing-reference.md) for a reference of the metrics, logs, and other important values created by Azure Load Testing.
+- See [Monitor Azure Load Testing data reference](monitor-load-testing-reference.md) for a reference of the metrics, logs, and other important values created by Azure Load Testing.
 
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
