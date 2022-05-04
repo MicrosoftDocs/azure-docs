@@ -148,8 +148,6 @@ Depending on the frequency that the application, firewall, or environment update
 
 If the CDN endpoint is identified as unsafe, [create a support ticket](https://azure.microsoft.com/support/create-ticket/) to ensure that the issue is resolved as soon as possible.
 
-To *potentially* bypass this issue more rapidly, you can [change the SDK CDN endpoint](#change-the-cdn-endpoint).
-
 ### Application Insights JavaScript CDN is blocked (by end user - blocked by browser; installed blocker; personal firewall)
 
 Check if your end users have:
