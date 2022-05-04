@@ -163,6 +163,6 @@ The supported authentication type for a SAP HANA source is **Basic authenticatio
 
 Now that you've registered your source, use the following guides to learn more about Microsoft Purview and your data:
 
-- [Data insights in Microsoft Purview](concept-insights.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search the data catalog](how-to-search-catalog.md)
