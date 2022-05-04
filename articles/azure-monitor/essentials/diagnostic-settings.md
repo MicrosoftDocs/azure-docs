@@ -35,7 +35,7 @@ Information on these newer features is included in this article.
 
 ## Sources
 
-Here are the source options.
+The source options of Metrics, Resource Logs and Activity Log are defined in the following sections.  
 
 ### Metrics
 
