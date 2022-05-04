@@ -51,7 +51,7 @@ You can find all available Grafana data sources by going to your workspace and s
 
    :::image type="content" source="media/managed-grafana-how-to-source-plugins.png" alt-text="Screenshot of the Add data source page.":::
 
-## Default data sources in an Azure Managed Grafana workspace
+## Default configuration for Azure Monitor
 
 The Azure Monitor data source is automatically added to all new Managed Grafana resources. To review or modify its configuration, follow these steps in your workspace endpoint:
 

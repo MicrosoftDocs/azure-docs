@@ -57,4 +57,4 @@ To change permissions for a specific resource, follow these steps:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure data source plugins for Azure Managed Grafana with Managed Identity](./how-to-data-source-plugins-managed-identity.md)
+> [How to configure data sources for Azure Managed Grafana](./how-to-data-source-plugins-managed-identity.md)
