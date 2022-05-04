@@ -16,8 +16,8 @@ ms.custom: "include file"
 This diagram depicts the workflow of the solution you build in this tutorial: 
 
 1. Data sent to an Azure event hub is captured in an Azure blob storage.
-2. When the data capture is complete, an event is generated and sent to an Azure event grid. 
-3. The event grid forwards this event data to an Azure function app.
+2. When the data capture is complete, an event is generated and sent to Azure Event Grid. 
+3. Azure Event Grid forwards this event data to an Azure function app.
 4. The function app uses the blob URL in the event data to retrieve the blob from the storage. 
 5. The function app migrates the blob data to an Azure Synapse Analytics. 
 
@@ -37,7 +37,7 @@ To complete this tutorial, you must have:
 - [Visual studio 2019](https://www.visualstudio.com/vs/) with workloads for: .NET desktop development, Azure development, ASP.NET and web development, Node.js development, and Python development.
 - Download the [EventHubsCaptureEventGridDemo sample project](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) to your computer.
     - WindTurbineDataGenerator – A simple publisher that sends sample wind turbine data to a capture-enabled event hub
-    - FunctionDWDumper – An Azure Function that receives an Event Grid notification when an Avro file is captured to the Azure Storage blob. It receives the blob’s URI path, reads its contents, and pushes this data to Azure Synapse Analytics (dedicated SQL pool).
+    - FunctionDWDumper – An Azure Function that receives a notification from Azure Event Grid when an Avro file is captured to the Azure Storage blob. It receives the blob’s URI path, reads its contents, and pushes this data to Azure Synapse Analytics (dedicated SQL pool).
 
 ## Deploy the infrastructure
 In this step, you deploy the required infrastructure with a [Resource Manager template](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). When you deploy the template, the following resources are created:
@@ -56,7 +56,7 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
 
     :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/azure-portal.png" alt-text="Azure portal":::
 3. You see the Cloud Shell opened at the bottom of the browser.
-    1. If you are using the Cloud Shell for the first time:
+    1. If you're using the Cloud Shell for the first time:
         1. If you see an option to select between **Bash** and **PowerShell**, select **Bash**.
         
             :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/launch-cloud-shell.png" alt-text="Cloud Shell":::
@@ -76,7 +76,7 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
         ```
     2. Press **ENTER**. 
 
-        Here is an example:
+        Here's an example:
     
         ```azurecli
         user@Azure:~$ az group create -l eastus -n rgDataMigration
@@ -112,7 +112,7 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
             --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json \
             --parameters eventHubNamespaceName=<event-hub-namespace> eventHubName=hubdatamigration sqlServerName=<sql-server-name> sqlServerUserName=<user-name> sqlServerPassword=<password> sqlServerDatabaseName=<database-name> storageName=<unique-storage-name> functionAppName=<app-name>
         ```
-    3.  Press **ENTER** in the Cloud Shell window to run the command. This process may take a while since you are creating a bunch of resources. In the result of the command, ensure that there have been no failures. 
+    3.  Press **ENTER** in the Cloud Shell window to run the command. This process may take a while since you're creating a bunch of resources. In the result of the command, ensure that there have been no failures. 
 1. Close the Cloud Shell by selecting the **Cloud Shell** button in the portal (or) **X** button in the top-right corner of the Cloud Shell window. 
 
 ### Verify that the resources are created
@@ -165,7 +165,7 @@ First, get the publish profile for the Functions app from the Azure portal. Then
     :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/select-function-app.png" alt-text="Screenshot showing the selection of the function app in the list of resources for a resource group.":::
 1. On the **Function App** page for your app, select **Get publish profile** on the command bar.
 
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/get-publish-profile.png" alt-text="Screenshot showing the selection of the **Get Publish Profile** button on the commandbar of the function app page.":::
+    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/get-publish-profile.png" alt-text="Screenshot showing the selection of the **Get Publish Profile** button on the command bar of the function app page.":::
 1. Download and save the file into the **FunctionEGDDumper** folder of the **EventHubsCaptureEventGridDemo** folder. 
 
 ### Use the publish profile to publish the Functions app
@@ -229,7 +229,7 @@ You've finished setting up your event hub, dedicate SQL pool (formerly SQL Data 
 1. Right-click **WindTurbineDataGenerator** project, and select **Set as Startup project**. 
 1. In the WindTurbineDataGenerator project, open **program.cs**.
 1. Replace `<EVENT HUBS NAMESPACE CONNECTION STRING>` with the connection string you copied from the portal. 
-1. If you have used a different name for the event hub other than `hubdatamigration`, replace `<EVENT HUB NAME>` with the name of the event hub. 
+1. If you've used a different name for the event hub other than `hubdatamigration`, replace `<EVENT HUB NAME>` with the name of the event hub. 
 
    ```cs
    private const string EventHubConnectionString = "Endpoint=sb://demomigrationnamespace.servicebus.windows.net/...";
