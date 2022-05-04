@@ -85,8 +85,8 @@ The role of the device fields is different for different schemas and event types
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | <a name="additionalfields"></a>**AdditionalFields**    | Optional    | Dynamic    | If your source provides additional information worth preserving, either keep it with the original field names or create the dynamic **AdditionalFields** field, and add to it the extra information as key/value pairs.    |
-| <a href="asimmatchingipaddr"></a>**ASimMatchingIpAddr** | Recommended | String | When a parser uses the `ipaddr_has_any_prefix` filtering parameters, this field  is set with the one of the values `SrcIpAddr`, `DstIpAddr`, or `Both` to reflect the matching fields or fields. | 
-| <a href="asimmatchinghostname"></a>**ASimMatchingHostname** | Recommended | String | When a parser uses the `hostname_has_any` filtering parameters, this field  is set with the one of the values `SrcHostname`, `DstHostname`, or `Both` to reflect the matching fields or fields. | 
+| <a name="asimmatchingipaddr"></a>**ASimMatchingIpAddr** | Recommended | String | When a parser uses the `ipaddr_has_any_prefix` filtering parameters, this field  is set with the one of the values `SrcIpAddr`, `DstIpAddr`, or `Both` to reflect the matching fields or fields. | 
+| <a name="asimmatchinghostname"></a>**ASimMatchingHostname** | Recommended | String | When a parser uses the `hostname_has_any` filtering parameters, this field  is set with the one of the values `SrcHostname`, `DstHostname`, or `Both` to reflect the matching fields or fields. | 
 
 
 ## Vendors and products

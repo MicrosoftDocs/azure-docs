@@ -39,7 +39,7 @@ The following workflow describe the high level steps in developing a custom ASIM
 
 1. Identify the schemas or schemas that the events sent from the source represent. For more information, see [Schema overview](normalization-about-schemas.md).
 
-1. [Map](#mapping-to-schema) the source event fields to the identified schema or schemas. 
+1. [Map](#mapping) the source event fields to the identified schema or schemas. 
 
 1. [Develop](#developing-parsers) one or more ASIM parsers for your source. You'll need to develop a filtering parser and a parameter-less parser for each schema relevant to the source.
 
@@ -428,11 +428,14 @@ If warnings listed by the ASIM testing tools are considered valid for a parser, 
 ``` YAML
 Exceptions:
 - Field: DnsQuery 
+  Warning: Invalid value
   Exception: May have values such as "1164-ms-7.1440-9fdc2aab.3b2bd806-978e-11ec-8bb3-aad815b5cd42" which are not valid domains names. Those are are related to TKEY RR requests.
 - Field: DnsQuery
+  Warning: Empty value in mandatory field
   Exception: May be empty for requests for root servers and for requests for RR type DNSKEY
 ```
 
+The warning specified in the YAML file should be a short form of the warning message uniquely identifying. The value is used to match warning messages when performing automated testings and ignore them.  
 
 ## <a name="next-steps"></a>Next steps
 

@@ -104,7 +104,7 @@ Microsoft Sentinel provides the following built-in, product-specific Registry Ev
 
 Deploy Registry Event parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/AsimRegistryEvent).
 
-## Web Sessions parsers
+## Web Session parsers
 
 Microsoft Sentinel provides the following out-of-the-box, product-specific Web Session parsers:
 
