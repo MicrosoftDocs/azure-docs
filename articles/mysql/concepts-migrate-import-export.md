@@ -4,7 +4,6 @@ description: This article explains common ways to import and export databases in
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.subservice: single-server
 ms.subservice: migration-guide
 ms.topic: how-to
 ms.date: 10/30/2020
