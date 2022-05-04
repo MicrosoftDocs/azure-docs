@@ -3,8 +3,8 @@ title: MLflow Tracking for models
 titleSuffix: Azure Machine Learning
 description:  Set up MLflow Tracking with Azure Machine Learning to log metrics and artifacts from ML models.
 services: machine-learning
-author: nibaccam
-ms.author: nibaccam
+author: lgayhardt
+ms.author: lagayhar
 ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 10/21/2021
@@ -28,7 +28,7 @@ In this article, learn how to enable MLflow's tracking URI and logging API, coll
 
 Supported capabilities include: 
 
-+ Track and log experiment metrics and artifacts in your [Azure Machine Learning workspace](../concept-azure-machine-learning-architecture.md#workspace). If you already use MLflow Tracking for your experiments, the workspace provides a centralized, secure, and scalable location to store training metrics and models.
++ Track and log experiment metrics and artifacts in your [Azure Machine Learning workspace](concept-azure-machine-learning-architecture.md#workspace). If you already use MLflow Tracking for your experiments, the workspace provides a centralized, secure, and scalable location to store training metrics and models.
 
 + [Submit training jobs with MLflow Projects with Azure Machine Learning backend support (preview)](../how-to-train-mlflow-projects.md). You can submit jobs locally with Azure Machine Learning tracking or migrate your runs to the cloud like via an [Azure Machine Learning Compute](../how-to-create-attach-compute-cluster.md).
 
@@ -135,7 +135,7 @@ if __name__ == "__main__":
     main()
 ```
 
-Load training script to submit an experiement.
+Load training script to submit an experiment.
 
 ```Python
 script_dir = "src"
