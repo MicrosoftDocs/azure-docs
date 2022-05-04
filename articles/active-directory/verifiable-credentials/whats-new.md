@@ -20,7 +20,7 @@ This article lists the latest features, improvements, and changes in the Azure A
 
 ## May
 
-We are expanding our service to all Azure AD customers. Verifiable credentials in Azure AD are now available to everyone with an Azure AD subscription (Free and Premium). Existing tenants that configured the Verifiable Credentials service prior to May 4, 2022 must make a [small change](verifiable-credentials-faq.md#updating-the-vc-service-configuration) to avoid service disruptions.
+We are expanding our service to all Azure AD customers. Verifiable credentials are now available to everyone with an Azure AD subscription (Free and Premium). Existing tenants that configured the Verifiable Credentials service prior to May 4, 2022 must make a [small change](verifiable-credentials-faq.md#updating-the-vc-service-configuration) to avoid service disruptions.
 
 ## April
 
