@@ -6,11 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devx-track-azurecli, references_regions, cliv2, sdkv1
 author: swatig007
 ms.author: swatig
 ms.reviewer: sgilley
-ms.date: 10/21/2021
+ms.date: 05/04/2022
 ---
 
 # Create and manage an Azure Machine Learning compute instance
@@ -25,7 +24,7 @@ In this article, you learn how to:
 * [Manage](#manage) (start, stop, restart, delete) a compute instance
 * [Create  a schedule](#schedule-automatic-start-and-stop-preview) to automatically start and stop the compute instance (preview)
 
-You can also [use a setup script](customize-compute-instance.md) to create the compute instance with your own custom environment.
+You can also [use a setup script](how-to-customize-compute-instance.md) to create the compute instance with your own custom environment.
 
 Compute instances can run jobs securely in a [virtual network environment](how-to-secure-training-vnet.md), without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container.
 

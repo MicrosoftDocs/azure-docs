@@ -112,8 +112,8 @@ You can also create an instance
 * Directly from the [integrated notebooks experience](tutorial-train-deploy-notebook.md#azure)
 * In Azure portal
 * From Azure Resource Manager template. For an example template, see the [create an Azure Machine Learning compute instance template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).
-* With [Azure Machine Learning SDK](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/concept-compute-instance.md)
-* From the [CLI extension for Azure Machine Learning](v1/reference-azure-machine-learning-cli.md#computeinstance)
+* With [Azure Machine Learning SDK](how-to-create-manage-compute-instance.md?tabs=python#create)
+* From the [CLI extension for Azure Machine Learning](how-to-create-manage-compute-instance.md?tabs=azure-cli#create)
 
 The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance does not release quota to ensure you will be able to restart the compute instance. Please do not stop the compute instance through the OS terminal by doing a sudo shutdown.
 
@@ -125,6 +125,7 @@ Compute instance comes with P10 OS disk. Temp disk type depends on the VM size c
 Compute instances can be used as a [training compute target](concept-compute-target.md#train) similar to Azure Machine Learning compute training clusters.
 
 A compute instance:
+
 * Has a job queue.
 * Runs jobs securely in a virtual network environment, without requiring enterprises to open up SSH port. The job executes in a containerized environment and packages your model dependencies in a Docker container.
 * Can run multiple small jobs in parallel (preview).  One job per core can run in parallel while the rest of the jobs are queued.
