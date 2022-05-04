@@ -515,7 +515,7 @@ To enroll a single X.509 device, modify the *individual enrollment* sample code 
 
 ## Clean up resources
 
-If you plan to explore the [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md), don't clean up the resources created in this quickstart. Otherwise, use the following steps to delete all resources created by this quickstart.
+If you plan to explore the Azure IoT Hub Device Provisioning Service tutorials, don't clean up the resources created in this quickstart. Otherwise, use the following steps to delete all resources created by this quickstart.
 
 1. Close the sample output window on your computer.
 
@@ -539,10 +539,10 @@ If you plan to explore the [Azure IoT Hub Device Provisioning Service tutorials]
 
 ## Next steps
 
-In this quickstart, you created an enrollment group for an X.509 intermediate or root CA certificate using the Azure IoT Hub Device Provisioning Service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal.
+In this quickstart, you created an enrollment group for an X.509 intermediate or root CA certificate using the Azure IoT Hub Device Provisioning Service. To learn about device provisioning in depth, continue to the tutorials for the Device Provisioning Service.
 
 > [!div class="nextstepaction"]
-> [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md)
+> [Use custom allocation policies with Device Provisioning Service](tutorial-custom-allocation-policies.md)
 
 :::zone pivot="programming-language-nodejs"
 

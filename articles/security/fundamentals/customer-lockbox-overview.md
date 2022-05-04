@@ -42,6 +42,7 @@ The following services are generally available for Customer Lockbox:
 - Azure Monitor
 - Azure Storage
 - Azure SQL Database
+- Azure SQL managed Instance
 - Azure subscription transfers
 - Azure Synapse Analytics
 - Virtual machines in Azure (covering remote desktop access, access to memory dumps, and managed disks)
