@@ -230,4 +230,5 @@ In this step, you'll run a query in the Log Analytics workspace to confirm that 
 ## Next steps
 
 - [Learn more about monitoring Azure Private 5G Core using Log Analytics](monitor-private-5g-core-with-log-analytics.md)
+- [Create an overview Log Analytics dashboard using an ARM template](create-overview-dashboard.md)
 - [Learn more about Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-overview.md)

@@ -696,7 +696,7 @@ def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
     return func.HttpResponse(f"Table row: {messageJSON}")
 ```
 
-With this simple binding, you can't programmatically handle a case in which no row that has a row key ID is found. For more fine-grained data selection, use the [storage SDK](/azure/developer/python/azure-sdk-example-storage-use?tabs=cmd).
+With this simple binding, you can't programmatically handle a case in which no row that has a row key ID is found. For more fine-grained data selection, use the [storage SDK](/azure/developer/python/sdk/examples/azure-sdk-example-storage-use?tabs=cmd).
 
 ---
 
@@ -800,7 +800,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `Table` attribute.
+The following table explains the binding configuration properties that you set in the *function.json* file.
 
 |function.json property | Description|
 |---------|----------------------|
@@ -814,8 +814,8 @@ The following table explains the binding configuration properties that you set i
 |**filter** | Optional. An OData filter expression for the entities to return from the table. Can't be used with `rowKey`.| 
 |**connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
 
-[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 ::: zone-end  
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 [!INCLUDE [functions-table-connections](../../includes/functions-table-connections.md)]
 

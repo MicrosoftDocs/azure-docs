@@ -11,7 +11,7 @@ ms.author: duau
 
 # Configure ExpressRoute Global Reach using the Azure portal
 
-This article helps you configure ExpressRoute Global Reach using PowerShell. For more information, see [ExpressRouteRoute Global Reach](expressroute-global-reach.md).
+This article helps you configure ExpressRoute Global Reach using the Azure portal. For more information, see [ExpressRouteRoute Global Reach](expressroute-global-reach.md).
 
 > [!NOTE]
 > IPv6 support for ExpressRoute Global Reach is now in Public Preview.
@@ -52,6 +52,8 @@ Enable connectivity between your on-premises networks. There are separate sets o
     :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/add-global-reach-configuration.png" alt-text="Screenshot of adding Global Reach in Overview tab.":::
 
 1. Select **Save** to complete the Global Reach configuration. When the operation completes, you'll have connectivity between your two on-premises networks through both ExpressRoute circuits.
+
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/save-configuration.png" alt-text="Screenshot of the save button for Global Reach configuration.":::
 
     > [!NOTE]
     > The Global Reach configuration is bidirectional. Once you create the connection from one circuit the other circuit will also have the configuration.
