@@ -251,7 +251,8 @@ The route table for *Subnet1* in the picture contains the following routes:
 |11  |Default|Invalid|0.0.0.0/0           |Internet               |                   |              |
 |12  |User   |Active |0.0.0.0/0           |Virtual appliance      |10.0.100.4         |Default-NVA   |
 
-An explanation of each route ID follows:
+An explanation of each route ID follows:  
+
 |ID |Explanation |
 |----|-----              |
 |1  | Azure automatically added this route for all subnets within *Virtual-network-1*, because 10.0.0.0/16 is the only address range defined in the address space for the virtual network. If the user-defined route in route ID2 weren't created, traffic sent to any address between 10.0.0.1 and 10.0.255.254 would be routed within the virtual network, because the prefix is longer than 0.0.0.0/0, and not within the address prefixes of any of the other routes. Azure automatically changed the state from *Active* to *Invalid*, when ID2, a user-defined route, was added, since it has the same prefix as the default route, and user-defined routes override default routes. The state of this route is still *Active* for *Subnet2*, because the route table that user-defined route, ID2 is in, isn't associated to *Subnet2*.|
