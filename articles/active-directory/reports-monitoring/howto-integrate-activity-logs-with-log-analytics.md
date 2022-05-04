@@ -69,6 +69,8 @@ You can find the license type of your tenant on the **[Overview](https://portal.
 If you want to know for how long the activity data is stored in a Premium tenant, see: [How long does Azure AD store the data?](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data)
 
 ## Send logs to Azure Monitor
+> [!NOTE]
+> Integrating Azure Active Directory logs with Azure Monitor will automatically enable the Azure Active Directory data connector within Microsoft Sentinel. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
