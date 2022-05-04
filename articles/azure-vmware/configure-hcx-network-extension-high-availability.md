@@ -7,7 +7,7 @@ ms.date: 05/06/2022
 
 # HCX Network extension high availability (HA)
 
-VMware HCX is an application mobility platform that's designed to simplify application migration, workload re-balancing, and business continuity across data centers and clouds. 
+VMware HCX is an application mobility platform that's designed to simplify application migration, workload rebalancing, and business continuity across data centers and clouds. 
 
 The HCX Network Extension service provides layer 2 connectivity between sites. Network Extension HA protects extended networks from a Network Extension appliance failure at either the source or remote site. 
 
@@ -33,7 +33,7 @@ When you create a service mesh, set the appliance count to a minimum of two. For
 
 Use the following steps to activate HA, create HA groups, and view the HA roles and options available.
 
-1.	Sign in to HCX Manager UI using either cloudadmin@vsphere.local or access HCX UI using vCenter HCX Plugin.
+1. Sign in to HCX Manager UI using either cloudadmin@vsphere.local or access HCX UI using vCenter HCX Plugin.
 1. Navigate to **Infrastructure**, then **Interconnect**.
 1. Select **Service Mesh**, then select **View Appliances**.
 1. Select **Appliances** from the **Interconnect** tab options. Check the network appliance that you want to make highly available and select **Activate High Availability**.
@@ -48,21 +48,26 @@ Use the following steps to activate HA, create HA groups, and view the HA roles 
 
 1. Select **HA Management** from the **Interconnect** tab options to view the HA group details and the available options: **Manual failover, Deactivate, Redeploy, and Force Sync**.
 
-    :::image type="content" source="media/hcx/ha-management-group-details-available-options.png" alt-text="Image shows the ha management tab with ha group details and available options."lightbox="media/hcx/ha-management-group-details-available-options.png":::
+    :::image type="content" source="media/hcx/ha-management-group-details-available-options.png" alt-text="Image shows the high availability management tab with ha group details and available options."lightbox="media/hcx/ha-management-group-details-available-options.png":::
 
 ## Extend network using network HA group
 
 1. Locate **Services** in the left navigation and select **Network Extension**.
 1. Select **Create a Network Extension**.
 1. Choose the Network you want and select **Next**.
-1. In **mandatory fields** provide the gateway IP address in CIDR format. 
-1. Select HA group under Extension Appliances which was created in previous steps and then select on **Submit** to extend the Network.
+1. In **mandatory fields**, provide the gateway IP address in CIDR format. 
+1. Select HA group under Extension Appliances, which was created in previous steps and then select on **Submit** to extend the Network.
 1. Select the HA group located under **Extension Appliance** and select **Submit**.
 1. After the network is extended, under **Extension Appliance**, you can see the extension details and HA group.
 
-    :::image type="content" source="media/hcx/extend-network-details-ha-group.png" alt-text="Image shows the extension appliance details and HA group."lightbox="media/hcx/extend-network-details-ha-group.png":::
+    :::image type="content" source="media/hcx/extend-network-details-ha-group.png" alt-text="Image shows the extension appliance details and high availability group."lightbox="media/hcx/extend-network-details-ha-group.png":::
 
-1. To migrate vms, navigate to **Services** and select **Migration** to start the workload mobility wizard.
-1. 
+1. To migrate virtual machines (VMs), navigate to **Services** and select **Migration**. 
+    1. Select **Migrate** from the **Migration** window to start the workload mobility wizard.
+1. In **Workload Mobility**, add and replace details as needed, then select **Validate**.
+1. After validation completes, select **Go** to start the migration using Extended Network.
 
- 
+## Next steps
+
+ Now that you've learned how to configure and extend HCX network extension high availability (HA), use the following resource to learn more about how to manage HCX network extension HA.
+- [Managing Network Extension High Availability](https://docs.vmware.com/en/VMware-HCX/4.3/hcx-user-guide/GUID-4A745694-5E32-4E87-92D2-AC1191170412.html)
