@@ -143,20 +143,18 @@ For example, assuming a new file has been created with the base64 encoded string
 az aks update -n $clusterName -g $resourceGroup --http-proxy-config aks-proxy-config-2.json
 ```
 
-## Monitoring Addon Configurations
+## Monitoring add-on configuration
 
-Below list the supported and not supported configuration for the monitoring addon.
-
-Supported configuration(s)
+Supported configurations:
 
   - Outbound proxy without authentication
   - Outbound proxy with username & password authentication
   - Outbound proxy with trusted cert for Log Analytics endpoint
 
-Not supported configuration(s)
+Unsupported configurations:
 
-  -  Custom Metrics and Recommended alerts feature are not supported in Proxy with trusted cert
-  -  Outbound proxy support with Azure Monitor Private Link Scope (AMPLS)
+  - The Custom Metrics and Recommended Alerts features are not supported when using proxy with trusted cert
+  - Outbound proxy is not supported with Azure Monitor Private Link Scope (AMPLS)
 
 ## Next steps
 - For more on the network requirements of AKS clusters, see [control egress traffic for cluster nodes in AKS][aks-egress].
