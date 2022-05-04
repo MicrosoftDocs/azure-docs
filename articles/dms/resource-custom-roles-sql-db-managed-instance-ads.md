@@ -4,7 +4,7 @@ titleSuffix: Azure Database Migration Service
 description: Learn to use the custom roles for SQL Server to Azure SQL Managed Instance migrations.
 services: database-migration
 author: krepko7
-ms.author: krepko7
+ms.author: kirepko
 manager: sushants
 ms.reviewer: 
 ms.service: dms
