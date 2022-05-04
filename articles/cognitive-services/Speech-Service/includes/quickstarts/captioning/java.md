@@ -72,14 +72,14 @@ You must also install [GStreamer](~/articles/cognitive-services/speech-service/h
 
 Follow these steps to create a new console application and install the Speech SDK.
 
-1. Copy the [scenarios/java/openjdk/captioning/](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/java/jre/console/captioning/) sample files from GitHub into your project directory.
+1. Copy the [scenarios/java/jre/console/captioning/](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/java/jre/console/captioning/) sample files from GitHub into your project directory.
 1. Open a command prompt and run this command to compile the project files. 
     ```console
-    javac Captioning.java -cp .;target\dependency\*
+    javac Captioning.java -cp ".;target\dependency\*"
     ```
 1. Run the application with your preferred command line arguments. See [usage and arguments](#usage-and-arguments) for the available options. Here is an example:
     ```console
-    java -cp .;target\dependency\* Captioning --key YourSubscriptionKey --region YourServiceRegion --input c:\caption\caption.this.mp4 --format any --output c:\caption\caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases "Contoso;Jesse;Rehaan"
+    java -cp ".;target\dependency\*" Captioning --key YourSubscriptionKey --region YourServiceRegion --input c:\caption\caption.this.mp4 --format any --output c:\caption\caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases "Contoso;Jesse;Rehaan"
     ```
     Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. Make sure that the specified arguments for `--input` file and `--output` path exist. Otherwise you must change the path.
 
@@ -108,7 +108,7 @@ Follow these steps to create a new console application and install the Speech SD
 
 ## Usage and arguments
 
-Usage: `java -cp .;target\dependency\* Captioning --key <key> --region <region> --input <input file>`
+Usage: `java -cp ".;target\dependency\*" Captioning --key <key> --region <region> --input <input file>`
 
 [!INCLUDE [Usage arguments](usage-arguments.md)]
 

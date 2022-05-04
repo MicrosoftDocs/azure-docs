@@ -38,12 +38,33 @@ The Speech SDK for Python is compatible with Windows, Linux, and macOS.
 
 Follow these steps to create a new console application.
 
-1. Clone the [Cognitive Services Speech SDK]() samples repository from GitHub.
-1. Open a command prompt in the directory of `captioning.py`.
-1. Make sure that you have an input file named `caption.this.mp4` in the path.
-1. Run the following command to output captions from the video file:
+1. Download or copy the [scenarios/python/console/captioning/](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/python/console/captioning/) sample files from GitHub into a local directory. 
+1. Open a command prompt in the same directory as `captioning.py`.
+1. Run the application with your preferred command line arguments. See [usage and arguments](#usage-and-arguments) for the available options. Here is an example:
     ```console
-    python captioning.py --input caption.this.mp4 --format any --output caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases Contoso;Jesse;Rehaan
+    python captioning.py --key YourSubscriptionKey --region YourServiceRegion --input caption.this.mp4 --format any --output caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases "Contoso;Jesse;Rehaan"
+    ```
+    Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. Make sure that the specified arguments for `--input` file and `--output` path exist. Otherwise you must change the path.
+
+    The output file with complete captions is written to `caption.output.txt`. Intermediate results are shown in the console:
+    ```console
+    00:00:00,180 --> 00:00:01,600
+    Welcome to
+    
+    00:00:00,180 --> 00:00:01,820
+    Welcome to applied
+    
+    00:00:00,180 --> 00:00:02,420
+    Welcome to applied mathematics
+    
+    00:00:00,180 --> 00:00:02,930
+    Welcome to applied mathematics course
+    
+    00:00:00,180 --> 00:00:03,100
+    Welcome to applied Mathematics course 2
+    
+    00:00:00,180 --> 00:00:03,230
+    Welcome to applied Mathematics course 201.
     ```
 
 > [!div class="nextstepaction"]
@@ -51,7 +72,7 @@ Follow these steps to create a new console application.
 
 ## Usage and arguments
 
-Usage: `python captioning.py --input <input file> --key <key> --region <region>`
+Usage: `python captioning.py --key <key> --region <region> --input <input file>`
 
 [!INCLUDE [Usage arguments](usage-arguments.md)]
 

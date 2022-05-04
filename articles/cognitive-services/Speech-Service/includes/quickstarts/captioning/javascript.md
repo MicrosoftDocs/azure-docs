@@ -36,36 +36,42 @@ You must also install [GStreamer](~/articles/cognitive-services/speech-service/h
 
 ## Create captions from speech
 
-Follow these steps to create a new console application for speech recognition.
+Follow these steps to create a new console application and install the Speech SDK.
 
-1. Open a command prompt where you want the new project, and create a new file named `Captioning.js`.
-1. Replace the contents of `Captioning.js` with the code that you copy from the [captioning sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/captioning_sample/scenarios/csharp/dotnet/captioning/Program.cs) at GitHub.
-
-Build and run your new console application. Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. 
-
-
-// To install Typescript and Speech SDK
-npm install typescript
-npm install microsoft-cognitiveservices-speech-sdk
-npm install @types/node
-
-// To compile/run sample
-npx
-tsc captioning.ts
-
-
-1. Make sure that you have an input file named `caption.this.mp4` in the path.
-1. Run the following command to output captions from the video file:
+1. Copy the [scenarios/java/jre/console/captioning/](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/java/jre/console/captioning/) sample files from GitHub into your project directory.
+1. Open a command prompt in the same directory as `Captioning.js`.
+1. Run the application with your preferred command line arguments. See [usage and arguments](#usage-and-arguments) for the available options. Here is an example:
     ```console
-    node captioning.js --input caption.this.mp4 --format any --output caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases Contoso;Jesse;Rehaan
+    node captioning.js --key YourSubscriptionKey --region YourServiceRegion --input c:\caption\caption.this.mp4 --format any --output c:\caption\caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases "Contoso;Jesse;Rehaan"
     ```
+    Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. Make sure that the specified arguments for `--input` file and `--output` path exist. Otherwise you must change the path.
+
+    The output file with complete captions is written to `c:\caption\caption.output.txt`. Intermediate results are shown in the console:
+    ```console
+    00:00:00,180 --> 00:00:01,600
+    Welcome to
+    
+    00:00:00,180 --> 00:00:01,820
+    Welcome to applied
+    
+    00:00:00,180 --> 00:00:02,420
+    Welcome to applied mathematics
+    
+    00:00:00,180 --> 00:00:02,930
+    Welcome to applied mathematics course
+    
+    00:00:00,180 --> 00:00:03,100
+    Welcome to applied Mathematics course 2
+    
+    00:00:00,180 --> 00:00:03,230
+    Welcome to applied Mathematics course 201.
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Speech&Product=Captioning&Page=quickstart&Section=Create-captions-from-speech" target="_target">I ran into an issue</a>
 
 ## Usage and arguments
 
-Usage: `node captioning.js --input <input file> --key <key> --region <region>`
+Usage: `node captioning.js  --key <key> --region <region> --input <input file>`
 
 [!INCLUDE [Usage arguments](usage-arguments.md)]
 
