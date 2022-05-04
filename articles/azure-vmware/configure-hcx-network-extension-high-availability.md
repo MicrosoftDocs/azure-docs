@@ -17,17 +17,15 @@ HCX 4.3.0 or newer allows network extension high availability. Network Extension
 
 The Network Extension High Availability (HA) setup requires four Network Extension appliances, with two appliances at the source site and two appliances at the remote site. Together, these two pairs form the HA Group, which is the mechanism for managing Network Extension High Availability. Appliances on the same site require a similar configuration and must have access to the same set of resources.
 
-- Network Extension HA requires an HCX Enterprise license.
-
+- Network Extension HA requires an HCX Enterprise license
 - In the HCX Compute Profile, the Network Extension Appliance Limit is set to allow for the number of Network Extension appliances. The Azure VMware Solutions Limit is automatically set to unlimited. 
-
 - In the HCX Service Mesh, the Network Extension Appliance Scale Out Appliance Count is set to provide enough appliances to support network extension objectives, including any Network Extension HA groups.
 
 When you create a service mesh, set the appliance count to a minimum of two. For an existing service mesh, you can edit and adjust the appliance count to provide the required appliance count.
 
 - The Network Extension appliances selected for HA activation must have no networks extended over them.
-
 - Only Network Extension appliances upgraded to HCX 4.3.0 or newer can be added to HA Groups.
+- Learn more about the [Network Extension High Availability](https://docs.vmware.com/en/VMware-HCX/4.3/hcx-user-guide/GUID-E1353511-697A-44B0-82A0-852DB55F97D7.html?msclkid=1fcacda4c4dd11ecae41f8715a8d8ded) feature, prerequisites, considerations and limitations.
 
 ## Activate high availability (HA)
 
@@ -55,9 +53,7 @@ Use the following steps to activate HA, create HA groups, and view the HA roles 
 1. Locate **Services** in the left navigation and select **Network Extension**.
 1. Select **Create a Network Extension**.
 1. Choose the Network you want and select **Next**.
-1. In **mandatory fields**, provide the gateway IP address in CIDR format. 
-1. Select HA group under Extension Appliances, which was created in previous steps and then select on **Submit** to extend the Network.
-1. Select the HA group located under **Extension Appliance** and select **Submit**.
+1. In **mandatory fields**, provide the gateway IP address in CIDR format, select the HA group under **Extension Appliances** (this was created in the previous step), and select **Submit** to extend the Network.
 1. After the network is extended, under **Extension Appliance**, you can see the extension details and HA group.
 
     :::image type="content" source="media/hcx/extend-network-details-ha-group.png" alt-text="Image shows the extension appliance details and high availability group."lightbox="media/hcx/extend-network-details-ha-group.png":::
@@ -66,6 +62,8 @@ Use the following steps to activate HA, create HA groups, and view the HA roles 
     1. Select **Migrate** from the **Migration** window to start the workload mobility wizard.
 1. In **Workload Mobility**, add and replace details as needed, then select **Validate**.
 1. After validation completes, select **Go** to start the migration using Extended Network.
+
+    :::image type="content" source="media/hcx/extend-network-migrate process.png" alt-text="Image shows the workload mobility page to edit details, validate them, and migrate using extended network."lightbox="media/hcx/extend-network-migrate process.png":::
 
 ## Next steps
 
