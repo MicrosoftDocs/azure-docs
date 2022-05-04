@@ -202,7 +202,7 @@ Make sure the virtual network gateway has been successfully deployed before depl
 
 ## Create security configuration
 
-1. Select **Configuration** under *Settings* again, then select **+ Create**, and select **SecurityAdmin** from the menu to begin creating a SecurityAdmin configuration..
+1. Select **Configuration** under *Settings* again, then select **+ Create**, and select **SecurityAdmin** from the menu to begin creating a SecurityAdmin configuration.
 
 1. Enter the name **mySecurityConfig** for the configuration, then select **Next: Rule collections**.
 
@@ -240,7 +240,7 @@ Make sure the virtual network gateway has been successfully deployed before depl
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/deploy-security.png" alt-text="Screenshot of deploying a security configuration.":::
 
-1. Select **Next** and then **Deploy**.You should now see the deployment show up in the list for the selected region. The deployment of the configuration can take about 15-20 minutes to complete.
+1. Select **Next** and then **Deploy**. You should now see the deployment show up in the list for the selected region. The deployment of the configuration can take about 15-20 minutes to complete.
 
 ## Verify deployment of configurations
 
