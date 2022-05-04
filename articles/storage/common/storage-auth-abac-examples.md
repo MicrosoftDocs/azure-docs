@@ -453,11 +453,13 @@ $content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "readonly
 
 ### Example: Read or list blobs in named containers with a path
 
-This condition allows read access and also list access to storage containers named blobs-example-container with a blob path of readonly/*. This condition is useful for sharing specific parts of storage containers for read or list access with other users in the subscription.
+This condition allows read access and also list access to storage containers named blobs-example-container with a blob path of readonly/*. Condition #1 applies to read actions excluding list blobs. Condition #2 applies to list blobs. This condition is useful for sharing specific parts of storage containers for read or list access with other users in the subscription.
 
 You must add this condition to any role assignments that include the following permission.
 
 - `/blobs/read`
+
+![Diagram of example condition showing read and list access to blobs in named containers with a path.](./media/storage-auth-abac-examples/example-6.png)
 
 ```
 (
