@@ -20,7 +20,7 @@ In this article, we will go through options on connecting your **existing** Azur
    1. To perform the connect to the ARM (Azure Resource Manager) action, you should have owner's permissions on the Azure Video Indexer classic account.
 1. Azure Subscription with Owner permissions or Contributor with Administrator Role assignment.
 
-   1. Same level of permission for the Azure Media Service associated with the existing Azure Video Indexer Classic account
+   1. Same level of permission for the Azure Media Service associated with the existing Azure Video Indexer Classic account.
 1. User assigned managed identity (can be created along the flow).
 
 ## Transition state
@@ -64,7 +64,7 @@ Before the end of the 30 days of transition state, you can remove access from us
 
     * If you followed the steps the fields should be auto-populated, make sure to validate the eligible values.
 
-    ![connect-to-arm](media/connect-classic-account-to-arm/connect-blade-new.png)
+    ![connect-to-arm](media/connect-classic-account-to-arm/connect-blade.png)
 
     | Name | Description |
     | ---|---|
