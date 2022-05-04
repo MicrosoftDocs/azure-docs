@@ -5,7 +5,7 @@ author: greenie-msft
 ms.author: nigreenf
 ms.service: container-service
 ms.topic: article
-ms.date: 05/03/2022
+ms.date: 05/04/2022
 ms.custom: devx-track-azurecli, ignite-fall-2021
 ---
 
@@ -39,38 +39,12 @@ The Dapr extension uses support window similar to AKS, but instead of N-2, Dapr 
 ## Prerequisites 
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- Install the latest version of the [Azure CLI](/cli/azure/install-azure-cli-windows) and the *aks-preview* extension.
+- Install the latest version of the [Azure CLI](/cli/azure/install-azure-cli-windows).
 - If you don't have one already, you need to create an [AKS cluster][deploy-cluster].
-
-
-### Register the `AKS-ExtensionManager` and `AKS-Dapr` features
-
-To create an AKS cluster that can use the Dapr extension, you must enable the `AKS-ExtensionManager` and `AKS-Dapr` feature flags on your subscription.
-
-Register the `AKS-ExtensionManager` and `AKS-Dapr` feature flags by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "AKS-ExtensionManager"
-az feature register --namespace "Microsoft.ContainerService" --name "AKS-Dapr"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ExtensionManager')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-Dapr')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.KubernetesConfiguration* and *Microsoft.ContainerService* resource providers by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.KubernetesConfiguration
-az provider register --namespace Microsoft.ContainerService
-```
 
 ### Set up the Azure CLI extension for cluster extensions
 
-You will also need the `k8s-extension` Azure CLI extension. Install this by running the following commands:
+You will need the `k8s-extension` Azure CLI extension. Install this by running the following commands:
   
 ```azurecli-interactive
 az extension add --name k8s-extension
@@ -82,12 +56,14 @@ If the `k8s-extension` extension is already installed, you can update it to the 
 az extension update --name k8s-extension
 ```
 
-## Create the extension and install Dapr on your AKS cluster
+## Create the extension and install Dapr on your AKS or Arc-enabled Kubernetes cluster
 
-> [!NOTE]
-> It is important that you use the flag `--cluster-type managedClusters` when installing the Dapr extension on your AKS cluster. Using `--cluster-type connectedClusters` is currently not supported.
+When installing the Dapr extension on your AKS or Arc-enabled Kubernetes cluster, you can use either of the following flags:
 
-Once your subscription is registered to use Kubernetes extensions, you can create the Dapr extension, which installs Dapr on your AKS cluster. For example:
+- **AKS cluster**: `--cluster-type managedClusters`. 
+- **Arc-enabled Kubernetes cluster**: `--cluster-type connectedClusters`.
+
+Create the Dapr extension, which installs Dapr on your AKS or Arc-enabled Kubernetes cluster. For example, for an AKS cluster:
 
 ```azure-cli-interactive
 az k8s-extension create --cluster-type managedClusters \
