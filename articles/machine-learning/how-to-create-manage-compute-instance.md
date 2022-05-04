@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: devx-track-azurecli, references_regions, cliv2, sdkv1
-ms.author: sgilley
-author: sdgilley
+author: swatig007
+ms.author: swatig
 ms.reviewer: sgilley
 ms.date: 10/21/2021
 ---
@@ -17,14 +17,15 @@ ms.date: 10/21/2021
 
 Learn how to create and manage a [compute instance](concept-compute-instance.md) in your Azure Machine Learning workspace.
 
-Use a compute instance as your fully configured and managed development environment in the cloud. For development and testing, you can also use the instance as a [training compute target](concept-compute-target.md#train) or for an [inference target](concept-compute-target.md#deploy).   A compute instance can run multiple jobs in parallel and has a job queue. As a development environment, a compute instance cannot be shared with other users in your workspace.
+Use a compute instance as your fully configured and managed development environment in the cloud. For development and testing, you can also use the instance as a [training compute target](concept-compute-target.md#train) or for an [inference target](concept-compute-target.md#deploy).   A compute instance can run multiple jobs in parallel and has a job queue. As a development environment, a compute instance can't be shared with other users in your workspace.
 
 In this article, you learn how to:
 
 * [Create](#create) a compute instance
 * [Manage](#manage) (start, stop, restart, delete) a compute instance
 * [Create  a schedule](#schedule-automatic-start-and-stop-preview) to automatically start and stop the compute instance (preview)
-* [Use a setup script](#customize-the-compute-instance-with-a-script-preview) to customize and configure the compute instance
+
+You can also [use a setup script](customize-compute-instance.md) to create the compute instance with your own custom environment.
 
 Compute instances can run jobs securely in a [virtual network environment](how-to-secure-training-vnet.md), without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container.
 
@@ -48,7 +49,7 @@ Compute instances can run jobs securely in a [virtual network environment](how-t
 
 Creating a compute instance is a one time process for your workspace. You can reuse the compute as a development workstation or as a compute target for training. You can have multiple compute instances attached to your workspace. 
 
-The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance does not release quota to ensure you will be able to restart the compute instance. It is not possible to change the virtual machine size of compute instance once it is created.
+The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance doesn't release quota to ensure you'll be able to restart the compute instance. It isn't possible to change the virtual machine size of compute instance once it's created.
 
 The following example demonstrates how to create a compute instance:
 
@@ -120,8 +121,8 @@ Where the file *create-instance.yml* is:
 
     |Field  |Description  |
     |---------|---------|
-    |Compute name     |  <ul><li>Name is required and must be between 3 to 24 characters long.</li><li>Valid characters are upper and lower case letters, digits, and the  **-** character.</li><li>Name must start with a letter</li><li>Name needs to be unique across all existing computes within an Azure region. You will see an alert if the name you choose is not unique</li><li>If **-**  character is used, then it needs to be followed by at least one letter later in the name</li></ul>     |
-    |Virtual machine type |  Choose CPU or GPU. This type cannot be changed after creation     |
+    |Compute name     |  <ul><li>Name is required and must be between 3 to 24 characters long.</li><li>Valid characters are upper and lower case letters, digits, and the  **-** character.</li><li>Name must start with a letter</li><li>Name needs to be unique across all existing computes within an Azure region. You'll see an alert if the name you choose isn't unique</li><li>If **-**  character is used, then it needs to be followed by at least one letter later in the name</li></ul>     |
+    |Virtual machine type |  Choose CPU or GPU. This type can't be changed after creation     |
     |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 
 1. Select **Create** unless you want to configure advanced settings for the compute instance.
@@ -130,7 +131,7 @@ Where the file *create-instance.yml* is:
     * Enable SSH access.  Follow the [detailed SSH access instructions](#enable-ssh-access) below.
     * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). You can also select __No public IP__ (preview) to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these [network requirements](./how-to-secure-training-vnet.md) for virtual network setup. 
     * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#create-on-behalf-of-preview).
-    * Provision with a setup script (preview) - for more details about how to create and use a setup script, see [Customize the compute instance with a script](#customize-the-compute-instance-with-a-script-preview).
+    * Provision with a setup script (preview) - for more information about how to create and use a setup script, see [Customize the compute instance with a script](#customize-the-compute-instance-with-a-script-preview).
     * Add schedule (preview). Schedule times for the compute instance to automatically start and/or shutdown. See [schedule details](#schedule-automatic-start-and-stop-preview) below.
 
 
@@ -140,7 +141,7 @@ You can also create a compute instance with an [Azure Resource Manager template]
 
 ## Enable SSH access
 
-SSH access is disabled by default.  SSH access cannot be changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
+SSH access is disabled by default.  SSH access can't be changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
 
 [!INCLUDE [amlinclude-info](../../includes/machine-learning-enable-ssh.md)]
 
@@ -174,7 +175,7 @@ The data scientist can start, stop, and restart the compute instance. They can u
 
 Define multiple schedules for auto-shutdown and auto-start. For instance, create a schedule to start at 9 AM and stop at 6 PM from Monday-Thursday, and a second schedule to start at 9 AM and stop at 4 PM for Friday.  You can create a total of four schedules per compute instance.
 
-Schedules can also be defined for [create on behalf of](#create-on-behalf-of-preview) compute instances. You can create schedule to create a compute instance in a stopped state. This is particularly useful when a user creates a compute instance on behalf of another user.
+Schedules can also be defined for [create on behalf of](#create-on-behalf-of-preview) compute instances. You can create a schedule that creates the compute instance in a stopped state. Stopped compute instances are particularly useful when you create a compute instance on behalf of another user.
 
 ### Create a schedule in studio
 
@@ -194,7 +195,10 @@ Schedules can also be defined for [create on behalf of](#create-on-behalf-of-pre
 1. Select **Add schedule** again if you want to create another schedule.
 
 Once the compute instance is created, you can view, edit, or add new schedules from the compute instance details section.
-Please note timezone labels don't account for day light savings. For instance,  (UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna is actually UTC+02:00 during day light savings.
+
+
+> [!NOTE]
+> Timezone labels don't account for day light savings. For instance,  (UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna is actually UTC+02:00 during day light savings.
 
 ### Create a schedule with CLI
 
@@ -284,6 +288,7 @@ Then use either cron or LogicApps expressions to define the schedule that starts
     // the ranges shown above or two numbers in the range separated by a 
     // hyphen (meaning an inclusive range). 
     ```
+
 ### Azure Policy support to default a schedule
 Use Azure Policy to enforce a shutdown schedule exists for every compute instance in a subscription or default to a schedule if nothing exists.
 Following is a sample policy to default a shutdown schedule at 10 PM PST.
@@ -329,115 +334,13 @@ Following is a sample policy to default a shutdown schedule at 10 PM PST.
 }    
 ```
 
-## Customize the compute instance with a script (preview)
-
-Use a setup script for an automated way to customize and configure the compute instance at provisioning time. As an administrator, you can write a customization script to be used to provision all compute instances in the workspace according to your requirements.
-
-Some examples of what you can do in a setup script:
-
-* Install packages, tools, and software
-* Mount data
-* Create custom conda environment and Jupyter kernels
-* Clone git repositories and set git config
-* Set network proxies
-* Set environment variables
-* Install JupyterLab extensions
-
-### Create the setup script
-
-The setup script is a shell script, which runs as *rootuser*.  Create or upload the script into your **Notebooks** files:
-
-1. Sign into the [studio](https://ml.azure.com) and select your workspace.
-2. On the left, select **Notebooks**
-3. Use the **Add files** tool to create or upload your setup shell script.  Make sure the script filename ends in ".sh".  When you create a new file, also change the **File type** to *bash(.sh)*.
-
-:::image type="content" source="media/how-to-create-manage-compute-instance/create-or-upload-file.png" alt-text="Create or upload your setup script to Notebooks file in studio":::
-
-When the script runs, the current working directory of the script is the directory where it was uploaded. For example, if you upload the script to **Users>admin**, the location of the script on the compute instance and current working directory when the script runs is */home/azureuser/cloudfiles/code/Users/admin*. This would enable you to use relative paths in the script.
-
-Script arguments can be referred to in the script as $1, $2, etc.
-
-If your script was doing something specific to azureuser such as installing conda environment or jupyter kernel, you will have to put it within *sudo -u azureuser* block like this
-
-:::code language="bash" source="~/azureml-examples-main/setup-ci/install-pip-package.sh":::
-
-The command *sudo -u azureuser* changes the current working directory to */home/azureuser*. You also can't access the script arguments in this block.
-
-For other example scripts, see [azureml-examples](https://github.com/Azure/azureml-examples/tree/main/setup-ci).
-
-You can also use the following environment variables in your script:
-
-1. CI_RESOURCE_GROUP
-2. CI_WORKSPACE
-3. CI_NAME
-4. CI_LOCAL_UBUNTU_USER. This points to azureuser
-
-You can use setup script in conjunction with **Azure Policy to either enforce or default a setup script for every compute instance creation**. 
-The default value for setup script timeout is 15 minutes. This can be changed through Studio UI or through ARM templates using the DURATION parameter.
-DURATION is a floating point number with an optional suffix: 's' for seconds (the default), 'm' for minutes, 'h' for hours or 'd' for days.
-
-### Use the script in the studio
-
-Once you store the script, specify it during creation of your compute instance:
-
-1. Sign into the [studio](https://ml.azure.com/) and select your workspace.
-1. On the left, select **Compute**.
-1. Select **+New** to create a new compute instance.
-1. [Fill out the form](?tabs=azure-studio#create).
-1. On the second page of the form, open **Show advanced settings**.
-1. Turn on **Provision with setup script**.
-1. Browse to the shell script you saved.  Or upload a script from your computer.
-1. Add command arguments as needed.
-
-:::image type="content" source="media/how-to-create-manage-compute-instance/setup-script.png" alt-text="Provisiona compute instance with a setup script in the studio.":::
-
-If workspace storage is attached to a virtual network you might not be able to access the setup script file unless you are accessing the Studio from within virtual network.
-
-### Use script in a Resource Manager template
-
-In a Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance), add `setupScripts` to invoke the setup script when the compute instance is provisioned. For example:
-
-```json
-"setupScripts":{
-    "scripts":{
-        "creationScript":{
-        "scriptSource":"workspaceStorage",
-        "scriptData":"[parameters('creationScript.location')]",
-        "scriptArguments":"[parameters('creationScript.cmdArguments')]"
-        }
-    }
-}
-```
-*scriptData* above specifies the location of the creation script in the notebooks file share such as *Users/admin/testscript.sh*.
-*scriptArguments* is optional above and specifies the arguments for the creation script.
-
-You could instead provide the script inline for a Resource Manager template.  The shell command can refer to any dependencies uploaded into the notebooks file share.  When you use an inline string, the working directory for the script is */mnt/batch/tasks/shared/LS_root/mounts/clusters/**ciname**/code/Users*.
-
-For example, specify a base64 encoded command string for `scriptData`:
-
-```json
-"setupScripts":{
-    "scripts":{
-        "creationScript":{
-        "scriptSource":"inline",
-        "scriptData":"[base64(parameters('inlineCommand'))]",
-        "scriptArguments":"[parameters('creationScript.cmdArguments')]"
-        }
-    }
-}
-```
-
-### Setup script logs
-
-Logs from the setup script execution appear in the logs folder in the compute instance details page. Logs are stored back to your notebooks file share under the Logs\<compute instance name> folder. Script file and command arguments for a particular compute instance are shown in the details page.
-
 ## Add custom services such as RStudio (preview)
 
-You can set up additional services, such as RStudio, when creating a compute instance. Follow these steps in studio to set up a custom service on your compute instance
+You can set up other services, such as RStudio, when creating a compute instance. Follow these steps in studio to set up a custom service on your compute instance
 
 1.	Fill out the form to [create a new compute instance](?tabs=azure-studio#create)
 1.	Select **Next: Advanced Settings**
-1.	Select **Add Service** under the **Custom Service Setup (RStudio Workbench, etc)** section
+1.	Select **Add Service** under the **Custom Service Setup (RStudio Workbench, etc.)** section
  
 :::image type="content" source="media/how-to-create-manage-compute-instance/custom-service-setup.png" alt-text="Screenshot showing Custom Service Setup.":::
  
@@ -474,7 +377,7 @@ To use RStudio open source, set up a custom service as follows:
  
 ### Setup other custom services
 
-Set up additional custom services on your compute instance by providing the service on a Docker image.
+Set up other custom services on your compute instance by providing the service on a Docker image.
 
 1.	Follow the steps listed above to **Add service** when creating your compute instance.
 1.	Select **Custom Service** on the **Service** dropdown. 
@@ -495,7 +398,7 @@ Access the custom services that you set up in studio:
 
 ## Manage
 
-Start, stop, restart, and delete a compute instance. A compute instance does not automatically scale down, so make sure to stop the resource to prevent ongoing charges. Stopping a compute instance deallocates it. Then start it again when you need it. While stopping the compute instance stops the billing for compute hours, you will still be billed for disk, public IP, and standard load balancer. 
+Start, stop, restart, and delete a compute instance. A compute instance doesn't automatically scale down, so make sure to stop the resource to prevent ongoing charges. Stopping a compute instance deallocates it. Then start it again when you need it. While stopping the compute instance stops the billing for compute hours, you'll still be billed for disk, public IP, and standard load balancer. 
 
 You can [create a schedule](#schedule-automatic-start-and-stop-preview) for the compute instance to automatically start and stop based on a time and day of week.
 
@@ -587,9 +490,9 @@ You can perform the following actions:
 
 * Create a new compute instance
 * Refresh the compute instances tab.
-* Start, stop, and restart a compute instance.  You do pay for the instance whenever it is running. Stop the compute instance when you are not using it to reduce cost. Stopping a compute instance deallocates it. Then start it again when you need it. You can also schedule a time for the compute instance to start and stop.
+* Start, stop, and restart a compute instance.  You do pay for the instance whenever it's running. Stop the compute instance when you aren't using it to reduce cost. Stopping a compute instance deallocates it. Then start it again when you need it. You can also schedule a time for the compute instance to start and stop.
 * Delete a compute instance.
-* Filter the list of compute instances to show only those you have created.
+* Filter the list of compute instances to show only ones you've created.
 
 For each compute instance in a workspace that you created (or that was created for you), you can:
 
@@ -601,7 +504,7 @@ For each compute instance in a workspace that you created (or that was created f
 
 ---
 
-[Azure RBAC](../role-based-access-control/overview.md) allows you to control which users in the workspace can create, delete, start, stop, restart a compute instance. All users in the workspace contributor and owner role can create, delete, start, stop, and restart compute instances across the workspace. However, only the creator of a specific compute instance, or the user assigned if it was created on their behalf, is allowed to access Jupyter, JupyterLab, and RStudio on that compute instance. A compute instance is dedicated to a single user who has root access, and can terminal in through Jupyter/JupyterLab/RStudio. Compute instance will have single-user log in and all actions will use that user’s identity for Azure RBAC and attribution of experiment runs. SSH access is controlled through public/private key mechanism.
+[Azure RBAC](../role-based-access-control/overview.md) allows you to control which users in the workspace can create, delete, start, stop, restart a compute instance. All users in the workspace contributor and owner role can create, delete, start, stop, and restart compute instances across the workspace. However, only the creator of a specific compute instance, or the user assigned if it was created on their behalf, is allowed to access Jupyter, JupyterLab, and RStudio on that compute instance. A compute instance is dedicated to a single user who has root access, and can terminal in through Jupyter/JupyterLab/RStudio. Compute instance will have single-user sign-in and all actions will use that user’s identity for Azure RBAC and attribution of experiment runs. SSH access is controlled through public/private key mechanism.
 
 These actions can be controlled by Azure RBAC:
 * *Microsoft.MachineLearningServices/workspaces/computes/read*
@@ -612,10 +515,9 @@ These actions can be controlled by Azure RBAC:
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/updateSchedules/action*
 
-To create a compute instance you'll need permissions for the following actions:
+To create a compute instance, you'll need permissions for the following actions:
 * *Microsoft.MachineLearningServices/workspaces/computes/write*
 * *Microsoft.MachineLearningServices/workspaces/checkComputeNameAvailability/action*
-
 
 ## Next steps
 
