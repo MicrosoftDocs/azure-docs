@@ -57,7 +57,7 @@ While FastPath supports most configurations, it doesn't support the following fe
 
 The following FastPath features are in Public preview:
 
-**VNet Peering** - FastPath will send traffic directly to any VM deployed in a virtual network peered to the one connected to ExpressRoute, bypassing the ExpressRoute virtual network gateway.
+**VNet Peering** - FastPath will send traffic directly to any VM deployed in a virtual network peered to the one connected to ExpressRoute, bypassing the ExpressRoute virtual network gateway. This preview is available for both IPv4 and IPv6 connectivity.
 
 **Private Link Connectivity for 10Gbps ExpressRoute Direct Connectivity** - Private Link traffic sent over ExpressRoute FastPath will bypass the ExpressRoute virtual network gateway in the data path.
 This preview is available in the following Azure Regions.
@@ -82,7 +82,7 @@ This preview supports connectivity to the following Azure Services:
 - Azure Storage
 - Third Party Private Link Services
 
-This preview is available for connections associated to ExpressRoute Direct circuits. Connections associated to ExpressRoute partner circuits are not eligible for this preview.
+This preview is available for connections associated to ExpressRoute Direct circuits. Connections associated to ExpressRoute partner circuits are not eligible for this preview. Additionally, this preview is available for both IPv4 and IPv6 connectivity.
 
 > [!NOTE]
 > Private Link pricing will not apply to traffic sent over ExpressRoute FastPath during Public preview. For more information about pricing, check out the [Private Link pricing page](https://azure.microsoft.com/pricing/details/private-link/).
