@@ -555,59 +555,59 @@
       - name: Where and how to deploy
         displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
         href: how-to-deploy-and-where.md
-      - name: Deploy with endpoints
+      - name: Online endpoints (real-time)
         items:
-          - name: Online (real-time)
+        - name: Deploy an ML model with an online endpoint
+          href: how-to-deploy-managed-online-endpoints.md
+          - name: Deployment scenarios
             items:
-            - name: Deploy an ML model with an online endpoint
-              href: how-to-deploy-managed-online-endpoints.md
             - name: Deploy a MLflow model with an online endpoint
               href: how-to-deploy-mlflow-models-online-endpoints.md
               displayName: ncd, no code deploy, no-code deployment
-            - name: Convert custom model to MLflow model 
-              href: how-to-convert-custom-model-to-mlflow.md
-              displayName: ncd, no code deploy, no-code deployment
             - name: Deploy a custom container with an online endpoint
               href: how-to-deploy-custom-container.md
-            - name: Safe rollout for online endpoints
-              href: how-to-safely-rollout-managed-endpoints.md
             - name: Use online endpoints in studio
               href: how-to-use-managed-online-endpoint-studio.md
             - name: High-performance serving with Triton
               href: how-to-deploy-with-triton.md
-            - name: Network isolation with managed online endpoints
-              displayName: network, vnet, secure
-              href: how-to-secure-online-endpoint.md
-            - name: Access Azure resources from online endpoints
-              href: how-to-access-resources-from-endpoints-managed-identities.md
             - name: Use REST to deploy a model as an online endpoint
               href: how-to-deploy-with-rest.md
             - name: Deploy an AutoML model with an online endpoint
               href: how-to-deploy-automl-endpoint.md
-            - name: Autoscale managed online endpoints
-              href: how-to-autoscale-endpoints.md
-            - name: Authenticate to endpoints
-              href: how-to-authenticate-online-endpoint.md
-            - name: Viewing managed online endpoint costs
-              href: how-to-view-online-endpoints-costs.md
-            - name: Managed online endpoints VM SKU list
-              href: reference-managed-online-endpoints-vm-sku-list.md
-            - name: Monitoring managed online endpoints
-              href: how-to-monitor-online-endpoints.md
-            - name: Debug online endpoints locally VS Code
-              href: how-to-debug-managed-online-endpoints-visual-studio-code.md
-            - name: Troubleshoot online endpoints
-              href: how-to-troubleshoot-online-endpoints.md
-          - name: Batch
-            items:
-            - name: Batch scoring with batch endpoints
-              href: how-to-use-batch-endpoint.md
-            - name: Batch endpoints in studio
-              href: how-to-use-batch-endpoints-studio.md
-            - name: Use REST to deploy a model as a batch endpoint
-              href: how-to-deploy-batch-with-rest.md
-            - name: Troubleshoot batch endpoints
-              href: how-to-troubleshoot-batch-endpoints.md
+        - name: Convert custom model to MLflow model 
+          href: how-to-convert-custom-model-to-mlflow.md
+          displayName: ncd, no code deploy, no-code deployment
+        - name: Safe rollout for online endpoints
+          href: how-to-safely-rollout-managed-endpoints.md
+        - name: Network isolation with managed online endpoints
+          displayName: network, vnet, secure
+          href: how-to-secure-online-endpoint.md
+        - name: Access Azure resources from online endpoints
+          href: how-to-access-resources-from-endpoints-managed-identities.md
+        - name: Autoscale managed online endpoints
+          href: how-to-autoscale-endpoints.md
+        - name: Authenticate to endpoints
+          href: how-to-authenticate-online-endpoint.md
+        - name: Viewing managed online endpoint costs
+          href: how-to-view-online-endpoints-costs.md
+        - name: Managed online endpoints VM SKU list
+          href: reference-managed-online-endpoints-vm-sku-list.md
+        - name: Monitoring managed online endpoints
+          href: how-to-monitor-online-endpoints.md
+        - name: Debug online endpoints locally VS Code
+          href: how-to-debug-managed-online-endpoints-visual-studio-code.md
+        - name: Troubleshoot online endpoints
+          href: how-to-troubleshoot-online-endpoints.md
+      - name: Batch endpoints
+        items:
+        - name: Batch scoring with batch endpoints
+          href: how-to-use-batch-endpoint.md
+        - name: Batch endpoints in studio
+          href: how-to-use-batch-endpoints-studio.md
+        - name: Use REST to deploy a model as a batch endpoint
+          href: how-to-deploy-batch-with-rest.md
+        - name: Troubleshoot batch endpoints
+          href: how-to-troubleshoot-batch-endpoints.md
       - name: Deployment targets
         items:
         - name: Local
