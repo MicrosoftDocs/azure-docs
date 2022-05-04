@@ -38,7 +38,7 @@ Carry out the following steps to upgrade the packet core instance.
 
     :::image type="content" source="media/upgrade-packet-core-azure-portal/upgrade-version.png" alt-text="Screenshot of the Azure portal showing the Upgrade version option.":::
 
-1. Under **Upgrade packet core version**, fill out the **New version** field with the string for the new software version provided to you by your support contact. 
+1. Under **Upgrade packet core version**, fill out the **New version** field with the string for the new software version provided to you by your trials engineer. 
 
     :::image type="content" source="media/upgrade-packet-core-azure-portal/upgrade-packet-core-version.png" alt-text="Screenshot of the Azure portal showing the New version field on the Upgrade packet core version screen.":::
 
