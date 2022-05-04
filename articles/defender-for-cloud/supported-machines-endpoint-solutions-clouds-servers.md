@@ -8,8 +8,6 @@ ms.custom: references_regions
 
 # Feature coverage for machines
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 The **tabs** below show the features of Microsoft Defender for Cloud that are available for Windows and Linux machines.
 
 ## Supported features for virtual machines and servers <a name="vm-server-features"></a>

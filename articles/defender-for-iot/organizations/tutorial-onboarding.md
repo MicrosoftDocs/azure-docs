@@ -198,6 +198,7 @@ Before continuing, make sure that your sensor can access the cloud using HTTP on
 - **IoT Hub**: `*.azure-devices.net`
 - **Threat Intelligence**: `*.blob.core.windows.net`
 - **Eventhub**: `*.servicebus.windows.net`
+- **Microsoft Download Center**: `download.microsoft.com`
 
 > [!TIP]
 > Defender for IoT supports other cloud-connection methods, including proxies or multi-cloud vendors. For more information, see [OT sensor cloud connection methods](architecture-connections.md), [Connect your OT sensors to the cloud](connect-sensors.md), [Cloud-connected vs local sensors](architecture.md#cloud-connected-vs-local-sensors).

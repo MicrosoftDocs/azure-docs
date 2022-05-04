@@ -26,20 +26,20 @@ Policies in Azure API Management are divided into `inbound`, `backend`, `outboun
 
 ```xml
 <policies>
-  <inbound>
-    <!-- statements to be applied to the request go here -->
-  </inbound>
-  <backend>
-    <!-- statements to be applied before the request is
-         forwarded to the backend service go here -->
+    <inbound>
+        <!-- statements to be applied to the request go here -->
+    </inbound>
+    <backend>
+        <!-- statements to be applied before the request is
+             forwarded to the backend service go here -->
     </backend>
     <outbound>
-      <!-- statements to be applied to the response go here -->
+        <!-- statements to be applied to the response go here -->
     </outbound>
     <on-error>
         <!-- statements to be applied if there is an error
              condition go here -->
-  </on-error>
+    </on-error>
 </policies>
 ```
 

@@ -51,6 +51,7 @@ Before you start, make sure that you have:
     - **IoT Hub**: `*.azure-devices.net`
     - **Threat Intelligence**: `*.blob.core.windows.net`
     - **EventHub**: `*.servicebus.windows.net`
+    - **Microsoft Download Center**: `download.microsoft.com`
 
 > [!IMPORTANT]
 > Microsoft Defender for IoT does not offer support for Squid or any other proxy services. It is the customer's responsibility to set up and maintain the proxy service.
@@ -200,6 +201,7 @@ Use the following procedure to create a scale set to use with your sensor connec
         acl allowed_http_sites dstdomain .azure-devices.net
         acl allowed_http_sites dstdomain .blob.core.windows.net
         acl allowed_http_sites dstdomain .servicebus.windows.net
+        acl allowed_http_sites dstdomain .download.microsoft.com
         http_access allow allowed_http_sites
         # allowlisting
         acl SSL_ports port 443
@@ -338,6 +340,7 @@ This procedure describes how to install and configure a connection between your 
     - **IoT Hub**: `*.azure-devices.net`
     - **Threat Intelligence**: `*.blob.core.windows.net`
     - **Eventhub**: `*.servicebus.windows.net`
+    - **Microsoft download site**: `download.microsoft.com`
 
 > [!IMPORTANT]
 > Some organizations must define firewall rules by IP addresses. If this is true for your organization, it's important to know that the Azure public IP ranges are updated weekly.
@@ -354,6 +357,7 @@ This section describes what you need to configure a direct sensor connection to 
     - **IoT Hub**: `*.azure-devices.net`
     - **Threat Intelligence**: `*.blob.core.windows.net`
     - **Eventhub**: `*.servicebus.windows.net`
+    - **Microsoft Download Center**: `download.microsoft.com`
 
 1. Azure public IP addresses are updated weekly. If you must define firewall rules based on IP addresses, make sure to download the new JSON file each week and make the required changes on your site to correctly identify services running in Azure. You'll need the updated IP ranges for **AzureIoTHub**, **Storage**, and **EventHub**. See the [latest IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 
@@ -430,7 +434,7 @@ If you're an existing customer with a production deployment and sensors connecte
         - **IoT Hub**: `*.azure-devices.net`
         - **Threat Intelligence**: `*.blob.core.windows.net`
         - **EventHub**: `*.servicebus.windows.net`
-
+        - **Microsoft Download Center**: `download.microsoft.com`
 
 While you'll need to migrate your connections before the [legacy version reaches end of support](release-notes.md#versioning-and-support-for-on-premises-software-versions), you can currently deploy a hybrid network of sensors, including legacy software versions with their IoT Hub connections, and sensors with the connection methods described in this article.
 

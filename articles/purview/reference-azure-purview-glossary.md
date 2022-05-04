@@ -52,7 +52,7 @@ Microsoft Purview features that enable customers to view and manage the metadata
 ## Data curator
 A role that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and view insights. Data curators can create, read, modify, move, and delete assets. They can also apply annotations to assets.
 ## Data map
-A metadata repository that is the foundation of Microsoft Purview. The data map is a graph that describes assets across a data estate and is populated through scans and other data ingestion processes. This graph helps organizations understand and govern their data by providing rich descriptions of assets, representing data lineage, classifying assets, storing relationships between assets, and housing information at both the technical and semantic layers. The data map is an open platform that can be interacted with and accessed through Apache Atlas APIs or the Microsoft Purview Governance Portal.
+A metadata repository that is the foundation of Microsoft Purview. The data map is a graph that describes assets across a data estate and is populated through scans and other data ingestion processes. This graph helps organizations understand and govern their data by providing rich descriptions of assets, representing data lineage, classifying assets, storing relationships between assets, and housing information at both the technical and semantic layers. The data map is an open platform that can be interacted with and accessed through Apache Atlas APIs or the Microsoft Purview governance portal.
 ## Data map operation
 A create, read, update, or delete action performed on an entity in the data map. For example, creating an asset in the data map is considered a data map operation.
 ## Data owner

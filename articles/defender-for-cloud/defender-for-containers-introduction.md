@@ -9,8 +9,6 @@ ms.date: 04/28/2022
 
 # Overview of Microsoft Defender for Containers
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Microsoft Defender for Containers is the cloud-native solution for securing your containers. 
 
 On this page, you'll learn how you can use Defender for Containers to improve, monitor, and maintain the security of your clusters, containers, and their applications.
