@@ -163,6 +163,10 @@ additionalContent:
           summary: Create an application identity that can connect to resources using Azure AD authentication.
           url: ./managed-identities-azure-resources/index.yml
         # Card
+        - title: Workload identities
+          summary: Learn how to create, manage, and secure your identities for software workloads.
+          url: ./develop/workload-identities-overview.md
+        # Card
         - title: Domain services
           summary: Move legacy apps to managed domains in the cloud while preserving user accounts, groups, and access.
           url: ../active-directory-domain-services/index.yml
