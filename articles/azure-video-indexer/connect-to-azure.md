@@ -2,7 +2,7 @@
 title: Create an Azure Video Indexer (formerly Azure Video Analyzer for Media) account connected to Azure
 description: Learn how to create an Azure Video Indexer (formerly Azure Video Analyzer for Media) account connected to Azure.
 ms.topic: tutorial
-ms.date: 10/19/2021
+ms.date: 05/03/2022
 ms.author: itnorman
 ms.custom: ignite-fall-2021
 ---
@@ -134,7 +134,7 @@ To import your data, follow the steps:
    * If the account ID isn't showing, you can copy and paste the account ID from Azure portal or the account list, on the side blade in the Azure Video Indexer Portal.
  5. Click **Import content**
 
-![import](./media/create-account/import-steps.png)
+![import](./media/create-account/import-to-arm-account.png)
 
 
 All media and content model customizations will be copied from the *trial* account into the new ARM-Based account.
