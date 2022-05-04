@@ -17,7 +17,7 @@ Browsing through a long list of changes in the entire subscription is time consu
 
 ## Custom filters and search bar
 
-:::image type="content" source="./media/change-analysis/filter-searchbar.png" alt-text="Filters and search bar are available at the top of Change Analysis homepage, right above the changes section":::
+:::image type="content" source="./media/change-analysis/filters-searchbar.png" alt-text="Filters and search bar are available at the top of Change Analysis homepage, right above the changes section":::
 
 ### Filters
 
@@ -26,7 +26,7 @@ Browsing through a long list of changes in the entire subscription is time consu
 | Subscription | This filter is in-sync with the Azure portal subscription selector. It supports multiple-subscription selection. |
 | Time range | Specifies how far back the UI display changes, up to 14 days. By default, it’s set to the past 24 hours. |
 | Resource group | Select the resource group to scope the changes. By default, all resource groups are selected. |
-| Change level | Controls which levels of changes to display. Levels include: important, normal, and noisy. <ul><li>Important: related to availability and security</li><li>Noisy: Read-only properties that are unlikely to cause any issues</li></ul> By default, important and normal levels are checked to be displayed. |
+| Change level | Controls which levels of changes to display. Levels include: important, normal, and noisy. <ul><li>Important: related to availability and security</li><li>Noisy: Read-only properties that are unlikely to cause any issues</li></ul> By default, important and normal levels are checked. |
 | Resource | Select **Add filter** to use this filter. </br> Filter the changes to specific resources. Helpful if you already know which resources to look at for changes. |
 | Resource type | Select **Add filter** to use this filter. </br> Filter the changes to specific resource types. |
 
