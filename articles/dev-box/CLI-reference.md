@@ -1,3 +1,14 @@
+---
+title: CLI reference
+description: Command line reference for Microsoft Dev Box. 
+services: dev-box
+ms.service: dev-box
+ms.author: rosemalcolm
+author: RoseHJM
+ms.date: 03/21/2022
+adobe-target: true
+---
+
 # CLI Reference
 
 During the Private Preview, in addition to the Azure admin portal and the Dev Box user portal, you can use Project Fidalgo's Azure CLI Extension to create resources.
