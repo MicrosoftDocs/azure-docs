@@ -77,7 +77,7 @@ sdc     3:0:0:0       4G
 
 In this example, the disk that I added is `sdc`. It is a LUN 0 and is 4GB.
 
-For a more complex example, here is what multiple data disks looks like in the portal:
+For a more complex example, here is what multiple data disks look like in the portal:
 
 :::image type="content" source="./media/attach-disk-portal/find-disk.png" alt-text="Screenshot of multiple disks shown in the portal.":::
 
@@ -102,7 +102,7 @@ From the output of `lsblk` you can see that the 4GB disk at LUN 0 is `sdc`, the 
 ### Prepare a new empty disk
 
 > [IMPORTANT]
-> If you are using an existing disk that contains data, skip to [mounting the disk](#mounting-the-disk). 
+> If you are using an existing disk that contains data, skip to [mounting the disk](#mount-the-disk). 
 > The following instuctions will delete data on the disk.
 
 If you are attaching a new disk, you need to partition the disk.
