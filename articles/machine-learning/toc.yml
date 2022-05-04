@@ -306,6 +306,9 @@
               - name: Compute instance
                 displayName: compute target, No public IP
                 href: how-to-create-manage-compute-instance.md
+              - name: Customized compute instance
+                displayName: compute target, No public IP
+                href: how-to-customize-compute-instance.md
               - name: Compute cluster
                 displayName: compute target, low priority, managed identity
                 href: how-to-create-attach-compute-cluster.md
