@@ -142,19 +142,6 @@ To enable secure connections, every IoT Edge parent device in a gateway scenario
 
 01. Transfer the **root CA certificate**, **parent device CA certificate**, and **parent private key** to the parent device. The examples in this article use the directory `/var/secrets` for the certificates and keys directory.
 
-01. Set the following permissions for each certificate and key on the device.
-    * The service user **aziotcs** has read permissions for the directories holding the certificates and keys. 
-    * The device private key file is owned by the **aziotks** group.
-    * The device certificate file is owned by the **aziotcs** group.
-
-    Example output from `ls -l` command.
-
-    ```output
-    -r--r--r-- 1 aziotcs root 1984 May  3 17:24 azure-iot-test-only.root.ca.cert.pem
-    -r--r--r-- 1 aziotcs root 1923 May  3 17:28 iot-edge-device-ca-gateway.cert.pem
-    -r--r--r-- 1 aziotks root 3243 May  3 17:28 iot-edge-device-ca-gateway.key.pem
-    ```
-
 01. Install the **root CA certificate** on the parent IoT Edge device. First, copy the root certificate into the certificate directory and add `.crt` to the end of the file name. Next, update the certificate store on the device using the platform-specific command.
 
     **Debian or Ubuntu:**
@@ -324,19 +311,6 @@ To configure your child device, open a local or remote command shell.
 To enable secure connections, every IoT Edge child device in a gateway scenario needs to be configured with a unique device CA certificate and a copy of the root CA certificate shared by all devices in the gateway hierarchy. 
 
 01. Transfer the **root CA certificate**, **child device CA certificate**, and **child private key** to the child device. The examples in this article use the directory `/var/secrets` for the certificates and keys directory.
-
-01. Set the following permissions for each certificate and key on the device.
-    * The service user **aziotcs** has read permissions for the directories holding the certificates and keys. 
-    * The device private key file is owned by the **aziotks** group.
-    * The device certificate file is owned by the **aziotcs** group.
-
-    Example output from `ls -l` command.
-
-    ```output
-    -r--r--r-- 1 aziotcs root 1984 May  3 17:24 azure-iot-test-only.root.ca.cert.pem
-    -r--r--r-- 1 aziotcs root 1923 May  3 17:28 iot-edge-device-ca-downstream.cert.pem
-    -r--r--r-- 1 aziotks root 3243 May  3 17:28 iot-edge-device-ca-downstream.key.pem
-    ```
 
 01. Install the **root CA certificate** on the child IoT Edge device. First, copy the root certificate into the certificate directory and add `.crt` to the end of the file name. Next, update the certificate store on the device using the platform-specific command.
 
