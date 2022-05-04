@@ -41,7 +41,7 @@ Updated ElasticSearch to latest version `7.9.1-36fefbab37-205465`.  Also Grafana
 
 All container image sizes were reduced by approximately 40% on average.
 
-Introduced new `create-sql-keytab.ps1` PowerShell script to add in creation of keytabs.
+Introduced new `create-sql-keytab.ps1` PowerShell script to aid in creation of keytabs.
 
 ### SQL Managed Instance
 
