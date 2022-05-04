@@ -5,9 +5,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 05/04/2022
 ms.author: aahi
-ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
 
 ### Create a new resource from the Azure portal
