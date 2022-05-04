@@ -111,7 +111,7 @@ All prices shown below are in USD.
 |Number type   |To make calls*   |To receive calls|
 |--------------|-----------|------------|
 |Geographic     |Starting at USD 0.0160/min       |USD 0.0100/min        |
-|Toll-free |Starting at USD 0.0160/min   |0.03415/min |
+|Toll-free |Starting at USD 0.0160/min   |USD 0.3415/min |
 
 \* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
@@ -127,7 +127,7 @@ All prices shown below are in USD.
 |Number type   |To make calls*   |To receive calls|
 |--------------|-----------|------------|
 |Geographic     |Starting at USD 0.0160/min       |USD 0.0080/min        |
-|Toll-free |Starting at USD 0.0160/min   |USD 0.01138/min |
+|Toll-free |Starting at USD 0.0160/min   |USD 0.1138/min |
 
 \* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
