@@ -14,7 +14,7 @@ The Start/Stop VMs v2 (preview) feature starts or stops Azure virtual machines (
 This new version of Start/Stop VMs v2 (preview) provides a decentralized low-cost automation option for customers who want to optimize their VM costs. It offers all of the same functionality as the [original version](../../automation/automation-solution-vm-management.md) available with Azure Automation, but it is designed to take advantage of newer technology in Azure.
 
 > [!NOTE]
-    > Automatic updating functionality was introduced on April 28th, 2022. This new auto update feature helps you stay on the latest version of the solution. This feature is enabled by default when you perform a new installation. 
+> Automatic updating functionality was introduced on April 28th, 2022. This new auto update feature helps you stay on the latest version of the solution. This feature is enabled by default when you perform a new installation. 
     > If you deployed your solution before this date, you can reinstall to the latest version from our [GitHub repository](https://github.com/microsoft/startstopv2-deployments)
     
 ## Overview
