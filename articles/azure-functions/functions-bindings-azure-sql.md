@@ -70,7 +70,7 @@ The Kafka extension is part of an [extension bundle], which is specified in your
 
 ## Considerations
 
-- Because the Azure SQL bindings doesn't have a trigger, you need to use another supported trigger to start a function that reads from or writes to a an Azure SQL database. 
+- Because the Azure SQL bindings doesn't have a trigger, you need to use another supported trigger to start a function that reads from or writes to an Azure SQL database. 
 - Azure SQL binding supports version 2.x and later of the Functions runtime.
 - Source code for the Azure SQL bindings can be found in [this GitHub repository](https://github.com/Azure/azure-functions-sql-extension).
 - This binding requires connectivity to an Azure SQL or SQL Server database.
