@@ -29,6 +29,8 @@ The availability shows the percentage of successful requests over the total requ
 ## Latency
 These charts below show the read and write latency observed by your Cassandra API account in the region where your account is operating. You can visualize latency across regions for a geo-replicated account. This metric doesn't represent the end-to-end request latency. Use diagnostic log for cases where you experience high latency for query operations.
 
+The server side latency(Avg) by region also displays a sudden latency spike on the server. It can help a customer differentiate between a client side latency spike and a server-side latency spike.
+
 :::image type="content" source="./media/cassandra-monitor-insights/avg_server_side_latency_by_region.png" alt-text="The average server side latency by region":::
 
 Also view server-side latency by different operations in a specific keyspace.
