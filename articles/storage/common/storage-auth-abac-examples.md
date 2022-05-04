@@ -29,7 +29,7 @@ For information about the prerequisites to add or edit role assignment condition
 
 ## Blob index tags
 
-### Example: Read access to blobs with a tag
+### Example: Read blobs with a tag
 
 This condition allows users to read blobs with a blob index tag key of Project and a tag value of Cascade. Attempts to access blobs without this key-value tag will not be allowed.
 
@@ -383,7 +383,7 @@ $content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "Example5
 $content = Remove-AzStorageBlob -Container $grantedContainer -Blob "Example5.txt" -Context $bearerCtx
 ```
 
-### Example: Read access to blobs in named containers with a path
+### Example: Read blobs in named containers with a path
 
 This condition allows read access to storage containers named blobs-example-container with a blob path of readonly/*. This condition does not allow a user to list or download blobs. This condition is useful for sharing specific parts of storage containers for read access with other users in the subscription.
 
@@ -451,7 +451,73 @@ $content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "Ungrante
 $content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "readonly/Example6.txt" -Context $bearerCtx
 ```
 
-### Example: Write access to blobs in named containers with a path
+### Example: Read or list blobs in named containers with a path
+
+This condition allows read access and also list access to storage containers named blobs-example-container with a blob path of readonly/*. This condition is useful for sharing specific parts of storage containers for read or list access with other users in the subscription.
+
+You must add this condition to any role assignments that include the following permission.
+
+- `/blobs/read`
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})
+ )
+ OR 
+ (
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container'
+  AND
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path] StringStartsWith 'readonly/'
+ )
+)
+AND
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.List'})
+ )
+ OR 
+ (
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container'
+  AND
+  @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:prefix] StringStartsWith 'readonly/'
+ )
+)
+```
+
+#### Azure portal
+
+Here are the settings to add this condition using the Azure portal.
+
+| Condition #1 | Setting |
+| --- | --- |
+| Actions | Read a blob |
+| Attribute source | Resource |
+| Attribute | Container name |
+| Operator | StringEquals |
+| Value | {containerName} |
+| **Expression 2** |  |
+| Operator | And |
+| Attribute source | Resource |
+| Attribute | Blob path |
+| Operator | StringStartsWith |
+| Value | {pathString} |
+
+| Condition #2 | Setting |
+| --- | --- |
+| Actions | List blobs |
+| Attribute source | Resource |
+| Attribute | Container name |
+| Operator | StringEquals |
+| Value | {containerName} |
+| **Expression 2** |  |
+| Operator | And |
+| Attribute source | Request |
+| Attribute | Blob prefix |
+| Operator | StringStartsWith |
+| Value | {pathString} |
+
+### Example: Write blobs in named containers with a path
 
 This condition allows a partner (an Azure AD guest user) to drop files into storage containers named Contosocorp with a path of uploads/contoso/*. This condition is useful for allowing other users to put data in storage containers.
 
@@ -522,7 +588,7 @@ $content = Set-AzStorageBlobContent -Container $grantedContainer -Blob "Example7
 $content = Set-AzStorageBlobContent -Container $grantedContainer -Blob "uploads/contoso/Example7.txt" -Context $bearerCtx -File $localSrcFile
 ```
 
-### Example: Read access to blobs with a tag and a path
+### Example: Read blobs with a tag and a path
 
 This condition allows a user to read blobs with a blob index tag key of Program, a tag value of Alpine, and a blob path of logs*. The blob path of logs* also includes the blob name. This condition does not allow a user to list or download blobs.
 
@@ -613,11 +679,12 @@ $content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "logs/Alp
 
 ## Blob versions or blob snapshots
 
-### Example: Allow read access to a specific blob version
+### Example: Read current blob versions and a specific blob version
 
-This condition allows a user to read blobs with a version ID of 2022-06-01T23:38:32.8883645Z. The user cannot read other blob versions.
+This condition allows a user to read current blob versions as well as read blobs with a version ID of 2022-06-01T23:38:32.8883645Z. The user cannot read other blob versions.
 
-Notice that the condition includes a `NOT Exists` expression for the version ID attribute. This expression is included so that the Azure portal can list list the current version of the blob.
+> [!NOTE]
+> The condition includes a `NOT Exists` expression for the version ID attribute. This expression is included so that the Azure portal can list list the current version of the blob.
 
 You must add this condition to any role assignments that includes the following permission.
 
@@ -657,9 +724,9 @@ Here are the settings to add this condition using the Azure portal.
 | Exists | Checked |
 | Negate this expression | Checked |
 
-### Example: Allow delete to clean up old blob versions
+### Example: Delete old blob versions
 
-This condition allows a user to delete versions of a blob that are older than 06/01/2022.
+This condition allows a user to delete versions of a blob that are older than 06/01/2022 to perform clean up.
 
 You must add this condition to any role assignments that include the following permissions.
 
@@ -694,7 +761,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | DateTimeLessThan |
 | Value | &lt;blobVersionId&gt; |
 
-### Example: Allow read access to current blob versions and any blob snapshots
+### Example: Read current blob versions and any blob snapshots
 
 This condition allows a user to read current blob versions and any blob snapshots.
 
@@ -745,7 +812,7 @@ Here are the settings to add this condition using the Azure portal.
 
 ## Encryption scope
 
-### Example: Allow read access to blobs with specific encryption scopes
+### Example: Read blobs with specific encryption scopes
 
 This condition allows a user to read blobs with with encryption scope validScope1 or validScope2.
 
@@ -780,11 +847,11 @@ Here are the settings to add this condition using the Azure portal.
 
 ## Principal attributes
 
-### Example: Allow read and write access to blobs based on tags and custom security attributes
+### Example: Read or write blobs based on tags and custom security attributes
 
-This condition allows read and write access to blobs if the user has a [custom security attribute](../../active-directory/fundamentals/custom-security-attributes-overview.md) that matches the blob index tag.
+This condition allows read or write access to blobs if the user has a [custom security attribute](../../active-directory/fundamentals/custom-security-attributes-overview.md) that matches the blob index tag.
  
-For example, if Brenda has the attribute `Project=Baker`, she can only read and write blobs with the `Project=Baker` blob index tag. Similarly, Chandra can only read and write blobs with `Project=Cascade`.
+For example, if Brenda has the attribute `Project=Baker`, she can only read or write blobs with the `Project=Baker` blob index tag. Similarly, Chandra can only read or write blobs with `Project=Cascade`.
 
 You must add this condition to any role assignments that includes the following permissions.
 
@@ -794,7 +861,7 @@ You must add this condition to any role assignments that includes the following 
 
 For more information, see [Allow read access to blobs based on tags and custom security attributes](../../role-based-access-control/conditions-custom-security-attributes.md).
 
-![Diagram of example 9 condition showing read and write access to blobs based on tags and custom security attributes.](./media/storage-auth-abac-examples/condition-principal-attribute-example.png)
+![Diagram of example 9 condition showing read or write access to blobs based on tags and custom security attributes.](./media/storage-auth-abac-examples/condition-principal-attribute-example.png)
 
 ```
 (
@@ -846,7 +913,7 @@ Here are the settings to add this condition using the Azure portal.
 | Attribute | Blob index tags [Values in key] |
 | Key | &lt;key&gt; |
 
-### Example: Allow read access to blobs based on tags and multi-value custom security attributes
+### Example: Read blobs based on tags and multi-value custom security attributes
 
 This condition allows read access to blobs if the user has a [custom security attribute](../../active-directory/fundamentals/custom-security-attributes-overview.md) with any values that matches the blob index tag.
  
