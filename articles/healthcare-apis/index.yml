@@ -55,7 +55,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Get started with FHIR service
-            url: 
+            url: ./fhir/get-started-with-fhir.md
       - linkListType: deploy
         links:
           - text: Deploy FHIR service using portal
@@ -97,7 +97,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Get started with MedTech service
-            url: ./iot/get-started-with-iot
+            url: ./iot/get-started-with-iot.md
       - linkListType: deploy
         links:
           - text: Deploy MedTech service using portal
