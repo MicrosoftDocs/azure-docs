@@ -54,18 +54,11 @@ For more information about configuring Private Link for the Azure services liste
 The Azure Arc-enabled servers Private Link Scope object has a number of limits you should consider when planning your Private Link setup.
 
 - You can associate at most one Azure Arc Private Link Scope with a virtual network.
-
 - An Azure Arc-enabled machine or server resource can only connect to one Azure Arc-enabled servers Private Link Scope.
-
 - All on-premises machines need to use the same private endpoint by resolving the correct private endpoint information (FQDN record name and private IP address) using the same DNS forwarder. For more information, see [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md)
-
 - The Azure Arc-enabled server and Azure Arc Private Link Scope must be in the same Azure region. The Private Endpoint and the virtual network must also be in the same Azure region, but this region can be different from that of your Azure Arc Private Link Scope and Arc-enabled server.
-
-- Traffic to Azure Active Directory and Azure Resource Manager service tags must be allowed through your on-premises network firewall during the preview.
-
+- Network traffic to Azure Active Directory and Azure Resource Manager does not traverse the Azure Arc Private Link Scope and will continue to use your default network route to the internet. You can optionally [configure a resource management private link](../../azure-resource-manager/management/create-private-link-access-portal.md) to send Azure Resource Manager traffic to a private endpoint.
 - Other Azure services that you will use, for example Azure Monitor, requires their own private endpoints in your virtual network.
-
-- Azure Arc-enabled servers Private Link Scope is not currently available in Azure US Government regions.
 
 ## Planning your Private Link setup
 
@@ -77,7 +70,7 @@ To connect your server to Azure Arc over a private link, you need to configure y
 
 1. Update the DNS configuration on your local network to resolve the private endpoint addresses.
 
-1. Configure your local firewall to allow access to Azure Active Directory and Azure Resource Manager. This is a temporary step and will not be required when private endpoints for these services enter preview.
+1. Configure your local firewall to allow access to Azure Active Directory and Azure Resource Manager.
 
 1. Associate the machines or servers registered with Azure Arc-enabled servers with the private link scope.
 
@@ -124,7 +117,7 @@ See the visual diagram under the section [How it works](#how-it-works) for the n
 
 1. Select **Create**.
 
-1. Pick a Subscription and Resource Group. During the preview, your virtual network and Azure Arc-enabled servers must be in the same subscription as the Azure Arc Private Link Scope.
+1. Pick a Subscription and Resource Group.
 
 1. Give the Azure Arc Private Link Scope a name. It's best to use a meaningful and clear name.
 
