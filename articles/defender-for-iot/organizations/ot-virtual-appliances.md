@@ -1,7 +1,7 @@
 ---
 title: OT monitoring with virtual appliances - Microsoft Defender for IoT
 description: Learn about system requirements for virtual appliances used for the Microsoft Defender for IoT OT sensors and on-premises management console.
-ms.date: 04/04/2022
+ms.date: 05/03/2022
 ms.topic: conceptual
 ---
 
@@ -45,58 +45,14 @@ The following tables list system requirements for OT network sensors on virtual 
 
 For all deployments, bandwidth results for virtual machines may vary, depending on the distribution of protocols and the actual hardware resources that are available, including the CPU model, memory bandwidth, and IOPS.
 
-# [Corporate](#tab/corporate)
+|Hardware profile  |Performance / Monitoring  |Physical specifications  |
+|---------|---------|---------|
+|**Corporate**     |   **Max bandwidth**: 2.5 Gb/sec <br>**Max monitored assets**: 12,000      | **vCPU**: 32 <br>**Memory**: 32 GB <br>**Storage**: 5.6 TB (600 IOPS)        |
+|**Enterprise**     |    **Max bandwidth**: 800 Mb/sec <br>**Max monitored assets**: 10,000      | **vCPU**: 8 <br>**Memory**: 32 GB <br>**Storage**: 1.8 TB (300 IOPS)        |
+|**SMB**     |   **Max bandwidth**: 160 Mb/sec <br>**Max monitored assets**: 1,000      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 500 GB (150 IOPS)        |
+|**Office**     |    **Max bandwidth**: 100 Mb/sec <br>**Max monitored assets**: 800      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 100 GB (150 IOPS)        |
+|**Rugged**     |     **Max bandwidth**: 10 Mb/sec <br>**Max monitored assets**: 100      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 60 GB (150 IOPS)        |
 
-
-|Specification  |Requirements  |
-|---------|---------|
-|**Maximum bandwidth**     |   2.5 Gb/sec      |
-|**Maximum monitored assets**     |   12,000      |
-|**vCPU**     |   32      |
-|**Memory**     |   32 GB      |
-|**Storage**     |   5.6 TB (600 IOPS)      |
-
-# [Enterprise](#tab/enterprise)
-
-|Specification  |Requirements  |
-|---------|---------|
-|**Maximum bandwidth**     |   800 Mb/sec     |
-|**Maximum monitored assets**     |  10,000     |
-|**vCPU**     |   8      |
-|**Memory**     |   32 GB      |
-|**Storage**     |  1.8 TB (300 IOPS)     |
-
-# [SMB](#tab/smb)
-
-|Specification  |Requirements  |
-|---------|---------|
-|**Maximum bandwidth**     |   160 Mb/sec     |
-|**Maximum monitored assets**     |  1000     |
-|**vCPU**     |   4      |
-|**Memory**     |   8 GB      |
-|**Storage**     |  500 GB (150 IOPS)     |
-
-# [Office](#tab/office)
-
-|Specification  |Requirements  |
-|---------|---------|
-|**Maximum bandwidth**     |   100 Mb/sec     |
-|**Maximum monitored assets**     |  800     |
-|**vCPU**     |   4      |
-|**Memory**     |   8 GB      |
-|**Storage**     |  100 GB (150 IOPS)     |
-
-# [Rugged](#tab/rugged)
-
-|Specification  |Requirements  |
-|---------|---------|
-|**Maximum bandwidth**     |   10 Mb/sec     |
-|**Maximum monitored assets**     |  100     |
-|**vCPU**     |   4      |
-|**Memory**     |   8 GB      |
-|**Storage**     |  60 GB (150 IOPS)     |
-
----
 
 ## On-premises management console VM requirements
 

@@ -252,9 +252,6 @@
             - name: Secure training environment
               displayName: vnet, No public IP
               href: how-to-secure-training-vnet.md
-            - name: Secure inferencing environment
-              displayName: vnet
-              href: how-to-secure-inferencing-vnet.md
             - name: Use studio in a virtual network
               displayName: vnet
               href: how-to-enable-studio-virtual-network.md
@@ -263,9 +260,6 @@
               href: how-to-configure-private-link.md
             - name: Use custom DNS
               href: how-to-custom-dns.md
-            - name: Configure secure web services
-              displayName: ssl, tls
-              href: how-to-secure-web-service.md
             - name: Configure required network traffic
               href: how-to-access-azureml-behind-firewall.md
               displayName: firewall, user-defined route, udr
@@ -566,7 +560,7 @@
         href: how-to-deploy-and-where.md
       - name: Deploy with endpoints
         items:
-          - name: Real-time
+          - name: Online (real-time)
             items:
             - name: Deploy an ML model with an online endpoint
               href: how-to-deploy-managed-online-endpoints.md
@@ -584,6 +578,9 @@
               href: how-to-use-managed-online-endpoint-studio.md
             - name: High-performance serving with Triton
               href: how-to-deploy-with-triton.md
+            - name: Network isolation with managed online endpoints
+              displayName: network, vnet, secure
+              href: how-to-secure-online-endpoint.md
             - name: Access Azure resources from online endpoints
               href: how-to-access-resources-from-endpoints-managed-identities.md
             - name: Use REST to deploy a model as an online endpoint
@@ -592,6 +589,8 @@
               href: how-to-deploy-automl-endpoint.md
             - name: Autoscale managed online endpoints
               href: how-to-autoscale-endpoints.md
+            - name: Authenticate to endpoints
+              href: how-to-authenticate-online-endpoint.md
             - name: Viewing managed online endpoint costs
               href: how-to-view-online-endpoints-costs.md
             - name: Managed online endpoints VM SKU list
