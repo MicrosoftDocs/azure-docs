@@ -62,7 +62,7 @@
       href: how-to-deploy-mlflow-models.md
     - name: Update web service
       displayName: update hot reload model mounting
-      href: how-to-deploy-update-web-service.md
+      href: ../how-to-deploy-update-web-service.md
   - name: Profile models
     displayName: profile resource requirement
     href: how-to-deploy-profile-model.md
