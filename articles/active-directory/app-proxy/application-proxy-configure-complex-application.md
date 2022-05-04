@@ -26,14 +26,14 @@ The following figure shows an example for complex application domain structure.
 
 With [Azure AD Application Proxy](application-proxy.md), you can address this issue by using complex application publishing that is made up of multiple URLs across various domains. 
 
-![Complex-app-flow](./media/application-proxy-configure-complex-application/Complex-app-flow.png)
+![Proposed flow for Complex-app-flow](./media/application-proxy-configure-complex-application/Complex-app-flow.png)
 
 A complex app has multiple app segments, with each app segment being a pair of an internal & external URL.
 There is one conditional access policy associated with the app and access to any of the external URL's work with pre-authentication with the same set of policies enforced for all.
 
 This solution that allows user to:
 
-- access this application by successfully authenticating 
+- by successfully authenticating 
 - not being blocked by CORS errors
 - including those that uses different domain suffixes or different ports or paths in the URL internally
 
