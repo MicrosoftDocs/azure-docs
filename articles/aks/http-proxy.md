@@ -145,13 +145,13 @@ az aks update -n $clusterName -g $resourceGroup --http-proxy-config aks-proxy-co
 
 ## Monitoring add-on configuration
 
-Supported configurations:
+When using the HTTP proxy with the Monitoring add-on, the following configurations are supported:
 
   - Outbound proxy without authentication
   - Outbound proxy with username & password authentication
   - Outbound proxy with trusted cert for Log Analytics endpoint
 
-Unsupported configurations:
+The following configurations are not supported:
 
   - The Custom Metrics and Recommended Alerts features are not supported when using proxy with trusted cert
   - Outbound proxy is not supported with Azure Monitor Private Link Scope (AMPLS)
