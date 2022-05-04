@@ -31,9 +31,9 @@ items:
       href: add-namespace-paths.md
     - name: Move data to storage targets (if needed)
       items:
-      - name: Preload new Blob storage
+      - name: Move data to blob storage
         href: hpc-cache-ingest.md
-      - name: Alternate data ingest methods
+      - name: Additional data ingest methods
         items:
         - name: Populate the cache with parallel copy
           href: hpc-cache-ingest-parallelcp.md
