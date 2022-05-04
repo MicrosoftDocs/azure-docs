@@ -28,26 +28,44 @@ You must also install [GStreamer](~/articles/cognitive-services/speech-service/h
 
 ## Create captions from speech
 
-Follow these steps to create a new GO module.
+Follow these steps to create a new GO module and install the Speech SDK.
 
-1. Open a command prompt where you want the new module, and create a new file named `captioning.go`.
-1. Replace the contents of `captioning.go` with the code that you copy from the [captioning sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/captioning_sample/scenarios/csharp/dotnet/captioning/Program.cs) at GitHub.
-
-Run the following commands to create a `go.mod` file that links to components hosted on GitHub:
-
-```cmd
-go mod init captioning
-go get github.com/Microsoft/cognitive-services-speech-sdk-go
-```
-
-
-1. Make sure that you have an input file named `caption.this.mp4` in the path.
-1. Now build and run the code to output captions from the video file:
+1. Download or copy the [scenarios/go/captioning/](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/go/captioning/) sample files from GitHub into a local directory. 
+1. Run the following commands to create a `go.mod` file that links to the Speech SDK components hosted on GitHub:
+    ```console
+    go mod init captioning
+    go get github.com/Microsoft/cognitive-services-speech-sdk-go
+    ```
+1. Build the GO module.
     ```console
     go build
-    go run captioning.go helper.go --input caption.this.mp4 --format any --output caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases Contoso;Jesse;Rehaan
     ```
+1. Run the application with your preferred command line arguments. See [usage and arguments](#usage-and-arguments) for the available options. Here is an example:
+    ```console
+    go run captioning.go helper.go --key YourSubscriptionKey --region YourServiceRegion --input caption.this.mp4 --format any --output caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases "Contoso;Jesse;Rehaan"
+    ```
+    Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. Make sure that the specified arguments for `--input` file and `--output` path exist. Otherwise you must change the path.
 
+    The output file with complete captions is written to `caption.output.txt`. Intermediate results are shown in the console:
+    ```console
+    00:00:00,180 --> 00:00:01,600
+    Welcome to
+    
+    00:00:00,180 --> 00:00:01,820
+    Welcome to applied
+    
+    00:00:00,180 --> 00:00:02,420
+    Welcome to applied mathematics
+    
+    00:00:00,180 --> 00:00:02,930
+    Welcome to applied mathematics course
+    
+    00:00:00,180 --> 00:00:03,100
+    Welcome to applied Mathematics course 2
+    
+    00:00:00,180 --> 00:00:03,230
+    Welcome to applied Mathematics course 201.
+    ```
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=GO&Pillar=Speech&Product=Captioning&Page=quickstart&Section=Create-captions-from-speech" target="_target">I ran into an issue</a>

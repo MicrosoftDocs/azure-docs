@@ -30,8 +30,8 @@ You must also install [GStreamer](~/articles/cognitive-services/speech-service/h
 
 Follow these steps to create a new console application and install the Speech SDK.
 
-1. Download or copy the sample code for the captioning scenario from [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/cpp/windows/captioning/).
-1. Open `captioning.sln` in Visual Studio. Otherwise you can create a new C++ console app and add the sample files. 
+1. Download or copy the [scenarios/cpp/windows/captioning/](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/go/captioning/) sample files from GitHub into a local directory. 
+1. Open `captioning.sln` in Visual Studio.  
 1. Install the Speech SDK in your project with the NuGet package manager.
     ```powershell
     Install-Package Microsoft.CognitiveServices.Speech
@@ -41,7 +41,7 @@ Follow these steps to create a new console application and install the Speech SD
     ```
     --key YourSubscriptionKey --region YourServiceRegion --input c:\caption\caption.this.mp4 --format any --output c:\caption\caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases "Contoso;Jesse;Rehaan"
     ```
-1. Make sure that the specified arguments for `--input` file and `--output` path exist. Otherwise you must change the path.
+    Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. Make sure that the specified arguments for `--input` file and `--output` path exist. Otherwise you must change the path.
 1. Build and run the console application. The output file with complete captions is written to `c:\caption\caption.output.txt`. Intermediate results are shown in the console:
     ```console
     00:00:00,180 --> 00:00:01,600
