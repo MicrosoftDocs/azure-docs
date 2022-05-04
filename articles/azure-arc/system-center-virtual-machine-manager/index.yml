@@ -38,4 +38,4 @@ landingContent:
       - linkListType: how-to-guide
         links:  
           - text: Enable SCVMM inventory in Azure
-            url: enable-scvmm-inventory-resouces.md     
+            url: enable-scvmm-inventory-resources.md     
