@@ -31,6 +31,8 @@ landingContent:
         links:
           - text: Get started with Azure API for FHIR
             url: get-started-with-azure-api-fhir.md
+      - linkListType: deploy
+        links:
           - text: Deploy Azure API for FHIR
             url: fhir-paas-portal-quickstart.md
           - text: Deploy Azure IoT Connector for FHIR (preview)
