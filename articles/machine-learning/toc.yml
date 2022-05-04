@@ -223,7 +223,6 @@
         - name: Vulnerability management
           href: concept-vulnerability-management.md
 - name: How-to guides
-  expanded: true
   items: 
     - name: Security
       items: 
@@ -303,6 +302,9 @@
             - name: Compute instance
               displayName: compute target, No public IP
               href: how-to-create-manage-compute-instance.md
+            - name: Customized compute instance
+              displayName: compute target, No public IP
+              href: how-to-customize-compute-instance.md
             - name: Compute cluster
               displayName: compute target, low priority, managed identity
               href: how-to-create-attach-compute-cluster.md
@@ -548,13 +550,11 @@
             - name: Troubleshoot automated ML
               href: how-to-troubleshoot-auto-ml.md
     - name: Deploy models
-      expanded: true
       items: 
         - name: Where and how to deploy
           displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
           href: how-to-deploy-and-where.md
         - name: Online endpoints (real-time)
-          expanded: true
           items: 
             - name: Deploy an ML model with an online endpoint
               href: how-to-deploy-managed-online-endpoints.md
