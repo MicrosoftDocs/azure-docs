@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 3/22/2022
 ---
 
-## Architecture overview for Azure Monitor agent
+## Overview for Azure Monitor agent
 Before you read further, you must be familiar with [Azure Monitor agent](../../articles/azure-monitor/agents/azure-monitor-agent-overview.md) and [Data Collection Rules](../../articles/azure-monitor/agents/data-collection-rule-azure-monitor-agent.md).  
 
 

@@ -19,7 +19,7 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 1. **Carefully review the [prerequisites here](./azure-monitor-agent-manage.md#prerequisites).**  
 
 2. **Verify that the extension was successfully installed and provisioned, which installs the agent binaries on your machine**:  
-	1. Open Azure Portal > select your virtual machine > Open **Settings** : **Extensions + applications** blade from left menu > 'AzureMonitorLinuxAgent'should show up with Status: 'Provisioning succeeded'  
+	1. Open Azure portal > select your virtual machine > Open **Settings** : **Extensions + applications** blade from left menu > 'AzureMonitorLinuxAgent'should show up with Status: 'Provisioning succeeded'  
 	2. If you don't see the extension listed, check if machine can reach Azure and find the extension to install using the command below:  
 		```azurecli
 		az vm extension image list-versions --location <machine-region> --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor
@@ -29,7 +29,7 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 	4. If none of the above helps, [file a ticket](#file-a-ticket) with **Summary** as 'AMA extension fails to install or provision' and **Problem type** as 'I need help with Azure Monitor Linux Agent'.  
 	
 3. **Verify that the agent is running**:  
-	1. Check if the agent is emitting heartbeat logs to Log Analytics workspace, by running the query below (not applicable if 'Custom Metrics' is the only destination in the DCR):
+	1. Check if the agent is emitting heartbeat logs to Log Analytics workspace using the query below. Skip if 'Custom Metrics' is the only destination in the DCR:
 		```Kusto
 		Heartbeat | where Category == "Azure Monitor Agent" and 'Computer' == "<computer-name>" | take 10
 		```	 
@@ -42,7 +42,7 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 	
 4. **Verify that the DCR exists and is associated with the virtual machine:**  
 	1. If using Log Analytics workspace as destination, verify that DCR exists in the same physical region as the Log Analytics workspace.  
-	2. Open Azure Portal > select your data collection rule > Open **Configuration** : **Resources** blade from left menu > You should see the virtual machine listed here. 
+	2. Open Azure portal > select your data collection rule > Open **Configuration** : **Resources** blade from left menu > You should see the virtual machine listed here. 
 	3. If not listed, click 'Add' and select your virtual machine from the resource picker. Repeat across all DCRs. 
 	4. If none of the above helps, [file a ticket](#file-a-ticket) with **Summary** as 'DCR not found or associated' and **Problem type** as 'I need help configuring data collection from a VM'.
 
@@ -102,7 +102,7 @@ Here's how AMA collects sylog events:
 	```
 	export MDSD_OPTIONS="-A -c /etc/opt/microsoft/azuremonitoragent/mdsd.xml -d -r $MDSD_ROLE_PREFIX -S $MDSD_SPOOL_DIRECTORY/eh -L $MDSD_SPOOL_DIRECTORY/events -e $MDSD_LOG_DIR/mdsd.err -w $MDSD_LOG_DIR/mdsd.warn -o $MDSD_LOG_DIR/mdsd.info -T 0x2002"
 	```
-5. After the issue is reproduced with the trace flag on, you will find additional debug information in `/var/opt/microsoft/azuremonitoragent/log/mdsd.info`. Inspect the file for the possible cause of syslog collection issue, such as parsing / processing / configuration / upload errors.
+5. After the issue is reproduced with the trace flag on, you'll find additional debug information in `/var/opt/microsoft/azuremonitoragent/log/mdsd.info`. Inspect the file for the possible cause of syslog collection issue, such as parsing / processing / configuration / upload errors.
 	> [!WARNING]
 	> Ensure to remove trace flag setting **-T 0x2002** after the debugging session, since it generates many trace statements that could fill up the disk more quickly or make visually parsing the log file difficult.
 6. If none of the above helps, [file a ticket](#file-a-ticket) with **Summary** as 'AMA fails to collect syslog events' and **Problem type** as 'I need help with Azure Monitor Linux Agent'. 
