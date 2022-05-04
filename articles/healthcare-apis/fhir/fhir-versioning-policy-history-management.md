@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 05/02/2022
+ms.date: 05/04/2022
 ms.author: mikaelw
 ---
 
@@ -26,18 +26,18 @@ Versioning policy in the FHIR service lets you decide how history is stored eith
 There are three different levels for versioning policy:
 
 - `versioned`: History is stored for operation on resources. Resource version is incremented. This is the default.
-- `version-update`: History is stored for operation on resources. Resource version can be specified.
+- `version-update`: History is stored for operation on resources. Resource version is incremented. Updates require a valid `If-Match` header. For more information, see [VersionedUpdateExample.http](https://github.com/microsoft/fhir-server/blob/main/docs/rest/VersionedUpdateExample.http).
 - `no-version`: History isn't created for resources. Resource version is incremented.
 
 Versioning policy available to configure at as a system-wide setting and also to override at a resource level. The system-wide setting is used for all resources in your FHIR service, unless a specific resource level versioning policy has been added.
 
 ### Versioning policy comparison
 
-| Policy Value     | History Behavior      | `meta.versionId` Behavior  | Default |
+| Policy Value     | History Behavior      | `meta.versionId` Update Behavior  | Default |
 | ---------------- | --------------------- | -------------------------- | ------- |
-| `versioned`      | History is stored     | Value is incremented       | Yes     |
-| `version-update` | History is stored     | User can specify value     | No      |
-| `no-version`     | History isn't stored | Increments from last value  | No      |
+| `versioned`      | History is stored     | If-Match not required      | Yes     |
+| `version-update` | History is stored     | If-Match required          | No      |
+| `no-version`     | History isn't stored  | If-Match not required      | No      |
 
 > [!NOTE]
 > Changing the versioning policy to `no-version` has no effect on existing resource history. If history needs to be removed for resources, use the [$purge-history](purge-history.md) operation.
@@ -46,20 +46,20 @@ Versioning policy available to configure at as a system-wide setting and also to
 
 To configure versioning policy, select the **Versioning Policy Configuration** blade inside your FHIR service.
 
-[![Screenshot of the Azure portal Versioning Policy Configuration.](media/versioning-policy/fhir-service-versioning-policy-configuration.png)](media/versioning-policy/fhir-service-versioning-policy-configuration.png#lightbox)
+[ ![Screenshot of the Azure portal Versioning Policy Configuration.](media/versioning-policy/fhir-service-versioning-policy-configuration.png) ](media/versioning-policy/fhir-service-versioning-policy-configuration.png#lightbox)
 
 After you've browsed to Versioning Policy Configuration, you'll be able to configure the setting at both system level and the resource level (as an override of the system level). The system level configuration (annotated as 1) will apply to every resource in your FHIR service unless a resource specific override (annotated at 2) has been configured.
 
-[![Screenshot of Azure portal versioning policy configuration showing system level vs resource level configuration.](media/versioning-policy/system-level-versus-resource-level.png)](media/versioning-policy system-level-versus-resource-level.png#lightbox)
+[ ![Screenshot of Azure portal versioning policy configuration showing system level vs resource level configuration.](media/versioning-policy/system-level-versus-resource-level.png) ](media/versioning-policy/system-level-versus-resource-level.png#lightbox)
 
 When configuring resource level configuration, you'll be able to select the FHIR resource type (annotated as 1) and the specific versioning policy for this specific resource (annotated as 2). Make sure to select the **Add** button (annotated as 3) to queue up this setting for saving.
 
-[![Screenshot of Azure portal versioning policy configuration showing resource level configuration.](media/versioning-policy/resource-versioning.jpg)](media/versioning-policy/resource-versioning.jpg#lightbox)
+[ ![Screenshot of Azure portal versioning policy configuration showing resource level configuration.](media/versioning-policy/resource-versioning.jpg) ](media/versioning-policy/resource-versioning.jpg#lightbox)
 
 
 **Make sure** to select **Save** after you've completed your versioning policy configuration.
 
-[![Screenshot of Azure portal versioning policy configuration configuration showing save button.](media/versioning-policy/save-button.jpg)](media/versioning-policy/save-button.jpg#lightbox)
+[ ![Screenshot of Azure portal versioning policy configuration configuration showing save button.](media/versioning-policy/save-button.jpg) ](media/versioning-policy/save-button.jpg#lightbox)
 
 ## History Management
 
