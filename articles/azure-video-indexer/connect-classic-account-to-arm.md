@@ -3,7 +3,7 @@ title: Connect a classic Azure Video Indexer account to ARM
 description: This topic explains how to connect an existing classic paid Azure Video Indexer account to an ARM-based account
 ms.topic: how-to
 ms.author: itnorman
-ms.date: 10/19/2021
+ms.date: 05/04/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -15,11 +15,13 @@ In this article, we will go through options on connecting your **existing** Azur
 
 ## Prerequisites
 
-* Unlimited paid Azure Video Indexer account (classic account).
+1. Unlimited paid Azure Video Indexer account (classic account).
 
-  * To perform the connect to the ARM (Azure Resource Manager) action, you should have owner's permissions on the Azure Video Indexer account.
-* Azure Subscription.
-* User assigned managed identity (can be created along the flow).
+   1. To perform the connect to the ARM (Azure Resource Manager) action, you should have owner's permissions on the Azure Video Indexer classic account.
+1. Azure Subscription with Owner permissions or Contributor with Administrator Role assignment.
+
+   1. Same level of permission for the Azure Media Service associated with the existing Azure Video Indexer Classic account
+1. User assigned managed identity (can be created along the flow).
 
 ## Transition state
 
