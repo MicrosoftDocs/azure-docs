@@ -2,15 +2,12 @@
 title: Template functions - date
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with dates.
 ms.topic: conceptual
-ms.date: 05/02/2022
+ms.date: 05/03/2022
 ---
 
 # Date functions for ARM templates
 
-Resource Manager provides the following functions for working with dates in your Azure Resource Manager template (ARM template):
-
-* [dateTimeAdd](#datetimeadd)
-* [utcNow](#utcnow)
+This article describes the functions for working with dates in your Azure Resource Manager template (ARM template).
 
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [date](../bicep/bicep-functions-date.md) functions.
@@ -167,7 +164,7 @@ The output is:
 
 The next example uses the epoch time value to set the expiration for a key in a key vault.
 
-:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.storage/storage-blob-encryption-with-cmk/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.storage/storage-blob-encryption-with-cmk/azuredeploy.json" highlight="54,104":::
 
 ## utcNow
 
