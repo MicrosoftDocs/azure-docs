@@ -31,13 +31,38 @@ When you create a service mesh, set the appliance count to a minimum of two. For
 
 ## Activate high availability (HA)
 
+Use the following steps to activate HA, create HA groups, and view the HA roles and options available.
+
 1.	Sign in to HCX Manager UI using either cloudadmin@vsphere.local or access HCX UI using vCenter HCX Plugin.
 1. Navigate to **Infrastructure**, then **Interconnect**.
 1. Select **Service Mesh**, then select **View Appliances**.
-    
-    :::image type="content" source="media/hcx/interconnect-service-mesh-view-appliances.png" alt-text="Image shows step to select service mesh and the View Appliances option."lightbox="media/hcx/interconnect-service-mesh-view-appliances.png":::  
+1. Select **Appliances** from the **Interconnect** tab options. Check the network appliance that you want to make highly available and select **Activate High Availability**.
 
-1. Select **Network Extension Appliance**, then select **Activate High Availability**.
-1. Confirm by choosing **Activate HA**.
+     :::image type="content" source="media/hcx/appliances-activate-high-availability.png" alt-text="Image shows the appliances tab with a list of appliances you can choose from to activate high availability."lightbox="media/hcx/appliances-activate-high-availability.png":::
+
+1. Confirm by selecting **Activate HA**.
     1. Activating HA initiates the process to create an HA group. The process automatically selects an HA partner from the available NE Appliances.
-1. After the HA group is created, the Active and Standby roles for the local and remote appliances display on the HA Management page.
+1. After the HA group is created, the **HA Roles** for the local and remote appliances display **Active** and **Standby**.
+
+     :::image type="content" source="media/hcx/ha-group-active-standby-roles.png" alt-text="Image shows the active and standby roles that are assigned to the local and remote appliances."lightbox="media/hcx/ha-group-active-standby-roles.png":::
+
+1. Select **HA Management** from the **Interconnect** tab options to view the HA group details and the available options: **Manual failover, Deactivate, Redeploy, and Force Sync**.
+
+    :::image type="content" source="media/hcx/ha-management-group-details-available-options.png" alt-text="Image shows the ha management tab with ha group details and available options."lightbox="media/hcx/ha-management-group-details-available-options.png":::
+
+## Extend network using network HA group
+
+1. Locate **Services** in the left navigation and select **Network Extension**.
+1. Select **Create a Network Extension**.
+1. Choose the Network you want and select **Next**.
+1. In **mandatory fields** provide the gateway IP address in CIDR format. 
+1. Select HA group under Extension Appliances which was created in previous steps and then select on **Submit** to extend the Network.
+1. Select the HA group located under **Extension Appliance** and select **Submit**.
+1. After the network is extended, under **Extension Appliance**, you can see the extension details and HA group.
+
+    :::image type="content" source="media/hcx/extend-network-details-ha-group.png" alt-text="Image shows the extension appliance details and HA group."lightbox="media/hcx/extend-network-details-ha-group.png":::
+
+1. To migrate vms, navigate to **Services** and select **Migration** to start the workload mobility wizard.
+1. 
+
+ 
