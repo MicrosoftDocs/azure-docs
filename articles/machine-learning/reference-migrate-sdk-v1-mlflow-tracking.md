@@ -66,7 +66,7 @@ mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
     :::column-end:::
 :::row-end:::
 
-## Logs
+## Logging API comparison
 
 ### Log an integer or float metric
 
@@ -392,7 +392,66 @@ mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
     :::column-end:::
 :::row-end:::
 
+## View run info and data
+
+You can access run information using the MLflow run object's `data` and `info` properties. For more information, see [mlflow.entities.Run](https://mlflow.org/docs/latest/python_api/mlflow.entities.html#mlflow.entities.Run) reference.
+
+The following example shows how to retrieve a finished run:
+
+```python
+from mlflow.tracking import MlflowClient
+
+# Use MlFlow to retrieve the run that was just completed
+client = MlflowClient()
+finished_mlflow_run = MlflowClient().get_run(mlflow_run.info.run_id)
+```
+
+The following example shows how to view the `metrics`, `tags`, and `params`:
+
+```python
+metrics = finished_mlflow_run.data.metrics
+tags = finished_mlflow_run.data.tags
+params = finished_mlflow_run.data.params
+```
+
+> [!NOTE]
+> The `metrics` will only have the most recently logged value for a given metric. For example, if you log in order a value of `1`, then `2`, `3`, and finally `4` to a metric named `sample_metric`, only `4` will be present in the `metrics` dictionary. To get all metrics logged for a specific named metric, use [MlFlowClient.get_metric_history](https://mlflow.org/docs/latest/python_api/mlflow.tracking.html#mlflow.tracking.MlflowClient.get_metric_history):
+>
+> ```python
+> with mlflow.start_run() as multiple_metrics_run:
+>     mlflow.log_metric("sample_metric", 1)
+>     mlflow.log_metric("sample_metric", 2)
+>     mlflow.log_metric("sample_metric", 3)
+>     mlflow.log_metric("sample_metric", 4)
+> 
+> print(client.get_run(multiple_metrics_run.info.run_id).data.metrics)
+> print(client.get_metric_history(multiple_metrics_run.info.run_id, "sample_metric"))
+> ```
+> 
+> For more information, see the [MlFlowClient](https://mlflow.org/docs/latest/python_api/mlflow.tracking.html#mlflow.tracking.MlflowClient) reference.
+
+The `info` field provides general information about the run, such as start time, run ID, experiment ID, etc.:
+
+```python
+run_start_time = finished_mlflow_run.info.start_time
+run_experiment_id = finished_mlflow_run.info.experiment_id
+run_id = finished_mlflow_run.info.run_id
+```
+
+## View run artifacts
+
+To view the artifacts of a run, use [MlFlowClient.list_artifacts](https://mlflow.org/docs/latest/python_api/mlflow.tracking.html#mlflow.tracking.MlflowClient.list_artifacts):
+
+```python
+client.list_artifacts(finished_mlflow_run.info.run_id)
+```
+
+To download an artifact, use [MlFlowClient.download_artifacts](https://www.mlflow.org/docs/latest/python_api/mlflow.tracking.html#mlflow.tracking.MlflowClient.download_artifacts):
+
+```python
+client.download_artifacts(finished_mlflow_run.info.run_id, "Azure.png")
+```
 ## Next steps
 
-* [Log and view metrics](how-to-log-view-metrics.md)
 * [Track ML experiments and models with MLflow](how-to-use-mlflow-cli-runs.md)
+* [Log and view metrics](how-to-log-view-metrics.md)
