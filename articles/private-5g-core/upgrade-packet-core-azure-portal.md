@@ -16,7 +16,7 @@ Each Azure Private 5G Core Preview site contains a packet core instance, which i
 
 ## Prerequisites
 
-- Contact your trials engineer. They'll guide you through the upgrade process and provide you with the information you'll need, including the time you'll need to allow for the upgrade to complete and the new software version number.
+- Contact your trials engineer. They'll guide you through the upgrade process and provide you with the information you'll need, including the amount of time you'll need to allow for the upgrade to complete and the new software version number.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
 ## Upgrade the packet core instance
