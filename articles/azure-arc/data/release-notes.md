@@ -53,7 +53,7 @@ Add support for `NodeSelector`, `TopologySpreadConstraints` and `Affinity`.  Onl
 
 Add support for specifying labels and annotations on the secondary service endpoint. `REQUIRED_SECONDARIES_TO_COMMIT` is now a function of the number of replicas.  
 
-- If more three or more replicas, then `REQUIRED_SECONDARIES_TO_COMMIT = 1`.  
+- If more three replicas, then `REQUIRED_SECONDARIES_TO_COMMIT = 1`.  
 - If one or two replicas, then `REQUIRED_SECONDARIES_TO_COMMIT = 0`.
 
 ### User experience improvements
