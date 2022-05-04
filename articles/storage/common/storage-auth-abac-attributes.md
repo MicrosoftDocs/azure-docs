@@ -48,9 +48,9 @@ In this preview, storage accounts support the following suboperations:
 > | [Sets the access tier on a blob](#sets-the-access-tier-on-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | `Blob.Write.Tier` |
 > | [Write to a blob with blob index tags](#write-to-a-blob-with-blob-index-tags) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` <br/> `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` | `Blob.Write.WithTagHeaders` |
 
-## Azure Storage actions and suboperations
+## Azure Blob storage actions and suboperations
 
-This section lists the supported Azure Storage actions and suboperations you can target for conditions.
+This section lists the supported Azure Blob storage actions and suboperations you can target for conditions.
 
 ### All read operations
 
@@ -304,9 +304,9 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Request attributes** |  |
 > | **Principal attributes support** | true |
 
-## Azure Queue Storage actions
+## Azure Queue storage actions
 
-This section lists the supported Azure Queue Storage actions you can target for conditions.
+This section lists the supported Azure Queue storage actions you can target for conditions.
 
 ### Peek messages
 
@@ -368,9 +368,9 @@ This section lists the supported Azure Queue Storage actions you can target for 
 > | **Request attributes** |  |
 > | **Principal attributes support** | true |
 
-## Azure Storage attributes
+## Azure Blob storage attributes
 
-This section lists the Azure Storage attributes you can use in your condition expressions depending on the action you target. If you select multiple actions for a single condition, there might be fewer attributes to choose from for your condition because the attributes must be available across the selected actions.
+This section lists the Azure Blob storage attributes you can use in your condition expressions depending on the action you target. If you select multiple actions for a single condition, there might be fewer attributes to choose from for your condition because the attributes must be available across the selected actions.
 
 > [!NOTE]
 > Attributes and values listed are considered case-insensitive, unless stated otherwise.
@@ -500,9 +500,9 @@ This section lists the Azure Storage attributes you can use in your condition ex
 > | **Attribute type** | DateTime |
 > | **Exists support** | true |
 
-## Azure Queue Storage attributes
+## Azure Queue storage attributes
 
-This section lists the Azure Queue Storage attributes you can use in your condition expressions depending on the action you target.
+This section lists the Azure Queue storage attributes you can use in your condition expressions depending on the action you target.
 
 ### Queue name
 
