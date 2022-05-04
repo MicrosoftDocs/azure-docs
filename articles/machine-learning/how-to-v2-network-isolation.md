@@ -70,9 +70,9 @@ ws.update(v1_legacy_mode=Enabled)
 ```
 
 
-# [Azure CLI extension 2.0 preview](#tab/azurecliextensionv2)
+# [Azure CLI extension v2 preview](#tab/azurecliextensionv2)
 
-When using the Azure CLI [extension 2.0 CLI preview for machine learning](how-to-configure-cli.md), create a YAML document that sets the `v1_legacy_mode` property to `Disabled`. Then use the `az ml update` command to update the workspace:
+When using the Azure CLI [extension v2 CLI preview for machine learning](how-to-configure-cli.md), create a YAML document that sets the `v1_legacy_mode` property to `Disabled`. Then use the `az ml update` command to update the workspace:
 
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/workspace.schema.json
@@ -87,16 +87,13 @@ tags:
 ```
 
 ```azurecli
-az ml workspace update \
-    -n <workspace-name> \
-    -f workspace.yml
-    -g <resource-group-name>
+az ml workspace update -f workspace.yml
 ```
 
 ---
-# [Azure CLI extension 1.0](#tab/azurecliextensionv1)
+# [Azure CLI extension v1](#tab/azurecliextensionv1)
 
-The Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace update](/cli/azure/ml/workspace#az-ml-workspace-update) command. To enable public access to the workspace, add the parameter `--v1-legacy-mode disabled`.
+The Azure CLI [extension v1 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace update](/cli/azure/ml/workspace#az-ml-workspace-update) command. To enable public access to the workspace, add the parameter `--v1-legacy-mode disabled`.
 
 
 ## Policy Control
