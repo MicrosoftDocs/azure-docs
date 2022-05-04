@@ -26,7 +26,7 @@ Compute instances can run jobs securely in a [virtual network environment](../ho
 In this article, you learn how to:
 
 * Create a compute instance
-* Manage(start, stop, restart, delete) a compute instance
+* Manage (start, stop, restart, delete) a compute instance
 
 > [!NOTE]
 > This article covers only how to do these tasks using CLI v1.  For more recent ways to manage a compute instance, see [Create an Azure Machine Learning compute cluster](../how-to-create-manage-compute-instance.md).
