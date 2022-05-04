@@ -32,4 +32,10 @@ landingContent:
         links:  
           - text: Create a virtual machine 
             url: create-virtual-machine.md
-          
+
+  - title: Enable SCVMM inventory in Azure
+    linkLists:
+      - linkListType: how-to-guide
+        links:  
+          - text: Enable SCVMM inventory in Azure
+            url: enable-scvmm-inventory-resouces.md     
