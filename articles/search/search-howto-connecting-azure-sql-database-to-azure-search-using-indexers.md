@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/28/2022
+ms.date: 05/03/2022
 ---
 
 # Index data from Azure SQL
@@ -24,6 +24,8 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 + Read permissions. Azure Cognitive Search supports SQL Server authentication, where the user name and password are provided on the connection string. Alternatively, you can [set up a managed identity and use Azure roles](search-howto-managed-identities-sql.md) to omit credentials on the connection.
 
 + A REST client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to send REST calls that create the data source, index, and indexer. 
+
++ If you're using the [Azure portal](https://portal.azure.com/) to create the data source, make sure that access to all public networks is enabled in the Azure SQL firewall while going through the instructions below. Otherwise, you need to enable access to all public networks during this setup and then disable it again, or instead, you must use REST API from a device with an authorized IP in the firewall rules, to perform these operations. If the Azure SQL firewall has public networks access disabled, there will be errors when connecting from the portal to it.
 
 <!-- Real-time data synchronization must not be an application requirement. An indexer can reindex your table at most every five minutes. If your data changes frequently, and those changes need to be reflected in the index within seconds or single minutes, we recommend using the [REST API](/rest/api/searchservice/AddUpdate-or-Delete-Documents) or [.NET SDK](search-get-started-dotnet.md) to push updated rows directly.
 
