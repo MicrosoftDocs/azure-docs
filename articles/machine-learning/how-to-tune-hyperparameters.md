@@ -18,7 +18,7 @@ ms.custom: devx-track-python, contperf-fy21q1
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
 > * [v1](v1/how-to-tune-hyperparameters-v1.md)
-> * [v2 (current version)](how-to-tune-hyperparameters.md)
+> * [v2 (current version)](how-to-use-sweep.md)
 
 Automate efficient hyperparameter tuning by using Azure Machine Learning SDK v2 and CLI v2 by way of the SweepJob type. 
 
@@ -356,14 +356,15 @@ This code configures the hyperparameter tuning experiment to use a maximum of 20
 To [configure your hyperparameter tuning](/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig) experiment, provide the following:
 * The defined hyperparameter search space
 * Your early termination policy
-* The primary metric
-* Resource allocation settings
-* ScriptRunConfig `script_run_config`
+* The primary metric | primary objective
+* Resource allocation settings | resource limits
+* ScriptRunConfig `script_run_config` | Command or Command Component
+* SweepJob
 
-The ScriptRunConfig is the training script that will run with the sampled hyperparameters. It defines the resources per job (single or multi-node), and the compute target to use.
+SweepJob will run a hyperparameter sweep on the Command or Command Component.
 
 > [!NOTE]
->The compute target used in `script_run_config` must have enough resources to satisfy your concurrency level. For more information on ScriptRunConfig, see [Configure training runs](how-to-set-up-training-targets.md).
+>The compute target used in `sweep_job` must have enough resources to satisfy your concurrency level. For more information on ScriptRunConfig, see [Configure training runs](how-to-set-up-training-targets.md).
 
 Configure your hyperparameter tuning experiment:
 
@@ -397,26 +398,9 @@ sweep_job.set_limits(max_total_trials=20, max_concurrent_trials=10, timeout=7200
 sweep_job.early_termination = MedianStoppingPolicy(
     delay_evaluation=5, evaluation_interval=2
 )
-
-
-param_sampling = RandomParameterSampling( {
-        'learning_rate': uniform(0.0005, 0.005),
-        'momentum': uniform(0.9, 0.99)
-    }
-)
-
-early_termination_policy = BanditPolicy(slack_factor=0.15, evaluation_interval=1, delay_evaluation=10)
-
-hd_config = HyperDriveConfig(run_config=script_run_config,
-                             hyperparameter_sampling=param_sampling,
-                             policy=early_termination_policy,
-                             primary_metric_name="accuracy",
-                             primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
-                             max_total_runs=100,
-                             max_concurrent_runs=4)
 ```
 
-The `HyperDriveConfig` sets the parameters passed to the `ScriptRunConfig script_run_config`. The `script_run_config`, in turn, passes parameters to the training script. The above code snippet is taken from the sample notebook [Train, hyperparameter tune, and deploy with PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch). In this sample, the `learning_rate` and `momentum` parameters will be tuned. Early stopping of runs will be determined by a `BanditPolicy`, which stops a run whose primary metric falls outside the `slack_factor` (see [BanditPolicy class reference](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy)). 
+The `command_job` is called as a function so we can apply the sweep `search_space` inputs with parameter expressions. The `sweep` function is then configured with `trial`, `sampling-algorithm`, `objective`, `limits`, and `compute`. The above code snippet is taken from the sample notebook [Run hyperparameter sweep on a Command or CommandComponent](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb). In this sample, the `learning_rate` and `boosting` parameters will be tuned. Early stopping of runs will be determined by a `MedianStoppingPolicy`, which stops a run whose primary metric value is worse than the median of the averages across all training jobs.(see [MedianStoppingPolicy class reference](/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy)).
 
 The following code from the sample shows how the being-tuned values are received, parsed, and passed to the training script's `fine_tune_model` function:
 
@@ -452,9 +436,10 @@ def main():
 After you define your hyperparameter tuning configuration, [submit the experiment](/python/api/azureml-core/azureml.core.experiment%28class%29#submit-config--tags-none----kwargs-):
 
 ```Python
-from azureml.core.experiment import Experiment
-experiment = Experiment(workspace, experiment_name)
-hyperdrive_run = experiment.submit(hd_config)
+# submit the sweep
+returned_sweep_job = ml_client.create_or_update(sweep_job)
+# get a URL for the status of the job
+returned_sweep_job.services["Studio"].endpoint
 ```
 
 ## Visualize hyperparameter tuning runs (wip)
