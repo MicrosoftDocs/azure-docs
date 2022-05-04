@@ -55,7 +55,7 @@ This section will help you create a network group containing the virtual network
 
 This section will guide you through how to create a mesh configuration with the network group you created in the previous section.
 
-1. Select **Configuration** under *Settings*, then select **+ Create**.
+1. Select **Configurations** under *Settings*, then select **+ Create**.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/add-configuration.png" alt-text="Screenshot of the configurations list.":::
 
