@@ -8,8 +8,7 @@
   items:
   - name: Connect a System Center Virtual Machine Manager management server to Azure Arc 
     href: quickstart-connect-system-center-virtual-machine-manager-to-arc.md
-  - name: Onboard Arc enabled System Center Virtual Machine Manager (VMM) (Preview)
-    href: script-to-onboard-virtual-machine-manager-resource.md
+
 
 - name: How-to guides
   items:
