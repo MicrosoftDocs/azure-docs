@@ -41,9 +41,9 @@ You need to grant Azure Spring Cloud access to your key vault before you import 
 1. Under **Principal**, select your **Azure Spring Cloud Resource Provider**.
 1. Select **Review + Create**, then select **Create**.
 
-:::image type="content" source="media/use-tls-certificates/grant-key-vault-permission.png" alt-text="Screenshot of where to grant access to key vault before importing a certificate" lightbox="media/use-tls-certificates/grant-key-vault-permission.png":::
+:::image type="content" source="media/use-tls-certificates/grant-key-vault-permission.png" alt-text="Screenshot of what access to grant to key vault before importing a certificate" lightbox="media/use-tls-certificates/grant-key-vault-permission.png":::
 
-:::image type="content" source="media/use-tls-certificates/select-service-principal.png" alt-text="Screenshot of where to grant access to key vault before importing a certificate" lightbox="media/use-tls-certificates/select-service-principal.png":::
+:::image type="content" source="media/use-tls-certificates/select-service-principal.png" alt-text="Screenshot of which service principal to grant access to key vault before importing a certificate" lightbox="media/use-tls-certificates/select-service-principal.png":::
 
 Once you grant access to your key vault, you can import your certificate using these steps:
 
