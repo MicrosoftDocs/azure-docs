@@ -60,4 +60,4 @@ To enable the existing virtual machines in Azure, follow these steps:
 
 ## Next steps
 
-[Connect virtual machines to Arc](]quickstart-connect-system-center-virtual-machine-manager-to-arc.md)
+[Connect virtual machines to Arc](quickstart-connect-system-center-virtual-machine-manager-to-arc.md)
