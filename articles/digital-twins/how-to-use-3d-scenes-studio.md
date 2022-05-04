@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Use 3D Scenes Studio for Azure Digital Twins
+# Build 3D scenes with 3D Scenes Studio for Azure Digital Twins
 
 Azure Digital Twins [3D Scenes Studio](concepts-3d-scenes-studio.md) is an immersive 3D environment, where business and front-line workers can consume and investigate operational data from their Azure Digital Twins solutions with visual context.
 
@@ -164,7 +164,7 @@ For more details on creating new behaviors, see [Add behaviors](#add-behaviors).
 
 ### Aliased twins
 
-An *aliased twin* is a secondary digital twin data source for an element.
+An *aliased twin* is a secondary digital twin data source for an element. You can add aliased twins to an element if the data on the linked twin won't be enough to define all the behaviors you want for the element, so you need access to the data of additional twins.
 
 :::row:::
     :::column:::
@@ -227,7 +227,7 @@ If you started the behavior creation process from a specific element, that eleme
 
 On the **Twins** tab, you can modify the set of twins whose data is available to this behavior. This includes the targeted elements' linked twins, and any aliased twins.
 
-An *aliased twin* is a secondary digital twin data source for an element. After configuring an aliased twin, you'll be able to use properties from that twin in your behavior expressions for this element. You should only add aliased twins when there are additional twins with data that you want to leverage in your [status](#status), [alerts](#alerts), and [widgets](#widgets) for this behavior.
+An *aliased twin* is a secondary digital twin data source for an element. After configuring an aliased twin, you'll be able to use properties from that twin in your behavior expressions for this element. You should only add aliased twins when there are additional twins with data beyond your linked twin that you want to leverage in your [status](#status), [alerts](#alerts), and [widgets](#widgets) for this behavior.
 
 To create a new alias, select **Add twin alias** and **Create twin alias**.
 
@@ -298,12 +298,6 @@ Here are the types of widget that you can create:
         :::column-end:::
     :::row-end:::
 
-## Modify theme 
-
-In the **Build** view for a scene, you can use the **Theme** button to change the style, object colors, and background color of the display.
-
-:::image type="content" source="media/how-to-use-3d-scenes-studio/theme.png" alt-text="Screenshot of 3D Scenes Studio in Build mode for a scene. The Theme button is highlighted." lightbox="media/how-to-use-3d-scenes-studio/theme.png":::
-
 ## Manage layers 
 
 You can create *layers* in your scene to help organize your [behaviors](#add-behaviors). Layers act like tags on the behaviors, enabling you to define which behaviors need to be seen together, thus creating custom views of your scene for different roles or tasks.
@@ -323,6 +317,12 @@ Alternatively, you can create layers while [creating or modifying a behavior](#n
     :::column:::
     :::column-end:::
 :::row-end:::
+
+## Modify theme 
+
+In the **Build** view for a scene, you can use the **Theme** button to change the style, object colors, and background color of the display.
+
+:::image type="content" source="media/how-to-use-3d-scenes-studio/theme.png" alt-text="Screenshot of 3D Scenes Studio in Build mode for a scene. The Theme button is highlighted." lightbox="media/how-to-use-3d-scenes-studio/theme.png":::
 
 ## Next steps 
 

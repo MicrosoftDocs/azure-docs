@@ -70,7 +70,7 @@ When creating an element in Build mode, you'll define the following components:
 * **Name**: Each element needs a name. You might want to make it match the `$dtId` of its linked twin.
 * **Mesh**: Identify which component of the 3D visualization mesh represents this element.
 * **Behaviors**: Elements are subject to [behaviors](#behaviors) that affect how they appear in the visualization. You can choose which behaviors each element exhibits.
-* **Aliased twins**: If you want, you can add a secondary digital twin data source for an element. You should only add aliased twins when there are additional twins with data that you want to leverage in your behaviors. After configuring an aliased twin, you'll be able to use properties from that twin in your behavior expressions for this element. 
+* **Aliased twins**: If you want, you can add secondary digital twin data sources for an element. You should only add aliased twins when there are additional twins with data beyond your linked twin that you want to leverage in your behaviors. After configuring an aliased twin, you'll be able to use properties from that twin in your behavior expressions for this element. 
 
 ### Behaviors
 
