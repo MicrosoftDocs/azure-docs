@@ -5,7 +5,7 @@ author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 01/14/2022
+ms.date: 05/04/2022
 ms.author: kendownie 
 ms.custom: devx-track-azurepowershell
 ---
@@ -63,14 +63,17 @@ Import-Module -Name AzFilesHybrid
 # for more information.
 Connect-AzAccount
 
-# Define parameters, $StorageAccountName currently has a maximum limit of 15 characters
+# Define parameters
+# $StorageAccountName is the name of an existing storage account that you want to join to AD
+# $SamAccountName is an AD object that must be less than 20 characters (recommended to be less than 15 characters) and cannot contain any of these characters: ", \ [ ] : ; | = , + * ? < >
 $SubscriptionId = "<your-subscription-id-here>"
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
+$SamAccountName = "<domain\user>"
 $DomainAccountType = "<ComputerAccount|ServiceLogonAccount>" # Default is set as ComputerAccount
 # If you don't provide the OU name as an input parameter, the AD identity that represents the storage account is created under the root directory.
 $OuDistinguishedName = "<ou-distinguishedname-here>"
-# Specify the encryption algorithm used for Kerberos authentication. AES256 is recommended. Default is configured as "'RC4','AES256'" which supports both 'RC4' and 'AES256' encryption.
+# Specify the encryption algorithm used for Kerberos authentication. Using AES256 is recommended.
 $EncryptionType = "<AES256|RC4|AES256,RC4>"
 
 # Select the target subscription for the current session
@@ -84,6 +87,7 @@ Select-AzSubscription -SubscriptionId $SubscriptionId
 Join-AzStorageAccount `
         -ResourceGroupName $ResourceGroupName `
         -StorageAccountName $StorageAccountName `
+        -SamAccountName $SamAccountName `
         -DomainAccountType $DomainAccountType `
         -OrganizationalUnitDistinguishedName $OuDistinguishedName `
         -EncryptionType $EncryptionType
@@ -148,7 +152,7 @@ Set-AzStorageAccount `
 To enable AES-256 encryption, follow the steps in this section. If you plan to use RC4, skip this section.
 
 The domain object that represents your storage account must meet the following requirements:
-- The storage account name cannot exceed 15 characters.
+
 - The domain object must be created as a computer object in the on-premises AD domain.
 - Except for the trailing '$', the storage account name must be the same as the computer object's SamAccountName.
 
@@ -206,6 +210,7 @@ DomainGuid:<yourGUIDHere>
 DomainSid:<yourSIDHere>
 AzureStorageID:<yourStorageSIDHere>
 ```
+
 ## Next steps
 
 You've now successfully enabled the feature on your storage account. To use the feature, you must assign share-level permissions. Continue to the next section.
