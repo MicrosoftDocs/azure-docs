@@ -12,7 +12,7 @@ ms.custom: references_regions, devx-track-azurepowershell
 # Enable VM insights guest health (preview)
 VM insights guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. This article describes how to enable this feature in your subscription and how to enable guest monitoring for each virtual machine.
 
-[!INCLUDE [guest-health-deprecate](../../includes/azure-monitor-guest-health-deprecation.md)]
+[!INCLUDE [guest-health-deprecate](../../../includes/azure-monitor-guest-health-deprecation.md)]
 
 
 ## Current limitations

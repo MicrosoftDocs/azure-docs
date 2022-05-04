@@ -11,7 +11,7 @@ ms.date: 05/03/2022
 # Configure monitoring in VM insights guest health using data collection rules (preview)
 [VM insights guest health](vminsights-health-overview.md) allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. This article describes how you can modify default monitoring across multiple virtual machines using data collection rules.
 
-[!INCLUDE [guest-health-deprecate](../../includes/azure-monitor-guest-health-deprecation.md)]
+[!INCLUDE [guest-health-deprecate](../../../includes/azure-monitor-guest-health-deprecation.md)]
 
 
 ## Monitors

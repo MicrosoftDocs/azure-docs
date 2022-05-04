@@ -11,7 +11,7 @@ ms.date: 05/03/2022
 # Troubleshoot VM insights guest health (preview)
 This article describes troubleshooting steps that you can take when you have issues with VM insights health.
 
-[!INCLUDE [guest-health-deprecate](../../includes/azure-monitor-guest-health-deprecation.md)]
+[!INCLUDE [guest-health-deprecate](../../../includes/azure-monitor-guest-health-deprecation.md)]
 
 ## Installation errors
 If any of the following solutions don't solve your installation issue, collect VM Health agent log located at `/var/log/azure/Microsoft.Azure.Monitor.VirtualMachines.GuestHealthLinuxAgent/*.log` and contact Microsoft for further investigation.
