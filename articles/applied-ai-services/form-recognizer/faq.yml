@@ -74,7 +74,7 @@ sections:
 
           Azure Form Recognizer is a cloud-based Azure Applied AI Service that is built using optical character recognition (OCR), Text Analytics, and Custom Text from Azure Cognitive Services.
 
-          OCR is used to extract text from printed and handwritten documents.
+          OCR is used to extract typeface and handwritten text documents.
 
           Form Recognizer uses OCR to detect and extract information from forms and documents supported by AI to provide more structure and information to the text extraction.
 

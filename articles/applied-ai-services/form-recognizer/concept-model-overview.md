@@ -23,7 +23,7 @@ Azure Form Recognizer prebuilt models enable you to add intelligent document pro
 | **Model**   | **Description**   |
 | --- | --- |
 |**Document analysis**||
-| 🆕[Read (preview)](#read-preview) | Extract printed and handwritten text lines, words, locations, and detected languages.|
+| 🆕[Read (preview)](#read-preview) | Extract typeface and handwritten text lines, words, locations, and detected languages.|
 | 🆕[General document (preview)](#general-document-preview) | Extract text, tables, structure, key-value pairs, and named entities.|
 | [Layout](#layout)  | Extract text and layout information from documents.|
 |**Prebuilt**||

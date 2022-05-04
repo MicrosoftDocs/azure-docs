@@ -1,6 +1,6 @@
 ---
 title: "How to use the read model with C#/.NET programming language"
-description: Use the Form Recognizer prebuilt-read model and C# to extract printed and handwritten text from documents.
+description: Use the Form Recognizer prebuilt-read model and C# to extract printed (typeface) and handwritten text from documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
