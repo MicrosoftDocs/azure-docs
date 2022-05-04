@@ -2400,7 +2400,7 @@ This container image has the following tags available. You can also find a full 
 # [Latest version](#tab/current)
 
 * Release notes for version `1.7.0`:
-    * update dependencies
+    * Update dependencies
 
 
 | Image Tags                                  | Notes                                                                      |
