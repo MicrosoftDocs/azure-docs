@@ -145,7 +145,6 @@ Install IoT Edge version 1.1.* along with the **libiothsm-std** package:
 
 > [!IMPORTANT]
 > By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye (or minimally Buster).
-Here's more information on the [Retiring of Raspberry Pi OS Stretch](https://azure.microsoft.com/updates/update-rpios-stretch-to-latest).
 
    ```bash
    sudo apt-get update; \
