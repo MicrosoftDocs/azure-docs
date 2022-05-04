@@ -57,7 +57,7 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
 # [Raspberry Pi OS](#tab/rpios)
 
 > [!IMPORTANT]
-> By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye (or minimally Buster).
+> By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye.
 Here's more information on the [Retiring of Raspberry Pi OS Stretch](https://azure.microsoft.com/updates/update-rpios-stretch-to-latest).
 
 Installing can be done with a few commands.  Open a terminal and run the following commands:
