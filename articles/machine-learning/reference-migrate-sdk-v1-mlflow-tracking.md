@@ -173,10 +173,8 @@ mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
         mlflow.log_figure(fig, "sample_pyplot.png")
         ```
 
-        The image is logged as an artifact and will appear in the __Images__ tab in Azure Machine Learning Studio.
-
-        > [!IMPORTANT]
-        > The `mlflow.log_figure` method is __experimental__.
+        * The image is logged as an artifact and will appear in the __Images__ tab in Azure Machine Learning Studio.
+        * The `mlflow.log_figure` method is __experimental__.
 
     :::column-end:::
 :::row-end:::
