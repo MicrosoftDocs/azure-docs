@@ -18,13 +18,13 @@ monikerRange: ">=iotedge-2020-11"
 
 This article provides instructions for establishing a trusted connection between an IoT Edge gateway and a downstream IoT Edge device.
 
-In a gateway scenario, an IoT Edge device can be both a gateway and a downstream device. Multiple IoT Edge gateways can be layered to create a hierarchy of devices. The downstream (or child) devices can authenticate and send or receive messages through their gateway (or parent) device.
+In a gateway scenario, an IoT Edge device can be both a gateway and a downstream device. Multiple IoT Edge gateways can be layered to create a hierarchy of devices. The downstream (child) devices can authenticate and send or receive messages through their gateway (parent) device.
 
-There are two different configurations for IoT Edge devices in a gateway hierarchy, and this article address both. The first is the **top layer** IoT Edge device. When multiple IoT Edge devices are connecting through each other, any device that does not have a parent device but connects directly to IoT Hub is considered to be in the top layer. This device is responsible for handling requests from all the devices below it. The other configuration applies to any IoT Edge device in a **lower layer** of the hierarchy. These devices may be a gateway for other downstream IoT and IoT Edge devices, but also need to route any communications through their own parent devices.
+There are two different configurations for IoT Edge devices in a gateway hierarchy, and this article address both. The first is the **top layer** IoT Edge device. When multiple IoT Edge devices are connecting through each other, any device that doesn't have a parent device but connects directly to IoT Hub is considered to be in the top layer. This device is responsible for handling requests from all the devices below it. The other configuration applies to any IoT Edge device in a **lower layer** of the hierarchy. These devices may be a gateway for other downstream IoT and IoT Edge devices, but also need to route any communications through their own parent devices.
 
 Some network architectures require that only the top IoT Edge device in a hierarchy can connect to the cloud. In this configuration, all IoT Edge devices in lower layers of a hierarchy can only communicate with their gateway (or parent) device and any downstream (or child) devices.
 
-All the steps in this article build on those in [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md), which sets up an IoT Edge device to be a gateway for downstream IoT devices. The same basic steps apply to all gateway scenarios:
+All the steps in this article build on [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md), which sets up an IoT Edge device to be a gateway for downstream IoT devices. The same basic steps apply to all gateway scenarios:
 
 * **Authentication**: Create IoT Hub identities for all devices in the gateway hierarchy.
 * **Authorization**: Set up the parent/child relationship in IoT Hub to authorize child devices to connect to their parent device like they would connect to IoT Hub.
@@ -88,119 +88,112 @@ Additional device-identity commands, including `add-children`,`list-children`, a
 >
 >Here is an [example of assigning child devices](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/e2e/test/iothub/service/RegistryManagerE2ETests.cs) using the C# SDK. The task `RegistryManager_AddAndRemoveDeviceWithScope()` shows how to programmatically create a three-layer hierarchy. An IoT Edge device is in layer one, as the parent. Another IoT Edge device is in layer two, serving as both a child and a parent. Finally, an IoT device is in layer three, as the lowest layer child device.
 
-## Certificates
+## Generate certificates
 
 A consistent chain of certificates must be installed across devices in the same gateway hierarchy to establish a secure communication between themselves. Every device in the hierarchy, whether an IoT Edge device or an IoT leaf device, needs a copy of the same root CA certificate. Each IoT Edge device in the hierarchy then uses that root CA certificate as the root for its device CA certificate.
 
-With this setup, each downstream IoT Edge device or IoT leaf device can verify the identity of their parent by verifying that the edgeHub they connect to has a server certificate that is signed by the shared root CA certificate.
+With this setup, each downstream IoT Edge device can verify the identity of their parent by verifying that the *edgeHub* they connect to has a server certificate that is signed by the shared root CA certificate.
 
 :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/gateway-setup.png" alt-text="Illustration of certificate chain issued by root CA on gateway and downstream device":::
 
-### Create certificates
+For more information about IoT Edge certificate requirements, see
+[Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
 
-Create or request the following certificates:
+01. Create or request the following certificates:
 
-* A **root CA certificate**, which is the topmost shared certificate for all the devices in a given gateway hierarchy. This certificate is installed on all devices.
-* Any **intermediate certificates** that you want to include in the root certificate chain.
-* A **device CA certificate** and its **private key**, generated by the root and intermediate certificates. You need one unique device CA certificate for each IoT Edge device in the gateway hierarchy.
+    * A **root CA certificate**, which is the topmost shared certificate for all the devices in a given gateway hierarchy. This certificate is installed on all devices.
+    * Any **intermediate certificates** that you want to include in the root certificate chain.
+    * A **device CA certificate** and its **private key**, generated by the root and intermediate certificates. You need one unique device CA certificate for each IoT Edge device in the gateway hierarchy.
 
-You can use either a self-signed certificate authority or purchase one from a trusted commercial certificate authority like Baltimore, Verisign, Digicert, or GlobalSign.
+    You can use either a self-signed certificate authority or purchase one from a trusted commercial certificate authority like Baltimore, Verisign, Digicert, or GlobalSign.
 
-If you don't have your own certificates to use, you can [create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md). Follow the steps in that article to create one set of root and intermediate certificates, then to create IoT Edge device CA certificates for each of your devices.
+01. If you don't have your own certificates to use for test, create one set of root and intermediate certificates, then create IoT Edge device CA certificates for each device. In this article, we'll use test certificates generated using [test CA certificates for samples and tutorials](https://github.com/Azure/iotedge/tree/main/tools/CACertificates).
+For example, the following commands create a root CA certificate, a parent device certificate, and a child device certificate.
 
-### Install certificates
+    ```bash
+    # !!! For test only - do not use in production !!!
+    
+    # Create the the root CA test certificate
+    ./certGen.sh create_root_and_intermediate
+    
+    # Create the parent (gateway) device test certificate 
+    # signed by the shared root CA certificate
+    ./certGen.sh create_edge_device_ca_certificate "gateway"
+    
+    # Create the child (downstream) device test certificate
+    # signed by the shared root CA certificate
+    ./certGen.sh create_edge_device_ca_certificate "downstream"
+    ```
+    
+    > [!WARNING]
+    > Do not use certificates created by the test scripts for production. They contain hard-coded passwords and expire by default after 30 days. The test CA certificates are provided for demonstration purposes to help you quickly understand CA Certificates. Use your own security best practices for certification creation and lifetime management in production.
 
-To enable secure connections, every IoT Edge device in a gateway scenario needs to be configured
-with an unique device CA certificate and a copy of the root CA certificate shared by all devices in
-the gateway hierarchy.
+    For more information about creating test certificates, see [create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md). 
 
-Use the following platform-specific command steps to configure the **root CA certificate** and
-**device CA certificate and private key** certificates on your parent and leaf IoT Edge devices. In
-the examples, we'll use `/var/secrets` for the certificates and keys directory and test certificates generated using [test CA certificates for samples and tutorials](https://github.com/Azure/iotedge/tree/main/tools/CACertificates).
+01. You'll need to transfer the certificates and keys to each device. You can use a USB drive, a service like [Azure Key Vault](../key-vault/general/overview.md), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/). Choose one of these methods that best matches your scenario.
 
-01. Transfer the the certificates and keys to the device using a USB drive, a service like [Azure Key Vault](../key-vault/general/overview.md), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/).
+For more information on installing certificates on a device, see [Manage certificates on an IoT Edge device](how-to-manage-device-certificates.md).
 
-01. Install the **root CA certificate** on the parent and child IoT Edge devices. Copy the root certificate into the certificate directory and add `.crt` to the end of the file name. 
+## Configure parent device
+
+To configure your parent device, open a local or remote command shell.
+
+To enable secure connections, every IoT Edge parent device in a gateway scenario needs to be configured with a unique device CA certificate and a copy of the root CA certificate shared by all devices in the gateway hierarchy. 
+
+01. Transfer the **root CA certificate**, **parent device CA certificate**, and **parent private key** to the parent device. The examples in this article use the directory `/var/secrets` for the certificates and keys directory.
+
+01. Set the following permissions for each certificate and key on the device.
+    * The service user **aziotcs** has read permissions for the directories holding the certificates and keys. 
+    * The device private key file is owned by the **aziotks** group.
+    * The device certificate file is owned by the **aziotcs** group.
+
+    Example output from `ls -l` command.
+
+    ```output
+    -r--r--r-- 1 aziotcs root 1984 May  3 17:24 azure-iot-test-only.root.ca.cert.pem
+    -r--r--r-- 1 aziotcs root 1923 May  3 17:28 iot-edge-device-ca-gateway.cert.pem
+    -r--r--r-- 1 aziotks root 3243 May  3 17:28 iot-edge-device-ca-gateway.key.pem
+    ```
+
+01. Install the **root CA certificate** on the parent IoT Edge device. First, copy the root certificate into the certificate directory and add `.crt` to the end of the file name. Next, update the certificate store on the device using the platform-specific command.
 
     **Debian or Ubuntu:**
 
     ```bash
     sudo cp /var/secrets/azure-iot-test-only.root.ca.cert.pem /usr/local/share/ca-certificates/azure-iot-test-only.root.ca.cert.pem.crt
-    ```
 
-    **IoT Edge for Linux on Windows (EFLOW):**
-
-    ```bash
-    sudo cp /var/secrets/azure-iot-test-only.root.ca.cert.pem /etc/pki/ca-trust/source/anchors/azure-iot-test-only.root.ca.cert.pem.crt
-    ```
-    
-01. Update the certificate store on each device.
-
-    **Debian or Ubuntu:**
-
-    ```bash
     sudo update-ca-certificates
     ```
 
     **IoT Edge for Linux on Windows (EFLOW):**
 
     ```bash
+    sudo cp /var/secrets/azure-iot-test-only.root.ca.cert.pem /etc/pki/ca-trust/source/anchors/azure-iot-test-only.root.ca.cert.pem.crt
+
     sudo update-ca-trust
     ```
-
     For more information about using `update-ca-trust`, see [CBL-Mariner SSL CA certificates management](https://github.com/microsoft/CBL-Mariner/blob/1.0/toolkit/docs/security/ca-certificates.md).
 
-    The command reports one certificate was added to `/etc/ssl/certs`.
-    
-    ```output
-    Updating certificates in /etc/ssl/certs...
-    1 added, 0 removed; done.
-    ```
-    
-01. Set the following permissions for each certificate and key on the device.
-    * The service user **aziotcs** has read permissions for the directories holding the certificates and keys. 
-    * The device private key file is owned by the **aziotks** group.
-    * The device certificate file is owned by the **aziotcs** group.
+The command reports one certificate was added to `/etc/ssl/certs`.
 
-    Example output from `ls -l` command on a parent device.
+```output
+Updating certificates in /etc/ssl/certs...
+1 added, 0 removed; done.
+```
 
-    ```output
-    -r--r--r-- 1 aziotcs root 1923 May  3 17:28 iot-edge-device-ca-gateway.cert.pem
-    -r--r--r-- 1 aziotks root 3243 May  3 17:28 iot-edge-device-ca-gateway.key.pem
-    ```
-
-For more information on installing certificates on a device, see [Manage certificates on an IoT Edge device](how-to-manage-device-certificates.md).
-
-## Configure IoT Edge on devices
-
-The steps for setting up IoT Edge as a gateway is very similar to the steps for setting up IoT Edge
-as a downstream device.
+### Update parent configuration file
 
 You should already have IoT Edge installed on your device. If not, follow the steps to
 [Manually provision a single Linux IoT Edge device](how-to-provision-single-device-linux-symmetric.md).
 
-### Update configuration file
+01. Verify the `/etc/aziot/config.toml` configuration file exists on the parent device.
 
-You need to update the `/etc/aziot/config.toml` configuration file on each parent and child device.
+    If the config file doesn't exist on your device, use the following command to create it based on the template file:
 
->[!TIP]
->If the config file doesn't exist on your device yet, use the following command to create it based
->on the template file:
->
->```bash
->sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
->```
->
-> You can also use the template file as a reference to add configuration parameters in this section.
-
-To enable gateway discovery, every IoT Edge gateway (parent) device needs to specify a **hostname**
-parameter that its child devices will use to find it on the local network. Every downstream IoT Edge
-device needs to specify a **parent_hostname** parameter to identify its parent. In a hierarchical
-scenario where a single IoT Edge device is both a parent and a child device, it needs both
-parameters.
-
-> [!IMPORTANT]
-> The *hostname*, *local_gateway_hostname*, and *trust_bundle_cert* parameters, must be at the beginning of the configuration file before any sections. Adding the parameter before defined sections, ensures it is applied correctly.
+    ```bash
+    sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+    ```
+    You can also use the template file as a reference to add configuration parameters in this section.
 
 01. Open the IoT Edge configuration file using an editor. For example, use the `nano` editor to open the `/etc/aziot/config.toml` file.
 
@@ -208,14 +201,19 @@ parameters.
     sudo nano /etc/aziot/config.toml
     ```
 
-01. Find the **hostname** parameter or add it to the beginning of the configuration file.
-
-    Update the value to be the fully qualified domain name (FQDN) or the IP address of the IoT Edge
-    device. For example:
+01. Find the **hostname** parameter or add it to the beginning of the configuration file. Update the value to be the fully qualified domain name (FQDN) or the IP address of the IoT Edge parent device. For example:
 
     ```toml
     hostname = "10.0.0.4"
     ```
+
+    To enable gateway discovery, every IoT Edge gateway (parent) device needs to specify a
+    **hostname** parameter that its child devices will use to find it on the local network. Every
+    downstream IoT Edge device needs to specify a **parent_hostname** parameter to identify its
+    parent. In a hierarchical scenario where a single IoT Edge device is both a parent and a child
+    device, it needs both parameters.
+
+    The *hostname*, *local_gateway_hostname*, and *trust_bundle_cert* parameters, must be at the beginning of the configuration file before any sections. Adding the parameter before defined sections, ensures it's applied correctly.
 
     Use a hostname shorter than 64 characters, which is the character limit for a server certificate
     common name.
@@ -223,8 +221,7 @@ parameters.
     Be consistent with the hostname pattern across a gateway hierarchy. Use either FQDNs or IP
     addresses, but not both. FQDN or IP address is required to connect downstream devices.
 
-    > [!IMPORTANT]
-    > Set the hostname before the *edgeHub* container is created. If *edgeHub* is running, changing the hostname in the configuration file won't take affect until the container is recreated. For more information on how to verify the hostname is applied, see the [Verify configuration](#verify-configuration) section.
+    Set the hostname before the *edgeHub* container is created. If *edgeHub* is running, changing the hostname in the configuration file won't take effect until the container is recreated. For more information on how to verify the hostname is applied, see the [verify parent configuration](#verify-parent-configuration) section.
 
 01. Find the **Trust bundle cert** parameter or add it to the beginning of the configuration file.
 
@@ -235,7 +232,7 @@ parameters.
     trust_bundle_cert = "file:///var/secrets/azure-iot-test-only.root.ca.cert.pem"
     ```
 
-01. Find or add the **Edge CA certificate** section in the config file. Update the certificate `cert` and private key `pk` parameters with the file URI paths for the certificate and key files on the IoT Edge device. IoT Edge requires the certificate and private key to be in text-based privacy-enhanced mail (PEM) format. For example:
+01. Find or add the **Edge CA certificate** section in the config file. Update the certificate `cert` and private key `pk` parameters with the file URI paths for the certificate and key files on the parent IoT Edge device. IoT Edge requires the certificate and private key to be in text-based privacy-enhanced mail (PEM) format. For example:
 
     ```toml
     [edge_ca]
@@ -250,23 +247,7 @@ parameters.
     image: "mcr.microsoft.com/azureiotedge-agent:1.2"
     ```
 
-#### Child specific configuration
-
-If you're configuring a child device, you must set the **parent_hostname** parameter to identify the
-upstream device for connection.
-
-01. Find the **parent_hostname** parameter or add it to the beginning of the configuration file.
-
-    Update the `parent_hostname` parameter to be the FQDN or IP address of the parent device,
-    matching whatever was provided as the hostname in the parent device's config file. For example:
-
-    ```toml
-    parent_hostname = "10.0.0.4"
-    ```
-
-01. The beginning of your configuration file should look similar to the following examples.
-
-    Example **parent configuration file**:
+01. The beginning of your parent configuration file should look similar to the following example.
 
     ```toml
     hostname = "10.0.0.4"
@@ -277,7 +258,167 @@ upstream device for connection.
     pk = "file:///var/secrets/iot-edge-device-ca-gateway.key.pem"
     ```
 
-    Example **child configuration file**:
+01. Save and close the `config.toml` configuration file. For example if you're using the **nano** editor, select **Ctrl+O** - *Write Out*, **Enter**, and **Ctrl+X** - *Exit*.
+
+01. If you've used any other certificates for IoT Edge before, delete the files in the following two directories to make sure that your new certificates get applied:
+
+    * `/var/lib/aziot/certd/certs`
+    * `/var/lib/aziot/keyd/keys`
+
+01. Apply your changes.
+
+    ```bash
+    sudo iotedge config apply
+    ```
+
+01. Check for any errors in the configuration.
+
+    ```bash
+    sudo iotedge check --verbose
+    ```
+
+### Verify parent configuration
+
+The *hostname* must be a qualified domain name (FQDN) or the IP address of the IoT Edge device because IoT Edge uses this value in the server certificate when downstream devices connect. The values must match or you'll get *IP address mismatch* error.
+
+To verify the *hostname*, you need to inspect the environment variables of the *edgeHub* container.
+
+01. List the running IoT Edge containers.
+
+    ```bash
+    iotedge list
+    ```
+
+    Verify *edgeAgent* and *edgeHub* containers are running. The command output should be similar to the following example.
+
+    ```output
+    NAME                        STATUS           DESCRIPTION      CONFIG
+    SimulatedTemperatureSensor  running          Up 5 seconds     mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
+    edgeAgent                   running          Up 17 seconds    mcr.microsoft.com/azureiotedge-agent:1.2
+    edgeHub                     running          Up 6 seconds     mcr.microsoft.com/azureiotedge-hub:1.2
+    ```
+01. Inspect the *edgeHub* container.
+
+    ```bash
+    sudo docker inspect edgeHub
+    ```
+
+01. In the output, find the **EdgeDeviceHostName** parameter in the *Env* section.
+
+    ```json
+    "EdgeDeviceHostName=10.0.0.4"
+    ```
+
+01. Verify the *EdgeDeviceHostName* parameter value matches the `config.toml` *hostname* setting. If it doesn't match, the *edgeHub* container was running when you modified and applied the configuration. To update the *EdgeDeviceHostName*, remove the *edgeAgent* container.
+
+    ```bash
+    sudo docker rm -f edgeAgent
+    ```
+
+    The *edgeAgent* and *edgeHub* containers are recreated and started within a few minutes. Once *edgeHub* container is running, inspect the container and verify the *EdgeDeviceHostName* parameter matches the configuration file.
+
+## Configure child device
+
+To configure your child device, open a local or remote command shell.
+
+To enable secure connections, every IoT Edge child device in a gateway scenario needs to be configured with a unique device CA certificate and a copy of the root CA certificate shared by all devices in the gateway hierarchy. 
+
+01. Transfer the **root CA certificate**, **child device CA certificate**, and **child private key** to the child device. The examples in this article use the directory `/var/secrets` for the certificates and keys directory.
+
+01. Set the following permissions for each certificate and key on the device.
+    * The service user **aziotcs** has read permissions for the directories holding the certificates and keys. 
+    * The device private key file is owned by the **aziotks** group.
+    * The device certificate file is owned by the **aziotcs** group.
+
+    Example output from `ls -l` command.
+
+    ```output
+    -r--r--r-- 1 aziotcs root 1984 May  3 17:24 azure-iot-test-only.root.ca.cert.pem
+    -r--r--r-- 1 aziotcs root 1923 May  3 17:28 iot-edge-device-ca-downstream.cert.pem
+    -r--r--r-- 1 aziotks root 3243 May  3 17:28 iot-edge-device-ca-downstream.key.pem
+    ```
+
+01. Install the **root CA certificate** on the child IoT Edge device. First, copy the root certificate into the certificate directory and add `.crt` to the end of the file name. Next, update the certificate store on the device using the platform-specific command.
+
+    **Debian or Ubuntu:**
+
+    ```bash
+    sudo cp /var/secrets/azure-iot-test-only.root.ca.cert.pem /usr/local/share/ca-certificates/azure-iot-test-only.root.ca.cert.pem.crt
+
+    sudo update-ca-certificates
+    ```
+
+    **IoT Edge for Linux on Windows (EFLOW):**
+
+    ```bash
+    sudo cp /var/secrets/azure-iot-test-only.root.ca.cert.pem /etc/pki/ca-trust/source/anchors/azure-iot-test-only.root.ca.cert.pem.crt
+
+    sudo update-ca-trust
+    ```
+    For more information about using `update-ca-trust`, see [CBL-Mariner SSL CA certificates management](https://github.com/microsoft/CBL-Mariner/blob/1.0/toolkit/docs/security/ca-certificates.md).
+
+The command reports one certificate was added to `/etc/ssl/certs`.
+
+```output
+Updating certificates in /etc/ssl/certs...
+1 added, 0 removed; done.
+```
+
+### Update child configuration file
+
+You should already have IoT Edge installed on your device. If not, follow the steps to
+[Manually provision a single Linux IoT Edge device](how-to-provision-single-device-linux-symmetric.md).
+
+01. Verify the `/etc/aziot/config.toml` configuration file exists on the child device.
+
+    If the config file doesn't exist on your device, use the following command to create it based on the template file:
+
+    ```bash
+    sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+    ```
+    You can also use the template file as a reference to add configuration parameters in this section.
+
+01. Open the IoT Edge configuration file using an editor. For example, use the `nano` editor to open the `/etc/aziot/config.toml` file.
+
+    ```bash
+    sudo nano /etc/aziot/config.toml
+    ```
+
+01. Find the **parent_hostname** parameter or add it to the beginning of the configuration file
+    Every downstream IoT Edge device needs to specify a **parent_hostname** parameter to identify
+    its parent. Update the `parent_hostname` parameter to be the FQDN or IP address of the parent
+    device, matching whatever was provided as the hostname in the parent device's config file. For
+    example:
+
+    ```toml
+    parent_hostname = "10.0.0.4"
+    ```
+
+01. Find the **Trust bundle cert** parameter or add it to the beginning of the configuration file.
+
+    Update the `trust_bundle_cert` parameter with the file URI to the root CA certificate on your
+    device. For example:
+
+    ```toml
+    trust_bundle_cert = "file:///var/secrets/azure-iot-test-only.root.ca.cert.pem"
+    ```
+
+01. Find or add the **Edge CA certificate** section in the configuration file. Update the certificate `cert` and private key `pk` parameters with the file URI paths for the certificate and key files on the IoT Edge child device. IoT Edge requires the certificate and private key to be in text-based privacy-enhanced mail (PEM) format. For example:
+
+    ```toml
+    [edge_ca]
+    cert = "file:///var/secrets/iot-edge-device-ca-downstream.cert.pem"
+    pk = "file:///var/secrets/iot-edge-device-ca-downstream.key.pem"
+    ```
+
+01. Verify your IoT Edge device uses the correct version of the IoT Edge agent when it starts. Find the **Default Edge Agent** section and set the image value for IoT Edge to version 1.2. For example:
+
+    ```toml
+    [agent.config]
+    image: "mcr.microsoft.com/azureiotedge-agent:1.2"
+    ```
+
+01. The beginning of your child configuration file should look similar to the following example.
 
     ```toml
     parent_hostname = "10.0.0.4"
@@ -288,7 +429,7 @@ upstream device for connection.
     pk = "file:///var/secrets/iot-edge-device-ca-downstream.key.pem"
     ```
 
-1. Save and close the `config.toml` config file. For example if you are using the **nano** editor, select **Ctrl+O** - *Write Out*, **Enter**, and **Ctrl+X** - *Exit*.
+01. Save and close the `config.toml` configuration file. For example if you're using the **nano** editor, select **Ctrl+O** - *Write Out*, **Enter**, and **Ctrl+X** - *Exit*.
 
 01. If you've used any other certificates for IoT Edge before, delete the files in the following two directories to make sure that your new certificates get applied:
 
@@ -310,46 +451,7 @@ upstream device for connection.
     >[!TIP]
     >The IoT Edge check tool uses a container to perform some of the diagnostics check. If you want to use this tool on downstream IoT Edge devices, make sure they can access `mcr.microsoft.com/azureiotedge-diagnostics:latest`, or have the container image in your private container registry.
 
-## Verify configuration
-
-The *hostname* must be a qualified domain name (FQDN) or the IP address of the IoT Edge device because IoT Edge uses this value in the server certificate when downstream devices connect. The values must match or you will get *IP address mismatch* error.
-
-To verify the *hostname*, you need to inspect the environment variables of the *edgeHub* container.
-
-01. List the running IoT Edge containers.
-
-    ```bash
-    iotedge list
-    ```
-
-    Verify *edgeAgent* and *edgeHub* containers are running. The command output should be similar to the following example.
-
-    ```output
-    NAME                        STATUS           DESCRIPTION      CONFIG
-    SimulatedTemperatureSensor  running          Up 5 seconds     mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
-    edgeAgent                   running          Up 17 seconds    mcr.microsoft.com/azureiotedge-agent:1.2
-    edgeHub                     running          Up 6 seconds     mcr.microsoft.com/azureiotedge-hub:1.2
-    ```
-    
-01. Inspect the *edgeHub* container.
-
-    ```bash
-    sudo docker inspect edgeHub
-    ```
-
-01. In the output, find the **EdgeDeviceHostName** parameter in the *Env* section.
-
-    ```json
-    "EdgeDeviceHostName=10.0.0.4"
-    ```
-
-01. Verify the *EdgeDeviceHostName* parameter value matches the `config.toml` *hostname* setting. If it doesn't match, the *edgeHub* container was running when you modified and applied the configuration. To update the *EdgeDeviceHostName*, remove the *edgeAgent* container.
-
-    ```bash
-    sudo docker rm -f edgeAgent
-    ```
-
-    The *edgeAgent* and *edgeHub* containers are recreated and started within a few minutes. Once *edgeHub* container is running, inspect the container and verify the *EdgeDeviceHostName* parameter matches the configuration file.
+### Verify child configuration
 
 01. Verify the TLS/SSL connection from the child to the parent by running the following `openssl` command on the child device. Replace `<parent hostname>` with the FQDN or IP address of the parent.
 
@@ -395,7 +497,6 @@ To verify the *hostname*, you need to inspect the environment variables of the *
 
         If the command times out, there may be blocked ports between the child and parent devices. Review the network configuration and settings for the devices.
 
-
 ## Network isolate downstream devices
 
 The steps so far in this article set up IoT Edge devices as either a gateway or a downstream device, and create a trusted connection between them. The gateway device handles interactions between the downstream device and IoT Hub, including authentication and message routing. Modules deployed to downstream IoT Edge devices can still create their own connections to cloud services.
@@ -404,7 +505,7 @@ Some network architectures, like those that follow the ISA-95 standard, seek to 
 
 This network configuration requires that only the IoT Edge device in the top layer of a gateway hierarchy has direct connections to the cloud. IoT Edge devices in the lower layers can only communicate with their parent device or any children devices. Special modules on the gateway devices enable this scenario, including:
 
-* The **API proxy module** is required on any IoT Edge gateway that has another IoT Edge device below it. That means it must be on *every layer* of a gateway hierarchy except the bottom layer. This module uses an [nginx](https://nginx.org) reverse proxy to route HTTP data through network layers over a single port. It is highly configurable through its module twin and environment variables, so can be adjusted to fit your gateway scenario requirements.
+* The **API proxy module** is required on any IoT Edge gateway that has another IoT Edge device below it. That means it must be on *every layer* of a gateway hierarchy except the bottom layer. This module uses an [nginx](https://nginx.org) reverse proxy to route HTTP data through network layers over a single port. It's highly configurable through its module twin and environment variables, so can be adjusted to fit your gateway scenario requirements.
 
 * The **Docker registry module** can be deployed on the IoT Edge gateway at the *top layer* of a gateway hierarchy. This module is responsible for retrieving and caching container images on behalf of all the IoT Edge devices in lower layers. The alternative to deploying this module at the top layer is to use a local registry, or to manually load container images onto devices and set the module pull policy to **never**.
 
@@ -429,7 +530,7 @@ For each gateway device in a lower layer, network operators need to:
 
 The IoT Edge device at the top layer of a gateway hierarchy has a set of required modules that must be deployed to it, in addition to any workload modules you may run on the device.
 
-The API proxy module was designed to be customized to handle most common gateway scenarios. This article provides and example to set up the modules in a basic configuration. Refer to [Configure the API proxy module for your gateway hierarchy scenario](how-to-configure-api-proxy-module.md) for more detailed information and examples.
+The API proxy module was designed to be customized to handle most common gateway scenarios. This article provides an example to set up the modules in a basic configuration. Refer to [Configure the API proxy module for your gateway hierarchy scenario](how-to-configure-api-proxy-module.md) for more detailed information and examples.
 
 # [Portal](#tab/azure-portal)
 
@@ -630,7 +731,7 @@ IoT Edge devices in lower layers of a gateway hierarchy have one required module
 
 Before discussing the required proxy module for IoT Edge devices in gateway hierarchies, it's important to understand how IoT Edge devices in lower layers get their module images.
 
-If your lower layer devices can't connect to the cloud, but you want them to pull module images as usual, then the top layer device of the gateway hierarchy must be configured to handle these requests. The top layer device needs to run a Docker **registry** module that is mapped to your container registry. Then, configure the API proxy module to route container requests to it. Those details are discussed in the earlier sections of this article. In this configuration, the lower layer devices should not point to cloud container registries, but to the registry running in the top layer.
+If your lower layer devices can't connect to the cloud, but you want them to pull module images as usual, then the top layer device of the gateway hierarchy must be configured to handle these requests. The top layer device needs to run a Docker **registry** module that is mapped to your container registry. Then, configure the API proxy module to route container requests to it. Those details are discussed in the earlier sections of this article. In this configuration, the lower layer devices shouldn't point to cloud container registries, but to the registry running in the top layer.
 
 For example, instead of calling `mcr.microsoft.com/azureiotedge-api-proxy:1.1`, lower layer devices should call `$upstream:443/azureiotedge-api-proxy:1.1`.
 
