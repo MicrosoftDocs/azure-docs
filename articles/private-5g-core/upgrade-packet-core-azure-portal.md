@@ -14,15 +14,9 @@ ms.custom: template-how-to
 
 Each Azure Private 5G Core Preview site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). You'll need to periodically upgrade your packet core instances to get access to the latest Azure Private 5G Core features and maintain support for your private mobile network. In this how-to guide, you'll learn how to upgrade a packet core instance using the Azure portal.
 
-> [!IMPORTANT]
-> Do not carry out this how-to guide unless you've been told to do so by your support contact. Your support contact will let you know when you need to upgrade a packet core instance and the version you'll need to upgrade to.
-> Upgrading a packet core instance will interrupt service for approximately one hour. Only carry out this how-to guide during a maintenance window.
-
 ## Prerequisites
 
-
-- Schedule a maintenance window to carry out the upgrade. <!-- How long should this be? -->
-- Request the new software version number from your support contact. 
+- Contact your trials engineer. They'll guide you through the upgrade process and provide you with the information you'll need, including the duration and the new software version number.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
 ## Upgrade the packet core instance
@@ -49,13 +43,12 @@ Carry out the following steps to upgrade the packet core instance.
     :::image type="content" source="media/upgrade-packet-core-azure-portal/upgrade-packet-core-version.png" alt-text="Screenshot of the Azure portal showing the New version field on the Upgrade packet core version screen.":::
 
 1. Select **Modify**.
-1. Azure will now redeploy the packet core instance at the new software version. The Azure portal will display the following confirmation screen when this deployment is complete.<!-- We may need a new screenshot here -->
+1. Azure will now redeploy the packet core instance at the new software version. The Azure portal will display the following confirmation screen when this deployment is complete.
 
     :::image type="content" source="media/site-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of a packet core instance.":::
 
 1. Select **Go to resource group**, and then select the **Packet Core Control Plane** resource representing the control plane function of the packet core instance in the site.
 1. Check the **Version** field under the **Configuration** heading to confirm that it displays the new software version. 
-<!-- Need to identify what happens next -->
 
 ## Next steps
 You may want to use Log Analytics or the packet core dashboards to confirm your packet core instance is operating normally after the upgrade.
