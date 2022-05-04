@@ -24,13 +24,13 @@ This document contains all major API changes and feature updates for the Azure I
 
 
 
-### October 2021
+### 2021-10-01
 
 **Breaking Change**:
  
-Our October 2021 API introduces a change to the error schema that will be part of every future API release. Any customer that has automated our service needs to expect to receive a new error output when switching to October 2021 or newer API versions (new schema shown below). We recommend that once customers switch to the new API version (October 2021 and beyond), they don't revert to older versions as they'll have to change their automation again to expect the older error schema. We don't anticipate changing the error schema again in future releases.
+Our 2021-10-01 API introduces a change to the error schema that will be part of every future API release. Any customer that has automated our service needs to expect to receive a new error output when switching to 2021-10-01 or newer API versions (new schema shown below). We recommend that once customers switch to the new API version (2021-10-01 and beyond), they don't revert to older versions as they'll have to change their automation again to expect the older error schema. We don't anticipate changing the error schema again in future releases.
 
-For API versions February 2020 and older, the error output will look like the following messages:
+For API versions 2020-02-14 and older, the error output will look like the following messages:
 
 ```
 { 
@@ -41,7 +41,7 @@ For API versions February 2020 and older, the error output will look like the fo
 ```
 
 
-For API versions October 2021 and newer, the error output will look like the following messages:
+For API versions 2021-10-01 and newer, the error output will look like the following messages:
 
 ```
 { 
@@ -62,7 +62,7 @@ For API versions October 2021 and newer, the error output will look like the fol
 - Added support for [Build VM MSIs](linux/image-builder-json.md#user-assigned-identity-for-the-image-builder-build-vm).
 - Added support for Proxy VM size customization.
 
-### February 2020
+### 2020-02-14
 
 
 
@@ -86,12 +86,7 @@ For API versions October 2021 and newer, the error output will look like the fol
     - Added support for customers to use their own VNet.
     - Added support for customers to customize the build VM (VM size, OS disk size).
     - Added support for user assigned MSI (for customize/distribute steps).
-
-
-
-### November 2021
-
-Added support for [Gen2 images.](image-builder-overview.md#hyper-v-generation).
+    - Added support for [Gen2 images.](image-builder-overview.md#hyper-v-generation).
 
 ### Preview APIs
 
