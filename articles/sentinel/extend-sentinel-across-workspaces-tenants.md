@@ -3,7 +3,7 @@ title: Extend Microsoft Sentinel across workspaces and tenants | Microsoft Docs
 description: How to use Microsoft Sentinel to query and analyze data across workspaces and tenants.
 author: yelevin
 ms.topic: conceptual
-ms.date: 03/05/2021
+ms.date: 05/03/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
