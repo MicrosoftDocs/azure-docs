@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 05/03/2022
+ms.date: 05/04/2022
 ---
 
 # Move operation support for resources
@@ -612,6 +612,7 @@ Jump to a resource provider namespace:
 > | hostgroups | No | No | No |
 > | hostgroups / hosts | No | No | No |
 > | images | Yes | Yes | No |
+> | incremental snapshots | No | No | No |
 > | proximityplacementgroups | Yes | Yes | No |
 > | restorepointcollections | No | No | No |
 > | restorepointcollections / restorepoints | No | No | No |
