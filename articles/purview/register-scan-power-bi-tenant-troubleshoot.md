@@ -20,6 +20,14 @@ This article explores common troubleshooting methods for scanning Power BI tenan
 |---|---|---|---|---|---|---|
 | [Yes](register-scan-power-bi-tenant.md#deployment-checklist)| [Yes](register-scan-power-bi-tenant.md#deployment-checklist)| Yes | No | No | No| [Yes](how-to-lineage-powerbi.md)|
 
+## Troubleshooting tips
+
+If delegated auth is used:
+- Check your key vault. Make sure there are no typos in the password.
+- Assign proper [Power BI license](/power-bi/admin/service-admin-licensing-organization#subscription-license-types) to Power BI administrator user.
+- Validate if user is assigned to Power BI Administrator role.
+- If user is recently created, make sure password is reset successfully and user can successfully initiate the session.
+
 ## Error code: Test connection failed - AASDST50079
 
 - **Message**: `Failed to get access token with given credential to access Power BI tenant. Authentication type PowerBIDelegated Message: AASDST50079 Due to a configuration change made by your administrator or because you moved to a new location, you must enroll in multi-factor authentication.`

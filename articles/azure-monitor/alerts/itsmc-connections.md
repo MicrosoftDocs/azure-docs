@@ -1,12 +1,12 @@
 ---
 title: IT Service Management Connector in Azure Monitor
-description: This article provides information about how to connect your ITSM products/services with the IT Service Management Connector (ITSMC) in Azure Monitor to centrally monitor and manage the ITSM work items.
+description: This article provides information about how to connect your ITSM products or services with the IT Service Management Connector (ITSMC) in Azure Monitor to centrally monitor and manage the ITSM work items.
 ms.topic: conceptual
 ms.date: 2/23/2022
 
 ---
 # Connect ITSM products/services with IT Service Management Connector
-This article provides information about how to configure the connection between your ITSM product/service and the IT Service Management Connector (ITSMC) in Log Analytics to centrally manage your work items. For more information about ITSMC,  see [Overview](./itsmc-overview.md).
+This article provides information about how to configure the connection between your ITSM product or service and the IT Service Management Connector (ITSMC) in Log Analytics to centrally manage your work items. For more information about ITSMC,  see [Overview](./itsmc-overview.md).
 
 To set up your ITSM environment:
 1. Connect to your ITSM.
