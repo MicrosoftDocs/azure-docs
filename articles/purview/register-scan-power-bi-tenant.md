@@ -24,11 +24,11 @@ This article outlines how to register a Power BI tenant in a **same-tenant scena
 
 |**Scenarios**  |**Microsoft Purview public access allowed/denied** |**Power BI public access allowed /denied** | **Runtime option** | **Authentication option**  | **Deployment checklist** | 
 |---------|---------|---------|---------|---------|---------|
-|Scenario 1     |Allowed     |Allowed        |Azure Runtime      | Microsoft Purview Managed Identity   | [Review deployment checklist](#deployment-checklist) |
-|Scenario 2     |Allowed     |Allowed        |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](#deployment-checklist) |
-|Scenario 3     |Allowed     |Denied         |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](#deployment-checklist) |
-|Scenario 4     |Denied      |Allowed        |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](#deployment-checklist) |
-|Scenario 5     |Denied      |Denied         |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](#deployment-checklist) |
+|Public access with Azure IR     |Allowed     |Allowed        |Azure Runtime      | Microsoft Purview Managed Identity   | [Review deployment checklist](#deployment-checklist) |
+|Public access with Self-hosted IR     |Allowed     |Allowed        |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](#deployment-checklist) |
+|Private access     |Allowed     |Denied         |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](#deployment-checklist) |
+|Private access     |Denied      |Allowed        |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](#deployment-checklist) |
+|Private access     |Denied      |Denied         |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](#deployment-checklist) |
 
 ### Known limitations
 
@@ -54,9 +54,8 @@ Before you start, make sure you have the following prerequisites:
 ## Deployment checklist
 Use any of the following deployment checklists during the setup or for troubleshooting purposes, based on your scenario:   
 
-# [Scenario 1](#tab/Scenario1)
-
-### Scenario 1 - Scan same-tenant Power BI using Azure IR and Managed Identity in public network
+# [Public access with Azure IR](#tab/Scenario1)
+### Scan same-tenant Power BI using Azure IR and Managed Identity in public network
 
 1. Make sure Power BI and Microsoft Purview accounts are in the same tenant.
 2. Make sure Power BI tenant Id is entered correctly during the registration. 
@@ -66,8 +65,8 @@ Use any of the following deployment checklists during the setup or for troublesh
 6. From Azure Active Directory tenant, make sure [Microsoft Purview account MSI is member of the new security group](#authenticate-to-power-bi-tenant-managed-identity-only).
 7. On the Power BI Tenant Admin portal, validate if [Allow service principals to use read-only Power BI admin APIs](#associate-the-security-group-with-power-bi-tenant) is enabled for the new security group.
 
-# [Scenario 2](#tab/Scenario2)
-### Scenario 2 - Scan same-tenant Power BI using self-hosted IR and Delegated Authentication in public network
+# [Public access with Self-hosted IR](#tab/Scenario2)
+### Scan same-tenant Power BI using self-hosted IR and Delegated Authentication in public network
 
 1. Make sure Power BI and Microsoft Purview accounts are in the same tenant.
 2. Make sure Power BI tenant Id is entered correctly during the registration. 
@@ -96,8 +95,8 @@ Use any of the following deployment checklists during the setup or for troublesh
    3. Network connectivity from Self-hosted runtime to Microsoft services is enabled.
    4. [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed.
 
-# [Scenario 3, 4 and 5](#tab/Scenario3)
-### Scenario 3, 4 and 5 - Scan same-tenant Power BI using self-hosted IR and Delegated Authentication in a private network
+# [Private access](#tab/Scenario3)
+### Scan same-tenant Power BI using self-hosted IR and Delegated Authentication in a private network
 
 1. Make sure Power BI and Microsoft Purview accounts are in the same tenant.
 2. Make sure Power BI tenant Id is entered correctly during the registration. 

@@ -68,7 +68,7 @@ Running the following query in the Resource Graph Explorer returns a list of Ser
 ```kusto
 resources 
 | where type =~ 'Microsoft.ServiceBus/namespaces'
-| extend minimumTlsVersion = parse\_json(properties).minimumTlsVersion
+| extend minimumTlsVersion = parse_json(properties).minimumTlsVersion
 | project subscriptionId, resourceGroup, name, minimumTlsVersion
 ```
 
