@@ -252,9 +252,6 @@
             - name: Secure training environment
               displayName: vnet, No public IP
               href: how-to-secure-training-vnet.md
-            - name: Secure inferencing environment
-              displayName: vnet
-              href: how-to-secure-inferencing-vnet.md
             - name: Use studio in a virtual network
               displayName: vnet
               href: how-to-enable-studio-virtual-network.md
@@ -263,9 +260,6 @@
               href: how-to-configure-private-link.md
             - name: Use custom DNS
               href: how-to-custom-dns.md
-            - name: Configure secure web services
-              displayName: ssl, tls
-              href: how-to-secure-web-service.md
             - name: Configure required network traffic
               href: how-to-access-azureml-behind-firewall.md
               displayName: firewall, user-defined route, udr
