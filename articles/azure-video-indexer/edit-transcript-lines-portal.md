@@ -47,3 +47,5 @@ To consolidate two lines which you believe should appear as one.
 1. Go to line 1, edit, paste the text and save. 
  
 ## Next steps
+
+For updating transcript lines and text using API visit [Azure Video Indexer Developer portal](https://aka.ms/avam-dev-portal)
