@@ -8,7 +8,7 @@ ms.date: 04/05/2022
 ms.author: aahi
 ---
 
-Use the following **GET** request to get the status of your importing your ptoject. Replace the placeholder values below with your own values. 
+Use the following **GET** request to get the status of your importing your project. Replace the placeholder values below with your own values. 
 
 ### Request URL
 
@@ -20,7 +20,7 @@ Use the following **GET** request to get the status of your importing your ptoje
 |---------|---------|---------|
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name of your project. This value is case-sensitive.   | `myProject` |
-|`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
+|`{JOB-ID}`     | The ID for locating your model's training status. This value is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
 |`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. Learn more about other available [API versions](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data)  | `2022-03-01-preview` |
 
 #### Headers

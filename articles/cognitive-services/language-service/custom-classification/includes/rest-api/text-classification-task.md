@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 04/05/2022
+ms.date: 05/04/2022
 ms.author: aahi
 ---
 
@@ -54,15 +54,15 @@ Use this **POST** request to start an entity extraction task. Replace `{projectN
 
 |Key|Sample Value|Description|
 |--|--|--|
-|displayName|"MyJobName"|Your job Name|
-|documents|[{},{}]|List of documents to run tasks on|
-|ID|"doc1"|a string document identifier|
-|text|"Lorem ipsum dolor sit amet"| You document in string format|
-|"tasks"|[]| List of tasks we want to perform.|
-|--|customMultiClassificationTasks|Task identifer for task we want to perform. Use `customClassificationTasks` for single label classification tasks and `customMultiClassificationTasks` for multi label classification tasks. |
-|parameters|[]|List of parameters to pass to task|
-|project-name| "MyProject"| Your project name. The project name is case-sensitive.|
-|deployment-name| "MyDeploymentName"| Your deployment name|
+|`displayName`|"MyJobName"|Your job Name|
+|`documents`|[{},{}]|List of documents to run tasks on|
+|`id`|`doc1`| A string specifying a document identifier|
+|`text`| `Lorem ipsum dolor sit amet` | Your document in a string format|
+|`tasks`|[]| List of tasks we want to perform.|
+|`customMultiClassificationTasks` | |Task identifier for task we want to perform. Use `customClassificationTasks` for single label classification tasks and `customMultiClassificationTasks` for multi label classification tasks. |
+|`parameters` | |List of parameters to pass to the task.|
+|`project-name` | `MyProject`| Your project name. The project name is case-sensitive.|
+|`deployment-name` | `MyDeploymentName` | Your deployment name. |
 
 Replace the text of the document with movie summaries to classify.
 

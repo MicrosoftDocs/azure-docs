@@ -1,3 +1,13 @@
+---
+author: aahill
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: language-service
+ms.topic: include
+ms.date: 05/04/2022
+ms.author: aahi
+---
+
 When you no longer need your project, you can delete it with the following **DELETE** request. Replace the placeholder values with your own values.   
 
 ```rest
