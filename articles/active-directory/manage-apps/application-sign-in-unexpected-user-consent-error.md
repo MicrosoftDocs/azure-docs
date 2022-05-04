@@ -3,15 +3,15 @@ title:  Unexpected error when performing consent to an application
 titleSuffix: Azure AD
 description: Discusses errors that can occur during the process of consenting to an application and what you can do about them
 services: active-directory
-author: davidmu1
+author: eringreenlee
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: davidmu
-ms.reviewer: phsignor
+ms.author: ergreenl
+ms.reviewer: phsignor, yuhko
 ms.collection: M365-identity-device-management
 ---
 
