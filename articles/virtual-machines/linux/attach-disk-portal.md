@@ -101,7 +101,7 @@ From the output of `lsblk` you can see that the 4GB disk at LUN 0 is `sdc`, the 
 
 ### Prepare a new empty disk
 
-> [IMPORTANT]
+> [!IMPORTANT]
 > If you are using an existing disk that contains data, skip to [mounting the disk](#mount-the-disk). 
 > The following instuctions will delete data on the disk.
 
