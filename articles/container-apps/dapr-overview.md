@@ -34,20 +34,17 @@ Thanks to Dapr, you can plug the Dapr HTTP or gRPC APIs you need into your appli
 
 ## Dapr settings
 
-The following Pub/sub example demonstrates how:
-- Dapr is enabled in your container app.
-- Dapr components are plugged into and scoped to your container app and Dapr sidecar.
-- Dapr APIs are exposed to your container app.
-
-:::image type="content" source="media/dapr-overview/dapr-in-aca.png" alt-text="Diagram demonstrating Dapr pub/sub and how it works with Container Apps":::
+The following Pub/sub example demonstrates how Dapr works alongside your container app:
 
 | Label | Dapr settings | Description |  
 | ----- | ------------- | ----------- |
-| 1 | [Container Apps with Dapr enabled](#enable-dapr-on-your-app) | Add fields that enable a Dapr sidecar to run in tandem alongside your container app. Once Dapr is enabled on your container app, you are able to plug in and use any of the [Dapr APIs](#dapr-building-blocks) (in this example, Pub/sub API). |
-| 2 | Dapr sidecar | The Dapr APIs are run and exposed alongside your containerized application on a separate process, called the Dapr sidecar. These APIs are available through HTTP and gRPC protocols. |
-| 3 | [Dapr component](#dapr-component) | Scope a Dapr component to at least one of your container apps to plug in the Dapr API you need. |
+| 1 | [Container Apps with Dapr enabled](#enable-dapr-on-your-app) | Dapr is enabled in your container app. |
+| 2 | Dapr sidecar | Fully-managed Dapr APIs are exposed to your container app via the Dapr sidecar. These APIs are available through HTTP and gRPC protocols. |
+| 3 | [Dapr component](#dapr-components) | Dapr components are plugged into and scoped to your container app and Dapr sidecar. |
 
-### Enabling Dapr with components
+:::image type="content" source="media/dapr-overview/dapr-in-aca.png" alt-text="Diagram demonstrating Dapr pub/sub and how it works with Container Apps":::
+
+#### Enable Dapr on your app
 
 Define Dapr sidecars or control plane settings for your container app within a bicep or ARM template, or by passing to a YAML component via the Azure CLI. 
 
@@ -60,18 +57,7 @@ With the following settings, you enable Dapr on your app:
 | `--dapr-app-protocol` / `appProtocol` | Tells Dapr which protocol your application is using. Valid options are `http` or `grpc`. Default is `http`. |
 | `--dapr-app-id` / `appId` | The unique ID of the application. Used for service discovery, state encapsulation, and the pub/sub consumer ID. |
 
-Dapr components are scoped to a container app environment and are pluggable modules that:
-
-- Allow you to use the individual Dapr building block APIs.
-- Can be scoped to specific container apps.
-- Can be easily swapped out at the environment level of your container app.
-
-Based on your needs, you can "plug in" certain Dapr component types like state stores, pub/sub brokers, and more. In the examples below, view the various schemas you can define for a Dapr component in Azure Container Apps and compare with the schema provided with Dapr OSS.
-
-> [!NOTE]
-> By default, every container app will load the Dapr component. You can limit which container app loads the component by adding application scopes.
-
-#### Enable Dapr on your app
+Once Dapr is enabled on your container app, you are able to plug in and use any of the [Dapr APIs](#dapr-building-blocks) via a [Dapr component](#dapr-component). 
 
 # [YAML](#tab/yaml)
 
@@ -100,8 +86,6 @@ These settings define the `components.yaml` spec with which the Dapr sidecar and
 
 # [Bicep](#tab/bicep)
 
-Plug the following Dapr enablement into your container app bicep code:
-
 For the publisher container app:
 
 ```bicep
@@ -126,8 +110,6 @@ dapr: {
 
 # [ARM](#tab/arm)
 
-Plug the following Dapr enablement into your container app ARM code:
-
 For the publisher container app:
 
 ```json
@@ -151,9 +133,20 @@ For the subscriber container app:
 
 ---
 
-#### Dapr component
+#### Dapr components
 
-**Dapr component in Azure Container Apps**
+Dapr components are scoped to a container app environment and are pluggable modules that:
+
+- Allow you to use the individual Dapr building block APIs.
+- Can be scoped to specific container apps.
+- Can be easily swapped out at the environment level of your container app.
+
+Based on your needs, you can "plug in" certain Dapr component types like state stores, pub/sub brokers, and more. In the examples below, view the various schemas you can define for a Dapr component in Azure Container Apps and compare with the schema provided with Dapr OSS.
+
+> [!NOTE]
+> By default, every container app will load the Dapr component. You can limit which container app loads the component by adding application scopes.
+
+**In Azure Container Apps**
 
 # [YAML](#tab/yaml)
 
@@ -236,7 +229,7 @@ resource daprComponent 'daprComponents@2022-01-01-preview' = {
 
 ---
 
-**Dapr component in OSS**
+**In Dapr OSS**
 
 ```yml
 apiVersion: dapr.io/v1alpha1
@@ -259,7 +252,7 @@ scopes:
 
 > [!NOTE]
 > Since Dapr settings are considered application-scope changes, new revisions aren't created when you change Dapr settings. However, when changing a Dapr setting, the container app instance and revisions are automatically restarted.
- 
+
 
 ## Current supported Dapr version
 
