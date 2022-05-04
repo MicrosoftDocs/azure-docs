@@ -100,5 +100,5 @@ The second graph in file-based source types is ***Files not associated with a re
 
 Learn more about Microsoft Purview insight reports with
 
-- [Classification data estate insights](./classification-insights.md)
-- [Glossary data estate insights](glossary-insights.md)
+- [Classification insights](./classification-insights.md)
+- [Glossary insights](glossary-insights.md)

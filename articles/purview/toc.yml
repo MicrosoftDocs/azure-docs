@@ -275,11 +275,11 @@ items:
       href: sensitivity-labels-frequently-asked-questions.yml
   - name: Insights
     items:
-    - name: View asset data estate insights
+    - name: View asset insights
       href: asset-insights.md
-    - name: View glossary data estate insights
+    - name: View glossary insights
       href: glossary-insights.md
-    - name: View classification data estate insights
+    - name: View classification insights
       href: classification-insights.md
     - name: View sensitivity label data estate insights
       href: sensitivity-insights.md

@@ -17,7 +17,7 @@ Microsoft Purview uses **Collections** to organize and manage access across its 
 A collection is a tool Microsoft Purview uses to group assets, sources, and other artifacts into a hierarchy for discoverability and to manage access control. All accesses to Microsoft Purview's resources are managed from collections in the Microsoft Purview account itself.
 
 > [!NOTE]
-> As of November 8th, 2021, ***Data Estate Insights*** is accessible to Data Curators. Data Readers do not have access to Insights.
+> As of November 8th, 2021, ***Microsoft Purview Data Estate Insights*** is accessible to Data Curators. Data Readers do not have access to Insights.
 
 ## Roles
 

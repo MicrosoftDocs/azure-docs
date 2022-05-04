@@ -149,7 +149,7 @@ For example:
 Find insights on your classified and labeled data in the Microsoft Purview Data Map use the **Classification** and **Sensitivity labeling** reports.
 
 > [!div class="nextstepaction"]
-> [Classification data estate insights](./classification-insights.md)
+> [Classification insights](./classification-insights.md)
 
 > [!div class="nextstepaction"]
 > [Sensitivity label data estate insights](sensitivity-insights.md)

@@ -10,7 +10,7 @@ ms.date: 09/27/2021
 
 ---
 
-# Glossary data estate insights on your data in Microsoft Purview
+# Glossary insights on your data in Microsoft Purview
 
 This how-to guide describes how to access, view, and filter Microsoft Purview Glossary insight reports for your data.
 
@@ -51,13 +51,13 @@ In Microsoft Purview, you can create glossary terms and attach them to assets. L
 
    :::image type="content" source="./media/glossary-insights/view-insights.png" alt-text="View your data estate insights in the Azure portal":::
 
-1. In the **Data Estate Insights** area, select **Glossary** to display the Microsoft Purview **Glossary data estate insights** report.
+1. In the **Data Estate Insights** area, select **Glossary** to display the Microsoft Purview **Glossary insights** report.
 
 **Glossary Insights** provides you as a business user, valuable information to maintain a well-defined glossary for your organization.
 
 1. The report starts with **High-level KPIs** that shows ***Total terms*** in your Microsoft Purview account, ***Approved terms without assets*** and ***Expired terms with assets***. Each of these values will help you identify the health of your Glossary.
 
-   :::image type="content" source="./media/glossary-insights/glossary-kpi.png" alt-text="View glossary data estate insights KPI"::: 
+   :::image type="content" source="./media/glossary-insights/glossary-kpi.png" alt-text="View glossary insights KPI"::: 
 
 
 2. **Snapshot of terms** section (displayed above) shows you term status as ***Draft***, ***Approved***, ***Alert***, and ***Expired*** for terms with assets and terms without assets.
@@ -70,7 +70,7 @@ In Microsoft Purview, you can create glossary terms and attach them to assets. L
 
    :::image type="content" source="./media/glossary-insights/navigate-to-glossary-detail.png" alt-text="Insights to glossary"::: 
 
-4. In Glossary data estate insights page, view a distribution of **Incomplete terms** by type of information missing. The graph shows count of terms with ***Missing definition***, ***Missing expert***, ***Missing steward*** and ***Missing multiple*** fields.
+4. In Glossary insights page, view a distribution of **Incomplete terms** by type of information missing. The graph shows count of terms with ***Missing definition***, ***Missing expert***, ***Missing steward*** and ***Missing multiple*** fields.
 
 1. Select ***View more*** from **Incomplete terms**, to view the terms that have missing information. You can navigate to Glossary term detail page to input the missing information and ensure the glossary term is complete.
 

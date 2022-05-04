@@ -141,11 +141,11 @@ landingContent:
       links:
         - text: View sensitivity label data estate insights
           url: sensitivity-insights.md
-        - text: View asset data estate insights
+        - text: View asset insights
           url: asset-insights.md
-        - text: View classification data estate insights
+        - text: View classification insights
           url: classification-insights.md
-        - text: View glossary data estate insights
+        - text: View glossary insights
           url: glossary-insights.md
   #Card
   - title: Secure your network
