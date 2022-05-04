@@ -25,8 +25,8 @@ The template contains one activity:
 -  **Data flow** to detect and mask PII data
 
 This template defines 3 parameters: 
--  *sourceFileSystem* is the folder path where you can read the files from the source store. You need to replace the default value with your own folder path.
--  *sourceFilePath* is the subfolder path where you can read the files from the source store. You need to replace the default value with your own subfolder path.
+-  *sourceFileSystem* is the folder path where files are read from the source store. You need to replace the default value with your own folder path.
+-  *sourceFilePath* is the subfolder path where files are read from the source store. You need to replace the default value with your own subfolder path.
 -  *sourceFileName* is the name of the file that you would like to transform. You need to replace the default value with your own file name.
 
 ## Prerequisites
@@ -35,13 +35,13 @@ This template defines 3 parameters:
 
 ## How to use this solution template
 
-1. Go to template **PII detection and masking**. Create a **New** connection to your source storage store or choose an existing connection. The source storage store is where you want to copy files from.
+1. Go to template **PII detection and masking**. Create a **New** connection to your source storage store or choose an existing connection. The source storage store is where you want to read files from.
 
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-1.png" alt-text="Screenshot of template set up page to create a new connection or select an existing connection to the source using a drop down menu.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-1.png" alt-text="Screenshot of template set up page where you can create a new connection or select an existing connection to the source from a drop down menu.":::
 
 2.	Create a **New** connection to your destination storage store or choose an existing connection.
 
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-2.png" alt-text="Screenshot of template set up page to create a new connection or select an existing connection to Cognitive Services using a drop down menu.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-2.png" alt-text="Screenshot of template set up page to create a new connection or select an existing connection to Cognitive Services from a drop down menu.":::
 
 3. Select **Use this template**. 
 
@@ -53,21 +53,21 @@ This template defines 3 parameters:
 
 5. Clicking into the dataflow activity will show the following dataflow: 
 
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-5.png" alt-text="Screenshot of the dataflow view with source leading to three transformations which then lead to the sink.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-5.png" alt-text="Screenshot of the dataflow view with a source leading to three transformations and then a sink.":::
 
 6. Turn on **Data flow debug**. 
 
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-6.png" alt-text="Screenshot of Data flow debug button found in the top banner of the screen.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-6.png" alt-text="Screenshot of the Data flow debug button found in the top banner of the screen.":::
 
 7. Update **Parameters** in **Debug Settings** and **Save**. 
 
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-7.png" alt-text="Screenshot of Debug settings button on the top banner of the screen to the right of debug button.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-7.png" alt-text="Screenshot of the Debug settings button on the top banner of the screen to the right of debug button.":::
   
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-7b.png" alt-text="Screenshot of where to update paramters in Debug settings in a panel on the right side of the screen.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-7b.png" alt-text="Screenshot of where to update parameters in Debug settings in a panel on the right side of the screen.":::
 
 8. Preview the results in **Data Preview**. 
 
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-8.png" alt-text="Screenshot of Dataflow data preview at the bottom of the screen.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-8.png" alt-text="Screenshot of dataflow data preview at the bottom of the screen.":::
   
 9. When data preview results are as expected, update the **Parameters**.
 
