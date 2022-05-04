@@ -1,20 +1,17 @@
 ---
-title: Use Azure Private Link to securely connect networks to Azure Arc
+title: Use Azure Private Link to securely connect servers to Azure Arc
 description: Learn how to use Azure Private Link to securely connect networks to Azure Arc.
 ms.topic: conceptual
-ms.date: 02/28/2022
+ms.date: 05/04/2022
 ---
 
-# Use Azure Private Link to securely connect networks to Azure Arc
+# Use Azure Private Link to securely connect servers to Azure Arc
 
 [Azure Private Link](../../private-link/private-link-overview.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints. For many services, you just set up an endpoint per resource. This means you can connect your on-premises or multi-cloud servers with Azure Arc and send all traffic over an Azure [ExpressRoute](../../expressroute/expressroute-introduction.md) or site-to-site [VPN connection](../../vpn-gateway/vpn-gateway-about-vpngateways.md) instead of using public networks.
 
 Starting with Azure Arc-enabled servers, you can use a Private Link Scope model to allow multiple servers or machines to communicate with their Azure Arc resources using a single private endpoint.
 
-This article covers when to use and how to set up an Azure Arc Private Link Scope (preview).
-
-> [!NOTE]
-> Azure Arc Private Link Scope (preview) is available in all commercial cloud regions, it is not available in the US Government cloud today.
+This article covers when to use and how to set up an Azure Arc Private Link Scope.
 
 ## Advantages
 
@@ -30,7 +27,7 @@ For more information, see  [Key Benefits of Private Link](../../private-link/pri
 
 ## How it works
 
-Azure Arc Private Link Scope (preview) connects private endpoints (and the virtual networks they're contained in) to an Azure resource, in this case Azure Arc-enabled servers. When you enable any one of the Azure Arc-enabled servers supported VM extensions, such as Azure Automation Update Management or Azure Monitor, those resources connect other Azure resources. Such as:
+Azure Arc Private Link Scope connects private endpoints (and the virtual networks they're contained in) to an Azure resource, in this case Azure Arc-enabled servers. When you enable any one of the Azure Arc-enabled servers supported VM extensions, such as Azure Automation Update Management or Azure Monitor, those resources connect other Azure resources. Such as:
 
 - Log Analytics workspace, required for Azure Automation Update Management, Azure Automation Change Tracking and Inventory, Azure Monitor VM insights, and Azure Monitor log collection with Log Analytics agent.
 - Azure Automation account, required for Update Management and Change Tracking and Inventory.
@@ -76,7 +73,7 @@ To connect your server to Azure Arc over a private link, you need to configure y
 
 1. Establish a connection between your on-premises network and an Azure virtual network using a [site-to-site VPN](../../vpn-gateway/tutorial-site-to-site-portal.md) or [ExpressRoute circuit](../../expressroute/expressroute-howto-linkvnet-arm.md).
 
-1. Deploy an Azure Arc Private Link Scope (preview), which controls which machines or servers can communicate with Azure Arc over private endpoints and associate it with your Azure virtual network using a private endpoint.
+1. Deploy an Azure Arc Private Link Scope, which controls which machines or servers can communicate with Azure Arc over private endpoints and associate it with your Azure virtual network using a private endpoint.
 
 1. Update the DNS configuration on your local network to resolve the private endpoint addresses.
 
@@ -131,7 +128,7 @@ See the visual diagram under the section [How it works](#how-it-works) for the n
 
 1. Give the Azure Arc Private Link Scope a name. It's best to use a meaningful and clear name.
 
-   You can optionally require every Azure Arc-enabled machine or server associated with this Azure Arc Private Link Scope (preview) to send data to the service through the private endpoint. If you select **Enable public network access**, machines or servers associated with this Azure Arc Private Link Scope (preview) can communicate with the service over both private or public networks. You can change this setting after creating the scope if you change your mind.
+   You can optionally require every Azure Arc-enabled machine or server associated with this Azure Arc Private Link Scope to send data to the service through the private endpoint. If you select **Enable public network access**, machines or servers associated with this Azure Arc Private Link Scope can communicate with the service over both private or public networks. You can change this setting after creating the scope if you change your mind.
 
 1. Select **Review + Create**.
 
@@ -141,7 +138,7 @@ See the visual diagram under the section [How it works](#how-it-works) for the n
 
 ## Create a private endpoint
 
-Once your Azure Arc Private Link Scope (preview) is created, you need to connect it with one or more virtual networks using a private endpoint. The private endpoint exposes access to the Azure Arc services on a private IP in your virtual network address space.
+Once your Azure Arc Private Link Scope is created, you need to connect it with one or more virtual networks using a private endpoint. The private endpoint exposes access to the Azure Arc services on a private IP in your virtual network address space.
 
 1. In your scope resource, select **Private Endpoint connections** in the left-hand resource menu. Select **Add** to start the endpoint create process. You can also approve connections that were started in the Private Link center here by selecting them and selecting **Approve**.
 
@@ -180,7 +177,7 @@ Once your Azure Arc Private Link Scope (preview) is created, you need to connect
 
 ## Configure on-premises DNS forwarding
 
-Your on-premises machines or servers need to be able to resolve the private link DNS records to the private endpoint IP addresses. How you configure this depends on whether you’re using Azure private DNS zones to maintain DNS records, or if you’re using your own DNS server on-premises and how many servers you’re configuring.
+Your on-premises machines or servers need to be able to resolve the private link DNS records to the private endpoint IP addresses. How you configure this depends on whether you're using Azure private DNS zones to maintain DNS records, or if you're using your own DNS server on-premises and how many servers you're configuring.
 
 ### DNS configuration using Azure-integrated private DNS zones
 
@@ -196,15 +193,15 @@ If you opted out of using Azure private DNS zones during private endpoint creati
 
 1. Navigate to the private endpoint resource associated with your virtual network and private link scope.
 
-1. From the left-hand pane, select **DNS configuration** to see a list of the DNS records and corresponding IP addresses you’ll need to set up on your DNS server. The FQDNs and IP addresses will change based on the region you selected for your private endpoint and the available IP addresses in your subnet.
+1. From the left-hand pane, select **DNS configuration** to see a list of the DNS records and corresponding IP addresses you'll need to set up on your DNS server. The FQDNs and IP addresses will change based on the region you selected for your private endpoint and the available IP addresses in your subnet.
 
     :::image type="content" source="./media/private-link-security/dns-configuration.png" alt-text="DNS configuration details" border="true":::
 
-1. Follow the guidance from your DNS server vendor to add the necessary DNS zones and A records to match the table in the portal. Ensure that you select a DNS server that is appropriately scoped for your network. Every machine or server that uses this DNS server now resolves the private endpoint IP addresses and must be associated with the Azure Arc Private Link Scope (preview), or the connection will be refused.
+1. Follow the guidance from your DNS server vendor to add the necessary DNS zones and A records to match the table in the portal. Ensure that you select a DNS server that is appropriately scoped for your network. Every machine or server that uses this DNS server now resolves the private endpoint IP addresses and must be associated with the Azure Arc Private Link Scope, or the connection will be refused.
 
 ### Single server scenarios
 
-If you’re only planning to use Private Links to support a few machines or servers, you may not want to update your entire network’s DNS configuration. In this case, you can add the private endpoint hostnames and IP addresses to your operating systems **Hosts** file. Depending on the OS configuration, the Hosts file can be the primary or alternative method for resolving hostname to IP address.
+If you're only planning to use Private Links to support a few machines or servers, you may not want to update your entire network's DNS configuration. In this case, you can add the private endpoint hostnames and IP addresses to your operating systems **Hosts** file. Depending on the OS configuration, the Hosts file can be the primary or alternative method for resolving hostname to IP address.
 
 #### Windows
 
@@ -248,7 +245,7 @@ When connecting a machine or server with Azure Arc-enabled servers for the first
     1. In the **Resource group** drop-down list, select the resource group the machine will be managed from.
     1. In the **Region** drop-down list, select the Azure region to store the machine or server metadata.
     1. In the **Operating system** drop-down list, select the operating system that the script is configured to run on.
-    1. Under **Network Connectivity**, select **Private endpoint (preview)** and select the Azure Arc Private Link Scope created in Part 1 from the drop-down list.
+    1. Under **Network Connectivity**, select **Private endpoint** and select the Azure Arc Private Link Scope created in Part 1 from the drop-down list.
 
        :::image type="content" source="./media/private-link-security/arc-enabled-servers-create-script.png" alt-text="Selecting Private Endpoint connectivity option" border="true":::
 
@@ -290,14 +287,14 @@ It may take up to 15 minutes for the Private Link Scope to accept connections fr
 
 ## Troubleshooting
 
-1. Check your on-premises DNS server(s) to verify it is either forwarding to Azure DNS or is configured with appropriate A records in your private link zone. These lookup commands should return private IP addresses in your Azure virtual network. If they resolve public IP addresses, double check your machine or server and network’s DNS configuration.
+1. Check your on-premises DNS server(s) to verify it is either forwarding to Azure DNS or is configured with appropriate A records in your private link zone. These lookup commands should return private IP addresses in your Azure virtual network. If they resolve public IP addresses, double check your machine or server and network's DNS configuration.
 
     ```
     nslookup gbl.his.arc.azure.com
     nslookup agentserviceapi.guestconfiguration.azure.com
     ```
 
-1. If you are having trouble onboarding a machine or server, confirm that you’ve added the Azure Active Directory and Azure Resource Manager service tags to your local network firewall. The agent needs to communicate with these services over the internet until private endpoints are available for these services.
+1. If you are having trouble onboarding a machine or server, confirm that you've added the Azure Active Directory and Azure Resource Manager service tags to your local network firewall. The agent needs to communicate with these services over the internet until private endpoints are available for these services.
 
 ## Next steps
 
