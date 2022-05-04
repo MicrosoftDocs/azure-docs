@@ -18,10 +18,10 @@ This QuickStart shows you how to connect your SCVMM management server to Azure A
 
 | **Requirement** | **Details** |
 | --- | --- |
-| **Azure** | An Azure subscription  <br/><br/> A resource group in the above subscription where you've the *Owner/Contributor* role. |
+| **Azure** | An Azure subscription  <br/><br/> A resource group in the above subscription where you have the *Owner/Contributor* role. |
 | **SCVMM** | You need an SCVMM management Server running version 2016 or later.<br/><br/> A private cloud that has at least one cluster with minimum free capacity of 16 GB of RAM, 4 vCPUs with 100 GB of free disk space. <br/><br/> A VM network with internet access, directly or through proxy. Appliance VM will be deployed using this VM network.<br/><br/> For dynamic IP allocation to appliance VM, DHCP server is required. For static IP allocation, VMM static IP pool is required. |
 | **SCVMM accounts** | An SCVMM admin account that can perform all administrative actions on all objects that VMM manages. <br/><br/> This will be used for the ongoing operation of Azure Arc enabled SCVMM as well as the deployment of the Arc Resource bridge VM. |
-| **Workstation** | The workstation will be used to run the helper script.<br/><br/> A Windows/Linux machine that can access both your SCVMM management server and internet, directly or through proxy.<br/><br/> The helper script can be run directly from the VMM server machine as well.<br/><br/> [!Note] When you execute the script from a Linux machine, the deployment takes a bit longer and you may experience performance issues. |
+| **Workstation** | The workstation will be used to run the helper script.<br/><br/> A Windows/Linux machine that can access both your SCVMM management server and internet, directly or through proxy.<br/><br/> The helper script can be run directly from the VMM server machine as well.<br/><br/> Note that when you execute the script from a Linux machine, the deployment takes a bit longer and you may experience performance issues. |
 
 ## Prepare SCVMM management server
 
@@ -38,7 +38,7 @@ This QuickStart shows you how to connect your SCVMM management server to Azure A
 
 1. In the **Platform** section, in **System Center VMM** select **Add**.
 
-    :::image type="content" source="media/quick-start-connect-scvmm-to-azure/platform-add-system-center-vmm-inline.png" alt-text="Screenshot of how to select system center vmm platform." lightbox="media/quick-start-connect-scvmm-to-azure/platform-add-system-center-vmm-expanded.png":::
+    :::image type="content" source="media/quick-start-connect-scvmm-to-azure/platform-add-system-center-vmm-inline.png" alt-text="Screenshot of how to select System Center V M M platform." lightbox="media/quick-start-connect-scvmm-to-azure/platform-add-system-center-vmm-expanded.png":::
 
 1. Select **Create new resource bridge** and select **Next**.
 1. Provide a name for **Azure Arc resource bridge**. For example: *contoso-nyc-resourcebridge*.
@@ -64,16 +64,20 @@ Use the following instructions to run the script, depending on the Operating Sys
 
 Follow these instructions to run the script on a Windows machine.
 
-1. Open a new PowerShell window and verify if Azure CLI is successfully installed in the workstation, use the following command.
+1. Open a new PowerShell window and verify if Azure CLI is successfully installed in the workstation, use the following command:
+
 `az`
 
-1. Navigate to the folder where you've downloaded the PowerShell script.
+1. Navigate to the folder where you've downloaded the PowerShell script:
+
 *cd C:\Users\ContosoUser\Downloads*
 
-1. Run the following command to allow the script to run since it's an unsigned script. (If you close the session before you complete all the steps, run this command again for the new session).
+1. Run the following command to allow the script to run since it's an unsigned script (if you close the session before you complete all the steps, run this command again for the new session):
+
 `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
 
-1. Run the script
+1. Run the script:
+
 `./resource-bridge-onboarding-script.ps1`
 
 ### Linux
@@ -91,7 +95,7 @@ The script execution will take up to half an hour and you'll be prompted for var
 
 | **Parameter** | **Details** |
 | --- | --- |
-| **Azure login** | You would be asked to log in to Azure by visiting [this](https://www.microsoft.com/devicelogin) site and pasting the prompted code. |
+| **Azure login** | You would be asked to log in to Azure by visiting [this site](https://www.microsoft.com/devicelogin) and pasting the prompted code. |
 | **SCVMM management server FQDN/Address** | FQDN for the VMM server (or an IP address). </br> Provide role name if it’s a Highly Available VMM deployment. </br> For example: nyc-scvmm.contoso.com or 10.160.0.1 |
 | **SCVMM Username**</br> (domain\username) | Username for the SCVMM administrator account. The required permissions for the account are listed in the prerequisites above.</br> Example: contoso\contosouser |
 | **SCVMM password** | Password for the SCVMM admin account |
@@ -124,4 +128,4 @@ If for any reason, the appliance creation fails, you need to retry it. Run the c
 
 ## Next steps
 
-[create a VM](create-virtual-machine.md)
+[Create a VM](create-virtual-machine.md)
