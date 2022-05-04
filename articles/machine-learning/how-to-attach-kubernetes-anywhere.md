@@ -180,9 +180,9 @@ In short, a `nodeSelector` lets us specify which node a pod should run on.  The 
 corresponding label.  In the `resources` section, we can set the compute resources (CPU, memory and
 Nvidia GPU) for the pod.
 
-### Default instance types
+### Default instance type
 
-By default, a `defaultinstancetype` will following definition is created when you attach Kuberenetes cluster to AzureML workspace:
+By default, a `defaultinstancetype` with following definition is created when you attach Kuberenetes cluster to AzureML workspace:
 - No `nodeSelector` is applied, meaning the pod can get scheduled on any node.
 - The workload's pods are assigned default resources with 0.6 cpu cores, 1536Mi memory and 0 GPU:
 ```yaml
@@ -196,7 +196,7 @@ resources:
     nvidia.com/gpu: null
 ```
 
-**Note:** 
+[!Note] 
 - The default instance type purposefully uses little resources.  To ensure all ML workloads
 run with appropriate resources, for example GPU resource, it is highly recommended to create custom instance types.
 - This `defaultinstancetype` will not appear as an InstanceType custom resource in the cluster when running the command ```kubectl get instancetype```, but it will appear in all clients (UI, CLI, SDK).
