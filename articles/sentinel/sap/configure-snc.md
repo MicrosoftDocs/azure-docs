@@ -153,7 +153,7 @@ This section explains how to import a certificate so that it's trusted by your A
     --client-pfx <pfx filename>
     --client-pfx-passwd <password>
     ```
-    # If client certificate issued by enterprise CA, add the switch for **each** CA in the trust chain
+    If client certificate issued by enterprise CA, add the switch for **each** CA in the trust chain
     ```bash
     --cacert <path to ca certificate> # 
     ```
