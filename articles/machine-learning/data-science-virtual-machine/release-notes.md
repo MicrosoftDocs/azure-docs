@@ -44,12 +44,12 @@ Main changes:
 ## April 14, 2022
 New DSVM offering for [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview) is currently live in the marketplace.
 
-Version: 22.04.05
+Version: `22.04.05`
 
 ## April 04, 2022
 New Image for [Data Science VM – Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=overview)
 
-Version: 22.04.01
+Version: `22.04.01`
 
 Main changes:
 
@@ -67,7 +67,7 @@ Main changes:
 ## March 18, 2022
 [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
 
-Version: 22.03.09
+Version: `22.03.09`
 
 Main changes:
 
@@ -87,7 +87,7 @@ Main changes:
 
 [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
 
-Version: 21.12.03
+Version: `21.12.03`
 
 Windows 2019 DSVM will now be supported under publisher: microsoft-dsvm, offer ID: dsvm-win-2019, plan ID/SKU ID: winserver-2019
  
@@ -97,7 +97,7 @@ Users using Azure Resource Manager (ARM) template / virtual machine scale set to
 
 New image for [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
 
-Version: 21.12.03
+Version: `21.12.03`
 
 Main changes:
 
@@ -114,7 +114,7 @@ Main changes:
 
 New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
 
-Version: 21.11.04
+Version: `21.11.04`
 
 Main changes:
 * Changed .NET Framework to version 3.1.414
@@ -151,7 +151,7 @@ Main changes:
 
 New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
 
-Version: 21.10.07
+Version: `21.10.07`
 
 Main changes:
  - Changed pytorch to version 1.9.1
@@ -169,7 +169,7 @@ Main changes:
 
 New image for [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
 
-Version: 21.08.11
+Version: `21.08.11`
 
 Main changes:
 
@@ -198,7 +198,7 @@ Main changes:
 
 New image for [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
 
-Version: 21.06.22
+Version: `21.06.22`
 
 Main changes:
 
@@ -210,7 +210,7 @@ Main changes:
 
 New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
 
-Version: 21.06.01
+Version: `21.06.01`
 
 Main changes are:
 
@@ -228,7 +228,7 @@ Removed several icons from desktop.
 
 New image for [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
 
-Version: 21.05.22
+Version: `21.05.22`
 
 Selected version updates are:
 - CUDA 11.1
