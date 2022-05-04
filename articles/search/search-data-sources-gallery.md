@@ -8,7 +8,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 layout: LandingPage
-ms.date: 04/07/2022
+ms.date: 05/27/2022
 
 ---
 
