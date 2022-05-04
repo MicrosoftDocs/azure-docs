@@ -96,7 +96,6 @@ This article lists significant changes to Azure Monitor documentation.
 **New articles**
 
 - [Collect and ingest data from a file using Data Collection Rules (DCR) (Preview)](logs/data-ingestion-from-file.md)
-- [File based custom log ingestion via DCR (Preview)](logs/data-puller.md)
 
 **Updated articles**
 
