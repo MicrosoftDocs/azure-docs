@@ -65,7 +65,7 @@ When you run the commands to create or update your logic app, your workflow defi
 
 ## Create logic apps from PowerShell
 
-You can create a logic app workflow from Azure PowerShell using the cmdlet [`New-AzLogicApp`](/powershell/module/az.logicapp/new-azlogicapp) with a JSON file for the definition.
+To create a logic app workflow from Azure PowerShell, use the cmdlet [`New-AzLogicApp`](/powershell/module/az.logicapp/new-azlogicapp) with a JSON file for the definition.
 
 ### Example - Create logic app
 
@@ -93,7 +93,7 @@ When your workflow is successfully updated, PowerShell shows your logic app's up
 
 ## Delete logic apps from PowerShell
 
-You can delete a logic app's workflow from Azure PowerShell using the cmdlet [`Remove-AzLogicApp`](/powershell/module/az.logicapp/remove-azlogicapp).
+To delete a logic app's workflow from Azure PowerShell, use the cmdlet [`Remove-AzLogicApp`](/powershell/module/az.logicapp/remove-azlogicapp).
 
 ### Example - Delete logic app
 
@@ -119,7 +119,7 @@ Deleting a logic app affects workflow instances in the following ways:
 
 ## Show logic apps in PowerShell
 
-You can get a specific logic app workflow using the command [`Get-AzLogicApp`](/powershell/module/az.logicapp/get-azlogicapp).
+To get a specific logic app workflow, use the command [`Get-AzLogicApp`](/powershell/module/az.logicapp/get-azlogicapp).
 
 ### Example - Get logic app
 
