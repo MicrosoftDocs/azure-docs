@@ -116,7 +116,3 @@ The script execution will take up to half an hour and you will be prompted for t
     ```sh
     bash resource-bridge-onboarding-script.sh --force
     ```
-
-## Next steps
-
-- [Script to onboard a VMM resource to Arc enabled System Center Virtual Machine Manager](script-to-onboard-virtual-machine-manager-resource.md)

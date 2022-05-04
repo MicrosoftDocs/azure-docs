@@ -50,8 +50,3 @@ Once your administrator has connected an SCVMM management server to Azure, repre
     > Custom properties defined for the VM in VMM will be synced as tags in Azure.
 
 11.	Under **Review + create**, review all the properties and select **Create**. The VM will be created in a few minutes.
-
-
-## Next steps
-
-- [Script to onboard a VMM resource to Arc enabled System Center Virtual Machine Manager](script-to-onboard-virtual-machine-manager-resource.md)
