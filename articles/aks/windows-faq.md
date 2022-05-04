@@ -109,6 +109,14 @@ Keep names to a maximum of six characters. This is the current limitation of AKS
 
 Kubenet is currently not supported with Windows nodes.
 
+## Can I use Scale-down Mode set to deallocate with Windows nodes?
+
+Yes, [Scale-down mode](scale-down-mode.md) can be set to deallocate on Windows node pools. The default is Delete, consistant with Linux.
+
+```azurecli-interactive
+az aks nodepool add --node-count 20 --scale-down-mode Deallocate --os-type Windows --node-osdisk-type Managed --max-pods 10 --name npwin2 --cluster-name myAKSCluster --resource-group myResourceGroup
+```
+
 ## Can I run ingress controllers on Windows nodes?
 
 Yes, an ingress controller that supports Windows Server containers can run on Windows nodes in AKS.
