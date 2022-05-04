@@ -128,7 +128,7 @@ $vm = Set-AzVMOSDisk -VM $vm `
    -StorageAccountType "StandardSSD_LRS" `
    -CreateOption "FromImage" 
 
-$vm = Set-AzVmSecurityType -VM $vm `
+$vm = Set-AzVmSecurityProfile -VM $vm `
    -SecurityType "TrustedLaunch" 
 
 $vm = Set-AzVmUefi -VM $vm `
