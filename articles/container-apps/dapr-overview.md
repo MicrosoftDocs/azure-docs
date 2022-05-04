@@ -57,7 +57,7 @@ With the following settings, you enable Dapr on your app:
 | `--dapr-app-protocol` / `appProtocol` | Tells Dapr which protocol your application is using. Valid options are `http` or `grpc`. Default is `http`. |
 | `--dapr-app-id` / `appId` | The unique ID of the application. Used for service discovery, state encapsulation, and the pub/sub consumer ID. |
 
-Once Dapr is enabled on your container app, you are able to plug in and use any of the [Dapr APIs](#dapr-building-blocks) via a [Dapr component](#dapr-component). 
+Once Dapr is enabled on your container app, you are able to plug in and use any of the [Dapr APIs](#dapr-building-blocks) via a [Dapr component](#dapr-components). 
 
 # [YAML](#tab/yaml)
 
