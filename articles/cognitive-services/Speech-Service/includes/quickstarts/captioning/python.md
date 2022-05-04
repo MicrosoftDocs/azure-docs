@@ -40,6 +40,10 @@ Follow these steps to create a new console application.
 
 1. Download or copy the [scenarios/python/console/captioning/](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/python/console/captioning/) sample files from GitHub into a local directory. 
 1. Open a command prompt in the same directory as `captioning.py`.
+1. Install the Speech SDK.  
+    ```console
+    pip install azure-cognitiveservices-speech
+    ```
 1. Run the application with your preferred command line arguments. See [usage and arguments](#usage-and-arguments) for the available options. Here is an example:
     ```console
     python captioning.py --key YourSubscriptionKey --region YourServiceRegion --input caption.this.mp4 --format any --output caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases "Contoso;Jesse;Rehaan"

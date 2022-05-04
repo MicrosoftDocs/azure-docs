@@ -38,6 +38,10 @@ The Speech SDK for Python is compatible with Windows, Linux, and macOS.
 Follow these steps to create a new console application.
 
 1. Open a command prompt where you want the new project, and create a new file named `speech-recognition.py`.
+1. Install the Speech SDK.  
+    ```console
+    pip install azure-cognitiveservices-speech
+    ```
 1. Copy the following code into `speech_recognition.py`: 
 
     ```Python
@@ -47,8 +51,6 @@ Follow these steps to create a new console application.
         speech_config = speechsdk.SpeechConfig(subscription="YourSubscriptionKey", region="YourServiceRegion")
         speech_config.speech_recognition_language="en-US"
 
-        #To recognize speech from an audio file, use `filename` instead of `use_default_microphone`:
-        #audio_config = speechsdk.audio.AudioConfig(filename="YourAudioFile.wav")
         audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True)
         speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
 

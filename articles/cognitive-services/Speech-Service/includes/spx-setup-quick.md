@@ -11,7 +11,7 @@ ms.custom: ignite-fall-2021
 Follow these steps and see the [Speech CLI quickstart](~/articles/cognitive-services/speech-service/spx-basics.md#download-and-install) for additional requirements for your platform.
 
 1. Install the Speech CLI via the .NET CLI by entering this command:
-   ```console
+   ```dotnetcli
    dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI
    ```
 1. Configure your Speech resource key and region, by running the following commands. Replace `SUBSCRIPTION-KEY` with your Speech resource key, and replace `REGION` with your Speech resource region:

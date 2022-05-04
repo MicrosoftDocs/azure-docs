@@ -38,6 +38,10 @@ The Speech SDK for Python is compatible with Windows, Linux, and macOS.
 Follow these steps to create a new console application.
 
 1. Open a command prompt where you want the new project, and create a new file named `speech-synthesis.py`.
+1. Install the Speech SDK.  
+    ```console
+    pip install azure-cognitiveservices-speech
+    ```
 1. Copy the following code into `speech_synthesis.py`: 
 
     ```Python
