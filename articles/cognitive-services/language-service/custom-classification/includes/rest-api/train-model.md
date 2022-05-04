@@ -49,7 +49,7 @@ Use the following JSON in your request body. The model will be given the `{MODEL
 | modelLabel | `{MODEL-NAME}` | The model name that will be assigned to your model once trained sucessfully.  | `myModel` |
 | trainingConfigVersion | `{CONFIG-VERSION}` | This is the config version that will be used to train the model. Learn more about available config version [here]() | `2022-05-01` |
 | evaluationOptions | `{}` | Option to split your data across training and testing sets. | `{}` |
-| kind | `percentage` |  Split methods. Possible Values are `percentage` or `manual`. Learn more about data splitting [here](../../how-to/train-model.md#data-splitting) |`percentage`|
+| kind | `percentage` |  Split methods. Possible Values are `percentage` or `manual`. <!--Learn more about data splitting [here](../../how-to/train-model.md#data-splitting)--> |`percentage`|
 | trainingSplitPercentage | `80`| Percentage of your tagged data to be included in the training set. Recommended value is `80`. | `80`|
 | testingSplitPercentage | `20` | Percentage of your tagged data to be included in the testing set. Recommended value is `20`.   | `20` |
 
