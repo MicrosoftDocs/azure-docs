@@ -27,4 +27,4 @@ Conversation summarization supports the following languages:
 
 ## Next steps
 
-[Summarization overview](../text-summarization/overview.md)
+[Summarization overview](../document-summarization/overview.md)
