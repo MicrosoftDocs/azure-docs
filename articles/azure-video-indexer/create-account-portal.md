@@ -29,7 +29,7 @@ Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Regis
     * Owner* role assignment on the related Azure Media Services (AMS)
     * Owner* role assignment on the related Managed Identity
 
-<sup>*</sup>Or both Contributor and User Access Administrator roles
+<sup>*</sub>Or both **Contributor** and **User Access Administrator** roles
 
 ## Azure portal
 
