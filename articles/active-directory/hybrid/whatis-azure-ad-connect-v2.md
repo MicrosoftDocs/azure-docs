@@ -97,7 +97,7 @@ Until one of the components that are being retired are actually deprecated, you 
 
 We expect TLS 1.0/1.1 to be deprecated in 2022, and you need to make sure you are not using these protocols by that date as your service may stop working unexpectedly. You can manually configure your server for TLS 1.2 though, and that does not require an update of Azure AD Connect to V2 
 
-In June 2022, ADAL is planned to go out of support. When ADAL goes out of support, authentication may stop working unexpectedly, and this will block the Azure AD Connect server from working properly. We strongly advise you to upgrade to Azure AD Connect V2 before June 2022. You cannot upgrade to a supported authentication library with your current Azure AD Connect version. 
+After December 2022, ADAL is planned to go out of support. When ADAL goes out of support, authentication may stop working unexpectedly, and this will block the Azure AD Connect server from working properly. We strongly advise you to upgrade to Azure AD Connect V2 before December 2022. You cannot upgrade to a supported authentication library with your current Azure AD Connect version. 
 
 **After upgrading to 2 the ADSync PowerShell cmdlets do not work?** </br>
 This is a known issue. Restart your PowerShell session after installing or upgrading to version 2 and then reimport the module. Use the following instructions to import the module.
