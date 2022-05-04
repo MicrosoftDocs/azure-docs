@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 04/25/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -273,11 +273,12 @@ A verification display control is used to verify the email address with a verifi
 This example display control is configured to:
 
 1. Collect the `email` address claim type from the user.
-1. Wait for the user to provide the `verificationCode` claim type with the code sent to the user.
-1. Return the `email` to the self-asserted technical profile that has a reference to this display control.
 1. Using the `SendCode` action, generate an OTP code and send an email with the OTP code to the user.
 
    ![Send verification code email action](media/custom-email-mailjet/display-control-verification-email-action-01.png)
+   
+1. Wait for the user to provide the `verificationCode` claim type with the code sent to the user.
+1. Return the `email` to the self-asserted technical profile that has a reference to this display control.
 
 Under content definitions, still within `<BuildingBlocks>`, add the following [DisplayControl](display-controls.md) of type [VerificationControl](display-control-verification.md) to your policy.
 

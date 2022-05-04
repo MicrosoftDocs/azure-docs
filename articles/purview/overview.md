@@ -14,6 +14,9 @@ Microsoft Purview is a unified data governance service that helps you manage and
 
 :::image type="content" source="./media/overview/high-level-overview.png" alt-text="High-level architecture of Microsoft Purview, showing multi-cloud and on premises sources flowing into Microsoft Purview, and Microsoft Purview's apps (Data Catalog, Map, and Insights) allowing data consumers and data curators to view and manage metadata. This metadata is also being ported to external analytics services from Microsoft Purview for more processing." lightbox="./media/overview/high-level-overview-large.png":::
 
+>[!TIP]
+> Looking to govern your data in Microsoft 365 by keeping what you need and deleting what you don't? Use [Microsoft Purview Data Lifecycle Management](/microsoft-365/compliance/data-lifecycle-management).
+
 Microsoft Purview automates data discovery by providing data scanning and classification as a service for assets across your data estate. Metadata and descriptions of discovered data assets are integrated into a holistic map of your data estate. Atop this map, there are purpose-built apps that create environments for data discovery, access management, and insights about your data landscape.
 
 
@@ -26,7 +29,7 @@ Microsoft Purview automates data discovery by providing data scanning and classi
 ## Data Map
 
 Microsoft Purview Data Map provides the foundation for data discovery and effective data governance. Microsoft Purview Data Map is a cloud native PaaS service that captures metadata about enterprise data present in analytics and operation systems on-premises and cloud. Microsoft Purview Data Map is automatically kept up to date with built-in automated scanning and classification system. Business users can configure and use the Microsoft Purview Data Map through an intuitive UI and developers can programmatically interact with the Data Map using open-source Apache Atlas 2.0 APIs.
-Microsoft Purview Data Map powers the Microsoft Purview Data Catalog and Microsoft Purview data insights as unified experiences within the [Microsoft Purview Studio](https://web.purview.azure.com/resource/).
+Microsoft Purview Data Map powers the Microsoft Purview Data Catalog and Microsoft Purview data insights as unified experiences within the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
 For more information, see our [introduction to Data Map](concept-elastic-data-map.md).
 

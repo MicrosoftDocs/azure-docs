@@ -251,10 +251,6 @@ The metrics dashboard can be used to better understand the performance and healt
 
 For more information on what each metric is showing you and how to analyze these metrics, see [How to use NAT gateway metrics](#how-to-use-nat-gateway-metrics).
 
-## Limitations
-
-- Resource health isn't supported.
-
 ## Next steps
 
 * Learn about [Virtual Network NAT](nat-overview.md)

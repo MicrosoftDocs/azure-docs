@@ -30,7 +30,7 @@ The following video introduces unified observability for Spring Boot application
 
 * [Azure CLI](/cli/azure/install-azure-cli)
 * [Deploy Elastic on Azure](https://www.elastic.co/blog/getting-started-with-the-azure-integration-enhancement)
-* [Elastic APM Endpoint and Secret Token from the Elastic Deployment](https://www.elastic.co/guide/en/cloud/current/ec-manage-apm-and-fleet.html)
+* [Manage your APM & Fleet Server](https://www.elastic.co/guide/en/cloud-enterprise/current/ece-manage-apm-and-fleet.html)
 
 ## Deploy the Spring Petclinic application
 

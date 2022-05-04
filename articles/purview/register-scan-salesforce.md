@@ -35,7 +35,7 @@ When setting up scan, you can choose to scan an entire Salesforce organization, 
 
 * An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview Studio. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 You can use the fully managed Azure integration runtime for scan - make sure to provide the security token to authenticate to Salesforce, learn more from the credential configuration in [Scan](#scan) section. Otherwise, if you want the scan to be initiated from a Salesforce trusted IP range for your organization, you can configure a self-hosted integration runtime to connect to it:
 
@@ -59,13 +59,13 @@ For Standard Objects, ensure that the "Documents" section has the Read permissio
 
 ## Register
 
-This section describes how to register Salesforce in Microsoft Purview using the [Microsoft Purview Studio](https://web.purview.azure.com/).
+This section describes how to register Salesforce in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Steps to register
 
 To register a new Salesforce source in your data catalog, do the following:
 
-1. Navigate to your Microsoft Purview account in the [Microsoft Purview Studio](https://web.purview.azure.com/resource/).
+1. Navigate to your Microsoft Purview account in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 1. Select **Data Map** on the left navigation.
 1. Select **Register**
 1. On Register sources, select **Salesforce**. Select **Continue**.

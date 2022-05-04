@@ -7,6 +7,8 @@ ms.custom: ignite-fall-2021
 ---
 # Pipeline
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 Pipelines let you ingest, process, and publish video within Azure Video Analyzer edge and cloud. Pipeline topologies allow you to define how video should be ingested, processed, and published within through a set of configurable nodes. Once defined, topologies can then be instantiated as individual pipelines that target specific cameras or source content, which are processed independently. Pipelines can be defined and instantiated at the edge for on premises video processing, or in the cloud. The diagrams below provides graphical representations of such pipelines.
 
 > [!div class="mx-imgBorder"]

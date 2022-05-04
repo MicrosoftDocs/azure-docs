@@ -14,17 +14,17 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-This article will provide help you decide which networking option is best for your scenario and get insights into IoT Edge for Linux on Windows (EFLOW) configuration requirements.
+This article will help you decide which networking option is best for your scenario and provide insights into IoT Edge for Linux on Windows (EFLOW) configuration requirements.
 
 To connect the IoT Edge for Linux on Windows (EFLOW) virtual machine over a network to your host, to other virtual machines on your Windows host, and to other devices/locations on an external network, the virtual machine networking must be configured accordingly. 
 
 The easiest way to establish basic networking on Windows Client SKUs is by using the **default switch**, which is already created when enabling the Windows Hyper-V feature. However, on Windows Server SKUs devices, networking it's a bit more complicated as there's no **default switch** available. For more information about virtual switch creation for Windows Server, see [Create virtual switch for Linux on Windows](./how-to-create-virtual-switch.md). 
 
-For more information about EFLOW networking concepts, see [IoT Edge for Linux on Windows networking](./nested-virtualization.md). 
+For more information about EFLOW networking concepts, see [IoT Edge for Linux on Windows networking](./iot-edge-for-linux-on-windows-networking.md). 
 
 ## Configure VM virtual switch
 
-The first step before deploying the EFLOW virtual machine, is to determine which type of virtual switch you'll use. For more information about EFLOW supported virtual switches, see [EFLOW virtual switch choices](./iot-edge-for-linux-on-windows-networking.md). Once you determine the type of virtual switch that you want to use, make sure to create the virtual switch correctly. For more information about virtual switch creation, see [Create a virtual switch for Hyper-V virtual machines](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines).
+The first step before deploying the EFLOW virtual machine is to determine which type of virtual switch you'll use. For more information about EFLOW supported virtual switches, see [EFLOW virtual switch choices](./iot-edge-for-linux-on-windows-networking.md). Once you determine the type of virtual switch that you want to use, make sure to create the virtual switch correctly. For more information about virtual switch creation, see [Create a virtual switch for Hyper-V virtual machines](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines).
 
 >[!NOTE]
 > If you're using Windows client and you want to use the **default switch**, then no switch creation is needed and no `-vSwitchType` and `-vSwitchName` parameters are needed. 
@@ -176,4 +176,4 @@ microsoft.com.          0       IN      A       40.76.4.15
 
 Read more about [Azure IoT Edge for Linux on Windows Security](./iot-edge-for-linux-on-windows-security.md).
 
-Stay up-to-date with the latest [IoT Edge for Linux on Windows updates](./iot-edge-for-linux-on-windows.md)
+Stay up-to-date with the latest [IoT Edge for Linux on Windows updates](./iot-edge-for-linux-on-windows-updates.md).

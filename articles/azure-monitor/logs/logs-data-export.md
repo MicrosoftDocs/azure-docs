@@ -654,7 +654,9 @@ All data from the table will be exported unless limitations are specified. This 
 | AADManagedIdentitySignInLogs |  |
 | AADNonInteractiveUserSignInLogs |  |
 | AADProvisioningLogs |  |
+| AADRiskyServicePrincipals |  |
 | AADRiskyUsers |  |
+| AADServicePrincipalRiskEvents |  |
 | AADServicePrincipalSignInLogs |  |
 | AADUserRiskEvents |  |
 | ABSBotRequests |  |
@@ -664,6 +666,7 @@ All data from the table will be exported unless limitations are specified. This 
 | ACSCallDiagnostics |  |
 | ACSCallSummary |  |
 | ACSChatIncomingOperations |  |
+| ACSNetworkTraversalIncomingOperations |  |
 | ACSSMSIncomingOperations |  |
 | ADAssessmentRecommendation |  |
 | ADFActivityRun |  |
@@ -671,7 +674,6 @@ All data from the table will be exported unless limitations are specified. This 
 | ADFSSignInLogs |  |
 | ADFTriggerRun |  |
 | ADPAudit |  |
-| ADPDiagnostics |  |
 | ADPRequests |  |
 | ADReplicationResult |  |
 | ADSecurityAssessmentRecommendation |  |
@@ -681,21 +683,19 @@ All data from the table will be exported unless limitations are specified. This 
 | ADTQueryOperation |  |
 | ADXCommand |  |
 | ADXQuery |  |
-| AEWAuditLogs |  |
-| ATCExpressRouteCircuitIpfix |  |
-| AWSCloudTrail |  |
-| AWSGuardDuty |  |
-| AWSVPCFlow |  |
+| AegDataPlaneRequests |  |
 | AegDeliveryFailureLogs |  |
 | AegPublishFailureLogs |  |
+| AEWAuditLogs |  |
 | AgriFoodApplicationAuditLogs |  |
 | AgriFoodFarmManagementLogs |  |
 | AgriFoodFarmOperationLogs |  |
 | AgriFoodJobProcessedLogs |  |
-| AgriFoodProviderAuthLogs |  |
+| AGSGrafanaLoginEvents |  |
 | Alert | Partial support – Data ingestion for Zabbix alerts isn't supported. |
 | AlertEvidence |  |
 | AlertInfo |  |
+| AmlOnlineEndpointConsoleLog |  |
 | ApiManagementGatewayLogs |  |
 | AppCenterError |  |
 | AppPlatformSystemLogs |  |
@@ -705,12 +705,19 @@ All data from the table will be exported unless limitations are specified. This 
 | AppServiceFileAuditLogs |  |
 | AppServiceHTTPLogs |  |
 | AppServicePlatformLogs |  |
+| ASimDnsActivityLogs |  |
+| ATCExpressRouteCircuitIpfix |  |
 | AuditLogs |  |
 | AutoscaleEvaluationsLog |  |
 | AutoscaleScaleActionsLog |  |
+| AWSCloudTrail |  |
+| AWSGuardDuty |  |
+| AWSVPCFlow |  |
 | AzureAssessmentRecommendation |  |
+| AzureAttestationDiagnostics |  |
 | AzureDevOpsAuditing |  |
 | BehaviorAnalytics |  |
+| CassandraLogs |  |
 | CDBCassandraRequests |  |
 | CDBControlPlaneRequests |  |
 | CDBDataPlaneRequests |  |
@@ -721,7 +728,6 @@ All data from the table will be exported unless limitations are specified. This 
 | CDBQueryRuntimeStatistics |  |
 | CIEventsAudit |  |
 | CIEventsOperational |  |
-| CassandraLogs |  |
 | CloudAppEvents |  |
 | CommonSecurityLog |  |
 | ComputerGroup |  |
@@ -733,19 +739,21 @@ All data from the table will be exported unless limitations are specified. This 
 | ContainerNodeInventory |  |
 | ContainerServiceLog |  |
 | CoreAzureBackup |  |
-| DSMAzureBlobStorageLogs |  |
 | DatabricksAccounts |  |
 | DatabricksClusters |  |
 | DatabricksDBFS |  |
 | DatabricksInstancePools |  |
 | DatabricksJobs |  |
 | DatabricksNotebook |  |
+| DatabricksSecrets |  |
 | DatabricksSQLPermissions |  |
 | DatabricksSSH |  |
-| DatabricksSecrets |  |
 | DatabricksWorkspace |  |
 | DnsEvents |  |
 | DnsInventory |  |
+| DSMAzureBlobStorageLogs |  |
+| DSMDataClassificationLogs |  |
+| DSMDataLabelingLogs |  |
 | Dynamics365Activity |  |
 | EmailAttachmentInfo |  |
 | EmailEvents |  |
@@ -757,19 +765,17 @@ All data from the table will be exported unless limitations are specified. This 
 | FunctionAppLogs |  |
 | HDInsightAmbariClusterAlerts |  |
 | HDInsightAmbariSystemMetrics |  |
-| HDInsightHBaseLogs |  |
-| HDInsightHBaseMetrics |  |
 | HDInsightHadoopAndYarnLogs |  |
 | HDInsightHadoopAndYarnMetrics |  |
+| HDInsightHBaseLogs |  |
+| HDInsightHBaseMetrics |  |
 | HDInsightHiveAndLLAPLogs |  |
 | HDInsightHiveAndLLAPMetrics |  |
 | HDInsightHiveQueryAppStats |  |
 | HDInsightHiveTezAppStats |  |
-| HDInsightJupyterNotebookEvents |  |
 | HDInsightKafkaLogs |  |
 | HDInsightKafkaMetrics |  |
 | HDInsightOozieLogs |  |
-| HDInsightRangerAuditLogs |  |
 | HDInsightSecurityLogs |  |
 | HDInsightSparkApplicationEvents |  |
 | HDInsightSparkBlockManagerEvents |  |
@@ -797,9 +803,9 @@ All data from the table will be exported unless limitations are specified. This 
 | KubePodInventory |  |
 | KubeServices |  |
 | LAQueryLogs |  |
-| MCCEventLogs |  |
-| MCVPOperationLogs |  |
 | McasShadowItReporting |  |
+| MCVPAuditLogs |  |
+| MCVPOperationLogs |  |
 | MicrosoftAzureBastionAuditLogs |  |
 | MicrosoftDataShareReceivedSnapshotLog |  |
 | MicrosoftDataShareSentSnapshotLog |  |
@@ -807,15 +813,18 @@ All data from the table will be exported unless limitations are specified. This 
 | NWConnectionMonitorPathResult |  |
 | NWConnectionMonitorTestResult |  |
 | OfficeActivity | Partial support in government clouds – some of the data to ingested via webhooks from O365 into LA. This portion is missing in export currently. |
+| OLPSupplyChainEntityOperations |  |
+| OLPSupplyChainEvents |  |
 | Operation | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
 | Perf | Partial support – only windows perf data is currently supported. The Linux perf data is missing in export currently. |
+| PowerBIActivity |  |
 | PowerBIDatasetsWorkspace |  |
+| ProjectActivity |  |
 | PurviewDataSensitivityLogs |  |
 | PurviewScanStatusLogs |  |
+| ResourceManagementPublicAccessLogs |  |
 | SCCMAssessmentRecommendation |  |
 | SCOMAssessmentRecommendation |  |
-| SQLAssessmentRecommendation |  |
-| SQLSecurityAuditEvents |  |
 | SecurityAlert |  |
 | SecurityBaseline |  |
 | SecurityBaselineSummary |  |
@@ -825,11 +834,17 @@ All data from the table will be exported unless limitations are specified. This 
 | SecurityIoTRawEvent |  |
 | SecurityNestedRecommendation |  |
 | SecurityRecommendation |  |
+| SentinelAudit |  |
 | SentinelHealth |  |
 | SfBAssessmentRecommendation |  |
+| SfBOnlineAssessmentRecommendation |  |
 | SharePointOnlineAssessmentRecommendation |  |
 | SignalRServiceDiagnosticLogs |  |
 | SigninLogs |  |
+| SPAssessmentRecommendation |  |
+| SQLAssessmentRecommendation |  |
+| SQLSecurityAuditEvents |  |
+| StorageCacheOperationEvents |  |
 | SucceededIngestion |  |
 | SynapseBigDataPoolApplicationsEnded |  |
 | SynapseBuiltinSqlPoolRequestsEnded |  |
@@ -847,23 +862,29 @@ All data from the table will be exported unless limitations are specified. This 
 | SynapseSqlPoolWaits |  |
 | Syslog | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics extension agent is collected through storage while this path isn’t supported in export. |
 | ThreatIntelligenceIndicator |  |
+| UCClient |  |
 | UCClientUpdateStatus |  |
+| UCDeviceAlert |  |
+| UCServiceUpdateStatus |  |
+| UCUpdateAlert |  |
 | Update | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
 | UpdateRunProgress |  |
 | UpdateSummary |  |
 | Usage |  |
+| UserAccessAnalytics |  |
 | UserPeerAnalytics |  |
+| Watchlist |  |
+| WindowsEvent |  |
+| WindowsFirewall |  |
+| WireData | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
+| WorkloadDiagnosticLogs |  |
 | WVDAgentHealthStatus |  |
 | WVDCheckpoints |  |
 | WVDConnections |  |
 | WVDErrors |  |
 | WVDFeeds |  |
 | WVDManagement |  |
-| Watchlist |  |
-| WindowsEvent |  |
-| WindowsFirewall |  |
-| WireData | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
-| WorkloadDiagnosticLogs |  |
+
 
 ## Next steps
 
