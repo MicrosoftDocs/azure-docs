@@ -20,6 +20,8 @@ Once you know a container app's domain name, then you can call the location with
 
 A sample solution showing how you can call between containers using both the FQDN Location or Dapr can be found on [Azure Samples](https://github.com/Azure-Samples/container-apps-connect-multiple-apps)
 
+For more details about connecting Dapr applications, refer to [Invoke services using HTTP](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/howto-invoke-discover-services/).
+
 ## Location
 
 A container app's location is composed of values associated with its environment, name, and region. Available through the `azurecontainerapps.io` top-level domain, the fully qualified domain name (FQDN) uses:
@@ -39,6 +41,10 @@ The following diagram shows how these values are used to compose a container app
 Developing microservices often requires you to implement patterns common to distributed architecture. Dapr allows you to secure microservices with mutual TLS, trigger retries when errors occur, and take advantage of distributed tracing when Azure Application Insights is enabled.
 
 A microservice that uses Dapr is available through the following URL pattern:
+
+```text
+http://localhost:3500/v1.0/invoke/<YOUR_APP_NAME>/method
+```
 
 :::image type="content" source="media/connect-apps/azure-container-apps-location-dapr.png" alt-text="Azure Container Apps container app location with Dapr.":::
 
