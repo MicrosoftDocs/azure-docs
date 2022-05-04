@@ -44,19 +44,18 @@ Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Regis
 1. Click **Create**.
 1. In the **Create an Azure Video Indexer resource** section enter required values.
 
-    ![Image of create account](media/create-account-portal/create-account-blade.png)
+    ![Image of create account]        (media/create-account-portal/create-account-blade.png)
+            
 
-
-| Name | Description |
-| ---|---|
-|**Subscription**|Choose the subscription that you are using to create the Azure Video Indexer account.|
-|**Resource Group**|Choose a resource group where you are creating the Azure Video Indexer account, or select **Create new** to create a resource group.|
-|**Azure Video Indexer account**|Select *Create a new account* option.|
-|**Resource name**|Enter the name of the new Azure Video Indexer account, the name can contain letters, numbers and dashes with no spaces.|
-|**Region**|Select the geographic region that will be used to deploy the Azure Video Indexer account. The location matches the **resource group location** you chose, if you'd like to change the selected location change the selected resource group or create a new one in the preferred location. [Azure region in which Azure Video Indexer is available](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all)|
-|**Media Services account name**|Select a Media Services that the new Azure Video Indexer account will use to process the videos. You can select an existing Media Services or you can create a new one. The Media Services must be in the same location you selected.|
-|**User-assigned managed identity**|Select a user-assigned managed identity that the new Azure Video Indexer account will use to access the Media Services. You can select an existing user-assigned managed identity or you can create a new one. The user-assignment managed identity will be assigned the role of Contributor role on the Media Services.|
-
+    | Name | Description 
+         ---|---|
+    |**Subscription**|Choose the subscription that you are using to create the Azure Video Indexer account.|
+        |**Resource Group**|Choose a resource group where you are creating the Azure Video Indexer account, or select **Create new** to create a resource group.|
+    |**Azure Video Indexer account**|Select *Create a new account* option.|
+    |**Resource name**|Enter the name of the new Azure Video Indexer account, the name can contain letters, numbers and dashes with no spaces.|
+    **Region**|Select the geographic region that will be used to deploy the Azure Video Indexer account. The location matches the **resource group location** you chose, if you'd like to change the selected location change the selected resource group or create a new one in the preferred location. [Azure region in which Azure Video Indexer is available](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all)|
+    |**Media Services account name**|Select a Media Services that the new Azure Video Indexer account will use to process the videos. You can select an existing Media Services or you can create a new one. The Media Services must be in the same location you selected.|
+    |**User-assigned managed identity**|Select a user-assigned managed identity that the new Azure Video Indexer account will use to access the Media Services. You can select an existing user-assigned managed identity or you can create a new one. The user-assignment managed identity will be assigned the role of Contributor role on the Media Services.|
 1. Click **Review + create** at the bottom of the form.
 
 ### Review deployed resource
