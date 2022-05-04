@@ -232,7 +232,7 @@ AND
 
 ## Actions
 
-Currently, conditions can be added to built-in or custom role assignments that have storage blob or storage queue data actions. These include the following built-in roles:
+Currently, conditions can be added to built-in or custom role assignments that have blob storage or queue storage data actions. These include the following built-in roles:
 
 - [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor)
 - [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner)
@@ -242,7 +242,7 @@ Currently, conditions can be added to built-in or custom role assignments that h
 - [Storage Queue Data Message Sender](built-in-roles.md#storage-queue-data-message-sender)
 - [Storage Queue Data Reader](built-in-roles.md#storage-queue-data-reader)
 
-For a list of the storage blob actions you can use in conditions, see [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/common/storage-auth-abac-attributes.md).
+For a list of the blob storage actions you can use in conditions, see [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/common/storage-auth-abac-attributes.md).
 
 ## Attributes
 
@@ -257,7 +257,7 @@ Depending on the selected actions, the attribute might be found in different pla
 
 #### Resource and request attributes
 
-For a list of the storage blob or storage queue attributes you can use in conditions, see:
+For a list of the blob storage or queue storage attributes you can use in conditions, see:
 
 - [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/common/storage-auth-abac-attributes.md)
 
