@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/07/2022
+ms.date: 05/27/2022
 ---
 # Preview features in Azure Cognitive Search
 
