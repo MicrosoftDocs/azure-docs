@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 03/30/2022
+ms.date: 05/04/2022
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -30,7 +30,7 @@ Deploying Intune device configuration policies from Microsoft Endpoint Manager a
 
 ## Scheduled Agent Updates public preview
 
-Scheduled Agent Updates has a new feature in public preview that lets IT admins specify the time and day the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent will update. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/scheduled-agent-updates-is-now-in-public-preview-on-azure/m-p/3285874).
+Scheduled Agent Updates is a new feature in public preview that lets IT admins specify the time and day the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent will update. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/scheduled-agent-updates-is-now-in-public-preview-on-azure/m-p/3285874).
 
 ## RDP Shortpath for public networks now in public preview
 
