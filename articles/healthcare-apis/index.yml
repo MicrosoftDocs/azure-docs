@@ -30,6 +30,8 @@ landingContent:
         links:
           - text: Get started with Azure Health Data Services
             url: get-started-with-health-data-services.md
+      - linkListType: deploy
+        links:
           - text: Deploy Azure Health Data Services workspace
             url: healthcare-apis-quickstart.md
   
@@ -46,10 +48,14 @@ landingContent:
   
   - title: FHIR service
     linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
           - text: About FHIR service
             url: ./fhir/overview.md
+      - linkListType: quickstart
+        links:
+          - text: Get started with FHIR service
+            url: 
       - linkListType: deploy
         links:
           - text: Deploy FHIR service using portal
@@ -63,10 +69,14 @@ landingContent:
 
   - title: DICOM service
     linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
           - text: About DICOM service 
             url: ./dicom/dicom-services-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Get started with DICOM service
+            url: ./dicom/get-started-with-dicom.md
       - linkListType: deploy
         links:
           - text: Deploy DICOM service using portal
@@ -80,10 +90,14 @@ landingContent:
   
   - title: MedTech service
     linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
           - text: About MedTech service
             url: ./iot/iot-connector-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Get started with MedTech service
+            url: ./iot/get-started-with-iot
       - linkListType: deploy
         links:
           - text: Deploy MedTech service using portal
@@ -92,18 +106,3 @@ landingContent:
         links:
           - text: Receive device data through Azure IoT Hub
             url: ./iot/device-data-through-iot-hub.md
-
-  - title: Events
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: About Events
-            url: ./events/events-overview.md
-      - linkListType: deploy
-        links:
-          - text: Deploy Events in the Azure Portal
-            url: ./events/events-deploy-portal.md
-      - linkListType: tutorial
-        links:
-          - text: Deploy Events metrics
-            url: ./events/events-display-metrics.md
