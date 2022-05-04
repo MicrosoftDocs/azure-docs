@@ -559,21 +559,21 @@
         items:
         - name: Deploy an ML model with an online endpoint
           href: how-to-deploy-managed-online-endpoints.md
-          - name: Deployment scenarios
-            items:
-            - name: Deploy a MLflow model with an online endpoint
-              href: how-to-deploy-mlflow-models-online-endpoints.md
-              displayName: ncd, no code deploy, no-code deployment
-            - name: Deploy a custom container with an online endpoint
-              href: how-to-deploy-custom-container.md
-            - name: Use online endpoints in studio
-              href: how-to-use-managed-online-endpoint-studio.md
-            - name: High-performance serving with Triton
-              href: how-to-deploy-with-triton.md
-            - name: Use REST to deploy a model as an online endpoint
-              href: how-to-deploy-with-rest.md
-            - name: Deploy an AutoML model with an online endpoint
-              href: how-to-deploy-automl-endpoint.md
+        - name: Deployment scenarios
+          items:
+          - name: Deploy a MLflow model with an online endpoint
+            href: how-to-deploy-mlflow-models-online-endpoints.md
+            displayName: ncd, no code deploy, no-code deployment
+          - name: Deploy a custom container with an online endpoint
+            href: how-to-deploy-custom-container.md
+          - name: Use online endpoints in studio
+            href: how-to-use-managed-online-endpoint-studio.md
+          - name: High-performance serving with Triton
+            href: how-to-deploy-with-triton.md
+          - name: Use REST to deploy a model as an online endpoint
+            href: how-to-deploy-with-rest.md
+          - name: Deploy an AutoML model with an online endpoint
+            href: how-to-deploy-automl-endpoint.md
         - name: Convert custom model to MLflow model 
           href: how-to-convert-custom-model-to-mlflow.md
           displayName: ncd, no code deploy, no-code deployment
@@ -633,9 +633,7 @@
       - name: Consume web service
         displayName: create client consume request response synchronous
         href: how-to-consume-web-service.md
-      - name: Update web service
-        displayName: update hot reload model mounting
-        href: how-to-deploy-update-web-service.md
+
       - name: Advanced entry script authoring
         displayName: swagger inference schema binary cors
         href: how-to-deploy-advanced-entry-script.md

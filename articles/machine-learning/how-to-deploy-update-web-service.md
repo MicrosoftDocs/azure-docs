@@ -12,7 +12,9 @@ ms.date: 10/21/2021
 ms.custom: deploy, cliv1, sdkv1
 ---
 
-# Update a deployed web service
+# Update a deployed web service (v1)
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 In this article, you learn how to update a web service that was deployed with Azure Machine Learning.
 
