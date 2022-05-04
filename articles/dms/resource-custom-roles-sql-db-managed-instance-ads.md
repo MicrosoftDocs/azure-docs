@@ -73,7 +73,7 @@ You can use either the Azure Portal, AZ PowerShell, Azure CLI or Azure Rest API 
 
 For more information, see the articles [Create custom roles using the Azure Portal](../role-based-access-control/custom-roles-portal.md) and [Azure custom roles](../role-based-access-control/custom-roles.md).
 
-# Description of permissions
+## Description of permissions needed to migrate to Azure SQL Managed Instance
 
 | Permission Action    | Description       |
 | ------------------------------------------- | --------------------------------------------------------------------|
