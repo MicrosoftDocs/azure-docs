@@ -63,6 +63,8 @@ This section contains an example of what that data would look like for each even
 ]
 ```
 
+[!INCLUDE [Public Preview](../communication-services/includes/public-preview-include-document.md)]
+
 ### Microsoft.Communication.CallStarted
 
 ```json
