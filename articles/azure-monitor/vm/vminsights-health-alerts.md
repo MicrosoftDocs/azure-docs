@@ -11,8 +11,8 @@ ms.date: 05/03/2022
 # VM insights guest health alerts (preview)
 VM insights guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. An alert can be created when a virtual machine or monitor changes to an unhealthy state. You can view and manage these alerts with [those created by alert rules in Azure Monitor](../alerts/alerts-overview.md) and choose to be proactively notified when a new alert is created.
 
-> [!IMPORTANT]
-> VM guest health will retire on 30 September 2023. See [Migrate from VM guest health to Azure Monitor Log alerts](vminsights-health-migrate.md) for information on migrating to Azure Monitor log alerts.
+[!INCLUDE [guest-health-deprecate](../../includes/azure-monitor-guest-health-deprecation.md)]
+
 ## Configure alerts
 You cannot create an explicit alert rule for VM insights guest health while this feature is in preview. By default, alerts will be created for each virtual machine but not for each monitor.  This means that if a monitor changes to a state that doesn't affect the current state of the virtual machine, then no alert is created because the virtual machine state didn't change. 
 

@@ -11,8 +11,8 @@ ms.date: 05/03/2022
 # Troubleshoot VM insights guest health (preview)
 This article describes troubleshooting steps that you can take when you have issues with VM insights health.
 
-> [!IMPORTANT]
-> VM guest health will retire on 30 September 2023. See [Migrate from VM guest health to Azure Monitor Log alerts](vminsights-health-migrate.md) for information on migrating to Azure Monitor log alerts.
+[!INCLUDE [guest-health-deprecate](../../includes/azure-monitor-guest-health-deprecation.md)]
+
 ## Installation errors
 If any of the following solutions don't solve your installation issue, collect VM Health agent log located at `/var/log/azure/Microsoft.Azure.Monitor.VirtualMachines.GuestHealthLinuxAgent/*.log` and contact Microsoft for further investigation.
 
