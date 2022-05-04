@@ -5,13 +5,13 @@ author: rochakm
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/07/2020
+ms.date: 04/29/2022
 ms.author: rochakm
 ---
 
 # Troubleshoot Azure-to-Azure VM replication errors
 
-This article describes how to troubleshoot common errors in Azure Site Recovery during replication and recovery of Azure virtual machines (VM) from one region to another. For more information about supported configurations, see the [support matrix for replicating Azure VMs](azure-to-azure-support-matrix.md).
+This article describes how to troubleshoot common errors in Azure Site Recovery during replication and recovery of [Azure virtual machines](azure-to-azure-tutorial-enable-replication.md) (VM) from one region to another. For more information about supported configurations, see the [support matrix for replicating Azure VMs](azure-to-azure-support-matrix.md).
 
 ## Azure resource quota issues (error code 150097)
 
@@ -31,7 +31,7 @@ Replication couldn't be enabled for the virtual machine <VmName>.
 
 ### Fix the problem
 
-Contact [Azure billing support](../azure-portal/supportability/regional-quota-requests.md) to enable your subscription to create VMs of the required sizes in the target location. Then, retry the failed operation.
+Contact [Azure billing support](../azure-portal/supportability/regional-quota-requests.md) to enable your subscription to create VMs of the required sizes in the target location. Then retry the failed operation.
 
 If the target location has a capacity constraint, disable replication to that location. Then, enable replication to a different location where your subscription has sufficient quota to create VMs of the required sizes.
 
