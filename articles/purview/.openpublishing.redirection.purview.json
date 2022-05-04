@@ -157,7 +157,7 @@
       },
       {
         "source_path_from_root": "/articles/purview/azure-purview-connector-overview.md",
-        "redirect_url": "/articles/purview/microsoft-purview-connector-overview",
+        "redirect_url": "/azure/purview/microsoft-purview-connector-overview",
         "redirect_document_id": true
       }
 ]
