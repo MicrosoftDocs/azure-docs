@@ -126,7 +126,7 @@ When you deploy a template, you specify a resource group that will contain the r
 ```azurepowershell
 New-AzResourceGroup `
   -Name myResourceGroup `
-  -Location "Central US"
+  -Location "East US"
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -134,7 +134,7 @@ New-AzResourceGroup `
 ```azurecli
 az group create \
   --name myResourceGroup \
-  --location "Central US"
+  --location "East US"
 ```
 
 ---
