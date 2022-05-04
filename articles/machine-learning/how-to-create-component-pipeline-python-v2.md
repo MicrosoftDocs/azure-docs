@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
-ms.date: 04/06/2022
+ms.date: 05/24/2022
 ms.custom: devx-track-python
 ---
 
@@ -106,7 +106,7 @@ For each component, you need to prepare the following staff:
 
 1. Prepare the python script containing the execution logic
 
-1. Define the interface of the component, 
+1. Define the interface of the component,
 
 1. Add other metadata of the component, including run-time environment, command to run the component, and etc.
 
@@ -117,7 +117,6 @@ The next section will show create components in two different ways: the first tw
 The first component in this pipeline will convert the compressed data files of `fashion_ds` into two csv files, one for training and the other for scoring. You'll use python function to define this component.
 
 If you're following along with the example in the [TODO: AzureML Examples repo](https://github.com/Azure/azureml-examples/tree/main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet), the source files are already available in `prep/` folder. This folder contains three files to construct the component: `prep.py`, which contains the actual logic to prepare data, `prep_dsl_component.py`, which defines the interface of the component and imports the function in `prep.py`, and `conda.yaml`, which defines the run-time environment of the component.
-
 
 #### Get a script containing execution logic
 
@@ -660,7 +659,7 @@ ml_client.jobs.stream(pipeline_job.name)
 
 ### Checkout outputs and debug your pipeline in UI
 
-You can open the `Link to Azure Machine Learning studio`, which is the job detail page of your pipeline. You will see the pipeline graph like following. 
+You can open the `Link to Azure Machine Learning studio`, which is the job detail page of your pipeline. You will see the pipeline graph like following.
 
 ![TODO: Pipeline job detail page](./media/how-to-create-component-pipeline-python-v2/pipeline-ui.png)
 
@@ -690,6 +689,6 @@ Using `ml_client.components.get()`, you can get a registered component by name a
 
 ## Next steps
 
-For more examples of how to build pipelines by using the machine learning SDK, see the [example repository](https://github.com/Azure/azureml-examples/sdk/jobx/pipelines).
+* For more examples of how to build pipelines by using the machine learning SDK, see the [example repository](https://github.com/Azure/azureml-examples/sdk/jobx/pipelines).
 
-For how to transform your original script to component, see [TODO: how to productionize your script](yijun's-doc).
+* For how to transform your original script to component, see [TODO: how to productionize your script](yijun's-doc).

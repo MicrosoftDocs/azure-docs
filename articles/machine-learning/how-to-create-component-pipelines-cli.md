@@ -5,9 +5,9 @@ description: Create and run machine learning pipelines using the Azure Machine L
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: larryfr
-author: blackmist
-ms.date: 03/31/2022
+ms.author: lagayhar
+author: lgayhardt
+ms.date:  05/24/2022
 ms.topic: how-to
 ms.custom: devplatv2, devx-track-azurecli 
 ms.devlang: azurecli, cliv2
@@ -23,13 +23,13 @@ In this article, you learn how to create and run [machine learning pipelines](co
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
+- If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-* You'll need an [Azure Machine Learning workspace](how-to-manage-workspace.md) for your pipelines and associated resources
+- You'll need an [Azure Machine Learning workspace](how-to-manage-workspace.md) for your pipelines and associated resources
 
-* [Install and set up the Azure CLI extension for Machine Learning](how-to-configure-cli.md)
+- [Install and set up the Azure CLI extension for Machine Learning](how-to-configure-cli.md)
 
-* Clone the examples repository:
+- Clone the examples repository:
 
     ```azurecli-interactive
     git clone https://github.com/Azure/azureml-examples --depth 1
@@ -37,9 +37,9 @@ In this article, you learn how to create and run [machine learning pipelines](co
     ```
 
 ### Suggested pre-reading
+
 - [What is Azure Machine Learning pipeline](./concept-ml-pipelines.md)
 - [What is Azure Machine Learning component](./concept-component.md)
-
 
 <!-- ## Outline of this article
 1. Create your first pipeline with component. 
