@@ -158,7 +158,7 @@ When a sensor setting is configured from the Azure portal, some settings on the 
 > [!IMPORTANT]
 > As soon as your sensor's connection to the Azure portal is resumed, any settings you configured from the sensor are overwritten by the settings defined in the Azure portal.
 >
-> If you modify settings on the sensor during an internet outage, make sure to remove the application from the Azure portal setting before you reconnect the sensor to the Internet.
+> If you modify settings on the sensor during an internet outage, make sure to change the scope of the relevant setting in the Azure portal so that it no longer includes the affected sensor. Do this before you reconnect the sensor to the internet so that the Azure setting doesn't overwrite your changes.
 
 **To unblock local sensor configurations**:
 
@@ -168,7 +168,7 @@ When a sensor setting is configured from the Azure portal, some settings on the 
 
     :::image type="content" source="media/how-to-manage-individual-sensors/remote-config-sensor.png" alt-text="Screenshot of the Azure Remote Config option.":::
 
-1. When your Internet returns, but before reconnecting your sensor to the Internet, in Defender for IoT, navigate to any setting you've applied to your sensor from the Azure cloud.
+1. Before reconnecting your sensor to the Internet, in Defender for IoT, navigate to any setting you've applied to your sensor from the Azure cloud.
 
     Remove the setting from your sensor before reconnecting your sensor to the Internet to prevent your local settings from being overwritten.
 
