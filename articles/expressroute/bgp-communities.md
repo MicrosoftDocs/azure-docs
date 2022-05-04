@@ -15,7 +15,7 @@ Managing a hybrid network can get increasingly complex as you deploy more Expres
 
 ## What is a BGP community?
 
-A Border Gateway Protocol (BGP) community is a group of IP prefixes that share a common property called a BGP community tag or value. In Azure, customers can now: 
+A Border Gateway Protocol (BGP) community is a group of IP prefixes that share a common property called a BGP community tag or value. In Azure, you can now: 
 
 * Set a custom BGP community value on each of your virtual networks. 
 
@@ -25,15 +25,15 @@ Once these values are configured on your virtual networks, ExpressRoute will pre
 
 ## Using community values for multi-region networks 
 
-A common scenario for when to use ExpressRoute is to access workloads deployed in your Azure virtual networks (VNets). ExpressRoute facilitates the exchange of Azure and on-premises private IP address ranges using a BGP session over a private connection. This feature enables a seamless extension of your existing networks into the Cloud. 
+A common scenario for when to use ExpressRoute is when you want to access workloads deployed in an Azure virtual network. ExpressRoute facilitates the exchange of Azure and on-premises private IP address ranges using a BGP session over a private connection. This feature enables a seamless extension of your existing networks into the cloud. 
 
-When you start using multiple ExpressRoute connections to multiple Azure regions, their traffic can take more than one path. A hybrid network architecture diagram below demonstrates the emergence of suboptimal routing when establishing a mesh network with multiple regions and ExpressRoute circuits: 
+When you have multiple ExpressRoute connections to virtual networks in different Azure regions, traffic can take more than one path. A hybrid network architecture diagram below demonstrates the emergence of a suboptimal route when establishing a mesh network with multiple regions and ExpressRoute circuits: 
 
 :::image type="content" source="./media/bgp-communities/bgp-community.png" alt-text="Diagram of optimal and suboptimal routing with ExpressRoute.":::
 
 To ensure traffic going to **Region A** takes the optimal path over **ER Circuit 1**, the customer could configure a route filter on-premises to ensure that **Region A** routes gets only learned at the customer edge from **ER Circuit 1**, and not learned at all by **ER Circuit 2**. This approach requires you to maintain a comprehensive list of IP prefixes in each region and regularly update this list whenever a new virtual network gets added or a private IP address space gets expanded in the cloud. As you continue to grow your presence in the Cloud, this burden can become excessive. 
 
-When virtual network IP prefixes gets learned on-premises with custom and regional BGP community values, you can configure your route filters based on these values instead of specific IP prefixes. When you decide to expand your address space or create more virtual networks in an existing region, you won't need to modify your route filter. Since it already contains rules for the corresponding community values. With the use of BGP communities, your multi-region hybrid networking can be simplified. 
+When virtual network IP prefixes gets learned on-premises with custom and regional BGP community values, you can configure your route filters based on these values instead of specific IP prefixes. When you decide to expand your address spaces or create more virtual networks in an existing region, you don't need to modify your route filter. The route filter will already have rules for the corresponding community values. With the use of BGP communities, your multi-region hybrid networking will be simplified. 
 
 ## Other uses of BGP communities
 
