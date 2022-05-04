@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 05/03/2022
+ms.date: 05/04/2022
 ms.author: cshoe
 zone_pivot_groups: container-apps-config-types
 ---
@@ -17,7 +17,7 @@ A container app has access to different types of storage. A single app can take 
 | Storage type | Description | Usage examples |
 |--|--|--|
 | [Container file system](#container-filesystem) | Temporary storage scoped to the environment | Writing a local app cache.  |
-| [Ephemeral storage](#ephemeral-storage) | Temporary storage scoped to an individual replica | Sharing files between containers in a replica. For instance, the main app container can write log files that are processed by a sidecar container. |
+| [Temporary storage](#temporary-storage) | Ephemeral storage scoped to an individual replica | Sharing files between containers in a replica. For instance, the main app container can write log files that are processed by a sidecar container. |
 | [Azure Files](#azure-files) | Permanent storage | Write files to a file share to make data accessible by other systems. |
 
 ## Container filesystem
@@ -30,19 +30,19 @@ Container filesystem storage has the following characteristics:
 * Files written to this storage are only visible to processes running in the current container.
 * There are no capacity guarantees. The available storage depends on the amount of disk space available in the container.
 
-## Ephemeral storage
+## Temporary storage
 
-You can mount an ephemeral volume that is equivalent to [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) in Kubernetes. Ephemeral storage is temporary storage that is scoped to a single replica.
+You can mount an ephemeral volume that is equivalent to [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) in Kubernetes. Temporary storage is scoped to a single replica.
 
-Ephemeral storage has the following characteristics:
+Temporary storage has the following characteristics:
 
 * Files are persisted for the lifetime of the replica.
     * If a container in a replica restarts, the files in the volume remain.
 * Any containers in the replica can mount the same volume.
-* More than one ephemeral volume can be mounted in a container.
+* More than one temporary volume can be mounted in a container.
 * There are no capacity guarantees. The available storage depends on the amount of disk space available in the replica.
 
-To configure ephemeral storage, first define an `EmptyDir` volume in the revision. Then define a volume mount in one or more containers in the revision.
+To configure temporary storage, first define an `EmptyDir` volume in the revision. Then define a volume mount in one or more containers in the revision.
 
 ### Prerequisites
 
@@ -55,14 +55,14 @@ To configure ephemeral storage, first define an `EmptyDir` volume in the revisio
 
 ::: zone pivot="aca-cli"
 
-When using ephemeral storage, you must use the Azure CLI with a YAML definition to create or update your container app.
+When using temporary storage, you must use the Azure CLI with a YAML definition to create or update your container app.
 
 1. Make the following changes to your container app definition.
 
     - Add a `volumes` array to the `template` section of your container app definition and define a volume.
         - The `name` is an identifier for the volume.
         - Use `EmptyDir` as the `storageType`.
-    - For each container in the template that you want to mount ephemeral storage, add a `volumeMounts` array to the container definition and define a volume mount.
+    - For each container in the template that you want to mount temporary storage, add a `volumeMounts` array to the container definition and define a volume mount.
         - The `volumeName` is the name defined in the `volumes` array.
         - The `mountPath` is the path in the container to mount the volume.
 
@@ -99,12 +99,12 @@ When using ephemeral storage, you must use the Azure CLI with a YAML definition 
 
 ::: zone pivot="aca-arm"
 
-To create an ephemeral volume and mount it in a container, make the following changes to the container apps resource:
+To create a temporary volume and mount it in a container, make the following changes to the container apps resource:
 
 - Add a `volumes` array to the `template` section of your container app definition and define a volume.
     - The `name` is an identifier for the volume.
     - Use `EmptyDir` as the `storageType`.
-- For each container in the template that you want to mount ephemeral storage, add a `volumeMounts` array to the container definition and define a volume mount.
+- For each container in the template that you want to mount temporary storage, add a `volumeMounts` array to the container definition and define a volume mount.
     - The `volumeName` is the name defined in the `volumes` array.
     - The `mountPath` is the path in the container to mount the volume.
 
@@ -153,7 +153,7 @@ Example ARM template snippet:
 }
 ```
 
-See [ARM template API specification](azure-resource-manager-api-spec.md) for a full example.
+See the [ARM template API specification](azure-resource-manager-api-spec.md) for a full example.
 
 ::: zone-end
 
@@ -339,6 +339,6 @@ The following ARM template snippets demonstrate how to add an Azure Files share 
         - The `volumeName` is the name defined in the `volumes` array.
         - The `mountPath` is the path in the container to mount the volume.
 
-See [ARM template API specification](azure-resource-manager-api-spec.md) for a full example.
+See the [ARM template API specification](azure-resource-manager-api-spec.md) for a full example.
 
 ::: zone-end
