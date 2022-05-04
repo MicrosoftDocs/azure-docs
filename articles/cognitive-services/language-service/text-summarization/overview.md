@@ -15,7 +15,7 @@ ms.custom: language-service-summarization, ignite-fall-2021
 
 # What is document and conversation summarization (preview)?
 
-Text summarization enables you to use extractive and abstractive summarization in your applications. The summarization features described in this documentation are offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language.
+Document and conversation summarization enables you to use extractive and abstractive summarization in your applications. The summarization features described in this documentation are offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language.
 
 ## Summarization options
 
