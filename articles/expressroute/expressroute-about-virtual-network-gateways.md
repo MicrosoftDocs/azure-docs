@@ -137,7 +137,7 @@ For additional technical resources and specific syntax requirements when using R
 
 ## VNet-to-VNet connectivity
 
-By default, connectivity between virtual networks are enabled when you link multiple virtual networks to the same ExpressRoute circuit. However, Microsoft advises against using your ExpressRoute circuit for communication between virtual networks and instead use [VNet peering](../virtual-network/virtual-network-peering-overview.md). For more information about why VNet-to-VNet connectivity is not recommeneded over ExpressRoute, see [connectivity between virtual networks over ExpressRoute](virtual-network-connectivity-guidance.md).
+By default, connectivity between virtual networks are enabled when you link multiple virtual networks to the same ExpressRoute circuit. However, Microsoft advises against using your ExpressRoute circuit for communication between virtual networks and instead use [VNet peering](../virtual-network/virtual-network-peering-overview.md). For more information about why VNet-to-VNet connectivity is not recommended over ExpressRoute, see [connectivity between virtual networks over ExpressRoute](virtual-network-connectivity-guidance.md).
 
 ## Next steps
 
