@@ -245,7 +245,7 @@ For forecasting experiments, the forecast horizon chart plots the relationship b
 You can choose which cross validation fold and time series identifier combinations to display by clicking the edit pencil icon on the top right corner of the chart. Select from the first 5 cross validation folds and up to 20 different time series identifiers to visualize the chart for your various time series.  
 
 > [!IMPORTANT]
-> This chart is only available for models generated from training and validation data.  Visuals for models based on test data are not supported at this time. 
+> This chart is only available for models generated from training and validation data. We allow up to 20 data points before and up to 80 data points after the forecast origin. Visuals for models based on test data are not supported at this time. 
 
 ![Forecast horizon chart](./media/how-to-understand-automated-ml/forecast-horizon.png)
 
