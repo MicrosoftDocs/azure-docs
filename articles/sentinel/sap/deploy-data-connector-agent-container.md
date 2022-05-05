@@ -39,7 +39,7 @@ Deployment of the SAP continuous threat monitoring solution is divided into the 
 
 For the Continuous Threat Monitoring solution for SAP to operate correctly, data must first be ingested from SAP system into Microsoft Sentinel. To accomplish this, you need to deploy the Continuous Threat Monitoring solution for SAP data connector agent.
 
-The data connector agent runs as a container on a Linux virtual machine (VM). This VM can be hosted either in Azure, in a third-party cloud, or on-premises. The recommended way for you to install and configure this container is by using a *kickstart* script, however you can choose do deploy the container [manually](#tab/deploy-manually)
+The data connector agent runs as a container on a Linux virtual machine (VM). This VM can be hosted either in Azure, in a third-party cloud, or on-premises. The recommended way for you to install and configure this container is by using a *kickstart* script, however you can choose do deploy the container [manually](?tabs=deploy-manually)
 
 The agent connects to your SAP system to pull logs and other data from it, then sends those logs to your Microsoft Sentinel. To do this, the agent has to authenticate to your SAP system - that's why you created a user and a role for the agent in your SAP system in the previous step. 
 
