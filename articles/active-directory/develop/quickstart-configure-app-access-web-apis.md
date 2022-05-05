@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 04/22/2022
+ms.date: 05/05/2022
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1, mode-api
 ms.reviewer: lenalepa, aragra, sureshja
@@ -142,7 +142,7 @@ The **Grant admin consent** button is *disabled* if you aren't an admin or if no
 
 ## Next steps
 
-Advance to the next quickstart in the series to learn how to configure which account types can access your application. For example, you might want to limit access only to those users in your organization (single-tenant) or allow users in other Azure AD tenants (multi-tenant) and those with personal Microsoft accounts (MSA).
+Advance to the next quickstart in the series to learn how to configure which account types can access your application. For example, you might want to limit access only to those users in your organization (single-tenant) or allow users in other Azure Active Directory (Azure AD) tenants (multi-tenant) and those with personal Microsoft accounts (MSA).
 
 > [!div class="nextstepaction"]
 > [Modify the accounts supported by an application](./howto-modify-supported-accounts.md)
