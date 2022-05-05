@@ -5,14 +5,14 @@ author: schaffererin
 ms.service: iot-hub
 services: iot-hub
 ms.topic: quickstart
-ms.date: 05/03/2022
+ms.date: 05/05/2022
 ms.author: v-eschaffer
 ms.custom: mvc, subject-armqs, mode-arm
 ---
 
 # Quickstart: Deploy an Azure IoT Hub and a storage account using Bicep
 
-In this quickstart, you use Bicep to create an IoT Hub that will route messages to Azure Storage, and a storage account to hold the messages. After manually adding a virtual IoT device to the hub to submit the messages, you configure that connection information in an application called  *arm-read-write* to submit messages from the device to the hub. The hub is configured so the messages sent to the hub are automatically routed to the storage account. At the end of this quickstart, you can open the storage account and see the messages sent.
+In this quickstart, you use Bicep to create an IoT Hub that will route messages to Azure Storage and a storage account to hold the messages. After manually adding a virtual IoT device to the hub to submit the messages, you configure that connection information in an application called  *arm-read-write* to submit messages from the device to the hub. The hub is configured so the messages sent to the hub are automatically routed to the storage account. At the end of this quickstart, you can open the storage account and see the messages sent.
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -61,7 +61,7 @@ This section provides the steps to deploy the Bicep file, create a virtual devic
 
    ![Select the resource group](./media/horizontal-arm-route-messages/01-select-resource-group.png)
 
-1. You see the IoT Hub and storage account that were created when you deployed the ARM template. Wait until the template is fully deployed before continuing. Then select your resource group to see your resources.
+1. You see the IoT Hub and storage account that were created when you deployed the Bicep file. Wait until the file is fully deployed before continuing. Then select your resource group to see your resources.
 
    ![View resources in the resource group](./media/horizontal-arm-route-messages/02-view-resources-in-group.png)
 
@@ -113,7 +113,7 @@ This section provides the steps to deploy the Bicep file, create a virtual devic
 
     `dotnet run arm-read-write`
 
-   The application generates and displays messages on the console as it sends each message to the IoT hub. The hub was configured in the ARM template to have automated routing. Messages containing the text `level = storage` are automatically routed to the storage account. Let the app run for 10 to 15 minutes, then press **Enter** once or twice until it stops running.
+   The application generates and displays messages on the console as it sends each message to the IoT hub. The hub was configured in the Bicep file to have automated routing. Messages containing the text `level = storage` are automatically routed to the storage account. Let the app run for 10 to 15 minutes, then press **Enter** once or twice until it stops running.
 
 ## Review deployed resources
 
@@ -125,7 +125,7 @@ This section provides the steps to deploy the Bicep file, create a virtual devic
 
 1. Select one of the files and select **Download** and download the file to a location you can find later. It will have a name that's numeric, like 47. Add _.txt_ to the end and then double-click on the file to open it.
 
-1. When you open the file, each row is for a different message; the body of each message is also encrypted. It must be in order for you to perform queries against the body of the message.
+1. When you open the file, each row is for a different message. The body of each message is also encrypted. It must be in order for you to perform queries against the body of the message.
 
    ![View the sent messages](./media/horizontal-arm-route-messages/08-messages.png)
 
