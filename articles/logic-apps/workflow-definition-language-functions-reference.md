@@ -2094,7 +2094,7 @@ formatDateTime('<timestamp>', '<format>'?, '<locale>'?)
 |-----------|----------|------|-------------|
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
 | <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
-| <*locale*> | No | String | The locale to use. <br><br>- If unspecified, the value is `en-us`. <br><br>- If *locale* isn't a valid value, an error is generated. |
+| <*locale*> | No | String | The locale to use. If unspecified, the value is `en-us`. If *locale* isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -3529,7 +3529,7 @@ parseDateTime('<timestamp>', '<locale>'?, '<format>'?)
 |-----------|----------|------|-------------|
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
 | <*locale*> | No | String | The locale to use. <br><br>If not specified, the default locale is `en-us`. <br><br>If *locale* isn't a valid value, an error is generated. |
-| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>- If the format isn't specified, attempt parsing with multiple formats that are compatible with the provided locale. <br><br>- If the format isn't a valid value, an error is generated. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. If the format isn't specified, attempt parsing with multiple formats that are compatible with the provided locale. If the format isn't a valid value, an error is generated. |
 ||||
 
 | Return value | Type | Description |
