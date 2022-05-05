@@ -55,7 +55,7 @@ This guide assumes you don't have a managed identity, a storage account or an on
     cd azureml-examples/cli
     ```
 
-## Limitattions
+## Limitations
 
 * The identity for an endpoint is immutable. During endpoint creation, you can associate it with a system-assigned identity (default) or a user-assigned identity. You can't change the identity after the endpoint has been created.
 
