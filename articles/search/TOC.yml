@@ -336,6 +336,8 @@
         href: search-howto-managed-identities-cosmos-db.md
       - name: SQL Database
         href: search-howto-managed-identities-sql.md
+      - name: SQL Managed Instance
+        href: search-index-azure-sql-managed-instance-with-managed-identity.md
     - name: Troubleshooting guidance
       href: search-indexer-troubleshooting.md
     - name: Troubleshoot indexer errors and warnings

@@ -81,7 +81,7 @@ Azure Active Directory based authentication is an integrated authentication appr
 
 #### Basic authentication
 
-A basic authentication approach requires user to configure `username` and `password` options. Refer to the section - [Configuration Options](#configuration-options) to learn about relevant configuration parameters for reading from and writing to tables in Azure Synapse Dedicated SQL Pool.
+A basic authentication approach requires user to configure `username` and `password` options. Refer to the section - [Configuration options](#configuration-options) to learn about relevant configuration parameters for reading from and writing to tables in Azure Synapse Dedicated SQL Pool.
   
 ### Authorization
 
@@ -171,7 +171,7 @@ Following is the list of configuration options based on usage scenario:
       * `Constants.DATA_SOURCE` is a required configuration option.
       * The connector uses the storage path set on the data source's location parameter in combination with the `location` argument to the `synapsesql` method and derives the absolute path to persist external table data.
       * If the `location` argument to `synapsesql` method isn't specified, then the connector will derive the location value as `<base_path>/dbName/schemaName/tableName`.
-* **Write using Basic Authentication**
+* **Write using basic authentication**
   * Azure Synapse Dedicated SQL End Point
     * `Constants.SERVER` - - Synapse Dedicated SQL Pool End Point (Server FQDN).
     * `Constants.USER` - SQL User Name.
@@ -207,7 +207,7 @@ val dfToReadFromTable:DataFrame = spark.read.
     //If `Constants.SERVER` is not provided, the `<database_name>` from the three-part table name argument 
     //to `synapsesql` method is used to infer the Synapse Dedicated SQL End Point.
     option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net").
-    //Defaults to storage path defined in the runtime configurations (See section on Configuration Options above).
+    //Defaults to storage path defined in the runtime configurations
     option(Constants.TEMP_FOLDER, "abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<some_base_path_for_temporary_staging_folders>").
     //Three-part table name from where data will be read.
     synapsesql("<database_name>.<schema_name>.<table_name>").
@@ -340,7 +340,7 @@ readDF.
 if(errorDuringWrite.isDefined) throw errorDuringWrite.get
 ```
 
-#### Write using Basic Authentication
+#### Write using basic authentication
 
 Following code snippet replaces the write definition described in the [Write using Azure AD based authentication](#write-using-azure-ad-based-authentication) section, to submit write request using SQL basic authentication approach:
 
