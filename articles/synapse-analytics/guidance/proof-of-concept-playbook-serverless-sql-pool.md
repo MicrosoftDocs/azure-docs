@@ -1,15 +1,15 @@
 ---
-title: Data lake exploration with serverless SQL pool
+title: "Synapse POC playbook: Data lake exploration with serverless SQL pool in Azure Synapse Analytics"
 description: A high-level methodology for preparing and running an effective Azure Synapse Analytics proof of concept (POC) project for serverless SQL pool.
 author: peter-myers
 ms.author: v-petermyers
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 04/30/2022
+ms.date: 05/23/2022
 ---
 
-# Synapse POC playbook: Data lake exploration with serverless SQL pool
+# Synapse POC playbook: Data lake exploration with serverless SQL pool in Azure Synapse Analytics
 
 This article presents a high-level methodology for preparing and running an effective Azure Synapse Analytics proof of concept (POC) project for serverless SQL pool.
 
@@ -19,60 +19,60 @@ This article presents a high-level methodology for preparing and running an effe
 
 A POC project can help you make an informed business decision about implementing a big data and advanced analytics environment on a cloud-based platform that leverages serverless SQL pool in Azure Synapse. If you need to explore or gain insights from data in the data lake, or optimize your existing data transformation pipeline, you can benefit from using the serverless SQL pool. It's suitable for the following scenarios:
 
-- **Basic discovery and exploration** - Quickly reason about data in various formats (Parquet, CSV, JSON) in your data lake, so you can plan how to extract insights from it.
-- **Logical data warehouse** – Produce a relational abstraction on top of raw or disparate data without relocating and transforming it, providing an always up-to-date view of your data.
-- **Data transformation** - Deliver simple, scalable, and highly performant querying of data lake data by using T-SQL. You can feed query results to business intelligence (BI) and other tools, or load them into a relational database. Target systems can include dedicated SQL pools in Azure Synapse or Azure SQL Database.
+- **Basic discovery and exploration:** Quickly reason about data stored in various formats (Parquet, CSV, JSON) in your data lake, so you can plan how to unlock insights from it.
+- **Logical data warehouse:** Produce a relational abstraction on top of raw or disparate data without relocating or transforming it, providing an always up-to-date view of your data.
+- **Data transformation:** Run simple, scalable, and highly performant data lake queries by using T-SQL. You can feed query results to business intelligence (BI) tools, or load them into a relational database. Target systems can include Azure Synapse dedicated SQL pools or Azure SQL Database.
 
 Different professional roles can benefit from serverless SQL pool:
 
-- **Data engineers** can explore the lake, transform and prepare data by using this service, and simplify their data transformation pipelines.
-- **Data scientists** can quickly reason about the contents and structure of the data in the data lake, by using the OPENROWSET T-SQL function and its automatic schema inference.
+- **Data engineers** can explore the data lake, transform and prepare data by using serverless SQL pool, and simplify their data transformation pipelines.
+- **Data scientists** can quickly reason about the contents and structure of the data stored in the data lake by using the [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15&viewFallbackFrom=azure-sqldw-latest) T-SQL function and its automatic schema inference.
 - **Data analysts** can write T-SQL queries in their preferred query tools, which can connect to serverless SQL pool. They can explore data in Spark external tables that were created by data scientists or data engineers.
 - **BI professionals** can quickly create Power BI reports that connect to data lake or Spark tables.
 
-In support of your business scenarios, a serverless SQL pool POC project will identify your key goals and business drivers that a serverless SQL Pool is aligned to support. It will also test key features and gather metrics to support your implementation decisions.
-
-A POC isn't designed to be deployed to a production environment. Rather, it's a short-term project that focuses on key questions, and its result can be discarded.
+A serverless SQL pool POC project will identify your key goals and business drivers that serverless SQL pool is designed to support. It will also test key features and gather metrics to support your implementation decisions. A POC isn't designed to be deployed to a production environment. Rather, it's a short-term project that focuses on key questions, and its result can be discarded.
 
 Before you begin planning your serverless SQL Pool POC project:
 
-- Identify any restrictions or guidelines your organization has about moving data to the cloud.
-- Identify executive or business sponsors for a big data and advance analytics platform project. Secure their support for migration to the cloud.
-- Identify availability of technical experts and business users to support you during POC execution.
+> [!div class="checklist"]
+> - Identify any restrictions or guidelines your organization has about moving data to the cloud.
+> - Identify executive or business sponsors for a big data and advanced analytics platform project. Secure their support for migration to the cloud.
+> - Identify availability of technical experts and business users to support you during the POC execution.
 
-Before you start preparing for the POC project, we recommend that you first read the [serverless SQL pool documentation](../sql/on-demand-workspace-overview.md).
+Before you start preparing for the POC project, we recommend you first read the [serverless SQL pool documentation](../sql/on-demand-workspace-overview.md).
 
 > [!TIP]
-> If you are new to serverless SQL Pools in Azure Synapse, we recommend you work through the [Build data analytics solutions using Azure Synapse serverless SQL pools](/learn/paths/build-data-analytics-solutions-using-azure-synapse-serverless-sql-pools/) learning path.
+> If you're new to serverless SQL pools, we recommend you work through the [Build data analytics solutions using Azure Synapse serverless SQL pools](/learn/paths/build-data-analytics-solutions-using-azure-synapse-serverless-sql-pools/) learning path.
 
 ### Set the goals
 
-A successful POC project requires planning. First identify why you're doing a POC to understand the real motivations. Motivations could include modernization, cost saving, performance improvement, or integrated experience. Document clear goals for your POC and the criteria that will define its success. Ask yourself:
+A successful POC project requires planning. Start by identify why you're doing a POC to fully understand the real motivations. Motivations could include modernization, cost saving, performance improvement, or integrated experience. Be sure to document clear goals for your POC and the criteria that will define its success. Ask yourself:
 
 > [!div class="checklist"]
 > - What do you want as the outputs of your POC?
 > - What will you do with those outputs?
 > - Who will use the outputs?
-> - What will define a successful PoC?
+> - What will define a successful POC?
 
-Keep in mind that a POC should be a short and focused effort to quickly prove a limited set of concepts and capabilities. These concepts and capabilities should be representative of the overall workload. If you have a long list of items to prove, you may want to plan more than one POC. In this case, define gates between the POCs to determine whether you need the next one. Given the different professional roles that can use a serverless SQL pool (and the different scenarios where serverless SQL pool can be used), you may choose to execute multiple POCs. For example, one POC can focus on requirements for the data scientist role, such as discovery and exploration of data in different formats. Another can focus on requirements for the data engineering role, such as data transformation and the creation of a logical data warehouse.
+Keep in mind that a POC should be a short and focused effort to quickly prove a limited set of concepts and capabilities. These concepts and capabilities should be representative of the overall workload. If you have a long list of items to prove, you may want to plan more than one POC. In that case, define gates between the POCs to determine whether you need to continue with the next one. Given the different professional roles that can use a serverless SQL pool (and the different scenarios that serverless SQL pool supports), you may choose to execute multiple POCs. For example, one POC could focus on requirements for the data scientist role, such as discovery and exploration of data in different formats. Another could focus on requirements for the data engineering role, such as data transformation and the creation of a logical data warehouse.
 
-As you consider your POC goals, keep the following questions in mind to help you shape the goals:
+As you consider your POC goals, ask yourself the following questions to help you shape the goals:
 
-- Are you migrating from an existing big data and advanced analytics platform (on-premises or cloud)?
-- Are you migrating but want to make as few changes to existing ingestion and data processing as possible?
-- Are you migrating but want to do some extensive improvements along the way?
-- Are you building an entirely new big data and advanced analytics platform (green field project)?
-- What are your current pain points, like scalability, performance, or flexibility?
-- What new business needs do you need to support?
-- What are the SLAs that you're required to meet?
-- What will be the workloads? For example, data exploration over different data formats, basic exploration, a logical data warehouse, data preparation and/or transformation, T-SQL interactive analysis, T-SQL querying of Spark tables, reporting queries over the data lake?
-- What are the skills of the users who will own the project should the POC be implemented?
+> [!div class="checklist"]
+> - Are you migrating from an existing big data and advanced analytics platform (on-premises or cloud)?
+> - Are you migrating but want to make as few changes as possible to existing ingestion and data processing?
+> - Are you migrating but want to do some extensive improvements along the way?
+> - Are you building an entirely new big data and advanced analytics platform (greenfield project)?
+> - What are your current pain points? For example, scalability, performance, or flexibility.
+> - What new business requirements do you need to support?
+> - What are the SLAs that you're required to meet?
+> - What will be the workloads? For example, data exploration over different data formats, basic exploration, a logical data warehouse, data preparation and/or transformation, T-SQL interactive analysis, T-SQL querying of Spark tables, or reporting queries over the data lake.
+> - What are the skills of the users who will own the project (should the POC be implemented)?
 
 Here are some examples of POC goal setting:
 
 - Why are we doing a POC?
-    - We need to know if all of the raw file formats we store can be explored by using serverless SQL pool.
+    - We need to know if we can explore all of the raw file formats we store by using serverless SQL pool.
     - We need to know if our data engineers can quickly evaluate new data feeds.
     - We need to know if data lake query performance by using serverless SQL pool will meet our data exploration requirements.
     - We need to know if serverless SQL pool is a good choice for some of our visualizations and reporting requirements.
@@ -84,43 +84,44 @@ Here are some examples of POC goal setting:
     - We will have the data to know the ease with which our data engineers and data scientists can adopt the new platform.
     - We will have gained insight to better estimate the effort required to complete the implementation or migration project.
     - We will have a list of items that may need more testing.
-    - Our POC will be successful if we have the data needed and have completed the testing identified to determine how serverless SQL pool in Azure Synapse will support our cloud-based big data and advance analytics platform.
+    - Our POC will be successful if we have the data needed and have completed the testing identified to determine how serverless SQL pool will support our cloud-based big data and advance analytics platform.
     - We will have determined whether we can move to the next phase or whether more POC testing is needed to finalize our decision.
     - We will be able to make a sound business decision supported by specific data points.
 
 ### Plan the project
 
-Use your goals to identify specific tests and to provide the outputs you identified. It's important to make sure that you have at least one test to support each goal and expected output. Also, identify specific data exploration and analysis tasks, specific transformations, specific existing processing you want to test. Identify a specific dataset and codebase that you can use.
+Use your goals to identify specific tests and to provide the outputs you identified. It's important to make sure that you have at least one test to support each goal and expected output. Also, identify specific data exploration and analysis tasks, specific transformations, and specific existing processing you want to test. Identify a specific dataset and codebase that you can use.
 
 Here's an example of the needed level of specificity in planning:
 
-- **Goal** - We need to know whether data engineers can achieve the equivalent processing of the existing ETL process named "Daily Batch Raw File Validation" within the required SLA.
-- **Output** - We will have the data to determine whether we can use T-SQL queries to execute the "Daily Batch Raw File Validation" ETL process within the required SLA.
-- **Test** - Validation queries A, B, and C are identified by data engineering, and they represent overall data processing needs. Compare the performance of these queries with the benchmark obtained from the existing system.
+- **Goal:** We need to know whether data engineers can achieve the equivalent processing of the existing ETL process named "Daily Batch Raw File Validation" within the required SLA.
+- **Output:** We will have the data to determine whether we can use T-SQL queries to execute the "Daily Batch Raw File Validation" ETL process within the required SLA.
+- **Test:** Validation queries A, B, and C are identified by data engineering, and they represent overall data processing needs. Compare the performance of these queries with the benchmark obtained from the existing system.
 
 ### Evaluate the POC dataset
 
-Using the specific tests you identify, select a dataset to support the tests. Take time to review this dataset. You should verify that the dataset will adequately represent your future processing in terms of content, complexity, and scale. Don't use a dataset that's too small because it won't provide representative performance. Conversely, don't use a dataset that's too large because the POC shouldn't become a full data migration. Be sure to obtain the appropriate benchmarks from existing systems. You will use them for performance comparisons.
+Using the specific tests you identified, select a dataset to support the tests. Take time to review this dataset. You should verify that the dataset will adequately represent your future processing in terms of content, complexity, and scale. Don't use a dataset that's too small because it won't deliver representative performance. Conversely, don't use a dataset that's too large because the POC shouldn't become a full data migration. Be sure to obtain the appropriate benchmarks from existing systems so you can use them for performance comparisons.
 
-Make sure you check with business owners for any blockers before moving any data to the cloud. Identify any security or privacy concerns or any data obfuscation needs that should be done before moving data to the cloud.
+> [!IMPORTANT]
+> Make sure you check with business owners for any blockers before moving any data to the cloud. Identify any security or privacy concerns or any data obfuscation needs that should be done before moving data to the cloud.
 
 ### Create a high-level architecture
 
-Based upon the high-level architecture of your proposed future state architecture, identify the components that will form part of your POC. Your high-level future state architecture likely contains many data sources, numerous data consumers, big data components, and possibly machine learning (ML) and artificial intelligence (AI) data consumers. Your POC architecture should specifically identify components that will be part of the POC. As important, it should identify which components won't form part of the POC testing.
+Based upon the high-level architecture of your proposed future state architecture, identify the components that will form part of your POC. Your high-level future state architecture likely contains many data sources, numerous data consumers, big data components, and possibly machine learning and artificial intelligence (AI) data consumers. Your POC architecture should specifically identify components that will be part of the POC. Importantly, it should identify any components that won't form part of the POC testing.
 
 If you're already using Azure, identify any resources you already have in place (Azure Active Directory, ExpressRoute, and others) that you can use during the POC. Also identify the Azure regions your organization uses. Now is a great time to identify the throughput of your ExpressRoute connection and to check with other business users that your POC can consume some of that throughput without adverse impact on production systems.
 
 ### Identify POC resources
 
-Specifically identify the technical resources and time commitments that will be required to support your POC. Your POC will need:
+Specifically identify the technical resources and time commitments required to support your POC. Your POC will need:
 
 - A business representative to oversee requirements and results.
-- An application data expert, to source the data for the POC and provide knowledge of the existing process and logic.
-- An Azure Synapse serverless SQL pool expert.
+- An application data expert, to source the data for the POC and provide knowledge of the existing processes and logic.
+- A serverless SQL pool expert.
 - An expert advisor, to optimize the POC tests.
-- Resources that will be required for specific components of your POC project, but not necessarily required for the duration of the POC. These resources could include network admins, Azure admin, Active Directory admins, Azure portal admins, and others.
+- Resources that will be required for specific components of your POC project, but not necessarily required for the duration of the POC. These resources could include network admins, Azure admins, Active Directory admins, Azure portal admins, and others.
 - Ensure all the required Azure services resources are provisioned and the required level of access is granted, including access to storage accounts.
-- Ensure you have an account that has required data access permission to retrieve data from all the data sources in the scope of the POC.
+- Ensure you have an account that has required data access permissions to retrieve data from all data sources in the POC scope.
 
 > [!TIP]
 > We recommend engaging an expert advisor to assist with your POC. [Microsoft's partner community](https://appsource.microsoft.com/marketplace/partner-dir) has global availability of expert consultants who can help you assess, evaluate, or implement Azure Synapse.
@@ -131,7 +132,7 @@ Review your POC planning details and business needs to identify a time frame for
 
 ## Put the POC into practice
 
-Execute your POC project with the discipline and rigor of any production project. Run the project according to plan and manage a change request process to prevent uncontrolled growth of the POC's scope.
+We recommend you execute your POC project with the discipline and rigor of any production project. Run the project according to plan and manage a change request process to prevent uncontrolled growth of the POC's scope.
 
 Here are some examples of high-level tasks:
 
@@ -140,27 +141,27 @@ Here are some examples of high-level tasks:
 1. Grant appropriate access to POC team members. See [this article](../sql/develop-storage-files-storage-access-control.md) about permissions for accessing files directly from Azure Storage.
 1. Load the POC dataset.
 1. Implement and configure the tests and/or migrate existing code to serverless SQL pool scripts and views.
-1. Execute tests:
+1. Execute the tests:
     - Many tests can be executed in parallel.
     - Record your results in a consumable and readily understandable format.
 1. Monitor for troubleshooting and performance.
-1. Evaluate your results and present the findings.
-1. Work with technical stakeholders and the business to plan for the next phase of the project. The next step could be a follow-up POC or a production implementation.
+1. Evaluate your results and present findings.
+1. Work with technical stakeholders and the business to plan for the next stage of the project. The next stage could be a follow-up POC or a production implementation.
 
 ## Interpret the POC results
 
-When you complete all the POC tests, you can then evaluate the results. Begin by evaluating whether the POC goals were met and the desired outputs collected. Determine whether more testing is warranted or other questions need addressing.
+When you complete all the POC tests, you evaluate the results. Begin by evaluating whether the POC goals were met and the desired outputs were collected. Determine whether more testing is necessary or any questions need addressing.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Data lake exploration with dedicated SQL pool](proof-of-concept-playbook-dedicated-sql-pool.md)
+> [Data lake exploration with dedicated SQL pool in Azure Synapse Analytics](proof-of-concept-playbook-dedicated-sql-pool.md)
 
 > [!div class="nextstepaction"]
-> [Big data analytics with Apache Spark pool](proof-of-concept-playbook-apache-spark-pool.md)
+> [Big data analytics with Apache Spark pool in Azure Synapse Analytics](proof-of-concept-playbook-apache-spark-pool.md)
 
 > [!div class="nextstepaction"]
 > [Build data analytics solutions using Azure Synapse serverless SQL pools](/learn/paths/build-data-analytics-solutions-using-azure-synapse-serverless-sql-pools/)
 
 > [!div class="nextstepaction"]
-> [Frequently asked questions](../overview-faq.yml)
+> [Azure Synapse Analytics frequently asked questions](../overview-faq.yml)

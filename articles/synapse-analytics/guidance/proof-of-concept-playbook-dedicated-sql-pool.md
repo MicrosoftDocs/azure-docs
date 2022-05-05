@@ -1,15 +1,15 @@
 ---
-title: Data warehousing with dedicated SQL pool
+title: "Synapse POC playbook: Data warehousing with dedicated SQL pool in Azure Synapse Analytics"
 description: A high-level methodology for preparing and running an effective Azure Synapse Analytics proof of concept (POC) project for dedicated SQL pool.
 author: peter-myers
 ms.author: v-petermyers
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 04/30/2022
+ms.date: 05/23/2022
 ---
 
-# Synapse POC playbook: Data warehousing with dedicated SQL pool
+# Synapse POC playbook: Data warehousing with dedicated SQL pool in Azure Synapse Analytics
 
 This article presents a high-level methodology for preparing and running an effective Azure Synapse Analytics proof of concept (POC) project for dedicated SQL pool.
 
@@ -33,9 +33,9 @@ A POC is a scoped, time-bounded exercise with specific, measurable goals and met
 
 POCs have the best outcome when they're *timeboxed*. Timeboxing allocates a fixed and maximum unit of time to an activity. In our experience, two weeks provides enough time to complete the work without the burden of too many use cases or complex test matrices. Working within this fixed time period, we suggest that you follow this timeline:
 
-1. **Data loading** - Three days or less
-1. **Querying** - Five days or less
-1. **Value added tests** - Two days or less
+1. **Data loading:** Three days or less
+1. **Querying:** Five days or less
+1. **Value added tests:** Two days or less
 
 Here are some tips:
 
@@ -295,10 +295,10 @@ In summary, once you complete all the POC tests, you're ready to evaluate the re
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Data lake exploration with serverless SQL pool](proof-of-concept-playbook-serverless-sql-pool.md)
+> [Data lake exploration with serverless SQL pool in Azure Synapse Analytics](proof-of-concept-playbook-serverless-sql-pool.md)
 
 > [!div class="nextstepaction"]
-> [Big data analytics with Apache Spark pool](proof-of-concept-playbook-apache-spark-pool.md)
+> [Big data analytics with Apache Spark pool in Azure Synapse Analytics](proof-of-concept-playbook-apache-spark-pool.md)
 
 > [!div class="nextstepaction"]
-> [Frequently asked questions](../overview-faq.yml)
+> [Azure Synapse Analytics frequently asked questions](../overview-faq.yml)
