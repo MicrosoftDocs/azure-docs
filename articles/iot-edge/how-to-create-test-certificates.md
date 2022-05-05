@@ -70,7 +70,7 @@ In this section, you clone the IoT Edge repo and execute the scripts.
    git clone https://github.com/Azure/iotedge.git
    ```
 
-2. Create a directory in which you want to work and copy the certficate scripts there. All certificate and key files will be created in this directory.
+2. Create a directory in which you want to work and copy the certificate scripts there. All certificate and key files will be created in this directory.
   
    ```powershell
    mkdir wrkdir
@@ -111,7 +111,7 @@ To create demo certificates on a Linux device, you need to clone the generation 
    git clone https://github.com/Azure/iotedge.git
    ```
 
-2. Create a directory in which you want to work and copy the certficate scripts there. All certificate and key files will be created in this directory.
+2. Create a directory in which you want to work and copy the certificate scripts there. All certificate and key files will be created in this directory.
   
    ```bash
    mkdir wrkdir
@@ -171,9 +171,9 @@ If you want multiple root CA certificates, be sure to manage them in separate fo
 
 This certificate is required before you can create more certificates for your IoT Edge devices and leaf devices as described in the next sections.
 
-## Create identity certficate for the IoT Edge device
+## Create identity certificate for the IoT Edge device
 
-Device identity certificates are used to provision IoT Edge devices if you choose to use X.509 certificate authentication. These certificates work whether you use manual provisioning or automatic provisioning through the Azure IoT Hub Device Provisioning Service (DPS). If you use **symmetric key** for authenticating to IoT Hub or DPS, these certficates aren't needed.
+Device identity certificates are used to provision IoT Edge devices if you choose to use X.509 certificate authentication. These certificates work whether you use manual provisioning or automatic provisioning through the Azure IoT Hub Device Provisioning Service (DPS). If you use **symmetric key** for authenticating to IoT Hub or DPS, these certificates aren't needed.
 
 Device identity certificates go in the **Provisioning** section of the config file on the IoT Edge device.
 
@@ -367,7 +367,7 @@ The certificates in this section are for the steps in the IoT Hub X.509 certific
 
 1. Upload the root CA certificate file from your working directory, `certs\azure-iot-test-only.root.ca.cert.pem`, to your IoT hub.
 
-2. If automatic verfication isn't selected, use the code provided in the Azure portal to verify that you own that root CA certificate.
+2. If automatic verification isn't selected, use the code provided in the Azure portal to verify that you own that root CA certificate.
 
    ```PowerShell
    New-CACertsVerificationCert "<verification code>"
@@ -390,7 +390,7 @@ The certificates in this section are for the steps in the IoT Hub X.509 certific
 
 1. Upload the root CA certificate file from your working directory, `certs\azure-iot-test-only.root.ca.cert.pem`, to your IoT hub.
 
-2. If automatic verfication isn't selected, use the code provided in the Azure portal to verify that you own that root CA certificate.
+2. If automatic verification isn't selected, use the code provided in the Azure portal to verify that you own that root CA certificate.
 
    ```bash
    ./certGen.sh create_verification_certificate "<verification code>"
