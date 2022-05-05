@@ -15,7 +15,7 @@ The article describes how you can view SCVMM management servers and enable SCVMM
 
 ## View SCVMM management servers
 
-You can view all the connected SCVMM management servers under **SCVMM management servers** blade in [Azure Arc center](https://aka.ms/SCVMM/MgmtServers).
+You can view all the connected SCVMM management servers under **SCVMM management servers** blade in Azure Arc center.
 
 :::image type="content" source="media/enable-scvmm-inventory-resources/view-scvmm-servers-inline.png" alt-text="Screenshot of how to view SCVMM servers." lightbox="media/enable-scvmm-inventory-resources/view-scvmm-servers-expanded.png":::
 

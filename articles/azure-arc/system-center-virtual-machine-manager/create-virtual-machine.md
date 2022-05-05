@@ -23,7 +23,7 @@ Once your administrator has connected an SCVMM management server to Azure, repre
 
 ## How to create a VM in Azure portal
 
-1. Go to [Azure portal](https://aka.ms/AzureArcVM).
+1. Go to Azure portal.
 2. Select **Azure Arc** as the service and then select **Azure Arc virtual machine** from the left blade.
 3. Click **+ Create**, **Create an Azure Arc virtual machine** page opens.
 
