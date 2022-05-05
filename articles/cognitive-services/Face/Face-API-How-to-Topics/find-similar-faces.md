@@ -20,11 +20,13 @@ The Find Similar operation does face matching between a target face and a set of
 
 This guide demonstrates how to use the Find Similar feature in the different language SDKs. The following sample code assumes you have already authenticated a Face client object. For details on how to do this, follow a [quickstart](../Quickstarts/client-libraries.md).
 
-## Set up test URL
+## Set up sample URL
 
 This guide uses remote images that are accessed by URL. Save a reference to the following URL string. All of the images accessed in this guide are located at this URL path.
 
-`"https://csdx.blob.core.windows.net/resources/Face/Images/"`
+```
+"https://csdx.blob.core.windows.net/resources/Face/Images/"
+```
 
 ## Detect faces for comparison
 
@@ -32,9 +34,9 @@ You need to detect faces in images before you can compare them.
 
 In this guide, the following remote image will be used as the source:
 
-![Photo of a man smiling](../../media/quickstarts/find-similar.jpg) 
+![Photo of a man smiling](../media/quickstarts/find-similar.jpg) 
 
-#### [C#](#tab/csharp) Find similar faces
+#### [C#](#tab/csharp)
 
 The following face detection method is optimized for comparison operations. It doesn't extract detailed face attributes, and it uses an optimized recognition model.
 
@@ -72,12 +74,15 @@ Finally, detect the single source face that you'll use for matching, and save it
 
 :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="similar_matcher":::
 
+---
+
 ## Find and print matches
 
 In this guide, the face detected in this image should be returned as the face that's similar to the source image face.
 
 ![Photo of a man smiling; this is the same person as the previous image](../../media/quickstarts/family-1-dad-1.jpg)
 
+The following code calls the Find Similar API and should return a reference to this face as the result.
 
 #### [C#](#tab/csharp)
 
@@ -115,19 +120,7 @@ Use the following JSON content for the `body` value:
 1. Use the source face ID for `"faceId"`.
 1. Paste the other face IDs as terms in the `"faceIds"` array.
 
-## Output
-
-You'll receive a JSON response that lists the IDs of the faces that match your query face. 
-
-```json
-[
-    {
-        "persistedFaceId" : "015839fb-fbd9-4f79-ace9-7675fc2f1dd9",
-        "confidence" : 0.82
-    },
-    ...
-] 
-```
+---
 
 ## Next steps
 
