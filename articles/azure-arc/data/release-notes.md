@@ -41,7 +41,7 @@ Updated ElasticSearch to latest version `7.9.1-36fefbab37-205465`.  Also Grafana
 
 All container image sizes were reduced by approximately 40% on average.
 
-Introduced new `create-sql-keytab.ps1` PowerShell script to add in creation of keytabs.
+Introduced new `create-sql-keytab.ps1` PowerShell script to aid in creation of keytabs.
 
 ### SQL Managed Instance
 
@@ -53,7 +53,7 @@ Add support for `NodeSelector`, `TopologySpreadConstraints` and `Affinity`.  Onl
 
 Add support for specifying labels and annotations on the secondary service endpoint. `REQUIRED_SECONDARIES_TO_COMMIT` is now a function of the number of replicas.  
 
-- If more than three replicas, then `REQUIRED_SECONDARIES_TO_COMMIT = 1`.  
+- If three replicas, then `REQUIRED_SECONDARIES_TO_COMMIT = 1`.  
 - If one or two replicas, then `REQUIRED_SECONDARIES_TO_COMMIT = 0`.
 
 ### User experience improvements
