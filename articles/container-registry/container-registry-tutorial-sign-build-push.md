@@ -10,29 +10,27 @@ ms.date: 05/08/2022
 
 # Build, Sign, and Verify container images using Notary and Azure Key Vault
 
-Securing deployments, based on signed containers enables users to assure deployments are built by the entities they trust.
+Signed containers enables users to assure deployments are built by the entities they trust.
 
 In this article you learn:
 
 > [!div class="checklist"]
 > * How to store a signing certificate in Azure Key Vault
-> * How to remotely sign container images
-> * How to configure a trust policy for the keys that are trusted for deployments
-> * How to verify trusted signatures as part of the deployment process
+> * How to remotely sign container images with notation
+> * How to verify container image signature    
 > TODO: Include a diagram of AKV --> Build --> Sign --> ACR --> Verify
 
 ## Prerequisites
 
 This article requires the following to be completed or installed:
 
-- [Completion of the ORAS Artifacts article up to **ORAS Sign In** section](/articles/container-registry/container-registry-oras-artifacts.md)
+- [Complete the steps in this article at least up to **Sign in with ORAS**](/articles/container-registry/container-registry-oras-artifacts#sign-in-with-oras-1)
 - [Install the notation CLI][notation-cli]
 - [Install the notation Azure Key Vault plugin][notation-akv-plugin]
-- [Install the ORAS CLI][oras-cli]
 
 This article can be run in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell/)
 
-## Install the notation CLI and akv plugin
+## Install the notation CLI and AKV plugin
 
 > NOTE: The walkthrough uses pre-released versions of notation, notation plugins and ratify.  
 
@@ -48,8 +46,8 @@ This article can be run in the [Azure Cloud Shell](https://portal.azure.com/#clo
     tar xvzf notation.tar.gz
     tar xvzf notation_0.0.0-SNAPSHOT-${commit}_linux_amd64.tar.gz -C ~/bin notation
         
-    # Copy the notation cli to your bin directory
-    cp ./bin/notation ~/bin
+    # Copy the notation cli to the bin directory in your PATH
+    cp ~/bin /usr/local/bin
     ```
 
 2. Install the notation-Azure-kv plugin for remote signing and verification
@@ -123,37 +121,21 @@ To ease the execution of the commands to complete this article, provide values f
     SP_NAME=https://${AKV_NAME}-sp
 
     # Create the service principal, capturing the password
-    SP_PASSWORD=$(az ad sp create-for-rbac --skip-assignment --name $SP_NAME --query "password" --output tsv)
+    export AZURE_CLIENT_SECRET=$(az ad sp create-for-rbac --skip-assignment --name $SP_NAME --query "password" --output tsv)
 
     # Capture the service srincipal appId
-    SP_APP_ID=$(az ad sp list --display-name $SP_NAME --query "[].appId" --output tsv)
+    export AZURE_CLIENT_ID=$(az ad sp list --display-name $SP_NAME --query "[].appId" --output tsv)
 
     # Capture the Azure Tenant ID
-    TENANT_ID=$(az account show --query "tenantId" -o tsv)
+    export AZURE_TENANT_ID=$(az account show --query "tenantId" -o tsv)
     ```
 
-2. Assign key and certificate permissions to the service principal object id
+1. Assign key and certificate permissions to the service principal object id
 
     ```azure-cli
-    az keyvault set-policy --name $AKV_NAME --key-permissions get sign --spn $SP_APP_ID
+    az keyvault set-policy --name $AKV_NAME --key-permissions get sign --spn $AZURE_CLIENT_ID
 
-    az keyvault set-policy --name $AKV_NAME --certificate-permissions get --spn $SP_APP_ID
-    ```
-
-3. Create a credentials file for notation-akv plugin
-
-    ```bash
-    mkdir ~/.config/notation-azure-kv/
-    cat <<EOF > ~/.config/notation-azure-kv/config.json
-    {
-      "credentials": {
-        "clientId": "$SP_APP_ID",
-        "clientSecret": "$SP_PASSWORD",
-        "tenantId": "$TENANT_ID"
-      }
-    }
-    EOF
-    ```
+    az keyvault set-policy --name $AKV_NAME --certificate-permissions get --spn $AZURE_CLIENT_ID
 
 ## Store the signing certificate in Azure Key Vault
 
