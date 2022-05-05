@@ -46,13 +46,13 @@ Start by exporting the project assets from the project in your primary resource.
 
 Replace the placeholders in the following request with your `{PRIMARY-ENDPOINT}` and `{PRIMARY-RESOURCE-KEY}` that you obtained in the first step.
 
-  [!INCLUDE [Export project assets using the REST API](./includes/rest-api/export-project.md)]
+[!INCLUDE [Export project assets using the REST API](./includes/rest-api/export-project.md)]
 
 ### Get export job status
 
 Replace the placeholders in the following request with your `{PRIMARY-ENDPOINT}` and `{PRIMARY-RESOURCE-KEY}` that you obtained in the first step.
 
-  [!INCLUDE [Export project assets using the REST API](./includes/rest-api/get-export-status.md)]
+[!INCLUDE [Export project assets using the REST API](./includes/rest-api/get-export-status.md)]
 
 Copy the response body as you will use it as the body for the next import job.
 
@@ -64,13 +64,13 @@ Now go ahead and import the exported project assets in your new project in the s
 
 Replace the placeholders in the following request with your `{SECONDARY-ENDPOINT}` and `{SECONDARY-RESOURCE-KEY}` that you obtained in the first step.
 
-  [!INCLUDE [Import project using the REST API](./includes/rest-api/import-project.md)]
+[!INCLUDE [Import project using the REST API](./includes/rest-api/import-project.md)]
 
 ### Get import job status
 
 Replace the placeholders in the following request with your `{SECONDARY-ENDPOINT}` and `{SECONDARY-RESOURCE-KEY}` that you obtained in the first step.
 
-  [!INCLUDE [Import project using the REST API](./includes/rest-api/get-import-status.md)]
+[!INCLUDE [Import project using the REST API](./includes/rest-api/get-import-status.md)]
 
 
 ## Train your model
@@ -81,14 +81,14 @@ After importing your project, you only have copied the project's assets and meta
 
 Replace the placeholders in the following request with your `{SECONDARY-ENDPOINT}` and `{SECONDARY-RESOURCE-KEY}` that you obtained in the first step.
 
-  [!INCLUDE [train model](./includes/rest-api/train-model.md)]
+[!INCLUDE [train model](./includes/rest-api/train-model.md)]
 
 
 ### Get Training Status
 
 Replace the placeholders in the following request with your `{SECONDARY-ENDPOINT}` and `{SECONDARY-RESOURCE-KEY}` that you obtained in the first step.
 
-  [!INCLUDE [get training model status](./includes/rest-api/get-training-status.md)]
+[!INCLUDE [get training model status](./includes/rest-api/get-training-status.md)]
 
 ## Deploy your model
 
@@ -101,13 +101,13 @@ This is the step where you make your trained model available form consumption vi
 
 Replace the placeholders in the following request with your `{SECONDARY-ENDPOINT}` and `{SECONDARY-RESOURCE-KEY}` that you obtained in the first step.
 
-  [!INCLUDE [deploy model](./includes/rest-api/deploy-model.md)]
+[!INCLUDE [deploy model](./includes/rest-api/deploy-model.md)]
 
 ### Get the deployment status
 
 Replace the placeholders in the following request with your `{SECONDARY-ENDPOINT}` and `{SECONDARY-RESOURCE-KEY}` that you obtained in the first step.
 
-  [!INCLUDE [get deploy status](./includes/rest-api/get-deployment-status.md)]
+[!INCLUDE [get deploy status](./includes/rest-api/get-deployment-status.md)]
 
 ## Changes in calling the runtime
 
@@ -124,7 +124,7 @@ Maintaining the freshness of both projects is an important part of process. You 
 Use the following url to get your project details, one of the keys returned in the body indicates the last modified date of the project. 
 Repeat the following step twice, one for your primary project and another for your secondary project and compare the timestamp returned for both of them to check if they are out of sync.
 
-  [!INCLUDE [get project details](./includes/rest-api/get-project-details.md)]
+[!INCLUDE [get project details](./includes/rest-api/get-project-details.md)]
 
 Repeat the same steps for your replicated project using `{SECONDARY-ENDPOINT}` and `{SECONDARY-RESOURCE-KEY}`. Compare the returned `lastModifiedDateTime` from both project. If your primary project was modified sooner than your secondary one, you need to repeat the steps of [exporting](#export-your-primary-project-assets), [importing](#import-to-a-new-project), [training](#train-your-model) and [deploying](#deploy-your-model) your model.
 
