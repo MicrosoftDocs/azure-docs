@@ -85,20 +85,18 @@ For connector-specific technical information, such as triggers, actions, and lim
    | **Authentication Type** | No | <*auth-type*> | The type of authentication that your file system server uses, which is **Windows** |
    | **Username** | Yes | <*domain-and-username*> | The domain and username for the computer where you have your file system. <br><br>For the managed File System connector, use one of the following values with the backslash (**`\`**): <br><br>- **<*domain*>\\<*username*>** <br>- **<*local-computer*>\\<*username*>** <br><br>For example, if your file system folder is on the same computer as the on-premises data gateway installation, you can use **<*local-computer*>\\<*username*>**. <br><br>- For the ISE-based File System connector, use the forward slash instead (**`/`**): <br><br>- **<*domain*>/<*username*>** <br>- **<*local-computer*>/<*username*>** |
    | **Password** | Yes | <*password*> | The password for the computer where you have your file system |
-   | **gateway** | Yes | <*gateway-name*> | The name for your data gateway resource in Azure |
+   | **gateway** | No | - <*Azure-subscription*> <br>- <*gateway-resource-name*> | This section applies only to the managed File System connector: <br><br>- **Subscription**: The Azure subscription associated with the data gateway resource <br>- **Connection Gateway**: The data gateway resource |
    |||||
 
-   The following example shows the connection information for the managed File System connector:
+   The following example shows the connection information for the managed File System trigger:
 
-   ![Screenshot showing connection information for managed File System connector.](media/logic-apps-using-file-connector/file-system-trigger-connection-consumption.png)
+   ![Screenshot showing connection information for managed File System trigger.](media/logic-apps-using-file-connector/file-system-trigger-connection-consumption.png)
 
-   The following example shows the connection information for the ISE-based File System connector:
+   The following example shows the connection information for the ISE-based File System trigger:
 
-   ![Screenshot showing connection information for ISE-based File System connector.](media/logic-apps-using-file-connector/file-system-connection-ise.png)
+   ![Screenshot showing connection information for ISE-based File System trigger.](media/logic-apps-using-file-connector/file-system-trigger-connection-ise.png)
 
-1. Provide the required information for your trigger.
-
-   ![Dropbox trigger](media/logic-apps-using-file-connector/dropbox-trigger.png)
+1. Provide the required information for your trigger and continue building your workflow.
 
 <a name="add-file-system-action"></a>
 
