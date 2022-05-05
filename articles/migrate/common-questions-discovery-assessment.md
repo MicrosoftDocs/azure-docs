@@ -5,7 +5,7 @@ author: rashijoshi
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 5/5/2022
 
 ---
 
@@ -16,7 +16,7 @@ This article answers common questions about discovery, assessment, and dependenc
 - [General questions](resources-faq.md) about Azure Migrate
 - Questions about the [Azure Migrate appliance](common-questions-appliance.md)
 - Questions about [server migration](common-questions-server-migration.md)
-- Get questions answered in the [Azure Migrate forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureMigrate
+- Get questions answered in the [Azure Migrate forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureMigrate)
 
 ## What geographies are supported for discovery and assessment with Azure Migrate?
 
@@ -28,10 +28,10 @@ You can discover up to 10,000 servers from VMware environment, up to 5,000 serve
 
 ## How do I choose the assessment type?
 
-- Use **Azure VM assessments** when you want to assess servers from your on-premises [VMware](how-to-set-up-appliance-vmware.md) and [Hyper-V](how-to-set-up-appliance-hyper-v.md) environment, and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs. [Learn More](concepts-assessment-calculation.md)
-- Use assessment type **Azure SQL** when you want to assess your on-premises SQL Server from your VMware environment for migration to SQL Server on Azure VM or Azure SQL Database or Azure SQL Managed Instance. [Learn More](concepts-azure-sql-assessment-calculation.md)
-- Use assessment type **Azure App Service** when you want to assess your on-premises ASP.NET web apps running on IIS web server from your VMware environment for migration to Azure App Service. [Learn More](concepts-assessment-calculation.md)
-- Use **Azure VMware Solution (AVS)** assessments when you want to assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
+- Use **Azure VM assessments** when you want to assess servers from your on-premises [VMware](how-to-set-up-appliance-vmware.md) and [Hyper-V](how-to-set-up-appliance-hyper-v.md) environment, and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs. [Learn More](concepts-assessment-calculation.md).
+- Use assessment type **Azure SQL** when you want to assess your on-premises SQL Server from your VMware environment for migration to SQL Server on Azure VM or Azure SQL Database or Azure SQL Managed Instance. [Learn More](concepts-azure-sql-assessment-calculation.md).
+- Use assessment type **Azure App Service** when you want to assess your on-premises ASP.NET web apps running on IIS web server from your VMware environment for migration to Azure App Service. [Learn More](concepts-assessment-calculation.md).
+- Use **Azure VMware Solution (AVS)** assessments when you want to assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md).
 - You can use a common group with VMware machines only to run both types of assessments. If you are running AVS assessments in Azure Migrate for the first time, it is advisable to create a new group of VMware machines.
 
 ## Why is performance data missing for some/all servers in my Azure VM and/or AVS assessment report?
@@ -50,10 +50,10 @@ For "Performance-based" assessment, the assessment report export says 'Percentag
 
 To ensure performance data is collected, please check:
 
-- If the SQL Servers are powered on for the duration for which you are creating the assessment
-- If the connection status of the SQL agent in Azure Migrate is 'Connected' and check the last heartbeat 
-- If Azure Migrate connection status for all SQL instances is 'Connected' in the discovered SQL instance blade
-- If all of the performance counters are missing, ensure that outbound connections on ports 443 (HTTPS) are allowed
+- If the SQL Servers are powered on for the duration for which you are creating the assessment.
+- If the connection status of the SQL agent in Azure Migrate is 'Connected' and check the last heartbeat. 
+- If Azure Migrate connection status for all SQL instances is 'Connected' in the discovered SQL instance blade.
+- If all of the performance counters are missing, ensure that outbound connections on ports 443 (HTTPS) are allowed.
 
 If any of the performance counters are missing, Azure SQL assessment recommends the smallest Azure SQL configuration for that instance/database.
 
@@ -75,8 +75,8 @@ The confidence rating is calculated for "Performance-based" assessments based on
 
     Please **Recalculate** the assessment to reflect the latest changes in confidence rating.
 
-- For Azure VM and AVS assessments, few servers were created after discovery had started. For example, if you are creating an assessment for the performance history of last one month, but few servers were created in the environment only a week ago. In this case, the performance data for the new servers will not be available for the entire duration and the confidence rating would be low. [Learn more](./concepts-assessment-calculation.md#confidence-ratings-performance-based)
-- For Azure SQL assessments, few SQL instances or databases were created after discovery had started. For example, if you are creating an assessment for the performance history of last one month, but few SQL instances or databases were created in the environment only a week ago. In this case, the performance data for the new servers will not be available for the entire duration and the confidence rating would be low. [Learn more](./concepts-azure-sql-assessment-calculation.md#confidence-ratings)
+- For Azure VM and AVS assessments, few servers were created after discovery had started. For example, if you are creating an assessment for the performance history of last one month, but few servers were created in the environment only a week ago. In this case, the performance data for the new servers will not be available for the entire duration and the confidence rating would be low. [Learn more](./concepts-assessment-calculation.md#confidence-ratings-performance-based).
+- For Azure SQL assessments, few SQL instances or databases were created after discovery had started. For example, if you are creating an assessment for the performance history of last one month, but few SQL instances or databases were created in the environment only a week ago. In this case, the performance data for the new servers will not be available for the entire duration and the confidence rating would be low. [Learn more](./concepts-azure-sql-assessment-calculation.md#confidence-ratings).
 
 ## Why is my RAM utilization greater than 100%?
 
@@ -114,7 +114,7 @@ Discovery and assessment of .NET web apps running in your VMware environment is 
 
 ## I want to understand how was the readiness for my instance computed?
 
-The readiness for your SQL instances has been computed after doing a feature compatibility check with the targeted Azure SQL deployment type (SQL Server on Azure VM or Azure SQL Managed Instance or Azure SQL Database). [Learn more](./concepts-azure-sql-assessment-calculation.md#calculate-readiness) 
+The readiness for your SQL instances has been computed after doing a feature compatibility check with the targeted Azure SQL deployment type (SQL Server on Azure VM or Azure SQL Managed Instance or Azure SQL Database). [Learn more](./concepts-azure-sql-assessment-calculation.md#calculate-readiness). 
 
 ## I want to understand how was the readiness for my web apps is computed?
 
@@ -168,7 +168,7 @@ Please **Recalculate** the assessment to reflect the latest changes in the asses
 
 ## Why was I recommended a particular target deployment type?
 
-Azure Migrate recommends a specific Azure SQL deployment type that is compatible with your SQL instance. Migrating to a Microsoft recommended target reduces your overall migration effort. This Azure SQL configuration (SKU) has been recommended after considering the performance characteristics of your SQL instance and the databases it manages. If multiple Azure SQL configurations are eligible, we recommend the one, which is the most cost effective. [Learn more](./concepts-azure-sql-assessment-calculation.md#calculate-sizing)
+Azure Migrate recommends a specific Azure SQL deployment type that is compatible with your SQL instance. Migrating to a Microsoft recommended target reduces your overall migration effort. This Azure SQL configuration (SKU) has been recommended after considering the performance characteristics of your SQL instance and the databases it manages. If multiple Azure SQL configurations are eligible, we recommend the one, which is the most cost effective. [Learn more](./concepts-azure-sql-assessment-calculation.md#calculate-sizing).
 
 ## What deployment target should I choose if my SQL instance is ready for Azure SQL DB and Azure SQL MI?
 
@@ -184,7 +184,7 @@ You can create an assessment with type **Azure VM** on the same group that was u
 
 ## The storage cost in my Azure SQL assessment is zero
 
-For Azure SQL Managed Instance, there is no storage cost added for the first 32 GB/instance/month storage and additional storage cost is added for storage in 32 GB increments. [Learn More](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)
+For Azure SQL Managed Instance, there is no storage cost added for the first 32 GB/instance/month storage and additional storage cost is added for storage in 32 GB increments. [Learn More](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
 ## I can't see some groups when I am creating an Azure VMware Solution (AVS) assessment
 
