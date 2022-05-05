@@ -68,7 +68,7 @@ Applications can be hidden. For more information, see [Hide an Enterprise applic
 
 ## Assign company branding
 
-Control how the application is represented in the My Apps portal by defining in the Azure portal the logo and name that is displayed to users. The banner logo can be specified for an application in the Azure portal to define company branding. The banner logo appears at the top of the page, such as the Contoso demo logo shown below.
+In the Azure portal, define the logo and name for the application to represent company branding in the My Apps portal. The banner logo appears at the top of the page, such as the Contoso demo logo shown below.
 
 :::image type="content" source="./media/myapps-overview/banner-logo.png" alt-text="Screenshot that shows the banner logo in the My Apps portal.":::
 
