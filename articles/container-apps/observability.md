@@ -65,7 +65,7 @@ az containerapp logs show `
 
 You can view a log stream from a container in a container app with multiple revisions, replicas, and containers by adding the `--revision`, `--replica`, `--container` arguments to the `az containerapp show` command.  
 
-Use the `az containerapp revision list` command to get the revision and replica names to use in the `az containerapp logs show` command.
+Use the `az containerapp revision list` command to get the revision, replica, and container names to use in the `az containerapp logs show` command.
 
 # [Bash](#tab/bash)
 
