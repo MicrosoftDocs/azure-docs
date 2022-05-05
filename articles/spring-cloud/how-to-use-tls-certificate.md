@@ -39,11 +39,11 @@ You need to grant Azure Spring Cloud access to your key vault before you import 
 1. In the left navigation pane, select **Access policies**, then select **Create**.
 1. Select **Certificate permissions**, then select **Get** and **List**.
 
-   :::image type="content" source="media/use-tls-certificates/grant-key-vault-permission.png" alt-text="Azure portal screenshot of 'Create an access policy' page with Permission pane showing and Get and List permissions highlighted." lightbox="media/use-tls-certificates/grant-key-vault-permission.png":::
+   :::image type="content" source="media/use-tls-certificates/grant-key-vault-permission.png" alt-text="Screenshot of Azure portal 'Create an access policy' page with Permission pane showing and Get and List permissions highlighted." lightbox="media/use-tls-certificates/grant-key-vault-permission.png":::
 
 1. Under **Principal**, select your **Azure Spring Cloud Resource Provider**.
 
-   :::image type="content" source="media/use-tls-certificates/select-service-principal.png" alt-text="Azure portal screenshot of 'Create an access policy' page with Principal pane showing and Azure Spring Cloud Resource Provider highlighted." lightbox="media/use-tls-certificates/select-service-principal.png":::
+   :::image type="content" source="media/use-tls-certificates/select-service-principal.png" alt-text="Screenshot of Azure portal 'Create an access policy' page with Principal pane showing and Azure Spring Cloud Resource Provider highlighted." lightbox="media/use-tls-certificates/select-service-principal.png":::
 
 1. Select **Review + Create**, then select **Create**.
 
@@ -72,7 +72,7 @@ To load a certificate into your application in Azure Spring Cloud, start with th
 1. From the left navigation pane of your app, select **Certificate management**.
 1. Select **Add certificate** to choose certificates accessible for the app.
 
-:::image type="content" source="media/use-tls-certificates/load-certificate.png" alt-text="Azure portal screenshot of 'Certificate management' page with 'Add certificate' button highlighted." lightbox="media/use-tls-certificates/load-certificate.png":::
+:::image type="content" source="media/use-tls-certificates/load-certificate.png" alt-text="Screenshot of Azure portal 'Certificate management' page with 'Add certificate' button highlighted." lightbox="media/use-tls-certificates/load-certificate.png":::
 
 ### Load a certificate from code
 
