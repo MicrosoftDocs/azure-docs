@@ -17,7 +17,7 @@ ms.author: saibandaru
 
 # My Apps portal overview
 
-[My Apps](https://myapps.microsoft.com) is a web-based portal that is used for managing and launching applications in Azure Active Directory (Azure AD). To work with applications in My Apps, you need an organizational account in Azure AD and access granted by the Azure AD administrator. My Apps is separate from the Azure portal and doesn't require users to have an Azure subscription or Microsoft 365 subscription.
+[My Apps](https://myapps.microsoft.com) is a web-based portal that is used for managing and launching applications in Azure Active Directory (Azure AD). To work with applications in My Apps, use an organizational account in Azure AD and obtain access granted by the Azure AD administrator. My Apps is separate from the Azure portal and doesn't require users to have an Azure subscription or Microsoft 365 subscription.
 
 Users access the My Apps portal to:
 
@@ -82,19 +82,19 @@ Multiple factors affect how and whether an application can be accessed by users.
 
 Install the My Apps secure sign-in extension to sign in to some applications. The extension is required for sign-in to password-based SSO applications, or to applications that are accessed by Azure AD Application Proxy. Users are prompted to install the extension when they first launch the password-based single sign-on or an Application Proxy application.
 
-If you must integrate these applications, define a mechanism to deploy the extension at scale with supported browsers. Options include:
+To integrate these applications, define a mechanism to deploy the extension at scale with supported browsers. Options include:
 
 - User-driven download and configuration for Chrome, Microsoft Edge, or IE
 - Configuration Manager for Internet Explorer
 
-The extension allows users to launch any application from its search bar, finding access to recently used applications, and having a link to the My Apps portal. For applications that use password-based SSO or accessed by using Microsoft Azure AD Application Proxy, you must use Microsoft Edge mobile. For other applications, any mobile browser can be used. Be sure to enable password-based SSO in your mobile settings, which can be off by default. For example, **Settings -> Privacy and Security -> Azure AD Password SSO**.
+The extension allows users to launch any application from its search bar, finding access to recently used applications, and having a link to the My Apps portal. For applications that use password-based SSO or accessed by using Microsoft Azure AD Application Proxy, use Microsoft Edge mobile. For other applications, any mobile browser can be used. Be sure to enable password-based SSO in the mobile settings, which can be off by default. For example, **Settings -> Privacy and Security -> Azure AD Password SSO**.
 
 To download and install the extension:
 
 - **Microsoft Edge** - From the Microsoft Store, go to the [My Apps Secure Sign-in Extension](https://microsoftedge.microsoft.com/addons/detail/my-apps-secure-signin-ex/gaaceiggkkiffbfdpmfapegoiohkiipl) feature, and then select **Get to get the extension for Microsoft Edge legacy browser**.
 - **Google Chrome** - From the Chrome Web Store, go to the [My Apps Secure Sign-in Extension](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) feature, and then select **Add to Chrome**.
 
-An icon is added to the right of your Address bar, letting you sign in and customize the extension.
+An icon is added to the right of the address bar, which enables sign in and customization of the extension.
 
 ### Permissions
 
@@ -134,7 +134,7 @@ For more information, see [Add linked single sign-on to an application](configur
 
 ## Create collections
 
-By default, all applications are listed together on a single page. Collections can be used to group together related applications and present them on a separate tab, making them easier to find. For example, you can use collections to create logical groupings of applications for specific job roles, tasks, projects, and so on. Every application to which a user has access appears in the default Apps collection, but a user can remove applications from the collection.
+By default, all applications are listed together on a single page. Collections can be used to group together related applications and present them on a separate tab, making them easier to find. For example, use collections to create logical groupings of applications for specific job roles, tasks, projects, and so on. Every application to which a user has access appears in the default Apps collection, but a user can remove applications from the collection.
 
 Users can also customize their experience by:
 
