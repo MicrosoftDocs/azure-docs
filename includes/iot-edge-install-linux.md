@@ -73,8 +73,18 @@ Install the Moby engine.
    sudo apt-get update; \
      sudo apt-get install moby-engine
    ```
-
 ---
+Once the Moby engine is successfully installed, configure it to use [`local` logging driver](https://docs.docker.com/config/containers/logging/local/) as the logging mechanism. To learn more about logging configuration, see [Production Deployment Checklist](../articles/iot-edge/production-checklist.md#set-up-default-logging-driver).
+
+* Create or open the Docker daemon's config file at `/etc/docker/daemon.json`.
+* Set the default logging driver to the `local` logging driver as shown in the example below.   
+   
+    ```JSON
+       {
+          "log-driver": "local"
+       }
+    ```
+* Restart the container engine for the changes to take effect.
 
    > [!TIP]
    > If you get errors when you install the Moby container engine, verify your Linux kernel for Moby compatibility. Some embedded device manufacturers ship device images that contain custom Linux kernels without the features required for container engine compatibility. Run the following command, which uses the [check-config script](https://github.com/moby/moby/blob/master/contrib/check-config.sh) provided by Moby, to check your kernel configuration:
@@ -142,7 +152,8 @@ Install the latest version of IoT Edge and the IoT identity service package:
    sudo apt-get update; \
      sudo apt-get install aziot-edge defender-iot-micro-agent-edge
    ```
-The defender-iot-micro-agent-edge package includes the Microsoft Defender for IoT security micro-agent that provides endpoint visibility into security posture management, vulnerabilities, threat detection, fleet management and more to help you secure your IoT Edge devices. It is recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. [Click here](../articles/defender-for-iot/device-builders/overview.md) to learn more about Microsoft Defender for IoT.
+The defender-iot-micro-agent-edge package includes the Microsoft Defender for IoT security micro-agent that provides endpoint visibility into security posture management, vulnerabilities, threat detection, fleet management and more to help you secure your IoT Edge devices. It is recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](../articles/defender-for-iot/device-builders/overview.md).
+
 To list other versions of IoT Edge and the IoT identity service that are available, use the following command:
 
    ```bash

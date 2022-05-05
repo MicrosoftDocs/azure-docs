@@ -52,7 +52,7 @@ From this example accumulation of Minutes Not Available, here is the calculation
 ## Limitations and restrictions 
 
 - Creating capacity reservations requires quota in the same manner as creating virtual machines. 
-- Creating capacity reservation is currently limited to certain VM Series and Sizes. The Compute [Resource SKUs list](https://docs.microsoft.com/rest/api/compute/resource-skus/list) advertises the set of supported VM Sizes. 
+- Creating capacity reservation is currently limited to certain VM Series and Sizes. The Compute [Resource SKUs list](/rest/api/compute/resource-skus/list) advertises the set of supported VM Sizes. 
 - The following VM Series support creation of capacity reservations: 
     - Av2 
     - B 

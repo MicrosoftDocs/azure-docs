@@ -124,19 +124,16 @@ az upgrade
 
 Next, install the Azure Container Apps extension for the Azure CLI.
 
-> [!NOTE]
-> If you have worked with earlier versions of Container Apps, make sure to first remove the old extension version by running `az extension remove -n containerapp`.
-
 # [Bash](#tab/bash)
 
 ```azurecli
-az extension add --name containerapp
+az extension add --name containerapp --upgrade
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-az extension add --name containerapp
+az extension add --name containerapp --upgrade
 ```
 
 ---
@@ -144,7 +141,7 @@ az extension add --name containerapp
 Now that the extension is installed, register the `Microsoft.App` namespace.
 
 > [!NOTE]
-> Azure Container Apps resources are in the process of migrating from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
+> Azure Container Apps resources have migrated from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
 
 # [Bash](#tab/bash)
 

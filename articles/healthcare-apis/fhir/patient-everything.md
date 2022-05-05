@@ -2,12 +2,12 @@
 title: Patient-everything - Azure Health Data Services
 description: This article explains how to use the Patient-everything operation.
 services: healthcare-apis
-author: caitlinv39
+author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 03/01/2022
-ms.author: cavoeg
+ms.author: mikaelw
 ---
 
 # Using Patient-everything in FHIR service

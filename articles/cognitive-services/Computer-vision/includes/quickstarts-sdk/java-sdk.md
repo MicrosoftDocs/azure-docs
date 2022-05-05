@@ -30,67 +30,65 @@ Use the OCR client library to read printed and handwritten text from a remote im
     * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-## Setting up
-
-### Create a new Gradle project
-
-In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
-
-```console
-mkdir myapp && cd myapp
-```
-
-Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
-
-```console
-gradle init --type basic
-```
-
-When prompted to choose a **DSL**, select **Kotlin**.
-
-### Install the client library
-
-This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision).
-
-Locate *build.gradle.kts* and open it with your preferred IDE or text editor. Then copy in the following build configuration. This configuration defines the project as a Java application whose entry point is the class **ComputerVisionQuickstart**. It imports the Computer Vision library.
-
-```kotlin
-plugins {
-    java
-    application
-}
-application { 
-    mainClass.set("ComputerVisionQuickstart")
-}
-repositories {
-    mavenCentral()
-}
-dependencies {
-    implementation(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.6-beta")
-}
-```
-
-### Set up test image
-
-Create a **resources/** folder in the **src/main/** folder of your project, and add an image you'd like to read text from. You can download a [sample image](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg) to use here.
-
-### Create a Java file
-
-From your working directory, run the following command to create a project source folder:
-
-```console
-mkdir -p src/main/java
-```
-
-Navigate to the new folder and create a file called *ComputerVisionQuickstart.java*. Open it in your preferred editor or IDE.
-
-### Find the subscription key and endpoint
-
-[!INCLUDE [find key and endpoint](../find-key.md)]
-
 ## Read printed and handwritten text
 
-1. replace the contents. This code defines a method, `ReadFromFile`, that takes a local file path and prints the image's text to the console.
+1. Create a new Gradle project.
+
+    In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
+
+    ```console
+    mkdir myapp && cd myapp
+    ```
+
+    Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
+
+    ```console
+    gradle init --type basic
+    ```
+
+    When prompted to choose a **DSL**, select **Kotlin**.
+
+1. Install the client library.
+
+    This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision).
+
+    Locate *build.gradle.kts* and open it with your preferred IDE or text editor. Then copy in the following build configuration. This configuration defines the project as a Java application whose entry point is the class **ComputerVisionQuickstart**. It imports the Computer Vision library.
+
+    ```kotlin
+    plugins {
+        java
+        application
+    }
+    application { 
+        mainClass.set("ComputerVisionQuickstart")
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        implementation(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.6-beta")
+    }
+    ```
+
+1. Set up a test image.
+
+    Create a **resources/** folder in the **src/main/** folder of your project, and add an image you'd like to read text from. You can download a [sample image](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg) to use here.
+
+1. Create a Java file.
+
+    From your working directory, run the following command to create a project source folder:
+
+    ```console
+    mkdir -p src/main/java
+    ```
+
+    Navigate to the new folder and create a file called *ComputerVisionQuickstart.java*. Open it in your preferred editor or IDE.
+
+1. Find the subscription key and endpoint.
+
+    [!INCLUDE [find key and endpoint](../find-key.md)]
+
+1. Replace the contents of the file with the following code. This code defines a method, `ReadFromFile`, that takes a local file path and prints the image's text to the console.
 
    [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart-single.java?name=snippet_single)]
 
@@ -100,6 +98,7 @@ Navigate to the new folder and create a file called *ComputerVisionQuickstart.ja
    > Remember to remove the subscription key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
 
 1. Change the value of the `localFilePath` to match the image file you downloaded. 
+
 1. Build the app with the following command:
 
    ```console
