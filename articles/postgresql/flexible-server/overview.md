@@ -6,7 +6,7 @@ author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 03/21/2022
+ms.date: 05/4/2022
 ms.custom: "mvc, references_regions"
 ---
 
@@ -122,7 +122,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | UK West | :heavy_check_mark: | :x: | :x: |
 | West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | West US | :heavy_check_mark: | :x: | :x: |
-| West US 2 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| West US 2 | :heavy_check_mark: | :x: $ | :x: |
 | West US 3 | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
 
 $ New Zone-redundant high availability deployments are temporarily blocked in these regions. Already provisioned HA servers are fully supported. 

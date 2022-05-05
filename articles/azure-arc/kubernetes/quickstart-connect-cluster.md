@@ -21,7 +21,7 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 
 * A basic understanding of [Kubernetes core concepts](../../aks/concepts-clusters-workloads.md).
 
-* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0 and <= 2.29.0
+* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0
 
 * Install the **connectedk8s** Azure CLI extension of version >= 1.2.0:
 
@@ -252,6 +252,24 @@ Location Name          Type
 -------- ----          ----
 eastus   AzureArcTest1 microsoft.kubernetes/connectedclusters
 ```
+
+---
+
+## Connect a cluster with custom certificate
+
+If you need the outbound communication from Arc agents to authenticate via a certificate, pass the certificate during onboarding. In case you need to pass multiple certificates, combine them into a single certificate chain and pass it through.
+
+### [Azure CLI](#tab/azure-cli)
+
+Run the connect command with parameters specified:
+
+```azurecli
+az connectedk8s connect --name <cluster-name> --resource-group <resource-group> --proxy-cert <path-to-cert-file>
+```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+This scenario is not supported via the powershell cmdlet. 
 
 ---
 
