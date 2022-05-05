@@ -39,7 +39,7 @@ Be careful to restrict assignment of these roles only to those who require the a
 
 ## Network considerations
 
-When a client sends a request to a Event Hubs namespace, the client establishes a connection with the Event Hubs namespace endpoint first, before processing any requests. The minimum TLS version setting is checked after the TLS connection is established. If the request uses an earlier version of TLS than that specified by the setting, the connection will continue to succeed, but the request will eventually fail.
+When a client sends a request to an Event Hubs namespace, the client establishes a connection with the Event Hubs namespace endpoint first, before processing any requests. The minimum TLS version setting is checked after the TLS connection is established. If the request uses an earlier version of TLS than that specified by the setting, the connection will continue to succeed, but the request will eventually fail.
 
 > [!NOTE]
 > Due to limitations in the confluent library, errors coming from an invalid TLS version will not surface when connecting through the Kafka protocol. Instead a general exception will be shown.
