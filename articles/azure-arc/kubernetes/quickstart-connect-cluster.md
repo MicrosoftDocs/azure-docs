@@ -21,7 +21,7 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 
 * A basic understanding of [Kubernetes core concepts](../../aks/concepts-clusters-workloads.md).
 
-* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0 and <= 2.29.0
+* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0
 
 * Install the **connectedk8s** Azure CLI extension of version >= 1.2.0:
 
