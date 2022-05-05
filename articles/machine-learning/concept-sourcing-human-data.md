@@ -1,35 +1,16 @@
 ---
 title: Manually sourcing human data for AI development
-description: Manually sourcing human data can be important to building AI systems that work for all users. But certain practices should be avoided, especially ones that can cause physical and psychological harm to data contributors, as well as flawed datasets. #Required; article description that is displayed in search results. 
+description: Manually sourcing human data can be important to building AI systems that work for all users. But certain practices should be avoided, especially ones that can cause physical and psychological harm to data contributors, as well as flawed datasets. 
 author: nhu-do-1
 ms.author: nhudo
 ms.service: machine-learning
-ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: 05/05/2022 #Required; mm/dd/yyyy format.
-ms.custom: responsible-ml #Required; leave this attribute/value as-is.
+ms.topic: conceptual 
+ms.date: 05/05/2022 
+ms.custom: responsible-ml 
 ---
-
-<!--Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
-
-<!--
-This template provides the basic structure of a concept article.
-See the [concept guidance](contribute-how-write-concept.md) in the contributor guide.
-
-To provide feedback on this template contact 
-[the templates workgroup](mailto:templateswg@microsoft.com).
--->
-
-<!-- 1. H1
-Required. Set expectations for what the content covers, so customers know the 
-content meets their needs. Should NOT begin with a verb.
--->
-
-<!--  first level heading -->
 # What is "human data" and why is it important to source responsibly?
 
-Human data is data collected directly from or about people. Human data may include personal data such as names, age, images, or voice clips and sensitive data such as genetic data, biometric data, gender identity, religious beliefs or political affiliations. 
+Human data is data collected directly from, or about, people. Human data may include personal data such as names, age, images, or voice clips and sensitive data such as genetic data, biometric data, gender identity, religious beliefs, or political affiliations. 
 
 Collecting this data can be important to building AI systems that work for all users. But certain practices should be avoided, especially ones that can cause physical and psychological harm to data contributors, as well as flawed datasets.
 
@@ -41,28 +22,26 @@ The best practices in this article will help you conduct manual data collection 
 
 These are emerging practices, and we are continually learning. The best practices below are a starting point as you begin your own responsible human data collections. These best practices are provided for informational purposes only and should not be treated as legal advice. All human data collections should undergo specific privacy and legal reviews.
 
-<!--second header -->
 ## General best practices
 
 We suggest the following best practices for manually collecting human data directly from people.
 
-| **Best Practice**                                                   | **Why?**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-|:----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Obtain voluntary informed consent.**                               | <ul><li>Participants should understand and consent to data collection and how their data will be used.<li>Data should only be stored, processed, and used for purposes that are part of the original documented informed consent. <li>Consent documentation should be properly stored and associated with the collected data. <ul>                                                                                                                                                                                                                                                                      |
-| **Compensate data contributors appropriately.**                      | <ul><li>Data contributors should not be pressured or coerced into data collections and should be fairly compensated for their time and data. <li>Inappropriate compensation can be exploitative or coercive.<ul>                                                                                                                                                                                                                                                                                                                                                                                           |
+ 
+| **Best Practice**   | **Why**  |
+|:--------------------|----------|
+| **Obtain voluntary informed consent.**  | <ul><li>Participants should understand and consent to data collection and how their data will be used.<li>Data should only be stored, processed, and used for purposes that are part of the original documented informed consent. <li>Consent documentation should be properly stored and associated with the collected data. <ul> |
+| **Compensate data contributors appropriately.** | <ul><li>Data contributors should not be pressured or coerced into data collections and should be fairly compensated for their time and data. <li>Inappropriate compensation can be exploitative or coercive.<ul> |
 | **Let contributors self-identify demographic information**           | <ul><li>Demographic information that is not self-reported by data contributors but assigned by data collectors may 1) result in inaccurate metadata and 2) be disrespectful to data contributors<ul>                                                                                                                                                                                                                                                  |
 | **Anticipate harms when recruiting vulnerable groups.**              | <ul><li>Collecting data from vulnerable population groups introduces risk to data contributors and your organization.<ul>                                                                                                                                                                                                                                                          |
-| **Treat data contributors with respect.**                            | <ul><li>Improper interactions with data contributors at any phase of the data collection can negatively impact data quality, as well as the overall data collection experience for data contributors and data collectors.<ul>                                                                                                                                                                                                                                                                                     |
+| **Treat data contributors with respect.**                            | <ul><li>Improper interactions with data contributors at any phase of the data collection can negatively impact data quality, as well as the overall data collection experience for data contributors and data collectors.<ul>                                                                                                                                                                                                                                       |
 | **Qualify external suppliers carefully.**                            | <ul><li>Data collections with unqualified suppliers may result in low quality data, poor data management, unprofessional practices, and potentially harmful outcomes for data contributors and data collectors (including violations of human rights). <li> Annotation or labeling work (e.g., audio transcription, image tagging) with unqualified suppliers may result in low quality or biased datasets, insecure data management, unprofessional practices, and potentially harmful outcomes for data contributors (including violations of human rights).<ul>  |
 | **Communicate expectations clearly in the Statement of Work (SOW) with suppliers.** | <ul><li>An SOW which lacks requirements for responsible data collection work may result in low-quality or poorly collected data.<ul>                                                                                                                                                                   |
 | **Qualify geographies carefully.**                                   | <ul><li> When applicable, collecting data in restricted and/or unfamiliar geographies may result in unusable or low-quality data and may impact the safety of involved parties.<ul>                                                                                                                                                                                     |
 | **Be a good steward of your datasets.**                              | <ul><li>Improper data management and poor documentation can result in data misuse.<ul>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
 >[!TIP]
-This article focuses on recommendations for human data, including personal data and sensitive data such as biometric data, health data, racial or ethnic data, data collected manually from the general public or company employees, as well as metadata relating to human characteristics, such as age, ancestry, and gender identity, that may be created via annotation or labeling. 
+>This article focuses on recommendations for human data, including personal data and sensitive data such as biometric data, health data, racial or ethnic data, data collected manually from the general public or company employees, as well as metadata relating to human characteristics, such as age, ancestry, and gender identity, that may be created via annotation or labeling. 
 
-<!--INSERT DOWNLOAD LINK TO FULL SOURCING HUMAN DATA DOC-->
-<!--Download the full set of best practices here.--> 
 
 ## Best practices for collecting age, ancestry, and gender identity
 
@@ -120,15 +99,10 @@ To enable people to self-identify, consider using the following survey questions
 
 
 >[!CAUTION]
-In some parts of the world, there are laws that criminalize specific gender categories, so it may be dangerous for data contributors to answer this question honestly. Always give people a way to opt out. And work with regional experts and attorneys to conduct a careful review of the laws and cultural norms of each place where you plan to collect data, and if needed, avoid asking this question entirely. 
-
-<!-- INCLUDE LINK TO FULL DOWNLOAD-->
-<!-- Download the full set of best practices here.--> 
-
+>In some parts of the world, there are laws that criminalize specific gender categories, so it may be dangerous for data contributors to answer this question honestly. Always give people a way to opt out. And work with regional experts and attorneys to conduct a careful review of the laws and cultural norms of each place where you plan to collect data, and if needed, avoid asking this question entirely. 
 
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
 For more information on how to work with your data: 
 
 - [Secure data access in Azure Machine Learning](concept-data.md)
@@ -141,8 +115,3 @@ Follow these how-to guides to work with your data after you've collected it:
 - [Set up image labeling](how-to-create-image-labeling-projects.md)
 - [Label images and text](how-to-label-data.md)
 
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
