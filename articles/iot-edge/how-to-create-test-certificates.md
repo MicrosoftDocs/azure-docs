@@ -151,7 +151,7 @@ If you want multiple root CA certificates, be sure to manage them in separate fo
 
    This script command creates several certificate and key files, but when articles ask for the **root CA certificate**, use the following file:
 
-   `certs\azure-iot-test-only.root.ca.cert.pem`\
+   `certs\azure-iot-test-only.root.ca.cert.pem`
 
 # [Linux](#tab/linux)
 
@@ -230,7 +230,7 @@ Then, follow these instructions depending on your method for provisioning:
 <!--1.1-->
 :::moniker range="iotedge-2018-06"
 
-Every IoT Edge device going to production needs a CA signing certificate that's referenced from the config file. This certificate is known as the **device CA certificate**. The device CA certificate is responsible for creating certificates for modules running on the device. It's also necessary for gateway scenarios, because the device CA certificate is how the IoT Edge device verifies its identity to downstream devices. To learn more, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md)
+Every IoT Edge device going to production needs a CA signing certificate that's referenced from the config file. This certificate is known as the **device CA certificate**. The device CA certificate is responsible for creating certificates for modules running on the device. It's also necessary for gateway scenarios, because the device CA certificate is how the IoT Edge device verifies its identity to downstream devices. To learn more, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
 
 Device CA certificates go in the **Certificate** section of the config.yaml file on the IoT Edge device.
 
@@ -284,7 +284,7 @@ If you're setting up a downstream IoT device for a gateway scenario and want to 
 If you want to use symmetric key authentication, you don't need to create additional certificates for the downstream device.
 
 There are two ways to authenticate an IoT device using X.509 certificates: using self-signed certs or using certificate authority (CA) signed certs.
-- For X.509 self-signed authentication, sometimes referred to as *thumbprint* authentication, you need to create new certificates to place on your IoT device.These certificates have a thumbprint in them that you share with IoT Hub for authentication.
+- For X.509 self-signed authentication, sometimes referred to as *thumbprint* authentication, you need to create new certificates to place on your IoT device. These certificates have a thumbprint in them that you share with IoT Hub for authentication.
 - For X.509 certificate authority (CA) signed authentication, you need a root CA certificate registered in IoT Hub that you use to sign certificates for your IoT device. Any device using a certificate that was issued by the root CA certificate or any of its intermediate certificates can authenticate.
 
 The certificate generation scripts can help you make demo certificates to test out either of these authentication scenarios.
@@ -367,7 +367,7 @@ The certificates in this section are for the steps in the IoT Hub X.509 certific
 
 1. Upload the root CA certificate file from your working directory, `certs\azure-iot-test-only.root.ca.cert.pem`, to your IoT hub.
 
-2. If automatically verfication isn't selected, use the code provided in the Azure portal to verify that you own that root CA certificate.
+2. If automatic verfication isn't selected, use the code provided in the Azure portal to verify that you own that root CA certificate.
 
    ```PowerShell
    New-CACertsVerificationCert "<verification code>"
@@ -390,7 +390,7 @@ The certificates in this section are for the steps in the IoT Hub X.509 certific
 
 1. Upload the root CA certificate file from your working directory, `certs\azure-iot-test-only.root.ca.cert.pem`, to your IoT hub.
 
-2. If automatically verfication isn't selected, use the code provided in the Azure portal to verify that you own that root CA certificate.
+2. If automatic verfication isn't selected, use the code provided in the Azure portal to verify that you own that root CA certificate.
 
    ```bash
    ./certGen.sh create_verification_certificate "<verification code>"
