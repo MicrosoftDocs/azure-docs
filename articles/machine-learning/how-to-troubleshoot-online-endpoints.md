@@ -299,6 +299,10 @@ When you access online endpoints with REST requests, the returned status codes a
 | 429 | Too many pending requests | Your model is getting more requests than it can handle. We allow 2 * `max_concurrent_requests_per_instance` * `instance_count` requests at any time. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`. If you are using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. |
 | 500 | Internal server error | Azure ML-provisioned infrastructure is failing. |
 
+## Common network isolation issues
+
+[!INCLUDE [network isolation issues](../../includes/machine-learning-online-endpoint-troubleshooting.md)]
+
 ## Next steps
 
 - [Deploy and score a machine learning model with a managed online endpoint](how-to-deploy-managed-online-endpoints.md)
