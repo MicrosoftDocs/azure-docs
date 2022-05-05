@@ -8,69 +8,48 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 05/05/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
 
-# Improve model performance
+# Improve custom text classification model performance
 
-After you've trained your model you reviewed its evaluation details, you can decide if you need to improve your model's performance. In this article, you will review inconsistencies between the predicted classes and classes tagged by the model, and examine data distribution.
+In some cases, the model is expected to make predictions that are inconsistent with your tagged classes. Use this article to learn how to observe these inconsistencies and decide on the needed changes needed to improve your model performance.
+
 
 ## Prerequisites
 
-To optionally improve a model, you will need to have:
+To optionally improve a model, you'll need to have:
 
 * [A custom text classification project](create-project.md) with a configured Azure blob storage account, 
 * Text data that has [been uploaded](create-project.md#prepare-training-data) to your storage account.
-* [Tagged data](tag-data.md) to successfully [train a model](train-model.md)
+* [Tagged data](tag-data.md) to successfully [train a model](train-model.md).
 * Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
-* Familiarized yourself with the [evaluation metrics](../concepts/evaluation.md) used for evaluation
+* Familiarized yourself with the [evaluation metrics](../concepts/evaluation.md).
 
-See the [application development lifecycle](../overview.md#project-development-lifecycle) for more information.
+See the [project development lifecycle](../overview.md#project-development-lifecycle) for more information.
 
 ## Review test set predictions
 
-Using Language Studio, you can review how your model performs vs how you expected it to perform. You can review predicted and tagged classes side by side for each model you have trained.
+After you have viewed your [model's evaluation](view-model-evaluation.md), you'll have formed an idea on your model performance. In this page, you can view how your model performs vs how it's expected to perform. You can view predicted and tagged classes side by side for each document in your test set. You can review documents that were predicted differently than they were originally tagged.
 
-1. Go to your project page in [Language Studio](https://aka.ms/languageStudio)).
-    1. Look for the section in Language Studio labeled **Classify text**.
-    2. Select **Custom text classification**. 
 
-2. Select **Improve model** from the left side menu.
+To review inconsistent predictions in the [test set](train-model.md#data-splitting) from within the [Language Studio](https://aka.ms/LanguageStudio):
 
-3. Select **Review test set**.
+1. Select **Improve model** from the left side menu.
 
-4. Choose your trained model from the **Model** drop-down menu.
+2. Choose your trained model from **Model** drop-down menu.
 
-5. For easier analysis, you can toggle on **Show incorrect predictions only** to view mistakes only.
+3. For easier analysis, you can toggle **Show incorrect predictions only** to view documents that were incorrectly predicted only. 
 
-    :::image type="content" source="../media/review-validation-set.png" alt-text="Review the validation set" lightbox="../media/review-validation-set.png":::
+Use the following information to help guide model improvements. 
 
-6. If a file that should belong to class  `X` is constantly classified as class `Y`, it means that there is ambiguity between these classes and you need to reconsider your schema.
+* If a file that should belong to class  `X` is constantly classified as class `Y`, it means that there is ambiguity between these classes and you need to reconsider your schema. Learn more about [data selection and schema design](design-schema.md#schema-design). Another solution is to consider adding more data to these classes, to help the model improve and differentiate between them.
 
-## Examine data distribution from Language studio
+    :::image type="content" source="../media/train-model.png" alt-text="A screenshot showing a new training job in Language Studio." lightbox="../media/train-model.png":::
 
-By examining data distribution in your files, you can decide if any class is underrepresented. Data imbalance happens when the files used for training are not distributed equally among the classes and introduces a risk to model performance. For example, if *class 1* has 50 tagged files while *class 2* has 10 tagged files only, this is a data imbalance where *class 1* is over represented and *class 2* is underrepresented. 
-
-In this case, the model is biased towards classifying your file as *class 1* and might overlook *class 2*. A more complex issue may arise from data imbalance if the schema is ambiguous. If the two classes don't have clear distinction between them and *class 2* is underrepresented the model most likely will classify the text as *class 1*.
-
-In the [evaluation metrics](../concepts/evaluation.md), when a class is over represented it tends to have a higher recall than other classes while under represented classes have lower recall.
-
-To examine data distribution in your dataset:
-
-1. Go to your project page in [Language Studio](https://aka.ms/languageStudio).
-    1. Look for the section in Language Studio labeled **Classify text**.
-    2. Select **Custom text classification**. 
-
-2. Select **Improve model** from the left side menu.
-
-3. Select **Examine data distribution**
-
-    :::image type="content" source="../media/examine-data-distribution.png" alt-text="Examine the data distribution" lightbox="../media/examine-data-distribution.png":::
-
-4. Go back to the **Tag data** page, and make adjustments once you have formed an idea on how you should tag your data differently.
 
 ## Next steps
 
-* Once you're satisfied with how your model performs, you can start [sending text classification requests](call-api.md) using the runtime API.
+* Once you're satisfied with how your model performs, you can [deploy your model](call-api.md).
