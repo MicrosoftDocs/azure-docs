@@ -105,7 +105,7 @@ echo "Test 168.63.129.16 Versions"  >> 168-63-129-16_test.txt
 curl http://168.63.129.16/?comp=versions >> 168-63-129-16_test.txt
 ```
 
-Results inside 168-63-129-16_test.txt.txt should return as shown below:
+Results inside 168-63-129-16_test.txt should return as shown below:
 
 ```
 traceroute -T -p 80 168.63.129.16
