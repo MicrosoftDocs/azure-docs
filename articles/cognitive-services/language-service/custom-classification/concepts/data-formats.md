@@ -8,49 +8,42 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 05/04/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
 
 # Accepted data formats
 
-When data is used by your model for learning, it expects the data to be in a specific format. When you tag your data in Language Studio, it gets converted to the JSON format described in this article. You can also manually tag your files.
+If you're trying to [import your data](../how-to/create-project.md#import-a-custom-text-classification-project) into custom text classification, it has to follow a specific format. If you don't have data to import you can [create your project](../how-to/create-project.md#create-a-custom-text-classification-project) and use Language Studio to [label your documents](../how-to/tag-data.md).
 
+## Labels file format
 
-## JSON file format
+Your Labels file should be in the `json` format below to be used in [importing](../how-to/create-project.md#import-a-custom-text-classification-project) your labels into a project.
 
-Your tags file should be in the `json` format below.
+# [Multi label classification](#tab/multi-classification)
 
 ```json
 {
-    "classifiers": [
+    "classes": [
         {
-            "name": "Class1"
+            "category": "Class1"
         },
         {
-            "name": "Class2"
+            "category": "Class2"
         }
     ],
     "documents": [
         {
-            "location": "file1.txt",
-            "language": "en-us",
-            "classifiers": [
+            "location": "{DOCUMENT-NAME}",
+            "language": "{LANGUAGE-CODE}",
+            "dataset": "{DATASET}",
+            "classes": [
                 {
-                    "classifierName": "Class2"
+                    "category": "Class1"
                 },
                 {
-                    "classifierName": "Class1"
-                }
-            ]
-        },
-        {
-            "location": "file2.txt",
-            "language": "en-us",
-            "classifiers": [
-                {
-                    "classifierName": "Class2"
+                    "category": "Class2"
                 }
             ]
         }
@@ -58,14 +51,57 @@ Your tags file should be in the `json` format below.
 }
 ```
 
-### Data description
+|Key  |Placeholder  |Value  | Example |
+|---------|---------|----------|--|
+| classes | [] | Array containing all the classes you have in the project. These are the classes you want to classify your documents into.| [] |
+| documents | [] | Array containing all the documents in your project and the classes labeled for this document. | [] |
+| location | `{DOCUMENT-NAME}` |  The location of the documents in the storage container. Since all the documents are in the root of the container, this value should be the document name.|`doc1.txt`|
+| dataset | `{DATASET}` |  The test set to which this file will go to when split before training. See [data splitting](../how-to/train-model.md#data-splitting) for more information. Possible values for this field are `Train` and `Test`.      |`Train`|
 
-* `classifiers`: An array of classifiers for your data. Each classifier represents one of the classes you want to tag your data with.
-* `documents`: An array of tagged documents.
-  * `location`: The path of the file. The file has to be in root of the storage container.
-  * `language`: Language of the file. Use one of the [supported culture locales](../language-support.md).
-  * `classifiers`: Array of classifier objects assigned to the file. If you're working on a single label classification project, there should be one classifier per file only.
+
+# [Single label classification](#tab/single-classification)
+
+```json
+{
+    "classes": [
+        {
+            "category": "Class1"
+        },
+        {
+            "category": "Class2"
+        }
+    ],
+    "documents": [
+        {
+            "location": "{DOCUMENT-NAME}",
+            "language": "{LANGUAGE-CODE}",
+            "dataset": "{DATASET}",
+            "class": {
+                "category": "Class2"
+            }
+        },
+        {
+            "location": "{DOCUMENT-NAME}",
+            "language": "{LANGUAGE-CODE}",
+            "dataset": "{DATASET}",
+            "class": {
+                "category": "Class1"
+            }
+        }
+    ]
+}
+```
+|Key  |Placeholder  |Value  | Example |
+|---------|---------|----------|--|
+| classes | [] | Array containing all the classes you have in the project. These are the classes you want to classify your documents into.| [] |
+| documents | [] | Array containing all the documents in your project and which class this document belongs to. | [] |
+| location | `{DOCUMENT-NAME}` |  The location of the documents in the storage container. Since all the documents are in the root of the container this should be the document name.|`doc1.txt`|
+| dataset | `{DATASET}` |  The test set to which this file will go to when split before training. See [data splitting](../how-to/train-model.md#data-splitting) for more information. Possible values for this field are `Train` and `Test`.      |`Train`|
+
+
+---
 
 ## Next steps
 
-See the [how-to article](../how-to/tag-data.md)  more information about tagging your data. When you're done tagging your data, you can [train your model](../how-to/train-model.md).  
+* You can import your labeled data into your project directly. Learn how to [import project](../how-to/create-project.md#import-a-custom-text-classification-project)
+* See the [how-to article](../how-to/tag-data.md) more information about labeling your data. When you're done labeling your data, you can [train your model](../how-to/train-model.md).  
