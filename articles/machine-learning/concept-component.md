@@ -19,7 +19,7 @@ ms.custom:
 
 [!INCLUDE [dev v2](../../../includes/machine-learning-dev-v2.md)]
 
-An Azure Machine Learning component is a self-contained piece of code that does one step in a machine learning pipeline. A component is analogous to a function - it has a name, inputs, outputs, and a body. Components are the building blocks of the [Azure Machine Learning pipelines](concept-ml-pippelines.md).
+An Azure Machine Learning component is a self-contained piece of code that does one step in a machine learning pipeline. A component is analogous to a function - it has a name, inputs, outputs, and a body. Components are the building blocks of the [Azure Machine Learning pipelines](concept-ml-pipelines.md).
 
 A component consists of three parts:
 
@@ -56,12 +56,12 @@ Finally, you can package everything including code, cmd, environment, input, out
 To learn more about how to build a component, please read:
 
 - How to [build a component using Azure MLCLI v2](how-to-create-component-pipelines-cli.md)
-- How to [build a component using Azure ML SDK v2](how-to-create-component-pipelines-python-v2.md)
+- How to [build a component using Azure ML SDK v2](how-to-create-component-pipeline-python-v2.md)
 
 ## Next steps
 
 - [How to build a component using Azure ML CLI v2](how-to-create-component-pipelines-cli.md)
-- [How to build a component using Azure ML SDK v2](how-to-create-component-pipelines-python-v2.md)
+- [How to build a component using Azure ML SDK v2](how-to-create-component-pipeline-python-v2.md)
 - [Component reference](/component-reference/component-reference.md)
 - [What is Azure Machine Learning Pipeline?](concept-ml-pipelines.md)
-- Try out [example Jupyter notebooks showcasing Azure Machine Learning pipelines](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/using-pipelines). [Learn how to run notebooks](samples-notebooks) to explore this service.
+- Try out [example Jupyter notebooks showcasing Azure Machine Learning pipelines](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/using-pipelines). [Learn how to run notebooks](samples-notebooks.md) to explore this service.

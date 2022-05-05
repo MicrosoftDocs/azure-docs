@@ -7,13 +7,12 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.author: keli19
 author: likebupt
-ms.date: 10/21/2021
+ms.date: 05/24/2022
 ms.topic: how-to
 ms.custom: designer
 ---
 
 # Run batch predictions using Azure Machine Learning designer
-
 
 In this article, you learn how to use the designer to create a batch prediction pipeline. Batch prediction lets you continuously score large datasets on-demand using a web service that can be triggered from any HTTP library.
 
@@ -30,7 +29,7 @@ To learn how to set up batch scoring services using the SDK, see the accompanyin
 
 ## Prerequisites
 
-This how-to assumes you already have a training pipeline. For a guided introduction to the designer, complete [part one of the designer tutorial](tutorial-designer-automobile-price-train-score.md). 
+This how-to assumes you already have a training pipeline. For a guided introduction to the designer, complete [part one of the designer tutorial](tutorial-designer-automobile-price-train-score.md).
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
@@ -170,6 +169,5 @@ Then you can submit the inference pipeline with the updated model and transforma
 
 ## Next steps
 
-Follow the designer [tutorial](tutorial-designer-automobile-price-train-score.md) to train and deploy a regression model.
-
-For how to publish and run a published pipeline using SDK, see [this article](how-to-deploy-pipelines.md).
+* Follow the [designer tutorial to train and deploy a regression model](tutorial-designer-automobile-price-train-score.md).
+* For how to publish and run a published pipeline using SDK, see the [How to deploy pipelines](how-to-deploy-pipelines.md) article .

@@ -101,7 +101,6 @@ Open the `services.Studio.endpoint` URL you'll see a graph visualization of the 
 ![pipeline-graph](./media/how-to-create-component-pipelines-cli/pipeline-graph-dependencies.png) 
 
 
-
 ## Understand the pipeline definition YAML
 
 Let's take a look at the pipeline definition in the *3b_pipeline_with_data/pipeline.yml* file.  
@@ -127,8 +126,6 @@ In the *3b_pipeline_with_data* example, we have created a three step pipeline.
 
 ![pipeline-input-output](./media/how-to-create-component-pipelines-cli/pipeline-inputs-and-outputs.png)
 
-
-
 ### Reading and writing data in pipeline
 One common scenario is to reading and writing data in your pipeline. In AuzreML, we use the same schema to read and write data for all type of jobs (pipeline job, command job, and sweep job). See [Sam's data article](add link to Sam's data article) to learn more about how to read and write data. Below are pipeline job examples of using data for common scenarios. 
 
@@ -136,10 +133,6 @@ One common scenario is to reading and writing data in your pipeline. In AuzreML,
 - [web file with public URL](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/basics/4c_web_url_input/pipeline.yml)
 - [AzureML datastore and path](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/4b_datastore_datapath_uri) 
 - [AzureML data asset](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/4d_data_input) 
-
-
-
-
 
 ## Understand the component definition YAML 
 
@@ -186,11 +179,9 @@ Environment defines the environment to execute the component. It could be an Azu
 
 - [AzureML registered environment asset](https://github.com/Azure/azureml-examples/tree/april-sdk-preview/cli/jobs/pipelines-with-components/basics/5b_env_registered). It's referenced in component following `azureml:<environment-name>:<environment-version>` syntax. 
 - [public docker image](https://github.com/Azure/azureml-examples/tree/april-sdk-preview/cli/jobs/pipelines-with-components/basics/5a_env_public_docker_image)
-- [conda file](https://github.com/Azure/azureml-examples/tree/april-sdk-preview/cli/jobs/pipelines-with-components/basics/5c_env_conda_file) Conda file needs to be used together with a base image. 
+- [conda file](https://github.com/Azure/azureml-examples/tree/april-sdk-preview/cli/jobs/pipelines-with-components/basics/5c_env_conda_file) Conda file needs to be used together with a base image.
 
-
-
-## Register component for reuse and sharing 
+## Register component for reuse and sharing
 
 While some components will be specific to a particular pipeline, the real benefit of components comes from reuse and sharing. Register a component in your Machine Learning workspace to make it available for reuse. Registered components support automatic versioning so you can update the component but assure that pipelines that require an older version will continue to work.  
 
