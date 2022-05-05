@@ -1,8 +1,10 @@
 ---
 title: Understand the guest configuration feature of Azure Policy
 description: Learn how Azure Policy uses the guest configuration feature to audit or configure settings inside virtual machines.
-ms.date: 07/15/2021
+ms.date: 05/05/2022
 ms.topic: conceptual
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Understand the guest configuration feature of Azure Policy
 
@@ -34,7 +36,7 @@ Examples of each scenario are provided in the following table.
 | Type | Description | Example story |
 | - | - | - |
 | [Configuration management](guest-configuration-assignments.md) | You want a complete representation of a server, as code in source control. The deployment should include properties of the server (size, network, storage) and configuration of operating system and application settings. | "This machine should be a web server configured to host my website." |
-| [Compliance](../assign-policy-portal.md) | You want to audit or deploy settings to all machines in scope either reactively to existing machines or proactively to new machines as they are deployed. | "All machines should use TLS 1.2. Audit existing machines so I can release change where it is needed, in a controlled way, at scale. For new machines, enforce the setting when they are deployed." |
+| [Compliance](../assign-policy-portal.md) | You want to audit or deploy settings to all machines in scope either reactively to existing machines or proactively to new machines as they are deployed. | "All machines sould use TLS 1.2. Audit existing machines so I can release change where it is needed, in a controlled way, at scale. For new machines, enforce the setting when they are deployed." |
 
 The per-setting results from configurations can be viewed either in the
 [Guest assignments page](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)
@@ -87,7 +89,7 @@ follow the guidance for each:
 - [Configure managed identities for Azure resources on a VM using the Azure portal](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 To use guest configuration packages that apply configurations, Azure VM guest
-configuration extension version **1.29.24** or later is required.
+configuration extension version **1.26.34** or later is required.
 
 ### Limits set on the extension
 
@@ -159,7 +161,7 @@ definitions as long as they're one of the operating systems in the table above.
 Virtual machines in Azure can use either their local network adapter or a
 private link to communicate with the guest configuration service.
 
-Azure Arc machines connect using the on-premises network infrastructure to reach
+Azure Arc-enabled servers connect using the on-premises network infrastructure to reach
 Azure services and report compliance status.
 
 ### Communicate over virtual networks in Azure
@@ -269,7 +271,7 @@ Guest configuration policy definitions currently only support assigning the same
 guest assignment once per machine when the policy assignment uses different
 parameters.
 
-### Assignments to Azure Management Groups
+### Assignments to Azure management groups
 
 Azure Policy definitions in the category 'Guest Configuration' can be assigned
 to Management Groups only when the effect is 'AuditIfNotExists'. Policy
@@ -304,7 +306,7 @@ following example PowerShell script can be helpful.
 $linesToIncludeBeforeMatch = 0
 $linesToIncludeAfterMatch = 10
 $logPath = 'C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log'
-Select-String -Path $logPath -pattern 'DSCEngine','DSCManagedEngine' -CaseSensitive -Context $linesToIncludeBeforeMatch,$linesToIncludeAfterMatch | Select-Object -Last 10
+Select-String -Path $logPath -Pattern 'DSCEngine','DSCManagedEngine' -CaseSensitive -Context $linesToIncludeBeforeMatch,$linesToIncludeAfterMatch | Select-Object -Last 10
 ```
 
 #### Linux
@@ -326,7 +328,7 @@ The guest configuration agent downloads content packages to a machine and
 extracts the contents. To verify what content has been downloaded and stored,
 view the folder locations given below.
 
-Windows: `c:\programdata\guestconfig\configuration`
+Windows: `C:\ProgramData\GuestConfig\Configuration`
 
 Linux: `/var/lib/GuestConfig/Configuration`
 
