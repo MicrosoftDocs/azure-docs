@@ -78,12 +78,12 @@ A real-world example is the ringing of an agent in a call center.
 1. The Offer is declined via the Job Router API.
 1. The Offer is removed from the worker, opening up capacity for another Offer for a different job.
 1. Job Router sends an [OfferDeclined Event][offer_declined_event].
-1. Job Router will not re-offer the declined Offer to the worker unless they deregister and re-register.
+1. Job Router won't reoffer the declined Offer to the worker unless they deregister and re-register.
 
 ### Offer expiry flow
 
 1. When Job Router finds a matching Worker for a Job, it creates an Offer and sends an [OfferIssued Event][offer_issued_event] via [Event Grid][subscribe_events].
-1. The Offer not not accepted or declined within the TTL period defined by the Distribution Policy.
+1. The Offer is not accepted or declined within the TTL period defined by the Distribution Policy.
 1. Job Router will expire the Offer and an [OfferExpired Event][offer_expired_event] will be sent.
 1. The worker is considered unavailable and will be automatically deregistered.
 1. A [WorkerDeregistered Event][worker_deregistered_event] will be sent.
