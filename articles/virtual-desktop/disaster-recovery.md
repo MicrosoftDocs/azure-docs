@@ -26,6 +26,22 @@ To summarize, to keep your users connected during an outage, you'll need to do t
 - Make sure user identities you set up in the primary location are available in the secondary location.
 - Make sure any line-of-business applications relying on data in your primary location are failed over to the secondary location.
 
+## Active-passive and active-active disaster recovery plans
+
+There are two different types of disaster recovery infrastructure: active-passive and active-active. Both require replicating resources in another Azure region, but each of them works a different way.
+
+Active-passive plans are when you have a region with one set of resources that's active and one that's turned off until it's needed (passive). If the active region is taken offline by an emergency, the organization can switch to the passive region by turning it on and moving all the users there.
+
+Another option is an active-active deployment, where you use both sets of infrastructure at the same time. While some users may be affected by outages, the impact is limited to the users in the region that went down. Users in the other region that's still online won't be affected, and the recovery is limited to the users in the affected region reconnecting to the functioning active region. Active-active deployments can take many forms, including:
+
+- Overprovisioning infrastructure in each region to accommodate affected users in the event one of the regions goes down. A potential drawback to this method is that maintaining the additional resources costs more.
+- Have extra session hosts in both active regions, but deallocate them when they aren't needed, which reduces costs.
+- Only provision new infrastructure during disaster recovery and allow affected users to connect to the newly-provisioned session hosts. This method requires regular testing with infrastructure-as-code tools so you can deploy the new infrastructure as quickly as possible during a disaster.
+
+For more information about types of disaster recovery plans you can use, see [Azure Virtual Desktop disaster recovery concepts](disaster-recovery-concepts.md).
+
+Identifying which method works best for your organization is the first thing you should do before you get started. Once you have your plan in place, you can start replicating your resources to the secondary region.
+
 ## VM replication
 
 First, you'll need to replicate your VMs to the secondary location. Your options for doing so depend on how your VMs are configured:
@@ -121,6 +137,7 @@ We recommend you configure the FSLogix agent with a path to the secondary locati
 
 For example, let's say your primary session host VMs are in the Central US region, but your profile container is in the Central US region for performance reasons. In this case, you'd configure the FSLogix agent with a path to the storage in the Central US region. Next, you'd configure the the storage service you used in the previous example to replicate to the West US region. Once the path to Central US fails, the agent will try to load the profile in West US instead.
 
+
 ### FSlogix Cloud Cache
 
 FSlogix supports replicating user and office containers from an agent running on the session host itself. While you'll need to deploy multiple storage providers in multiple regions to store the replicated profiles, you won't need to configure the storage service's replication capabilities. However, before you start configuring FSLogic Cloud cache, you should be aware this method requires extra processing and storage space on the session host itself. Make sure you review [Cloud Cache to create resiliency and availability](/fslogix/cloud-cache-resiliency-availability-cncpt) before you get started.
@@ -136,7 +153,7 @@ Since S2D handles replication across regions internally, you don't need to manua
 
 ### Network drives (VM with extra drives)
 
-If you replicate the network storage VMs using Azure Site Recovery like the session host VMs, then the recovery keeps the same path, which means you don't need to reconfigure FSlogix.
+If you replicate the network storage VMs using Azure Site Recovery like the session host VMs, then the recovery keeps the same path, which means you don't need to reconfigure FSLogix.
 
 ### Azure Files
 
@@ -145,8 +162,7 @@ Azure Files supports cross-region asynchronous replication that you can specify 
 If you need synchronous replication to minimize data loss, then we recommend you use FSLogix Cloud Cache instead.
 
 >[!NOTE]
->This section doesn't cover the failover authentication mechanism for
-Azure Files.
+>This section doesn't cover the failover authentication mechanism for Azure Files.
 
 ### Azure NetApp Files
 
