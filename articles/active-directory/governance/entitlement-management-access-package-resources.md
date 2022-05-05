@@ -30,7 +30,7 @@ This video provides an overview of how to change an access package.
 
 ## Check catalog for resources
 
-If you need to add resources to an access package, you should check whether the resources your need are available in the access package's catalog.  If you are an access package manager, you cannot add resources to a catalog, even if you own them. You are restricted to using the resources available in the catalog.
+If you need to add resources to an access package, you should check whether the resources your need are available in the access package's catalog. If you are an access package manager, you cannot add resources to a catalog, even if you own them. You are restricted to using the resources available in the catalog.
 
 **Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
@@ -48,9 +48,9 @@ If you need to add resources to an access package, you should check whether the 
 
 ## Add resource roles
 
-A resource role is a collection of permissions associated with a resource. The way you make resources available for users to request is by adding resource roles from each of the catalog's resources to your access package. You can add resource roles that are provided by groups, teams, applications, and SharePoint sites.  When a user receives an assignment to an access package, they will then be assigned all the resource roles in the access package.
+A resource role is a collection of permissions associated with a resource. The way you make resources available for users to request is by adding resource roles from each of the catalog's resources to your access package. You can add resource roles that are provided by groups, teams, applications, and SharePoint sites.  When a user receives an assignment to an access package, they will be added to all the resource roles in the access package.
 
-If you do not want users to receive all of the roles, then you will need to create multiple access packages in the catalog, with separate access packages for each of the resource roles.  You can also mark the access packages as [incompatible](entitlement-management-access-package-incompatible.md) with each other so that users cannot request access to multiple access packages.
+If you do not want users to receive all of the roles, then you will need to create multiple access packages in the catalog, with separate access packages for each of the resource roles.  You can also mark the access packages as [incompatible](entitlement-management-access-package-incompatible.md) with each other so that users cannot request access to access packages that would give them excessive access.
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
