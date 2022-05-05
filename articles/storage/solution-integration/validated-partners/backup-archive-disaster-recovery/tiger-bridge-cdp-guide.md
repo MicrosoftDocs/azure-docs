@@ -1,7 +1,7 @@
 ---
-title: Deploy Tiger Bridge Continuos Data Protection, Archive and Disaster Recovery with Azure Blob Storage
+title: Deploy Tiger Bridge ContinuousData Protection, Archive and Disaster Recovery with Azure Blob Storage
 titleSuffix: Azure Storage
-description: Deployment, and configuration guide for running Tiger Bridge in Continuos Data Protection, Archive and Disaster Recovery configurations.
+description: Deployment, and configuration guide for running Tiger Bridge in ContinuousData Protection, Archive and Disaster Recovery configurations.
 author: dukicn
 ms.author: nikoduki
 ms.date: 04/05/2022
@@ -12,8 +12,8 @@ ms.subservice: partner
 
 # Deployment of Tiger Bridge in Continuous Data Protection, Archive and Disaster Recovery configurations
 
-This article will guide you to set up Tiger Bridge data management system with Azure Blob Storage. Tiger Bridge Continuous data protection (CDP) integrates with [Soft Delete](/azure/storage/blobs/soft-delete-blob-overview) and [Versioning](/azure/storage/blobs/versioning-overview) to achieve a complete Continuous Data Protection solution, and apply policies to move data between [Azure Blob tiers](/azure/storage/blobs/access-tiers-overview) for optimal cost Continuous data protection allows customers to have a real-time file-based backup with snapshots with near zero RPO. CDP enables customers to protect their assets with minimum resources. Optionally, it can be used in WORM scenario using [immutable storage](/azure/storage/blobs/immutable-storage-overview).
-In addition, Tiger Bridge provides easy and efficient Disaster Recovery. It can be combined with [Microsoft DFSR](/windows-server/storage/dfs-replication/dfsr-overview), but it is not mandatory. It allows mirrored DR sites, or can be used with minimum storage DR sites (keeping only the most recent data on-prem plus). 
+This article will guide you to set up Tiger Bridge data management system with Azure Blob Storage. Tiger Bridge Continuous data protection (CDP) integrates with [Soft Delete](/azure/storage/blobs/soft-delete-blob-overview) and [Versioning](/azure/storage/blobs/versioning-overview) to achieve a complete Continuous Data Protection solution. It applies policies to move data between [Azure Blob tiers](/azure/storage/blobs/access-tiers-overview) for optimal cost. Continuous data protection allows customers to have a real-time file-based backup with snapshots to achieve near zero RPO. CDP enables customers to protect their assets with minimum resources. Optionally, it can be used in WORM scenario using [immutable storage](/azure/storage/blobs/immutable-storage-overview).
+In addition, Tiger Bridge provides easy and efficient Disaster Recovery. It can be combined with [Microsoft DFSR](/windows-server/storage/dfs-replication/dfsr-overview), but it isn't mandatory. It allows mirrored DR sites, or can be used with minimum storage DR sites (keeping only the most recent data on-prem plus). 
 All the replicated files in Azure Blob Storage are stored as native objects, allowing the organization to access them without using Tiger Bridge. This approach prevents vendor locking.
 
 ## Reference Architecture
@@ -26,7 +26,7 @@ More information on Tiger Bridge solution, and common use case can be read in [T
 
 - **Refer to [Tiger Bridge deployment guide](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/tiger-bridge-deployment-guide)**, it describes initial steps needed for setting up CDP.
 
-- **Choose the right storage options**. When you use Azure as a backup target, you'll make use of [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/). Blob storage is optimized for storing massive amounts of unstructured data, which is data that does not adhere to any data model, or definition. It is durable, highly available, secure, and scalable. You can select the right storage for your workload by looking at two aspects:
+- **Choose the right storage options**. When you use Azure as a backup target, you'll make use of [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/). Blob storage is optimized for storing massive amounts of unstructured data, which is data that doesn't adhere to any data model, or definition. It's durable, highly available, secure, and scalable. You can select the right storage for your workload by looking at two aspects:
     - [Storage redundancy](/azure/storage/common/storage-redundancy)
     - [Storage tier](/azure/storage/blobs/access-tiers-overview)
 
@@ -49,18 +49,18 @@ Refer to [Tiger Bridge deployment guide](/azure/storage/solution-integration/val
 ## Deploy Tiger Bridge
 Before you can install Tiger Bridge, you need to have a Windows file server installed, and fully functional. Windows server must have access to the storage account prepare in [previous step](#prepare-azure-blob-storage).
 
-## Deployment instructions for Continuos Data Protection
+## Deployment instructions for ContinuousData Protection
 1. Deploy Tiger Bridge solution as described in [standalone hybrid configuration](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/tiger-bridge-deployment-guide#deploy-standalone-hybrid-configuration) (steps 1 to 4).
 1. Under Tiger Bridge settings, enable **Delete replica when source file is removed** and **Keep replica versions**
     :::image type="content" source="./media/tiger-bridge-cdp-guide/tiger-bridge-settings.png" alt-text="Screenshot that shows how to enable settings for CDP.":::
 1. Set versioning policy either **By Age** or **By Count**
     :::image type="content" source="./media/tiger-bridge-cdp-guide/tiger-bridge-versioning-policy.png" alt-text="Screenshot that shows how to set versioning policy.":::
 
-Tiger Bridge is natively integrated with [Windows Volume Shadow Copy Service](/windows-server/storage/file-server/volume-shadow-copy-service). This enables restoring files and folders protected by Tiger Bridge CDP using native windows tools, like Windows Explorer. To verify CDP is enabled, simply change any file and use Windows Explorer Previous Versions to verify a version has been created. You can restore any version listed by selecting it, and pressing **Restore**.
+Tiger Bridge is natively integrated with [Windows Volume Shadow Copy Service](/windows-server/storage/file-server/volume-shadow-copy-service). Integration enables restoring files and folders protected by Tiger Bridge CDP using native windows tools, like Windows Explorer. To verify CDP is enabled, simply change any file and use Windows Explorer Previous Versions to verify a version has been created. You can restore any version listed by selecting it, and pressing **Restore**.
 
-:::image type="content" source="./media/tiger-bridge-cdp-guide/tiger-bridge-previous-versions.png" alt-text="Screenshot that shows how to set verify a file is protected by Tiger Bridge CDP.":::
+:::image type="content" source="./media/tiger-bridge-cdp-guide/tiger-bridge-previous-versions.png" alt-text="Screenshot that shows how to verify a file is protected by Tiger Bridge CDP.":::
 
-Tiger Bridge CDP also enables restoring files in case of accidental deletions. To un-delete a file, Tiger Bridge Shell extension can be used. Simply select the folder where the file was originally located, navigate to Tiger Bridge Shell Extension and select **Undelete**.
+Tiger Bridge CDP also enables restoring files if there was accidental deletions. To undelete a file, Tiger Bridge Shell extension can be used. Simply select the folder where the file was originally located, navigate to Tiger Bridge Shell Extension and select **Undelete**.
     
 :::image type="content" source="./media/tiger-bridge-cdp-guide/tiger-bridge-undelete.png" alt-text="Screenshot that shows how to undelete a file protected by Tiger Bridge CDP.":::
 
@@ -80,16 +80,17 @@ Tiger Bridge can move a replicated file between Azure Blob Storage tiers to opti
     1. **Time interval** - specifies time interval in which the files haven't been accessed. All files that haven't been accessed in at least the defined value, will be moved to Archive tier.
     :::image type="content" source="./media/tiger-bridge-cdp-guide/tiger-bridge-archive-policy.png" alt-text="Screenshot that shows how to change an archiving policy in Tiger Bridge Configuration.":::
 
-Once the files are in Archive tier, they are not directly accessible. To access those files, they have to be rehydrated (moved from Archive tier to Hot or Cool tier). Tiger Bridge Shell Extension can be used to invoke the rehydration process in a very simple way. Right-click on the file you want to rehydrate in Windows Explorer, find Tiger Bridge Shell Extension, and select **Rehydrate from Archive**. You will be notified that **Restoring form archive (Rehydrate)** is an operation that may apply additional fees. 
+Once the files are in Archive tier, they are not directly accessible. To access those files, they have to be rehydrated (moved from Archive tier to Hot or Cool tier). Tiger Bridge Shell Extension can be used to invoke the rehydration process in a simple way. Right-click on the file you want to rehydrate in Windows Explorer, find Tiger Bridge Shell Extension, and select **Rehydrate from Archive**. You'll be notified that **Restoring from archive (Rehydrate)** is an operation that may apply other fees. 
 
 :::image type="content" source="./media/tiger-bridge-cdp-guide/tiger-bridge-rehydrate1.png" alt-text="Screenshot that shows how to use Tiger Bridge Shell Extension to rehydrate the file.":::
 
 :::image type="content" source="./media/tiger-bridge-cdp-guide/tiger-bridge-rehydrate2.png" alt-text="Screenshot that shows confirmation diagram for rehydration process.":::
 
-For more detailed information on how to configure Tiger Bridge for your specific set-up, please refer to the latest [Tiger Bridge Administration Guide](https://www.tiger-technology.com/software/tiger-bridge/docs/)
+For more detailed information on how to configure Tiger Bridge for your specific set-up, refer to the latest [Tiger Bridge Administration Guide](https://www.tiger-technology.com/software/tiger-bridge/docs/)
 
 ## Deployment instructions for Disaster Recovery
 Tiger Bridge can be configured in Disaster Recovery mode. Typical configuration is an active - passive configuration with one Tiger Bridge server on the primary and one on the secondary site. Tiger Bridge server on the primary site is active and replicates the data to secondary Tiger Bridge server (through Azure Blob Storage). Tiger Bridge server on the secondary server is idle and receives file changes
+
 :::image type="content" source="./media/tiger-bridge-cdp-guide/tiger-bridge-dr-active-passive.png" alt-text="Architecture for Tiger Bridge in active - passive DR configuration.":::
 
 1. Deploy and setup Tiger Bridge server on the primary and secondary site as instructed in [Tiger Bridge deployment guide](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/tiger-bridge-deployment-guide#deploy-standalone-hybrid-configuration) for standalone hybrid configuration
@@ -98,13 +99,13 @@ Tiger Bridge can be configured in Disaster Recovery mode. Typical configuration 
     > Both Tiger Bridge servers on primary and secondary site must be connected to the same container and storage account.
 
 1. Enable Tiger Bridge synchronization on both Tiger Bridge servers.
-    :::image type="content" source="./media/tiger-bridge-cdp-guide/tiger-bridge-dr-sync-policy.png" alt-text="Architecture for Tiger Bridge in active - passive DR configuration.":::
+    :::image type="content" source="./media/tiger-bridge-cdp-guide/tiger-bridge-dr-sync-policy.png" alt-text="Screenshot that shows how to enable Tiger Bridge sync policy.":::
     
     - On secondary Tiger Bridge server, disable **Listen**, and enter the time interval at which servers will check for notifications from active server about changes. 
-    - Chose if you want to automatically retrieve the changed files to the secondary server immediately. Selecting **Automatically restore files on the synchronized source** will download all the changes on the secondary server immediately. If un-selected, changes will be downloaded on demand.
+    - Choose if you want to automatically retrieve the changed files to the secondary server immediately. Selecting **Automatically restore files on the synchronized source** will download all the changes on the secondary server immediately. If unselected, changes will be downloaded on demand.
     - After the settings are done, click **Apply**
 
-In case you want increased resiliency on the primary site, Tiger Bridge support Windows DFSR that would enable replication between two Tiger Bridge servers on the primary site. In case of any issues with one of the Tiger Bridge servers on the primary site, other one would continue to provide the service with minimal to no disruption.
+For increased resiliency on the primary site, Tiger Bridge support Windows DFSR that would enable replication between two Tiger Bridge servers on the primary site. If there were issues with one of the Tiger Bridge servers on the primary site, other one would continue to operate.
 
 > [!TIP]
 > Tiger Bridge Policies and Synchronization can be defined as global (applied to all Tiger Bridge servers), or can be defined per Tiger Bridge server.
@@ -124,4 +125,4 @@ Tiger Technology provides 365x24x7 support for Tiger Bridge. To contact support,
 - [Tiger Bridge guides](https://www.tiger-technology.com/software/tiger-bridge/docs/)
 - [Azure Storage partners for primary and secondary storage](./partner-overview.md)
 - [Tiger Bridge Marketplace offering](https://azuremarketplace.microsoft.com/marketplace/apps/tiger-technology.tigerbridge_vm)
-- [Running ISV file services in Azure](./isv-file-services.md)
+- [Running ISV file services in Azure](../primary-secondary-storage/isv-file-services.md)
