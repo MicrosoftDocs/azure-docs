@@ -12,7 +12,7 @@ ms.date: 04/20/2022
 ms.author: v-ydequadros
 ---
 
-# What's CloudKnox Permissions Management?
+# What's Entra Permissions Management?
 
 
 > [!IMPORTANT]
