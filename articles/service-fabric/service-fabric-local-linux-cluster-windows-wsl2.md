@@ -24,7 +24,7 @@ Before you get started, you need:
 * Set up Ubuntu 18.04 Linux Distribution from Microsoft Store while setting up WSL2
 
 >[!TIP]
-> To install WSL2 on your Windows machine, follow the steps in the [WSL documentation](https://docs.microsoft.com/windows/wsl/install). After installing, please ensure installation of Ubuntu-18.04, make it your default distribution and it should be up and running.
+> To install WSL2 on your Windows machine, follow the steps in the [WSL documentation](/windows/wsl/install). After installing, please ensure installation of Ubuntu-18.04, make it your default distribution and it should be up and running.
 >
 
 ## Set up Service Fabric SDK inside Linux Distribution
