@@ -122,7 +122,8 @@ You're also required to set up a [virtual network link](../dns/private-dns-virtu
 No. You have to deploy and register a self-hosted integration runtime to scan data by using private connectivity. Azure Key Vault or Service Principal must be used as the authentication method to data sources.
 
 ### Can I use Managed IR to scan data sources through a private endpoint?
-supported data sources require a Managed private endpoint. For more information, see [Microsoft Purview Managed VNets](./catalog-managed-vnet.md).
+
+If you are planning to use Managed IR to scan any of the supported data sources, the data source requires a managed private endpoint created inside Microsoft Purview Managed VNet. For more information, see [Microsoft Purview Managed VNets](./catalog-managed-vnet.md).
 
 ### What are the outbound ports and firewall requirements for virtual machines with self-hosted integration runtime for Microsoft Purview when you use a private endpoint?
 
