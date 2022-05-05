@@ -5,7 +5,7 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 05/04/2022
+ms.date: 05/05/2022
 ---
 
 # Dapr integration with Azure Container Apps
@@ -38,13 +38,13 @@ The following Pub/sub example demonstrates how Dapr works alongside your contain
 
 | Label | Dapr settings | Description |  
 | ----- | ------------- | ----------- |
-| 1 | [Container Apps with Dapr enabled](#enable-dapr-on-your-app) | Dapr is enabled in your container app. |
+| 1 | Container Apps with Dapr enabled | Dapr is enabled in your container app. |
 | 2 | Dapr sidecar | Fully-managed Dapr APIs are exposed to your container app via the Dapr sidecar. These APIs are available through HTTP and gRPC protocols. |
-| 3 | [Dapr component](#dapr-components) | Dapr components are plugged into and scoped to your container app and Dapr sidecar. |
+| 3 | Dapr component | Dapr components are plugged into and scoped to your container app and Dapr sidecar. |
 
 :::image type="content" source="media/dapr-overview/dapr-in-aca.png" alt-text="Diagram demonstrating Dapr pub/sub and how it works with Container Apps":::
 
-#### Enable Dapr on your app
+### Enable Dapr components
 
 Define Dapr sidecars or control plane settings for your container app within a bicep or ARM template, or by passing to a YAML component via the Azure CLI. 
 
@@ -59,82 +59,6 @@ With the following settings, you enable Dapr on your app:
 
 Once Dapr is enabled on your container app, you are able to plug in and use any of the [Dapr APIs](#dapr-building-blocks) via a [Dapr component](#dapr-components). 
 
-# [YAML](#tab/yaml)
-
-When defining a YAML component via the `components.yaml` spec, you pass the Dapr enablement settings to the Azure CLI. For the publisher container app:
-
-```azurecli
---enable-dapr \
---dapr-app-id publisher-app \
---dapr-app-port 80 \
---dapr-app-protocol http \
---dapr-components ./components.yaml
-```
-
-For the subscriber container app:
-
-```azurecli
---enable-dapr \
---dapr-app-id subscriber-app \
---dapr-app-port 80 \
---dapr-app-protocol http \
---dapr-components ./components.yaml
-```
-
-These settings define the `components.yaml` spec with which the Dapr sidecar and your container app will communicate.
-
-
-# [Bicep](#tab/bicep)
-
-For the publisher container app:
-
-```bicep
-dapr: {
-      enabled: true
-      appId: 'publisher-app'
-      appPort: 80
-      appProtocol: 'http'
-    }
-```
-
-For the subscriber container app:
-
-```bicep
-dapr: {
-      enabled: true
-      appId: 'subscriber-app'
-      appPort: 80
-      appProtocol: 'http'
-    }
-```
-
-# [ARM](#tab/arm)
-
-For the publisher container app:
-
-```json
-"dapr": {
-    "enabled": true,
-    "appId": "publisher-app",
-    "appPort": 80,
-    "appProtocol": "http",
-}
-```
-For the subscriber container app:
-
-```json
-"dapr": {
-    "enabled": true,
-    "appId": "subscriber-app",
-    "appPort": 80,
-    "appProtocol": "http",
-}
-```
-
----
-
-#### Dapr components
-
 Dapr components are scoped to a container app environment and are pluggable modules that:
 
 - Allow you to use the individual Dapr building block APIs.
@@ -146,11 +70,30 @@ Based on your needs, you can "plug in" certain Dapr component types like state s
 > [!NOTE]
 > By default, every container app will load the Dapr component. You can limit which container app loads the component by adding application scopes.
 
-**In Azure Container Apps**
 
 # [YAML](#tab/yaml)
 
-When you enable Dapr via the Azure CLI, you define the following `components.yaml` file:
+When defining a YAML component via the `components.yaml` spec, you pass the Dapr enablement settings to the Azure CLI. For example, for a publisher container app:
+
+```azurecli
+--enable-dapr \
+--dapr-app-id publisher-app \
+--dapr-app-port 80 \
+--dapr-app-protocol http \
+--dapr-components ./components.yaml
+```
+
+For a subscriber container app:
+
+```azurecli
+--enable-dapr \
+--dapr-app-id subscriber-app \
+--dapr-app-port 80 \
+--dapr-app-protocol http \
+--dapr-components ./components.yaml
+```
+
+These settings define the `components.yaml` spec with which the Dapr sidecar and your `publisher-app` and `subscriber-app` will communicate. :
 
 ```yaml
 # components.yaml for Azure Service Bus component
@@ -167,6 +110,31 @@ When you enable Dapr via the Azure CLI, you define the following `components.yam
 ```
 
 # [Bicep](#tab/bicep)
+
+In your bicep template, enable Dapr on specific container apps using the settings above. For example, in a publisher container app: 
+
+```bicep
+dapr: {
+      enabled: true
+      appId: 'publisher-app'
+      appPort: 80
+      appProtocol: 'http'
+    }
+```
+
+For a subscriber container app:
+
+```bicep
+dapr: {
+      enabled: true
+      appId: 'subscriber-app'
+      appPort: 80
+      appProtocol: 'http'
+    }
+```
+
+These settings define the `daprComponent` resource in your bicep template, with which the Dapr sidecar and your `publisher-app` and `subscriber-app` will communicate:
+
 
 ```bicep
 resource daprComponent 'daprComponents@2022-01-01-preview' = {
@@ -195,7 +163,31 @@ resource daprComponent 'daprComponents@2022-01-01-preview' = {
 }
 ```
 
+
 # [ARM](#tab/arm)
+
+In your ARM template, enable Dapr on specific container apps using the settings above. For example, in a publisher container app: 
+
+```json
+"dapr": {
+    "enabled": true,
+    "appId": "publisher-app",
+    "appPort": 80,
+    "appProtocol": "http",
+}
+```
+For a subscriber container app:
+
+```json
+"dapr": {
+    "enabled": true,
+    "appId": "subscriber-app",
+    "appPort": 80,
+    "appProtocol": "http",
+}
+```
+
+These settings define the `daprComponents` resource in your ARM template, with which the Dapr sidecar and your `publisher-app` and `subscriber-app` will communicate:
 
 ```json
 {
@@ -227,9 +219,10 @@ resource daprComponent 'daprComponents@2022-01-01-preview' = {
 }
 ```
 
+
 ---
 
-**In Dapr OSS**
+For comparison, a Dapr OSS `components.yaml` file would include the following: 
 
 ```yml
 apiVersion: dapr.io/v1alpha1
@@ -253,7 +246,6 @@ scopes:
 > [!NOTE]
 > Since Dapr settings are considered application-scope changes, new revisions aren't created when you change Dapr settings. However, when changing a Dapr setting, the container app instance and revisions are automatically restarted.
 
-
 ## Current supported Dapr version
 
 Azure Container Apps supports Dapr version 1.4.2. 
@@ -266,12 +258,15 @@ Version upgrades are handled transparently by Azure Container Apps. You can find
 - **Secrets**: While Azure Container Apps currently doesn't support Dapr secrets, you can provide secrets to your components using the [Container Apps secret mechanism][aca-secrets].
 - **Configuration CRD**: While the ability for customers to use Dapr components is available, Container Apps doesn't expose Dapr configuration CRD.
 - **Observability**: While ability for you to customize your tracing backend isn't supported, you are able to use Application Insights as your tracing backend.
-- **Pub/sub**: Container Apps supports Dapr's programmatic subscription model, but not Dapr's declarative Subscription spec.
+- **Pub/sub**: Container Apps supports Dapr's programmatic subscription model, but not:
+   - Dapr's declarative Subscription spec
+   - Pub/sub routing, as it's currently in preview
 - **ACL policies**: Setting ACL policies on the Dapr sidecar configuration is currently not supported.
-
-> [!TIP]
-> **Actor Reminders**
-> If you use actor reminders, set `minReplicas` to at least 1 to ensure reminders will always be active and thus fire correctly.
+- **Query API for state management (preview)**: As this feature is currently in preview, Query API for state management is currently not supported.
+- **Resiliency**: Resiliency is currently not supported in this version of Dapr in Container Apps.
+- **Dapr API logging**: Dapr API logging is currently not supported in this version of Dapr in Container Apps.
+- **Actor Reminders**: To use actor reminders, you'll need to set `minReplicas` to at least 1 to ensure reminders will always be active and thus fire correctly. The partition actor reminders feature is currently in preview and are unsupported in Container Apps.
+- **Service invocation**: While service invocation is supported in Container Apps, using service invocation without the default `content-type` is currently a preview features and unsupported in Container Apps.
 
 ## Next Steps
 
