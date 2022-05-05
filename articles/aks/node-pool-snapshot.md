@@ -36,7 +36,7 @@ NODEPOOL_ID=$(az aks nodepool show --name nodepool1 --cluster-name myAKSCluster 
 
 > [!IMPORTANT]
 > Your AKS node pool must be created or upgraded after Nov 10th, 2021 in order for a snapshot to be taken from it.
->Starting April, 2022 the CLI-preview extension commands for node pool snapshot has changed. In preview CLI please use az aks nodepool snapshot commands, refer [CLI Node Pool Snapshot][az-aks-nodepool-snapshot].
+> If you are using the `aks-preview` Azure CLI extension version `0.5.59` or newer, the commands for node pool snapshot have changed. For updated commands, see the [Node Pool Snapshot CLI reference][az-aks-nodepool-snapshot].
 
 Now, to take a snapshot from the previous node pool you'll use the `az aks snapshot` CLI command.
 

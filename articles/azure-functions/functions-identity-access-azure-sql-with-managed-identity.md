@@ -98,7 +98,7 @@ In this step we'll connect to the SQL database with an Azure AD user account and
 
 In the final step we'll configure the Azure Function SQL connection string to use Azure AD managed identity authentication.
 
-The connection string setting name is identified in our Functions code as the binding attribute "ConnectionStringSetting", as seen in the SQL input binding [attributes and annotations](./functions-bindings-azure-sql-input.md?tabs=csharp#attributes-and-annotations). 
+The connection string setting name is identified in our Functions code as the binding attribute "ConnectionStringSetting", as seen in the SQL input binding [attributes and annotations](./functions-bindings-azure-sql-input.md?pivots=programming-language-csharp#attributes). 
 
 In the application settings of our Function App the SQL connection string setting should be updated to follow this format:
 
