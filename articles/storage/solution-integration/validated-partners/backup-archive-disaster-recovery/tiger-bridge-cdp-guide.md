@@ -10,7 +10,7 @@ ms.service: storage
 ms.subservice: partner
 ---
 
-# Deployment of Tiger Bridge in Continuous Data Protection, Archive and Disaster Recovery configurations
+# Tiger Bridge archiving with Continuous data protection and Disaster Recovery
 
 This article will guide you to set up Tiger Bridge data management system with Azure Blob Storage. Tiger Bridge Continuous data protection (CDP) integrates with [Soft Delete](/azure/storage/blobs/soft-delete-blob-overview) and [Versioning](/azure/storage/blobs/versioning-overview) to achieve a complete Continuous Data Protection solution. It applies policies to move data between [Azure Blob tiers](/azure/storage/blobs/access-tiers-overview) for optimal cost. Continuous data protection allows customers to have a real-time file-based backup with snapshots to achieve near zero RPO. CDP enables customers to protect their assets with minimum resources. Optionally, it can be used in WORM scenario using [immutable storage](/azure/storage/blobs/immutable-storage-overview).
 In addition, Tiger Bridge provides easy and efficient Disaster Recovery. It can be combined with [Microsoft DFSR](/windows-server/storage/dfs-replication/dfsr-overview), but it isn't mandatory. It allows mirrored DR sites, or can be used with minimum storage DR sites (keeping only the most recent data on-prem plus). 
