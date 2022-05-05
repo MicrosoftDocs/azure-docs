@@ -16,9 +16,9 @@ ms.date: 05/02/2022
 
 # Custom roles for SQL Server to Azure Virtual Machines migrations using ADS
 
-This article explains how to set up a custom role in Azure with the minimum permissions necessary to create a Database Migration Service and be able to run a database migration to Azure Virtual Machines.
+This article explains how to set up a custom role in Azure for Database Migrations. The custom role will only have the permissions necessary to create and run a Database Migration Service with an Azure Virtual Machine as a target. 
 
-The AssignableScopes section of the role definition json string allows you to control where the permissions appear in the **Add Role Assignment** UI in the portal. You'll likely want to define the role at the resource group or even resource level to avoid cluttering the UI with extra roles. Note that this doesn't perform the actual role assignment.
+The AssignableScopes section of the role definition json string allows you to control where the permissions appear in the **Add Role Assignment** UI in the portal. You'll likely want to define the role at the resource group or even resource level to avoid cluttering the UI with extra roles. This doesn't perform the actual role assignment.
 
 ```json
 {
@@ -66,9 +66,9 @@ The AssignableScopes section of the role definition json string allows you to co
     }
 }
 ```
-You can use either the Azure Portal, AZ PowerShell, Azure CLI or Azure Rest API to create the roles.
+You can use either the Azure portal, AZ PowerShell, Azure CLI or Azure Rest API to create the roles.
 
-For more information, see the articles [Create custom roles using the Azure Portal](../role-based-access-control/custom-roles-portal.md) and [Azure custom roles](../role-based-access-control/custom-roles.md).
+For more information, see the articles [Create custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md) and [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 ## Description of permissions needed to migrate to a virtual machine
 
@@ -98,7 +98,7 @@ For more information, see the articles [Create custom roles using the Azure Port
 | Microsoft.DataMigration/sqlMigrationServices/listAuthKeys/action | Retrieve the List of Authentication Keys. |
 | Microsoft.DataMigration/sqlMigrationServices/regenerateAuthKeys/action | Regenerate the Authentication Keys. |
 | Microsoft.DataMigration/sqlMigrationServices/deleteNode/action | De-register the IR node. |
-| Microsoft.DataMigration/sqlMigrationServices/listMonitoringData/action | Lists the monitoring the Monitoring Data  for all migrations. |
+| Microsoft.DataMigration/sqlMigrationServices/listMonitoringData/action | Lists the Monitoring Data  for all migrations. |
 | Microsoft.DataMigration/sqlMigrationServices/listMigrations/read | Lists the migrations for the user. |
 | Microsoft.DataMigration/sqlMigrationServices/MonitoringData/read | Retrieve the Monitoring Data.  |
 | Microsoft.SqlVirtualMachine/sqlVirtualMachines/read | Retrieve details of SQL virtual machine. |
@@ -108,7 +108,7 @@ For more information, see the articles [Create custom roles using the Azure Port
 
 To assign a role to users/APP ID, open the Azure portal, perform the following steps:
 
-1. Navigate to the resource, go to **Access Control**, and then scroll to find the custom roles you just created.
+1. Navigate to the resource, go to **Access Control**, and then scroll to find the custom roles you created.
 
 2. Select the appropriate role, select the User or APP ID, and then save the changes.
 
