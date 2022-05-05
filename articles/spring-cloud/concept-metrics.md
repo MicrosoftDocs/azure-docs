@@ -197,5 +197,5 @@ For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-coun
 * [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
 * [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)
 * [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)
-* [Tutorial: Monitor Spring Cloud resources using alerts and action groups](./tutorial-alerts-action-groups.md)
+* [Tutorial: Monitor Spring app resources using alerts and action groups](./tutorial-alerts-action-groups.md)
 * [Quotas and Service Plans for Azure Spring Apps](./quotas.md)

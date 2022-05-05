@@ -260,7 +260,7 @@ Creating an Azure Spring Apps Enterprise tier instance fails with error code "11
   If that doesn't help, you can contact the support team with the following info.
 
   * `AZURE_TENANT_ID`: the Azure tenant ID that hosts the Azure subscription
-  * `AZURE_SUBSCRIPTION_ID`: the Azure subscription ID used to create the Spring Cloud instance
+  * `AZURE_SUBSCRIPTION_ID`: the Azure subscription ID used to create the Azure Spring Apps instance
   * `SPRING_CLOUD_NAME`: the failed instance name
   * `ERROR_MESSAGE`: the observed error message
 

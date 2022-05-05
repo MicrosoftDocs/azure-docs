@@ -110,7 +110,7 @@ To deploy using a pipeline, follow these steps:
 1. Select **Pipelines**, then create a new pipeline with a Maven template.
 1. Edit the *azure-pipelines.yml* file to set the `mavenPomFile` field to *'complete/pom.xml'*.
 1. Select **Show assistant** on the right side, then select the **Azure Spring Apps** template.
-1. Select the service connection you created for your Azure Subscription, then select your Spring Cloud instance and app instance. 
+1. Select the service connection you created for your Azure Subscription, then select your Azure Spring Apps instance and app instance.
 1. Disable **Use Staging Deployment**.
 1. Set **Package or folder** to *complete/target/spring-boot-complete-0.0.1-SNAPSHOT.jar*.
 1. Select **Add** to add this task to your pipeline.

@@ -64,7 +64,7 @@ If persistent storage is enabled, its size and path are shown on the **Persisten
 
 #### [Azure CLI](#tab/azure-cli)
 ## Use the Azure CLI to enable or disable built-in persistent storage
-If necessary, install the Spring Cloud extension for the Azure CLI using this command:
+If necessary, install the Azure Spring Apps extension for the Azure CLI using this command:
 
 ```azurecli
 az extension add --name spring

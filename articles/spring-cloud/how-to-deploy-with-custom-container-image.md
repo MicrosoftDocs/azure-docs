@@ -69,7 +69,7 @@ To disable listening on a port for images that aren't web applications, add the 
 # [Portal](#tab/azure-portal)
 
 1. Open the [Azure portal](https://portal.azure.com).
-1. Open your existing Spring Cloud service instance.
+1. Open your existing Azure Spring Apps service instance.
 1. Select **Apps** from left the menu, then select **Create App**.
 1. Name your app, and in the **Runtime platform** pulldown list, select **Custom Container**.
 

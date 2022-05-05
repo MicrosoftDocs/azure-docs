@@ -427,6 +427,6 @@ If your action runs in error, for example, if you haven't set the Azure credenti
 
 ## Next steps
 
-* [Key Vault for Spring Cloud GitHub actions](./github-actions-key-vault.md)
+* [Authenticate Azure Spring Apps with Azure Key Vault in GitHub Actions](./github-actions-key-vault.md)
 * [Azure Active Directory service principals](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)
 * [GitHub Actions for Azure](https://github.com/Azure/actions/)

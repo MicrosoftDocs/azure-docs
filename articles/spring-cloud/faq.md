@@ -23,7 +23,7 @@ This article answers frequently asked questions about Azure Spring Apps.
 
 ### Why Azure Spring Apps?
 
-Azure Spring Apps provides a platform as a service (PaaS) for Spring Cloud developers. Azure Spring Apps manages your application infrastructure so that you can focus on application code and business logic. Core features built into Azure Spring Apps include Eureka, Config Server, Service Registry Server, VMware Tanzu® Build Service™, Blue-green deployment, and more. This service also enables developers to bind their applications with other Azure services, such as Azure Cosmos DB, Azure Database for MySQL, and Azure Cache for Redis.
+Azure Spring Apps provides a platform as a service (PaaS) for Spring developers. Azure Spring Apps manages your application infrastructure so that you can focus on application code and business logic. Core features built into Azure Spring Apps include Eureka, Config Server, Service Registry Server, VMware Tanzu® Build Service™, Blue-green deployment, and more. This service also enables developers to bind their applications with other Azure services, such as Azure Cosmos DB, Azure Database for MySQL, and Azure Cache for Redis.
 
 Azure Spring Apps enhances the application diagnostics experience for developers and operators by integrating Azure Monitor, Application Insights, and Log Analytics.
 
@@ -77,7 +77,7 @@ Enterprise tier has built-in VMware Spring Runtime Support, so you can open supp
 
 ## Development
 
-### I am a Spring Cloud developer but new to Azure. What is the quickest way for me to learn how to develop an application in Azure Spring Apps?
+### I am a Spring developer but new to Azure. What is the quickest way for me to learn how to develop an application in Azure Spring Apps?
 
 For the quickest way to get started with Azure Spring Apps, follow the instructions in [Quickstart: Launch an application in Azure Spring Apps by using the Azure portal](./quickstart.md).
 
@@ -142,7 +142,7 @@ Yes, you can open a [support ticket](https://azure.microsoft.com/support/faq/)  
 
 It depends on the logic of resource providers that own the extension resources. The extension resources of a `Microsoft.AppPlatform` instance do not belong to the same namespace, so the behavior varies by resource provider. For example, the delete/move operation won't cascade to the **diagnostics settings** resources. If a new Azure Spring Apps instance is provisioned with the same resource ID as the deleted one, or if the previous Azure Spring Apps instance is moved back, the previous **diagnostics settings** resources continue extending it.
 
-You can delete Spring Cloud's diagnostic settings by using Azure CLI:
+You can delete the Azure Spring Apps diagnostic settings by using Azure CLI:
 
 ```azurecli
  az monitor diagnostic-settings delete --name $diagnosticSettingName --resource $azureSpringCloudResourceId
