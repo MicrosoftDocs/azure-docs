@@ -331,7 +331,6 @@ func ReceiveMessage(client *azservicebus.Client) {
 }
 
 func DeadLetterMessage(client *azservicebus.Client) {
-
 	receiver, err := client.NewReceiverForQueue("myqueue", nil)
 	if err != nil {
 		panic(err)
