@@ -28,6 +28,8 @@
   href: ./data/overview.md
 - name: Azure Arc-enabled VMware vSphere  >
   href: ./vmware-vsphere/overview.md
+- name: Azure Arc-enabled System Center Virtual Machine Manager  >
+  href: ./system-center-virtual-machine-manager/overview.md
 - name: SQL Server on Azure Arc-enabled servers >
   href: /sql/sql-server/azure-arc/overview
 - name: Arc validation program
