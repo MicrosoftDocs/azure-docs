@@ -105,7 +105,7 @@ Users previously were only able to learn about their Network Configuration with 
 Overall, the metrics provide:
 - counts of policies, ACL rules, ipsets, ipset entries, and entries in any given ipset
 - execution times for individual OS calls and for handling resource events (median, 90th percentile, and 99th percentile)
-- failure info for individual OS calls and for handling resource events
+- failure info for handling resource events (these will fail when an OS call fails)
 
 #### Example Metrics Use Cases
 ##### Alerts via a Prometheus AlertManager
@@ -132,8 +132,8 @@ The following is the list of supported metrics. Any `quantile` label has possibl
 | `npm_ipset_counts` (advanced)        | number of entries within each individual IPSet | GaugeVec | `set_name` & `set_hash`      |
 | `npm_add_policy_exec_time`           | runtime for adding a network policy            | Summary  | `quantile` & `had_error`     |
 | `npm_controller_policy_exec_time`    | runtime for updating/deleting a network policy | Summary  | `quantile` & `had_error` & `operation` (with values `update` or `delete`)            |
-| `npm_controller_namespace_exec_time` | runtime for updating/deleting a namespace      | Summary  | `quantile` & `had_error` & `operation` (with values `create`, `update`, or `delete`) |
-| `npm_controller_pod_exec_time`       | runtime for updating/deleting a pod            | Summary  | `quantile` & `had_error` & `operation` (with values `create`, `update`, or `delete`) |
+| `npm_controller_namespace_exec_time` | runtime for creating/updating/deleting a namespace      | Summary  | `quantile` & `had_error` & `operation` (with values `create`, `update`, or `delete`) |
+| `npm_controller_pod_exec_time`       | runtime for creating/updating/deleting a pod            | Summary  | `quantile` & `had_error` & `operation` (with values `create`, `update`, or `delete`) |
 
 There are also "exec_time_count" and "exec_time_sum" metrics for each "exec_time" Summary metric.
 
