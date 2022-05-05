@@ -102,9 +102,6 @@ After your Visual Studio 2022 is ready, install the Azure IoT Edge Tools either 
 
 1. After the update is complete, select **Close** and restart Visual Studio.
 
-> [!NOTE]
-> If you are using Visual Studio 2022, [Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2022&preserve-view=true) is retired. To deploy the Azure IoT Edge modules, use the [Azure CLI](how-to-deploy-modules-cli.md?view=iotedge-2020-11&preserve-view=true) or the [Azure portal](how-to-deploy-modules-portal.md?view=iotedge-2020-11&preserve-view=true).
-
 ## Create an Azure IoT Edge project
 
 The IoT Edge project template in Visual Studio creates a solution that can be deployed to IoT Edge devices. In summary, first you'd create an Azure IoT Edge solution, and then you'd generate the first module in that solution. Each IoT Edge solution can contain more than one module.
@@ -274,25 +271,45 @@ After you're done developing a single module, you might want to run and debug an
    >This article uses admin login credentials for Azure Container Registry, which are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
 
 1. In **Solution Explorer**, right-click the project folder and select **Build and Push IoT Edge Modules** to build and push the Docker image for each module.
-<!--
+
 ## Deploy the solution
 
-In the quickstart article that you used to set up your IoT Edge device, you deployed a module by using the Azure portal. You can also deploy modules using the Cloud Explorer for Visual Studio. You already have a deployment manifest prepared for your scenario, the `deployment.json` file and all you need to do is select a device to receive the deployment.
+In the quickstart article that you used to set up your IoT Edge device, you deployed a module by using the Azure portal. You can also deploy modules using the CLI in Visual Studio. You already have a deployment manifest template you've been observing throughout this tutorial. You'll generate a deployment manifest from that, then use an Azure CLI command to deploy your modules to your IoT Edge device in Azure.
 
-1. Open **Cloud Explorer** by clicking **View** > **Cloud Explorer**. Make sure you've logged in to Visual Studio 2019.
+1. Right-click on your project in Visual Studio Solution Explorer and choose **Generate Deployment for IoT Edge**. 
 
-1. In **Cloud Explorer**, expand your subscription, find your Azure IoT Hub and the Azure IoT Edge device you want to deploy.
+   :::image type="content" source="./media/how-to-visual-studio-develop-module/generate-deployment.png" alt-text="Screenshot of location of the generate deployment menu item.":::
 
-1. Right-click on the IoT Edge device to create a deployment for it. Navigate to the deployment manifest configured for your platform located in the **config** folder in your Visual Studio solution, such as `deployment.arm32v7.json`.
+1. Go to your Visual Studio project folder and look in the `config` folder. The file path might look like this: `C:\Users\<YOUR-USER-NAME>\source\repos\<YOUR-IOT-EDGE-PROJECT-NAME>\config`. Here you'll find the generated deployment manifest such as `deployment.amd64.debug.json`.
 
-1. Click the refresh button to see the new modules running along with the **SimulatedTemperatureSensor** module and **$edgeAgent** and **$edgeHub**.
+1. Now let's deploy our manifest with an Azure CLI command. In Visual Studio, from the **Tools** menu choose **Command Line**, then choose the **Developer Command Prompt**.
+
+   :::image type="content" source="./media/how-to-visual-studio-develop-module/get-dev-command-prompt.png" alt-text="Screenshot of the location of the command prompt menu item.":::
+
+1. The command prompt window will appear. Notice it opens directly from your project folder. Now, change to the **config** directory.
+
+    ```cmd
+        cd config
+    ```
+
+1. From your **config** folder, execute a deployment command. Replace the device ID (name), IoT Hub name, and name of your deployment manifest file with your unique values.
+
+    ```cmd
+        az iot edge set-modules --device-id my-edge-device --hub-name my-iot-hub --content deployment.amd64.debug.json
+    ```
+
+1. You will see the deployment execute a `json` file structure confirmation in your command prompt.
+
+1. To check that your IoT Edge modules were deployed to Azure, go to your IoT Hub in the Azure portal.
+
+1. 
 
 ## View generated data
 
 1. To monitor the D2C message for a specific IoT Edge device, select it in your IoT hub in **Cloud Explorer** and then click **Start Monitoring Built-in Event Endpoint** in the **Action** window.
 
 1. To stop monitoring data, select **Stop Monitoring Built-in Event Endpoint** in the **Action** window.
--->
+
 ## Next steps
 
 To develop custom modules for your IoT Edge devices, [Understand and use Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md).
