@@ -39,17 +39,17 @@ Use the following steps to activate HA, create HA groups, and view the HA roles 
 1. Select **Appliances** from the **Interconnect** tab options. 
     1. Check the network appliance that you want to make highly available and select **Activate High Availability**.
 
-     :::image type="content" source="media/hcx/appliances-activate-high-availability.png" alt-text="Image shows the appliances tab with a list of appliances you can choose from to activate high availability."lightbox="media/hcx/appliances-activate-high-availability.png":::
+     :::image type="content" source="media/hcx/appliances-activate-high-availability.png" alt-text="Screenshot of the appliances tab with a list of appliances you can choose from to activate high availability."lightbox="media/hcx/appliances-activate-high-availability.png":::
 
 1. Confirm by selecting **Activate HA**.
     1. Activating HA initiates the process to create an HA group. The process automatically selects an HA partner from the available NE Appliances.
 1. After the HA group is created, the **HA Roles** for the local and remote appliances display **Active** and **Standby**.
 
-     :::image type="content" source="media/hcx/ha-group-active-standby-roles.png" alt-text="Image shows the active and standby roles that are assigned to the local and remote appliances."lightbox="media/hcx/ha-group-active-standby-roles.png":::
+     :::image type="content" source="media/hcx/high-availability-group-active-standby-roles.png" alt-text="Screenshot of the active and standby roles that are assigned to the local and remote appliances."lightbox="media/hcx/high-availability-group-active-standby-roles.png":::
 
 1. Select **HA Management** from the **Interconnect** tab options to view the HA group details and the available options: **Manual failover, Deactivate, Redeploy, and Force Sync**.
 
-    :::image type="content" source="media/hcx/ha-management-group-details-available-options.png" alt-text="Image shows the high availability management tab with ha group details and available options."lightbox="media/hcx/ha-management-group-details-available-options.png":::
+    :::image type="content" source="media/hcx/high-availability-management-group-details-available-options.png" alt-text="Screenshot of the high availability management tab with ha group details and available options."lightbox="media/hcx/high-availability-management-group-details-available-options.png":::
 
 ## Extend network using network HA group
 
@@ -59,14 +59,14 @@ Use the following steps to activate HA, create HA groups, and view the HA roles 
 1. In **mandatory fields**, provide the gateway IP address in CIDR format, select the HA group under **Extension Appliances** (this was created in the previous step), and select **Submit** to extend the Network.
 1. After the network is extended, under **Extension Appliance**, you can see the extension details and HA group.
 
-    :::image type="content" source="media/hcx/extend-network-details-ha-group.png" alt-text="Image shows the extension appliance details and high availability group."lightbox="media/hcx/extend-network-details-ha-group.png":::
+    :::image type="content" source="media/hcx/extend-network-details-high-availability-group.png" alt-text="Screenshot of the extension appliance details and high availability group."lightbox="media/hcx/extend-network-details-high-availability-group.png":::
 
 1. To migrate virtual machines (VMs), navigate to **Services** and select **Migration**. 
     1. Select **Migrate** from the **Migration** window to start the workload mobility wizard.
 1. In **Workload Mobility**, add and replace details as needed, then select **Validate**.
 1. After validation completes, select **Go** to start the migration using Extended Network.
 
-    :::image type="content" source="media/hcx/extend-network-migrate process.png" alt-text="Image shows the workload mobility page to edit details, validate them, and migrate using extended network."lightbox="media/hcx/extend-network-migrate process.png":::
+    :::image type="content" source="media/hcx/extend-network-migrate-process.png" alt-text="Screenshot of the workload mobility page to edit details, validate them, and migrate using extended network."lightbox="media/hcx/extend-network-migrate-process.png":::
 
 ## Next steps
 
