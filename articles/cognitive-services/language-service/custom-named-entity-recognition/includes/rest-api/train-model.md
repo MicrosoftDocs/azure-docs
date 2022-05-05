@@ -19,7 +19,7 @@ Submit a **POST** request using the following URL, headers, and JSON body to sub
 |---------|---------|---------|
 | `{ENDPOINT}` | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 | `{PROJECT-NAME}` | The name of your project. This value is case-sensitive.   | `myProject` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. Learn more about other available [API versions](../../../concepts/model-lifecycle.md#api-versions)  | `2022-03-01-preview` |
+|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data).  | `2022-03-01-preview` |
 
 #### Headers
 
@@ -48,12 +48,12 @@ Use the following JSON in your request body. The model will be given the `{MODEL
 
 |Key  |Placeholder  |Value  | Example |
 |---------|---------|-----|----|
-| modelLabel | `{MODEL-NAME}` | The model name that will be assigned to your model once trained successfully.  | `myModel` |
-| trainingConfigVersion | `{CONFIG-VERSION}` | This is the config version that will be used to train the model. Learn more about available config version [here]() | `2022-05-01` |
-| evaluationOptions | `{}` | Option to split your data across training and testing sets. | `{}` |
-| kind | `percentage` |  Split methods. Possible Values are `percentage` or `manual`. Learn more about data splitting [here](../../how-to/train-model.md#data-splitting) |`percentage`|
-| trainingSplitPercentage | `80`| Percentage of your tagged data to be included in the training set. Recommended value is `80`. | `80`|
-| testingSplitPercentage | `20` | Percentage of your tagged data to be included in the testing set. Recommended value is `20`.   | `20` |
+| `modelLabel` | `{MODEL-NAME}` | The model name that will be assigned to your model once trained successfully.  | `myModel` |
+| `trainingConfigVersion` | `{CONFIG-VERSION}` | This is the [model version](../../../concepts/model-lifecycle.md) that will be used to train the model. | `2022-05-01` |
+| `evaluationOptions` | `{}` | Option to split your data across training and testing sets. | `{}` |
+| `kind` | `percentage` |  Split methods. Possible Values are `percentage` or `manual`. <!--See [How to train a model](../../how-to/train-model.md#data-splitting) for more information on how your data is split.--> |`percentage`|
+| `trainingSplitPercentage` | `80`| Percentage of your tagged data to be included in the training set. Recommended value is `80`. | `80`|
+| `testingSplitPercentage` | `20` | Percentage of your tagged data to be included in the testing set. Recommended value is `20`.   | `20` |
 
   > [!NOTE]
   > The `trainingSplitPercentage` and `testingSplitPercentage` are only required if `Kind` is set to `percentage` and the sum of both percentages should be equal to 100.
@@ -64,5 +64,5 @@ Once you send your API request, you’ll receive a `202` response indicating tha
 {ENDPOINT}/language/authoring/analyze-text/projects/{PROJECT-NAME}/train/jobs/{JOB-ID}?api-version={API-VERSION}
 ``` 
 
-{JOB-ID} is used to identify your request, since this operation is asynchronous. You can use this URL to get the training status.  
+`{JOB-ID}` is used to identify your request, since this operation is asynchronous. You can use this URL to get the training status.  
 
