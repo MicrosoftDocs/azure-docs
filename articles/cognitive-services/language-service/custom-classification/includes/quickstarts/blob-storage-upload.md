@@ -5,9 +5,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 01/24/2022
+ms.date: 05/04/2022
 ms.author: aahi
-ms.custom: ignite-fall-2021
 ---
 
 After you have created an Azure storage account and linked it to your Language resource, you will need to upload the example files to the root directory of your container for this quickstart. These files will later be used to train your model.
