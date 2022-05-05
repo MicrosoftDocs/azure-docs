@@ -66,7 +66,7 @@ from azure.core.credentials import AzureKeyCredential
 
 ```python
 endpoint = "YOUR_FORM_RECOGNIZER_ENDPOINT"
-key = "YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY"
+key = "YOUR_FORM_RECOGNIZER_KEY"
 ```
 
 At this point, your Python application should contain the following lines of code:
@@ -78,7 +78,7 @@ from azure.ai.formrecognizer import DocumentAnalysisClient
 from azure.core.credentials import AzureKeyCredential
 
 endpoint = "YOUR_FORM_RECOGNIZER_ENDPOINT"
-key = "YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY"
+key = "YOUR_FORM_RECOGNIZER_KEY"
 ```
 
 ### Select a code sample to copy and paste into your application:

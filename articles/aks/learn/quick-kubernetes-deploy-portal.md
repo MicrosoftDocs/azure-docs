@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using the Azure portal.
 services: container-service
 ms.topic: quickstart
-ms.date: 04/28/2022
+ms.date: 04/29/2022
 ms.custom: mvc, seo-javascript-october2019, contperf-fy21q3, mode-ui
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
 ---
@@ -24,7 +24,9 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-If you are unfamiliar with using the Bash environment in Azure Cloud Shell, review [Overview of Azure Cloud Shell](../../cloud-shell/overview.md).
+- If you are unfamiliar with using the Bash environment in Azure Cloud Shell, review [Overview of Azure Cloud Shell](../../cloud-shell/overview.md).
+
+- The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 
 ## Create an AKS cluster
 
@@ -106,7 +108,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     aks-agentpool-12345678-vmss000001   Ready    agent   24m   v1.19.11
     ```
 
-## Run the application
+## Deploy the application
 
 A Kubernetes manifest file defines a cluster's desired state, like which container images to run.
 
