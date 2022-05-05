@@ -23,7 +23,7 @@ Azure DNS Private Resolver is a new service currently in public preview. Azure D
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-This article assumes you have [installed the Az Azure PowerShell module](/powershell/azure/install-az-ps).
+This article assumes you've [installed the Az Azure PowerShell module](/powershell/azure/install-az-ps).
 
 
 ## Install the Az.DnsResolver PowerShell module
@@ -75,13 +75,13 @@ Create a resource group to host the resources. The resource group must be in a [
 New-AzResourceGroup -Name myresourcegroup -Location westcentralus
 ```
 
-Create a virtual network in the resource group that you just created.
+Create a virtual network in the resource group that you created.
 
 ```Azure PowerShell
 New-AzVirtualNetwork -Name myvnet -ResourceGroupName myresourcegroup -Location westcentralus -AddressPrefix "10.0.0.0/8"
 ```
 
-Create a DNS resolver in the virtual network that you just created.
+Create a DNS resolver in the virtual network that you created.
 
 ```Azure PowerShell
 New-AzDnsResolver -Name mydnsresolver -ResourceGroupName myresourcegroup -Location westcentralus -VirtualNetworkId "/subscriptions/<your subs id>/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet"
@@ -93,7 +93,7 @@ Verify that the DNS resolver was created successfully and the state is connected
 $dnsResolver = Get-AzDnsResolver -Name mydnsresolver -ResourceGroupName myresourcegroup
 $dnsResolver.ToJsonString()
 ```
-## Create a DNS resolver inbound endpont
+## Create a DNS resolver inbound endpoint
 
 ### Create a subnet in the virtual network
 
@@ -123,7 +123,7 @@ $inboundEndpoint = Get-AzDnsResolverInboundEndpoint -Name myinboundendpoint -Dns
 $inboundEndpoint.ToJsonString()
 ```
 
-## Create a DNS resolver outbound endpont
+## Create a DNS resolver outbound endpoint
 
 ### Create a subnet in the virtual network
 
@@ -154,7 +154,7 @@ $outboundEndpoint.ToJsonString()
 
 ## Create DNS resolver forwarding ruleset
 
-Create a DNS forwarding ruleset for the outbound endpoint that you just created.
+Create a DNS forwarding ruleset for the outbound endpoint that you created.
 
 ```Azure PowerShell
 New-AzDnsForwardingRuleset -Name myruleset -ResourceGroupName myresourcegroup -DnsResolverOutboundEndpoint $outboundendpoint -Location westcentralus
@@ -207,7 +207,7 @@ $virtualNetworkLink2.ToJsonString()
 
 ## Create a forwarding rule
 
-Create a forwarding rule for a ruleset to one ore more target DNS servers. You must specify the fully qualified domain name (FQDN) with a trailing dot. The **New-AzDnsResolverTargetDnsServerObject** cmdlet sets the default port as 53, but you can also specify a unique port. 
+Create a forwarding rule for a ruleset to one or more target DNS servers. You must specify the fully qualified domain name (FQDN) with a trailing dot. The **New-AzDnsResolverTargetDnsServerObject** cmdlet sets the default port as 53, but you can also specify a unique port. 
 
 ```Azure PowerShell
 $targetDNS1 = New-AzDnsResolverTargetDnsServerObject -IPAddress 11.0.1.4 -Port 53 

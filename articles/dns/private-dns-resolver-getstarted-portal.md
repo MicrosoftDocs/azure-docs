@@ -1,9 +1,9 @@
 ---
 title: Quickstart - Create an Azure private DNS resolver using the Azure portal
-description: In this quickstart, you create and test a private DNS resolver in Azure DNS. This is a step-by-step guide to create and manage your first private DNS resolver using the Azure portal.
+description: In this quickstart, you create and test a private DNS resolver in Azure DNS. This article is a step-by-step guide to create and manage your first private DNS resolver using the Azure portal.
 services: dns
 author: greg-lindsay
-ms.author: rohink
+ms.author: greglin
 ms.date: 05/04/2022
 ms.topic: quickstart
 ms.service: dns
@@ -40,7 +40,7 @@ First, create or choose an existing resource group to host the resources for you
 
 ## Create a virtual network
 
-Next, add a virtual network to the resource group that you just created, and configure subnets.
+Next, add a virtual network to the resource group that you created, and configure subnets.
 
 1. Click the resource group you created, click **Create**, select **Networking** from the list of categories, and then next to **Virtual network**, click **Create**.
 2. On the **Basics** tab, enter a name for the new virtual network and verify the location is the same as your resource group.
@@ -62,12 +62,12 @@ Next, add a virtual network to the resource group that you just created, and con
 1. To display the **DNS Private Resolvers** resource during public preview, click [here](https://go.microsoft.com/fwlink/?linkid=2194569).
 2. Next to Azure services, click **DNS Private Resolvers**, click **Create**, and then on the **Basics** tab enter the following:
     - Subscription: Enter your subscription name.
-    - Resource group: Enter the name of the resource group that you just created.
+    - Resource group: Enter the name of the resource group that you created.
     - Name: Enter a name for your DNS resolver (ex: mydnsresolver).
     - Region: Enter the region you used for the Virtual Network.
-    - Virtual Network: Select the virtual network that you just created.
+    - Virtual Network: Select the virtual network that you created.
 
-    Do not create the DNS resolver yet.
+    Don't create the DNS resolver yet.
 
     ![create resolver - basics](./media/dns-resolver-getstarted-portal/fig03.png)
 
@@ -93,7 +93,7 @@ This example has only one conditional forwarding rule, but you can create many. 
 
 ![create resolver - review](./media/dns-resolver-getstarted-portal/fig04b.png)
 
-After clicking Create, the new DNS resolver will begin deployment. This might take a minute or two, and you will see the status of each component as it is deployed.
+After clicking Create, the new DNS resolver will begin deployment. This process might take a minute or two, and you will see the status of each component as it is deployed.
 
 ![create resolver - status](./media/dns-resolver-getstarted-portal/fig05.png)
 

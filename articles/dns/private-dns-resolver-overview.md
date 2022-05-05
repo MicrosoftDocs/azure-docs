@@ -16,15 +16,16 @@ Azure DNS Private Resolver is a new service currently in [public preview](https:
 
 ## How does it work?
 
-Azure DNS Private Resolver requires an [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview).  When you create an Azure DNS Private Resolver inside a virtual network, one or more [inbound endpoints](#inbound-endpoints) are established that can be used as the destination for DNS queries. The inbound endpoint processes DNS queries based on a [DNS forwarding ruleset](#dns-forwarding-rulesets) that you configure.  DNS queries that are initiated in networks linked to a ruleset can be sent to the DNS resolver's inbound endpoint, or to other DNS servers.
+Azure DNS Private Resolver requires an [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview).  When you create an Azure DNS Private Resolver inside a virtual network, one or more [inbound endpoints](#inbound-endpoints) are established that can be used as the destination for DNS queries. The resolver's [outbound endpoint](#outbound-endpoints) processes DNS queries based on a [DNS forwarding ruleset](#dns-forwarding-rulesets) that you configure.  DNS queries that are initiated in networks linked to a ruleset can be sent to other DNS servers.
 
 The DNS query process is summarized below:
 
 1. A client in a virtual network issues a DNS query.
 2. If the DNS servers for this virtual network are [specified as custom](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#specify-dns-servers), then the query is forwarded to the specified IP addresses.
-3. If Default (Azure-provided) DNS servers are configured in the virtual network, then [Virtual Network Links](#virtual-network-links) for [DNS Forwarding Rulesets](#dns-forwarding-rulesets) are consulted.
-4. If no ruleset links are present, then Azure DNS is used to resolve the query.
-5. If ruleset links are present, the [DNS Forwarding Rules](#dns-forwarding-rules) are evaluated.
+3. If Default (Azure-provided) DNS servers are configured in the virtual network, and there are Private DNS zones [linked to the same virtual network](private-dns-virtual-network-links.md), these zones are consulted.
+4. If the query does not match a Private DNS zone linked to the virtual network, then [Virtual Network Links](#virtual-network-links) for [DNS Forwarding Rulesets](#dns-forwarding-rulesets) are consulted.
+5. If no ruleset links are present, then Azure DNS is used to resolve the query.
+6. If ruleset links are present, the [DNS Forwarding Rules](#dns-forwarding-rules) are evaluated.
 7. If a suffix match is found, query is forwarded to the specified address.
 8. If multiple matches are present, the longest suffix is used.
 9. If no match is found, no DNS forwarding occurs and Azure DNS is used to resolve the query.
