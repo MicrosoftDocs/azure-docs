@@ -134,25 +134,28 @@ This section explains how to import a certificate so that it's trusted by your A
     chmod +x ./sapcon-sentinel-kickstart.sh
     ```
 
-1. Run the script, specifying the following parameters:
+1. Run the script, specifying the following base parameters:
 
     ```bash
     ./sapcon-sentinel-kickstart.sh \
     --use-snc \
     --cryptolib <path to sapcryptolib.so> \
     --sapgenpse <path to sapgenpse> \
-    # CLIENT CERTIFICATE
-    # If client certificate is in .crt/.key format
+    --server-cert <path to server certificate public key> \
+    ```
+    If the client certificate is in .crt/.key format, use the following switches:
+    ```bash
     --client-cert <path to client certificate public key> \
     --client-key <path to client certificate private key> \
-    # If client certificate is in .pfx or .p12 format
+    ```
+    If client certificate is in .pfx or .p12 format
+    ```bash
     --client-pfx <pfx filename>
     --client-pfx-passwd <password>
-    # If client certificate issued by enterprise CA
-    --cacert <path to ca certificate> # for each CA in the trust chain
-    # SERVER CERTIFICATE
-    --server-cert <path to server certificate public key> \
-    
+    ```
+    If client certificate issued by enterprise CA, add the switch for **each** CA in the trust chain
+    ```bash
+    --cacert <path to ca certificate> # 
     ```
 
     For example:
@@ -162,17 +165,10 @@ This section explains how to import a certificate so that it's trusted by your A
     --use-snc \
     --cryptolib /home/azureuser/libsapcrypto.so \
     --sapgenpse /home/azureuser/sapgenpse \
-    # CLIENT CERTIFICATE
-    # If client certificate is in .crt/.key format
     --client-cert /home/azureuser/client.crt \
     --client-key /home/azureuser/client.key \
-    # If client certificate is in .pfx or .p12 format
-    --client-pfx /home/azureuser/client.pfx \
-    --client-pfx-passwd <password>
-    # If client certificate issued by enterprise CA
     --cacert /home/azureuser/issuingca.crt
     --cacert /home/azureuser/rootca.crt
-    # SERVER CERTIFICATE
     --server-cert /home/azureuser/server.crt \
     ```
 
