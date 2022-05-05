@@ -91,6 +91,16 @@ landingContent:
             url: how-to-use-a-managed-identity.md
 
   # Card
+  - title: Manage resources
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Move between regions
+            url: how-to-move-between-regions.md
+          - text: Monitor Azure Load Testing
+            url: monitor-load-testing.md
+
+  # Card
   - title: Reference docs
     linkLists:
       - linkListType: reference
