@@ -2,7 +2,7 @@
 title: Create a dashboard in the Azure portal
 description: This article describes how to create and customize a dashboard in the Azure portal.
 ms.topic: how-to
-ms.date: 10/19/2021
+ms.date: 05/05/2022
 ---
 
 # Create a dashboard in the Azure portal
