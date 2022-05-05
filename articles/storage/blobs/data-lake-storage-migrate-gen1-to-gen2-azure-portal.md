@@ -5,7 +5,7 @@ description: You can simplify the task of migrating between Azure Data Lake Stor
 author: normesta
 ms.topic: how-to
 ms.author: normesta
-ms.date: 05/04/2022
+ms.date: 05/05/2022
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
@@ -16,7 +16,7 @@ ms.subservice: data-lake-storage-gen2
 You can reduce the number of steps required to complete a migration by using the Azure portal. Data and metadata (such as timestamps and ACLs) automatically move to your Gen2-enabled account. If you perform a complete migration, you won't have to point your workloads to Gen2 because requests are redirected automatically.
 
 > [!NOTE]
-> Your account may not qualify for portal-based migration based on certain compatibility constraints. If the **Migrate data** button is not enabled in the Azure portal for your Gen1 account, you can [email the Azure Data Lake Storage migration team](mailto:ADLSGen1toGen2MigrationQA@service.microsoft.com). You can also get answers from community experts in [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-data-lake-storage.html). If you have a support plan, you can [file a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+> Your account may not qualify for portal-based migration based on certain compatibility constraints. If the **Migrate data** button is not enabled in the Azure portal for your Gen1 account, you can [email the Azure Data Lake Storage migration team](mailto:ADLSGen1toGen2MigrationQA@service.microsoft.com). You can also get answers from community experts in [Microsoft Q&A](answers/topics/azure-data-lake-storage.html). If you have a support plan, you can [file a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 > [!WARNING]
 > Azure Data Lake Storage Gen2 doesn't support Azure Data Lake Analytics applications. If you have any, you'll need to move them before migrating from Gen1 to Gen2. See [Move Azure Data Lake Analytics applications](#move-azure-data-lake-analytics-applications) for more information.
@@ -69,7 +69,9 @@ For Gen1, ensure that the [Owner](../../role-based-access-control/built-in-roles
 
 ## Move Azure Data Lake Analytics applications
 
-Azure Data Lake Storage Gen2 doesn't support Azure Data Lake Analytics applications. If you have any, make sure to move them to Azure Synapse Analytics or another supported workload before you migrate from Gen1 to Gen2. Note that if your account is tied with Azure Data Lake Analytics, you can't simply detach your Azure Data Lake Storage Gen1 account. In order to preserve business continuity, you must first move your compute to the alternative compute solution you've chosen (still running on Gen1) and then move the data.
+Azure Data Lake Storage Gen2 doesn't support Azure Data Lake Analytics applications. If you have any, make sure to move them to [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/#overview) or another supported workload before you migrate from Gen1 to Gen2. Azure Data Lake Analytics [will be retired](https://azure.microsoft.com/updates/migrate-to-azure-synapse-analytics/) on February 29, 2024.
+
+Note that if your Azure Data Lake Storage Gen1 account is tied with Azure Data Lake Analytics, you can't simply detach your Gen1 account. In order to preserve business continuity, you must first move your compute to the alternative compute solution you've chosen (still running on Gen1) and then move the data. 
 
 ## Perform the migration
 
