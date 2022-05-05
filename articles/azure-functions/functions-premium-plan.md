@@ -57,7 +57,7 @@ In the Premium plan, you can have your app always ready on a specified number of
 
 You can configure the number of always ready instances in the Azure portal by selected your **Function App**, going to the **Platform Features** tab, and selecting the **Scale Out** options. In the function app edit window, always ready instances are specific to that app.
 
-![Elastic Scale Settings](./media/functions-premium-plan/scale-out.png)
+![Elastic scale settings in the portal](./media/functions-premium-plan/scale-out.png)
 
 # [Azure CLI](#tab/azurecli)
 
@@ -94,6 +94,8 @@ As soon as the first trigger comes in, the five always-ready instances become ac
 # [Portal](#tab/portal)
 
 You can configure the number of pre-warmed instances in the Azure portal by selecting the **Scale Out** options under **Settings** of a function app deployed to that plan and then adjusting the **Always Ready Instances** count.
+
+![Pre-warmed instance Settings in the portal](./media/functions-premium-plan/scale-out.png)
 
 # [Azure CLI](#tab/azurecli)
 
@@ -153,6 +155,8 @@ If your app requires instances beyond the always-ready instances, it can continu
 
 You can configure the plan size and maximums in the Azure portal by selecting the **Scale Out** options under **Settings** of a function app deployed to that plan.
 
+![Elastic plan size settings in the portal](./media/functions-premium-plan/scale-out.png)
+
 # [Azure CLI](#tab/azurecli)
 
 You can also increase the maximum burst limit from the Azure CLI:
@@ -181,6 +185,8 @@ In most circumstances, this autocalculated minimum is sufficient. However, scali
 # [Portal](#tab/portal)
 
 You can configure the minimum instances in the Azure portal by selecting the **Scale Out** options under **Settings** of a function app deployed to that plan.
+
+![Minimum instance settings in the portal](./media/functions-premium-plan/scale-out.png)
 
 # [Azure CLI](#tab/azurecli)
 
