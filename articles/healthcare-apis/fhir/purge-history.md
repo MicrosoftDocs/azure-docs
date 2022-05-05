@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 04/29/2022
+ms.date: 05/05/2022
 ms.author: mikaelw
 ---
 
@@ -38,7 +38,7 @@ DELETE https://workspace-fhir.fhir.azurehealthcareapis.com/Observation/123/$purg
 In this article, you learned how to purge the history for resources in the FHIR service. For more information about how to disable history and some concepts about history management, see
 
 >[!div class="nextstepaction"]
->[Versioning policy and history management](fhir-versioning-policy-history-management.md)
+>[Versioning policy and history management](fhir-versioning-policy-and-history-management.md)
 
 >[!div class="nextstepaction"]
 >[Supported FHIR features](fhir-features-supported.md)
