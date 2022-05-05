@@ -266,10 +266,5 @@ If you're finished with this tutorial and no longer need the web app or associat
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
->
-> * Create a system-assigned managed identity on a web app.
-> * Add Microsoft Graph API permissions to a managed identity.
-> * Call Microsoft Graph from a web app by using managed identities.
+> [!div class="nextstepaction"]
+> [Clean up resources](multi-service-web-app-clean-up-resources.md))

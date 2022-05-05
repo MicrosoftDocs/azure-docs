@@ -320,13 +320,5 @@ If you're finished with this tutorial and no longer need the web app or associat
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
->
-> * Create a system-assigned managed identity.
-> * Create a storage account and Blob Storage container.
-> * Access storage from a web app by using managed identities.
-
 > [!div class="nextstepaction"]
 > [App Service accesses Microsoft Graph on behalf of the user](multi-service-web-app-access-microsoft-graph-as-user.md)

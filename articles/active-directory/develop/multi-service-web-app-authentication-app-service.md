@@ -91,12 +91,5 @@ If you're finished with this tutorial and no longer need the web app or associat
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
->
-> * Configure authentication for the web app.
-> * Limit access to the web app to users in your organization.
-
 > [!div class="nextstepaction"]
 > [App service accesses storage](multi-service-web-app-access-storage.md)

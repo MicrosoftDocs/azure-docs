@@ -43,10 +43,3 @@ From the portal menu, select **Azure Active Directory** > **App registrations**.
 In the app registration overview, select **Delete**.
 :::image type="content" alt-text="Screenshot that shows deleting the app registration." source="./media/multi-service-web-app-clean-up-resources/delete-app-registration.png":::
 
-## Next steps
-
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
->
-> * Delete the Azure resources created while following the tutorial.
