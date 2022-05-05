@@ -100,7 +100,7 @@ sections:
 
           - For signature and region labeling, don't include the surrounding text.
 
-          See [[Interpret and improve accuracy and confidence scores](concept-accuracy-confidence.md#ensure-high-model-accuracy)]
+          See [Interpret and improve accuracy and confidence scores](concept-accuracy-confidence.md#ensure-high-model-accuracy)
 
       - question: |
            What is the confidence score and how is it calculated?
