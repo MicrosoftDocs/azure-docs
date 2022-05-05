@@ -174,14 +174,6 @@ Azure Migrate recommends a specific Azure SQL deployment type that is compatible
 
 If your instance is ready for both Azure SQL DB and Azure SQL MI, we recommend the target deployment type for which the estimated cost of Azure SQL configuration is lower.
 
-## Why is my instance marked as Potentially ready for Azure VM in my Azure SQL assessment?
-
-This can happen when the target deployment type chosen in the assessment properties is **Recommended** and the SQL instance is not ready for Azure SQL Database and Azure SQL Managed Instance. The user is recommended to create an assessment in Azure migrate with assessment type as **Azure VM** to determine if the Server on which the instance is running is ready to migrate to an Azure VM.
-The user is recommended to create an assessment in Azure Migrate with assessment type as **Azure VM** to determine if the server on which the instance is running is ready to migrate to an Azure VM instead:
-
-- Azure VM assessments in Azure Migrate are currently lift-an-shift focused and will not consider the specific performance metrics for running SQL instances and databases on the Azure virtual machine.
-- When you run an Azure VM assessment on a server, the recommended size and cost estimates will be for all instances running on the server and can be migrated to an Azure VM using the Server Migration tool. Before you migrate, [review the performance guidelines](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist) for SQL Server on Azure virtual machines.
-
 ## I can't see some databases in my assessment even though the instance is part of the assessment
 
 The Azure SQL assessment only includes databases that are in online status. In case the database is in any other status, the assessment ignores the readiness, sizing, and cost calculation for such databases. In case you wish you assess such databases, please change the status of the database and recalculate the assessment in some time.
