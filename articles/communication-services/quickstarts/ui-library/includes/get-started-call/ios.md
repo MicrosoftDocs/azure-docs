@@ -216,11 +216,31 @@ callComposite?.setTarget(didFail: { error in
 
 You can customize the theme by creating a custom theme configuration that implements the ThemeConfiguration protocol. You then include an instance of that new class in your CallCompositeOptions.
 
+Start by added the intended colors in both light(any appearance) and dark appearances to your 'Assets'.
+
+![Screenshot showing adding of color to assets.](../../media/xcode-add-color-to-assets.png)
+
+Then reference this asset color by name when overriding the desired color in your custom theme configuration implementation. In adddition there is no requirement to override all 4 colors.
+
+You may also override the system/app prefernce for light/dark mode with 'colorSchemeOverride'. By setting this to either light or dark, you can force all UI with the composite to appear that mode, regardless of what mode OS or app may been in. This setting only effects the composite and the application will be unaffected.
+
 ```swift
 class CustomThemeConfiguration: ThemeConfiguration {
-   var primaryColor: UIColor {
-       return UIColor.red
-   }
+    var primaryColor: UIColor {
+        return UIColor(named: "PrimaryColor")
+    }
+    var primaryColorTint10: UIColor {
+        return UIColor(named: "PrimaryColorTint10")
+    }
+    var primaryColorTint20: UIColor {
+        return UIColor(named: "PrimaryColorTint20")
+    }
+    var primaryColorTint30: UIColor {
+        return UIColor(named: "PrimaryColorTint30")
+    }
+    var colorSchemeOverride: UIUserInterfaceStyle {
+        return UIUserInterfaceStyle.dark
+    }
 }
 ```
 
