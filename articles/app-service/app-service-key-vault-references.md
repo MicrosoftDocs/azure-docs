@@ -34,19 +34,19 @@ If your vault is configured with [network restrictions](../key-vault/general/ove
 
     Linux applications attempting to use private endpoints additionally require that the app be explicitly configured to have all traffic route through the virtual network. This requirement will be removed in a forthcoming update. To set this, use the following Azure CLI or Azure PowerShell command:
 
-### [Azure CLI](#tab/azure-cli)
+    # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
     az webapp config set --subscription <sub> -g MyResourceGroupName -n MyAppName --generic-configurations '{"vnetRouteAllEnabled": true}'
     ```
     
-### [Azure PowerShell](#tab/azure-powershell) 
+    # [Azure PowerShell](#tab/azure-powershell) 
 
     ```azurepowershell
     Update-AzFunctionAppSetting -Name MyAppName -ResourceGroupName MyResourceGroupName -AppSetting @{vnetRouteAllEnabled = $true}
     ```
     
----
+    ---
 
 2. Make sure that the vault's configuration accounts for the network or subnet through which your app will access it.
 
