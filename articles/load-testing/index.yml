@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   ms.author: nicktrog
   author: ntrogh
-  ms.date: 04/28/2022
+  ms.date: 05/05/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -97,11 +97,3 @@ landingContent:
         links:
         - text: Test configuration YAML
           url: reference-test-config-yaml.md
-
-  # Card
-  - title: Resources
-    linkLists:
-      - linkListType: reference
-        links:
-        - text: Supported Azure resource types
-          url: resource-supported-azure-resource-types.md
