@@ -313,7 +313,7 @@ To create and run a new scan, do the following:
     - **Client ID**: Use Service Principal Client ID (App ID) you created earlier   
     - **User name**: Provide the username of Power BI Administrator you created earlier
     - **Password**: Select the appropriate Key vault connection and the **Secret name** where the Power BI account password was saved earlier.
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-delegated-authentication.png" alt-text="Image showing Power BI scan setup using Delegated authentication.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-delegated-authentication.png" alt-text="Screenshot of the new credential menu, showing Power BI credential with all required values supplied.":::
 
 1. Select **Test Connection** before continuing to next steps. If **Test Connection** failed, select **View Report** to see the detailed status and troubleshoot the problem
     1. Access - Failed status means the user authentication failed. Scans using managed identity will always pass because no user authentication required.
