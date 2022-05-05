@@ -23,9 +23,9 @@ In this article you learn:
 
 ## Prerequisites
 
-This article requires installation of the following components:
+This article requires the following to be completed or installed:
 
-- [Install the Azure CLI](/cli/azure/install-azure-cli) (2.91 or later)
+- [Completion of the ORAS Artifacts article up to **ORAS Sign In** section](/articles/container-registry/container-registry-oras-artifacts.md)
 - [Install the notation CLI][notation-cli]
 - [Install the notation Azure Key Vault plugin][notation-akv-plugin]
 - [Install the ORAS CLI][oras-cli]
@@ -99,23 +99,6 @@ To ease the execution of the commands to complete this article, provide values f
     IMAGE=$REGISTRY/${ACR_REPO}:$IMAGE_TAG
     ```
 
-## Configure Azure Key Vault
-
-If you don't already have a Key Vault, configure an Azure Key Vault for secure key storage and remote signing.
-
-> Note: While having a Key Vault in the same location is optimal, it is not required.
-
-1. Create the resource group
-    ```azurecli
-    az group create --name $AKV_RG --location $LOCATION
-    ```
-
-2. Create the Azure Key Vault
-
-    ```azurecli
-    az keyvault create --name $AKV_NAME --resource-group $AKV_RG --location $LOCATION
-    ```
-
 ## Create a service principal and assign permissions to the key
 
 1. Create a service principal
@@ -169,37 +152,6 @@ If you don't already have a Key Vault, configure an Azure Key Vault for secure k
 
     ```bash
     notation plugin ls
-    ```
-
-## Configure an Azure container registry
-
-Create an Azure container registry, capable of storing signed container images.
-
-Preview support for ORAS Artifacts requires Zone Redundancy, which requires a Premium service tier, in the South Central US region. Run the [az acr create](/cli/azure/acr#az_acr_create) command to create an ORAS Artifacts enabled registry. See the `az acr create` command help for more registry options.
-
-1. If needed, run the [az group create](/cli/azure/group#az_group_create) command to create a resource group for the registry.
-
-    ```azurecli
-    az group create --name $ACR_NAME --location $LOCATION
-    ```
-
-2. If needed, Run the [az acr create](/cli/azure/acr#az_acr_create) command to create an ORAS Artifacts enabled registry.
-
-    ```azurecli
-    az acr create \
-      --resource-group $ACR_NAME \
-      --name $ACR_NAME \
-      --zone-redundancy enabled \
-      --sku Premium \
-      --output jsonc
-    ```
-    In the command output, note the `zoneRedundancy` property for the registry. When enabled, the registry is zone redundant, and ORAS Artifact enabled:
-
-    ```JSON
-    {
-      [...]
-      "zoneRedundancy": "Enabled",
-    }
     ```
 
 ## Store the signing certificate in Azure Key Vault
