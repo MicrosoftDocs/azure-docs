@@ -86,7 +86,7 @@ If the instructions on your data connector's page in Microsoft Sentinel indicate
 
 Use the link in the data connector page to deploy your parsers, or follow the instructions from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/ASIM).
 
-For more information, see [Advanced Security Information Model (ASIM) parsers](normalization-about-parsers.md).
+For more information, see [Advanced Security Information Model (ASIM) parsers](normalization-parsers-overview.md).
 
 ## Configure the Log Analytics agent
 

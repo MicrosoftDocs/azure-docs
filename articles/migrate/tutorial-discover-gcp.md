@@ -140,8 +140,8 @@ To set up the appliance, you:
 
 ### 1. Generate the project key
 
-1. In **Migration Goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
-2. In **Discover servers** > **Are your servers virtualized?** > **Physical or other (AWS, GCP, Xen, etc.)**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+2. In **Discover servers** > **Are your servers virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
 3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of your GCP virtual servers. The name should be alphanumeric with 14 characters or fewer.
 4. Click **Generate key** to start the creation of the required Azure resources. Do not close the Discover servers page during the creation of resources.
 5. After the successful creation of the Azure resources, a **project key** is generated.

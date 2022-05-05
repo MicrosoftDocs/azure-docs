@@ -81,7 +81,7 @@ To start using the benefit for SUSE:
 
     | License Type  | Software Updates  | Allowed VMs|  
     |---|---|---|
-    | SLES_STANDARD  | Installs SLES standard repositories into your virtual machine. | SLES BYOS VMs, SLES custom on-prem image VMs|
+    | SLES  | Installs SLES standard repositories into your virtual machine. | SLES BYOS VMs, SLES custom on-prem image VMs|
     | SLES_SAP | Installs SLES SAP repositories into your virtual machine. | SLES SAP BYOS VMs, SLES custom on-prem image VMs|
     | SLES_HPC  | Installs SLES High Performance Compute related repositories  into your virtual machine. | SLES HPC BYOS VMs, SLES custom on-prem image VMs|
 
@@ -140,18 +140,18 @@ you can use the `az vm update` command to update existing license type on runnin
 ## Enable and disable the benefit for SLES
 
 You can install the `AHBForSLES` extension to install the extension. After successfully installing the extension,
-you can use the `az vm update` command to update existing license type on running VMs. For SLES VMs, run the command and set `--license-type` parameter to one of the following: `SLES_STANDARD`, `SLES_SAP` or `SLES_HPC`.
+you can use the `az vm update` command to update existing license type on running VMs. For SLES VMs, run the command and set `--license-type` parameter to one of the following: `SLES`, `SLES_SAP` or `SLES_HPC`.
 
 ### CLI example to enable the benefit for SLES
 1. Install the Azure Hybrid Benefit extension on running VM using the portal or via Azure CLI using the command below:
     ```azurecli
-    az vm extension set -n AHBForSLES --publisher publisherName --vm-name myVMName --resource-group myResourceGroup
+    az vm extension set -n AHBForSLES --publisher SUSE.AzureHybridBenefit --vm-name myVMName --resource-group myResourceGroup
     ```
 1. Once, the extension is installed successfully, change the license type based on your requirements:
 
     ```azurecli
     # This will enable the benefit to fetch software updates for SLES STANDARD repositories
-    az vm update -g myResourceGroup -n myVmName --license-type SLES_STANDARD
+    az vm update -g myResourceGroup -n myVmName --license-type SLES
 
     # This will enable the benefit to fetch software updates for SLES SAP repositories
     az vm update -g myResourceGroup -n myVmName --license-type SLES_SAP
@@ -182,7 +182,7 @@ To check the status of Azure Hybrid Benefit for BYOS VM status
 1. You can view the Azure Hybrid Benefit status of a VM by using the Azure CLI or by using Azure Instance Metadata Service.
 
     You can use the below command for this purpose. Look for a `licenseType` field in the response. If the `licenseType` field exists and the value is one of the below, your VM has the benefit enabled:
-    `RHEL_BASE`, `RHEL_EUS`, `RHEL_BASESAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_STANDARD`, `SLES_SAP`, `SLES_HPC`. 
+    `RHEL_BASE`, `RHEL_EUS`, `RHEL_BASESAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES`, `SLES_SAP`, `SLES_HPC`. 
 
     ```azurecli
     az vm get-instance-view -g MyResourceGroup -n MyVm
@@ -211,7 +211,7 @@ A: On using AHB for BYOS VMs, you will essentially convert your bring your own s
 | RHEL_BASESAPAPPS | [RHEL for SAP Business Applications](https://azure.microsoft.com/pricing/details/virtual-machines/rhel-sap-business/) |
 | RHEL_BASESAPHA | [RHEL for SAP with HA](https://azure.microsoft.com/pricing/details/virtual-machines/rhel-sap-ha/) |
 | RHEL_EUS | [Red Hat Enterprise Linux](https://azure.microsoft.com/pricing/details/virtual-machines/red-hat/)  |
-| SLES_ STANDARD | [SLES Standard](https://azure.microsoft.com/pricing/details/virtual-machines/sles-standard/) |
+| SLES | [SLES Standard](https://azure.microsoft.com/pricing/details/virtual-machines/sles-standard/) |
 | SLES_SAP | [SLES SAP](https://azure.microsoft.com/pricing/details/virtual-machines/sles-sap/)  |
 | SLES_HPC | [SLES HPC](https://azure.microsoft.com/pricing/details/virtual-machines/sles-hpc-standard/) |
 
