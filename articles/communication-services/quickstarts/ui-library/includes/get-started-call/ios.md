@@ -230,12 +230,17 @@ let callCompositeOptions = CallCompositeOptions(theme: CustomThemeConfiguration(
 
 ### Apply localization configuration
 
-You can change the language by creating a custom localization configuration and include it to your `CallCompositeOptions`.  By default, all text labels use our English (`LanguageCode.en.rawValue`) strings. If desired, `LocalizationConfiguration` can be used to set a different `languageCode`. Out of the box, the UI library includes a set of `languageCode` usable with the UI components. `LocalizationConfiguration.supportedLanguages` provides a list of all supported languages. 
+You can change the language by creating a custom localization configuration and include it to your `CallCompositeOptions`.  By default, all text labels use our English (`CommunicationUISupportedLocale.en`) strings. If desired, `LocalizationConfiguration` can be used to set a different `locale`. Out of the box, the UI library includes a set of `locale` usable with the UI components. `LocalizationConfiguration.supportedLanguages` provides a list of all supported languages. 
 
 For the example below, the composite will be localized to French (`fr`). 
 
 ```swift
-let localizationConfiguration = LocalizationConfiguration(languageCode: "fr") 
+// Creating swift Locale struct
+var localizationConfiguration = LocalizationConfiguration(locale: Locale(identifier: "fr-FR"))
+
+// Use intellisense CommunicationUISupportedLocale to get supported Locale struct
+localizationConfiguration = LocalizationConfiguration(locale: CommunicationUISupportedLocale.frFR)
+
 let callCompositeOptions = CallCompositeOptions(localizationConfiguration: localizationConfiguration) 
 ```
 
