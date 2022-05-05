@@ -112,7 +112,7 @@ In this section, you clone the IoT Edge repo and execute the scripts.
    Test-CACertsPrerequisites
    ```
 
-# [Linux](#tab/Linux)
+# [Linux](#tab/linux)
 
 To create demo certificates on a Linux device, you need to clone the generation scripts and set them up to run locally in bash.
 
@@ -210,7 +210,7 @@ The new device identity command creates several certificate and key files, inclu
 
 For individual enrollment of the IoT Edge device in the DPS, use `iot-edge-device-identity-<name>.cert.pem`. To register the IoT Edge device to IoT Hub, use the `iot-edge-device-identity-<name>-full-chain.cert.pem` and `iot-edge-device-identity-<name>.key.pem` certificates. For more information, see [Create and provision an IoT Edge device using X.509 certificates](how-to-provision-devices-at-scale-windows-x509.md).
 
-# [Linux](#tab/Linux)
+# [Linux](#tab/linux)
 
 Create the IoT Edge device identity certificate and private key with the following command:
 
