@@ -308,7 +308,7 @@ For more information, see [Microsoft identity platform authentication libraries]
 
 ## Next steps
 
-For information about authentication, see:
+For more information about authentication, see:
 
 - [Authentication vs. authorization.](./authentication-vs-authorization.md)
 - [Microsoft identity platform access tokens.](access-tokens.md)
