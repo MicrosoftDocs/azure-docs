@@ -67,7 +67,7 @@ You can also configure always ready instances for an app with the Azure CLI.
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites
 ```
 
-### [Azure PowerShell](#tab/azure-powershell) 
+# [Azure PowerShell](#tab/azure-powershell) 
 
 You can also configure always ready instances for an app with the Azure PowerShell.
 
@@ -91,6 +91,10 @@ Consider this example of how always-ready instances and pre-warmed instances wor
 
 As soon as the first trigger comes in, the five always-ready instances become active, and a pre-warmed instance is allocated. The app is now running with six provisioned instances: the five now-active always ready instances, and the sixth pre-warmed and inactive buffer. If the rate of executions continues to increase, the five active instances are eventually used. When the platform decides to scale beyond five instances, it scales into the pre-warmed instance. When that happens, there are now six active instances, and a seventh instance is instantly provisioned and fill the pre-warmed buffer. This sequence of scaling and pre-warming continues until the maximum instance count for the app is reached. No instances are pre-warmed or activated beyond the maximum.
 
+# [Portal](#tab/portal)
+
+You can configure the number of pre-warmed instances in the Azure portal by selecting the **Scale Out** options under **Settings** of a function app deployed to that plan and then adjusting the **Always Ready Instances** count.
+
 # [Azure CLI](#tab/azurecli)
 
 You can modify the number of pre-warmed instances for an app using the Azure CLI.
@@ -99,7 +103,7 @@ You can modify the number of pre-warmed instances for an app using the Azure CLI
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 You can modify the number of pre-warmed instances for an app using the Azure PowerShell.
 
@@ -145,7 +149,9 @@ When you create the plan, there are two plan size settings: the minimum number o
 
 If your app requires instances beyond the always-ready instances, it can continue to scale out until the number of instances hits the maximum burst limit. You're billed for instances beyond your plan size only while they are running and allocated to you, on a per-second basis. The platform makes it's best effort at scaling your app out to the defined maximum limit.
 
-You can configure the plan size and maximums in the Azure portal by selecting the **Scale Out** options in the plan or a function app deployed to that plan (under **Platform Features**).
+# [Portal](#tab/portal)
+
+You can configure the plan size and maximums in the Azure portal by selecting the **Scale Out** options under **Settings** of a function app deployed to that plan.
 
 # [Azure CLI](#tab/azurecli)
 
@@ -155,7 +161,7 @@ You can also increase the maximum burst limit from the Azure CLI:
 az functionapp plan update -g <resource_group> -n <premium_plan_name> --max-burst <desired_max_burst>
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 You can also increase the maximum burst limit from the Azure PowerShell:
 
@@ -172,6 +178,10 @@ The minimum for every plan will be at least one instance. The actual minimum num
 
 In most circumstances, this autocalculated minimum is sufficient. However, scaling beyond the minimum occurs at a best effort. It's possible, though unlikely, that at a specific time scale-out could be delayed if additional instances are unavailable. By setting a minimum higher than the autocalculated minimum, you reserve instances in advance of scale-out.
 
+# [Portal](#tab/portal)
+
+You can configure the minimum instances in the Azure portal by selecting the **Scale Out** options under **Settings** of a function app deployed to that plan.
+
 # [Azure CLI](#tab/azurecli)
 
 Increasing the calculated minimum for a plan can be done using the Azure CLI.
@@ -180,7 +190,7 @@ Increasing the calculated minimum for a plan can be done using the Azure CLI.
 az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-instances <desired_min_instances>
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 Increasing the calculated minimum for a plan can be done using the Azure PowerShell.
 
