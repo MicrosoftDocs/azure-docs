@@ -381,6 +381,9 @@ To change the primary color of composite, create a new theme style in `src/main/
 ```xml
 <style name="MyCompany.CallComposite" parent="AzureCommunicationUI.Theme.Calling">
     <item name="azure_communication_ui_communication_primary">@color/purple_500</item>
+    <item name="azure_communication_ui_primary_color_tint10">@color/green_500</item>
+    <item name="azure_communication_ui_primary_color_tint20">@color/green_700</item>
+    <item name="azure_communication_ui_primary_color_tint30">@color/green_900</item>
 </style>
 ```
 
