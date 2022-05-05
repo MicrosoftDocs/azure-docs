@@ -29,7 +29,7 @@ The DNS query process is summarized below:
 8. If multiple matches are present, the longest suffix is used.
 9. If no match is found, no DNS forwarding occurs and Azure DNS is used to resolve the query.
 
-The architecture for Azure Private DNS Resolver is summarized in the following figure. DNS resolution between Azure virtual networks and on-prem networks requires [Azure ExpressRoute](azure/expressroute/expressroute-introduction) or a VPN.
+The architecture for Azure Private DNS Resolver is summarized in the following figure. DNS resolution between Azure virtual networks and on-prem networks requires [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) or a VPN.
 
 ![private DNS resolver architecture](./media/dns-resolver-overview/resolver-architecture.png)
 
