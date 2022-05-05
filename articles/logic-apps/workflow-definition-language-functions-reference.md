@@ -262,11 +262,11 @@ For the full reference about each function, see the
 
 | Date or time function | Task |
 | --------------------- | ---- |
-| [addDays](../logic-apps/workflow-definition-language-functions-reference.md#addDays) | Add a number of days to a timestamp. |
-| [addHours](../logic-apps/workflow-definition-language-functions-reference.md#addHours) | Add a number of hours to a timestamp. |
-| [addMinutes](../logic-apps/workflow-definition-language-functions-reference.md#addMinutes) | Add a number of minutes to a timestamp. |
-| [addSeconds](../logic-apps/workflow-definition-language-functions-reference.md#addSeconds) | Add a number of seconds to a timestamp. |
-| [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime) | Add a number of time units to a timestamp. See also [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime). |
+| [addDays](../logic-apps/workflow-definition-language-functions-reference.md#addDays) | Add days to a timestamp. |
+| [addHours](../logic-apps/workflow-definition-language-functions-reference.md#addHours) | Add hours to a timestamp. |
+| [addMinutes](../logic-apps/workflow-definition-language-functions-reference.md#addMinutes) | Add minutes to a timestamp. |
+| [addSeconds](../logic-apps/workflow-definition-language-functions-reference.md#addSeconds) | Add seconds to a timestamp. |
+| [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime) | Add specified time units to a timestamp. See also [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime). |
 | [convertFromUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertFromUtc) | Convert a timestamp from Universal Time Coordinated (UTC) to the target time zone. |
 | [convertTimeZone](../logic-apps/workflow-definition-language-functions-reference.md#convertTimeZone) | Convert a timestamp from the source time zone to the target time zone. |
 | [convertToUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertToUtc) | Convert a timestamp from the source time zone to Universal Time Coordinated (UTC). |
@@ -603,7 +603,7 @@ And returns this result: `2.5`
 
 ### addDays
 
-Add a number of days to a timestamp.
+Add days to a timestamp.
 
 ```
 addDays('<timestamp>', <days>, '<format>'?)
@@ -645,7 +645,7 @@ And returns this result: `"2018-03-10T00:00:00.0000000Z"`
 
 ### addHours
 
-Add a number of hours to a timestamp.
+Add hours to a timestamp.
 
 ```
 addHours('<timestamp>', <hours>, '<format>'?)
@@ -687,7 +687,7 @@ And returns this result: `"2018-03-15T10:00:00.0000000Z"`
 
 ### addMinutes
 
-Add a number of minutes to a timestamp.
+Add minutes to a timestamp.
 
 ```
 addMinutes('<timestamp>', <minutes>, '<format>'?)
@@ -830,7 +830,7 @@ Here's the updated JSON object:
 
 ### addSeconds
 
-Add a number of seconds to a timestamp.
+Add seconds to a timestamp.
 
 ```
 addSeconds('<timestamp>', <seconds>, '<format>'?)
@@ -872,8 +872,7 @@ And returns this result: `"2018-03-15T00:00:25.0000000Z"`
 
 ### addToTime
 
-Add a number of time units to a timestamp.
-See also [getFutureTime()](#getFutureTime).
+Add the specified time units to a timestamp. See also [getFutureTime()](#getFutureTime).
 
 ```
 addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
@@ -1351,7 +1350,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, please review: [Microsoft Windows Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones). |
+| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, review [Microsoft Windows Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones). |
 | <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
@@ -1746,7 +1745,7 @@ string(add(decimal('1.2345678912312131'), decimal('1.2345678912312131'))) // Ret
 
 ### decodeBase64 (deprecated)
 
-This function is deprecated, so please use [base64ToString()](#base64ToString) instead.
+This function is deprecated, so use [base64ToString()](#base64ToString) instead.
 
 <a name="decodeDataUri"></a>
 
@@ -2249,7 +2248,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*interval*> | Yes | Integer | The number of specified time units to add |
+| <*interval*> | Yes | Integer | The number of time units to add |
 | <*timeUnit*> | Yes | String | The unit of time to use with *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
 | <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated that the provided format isn't valid and must be a numeric format string. |
 |||||
