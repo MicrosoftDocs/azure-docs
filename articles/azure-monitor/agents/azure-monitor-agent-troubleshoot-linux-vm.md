@@ -86,7 +86,7 @@ Here's how AMA collects syslog events:
 	MaODSRequest,https://e73fd5e3-ea2b-4637-8da0-5c8144b670c8_LogManagement,15,15,0,455067,476.467,0,7147,77,77
 	```  
 	
-**Troubleshooting steps **
+**Troubleshooting steps**
 1. Review the [generic Linux AMA troubleshooting steps](#basic-troubleshooting-steps) first. If agent is emitting heartbeats, proceed to step 2.
 2. The parsed configuration is stored at `/etc/opt/microsoft/azuremonitoragent/config-cache/configchunks/`. Check that Syslog collection is defined and the log destinations are the same as constructed in DCR UI / DCR JSON.
 	1. If yes, proceed to step 3. If not, the issue is in the configuration workflow. 
