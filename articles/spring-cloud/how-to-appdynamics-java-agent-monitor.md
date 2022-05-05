@@ -93,7 +93,7 @@ To activate an application through the Azure portal, use the following steps.
 
 1. Select the application to navigate to the **Overview** page.
 
-   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-overview.png" alt-text="Screenshot of Azure portal the app's Overview page." lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-overview.png":::
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-overview.png" alt-text="Screenshot of Azure portal app overview page." lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-overview.png":::
 
 1. Select **Configuration** in the left navigation pane to add, update, or delete the environment variables of the application.
 
