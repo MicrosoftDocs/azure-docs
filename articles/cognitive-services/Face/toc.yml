@@ -4,7 +4,7 @@ items:
 - name: Overview
   expanded: true
   items:
-  - name: What is Face service
+  - name: What is the Face service?
     href: Overview.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/face-api
