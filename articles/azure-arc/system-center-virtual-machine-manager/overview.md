@@ -12,11 +12,11 @@ ms.custom: references_regions
 
 # Arc enabled System Center Virtual Machine Manager
 
-Azure Arc enabled System Center Virtual Machine Manager (SCVMM) empowers System Center customers to connect their VMM environment to Azure and perform VM self-service operations from Azure portal. With Azure Arc-enabled SCVMM, you get a consistent management experience across Azure and Azure Arc-enabled System Center Virtual Machine Manager allows you to manage your Hybrid environment and perform self-service VM operations through Azure portal.
+Azure Arc-enabled System Center Virtual Machine Manager (SCVMM) empowers System Center customers to connect their VMM environment to Azure and perform VM self-service operations from Azure portal. With Azure Arc-enabled SCVMM, you get a consistent management experience across Azure.
 
-For Windows Azure Pack (WAP) customers, this solution is intended as an alternative to perform VM self-service operations.
+Azure Arc-enabled System Center Virtual Machine Manager allows you to manage your Hybrid environment and perform self-service VM operations through Azure portal. For Windows Azure Pack (WAP) customers, this solution is intended as an alternative to perform VM self-service operations.
 
-Arc enabled System Center VMM allows you to:
+Arc-enabled System Center VMM allows you to:
 
 -	Perform various VM lifecycle operations such as start, stop, pause, delete VMs on VMM managed VMs directly from Azure.
 -	Empower developers and application teams to self-serve VM operations on-demand using [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview).
@@ -29,7 +29,7 @@ To Arc enable a System Center VMM management server, deploy [Azure Arc resource 
 
 ### Supported VMM versions
 
-Azure Arc enabled SCVMM works with VMM 2016, 2019 and 2022 versions.
+Azure Arc-enabled SCVMM works with VMM 2016, 2019 and 2022 versions.
 
 ### Supported scenarios
 
@@ -42,7 +42,7 @@ The following scenarios are supported in Azure Arc-enabled SCVMM (preview):
 
 ### Supported regions
 
-Azure Arc-enabled SCVMM (preview) is supported in these regions:
+Azure Arc-enabled SCVMM (preview) is currently supported in the following regions:
 
 - East US
 - West Europe
