@@ -192,22 +192,18 @@ Version upgrades are handled transparently by Azure Container Apps. You can find
 
 ## Limitations
 
-- **Versions**: Version upgrades currently don't guarantee full support for all Dapr features in a given version.
-- **Secrets**: While Azure Container Apps currently doesn't support Dapr secrets, you can provide secrets to your components using the [Container Apps secret mechanism][aca-secrets].
-- **Configuration specs**: Container Apps doesn't expose Dapr configuration CRD.
-- **Observability**: While ability for you to customize your tracing backend isn't supported, you're able to use Application Insights as your tracing backend.
-- **Pub/sub**: Container Apps supports Dapr's programmatic subscription model, but not:
-   - Dapr's declarative subscription spec
-   - Pub/sub routing, as it's currently in preview
-- **ACL policies**: Setting ACL policies on the Dapr sidecar configuration is currently not supported.
-- **Query API for state management (preview)**: As this feature is currently in preview, Query API for state management is currently not supported.
-- **Resiliency**: Defining custom resiliency policies is currently not supported.
-- **Dapr API logging**: Dapr API logging is currently not supported in this version of Dapr in Container Apps.
+### Unsupported Dapr capabilities
 
-## Guidance
+- **Dapr Secrets Management API**: Use Container Apps secret mechanism as an alternative.
+- **Custom configuration for Dapr Observability**: Instrument your environment with Application Insights to visualize distributed tracing.
+- **Dapr Configuration spec**: Any capabilities that require use of the Dapr configuration spec, which includes preview features.
+- **Advanced Dapr sidecar configurations**: Container Apps allows you to specify sidecar settings including `app-protocol`, `app-port`, and `app-id`. For a list of unsupported configuration options, see [the Dapr documentation](https://docs.dapr.io/reference/arguments-annotations-overview/).
+- **Dapr APIs in Preview state**
 
-- **Actor Reminders**: To use actor reminders, you'll need to set `minReplicas` to at least 1 to ensure reminders will always be active and thus fire correctly. The partition actor reminders feature is currently in preview and unsupported in Container Apps.
-- **Service invocation**: While service invocation is supported in Container Apps, using service invocation without the default `content-type` is currently a preview feature and unsupported in Container Apps.
+### Known limitations
+
+- **Declarative pub/sub subscriptions**
+- **Actor reminders**: Require a minReplicas of 1+ to ensure reminders will always be active and fire correctly.
 
 ## Next Steps
 
