@@ -13,6 +13,11 @@ ms.service: iot-central
 
 This article describes how to configure data export to send data to the event hubs.
 
+[!INCLUDE [iot-central-data-export](../../../includes/iot-central-data-export.md)]
+
+## Set up an event hubs export destination
+
+
 IoT Central exports data in near real time. The data is in the message body and is in JSON format encoded as UTF-8.
 
 The annotations or system properties bag of the message contains the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` fields that have the same values as the corresponding fields in the message body.
@@ -95,6 +100,18 @@ To create the Event Hubs destination in IoT Central on the **Data export** page:
 1. Enter the host name of your Event Hubs resource. Then enter the case-sensitive event hub name. A host name looks like: `contoso-waste.servicebus.windows.net`.
 
 1. Select **Save**.
+
+[!INCLUDE [iot-central-data-export-setup](../../../includes/iot-central-data-export-setup.md)]
+
+[!INCLUDE [iot-central-data-export-message-properties](../../../includes/iot-central-data-export-message-properties.md)]
+
+[!INCLUDE [iot-central-data-export-device-connectivity](../../../includes/iot-central-data-export-device-connectivity.md)]
+
+[!INCLUDE [iot-central-data-export-device-lifecycle](../../../includes/iot-central-data-export-device-lifecycle.md)]
+
+[!INCLUDE [iot-central-data-export-device-template](../../../includes/iot-central-data-export-device-template.md)]
+
+For Event Hubs, IoT Central exports new messages data to your event hub or Service Bus queue or topic in near real time. In the user properties (also referred to as application properties) of each message, the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` are included automatically.
 
 ## Next steps
 

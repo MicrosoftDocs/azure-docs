@@ -158,4 +158,5 @@ The following limits apply to organizations:
 
 ## Next steps
 
-Now that you've learned how to manage Azure IoT Central organizations, the suggested next step is learn how to [Export IoT data to cloud destinations using data export](howto-export-data.md).
+Now that you've learned how to manage Azure IoT Central organizations, the suggested next step is learn how to  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).
+

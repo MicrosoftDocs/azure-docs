@@ -11,7 +11,12 @@ ms.service: iot-central
 
 # Export IoT data to blob storage
 
-This article describes how to configure data export to send data to the blob storage service. 
+This article describes how to configure data export to send data to the blob storage service.
+
+[!INCLUDE [iot-central-data-export](../../../includes/iot-central-data-export.md)]
+
+## Set up a blob storage export destination
+
 
 IoT Central exports data once per minute, with each file containing the batch of changes since the previous export. Exported data is saved in JSON format. The default paths to the exported data in your storage account are:
 
@@ -102,6 +107,130 @@ To create the Blob Storage destination in IoT Central on the **Data export** pag
 1. Enter the endpoint URI for your storage account and the case-sensitive container name. An endpoint URI looks like: `https://contosowaste.blob.core.windows.net`.
 
 1. Select **Save**.
+
+[!INCLUDE [iot-central-data-export-setup](../../../includes/iot-central-data-export-setup.md)]
+
+For Blob storage, messages are batched and exported once per minute.
+
+The following example shows an exported telemetry message:
+
+```json
+
+{
+    "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+    "messageSource": "telemetry",
+    "deviceId": "1vzb5ghlsg1",
+    "schema": "default@v1",
+    "templateId": "urn:qugj6vbw5:___qbj_27r",
+    "enqueuedTime": "2020-08-05T22:26:55.455Z",
+    "telemetry": {
+        "Activity": "running",
+        "BloodPressure": {
+            "Diastolic": 7,
+            "Systolic": 71
+        },
+        "BodyTemperature": 98.73447010562934,
+        "HeartRate": 88,
+        "HeartRateVariability": 17,
+        "RespiratoryRate": 13
+    },
+    "enrichments": {
+      "userSpecifiedKey": "sampleValue"
+    },
+    "module": "VitalsModule",
+    "component": "DeviceComponent",
+    "messageProperties": {
+      "messageProp": "value"
+    }
+}
+```
+
+[!INCLUDE [iot-central-data-export-message-properties](../../../includes/iot-central-data-export-message-properties.md)]
+
+For Blob storage, messages are batched and exported once per minute.
+
+The following snippet shows this property in the message exported to Blob storage:
+
+```json
+{
+  "applicationId":"5782ed70-b703-4f13-bda3-1f5f0f5c678e",
+  "messageSource":"telemetry",
+  "deviceId":"sample-device-01",
+  "schema":"default@v1",
+  "templateId":"urn:modelDefinition:mkuyqxzgea:e14m1ukpn",
+  "enqueuedTime":"2021-01-29T16:45:39.143Z",
+  "telemetry":{
+    "temperature":8.341033560421833
+  },
+  "messageProperties":{
+    "iothub-creation-time-utc":"2021-01-29T16:45:39.021Z"
+  },
+  "enrichments":{}
+}
+```
+
+[!INCLUDE [iot-central-data-export-device-connectivity](../../../includes/iot-central-data-export-device-connectivity.md)]
+
+For Blob storage, messages are batched and exported once per minute.
+
+The following example shows an exported device connectivity message received in Azure Blob Storage.
+
+```json
+{
+  "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+  "messageSource": "deviceConnectivity",
+  "messageType": "connected",
+  "deviceId": "1vzb5ghlsg1",
+  "schema": "default@v1",
+  "templateId": "urn:qugj6vbw5:___qbj_27r",
+  "enqueuedTime": "2021-04-05T22:26:55.455Z",
+  "enrichments": {
+    "userSpecifiedKey": "sampleValue"
+  }
+}
+
+```
+
+[!INCLUDE [iot-central-data-export-device-lifecycle](../../../includes/iot-central-data-export-device-lifecycle.md)]
+
+For Blob storage, messages are batched and exported once per minute.
+
+The following example shows an exported device lifecycle message received in Azure Blob Storage.
+
+```json
+{
+  "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+  "messageSource": "deviceLifecycle",
+  "messageType": "registered",
+  "deviceId": "1vzb5ghlsg1",
+  "schema": "default@v1",
+  "templateId": "urn:qugj6vbw5:___qbj_27r",
+  "enqueuedTime": "2021-01-01T22:26:55.455Z",
+  "enrichments": {
+    "userSpecifiedKey": "sampleValue"
+  }
+}
+```
+
+[!INCLUDE [iot-central-data-export-device-template](../../../includes/iot-central-data-export-device-template.md)]
+
+For Blob storage, messages are batched and exported once per minute.
+
+The following example shows an exported device lifecycle message received in Azure Blob Storage.
+
+```json
+{
+  "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+  "messageSource": "deviceTemplateLifecycle",
+  "messageType": "created",
+  "schema": "default@v1",
+  "templateId": "urn:qugj6vbw5:___qbj_27r",
+  "enqueuedTime": "2021-01-01T22:26:55.455Z",
+  "enrichments": {
+    "userSpecifiedKey": "sampleValue"
+  }
+}
+```
 
 ## Next steps
 

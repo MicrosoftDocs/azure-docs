@@ -11,7 +11,12 @@ ms.service: iot-central
 
 # Export IoT data to service bus
 
-This article describes how to configure data export to send data to the service bus. 
+This article describes how to configure data export to send data to the service bus.
+
+[!INCLUDE [iot-central-data-export](../../../includes/iot-central-data-export.md)]
+
+## Set up an service bus export destination
+
 
 Both queues and topics are supported for Azure Service Bus destinations.
 
@@ -97,6 +102,22 @@ To create the Service Bus destination in IoT Central on the **Data export** page
 1. Enter the host name of your Service Bus resource. Then enter the case-sensitive queue or topic name. A host name looks like: `contoso-waste.servicebus.windows.net`.
 
 1. Select **Save**.
+
+[!INCLUDE [iot-central-data-export-setup](../../../includes/iot-central-data-export-setup.md)]
+
+For Event Hubs and Service Bus, IoT Central exports a new message quickly after it receives the message from a device. In the user properties (also referred to as application properties) of each message, the `iotcentral-device-id`, `iotcentral-application-id`, and `iotcentral-message-source` are included automatically.
+
+[!INCLUDE [iot-central-data-export-message-properties](../../../includes/iot-central-data-export-message-properties.md)]
+
+[!INCLUDE [iot-central-data-export-device-connectivity](../../../includes/iot-central-data-export-device-connectivity.md)]
+
+[!INCLUDE [iot-central-data-export-device-lifecycle](../../../includes/iot-central-data-export-device-lifecycle.md)]
+
+[!INCLUDE [iot-central-data-export-device-template](../../../includes/iot-central-data-export-device-template.md)]
+
+For Service Bus, IoT Central exports new messages data to your event hub or Service Bus queue or topic in near real time. In the user properties (also referred to as application properties) of each message, the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` are included automatically.
+
+
 
 ## Next steps
 

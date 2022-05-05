@@ -95,7 +95,7 @@ To learn more, see [Transform data for IoT Central](howto-transform-data.md). Fo
 
 You can use the data export and rules capabilities in IoT Central to integrate with other service. To learn more, see:
 
-- [Export IoT data to cloud destinations using data export](howto-export-data.md)
+- [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).
 - [Transform data for IoT Central](howto-transform-data.md)
 - [Use workflows to integrate your Azure IoT Central application with other cloud services](howto-configure-rules-advanced.md)
 - [Extend Azure IoT Central with custom rules using Stream Analytics, Azure Functions, and SendGrid](howto-create-custom-rules.md)

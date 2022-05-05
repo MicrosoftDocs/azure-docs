@@ -11,7 +11,11 @@ ms.service: iot-central
 
 # Export IoT data to azure data explorer
 
-This article describes how to configure data export to send data to the azure data explorer. 
+This article describes how to configure data export to send data to the azure data explorer.
+
+[!INCLUDE [iot-central-data-export](../../../includes/iot-central-data-export.md)]
+
+## Set up an azure data explorer export destination
 
 You can use an [Azure Data Explorer cluster](/azure/data-explorer/data-explorer-overview) or an [Azure Synapse Data Explorer pool](../../synapse-analytics/data-explorer/data-explorer-overview.md). To learn more, see [What is the difference between Azure Synapse Data Explorer and Azure Data Explorer?](../..//synapse-analytics/data-explorer/data-explorer-compare.md).
 
@@ -175,6 +179,16 @@ To create the Azure Data Explorer destination in IoT Central on the **Data expor
     > The cluster URL for a standalone Azure Data Explorer looks like `https://<ClusterName>.<AzureRegion>.kusto.windows.net`. The cluster URL for an Azure Synapse Data Explorer pool looks like `https://<DataExplorerPoolName>.<SynapseWorkspaceName>.kusto.azuresynapse.net`.
 
     :::image type="content" source="media/howto-export-data/export-destination-managed.png" alt-text="Azure Data Explorer export destination.":::
+
+[!INCLUDE [iot-central-data-export-setup](../../../includes/iot-central-data-export-setup.md)]
+
+[!INCLUDE [iot-central-data-export-message-properties](../../../includes/iot-central-data-export-message-properties.md)]
+
+[!INCLUDE [iot-central-data-export-device-connectivity](../../../includes/iot-central-data-export-device-connectivity.md)]
+
+[!INCLUDE [iot-central-data-export-device-lifecycle](../../../includes/iot-central-data-export-device-lifecycle.md)]
+
+[!INCLUDE [iot-central-data-export-device-template](../../../includes/iot-central-data-export-device-template.md)]
 
 ## Next steps
 

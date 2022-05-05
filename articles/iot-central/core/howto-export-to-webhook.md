@@ -13,6 +13,11 @@ ms.service: iot-central
 
 This article describes how to configure data export to send data to the webhook.
 
+[!INCLUDE [iot-central-data-export](../../../includes/iot-central-data-export.md)]
+
+## Set up an webhook export destination
+
+
 For webhook destinations, IoT Central exports data in near real time. The data in the message body is in the same format as for Event Hubs and Service Bus.
 
 ## Create a webhook destination
@@ -34,3 +39,13 @@ To create the Azure Data Explorer destination in IoT Central on the **Data expor
     - For **Authorization token**, you can specify a token value that's directly attached to the `Authorization` header for every message sent to this destination.
 
 1. Select **Save**.
+
+[!INCLUDE [iot-central-data-export-setup](../../../includes/iot-central-data-export-setup.md)]
+
+[!INCLUDE [iot-central-data-export-message-properties](../../../includes/iot-central-data-export-message-properties.md)]
+
+[!INCLUDE [iot-central-data-export-device-connectivity](../../../includes/iot-central-data-export-device-connectivity.md)]
+
+[!INCLUDE [iot-central-data-export-device-lifecycle](../../../includes/iot-central-data-export-device-lifecycle.md)]
+
+[!INCLUDE [iot-central-data-export-device-template](../../../includes/iot-central-data-export-device-template.md)]
