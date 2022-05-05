@@ -30,7 +30,7 @@ information in the Azure portal, see [Azure Resource Graph Explorer](../first-qu
 Log [Change history](../../../azure-monitor/essentials/activity-log.md#view-the-activity-log). For
 details about changes to your applications from the infrastructure layer all the way to application
 deployment, see
-[Use Application Change Analysis](../../../azure-monitor/app/change-analysis.md) in Azure
+[Use Application Change Analysis (preview)](../../../azure-monitor/app/change-analysis.md) in Azure
 Monitor.
 
 > [!NOTE]
