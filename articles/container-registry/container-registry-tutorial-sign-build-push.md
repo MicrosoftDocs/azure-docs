@@ -20,7 +20,7 @@ In this article you learn:
 > * How to configure a trust policy for the keys that are trusted for deployments
 > * How to verify trusted signatures as part of the deployment process
 
-> TODO: Include a diagram of AKV --> ACR --> Build --> Deploy --> Verify --> AKS
+> TODO: Include a diagram of AKV --> Build --> Sign --> ACR --> Verify
 
 ## Prerequisites
 
@@ -90,10 +90,6 @@ To ease the execution of the commands to complete this article, provide values f
     KEY_SUBJECT_NAME=wabbit-networks.io
     # Name of the AKV Resource Group
     AKV_RG=${AKV_NAME}-rg
-
-    # Name of the Azure Kubernetes Service instance
-    AKS_NAME=myaks
-    AKS_RG=${AKS_NAME}-rg
     ```
 
 2. Configure container image resources
