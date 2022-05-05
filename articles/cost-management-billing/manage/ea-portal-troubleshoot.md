@@ -31,7 +31,7 @@ The first work or school account added to the enrollment determines the _default
 
 To update the Authentication Level:
 
-1. Sign in to the Azure EA portal as an Enterprise Administrator.
+1. Sign in to the Azure [EA portal](https://ea.azure.com/) as an Enterprise Administrator.
 2. Click **Manage** on the left navigation panel.
 3. Click the **Enrollment** tab.
 4. Under **Enrollment Details**, select **Auth Level**.

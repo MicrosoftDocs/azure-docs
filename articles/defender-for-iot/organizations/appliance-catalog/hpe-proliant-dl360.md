@@ -35,7 +35,7 @@ The following image shows a view of the HPE ProLiant Dl360 back panel:
 |Chassis |1U rack server|
 |Dimensions| 42.9 x 43.46 x 70.7 cm / 1.69" x 17.11" x 27.83" in|
 |Weight| Max 16.27 kg  / 35.86 lb |
-|Processor | Intel Xeon Silver 4215 R 3.2 GHz 11M cache 8c/16T 130 W|
+|Processor | 2x Intel Xeon Silver 4215 R 3.2 GHz 11M cache 8c/16T 130 W|
 |Chipset	| Intel C621|
 |Memory	| 32 GB = Two 16-GB 2666MT/s DDR4 ECC UDIMM|
 |Storage|	Six 1.2-TB SAS 12G Enterprise 10K SFF (2.5 in) in hot-plug hard drive - RAID 5|
@@ -47,7 +47,26 @@ The following image shows a view of the HPE ProLiant Dl360 back panel:
 |Power            |Two HPE 500-W flex slot platinum hot plug low halogen power supply kit
 |Rack support     | HPE 1U Gen10 SFF easy install rail kit        |
 
-### Port expansion
+## HPE DL360 BOM
+
+|PN	|Description	|Quantity|
+|-------------- | --------------| --------- |
+|P19766-B21 	| HPE DL360 Gen10 8SFF NC CTO Server	|1|
+|P19766-B21 	| Europe - Multilingual Localization	|1|
+|P24479-L21 	| Intel Xeon-S 4215 R FIO Kit for DL360 G10	|1|
+|P24479-B21 	| Intel Xeon-S 4215 R Kit for DL360 Gen10	|1|
+|P00922-B21 	| HPE 16-GB 2Rx8 PC4-2933Y-R Smart Kit	|2|
+|872479-B21 	| HPE 1.2-TB SAS 10K SFF SC DS HDD	|6|
+|811546-B21 	| HPE 1-GbE 4-p BASE-T I350 Adapter	|1|
+|P02377-B21 	| HPE Smart Hybrid Capacitor w_ 145 mm Cable	|1|
+|804331-B21 	| HPE Smart Array P408i-a SR Gen10 Controller	|1|
+|665240-B21 	| HPE 1-GbE 4-p FLR-T I350 Adapter	|1|
+|871244-B21 	| HPE DL360 Gen10 High Performance Fan Kit	|1|
+|865408-B21 	| HPE 500-W FS Plat Hot Plug LH Power Supply Kit	|2|
+|512485-B21 	| HPE iLO Adv 1-Server License 1 Year Support	|1|
+|874543-B21 	| HPE 1U Gen10 SFF Easy Install Rail Kit	|1|
+
+## Port expansion
 
 Optional modules for port expansion include:
 
