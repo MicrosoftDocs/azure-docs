@@ -4,7 +4,7 @@ description: Learn how to create an Azure notification hub using Bicep.
 services: notification-hubs
 author: schaffererin
 ms.author: v-eschaffer
-ms.date: 04/29/2022
+ms.date: 05/05/2022
 ms.topic: quickstart
 ms.service: notification-hubs
 ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
@@ -27,6 +27,8 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/notification-hub/).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.notificationhubs/notification-hub/main.bicep":::
+
+The Bicep file creates the two Azure resources:
 
 * [Microsoft.NotificationHubs/namespaces](/azure/templates/microsoft.notificationhubs/namespaces)
 * [Microsoft.NotificationHubs/namespaces/notificationHubs](/azure/templates/microsoft.notificationhubs/namespaces/notificationhubs)
