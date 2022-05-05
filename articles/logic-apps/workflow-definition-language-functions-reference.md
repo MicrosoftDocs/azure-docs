@@ -1832,7 +1832,7 @@ div(<dividend>, <divisor>)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*dividend*> | Yes | Integer or Float | The number to divide by the *divisor* |
-| <*divisor*> | Yes | Integer or Float | The number that divides the *dividend*, but cannot be 0 |
+| <*divisor*> | Yes | Integer or Float | The number that divides the *dividend*, but can't be zero |
 |||||
 
 | Return value | Type | Description |
@@ -3190,7 +3190,7 @@ mod(<dividend>, <divisor>)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*dividend*> | Yes | Integer or Float | The number to divide by the *divisor* |
-| <*divisor*> | Yes | Integer or Float | The number that divides the *dividend*, but cannot be 0. |
+| <*divisor*> | Yes | Integer or Float | The number that divides the *dividend*, but can't be zero |
 |||||
 
 | Return value | Type | Description |
@@ -3345,7 +3345,7 @@ nthIndexOf('<text>', '<searchText>', <occurrence>)
 |-----------|----------|------|-------------|
 | <*text*> | Yes | String | The string that contains the substring to find |
 | <*searchText*> | Yes | String | The substring to find |
-| <*ocurrence*> | Yes | Integer | A number that specifies the *n*th occurrence of the substring to find. If *ocurrence* is negative, starts searching from the end. |
+| <*occurrence*> | Yes | Integer | A number that specifies the *n*th occurrence of the substring to find. If *occurrence* is negative, start searching from the end. |
 |||||
 
 | Return value | Type | Description |
