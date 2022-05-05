@@ -109,11 +109,13 @@ Credentials are a primary attack vector. Implement the following practices to ma
 
   Provision multiple strong credentials by using Azure AD multifactor authentication. That way, access to cloud resources requires an Azure AD managed credential in addition to an on-premises password. For more information, see [Build resilience with credential management](../fundamentals/resilience-in-credentials.md) and [Create a resilient access control management strategy by using Azure AD](./resilience-overview.md).
 
+### Limitations and tradeoffs
+
 Hybrid account password management requires hybrid components such as password protection agents and password writeback agents. If your on-premises infrastructure is compromised, attackers can control the machines on which these agents reside. This vulnerability won't compromise your cloud infrastructure. But your cloud accounts won't protect these components from on-premises compromise.
 
 On-premises accounts synced from Active Directory are marked to never expire in Azure AD. This setting is usually mitigated by on-premises Active Directory password settings. If your instance of Active Directory is compromised and synchronization is disabled, set the [EnforceCloudPasswordPolicyForPasswordSyncedUsers](../hybrid/how-to-connect-password-hash-synchronization.md) option to force password changes.
 
-### Provision user access from the cloud
+## Provision user access from the cloud
 
 *Provisioning* refers to the creation of user accounts and groups in applications or identity providers.
 
@@ -132,9 +134,11 @@ We recommend the following provisioning methods:
 
 - Disconnected forests. Use Azure AD cloud provisioning to connect to disconnected forests. This approach eliminates the need to establish cross-forest connectivity or trusts, which can broaden the effect of an on-premises breach. For more information, see [What is Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md).
 
+### Limitations and tradeoffs
+
 When used to provision hybrid accounts, the Azure-AD-from-cloud-HR system relies on on-premises synchronization to complete the data flow from Active Directory to Azure AD. If synchronization is interrupted, new employee records won't be available in Azure AD.
 
-### Use cloud groups for collaboration and access
+## Use cloud groups for collaboration and access
 
 Cloud groups allow you to decouple your collaboration and access from your on-premises infrastructure.
 
@@ -144,7 +148,7 @@ Cloud groups allow you to decouple your collaboration and access from your on-pr
 
 Owners of groups that are used for access should be considered privileged identities to avoid membership takeover in an on-premises compromise. A takeover would include direct manipulation of group membership on-premises or manipulation of on-premises attributes that can affect dynamic group membership in Microsoft 365.
 
-### Manage devices from the cloud
+## Manage devices from the cloud
 
 Use Azure AD capabilities to securely manage devices.
 
@@ -177,7 +181,7 @@ Deploy Azure AD joined Windows 10 workstations with mobile device management pol
 
   Use credential tiering. Application servers are typically considered tier-1 assets. For more information, see [Enterprise access model](/security/compass/privileged-access-access-model#ADATM_BM).
 
-### Conditional Access policies
+## Conditional Access policies
 
 Use Azure AD Conditional Access to interpret signals and use them to make authentication decisions. For more information, see the [Conditional Access deployment plan](../conditional-access/plan-conditional-access.md).
 

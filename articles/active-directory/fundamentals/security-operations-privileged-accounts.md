@@ -1,5 +1,5 @@
 ---
-title: Security operations for privileged accounts in Azure AD
+title: Security operations for privileged accounts in Azure Active Directory
 description: Learn about baselines, and how to monitor and alert on potential security issues with privileged accounts in Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
@@ -14,7 +14,7 @@ ms.custom: kr2b-contr-experiment
 ms.collection: M365-identity-device-management
 ---
 
-# Security operations for privileged accounts in Azure AD
+# Security operations for privileged accounts in Azure Active Directory
 
 The security of business assets depends on the integrity of the privileged accounts that administer your IT systems. Cyber attackers use credential theft attacks and other means to target privileged accounts and gain access to sensitive data.
 
@@ -78,6 +78,8 @@ For guidance on what to do in an emergency, see [Secure access practices for adm
 
 Send a high-priority alert every time an emergency access account is used.
 
+### Discovery
+
 Because break-glass accounts are only used if there's an emergency, your monitoring should discover no account activity. Send a high-priority alert every time an emergency access account is used or changed. Any of the following events might indicate a bad actor is trying to compromise your environments:
 
 * Sign-in.
@@ -101,6 +103,8 @@ Monitor all privileged account sign-in activity by using the Azure AD Sign-in lo
 * Lockout
 * MFA fraud
 * Conditional Access failure
+
+### Things to monitor
 
 You can monitor privileged account sign-in events in the Azure AD Sign-in logs. Alert on and investigate the following events for privileged accounts.
 
@@ -130,6 +134,8 @@ You can monitor privileged account sign-in events in the Azure AD Sign-in logs. 
 ## Changes by privileged accounts
 
 Monitor all completed and attempted changes by a privileged account. This data enables you to establish what's normal activity for each privileged account and alert on activity that deviates from the expected. The Azure AD Audit logs are used to record this type of event. For more information on Azure AD Audit logs, see [Audit logs in Azure Active Directory](../reports-monitoring/concept-audit-logs.md).
+
+### Azure Active Directory Domain Services
 
 Privileged accounts that have been assigned permissions in Azure AD Domain Services can perform tasks for Azure AD Domain Services that affect the security posture of your Azure-hosted virtual machines that use Azure AD Domain Services. Enable security audits on virtual machines and monitor the logs. For more information on enabling Azure AD Domain Services audits and for a list of sensitive privileges, see the following resources:
 
