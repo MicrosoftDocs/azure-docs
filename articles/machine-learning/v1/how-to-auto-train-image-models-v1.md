@@ -1,7 +1,7 @@
 ---
-title: Set up AutoML for computer vision 
+title: Set up AutoML for computer vision (v1)
 titleSuffix: Azure Machine Learning
-description: Set up Azure Machine Learning automated ML to train computer vision models  with the Azure Machine Learning Python SDK (preview).
+description: Set up Azure Machine Learning automated ML to train computer vision models  with the Azure Machine Learning Python SDK (v1).
 services: machine-learning
 author: swatig007
 ms.author: swatig
@@ -15,30 +15,35 @@ ms.custom: sdkv2
 
 ---
 
-# Set up AutoML to train computer vision models with Python (preview)
+# Set up AutoML to train computer vision models with Python (v1)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](v1/how-to-auto-train-image-models-v1.md)
-> * [v2 (current version)](how-to-auto-train-image-models.md)
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+
+	[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+	> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
+	> * [v1](how-to-auto-train-image-models-v1.md)
+	> * [v2 (current version)](../how-to-auto-train-image-models-v1.md)
+	
+	[!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
+
 
 > [!IMPORTANT]
 > This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In this article, you learn how to train computer vision models on image data with automated ML in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/).
 
-Automated ML supports model training for computer vision tasks like image classification, object detection, and instance segmentation. Authoring AutoML models for computer vision tasks is currently supported via the Azure Machine Learning Python SDK. The resulting experimentation runs, models, and outputs are accessible from the Azure Machine Learning studio UI. [Learn more about automated ml for computer vision tasks on image data](concept-automated-ml.md).
+Automated ML supports model training for computer vision tasks like image classification, object detection, and instance segmentation. Authoring AutoML models for computer vision tasks is currently supported via the Azure Machine Learning Python SDK. The resulting experimentation runs, models, and outputs are accessible from the Azure Machine Learning studio UI. [Learn more about automated ml for computer vision tasks on image data](../concept-automated-ml.md).
 
 > [!NOTE]
 > Automated ML for computer vision tasks is only available via the Azure Machine Learning Python SDK. 
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md).
 
 * The Azure Machine Learning Python SDK installed.
     To install the SDK you can either, 
-    * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. For more information, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
+    * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. For more information, see [Create and manage an Azure Machine Learning compute instance](../how-to-create-manage-compute-instance.md).
 
     * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
     
@@ -70,7 +75,7 @@ automl_image_config = AutoMLImageConfig(task=ImageTask.IMAGE_OBJECT_DETECTION)
 
 In order to generate computer vision models, you need to bring labeled image data as input for model training in the form of an Azure Machine Learning [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset). You can either use a `TabularDataset` that you have [exported from a data labeling project](./how-to-create-image-labeling-projects.md#export-the-labels), or create a new `TabularDataset` with your labeled training data. 
 
-If your training data is in a different format (like, pascal VOC or COCO), you can apply the helper scripts included with the sample notebooks to convert the data to JSONL. Learn more about how to [prepare data for computer vision tasks with automated ML](how-to-prepare-datasets-for-automl-images.md). 
+If your training data is in a different format (like, pascal VOC or COCO), you can apply the helper scripts included with the sample notebooks to convert the data to JSONL. Learn more about how to [prepare data for computer vision tasks with automated ML](../how-to-prepare-datasets-for-automl-images.md). 
 
 > [!Warning]
 > Creation of TabularDatasets is only supported using the SDK to create datasets from data in JSONL format for this capability. Creating the dataset via UI is not supported at this time.
@@ -183,7 +188,7 @@ automl_image_config = AutoMLImageConfig(training_data=training_dataset)
 
 ## Compute to run experiment
 
-Provide a [compute target](v1/concept-azure-machine-learning-architecture.md#compute-targets) for automated ML to conduct model training. Automated ML models for computer vision tasks require GPU SKUs and support NC and ND families. We recommend the NCsv3-series (with v100 GPUs) for faster training. A compute target with a multi-GPU VM SKU leverages multiple GPUs to also speed up training. Additionally, when you set up a compute target with multiple nodes you can conduct faster model training through parallelism when tuning hyperparameters for your model.
+Provide a [compute target](../v1/concept-azure-machine-learning-architecture.md#compute-targets) for automated ML to conduct model training. Automated ML models for computer vision tasks require GPU SKUs and support NC and ND families. We recommend the NCsv3-series (with v100 GPUs) for faster training. A compute target with a multi-GPU VM SKU leverages multiple GPUs to also speed up training. Additionally, when you set up a compute target with multiple nodes you can conduct faster model training through parallelism when tuning hyperparameters for your model.
 
 The compute target is a required parameter and is passed in using the `compute_target` parameter of the `AutoMLImageConfig`. For example:
 
@@ -209,7 +214,7 @@ Object detection | **YOLOv5**: One stage object detection model   <br>  **Faster
 Instance segmentation | **MaskRCNN ResNet FPN**| `maskrcnn_resnet18_fpn` <br> `maskrcnn_resnet34_fpn` <br> ***`maskrcnn_resnet50_fpn`\****  <br> `maskrcnn_resnet101_fpn` <br> `maskrcnn_resnet152_fpn` <br>`maskrcnn_resnet50_fpn`
 
 
-In addition to controlling the model algorithm, you can also tune hyperparameters used for model training. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are task-specific or model-specific. [Learn more about the available hyperparameters for these instances](reference-automl-images-hyperparameters.md). 
+In addition to controlling the model algorithm, you can also tune hyperparameters used for model training. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are task-specific or model-specific. [Learn more about the available hyperparameters for these instances](../reference-automl-images-hyperparameters.md). 
 
 ### Data augmentation 
 
@@ -259,23 +264,23 @@ You can optionally specify the maximum time budget for your AutoML Vision experi
 ## Sweeping hyperparameters for your model
 
 When training computer vision models, model performance depends heavily on the hyperparameter values selected. Often, you might want to tune the hyperparameters to get optimal performance.
-With support for computer vision tasks in automated ML, you can sweep hyperparameters to find the optimal settings for your model. This feature applies the hyperparameter tuning capabilities in Azure Machine Learning. [Learn how to tune hyperparameters](how-to-tune-hyperparameters.md).
+With support for computer vision tasks in automated ML, you can sweep hyperparameters to find the optimal settings for your model. This feature applies the hyperparameter tuning capabilities in Azure Machine Learning. [Learn how to tune hyperparameters](../how-to-tune-hyperparameters.md).
 
 ### Define the parameter search space
 
 You can define the model algorithms and hyperparameters to sweep in the parameter space. 
 
 * See [Configure model algorithms and hyperparameters](#configure-model-algorithms-and-hyperparameters) for the list of supported model algorithms for each task type. 
-* See [Hyperparameters for computer vision tasks](reference-automl-images-hyperparameters.md)  hyperparameters for each computer vision task type. 
-* See [details on supported distributions for discrete and continuous hyperparameters](how-to-tune-hyperparameters.md#define-the-search-space).
+* See [Hyperparameters for computer vision tasks](../reference-automl-images-hyperparameters.md)  hyperparameters for each computer vision task type. 
+* See [details on supported distributions for discrete and continuous hyperparameters](../how-to-tune-hyperparameters.md#define-the-search-space).
 
 ### Sampling methods for the sweep
 
 When sweeping hyperparameters, you need to specify the sampling method to use for sweeping over the defined parameter space. Currently, the following sampling methods are supported with the `hyperparameter_sampling` parameter:
 
-* [Random sampling](how-to-tune-hyperparameters.md#random-sampling)
-* [Grid sampling](how-to-tune-hyperparameters.md#grid-sampling) 
-* [Bayesian sampling](how-to-tune-hyperparameters.md#bayesian-sampling) 
+* [Random sampling](../how-to-tune-hyperparameters.md#random-sampling)
+* [Grid sampling](../how-to-tune-hyperparameters.md#grid-sampling) 
+* [Bayesian sampling](../how-to-tune-hyperparameters.md#bayesian-sampling) 
     
 > [!NOTE]
 > Currently only random sampling supports conditional hyperparameter spaces.
@@ -288,7 +293,7 @@ You can automatically end poorly performing runs with an early termination polic
 * [Median stopping policy](how-to-tune-hyperparameters.md#median-stopping-policy)
 * [Truncation selection policy](how-to-tune-hyperparameters.md#truncation-selection-policy)
 
-Learn more about [how to configure the early termination policy for your hyperparameter sweep](how-to-tune-hyperparameters.md#early-termination).
+Learn more about [how to configure the early termination policy for your hyperparameter sweep](../how-to-tune-hyperparameters.md#early-termination).
 
 ### Resources for the sweep
 
@@ -301,7 +306,7 @@ Parameter | Detail
 
 
 > [!NOTE]
-> For a complete sweep configuration sample, please refer to this [tutorial](tutorial-auto-train-image-models.md#hyperparameter-sweeping-for-image-tasks).
+> For a complete sweep configuration sample, please refer to this [tutorial](../tutorial-auto-train-image-models.md#hyperparameter-sweeping-for-image-tasks).
 
 ### Arguments
 
@@ -393,7 +398,7 @@ The automated ML training runs generates output model files, evaluation metrics,
 > [!TIP]
 > Check how to navigate to the run results from the  [View run results](how-to-understand-automated-ml.md#view-run-results) section.
 
-For definitions and examples of the performance charts and metrics provided for each run, see [Evaluate automated machine learning experiment results](how-to-understand-automated-ml.md#metrics-for-image-models-preview)
+For definitions and examples of the performance charts and metrics provided for each run, see [Evaluate automated machine learning experiment results](../how-to-understand-automated-ml.md#metrics-for-image-models-preview)
 
 ## Register and deploy model
 
@@ -405,7 +410,7 @@ model_name = best_child_run.properties['model_name']
 model = best_child_run.register_model(model_name = model_name, model_path='outputs/model.pt')
 ```
 
-After you register the model you want to use, you can deploy it as a web service on [Azure Container Instances (ACI)](v1/how-to-deploy-azure-container-instance.md) or [Azure Kubernetes Service (AKS)](v1/how-to-deploy-azure-kubernetes-service.md). ACI is the perfect option for testing deployments, while AKS is better suited for high-scale, production usage.
+After you register the model you want to use, you can deploy it as a web service on [Azure Container Instances (ACI)](../v1/how-to-deploy-azure-container-instance.md) or [Azure Kubernetes Service (AKS)](../v1/how-to-deploy-azure-kubernetes-service.md). ACI is the perfect option for testing deployments, while AKS is better suited for high-scale, production usage.
 
 This example deploys the model as a web service in AKS. To deploy in AKS, first create an AKS compute cluster or use an existing AKS cluster. You can use either GPU or CPU VM SKUs for your deployment cluster. 
 
@@ -505,9 +510,9 @@ Each of the tasks (and some models) have a set of parameters in the `model_setti
 |Object detection using `yolov5`| `img_size`<br>`model_size`<br>`box_score_thresh`<br>`nms_iou_thresh` | 640<br>medium<br>0.1<br>0.5 |
 |Instance segmentation| `min_size`<br>`max_size`<br>`box_score_thresh`<br>`nms_iou_thresh`<br>`box_detections_per_img`<br>`mask_pixel_score_threshold`<br>`max_number_of_polygon_points`<br>`export_as_image`<br>`image_type` | 600<br>1333<br>0.3<br>0.5<br>100<br>0.5<br>100<br>False<br>JPG|
 
-For a detailed description on task specific hyperparameters, please refer to [Hyperparameters for computer vision tasks in automated machine learning](reference-automl-images-hyperparameters.md).
+For a detailed description on task specific hyperparameters, please refer to [Hyperparameters for computer vision tasks in automated machine learning](../reference-automl-images-hyperparameters.md).
     
-If you want to use tiling, and want to control tiling behavior, the following parameters are available: `tile_grid_size`, `tile_overlap_ratio` and `tile_predictions_nms_thresh`. For more details on these parameters please check [Train a small object detection model using AutoML](how-to-use-automl-small-object-detect.md).
+If you want to use tiling, and want to control tiling behavior, the following parameters are available: `tile_grid_size`, `tile_overlap_ratio` and `tile_predictions_nms_thresh`. For more details on these parameters please check [Train a small object detection model using AutoML](../how-to-use-automl-small-object-detect.md).
 
 ## Example notebooks
 Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml). Please check the folders with 'image-' prefix for samples specific to building computer vision models.
@@ -515,6 +520,6 @@ Review detailed code examples and use cases in the [GitHub notebook repository f
 
 ## Next steps
 
-* [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
-* [Make predictions with ONNX on computer vision models from AutoML](how-to-inference-onnx-automl-image-models.md) 
-* [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md).
+* [Tutorial: Train an object detection model (preview) with AutoML and Python](../tutorial-auto-train-image-models.md).
+* [Make predictions with ONNX on computer vision models from AutoML](../how-to-inference-onnx-automl-image-models.md) 
+* [Troubleshoot automated ML experiments](../how-to-troubleshoot-auto-ml.md).
