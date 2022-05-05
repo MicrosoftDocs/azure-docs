@@ -80,7 +80,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
 
-> [!VIDEO https://www.youtube.com/watch?v=k2_fk7BY8Ow]
+> [!VIDEO https://www.youtube.com/embed/fk7BY8Ow]
 
 
 ### To configure automatic user provisioning for Adobe Identity Management in Azure AD:
