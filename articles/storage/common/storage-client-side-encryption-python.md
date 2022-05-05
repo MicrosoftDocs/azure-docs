@@ -8,7 +8,7 @@ author: tamram
 ms.service: storage
 ms.devlang: python
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 05/05/2022
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
@@ -20,12 +20,7 @@ ms.subservice: common
 
 ## Overview
 
-The [Azure Storage Client Library for Python](https://pypi.python.org/pypi/azure-storage) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client.
-
-> [!NOTE]
-> The Azure Storage Python library is in preview.
->
->
+The [Azure Blob Storage client library for Python](https://pypi.org/project/azure-storage-blob/) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client.
 
 ## Encryption and decryption via the envelope technique
 
