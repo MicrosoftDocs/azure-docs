@@ -131,4 +131,6 @@ For VM offers with more than one plan, you can change the order that your plans 
 
 ## Next steps
 
+- [Learn more about how to reorder plans](azure-vm-plan-reorder-plans.md)
+
 - [Resell through CSPs](azure-vm-resell-csp.md)
