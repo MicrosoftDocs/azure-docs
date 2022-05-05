@@ -62,7 +62,7 @@ We suggest the following best practices for manually collecting human data direc
 This article focuses on recommendations for human data, including personal data and sensitive data such as biometric data, health data, racial or ethnic data, data collected manually from the general public or company employees, as well as metadata relating to human characteristics, such as age, ancestry, and gender identity, that may be created via annotation or labeling. 
 
 <!--INSERT DOWNLOAD LINK TO FULL SOURCING HUMAN DATA DOC-->
-Download the full set of best practices here. 
+<!--Download the full set of best practices here.--> 
 
 ## Best practices for collecting age, ancestry, and gender identity
 
@@ -123,7 +123,7 @@ To enable people to self-identify, consider using the following survey questions
 In some parts of the world, there are laws that criminalize specific gender categories, so it may be dangerous for data contributors to answer this question honestly. Always give people a way to opt out. And work with regional experts and attorneys to conduct a careful review of the laws and cultural norms of each place where you plan to collect data, and if needed, avoid asking this question entirely. 
 
 <!-- INCLUDE LINK TO FULL DOWNLOAD-->
-Download the full set of best practices here.  
+<!-- Download the full set of best practices here.--> 
 
 
 
