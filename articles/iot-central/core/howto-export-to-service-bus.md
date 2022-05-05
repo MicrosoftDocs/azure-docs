@@ -103,9 +103,9 @@ To create the Service Bus destination in IoT Central on the **Data export** page
 
 1. Select **Save**.
 
-[!INCLUDE [iot-central-data-export-setup](../../../includes/iot-central-data-export-setup.md)]
+---
 
-For Event Hubs and Service Bus, IoT Central exports a new message quickly after it receives the message from a device. In the user properties (also referred to as application properties) of each message, the `iotcentral-device-id`, `iotcentral-application-id`, and `iotcentral-message-source` are included automatically.
+[!INCLUDE [iot-central-data-export-setup](../../../includes/iot-central-data-export-setup.md)]
 
 [!INCLUDE [iot-central-data-export-message-properties](../../../includes/iot-central-data-export-message-properties.md)]
 
@@ -116,8 +116,6 @@ For Event Hubs and Service Bus, IoT Central exports a new message quickly after 
 [!INCLUDE [iot-central-data-export-device-template](../../../includes/iot-central-data-export-device-template.md)]
 
 For Service Bus, IoT Central exports new messages data to your event hub or Service Bus queue or topic in near real time. In the user properties (also referred to as application properties) of each message, the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` are included automatically.
-
-
 
 ## Next steps
 

@@ -145,6 +145,8 @@ The following example shows an exported telemetry message:
 }
 ```
 
+---
+
 [!INCLUDE [iot-central-data-export-message-properties](../../../includes/iot-central-data-export-message-properties.md)]
 
 For Blob storage, messages are batched and exported once per minute.

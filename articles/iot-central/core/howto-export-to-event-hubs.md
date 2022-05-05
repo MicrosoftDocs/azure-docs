@@ -101,6 +101,8 @@ To create the Event Hubs destination in IoT Central on the **Data export** page:
 
 1. Select **Save**.
 
+---
+
 [!INCLUDE [iot-central-data-export-setup](../../../includes/iot-central-data-export-setup.md)]
 
 [!INCLUDE [iot-central-data-export-message-properties](../../../includes/iot-central-data-export-message-properties.md)]

@@ -40,6 +40,8 @@ To create the Azure Data Explorer destination in IoT Central on the **Data expor
 
 1. Select **Save**.
 
+---
+
 [!INCLUDE [iot-central-data-export-setup](../../../includes/iot-central-data-export-setup.md)]
 
 [!INCLUDE [iot-central-data-export-message-properties](../../../includes/iot-central-data-export-message-properties.md)]

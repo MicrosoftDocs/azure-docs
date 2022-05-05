@@ -180,6 +180,8 @@ To create the Azure Data Explorer destination in IoT Central on the **Data expor
 
     :::image type="content" source="media/howto-export-data/export-destination-managed.png" alt-text="Azure Data Explorer export destination.":::
 
+---
+
 [!INCLUDE [iot-central-data-export-setup](../../../includes/iot-central-data-export-setup.md)]
 
 [!INCLUDE [iot-central-data-export-message-properties](../../../includes/iot-central-data-export-message-properties.md)]
