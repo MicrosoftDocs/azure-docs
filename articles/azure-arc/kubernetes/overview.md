@@ -4,7 +4,7 @@ services: azure-arc
 ms.service: azure-arc
 author: shashankbarsin
 ms.author: shasb
-ms.date: 04/13/2022
+ms.date: 05/03/2022
 ms.topic: overview
 description: "This article provides an overview of Azure Arc-enabled Kubernetes."
 keywords: "Kubernetes, Arc, Azure, containers"
@@ -15,13 +15,14 @@ keywords: "Kubernetes, Arc, Azure, containers"
 Azure Arc-enabled Kubernetes allows you to attach and configure Kubernetes clusters running anywhere. You can connect your clusters running on other public cloud providers (such as GCP or AWS) or clusters running on your on-premise data center (such as VMware vSphere or Azure Stack HCI) to Azure Arc.
 
 When you connect a Kubernetes cluster to Azure Arc, it will:
+
 * Be represented in Azure Resource Manager by a unique ID
 * Be placed in an Azure subscription and resource group
 * Receive tags just like any other Azure resource
 
-Azure Arc-enabled Kubernetes supports industry-standard SSL to secure data in transit. For the connected clusters, data at rest is stored encrypted in an Azure Cosmos DB database to ensure confidentiality.
+Azure Arc-enabled Kubernetes supports industry-standard SSL to secure data in transit. For the connected clusters, cluster extensions, and custom locations, data at rest is stored encrypted in an Azure Cosmos DB database to ensure confidentiality.
 
-Azure Arc-enabled Kubernetes supports the following scenarios for connected clusters: 
+Azure Arc-enabled Kubernetes supports the following scenarios for connected clusters:
 
 * [Connect Kubernetes](quickstart-connect-cluster.md) running outside of Azure for inventory, grouping, and tagging.
 
