@@ -48,19 +48,19 @@ In this preview, storage accounts support the following suboperations:
 > | [Sets the access tier on a blob](#sets-the-access-tier-on-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | `Blob.Write.Tier` |
 > | [Write to a blob with blob index tags](#write-to-a-blob-with-blob-index-tags) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` <br/> `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` | `Blob.Write.WithTagHeaders` |
 
-## Understand potential overlap between selected read actions
+## Understand the effective actions for selected read actions
 
-Depending on the read actions you select to target for your condition, there might be a subtle overlap between actions that initially is not apparent. The following table tries to describe the overlap if you are interested in the details.
+Depending on the read actions you select for your condition, the effective actions that will be targeted might not be apparent. The following table lists the effective actions for the read actions that you select.
 
-| Selected actions | Operations that are included |
-| --- | --- |
-| All read operations | <ul><li>List blobs</li><li>Read a blob</li><li>Read content from  a blob with tag conditions</li><li>&lt;Any future read operations&gt;</li></ul> |
-| List blobs | <ul><li>List blobs</li></ul> |
-| Read a blob | <ul><li>Read a blob</li><li>Read content from  a blob with tag conditions</li><li>&lt;Any future read operations&gt;</li><li>**NOT** List blobs</li></ul> |
-| Read content from  a blob with tag conditions | <ul><li>Read content from  a blob with tag conditions</li></ul> |
-| List blobs<br/>Read a blob | <ul><li>List blobs</li><li>Read a blob</li><li>Read content from  a blob with tag conditions</li><li>&lt;Any future read operations&gt;</li></ul> |
-| Read a blob<br/>Read content from  a blob with tag conditions | <ul><li>Read a blob</li><li>Read content from  a blob with tag conditions</li><li>&lt;Any future read operations&gt;</li><li>**NOT** List blobs</li></ul> |
-| List blobs<br/>Read a blob<br/>Read content from  a blob with tag conditions | <ul><li>List blobs</li><li>Read a blob</li><li>Read content from  a blob with tag conditions</li><li>&lt;Any future read operations&gt;</li></ul> |
+| Selected actions | Effective actions that will be targeted | Notes |
+| --- | --- | --- |
+| All read operations | <ul><li>List blobs</li><li>Read a blob</li><li>Read content from  a blob with tag conditions</li><li>&lt;Any future read operations&gt;</li></ul> |  |
+| List blobs | <ul><li>List blobs</li></ul> |  |
+| Read a blob | <ul><li>Read a blob</li><li>Read content from  a blob with tag conditions</li><li>&lt;Any future read operations&gt;</li><li>**NOT** List blobs</li></ul> |  |
+| Read content from  a blob with tag conditions | <ul><li>Read content from  a blob with tag conditions</li></ul> |  |
+| List blobs<br/>Read a blob | <ul><li>List blobs</li><li>Read a blob</li><li>Read content from  a blob with tag conditions</li><li>&lt;Any future read operations&gt;</li></ul> | Same as All read operations. Use All read operations instead. |
+| Read a blob<br/>Read content from  a blob with tag conditions | <ul><li>Read a blob</li><li>Read content from  a blob with tag conditions</li><li>&lt;Any future read operations&gt;</li><li>**NOT** List blobs</li></ul> | Same as Read a blob. |
+| List blobs<br/>Read a blob<br/>Read content from  a blob with tag conditions | <ul><li>List blobs</li><li>Read a blob</li><li>Read content from  a blob with tag conditions</li><li>&lt;Any future read operations&gt;</li></ul> | Same as All read operations. Use All read operations instead. |
 
 ## Azure Blob storage actions and suboperations
 
