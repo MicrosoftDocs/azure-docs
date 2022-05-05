@@ -255,6 +255,24 @@ eastus   AzureArcTest1 microsoft.kubernetes/connectedclusters
 
 ---
 
+## Connect a cluster with custom certificate
+
+If you need the outbound communication from Arc agents to authenticate via a certificate, pass the certificate during onboarding. In case you need to pass multiple certificates, combine them into a single certificate chain and pass it through.
+
+### [Azure CLI](#tab/azure-cli)
+
+Run the connect command with parameters specified:
+
+```azurecli
+az connectedk8s connect --name <cluster-name> --resource-group <resource-group> --proxy-cert <path-to-cert-file>
+```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+This scenario is not supported via the powershell cmdlet. 
+
+---
+
 ## Connect using an outbound proxy server
 
 If your cluster is behind an outbound proxy server, requests must be routed via the outbound proxy server.
