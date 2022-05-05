@@ -4,7 +4,7 @@ description: Overview of how Azure Monitor is billed and how to estimate and ana
 services: azure-monitor
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
-ms.date: 03/28/2022
+ms.date: 05/05/2022
 ---
 # Azure Monitor cost and usage
 This **article** describes the different ways that Azure Monitor charges for usage, how to evaluate charges on your Azure bill, and how to estimate charges to monitor your entire environment.
@@ -40,6 +40,9 @@ Following is basic guidance that you can use for common resources.
 - **Container insights.** See [Estimating costs to monitor your AKS cluster](containers/container-insights-cost.md#estimating-costs-to-monitor-your-aks-cluster) for guidance on estimating data for your AKS cluster.
 
 The [Azure Monitor pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=monitor) includes data volume estimation calculators for these three cases.
+
+>[!NOTE]
+>The billable data volume is calculated using a customer friendly, cost-effective method. The billed data volume is defined as the size of the data that will be stored, excluding a set of standard columns and any JSON wrapper that was part of the data received for ingestion. This billable data volume is substantially smaller than the size of the entire JSON-packaged event, often less than 50%. It is essential to understand this calculation of billed data size when estimating costs and comparing to other pricing models. [Learn more](logs/cost-logs.md#data-size-calculation).
 
 ## Estimate application usage
 There are two methods that you can use to estimate the amount of data from an application monitored with Application Insights.
