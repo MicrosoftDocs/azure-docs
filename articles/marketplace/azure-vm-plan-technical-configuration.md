@@ -47,70 +47,78 @@ Add public ports that will be automatically opened on a deployed virtual machine
 
 ## Properties
 
-Here is a list of properties that can be selected for your VM.
+Here is a list of properties that can be selected for your VM. Enable the properties that are applicable to the images in your plan. 
 
+- **Supports VM extensions**: Extensions are small applications that provide post-deployment configuration and automation on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or to run a script inside of it, a VM extension can be used. Linux VM extension validations require the following to be part of the image:
 
-
-- **Supports VM extensions**: Extensions are small applications that provide post-deployment configuration and automation on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or to run a script inside of it, a VM extension can be used. 
-Linux VM extension validations require the following to be part of the image:
     - Azure Linux Agent greater 2.2.41
+    
     - Python version above 2.6+
 
-    For more information, please visit VM Extension.
+    For more information, please visit VM Extension.
 
-- **Supports backup**: Enable this property if your images support Azure VM backup. Learn more about [Azure VM backup](../backup/backup-azure-vms-introduction.md).
+- **Supports backup**: Enable this property if your images support Azure VM backup. Learn more about Azure VM backup.
 
-- **Supports accelerated networking**:The VM images in this plan support single root I/O virtualization (SR-IOV) to a VM, enabling low latency and high throughput on the network interface. Learn more about [accelerated networking for Linux](/azure/virtual-network/create-vm-accelerated-networking-cli). Learn more about [accelerated networking for Windows](/azure/virtual-network/create-vm-accelerated-networking-powershell).
+- **Supports accelerated networking**: The VM images in this plan support single root I/O virtualization (SR-IOV) to a VM, enabling low latency and high throughput on the network interface. Learn more about accelerated networking for Linux. Learn more about accelerated networking for Windows.
 
-- **Is a network virtual appliance**: A network virtual appliance is a product that performs one or more network functions, such as a Load Balancer, VPN Gateway, Firewall or Application Gateway. Learn more about [network virtual appliances](https://go.microsoft.com/fwlink/?linkid=2155373).
+- **Supports NVMe** - Enable this property if the images in this plan support NVMe disk interface. The NVMe interface offers higher and consistent IOPS and bandwidth relative to legacy SCSI interface. Learn more about NVMe disk interface. 
 
-- **Supports cloud-init configuration**: Enable this property if the images in this plan support cloud-init post deployment scripts. Learn more about [cloud-init configuration](../virtual-machines/linux/using-cloud-init.md).
+- **Supports cloud-init configuration**: Enable this property if the images in this plan support cloud-init post deployment scripts. Learn more about cloud-init configuration. 
 
-- **Supports hotpatch**: Windows Server Azure Editions supports Hot Patch. Learn more about [Hot Patch](../automanage/automanage-hotpatch.md).
+- **Supports hibernation** – The images in this plan support hibernation/resume. Learn more about hibernation/resume. 
 
-- **Supports extensions**: Enable this property if the images in this plan support extensions. Extensions are small applications that provide post-deployment configuration and automation on Azure VMs. Learn more about [Azure virtual machine extensions](./azure-vm-certification-faq.yml#vm-extensions).
+- **Remote desktop/SSH not supported**: Enable this property if any of the following conditions are true: 
 
-- **Is a network virtual appliance**: Enable this property if this product is a Network Virtual Appliance. A network virtual appliance is a product that performs one or more network functions, such as a Load Balancer, VPN Gateway, Firewall or Application Gateway. Learn more about [network virtual appliances](https://go.microsoft.com/fwlink/?linkid=2155373).
+    - Virtual machines deployed with these images don't allow customers to access it using Remote Desktop or SSH. Learn more about locked VM images. Images that are published with either SSH disabled (for Linux) or RDP disabled (for Windows) are treated as Locked down VMs. There are special business scenarios to restrict access to users. 
 
-- **Remote desktop or SSH disabled**: Enable this property if any of the following conditions are true:
-    - Virtual machines deployed with these images don't allow customers to access it using Remote Desktop or SSH. Learn more about [locked VM images](./azure-vm-certification-faq.yml#locked-down-or-ssh-disabled-offer).
-    - Image does not support _sampleuser_ while deploying.
-    - Image has limited access.
-    - Image does not comply with the [Certification Test Tool](azure-vm-image-test.md#use-certification-test-tool-for-azure-certified).
-    - Image requires setup during initial login which causes automation to not connect to the virtual machine.
-    - Image does not support port 22.
+    Note: During validation checks, Locked down VMs might not allow execution of certain certification commands. 
 
-- **Requires custom ARM template for deployment**: Enable this property if the images in this plan can only be deployed using a custom ARM template.  In general, all the images that are published under a VM offer will follow standard ARM template for deployment. However, there are scenarios that might require customization while deploying VMs (for example, multiple NIC(s) to be configured).
-    - Below are examples (non-exhaustive) that might require custom templates for deploying the VM:
-        - VM requires additional network subnets.
-        - Additional metadata to be inserted in ARM template.
-        - Commands that are prerequisite to the execution of ARM template.
+    - Image does not support sampleuser while deploying. 
+
+    - Image has limited access. 
+
+    - Image does not comply with the Certification Test Tool. 
+
+    - Image requires setup during initial login which causes automation to not connect to the virtual machine. 
+
+    - Image does not support port 22. 
+
+- **Requires custom ARM template for deployment**: Enable this property if the images in this plan can only be deployed using a custom ARM template. In general, all the images that are published under a VM offer will follow standard ARM template for deployment. However, there are scenarios that might require customization while deploying VMs (for example, multiple NIC(s) to be configured). 
+
+    - Below are examples (non-exhaustive) that might require custom templates for deploying the VM: 
+
+        - VM requires additional network subnets. 
+
+        - Additional metadata to be inserted in ARM template. 
+
+        - Commands that are prerequisite to the execution of ARM template. 
+
+- **Is a network virtual appliance**: A network virtual appliance is a product that performs one or more network functions, such as a Load Balancer, VPN Gateway, Firewall or Application Gateway. Learn more about network virtual appliances.
 
 ## Image types
 
 Generations of a virtual machine defines the virtual hardware it uses. Based on your customer’s needs, you can publish a Generation 1 VM, Generation 2 VM, or both. To learn more about the differences between Generation 1 and Generation 2 capabilities, see Support for generation 2 VMs on Azure.
 
-When creating a new plan, select an Image type from the drop-down menu. You can choose either X64 Gen 1 or X64 Gen 2. To add another image type to a plan, select +Add image type. You will need to provide a SKU ID for each new image type that is added.
+When creating a new plan, select an Image type from the drop-down menu. You can choose either X64 Gen 1 or X64 Gen 2. To add another image type to a plan, select **+Add image type**. You will need to provide a SKU ID for each new image type that is added.
 
 > [!NOTE]
-> A published generation requires at least one image version to remain available for customers. To remove the entire plan (along with all its generations and images), select Deprecate plan on the Plan Overview page. Learn more about deprecating plans.
+> A published generation requires at least one image version to remain available for customers. To remove the entire plan (along with all its generations and images), select **Deprecate plan** on the **Plan Overview** page. Learn more about deprecating plans.
 >
 
 ## VM images
 
-To add a new image version, click +Add VM image. This will open a panel in which you will then need to specify an image version number. From there, you can provide your image(s) via either the Azure Compute Gallery and/or using a shared access signature (SAS) URI.
+To add a new image version, click **+Add VM image**. This will open a panel in which you will then need to specify an image version number. From there, you can provide your image(s) via either the Azure Compute Gallery and/or using a shared access signature (SAS) URI.
 
 Keep in mind the following when publishing VM images:
 
-1.	Provide only one new image version per plan in a given submission.
-2.	Provide only one new VM image per image type in a given submission.
-3.	After an image has been published, you can't edit it, but you can deprecate it. Deprecating a version prevents both new and existing users from deploying a new instance of the deprecated version. Learn more about deprecating VM images.
-4.	You can add up to 16 data disks for each VM image provided. Regardless of which operating system you use, add only the minimum number of data disks that the solution requires. During deployment, customers can’t remove disks that are part of an image, but they can always add disks during or after deployment.
+1.	Provide only one new VM image per image type in a given submission.
+2.	After an image has been published, you can't edit it, but you can deprecate it. Deprecating a version prevents both new and existing users from deploying a new instance of the deprecated version. Learn more about deprecating VM images.
+3.	You can add up to 16 data disks for each VM image provided. Regardless of which operating system you use, add only the minimum number of data disks that the solution requires. During deployment, customers can’t remove disks that are part of an image, but they can always add disks during or after deployment.
 
 > [!NOTE]
 > If you provide your images using the SAS URI method and you are adding data disks, you also need to provide them in the form of a SAS URI. Data disks are also VHD shared access signature URIs that are stored in your Azure storage accounts. If you are using a gallery image, the data disks are captured as part of your image in Azure Compute Gallery.
 
-Select Save draft, then select ← Plan overview at the top left to see the plan you just created.
+Select **Save draft**, then select **← Plan overview** at the top left to see the plan you just created.
 
 Once your VM image is published, you can delete the image from your Azure storage.
 
