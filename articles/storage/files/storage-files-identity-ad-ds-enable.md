@@ -5,7 +5,7 @@ author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 05/04/2022
+ms.date: 05/05/2022
 ms.author: kendownie 
 ms.custom: devx-track-azurepowershell
 ---
@@ -71,7 +71,7 @@ Connect-AzAccount
 $SubscriptionId = "<your-subscription-id-here>"
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
-$SamAccountName = "<domain\user>"
+$SamAccountName = "<sam-account-name-here>"
 $DomainAccountType = "<ComputerAccount|ServiceLogonAccount>" # Default is set as ComputerAccount
 # If you don't provide the OU name as an input parameter, the AD identity that represents the storage account is created under the root directory.
 $OuDistinguishedName = "<ou-distinguishedname-here>"
