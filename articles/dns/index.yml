@@ -9,9 +9,9 @@ metadata:
   services: dns
   ms.service: dns
   ms.topic: landing-page
-  author: rohinkoul
-  ms.author: rohink
-  ms.date: 07/07/2021
+  author: greg-lindsay
+  ms.author: greglin
+  ms.date: 07/07/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -68,17 +68,13 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure DNS Private Resolver?
+          - text: What is Azure Private DNS Resolver?
             url: private-dns-resolver-overview.md
-      - linkListType: concept
-        links:
-          - text: Azure DNS Private Resolver scenarios
-            url: private-dns-resolver-scenarios.md
       - linkListType: quickstart
         links:
-          - text: Create an Azure DNS private resolver using the Azure portal
+          - text: Create an Azure Private DNS Resolver using the Azure portal
             url: ./private-dns-resolver-getstarted-portal.md
-          - text: Create an Azure DNS private resolver using Windows PowerShell
+          - text: Create an Azure Private DNS Resolver using Windows PowerShell
             url: ./private-dns-resolver-getstarted-powershell.md
 
 # Card

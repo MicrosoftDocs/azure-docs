@@ -6,7 +6,7 @@
     href: dns-overview.md
   - name: What is Azure Private DNS?
     href: private-dns-overview.md
-  - name: What is Azure DNS Private Resolver?
+  - name: What is Azure Private DNS Resolver?
     href: private-dns-resolver-overview.md
 - name: Quickstarts
   expanded: true
@@ -97,10 +97,6 @@
       href: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md?toc=%2fazure%2fdns%2ftoc.json
     - name: FAQ
       href: dns-faq-private.yml
-  - name: Private Resolver
-    items:
-    - name: Private DNS resolver scenarios
-      href: private-dns-resolver-scenarios.md
 - name: How-to guides
   items:
   - name: Public DNS
