@@ -60,7 +60,11 @@ There are two types of service endpoints available for a storage account:
 - Standard endpoints (recommended). You can create up to 250 storage accounts with standard endpoints in a given subscription.
 - Azure DNS zone endpoints (preview). You can create up to 5000 storage accounts with standard endpoints in a given subscription.
 
-Within a single subscription, you can create accounts with either standard or Azure DNS Zone endpoints, for a total of 5250 accounts per subscription.
+Within a single subscription, you can create accounts with either standard or Azure DNS Zone endpoints, for a maximum of 5250 accounts per subscription.
+
+> [!IMPORTANT]
+> Creating a storage account with Azure DNS zone endpoints is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 You can configure your storage account to use a custom domain for Blob Storage. For more information, see [Configure a custom domain name for your Azure Storage account](../blobs/storage-custom-domain-name.md).
 
@@ -85,7 +89,7 @@ When your account is created with standard endpoints, you can easily construct t
 
 ### Azure DNS zone endpoints (preview)
 
-When you create an Azure Storage account with  Azure DNS zone endpoints (preview), an Azure DNS zone is assigned dynamically at create time. The new storage account is hosted in that Azure DNS zone.
+When you create an Azure Storage account with  Azure DNS zone endpoints (preview), an Azure DNS zone is assigned dynamically at create time. The new storage account is hosted in that Azure DNS zone. For more information about Azure DNS zones, see .
 
 An Azure DNS zone service endpoint in Azure Storage includes the protocol (HTTPS is recommended), the storage account name as the subdomain, and a domain that includes the name of the service and the identifier for the DNS zone. The identifier for the DNS zone always begins with `z` and can range from `z00` to `z99`.
 
@@ -110,6 +114,8 @@ Include here:
 - Any caveats user should be aware of
     - e.g., you'll need to update your app to query endpoints @ runtime
 
+Azure DNS zone endpoints are supported for accounts created with the Azure Resource Manager deployment model only. For more information, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
+
 To learn how to create a storage account with Azure DNS Zone endpoints, see [Create a storage account with Azure DNS Zone endpoints (preview)](storage-account-create.md#create-a-storage-account-with-azure-dns-zone-endpoints-preview).
 
 #### About the preview
@@ -117,6 +123,8 @@ To learn how to create a storage account with Azure DNS Zone endpoints, see [Cre
 The Azure DNS zone endpoints preview is available in the following regions:
 
 - EUAP regions? which ones???
+
+
 
 To register for the preview, follow the instructions provided in [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md#register-preview-feature). Specify `PartitionedDnsPublicPreview` as the feature name and `Microsoft.Storage` as the provider namespace.
 
