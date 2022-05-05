@@ -121,13 +121,7 @@ A *linked twin* is the primary digital twin counterpart for an element. You conn
 
 In the **New element** panel, the **Linked twin** dropdown list contains names of all the twins in the connected Azure Digital Twins instance. 
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-linked-twin.png" alt-text="Screenshot of the New element options in 3D Scenes Studio. The Linked twin dropdown list is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-element-linked-twin.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-linked-twin.png" alt-text="Screenshot of the New element options in 3D Scenes Studio. The Linked twin dropdown list is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-element-linked-twin.png":::
 
 Select a twin to link to this element. This will automatically apply the digital twin ID (`$dtId`) as the element **Name**. You can rename the element if you want, to make it understandable for both builders and consumers of the 3D scene.
 
@@ -140,25 +134,14 @@ The **Meshes** tab is where you specify which component of the visual 3D mesh re
 
 If you started element creation by selecting a mesh in the visualization, that mesh will already be filled in here. If no mesh has been added yet, you can select one in the visualization now to add it.
 
-:::row:::
-    :::column:::
 :::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-meshes.png" alt-text="Screenshot of the New element options in 3D Scenes Studio. The Meshes tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-element-meshes.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
 
 ### Behaviors
 
 A *behavior* is a scenario for your scene. You can select **Add behavior** from this tab to enter the **New behavior** flow.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-behaviors.png" alt-text="Screenshot of the New element options in 3D Scenes Studio. The Behaviors tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-element-behaviors.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+
+:::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-behaviors.png" alt-text="Screenshot of the New element options in 3D Scenes Studio. The Behaviors tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-element-behaviors.png":::
 
 For more details on creating new behaviors, see [Add behaviors](#add-behaviors).
 
@@ -166,13 +149,7 @@ For more details on creating new behaviors, see [Add behaviors](#add-behaviors).
 
 An *aliased twin* is a secondary digital twin data source for an element. You can add aliased twins to an element if the data on the linked twin won't be enough to define all the behaviors you want for the element, so you need access to the data of additional twins.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-aliased-twins.png" alt-text="Screenshot of the New element options in 3D Scenes Studio. The Aliased twins tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-element-aliased-twins.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-aliased-twins.png" alt-text="Screenshot of the New element options in 3D Scenes Studio. The Aliased twins tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-element-aliased-twins.png":::
 
 You can't add aliased twins during new element creation. For instructions on adding aliased twins, see [Twins](#twins) as a behavior option.
 
@@ -188,13 +165,7 @@ One way to create a new behavior is to select **New behavior** from the **Behavi
 
 Alternatively, you can select an element from the **Elements** tab, and create a new behavior from [that element's Behaviors tab](#behaviors).
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-3d-scenes-studio/modify-element-behaviors.png" alt-text="Screenshot of the Modify element options in 3D Scenes Studio. The Behaviors tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/modify-element-behaviors.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-3d-scenes-studio/modify-element-behaviors.png" alt-text="Screenshot of the Modify element options in 3D Scenes Studio. The Behaviors tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/modify-element-behaviors.png":::
 
 This will open the **New behavior** panel where you can fill in behavior information.
 
@@ -215,13 +186,7 @@ In the **Elements** tab, select which elements this behavior should target.
 
 If you started the behavior creation process from a specific element, that element will already be selected here. Otherwise, you can choose elements here for the first time.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-elements.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio. The Elements tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-elements.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-elements.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio. The Elements tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-elements.png":::
 
 ### Twins
 
@@ -231,23 +196,11 @@ An *aliased twin* is a secondary digital twin data source for an element. After 
 
 To create a new alias, select **Add twin alias** and **Create twin alias**.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-twins.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio. The Twins tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-twins.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-twins.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio. The Twins tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-twins.png":::
 
 This will open a **New twin alias** panel where you can name the alias and select a twin to map.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-twins-new-alias.png" alt-text="Screenshot of the New twin alias panel in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-twins-new-alias.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-twins-new-alias.png" alt-text="Screenshot of the New twin alias panel in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-twins-new-alias.png":::
 
 >[!TIP]
 >[Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) can help you see twins that might be related to the linked twin for this element. You can query your graph using `SELECT * FROM digitaltwins WHERE $dtId="<linked-twin-id>`, and then use the [double-click expansion feature](how-to-use-azure-digital-twins-explorer.md#control-twin-graph-expansion) to explore related twins.
@@ -281,22 +234,10 @@ Select **Add widget** to bring up the **Widget library**, where you can select f
 Here are the types of widget that you can create:
  
 * **Gauge**: For representing numerical data points visually
-    :::row:::
-        :::column:::
-            :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-gauge.png" alt-text="Screenshot of creating a new gauge-type widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-gauge.png":::
-        :::column-end:::
-        :::column:::
-        :::column-end:::
-    :::row-end:::
+    :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-gauge.png" alt-text="Screenshot of creating a new gauge-type widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-gauge.png":::
 
 * **Link**: For including externally-referenced content via a linked URL
-    :::row:::
-        :::column:::
-            :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-link.png" alt-text="Screenshot of creating a new link-type widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-link.png":::
-        :::column-end:::
-        :::column:::
-        :::column-end:::
-    :::row-end:::
+    :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-link.png" alt-text="Screenshot of creating a new link-type widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-link.png":::
 
 ## Manage layers 
 
@@ -310,13 +251,7 @@ Selecting **New layer** will prompt you to enter a name for the new layer you wa
 
 Alternatively, you can create layers while [creating or modifying a behavior](#name-and-scene-layers). The behavior pane is also where you can add the behavior to a layer you've already created.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-3d-scenes-studio/layers-start-behavior.png" alt-text="Screenshot of the Modify Behavior options in 3D Scenes Studio. A Scene layer is being selected." lightbox="media/how-to-use-3d-scenes-studio/layers-start-behavior.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-3d-scenes-studio/layers-start-behavior.png" alt-text="Screenshot of the Modify Behavior options in 3D Scenes Studio. A Scene layer is being selected." lightbox="media/how-to-use-3d-scenes-studio/layers-start-behavior.png":::
 
 ## Modify theme 
 
