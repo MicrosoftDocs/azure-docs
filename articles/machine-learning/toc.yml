@@ -680,6 +680,10 @@
             href: how-to-create-machine-learning-pipelines.md
           - name: Create ML pipelines using components (CLI v2)
             href: how-to-create-component-pipelines-cli.md
+          - name: Create ML pipelines using components (Python SDK v2)
+            href: how-to-create-component-pipelines-python-v2.md
+          - name: How to use sweep in pipelines (v2)
+            href: how-to-use-sweep-in-pipeline-v2.md
           - name: Moving data into and between ML pipeline steps (Python)
             href: how-to-move-data-in-out-of-pipelines.md
           - name: Use automated ML in ML pipelines (Python)

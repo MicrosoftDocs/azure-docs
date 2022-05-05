@@ -10,20 +10,24 @@ author: likebupt
 ms.reviewer: laobri
 ms.date:  05/24/2022
 ms.topic: conceptual
-ms.custom: cliv2
+ms.custom: 
 
 ---
 # What is an Azure Machine Learning component (preview)?
+
+[!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
+
+[!INCLUDE [dev v2](../../../includes/machine-learning-dev-v2.md)]
 
 An Azure Machine Learning component is a self-contained piece of code that does one step in a machine learning pipeline. A component is analogous to a function - it has a name, inputs, outputs, and a body. Components are the building blocks of the [Azure Machine Learning pipelines](concept-ml-pippelines.md).
 
 A component consists of three parts:
 
-::
-
 - Metadata: name, display_name, version, type, etc.
 - Interface: input/output specifications (name, type, description, default value, etc).
 - Command, Code & Environment: command, code and environment required to run the component.
+
+:::image type="content" source="/media/concept-component/component.png" alt-text="Diagram of what a component looks like and how it looks in a pipeline.In addition to screenshots of a component in the CLI, SDK, and portal UI." lightbox = "/media/concept-component/component.png":::
 
 ## Why should I use a component (preview)?
 

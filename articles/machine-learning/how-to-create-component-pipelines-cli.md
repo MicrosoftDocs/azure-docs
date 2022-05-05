@@ -54,7 +54,6 @@ In this article, you learn how to create and run [machine learning pipelines](co
 
 <!-- 1. Register component for resue and sharing -->
 
-
 ## Create your first pipeline with component
 
 Let's create your first pipeline with component using an example. This section aims to give you an initial impression of what pipeline and component look like in AzureML with a concrete example.
@@ -68,8 +67,6 @@ From the `cli/jobs/pipelines-with-components/basics` directory of the [`azureml-
   - Command, code & environment: the command, code and environment to run the component.    Command is the shell command to execute the component. Code usually refers to a source  code directory. Environment could be an AzureML environment(curated or customer created), docker image or conda environment.  
 
 - **component_src**: This is the source code directory for a specific component. It contains the source code that will be executed in the component. You can use your preferred lanuage(Python, R...). The code must be executed by a shell command. The source code can take a few inputs from shell command line to control how this step is going to be executed. For example, a training step may take training data, learning rate, number of epochs to control the training process. The argument of a shell command is used to pass inputs and outputs to the code. This is usually done by using `argparse` module in Python.
-
-
 
  Now let's create a pipeline using the `3b_pipeline_with_data` example. We will exlain the detailed meaning of each file in following sections. 
  
@@ -220,7 +217,6 @@ Click on a component. You'll see some basic information about the component, suc
 Let's use `1b_e2e_registered_components` to demo how to use registered component in pipeline YAML. Navigate to `1b_e2e_registered_components` directory, open the `pipeline.yml` file. The keys and values in the `inputs` and `outputs` fields are similar to those already discussed. The only significant difference is the value of the `component` field in the `jobs.<JOB_NAME>.component` entries. The `component` value is of the form `azureml:<COMPONENT_NAME>:<COMPONENT_VERSION>`. The `train-job` definition, for instance, specifies the latest version of the registered component `my_train` should be used:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml" range="29-40" highlight="4":::
- 
 
 ### Manage components
 
@@ -237,6 +233,4 @@ You can check component details and manage the component using CLI (v2). Use `az
 |`az ml component restore -n <component_name>`|Restore an archived component container (restores all versions of that component)|
 |`az ml component restore -n <component_name> -v <component_version>`|Restore an archived component version|
 
-
-
-
+## Next steps

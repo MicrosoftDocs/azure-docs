@@ -1,22 +1,42 @@
-# How to do hyperparameter sweep in pipeline (V2)
+---
+title: How to do hyperparameter sweep in pipeline 
+titleSuffix: Azure Machine Learning
+description: How to use sweep to do hyperparameter tuning in Azure Machine Learning pipeline using CLI v2 and Python SDK
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: mlops
+ms.topic: how-to
+author: xiaoharper
+ms.author: zhanxia
+ms.date: 05/24/2022
+ms.custom: devx-track-python, sdkv2, cliv2
+---
+
+# How to do hyperparameter sweep in pipeline (V2) (preview)
+
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 In this article, you will learn how to do hyperparameter sweep in Azure Machine Learning pipeline.
 
 ## Prerequisite
-1. Understand what is hyperparameter sweep, and how to do sweep in Azure Machine Learning start from a single step job. **[to-do](link to single step sweep doc)** It's highly suggested going through the single step sweep job example to understand how hyperparameter sweep works in Azure Machine Learning, before using it in a pipeline. 
-2. Understand what is Azure Machine Learning pipeline and how to build your first pipeline. [to-do](link to updated pipeline concept.) 
-3. Build a command component following [this atcile] (add a link how-to create component using CLI v2 article). 
+
+1. Understand what is [hyperparameter sweep](how-to-tune-hyperparameters.md#what-is-hyperparameter-tuning), and how to do sweep in Azure Machine Learning start from a single step job. It's highly suggested going through the single step sweep job example to understand how hyperparameter sweep works in Azure Machine Learning, before using it in a pipeline.
+2. Understand what a [Azure Machine Learning pipeline](concept-ml-pipelines.md) is and how to build your first pipeline.
+3. Build a command component with the [Azure ML CLI v2](how-to-create-component-pipeline-cli) or the [Azure ML Python SDK v2](how-to-create-component-pipeline-python-v2.md)
 
 ## How to use sweep in Azure Machine Learning pipeline
 
-This section explains how to use sweep to do hyperparameter tuning in Azure Machine Learning pipeline using CLI v2 and Python SDK(preview). Both approaches share the same prerequisite: you already have a command component created and the command component takes hyperparameters as inputs. If you don't have a command component yet. Follow [this article](link to how-to create component article) to create a command component first. 
+This section explains how to use sweep to do hyperparameter tuning in Azure Machine Learning pipeline using CLI v2 and Python SDK(preview). Both approaches share the same prerequisite: you already have a command component created and the command component takes hyperparameters as inputs. If you don't have a command component yet. Follow [this article](link to how-to create component article) to create a command component first.
 
 ### CLI v2
 
-The example used in this article can be found in [azureml-example repo](https://github.com/Azure/azureml-examples). Navigate to *azureml-examples/cli/jobs/pipelines-with-components/pipeline_with_hyperparameter_sweep* to check the example. 
+[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
 
+The example used in this article can be found in [azureml-example repo](https://github.com/Azure/azureml-examples). Navigate to *azureml-examples/cli/jobs/pipelines-with-components/pipeline_with_hyperparameter_sweep* to check the example.
 
-Assume you already have a command component defined in `train.yaml`. A two step pipeline job YAML looks like below. 
+Assume you already have a command component defined in `train.yaml`. A two step pipeline job YAML looks like below.
 
 <to-do> remove the hard code YAML after example merge to main
 
@@ -81,10 +101,10 @@ jobs:
 ```
 
 
-The `sweep_step` is the step for hyperparameter sweep. Step type needs to be `sweep`.  And `trial` refers to the command component defined in `train.yaml`. From the `search sapce` we can see three hyparmeters(`c_value`, `kernel`, and `coef`) are added to the search space. After submitting this pipeline job, Azure Machine Learning will run the trial component multiple times to sweep over hypermaters based on the search space and terminate policy you defined in `sweep_step`. Check [sweep job YAML schema](https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-job-sweep) for full schema of sweep job. 
+The `sweep_step` is the step for hyperparameter sweep. Step type needs to be `sweep`.  And `trial` refers to the command component defined in `train.yaml`. From the `search sapce` we can see three hyparmeters(`c_value`, `kernel`, and `coef`) are added to the search space. After submitting this pipeline job, Azure Machine Learning will run the trial component multiple times to sweep over hypermaters based on the search space and terminate policy you defined in `sweep_step`. Check [sweep job YAML schema](reference-yaml-job-sweep,md) for full schema of sweep job.
 
+Below is the trial component (`train.yml`) definition. The hyperparamters added to search space need to be input for the component.
 
-Below is the trial component (`train.yml`) definition. The hyperparamters added to search space need to be input for the component. 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
 type: command
@@ -172,16 +192,13 @@ command: >-
 
 You can see the source code of trial component in  `train.py` file (stored under `train-src` folder). This is the code that will be executed in every trial of the sweep job. Make sure in your training script, you log the metric with exactly the same name as `primary_metric` value in pipeline YAML. In this example, we use `mlflow.autolog()`. We suggest using mlflow to track your ML experiments. See more about mlflow [here](./how-to-use-mlflow-cli-runs.md)  
 
-
-
 ### Python SDK
 
-The python SDK example can be found in [azureml-example repo](https://github.com/Azure/azureml-examples). Navigate to azureml-examples/sdk/jobs/pipelines/1c_pipeline_with_hyperparameter_sweep to check the example. 
+The python SDK example can be found in [azureml-example repo](https://github.com/Azure/azureml-examples). Navigate to azureml-examples/sdk/jobs/pipelines/1c_pipeline_with_hyperparameter_sweep to check the example.
 
-In Azure Machine Learning Python SDK, sweep is a method of command component class. You can enable sweep for any command component by calling the `.sweep()` method of a command component. 
+In Azure Machine Learning Python SDK, sweep is a method of command component class. You can enable sweep for any command component by calling the `.sweep()` method of a command component.
 
 Below code snipe shows how to enable sweep for command component `train`. It assumes you already define the `train` component in `train.yml` file. `train` component takes 15 inputs(line 209-233). Now let's enable hyperparameter sweep for `c_value`, `kernel` and `coef0`. Line 209-211 defines the search space for the three hyperparameters. Line 224-229 defines the sampling algorithm, primary metrics etc. 
-
 
 **to-do: remove below hard copy of code and reference to azureml-example-main after example release to main**
 
@@ -247,43 +264,15 @@ pipeline = pipeline_with_hyperparameter_sweep()
 
 **[to-do] add code snnipet of train.py**
 
-
-<!-- 
-### UI will release post //build. comment out for now
-
-Assume you already have defined a command component. You can enable sweep easily in designer, the pipeline authoring GUI experience. 
-
-Similarly to CLI and SDK, the prerequest to enable sweep in UI is to have a command component already defined. And the command component need to take sweepable parameter as input. 
-
-If you build your command component using CLI or SDK. clone the pipeline in pipeline page. it will lead you to designer, the UI authoring page of pipeline. then right click the command component you want to sweep. 
-
-1. clone the pipeline. it will link you to designer, the pipeline authoring GUI in where you can eanble sweep in UI.
-![clone the pipeline run](./zhanxia-temp-media/clone-pipeline.png)
-
-2. enable sweep
-![enable sweep](./zhanxia-temp-media/enable-sweep.png)
-
-3. Add a parameter to search space.  and set sweep settings.
-![sweep setting](./zhanxia-temp-media/sweep-right-panel.png)
-
-
-**[to-do]call out the settings are in which section in the right panel**
-
-If you build your pipeline using designer directly. Select the component-
-**[to-do] add screenshot of find component in designer**
-
-then enable sweep for the command that do the training, set the sweep related settings in right panel. The last two step is the same as above.  -->
-
-
 ## Debug pipeline job with sweep node in Studio
 
-After submitting a pipeline job, the SDK or CLI widget will give you a web URL link to Studio UI. The link will guide you to the pipeline graph view by default. 
+After submitting a pipeline job, the SDK or CLI widget will give you a web URL link to Studio UI. The link will guide you to the pipeline graph view by default.
+
 To check details of the sweep step, double click the sweep node and navigate to the **child run** tab in the panel on the right.
 
 ![pipeline-view](./media/how-to-use-sweep-in-pipeline-v2/pipeline-view.png)
 
-
-This will link you to the sweep job page like below screenshot. Navigate to **child run** tab, here you can see the metrics of all child runs and list of all child runs. 
+This will link you to the sweep job page as seen in the below screenshot. Navigate to **child run** tab, here you can see the metrics of all child runs and list of all child runs.
 
 ![sweep-job](./media/how-to-use-sweep-in-pipeline-v2/sweep-job.png)
 
@@ -291,4 +280,4 @@ If a child runs failed, click the name of that child run to enter detail page of
 
 ![child-run](./media/how-to-use-sweep-in-pipeline-v2/childrun.png)
 
-
+## Next steps

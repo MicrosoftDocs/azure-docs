@@ -9,12 +9,20 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 05/24/2022
-ms.custom: devx-track-python
+ms.custom: devx-track-python, sdkv2
 ---
 
 # Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2 (Preview)
 
-In this article, you learn how to build an [Azure Machine Learning pipeline](concept-ml-pipelines.md) using Python SDK v2 to complete an image classification task containing three steps: prepare data, train an image classification model and score the model. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on machine learning instead of infrastructure and automation.  
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
+
+> * [v1](v1/tutorial-pipeline-python-sdk)
+
+> * [v2 (preview)](how-to-create-component-pipeline-python-v2.md)
+
+In this article, you learn how to build an [Azure Machine Learning pipeline](concept-ml-pipelines.md) using Python SDK v2 to complete an image classification task containing three steps: prepare data, train an image classification model, and score the model. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on machine learning instead of infrastructure and automation.  
 
 The example trains a small [Keras](https://keras.io/) convolutional neural network to classify images in the [Fashion MNIST](https://github.com/zalandoresearch/fashion-mnist) dataset. The pipeline looks like following.
 
@@ -56,7 +64,6 @@ This article uses the Python SDK for Azure ML to create and control an Azure Mac
 
 This article is based on the `image_classification_keras_minist_convnet.ipynb` notebook found in the `sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet` directory of the [AzureML Examples](https://github.com/azure/azureml-examples) repository. The source code for the components themselves is in the `keras-mnist-fashion` subdirectory.
 
-
 ## Import required libraries
 
 Import all the Azure Machine Learning required libraries that you'll need for this article:
@@ -70,7 +77,6 @@ from azure.ml import MLClient, dsl
 from azure.ml.entities import load_component
 from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 from azure.ml import Input
-
 ```
 
 ## Prepare input data for your pipeline job
