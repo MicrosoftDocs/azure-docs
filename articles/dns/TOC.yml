@@ -6,7 +6,7 @@
     href: dns-overview.md
   - name: What is Azure Private DNS?
     href: private-dns-overview.md
-  - name: What is Azure Private DNS Resolver?
+  - name: What is Azure DNS Private Resolver?
     href: private-dns-resolver-overview.md
 - name: Quickstarts
   expanded: true

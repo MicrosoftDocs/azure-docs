@@ -68,13 +68,13 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Private DNS Resolver?
+          - text: What is Azure DNS Private Resolver?
             url: private-dns-resolver-overview.md
       - linkListType: quickstart
         links:
-          - text: Create an Azure Private DNS Resolver using the Azure portal
+          - text: Create an Azure DNS Private Resolver using the Azure portal
             url: ./private-dns-resolver-getstarted-portal.md
-          - text: Create an Azure Private DNS Resolver using Windows PowerShell
+          - text: Create an Azure DNS Private Resolver using Windows PowerShell
             url: ./private-dns-resolver-getstarted-powershell.md
 
 # Card

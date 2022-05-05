@@ -1,22 +1,22 @@
 ---
-title: What is Azure Private DNS Resolver?
-description: In this article, get started with an overview of the Azure Private DNS Resolver service.
+title: What is Azure DNS Private Resolver?
+description: In this article, get started with an overview of the Azure DNS Private Resolver service.
 services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
 ms.date: 05/05/2022
 ms.author: greglin
-#Customer intent: As an administrator, I want to evaluate Azure Private DNS Resolver so I can determine if I want to use it instead of my current DNS resolver service.
+#Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
 
-# What is Azure Private DNS Resolver?
+# What is Azure DNS Private Resolver?
 
-Azure Private DNS Resolver is a new service currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Azure Private DNS Resolver enables you to query Azure DNS private zones from an on-prem environment and vice versa without deploying VM based DNS servers. 
+Azure DNS Private Resolver is a new service currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Azure DNS Private Resolver enables you to query Azure DNS private zones from an on-prem environment and vice versa without deploying VM based DNS servers. 
 
 ## How does it work?
 
-Azure Private DNS Resolver requires an [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview).  When you create an Azure Private DNS Resolver inside a virtual network, one or more [inbound endpoints](#inbound-endpoints) are established that can be used as the destination for DNS queries. The inbound endpoint processes DNS queries based on a [DNS forwarding ruleset](#dns-forwarding-rulesets) that you configure.  DNS queries that are initiated in networks linked to a ruleset can be sent to the DNS resolver's inbound endpoint, or to other DNS servers.
+Azure DNS Private Resolver requires an [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview).  When you create an Azure DNS Private Resolver inside a virtual network, one or more [inbound endpoints](#inbound-endpoints) are established that can be used as the destination for DNS queries. The inbound endpoint processes DNS queries based on a [DNS forwarding ruleset](#dns-forwarding-rulesets) that you configure.  DNS queries that are initiated in networks linked to a ruleset can be sent to the DNS resolver's inbound endpoint, or to other DNS servers.
 
 The DNS query process is summarized below:
 
@@ -29,19 +29,19 @@ The DNS query process is summarized below:
 8. If multiple matches are present, the longest suffix is used.
 9. If no match is found, no DNS forwarding occurs and Azure DNS is used to resolve the query.
 
-The architecture for Azure Private DNS Resolver is summarized in the following figure. DNS resolution between Azure virtual networks and on-prem networks requires [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) or a VPN.
+The architecture for Azure DNS Private Resolver is summarized in the following figure. DNS resolution between Azure virtual networks and on-prem networks requires [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) or a VPN.
 
 ![private DNS resolver architecture](./media/dns-resolver-overview/resolver-architecture.png)
 
-Figure 1: Azure Private DNS Resolver architecture
+Figure 1: Azure DNS Private Resolver architecture
 
 For more information about creating a private DNS resolver, see:
 - [Quickstart: Create an Azure private DNS resolver using the Azure portal](private-dns-resolver-getstarted-portal.md)
 - [Quickstart: Create an Azure private DNS resolver using Azure PowerShell](private-dns-resolver-getstarted-powershell.md)
 
-## Azure Private DNS Resolver benefits
+## Azure DNS Private Resolver benefits
 
-Azure Private DNS Resolver provides the following benefits:
+Azure DNS Private Resolver provides the following benefits:
 * Fully managed: Built-in high availability, zone redundancy.
 * Cost reduction: Reduce operating costs and run at a fraction of the price of traditional IaaS solutions.
 * Private access to your Private DNS Zones: Conditionally forward to and from on-prem.
@@ -50,7 +50,7 @@ Azure Private DNS Resolver provides the following benefits:
 
 ## Regional availability
 
-Azure Private DNS Resolver is available in the following regions:
+Azure DNS Private Resolver is available in the following regions:
 
 - Australia East
 - UK South
@@ -124,7 +124,7 @@ DNS forwarding ruleset have the following limitations:
 
 ## Next steps
 
-* Learn how to create an Azure Private DNS Resolverby using [Azure PowerShell](./private-dns-resolver-getstarted-powershell.md) or [Azure Portal](./private-dns-resolver-getstarted-portal.md).
+* Learn how to create an Azure DNS Private Resolverby using [Azure PowerShell](./private-dns-resolver-getstarted-powershell.md) or [Azure Portal](./private-dns-resolver-getstarted-portal.md).
 
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
 
