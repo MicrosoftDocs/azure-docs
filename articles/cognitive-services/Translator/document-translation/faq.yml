@@ -1,0 +1,30 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Cognitive Services Translator frequently asked questions (FAQ)
+  description: Frequently asked questions about Form Recognizer service.
+  author: laujan
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.subservice: translator-text
+  ms.topic: faq
+  ms.date: 05/04/2022
+  ms.author: lajanuar
+
+title: Azure Cognitive Services Translator frequently asked questions
+summary: |
+ 
+ The Azure Cognitive Services Document Translation feature can be used to translate multiple and complex documents across all supported languages and dialects while preserving original document structure and data format.
+ 
+ Here are answers to common questions asked about Translator Service Document Translation.
+
+ sections:
+  - name: Document Translation
+    questions:
+
+    - question: Does document translation translate content from scanned documents?
+      answer: |
+      Yes. Currently, Document translation can translate content from *scanned PDF* documents.
+
+    - question: When should I specify the source language of the document in the request?
+      answer: |
+      If the language of the content in the source document is known, it's recommended that the source language is sepcified in the request to get a better translation. If the document has content in multiple languages or the language is unknown, then don't specify the source language in the request. Document translation automatically identifies language for each text segment and translates.
