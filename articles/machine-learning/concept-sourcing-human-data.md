@@ -1,6 +1,6 @@
 ---
 title: Manually sourcing human data for AI development
-description: #Required; article description that is displayed in search results. 
+description: Manually sourcing human data can be important to building AI systems that work for all users. But certain practices should be avoided, especially ones that can cause physical and psychological harm to data contributors, as well as flawed datasets. #Required; article description that is displayed in search results. 
 author: nhu-do-1
 ms.author: nhudo
 ms.service: machine-learning
