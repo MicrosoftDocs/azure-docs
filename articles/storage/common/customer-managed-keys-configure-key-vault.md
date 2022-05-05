@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/07/2022
+ms.date: 05/05/2022
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -302,7 +302,10 @@ You can use either a system-assigned or user-assigned managed identity to author
 
 ### Configure encryption for automatic updating of key versions
 
-Azure Storage can automatically update the customer-managed key that is used for encryption to use the latest key version. When the customer-managed key is rotated in Azure Key Vault, Azure Storage will automatically begin using the latest version of the key for encryption.
+Azure Storage can automatically update the customer-managed key that is used for encryption to use the latest key version. Azure Storage checks the key vault daily for a new version of the key. When a new version becomes available, then Azure Storage automatically begins using the latest version of the key for encryption.
+
+> [!IMPORTANT]
+> Azure Storage checks the key vault for a new key version only once daily. When you rotate a key, be sure to wait 24 hours before disabling the older version.
 
 ### [Azure portal](#tab/portal)
 
