@@ -304,7 +304,7 @@ In step 1, the following were completed:
 - 3
 ## Next steps
 
-- [Verify and deploy to AKS](./container-registry-tutorial-sign-verify-deploy.md)
+- Enable policy to only deploy signed images to AKS 
 
 [notation-cli]:         https://github.com/notaryproject/notation/releases
 [notation-akv-plugin]: https://github.com/Azure/notation-akv/releases
