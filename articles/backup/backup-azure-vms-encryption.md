@@ -2,7 +2,10 @@
 title: Back up and restore encrypted Azure VMs
 description: Describes how to back up and restore encrypted Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 07/27/2021
+ms.date: 05/05/2022
+ms.service: backup
+author: v-amallick
+ms.author: v-amallick
 ---
 # Back up and restore encrypted Azure virtual machines
 
@@ -145,6 +148,8 @@ To set permissions:
     ![Access policies](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
 
 1. Select **Save** to provide Azure Backup with the permissions.
+
+You can also set the access policy using [PowerShell](./backup-azure-vms-automation.md#enable-protection) or [CLI](./quick-backup-vm-cli.md#prerequisites-to-backup-encrypted-vms).
 
 ## Next steps
 
