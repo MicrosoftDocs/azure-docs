@@ -13,82 +13,79 @@ ms.custom: language-service-custom-classification, ignite-fall-2021
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 
-## Create a new Azure resource and Azure Blob Storage account
+## Create a new Azure Language resource and Azure storage account
 
-Before you can use custom text classification, you will need to create a Language resource, which will give you the subscription and credentials you will need to create a project and start training a model. You will also need an Azure blob storage account, which is the required online data storage to hold text for analysis. 
+Before you can use custom text classification, you’ll need to create an Azure Language resource, which will give you the credentials that you need to create a project and start training a model. You’ll also need an Azure storage account, where you can upload your dataset that will be used in building your model.
 
 > [!IMPORTANT]
-> To get started quickly, we recommend creating a new Azure Language resource using the steps provided below, which will let you create the resource, and configure a storage account at the same time, which is easier than doing it later. 
+> To get started quickly, we recommend creating a new Azure Language resource using the steps provided in this article, which will let you create the Language, and create and/or connect a storage account at the same time, which is easier than doing it later.
 >
-> If you have a pre-existing resource you'd like to use, you will need to configure it and a storage account separately. See the [**Project requirements**](../../how-to/create-project.md#using-a-pre-existing-azure-resource)  for information.
+> If you have a [pre-existing resource](../../how-to/create-project.md#using-a-pre-existing-azure-resource) that you'd like to use, you will need to connect it to storage account.
 
-1. Go to the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Language resource. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following parameters.  
-
-    |Azure resource requirement  |Required value  |
-    |---------|---------|
-    |Location | "West US 2" or "West Europe"         |
-    |Pricing tier     | Standard (**S**) pricing tier        |
-
-2. In the **Custom named entity recognition (NER) & custom text classification (Preview)** section, select **Create a new storage account**. These values are for this quickstart, and not necessarily the [storage account values](../../../../../storage/common/storage-account-overview.md) you will want to use in production environments.
-
-    |Storage account value  |Recommended value  |
-    |---------|---------|
-    | Name | Any name |
-    | Performance | Standard | 
-    | Account kind| Storage (general purpose v1) |
-    | Replication | Locally redundant storage (LRS)
-    |Location | Any location closest to you, for best latency.        |
-
-
+[!INCLUDE [create a new resource from the Azure portal](../resource-creation-azure-portal.md)]
+    
 ## Upload sample data to blob container
 
-[!INCLUDE [Uploading sample data for custom text classification](blob-storage-upload.md)]
+[!INCLUDE [Uploading sample data for custom tex classification](blob-storage-upload.md)]
 
 ### Get your resource keys and endpoint
 
-* Go to your resource overview page in the [Azure portal](https://portal.azure.com/#home)
+[!INCLUDE [Get keys and endpoint Azure Portal](../get-keys-endpoint-azure.md)]
 
-* From the menu on the left side, select **Keys and Endpoint**. You will use the endpoint and key for the API requests 
 
-:::image type="content" source="../../media/get-endpoint-azure.png" alt-text="A screenshot showing the key and endpoint page in the Azure portal" lightbox="../../media/get-endpoint-azure.png":::
+## Create a custom text classification project
 
-## Create project
+Once your resource and storage container are configured, create a new custom text classification project. A project is a work area for building your custom ML models based on your data. Your project can only be accessed by you and others who have access to the Language resource being used.
 
-[!INCLUDE [Create a project using the REST API](../rest-api/create-project.md)]
+### Trigger import project job 
 
-## Start training your model
+[!INCLUDE [Import a project using the REST API](../rest-api/import-project.md)]
 
-[!INCLUDE [train a model using the REST API](../rest-api/train-model.md)]
+### Get import job Status
+
+ [!INCLUDE [get import project status](../rest-api/get-import-status.md)]
+
+## Train your model
+
+Typically after you create a project, you go ahead and start [tagging the documents](../../how-to/tag-data.md) you have in the container connected to your project. For this quickstart, you have imported a sample tagged dataset and initialized your project with the sample JSON tags file.
+
+### Start training your model
+
+After your project has been imported, you can start training your model. 
+
+[!INCLUDE [train model](../rest-api/train-model.md)]
+
+### Get training job status
+
+Training could take sometime between 10 and 30 minutes. You can use the following request to keep polling the status of the training job until it's successfully completed.
+
+[!INCLUDE [get training model status](../rest-api/get-training-status.md)]
 
 ## Deploy your model
 
-[!INCLUDE [deploy a model using the REST API](../rest-api/deploy-model.md)]
+Generally after training a model you would review it's [evaluation details](../../how-to/view-model-evaluation.md) and [make improvements](../../how-to/improve-model.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in the Language studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
+
+### Submit deployment job
+
+[!INCLUDE [deploy model](../rest-api/deploy-model.md)]
+
+### Get deployment job status
+
+[!INCLUDE [get deployment status](../rest-api/get-deployment-status.md)]
+
+## Classify text
+
+After your model is deployed successfully, you can start using it to classify your text via [Prediction API](https://aka.ms/ct-runtime-swagger). In the sample dataset you downloaded earlier you can find some test documents that you can use in this step.
 
 ### Submit a custom text classification task
 
-[!INCLUDE [submit a text classification task using the REST API](../rest-api/text-classification-task.md)]
+[!INCLUDE [submit a text classification task using the REST API](../rest-api/submit-task.md)]
 
-### Get the custom text classification task status and results
+### Get task results
 
-[!INCLUDE [Get text classification status and results](../rest-api/get-results.md)]
+[!INCLUDE [get text classification task results](../rest-api/get-results.md)]
+
 
 ## Clean up resources
 
-When you no longer need your project, you can delete it with the following **DELETE** request. Replace the placeholder values with your own values.   
-
-```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}
-```
-
-|Placeholder  |Value  | Example |
-|---------|---------|---------|
-|`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
-
-### Headers
-
-Use the following header to authenticate your request. 
-
-|Key|Value|
-|--|--|
-|Ocp-Apim-Subscription-Key| The key to your resource. Used for authenticating your API requests.|
+[!INCLUDE [Delete project using the REST API](../rest-api/delete-project.md)]
