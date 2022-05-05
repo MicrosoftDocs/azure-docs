@@ -2,21 +2,21 @@
 title: Complex applications for Azure Active Directory Application Proxy
 description: Provides an understanding of complex application in Azure Active Directory Application Proxy, and how to configure one. 
 services: active-directory
-author: dhruvinshah
-manager: ashishj
+author: kenwith
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/22/2022
 ms.author: dhruvinshah
-ms.reviewer: ashishj
+ms.reviewer: dhruvinshah
 ---
 
 # Understanding Azure Active Directory Application Proxy Complex application scenario (Preview)
 
-When applications are made up of multiple individual web application instances using different domain suffixes or different ports or paths in the URL, the individual web application instances must be published in separate Azure AD Application Proxy apps and the following problems might arise:
-1.	Pre-authentication- The client must separately acquire an access token or cookie for each Azure AD Application Proxy apps. This might lead to additional redirects to login.microsoftonline.com and CORS issues.
+When applications are made up of multiple individual web application using different domain suffixes or different ports or paths in the URL, the individual web application instances must be published in separate Azure AD Application Proxy apps and the following problems might arise:
+1.	Pre-authentication- The client must separately acquire an access token or cookie for each Azure AD Application Proxy app. This might lead to additional redirects to login.microsoftonline.com and CORS issues.
 2.	CORS issues- Cross-origin resource sharing calls (OPTIONS request) might be triggered to validate if the caller web app is allowed to access the URL of the targeted web app. These will be blocked by the Azure AD Application Proxy Cloud service, since these requests cannot contain authentication information.
 3.	Poor app management- Multiple enterprise apps are created to enable access to a private app adding friction to the app management experience.
 
@@ -26,10 +26,10 @@ The following figure shows an example for complex application domain structure.
 
 With [Azure AD Application Proxy](application-proxy.md), you can address this issue by using complex application publishing that is made up of multiple URLs across various domains. 
 
-![Proposed flow for Complex-app-flow](./media/application-proxy-configure-complex-application/Complex-app-flow.png)
+![Configuration Complex application](./media/application-proxy-configure-complex-application/complex-app-flow.png)
 
 A complex app has multiple app segments, with each app segment being a pair of an internal & external URL.
-There is one conditional access policy associated with the app and access to any of the external URL's work with pre-authentication with the same set of policies enforced for all.
+There is one conditional access policy associated with the app and access to any of the external URLs work with pre-authentication with the same set of policies that are enforced for all.
 
 This solution that allows user to:
 
@@ -39,9 +39,9 @@ This solution that allows user to:
 
 This article provides you with the information you need to configure wildcard application publishing in your environment.
 
-## Charactrisitics of application segment(s) for complex application. 
+## Characteristics of application segment(s) for complex application. 
 1. Application segments can be configured only for a wildcard application.
-2. External and alternal URL should match the wildcard external and alternal URL domain of the application respectively.
+2. External and alternate URL should match the wildcard external and alternate URL domain of the application respectively.
 3. Application segment URL’s (internal and external) need to maintain uniqueness across complex applications.
 4. CORS Rules (optional) can be configured per application segment.
 5. Access will only be granted to defined application segments for a complex application.
