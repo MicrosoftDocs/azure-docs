@@ -55,8 +55,8 @@ The modules listed below are split into five groups following the life cycle of 
 This Skill-up training is based on the [Microsoft Sentinel Ninja training](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/become-a-microsoft-sentinel-ninja-the-complete-level-400/ba-p/1246310) and is a level 400 training. If you don't want to go as deep or have a specific issue, other resources might be more suitable:
 
 * While extensive, the Skill-up training has to follow a script and cannot expand on every topic. The [Sentinel Skill-up FAQ](#faq) tries to close this gap. 
-* You can now certify with the new certification [SC-200: Microsoft Security Operations Analyst](https://docs.microsoft.com/en-us/learn/certifications/exams/sc-200?wt.mc_id=SecNinja_sentinelninjatraining) which covers Microsoft Sentinel.  You may also want to consider the [SC-900: Microsoft Security, Compliance, and Identity Fundamentals](https://docs.microsoft.com/en-us/learn/certifications/exams/sc-900?wt.mc_id=SecNinja_sentinelninjatraining) or the [AZ-500: Microsoft Azure Security Technologies](https://docs.microsoft.com/en-us/learn/certifications/exams/az-500), for a broader, higher level view of the Microsoft Security suite.
-* Already skilled-up on Microsoft Sentinel? Just keep track of [what's new](https://docs.microsoft.com/en-us/azure/sentinel/whats-new?wt.mc_id=SecNinja_sentinelninjatraining) or join the [Private Preview](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-kibZAPJAVBiU46J6wWF_5URDFSWUhYUldTWjdJNkFMVU1LTEU4VUZHMy4u) program for an earlier glimpse. 
+* You can now certify with the new certification [SC-200: Microsoft Security Operations Analyst](https://docs.microsoft.com/en-us/learn/certifications/exams/sc-200) which covers Microsoft Sentinel.  You may also want to consider the [SC-900: Microsoft Security, Compliance, and Identity Fundamentals](https://docs.microsoft.com/en-us/learn/certifications/exams/sc-900) or the [AZ-500: Microsoft Azure Security Technologies](https://docs.microsoft.com/en-us/learn/certifications/exams/az-500), for a broader, higher level view of the Microsoft Security suite.
+* Already skilled-up on Microsoft Sentinel? Just keep track of [what's new](https://docs.microsoft.com/en-us/azure/sentinel/whats-new) or join the [Private Preview](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-kibZAPJAVBiU46J6wWF_5URDFSWUhYUldTWjdJNkFMVU1LTEU4VUZHMy4u) program for an earlier glimpse. 
 * Have a good feature idea you want to share with us? Let us know on the [Microsoft Sentinel user voice page](https://feedback.azure.com/d365community/forum/37638d17-0625-ec11-b6e6-000d3a4f07b8).
 * Premier customer? You might want the on-site (or remote)  4-day Microsoft Sentinel Fundamentals Workshop. Contact your Customer Success Account Manager for more details.
 * Have a specific issue? Ask (or answer other) on the [Microsoft Sentinel Tech Community](https://techcommunity.microsoft.com/t5/microsoft-sentinel/bd-p/MicrosoftSentinel). As a last resort, send an e-mail to <MicrosoftSentinel@microsoft.com>.
@@ -67,10 +67,10 @@ This Skill-up training is based on the [Microsoft Sentinel Ninja training](https
 Microsoft Sentinel is a **scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution**. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. [Read more.](https://docs.microsoft.com/en-us/azure/sentinel/overview?wt.mc_id=SecNinja_sentinelninjatraining)
 
 
-If you want to get an initial overview of Microsoft Sentinel's technical capabilities, the [latest Ignite presentation](https://www.youtube.com/watch?v=kGctnb4ddAE) is a good starting point. You might also find the [Quick Start Guide to Microsoft Sentinel](https://azure.microsoft.com/en-us/resources/quick-start-guide-to-azure-sentinel/?wt.mc_id=SecNinja_sentinelninjatraining) useful (requires registration). A more detailed overview, however somewhat dated, can be found in this webinar: [MP4](https://1drv.ms/v/s%21AnEPjr8tHcNmggMkcVweWOqoxuN9), [YouTube](https://youtu.be/7An7BB-CcQI), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmgjrN_zHpzbnfX_mX).
+If you want to get an initial overview of Microsoft Sentinel's technical capabilities, the [latest Ignite presentation](https://www.youtube.com/watch?v=kGctnb4ddAE) is a good starting point. You might also find the [Quick Start Guide to Microsoft Sentinel](https://azure.microsoft.com/en-us/resources/quick-start-guide-to-azure-sentinel/) useful (requires registration). A more detailed overview, however somewhat dated, can be found in this webinar: [MP4](https://1drv.ms/v/s%21AnEPjr8tHcNmggMkcVweWOqoxuN9), [YouTube](https://youtu.be/7An7BB-CcQI), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmgjrN_zHpzbnfX_mX).
 
 
-Lastly, want to try it yourself? The Microsoft Sentinel All-In-One Accelerator  ([blog](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-all-in-one-accelerator/ba-p/1807933?wt.mc_id=SecNinja_sentinelninjatraining), [Youtube](https://youtu.be/JB73TuX9DVs), [MP4](https://aka.ms/AzSentinel_04FEB2021_MP4), [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmhjw41XZvVSCSNIuX)) presents an easy way to get you started. To learn how to start yourself, review the [onboarding documentation](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard?wt.mc_id=SecNinja_sentinelninjatraining), or watch [Insight's Sentinel setup and configuration video](https://www.youtube.com/watch?v=Cyd16wVwxZc).
+Lastly, want to try it yourself? The Microsoft Sentinel All-In-One Accelerator  ([blog](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-all-in-one-accelerator/ba-p/1807933), [Youtube](https://youtu.be/JB73TuX9DVs), [MP4](https://aka.ms/AzSentinel_04FEB2021_MP4), [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmhjw41XZvVSCSNIuX)) presents an easy way to get you started. To learn how to start yourself, review the [onboarding documentation](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard), or watch [Insight's Sentinel setup and configuration video](https://www.youtube.com/watch?v=Cyd16wVwxZc).
 
 
 **Learn from users**
@@ -95,15 +95,15 @@ Many users use Microsoft Sentinel as their primary SIEM. Most of the modules in 
 
 Use Sentinel, Azure Defender, Microsoft 365 Defender  in tandem to protect your Microsoft workloads, including Windows, Azure, and Office:
 
-* Read more about [our comprehensive SIEM+XDR solution combining Microsoft Sentinel and Microsoft 365 Defender](https://techcommunity.microsoft.com/t5/azure-sentinel/whats-new-azure-sentinel-and-microsoft-365-defender-incident/ba-p/2191090?wt.mc_id=SecNinja_sentinelninjatraining).
+* Read more about [our comprehensive SIEM+XDR solution combining Microsoft Sentinel and Microsoft 365 Defender](https://techcommunity.microsoft.com/t5/azure-sentinel/whats-new-azure-sentinel-and-microsoft-365-defender-incident/ba-p/2191090).
 * Read [The Azure Security compass](https://aka.ms/azuresecuritycompass) to understand Microsoft's blueprint for your security operations.
-* Read and watch how such a setup helps detect and respond to a WebShell attack: [Blog](https://techcommunity.microsoft.com/t5/azure-sentinel/analysing-web-shell-attacks-with-azure-defender-data-in-azure/ba-p/1724130?wt.mc_id=SecNinja_sentinelninjatraining), [Video demo](https://techcommunity.microsoft.com/t5/video-hub/webshell-attack-deep-dive/m-p/1698964).
+* Read and watch how such a setup helps detect and respond to a WebShell attack: [Blog](https://techcommunity.microsoft.com/t5/azure-sentinel/analysing-web-shell-attacks-with-azure-defender-data-in-azure/ba-p/1724130), [Video demo](https://techcommunity.microsoft.com/t5/video-hub/webshell-attack-deep-dive/m-p/1698964).
 * Watch the webinar: [Better Together | OT and IoT Attack Detection, Investigation and Response](https://youtu.be/S8DlZmzYO2s).
 
 
 **To monitor your multi-cloud workloads**
 
-The cloud is (still) new and often not monitored as extensively as on-prem workloads. Read this [presentation](https://techcommunity.microsoft.com/gxcuf89792/attachments/gxcuf89792/AzureSentinelBlog/243/1/L400-P2%20Use%20cases.pdf?wt.mc_id=SecNinja_sentinelninjatraining) to learn how Microsoft Sentinel can help you close the cloud monitoring gap across your clouds.
+The cloud is (still) new and often not monitored as extensively as on-prem workloads. Read this [presentation](https://techcommunity.microsoft.com/gxcuf89792/attachments/gxcuf89792/AzureSentinelBlog/243/1/L400-P2%20Use%20cases.pdf) to learn how Microsoft Sentinel can help you close the cloud monitoring gap across your clouds.
 
 **Side by side with your existing SIEM**
 
@@ -114,14 +114,14 @@ For more information on migrating from another SIEM to Microsoft Sentinel, watch
 
 There are three common scenarios for side by side deployment:
 
-* A best practice, if you have a ticketing system in your SOC, is to send alerts, or incidents, from both SIEM systems to a ticketing system such as Service Now, for example, using [Microsoft Sentinel Incident Bi-directional sync with ServiceNow](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-incident-bi-directional-sync-with-servicenow/ba-p/1667771?wt.mc_id=SecNinja_sentinelninjatraining) or by [sending alerts enriched with supporting events from Microsoft Sentinel to 3rd party SIEMs](https://techcommunity.microsoft.com/t5/azure-sentinel/sending-alerts-enriched-with-supporting-events-from-azure/ba-p/1456976?wt.mc_id=SecNinja_sentinelninjatraining).
-* At least initially, many users send alerts from Microsoft Sentinel to your on-prem SIEM. Read on how to do it in [Sending alerts enriched with supporting events from Microsoft Sentinel to 3rd party SIEMs](https://techcommunity.microsoft.com/t5/azure-sentinel/sending-alerts-enriched-with-supporting-events-from-azure/ba-p/1456976?wt.mc_id=SecNinja_sentinelninjatraining).
+* A best practice, if you have a ticketing system in your SOC, is to send alerts, or incidents, from both SIEM systems to a ticketing system such as Service Now, for example, using [Microsoft Sentinel Incident Bi-directional sync with ServiceNow](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-incident-bi-directional-sync-with-servicenow/ba-p/1667771) or by [sending alerts enriched with supporting events from Microsoft Sentinel to 3rd party SIEMs](https://techcommunity.microsoft.com/t5/azure-sentinel/sending-alerts-enriched-with-supporting-events-from-azure/ba-p/1456976).
+* At least initially, many users send alerts from Microsoft Sentinel to your on-prem SIEM. Read on how to do it in [Sending alerts enriched with supporting events from Microsoft Sentinel to 3rd party SIEMs](https://techcommunity.microsoft.com/t5/azure-sentinel/sending-alerts-enriched-with-supporting-events-from-azure/ba-p/1456976).
 * Over time, as Microsoft Sentinel covers more workloads, it is typical to reverse that and send alerts from your on-prem SIEM to Microsoft Sentinel. To do that:
-    * With Splunk, read [Send data and notable events from Splunk to Microsoft Sentinel using the Microsoft Sentinel Splunk ....](https://techcommunity.microsoft.com/t5/azure-sentinel/how-to-export-data-from-splunk-to-azure-sentinel/ba-p/1891237?wt.mc_id=SecNinja_sentinelninjatraining)
-    * With QRadar read [Sending QRadar offenses to Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/migrating-qradar-offenses-to-azure-sentinel/ba-p/2102043?wt.mc_id=SecNinja_sentinelninjatraining)
+    * With Splunk, read [Send data and notable events from Splunk to Microsoft Sentinel using the Microsoft Sentinel Splunk ....](https://techcommunity.microsoft.com/t5/azure-sentinel/how-to-export-data-from-splunk-to-azure-sentinel/ba-p/1891237)
+    * With QRadar read [Sending QRadar offenses to Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/migrating-qradar-offenses-to-azure-sentinel/ba-p/2102043)
     * For ArcSight, use [CEF Forwarding](https://community.microfocus.com/t5/Logger-Forwarding-Connectors/ArcSight-Forwarding-Connector-Configuration-Guide/ta-p/1583918).
 
-You can also send the alerts from Microsoft Sentinel to your 3rd party SIEM or ticketing system using the [Graph Security API](https://docs.microsoft.com/en-us/graph/security-integration?wt.mc_id=SecNinja_sentinelninjatraining), which is simpler but would not enable sending additional data. 
+You can also send the alerts from Microsoft Sentinel to your 3rd party SIEM or ticketing system using the [Graph Security API](https://docs.microsoft.com/en-us/graph/security-integration), which is simpler but would not enable sending additional data. 
 
 
 **For MSSPs**
@@ -130,6 +130,55 @@ Since it eliminates the setup cost and is location agnostics, Microsoft Sentinel
 To start your journey as an MSSP, you should read the [Microsoft Sentinel Technical Playbooks for MSSPs](http://aka.ms/azsentinelmssp). More information about MSSP support is included in the next module, cloud architecture and multi-tenant support.  
 
 ## Part 2: Architecting & Deploying
+
+While the previous section offers options to start using Microsoft Sentinel in a matter of minutes, before you start a production deployment, you need to plan. This section walks you through the areas that you need to consider when architecting your solution, as well as provides guidelines on how to implement your design:
+
+* Workspace and tenant architecture
+* Data collection 
+* Log management
+* Threat Intelligence acquisition
+
+### Module 3: Wokrspace and tenant architecture
+
+A Microsoft Sentinel instance is called a workspace. The workspace is the same as a Log Analytics workspace and supports any Log Analytics capability. You can think of Sentinel as a solution that adds SIEM features on top of a Log Analytics workspace.
+
+Multiple workspaces are often necessary and can act together as a single Microsoft Sentinel system. A special use case is providing service using Microsoft Sentinel, for example, by an **MSSP** (Managed Security Service Provider) or by a **Global SOC** in a large organization. 
+
+To learn more about why use multiple workspaces and use them as one Microsoft Sentinel system, read [Extend Microsoft Sentinel across workspaces and tenants](https://docs.microsoft.com/en-us/azure/sentinel/extend-sentinel-across-workspaces-tenants) or, if you prefer, the Webinar version: [MP4](https://1drv.ms/v/s!AnEPjr8tHcNmgkqH7MASAKIg8ql8), [YouTube](https://youtu.be/hwahlwgJPnE), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmgkkYuxOITkGSI7x8).
+
+There are a few specific areas that require your consideration when using multiple workspaces:
+* An important driver for using multiple workspaces is **data residency**. Read more about [Microsoft Sentinel data residency](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard#geographical-availability-and-data-residency).
+* To deploy Microsoft Sentinel and manage content efficiently across multiple workspaces; you would like to manage Sentinel as code using **CI/CD technology**. This is, in general, a recommended best practice for Microsoft Sentinel:
+    * Read [Enable Continuous Deployment Natively with Microsoft Sentinel Repositories!](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/enable-continuous-deployment-natively-with-microsoft-sentinel/ba-p/2929413)
+* When managing multiple workspaces as an MSSP, you may want to [protect the MSSP’s Intellectual Property in Microsoft Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/mssp-protect-intellectual-property).
+
+The [Microsoft Sentinel Technical Playbook for MSSPs](http://aka.ms/azsentinelmssp) provides detailed guidelines for many of those topics, and is useful also for large organizations, not just to MSSPs.
+
+### Module 4: Data Collection
+
+The foundation of a SIEM is collecting telemetry: events, alerts, and contextual enrichment information such as Threat Intelligence, vulnerability data, and asset information. You can find a list of sources you can connect here:
+* [Microsoft Sentinel data connectors](https://docs.microsoft.com/en-us/azure/sentinel/connect-data-sources)
+* [Find your Microsoft Sentinel data connector](https://docs.microsoft.com/en-us/azure/sentinel/data-connectors-reference) for seeing all the listed supported, out-of-the-box data connectors, together with links to generic deployment procedures, and extra steps required for specific connectors. 
+* Data Collection Scenarios: Learn more about a variety of solutions for log collection methods such as [Logstash/CEF/WEF](https://docs.microsoft.com/en-us/azure/sentinel/connect-logstash) and scenarios we often encounter such as permissions restriction to tables, log filtering, collecting logs from AWS/GCP, O365 raw logs and more in this webinar [YouTube](https://www.youtube.com/watch?v=FStpHl0NRM8), [MP4](https://aka.ms/AS_LogCollectionScenarios_V3.0_18MAR2021_MP4), [Presentiation](https://1drv.ms/b/s!AnEPjr8tHcNmhx-_hfIf0Ng3aM_G).
+
+The first piece of information you'll see for each connector is its **data ingestion method**. The method that appears there will be a link to one of the following generic deployment procedures, which contain most of the information you'll need to connect your data sources to Microsoft Sentinel:
+
+|Data ingestion method | Linked article with instructions |
+| ----------- | ----------- |
+| Azure service-to-service integration     | [Connect to Azure, Windows, Microsoft, and Amazon services](https://docs.microsoft.com/en-us/azure/sentinel/connect-azure-windows-microsoft-services)     |
+| Common Event Format (CEF) over Syslog	  | [Get CEF-formatted logs from your device or appliance into Microsoft Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/connect-common-event-format) |
+| Microsoft Sentinel Data Collector API | [Connect your data source to the Microsoft Sentinel Data Collector API to ingest data](https://docs.microsoft.com/en-us/azure/sentinel/connect-rest-api-template) |
+| Azure Functions and the REST API | [Use Azure Functions to connect Microsoft Sentinel to your data source](https://docs.microsoft.com/en-us/azure/sentinel/connect-azure-functions-template) |
+| Syslog | [Collect data from Linux-based sources using Syslog](https://docs.microsoft.com/en-us/azure/sentinel/connect-syslog) |
+| Custom logs | [	Collect data in custom log formats to Microsoft Sentinel with the Log Analytics agent](https://docs.microsoft.com/en-us/azure/sentinel/connect-custom-logs) |
+
+If your source is not available, you can [create a custom connector](https://docs.microsoft.com/en-us/azure/sentinel/create-custom-connector). Custom connectors use the ingestion API and therefore are similar to direct sources. Custom connectors are most often implemented using Logic Apps, offering a codeless option, or Azure Functions.
+
+### Module 5: Log management
+
+
+
+### Module 6: Enrichment: TI, Watchlists, and more
 
 ## Part 3: Creating Content
 
