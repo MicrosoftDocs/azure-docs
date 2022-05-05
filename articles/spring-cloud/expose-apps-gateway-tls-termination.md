@@ -191,7 +191,7 @@ Create an application gateway using the following steps to enable SSL terminatio
 
    1. Select the **Backend targets** tab.
 
-      :::image type="content" source="media/expose-apps-gateway-tls-termination/create-backend-http-settings.png" alt-text="Screenshot of Azure portal 'Add a HTTP setting' page.":::
+      :::image type="content" source="media/expose-apps-gateway-tls-termination/create-backend-http-settings.png" alt-text="Screenshot of Azure portal 'Add a H T T P setting' page.":::
 
 1. Select **Review and Create** to create the application gateway.
 

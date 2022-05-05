@@ -101,7 +101,7 @@ To activate an application through the Azure portal, use the following steps.
 
 1. Select **General settings** to add, update, or delete the JVM options of the application.
 
-   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-general.png" alt-text="Screenshot of Azure portal showing the 'General settings' section of the app's Configuration page, with 'JVM options' highlighted." lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-general.png":::
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-general.png" alt-text="Screenshot of Azure portal showing the 'General settings' section of the app's Configuration page, with 'J V M options' highlighted." lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-general.png":::
 
 ## Automate provisioning
 
