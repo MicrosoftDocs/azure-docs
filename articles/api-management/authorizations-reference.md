@@ -65,7 +65,7 @@ This article is a reference for the supported identity providers in API Manageme
 | Provider name | Yes | Name of Authorization provider. | |
 | Client id | Yes | The id used to identify this application with the service provider. | |
 | Client secret | Yes | The shared secret used to authenticate this application with the service provider. ||
-| Scopes | No | Scopes used for the authorization. Depending on the identity provider multiple scopes are separated by space or commma. Default for most identity providers is space. |  | 
+| Scopes | No | Scopes used for the authorization. Depending on the identity provider, multiple scopes are separated by space or comma. Default for most identity providers is space. |  | 
 
 
 ### Authorization - Authorization code grant type
@@ -89,7 +89,7 @@ This article is a reference for the supported identity providers in API Manageme
 | Authorization URL | No | The authorization endpoint URL. | |
 | Token URL | No | The token endpoint URL. |  |  
 | Refresh URL | No | The token refresh endpoint URL. |  | 
-| Scopes | No | Scopes used for the authorization. Depending on the identity provider multiple scopes are separated by space or commma. Default for most identity providers is space. |  | 
+| Scopes | No | Scopes used for the authorization. Depending on the identity provider, multiple scopes are separated by space or comma. Default for most identity providers is space. |  | 
 
 
 ### Authorization - Authorization code grant type

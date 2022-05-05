@@ -40,7 +40,7 @@ Four steps are needed to set up an authorization with the authorization code gra
 1. In the **General** page, copy the **Client ID**, which you'll use in a later step.
 1. Select **Generate a new client secret**. Copy the secret, which won't be displayed again, and which you'll use in a later step. 
 
-    :::image type="content" source="media/authorizations-how-to/generate-secre.png" alt-text="Get client ID and client secret for the application":::
+    :::image type="content" source="media/authorizations-how-to/generate-secret.png" alt-text="Get client ID and client secret for the application":::
 
 ## Step 2: Configure an authorization in API Management
 
