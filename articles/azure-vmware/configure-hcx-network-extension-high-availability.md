@@ -49,7 +49,7 @@ Use the following steps to activate HA, create HA groups, and view the HA roles 
 
 1. Select **HA Management** from the **Interconnect** tab options to view the HA group details and the available options: **Manual failover, Deactivate, Redeploy, and Force Sync**.
 
-    :::image type="content" source="media/hcx/high-availability-management-group-details-available-options.png" alt-text="screenshot of the high availability management tab with ha group details and available options."lightbox="media/hcx/high-availability-management-group-details-available-options.png":::
+    :::image type="content" source="media/hcx/high-availability-management-group-details-available-options.png" alt-text="screenshot of the high availability management tab with high availability group details and available options."lightbox="media/hcx/high-availability-management-group-details-available-options.png":::
 
 ## Extend network using network HA group
 
