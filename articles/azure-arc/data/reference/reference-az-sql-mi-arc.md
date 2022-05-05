@@ -12,6 +12,8 @@ ms.subservice: azure-arc-data
 ---
 
 # az sql mi-arc
+
+Manage Azure Arc-enabled SQL managed instances.
 ## Commands
 | Command | Description|
 | --- | --- |
@@ -24,7 +26,6 @@ ms.subservice: azure-arc-data
 [az sql mi-arc upgrade](#az-sql-mi-arc-upgrade) | Upgrade SQL managed instance.
 [az sql mi-arc list](#az-sql-mi-arc-list) | List SQL managed instances.
 [az sql mi-arc config](reference-az-sql-mi-arc-config.md) | Configuration commands.
-[az sql mi-arc dag](reference-az-sql-mi-arc-dag.md) | Create or Delete a Distributed Availability Group.
 ## az sql mi-arc create
 To set the password of the SQL managed instance, set the environment variable AZDATA_PASSWORD
 ```azurecli
@@ -42,6 +43,10 @@ az sql mi-arc create -n sqlmi2 --replicas 3  --k8s-namespace namespace --use-k8s
 Create a directly connected SQL managed instance.
 ```azurecli
 az sql mi-arc create --name name --resource-group group  --location location --subscription subscription   --custom-location custom-location
+```
+Create an indirectly connected SQL managed instance with Active Directory authentication.
+```azurecli
+az sql mi-arc create --name contososqlmi --k8s-namespace arc --ad-connector-name arcadc --ad-connector-namespace arc --keytab-secret arcuser-keytab-secret --ad-account-name arcuser --primary-dns-name contososqlmi-primary.contoso.local --primary-port-number 81433 --use-k8s
 ```
 ### Global Arguments
 #### `--debug`
@@ -150,7 +155,7 @@ az sql mi-arc upgrade
 ### Examples
 Upgrade SQL managed instance.
 ```azurecli
-az sql mi-arc upgrade -n sqlmi1 --k8s-namespace arc --desired-version v1.1.0 --use-k8s
+az sql mi-arc upgrade -n sqlmi1 -k arc --desired-version v1.1.0 --use-k8s
 ```
 ### Global Arguments
 #### `--debug`
