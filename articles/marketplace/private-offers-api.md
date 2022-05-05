@@ -83,7 +83,6 @@ To use this API, you may need to reference several different types of IDs associ
 | productId | See [Retrieve products](#retrieve-products) below |
 | planId | See [Retrieve plans for a specific product](#retrieve-plans-for-a-specific-product) below |
 | privateofferId | See [Retrieve private offers](#retrieve-private-offers) below |
-|
 
 #### Retrieve products
 
@@ -156,17 +155,15 @@ Using the **jobId** from the initial API response, poll to get the status of the
 
 | jobStatus | Description |
 | --- | --- |
-| notStarted | The job hasn't yet started; this is part of the response on the initial request. |
-| running | The job is still running. |
-| completed | The job has completed. See jobResult for more details. |
-|
+| NotStarted | The job hasn't yet started; this is part of the response on the initial request. |
+| Running | The job is still running. |
+| Completed | The job has completed. See jobResult for more details. |
 
 | jobResult | Description |
 | --- | --- |
 | Pending | The job hasn't yet completed. |
-| Succeeded | The job has completed successfully. This will also return a resourceURI that refers to the private offer related to the job. Use this resourceURI to obtain the full details of a private offer |
+| Succeeded | The job has completed successfully. This will also return a resourceURI<br>that refers to the private offer related to the job. Use this resourceURI<br>to obtain the full details of a private offer. |
 | Failed | The job has failed. This will also return any relevant errors to help determine the cause of failure. |
-|
 
 For more information, see [Querying the status of an existing job](#querying-the-status-of-an-existing-job) later in this article.
 
@@ -191,7 +188,6 @@ Use this method to create a private offer for a customer.
 | Header | Type | Description |
 | --- | --- | --- |
 | Authorization | String | Required. The Azure AD access token in the form **`Bearer <token>`**. |
-|
 
 Optional: clientID
 
@@ -321,7 +317,6 @@ The response will contain the jobId you can use later to poll the status:
 | --- | --- |
 | 401 | Authentication Error: Ensure you're using a valid Azure AD access token. |
 | 400 | Schema Validation. Ensure your request body is following the correct schema and includes all required fields. |
-|
 
 ## Create a private offer for a reseller
 
@@ -336,7 +331,6 @@ Use this method to create a new private offer for a customer.
 | Header | Type | Description |
 | --- | --- | --- |
 | Authorization | String | Required. The Azure AD access token in the form **`Bearer <token>`**. |
-|
 
 #### Request parameters
 
@@ -414,7 +408,6 @@ The response will contain the jobId you can use later to poll the status.
 | --- | --- |
 | 401 | Authentication Error: Ensure you're using a valid Azure AD access token. |
 | 400 | Schema Validation. Ensure your request body is following the correct schema and includes all required fields. |
-|
 
 ## Delete an existing private offer
 
@@ -429,7 +422,6 @@ POST https://graph.microsoft.com/rp/product-ingestion/configure
 | Header | Type | Description |
 | --- | --- | --- |
 | Authorization | String | Required. The Azure AD access token in the form **`Bearer <token>`**. |
-|
 
 #### Request parameters
 
@@ -472,7 +464,6 @@ The response will contain the jobId you can use later to poll the status.
 | --- | --- |
 | 401 | Authentication Error: Ensure you're using a valid Azure AD access token. |
 | 400 | Schema Validation. Ensure your request body is following the correct schema and includes all required fields. |
-|
 
 ## Withdraw an existing private offer
 
@@ -531,7 +522,6 @@ The response will contain the jobId you can later use to poll the status.
 | --- | --- |
 | 401 | Authentication Error: Ensure you're using a valid Azure AD access token. |
 | 400 | Schema Validation. Ensure your request body is following the correct schema and includes all required fields. |
-|
 
 ## Upgrade an existing customer private offer
 
@@ -606,7 +596,6 @@ The response will contain the jobId you can use later to poll the status.
 | --- | --- |
 | 401 | Authentication Error: Ensure you're using a valid Azure AD access token. |
 | 400 | Schema Validation. Ensure your request body is following the correct schema and includes all required fields. |
-|
 
 ## Querying the status of an existing job
 
@@ -639,7 +628,6 @@ There are three possible responses for a completed job.
 | Running | The job hasn't yet completed. |
 | Succeeded | The job completed successfully. This will also return a resourceURI that refers to the private offer related to the job. Use this resourceURI to obtain the full details of a private offer. |
 | Failed | The job failed. This will also return any relevant errors to help determine the cause of failure. |
-|
 
 Sample outputs:
 
@@ -700,7 +688,6 @@ Sample outputs:
 | Error code | Description |
 | --- | --- |
 | 401 | Authentication Error: ensure you're using a valid Azure AD access token. |
-|
 
 ## Obtaining details of an existing private offer
 
@@ -787,7 +774,6 @@ You'll receive the full details of the private offer.
 | --- | --- |
 | 401 | Authentication Error: Ensure you're using a valid Azure AD access token. |
 | 404 | Resource not found. Ensure you're using the correct ID in the request. |
-|
 
 ## How to parse error messages in the response body
 
