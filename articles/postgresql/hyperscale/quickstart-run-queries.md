@@ -97,11 +97,11 @@ ORDER BY hour;
 (4 rows)
 ```
 
-By supporting structured and semi-structured data, Hyperscale (Citus) combines
-the power of SQL and NoSQL datastores.
+Hyperscale (Citus) combines the power of SQL and NoSQL datastores
+with structured and semi-structured data.
 
 In addition to running queries, Hyperscale (Citus) also applies data definition
-changes across the shards of a distributed table.
+changes across the shards of a distributed table:
 
 ```sql
 -- DDL commands that are also parallelized

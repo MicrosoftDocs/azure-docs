@@ -55,7 +55,7 @@ Visit [Create Hyperscale (Citus) server group](https://portal.azure.com/#create/
 
    Most options are self-explanatory.
 
-   * Note that the server group name will determine the DNS name your
+   * The server group name will determine the DNS name your
      applications use to connect, in the form
      `server-group-name.postgres.database.azure.com`.
    * The admin username is required to be the value `citus`.
