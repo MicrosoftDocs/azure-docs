@@ -39,7 +39,7 @@ Follow these steps to create a new console application and install the Speech SD
 1. Make sure the compiler is set to **ISO C++17 Standard (/std:c++17)** at **Project** > **Properties** > **General** > **C++ Language Standard**.
 1. Enter your preferred command line arguments at **Project** > **Properties** > **Debugging** > **Command Arguments**. See [usage and arguments](#usage-and-arguments) for the available options. Here is an example. Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region:
     ```
-    --key YourSubscriptionKey --region YourServiceRegion --input c:\caption\caption.this.mp4 --format any --output c:\caption\caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases "Contoso;Jesse;Rehaan"
+    --key YourSubscriptionKey --region YourServiceRegion --input c:\caption\caption.this.mp4 --format any --output c:\caption\caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases "Contoso;Jessie;Rehaan"
     ```
     Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. Make sure that the specified arguments for `--input` file and `--output` path exist. Otherwise you must change the path.
 1. Build and run the console application. The output file with complete captions is written to `c:\caption\caption.output.txt`. Intermediate results are shown in the console:
