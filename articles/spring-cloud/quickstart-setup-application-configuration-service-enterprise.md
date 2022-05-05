@@ -35,7 +35,7 @@ To use Application Configuration Service for Tanzu, follow these steps.
 1. Select **Application Configuration Service**.
 1. Select **Overview** to view the running state and resources allocated to Application Configuration Service for Tanzu.
 
-   ![Azure portal screenshot of Azure Spring Cloud with Application Configuration Service page and Overview section showing.](./media/enterprise/getting-started-enterprise/config-service-overview.png)
+   ![Screenshot of Azure portal Azure Spring Cloud with Application Configuration Service page and Overview section showing.](./media/enterprise/getting-started-enterprise/config-service-overview.png)
 
 1. Select **Settings** and add a new entry in the **Repositories** section with the following information:
 
@@ -46,7 +46,7 @@ To use Application Configuration Service for Tanzu, follow these steps.
 
 1. Select **Validate** to validate access to the target URI. After validation completes successfully, select **Apply** to update the configuration settings.
 
-   ![Azure portal screenshot of Azure Spring Cloud with Application Configuration Service page and Settings section showing.](./media/enterprise/getting-started-enterprise/config-service-settings.png)
+   ![Screenshot of Azure portal Azure Spring Cloud with Application Configuration Service page and Settings section showing.](./media/enterprise/getting-started-enterprise/config-service-settings.png)
 
 ### [Azure CLI](#tab/azure-cli)
 
