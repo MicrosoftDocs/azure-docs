@@ -121,7 +121,7 @@ items:
   - name: Manage sources
     items: 
     - name: Supported sources
-      href: azure-purview-connector-overview.md
+      href: microsoft-purview-connector-overview.md
     - name: Manage data sources
       href: manage-data-sources.md
     - name: Manage credentials
