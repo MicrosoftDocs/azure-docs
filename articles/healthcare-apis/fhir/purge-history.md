@@ -11,11 +11,11 @@ ms.author: mikaelw
 
 # Purge history operation
 
-`$purge-history` is an operation that allows you to delete the history of a single FHIR resource. This operation isn't defined in the FHIR specification, but it's useful for [history management](fhir-versioning-policy-history-management.md) in large FHIR service instances.
+`$purge-history` is an operation that allows you to delete the history of a single FHIR resource. This operation isn't defined in the FHIR specification, but it's useful for [history management](fhir-versioning-policy-and-history-management.md) in large FHIR service instances.
 
 ## Overview of purge history
 
-The `$purge-history` operation was created to help with the management of resource history in FHIR service. It's uncommon to need to purge resource history. However, it's needed in cases when the system level or resource level [versioning policy](fhir-versioning-policy-history-management.md) changes, and you want to clean up existing resource history.
+The `$purge-history` operation was created to help with the management of resource history in FHIR service. It's uncommon to need to purge resource history. However, it's needed in cases when the system level or resource level [versioning policy](fhir-versioning-policy-and-history-management.md) changes, and you want to clean up existing resource history.
 
 Since `$purge-history` is a resource level operation versus a type level or system level operation, you'll need to run the operation for every resource that you want remove the history from.
 

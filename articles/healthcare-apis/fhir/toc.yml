@@ -109,7 +109,7 @@ items:
   - name: FHIR REST API capabilities
     href: fhir-rest-api-capabilities.md
   - name: Versioning policy and history management
-    href: fhir-versioning-policy-history-management.md
+    href: fhir-versioning-policy-and-history-management.md
 - name: Resources
   expanded: true
   items:
