@@ -261,7 +261,7 @@ Version upgrades are handled transparently by Azure Container Apps. You can find
    - Pub/sub routing, as it's currently in preview
 - **ACL policies**: Setting ACL policies on the Dapr sidecar configuration is currently not supported.
 - **Query API for state management (preview)**: As this feature is currently in preview, Query API for state management is currently not supported.
-- **Resiliency**: Resiliency is currently not supported in this version of Dapr in Container Apps.
+- **Resiliency**: Defining custom resiliency policies is currently not supported.
 - **Dapr API logging**: Dapr API logging is currently not supported in this version of Dapr in Container Apps.
 - **Actor Reminders**: To use actor reminders, you'll need to set `minReplicas` to at least 1 to ensure reminders will always be active and thus fire correctly. The partition actor reminders feature is currently in preview and unsupported in Container Apps.
 - **Service invocation**: While service invocation is supported in Container Apps, using service invocation without the default `content-type` is currently a preview feature and unsupported in Container Apps.
