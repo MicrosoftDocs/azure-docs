@@ -11,11 +11,11 @@ ms.author: danlep
 
 # Create and use an authorization
 
-In this article, you learn how to create an [authorization](authorizations-overview.md) in API Management and call a GitHub API that requires an authorization token. The grant type that will be used is authorization code.  
+In this article, you learn how to create an [authorization](authorizations-overview.md) (preview) in API Management and call a GitHub API that requires an authorization token. The authorization code grant type will be used.  
 
-Four steps are needed to set up an authorization with the grant type authorization code.
+Four steps are needed to set up an authorization with the authorization code grant type:
   
-1. Register an application in the identity provider (GitHub).
+1. Register an application in the identity provider (in this case, GitHub).
 1. Configure an authorization in API Management.
 1. Authorize with GitHub and configure access policies.
 1. Create an API in API Management and configure a policy.
@@ -23,8 +23,8 @@ Four steps are needed to set up an authorization with the grant type authorizati
 ## Prerequisites
 
 - A GitHub account is required.
-- Complete the following quickstart: [Create an Azure API Management instance](media/authorizations-how-to/https://docs.microsoft.com/en-us/azure/api-management/get-started-create-service-instance)
-- Enable a [managed identity](api-management-howto-use-managed-service-identity) for API Management. 
+- Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
+- Enable a [managed identity](api-management-howto-use-managed-service-identity.md) for API Management in the API Management instance. 
 
 ## Step 1: Register an application in GitHub
 
@@ -40,7 +40,7 @@ Four steps are needed to set up an authorization with the grant type authorizati
 1. In the **General** page, copy the **Client ID**, which you'll use in a later step.
 1. Select **Generate a new client secret**. Copy the secret, which won't be displayed again, and which you'll use in a later step. 
 
-    :::image type="content" source="media/authorizations-how-to/generate-secret.png" alt-text="Get client ID and client secret for the application":::
+    :::image type="content" source="media/authorizations-how-to/generate-secre.png" alt-text="Get client ID and client secret for the application":::
 
 ## Step 2: Configure an authorization in API Management
 
@@ -63,7 +63,7 @@ Four steps are needed to set up an authorization with the grant type authorizati
 
 1. After the authorization provider and authorization are created, select **Next**.
 
-1. On the **Connection** tab, select **Authorize with GitHub**. Before the authorization will work, it needs to be authorized at GitHub.
+1. On the **Login** tab, select **Authorize with GitHub**. Before the authorization will work, it needs to be authorized at GitHub.
 
     :::image type="content" source="media/authorizations-how-to/authorize-with-github.png" alt-text="Authorize with Github":::  
 
@@ -74,8 +74,8 @@ Four steps are needed to set up an authorization with the grant type authorizati
     
      :::image type="content" source="media/authorizations-how-to/consent-to-authorization.png" alt-text="Consent to authorize with Github"::: 
 
-    After the user has authorized, the browser is redirected to API Management and the window is closed. Select **Next**.
-1. On the **Access policy** page, create an Access policy so that API Management has access to use the Authorization. Ensure that a managed identity us configured for API Management. [Learn more about Managed identities in API Management](api-management-howto-use-managed-service-identity#create-a-system-assigned-managed-identity)
+    After authorization, the browser is redirected to API Management and the window is closed. If prompted during redirection, select **Allow access**. In API Management, select **Next**.
+1. On the **Access policy** page, create an access policy so that API Management has access to use the authorization. Ensure that a managed identity us configured for API Management. [Learn more about Managed identities in API Management](api-management-howto-use-managed-service-identity.md#create-a-system-assigned-managed-identity)
 
     
      1. Select **Managed identity** **+ Add members** and then select your subscription. 
@@ -86,22 +86,26 @@ Four steps are needed to set up an authorization with the grant type authorizati
 ## Step 4: Create an API in API Management and configure a policy
 
 1. Sign into Azure portal and go to your API Management instance.
-1. In the left menu, select** into Azure portal and go to API Management -> **APIs > + Add API**.
-1. Select **HTTP** and enter the following information. Then select **Create**.
+1. In the left menu, select **APIs > + Add API**.
+1. Select **HTTP** and enter the following settings. Then select **Create**.
 
-- **Display name**: *github*
-- **Web service URL**: https://api.github.com/users/
-- **API URL suffix**: *github* 
+    |Setting  |Value  |
+    |---------|---------|
+    |**Display name**     | *github*        |
+    |**Web service URL**     |  https://api.github.com/users/       |
+    |**API URL suffix**     |  *github*       |
 
-2. Navigate to the newly created API and select **Add Operation**. Enter the following information and select **Save**
+2. Navigate to the newly created API and select **Add Operation**. Enter the following settings and select **Save**.
 
-- **Display name**: *getdata*
-- **URL**: /data 
+    |Setting  |Value  |
+    |---------|---------|
+    |**Display name**     | *getdata*        |
+    |**URL**     |  /data |
 
-    :::image type="content" source="media/authorizations-how-to/select-managed-identity.png" alt-text="Add operation to API"::: 
+    :::image type="content" source="media/authorizations-how-to/add-operation.png" alt-text="Add operation to API"::: 
 
-1. In the **Inbound processing** section, select the code editor icon (`</>`)
-1. Copy and paste the following, and select **Save**. 
+1. In the **Inbound processing** section, select the (**</>**) (code editor) icon.
+1. Copy the following, and paste in the policy editor. Select **Save**. 
 
     ```xml
     <policies>
@@ -135,13 +139,14 @@ Four steps are needed to set up an authorization with the grant type authorizati
     - Create an HTTP header with a `User-Agent` header (GitHub requirement). [Learn more](https://docs.github.com/rest/overview/resources-in-the-rest-api#user-agent-required)
     - Because the incoming request to API Management will consist of a query parameter called *username*, add the username to the backend call.
 
-        The `get-authorization-context` policy references the authorization provider and authorization that were created earlier. [Learn more](api-management-access-restriction-policies.md) about how to configure this policy.
+        > [!NOTE]
+        > The `get-authorization-context` policy references the authorization provider and authorization that were created earlier. [Learn more](api-management-access-restriction-policies.md#GetAuthorizationContext) about how to configure this policy.
 
-    :::image type="content" source="media/authorizations-how-to/policy-configuration.png" alt-text="Configure policy":::
-1. Test the API. On the **Test** tab, enter a query parameter with the name *username* and as value choose the username that was used to sign into GitHub. Select **Send**. 
-    :::image type="content" source="media/authorizations-how-to/test-api.png" alt-text="Configure policy":::
+        :::image type="content" source="media/authorizations-how-to/policy-configuration.png" alt-text="Configure policy":::
+1. Test the API. On the **Test** tab, enter a query parameter with the name *username*. As value, choose the username that was used to sign into GitHub, or another valid GitHub username. Select **Send**. 
+    :::image type="content" source="media/authorizations-how-to/test-api.png" alt-text="Test API in the portal":::
 
-    A successful response returns data from the GitHub API.
+    A successful response returns user data from the GitHub API.
 
 ## Next steps
 

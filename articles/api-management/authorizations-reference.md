@@ -1,6 +1,6 @@
 ---
 title: Reference for OAuth 2.0 authorizations - Azure API Management | Microsoft Docs
-description: Reference for identity providers supported in authorizations in Azure API Management. Authorizations manage OAuth 2.0 authorization tokens to APIs
+description: Reference for identity providers supported in authorizations in Azure API Management. API Management authorizations manage OAuth 2.0 authorization tokens to APIs.
 author: dlepow
 ms.service: api-management
 ms.topic: reference
@@ -9,10 +9,12 @@ ms.author: danlep
 ---
 
 # Authorizations reference
-Below is a list of the supported identity providers for use in [authorizations](authorizations-overview.md) and there configuration options.
+This article is a reference for the supported identity providers in API Management [authorizations](authorizations-overview.md) (preview) and their configuration options.
 
 ## Azure Active Directory  
-Supports authorization code and client credentials grant type.
+
+
+**Supported grant types**: authorization code and client credentials 
 
 
 ### Authorization provider - Authorization code grant type
@@ -25,7 +27,7 @@ Supports authorization code and client credentials grant type.
 | Login URL | No | The Azure Active Directory login URL. | https://login.windows.net |
 | Tenant ID | No | The tenant ID of your Azure Active Directory application. | common |  
 | Resource URL | Yes | The resource to get authorization for. |  | 
-| Scopes | No | Scopes used for the authorization. Multiple scopes could be defined with a space between e.g "User.Read User.ReadBasic.All" |  | 
+| Scopes | No | Scopes used for the authorization. Multiple scopes could be defined separate with a space, for example, "User.Read User.ReadBasic.All" |  | 
 
 
 ### Authorization - Authorization code grant type
@@ -54,8 +56,8 @@ Supports authorization code and client credentials grant type.
 --- 
 
 ## Google, Facebook, LinkedIn, Instagram, Spotify, Dropbox, GitHub   
-Supports authorization code.
 
+**Supported grant types**: authorization code
 
 ### Authorization provider - Authorization code grant type
 | Name | Required | Description | Default |
@@ -74,7 +76,8 @@ Supports authorization code.
 --- 
 
 ## Generic OAuth 2  
-Supports authorization code grant type.
+
+**Supported grant types**: authorization code
 
 
 ### Authorization provider - Authorization code grant type
@@ -96,4 +99,4 @@ Supports authorization code grant type.
 
 ## Next steps
 
-Learn more about [authorizations](authorizations.md) and how to [create and use authorizations](authorizations-how-to.md)
+Learn more about [authorizations](authorizations-overview.md) and how to [create and use authorizations](authorizations-how-to.md)
