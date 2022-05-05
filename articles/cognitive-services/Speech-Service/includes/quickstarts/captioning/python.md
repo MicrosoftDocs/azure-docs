@@ -19,16 +19,11 @@ ms.author: eur
 
 ## Set up the environment
 
-The Speech SDK for Python is compatible with Windows, Linux, and macOS. 
+The Speech SDK for Python is available as a [Python Package Index (PyPI) module](https://pypi.org/project/azure-cognitiveservices-speech/). The Speech SDK for Python is compatible with Windows, Linux, and macOS. 
 - On Windows, you must install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, or 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package for the first time might require a restart.
 - On Linux, you must use the x64 target architecture.
 
 1. Install a version of [Python from 3.7 to 3.10](https://www.python.org/downloads/). First check the [platform-specific installation instructions](../../../quickstarts/setup-platform.md?pivots=programming-language-python) for any more requirements. 
-1. Install the Speech SDK. The Speech SDK for Python is available as a [Python Package Index (PyPI) module](https://pypi.org/project/azure-cognitiveservices-speech/). 
-
-    ```console
-    pip install azure-cognitiveservices-speech
-    ```
 1. You must also install [GStreamer](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md) for compressed input audio.
 
 > [!div class="nextstepaction"]
@@ -40,7 +35,7 @@ Follow these steps to create a new console application.
 
 1. Download or copy the [scenarios/python/console/captioning/](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/python/console/captioning/) sample files from GitHub into a local directory. 
 1. Open a command prompt in the same directory as `captioning.py`.
-1. Install the Speech SDK.  
+1. Run this command to install the Speech SDK:  
     ```console
     pip install azure-cognitiveservices-speech
     ```
