@@ -20,7 +20,7 @@ This article will help you solve various problems that can arise when using Azur
 
 ## I encountered a problem with creating an Azure Spring Apps service instance
 
-To create an instance of Azure Spring Apps, you must have sufficient permission to deploy the instance to the virtual network.  The Spring Cloud service instance must itself [Grant Azure Spring Apps service permission to the virtual network](./how-to-deploy-in-azure-virtual-network.md#grant-service-permission-to-the-virtual-network).
+To create an instance of Azure Spring Apps, you must have sufficient permission to deploy the instance to the virtual network. The Azure Spring Apps service instance must itself grant Azure Spring Apps service permission to the virtual network. For more information, see the [Grant service permission to the virtual network](./how-to-deploy-in-azure-virtual-network.md#grant-service-permission-to-the-virtual-network) section of [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 
 If you use the Azure portal to set up the Azure Spring Apps service instance, the Azure portal will validate the permissions.
 

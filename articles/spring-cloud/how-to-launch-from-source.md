@@ -169,6 +169,6 @@ In this quickstart, you learned how to:
 > * Assign public IP for your application gateway
 
 > [!div class="nextstepaction"]
-> [Spring Cloud logs, metrics, tracing](./quickstart-logs-metrics-tracing.md)
+> [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
 
 More samples are available on GitHub: [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

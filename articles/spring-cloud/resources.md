@@ -26,6 +26,6 @@ As a developer, you might find the following Azure Spring Apps resources useful:
 * [Microsoft Q&A question page](/answers/topics/azure-spring-cloud.html)
 * [Spring Cloud Services for VMware Tanzu Documentation](https://docs.pivotal.io/spring-cloud-services/1-5/common/index.html)
 * [Steeltoe](https://steeltoe.io/)
-* [Java Spring Cloud website](https://spring.io/)
+* [Spring](https://spring.io/)
 * [Spring framework](https://spring.io/projects/spring-cloud-azure)
 * [Spring on Azure](/azure/developer/java/spring-framework/)

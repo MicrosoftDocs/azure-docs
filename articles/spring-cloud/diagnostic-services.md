@@ -42,7 +42,7 @@ Choose the log category and metric category you want to monitor.
 
 ## Metrics
 
-For a complete list of metrics, see [Spring Cloud Metrics](./concept-metrics.md#user-metrics-options).
+For a complete list of metrics, see the [User metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Apps](concept-metrics.md).
 
 To get started, enable one of these services to receive the data. To learn about configuring Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
 

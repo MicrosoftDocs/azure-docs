@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Monitor Azure Spring Apps resources using alerts and action groups | Microsoft Docs"
-description: Learn how to use Spring Cloud alerts.
+description: Learn how to use Spring app alerts.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
@@ -9,7 +9,7 @@ ms.date: 12/29/2019
 ms.custom: devx-track-java
 ---
 
-# Tutorial: Monitor Spring Cloud resources using alerts and action groups
+# Tutorial: Monitor Spring app resources using alerts and action groups
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -27,11 +27,11 @@ There are two steps to set up an alert pipeline:
 
 ## Prerequisites
 
-In addition to the Azure Spring requirements, the procedures in this tutorial work with a deployed Azure Spring Apps instance.  Follow a [quickstart](./quickstart.md) to get started.
+In addition to the Azure Spring Apps requirements, the procedures in this tutorial work with a deployed Azure Spring Apps instance. Follow a [quickstart](./quickstart.md) to get started.
 
-The following procedures initialize both **Action Group** and **Alert** starting from the **Alerts** option in the left navigation pane of a Spring Cloud instance. (The procedure can also start from the **Monitor Overview** page of the Azure portal.)
+The following procedures initialize both **Action Group** and **Alert** starting from the **Alerts** option in the left navigation pane of an Azure Spring Apps instance. (The procedure can also start from the **Monitor Overview** page of the Azure portal.)
 
-Navigate from a resource group to your Spring Cloud instance. Select **Alerts** in the left pane, then select **Manage actions**:
+Navigate from a resource group to your Azure Spring Apps instance. Select **Alerts** in the left pane, then select **Manage actions**:
 
 ![Screenshot portal resource group page](media/alerts-action-groups/action-1-a.png)
 

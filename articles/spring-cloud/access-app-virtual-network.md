@@ -35,7 +35,7 @@ When **Assign Endpoint** on applications in an Azure Spring Apps service instanc
 
 #### [CLI](#tab/azure-CLI)
 
-Find the IP Address for your Spring Cloud services. Customize the value of your spring cloud name based on your real environment.
+Find the IP Address for your Spring Cloud services. Customize the value of your Azure Spring Apps instance name based on your real environment.
 
    ```azurecli
    SPRING_CLOUD_NAME='spring-cloud-name'

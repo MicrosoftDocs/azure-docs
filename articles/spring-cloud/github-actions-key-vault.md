@@ -126,4 +126,4 @@ jobs:
 
 ## Next steps
 
-* [Spring Cloud GitHub Actions](./how-to-github-actions.md)
+* [Use Azure Spring Apps CI/CD with GitHub Actions](./how-to-github-actions.md)
