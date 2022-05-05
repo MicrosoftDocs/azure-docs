@@ -32,13 +32,19 @@ You need an Azure service principal credential to authorize Azure login action. 
 
 ```azurecli
 az login
-az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth
+az ad sp create-for-rbac \
+    --role contributor \
+    --scopes /subscriptions/<SUBSCRIPTION_ID> \
+    --sdk-auth
 ```
 
 To access to a specific resource group, you can reduce the scope:
 
 ```azurecli
-az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
+az ad sp create-for-rbac \
+    --role contributor \
+    --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> \
+    --sdk-auth
 ```
 
 The command should output a JSON object:
@@ -69,9 +75,17 @@ To provision your Azure Spring Apps service instance, run the following commands
 
 ```azurecli
 az extension add --name spring
-az group create --location eastus --name <resource group name>
-az spring create -n <service instance name> -g <resource group name>
-az spring config-server git set -n <service instance name> --uri https://github.com/xxx/Azure-Spring-Cloud-Samples --label main --search-paths steeltoe-sample/config
+az group create \
+    --name <resource-group-name> \
+    --location eastus 
+az spring create \
+    --resource-group <resource-group-name> \
+    --name <service-instance-name> 
+az spring config-server git set \
+    --name <service-instance-name> \
+    --uri https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples \
+    --label main \
+    --search-paths steeltoe-sample/config
 ```
 
 ## Build the workflow
@@ -85,8 +99,8 @@ The command `az spring app create` is currently not idempotent. After you run it
 Use the following Azure CLI commands for preparation:
 
 ```azurecli
-az config set defaults.group=<service group name>
-az config set defaults.spring-cloud=<service instance name>
+az config set defaults.group=<service-group-name>
+az config set defaults.spring-cloud=<service-instance-name>
 az spring app create --name planet-weather-provider
 az spring app create --name solar-system-weather
 ```
@@ -161,13 +175,19 @@ You need an Azure service principal credential to authorize Azure login action. 
 
 ```azurecli
 az login
-az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth
+az ad sp create-for-rbac \
+    --role contributor \
+    --scopes /subscriptions/<SUBSCRIPTION_ID> \
+    --sdk-auth
 ```
 
 To access to a specific resource group, you can reduce the scope:
 
 ```azurecli
-az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
+az ad sp create-for-rbac \
+    --role contributor \
+    --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> \
+    --sdk-auth
 ```
 
 The command should output a JSON object:
@@ -357,7 +377,7 @@ The "Delete Staging Deployment" action allows you to delete the deployment not r
 
 ## Deploy with Maven Plugin
 
-Another option is to use the [Maven Plugin](./quickstart.md) for deploying the Jar and updating App settings. The command `mvn azure-spring-cloud:deploy` is idempotent and will automatically create Apps if needed. You don't need to create corresponding apps in advance.
+Another option is to use the [Maven Plugin](./quickstart.md) for deploying the Jar and updating App settings. The command `mvn azure-spring-apps:deploy` is idempotent and will automatically create Apps if needed. You don't need to create corresponding apps in advance.
 
 ```yaml
 name: AzureSpringCloud
@@ -388,7 +408,7 @@ jobs:
     # Maven deploy, make sure you have correct configurations in your pom.xml
     - name: deploy to Azure Spring Apps using Maven
       run: |
-        mvn azure-spring-cloud:deploy
+        mvn azure-spring-apps:deploy
 ```
 
 ::: zone-end

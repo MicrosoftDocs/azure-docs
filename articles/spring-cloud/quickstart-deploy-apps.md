@@ -288,7 +288,7 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
 1. Generate configurations by running the following command in the root folder of Pet Clinic containing the parent POM. If you have already signed-in with Azure CLI, the command will automatically pick up the credentials. Otherwise, it will sign you in with prompt instructions. For more information, see our [wiki page](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
    ```azurecli
-   mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.7.0:config
+   mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.10.0:config
    ```
 
    You will be asked to select:
@@ -305,8 +305,8 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
        <plugins>
            <plugin>
                <groupId>com.microsoft.azure</groupId>
-               <artifactId>azure-spring-cloud-maven-plugin</artifactId>
-               <version>1.7.0</version>
+               <artifactId>azure-spring-apps-maven-plugin</artifactId>
+               <version>1.10.0</version>
                <configuration>
                    <subscriptionId>xxxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx</subscriptionId>
                    <clusterName>v-spr-cld</clusterName>
@@ -320,7 +320,7 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
 1. The POM now contains the plugin dependencies and configurations. Deploy the apps using the following command.
 
    ```azurecli
-   mvn azure-spring-cloud:deploy
+   mvn azure-spring-apps:deploy
    ```
 
 ## Verify the services
