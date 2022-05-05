@@ -1,5 +1,5 @@
 ---
-title: Migrate logging from SDK v1 to SDK v2 (preview)
+title: Migrate logging from SDK v1 to MLflow
 titleSuffix: Azure Machine Learning
 description: Comparison of SDK v1 logging APIs and MLflow tracking
 services: machine-learning
