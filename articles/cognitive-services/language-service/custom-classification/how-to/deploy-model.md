@@ -29,7 +29,7 @@ See the [project development lifecycle](../overview.md#project-development-lifec
 
 ## Deploy model
 
-After you have reviewed model performance and decide it's fit to be used in your environment; you need to assign it to a deployment to be able to query it. Assigning the model to a deployment makes it avilable for use through the [prediction API](https://aka.ms/ct-runtime-swagger). It is recommended to create a deployment named `production` to which you assign the best model you have built so far and use it in your system. You can create another deployment called `staging` to which you can assign the model the you are currently working on to be able to test it. You can have a maximum on 10 deployments in your project. 
+After you have reviewed your model's performance and decided it can be used in your environment, you need to assign it to a deployment to be able to query it. Assigning the model to a deployment makes it available for use through the [prediction API](https://aka.ms/ct-runtime-swagger). It is recommended to create a deployment named `production` to which you assign the best model you have built so far and use it in your system. You can create another deployment called `staging` to which you can assign the model you're currently working on to be able to test it. You can have a maximum on 10 deployments in your project. 
 
 # [Language Studio](#tab/language-studio)
 
@@ -49,7 +49,7 @@ After you have reviewed model performance and decide it's fit to be used in your
 
 ## Swap deployments
 
-After you are done testing a model assigned to one deployment and you want to assign this model to another deployment you can swap these two deployments. Swapping deployments means taking the model assigned to the first deployment and assigning it to the second deployment and taking the model assigned to second deployment and assign it to the first deployment. This could be used to swap your `production` and `staging` deployments when you want to take the model assigned to `staging` and assign it to `production`. 
+You can swap deployments after you've tested a model assigned to one deployment, and want to assign it to another. Swapping deployments involves taking the model assigned to the first deployment, and assigning it to the second deployment. Then taking the model assigned to second deployment and assign it to the first deployment. This could be used to swap your `production` and `staging` deployments when you want to take the model assigned to `staging` and assign it to `production`. 
 
 # [Language Studio](#tab/language-studio)
 

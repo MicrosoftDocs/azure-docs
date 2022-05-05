@@ -46,8 +46,8 @@ Within your project you can do the following:
 * **Build and train your model**: The core step of your project, where your model starts learning from your labeled data. 
 * **View model evaluation details**: Review your model performance to decide if there is room for improvement, or you are satisfied with the results.
 * **Improve model**: When you know what went wrong with your model, and how to improve performance. 
-* **Deployment**: After you have reviewed model performance and decide it's fit to be used in your environment; you need to assign it to a deployment to be able to query it. Assigning the model to a deployment makes it avilable for use through the [prediction API](https://aka.ms/ct-runtime-swagger). 
-* **Test model**: After deploying your model you can use this operation in [Language Studio](https://aka.ms/LanguageStudio) to try it out your deployment and see how it would prform in production.
+* **Deployment**: After you have reviewed model performance and decide it's fit to be used in your environment; you need to assign it to a deployment to be able to query it. Assigning the model to a deployment makes it available for use through the [prediction API](https://aka.ms/ct-runtime-swagger). 
+* **Test model**: After deploying your model, you can use this operation in [Language Studio](https://aka.ms/LanguageStudio) to try it out your deployment and see how it would perform in production.
 
 ### Project types
 
