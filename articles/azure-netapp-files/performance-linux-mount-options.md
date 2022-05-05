@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 05/05/2022
 ms.author: anfdocs
 ---
 # Linux NFS mount options best practices for Azure NetApp Files
@@ -70,6 +70,8 @@ For details, see [Linux concurrency best practices for Azure NetApp Files](perfo
 
 ## `Rsize` and `Wsize`
  
+Examples in this section provide information about how to approach performance tuning. You might need to make adjustments to suit your specific application needs.
+
 The `rsize` and `wsize` flags set the maximum transfer size of an NFS operation.  If `rsize` or `wsize` are not specified on mount, the client and server negotiate the largest size supported by the two.   Currently, both Azure NetApp Files and modern Linux distributions support read and write sizes as large as 1,048,576 Bytes (1 MiB).   However, for best overall throughput and latency, Azure NetApp Files recommends setting both `rsize` and `wsize` no larger than 262,144 Bytes (256 K). You might observe that both increased latency and decreased throughput when using `rsize` and `wsize` larger than 256 KiB. 
 
 For example, [Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on SUSE Linux Enterprise Server](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md#mount-the-azure-netapp-files-volumes) shows the 256-KiB `rsize` and `wsize` maximum as follows:
