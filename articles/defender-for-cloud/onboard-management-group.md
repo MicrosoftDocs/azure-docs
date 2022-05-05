@@ -7,8 +7,6 @@ ms.date: 04/25/2022
 
 # Enable Defender for Cloud on all subscriptions in a management group
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 You can use Azure Policy to enable Microsoft Defender for Cloud on all the Azure subscriptions within the same management group (MG). This is more convenient than accessing them individually from the portal, and works even if the subscriptions belong to different owners. 
 
 To onboard a management group and all its subscriptions:
