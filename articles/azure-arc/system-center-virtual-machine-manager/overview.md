@@ -10,7 +10,7 @@ keywords: "VMM, Arc, Azure"
 ms.custom: references_regions
 ---
 
-# Arc enabled System Center Virtual Machine Manager
+# Overview of Arc-enabled System Center Virtual Machine Manager
 
 Azure Arc-enabled System Center Virtual Machine Manager (SCVMM) empowers System Center customers to connect their VMM environment to Azure and perform VM self-service operations from Azure portal. With Azure Arc-enabled SCVMM, you get a consistent management experience across Azure.
 
