@@ -1,5 +1,5 @@
 ---
-title: How to configure data sources for Azure Managed Grafana Preview with Managed Identity
+title: How to configure data sources for Azure Managed Grafana Preview
 description: In this how-to guide, discover how you can configure data sources for Azure Managed Grafana using Managed Identity.
 author: maud-lv 
 ms.author: malev 
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 3/31/2022 
 ---
 
-# How to configure data sources for Azure Managed Grafana Preview with Managed Identity
+# How to configure data sources for Azure Managed Grafana Preview
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ You can find all available Grafana data sources by going to your workspace and s
 
    :::image type="content" source="media/managed-grafana-how-to-source-plugins.png" alt-text="Screenshot of the Add data source page.":::
 
-## Default data sources in an Azure Managed Grafana workspace
+## Default configuration for Azure Monitor
 
 The Azure Monitor data source is automatically added to all new Managed Grafana resources. To review or modify its configuration, follow these steps in your workspace endpoint:
 
@@ -66,15 +66,8 @@ The Azure Monitor data source is automatically added to all new Managed Grafana 
 
 Authentication and authorization are subsequently made through the provided managed identity. With Managed Identity, you can assign permissions for your Managed Grafana workspace to access Azure Monitor data without having to manually manage service principals in Azure Active Directory (Azure AD).
 
-## Manually assign permissions for Managed Grafana to access data in Azure
-
-Azure Managed Grafana automatically configures the **Monitoring Reader** role for accessing all the Azure Monitor data and Log Analytics resources in your subscription. To change this:
-
-1. Go to the Log Analytics resource that contains the monitoring data you want to visualize.
-1. Select **Access Control (IAM)**.
-1. Search for your Managed Grafana workspace and change the permission.
-
 ## Next steps
 
 > [!div class="nextstepaction"]
+> [Modify access permissions to Azure Monitor](./how-to-permissions.md)
 > [Share an Azure Managed Grafana workspace](./how-to-share-grafana-workspace.md)
