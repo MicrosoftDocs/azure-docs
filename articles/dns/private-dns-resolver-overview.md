@@ -36,8 +36,8 @@ The architecture for Azure DNS Private Resolver is summarized in the following f
 Figure 1: Azure DNS Private Resolver architecture
 
 For more information about creating a private DNS resolver, see:
-- [Quickstart: Create an Azure private DNS resolver using the Azure portal](private-dns-resolver-getstarted-portal.md)
-- [Quickstart: Create an Azure private DNS resolver using Azure PowerShell](private-dns-resolver-getstarted-powershell.md)
+- [Quickstart: Create an Azure DNS Private Resolver using the Azure portal](private-dns-resolver-getstarted-portal.md)
+- [Quickstart: Create an Azure DNS Private Resolver using Azure PowerShell](private-dns-resolver-getstarted-powershell.md)
 
 ## Azure DNS Private Resolver benefits
 
@@ -125,7 +125,5 @@ DNS forwarding ruleset have the following limitations:
 ## Next steps
 
 * Learn how to create an Azure DNS Private Resolverby using [Azure PowerShell](./private-dns-resolver-getstarted-powershell.md) or [Azure Portal](./private-dns-resolver-getstarted-portal.md).
-
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
-
 * [Learn module: Introduction to Azure DNS](/learn/modules/intro-to-azure-dns).
