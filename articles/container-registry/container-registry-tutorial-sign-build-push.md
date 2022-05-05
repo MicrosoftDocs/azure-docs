@@ -19,7 +19,6 @@ In this article you learn:
 > * How to remotely sign container images
 > * How to configure a trust policy for the keys that are trusted for deployments
 > * How to verify trusted signatures as part of the deployment process
-
 > TODO: Include a diagram of AKV --> Build --> Sign --> ACR --> Verify
 
 ## Prerequisites
@@ -259,19 +258,6 @@ If you have an existing certificate, upload to Azure Key Vault and skip to [Crea
     notation cert ls
     ```
 
-
-### Create a self-signed Certificate (Azure Portal)
-
-Use the Azure Portal, create a new certificate with the following changes
-
-| Name | Value |
-| - | - |
-| Certificate Name | wabbit-networks-io |
-| Subject | CN=wabbit-networks.io |
-| Extended Key Usages (EKUs) | Add: 1.3.6.1.5.5.7.3.3 |
-
-![Creating a certificate in the Azure Portal](./media/container-registry-tutorial-sign-build-push/create-certificate.png)
-
 ## Build and sign a container image
 
 1. Build and Push a new image with ACR Tasks
@@ -363,16 +349,7 @@ In step 1, the following were completed:
 - 1
 - 2
 - 3
-
-In the next step, the following will be completed:
-
-- 1
-- 2
-- 3
-
 ## Next steps
-
-To continue this article: 
 
 - [Verify and deploy to AKS](./container-registry-tutorial-sign-verify-deploy.md)
 
