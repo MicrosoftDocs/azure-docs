@@ -38,7 +38,7 @@ Captioning can accompany real time or pre-recorded speech. Whether you're showin
 
 For real time captioning, use a microphone or audio input stream instead of file input. For examples of how to recognize speech from a microphone, see the [Speech to text quickstart](get-started-speech-to-text.md) and [How to recognize speech](how-to-recognize-speech.md) documentation. For more information about streaming, see [How to use the audio input stream](how-to-use-audio-input-streams.md).
 
-For captioning of a prerecoding, send file input to the Speech service. For more information, see [How to use compressed input audio](how-to-use-codec-compressed-audio-input-streams.md).
+For captioning of a prerecording, send file input to the Speech service. For more information, see [How to use compressed input audio](how-to-use-codec-compressed-audio-input-streams.md).
 
 ## Caption and speech synchronization 
 
@@ -52,7 +52,7 @@ For more information, see [Get speech recognition results](get-speech-recognitio
 
 ## Get partial results
 
-Consider when to start displaying captions, and how many words to show at a time. Speech recognition results are subject to change while an utterance is still being recognized. Partial partial results are returned with each `Recognizing` event. As each word is processed, the Speech service re-evaluates an utterance in the new context and again returns the best result. The new result isn't guaranteed to be the same as the previous result. The complete and final transcription of an utterance is returned with the `Recognized` event.
+Consider when to start displaying captions, and how many words to show at a time. Speech recognition results are subject to change while an utterance is still being recognized. Partial results are returned with each `Recognizing` event. As each word is processed, the Speech service re-evaluates an utterance in the new context and again returns the best result. The new result isn't guaranteed to be the same as the previous result. The complete and final transcription of an utterance is returned with the `Recognized` event.
 
 > [!NOTE]
 > Punctuation of partial results is not available. 
