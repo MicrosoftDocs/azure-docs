@@ -1,6 +1,6 @@
 ---
 title: My Apps portal overview
-description: Learn about to manage applications in the My Apps portal.
+description: Learn about how to manage applications in the My Apps portal.
 titleSuffix: Azure AD
 services: active-directory
 author: saipradeepb23
