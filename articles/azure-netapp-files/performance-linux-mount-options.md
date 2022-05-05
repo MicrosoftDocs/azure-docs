@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 05/05/2022
 ms.author: anfdocs
 ---
 # Linux NFS mount options best practices for Azure NetApp Files
