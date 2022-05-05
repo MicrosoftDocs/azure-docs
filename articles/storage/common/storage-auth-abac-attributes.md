@@ -43,10 +43,24 @@ In this preview, storage accounts support the following suboperations:
 > | Display name | DataAction | Suboperation |
 > | :--- | :--- | :--- |
 > | [List blobs](#list-blobs) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | `Blob.List` |
-> | [Read a blob](#read-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | NOT `Blob.List` |
+> | [Read a blob](#read-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | **NOT** `Blob.List` |
 > | [Read content from a blob with tag conditions](#read-content-from-a-blob-with-tag-conditions) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | `Blob.Read.WithTagConditions` |
 > | [Sets the access tier on a blob](#sets-the-access-tier-on-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | `Blob.Write.Tier` |
 > | [Write to a blob with blob index tags](#write-to-a-blob-with-blob-index-tags) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` <br/> `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` | `Blob.Write.WithTagHeaders` |
+
+## Understand potential overlap between selected read actions
+
+Depending on the read actions you select to target for your condition, there might be a subtle overlap between actions that initially is not apparent. The following table tries to describe the overlap if you are interested in the details.
+
+| Selected actions | Operations that are included |
+| --- | --- |
+| All read operations | <ul><li>List blobs</li><li>Read a blob</li><li>Read content from  a blob with tag conditions</li><li>&lt;Any future read operations&gt;</li></ul> |
+| List blobs | <ul><li>List blobs</li></ul> |
+| Read a blob | <ul><li>Read a blob</li><li>Read content from  a blob with tag conditions</li><li>&lt;Any future read operations&gt;</li><li>**NOT** List blobs</li></ul> |
+| Read content from  a blob with tag conditions | <ul><li>Read content from  a blob with tag conditions</li></ul> |
+| List blobs<br/>Read a blob | <ul><li>List blobs</li><li>Read a blob</li><li>Read content from  a blob with tag conditions</li><li>&lt;Any future read operations&gt;</li></ul> |
+| Read a blob<br/>Read content from  a blob with tag conditions | <ul><li>Read a blob</li><li>Read content from  a blob with tag conditions</li><li>&lt;Any future read operations&gt;</li><li>**NOT** List blobs</li></ul> |
+| List blobs<br/>Read a blob<br/>Read content from  a blob with tag conditions | <ul><li>List blobs</li><li>Read a blob</li><li>Read content from  a blob with tag conditions</li><li>&lt;Any future read operations&gt;</li></ul> |
 
 ## Azure Blob storage actions and suboperations
 
@@ -437,10 +451,13 @@ This section lists the Azure Blob storage attributes you can use in your conditi
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Blob prefix |
-> | **Description** | Allowed prefix of blobs to be listed. |
+> | **Description** | Allowed prefix of blobs to be listed.<br/>Path of a virtual directory or folder resource. Use when you want to check the folders in a blob path. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:prefix` |
 > | **Attribute source** | Request |
 > | **Attribute type** | String |
+
+> [!NOTE]
+> When specifying conditions for the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:prefix` attribute, the values shouldn't include the container name or a preceding slash (`/`) character. Use the path characters without any URL encoding.
 
 ### Container name
 
