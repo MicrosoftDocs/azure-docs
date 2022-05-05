@@ -47,7 +47,9 @@ While not required, you may want to [configure](set-edit-policies.md) one or mor
     Example name: *ForwardContext*
 1. In the **XML policy fragment** editor, type or paste one or more policy XML elements between the `<fragment>` and `</fragment>` tags. 
 
-    The following example fragment contains a [`set-header`](api-management-transformation-policies.md#SetHTTPheader) policy configuration to forward context information to a backend service. This fragment would be included in an Inbound policy section. The policy expressions in this example access the built-in [`context` variable](api-management-policy-expressions.md#ContextVariables).
+    :::image type="content" source="media/policy-fragments/create-fragment.png" alt-text="Create policy fragment":::
+
+    For example, the following fragment contains a [`set-header`](api-management-transformation-policies.md#SetHTTPheader) policy configuration to forward context information to a backend service. This fragment would be included in an inbound policy section. The policy expressions in this example access the built-in [`context` variable](api-management-policy-expressions.md#ContextVariables).
 
     ```xml
     <fragment>
@@ -58,12 +60,11 @@ While not required, you may want to [configure](set-edit-policies.md) one or mor
     </fragment>
     ```
     
-    :::image type="content" source="media/policy-fragments/create-fragment.png" alt-text="Create policy fragment":::
 1. Select **Create**. The fragment is added to the list of policy fragments.
 
 ## Include a fragment in a policy definition
 
-Configure the [`include-fragment`](api-management-advanced-policies.md#IncludeFragment) policy to insert a policy fragment in a policy definition. Learn how to [set or edit policies](set-edit-policies.md).
+Configure the [`include-fragment`](api-management-advanced-policies.md#IncludeFragment) policy to insert a policy fragment in a policy definition. For more information about policy definitions, see [Set or edit policies](set-edit-policies.md).
 
 * You may include a fragment at any scope and in any policy section, as long as the underlying policy or policies in the fragment support that usage.
 * You may include multiple policy fragments in a policy definition.
@@ -80,7 +81,7 @@ For example, insert the policy fragment named *ForwardContext* in the inbound po
 ```
 
 > [!TIP]
-> If you want to see the content of an included fragment displayed in the policy definition, select **Recalculate effective policy** in the policy editor.
+> To see the content of an included fragment displayed in the policy definition, select **Recalculate effective policy** in the policy editor.
 
 ## Manage policy fragments
 
@@ -111,5 +112,5 @@ For more information about working with policies, see:
 
 + [Tutorial: Transform and protect APIs](transform-api.md)
 + [Set or edit policies](set-edit-policies.md)
-+ [Policy reference](./api-management-policies.md) for a full list of policy statements and their settings
++ [Policy reference](./api-management-policies.md) for a full list of policy statements
 + [Policy samples](./policies/index.md)	

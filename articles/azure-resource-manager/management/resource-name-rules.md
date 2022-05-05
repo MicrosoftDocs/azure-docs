@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 04/26/2022
+ms.date: 04/28/2022
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -531,10 +531,14 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | netAppAccounts | resource group | 1-128 | Alphanumerics, underscores, periods, and hyphens. |
-> | netAppAccounts / capacityPools | NetApp account | 1-64 |  Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. |
-> | netAppAccounts / snapshotPolicies | NetApp account | 1-64 |  Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. |
-> | netAppAccounts / volumeGroups | NetApp account | 1-64 |  Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. |
+> | netAppAccounts | resource group | 1-128 | Alphanumerics, underscores, and hyphens. <br><br> Start with alphanumeric. |
+> | netAppAccounts / backups | NetApp account | 3-225 | Alphanumerics, underscores, periods, and hyphens. <br><br> Start with alphanumeric. |
+> | netAppAccounts / backupPolicies | NetApp account | 1-64 | Alphanumerics, underscores, and hyphens. <br><br> Start with alphanumeric. |
+> | netAppAccounts / capacityPools | NetApp account | 1-64 |  Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. |
+> | netAppAccounts / snapshots | NetApp account | 1-255 | Alphanumerics, underscores, and hyphens. <br><br> Start with alphanumeric. |
+> | netAppAccounts / snapshotPolicies | NetApp account | 1-64 |  Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. |
+> | netAppAccounts / volumes | NetApp account | 1-64 | Alphanumerics, underscores, and hyphens. <br><br> Start with alphanumeric. |
+> | netAppAccounts / volumeGroups | NetApp account | 3-64 |  Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. |
 
 ## Microsoft.Network
 
@@ -804,7 +808,7 @@ In the following tables, the term alphanumeric refers to:
 > [!NOTE]
 > A web site must have a globally unique URL. When you create a web site that uses a hosting plan, the URL is `http://<app-name>.azurewebsites.net`. The app name must be globally unique. When you create a web site that uses an App Service Environment, the app name must be unique within the [domain for the App Service Environment](../../app-service/environment/using-an-ase.md#app-access). For both cases, the URL of the site is globally unique.
 >
-> Azure Functions has the same naming rules and restrictions as Microsoft.Web/sites. However, prior to version 4.x of Azure Functions Core Tools, the function name was truncated to 32 characters when generating the host ID. For version 4.x, this limit no longer applies. For earlier versions, limit the function name to 32 characters to avoid naming collisions.
+> Azure Functions has the same naming rules and restrictions as Microsoft.Web/sites. When generating the host ID, the function app name is truncated to 32 characters. This can cause host ID collision when a shared storage account is used. For more information, see [Host ID considerations](../../azure-functions/storage-considerations.md#host-id-considerations). 
 
 ## Next steps
 

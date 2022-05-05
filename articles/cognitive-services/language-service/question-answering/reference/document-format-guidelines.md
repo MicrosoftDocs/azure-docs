@@ -3,8 +3,8 @@ title: Import document format guidelines - question answering
 description: Use these guidelines for importing documents to get the best results for your content with question answering.
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.author: mbullwin
-author: mrbullwinkle
+ms.author: jboback
+author: jboback
 ms.topic: reference
 ms.date: 01/23/2022
 ---
