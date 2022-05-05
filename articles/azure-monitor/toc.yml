@@ -1205,6 +1205,8 @@ items:
       items:
       - name: Overview
         href: vm/vminsights-health-overview.md
+      - name: Migrate
+        href: vm/vminsights-health-migrate.md
       - name: Enable
         href: vm/vminsights-health-enable.md
       - name: Alerts
