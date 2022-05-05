@@ -80,7 +80,7 @@ Finally, detect the single source face that you'll use for matching, and save it
 
 In this guide, the face detected in this image should be returned as the face that's similar to the source image face.
 
-![Photo of a man smiling; this is the same person as the previous image](../../media/quickstarts/family-1-dad-1.jpg)
+![Photo of a man smiling; this is the same person as the previous image](../media/quickstarts/family-1-dad-1.jpg)
 
 The following code calls the Find Similar API and should return a reference to this face as the result.
 
