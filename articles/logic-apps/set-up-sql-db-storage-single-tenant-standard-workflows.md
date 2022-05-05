@@ -115,13 +115,13 @@ The following table describes some reasons why you might want to use SQL:
 
    - If you're using Azure SQL database, complete the following requirements:
 
-     - For local development and testing, explicitly allow connections from your local computer's IP address. You can [set your IP firewall rules in Azure SQL Server](../azure-sql/database/network-access-controls-overview.md#ip-firewall-rules).
+     - For local development and testing, explicitly allow connections from your local computer's IP address. You can [set your IP firewall rules in Azure SQL Server](/azure/azure-sql/database/network-access-controls-overview#ip-firewall-rules).
 
-     - In the [Azure portal](https://portal.azure.com), permit your logic app resource to access the SQL database with a provided connection string by [allowing Azure services](../azure-sql/database/network-access-controls-overview.md#allow-azure-services).
+     - In the [Azure portal](https://portal.azure.com), permit your logic app resource to access the SQL database with a provided connection string by [allowing Azure services](/azure/azure-sql/database/network-access-controls-overview#allow-azure-services).
 
-     - Set up any other [SQL database network access controls](../azure-sql/database/network-access-controls-overview.md) as necessary for your scenario.
+     - Set up any other [SQL database network access controls](/azure/azure-sql/database/network-access-controls-overview) as necessary for your scenario.
 
-   - If you're using Azure SQL Managed Instance, allow Azure services (`logicapp`) to [connect to your SQL database through secured public endpoints](../azure-sql/managed-instance/public-endpoint-overview.md).
+   - If you're using Azure SQL Managed Instance, allow Azure services (`logicapp`) to [connect to your SQL database through secured public endpoints](/azure/azure-sql/managed-instance/public-endpoint-overview).
 
 <a name="set-up-sql-logic-app-creation-azure-portal"></a>
 

@@ -2,7 +2,7 @@
 title: Azure Service Bus access control with Shared Access Signatures
 description: Overview of Service Bus access control using Shared Access Signatures overview, details about SAS authorization with Azure Service Bus.
 ms.topic: article
-ms.date: 04/14/2022
+ms.date: 04/26/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
@@ -119,9 +119,9 @@ To regenerate primary and secondary keys in the **Azure portal**, follow these s
 
     :::image type="content" source="./media/service-bus-sas/regenerate-keys.png" alt-text="Screenshot of SAS Policy page with Regenerate options selected.":::
 
-If you are using **Azure PowerShell**, use the [`New-AzServiceBusKey`](/powershell/module/az.servicebus/new-azservicebuskey) cmdlet to regenerate primary and secondary keys for a Service Bus namespace. With PowerShell, you can also specify values for primary and secondary keys that are being generated, by using the `-KeyValue` parameter. 
+If you are using **Azure PowerShell**, use the [`New-AzServiceBusKey`](/powershell/module/az.servicebus/new-azservicebuskey) cmdlet to regenerate primary and secondary keys for a Service Bus namespace. You can also specify values for primary and secondary keys that are being generated, by using the `-KeyValue` parameter. 
 
-If you are using **Azure CLI**, use the [`az servicebus namespace authorization-rule keys renew`](/cli/azure/servicebus/namespace/authorization-rule/keys#az-servicebus-namespace-authorization-rule-keys-renew) command to regenerate primary and secondary keys for a Service Bus namespace.
+If you are using **Azure CLI**, use the [`az servicebus namespace authorization-rule keys renew`](/cli/azure/servicebus/namespace/authorization-rule/keys#az-servicebus-namespace-authorization-rule-keys-renew) command to regenerate primary and secondary keys for a Service Bus namespace. You can also specify values for primary and secondary keys that are being generated, by using the `--key-value` parameter. 
     
 ## Shared Access Signature authentication with Service Bus
 

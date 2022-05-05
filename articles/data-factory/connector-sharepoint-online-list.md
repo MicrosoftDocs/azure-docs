@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/18/2022
+ms.date: 04/22/2022
 ms.author: jianleishen
 ---
 # Copy data from SharePoint Online List by using Azure Data Factory or Azure Synapse Analytics
@@ -104,7 +104,7 @@ The following sections provide details about properties you can use to define en
 
 ## Linked service properties
 
-The following properties are supported for an SharePoint Online List linked service:
+The following properties are supported for a SharePoint Online List linked service:
 
 | **Property**        | **Description**                                              | **Required** |
 | ------------------- | ------------------------------------------------------------ | ------------ |

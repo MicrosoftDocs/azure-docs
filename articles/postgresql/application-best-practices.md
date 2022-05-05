@@ -4,8 +4,9 @@ description: Learn about best practices for building an app by using Azure Datab
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.author: sumuth
-author: mksuni
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.date: 12/10/2020
 ---
 

@@ -80,7 +80,7 @@ In this article, you learn about how to use the Java SDK to do service-to-servic
     Replace **FILL-IN-HERE** with the actual values for the Azure Active Directory Web application.
 
     ```java
-    private static String clienttId = "FILL-IN-HERE";
+    private static String clientId = "FILL-IN-HERE";
     private static String tenantId = "FILL-IN-HERE";
     private static String clientSecret = "FILL-IN-HERE";
    

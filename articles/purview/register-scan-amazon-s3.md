@@ -390,7 +390,7 @@ Continue with [Create a scan for one or more Amazon S3 buckets](#create-a-scan-f
 
 Once you've added your buckets as Microsoft Purview data sources, you can configure a scan to run at scheduled intervals or immediately.
 
-1. Select the **Data Map** tab on the left pane in the [Microsoft Purview Studio](https://web.purview.azure.com/resource/), and then do one of the following:
+1. Select the **Data Map** tab on the left pane in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/), and then do one of the following:
 
     - In the **Map view**, select **New scan** ![New scan icon.](./media/register-scan-amazon-s3/new-scan-button.png) in your data source box.
     - In the **List view**, hover over the row for your data source, and select **New scan** ![New scan icon.](./media/register-scan-amazon-s3/new-scan-button.png).
