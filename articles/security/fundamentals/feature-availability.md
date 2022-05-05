@@ -360,7 +360,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Rapid7](../../sentinel/sentinel-solutions-catalog.md#rapid7) | Public Preview | Not Available |
 | - [RSA SecurID](../../sentinel/sentinel-solutions-catalog.md#rsa) | Public Preview | Not Available |
 | - [Salesforce Service Cloud](../../sentinel/data-connectors-reference.md#salesforce-service-cloud-preview)                         | Public Preview | Not Available      |
-| - [SAP (Continuous Threat Monitoring for SAP)](../../sentinel/sap-deploy-solution.md) | Public Preview | Not Available |
+| - [SAP (Continuous Threat Monitoring for SAP)](../../sentinel/sap/deployment-overview.md) | Public Preview | Not Available |
 | - [Semperis](../../sentinel/sentinel-solutions-catalog.md#semperis) | Public Preview | Not Available |
 | - [Senserva Pro](../../sentinel/sentinel-solutions-catalog.md#senserva-pro) | Public Preview | Not Available |
 | - [Slack Audit](../../sentinel/sentinel-solutions-catalog.md#slack) | Public Preview | Not Available |
