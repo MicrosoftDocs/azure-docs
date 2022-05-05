@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 05/24/2022
 ms.custom: designer
 ---
 
@@ -18,7 +18,6 @@ ms.custom: designer
 Azure Machine Learning studio provides UI to build and debug your pipeline. You can use components to author a pipeline in the designer, and you can debug your pipeline in the job detail page.
 
 This article will introduce how to use the studio UI to build and debug machine learning pipelines.
-
 
 ## Build machine learning pipeline
 
@@ -31,7 +30,7 @@ Right pane
 
 ### Drag and drop components to build pipeline
 
-In the designer homepage, you can select "New" to open a blank pipeline draft. 
+In the designer homepage, you can select "New" to open a blank pipeline draft.
 
 In the asset library left of the canvas, there are "Component" and "Data" tabs, which contains components and data registered to the workspace. Under  the"Component" tab, there are built-in components and custom components. For how to create custom component, you can refer to the [component article](concept-component.md).
 
@@ -66,7 +65,7 @@ Now you've built your pipeline. Select **Submit** button on right top of the can
 After you submit your pipeline job, you'll see a submitted job list in the left pane, which shows all the pipeline job you create from the current pipeline draft in the same session. There's also notification popping up from the notification center. You can select through the pipeline job link in the submission list or the notification to check pipeline job status or debugging.
 
 > [!NOTE]
-> Pipeline job status and resuls will not be filled back to the authoring page.
+> Pipeline job status and results will not be filled back to the authoring page.
 
 If you want to try a few different parameter values for the same pipeline, you can change values and submit for multiple times, without having to waiting for the running status.
 
@@ -194,7 +193,6 @@ When you have multiple pipeline jobs for the same project but with different set
     ![Screenshot showing compare graph in detail page](./media/new-pipeline-ui/compare-graph-in-detail.png)
  -->
 
-
 ## Next steps
 
 In this article, you learned the key features in how to create, explore, and debug a pipeline in UI. To learn more about how you can use the pipeline, see the following articles:
@@ -202,6 +200,3 @@ In this article, you learned the key features in how to create, explore, and deb
 + [How to train a model in the designer](tutorial-designer-automobile-price-train-score.md)
 + [How to deploy model to real-time endpoint in the designer](tutorial-designer-automobile-price-deploy.md)
 + [What is machine learning component](concept-component.md)
-
-
-
