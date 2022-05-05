@@ -65,26 +65,30 @@ Use the following instructions to run the script, depending on the Operating Sys
 Follow these instructions to run the script on a Windows machine.
 
 1. Open a new PowerShell window and verify if Azure CLI is successfully installed in the workstation, use the following command:
-   `az`
-
+    ```azurepowershell-interactive
+    az
+    ```
 1. Navigate to the folder where you've downloaded the PowerShell script:
    *cd C:\Users\ContosoUser\Downloads*
 
 1. Run the following command to allow the script to run since it's an unsigned script (if you close the session before you complete all the steps, run this command again for the new session):
-   `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
-
+    ```azurepowershell-interactive
+    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+    ```
 1. Run the script:
-   `./resource-bridge-onboarding-script.ps1`
-
+    ```azurepowershell-interactive
+    ./resource-bridge-onboarding-script.ps1
+    ```
 ### Linux
 
 Follow these instructions to run the script on a Linux machine:
 
-1. Open the terminal and navigate to the folder where you've downloaded the Bash script.
+1. Open the terminal and navigate to the folder, where you've downloaded the Bash script.
 2. Execute the script using the following command:
-  ```sh
+
+    ```sh
     bash resource-bridge-onboarding-script.sh
-  ```
+    ```
 
 ## Script runtime
 The script execution will take up to half an hour and you'll be prompted for various details. See the following table for related information:
@@ -97,6 +101,7 @@ The script execution will take up to half an hour and you'll be prompted for var
 | **SCVMM password** | Password for the SCVMM admin account |
 | **Private cloud selection** | Select the name of the private cloud where the Arc resource bridge VM should be deployed. |
 | **Virtual Network selection** | Select the name of the virtual network to which *Arc resource bridge VM* needs to be connected. This network should allow the appliance to talk to the VMM management server and the Azure endpoints (or internet). |
+| **Static IP** | Select the VMM static IP pool that will be used to allot IP address. |
 | **Control Pane IP** | Provide a reserved IP address (a reserved IP address in your DHCP range or a static IP outside of DHCP range but still available on the network). The key thing is this IP address shouldn't be assigned to any other machine on the network. |
 | **Appliance proxy settings** | Type ‘Y’ if there's a proxy in your appliance network, else type ‘N’.|
 | **http** | Address of the HTTP proxy server. |
