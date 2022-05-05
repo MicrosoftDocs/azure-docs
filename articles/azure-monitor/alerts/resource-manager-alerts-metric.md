@@ -454,7 +454,6 @@ param actionGroupId string = ''
 resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
   name: alertName
   location: 'global'
-  tags: {}
   properties: {
     description: alertDescription
     severity: alertSeverity
@@ -648,7 +647,6 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       "apiVersion": "2018-03-01",
       "name": "[parameters('alertName')]",
       "location": "global",
-      "tags": {},
       "properties": {
         "description": "[parameters('alertDescription')]",
         "severity": "[parameters('alertSeverity')]",
@@ -1119,7 +1117,6 @@ var criteria = array(criterion)
 resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
   name: alertName
   location: 'global'
-  tags: {}
   properties: {
     description: alertDescription
     severity: alertSeverity
@@ -1244,7 +1241,6 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       "apiVersion": "2018-03-01",
       "name": "[parameters('alertName')]",
       "location": "global",
-      "tags": {},
       "properties": {
         "description": "[parameters('alertDescription')]",
         "severity": "[parameters('alertSeverity')]",
@@ -1396,7 +1392,6 @@ var criteria = array(criterion)
 resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
   name: alertName
   location: 'global'
-  tags: {}
   properties: {
     description: alertDescription
     severity: alertSeverity
@@ -1516,7 +1511,6 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       "apiVersion": "2018-03-01",
       "name": "[parameters('alertName')]",
       "location": "global",
-      "tags": {},
       "properties": {
         "description": "[parameters('alertDescription')]",
         "severity": "[parameters('alertSeverity')]",
@@ -1695,7 +1689,6 @@ param actionGroupId string = ''
 resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
   name: alertName
   location: 'global'
-  tags: {}
   properties: {
     description: alertDescription
     severity: alertSeverity
@@ -1872,7 +1865,6 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       "apiVersion": "2018-03-01",
       "name": "[parameters('alertName')]",
       "location": "global",
-      "tags": {},
       "properties": {
         "description": "[parameters('alertDescription')]",
         "severity": "[parameters('alertSeverity')]",
@@ -2119,7 +2111,6 @@ param actionGroupId string = ''
 resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
   name: alertName
   location: 'global'
-  tags: {}
   properties: {
     description: alertDescription
     severity: alertSeverity
@@ -2348,7 +2339,6 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       "apiVersion": "2018-03-01",
       "name": "[parameters('alertName')]",
       "location": "global",
-      "tags": {},
       "properties": {
         "description": "[parameters('alertDescription')]",
         "severity": "[parameters('alertSeverity')]",
@@ -2583,7 +2573,6 @@ param actionGroupId string = ''
 resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
   name: alertName
   location: 'global'
-  tags: {}
   properties: {
     description: alertDescription
     severity: alertSeverity
@@ -2829,7 +2818,6 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       "apiVersion": "2018-03-01",
       "name": "[parameters('alertName')]",
       "location": "global",
-      "tags": {},
       "properties": {
         "description": "[parameters('alertDescription')]",
         "severity": "[parameters('alertSeverity')]",
@@ -3070,7 +3058,6 @@ param actionGroupId string = ''
 resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
   name: alertName
   location: 'global'
-  tags: {}
   properties: {
     description: alertDescription
     severity: alertSeverity
@@ -3302,7 +3289,6 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       "apiVersion": "2018-03-01",
       "name": "[parameters('alertName')]",
       "location": "global",
-      "tags": {},
       "properties": {
         "description": "[parameters('alertDescription')]",
         "severity": "[parameters('alertSeverity')]",
@@ -3536,7 +3522,6 @@ param actionGroupId string = ''
 resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
   name: alertName
   location: 'global'
-  tags: {}
   properties: {
     description: alertDescription
     severity: alertSeverity
@@ -3784,7 +3769,6 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       "apiVersion": "2018-03-01",
       "name": "[parameters('alertName')]",
       "location": "global",
-      "tags": {},
       "properties": {
         "description": "[parameters('alertDescription')]",
         "severity": "[parameters('alertSeverity')]",
@@ -4024,7 +4008,6 @@ param actionGroupId string = ''
 resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
   name: alertName
   location: 'global'
-  tags: {}
   properties: {
     description: alertDescription
     severity: alertSeverity
@@ -4254,7 +4237,6 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       "apiVersion": "2018-03-01",
       "name": "[parameters('alertName')]",
       "location": "global",
-      "tags": {},
       "properties": {
         "description": "[parameters('alertDescription')]",
         "severity": "[parameters('alertSeverity')]",
@@ -4489,7 +4471,6 @@ param actionGroupId string = ''
 resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
   name: alertName
   location: 'global'
-  tags: {}
   properties: {
     description: alertDescription
     severity: alertSeverity
@@ -4735,7 +4716,6 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       "apiVersion": "2018-03-01",
       "name": "[parameters('alertName')]",
       "location": "global",
-      "tags": {},
       "properties": {
         "description": "[parameters('alertDescription')]",
         "severity": "[parameters('alertSeverity')]",
