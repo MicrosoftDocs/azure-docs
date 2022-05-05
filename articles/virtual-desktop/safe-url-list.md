@@ -85,6 +85,8 @@ The Azure virtual machines you create for Azure Virtual Desktop must have access
 |*xt.table.core.windows.net|443|Agent traffic (optional)|AzureCloud|
 |*xt.queue.core.windows.net|443|Agent traffic (optional)|AzureCloud|
 
+A [Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules. Service Tags can be used in both Network Security Group ([NSG](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview)) and [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags) rules to restrict outbound network access. Service Tags can be also used in User Defined Route ([UDR](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined)) to customize traffic routing behavior. 
+
 >[!IMPORTANT]
 >Azure Virtual Desktop supports the FQDN tag. For more information, see [Use Azure Firewall to protect Azure Virtual Desktop deployments](../firewall/protect-azure-virtual-desktop.md).
 >
