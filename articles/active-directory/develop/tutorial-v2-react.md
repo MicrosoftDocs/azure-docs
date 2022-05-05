@@ -134,7 +134,7 @@ In the [Redirect URI: MSAL.js 2.0 with auth code flow](scenario-spa-app-registra
     import { msalConfig } from "./authConfig";
     ```
 
-1. Underneath the imports in *src/index.js* create a `PublicClientApplication` instance using the configuration from step 1.
+1. Underneath, the imports in *src/index.js* create a `PublicClientApplication` instance using the configuration from step 1.
 
     ```javascript
     const msalInstance = new PublicClientApplication(msalConfig);
@@ -262,7 +262,7 @@ export const SignInButton = () => {
     export default App;
     ```
 
-Your app now has a sign-in button which is only displayed for unauthenticated users!
+Your app now has a sign-in button, which is only displayed for unauthenticated users!
 
 When a user selects the **Sign in using Popup** or **Sign in using Redirect** button for the first time, the `onClick` handler calls `loginPopup` (or `loginRedirect`) to sign in the user. The `loginPopup` method opens a pop-up window with the *Microsoft identity platform endpoint* to prompt and validate the user's credentials. After a successful sign-in, *msal.js* initiates the [authorization code flow](v2-oauth2-auth-code-flow.md).
 
@@ -439,7 +439,7 @@ In order to render certain components only for authenticated or unauthenticated 
     };
     ```
 
-1. Update your imports in *src/App.js* to match the following:
+1. Update your imports in *src/App.js* to match the following snippet:
 
     ```js
     import React, { useState } from "react";
@@ -526,7 +526,7 @@ If you're using Internet Explorer, we recommend that you use the `loginRedirect`
     };
     ```
 
-1. Next, open *src/App.js* and add these to the imports:
+1. Next, open *src/App.js* and add the following imports:
     
     ```javascript
     import { ProfileData } from "./components/ProfileData";
@@ -582,7 +582,7 @@ You've completed creation of the application and are now ready to launch the web
    ```console
    npm start
    ```
-1. A browser window should be opened to your app automatically. If it does not, open your browser and navigate to `http://localhost:3000`. You should see a page that looks like the one below.
+1. A browser window should be opened to your app automatically. If it doesn't, open your browser and navigate to `http://localhost:3000`. You should see a page that looks like the one below.
 
     :::image type="content" source="media/tutorial-v2-react/react-01-unauthenticated.png" alt-text="Web browser displaying sign-in dialog":::
 
