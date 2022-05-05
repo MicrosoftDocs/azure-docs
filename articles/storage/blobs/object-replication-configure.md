@@ -85,30 +85,30 @@ $srcContainerName2 = "source-container2"
 $destContainerName2 = "dest-container2"
 
 # Enable blob versioning and change feed on the source account.
-Update-AzStorageBlobServiceProperty -ResourceGroupName $rgname `
+Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
     -StorageAccountName $srcAccountName `
     -EnableChangeFeed $true `
     -IsVersioningEnabled $true
 
 # Enable blob versioning on the destination account.
-Update-AzStorageBlobServiceProperty -ResourceGroupName $rgname `
+Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
     -StorageAccountName $destAccountName `
     -IsVersioningEnabled $true
 
 # List the service properties for both accounts.
-Get-AzStorageBlobServiceProperty -ResourceGroupName $rgname `
+Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
     -StorageAccountName $srcAccountName
-Get-AzStorageBlobServiceProperty -ResourceGroupName $rgname `
+Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
     -StorageAccountName $destAccountName
 
 # Create containers in the source and destination accounts.
-Get-AzStorageAccount -ResourceGroupName $rgname -StorageAccountName $srcAccountName |
+Get-AzStorageAccount -ResourceGroupName $rgName -StorageAccountName $srcAccountName |
     New-AzStorageContainer $srcContainerName1
-Get-AzStorageAccount -ResourceGroupName $rgname -StorageAccountName $destAccountName |
+Get-AzStorageAccount -ResourceGroupName $rgName -StorageAccountName $destAccountName |
     New-AzStorageContainer $destContainerName1
-Get-AzStorageAccount -ResourceGroupName $rgname -StorageAccountName $srcAccountName |
+Get-AzStorageAccount -ResourceGroupName $rgName -StorageAccountName $srcAccountName |
     New-AzStorageContainer $srcContainerName2
-Get-AzStorageAccount -ResourceGroupName $rgname -StorageAccountName $destAccountName |
+Get-AzStorageAccount -ResourceGroupName $rgName -StorageAccountName $destAccountName |
     New-AzStorageContainer $destContainerName2
 
 # Define replication rules for each container.
@@ -120,14 +120,14 @@ $rule2 = New-AzStorageObjectReplicationPolicyRule -SourceContainer $srcContainer
     -MinCreationTime 2021-09-01T00:00:00Z
 
 # Create the replication policy on the destination account.
-$destPolicy = Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+$destPolicy = Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgName `
     -StorageAccountName $destAccountName `
     -PolicyId default `
     -SourceAccount $srcAccountName `
     -Rule $rule1,$rule2
 
 # Create the same policy on the source account.
-Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgName `
     -StorageAccountName $srcAccountName `
     -InputObject $destPolicy
 ```
@@ -262,7 +262,7 @@ To download a JSON file that contains the replication policy definition for the 
 $rgName = "<resource-group>"
 $destAccountName = "<destination-storage-account>"
 
-$destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+$destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgName `
     -StorageAccountName $destAccountName
 $destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
 ```
@@ -273,7 +273,7 @@ When running the example, be sure to set the `-ResourceGroupName` parameter to t
 
 ```powershell
 $object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json
-Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgName `
     -StorageAccountName $srcAccountName `
     -PolicyId $object.PolicyId `
     -SourceAccount $object.SourceAccount `
@@ -323,7 +323,7 @@ To check the replication status for a blob in the source account in the Azure po
 To check the replication status for a blob in the source account with PowerShell, get the value of the object replication **ReplicationStatus** property, as shown in the following example. Remember to replace values in angle brackets with your own values:
 
 ```powershell
-$ctxSrc = (Get-AzStorageAccount -ResourceGroupName $rgname `
+$ctxSrc = (Get-AzStorageAccount -ResourceGroupName $rgName `
     -StorageAccountName $srcAccountName).Context
 $blobSrc = Get-AzStorageBlob -Container $srcContainerName1 `
     -Context $ctxSrc `
@@ -372,12 +372,12 @@ To remove a replication policy, delete the policy from both the source account a
 
 ```powershell
 # Remove the policy from the destination account.
-Remove-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+Remove-AzStorageObjectReplicationPolicy -ResourceGroupName $rgName `
     -StorageAccountName $destAccountName `
     -PolicyId $destPolicy.PolicyId
 
 # Remove the policy from the source account.
-Remove-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+Remove-AzStorageObjectReplicationPolicy -ResourceGroupName $rgName `
     -StorageAccountName $srcAccountName `
     -PolicyId $destPolicy.PolicyId
 ```
