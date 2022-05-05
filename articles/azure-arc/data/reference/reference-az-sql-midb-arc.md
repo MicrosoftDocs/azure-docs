@@ -12,12 +12,16 @@ ms.subservice: azure-arc-data
 ---
 
 # az sql midb-arc
+
+Manage databases for Azure Arc-enabled SQL managed instances.
 ## Commands
 | Command | Description|
 | --- | --- |
 [az sql midb-arc restore](#az-sql-midb-arc-restore) | Restore a database to an Azure Arc enabled SQL managed instance.
 ## az sql midb-arc restore
+
 Restore a database to an Azure Arc enabled SQL managed instance.
+
 ```azurecli
 az sql midb-arc restore 
 ```
