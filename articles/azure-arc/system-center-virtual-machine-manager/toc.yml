@@ -17,4 +17,13 @@
   - name: Enable SCVMM inventory resources  
     href: enable-scvmm-inventory-resources.md
 
+- name: Reference
+  items:
+  - name: Azure CLI
+    items:
+    - name: Azure Arc-enabled System Center VMM 
+      href: /cli/azure/scvmm
+    - name: Azure Arc resource bridge
+      href:  /cli/azure/arcappliance
+
 
