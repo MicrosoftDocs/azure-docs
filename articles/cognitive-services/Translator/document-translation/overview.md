@@ -13,7 +13,7 @@ recommendations: false
 ---
 # What is Document Translation?
 
-Document Translation is a cloud-based feature of the [Azure Translator](../translator-overview.md) service and is part of the Azure Cognitive Service family of REST APIs. In this overview, you'll learn how the Document Translation API can be used to translate multiple and complex documents across all [supported languages and dialects](../../language-support.md) while preserving original document structure and data format.
+Document Translation is a cloud-based feature of the [Azure Translator](../translator-overview.md) service and is part of the Azure Cognitive Service family of REST APIs. The Document Translation API can be used to translate multiple and complex documents across all [supported languages and dialects](../../language-support.md), while preserving original document structure and data format.
 
 This documentation contains the following article types:
 
@@ -32,11 +32,33 @@ This documentation contains the following article types:
 |**Apply custom glossaries**|Translate documents using custom glossaries.|
 |**Automatically detect document language**|Let the Document Translation service determine the language of the document.|
 |**Translate documents with content in multiple languages**|Use the autodetect feature to translate documents with content in multiple languages into your target language.|
-|**Translate 🆕scanned and text-embedded pdf documents** | |
+|**Translate 🆕scanned and text-embedded pdf documents** |Translate printed and handwritten text in scanned PDF documents. |
 
 > [!NOTE]
 > When translating documents with content in multiple languages, the feature is intended for complete sentences in a single language. If sentences are composed of more than one language, the content may not all translate into the target language.
 >
+
+## Scanned image translation key features
+
+* Optical character recognition (OCR) is the foundational technology powering document translation from scanned PDF documents like agreements, contracts, manuals, and receipts.
+
+* Document translation is supported in 164 print and 9 handwritten text languages.
+
+* Source language identification isn't required. You can provide the source language code if you want to force the service to apply a specific language model.
+
+* Support for mixed languages and mixed modes (print and handwritten) in the same document.
+
+* Select pages and page ranges from large, multi-page documents.
+
+## Input requirements
+
+* Scanned PDF documents: For best results, provide one high-quality scan per document.
+* PDF dimensions: ≤ 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
+* If your PDFs are password-locked, you must remove the lock before submission.
+* Document size: ≤ 40 mb
+* Total number of files per single request: ≤ 1000
+* Total content size in a single request: ≤ 250 mb
+* Number of target languages in a batch request: ≤ 10
 
 ## Document Translation development options
 
@@ -59,7 +81,8 @@ The following document file types are supported by Document Translation:
 
 | File type| File extension|Description|
 |---|---|--|
-|Adobe PDF|pdf|Adobe Acrobat portable document format|
+|🆕 Adobe PDF| Scanned content portable document format.|
+|Adobe PDF|pdf|Text-embedded portable document format.|
 |Comma-Separated Values |csv| A comma-delimited raw-data file used by spreadsheet programs.|
 |HTML|html, htm|Hyper Text Markup Language.|
 |Localization Interchange File Format|xlf. , xliff| A parallel document format, export of Translation Memory systems. The languages used are defined inside the file.|

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/01/2022
+ms.date: 05/05/2022
 ms.author: lajanuar
 ---
 # Translator language support
 
-**Translation - Cloud:** Cloud translation is available in all languages for the Translate operation of Text Translation and for Document Translation. 
+**Translation - Cloud:** Cloud translation is available in all languages for the Translate operation of Text Translation and for Document Translation.
 
 **Translation – Containers:** Language support for Containers.
 
-**Custom Translator:** Custom Translator can be used to create customized translation models which you can then use to customize your translated output while using the Text Translation or Document Translation features.
+**Custom Translator:** Custom Translator can be used to create customized translation models that you can then use to customize your translated output while using the Text Translation or Document Translation features.
 
 **Auto Language Detection:** Automatically detect the language of the source text while using Text Translation or Document Translation.
 
@@ -25,7 +25,7 @@ ms.author: lajanuar
 
 ## Translation
 
-| Language | Language code | Cloud – Text Translation and Document Translation| Containers – Text Translation|Custom Translator|Auto Language Detection|Dictionary
+| Language | Language code | Cloud – Text Translation and Document Translation(embedded Text)| Containers – Text Translation|Custom Translator|Auto Language Detection|Dictionary
 |:-|:-:|:-:|:-:|:-:|:-:|:-:|
 | Afrikaans | `af` |✔|✔|✔|✔|✔|
 | Albanian | `sq` |✔|✔||✔||
@@ -72,7 +72,7 @@ ms.author: lajanuar
 | Indonesian | `id` |✔|✔|✔|✔|✔|
 | Inuinnaqtun | `ikt` |✔|||||
 | Inuktitut | `iu` |✔|✔|✔|✔||
-| Inuktitut (Latin) | `iu-Latn` |✔||||| 
+| Inuktitut (Latin) | `iu-Latn` |✔|||||
 | Irish | `ga` |✔|✔|✔|✔||
 | Italian | `it` |✔|✔|✔|✔|✔|
 | Japanese | `ja` |✔|✔|✔|✔|✔|
@@ -142,7 +142,111 @@ ms.author: lajanuar
 > [!NOTE]
 > Language code `pt` will default to `pt-br`, Portuguese (Brazil).
 
+## 🆕 Document Translation scanned PDFs
+
+### Handwritten text
+
+The following table lists Document Translation language support for handwritten text.
+
+|Language| Language code (optional) | Language| Language code (optional) |
+|:-----|:----:|:-----|:----:|
+|English|`en`|Japanese |`ja`|
+|Chinese Simplified |`zh-Hans`|Korean|`ko`|
+|French |`fr`|Portuguese |`pt`|
+|German |`de`|Spanish |`es`|
+|Italian |`it`|
+
+### Print text
+
+The following table lists Document Translation language support for printed text in scanned PDFs.
+
+|Language| Code (optional) |Language| Code (optional) |
+|:-----|:----:|:-----|:----:|
+|Afrikaans|`af`|Khasi  | `kha` |
+|Albanian |`sq`|K'iche'  | `quc` |
+|Angika (Devanagari) | `anp`| Korean | `ko` |
+|Arabic | `ar` | Korku | `kfq`|
+|Asturian |`ast`| Koryak | `kpy`|
+|Awadhi-Hindi (Devanagari) | `awa`| Kosraean | `kos`|
+|Azerbaijani (Latin) | `az`| Kumyk (Cyrillic) | `kum`|
+|Bagheli | `bfy`| Kurdish (Arabic) | `ku-arab`|
+|Basque  |`eu`| Kurdish (Latin) | `ku-latn`
+|Belarusian (Cyrillic)  | `be`, `be-cyrl`|Kurukh (Devanagari) | `kru`|
+|Belarusian (Latin) | `be`, `be-latn`| Kyrgyz (Cyrillic)  | `ky`
+|Bhojpuri-Hindi (Devanagari) | `bho`| Lakota | `lkt` |
+|Bislama   |`bi`| Latin | `la` |
+|Bodo (Devanagari) | `brx`| Lithuanian | `lt` |
+|Bosnian (Latin) | `bs`| Lower Sorbian | `dsb` |
+|Brajbha | `bra`|Lule Sami | `smj`|
+|Breton    |`br`|Luxembourgish  | `lb` |
+|Bulgarian  | `bg`|Mahasu Pahari (Devanagari) | `bfz`|
+|Bundeli | `bns`|Malay (Latin) | `ms` |
+|Buryat (Cyrillic) | `bua`|Maltese | `mt`
+|Catalan    |`ca`|Malto (Devanagari) | `kmj`
+|Cebuano    |`ceb`|Manx  | `gv` |
+|Chamling | `rab`|Maori | `mi`|
+|Chamorro  |`ch`|Marathi | `mr`|
+|Chhattisgarhi (Devanagari)| `hne`| Mongolian (Cyrillic)  | `mn`|
+|Chinese Simplified | `zh-Hans`|Montenegrin (Cyrillic)  | `cnr-cyrl`|
+|Chinese Traditional | `zh-Hant`|Montenegrin (Latin) | `cnr-latn`|
+|Cornish     |`kw`|Neapolitan   | `nap` |
+|Corsican      |`co`|Nepali | `ne`|
+|Crimean Tatar (Latin)|`crh`|Niuean | `niu`|
+|Croatian | `hr`|Nogay | `nog`
+|Czech | `cs` |Northern Sami (Latin) | `sme`|
+|Danish | `da` |Norwegian | `no` |
+|Dari | `prs`|Occitan | `oc` |
+|Dhimal (Devanagari) | `dhi`| Ossetic  | `os`|
+|Dogri (Devanagari) | `doi`|Pashto | `ps`|
+|Dutch | `nl` |Persian | `fa`|
+|English | `en` |Polish | `pl` |
+|Erzya (Cyrillic) | `myv`|Portuguese | `pt` |
+|Estonian  |`et`|Punjabi (Arabic) | `pa`|
+|Faroese | `fo`|Ripuarian | `ksh`|
+|Fijian |`fj`|Romanian | `ro` |
+|Filipino  |`fil`|Romansh  | `rm` |
+|Finnish | `fi` | Russian | `ru` |
+|French | `fr` |Sadri  (Devanagari) | `sck` |
+|Friulian  | `fur` | Samoan (Latin) | `sm`
+|Gagauz (Latin) | `gag`|Sanskrit (Devanagari) | `sa`|
+|Galician   | `gl` |Santali(Devanagari) | `sat` |
+|German | `de` | Scots  | `sco` |
+|Gilbertese    | `gil` | Scottish Gaelic  | `gd` |
+|Gondi (Devanagari) | `gon`| Serbian (Latin) | `sr`, `sr-latn`|
+|Greenlandic   | `kl` | Sherpa (Devanagari) | `xsr` |
+|Gurung (Devanagari) | `gvr`| Sirmauri (Devanagari) | `srx`|
+|Haitian Creole  | `ht` | Skolt Sami | `sms` |
+|Halbi (Devanagari) | `hlb`| Slovak | `sk`|
+|Hani  | `hni` | Slovenian  | `sl` |
+|Haryanvi | `bgc`|Somali (Arabic) | `so`|
+|Hawaiian | `haw`|Southern Sami | `sma`
+|Hindi | `hi`|Spanish | `es` |
+|Hmong Daw (Latin)| `mww` | Swahili (Latin)  | `sw` |
+|Ho(Devanagiri) | `hoc`|Swedish | `sv` |
+|Hungarian | `hu` |Tajik (Cyrillic)  | `tg` |
+|Icelandic | `is`| Tatar (Latin)  | `tt` |
+|Inari Sami | `smn`|Tetum    | `tet` |
+|Indonesian   | `id` | Thangmi | `thf` |
+|Interlingua  | `ia` |Tongan | `to`|
+|Inuktitut (Latin) | `iu` | Turkish | `tr` |
+|Irish    | `ga` |Turkmen (Latin) | `tk`|
+|Italian | `it` |Tuvan | `tyv`|
+|Japanese | `ja` |Upper Sorbian  | `hsb` |
+|Jaunsari (Devanagari) | `Jns`|Urdu  | `ur`|
+|Javanese | `jv` |Uyghur (Arabic) | `ug`|
+|Kabuverdianu | `kea` |Uzbek (Arabic) | `uz-arab`|
+|Kachin (Latin) | `kac` |Uzbek (Cyrillic)  | `uz-cyrl`|
+|Kangri (Devanagari) | `xnr`|Uzbek (Latin)     | `uz` |
+|Karachay-Balkar  | `krc`|Volapük   | `vo` |
+|Kara-Kalpak (Cyrillic) | `kaa-cyrl`|Walser    | `wae` |
+|Kara-Kalpak (Latin) | `kaa` |Welsh | `cy` |
+|Kashubian | `csb` |Western Frisian | `fy` |
+|Kazakh (Cyrillic)  | `kk-cyrl`|Yucatec Maya | `yua` |
+|Kazakh (Latin) | `kk-latn`|Zhuang | `za` |
+|Khaling | `klr`|Zulu  | `zu` |
+
 ## Transliteration
+
 The [Transliterate operation](reference/v3-0-transliterate.md) in the Text Translation feature supports the following languages. In the "To/From", "<-->" indicates that the language can be transliterated from or to either of the scripts listed. The "-->" indicates that the language can only be transliterated from one script to the other.
 
 | Language    | Language code | Script | To/From | Script|
@@ -186,16 +290,18 @@ The [Transliterate operation](reference/v3-0-transliterate.md) in the Text Trans
 |Urdu| `ur` | Arabic `Arab`  | <--> | Latin `Latn` |
 
 ## Other Cognitive Services
-Add additional capabilities to your apps and workflows by utilizing other Cognitive Services with Translator. Language lists for additional services are below.
-* [Computer Vision](../computer-vision/language-support.md) 
-* [Speech](../speech-service/language-support.md) 
-* [Language service](../language-service/index.yml) 
-    * Select the feature you want to use, and then **Language support** on the left navigation menu.
 
-View all [Cognitive Services](../index.yml). 
+Add more capabilities to your apps and workflows by utilizing other Cognitive Services with Translator. Language lists for other services are below.
+
+* [Computer Vision](../computer-vision/language-support.md)
+* [Speech](../speech-service/language-support.md)
+* [Language service](../language-service/index.yml)
+  * Select the feature you want to use, and then **Language support** on the left navigation menu.
+
+View all [Cognitive Services](../index.yml).
 
 ## Next steps
+
 * [Text Translation reference](reference/v3-0-reference.md)
 * [Document Translation reference](document-translation/reference/rest-api-guide.md)
 * [Custom Translator overview](custom-translator/overview.md)
-
