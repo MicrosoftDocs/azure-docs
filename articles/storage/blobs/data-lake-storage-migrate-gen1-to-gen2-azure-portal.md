@@ -71,15 +71,15 @@ For Gen1, ensure that the [Owner](../../role-based-access-control/built-in-roles
 
 Azure Data Lake Storage Gen2 doesn't support Azure Data Lake Analytics applications. Azure Data Lake Analytics [will be retired](https://azure.microsoft.com/updates/migrate-to-azure-synapse-analytics/) on February 29, 2024.
 
-If you have any Azure Data Lake Analytics workloads tied to your Azure Data Lake Storage Gen1 account, you must first delete the Data Lake Store data source from your Data Lake Analytics account before using the Azure portal to migrate from Gen1 to Gen2. If you don't, you will encounter the error message *Migration initiation failed*. You have two options:
+If you have any Azure Data Lake Analytics workloads tied to your Azure Data Lake Storage Gen1 account, you can't use the Azure portal to migrate to Gen2 until you delete the existing Data Lake Store data source from your Data Lake Analytics account. If you attempt to use the Azure portal to migrate without deleting the data source, you will encounter the error message *Migration initiation failed*. You have two options:
 
 **Option 1**: If you don't care about preserving business continuity, you can simply delete the Data Lake Store data source from your Data Lake Analytics account by following these steps:
 
-   1. Search the Azure portal for Data Lake Analytics and select the appropriate account
+   1. Search the Azure portal for **Data Lake Analytics** and select the appropriate account.
    1. Select **Data explorer** and select the data source you wish to remove.
    1. Select **Remove source**.
 
-   Once the data source is deleted, you can then use the Azure portal to migrate to Gen2.
+   After the Data Lake Store data source is deleted, you can then use the Azure portal to migrate to Gen2.
 
 **Option 2**: If you want to preserve business continuity, you must first [migrate to Azure Synapse Analytics](/azure/data-lake-analytics/migrate-azure-data-lake-analytics-to-synapse) or another supported compute platform. You can then delete the Data Lake Store data source from your Data Lake Analytics account by following the steps above, and then use the Azure portal to migrate to Gen2.
 
