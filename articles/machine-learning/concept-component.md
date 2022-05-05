@@ -15,9 +15,9 @@ ms.custom:
 ---
 # What is an Azure Machine Learning component (preview)?
 
-[!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
+[!INCLUDE [dev v1](/../../includes/machine-learning-dev-v1.md)]
 
-[!INCLUDE [dev v2](../../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](/../../includes/machine-learning-dev-v2.md)]
 
 An Azure Machine Learning component is a self-contained piece of code that does one step in a machine learning pipeline. A component is analogous to a function - it has a name, inputs, outputs, and a body. Components are the building blocks of the [Azure Machine Learning pipelines](concept-ml-pipelines.md).
 
