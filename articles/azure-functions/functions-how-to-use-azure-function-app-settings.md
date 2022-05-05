@@ -256,7 +256,7 @@ This same process works for any other file you need to add to your app.
 > [!IMPORTANT]
 > When possible, you shouldn't edit files directly in your function app in Azure. We recommend [downloading your app files locally](deployment-zip-push.md#download-your-function-app-files), using [Core Tools to install extensions](functions-run-local.md#install-extensions) and other packages, validating your changes, and then [republishing your app using Core Tools](functions-run-local.md#publish) or one of the other [supported deployment methods](functions-deployment-technologies.md#deployment-methods). 
 
-The Functions editor built into the Azure portal lets you update your function code and and configuration (function.json) files directly in the portal. 
+The Functions editor built into the Azure portal lets you update your function code and configuration (function.json) files directly in the portal. 
 
 1. Select your function app, then under **Functions** select **Functions**.
 1. Choose your function and select **Code + test** under **Developer**.
