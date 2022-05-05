@@ -299,9 +299,7 @@ If your cluster is behind an outbound proxy server, requests must be routed via 
 
 ---
 
-## Connect a cluster using a transparent outbound proxy server
-
-For outbound proxy servers where only a trusted certificate needs to be provided without the proxy server endpoint inputs, `az connectedk8s connect` can be run with just the `--proxy-cert` input specified. In case multiple trusted certificates are expected,they can be combined into a single certificate chain and passed through.
+For outbound proxy servers where only a trusted certificate needs to be provided without the proxy server endpoint inputs, `az connectedk8s connect` can be run with just the `--proxy-cert` input specified. In case multiple trusted certificates are expected, the combined certificate chain can be provided in a single file using the `--proxy-cert` parameter.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -316,7 +314,6 @@ az connectedk8s connect --name <cluster-name> --resource-group <resource-group> 
 The ability to pass in the proxy certificate only without the proxy server endpoint details is not yet supported via PowerShell. 
 
 ---
-
 
 ## Verify cluster connection
 
