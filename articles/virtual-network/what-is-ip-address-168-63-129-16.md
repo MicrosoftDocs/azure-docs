@@ -85,13 +85,13 @@ You can also test communication to 168.63.129.16 using telnet or psping as shown
 If successful telnet should connect and the file that is created below will be empty
 
 ```
-telnet 168.63.129.16 80 >> C:\<<EDIT-DIRECTORY>>\testwireserver-port80.txt
-telnet 168.63.129.16 32526 >> C:\<<EDIT-DIRECTORY>>\testwireserver-port32526.txt
+telnet 168.63.129.16 80 >> C:\<<EDIT-DIRECTORY>>\168-63-129-16_test-port80.txt
+telnet 168.63.129.16 32526 >> C:\<<EDIT-DIRECTORY>>\168-63-129-16_test--port32526.txt
 ```
 
 ```
-Psping 168.63.129.16:80 >> C:\<<EDIT-DIRECTORY>>\testwireserver-port80.txt
-Psping 168.63.129.16:32526 >> C:\<<EDIT-DIRECTORY>>\testwireserver-port32526.txt
+Psping 168.63.129.16:80 >> C:\<<EDIT-DIRECTORY>>\168-63-129-16_test--port80.txt
+Psping 168.63.129.16:32526 >> C:\<<EDIT-DIRECTORY>>\168-63-129-16_test-port32526.txt
 ```
 ### Linux OS
 On Linux you can test communication to 168.63.129.16 using the following tests.
