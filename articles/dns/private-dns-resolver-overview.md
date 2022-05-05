@@ -21,10 +21,10 @@ Azure Private DNS Resolver requires an [Azure Virtual Network](/azure/virtual-ne
 The DNS query process is summarized below:
 
 1. A client in a virtual network issues a DNS query.
-2. If the DNS servers setting in the vnet is custom, then custom DNS is used.
-3. If Default (Azure-provided) DNS servers are configured in the vnet, then ruleset links are consulted.
+2. If the DNS servers for this virtual network are [specified as custom](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#specify-dns-servers), then the query is forwarded to the specified IP addresses.
+3. If Default (Azure-provided) DNS servers are configured in the virtual network, then [Virtual Network Links](#virtual-network-links) for [DNS Forwarding Rulesets](#dns-forwarding-rulesets) are consulted.
 4. If no ruleset links are present, then Azure DNS is used to resolve the query.
-5. If ruleset links are present, the forwarding ruleset is consulted.
+5. If ruleset links are present, the [DNS Forwarding Rules](#dns-forwarding-rules) are evaluated.
 7. If a suffix match is found, query is forwarded to the specified address.
 8. If multiple matches are present, the longest suffix is used.
 9. If no match is found, no DNS forwarding occurs and Azure DNS is used to resolve the query.
@@ -67,19 +67,19 @@ Azure Private DNS Resolver is available in the following regions:
 
 ## DNS resolver endpoints
 
-### Inbound endpoints
+### Inbound Endpoints
 
 An inbound endpoint enables name resolution from on-prem or other private locations via an IP address that is part of your private virtual network address space. This endpoint requires a subnet in the VNet where it’s provisioned. The subnet can only be delegated to **Microsoft.Network/dnsResolvers** and cannot be used for other services. DNS queries received by the inbound endpoint will ingress to Azure. You can resolve names in scenarios where you have Private DNS Zones, including VMs which are using auto registration, or Private Link enabled services.
 
-### Outbound endpoints
+### Outbound Endpoints
 
 An outbound endpoint enables conditional forwarding name resolution from Azure to on-prem, other cloud providers, or external DNS servers. This endpoint requires a dedicated subnet in the VNet where it’s provisioned, with no other service running in the subnet, and can only be delegated to **Microsoft.Network/dnsResolvers**. DNS queries sent to the outbound endpoint will egress from Azure.
 
-## Virtual Network links
+## Virtual Network Links
 
 Virtual network links enable name resolution for virtual networks which are linked to an outbound endpoint with a DNS forwarding ruleset. This is a 1:1 relationship.
 
-## DNS forwarding rulesets
+## DNS Forwarding Rulesets
 
 A DNS forwarding ruleset is a group of DNS forwarding rules (up to 1,000) which can be applied to one or more outbound endpoints, or linked to one or more virtual networks. This is a 1:N relationship.
 
