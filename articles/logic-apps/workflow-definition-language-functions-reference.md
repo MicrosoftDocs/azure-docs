@@ -2644,7 +2644,7 @@ iterationIndexes('<loopName>')
 
 *Example*
 
-This example creates a counter variable and increments that variable by one during each iteration in an Until loop until the counter value reaches five. The example also creates a variable that tracks the current index for each iteration. In the Until loop, during each iteration, the example increments the counter and then assigns the counter value to the current index value and then increments the counter. While in the loop, this example references the current iteration index by using the `iterationIndexes` function:
+This example creates a counter variable and increments that variable by one during each iteration in an Until loop until the counter value reaches five. The example also creates a variable that tracks the current index for each iteration. During each iteration in the Until loop, the example increments the counter value and then assigns the counter value to the current index value and then increments the counter value. While in the loop, this example references the current iteration index by using the `iterationIndexes` function:
 
 `iterationIndexes('Until_Max_Increment')`
 
@@ -3745,7 +3745,7 @@ Here's the updated JSON object:
 
 ### result
 
-Return the results from the top-level actions in the specified scoped action, such as a `For_each`, `Until`, or `Scope` action. The `result()` function accepts a single parameter, which is the scope's name, and returns an array that contains information from the first-level actions in that scope. These action objects include the same attributes as those returned by the `actions()` function, such as the action's start time, end time, status, inputs, correlation IDs, and outputs.
+Return the results from the top-level actions in the specified scoped action, such as a `For_each`, `Until`, or `Scope` action. The `result()` function accepts a single parameter, which is the scope's name, and returns an array that contains information from the first-level actions in that scope. These action objects include the same attributes as the attributes returned by the `actions()` function, such as the action's start time, end time, status, inputs, correlation IDs, and outputs.
 
 > [!NOTE]
 > This function returns information *only* from the first-level actions in the scoped action and not from deeper nested actions such as switch or condition actions.
