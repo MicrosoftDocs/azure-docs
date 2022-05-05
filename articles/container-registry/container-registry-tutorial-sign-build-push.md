@@ -34,33 +34,48 @@ This article can be run in the [Azure Cloud Shell](https://portal.azure.com/#clo
 
 ## Install the notation CLI and akv plugin
 
-> NOTE: These are temporary steps for early development. Officially released binaries will be available as the project stabilizes.
+> NOTE: The walkthrough uses pre-released versions of notation, notation plugins and ratify.  
 
-1. Build a version of notation that supports extensibility
+1. Install notation with plugin support from <https://github.com/notaryproject/notation/releases/tag/feat-kv-extensibility>
 
     ```bash
-    git clone git@github.com:aramase/notation.git -b plugin
-    cd notation
-    make build
+    # Choose a binary
+    timestamp=20220121081115
+    commit=17c7607
+
+    # Download, extract and install
+    curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/feat-kv-extensibility/notation-feat-kv-extensibility-$timestamp-$commit.tar.gz
+    tar xvzf notation.tar.gz
+    tar xvzf notation_0.0.0-SNAPSHOT-${commit}_linux_amd64.tar.gz -C ~/bin notation
+        
     # Copy the notation cli to your bin directory
     cp ./bin/notation ~/bin
     ```
 
-1. Build the notation-akv plugin for remote signing and verification
+2. Install the notation-Azure-kv plugin for remote signing and verification
 
     ```bash
-    # Move back to the root directory
-    cd ../
-    git clone git@github.com:Azure/notation-akv.git -b dev
-    cd notation-akv
-    make build
+    # Create a directory for the plugin
+    mkdir -p ~/.config/notation/plugins/azure-kv
+    
+    # Download the plugin
+    curl -Lo notation-azure-kv.tar.gz \
+        https://github.com/Azure/notation-azure-kv/releases/download/v0.1.0-alpha.1/notation-azure-kv_0.1.0-alpha.1_Linux_amd64.tar.gz
+    
+    # Extract to the plugin directory    
+    tar xvzf notation-azure-kv.tar.gz -C ~/.config/notation/plugins/azure-kv notation-azure-kv
     ```
 
-2. Copy the plugin to the notation plugin directory
+3. Configure the Azure Key Vault plugin for notation
 
     ```bash
-    mkdir -p ~/.config/notation/plugins/akv
-    cp ./bin/notation-akv ~/.config/notation/plugins/akv
+    notation plugin add azure-kv ~/.config/notation/plugins/azure-kv/notation-azure-kv
+    ```
+
+4. List the available plugins and verify that the plug in available
+
+    ```bash
+    notation plugin ls
     ```
 
 ## Configure Environment Variables
@@ -138,20 +153,6 @@ To ease the execution of the commands to complete this article, provide values f
       }
     }
     EOF
-    ```
-
-## Configure the notation Azure Key Vault plugin
-
-1. Add the Plugin
-
-    ```bash
-    notation plugin add azure-kv ~/.config/notation/plugins/azure-kv/notation-akv
-    ```
-
-2. List the available plugins
-
-    ```bash
-    notation plugin ls
     ```
 
 ## Store the signing certificate in Azure Key Vault
