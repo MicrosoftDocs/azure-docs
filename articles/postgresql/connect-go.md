@@ -3,8 +3,9 @@ title: 'Quickstart: Connect with Go - Azure Database for PostgreSQL - Single Ser
 description: This quickstart provides a Go programming language sample you can use to connect and query data from Azure Database for PostgreSQL - Single Server.
 ms.service: postgresql
 ms.subservice: single-server
-ms.author: sumuth
-author: mksuni
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.custom: mvc, mode-api
 ms.devlang: golang
 ms.topic: quickstart

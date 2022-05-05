@@ -22,7 +22,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 * [Create a new Synapse workspace](https://ms.portal.azure.com/#create/Microsoft.Synapse) to get Synapse link for Azure SQL Database. Ensure to check “Disable Managed virtual network” and “Allow connections from all IP address” when creating Synapse workspace.
 
-* Make sure your Azure SQL database service tiers is above Standard 3, as Synapse link for Azure SQL Database is not supported on Free, Basic or Standard tier (S0,S1,S2) of Azure SQL database.
+* For DTU-based provisioning, make sure your Azure SQL Database service is at least Standard tier with a minimum of 100 DTUs. Free, Basic, or Standard tiers with fewer than 100 DTUs provisioned are not supported.
 
 ## Configure your source Azure SQL Database
 
@@ -34,7 +34,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/configure-network-firewall-sql-database.png" alt-text="Screenshot of configuring firewalls for your SQL DB using Azure portal.":::
 
-1. Using Microsoft SQL Server Management Studio (SSMS) or Azure Data Studio, connect to the source Azure SQL Server with administrative privileges.
+1. Using Microsoft SQL Server Management Studio (SSMS) or Azure Data Studio, connect to the Azure SQL Server. If you want to have your Synapse workspace connect to your Azure SQL Database using a managed identity, set the Azure Active Directory admin on Azure SQL Server, and use the same admin name to connect to Azure SQL Server with administrative privileges in order to have the privileges in step 5.
 
 1. Expand **Databases**, right select the database you created above, and select **New Query**.
 
@@ -97,9 +97,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 1. Select a target Synapse SQL database and pool.
 
-1. Provide a name for your Synapse Link connection.
-
-1. Select the number of cores. These cores will be used for the movement of data from the source to the target.
+1. Provide a name for your Synapse Link connection, and select the number of cores. These cores will be used for the movement of data from the source to the target.
 
    > [!NOTE]
    > We recommend starting low and increasing as needed.
@@ -120,6 +118,9 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 1. Select **Start** and wait a few minutes for the data to be replicated.
 
+   > [!NOTE]
+   > When being started, a link connection will start from a full initial load from your source database followed by incremental change feeds via the change feed feature in Azure SQL database.
+
 ## Monitor the status of the Synapse Link connection
 
 You may monitor the status of your Synapse Link connection, see which tables are being initially copied over (Snapshotting), and see which tables are in continuous replication mode (Replicating).
@@ -134,7 +135,7 @@ You may monitor the status of your Synapse Link connection, see which tables are
 
 ## Query replicated data
 
-Wait for a few minutes, then check the target database has the expected table and data. ou can also now explore the replicated tables in your target Synapse SQL database.
+Wait for a few minutes, then check the target database has the expected table and data. You can also now explore the replicated tables in your target Synapse SQL database.
 
 1. In the **Data** hub, under **Workspace**, open your target database, and within **Tables**, right-click one of your target tables.
 
@@ -156,6 +157,9 @@ You can add/remove tables on Synapse Studio as following:
 
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/link-connection-add-remove-tables.png" alt-text="Screenshot of link connection to add table.":::
 
+   > [!NOTE]
+   > You can directly add or remove tables when a link connection is running.
+
 ## Stop the Synapse Link connection
 
 You can stop the Synapse link connection on Synapse Studio as following:
@@ -168,6 +172,8 @@ You can stop the Synapse link connection on Synapse Studio as following:
 
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/stop-link-connection.png" alt-text="Screenshot of link connection to stop link.":::
 
+   > [!NOTE]
+   > If you restart a link connection after stopping it, it will start from a full initial load from your source database followed by incremental change feeds.
 
 ## <a name="known-issues"></a>Known limitations
 
@@ -179,7 +185,7 @@ The following is the list of known limitations for Synapse Link for Azure SQL Da
 
 * Synapse link for SQL DB cannot be used in virtual network environment. Users need to check “Allow Azure Service and resources to access to this server” on Azure SQL database and check “Disable Managed virtual network” and “Allow connections from all IP address” for Synapse workspace.
 
-* Users need to manually create schema in destination Synapse SQL pool in advance, as target database schema object will not be automatically created in data replication. 
+* Users need to manually create schema in destination Synapse SQL pool in advance if your expected schema is not available in Synapse SQL pool. The destination database schema object will not be automatically created in data replication. If your schema is dbo, you can skip this step.
 
 * Service principal and user-assigned managed identity are not supported for authenticating to source Azure SQL DB, so when creating Azure SQL DB linked service, please choose SQL auth or service assigned managed Identity (SAMI).
 
