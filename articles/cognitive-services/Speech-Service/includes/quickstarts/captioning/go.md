@@ -19,7 +19,7 @@ ms.author: eur
 
 ## Set up the environment
 
-Install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser). Check the [platform-specific installation instructions](../../../quickstarts/setup-platform.md?pivots=programming-language-go) for any more requirements.
+Check whether there are any [platform-specific installation steps](../../../quickstarts/setup-platform.md?pivots=programming-language-go).
 
 You must also install [GStreamer](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md) for compressed input audio.
 
