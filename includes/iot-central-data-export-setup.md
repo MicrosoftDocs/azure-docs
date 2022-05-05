@@ -40,7 +40,7 @@ Now that you have a destination to export your data to, set up data export in yo
 
     | Type of data | Available filters|
     |--------------|------------------|
-    |Telemetry|<ul><li>Filter by device name, device ID, device template, and if the device is simulated</li><li>Filter stream to only contain telemetry that meets the filter conditions</li><li>Filter stream to only contain telemetry from devices with properties matching the filter conditions</li><li>Filter stream to only contain telemetry that has *message properties* meeting the filter condition. *Message properties* (also known as *application properties*) are sent in a bag of key-value pairs on each telemetry message optionally sent by devices that use the device SDKs. To create a message property filter, enter the message property key you're looking for, and specify a condition. Only telemetry messages with properties that match the specified filter condition are exported. [Learn more about application properties from IoT Hub docs](../../iot-hub/iot-hub-devguide-messages-construct.md) </li></ul>|
+    |Telemetry|<ul><li>Filter by device name, device ID, device template, and if the device is simulated</li><li>Filter stream to only contain telemetry that meets the filter conditions</li><li>Filter stream to only contain telemetry from devices with properties matching the filter conditions</li><li>Filter stream to only contain telemetry that has *message properties* meeting the filter condition. *Message properties* (also known as *application properties*) are sent in a bag of key-value pairs on each telemetry message optionally sent by devices that use the device SDKs. To create a message property filter, enter the message property key you're looking for, and specify a condition. Only telemetry messages with properties that match the specified filter condition are exported. [Learn more about application properties from IoT Hub docs](../articles/iot-hub/iot-hub-devguide-messages-construct.md) </li></ul>|
     |Property changes|<ul><li>Filter by device name, device ID, device template, and if the device is simulated</li><li>Filter stream to only contain property changes that meet the filter conditions</li></ul>|
     |Device connectivity|<ul><li>Filter by device name, device ID, device template, organizations, and if the device is simulated</li><li>Filter stream to only contain changes from devices with properties matching the filter conditions</li></ul>|
     |Device lifecycle|<ul><li>Filter by device name, device ID, device template, and if the device is provisioned, enabled, or simulated</li><li>Filter stream to only contain changes from devices with properties matching the filter conditions</li></ul>|
@@ -57,7 +57,7 @@ Configure the export destination:
 
 1. Select **+ Destination** to add a destination that you've already created or select **Create a new one**.
 
-1. To transform your data before it's exported, select **+ Transform**. To learn more, see [Transform data inside your IoT Central application for export](howto-transform-data-internally.md).
+1. To transform your data before it's exported, select **+ Transform**. To learn more, see [Transform data inside your IoT Central application for export](../articles/iot-central/core/howto-transform-data-internally.md).
 
 1. Select **+ Destination** to add up to five destinations to a single export.
 
@@ -65,14 +65,14 @@ Configure the export destination:
 
 ## Monitor your export
 
-In IoT Central, the **Data export** page lets you check the status of your exports. You can also use [Azure Monitor](../../azure-monitor/overview.md) to see how much data you're exporting and any export errors. You can access export and device health metrics in charts in the Azure portal, with a REST API, or with queries in PowerShell or the Azure CLI. Currently, you can monitor the following data export metrics in Azure Monitor:
+In IoT Central, the **Data export** page lets you check the status of your exports. You can also use [Azure Monitor](../articles/azure-monitor/overview.md) to see how much data you're exporting and any export errors. You can access export and device health metrics in charts in the Azure portal, with a REST API, or with queries in PowerShell or the Azure CLI. Currently, you can monitor the following data export metrics in Azure Monitor:
 
 - Number of messages incoming to export before filters are applied.
 - Number of messages that pass through filters.
 - Number of messages successfully exported to destinations.
 - Number of errors found.
 
-To learn more, see [Monitor application health](howto-manage-iot-central-from-portal.md#monitor-application-health).
+To learn more, see [Monitor application health](../articles/iot-central/core/howto-manage-iot-central-from-portal.md#monitor-application-health).
 
 ## Data formats
 
@@ -91,4 +91,4 @@ Each exported message contains a normalized form of the full message the device 
 - `enrichments`: Any enrichments set up on the export.
 - `module`: The IoT Edge module that sent this message. This field only appears if the message came from an IoT Edge module.
 - `component`: The component that sent this message. This field only appears if the capabilities sent in the message were modeled as a component in the device template
-- `messageProperties`: Other properties that the device sent with the message. These properties are sometimes referred to as *application properties*. [Learn more from IoT Hub docs](../../iot-hub/iot-hub-devguide-messages-construct.md).
+- `messageProperties`: Other properties that the device sent with the message. These properties are sometimes referred to as *application properties*. [Learn more from IoT Hub docs](../articles/iot-hub/iot-hub-devguide-messages-construct.md).
