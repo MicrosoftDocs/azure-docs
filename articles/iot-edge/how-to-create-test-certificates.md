@@ -21,18 +21,7 @@ This article describes the functionality of the certificate generation scripts t
 > [!WARNING]
 > These certificates expire in 30 days, and should not be used in any production scenario.
 
-You can create certificates on any machine, and then copy them over to your IoT Edge device.
-It's easier to use your primary machine to create the certificates rather than generating them on your IoT Edge device itself.
-By using your primary machine, you can set up the scripts once and then use them to create certificates for multiple devices.
-
-Follow these steps to create demo certificates for testing your IoT Edge scenario:
-
-1. [Set up scripts](#set-up-scripts) for certificate generation on your device.
-2. [Create the root CA certificate](#create-root-ca-certificate) that you use to sign all the other certificates for your scenario.
-3. Generate the certificates you need for the scenario you want to test:
-   * [Create IoT Edge device identity certificates](#create-iot-edge-device-identity-certificates) for provisioning devices with X.509 certificate authentication, either manually or with the IoT Hub Device Provisioning Service.
-   * [Create IoT Edge CA certificates](#create-iot-edge-ca-certificates) for IoT Edge devices in gateway scenarios.
-   * [Create downstream device certificates](#create-downstream-device-certificates) for authenticating downstream devices in a gateway scenario.
+You can create certificates on any machine and then copy them over to your IoT Edge device, or generate the certificates directly on the IoT Edge device.
 
 ## Prerequisites
 
@@ -162,9 +151,7 @@ If you want multiple root CA certificates, be sure to manage them in separate fo
 
    This script command creates several certificate and key files, but when articles ask for the **root CA certificate**, use the following file:
 
-   `certs\azure-iot-test-only.root.ca.cert.pem`
-   
-   This certificate is required before you can create more certificates for your IoT Edge devices and leaf devices as described in the next sections.
+   `certs\azure-iot-test-only.root.ca.cert.pem`\
 
 # [Linux](#tab/linux)
 
@@ -181,6 +168,8 @@ If you want multiple root CA certificates, be sure to manage them in separate fo
    `certs/azure-iot-test-only.root.ca.cert.pem`  
 
 ---
+
+This certificate is required before you can create more certificates for your IoT Edge devices and leaf devices as described in the next sections.
 
 ## Create identity certficate for the IoT Edge device
 
@@ -289,7 +278,7 @@ Edge CA certificates go in the **Edge CA** section of the config.toml file on th
 
 ---
 
-## Create identity certificates for downstream devices
+## Create downstream device certificates
 
 If you're setting up a downstream IoT device for a gateway scenario and want to use X.509 authentication, you can generate demo certificates for the downstream device.
 If you want to use symmetric key authentication, you don't need to create additional certificates for the downstream device.
