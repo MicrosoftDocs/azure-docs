@@ -819,7 +819,8 @@ There are some limitations and known issues that you might see in Delta Lake sup
 - External tables do not support partitioning. Use [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake folder to leverage the partition elimination. See known issues and workarounds later in the article.
 - Serverless SQL pools do not support time travel queries. You can vote for this feature on [Azure feedback site](https://feedback.azure.com/d365community/idea/8fa91755-0925-ec11-b6e6-000d3a4f07b8). Use Apache Spark pools in Azure Synapse Analytics to [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Serverless SQL pools do not support updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Azure Synapse Analytics [to update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
-- Serverless SQL pools in Azure Synapse Analytics do not support datasets with the [BLOOM filter](/azure/databricks/delta/optimizations/bloom-filters).
+  - You cannot [store query results to storage in Delta Lake format](create-external-table-as-select.md) using Create external table as select (CETAS) command. the CETAS command supports only Parquet and CSV as an output.
+- Serverless SQL pools in Azure Synapse Analytics do not leverage the [BLOOM filter](/azure/databricks/delta/optimizations/bloom-filters) that might be created in Delta. The serverless SQL pool will ignore the BLOOM filters. 
 - Delta Lake support is not available in dedicated SQL pools. Make sure that you are using serverless pools to query Delta Lake files.
 
 ### JSON text is not properly formatted
