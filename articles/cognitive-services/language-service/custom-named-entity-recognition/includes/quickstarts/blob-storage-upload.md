@@ -7,7 +7,6 @@ ms.subservice: language-service
 ms.topic: include
 ms.date: 05/05/2022
 ms.author: aahi
-ms.custom: ignite-fall-2021
 ---
 
 After you have created an Azure storage account and connected it to your Language resource, you will need to upload the documents from the sample dataset to the root directory of your container. These documents will later be used to train your model.

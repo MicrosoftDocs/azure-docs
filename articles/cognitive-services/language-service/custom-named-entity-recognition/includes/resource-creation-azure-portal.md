@@ -23,7 +23,6 @@ ms.author: aahi
 
     :::image type="content" source="../media/select-custom-feature-azure-portal.png" alt-text="A screenshot showing custom text classification & custom named entity recognition in the Azure portal." lightbox="../media/select-custom-feature-azure-portal.png":::
 
-
 6. Create a Language resource with following details.
 
     |Instance detail  | Description  |
