@@ -1,22 +1,22 @@
 ---
-title: Move an Azure Automanage Configuration Profile across regions
+title: Move an Azure Automanage configuration profile across regions
 description: Learn how to move an Automanage Configuration Profile across regions
 ms.service: automanage
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 12/10/2021
+ms.date: 05/01/2022
 ms.custom: subject-moving-resources
 # Customer intent: As a sysadmin, I want move my Automanage Configuration Profile to a different region.
 ---
 
-# Move an Azure Automanage Configuration Profile to a different region
+# Move an Azure Automanage configuration profile to a different region
 This article describes how to migrate an Automanage Configuration Profile to a different region. You might want to move your Configuration Profiles to another region for many reasons. For example, to take advantage of a new Azure region, to meet internal policy and governance requirements, or in response to capacity planning requirements. You may want to deploy Azure Automanage to some VMs that are in a new region.  Some regions may require that you use Automanage Configuration Profiles  that are local to that region.
 
 ## Prerequisites
 * Ensure that your target region is [supported by Automanage](./automanage-virtual-machines.md#prerequisites).
 * Ensure that your Log Analytics workspace region, Automation account region, and your target region are all regions supported by the region mappings [here](../automation/how-to/region-mappings.md).
 
-## Download your desired Automanage Configuration Profile
+## Download your desired Automanage configuration profile
 
 We'll begin by downloading our previous Configuration Profile using PowerShell.  First, perform a `GET` using `Invoke-RestMethod` against the Automanage Resource Provider, substituting the values for your subscription.
 
