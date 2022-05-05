@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/21/2022
+ms.date: 05/04/2022
 ms.author: tamram
 ms.subservice: common
 ---
@@ -53,32 +53,55 @@ When naming your storage account, keep these rules in mind:
 
 ## Storage account endpoints
 
-A storage account provides a unique namespace in Azure for your data. Every object that you store in Azure Storage has an address that includes your unique account name. The combination of the account name and the Azure Storage service endpoint forms the endpoints for your storage account.
+A storage account provides a unique namespace in Azure for your data. Every object that you store in Azure Storage has an address that includes your unique account name. The combination of the account name and the service endpoint forms the endpoints for your storage account.
 
 There are two types of service endpoints available for a storage account:
 
 - Standard endpoints (recommended). You can create up to 250 storage accounts with standard endpoints in a given subscription.
-- Azure DNS Zone endpoints (preview). You can create up to 5000 storage accounts with standard endpoints in a given subscription.
+- Azure DNS zone endpoints (preview). You can create up to 5000 storage accounts with standard endpoints in a given subscription.
+
+Within a single subscription, you can create accounts with either standard or Azure DNS Zone endpoints, for a total of 5250 accounts per subscription.
+
+You can configure your storage account to use a custom domain for Blob Storage. For more information, see [Configure a custom domain name for your Azure Storage account](../blobs/storage-custom-domain-name.md).
 
 ### Standard endpoints
+
+A standard service endpoint in Azure Storage includes the protocol (HTTPS is recommended), the storage account name as the subdomain, and a fixed domain that includes the name of the service.
 
 The following table lists the format for the standard endpoints for each of the Azure Storage services.
 
 | Storage service | Endpoint |
 |--|--|
 | Blob Storage | `https://<storage-account>.blob.core.windows.net` |
+| Static website (Blob Storage) | `https://<storage-account>.web.core.windows.net` |
 | Data Lake Storage Gen2 | `https://<storage-account>.dfs.core.windows.net` |
 | Azure Files | `https://<storage-account>.file.core.windows.net` |
 | Queue Storage | `https://<storage-account>.queue.core.windows.net` |
 | Table Storage | `https://<storage-account>.table.core.windows.net` |
 
-Construct the URL for accessing an object in a storage account by appending the object's location in the storage account to the endpoint. For example, the URL for a blob will be similar to:
+When your account is created with standard endpoints, you can easily construct the URL for an object in Azure Storage by appending the object's location in the storage account to the endpoint. For example, the URL for a blob will be similar to:
 
 `https://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*`
 
-You can also configure your storage account to use a custom domain for blobs. For more information, see [Configure a custom domain name for your Azure Storage account](../blobs/storage-custom-domain-name.md).
+### Azure DNS zone endpoints (preview)
 
-### Azure DNS Zone endpoints (preview)
+When you create an Azure Storage account with  Azure DNS zone endpoints (preview), an Azure DNS zone is assigned dynamically at create time. The new storage account is hosted in that Azure DNS zone.
+
+An Azure DNS zone service endpoint in Azure Storage includes the protocol (HTTPS is recommended), the storage account name as the subdomain, and a domain that includes the name of the service and the identifier for the DNS zone. The identifier for the DNS zone always begins with `z` and can range from `z00` to `z99`.
+
+The following table lists the format for Azure DNS Zone endpoints for each of the Azure Storage services, where the zone is `z5`.
+
+| Storage service | Endpoint |
+|--|--|
+| Blob Storage | `https://<storage-account>.z[00-99].blob.core.windows.net` |
+| Static website (Blob Storage) | `https://<storage-account>.z[00-99].web.core.windows.net` |
+| Data Lake Storage Gen2 | `https://<storage-account>.z[00-99].dfs.core.windows.net` |
+| Azure Files | `https://<storage-account>.z[00-99].file.core.windows.net` |
+| Queue Storage | `https://<storage-account>.z[00-99].queue.core.windows.net` |
+| Table Storage | `https://<storage-account>.z[00-99].table.core.windows.net` |
+
+> [!IMPORTANT]
+> You can create up to 5000 accounts with Azure DNS Zone endpoints per subscription. However, you may need to update your application code to query for the account endpoint at runtime.
 
 Include here:
 
@@ -91,8 +114,12 @@ To learn how to create a storage account with Azure DNS Zone endpoints, see [Cre
 
 #### About the preview
 
-- How to register for the preview
-    - [AFEC](https://docs.microsoft.com/azure/azure-resource-manager/management/preview-features)
+The Azure DNS zone endpoints preview is available in the following regions:
+
+- EUAP regions? which ones???
+
+To register for the preview, follow the instructions provided in [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md#register-preview-feature). Specify `PartitionedDnsPublicPreview` as the feature name and `Microsoft.Storage` as the provider namespace.
+
 - Any known issues
 
 ## Migrate a storage account
