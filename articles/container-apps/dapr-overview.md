@@ -10,7 +10,7 @@ ms.date: 05/05/2022
 
 # Dapr integration with Azure Container Apps
 
-The Distributed Application Runtime ([Dapr][dapr-concepts]) is a set of incrementally adoptable APIs that simplify the authoring of distributed, microservice-based applications. For example, Dapr provides capabilities for enabling application intercommunication, whether through messaging via pubsub or reliable and secure service-to-service calls. Once enabled in Container Apps, Dapr exposes its HTTP and gRPC APIs via a sidecar: a process that runs in tandem with each of your Container Apps. 
+The Distributed Application Runtime ([Dapr][dapr-concepts]) is a set of incrementally adoptable APIs that simplify the authoring of distributed, microservice-based applications. For example, Dapr provides capabilities for enabling application intercommunication, whether through messaging via pub/sub or reliable and secure service-to-service calls. Once enabled in Container Apps, Dapr exposes its HTTP and gRPC APIs via a sidecar: a process that runs in tandem with each of your Container Apps. 
 
 Dapr APIs, also referred to as building blocks, are built on best practice industry standards, that:
 
@@ -39,7 +39,7 @@ The following Pub/sub example demonstrates how Dapr works alongside your contain
 | Label | Dapr settings | Description |  
 | ----- | ------------- | ----------- |
 | 1 | Container Apps with Dapr enabled | Dapr is enabled in your container app. |
-| 2 | Dapr sidecar | Fully-managed Dapr APIs are exposed to your container app via the Dapr sidecar. These APIs are available through HTTP and gRPC protocols. |
+| 2 | Dapr sidecar | Fully managed Dapr APIs are exposed to your container app via the Dapr sidecar. These APIs are available through HTTP and gRPC protocols. |
 | 3 | Dapr component | Dapr components are plugged into and scoped to your container app and Dapr sidecar. |
 
 :::image type="content" source="media/dapr-overview/dapr-in-aca.png" alt-text="Diagram demonstrating Dapr pub/sub and how it works with Container Apps":::
@@ -57,7 +57,7 @@ With the following settings, you enable Dapr on your app:
 | `--dapr-app-protocol` / `appProtocol` | Tells Dapr which protocol your application is using. Valid options are `http` or `grpc`. Default is `http`. |
 | `--dapr-app-id` / `appId` | The unique ID of the application. Used for service discovery, state encapsulation, and the pub/sub consumer ID. |
 
-Once Dapr is enabled on your container app, you are able to plug in and use any of the [Dapr APIs](#dapr-building-blocks) via a [Dapr component](#dapr-components). 
+Once Dapr is enabled on your container app, you're able to plug in and use any of the [Dapr APIs](#dapr-building-blocks) via a [Dapr component](#dapr-components). 
 
 Dapr components are scoped to a container app environment and are pluggable modules that:
 
@@ -222,7 +222,7 @@ These settings define the `daprComponents` resource in your ARM template, with w
 
 ---
 
-For comparison, a Dapr OSS `components.yaml` file would include the following: 
+For comparison, a Dapr OSS `components.yaml` file would include: 
 
 ```yml
 apiVersion: dapr.io/v1alpha1
@@ -257,7 +257,7 @@ Version upgrades are handled transparently by Azure Container Apps. You can find
 - **Versions**: Version upgrades currently don't guarantee full support for all Dapr features in a given version.
 - **Secrets**: While Azure Container Apps currently doesn't support Dapr secrets, you can provide secrets to your components using the [Container Apps secret mechanism][aca-secrets].
 - **Configuration CRD**: While the ability for customers to use Dapr components is available, Container Apps doesn't expose Dapr configuration CRD.
-- **Observability**: While ability for you to customize your tracing backend isn't supported, you are able to use Application Insights as your tracing backend.
+- **Observability**: While ability for you to customize your tracing backend isn't supported, you're able to use Application Insights as your tracing backend.
 - **Pub/sub**: Container Apps supports Dapr's programmatic subscription model, but not:
    - Dapr's declarative Subscription spec
    - Pub/sub routing, as it's currently in preview
@@ -265,8 +265,8 @@ Version upgrades are handled transparently by Azure Container Apps. You can find
 - **Query API for state management (preview)**: As this feature is currently in preview, Query API for state management is currently not supported.
 - **Resiliency**: Resiliency is currently not supported in this version of Dapr in Container Apps.
 - **Dapr API logging**: Dapr API logging is currently not supported in this version of Dapr in Container Apps.
-- **Actor Reminders**: To use actor reminders, you'll need to set `minReplicas` to at least 1 to ensure reminders will always be active and thus fire correctly. The partition actor reminders feature is currently in preview and are unsupported in Container Apps.
-- **Service invocation**: While service invocation is supported in Container Apps, using service invocation without the default `content-type` is currently a preview features and unsupported in Container Apps.
+- **Actor Reminders**: To use actor reminders, you'll need to set `minReplicas` to at least 1 to ensure reminders will always be active and thus fire correctly. The partition actor reminders feature is currently in preview and unsupported in Container Apps.
+- **Service invocation**: While service invocation is supported in Container Apps, using service invocation without the default `content-type` is currently a preview feature and unsupported in Container Apps.
 
 ## Next Steps
 
