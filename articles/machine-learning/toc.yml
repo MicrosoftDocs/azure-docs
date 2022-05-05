@@ -547,7 +547,6 @@
             - name: Troubleshoot automated ML
               href: how-to-troubleshoot-auto-ml.md
     - name: Deploy models
-      expanded: true
       items: 
         - name: Online endpoints (real-time)
           items: 
