@@ -9,7 +9,7 @@ ms.author: azfuncdf
 
 # Durable Functions versions overview
 
-*Durable Functions* is an extension of [Azure Functions](../functions-overview.md) and [Azure WebJobs](../../app-service/webjobs-create.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you. If you are not already familiar with Durable Functions, see the [overview documentation](durable-functions-overview.md).
+*Durable Functions* is an extension of [Azure Functions](../functions-overview.md) and [Azure WebJobs](../../app-service/webjobs-create.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you. If you aren't already familiar with Durable Functions, see the [overview documentation](durable-functions-overview.md).
 
 ## New features in 2.x
 
@@ -19,7 +19,7 @@ This section describes the features of Durable Functions that are added in versi
 
 In Durable Functions 2.x, we introduced a new [entity functions](durable-functions-entities.md) concept.
 
-Entity functions define operations for reading and updating small pieces of state, known as *durable entities*. Like orchestrator functions, entity functions are functions with a special trigger type, *entity trigger*. Unlike orchestrator functions, entity functions do not have any specific code constraints. Entity functions also manage state explicitly rather than implicitly representing state via control flow.
+Entity functions define operations for reading and updating small pieces of state, known as *durable entities*. Like orchestrator functions, entity functions are functions with a special trigger type, *entity trigger*. Unlike orchestrator functions, entity functions don't have any specific code constraints. Entity functions also manage state explicitly rather than implicitly representing state via control flow.
 
 To learn more, see the [durable entities](durable-functions-entities.md) article.
 
@@ -66,11 +66,11 @@ To update the extension bundle version in your project, open host.json and updat
 
 Update your .NET project to use the latest version of the [Durable Functions bindings extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask).
 
-See [Register Azure Functions binding extensions](../functions-bindings-register.md#local-csharp) for more information.
+See [Register Azure Functions binding extensions](../functions-develop-vs.md?tabs=in-process#add-bindings) for more information.
 
 ### Update your code
 
-Durable Functions 2.x introduces several breaking changes. Durable Functions 1.x applications are not compatible with Durable Functions 2.x without code changes. This section lists some of the changes you must make when upgrading your version 1.x functions to 2.x.
+Durable Functions 2.x introduces several breaking changes. Durable Functions 1.x applications aren't compatible with Durable Functions 2.x without code changes. This section lists some of the changes you must make when upgrading your version 1.x functions to 2.x.
 
 #### Host.json schema
 
@@ -78,13 +78,13 @@ Durable Functions 2.x uses a new host.json schema. The main changes from 1.x inc
 
 * `"storageProvider"` (and the `"azureStorage"` subsection) for storage-specific configuration.
 * `"tracing"` for tracing and logging configuration.
-* `"notifications"` (and the `"eventGrid"` subsection) for event grid notification configuration.
+* `"notifications"` (and the `"eventGrid"` subsection) for Event Grid notification configuration.
 
 See the [Durable Functions host.json reference documentation](durable-functions-bindings.md#durable-functions-2-0-host-json) for details.
 
-#### Default taskhub name changes
+#### Default task hub name changes
 
-In version 1.x, if a task hub name was not specified in host.json, it was defaulted to "DurableFunctionsHub". In version 2.x, the default task hub name is now derived from the name of the function app. Because of this, if you have not specified a task hub name when upgrading to 2.x, your code will be operating with new task hub, and all in-flight orchestrations will no longer have an application processing them. To work around this, you can either explicitly set your task hub name to the v1.x default of "DurableFunctionsHub", or you can follow our [zero-downtime deployment guidance](durable-functions-zero-downtime-deployment.md) for details on how to handle breaking changes for in-flight orchestrations.
+In version 1.x, if a task hub name wasn't specified in host.json, it was defaulted to "DurableFunctionsHub". In version 2.x, the default task hub name is now derived from the name of the function app. Because of this, if you haven't specified a task hub name when upgrading to 2.x, your code will be operating with new task hub, and all in-flight orchestrations will no longer have an application processing them. To work around this, you can either explicitly set your task hub name to the v1.x default of "DurableFunctionsHub", or you can follow our [zero-downtime deployment guidance](durable-functions-zero-downtime-deployment.md) for details on how to handle breaking changes for in-flight orchestrations.
 
 #### Public interface changes (.NET only)
 
@@ -107,4 +107,4 @@ In Durable Functions 1.x, the orchestration client binding uses a `type` of `orc
 
 #### Raise event changes
 
-In Durable Functions 1.x, calling the [raise event](durable-functions-external-events.md#send-events) API and specifying an instance that did not exist resulted in a silent failure. Starting in 2.x, raising an event to a non-existent orchestration results in an exception.
+In Durable Functions 1.x, calling the [raise event](durable-functions-external-events.md#send-events) API and specifying an instance that didn't exist resulted in a silent failure. Starting in 2.x, raising an event to a non-existent orchestration results in an exception.

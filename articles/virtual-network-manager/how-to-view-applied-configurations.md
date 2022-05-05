@@ -1,11 +1,11 @@
 ---
 title: 'View configurations applied by Azure Virtual Network Manager (Preview)'
 description: Learn how to view configurations applied by Azure Virtual Network Manager.
-author: duongau
-ms.author: duau
+author: mbender-ms    
+ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 05/04/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
