@@ -178,6 +178,9 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 1. Select **Start** and wait a few minutes for the data to be replicated.
 
+   > [!NOTE]
+   > When being started, a link connection will start from a full initial load from your source database followed by incremental change feeds via the change feed feature in Azure SQL database.
+
 ## Monitor Synapse Link for SQL Server 2022
 
 You may monitor the status of your Synapse Link connection, see which tables are being initially copied over (Snapshotting), and see which tables are in continuous replication mode (Replicating).
@@ -216,6 +219,9 @@ You can add/remove tables on Synapse Studio as following:
 
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/link-connection-add-remove-tables.png" alt-text="Link connection add table.":::
 
+   > [!NOTE]
+   > You can directly add or remove tables when a link connection is running.
+   
 ## Stop the Synapse Link connection
 
 You can stop the Synapse link connection on Synapse Studio as following:
@@ -227,6 +233,9 @@ You can stop the Synapse link connection on Synapse Studio as following:
 1. Select **Stop** to stop the link connection, and it will stop replicating your data.
 
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/stop-link-connection.png" alt-text="Link connection stop link.":::
+
+   > [!NOTE]
+   > If you restart a link connection after stopping it, it will start from a full initial load from your source database followed by incremental change feeds.
 
 ## Rotate the SAS token for landing zone
 
@@ -250,7 +259,7 @@ The following is the list of known limitations for Synapse Link for SQL Server 2
 
 * Users must create new Synapse workspace to get Synapse link for SQL Server 2022.
 * Synapse link for SQL Server 2022 cannot be used in virtual network environment. Users need to check “Disable Managed virtual network” for Synapse workspace.
-* Users need to manually create schema in destination Synapse SQL pool in advance, as target database schema object will not be automatically created.
+* Users need to manually create schema in destination Synapse SQL pool in advance if your expected schema is not available in Synapse SQL pool. The destination database schema object will not be automatically created in data replication. If your schema is dbo, you can skip this step.
 * When creating SQL Server linked service, please choose SQL Auth, Windows Auth or Azure AD auth.
 * Synapse Link for SQL Server 2022 can work with SQL Server on Linux. But HA scenarios with Linux Pacemaker are not supported. Shelf hosted IR cannot be installed on Linux environment 
 * Synapse Link for SQL Server 2022 CANNOT be enabled for source tables in SQL Server 2022 in following conditions:
