@@ -18,7 +18,7 @@ This article contains information about how to troubleshoot most frequent proble
 
 ## Synapse Studio
 
-Synapse studio is easy to use tool that enables you to access your data using a browser without a need to install database access tools. However, Synapse studio is not designed to read a large set of data or full management of SQL objects.
+Synapse studio is easy to use tool that enables you to access your data using a browser without a need to install database access tools. However, Synapse studio isn't designed to read a large set of data or full management of SQL objects.
 
 ### Serverless SQL pool is grayed out in Synapse Studio
 
@@ -37,21 +37,21 @@ If the issue still continues, create a [support ticket](../../azure-portal/suppo
 
 ### Serverless databases are not shown in Synapse studio
 
-If you do not see the databases that are created in serverless SQL pool, check is your serverless SQL pool started. If the serverless SQL pool is deactivated, the databases will not be shown. Execute any query (for example `SELECT 1`) on the serverless pool to activate it, and the databases will be shown.
+If you don't see the databases that are created in serverless SQL pool, check is your serverless SQL pool started. If the serverless SQL pool is deactivated, the databases won't be shown. Execute any query (for example `SELECT 1`) on the serverless pool to activate it, and the databases will be shown.
 
 ### Synapse Serverless SQL pool is showing as unavailable
 Wrong network configuration is often the cause for this behavior. Make sure the ports are appropriately configured. In case you use firewall or Private Endpoint check their settings as well. Finally, make sure the appropriate roles are granted. 
 
 ## Storage access
 
-If you are getting the errors while trying to access the files on storage, make sure that you have permissions to access data. You should be able to access publicly available files. If you are accessing data without credentials, make sure that your Azure AD identity can directly access the files.
+If you're getting the errors while trying to access the files on storage, make sure that you have permissions to access data. You should be able to access publicly available files. If you're accessing data without credentials, make sure that your Azure AD identity can directly access the files.
 If you have SAS key that you should use to access files, make sure that you created a credential ([server-level](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential) or [database-scoped](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential)) that contains that credential. The credentials are required if you need to access data using the workspace [managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#database-scoped-credential) and custom [service principal name](develop-storage-files-storage-access-control.md?tabs=service-principal#database-scoped-credential).
 
 ### Cannot read, list or access files on data lake storage
 
-If you are using Azure AD login without explicit credential, make sure that your Azure AD identity can access the files on storage. Your Azure AD identity need to have Blob Data Reader or list/read ACL permissions to access the files - see [Query fails because file cannot be opened](#query-fails-because-file-cannot-be-opened).
+If you're using Azure AD login without explicit credential, make sure that your Azure AD identity can access the files on storage. Your Azure AD identity need to have Blob Data Reader or list/read ACL permissions to access the files - see [Query fails because file cannot be opened](#query-fails-because-file-cannot-be-opened).
 
-If you are accessing storage using [credentials](develop-storage-files-storage-access-control.md#credentials), make sure that your [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) or [SPN](develop-storage-files-storage-access-control.md?tabs=service-principal) has Data Reader/Contributor role, or ACL permissions. If you have used [SAS token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) make sure that it has `rl` permission and that it hasn't expired. 
+If you're accessing storage using [credentials](develop-storage-files-storage-access-control.md#credentials), make sure that your [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) or [SPN](develop-storage-files-storage-access-control.md?tabs=service-principal) has Data Reader/Contributor role, or ACL permissions. If you have used [SAS token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) make sure that it has `rl` permission and that it hasn't expired. 
 If you are using SQL login and the `OPENROWSET` function [without data source](develop-storage-files-overview.md#query-files-using-openrowset), make sure that you have a server-level credential that matches the storage URI and has permission to access the storage.
 
 ### Query fails because file cannot be opened
@@ -124,7 +124,7 @@ The following error is returned when a serverless SQL pool cannot read the Delta
 Content of directory on path 'https://.....core.windows.net/.../_delta_log/*.json' cannot be listed.
 ```
 
-Make sure that `_delta_log` folder exists (maybe you are querying plain Parquet files that are not converted to Delta Lake format). If the `_delta_log` folder exists, make sure that you have both read and list permission on the underlying Delta Lake folders. Try to read \*.json files directly using FORMAT='CSV' (put your URI in the BULK parameter):
+Make sure that `_delta_log` folder exists (maybe you're querying plain Parquet files that aren't converted to Delta Lake format). If the `_delta_log` folder exists, make sure that you have both read and list permission on the underlying Delta Lake folders. Try to read \*.json files directly using FORMAT='CSV' (put your URI in the BULK parameter):
 
 ```sql
 select top 10 *
@@ -132,7 +132,7 @@ from openrowset(BULK 'https://.....core.windows.net/.../_delta_log/*.json',FORMA
 with (line varchar(max)) as logs
 ```
 
-If this query fails, the caller does not have permission to read the underlying storage files.  
+If this query fails, the caller doesn't have permission to read the underlying storage files.  
 
 ## Query execution
 
@@ -168,14 +168,14 @@ The error *Invalid object name 'table name'* indicates that you are using an obj
 
 ### Unclosed quotation mark after the character string 
 
-In some rare cases, where you are using `LIKE` operator on a string column or some comparison with the string literals, you might get the following error:
+In some rare cases, where you're using `LIKE` operator on a string column or some comparison with the string literals, you might get the following error:
 
 ```
 Msg 105, Level 15, State 1, Line 88
 Unclosed quotation mark after the character string 
 ```
 
-This error might happen if you are using `Latin1_General_100_BIN2_UTF8` collation on the column. Try to set `Latin1_General_100_CI_AS_SC_UTF8` collation on the column instead of the `Latin1_General_100_BIN2_UTF8` collation to resolve the issue. If the error is still returned, raise a support request through the Azure portal.
+This error might happen if you're using `Latin1_General_100_BIN2_UTF8` collation on the column. Try to set `Latin1_General_100_CI_AS_SC_UTF8` collation on the column instead of the `Latin1_General_100_BIN2_UTF8` collation to resolve the issue. If the error is still returned, raise a support request through the Azure portal.
 
 ### Could not allocate tempdb space while transferring data from one distribution to another
 
@@ -195,7 +195,7 @@ If you would like to query the file ‘names.csv’ with this query 1, Azure Syn
 names.csv
 ```csv
 Id,first name, 
-1,Adam
+1, Adam
 2,Bob
 3,Charles
 4,David
@@ -854,7 +854,7 @@ The serverless SQL pool assigns the resources to the queries based on the size o
 
 ### Query duration is very long
 
-If you have queries with the query duration longer than 30min, the query is slowly returning results to the client is slow. Serverless SQL pool has 30min limit for execution, and any additional time is spent on result streaming. Try with the following workarounds: 
+If you have queries with the query duration longer than 30 min, the query is slowly returning results to the client is slow. Serverless SQL pool has 30 min limit for execution, and any additional time is spent on result streaming. Try with the following workarounds: 
 - If you are using [Synapse studio](#query-is-slow-when-executed-using-synapse-studio), try to reproduce the issues with some other application like SQL Server Management Studio or Azure Data Studio.
 - If your query is slow when executed using [SSMS, ADS, Power BI, or some other application](#query-is-slow-when-executed-using-application) check networking issues and best practices.
 - Put the query in the CETAS command and measure the query duration. The CETAS command will store the results to Azure Data Lake Storage and will not depend on the client connection. If the CETAS command finishes faster than the original query, check the network bandwidth between the client and the serverless SQL pool.
