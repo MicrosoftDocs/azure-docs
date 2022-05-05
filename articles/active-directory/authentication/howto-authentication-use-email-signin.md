@@ -69,7 +69,7 @@ In the current preview state, the following limitations apply to email as an alt
 
 * **Unsupported apps** - Some third-party applications may not work as expected if they assume that the `unique_name` or `preferred_username` claims are immutable or will always match a specific user attribute, such as UPN.
 
-* **Logging** - Changes made to the feature's configuration in HRD policy are not explicitly shown in the audit logs. In addition, the *Sign-in identifier type* field in the sign-in logs may not be always accurate and should not be used to determine whether the feature has been used for sign-in.
+* **Logging** - Changes made to the feature's configuration in HRD policy are not explicitly shown in the audit logs.
 
 * **Staged rollout policy** - The following limitations apply only when the feature is enabled using staged rollout policy:
     * The feature does not work as expected for users that are included in other staged rollout policies.
@@ -361,6 +361,12 @@ If users have trouble signing in with their email address, review the following 
     ```
 1. Make sure the user account has their email address set in the *ProxyAddresses* attribute in Azure AD.
 
+### Sign-in logs
+
+![Review email as alternate login ID activity in the sign-in logs.](media/howto-authentication-use-email-signin/email-alternate-login-id-logs.png)
+
+You can review the [sign-in logs in Azure AD][sign-in-logs] for more information. Sign-ins with email as an alternate login ID will emit `proxyAddress` in the *Sign-in identifier type* field and the inputted username in the *Sign-in identifier* field. 
+
 ### Conflicting values between cloud-only and synced users
 
 Within a tenant, a cloud-only user's UPN may take on the same value as another user's proxy address synced from the on-premises directory. In this scenario, with the feature enabled, the cloud-only user will not be able to sign in with their UPN. Here are the steps for detecting instances of this issue.
@@ -442,6 +448,7 @@ For more information on hybrid identity operations, see [how password hash sync]
 [phs-overview]: ../hybrid/how-to-connect-password-hash-synchronization.md
 [pta-overview]: ../hybrid/how-to-connect-pta-how-it-works.md
 [identity-protection]: ../identity-protection/overview-identity-protection.md#risk-detection-and-remediation
+[sign-in-logs]: ../reports-monitoring/concept-sign-ins
 
 <!-- EXTERNAL LINKS -->
 [azure-portal]: https://portal.azure.com
