@@ -100,28 +100,42 @@ The solution is also open source and the code is available on the [Azure Contain
 Azure NPM includes informative Prometheus metrics that allow you to monitor and better understand your configurations. It provides built-in visualizations in either the Azure portal or Grafana Labs. You can start collecting these metrics using either Azure Monitor or a Prometheus Server.
 
 ### Benefits of Azure NPM Metrics
-Users previously were only able to learn about their Network Configuration with the command `iptables -L` run inside a cluster node, which yields a verbose and difficult to understand output. NPM metrics provide the following benefits related to Network Policies, IPTables Rules, and IPSets.
-- Provides insight into the relationship between the three and a time dimension to debug a configuration.
-- Number of entries in all IPSets and each IPSet.
-- Time taken to apply a policy with IPTable/IPSet level granularity.
+Users previously were only able to learn about their Network Configuration with `iptables` and `ipset` commands run inside a cluster node, which yields a verbose and difficult to understand output.
+
+Overall, the metrics provide:
+- counts of policies, ACL rules, ipsets, ipset entries, and entries in any given ipset
+- execution times for individual OS calls and for handling resource events (median, 90th percentile, and 99th percentile)
+- failure info for individual OS calls and for handling resource events
+
+#### Example Metrics Use Cases
+##### Alerts via a Prometheus AlertManager
+See a [configuration for these alerts](#setup-alerts-for-alertmanager) below.
+1. Alert when NPM has a failure with an OS call or when translating a Network Policy.
+2. Alert when the median time to apply changes for a create event was more than 100 milliseconds.
+
+##### Visualizations and Debugging via our Grafana Dashboard or Azure Monitor Workbook
+1. See how many iptables rules your policies create (having a massive amount of iptables rules may increase latency slightly).
+2. Correlate the number of NPM ipsets to the time to apply kernel changes for pod and namespace events.
+3. Get the human-friendly name of an ipset in a given iptables rule (e.g. "azure-npm-487392" represents "podlabel-role:database").
  
-### Supported Metrics
-Following is the list of supported metrics:
+### All Supported Metrics
+The following is the list of supported metrics. Any `quantile` label has possible values `0.5`, `0.9`, and `0.99`. Any `had_error` label has possible values `false` and `true`, representing whether the operation succeeded or failed.
 
-|Metric Name |Description  |Prometheus Metric Type  |Labels  |
-|---------|---------|---------|---------|
-|`npm_num_policies`     |number of network policies          |Gauge         |-         |
-|`npm_num_iptables_rules`     | number of IPTables rules     | Gauge        |-         |         
-|`npm_num_ipsets`     |number of IPSets         |Gauge            |-         |
-|`npm_num_ipset_entries`     |number of IP address entries in all IPSets         |Gauge         |-         |
-|`npm_add_policy_exec_time`     |runtime for adding a network policy         |Summary         |quantile (0.5, 0.9, or 0.99)         |
-|`npm_add_iptables_rule_exec_time`     |runtime for adding an IPTables rule         |Summary         |quantile (0.5, 0.9, or 0.99)         |
-|`npm_add_ipset_exec_time`     |runtime for adding an IPSet         |Summary         |quantile (0.5, 0.9, or 0.99)         |
-|`npm_ipset_counts` (advanced)     |number of entries within each individual IPSet         |GaugeVec         |set name & hash         |
+| Metric Name                          | Description                                    | Prometheus Metric Type | Labels         |
+| -----                                | -----                                          | -----    |  -----                       |
+| `npm_num_policies`                   | number of network policies                     | Gauge    |  -                           |
+| `npm_num_iptables_rules`             | number of IPTables rules                       | Gauge    |  -                           |
+| `npm_num_ipsets`                     | number of IPSets                               | Gauge    |  -                           |
+| `npm_num_ipset_entries`              | number of IP address entries in all IPSets     | Gauge    |  -                           |
+| `npm_add_iptables_rule_exec_time`    | runtime for adding an IPTables rule            | Summary  | `quantile`                   |
+| `npm_add_ipset_exec_time`            | runtime for adding an IPSet                    | Summary  | `quantile`                   |
+| `npm_ipset_counts` (advanced)        | number of entries within each individual IPSet | GaugeVec | `set_name` & `set_hash`      |
+| `npm_add_policy_exec_time`           | runtime for adding a network policy            | Summary  | `quantile` & `had_error`     |
+| `npm_controller_policy_exec_time`    | runtime for updating/deleting a network policy | Summary  | `quantile` & `had_error` & `operation` (with values `update` or `delete`)            |
+| `npm_controller_namespace_exec_time` | runtime for updating/deleting a namespace      | Summary  | `quantile` & `had_error` & `operation` (with values `create`, `update`, or `delete`) |
+| `npm_controller_pod_exec_time`       | runtime for updating/deleting a pod            | Summary  | `quantile` & `had_error` & `operation` (with values `create`, `update`, or `delete`) |
 
-The different quantile levels in "exec_time" metrics help you differentiate between the general and worst case scenarios.
-
-There's also an "exec_time_count" and "exec_time_sum" metric for each "exec_time" Summary metric.
+There are also "exec_time_count" and "exec_time_sum" metrics for each "exec_time" Summary metric.
 
 The metrics can be scraped through Azure Monitor for Containers or through Prometheus.
 
@@ -222,6 +236,36 @@ You can also replace the `azure-npm-node-metrics` job  with the content below or
     regex: ([^:]+)(?::\d+)?
     replacement: "$1:10091"
     target_label: __address__
+```
+
+#### Setup Alerts for AlertManager
+If you use a Prometheus Server, you can set up an AlertManager like so. Here is an example config for [the two alerting rules described above](#alerts-via-a-prometheus-alertmanager):
+```
+groups:
+- name: npm.rules
+  rules:
+  # fire when NPM has a new failure with an OS call or when translating a Network Policy (suppose there's a scraping interval of 5m)
+  - alert: AzureNPMFailureCreatePolicy
+    # this expression says to grab the current count minus the count 5 minutes ago, or grab the current count if there was no data 5 minutes ago
+    expr: (npm_add_policy_exec_time_count{had_error='true'} - (npm_add_policy_exec_time_count{had_error='true'} offset 5m)) or npm_add_policy_exec_time_count{had_error='true'}
+    labels:
+      severity: warning
+      addon: azure-npm
+    annotations:
+      summary: "Azure NPM failed to handle a policy create event"
+      description: "Current failure count since NPM started: {{ $value }}"
+  # fire when the median time to apply changes for a pod create event is more than 100 milliseconds.
+  - alert: AzureNPMHighControllerPodCreateTimeMedian
+    expr: topk(1, npm_controller_pod_exec_time{operation="create",quantile="0.5",had_error="false"}) > 100.0
+    labels:
+      severity: warning
+      addon: azure-npm
+    annotations:
+      summary: "Azure NPM controller pod create time median > 100.0 ms"
+      # could have a simpler description like the one for the alert above,
+      # but this description includes the number of pod creates that were handled in the past 10 minutes, 
+      # which is the retention period for observations when calculating quantiles for a Prometheus Summary metric
+      description: "value: [{{ $value }}] and observation count: [{{ printf `(npm_controller_pod_exec_time_count{operation='create',pod='%s',had_error='false'} - (npm_controller_pod_exec_time_count{operation='create',pod='%s',had_error='false'} offset 10m)) or npm_controller_pod_exec_time_count{operation='create',pod='%s',had_error='false'}` $labels.pod $labels.pod $labels.pod | query | first | value }}] for pod: [{{ $labels.pod }}]"
 ```
 
 ### Visualization Options for Prometheus
