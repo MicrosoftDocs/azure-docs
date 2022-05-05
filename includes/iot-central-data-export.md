@@ -24,4 +24,4 @@ For example, you can:
 
 ## Prerequisites
 
-To use data export features, you must have the [Data export](howto-manage-users-roles.md) permission.
+To use data export features, you must have the [Data export](../articles/iot-central/core/howto-manage-users-roles.md) permission.
