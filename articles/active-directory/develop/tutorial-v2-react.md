@@ -58,7 +58,7 @@ Prefer to download this tutorial's completed sample project instead? To run the 
 
 Then, to configure the code sample before you execute it, skip to the [configuration step](#register-your-application).
 
-To continue with the tutorial and build the application yourself, move on to the next section, [Prerequisites](#create-your-project).
+To continue with the tutorial and build the application yourself, move on to the next section, [Create your project](#create-your-project).
 
 ## Create your project
 
@@ -134,7 +134,7 @@ In the [Redirect URI: MSAL.js 2.0 with auth code flow](scenario-spa-app-registra
     import { msalConfig } from "./authConfig";
     ```
 
-1. Underneath, the imports in *src/index.js* create a `PublicClientApplication` instance using the configuration from step 1.
+1. Underneath the imports in *src/index.js* create a `PublicClientApplication` instance using the configuration from step 1.
 
     ```javascript
     const msalInstance = new PublicClientApplication(msalConfig);
