@@ -17,6 +17,9 @@
     href: cognitive-services-apis-create-account-cli.md
   - name: Create a new resource using the client library
     href: cognitive-services-apis-create-account-client-library.md
+  - name: Create a new resource using Bicep
+    displayName: Resource Manager, ARM, Template
+    href: create-account-bicep.md
   - name: Create a new resource using an ARM template
     displayName: Resource Manager
     href: create-account-resource-manager-template.md  
@@ -117,7 +120,7 @@
   - name: Python
     href: /python/api/azure-mgmt-cognitiveservices/
   - name: Java
-    href: /java/api/overview/azure/cognitiveservices/resourcemanagement
+    href: /java/api/com.microsoft.azure.management.cognitiveservices
   - name: Go
     href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go@v52.5.0+incompatible/services/cognitiveservices/mgmt/2017-04-18/cognitiveservices
   - name: Azure CLI

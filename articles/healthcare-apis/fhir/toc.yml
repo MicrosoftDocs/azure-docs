@@ -92,6 +92,8 @@ items:
       href: tutorial-member-match.md
     - name: Patient/$everything
       href: patient-everything.md
+    - name: $purge-history operation
+      href: purge-history.md  
     - name: $validate
       expanded: false
       items:
@@ -108,6 +110,8 @@ items:
     href: fhir-service-autoscale.md
   - name: FHIR REST API capabilities
     href: fhir-rest-api-capabilities.md
+  - name: Versioning policy and history management
+    href: fhir-versioning-policy-and-history-management.md
 - name: Resources
   expanded: true
   items:

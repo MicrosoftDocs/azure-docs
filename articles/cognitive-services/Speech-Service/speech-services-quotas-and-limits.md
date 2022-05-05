@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/24/2022
+ms.date: 04/22/2022
 ms.author: alexeyo
 ---
 
@@ -68,9 +68,9 @@ In the following tables, the parameters without the **Adjustable** row aren't ad
 
 | Quota | Free (F0)<sup>3</sup> | Standard (S0) |
 |--|--|--|
-| **Max number of transactions per second (TPS) per Speech service resource** |  |  |
-| Real-time API. Prebuilt neural voices and custom neural voices. | 20 per 60 seconds | 200<sup>4</sup> |
-| Adjustable | No<sup>4</sup> | Yes<sup>4</sup> |
+| **Max number of transactions per certain time period per Speech service resource** |  |  |
+| Real-time API. Prebuilt neural voices and custom neural voices. | 20 transactions per 60 seconds | 200 transactions per second (TPS) |
+| Adjustable | No<sup>4</sup> | Yes<sup>5</sup> |
 | **HTTP-specific quotas** |  |  |
 | Max audio length produced per request | 10 min | 10 min |
 | Max total number of distinct `<voice>` and `<audio>` tags in SSML | 50 | 50 |
