@@ -7,7 +7,7 @@ author: barclayn
 manager: karenhoran
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 04/26/2022
+ms.date: 05/03/2022
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
@@ -46,7 +46,7 @@ The following diagram illustrates the Azure AD Verifiable Credentials architectu
 
 ## Create a storage account
 
-Azure Blob Storage is an object storage solution for the cloud. Azure AD Verifiable Credentials use [Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md) to store the configuration files when the service is issuing verifiable credentials.
+Azure Blob Storage is an object storage solution for the cloud. Azure AD Verifiable Credentials uses [Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md) to store the configuration files when the service is issuing verifiable credentials.
 
 Create and configure Blob Storage by following these steps:
 
@@ -59,9 +59,36 @@ Create and configure Blob Storage by following these steps:
 
    ![Screenshot that shows how to create a container.](media/verifiable-credentials-configure-issuer/create-container.png)
 
+## Grant access to the container
+
+After you create your container, grant the signed-in user the correct role assignment so they can access the files in Blob Storage.
+
+1. From the list of containers, select **vc-container**.
+
+1. From the menu, select **Access Control (IAM)**.
+
+1. Select **+ Add,** and then select **Add role assignment**.
+
+     ![Screenshot that shows how to add a new role assignment to the blob container.](media/verifiable-credentials-configure-issuer/add-role-assignment.png)
+
+1. In **Add role assignment**:
+
+    1. For the **Role**, select **Storage Blob Data Reader**.
+
+    1. For the **Assign access to**, select **User, group, or service
+        principal**.
+
+    1. Then, search the account that you're using to perform these steps, and
+        select it.
+
+        ![Screenshot that shows how to set up the new role assignment.](media/verifiable-credentials-configure-issuer/add-role-assignment-container.png)
+
+>[!IMPORTANT]
+>By default, container creators get the owner role assigned. The owner role isn't enough on its own. Your account needs the storage blob data reader role. For more information, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/blobs/assign-azure-role-data-access.md).
+
 ### Upload the configuration files
 
-Azure AD Verifiable Credentials service uses two JSON configuration files, the rules file and the display file. 
+Azure AD Verifiable Credentials uses two JSON configuration files, the rules file and the display file. 
 
 - The *rules* file describes important properties of verifiable credentials. In particular, it describes the claims that subjects (users) need to provide before a verifiable credential is issued for them. 
 - The *display* file controls the branding of the credential and styling of the claims.
@@ -148,7 +175,7 @@ In this step, you create the verified credential expert card by using Azure AD V
 
     1. For **Subscription**, select your Azure AD subscription where you created Blob Storage.
 
-    1. Under the **Display file**, select **Select display file**. In the Storage accounts section, select **vc-container**. Then select the **VerifiedCredentialExpertDisplay.json** file and select **Select**.
+    1. Under the **Display file**, select **Select display file**. In the Storage accounts section, select **vc-container**. Then select the **VerifiedCredentialExpertDisplay.json** file and click **Select**.
 
     1. Under the **Rules file**, **Select rules file**. In the Storage accounts section, select the **vc-container**. Then select the **VerifiedCredentialExpertRules.json** file, and choose **Select**.
 
@@ -179,7 +206,7 @@ Now that you have a new credential, you're going to gather some information abou
 The sample application is available in .NET, and the code is maintained in a GitHub repository. Download the sample code from [GitHub](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet), or clone the repository to your local machine:
 
 
-```bash
+```
 git clone https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet.git
 ```
 
@@ -250,15 +277,15 @@ The following JSON demonstrates a complete *appsettings.json* file:
 
 Now you're ready to issue your first verified credential expert card by running the sample application.
 
-1. From Visual Studio Code, run the *Verifiable_credentials_DotNet* project. Or, from the command shell, run the following commands:
+1. From Visual Studio Code, run the *Verifiable_credentials_DotNet* project. Or, from your operating system's command line, run:
 
-    ```bash
+    ```
     cd active-directory-verifiable-credentials-dotnet/1-asp-net-core-api-idtokenhint  dotnet build "AspNetCoreVerifiableCredentials.csproj" -c Debug -o .\\bin\\Debug\\netcoreapp3.  dotnet run
     ```
 
-1. In another terminal, run the following command. This command runs [ngrok](https://ngrok.com/) to set up a URL on 3000, and make it publicly available on the internet.
+1. In another command prompt window, run the following command. This command runs [ngrok](https://ngrok.com/) to set up a URL on 5000, and make it publicly available on the internet.
 
-    ```bash
+    ```
     ngrok http 5000
     ```
 
@@ -281,7 +308,7 @@ Now you're ready to issue your first verified credential expert card by running 
 
      ![Screenshot that shows how to respond to the warning message.](media/verifiable-credentials-configure-issuer/at-risk.png)
 
-1. At the risky website warning, select **Proceed anyways (unsafe)**. You're seeing this warning because your domain isn't linked to your decentralized identifier (DID). To verify your domain, follow the guidance in [Link your domain to your decentralized identifier (DID)](how-to-dnsbind.md). For this tutorial, you can skip the domain registration, and select **Proceed anyways (unsafe).**
+1. At the risky website warning, select **Proceed anyways (unsafe)**. You're seeing this warning because your domain isn't linked to your decentralized identifier (DID). To verify your domain, follow [Link your domain to your decentralized identifier (DID)](how-to-dnsbind.md). For this tutorial, you can skip the domain registration, and select **Proceed anyways (unsafe).**
 
      ![Screenshot that shows how to proceed with the risky warning.](media/verifiable-credentials-configure-issuer/proceed-anyway.png)
 

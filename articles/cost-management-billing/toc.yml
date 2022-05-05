@@ -208,10 +208,10 @@
       items:
       - name: Azure billing product transfers
         href: manage/subscription-transfer.md
-      - name: Transfer subscription ownership
+      - name: Transfer MOSP subscription ownership
         displayName: azure transfer subscription
         href: manage/billing-subscription-transfer.md
-      - name: Transfer subscriptions between partners (Preview)
+      - name: Transfer subscriptions between partners
         href: manage/azure-plan-subscription-transfer-partners.md
       - name: Transfer EA accounts
         href: manage/ea-transfers.md
