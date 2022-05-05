@@ -8,7 +8,7 @@ ms.date: 04/28/2022
 ms.custom: references_regions
 ---
 
-# QuickStart: Connect your System Center Virtual Machine Manager management server to Azure Arc using the helper script
+# QuickStart: Connect your System Center Virtual Machine Manager management server to Azure Arc
 
 Before you can start using the Azure Arc enabled SCVMM features, you need to connect your VMM management server to Azure Arc.
 
@@ -19,7 +19,7 @@ This QuickStart shows you how to connect your SCVMM management server to Azure A
 | **Requirement** | **Details** |
 | --- | --- |
 | **Azure** | An Azure subscription  <br/><br/> A resource group in the above subscription where you have the *Owner/Contributor* role. |
-| **SCVMM** | You need an SCVMM management Server running version 2016 or later.<br/><br/> A private cloud that has at least one cluster with minimum free capacity of 16 GB of RAM, 4 vCPUs with 100 GB of free disk space. <br/><br/> A VM network with internet access, directly or through proxy. Appliance VM will be deployed using this VM network.<br/><br/> For dynamic IP allocation to appliance VM, DHCP server is required. For static IP allocation, VMM static IP pool is required. |
+| **SCVMM** | You need an SCVMM management server running version 2016 or later.<br/><br/> A private cloud that has at least one cluster with minimum free capacity of 16 GB of RAM, 4 vCPUs with 100 GB of free disk space. <br/><br/> A VM network with internet access, directly or through proxy. Appliance VM will be deployed using this VM network.<br/><br/> For dynamic IP allocation to appliance VM, DHCP server is required. For static IP allocation, VMM static IP pool is required. |
 | **SCVMM accounts** | An SCVMM admin account that can perform all administrative actions on all objects that VMM manages. <br/><br/> This will be used for the ongoing operation of Azure Arc enabled SCVMM as well as the deployment of the Arc Resource bridge VM. |
 | **Workstation** | The workstation will be used to run the helper script.<br/><br/> A Windows/Linux machine that can access both your SCVMM management server and internet, directly or through proxy.<br/><br/> The helper script can be run directly from the VMM server machine as well.<br/><br/> Note that when you execute the script from a Linux machine, the deployment takes a bit longer and you may experience performance issues. |
 
