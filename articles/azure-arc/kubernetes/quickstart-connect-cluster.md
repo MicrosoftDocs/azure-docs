@@ -313,7 +313,7 @@ az connectedk8s connect --name <cluster-name> --resource-group <resource-group> 
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-The ability to pass only in the proxy certificate without the proxy server endpoint details is not yet supported via PowerShell. 
+The ability to pass in the proxy certificate only without the proxy server endpoint details is not yet supported via PowerShell. 
 
 ---
 
