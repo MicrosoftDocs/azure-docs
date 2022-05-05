@@ -25,7 +25,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 * Create an Azure Data Lake Storage Gen2 account used as the landing zone to stage the data submitted by SQL Server 2022. See [how to create a Azure Data Lake Storage Gen2 account](../../storage/blobs/create-data-lake-storage-account.md) article for more details.
 
 
-* Make sure the source database has master key created.
+* Make sure your database in SQL Server 2022 has master key created.
 
    ```sql
    CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<a new password>'
@@ -146,7 +146,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/input-source-database-details-link-connection.png" alt-text="Input source database details.":::
 
-1. Select a target database name from **Synapse SQL Dedicated Pools V2**. 
+1. Select a target database name from **Synapse SQL Dedicated Pools**. 
 
 1. Select **Continue**.
 
@@ -179,7 +179,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 1. Select **Start** and wait a few minutes for the data to be replicated.
 
    > [!NOTE]
-   > When being started, a link connection will start from a full initial load from your source database followed by incremental change feeds via the change feed feature in Azure SQL database.
+   > When being started, a link connection will start from a full initial load from your source database followed by incremental change feeds via the change feed feature in SQL Server 2022.
 
 ## Monitor Synapse Link for SQL Server 2022
 
