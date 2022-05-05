@@ -74,7 +74,9 @@ items:
       href: custom-classification/how-to/view-model-evaluation.md
     - name: Improve a model
       href: custom-classification/how-to/improve-model.md
-    - name: Deploy a model and classify text
+    - name: Deploy a model
+      href: custom-classification/how-to/deploy-model.md
+    - name: Classify text
       href: custom-classification/how-to/call-api.md
     - name: Back up and recover your models
       href: custom-classification/fail-over.md

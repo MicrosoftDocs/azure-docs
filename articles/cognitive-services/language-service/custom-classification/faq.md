@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 04/05/2022
+ms.date: 04/22/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
@@ -61,9 +61,9 @@ See the [data selection and schema design](how-to/design-schema.md) article for 
 
 * View the model [confusion matrix](how-to/view-model-evaluation.md), if you notice that a certain class is frequently classified incorrectly, consider adding more tagged instances for this class. If you notice that two classes are frequently classified as each other, this means the schema is ambiguous, consider merging them both into one class for better performance.
 
-*  [Examine Data distribution](how-to/improve-model.md#examine-data-distribution-from-language-studio) If one of the classes has a lot more tagged instances than the others, your model may be biased towards this class. Add more data to the other classes or remove most of the examples from the dominating class. 
+*  [Examine Data distribution](concepts/evaluation.md) If one of the classes has many more tagged instances than the others, your model may be biased towards this class. Add more data to the other classes or remove most of the examples from the dominating class. 
 
-* Learn more about data selection and schema design [here](how-to/design-schema.md).
+* Review the [data selection and schema design](how-to/design-schema.md) article for more information.
 
 * [Review your test set](how-to/improve-model.md) to see predicted and tagged classes side-by-side so you can get a better idea of your model performance, and decide if any changes in the schema or the tags are necessary.
 
@@ -75,7 +75,7 @@ See the [data selection and schema design](how-to/design-schema.md) article for 
 
 ## How do I get predictions in different languages?
 
-First, you need to enable the multilingual option when [creating your project](how-to/create-project.md) or you can enable it later from the project settings page. After you train and deploy your model, you can start querying it in [multiple languages](language-support.md#multiple-language-support). You may get varied results for different languages. To improve the accuracy of any language, add more tagged instances to your project in that language to introduce the trained model to more syntax of that language.
+First, you need to enable the multilingual option when [creating your project](how-to/create-project.md) or you can enable it later from the project settings page. After you train and deploy your model, you can start querying it in multiple languages. You may get varied results for different languages. To improve the accuracy of any language, add more tagged instances to your project in that language to introduce the trained model to more syntax of that language. <!-- See [language support](language-support.md#multi-lingual-option) for more information.-->
 
 ## I trained my model, but I can't test it
 
