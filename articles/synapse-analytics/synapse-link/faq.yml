@@ -34,7 +34,7 @@ sections:
           My destination tables exist in Synapse SQL pool which causes my link connection fails to start. What should I do?
         answer: |
           You should remove the destination tables before starting a link connection. You can do that by either manually removing the tables from Synapse SQL pool or checking “Drop and recreate table on target” in the link connection to let it automatically drop existing tables on Synapse SQL pool every time when starts.
-          :::image type="content" source="../media/sql-synapse-link-overview/drop-recreate-target-table.png" alt-text="Shows a screenshot of the Drop and Recreate Target Table option for Synapse Link for SQL Server.":::
+          :::image type="content" source="../media/sql-synapse-link-overview/drop-recreate-target-table.png" lightbox="../media/sql-synapse-link-overview/drop-recreate-target-table.png" alt-text="Shows a screenshot of the Drop and Recreate Target Table option for Synapse Link for SQL Server.":::
       - question: |
           What happens on my running link connection if the table columns have been added or dropped from our source stores?
         answer: |
