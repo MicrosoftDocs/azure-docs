@@ -85,7 +85,7 @@ On the **Basics** tab, you give the access package a name and specify which cata
 
 On the **Resource roles** tab, you select the resources to include in the access package. Users who request and receive the access package will receive all the resource roles, such as group membership, in the access package.
 
-If you're not sure which resource roles to include, you can skip adding resource roles while creating the access package, and then [add resource roles](entitlement-management-access-package-resources.md) once the access package is created.
+If you're not sure which resource roles to include, you can skip adding resource roles while creating the access package, and then [add resource roles](entitlement-management-access-package-resources.md) after you've created the access package.
 
 1. Click the resource type you want to add (**Groups and Teams**, **Applications**, or **SharePoint sites**).
 
