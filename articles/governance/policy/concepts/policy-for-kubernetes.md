@@ -1,9 +1,11 @@
 ---
 title: Learn Azure Policy for Kubernetes
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises.
-ms.date: 09/13/2021
+ms.date: 05/05/2022
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Understand Azure Policy for Kubernetes clusters
 
@@ -603,6 +605,18 @@ the Kubernetes cluster. By supporting an existing standard for Kubernetes manage
 makes it possible to reuse existing rules and pair them with Azure Policy for a unified cloud
 compliance reporting experience. For more information, see
 [What is Rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego).
+
+To list available OPA constraints in your AKS cluster, use the following `kubectl` command:
+
+```azurecli
+kubectl get constraint
+```
+
+Once you have the constraint name, run the following `kubectl` command to describe it:
+
+```azurecli
+kubectl describe constraint <_constraint_name_>
+```
 
 ## Assign a policy definition
 
