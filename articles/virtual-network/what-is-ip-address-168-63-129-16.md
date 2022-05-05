@@ -43,9 +43,9 @@ The public IP address 168.63.129.16 is used in all regions and all national clou
 
 - When the VM is part of a load balancer backend pool, [health probe](../load-balancer/load-balancer-custom-probe-overview.md) communication should be allowed to originate from 168.63.129.16. The default network security group configuration has a rule that allows this communication. This rule leverages the [AzureLoadBalancer](../virtual-network/service-tags-overview.md#available-service-tags) service tag. If desired this traffic can be blocked by configuring the network security group however this will result in probes that fail.
 
-## Troubleshooting Connectivity
+## Troubleshoot connectivity
 ### Windows OS
-You can test communication to 168.63.129.16 using the following tests with PowerShell.
+You can test communication to 168.63.129.16 by using the following tests with PowerShell.
 
 ```
 Test-NetConnection -ComputerName 168.63.129.16 -Port 80
@@ -80,9 +80,9 @@ xml                            Versions
 ---                            --------
 version="1.0" encoding="utf-8" Versions
 ```
-You can also test communication to 168.63.129.16 using telnet or psping as shown below.
+You can also test communication to 168.63.129.16 by using telnet or psping.
 
-If successful telnet should connect and the file that is created below will be empty
+If successful, telnet should connect and the file that is created will be empty.
 
 ```
 telnet 168.63.129.16 80 >> C:\<<EDIT-DIRECTORY>>\168-63-129-16_test-port80.txt
@@ -94,7 +94,7 @@ Psping 168.63.129.16:80 >> C:\<<EDIT-DIRECTORY>>\168-63-129-16_test--port80.txt
 Psping 168.63.129.16:32526 >> C:\<<EDIT-DIRECTORY>>\168-63-129-16_test-port32526.txt
 ```
 ### Linux OS
-On Linux you can test communication to 168.63.129.16 using the following tests.
+On Linux, you can test communication to 168.63.129.16 by using the following tests.
 
 ```
 echo "Testing 80 168.63.129.16 Port 80" > 168-63-129-16_test.txt
@@ -105,7 +105,7 @@ echo "Test 168.63.129.16 Versions"  >> 168-63-129-16_test.txt
 curl http://168.63.129.16/?comp=versions >> 168-63-129-16_test.txt
 ```
 
-Results inside 168-63-129-16_test.txt should return as shown below:
+Results inside 168-63-129-16_test.txt should return as shown below.
 
 ```
 traceroute -T -p 80 168.63.129.16
