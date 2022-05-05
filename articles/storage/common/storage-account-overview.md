@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/05/2022
+ms.date: 04/21/2022
 ms.author: tamram
 ms.subservice: common
 ---
@@ -44,16 +44,25 @@ The service-level agreement (SLA) for Azure Storage accounts is available at [SL
 > [!NOTE]
 > You can't change a storage account to a different type after it's created. To move your data to a storage account of a different type, you must create a new account and copy the data to the new account.
 
-## Storage account endpoints
-
-A storage account provides a unique namespace in Azure for your data. Every object that you store in Azure Storage has an address that includes your unique account name. The combination of the account name and the Azure Storage service endpoint forms the endpoints for your storage account.
+## Storage account name
 
 When naming your storage account, keep these rules in mind:
 
 - Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 - Your storage account name must be unique within Azure. No two storage accounts can have the same name.
 
-The following table lists the format of the endpoint for each of the Azure Storage services.
+## Storage account endpoints
+
+A storage account provides a unique namespace in Azure for your data. Every object that you store in Azure Storage has an address that includes your unique account name. The combination of the account name and the Azure Storage service endpoint forms the endpoints for your storage account.
+
+There are two types of service endpoints available for a storage account:
+
+- Standard endpoints (recommended). You can create up to 250 storage accounts with standard endpoints in a given subscription.
+- Azure DNS Zone endpoints (preview). You can create up to 5000 storage accounts with standard endpoints in a given subscription.
+
+### Standard endpoints
+
+The following table lists the format for the standard endpoints for each of the Azure Storage services.
 
 | Storage service | Endpoint |
 |--|--|
@@ -68,6 +77,23 @@ Construct the URL for accessing an object in a storage account by appending the 
 `https://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*`
 
 You can also configure your storage account to use a custom domain for blobs. For more information, see [Configure a custom domain name for your Azure Storage account](../blobs/storage-custom-domain-name.md).
+
+### Azure DNS Zone endpoints (preview)
+
+Include here:
+
+- Conceptual overview
+- Advantages of using DNS Zone endpoints
+- Any caveats user should be aware of
+    - e.g., you'll need to update your app to query endpoints @ runtime
+
+To learn how to create a storage account with Azure DNS Zone endpoints, see [Create a storage account with Azure DNS Zone endpoints (preview)](storage-account-create.md#create-a-storage-account-with-azure-dns-zone-endpoints-preview).
+
+#### About the preview
+
+- How to register for the preview
+    - [AFEC](https://docs.microsoft.com/azure/azure-resource-manager/management/preview-features)
+- Any known issues
 
 ## Migrate a storage account
 

@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/27/2022
+ms.date: 04/21/2022
 ms.author: tamram
 ms.subservice: common 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -96,6 +96,8 @@ A storage account is an Azure Resource Manager resource. Resource Manager is the
 
 Every Resource Manager resource, including an Azure storage account, must belong to an Azure resource group. A resource group is a logical container for grouping your Azure services. When you create a storage account, you have the option to either create a new resource group, or use an existing resource group. This how-to shows how to create a new resource group.
 
+### Create a storage account with standard endpoints
+
 # [Portal](#tab/azure-portal)
 
 To create an Azure storage account with the Azure portal, follow these steps:
@@ -110,7 +112,7 @@ To create an Azure storage account with the Azure portal, follow these steps:
 
 Options for your new storage account are organized into tabs in the **Create a storage account** page. The following sections describe each of the tabs and their options.
 
-### Basics tab
+#### Basics tab
 
 On the **Basics** tab, provide the essential information for your storage account. After you complete the **Basics** tab, you can choose to further customize your new storage account by setting options on the other tabs, or you can select **Review + create** to accept the default options and proceed to validate and create the account.
 
@@ -129,7 +131,7 @@ The following image shows a standard configuration of the basic properties for a
 
 :::image type="content" source="media/storage-account-create/create-account-basics-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Basics tab" lightbox="media/storage-account-create/create-account-basics-tab-lrg.png":::
 
-### Advanced tab
+#### Advanced tab
 
 On the **Advanced** tab, you can configure additional options and modify default settings for your new storage account. Some of these options can also be configured after the storage account is created, while others must be configured at the time of creation.
 
@@ -153,7 +155,7 @@ The following image shows a standard configuration of the advanced properties fo
 
 :::image type="content" source="media/storage-account-create/create-account-advanced-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Advanced tab" lightbox="media/storage-account-create/create-account-advanced-tab-lrg.png":::
 
-### Networking tab
+#### Networking tab
 
 On the **Networking** tab, you can configure network connectivity and routing preference settings for your new storage account. These options can also be configured after the storage account is created.
 
@@ -168,7 +170,7 @@ The following image shows a standard configuration of the networking properties 
 
 :::image type="content" source="media/storage-account-create/create-account-networking-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Networking tab" lightbox="media/storage-account-create/create-account-Networking-tab-lrg.png":::
 
-### Data protection tab
+#### Data protection tab
 
 On the **Data protection** tab, you can configure data protection options for blob data in your new storage account.  These options can also be configured after the storage account is created. For an overview of data protection options in Azure Storage, see [Data protection overview](../blobs/data-protection-overview.md).
 
@@ -188,7 +190,7 @@ The following image shows a standard configuration of the data protection proper
 
 :::image type="content" source="media/storage-account-create/create-account-protection-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Data Protection tab" lightbox="media/storage-account-create/create-account-protection-tab-lrg.png":::
 
-### Encryption tab
+#### Encryption tab
 
 On the **Encryption** tab, you can configure options that relate to how your data is encrypted when it is persisted to the cloud. Some of these options can be configured only when you create the storage account.
 
@@ -204,7 +206,7 @@ The following image shows a standard configuration of the encryption properties 
 
 :::image type="content" source="media/storage-account-create/create-account-encryption-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Encryption tab" lightbox="media/storage-account-create/create-account-encryption-tab-lrg.png":::
 
-### Tags tab
+#### Tags tab
 
 On the **Tags** tab, you can specify Resource Manager tags to help organize your Azure resources. For more information, see [Tag resources, resource groups, and subscriptions for logical organization](../../azure-resource-manager/management/tag-resources.md).
 
@@ -212,7 +214,7 @@ The following image shows a standard configuration of the index tag properties f
 
 :::image type="content" source="media/storage-account-create/create-account-basics-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Tags tab" lightbox="media/storage-account-create/create-account-tags-tab-lrg.png":::
 
-### Review + create tab
+#### Review + create tab
 
 When you navigate to the **Review + create** tab, Azure runs validation on the storage account settings that you have chosen. If validation passes, you can proceed to create the storage account.
 
@@ -334,6 +336,10 @@ To learn how to modify this template or create new ones, see:
 - [Additional storage account template samples](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
 
 ---
+
+### Create a storage account with Azure DNS Zone endpoints (preview)
+
+Add how-to content for DNS Zone endpoints here (portal/ps/cli)
 
 ## Delete a storage account
 
