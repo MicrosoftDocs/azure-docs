@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Build 3D scenes with 3D Scenes Studio for Azure Digital Twins
 
-Azure Digital Twins [3D Scenes Studio](concepts-3d-scenes-studio.md) is an immersive 3D environment, where business and front-line workers can consume and investigate operational data from their Azure Digital Twins solutions with visual context.
+Azure Digital Twins [3D Scenes Studio](http://dev.explorer.azuredigitaltwins-test.net/3dscenes) is an immersive 3D environment, where business and front-line workers can consume and investigate operational data from their Azure Digital Twins solutions with visual context.
 
 ## Prerequisites
 
@@ -107,7 +107,7 @@ One way to create a new element is to select **New element** from the **Elements
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-start-button.png" alt-text="Screenshot of 3D Scenes Studio in Build mode for a scene. The New element button is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-element-start-button.png":::
 
-Alternatively, you can select a component of the mesh directly from the visualization and create a new element that is connected to it already.
+Alternatively, you can select a mesh component directly from the visualization and create a new element that is connected to it already.
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-start-mesh.png" alt-text="Screenshot of 3D Scenes Studio in Build mode for a scene. The mesh for a tank in the 3D visualization is highlighted and there is an option to Create new element." lightbox="media/how-to-use-3d-scenes-studio/new-element-start-mesh.png":::
 
@@ -130,9 +130,9 @@ Select a twin to link to this element. This will automatically apply the digital
 
 ### Meshes
 
-The **Meshes** tab is where you specify which component of the visual 3D mesh represents this element.
+The **Meshes** tab is where you specify which components of the visual 3D mesh represent this element.
 
-If you started element creation by selecting a mesh in the visualization, that mesh will already be filled in here. If no mesh has been added yet, you can select one in the visualization now to add it.
+If you started element creation by selecting a mesh in the visualization, that mesh will already be filled in here. You can select meshes in the visualization now to add them to the element.
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-meshes.png" alt-text="Screenshot of the New element options in 3D Scenes Studio. The Meshes tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-element-meshes.png":::
 

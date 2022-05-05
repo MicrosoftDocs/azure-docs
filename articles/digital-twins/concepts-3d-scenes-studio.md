@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # 3D Scenes Studio for Azure Digital Twins
 
-Azure Digital Twins *3D Scenes Studio* is an immersive 3D environment, where business and front-line workers can consume and investigate operational data from their Azure Digital Twins solutions with visual context. 3D Scenes Studio empowers organizations to quickly build lightweight 3D visualizations, without needing 3D expertise. These visualizations are driven by contextual data, and can be consumed easily from web browsers. 
+Azure Digital Twins [3D Scenes Studio](http://dev.explorer.azuredigitaltwins-test.net/3dscenes) is an immersive 3D environment, where business and front-line workers can consume and investigate operational data from their Azure Digital Twins solutions with visual context. 3D Scenes Studio empowers organizations to enrich existing 3D models with visualizations powered by Azure Digital Twins data, without the need for 3D expertise. These visualizations are driven by contextual data, and can be easily consumed from web browsers. 
 
 With a digital twin graph and curated 3D model, subject matter experts can leverage the studio's low-code Build mode to map the 3D elements to the digital twin, and define UI interactivity and business logic for a 3D visualization of a business environment. The 3D Scene can then be surfaced to end users by deep-linking into the hosted experience within [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md), or embedding the 3D viewer component into custom applications. 
 
@@ -42,15 +42,15 @@ The files for a scene are stored in linked [Azure storage](/storage/blobs/), whi
 ## Set up
 
 To work with 3D Scenes Studio, you'll need the following required resources:
-* An Azure Digital Twins instance
+* An [Azure Digital Twins instance](how-to-set-up-instance-cli.md)
     * You'll need *Azure Digital Twins Data Owner* or *Azure Digital Twins Data Reader* access to the instance
-* An Azure storage account
+* An [Azure storage account](/storage/common/storage-account-create?tabs=azure-portal)
     * You'll need *Storage Blob Data Owner* access to the storage account
-* A private container in the storage account
+* A [private container](/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in the storage account
 
 Then, you can access 3D Scenes Studio at this link: [3D Scenes Studio](http://dev.explorer.azuredigitaltwins-test.net/3dscenes).
 
-Once there, you'll link your 3D environment to your storage resources, and configure your first scene. For detailed instructions, see [Initialize your 3D Scenes Studio environment](how-to-use-3d-scenes-studio.md#initialize-your-3d-scenes-studio-environment) and [Create and view scenes](how-to-use-3d-scenes-studio.md#create-and-view-scenes).
+Once there, you'll link your 3D environment to your storage resources, and configure your first scene. For detailed instructions on how to perform these actions, see [Initialize your 3D Scenes Studio environment](how-to-use-3d-scenes-studio.md#initialize-your-3d-scenes-studio-environment) and [Create and view scenes](how-to-use-3d-scenes-studio.md#create-and-view-scenes).
 
 ## Build mode
 
@@ -68,9 +68,9 @@ When creating an element in Build mode, you'll define the following components:
 
 * **Linked twin**: Each element is connected to a primary digital twin counterpart. You connect the element to a twin in your Azure Digital Twins instance so that the element can represent your twin and its data within the 3D visualization.
 * **Name**: Each element needs a name. You might want to make it match the `$dtId` of its linked twin.
-* **Mesh**: Identify which component of the 3D visualization mesh represents this element.
+* **Mesh**: Identify which components of the 3D visualization mesh represent this element.
 * **Behaviors**: Elements are subject to [behaviors](#behaviors) that affect how they appear in the visualization. You can choose which behaviors each element exhibits.
-* **Aliased twins**: If you want, you can add secondary digital twin data sources for an element. You should only add aliased twins when there are additional twins with data beyond your linked twin that you want to leverage in your behaviors. After configuring an aliased twin, you'll be able to use properties from that twin in your behavior expressions for this element. 
+* **Aliased twins**: If you want, you can add secondary digital twin data sources for an element. You should only add aliased twins when there are additional twins with data beyond your linked twin that you want to leverage in your behaviors. After configuring an aliased twin, you'll be able to use properties from that twin when defining behaviors for that element.
 
 ### Behaviors
 
@@ -104,7 +104,7 @@ Here's an example of what the embedded viewer might look like in an independent 
 
 ## Recommended limits
 
-Here are the recommended limits when working with 3D Scenes Studio.
+When working with 3D Scenes Studio, it's recommended to stay within the following limits.
 
 | Capability | Recommended limit |
 | --- | --- |

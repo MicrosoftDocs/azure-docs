@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Quickstart - Get started with 3D Scenes Studio for Azure Digital Twins
 
-Azure Digital Twins [3D Scenes Studio](concepts-3d-scenes-studio.md) is an immersive 3D environment, where business and front-line workers can consume and investigate operational data from their Azure Digital Twins solutions with visual context.
+Azure Digital Twins *3D Scenes Studio* is an immersive 3D environment, where business and front-line workers can consume and investigate operational data from their Azure Digital Twins solutions with visual context.
 
 In this article, you'll set up all the required resources for using 3D Scenes Studio. Then, you'll create a scene in the studio that's connected to a sample Azure Digital Twins environment.
 
