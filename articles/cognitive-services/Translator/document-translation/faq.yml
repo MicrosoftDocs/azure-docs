@@ -21,18 +21,22 @@ sections:
   - name: Document Translation
     questions:
 
-    - question: Does document translation translate content from scanned documents?
+    - question:
+        Does document translation translate content from scanned documents?
       answer: |
-       Yes. Currently, Document translation can translate content from *scanned PDF* documents.
+        Yes. Currently, Document translation can translate content from *scanned PDF* documents.
 
-    - question: Will the text embedded in an image within a document gets translated?
-      answers: |
-       The text embedded in a scanned PDF will be translated. Currently Document translation does not support translation of text within images.
+    - question:
+        Will the text embedded in an image within a document gets translated?
+      answer: |
+        The text embedded in a scanned PDF will be translated. Currently Document Translation does not support translating text within images.
 
-    - question: When should I specify the source language of the document in the request?
+    - question:
+        When should I specify the source language of the document in the request?
       answer: |
        If the language of the content in the source document is known, it's recommended that the source language is specified in the request to get a better translation. If the document has content in multiple languages or the language is unknown, then don't specify the source language in the request. Document translation automatically identifies language for each text segment and translates.
 
-    - question:  To what extent are the layout, structure, and formatting maintained?
+    - question:
+        To what extent are the layout, structure, and formatting maintained?
       answer: |
        While translating text from the source to the target language, the overall length of translated text may differ from source.  This could result in reflow of text across pages. The same fonts may not be available both in source and target language. In general, the same font style is applied in target language to retain formatting closer to source.|
