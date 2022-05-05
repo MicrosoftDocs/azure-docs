@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 08/03/2021 
+ms.date: 04/19/2022 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -42,11 +42,11 @@ Within a service, programmatic creation of content is through [Search Service RE
 
 ## Check versions and load modules
 
-The examples in this article are interactive and require elevated permissions. Azure PowerShell (the **Az** module) must be installed. For more information, see [Install Azure PowerShell](/powershell/azure/).
+The examples in this article are interactive and require elevated permissions. Local PowerShell and the Azure PowerShell (the **Az** module) are required.
 
-### PowerShell version check (5.1 or later)
+### PowerShell version check
 
-Local PowerShell must be 5.1 or later, on any supported operating system.
+PowerShell 7.0.6 LTS, PowerShell 7.1.3, or higher is the recommended version of PowerShell for use with the Azure Az PowerShell module on all platforms. [Install the latest version of PowerShell](/powershell/scripting/install/installing-powershell) if you don't have it.
 
 ```azurepowershell-interactive
 $PSVersionTable.PSVersion
@@ -60,7 +60,7 @@ If you aren't sure whether **Az** is installed, run the following command as a v
 Get-InstalledModule -Name Az
 ```
 
-Some systems do not auto-load modules. If you get an error on the previous command, try loading the module, and if that fails, go back to the installation instructions to see if you missed a step.
+Some systems do not auto-load modules. If you get an error on the previous command, try loading the module, and if that fails, go back to the installation [Azure PowerShell installation instructions](/powershell/azure/) to see if you missed a step.
 
 ```azurepowershell-interactive
 Import-Module -Name Az

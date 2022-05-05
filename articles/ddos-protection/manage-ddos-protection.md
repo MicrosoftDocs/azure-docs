@@ -47,6 +47,8 @@ In this quickstart, you'll create a DDoS protection plan and link it to a virtua
 
 1. Select **Review + create** then **Create**
 
+[!INCLUDE [DDoS-Protection-region-requirement.md](../../includes/DDoS-Protection-region-requirement.md)]
+
 ## Enable DDoS protection for a virtual network
 ### Enable DDoS protection for a new virtual network
 
@@ -114,7 +116,7 @@ Under **Protected resources**, you can view your protected virtual networks and 
 You can keep your resources for the next tutorial. If no longer needed, delete the _MyResourceGroup_ resource group. When you delete the resource group, you also delete the DDoS protection plan and all its related resources. If you don't intend to use this DDoS protection plan, you should remove resources to avoid unnecessary charges.
 
    >[!WARNING]
-   >This action is irreversable.
+   >This action is irreversible.
 
 1. In the Azure portal, search for and select **Resource groups**, or select **Resource groups** from the Azure portal menu.
 

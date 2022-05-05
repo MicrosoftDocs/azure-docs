@@ -2,7 +2,7 @@
 title: Archive for What's new with Azure Arc-enabled servers agent
 description: The What's new release notes in the Overview section for Azure Arc-enabled servers agent contains six months of activity. Thereafter, the items are removed from the main article and put into this article.
 ms.topic: overview
-ms.date: 03/17/2022
+ms.date: 04/15/2022
 ms.custom: references_regions
 ---
 
@@ -16,6 +16,13 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 - Known issues
 - Bug fixes
 
+## Version 1.12 - October 2021
+
+### Fixed
+
+- Improved reliability when validating signatures of extension packages.
+- `azcmagent_proxy remove` command on Linux now correctly removes environment variables on Red Hat Enterprise Linux and related distributions.
+- `azcmagent logs` now includes the computer name and timestamp to help disambiguate log files.
 ## Version 1.11 - September 2021
 
 ### Fixed

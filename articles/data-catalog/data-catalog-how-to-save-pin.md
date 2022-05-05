@@ -7,7 +7,7 @@ ms.date: 02/10/2022
 ---
 # Save searches and pin data assets in Azure Data Catalog
 
-[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 ## Introduction
 

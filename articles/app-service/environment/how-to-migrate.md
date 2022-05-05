@@ -3,7 +3,7 @@ title: Use the migration feature to migrate App Service Environment v2 to App Se
 description: Learn how to migrate your App Service Environment v2 to App Service Environment v3 using the migration feature
 author: seligj95
 ms.topic: tutorial
-ms.date: 4/11/2022
+ms.date: 4/27/2022
 ms.author: jordanselig
 zone_pivot_groups: app-service-cli-portal
 ---
@@ -76,8 +76,7 @@ App Service Environment v3 requires the subnet it's in to have a single delegati
 ```azurecli
 az network vnet subnet update -g $ASE_RG -n <subnet-name> --vnet-name <vnet-name> --delegations Microsoft.Web/hostingEnvironments
 ```
-
-![subnet delegation sample](./media/migration/subnet-delegation.png)
+:::image type="content" source="./media/migration/subnet-delegation.png" alt-text="Subnet delegation sample.":::
 
 ## 6. Migrate to App Service Environment v3
 
@@ -107,37 +106,36 @@ az appservice ase show --name $ASE_NAME --resource-group $ASE_RG
 
 ## 1. Validate migration is supported
 
-From the [Azure portal](https://portal.azure.com), navigate to the **Overview** page for the App Service Environment you'll be migrating. The platform will validate if migration is supported for your App Service Environment. Wait a couple seconds after the page loads for this validation to take place. See the [troubleshooting](migrate.md#troubleshooting) section for descriptions of the potential error messages if migration for your environment isn't supported by the migration feature.
-
-If migration is supported for your App Service Environment, there are three ways to access the migration feature. These methods include a banner at the top of the Overview page, a new item in the left-hand side menu called **Migration**, and an info box on the **Configuration** page. Select any of these methods to move on to the next step in the migration process.
+From the [Azure portal](https://portal.azure.com), navigate to the **Migration** page for the App Service Environment you'll be migrating. You can do this by clicking on the banner at the top of the **Overview** page for your App Service Environment or by clicking the **Migration** item on the left-hand side.
 
 ![migration access points](./media/migration/portal-overview.png)
+:::image type="content" source="./media/migration/portal-overview.png" alt-text="Migration access points.":::
 
-![configuration page view](./media/migration/configuration-migration-support.png)
+On the migration page, the platform will validate if migration is supported for your App Service Environment. If your environment isn't supported for migration, a banner will appear at the top of the page and include an error message with a reason. See the [troubleshooting](migrate.md#troubleshooting) section for descriptions of the error messages you may see if you aren't eligible for migration. If your App Service Environment isn't supported for migration at this time or your environment is in an unhealthy or suspended state, you won't be able to use the migration feature. If your environment [won't be supported for migration with the migration feature](migrate.md#supported-scenarios) or you want to migrate to App Service Environment v3 without using the migration feature, see the [manual migration options](migration-alternatives.md).
 
-If you don't see these elements, your App Service Environment isn't supported for migration at this time or your environment is in an unhealthy or suspended state (which blocks migration). If your environment [won't be supported for migration with the migration feature](migrate.md#supported-scenarios) or you want to migrate to App Service Environment v3 without using the migration feature, see the [manual migration options](migration-alternatives.md).
+:::image type="content" source="./media/migration/migration-not-supported.png" alt-text="Migration not supported sample.":::
 
-The migration page will guide you through the series of steps to complete the migration.
+If migration is supported for your App Service Environment, you'll be able to proceed to the next step in the process. The migration page will guide you through the series of steps to complete the migration.
 
-![migration page sample](./media/migration/migration-ux-pre.png)
+:::image type="content" source="./media/migration/migration-ux-pre.png" alt-text="Migration page sample.":::
 
 ## 2. Generate IP addresses for your new App Service Environment v3
 
 Under **Get new IP addresses**, confirm you understand the implications and start the process. This step will take about 15 minutes to complete. You won't be able to scale or make changes to your existing App Service Environment during this time. If after 15 minutes you don't see your new IP addresses, select refresh as shown in the sample to allow your new IP addresses to appear.
 
-![pre-migration request to refresh](./media/migration/pre-migration-refresh.png)
+:::image type="content" source="./media/migration/pre-migration-refresh.png" alt-text="Pre-migration request to refresh.":::
 
 ## 3. Update dependent resources with new IPs
 
 When the previous step finishes, you'll be shown the IP addresses for your new App Service Environment v3. Using the new IPs, update any resources and networking components to ensure your new environment functions as intended once migration is complete. It's your responsibility to make any necessary updates. Don't move on to the next step until you confirm that you have made these updates.
 
-![sample IPs](./media/migration/ip-sample.png)
+:::image type="content" source="./media/migration/ip-sample.png" alt-text="Sample IPs generated during pre-migration.":::
 
 ## 4. Delegate your App Service Environment subnet
 
 App Service Environment v3 requires the subnet it's in to have a single delegation of `Microsoft.Web/hostingEnvironments`. Previous versions didn't require this delegation. You'll need to confirm your subnet is delegated properly and/or update the delegation if needed before migrating. A link to your subnet is given so that you can confirm and update as needed.
 
-![ux subnet delegation sample](./media/migration/subnet-delegation-ux.png)
+:::image type="content" source="./media/migration/subnet-delegation-ux.png" alt-text="Subnet delegation using the portal.":::
 
 ## 5. Migrate to App Service Environment v3
 

@@ -1,26 +1,24 @@
 ---
 title: Microsoft Sentinel content hub catalog  | Microsoft Docs
 description: This article displays and details the currently available Microsoft Sentinel content hub packages.
-author: batamig
+author: cwatson-cat
 ms.topic: reference
-ms.date: 01/30/2022
-ms.author: bagol
+ms.date: 04/20/2022
+ms.author: cwatson
 ms.custom: ignite-fall-2021
 ---
 
 # Microsoft Sentinel content hub catalog
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-> [!IMPORTANT]
->
-> The Microsoft Sentinel content hub experience is currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 [Microsoft Sentinel solutions](sentinel-solutions.md) provide a consolidated way to acquire Microsoft Sentinel content - like data connectors, workbooks, analytics, and automation - in your workspace with a single deployment step.
 
 This article lists the out-of-the-box (built-in), on-demand, Microsoft Sentinel data connectors and solutions available for you to deploy in your workspace. Deploying a solution makes any included security content, such as data connectors, playbooks, workbooks, or rules, in the relevant area of Microsoft Sentinel. 
 
 For more information, see [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md).
+
+> [!IMPORTANT]
+>
+> The Microsoft Sentinel content hub experience is currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Domain solutions
 
@@ -34,6 +32,11 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 | **Microsoft Sentinel Deception** | [Workbooks, analytics rules, watchlists](monitor-key-vault-honeytokens.md)  | Security - Threat Protection  |Microsoft |
 |**Zero Trust** (TIC3.0) |[Analytics rules, playbook,  workbooks](/security/zero-trust/integrate/sentinel-solution) |Identity, Security - Others |Microsoft  |
 
+## Apache
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Tomcat** |Data connector, parser | DevOps, application |[Microsoft |
 
 ## Arista Networks
 
@@ -42,6 +45,12 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |**Arista Networks** (Awake Security) |Data connector, workbooks, analytics rules | Security - Network |[Arista - Awake Security](https://awakesecurity.com/) |
 
 
+## Atlassian
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Atlassian Confluence Audit**  |Data connector |IT operations, application |Microsoft|
+|**Atlassian Jira Audit**  |Workbook, analytics rules, hunting queries |DevOps |Microsoft|
 
 ## Armorblox
 
@@ -50,20 +59,21 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |**Armorblox - Sentinel** |Data connector | Security - Threat protection |[Armorblox](https://www.armorblox.com/contact/) |
 
 
-
-
-
 ## Azure
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**Azure Firewall Solution for Sentinel**| [Data connector](data-connectors-reference.md#azure-firewall), workbook, analytics rules, playbooks, hunting queries, custom Logic App connector |Security - Network Security, Networking | Community|
-| **Azure Purview** | [Data connector](data-connectors-reference.md#azure-purview), workbook, analytics rules <br><br>For more information, see [Tutorial: Integrate Microsoft Sentinel and Azure Purview](purview-solution.md). | Compliance, Security- Cloud Security, and Security- Information Protection | Microsoft |
+| **Microsoft Purview** | [Data connector](data-connectors-reference.md#microsoft-purview), workbook, analytics rules <br><br>For more information, see [Tutorial: Integrate Microsoft Sentinel and Microsoft Purview](purview-solution.md). | Compliance, Security- Cloud Security, and Security- Information Protection | Microsoft |
 |**Microsoft Sentinel for SQL PaaS**     |  [Data connector](data-connectors-reference.md#azure-sql-databases), workbook, analytics rules, playbooks, hunting queries     | Application        |      Community   |
 |**Microsoft Sentinel Training Lab** |Workbook, analytics rules, playbooks, hunting queries | Training and tutorials |Microsoft |
 |**Azure SQL** | [Data connector](data-connectors-reference.md#azure-sql-databases), workbook, analytics, playbooks, hunting queries  | Application |Microsoft  |
 
+## Bosch
 
+|Name   |Includes  |Categories |Supported by  |
+|------------------|---------|---------|---------|
+|**AIShield AI Security Monitoring**| Data connector, analytics rule, parser |  Security - Threat Protection  | [Bosch](https://www.bosch-softwaretechnologies.com/en/products-and-solutions/products-and-solutions/aishield/)|
 
 ## Box
 
@@ -71,15 +81,11 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |------------------|---------|---------|---------|
 |**Box Solution**| Data connector, workbook, analytics rules, hunting queries, parser |  Storage, application  | Microsoft|
 
-
-
 ## Check Point
 
 |Name   |Includes  |Categories |Supported by  |
 |------------------|---------|---------|---------|
 |**Check Point Microsoft Sentinel Solutions**   |[Data connector](data-connectors-reference.md#check-point), playbooks, custom Logic App connector  | Security - Automation (SOAR) | [Checkpoint](https://www.checkpoint.com/support-services/contact-support/)|
-
-
 
 ## Cisco
 
@@ -95,20 +101,13 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |**Cisco Umbrella** |[Data connector](data-connectors-reference.md#cisco-umbrella-preview), workbooks, analytics rules, playbooks, hunting queries, parser, custom Logic App connector |Security - Cloud Security |Microsoft |
 |**Cisco Web Security Appliance (WSA)** | Data connector, parser|Security - Network |Microsoft |
 
-
-
 ## Cloudflare
-
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**Cloudflare Solution**|Data connector, workbooks, analytics rules, hunting queries, parser| Security - Network, networking |Microsoft |
 
-
-
 ## Contrast Security
-
-
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
@@ -172,7 +171,6 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |---------|---------|---------|---------|
 |**Continuous Threat Monitoring for GitHub** |[Data connector](data-connectors-reference.md#github-preview), parser, workbook, analytics rules |Cloud Provider |Microsoft |
 
-
 ## Google
 
 |Name    |Includes  |Categories |Supported by  |
@@ -180,15 +178,19 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |**Google Cloud Platform DNS Solution** |Data connector, parser |Cloud Provider, Networking |Microsoft |
 |**Google Cloud Platform Cloud Monitoring Solution**|Data connector, parser |Cloud Provider | Microsoft|
 |**Google Cloud Platform Identity and Access Management Solution**|Data connector, workbook, analytics rules, playbooks, hunting queries, parser, custom Logic App connector|Cloud Provider, Identity |Microsoft |
+|**Google Workspace Reports**|Workbook, analytics rules, hunting queries|IT Operations |Microsoft |
 
+## Holm Security
 
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Holm Security**| Data connector| Security - Threat Intelligence |[Holm Security](https://support.holmsecurity.com/hc)|
 
 ## HYAS
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**HYAS Insight for Microsoft Sentinel Solutions Gallery**| Playbooks| Security - Threat Intelligence, Security - Automation (SOAR) |Microsoft |
-
 
 ## Imperva
 
@@ -203,16 +205,17 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |---------|---------|---------|---------|
 |**InfoBlox Threat Defense / InfoBlox Cloud Data Connector**| [Data connector](data-connectors-reference.md#infoblox-network-identity-operating-system-nios-preview), workbook, analytics rules| Security - Threat protection | Microsoft|
 
-
-
 ## IronNet
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**IronNet CyberSecurity Iron Defense - Microsoft Sentinel** | |Security - Network |Microsoft |
 
+## Joshua Cyberisk Vision
 
-
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Joshua Cyberisk Vision**| Playbooks| Security - Threat Intelligence |[Joshua Cyberisk Vision](https://www.cyberiskvision.com/) |
 
 ## Juniper
 
@@ -221,14 +224,17 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |**Juniper IDP** |Data connector, parser|Security - Network |Microsoft |
 
 
-
 ## Kaspersky
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**Kaspersky AntiVirus** |Data connector, parser   | Security - Threat protection|Microsoft |
 
+## Lastpass
 
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Lastpass Enterprise Activity Monitoring** |Data connector, analytic rules, hunting queries, watchlist, workbook  | Application|[The Collective Consulting](https://thecollective.eu) |
 
 ## Lookout
 
@@ -249,20 +255,31 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Microsoft Sentinel 4 Microsoft Dynamics 365**     |   [Data connector](data-connectors-reference.md#dynamics-365), workbooks, analytics rules, and hunting queries |      Application   |Microsoft         |
+|**Microsoft Defender for Endpoint**     |   Hunting queries, parsers |      Security - Threat Protection   |Microsoft         |
+|**Microsoft Sentinel for Microsoft Dynamics 365**     |   [Data connector](data-connectors-reference.md#dynamics-365), workbooks, analytics rules, and hunting queries |      Application   |Microsoft         |
 |**Microsoft Sentinel for Teams**     | Analytics rules, playbooks, hunting queries      |   Application      |    Microsoft     |
 | **Microsoft Sysmon for Linux** | [Data connector](data-connectors-reference.md#microsoft-sysmon-for-linux-preview) | Platform | Microsoft |
 
+## NGINX
 
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Nginx**     |  Data connector, workbooks, analytics rules, hunting queries, parser |      Security – Network, Networking, DevOps   |Microsoft         |
+
+## NXLog
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**NXLog AIX Audit**     |  Data connector, parser |  IT operations  |NXLog       |
+|**NXLog DNS Logs**     |  Data connector |     Networking  |NXLog       |
 
 ## Oracle
-
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**Oracle Cloud Infrastructure** |Data connector, parser | Cloud Provider | Microsoft|
-|**Oracle Database Audit Solution** | Data connector, workbook, analytics rules, hunting queries, parser| Application|Microsoft |
-
+|**Oracle Database Audit** | Data connector, workbook, analytics rules, hunting queries, parser| Application|Microsoft |
+|**Oracle  WebLogic Server** | Data connector, workbook, analytics rules, hunting queries, parser| IT Operations|Microsoft |
 
 ## Palo Alto
 
@@ -322,13 +339,11 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |**RSA SecurID** |Data connector, parser |Security - Others, Identity |Microsoft |
 
 
-
-
 ## SAP
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Continuous Threat Monitoring for SAP**|[Data connector](sap-deploy-solution.md), [workbooks, analytics rules, watchlists](sap-solution-security-content.md) | Application  |Community |
+|**Continuous Threat Monitoring for SAP**|[Data connector](sap/deployment-overview.md), [workbooks, analytics rules, watchlists](sap/sap-solution-security-content.md) | Application  |Community |
 
 
 ## Semperis
@@ -344,7 +359,17 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |---------|---------|---------|---------|
 |**Senserva Offer for Microsoft Sentinel** |Data connector, workbooks, analytics rules, hunting queries |Compliance |[Senserva](https://www.senserva.com/support/) |
 
+## Shadowbytes
 
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Shadowbytes ARIA Threat Intelligence** |Data connector, playbook |Security - Threat protection |[Shadowbyte](https://shadowbyte.com/#contact)|
+
+## SIGNL4
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**SIGNL4 Mobile Alerting** |Data connector, playbook |DevOps, IT Operations |[SIGNL4](https://www.signl4.com) |
 
 ## Sonrai Security
 
@@ -359,15 +384,12 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |---------|---------|---------|---------|
 |**Slack Audit Solution**|Data connector, workbooks, analytics rules, hunting queries, parser |Application| Microsoft|
 
-
-
 ## Sophos
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**Sophos Endpoint Protection Solution** |Data connector, parser| Security - Threat protection |Microsoft |
 |**Sophos XG Firewall Solution**| Workbooks, analytics rules, parser |Security - Network |Microsoft |
-
 
 
 ## Symantec
@@ -377,14 +399,11 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |**Symantec Endpoint**|Data connector, workbook, analytics rules, playbooks, hunting queries, parser| Security - Threat protection|Microsoft |
 |**Symantec ProxySG  Solution**|Workbooks, analytics rules |Security - Network |Symantec |
 
-
 ## Tenable
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**Tenable Nessus Scanner / IO VM reports for cloud**  | Data connector, parser| Security - Vulnerability Management| Microsoft |
-
-
 
 ## Trend Micro
 
@@ -392,17 +411,11 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |---------|---------|---------|---------|
 |**Trend Micro Apex One Solution**  | Data connector, hunting queries, parser| Security - Threat protection|Microsoft |
 
-
-
-
-
 ## Ubiquiti
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**Ubiquiti UniFi Solution**|Data connector, workbooks, analytics rules, hunting queries, parser |Security - Network |Microsoft |
-
-
 
 ## vArmour
 
@@ -417,14 +430,12 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |---------|---------|---------|---------|
 |**Vectra Stream Solution** |Data connector, hunting queries, parser |Security - Network |Microsoft |
 
-
-
 ## VMware
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**VMware Carbon Black Solution**|Workbooks, analytics rules| Security - Threat protection| Microsoft|
-
+|**VMware ESXi**|Workbooks, analytics rules, data connectors, hunting queries, parser| IT Operations| Microsoft|
 
 ## Zeek Network
 
@@ -432,7 +443,11 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |---------|---------|---------|---------|
 |**Corelight for Microsoft Sentinel**|Data connector, workbooks, analytics rules, hunting queries, parser | IT Operations, Security - Network | [Zeek Network](https://support.corelight.com/)|
 
+## Zscalar
 
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Zscalar Private Access**|Data connector, workbook, analytics rules, hunting queries, parser | Security - Network | Microsoft|
 
 ## Next steps
 

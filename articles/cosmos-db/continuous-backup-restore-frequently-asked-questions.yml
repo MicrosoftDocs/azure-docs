@@ -5,12 +5,12 @@ metadata:
   author: kanshiG
   ms.service: cosmos-db
   ms.topic: faq
-  ms.date: 07/29/2021
+  ms.date: 04/14/2022
   ms.author: govindk
-  ms.reviewer: sngun
+  ms.reviewer: wiassaf
 title: Frequently asked questions about the Azure Cosmos DB continuous backup
 summary: |
-  [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+  [!INCLUDE[appliesto-all-apis-except-cassandra](includes/appliesto-all-apis-except-cassandra.md)]
   
   This article lists frequently asked questions about the Azure Cosmos DB point-in-time restore functionality that's available in continuous backup mode.
   
@@ -74,7 +74,11 @@ sections:
         answer: |
 
           No. Currently, continuous backup mode and Azure Synapse Link can't coexist in the same database account.
+      - question: |
+          Is continuous backup mode supported for Table API and Gremlin API?
+        answer: |
 
+          Yes, currently it is in preview and restore is supported from PowerShell and the Azure CLI.
 additionalContent: |
 
   ## Next steps

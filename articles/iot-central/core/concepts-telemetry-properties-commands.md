@@ -51,6 +51,9 @@ IoT Central lets you view the raw data that a device sends to an application. Th
 
 If the telemetry is defined in a component, add a custom message property called `$.sub` with the name of the component as defined in the device model. To learn more, see [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
 
+> [!IMPORTANT]
+> To display telemetry from components hosted in IoT Edge modules correctly, use [IoT Edge version 1.2.4](https://github.com/Azure/azure-iotedge/releases/tag/1.2.4) or later. If you use an earlier version, telemetry from your components in IoT Edge modules displays as *_unmodeleddata*.
+
 ### Primitive types
 
 This section shows examples of primitive telemetry types that a device streams to an IoT Central application.
@@ -757,6 +760,7 @@ IoT Central expects a response from the device to writable property updates. The
 | ----- | ----- | ----------- |
 | `'ac': 200` | Completed | The property change operation was successfully completed. |
 | `'ac': 202`  or `'ac': 201` | Pending | The property change operation is pending or in progress |
+| `'ac': 203` | Pending | The property change operation was initiated by the device |
 | `'ac': 4xx` | Error | The requested property change wasn't valid or had an error |
 | `'ac': 5xx` | Error | The device experienced an unexpected error when processing the requested change. |
 

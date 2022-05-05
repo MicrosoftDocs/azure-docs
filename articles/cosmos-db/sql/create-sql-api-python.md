@@ -114,7 +114,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 This step is optional. Learn about the database resources created in code, or skip ahead to [Update your connection string](#update-your-connection-string).
 
-The following snippets are all taken from the *cosmos_get_started.py* file.
+The following snippets are all taken from the [cosmos_get_started.py](https://github.com/Azure-Samples/azure-cosmos-db-python-getting-started/blob/main/cosmos_get_started.py) file.
 
 * The CosmosClient is initialized. Make sure to update the "endpoint" and "key" values as described in the [Update your connection string](#update-your-connection-string) section. 
 
