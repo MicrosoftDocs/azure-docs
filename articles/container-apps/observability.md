@@ -11,7 +11,7 @@ ms.author: v-bcatherine
 
 # Observability in Azure Container Apps Preview
 
-Azure Container Apps provides several built-in observability features that give you a holistic view of your container app’s health throughout its application lifecycle.  These features help you monitor and analyze the state of your app to improve performance and respond to critical problems.
+Azure Container Apps provides several built-in observability features that give you a holistic view of your container app’s health throughout its application lifecycle.  These features help you monitor and diagnosis the state of your app to improve performance and respond to critical problems.
 
 These features include:
 
@@ -31,41 +31,95 @@ While developing and troubleshooting your container app, you often want to see a
 
 ### View log streams from the Azure portal
 
-Go to your container app page in the Azure portal.   Select **Log stream** under the **Monitoring** section on the sidebar menu.  Choose a container from the drop-down lists. When there are multiple revisions and replicas, first choose from the **Revision**, **Replica**, and then the **Container** drop-down lists.
+Go to your container app page in the Azure portal.   Select **Log stream** under the **Monitoring** section on the sidebar menu.  For apps with more than one container, choose a container from the drop-down lists. When there are multiple revisions and replicas, first choose from the **Revision**, **Replica**, and then the **Container** drop-down lists.
 
 After you select the container, you can view the log stream in the viewing pane.  You can stop the log stream and clear the log messages from the viewing pane. To save the log messages, you can copy and paste them into the editor of your choice.
 
 :::image type="content" source="media/observability/log-stream.png" alt-text="Screenshot of Azure Container Apps Log stream page.":::
 
-### Tail log streams from Azure CLI
+### Show log streams from Azure CLI
 
-Tail a container's application logs from the Azure CLI with the `az containerapp log` command.  You can view previous log entries using the `--tail` argument.  To view a live stream, use the `--follow` argument.  Select Ctrl-C to stop the live stream.
-
+Show a container's application logs from the Azure CLI with the `az containerapp logs show` command.  You can view previous log entries using the `--tail` argument.  To view a live stream, use the `--follow` argument.  Select Ctrl-C to stop the live stream.
 
 For example, you can list the last 50 container log entries in a container app with a single revision, replica, and container using the following command.
 
+# [Bash](#tab/bash)
+
 ```azurecli
-az containerapp logs show --name album-api --resource-group album-api-rg --tail 50
+az containerapp logs show \
+  --name album-api \
+  --resource-group album-api-rg \
+  --tail 50
 ```
 
-You can also view a log stream from a container in a container app with multiple revisions, replicas, and containers using the following command.
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az containerapp logs show `
+  --name album-api `
+  --resource-group album-api-rg `
+  --tail 50
+```
+
+---
+
+You can view a log stream from a container in a container app with multiple revisions, replicas, and containers by adding the `--revision`, `--replica`, `--container` arguments to the `az containerapp show` command.  
+
+Use the `az containerapp revision list` command to get the revision and replica names to use in the `az containerapp logs show` command.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az containerapp revision list \
+  --name album-api \
+  --resource-group album-api-rg \
+```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az containerapp revision list `
+  --name album-api `
+  --resource-group album-api-rg 
+```
+
+---
+
+Show the streaming container logs: 
+
+# [Bash](#tab/bash)
 
 ```azurecli
 az containerapp logs show --name album-api \
   --resource-group album-api-rg \
+  --revision album-api--v2 \
   --replica album-api--v2-5fdd5b4ff5-6mblw \
-  --container album-api-container --follow
+  --container album-api-container \
+  --follow
 ```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az containerapp logs show --name album-api `
+  --resource-group album-api-rg `
+  --revision album-api--v2 `
+  --replica album-api--v2-5fdd5b4ff5-6mblw `
+  --container album-api-container `
+  --follow
+```
+
+---
 
 ## Container console
 
-Connecting to a container's console is useful when you want to see what's happening inside a container.  When your app isn't behaving as expected, you can access a container's console to run commands to troubleshoot issues.  Azure Container Apps lets you connect to a container's console using the Azure portal or the Azure CLI.
+Connecting to a container's console is useful when you want to troubleshoot and modify something inside a container.  Azure Container Apps lets you connect to a container's console using the Azure portal or the Azure CLI.
 
 ### Connect to a container console via the Azure portal
 
-Select **Console** in the **Monitoring** menu group from your container app page in the Azure portal. Choose a container from the drop-down list. When there are multiple revisions and replicas, first choose from the **Revision**, **Replica**, and then the **Container** drop-down lists.
+Select **Console** in the **Monitoring** menu group from your container app page in the Azure portal. When your app has more than one container, choose a container from the drop-down list. When there are multiple revisions and replicas, first choose from the **Revision**, **Replica**, and then the **Container** drop-down lists.
 
-You can choose to access your console via bash, sh, or a custom application.
+You can choose to access your console via bash, sh, or a custom executable.  If you choose a custom executable, it must be available in the container.
 
 :::image type="content" source="media/observability/console-ss.png" alt-text="Screenshot of Azure Container Apps Console page.":::
 
@@ -73,21 +127,71 @@ You can choose to access your console via bash, sh, or a custom application.
 
 Use the `az containerapp exec` command to connect to a container console.  Select Ctrl-D to exit the console.
 
-
 For example, you can connect to a container console in a container app with a single revision, replica, and container using the following command.
 
+# [Bash](#tab/bash)
+
 ```azurecli
-az containerapp exec --name album-api --resource-group album-api-rg 
+az containerapp exec 
+  --name album-api \
+  --resource-group album-api-rg \
 ```
 
-To connect to a container console in a container app with multiple revisions, replicas, and containers you can use the following command.
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az containerapp exec 
+  --name album-api `
+  --resource-group album-api-rg `
+```
+
+---
+
+To connect to a container console in a container app with multiple revisions, replicas, and containers include the `--revision`, `--replica`, and `--container` arguments in the `az containerapp exec` command. 
+
+Use the `az containerapp revision list` command to get the revision, replica and container names to use in the `az containerapp exec` command.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az containerapp revision list \
+  --name album-api \
+  --resource-group album-api-rg \
+```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az containerapp revision list `
+  --name album-api `
+  --resource-group album-api-rg `
+```
+
+---
+
+Connect to the container console.
+
+# [Bash](#tab/bash)
 
 ```azurecli
 az containerapp exec --name album-api \
   --resource-group album-api-rg \
+  --revision album-api--v2 \
   --replica album-api--v2-5fdd5b4ff5-6mblw \
   --container album-api-container 
 ```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az containerapp exec --name album-api `
+  --resource-group album-api-rg `
+  --revision album-api--v2 `
+  --replica album-api--v2-5fdd5b4ff5-6mblw `
+  --container album-api-container
+```
+
+---
 
 ## Azure Monitor metrics
 
@@ -95,7 +199,7 @@ Azure Monitor collects metric data from your container app at regular intervals.
 
 ### Available metrics for Container Apps
 
-Container Apps track these metrics.
+Container Apps provides these metrics.
 
 |Title  | Description | Metric ID |Unit  |
 |---------|---------|---------|---------|
@@ -139,7 +243,7 @@ You can add more scopes to view metrics across multiple container apps.
 
 ## Azure Monitor Log Analytics
 
-Azure Monitor collects application logs and stores them in a Log Analytics workspace.  Each Container Apps environment includes a Log Analytics workspace that provides a common repository to store the application log data from all containers running in the environment.  
+Azure Monitor collects application logs and stores them in a Log Analytics workspace.  Each Container Apps environment includes a Log Analytics workspace that provides a common place to store the application log data from all containers running in the environment.  
 
 Application logs consist of messages written to each container's `stdout` and `stderr`.  Additionally, if your container app is using Dapr, log entries from the Dapr sidecar are also collected.  
 
@@ -199,7 +303,7 @@ Azure Monitor alerts notify you so that you can respond quickly to critical issu
 - [metric alerts](../azure-monitor/alerts/alerts-metric-overview.md) based on metric data
 - [log alerts](../azure-monitor/alerts/alerts-unified-log.md) based on log data
 
-You can add alert rules to metric charts in the metric explorer and to queries in Log Analytics.  You can also define and manage alerts from the **Monitor>Alerts** page. 
+You can create alert rules from metric charts in the metric explorer and from queries in Log Analytics.  You can also define and manage alerts from the **Monitor>Alerts** page. 
  
 To learn more about alerts, refer to [Overview of alerts in Microsoft Azure](../azure-monitor/alerts/alerts-overview.md).
 
@@ -207,11 +311,11 @@ To learn more about alerts, refer to [Overview of alerts in Microsoft Azure](../
 
 When you add alert rules to a metric chart in the metrics explorer, alerts are triggered when the collected metric data matches alert rule conditions.  
 
-After creating a [metric chart](#view-metrics-with-metrics-explorer), select **New alert rule** to create an alert rule based on the chart's settings.
+After creating a [metric chart](#view-metrics-with-metrics-explorer), select **New alert rule** to create an alert rule based on the chart's settings.  The new alert rule will include your chart's target resource, metric, splitting and filter dimensions.
 
 :::image type="content" source="media/observability/metrics-alert-new-alert-rule.png" alt-text="Screenshot of the metrics explorer highlighting the new rule button.":::
 
-When you select **New alert rule**, the rule creation pane opens to the **Condition** tab.  Metrics explorer automatically creates an alert condition containing the chart's metrics.  Select the alert condition to add the threshold criteria to complete the condition.
+When you select **New alert rule**, the rule creation pane opens to the **Condition** tab.  Metrics explorer automatically creates an alert condition containing the chart's metric settings.  Select the alert condition to add the threshold criteria to complete the condition.
 
 :::image type="content" source="media/observability/metrics-alert-create-condition.png" alt-text="Screenshot of the metric explorer alert rule editor.  A condition is automatically created based on the chart settings.":::
 
@@ -233,19 +337,19 @@ Example of selecting a dimension to split an alert.
 
  To learn more about configuring alerts, visit [Create a metric alert for an Azure resource](../azure-monitor/alerts/tutorial-metric-alert.md)
 
-### Create log alerts in Log Analytics
+### Create log alert rules in Log Analytics
 
-Use Log Analytics to add alert rules to a log query.  When you add an alert rule to a query, the query is run at set intervals triggering alerts when the log data matches the alert rule conditions.  To learn more about creating log alert rules, see [Manage log alerts](../azure-monitor/alerts/alerts-log.md).
+Use Log Analytics to create alert rules from a log query.  When you create an alert rule from a query, the query is run at set intervals triggering alerts when the log data matches the alert rule conditions.  To learn more about creating log alert rules, see [Manage log alerts](../azure-monitor/alerts/alerts-log.md).
 
-To add an alert rule to a query, you first create and run the query.  Then, select **New alert rule**.
+To create an alert rule, you first create and run the query to validate it.  Then, select **New alert rule**.  
 
 :::image type="content" source="media/observability/log-alert-new-alert-rule.png" alt-text="Screenshot of the Log Analytics interface highlighting the new alert rule button.":::
 
-Use the **Create an alert rule** editor to configure the settings for your alert.
+The **Create an alert rule** editor is opened to the **Condition** tab, which is populated with your log query.  Configure the settings in the **Measurement** and **Alert logic** sections to complete the alert rule.
 
 :::image type="content" source="media/observability/log-alerts-rule-editor.png" alt-text="Screenshot of the Log Analytics alert rule editor.":::
 
-You can enable splitting to send individual alerts for each dimension you select in the **Split by dimensions** section of the editor.  The dimensions for Container Apps are:
+Optionally, you can enable alert splitting in the alert rule to send individual alerts for each dimension you select in the **Split by dimensions** section of the editor.  The dimensions for Container Apps are:
 
 - app name
 - revision
