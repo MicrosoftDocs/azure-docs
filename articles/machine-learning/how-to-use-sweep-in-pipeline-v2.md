@@ -14,7 +14,7 @@ ms.custom: devx-track-python, sdkv2, cliv2
 
 # How to do hyperparameter sweep in pipeline (V2) (preview)
 
-[!INCLUDE [dev v2](../../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 In this article, you will learn how to do hyperparameter sweep in Azure Machine Learning pipeline.
 

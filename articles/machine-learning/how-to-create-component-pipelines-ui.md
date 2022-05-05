@@ -92,8 +92,6 @@ Here take using CLI for example. If you want to learn more about how to build a 
 
     ![TODO: Screenshot showing submit pipeline](./media/how-to-create-component-pipelines-ui/submit-pipeline.png)
 
-1. 
-
 ## Next steps
 
 - Learn how to productionize your script to component by following [this article](TODO).

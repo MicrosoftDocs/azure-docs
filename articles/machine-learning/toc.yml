@@ -647,6 +647,8 @@
               href: how-to-trigger-published-pipeline.md
             - name: Designer (drag-n-drop)
               items: 
+                - name: Create ML pipelines using components (UI)
+                  href: how-to-create-component-pipelines-ui.md
                 - name: Log metrics
                   displayName: designer, logging
                   href: how-to-track-designer-experiments.md
