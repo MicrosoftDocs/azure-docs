@@ -1,6 +1,6 @@
 ---
-title: Export data to webhook IoT Central | Microsoft Docs
-description: How to use the new data export to export your IoT data to webhook
+title: Export data to Webhook IoT Central | Microsoft Docs
+description: How to use the new data export to export your IoT data to Webhook
 services: iot-central
 author: v-krishnag
 ms.author: v-krishnag
@@ -11,17 +11,17 @@ ms.service: iot-central
 
 # Export IoT data to Webhook
 
-This article describes how to configure data export to send data to the webhook.
+This article describes how to configure data export to send data to the Webhook.
 
 [!INCLUDE [iot-central-data-export](../../../includes/iot-central-data-export.md)]
 
-## Set up an webhook export destination
+## Set up an Webhook export destination
 
-For webhook destinations, IoT Central exports data in near real time. The data in the message body is in the same format as for Event Hubs and Service Bus.
+For Webhook destinations, IoT Central exports data in near real time. The data in the message body is in the same format as for Event Hubs and Service Bus.
 
-## Create a webhook destination
+## Create a Webhook destination
 
-You can export data to a publicly available HTTP webhook endpoint. You can create a test webhook endpoint using [RequestBin](https://requestbin.net/). RequestBin throttles request when the request limit is reached:
+You can export data to a publicly available HTTP Webhook endpoint. You can create a test Webhook endpoint using [RequestBin](https://requestbin.net/). RequestBin throttles request when the request limit is reached:
 
 1. Open [RequestBin](https://requestbin.net/).
 1. Create a new RequestBin and copy the **Bin URL**. You use this URL when you test your data export.
@@ -32,7 +32,7 @@ To create the Azure Data Explorer destination in IoT Central on the **Data expor
 
 1. Select **Webhook** as the destination type.
 
-1. Paste the callback URL for your webhook endpoint. You can optionally configure webhook authorization and add custom headers.
+1. Paste the callback URL for your Webhook endpoint. You can optionally configure Webhook authorization and add custom headers.
 
     - For **OAuth2.0**, only the client credentials flow is supported. When you save the destination, IoT Central communicates with your OAuth provider to retrieve an authorization token. This token is attached to the `Authorization` header for every message sent to this destination.
     - For **Authorization token**, you can specify a token value that's directly attached to the `Authorization` header for every message sent to this destination.

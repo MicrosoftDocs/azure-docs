@@ -1,6 +1,6 @@
 ---
-title: Export data to service bus IoT Central | Microsoft Docs
-description: How to use the new data export to export your IoT data to service bus
+title: Export data to Service Bus IoT Central | Microsoft Docs
+description: How to use the new data export to export your IoT data to Service Bus
 services: iot-central
 author: v-krishnag
 ms.author: v-krishnag
@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.service: iot-central
 ---
 
-# Export IoT data to service bus
+# Export IoT data to Service Bus
 
-This article describes how to configure data export to send data to the service bus.
+This article describes how to configure data export to send data to the Service Bus.
 
 [!INCLUDE [iot-central-data-export](../../../includes/iot-central-data-export.md)]
 
-## Set up an service bus export destination
+## Set up an Service Bus export destination
 
 Both queues and topics are supported for Azure Service Bus destinations.
 
@@ -122,4 +122,4 @@ For Service Bus, IoT Central exports new messages data to your event hub or Serv
 
 ## Next steps
 
-Now that you know how to export to service bus, a suggested next step is to learn [Export to Event Hubs](howto-export-to-event-hubs.md).
+Now that you know how to export to Service Bus, a suggested next step is to learn [Export to Event Hubs](howto-export-to-event-hubs.md).

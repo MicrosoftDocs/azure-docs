@@ -1,6 +1,6 @@
 ---
-title: Export data to Blob storage IoT Central | Microsoft Docs
-description: How to use the new data export to export your IoT data to blob storage
+title: Export data to Blob Storage IoT Central | Microsoft Docs
+description: How to use the new data export to export your IoT data to Blob Storage
 services: iot-central
 author: v-krishnag
 ms.author: v-krishnag
@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.service: iot-central
 ---
 
-# Export IoT data to blob storage
+# Export IoT data to Blob Storage
 
-This article describes how to configure data export to send data to the blob storage service.
+This article describes how to configure data export to send data to the  Blob Storage service.
 
 [!INCLUDE [iot-central-data-export](../../../includes/iot-central-data-export.md)]
 
-## Set up a blob storage export destination
+## Set up a Blob Storage export destination
 
 
 IoT Central exports data once per minute, with each file containing the batch of changes since the previous export. Exported data is saved in JSON format. The default paths to the exported data in your storage account are:
@@ -41,7 +41,7 @@ This article shows how to create a managed identity in the Azure portal. You can
 
 If you don't have an existing Azure storage account to export to, follow these steps:
 
-1. Create a [new storage account in the Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more about creating new [Azure Blob storage accounts](../../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Data Lake Storage v2 storage accounts](../../storage/common/storage-account-create.md). Data export can only write data to storage accounts that support block blobs. The following list shows the known compatible storage account types:
+1. Create a [new storage account in the Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more about creating new [Azure Blob Storage accounts](../../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Data Lake Storage v2 storage accounts](../../storage/common/storage-account-create.md). Data export can only write data to storage accounts that support block blobs. The following list shows the known compatible storage account types:
 
     |Performance Tier|Account Type|
     |-|-|
@@ -66,13 +66,14 @@ To create the Blob Storage destination in IoT Central on the **Data export** pag
 
 1. Select **Save**.
 
+---
 # [Managed identity](#tab/managed-identity)
 
 ### Create an Azure Blob Storage destination
 
 If you don't have an existing Azure storage account to export to, follow these steps:
 
-1. Create a [new storage account in the Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more about creating new [Azure Blob storage accounts](../../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Data Lake Storage v2 storage accounts](../../storage/common/storage-account-create.md). Data export can only write data to storage accounts that support block blobs. The following list shows the known compatible storage account types:
+1. Create a [new storage account in the Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more about creating new [Azure Blob Storage accounts](../../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Data Lake Storage v2 storage accounts](../../storage/common/storage-account-create.md). Data export can only write data to storage accounts that support block blobs. The following list shows the known compatible storage account types:
 
     |Performance Tier|Account Type|
     |-|-|
@@ -110,9 +111,10 @@ To create the Blob Storage destination in IoT Central on the **Data export** pag
 
 1. Select **Save**.
 
+---
 [!INCLUDE [iot-central-data-export-setup](../../../includes/iot-central-data-export-setup.md)]
 
-For Blob storage, messages are batched and exported once per minute.
+For Blob Storage, messages are batched and exported once per minute.
 
 The following example shows an exported telemetry message:
 
@@ -151,9 +153,9 @@ The following example shows an exported telemetry message:
 
 [!INCLUDE [iot-central-data-export-message-properties](../../../includes/iot-central-data-export-message-properties.md)]
 
-For Blob storage, messages are batched and exported once per minute.
+For Blob Storage, messages are batched and exported once per minute.
 
-The following snippet shows this property in the message exported to Blob storage:
+The following snippet shows this property in the message exported to Blob Storage:
 
 ```json
 {
@@ -175,7 +177,7 @@ The following snippet shows this property in the message exported to Blob storag
 
 [!INCLUDE [iot-central-data-export-device-connectivity](../../../includes/iot-central-data-export-device-connectivity.md)]
 
-For Blob storage, messages are batched and exported once per minute.
+For Blob Storage, messages are batched and exported once per minute.
 
 The following example shows an exported device connectivity message received in Azure Blob Storage.
 
@@ -197,7 +199,7 @@ The following example shows an exported device connectivity message received in 
 
 [!INCLUDE [iot-central-data-export-device-lifecycle](../../../includes/iot-central-data-export-device-lifecycle.md)]
 
-For Blob storage, messages are batched and exported once per minute.
+For Blob Storage, messages are batched and exported once per minute.
 
 The following example shows an exported device lifecycle message received in Azure Blob Storage.
 
@@ -218,7 +220,7 @@ The following example shows an exported device lifecycle message received in Azu
 
 [!INCLUDE [iot-central-data-export-device-template](../../../includes/iot-central-data-export-device-template.md)]
 
-For Blob storage, messages are batched and exported once per minute.
+For Blob Storage, messages are batched and exported once per minute.
 
 The following example shows an exported device lifecycle message received in Azure Blob Storage.
 
@@ -238,4 +240,4 @@ The following example shows an exported device lifecycle message received in Azu
 
 ## Next steps
 
-Now that you know how to export to blob storage, a suggested next step is to learn [Export to Service Bus](howto-export-to-service-bus.md).
+Now that you know how to export to Blob Storage, a suggested next step is to learn [Export to Service Bus](howto-export-to-service-bus.md).

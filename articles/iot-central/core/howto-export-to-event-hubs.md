@@ -1,6 +1,6 @@
 ---
-title: Export data to event hubs IoT Central | Microsoft Docs
-description: How to use the new data export to export your IoT data to event hubs
+title: Export data to Event Hubs IoT Central | Microsoft Docs
+description: How to use the new data export to export your IoT data to Event Hubs
 services: iot-central
 author: v-krishnag
 ms.author: v-krishnag
@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.service: iot-central
 ---
 
-# Export IoT data to event hubs
+# Export IoT data to Event Hubs
 
-This article describes how to configure data export to send data to the event hubs.
+This article describes how to configure data export to send data to the Event Hubs.
 
 [!INCLUDE [iot-central-data-export](../../../includes/iot-central-data-export.md)]
 
-## Set up an event hubs export destination
+## Set up an Event Hubs export destination
 
 IoT Central exports data in near real time. The data is in the message body and is in JSON format encoded as UTF-8.
 
@@ -118,4 +118,4 @@ For Event Hubs, IoT Central exports new messages data to your event hub or Servi
 
 ## Next steps
 
-Now that you know how to export to event hubs, a suggested next step is to learn [Export to Azure Data Explorer](howto-export-to-azure-data-explorer.md).
+Now that you know how to export to Event Hubs, a suggested next step is to learn [Export to Azure Data Explorer](howto-export-to-azure-data-explorer.md).

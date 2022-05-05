@@ -1,6 +1,6 @@
 ---
-title: Export data to azure data explorer IoT Central | Microsoft Docs
-description: How to use the new data export to export your IoT data to azure data explorer
+title: Export data to Azure Data Explorer IoT Central | Microsoft Docs
+description: How to use the new data export to export your IoT data to Azure Data Explorer
 services: iot-central
 author: v-krishnag
 ms.author: v-krishnag
@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.service: iot-central
 ---
 
-# Export IoT data to azure data explorer
+# Export IoT data to Azure Data Explorer
 
-This article describes how to configure data export to send data to the azure data explorer.
+This article describes how to configure data export to send data to the Azure Data Explorer.
 
 [!INCLUDE [iot-central-data-export](../../../includes/iot-central-data-export.md)]
 
-## Set up an azure data explorer export destination
+## Set up an Azure Data Explorer export destination
 
 You can use an [Azure Data Explorer cluster](/azure/data-explorer/data-explorer-overview) or an [Azure Synapse Data Explorer pool](../../synapse-analytics/data-explorer/data-explorer-overview.md). To learn more, see [What is the difference between Azure Synapse Data Explorer and Azure Data Explorer?](../..//synapse-analytics/data-explorer/data-explorer-compare.md).
 
@@ -196,4 +196,4 @@ To create the Azure Data Explorer destination in IoT Central on the **Data expor
 
 ## Next steps
 
-Now that you know how to export to azure data explorer, a suggested next step is to learn [Export to Webhook](howto-export-to-webhook.md).
+Now that you know how to export to Azure Data Explorer, a suggested next step is to learn [Export to Webhook](howto-export-to-webhook.md).
