@@ -108,7 +108,7 @@ items:
       href: concept-data-owner-policies.md
     - name: Self-service data access policy
       href: concept-self-service-data-access-policy.md
-  - name: Data insights
+  - name: Data Estate Insights
     href: concept-insights.md
 - name: How-to guides
   items:
