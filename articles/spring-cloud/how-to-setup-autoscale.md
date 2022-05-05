@@ -37,7 +37,7 @@ To follow these procedures, you need:
 6. Go to the **Scale out** tab under **Settings** in the menu on the left navigation pane.
 7. Select the deployment you want to set up Autoscale. The options for Autoscale are described in the following section.
 
-![Azure portal screenshot of **Scale out** page with `demo/default` deployment indicated.](./media/spring-cloud-autoscale/autoscale-menu.png)
+![Screenshot of Azure portal **Scale out** page with `demo/default` deployment indicated.](./media/spring-cloud-autoscale/autoscale-menu.png)
 
 ## Set up Autoscale settings for your application in the Azure portal
 
@@ -48,7 +48,7 @@ There are two options for Autoscale demand management:
 
 In the Azure portal, choose how you want to scale. The following figure shows the **Custom autoscale** option and mode settings.
 
-:::image type="content" source="media/spring-cloud-autoscale/custom-autoscale.png" alt-text="Azure portal screenshot showing the **Autoscale setting** page with the **Custom autoscale** option highlighted.":::
+:::image type="content" source="media/spring-cloud-autoscale/custom-autoscale.png" alt-text="Screenshot of Azure portal showing the **Autoscale setting** page with the **Custom autoscale** option highlighted.":::
 
 ## Set up Autoscale settings for your application in Azure CLI
 
