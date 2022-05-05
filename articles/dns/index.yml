@@ -63,6 +63,24 @@ landingContent:
           - text: Create an Azure DNS private zone using the Azure portal
             url: ./private-dns-getstarted-portal.md
 
+  # Card
+  - title: Deploy a DNS resolver
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure DNS Private Resolver?
+            url: private-dns-resolver-overview.md
+      - linkListType: concept
+        links:
+          - text: Azure DNS Private Resolver scenarios
+            url: private-dns-resolver-scenarios.md
+      - linkListType: quickstart
+        links:
+          - text: Create an Azure DNS private resolver using the Azure portal
+            url: ./private-dns-resolver-getstarted-portal.md
+          - text: Create an Azure DNS private resolver using Windows PowerShell
+            url: ./private-dns-resolver-getstarted-powershell.md
+
 # Card
   - title: Use alias records
     linkLists:
