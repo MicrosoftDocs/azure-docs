@@ -83,7 +83,7 @@ Follow these instructions to run the script on a Windows machine.
 
 Follow these instructions to run the script on a Linux machine:
 
-1. Open the terminal and navigate to the folder where you've downloaded the Bash script.
+1. Open the terminal and navigate to the folder, where you've downloaded the Bash script.
 2. Execute the script using the following command:
 
   ```sh
