@@ -194,7 +194,7 @@ Version upgrades are handled transparently by Azure Container Apps. You can find
 
 ### Unsupported Dapr capabilities
 
-- **Dapr Secrets Management API**: Use Container Apps secret mechanism as an alternative.
+- **Dapr Secrets Management API**: Use [Container Apps secret mechanism][aca-secrets] as an alternative.
 - **Custom configuration for Dapr Observability**: Instrument your environment with Application Insights to visualize distributed tracing.
 - **Dapr Configuration spec**: Any capabilities that require use of the Dapr configuration spec, which includes preview features.
 - **Advanced Dapr sidecar configurations**: Container Apps allows you to specify sidecar settings including `app-protocol`, `app-port`, and `app-id`. For a list of unsupported configuration options, see [the Dapr documentation](https://docs.dapr.io/reference/arguments-annotations-overview/).
