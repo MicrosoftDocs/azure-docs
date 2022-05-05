@@ -17,7 +17,6 @@ This article describes how to configure data export to send data to the event hu
 
 ## Set up an event hubs export destination
 
-
 IoT Central exports data in near real time. The data is in the message body and is in JSON format encoded as UTF-8.
 
 The annotations or system properties bag of the message contains the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` fields that have the same values as the corresponding fields in the message body.
@@ -29,6 +28,8 @@ Event Hubs destinations let you configure the connection with a *connection stri
 [!INCLUDE [iot-central-managed-identities](../../../includes/iot-central-managed-identities.md)]
 
 This article shows how to create a managed identity in the Azure portal. You can also use the Azure CLI to create a manged identity. To learn more, see [Assign a managed identity access to a resource using Azure CLI](../../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+
+---
 
 # [Connection string](#tab/connection-string)
 

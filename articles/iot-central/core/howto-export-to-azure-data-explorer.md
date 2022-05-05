@@ -35,6 +35,8 @@ Azure Data Explorer destinations let you configure the connection with a *servic
 
 This article shows how to create a managed identity using the Azure CLI. You can also use the Azure portal to create a manged identity.
 
+---
+
 # [Service principal](#tab/service-principal)
 
 ### Create an Azure Data Explorer destination

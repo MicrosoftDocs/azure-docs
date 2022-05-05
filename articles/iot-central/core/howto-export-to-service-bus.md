@@ -17,7 +17,6 @@ This article describes how to configure data export to send data to the service 
 
 ## Set up an service bus export destination
 
-
 Both queues and topics are supported for Azure Service Bus destinations.
 
 IoT Central exports data in near real time. The data is in the message body and is in JSON format encoded as UTF-8.
@@ -31,6 +30,8 @@ Service Bus destinations let you configure the connection with a *connection str
 [!INCLUDE [iot-central-managed-identities](../../../includes/iot-central-managed-identities.md)]
 
 This article shows how to create a managed identity in the Azure portal. You can also use the Azure CLI to create a manged identity. To learn more, see [Assign a managed identity access to a resource using Azure CLI](../../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+
+---
 
 # [Connection string](#tab/connection-string)
 
@@ -65,6 +66,8 @@ To create the Service Bus destination in IoT Central on the **Data export** page
 1. Paste in the connection string for your Service Bus resource, and enter the case-sensitive queue or topic name if necessary.
 
 1. Select **Save**.
+
+---
 
 # [Managed identity](#tab/managed-identity)
 

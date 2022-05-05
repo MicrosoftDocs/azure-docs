@@ -17,7 +17,6 @@ This article describes how to configure data export to send data to the webhook.
 
 ## Set up an webhook export destination
 
-
 For webhook destinations, IoT Central exports data in near real time. The data in the message body is in the same format as for Event Hubs and Service Bus.
 
 ## Create a webhook destination
@@ -40,7 +39,6 @@ To create the Azure Data Explorer destination in IoT Central on the **Data expor
 
 1. Select **Save**.
 
----
 
 [!INCLUDE [iot-central-data-export-setup](../../../includes/iot-central-data-export-setup.md)]
 
