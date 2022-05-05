@@ -18,13 +18,12 @@ ms.custom: sdkv2
 # Set up AutoML to train computer vision models with Python (v1)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-
-	[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
-	> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-	> * [v1](how-to-auto-train-image-models-v1.md)
-	> * [v2 (current version)](../how-to-auto-train-image-models-v1.md)
 	
-	[!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
+> * [v1](how-to-auto-train-image-models-v1.md)
+> * [v2 (current version)](../how-to-auto-train-image-models-v1.md)
+	
+[!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
 
 
 > [!IMPORTANT]
@@ -73,7 +72,7 @@ automl_image_config = AutoMLImageConfig(task=ImageTask.IMAGE_OBJECT_DETECTION)
 
 ## Training and validation data
 
-In order to generate computer vision models, you need to bring labeled image data as input for model training in the form of an Azure Machine Learning [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset). You can either use a `TabularDataset` that you have [exported from a data labeling project](./how-to-create-image-labeling-projects.md#export-the-labels), or create a new `TabularDataset` with your labeled training data. 
+In order to generate computer vision models, you need to bring labeled image data as input for model training in the form of an Azure Machine Learning [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset). You can either use a `TabularDataset` that you have [exported from a data labeling project](../how-to-create-image-labeling-projects.md#export-the-labels), or create a new `TabularDataset` with your labeled training data. 
 
 If your training data is in a different format (like, pascal VOC or COCO), you can apply the helper scripts included with the sample notebooks to convert the data to JSONL. Learn more about how to [prepare data for computer vision tasks with automated ML](../how-to-prepare-datasets-for-automl-images.md). 
 
@@ -210,7 +209,7 @@ The following table summarizes the supported models for each computer vision tas
 Task |  Model algorithms | String literal syntax<br> ***`default_model`\**** denoted with \*
 ---|----------|----------
 Image classification<br> (multi-class and multi-label)| **MobileNet**: Light-weighted models for mobile applications <br> **ResNet**: Residual networks<br> **ResNeSt**: Split attention networks<br> **SE-ResNeXt50**: Squeeze-and-Excitation networks<br> **ViT**: Vision transformer networks| `mobilenetv2`   <br>`resnet18` <br>`resnet34` <br> `resnet50`  <br> `resnet101` <br> `resnet152`    <br> `resnest50` <br> `resnest101`  <br> `seresnext`  <br> `vits16r224` (small) <br> ***`vitb16r224`\**** (base) <br>`vitl16r224` (large)|
-Object detection | **YOLOv5**: One stage object detection model   <br>  **Faster RCNN ResNet FPN**: Two stage object detection models  <br> **RetinaNet ResNet FPN**: address class imbalance with Focal Loss <br> <br>*Note: Refer to [`model_size` hyperparameter](reference-automl-images-hyperparameters.md#model-specific-hyperparameters) for YOLOv5 model sizes.*| ***`yolov5`\**** <br> `fasterrcnn_resnet18_fpn` <br> `fasterrcnn_resnet34_fpn` <br> `fasterrcnn_resnet50_fpn` <br> `fasterrcnn_resnet101_fpn` <br> `fasterrcnn_resnet152_fpn` <br> `retinanet_resnet50_fpn` 
+Object detection | **YOLOv5**: One stage object detection model   <br>  **Faster RCNN ResNet FPN**: Two stage object detection models  <br> **RetinaNet ResNet FPN**: address class imbalance with Focal Loss <br> <br>*Note: Refer to [`model_size` hyperparameter](../reference-automl-images-hyperparameters.md#model-specific-hyperparameters) for YOLOv5 model sizes.*| ***`yolov5`\**** <br> `fasterrcnn_resnet18_fpn` <br> `fasterrcnn_resnet34_fpn` <br> `fasterrcnn_resnet50_fpn` <br> `fasterrcnn_resnet101_fpn` <br> `fasterrcnn_resnet152_fpn` <br> `retinanet_resnet50_fpn` 
 Instance segmentation | **MaskRCNN ResNet FPN**| `maskrcnn_resnet18_fpn` <br> `maskrcnn_resnet34_fpn` <br> ***`maskrcnn_resnet50_fpn`\****  <br> `maskrcnn_resnet101_fpn` <br> `maskrcnn_resnet152_fpn` <br>`maskrcnn_resnet50_fpn`
 
 
@@ -289,9 +288,9 @@ When sweeping hyperparameters, you need to specify the sampling method to use fo
 
 You can automatically end poorly performing runs with an early termination policy. Early termination improves computational efficiency, saving compute resources that would have been otherwise spent on less promising configurations. Automated ML for images supports the following early termination policies using the `early_termination_policy` parameter. If no termination policy is specified, all configurations are run to completion.
 
-* [Bandit policy](how-to-tune-hyperparameters.md#bandit-policy)
-* [Median stopping policy](how-to-tune-hyperparameters.md#median-stopping-policy)
-* [Truncation selection policy](how-to-tune-hyperparameters.md#truncation-selection-policy)
+* [Bandit policy](../how-to-tune-hyperparameters.md#bandit-policy)
+* [Median stopping policy](../how-to-tune-hyperparameters.md#median-stopping-policy)
+* [Truncation selection policy](../how-to-tune-hyperparameters.md#truncation-selection-policy)
 
 Learn more about [how to configure the early termination policy for your hyperparameter sweep](../how-to-tune-hyperparameters.md#early-termination).
 
@@ -396,7 +395,7 @@ automl_image_run = experiment.submit(automl_image_config)
 The automated ML training runs generates output model files, evaluation metrics, logs and deployment artifacts like the scoring file and the environment file which can be viewed from the outputs and logs and metrics tab of the child runs.
 
 > [!TIP]
-> Check how to navigate to the run results from the  [View run results](how-to-understand-automated-ml.md#view-run-results) section.
+> Check how to navigate to the run results from the  [View run results](../how-to-understand-automated-ml.md#view-run-results) section.
 
 For definitions and examples of the performance charts and metrics provided for each run, see [Evaluate automated machine learning experiment results](../how-to-understand-automated-ml.md#metrics-for-image-models-preview)
 
@@ -476,11 +475,11 @@ print(aks_service.state)
 Alternatively, you can deploy the model from the [Azure Machine Learning studio UI](https://ml.azure.com/). 
 Navigate to the model you wish to deploy in the **Models** tab of the automated ML run and select the **Deploy**.  
 
-![Select model from the automl runs in studio UI  ](./media/how-to-auto-train-image-models/select-model.png)
+![Select model from the automl runs in studio UI  ](.././media/how-to-auto-train-image-models/select-model.png)
 
 You can configure the model deployment endpoint name and the inferencing cluster to use for your model deployment in the **Deploy a model** pane.
 
-![Deploy configuration](./media/how-to-auto-train-image-models/deploy-image-model.png)
+![Deploy configuration](.././media/how-to-auto-train-image-models/deploy-image-model.png)
 
 ### Update inference configuration
 
