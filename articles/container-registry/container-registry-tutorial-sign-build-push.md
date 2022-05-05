@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 05/08/2022
 ---
 
-# Sign, Verify, Deploy Container Images to Azure Kubernetes Service
+# Build, Sign, and Verify container images using Notary and Azure Key Vault
 
 Securing deployments, based on signed containers enables users to assure deployments are built by the entities they trust.
 
