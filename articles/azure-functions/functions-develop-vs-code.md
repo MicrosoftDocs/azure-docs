@@ -68,7 +68,7 @@ These prerequisites are only required to [run and debug your functions locally](
 
 + [Java 8](/azure/developer/java/fundamentals/java-support-on-azure) recommended. For other supported versions, see [Java versions](functions-reference-java.md#java-versions).
 
-+ [Maven 3 or later](https://maven.apache.org/)
++ [Maven 3 or later](https://maven.apache.org/).
 
 # [JavaScript](#tab/nodejs)
 
@@ -78,11 +78,11 @@ These prerequisites are only required to [run and debug your functions locally](
 
 # [PowerShell](#tab/powershell)
 
-+ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
++ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools include the entire Azure Functions runtime, so download and installation might take some time.
 
 + [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows) recommended. For version information, see [PowerShell versions](functions-reference-powershell.md#powershell-versions).
 
-+ Both [.NET Core 3.1 runtime](https://dotnet.microsoft.com/download) and [.NET Core 2.1 runtime](https://dotnet.microsoft.com/download/dotnet/2.1)  
++ Both [.NET Core 3.1 runtime](https://dotnet.mi.crosoft.com/download) and [.NET Core 2.1 runtime](https://dotnet.microsoft.com/download/dotnet/2.1).  
 
 + The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
 
@@ -108,17 +108,29 @@ The Functions extension lets you create a function app project, along with your 
 
 1. Select the folder for your function app project, and then **Select a language for your function project**.
 
+1. In the dropdown, Select the language **JavaScript**.
+
+   ![Select a language](./media/functions-develop-vs-code/select-javascript.png)
+
 1. Select the **HTTP trigger** function template, or you can select **Skip for now** to create a project without a function. You can always [add a function to your project](#add-a-function-to-your-project) later.
 
-    ![Choose the HTTP trigger template](./media/functions-develop-vs-code/create-function-choose-template.png)
+    ![Choose the HTTP trigger template](./media/functions-develop-vs-code/select-http-trigger.png)
 
 1. Type **HttpExample** for the function name and select Enter, and then select **Function** authorization. This authorization level requires you to provide a [function key](functions-bindings-http-webhook-trigger.md#authorization-keys) when you call the function endpoint.
 
     ![Select Function authorization](./media/functions-develop-vs-code/create-function-auth.png)
 
-    A function is created in your chosen language and in the template for an HTTP-triggered function.
+1. From the dropdown, select **Add to workplace**.
 
-    ![HTTP-triggered function template in Visual Studio Code](./media/functions-develop-vs-code/new-function-full.png)
+    ![Select Add to workplace](./media/functions-develop-vs-code/add-to-workplace.png)
+
+1. In **Do you trust the authors of the files in this folder?**, select **yes**.
+
+    ![Select author of the file](./media/functions-develop-vs-code/select-author-file.png)
+
+1. A function is created in your chosen language and in the template for an HTTP-triggered function.
+
+    ![HTTP-triggered function template in Visual Studio Code](./media/functions-develop-vs-code/new-function-created.png)
 
 ### Generated project files
 
@@ -248,7 +260,7 @@ Update the function method to add the following parameter to the `Run` method de
 
 :::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java" range="20-21":::
 
-The `msg` parameter is an `OutputBinding<T>` type, where is `T` is a string that is written to an output binding when the function completes. The following code sets the message in the output binding:
+The `msg` parameter is an `OutputBinding<T>` type, where `T` is a string that is written to an output binding when the function completes. The following code sets the message in the output binding:
 
 :::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java" range="33-34":::
 
