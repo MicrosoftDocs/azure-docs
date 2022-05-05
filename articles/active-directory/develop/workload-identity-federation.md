@@ -29,6 +29,8 @@ Typically, a software workload (such as an application, service, script, or cont
 You use workload identity federation to configure an Azure AD app registration to trust tokens from an external identity provider (IdP), such as GitHub.  Once that trust relationship is created, your software workload can exchange trusted tokens from the external IdP for access tokens from Microsoft identity platform.  Your software workload then uses that access token to access the Azure AD protected resources to which the workload has been granted access. This eliminates the maintenance burden of manually managing credentials and eliminates the risk of leaking secrets or having certificates expire.
 
 ## Supported scenarios
+> [!NOTE]
+> Azure AD-issued tokens might not be used for federated identity flows.
 
 The following scenarios are supported for accessing Azure AD protected resources using workload identity federation:
 
