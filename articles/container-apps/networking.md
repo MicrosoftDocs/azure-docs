@@ -38,10 +38,10 @@ As you create a custom VNET, keep in mind the following situations:
 
 As you begin to design the network around your container app, refer to [Plan virtual networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm) for important concerns surrounding running virtual networks on Azure.
 
-:::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Azure Container Apps environments use an existing VNET, or you can provide your own.":::
+:::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Diagram of how Azure Container Apps environments use an existing V NET, or you can provide your own.":::
 
 <!--
-https://docs.microsoft.com/en-us/azure/azure-functions/functions-networking-options
+https://docs.microsoft.com/azure/azure-functions/functions-networking-options
 
 https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-container-apps-virtual-network-integration/ba-p/3096932
 -->
