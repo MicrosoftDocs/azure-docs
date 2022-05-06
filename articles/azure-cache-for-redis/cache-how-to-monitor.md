@@ -61,7 +61,9 @@ Use [Azure Monitor for Azure Cache for Redis](../azure-monitor/insights/redis-ca
 
 For scenarios where you don't need the full flexibility of Azure Monitor for Azure Cache for Redis, you can instead view metrics and create custom charts using the Azure Monitor metrics explorer. Select **Metrics** from the **Resource menu**, and customize your chart using your preferred metrics, reporting interval, chart type, and more.
 
-:::image type="content" source="./media/cache-how-to-monitor/redis-cache-monitor.png" alt-text="In the left navigation pane of contoso55, Metrics is an option under Monitoring and is highlighted. On Metrics there is a list of metrics. Cache hits and Cache misses are selected.":::
+In the left navigation pane of contoso55, Metrics is an option under Monitoring and is highlighted. On Metrics, is a list of metrics. Cache hits and Cache misses are selected.
+
+:::image type="content" source="./media/cache-how-to-monitor/redis-cache-monitor.png" alt-text="Screenshot with metrics showing in the resource manager":::
 
 For more information on working with metrics using Azure Monitor, see [Overview of metrics in Microsoft Azure](../azure-monitor/data-platform.md).
 
