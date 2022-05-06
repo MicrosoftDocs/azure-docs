@@ -50,11 +50,11 @@ Use the following steps to bind an Azure Storage account as a storage resource i
    | Account name | The name of the storage account.                                                           |
    | Account key  | The storage account key.                                                                   |
 
-   :::image type="content" source="media/how-to-custom-persistent-storage/add-storage-resource.png" alt-text="Azure portal screenshot showing the Storage page and the 'Add storage' pane" lightbox="media/how-to-custom-persistent-storage/add-storage-resource.png":::
+   :::image type="content" source="media/how-to-custom-persistent-storage/add-storage-resource.png" alt-text="Screenshot of Azure portal showing the Storage page and the 'Add storage' pane." lightbox="media/how-to-custom-persistent-storage/add-storage-resource.png":::
 
 1. Go to the **Apps** page, then select an application to mount the persistent storage.
 
-   :::image type="content" source="media/how-to-custom-persistent-storage/select-app-mount-persistent-storage.png" alt-text="Screenshot of the Apps page" lightbox="media/how-to-custom-persistent-storage/select-app-mount-persistent-storage.png":::
+   :::image type="content" source="media/how-to-custom-persistent-storage/select-app-mount-persistent-storage.png" alt-text="Screenshot of Azure portal Apps page." lightbox="media/how-to-custom-persistent-storage/select-app-mount-persistent-storage.png":::
 
 1. Select **Configuration**, then select **Persistent Storage**.
 
@@ -69,11 +69,11 @@ Use the following steps to bind an Azure Storage account as a storage resource i
     | Mount options           | Optional                                                       |
     | Read only               | Optional                                                       |
 
-   :::image type="content" source="media/how-to-custom-persistent-storage/add-persistent-storage.png" alt-text="Screenshot of the 'Add persistent storage' form":::
+   :::image type="content" source="media/how-to-custom-persistent-storage/add-persistent-storage.png" alt-text="Screenshot of Azure portal 'Add persistent storage' form.":::
 
 1. Select **Save** to apply all the configuration changes.
 
-   :::image type="content" source="media/how-to-custom-persistent-storage/save-persistent-storage-changes.png" alt-text="Screenshot of the Persistent Storage section of the Configuration page" lightbox="media/how-to-custom-persistent-storage/save-persistent-storage-changes.png":::
+   :::image type="content" source="media/how-to-custom-persistent-storage/save-persistent-storage-changes.png" alt-text="Screenshot of Azure portal Persistent Storage section of the Configuration page." lightbox="media/how-to-custom-persistent-storage/save-persistent-storage-changes.png":::
 
 # [CLI](#tab/Azure-CLI)
 
