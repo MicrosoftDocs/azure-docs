@@ -5,13 +5,13 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  conceptual
-ms.date: 4/07/2022
+ms.date: 05/06/2022
 ms.author: cshoe
 ---
 
 # Networking architecture in Azure Container Apps
 
-Azure Container Apps run in the context of an [environment](environment.md), which is supported by a virtual network (VNET). When you create an environment, you have the option to provide a custom VNET, otherwise a VNET is automatically generated for you. Generated VNETs are inaccessible to you as they are created in Microsoft's tenent. To take full control over your VNET provide an existing VNET to Container Apps as you create your environment.
+Azure Container Apps run in the context of an [environment](environment.md), which is supported by a virtual network (VNET). When you create an environment, you can provide a custom VNET, otherwise a VNET is automatically generated for you. Generated VNETs are inaccessible to you as they're created in Microsoft's tenent. To take full control over your VNET, provide an existing VNET to Container Apps as you create your environment.
 
 The following articles feature step-by-step instructions for creating Container Apps environments with different accessibility levels.
 
@@ -22,7 +22,7 @@ The following articles feature step-by-step instructions for creating Container 
 
 ## Custom VNET configuration
 
-As you create a custom VNET keep in mind the following:
+As you create a custom VNET, keep in mind the following situations:
 
 - If you want your container app to restrict all outside access, create an [internal Container Apps environment](vnet-custom-internal.md).
 
@@ -46,25 +46,107 @@ https://docs.microsoft.com/en-us/azure/azure-functions/functions-networking-opti
 https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-container-apps-virtual-network-integration/ba-p/3096932
 -->
 
-### Envoy behavior
+### HTTP edge proxy behavior
 
-TODO: Ahmed ElSayed to provide details
+Azure Container Apps uses [Envoy proxy](https://www.envoyproxy.io/) as an edge HTTP proxy. TLS is terminated on the edge and requests are routed based on their traffic split rules and routes traffic to the correct application.
+
+HTTP applications scale based on the number of HTTP requests and connections. Envoy routes internal traffic inside clusters. Downstream connections support HTTP1.1 and HTTP2 and Envoy automatically detects and upgrades the connection should the client connection be upgraded. Upstream connection is defined by setting the `transport` property on the [ingress](azure-resource-manager-api-spec.md#propertiesconfiguration) object.
 
 ### Ingress configuration
 
-## Scenarios
+Under the [ingress](azure-resource-manager-api-spec.md#propertiesconfiguration) section, you can configure the following settings:
 
-**TODO: PMs & Tomer to provide details**
+- **Accessibility level**: You can set your container app as externally or internally accessible in the environment. An environment variable `CONTAINER_APP_ENV_DNS_SUFFIX` is used to automatically resolve the FQDN suffix for your environment.
+
+- **Traffic split rules**: You can define traffic split rules between different revisions of your application.
+
+### Scenarios
+
+The following scenarios describe configuration settings for common use cases.
+
+#### Rapid iteration
+
+In situations where you're frequently iterating development of your container app, you can set traffic rules to always shift all traffic to the latest deployed revision.
+
+The following example routes all traffic to the latest deployed revision:
+
+```json
+"ingress": { 
+  "traffic": [
+    {
+      "latestRevision": true,
+      "weight": 100
+    }
+  ]
+}
+```
+
+Once you're satisfied with the latest revision, you can lock traffic to that revision by updating the `ingress` settings to:
+
+```json
+"ingress": { 
+  "traffic": [
+    {
+      "latestRevision": false, // optional
+      "revisionName": "myapp--knowngoodrevision",
+      "weight": 100
+    }
+  ]
+}
+```
+
+#### Update existing revision
+
+Consider a situation where you have a known good revision that's serving 100% of your traffic, but you want to issue and update to your app. You can deploy and test new revisions using their direct endpoints without affecting the main revision serving the app.
+
+Once you're satisfied with the updated revision, you can shift a portion of traffic to the new revision for testing and verification.
+
+The following configuration demonstrates how to move 20% of traffic over to the updated revision:
+
+```json
+"ingress": {
+  "traffic": [
+    {
+      "revisionName": "myapp--knowngoodrevision",
+      "weight": 80
+    },
+    {
+      "revisionName": "myapp--newerrevision",
+      "weight": 20
+    }
+  ]
+}
+```
+
+#### Staging microservices
+
+When building microservices, you may want to maintain production and staging endpoints for the same app. Use labels to ensure that traffic doesn't switch between different revisions.
+
+The following example demonstrates how to apply labels to different revisions.
+
+```json
+"ingress": { 
+  "traffic": [
+    {
+      "revisionName": "myapp--knowngoodrevision",
+      "weight": 100
+    },
+    {
+      "revisionName": "myapp--98fdgt",
+      "weight": 0,
+      "label": "staging"
+    }
+  ]
+}
+```
 
 ## Portal dependencies
 
-**TODO: Tomer to provide details**
+For every app in Azure Container Apps, there are two URLs.
 
-For every app in Azure Container Apps, there are two URLs. The first URL is used to access your app. The second URL grants access to the log streaming service and the console.
+The first URL is generated by Container Apps and is used to access your app. See the *Application Url* in the *Overview* window of your container app in the Azure portal for the fully qualified domain name (FQDN) of your container app.
 
-allow list 
-
-**TODO: Need input from Tomer**
+The second URL grants access to the log streaming service and the console. Make sure to add `https://azurecontainerapps.dev/` to the allowlist of your application.
 
 ## Ports and IP addresses
 
@@ -75,7 +157,8 @@ The following ports are exposed for inbound connections.
 | Use | Port(s) |
 |--|--|
 | HTTP/HTTPS | 80, 443 |
-| Log streaming | TODO: Tomer to verify |
+| Log streaming | 443 |
+| Console | 443 |
 
 Container Apps reserves 60 IPs in your VNET, and the amount may grow as your container environment scales.
 
@@ -101,17 +184,17 @@ Subnet address ranges can't overlap with the following reserved ranges:
 
 As a Container Apps environment is created, you provide resource IDs for a single subnet.
 
-When using the CLI, the parameter to define the subnet resource ID is `infrastructure-subnet-resource-id`. The subnet hosts infrastructure components and user app containers.
+If you're using the CLI, the parameter to define the subnet resource ID is `infrastructure-subnet-resource-id`. The subnet hosts infrastructure components and user app containers.
 
-If you are using the Azure CLI and the [platformReservedCidr](vnet-custom-internal.md#networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
+If you're using the Azure CLI and the [platformReservedCidr](vnet-custom-internal.md#networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
 
 ## Routes
 
-There is no forced tunneling in Container Apps routes.
+There's no forced tunneling in Container Apps routes.
 
 ## Managed resources
 
-When you deploy an internal or an external environment into your own network, a new resource group prefixed with `MC_` is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform, and shouldn't be modified. The resource group contains Public IP addresses used specifically for outbound connectivity from your environment as well as a load balancer. As the load balancer is created in your subscription, there are additional costs associated with deploying the service to a custom virtual network.
+When you deploy an internal or an external environment into your own network, a new resource group prefixed with `MC_` is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform, and shouldn't be modified. The resource group contains Public IP addresses used specifically for outbound connectivity from your environment and a load balancer. As the load balancer is created in your subscription, there are extra costs associated with deploying the service to a custom virtual network.
 
 ## Next steps
 
