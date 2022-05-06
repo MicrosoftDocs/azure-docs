@@ -27,24 +27,22 @@ These are emerging practices, and we are continually learning. The best practice
 
 We suggest the following best practices for manually collecting human data directly from people.
 
-:::column span="4":::
-
 :::row:::
-        :::column:::
+        :::column span="4":::
             **Best Practice**
         :::column-end:::
-        :::column:::
+        :::column span="4":::
             **Why?**
         :::column-end:::
     :::row-end:::
 -----
 
 :::row:::
-    :::column:::
+    :::column span="4":::
         **Obtain voluntary informed consent.**
     :::column-end:::
 
-    :::column:::
+    :::column span="4":::
         - Participants should understand and consent to data collection and how their data will be used.
         - Data should only be stored, processed, and used for purposes that are part of the original documented informed consent.
         - Consent documentation should be properly stored and associated with the collected data.
@@ -54,11 +52,11 @@ We suggest the following best practices for manually collecting human data direc
 -----
 
 :::row:::
-    :::column:::
+    :::column span="4":::
         **Compensate data contributors appropriately.**
     :::column-end:::
 
-    :::column:::
+    :::column span="4":::
         - Data contributors should not be pressured or coerced into data collections and should be fairly compensated for their time and data.
         - Inappropriate compensation can be exploitative or coercive.
     :::column-end:::
@@ -68,11 +66,11 @@ We suggest the following best practices for manually collecting human data direc
 -----
  
 :::row:::
-    :::column:::
+    :::column span="4":::
         **Let contributors self-identify demographic information.**
     :::column-end:::
 
-    :::column:::
+    :::column span="4":::
         - Demographic information that is not self-reported by data contributors but assigned by data collectors may 1) result in inaccurate metadata and 2) be disrespectful to data contributors.
     :::column-end:::
 
@@ -81,11 +79,11 @@ We suggest the following best practices for manually collecting human data direc
 -----
 
 :::row:::
-    :::column:::
+    :::column span="4":::
         **Anticipate harms when recruiting vulnerable groups.**
     :::column-end:::
 
-    :::column:::
+    :::column span="4":::
         - Collecting data from vulnerable population groups introduces risk to data contributors and your organization.
     :::column-end:::
 
@@ -94,11 +92,11 @@ We suggest the following best practices for manually collecting human data direc
 -----
 
 :::row:::
-    :::column:::
+    :::column span="4":::
         **Treat data contributors with respect.**
     :::column-end:::
 
-    :::column:::
+    :::column span="4":::
         - Improper interactions with data contributors at any phase of the data collection can negatively impact data quality, as well as the overall data collection experience for data contributors and data collectors.
     :::column-end:::
 
@@ -107,11 +105,11 @@ We suggest the following best practices for manually collecting human data direc
 -----
 
 :::row:::
-    :::column:::
+    :::column span="4":::
         **Qualify external suppliers carefully.**     
     :::column-end:::
 
-    :::column:::
+    :::column span="4":::
         - Data collections with unqualified suppliers may result in low quality data, poor data management, unprofessional practices, and potentially harmful outcomes for data contributors and data collectors (including violations of human rights).
         - Annotation or labeling work (e.g., audio transcription, image tagging) with unqualified suppliers may result in low quality or biased datasets, insecure data management, unprofessional practices, and potentially harmful outcomes for data contributors (including violations of human rights).
     :::column-end:::
@@ -121,11 +119,11 @@ We suggest the following best practices for manually collecting human data direc
 -----
 
 :::row:::
-    :::column:::
+    :::column span="4":::
         **Communicate expectations clearly in the Statement of Work (SOW) with suppliers.**
     :::column-end:::
 
-    :::column:::
+    :::column span="4":::
         - An SOW which lacks requirements for responsible data collection work may result in low-quality or poorly collected data.     
     :::column-end:::
 
@@ -134,11 +132,11 @@ We suggest the following best practices for manually collecting human data direc
 -----
 
 :::row:::
-    :::column:::
+    :::column span="4":::
         **Qualify geographies carefully.** 
     :::column-end:::
 
-    :::column:::
+    :::column span="4":::
         - When applicable, collecting data in restricted and/or unfamiliar geographies may result in unusable or low-quality data and may impact the safety of involved parties.
     :::column-end:::
 
@@ -147,11 +145,11 @@ We suggest the following best practices for manually collecting human data direc
 -----
 
 :::row:::
-    :::column:::
+    :::column span="4":::
         **Be a good steward of your datasets.**
     :::column-end:::
 
-    :::column:::
+    :::column span="4":::
         - Improper data management and poor documentation can result in data misuse.
     :::column-end:::
 
