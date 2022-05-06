@@ -1,5 +1,5 @@
 ---
-title: Quick Start for Azure Arc enabled System Center Virtual Machine Manager
+title: Quick Start for Azure Arc-enabled System Center Virtual Machine Manager
 description: In this QuickStart, you will learn how to use the helper script to connect your System Center Virtual Machine Manager management server to Azure Arc.
 author: jyothisuri
 ms.author: jsuri
@@ -10,7 +10,7 @@ ms.custom: references_regions
 
 # QuickStart: Connect your System Center Virtual Machine Manager management server to Azure Arc
 
-Before you can start using the Azure Arc enabled SCVMM features, you need to connect your VMM management server to Azure Arc.
+Before you can start using the Azure Arc-enabled SCVMM features, you need to connect your VMM management server to Azure Arc.
 
 This QuickStart shows you how to connect your SCVMM management server to Azure Arc using a helper script. The script deploys a lightweight Azure Arc appliance (called Azure Arc resource bridge) as a virtual machine running in your VMM environment and installs an SCVMM cluster extension on it, to provide a continuous connection between your VMM management server and Azure Arc.
 
@@ -20,13 +20,13 @@ This QuickStart shows you how to connect your SCVMM management server to Azure A
 | --- | --- |
 | **Azure** | An Azure subscription  <br/><br/> A resource group in the above subscription where you have the *Owner/Contributor* role. |
 | **SCVMM** | You need an SCVMM management server running version 2016 or later.<br/><br/> A private cloud that has at least one cluster with minimum free capacity of 16 GB of RAM, 4 vCPUs with 100 GB of free disk space. <br/><br/> A VM network with internet access, directly or through proxy. Appliance VM will be deployed using this VM network.<br/><br/> For dynamic IP allocation to appliance VM, DHCP server is required. For static IP allocation, VMM static IP pool is required. |
-| **SCVMM accounts** | An SCVMM admin account that can perform all administrative actions on all objects that VMM manages. <br/><br/> This will be used for the ongoing operation of Azure Arc enabled SCVMM as well as the deployment of the Arc Resource bridge VM. |
+| **SCVMM accounts** | An SCVMM admin account that can perform all administrative actions on all objects that VMM manages. <br/><br/> This will be used for the ongoing operation of Azure Arc-enabled SCVMM as well as the deployment of the Arc Resource bridge VM. |
 | **Workstation** | The workstation will be used to run the helper script.<br/><br/> A Windows/Linux machine that can access both your SCVMM management server and internet, directly or through proxy.<br/><br/> The helper script can be run directly from the VMM server machine as well.<br/><br/> Note that when you execute the script from a Linux machine, the deployment takes a bit longer and you may experience performance issues. |
 
 ## Prepare SCVMM management server
 
 -	Create an SCVMM private cloud if you don't have one. The private cloud should have a reservation of at least 16 GB of RAM and 4 vCPUs. It should also have at least 100 GB of disk space.
--	Ensure that SCVMM administrator account have the appropriate permissions.
+-	Ensure that SCVMM administrator account has the appropriate permissions.
 
 ## Download the onboarding script
 
@@ -109,7 +109,7 @@ The script execution will take up to half an hour and you'll be prompted for var
 | **NoProxy** | Addresses to be excluded from proxy.|
 |**CertificateFilePath** | For SSL based proxies, provide the path to the certificate. |
 
-Once the command execution is completed, your setup is complete, and you can try out the capabilities of Azure Arc enabled SCVMM.
+Once the command execution is completed, your setup is complete, and you can try out the capabilities of Azure Arc- enabled SCVMM.
 
 ### Retry command - Windows
 
