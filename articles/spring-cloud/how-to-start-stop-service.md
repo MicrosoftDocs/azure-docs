@@ -38,7 +38,7 @@ You can only start, view, or delete a stopped Azure Spring Apps service instance
 - An existing service instance in Azure Spring Apps. To create a new service instance, see [Quickstart: Deploy your first application in Azure Spring Apps](./quickstart.md).
 - (Optional) [Azure CLI](/cli/azure/install-azure-cli) version 2.11.2 or later.
 
-# [Portal](#tab/azure-portal)
+## [Portal](#tab/azure-portal)
 
 ## Stop a running instance
 
@@ -62,7 +62,7 @@ In the Azure portal, use the following steps to start a stopped Azure Spring App
 
 3. After the instance starts, the status will show **Succeeded (Running)**.
 
-# [Azure CLI](#tab/azure-cli)
+## [Azure CLI](#tab/azure-cli)
 
 ## Stop a running instance
 

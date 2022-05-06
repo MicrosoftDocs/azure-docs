@@ -1,6 +1,6 @@
 ---
-title: How to deploy applications in Azure Spring Cloud with a custom container image (Preview)
-description: How to deploy applications in Azure Spring Cloud with a custom container image
+title: How to deploy applications in Azure Spring Apps with a custom container image (Preview)
+description: How to deploy applications in Azure Spring Apps with a custom container image
 author: karlerickson
 ms.author: xiangy
 ms.topic: how-to
@@ -10,9 +10,12 @@ ms.date: 4/28/2022
 
 # Deploy an application with a custom container image (Preview)
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ✔️ Standard tier ✔️ Enterprise tier
 
-This article explains how to deploy Spring Boot applications in Azure Spring Cloud using a custom container image. Deploying an application with a custom container supports most features as when deploying a JAR application. Other Java and non-Java applications can also be deployed with the container image.
+This article explains how to deploy Spring Boot applications in Azure Spring Apps using a custom container image. Deploying an application with a custom container supports most features as when deploying a JAR application. Other Java and non-Java applications can also be deployed with the container image.
 
 ## Prerequisites
 
@@ -26,7 +29,7 @@ This article explains how to deploy Spring Boot applications in Azure Spring Clo
 
 To deploy an application to a custom container image, use the following steps:
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 To deploy a container image, use one of the following commands:
 
@@ -66,7 +69,7 @@ To disable listening on a port for images that aren't web applications, add the 
     --disable-probe true
 ```
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. Open your existing Azure Spring Apps service instance.
