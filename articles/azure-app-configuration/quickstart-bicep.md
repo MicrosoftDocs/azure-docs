@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: Learn how to create an Azure App Configuration store using Bicep.
 author: schaffererin
 ms.author: v-eschaffer
-ms.date: 04/28/2022
+ms.date: 05/06/2022
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
@@ -65,7 +65,7 @@ With this Bicep file, we create one key with two different values.
 
 ## Review deployed resources
 
-Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
+Use Azure CLI, Azure PowerShell, or the Azure portal to list the deployed resources in the resource group.
 
 # [CLI](#tab/CLI)
 
@@ -79,11 +79,19 @@ az resource list --resource-group exampleRG
 Get-AzResource -ResourceGroupName exampleRG
 ```
 
+# [Azure portal](#tab/Portal)
+
+1. Sign in to the Azure portal.
+1. In the search box, enter *App Configuration*, then select **App Configuration** from the list.
+1. Select the newly created App Configuration resource.
+1. Under **Operations**, select **Configuration explorer**.
+1. Verify that two key-values exist.
+
 ---
 
 ## Clean up resources
 
-When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and its resources.
+When no longer needed, use Azure CLI, Azure PowerShell, or the Azure portal to delete the resource group and its resources.
 
 # [CLI](#tab/CLI)
 
@@ -96,6 +104,12 @@ az group delete --name exampleRG
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name exampleRG
 ```
+
+# [Azure portal](#tab/Portal)
+
+1. Navigate to your resource group.
+1. Select **Delete resource group**.
+1. A tab will appear. Enter the resource group name and select **Delete**.
 
 ---
 
