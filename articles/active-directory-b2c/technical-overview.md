@@ -118,7 +118,7 @@ Read the [User flows and custom policies overview](user-flow-overview.md) articl
 
 ## User interface
 
-In Azure AD B2C, you can craft your users' identity experiences so that the pages that are shown blend seamlessly with the look and feel of your brand. You get nearly full control of the HTML and CSS content presented to your users when they proceed through your application's identity journeys. (Customizing the pages rendered by third-parties when using social accounts is limited to the options provided by the identity provider, and these are outside the control of Azure AD B2C.) With this flexibility, you can maintain brand and visual consistency between your application and Azure AD B2C.
+In Azure AD B2C, you can craft your users' identity experiences so that the pages that are shown blend seamlessly with the look and feel of your brand. You get nearly full control of the HTML and CSS content presented to your users when they proceed through your application's identity journeys. (Customizing the pages rendered by third parties when using social accounts is limited to the options provided by the identity provider, and these are outside the control of Azure AD B2C.) With this flexibility, you can maintain brand and visual consistency between your application and Azure AD B2C.
 
 
 
