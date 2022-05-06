@@ -261,6 +261,8 @@ Here's an example:
 
 ## Analyzing metrics
 
+### [Azure portal](#tab/azure-portal)
+
 You can analyze metrics for Azure Storage with metrics from other Azure services by using Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md).
 
 This example shows how to view **Transactions** at the account level.
@@ -280,12 +282,69 @@ Metrics for Azure Blob Storage are in these namespaces:
 
 For a list of all Azure Monitor support metrics, which includes Azure Blob Storage, see [Azure Monitor supported metrics](../../azure-monitor/essentials/metrics-supported.md).
 
-### Accessing metrics
+### [PowerShell](#tab/azure-powershell)
 
-> [!TIP]
-> To view Azure CLI or .NET examples, choose the corresponding tabs listed here.
+#### List the metric definition
 
-### [.NET SDK](#tab/azure-portal)
+You can list the metric definition of your storage account or the Blob storage service. Use the [Get-AzMetricDefinition](/powershell/module/az.monitor/get-azmetricdefinition) cmdlet.
+
+In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the Blob storage service. You can find these resource IDs on the **Endpoints** pages of your storage account in the Azure portal.
+
+```powershell
+   $resourceId = "<resource-ID>"
+   Get-AzMetricDefinition -ResourceId $resourceId
+```
+
+#### Reading metric values
+
+You can read account-level metric values of your storage account or the Blob storage service. Use the [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric) cmdlet.
+
+```powershell
+   $resourceId = "<resource-ID>"
+   Get-AzMetric -ResourceId $resourceId -MetricName "UsedCapacity" -TimeGrain 01:00:00
+```
+
+#### Reading metric values with dimensions
+
+When a metric supports dimensions, you can read metric values and filter them by using dimension values. Use the [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric) cmdlet.
+
+```powershell
+$resourceId = "<resource-ID>"
+$dimFilter = [String](New-AzMetricFilter -Dimension ApiName -Operator eq -Value "GetBlob" 3> $null)
+Get-AzMetric -ResourceId $resourceId -MetricName Transactions -TimeGrain 01:00:00 -MetricFilter $dimFilter -AggregationType "Total"
+```
+
+### [Azure CLI](#tab/azure-cli)
+
+#### List the account-level metric definition
+
+You can list the metric definition of your storage account or the Blob storage service. Use the [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) command.
+
+In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the Blob storage service. You can find these resource IDs on the **Endpoints** pages of your storage account in the Azure portal.
+
+```azurecli
+   az monitor metrics list-definitions --resource <resource-ID>
+```
+
+#### Read account-level metric values
+
+You can read the metric values of your storage account or the Blob storage service. Use the [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) command.
+
+```azurecli
+   az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
+```
+
+#### Reading metric values with dimensions
+
+When a metric supports dimensions, you can read metric values and filter them by using dimension values. Use the [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) command.
+
+```azurecli
+az monitor metrics list --resource <resource-ID> --metric "Transactions" --interval PT1H --filter "ApiName eq 'GetBlob' " --aggregation "Total" 
+```
+
+---
+
+## Analyze metrics by using code
 
 Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or a later version for storage metrics.
 
@@ -423,69 +482,6 @@ The following example shows how to read metric data on the metric supporting mul
     }
 
 ```
-
-### [PowerShell](#tab/azure-powershell)
-
-#### List the metric definition
-
-You can list the metric definition of your storage account or the Blob storage service. Use the [Get-AzMetricDefinition](/powershell/module/az.monitor/get-azmetricdefinition) cmdlet.
-
-In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the Blob storage service. You can find these resource IDs on the **Endpoints** pages of your storage account in the Azure portal.
-
-```powershell
-   $resourceId = "<resource-ID>"
-   Get-AzMetricDefinition -ResourceId $resourceId
-```
-
-#### Reading metric values
-
-You can read account-level metric values of your storage account or the Blob storage service. Use the [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric) cmdlet.
-
-```powershell
-   $resourceId = "<resource-ID>"
-   Get-AzMetric -ResourceId $resourceId -MetricName "UsedCapacity" -TimeGrain 01:00:00
-```
-
-#### Reading metric values with dimensions
-
-When a metric supports dimensions, you can read metric values and filter them by using dimension values. Use the [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric) cmdlet.
-
-```powershell
-$resourceId = "<resource-ID>"
-$dimFilter = [String](New-AzMetricFilter -Dimension ApiName -Operator eq -Value "GetBlob" 3> $null)
-Get-AzMetric -ResourceId $resourceId -MetricName Transactions -TimeGrain 01:00:00 -MetricFilter $dimFilter -AggregationType "Total"
-```
-
-
-### [Azure CLI](#tab/azure-cli)
-
-#### List the account-level metric definition
-
-You can list the metric definition of your storage account or the Blob storage service. Use the [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) command.
-
-In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the Blob storage service. You can find these resource IDs on the **Endpoints** pages of your storage account in the Azure portal.
-
-```azurecli
-   az monitor metrics list-definitions --resource <resource-ID>
-```
-
-#### Read account-level metric values
-
-You can read the metric values of your storage account or the Blob storage service. Use the [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) command.
-
-```azurecli
-   az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
-```
-
-#### Reading metric values with dimensions
-
-When a metric supports dimensions, you can read metric values and filter them by using dimension values. Use the [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) command.
-
-```azurecli
-az monitor metrics list --resource <resource-ID> --metric "Transactions" --interval PT1H --filter "ApiName eq 'GetBlob' " --aggregation "Total" 
-```
-
----
 
 ## Analyzing logs
 
@@ -635,7 +631,17 @@ No. Azure Compute supports the metrics on disks. For more information, see [Per 
 
 ## Next steps
 
-- For a reference of the logs and metrics created by Azure Blob Storage, see [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md).
-- For details on monitoring Azure resources, see [Monitor Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md).
-- For more information on metrics migration, see [Azure Storage metrics migration](../common/storage-metrics-migration.md).
-- For commons scenarios and best practices, see [Best practices for monitoring Azure Blob Storage](blob-storage-monitoring-scenarios.md).
+Get started with any of these guides.
+
+| Guide | Description |
+|---|---|
+| [Gather metrics from your Azure Blob Storage containers](/learn/modules/gather-metrics-blob-storage/)<br>(Learn module) | Description goes here. |
+| [Monitor, diagnose, and troubleshoot your Azure Storage](/learn/modules/monitor-diagnose-and-troubleshoot-azure-storage/)<br>(Learn module) | Description goes here. |
+| [Monitoring your storage service with Azure Monitor Storage insights](../common/storage-insights-overview.md)<br>(How to) | Description goes here. |
+| [Best practices for monitoring Azure Blob Storage](blob-storage-monitoring-scenarios.md)<br>(How to) | Learn about common scenarios and best practices | 
+| [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md)<br>(How to) | Description goes here. |
+| [Overview of Log Analytics in Azure Monitor](../../azure-monitor/logs/log-analytics-overview.md)<br>(How to) | Description goes here.|
+| [Azure Monitor Metrics overview](../../azure-monitor/essentials/data-platform-metrics.md)<br>(Concepts) | Description goes here. |
+| [Azure Monitor Logs overview](../../azure-monitor/logs/data-platform-logs.md)<br>(Concepts) | Description goes here. |
+| [Transition to metrics in Azure Monitor](../common/storage-metrics-migration.md)<br>(Concepts) | Description goes here. |
+| [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md)<br>(Reference) | A reference of the logs and metrics created by Azure Blob Storage |
