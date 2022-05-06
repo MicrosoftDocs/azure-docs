@@ -74,7 +74,7 @@ items:
     href: concept-app-status.md
   - name: Metrics
     href: concept-metrics.md
-  - name: Azure Spring Boot Actuator
+  - name: Spring Boot Actuator
     href: concept-manage-monitor-app-spring-boot-actuator.md
 - name: Security
   items:
