@@ -47,7 +47,7 @@ Four steps are needed to set up an authorization with the authorization code gra
 1. Sign into Azure portal and go to your API Management instance.
 1. In the left menu, select **Authorizations** > **+ Create**.
     
-    :::image type="content" source="media/authorizations-how-to/create-authorization.png" alt-text="Screenshot of creating an API Managment authorization in the Azure portal.":::    
+    :::image type="content" source="media/authorizations-how-to/create-authorization.png" alt-text="Screenshot of creating an API Management authorization in the Azure portal.":::    
 1. In the **Create authorization** window, enter the following settings, and select **Create**:
     
     |Settings  |Value  |
@@ -142,9 +142,12 @@ Four steps are needed to set up an authorization with the authorization code gra
         > [!NOTE]
         > The `get-authorization-context` policy references the authorization provider and authorization that were created earlier. [Learn more](api-management-access-restriction-policies.md#GetAuthorizationContext) about how to configure this policy.
 
-        :::image type="content" source="media/authorizations-how-to/policy-configuration.png" alt-text="Screenshot of configuring policy in the portal.":::
-1. Test the API. On the **Test** tab, enter a query parameter with the name *username*. As value, choose the username that was used to sign into GitHub, or another valid GitHub username. Select **Send**. 
-    :::image type="content" source="media/authorizations-how-to/test-api.png" alt-text="Screenshot of testint the API successfully in the portal.":::
+        :::image type="content" source="media/authorizations-how-to/policy-configuration-cropped.png" lightbox="media/authorizations-how-to/policy-configuration.png" alt-text="Screenshot of configuring policy in the portal.":::
+1. Test the API. 
+    1. On the **Test** tab, enter a query parameter with the name *username*.
+    1. As value, enter the username that was used to sign into GitHub, or another valid GitHub username. 
+    1. Select **Send**. 
+    :::image type="content" source="media/authorizations-how-to/test-api.png" alt-text="Screenshot of testing the API successfully in the portal.":::
 
     A successful response returns user data from the GitHub API.
 
