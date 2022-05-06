@@ -2,11 +2,11 @@
 title: Configure Azure Application Gateway Private Link
 description: This article shows you how to configure Application Gateway Private Link.
 services: application-gateway
-author: vhorne
+author: greglin
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 03/31/2022
-ms.author: victorh
+ms.date: 05/09/2022
+ms.author: greglin
 
 ---
 
@@ -75,7 +75,7 @@ To configure Private link on an existing Application Gateway via Azure PowerShel
 
 ```azurepowershell
 # Disable Private Link Service Network Policies
-# https://docs.microsoft.com/en-us/azure/private-link/disable-private-endpoint-network-policy
+# https://docs.microsoft.com/azure/private-link/disable-private-endpoint-network-policy
 $net =@{
     Name = 'AppGW-PL-PSH'
     ResourceGroupName = 'AppGW-PL-PSH-RG'
@@ -112,7 +112,7 @@ Set-AzApplicationGatewayFrontendIPConfig -ApplicationGateway $agw -Name "appGwPu
 Set-AzApplicationGateway -ApplicationGateway $agw
 
 # Disable Private Endpoint Network Policies
-# https://docs.microsoft.com/en-us/azure/private-link/disable-private-endpoint-network-policy
+# https://docs.microsoft.com/azure/private-link/disable-private-endpoint-network-policy
 $net =@{
     Name = 'AppGW-PL-Endpoint-PSH-VNET'
     ResourceGroupName = 'AppGW-PL-Endpoint-PSH-RG'
@@ -130,12 +130,12 @@ $privateEndpointConnection = New-AzPrivateLinkServiceConnection -Name "AppGW-PL-
 New-AzPrivateEndpoint -Name "AppGWPrivateEndpoint" -ResourceGroupName $vnet_plendpoint.ResourceGroupName -Location $vnet_plendpoint.Location -Subnet ($vnet_plendpoint | Select -ExpandProperty subnets | Where-Object {$_.Name -eq 'MySubnet'}) -PrivateLinkServiceConnection $privateEndpointConnection
 ```
 A list of all Azure PowerShell references for Private Link Configuration on Application Gateway can be found here:
-- [Get-AzApplicationGatewayPrivateLinkConfiguration](https://docs.microsoft.com//powershell/module/az.network/get-azapplicationgatewayprivatelinkconfiguration)
-- [New-AzApplicationGatewayPrivateLinkConfiguration](https://docs.microsoft.com/powershell/module/az.network/new-azapplicationgatewayprivatelinkconfiguration)
-- [New-AzApplicationGatewayPrivateLinkIpConfiguration](https://docs.microsoft.com/powershell/module/az.network/new-azapplicationgatewayprivatelinkipconfiguration)
-- [Add-AzApplicationGatewayPrivateLinkConfiguration](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewayprivatelinkconfiguration)
-- [Remove-AzApplicationGatewayPrivateLinkConfiguration](https://docs.microsoft.com/powershell/module/az.network/remove-azapplicationgatewayprivatelinkconfiguration)
-- [Set-AzApplicationGatewayPrivateLinkConfiguration](https://docs.microsoft.com/powershell/module/az.network/set-azapplicationgatewayprivatelinkconfiguration)
+- [Get-AzApplicationGatewayPrivateLinkConfiguration](/powershell/module/az.network/get-azapplicationgatewayprivatelinkconfiguration)
+- [New-AzApplicationGatewayPrivateLinkConfiguration](/powershell/module/az.network/new-azapplicationgatewayprivatelinkconfiguration)
+- [New-AzApplicationGatewayPrivateLinkIpConfiguration](/powershell/module/az.network/new-azapplicationgatewayprivatelinkipconfiguration)
+- [Add-AzApplicationGatewayPrivateLinkConfiguration](/powershell/module/az.network/add-azapplicationgatewayprivatelinkconfiguration)
+- [Remove-AzApplicationGatewayPrivateLinkConfiguration](/powershell/module/az.network/remove-azapplicationgatewayprivatelinkconfiguration)
+- [Set-AzApplicationGatewayPrivateLinkConfiguration](/powershell/module/az.network/set-azapplicationgatewayprivatelinkconfiguration)
 
 # [Azure CLI](#tab/cli)
 
@@ -189,7 +189,7 @@ az network private-endpoint create \
 	--connection-name AppGW-PL-Connection
 ```
 
-A list of all Azure CLI references for Private Link Configuration on Application Gateway can be found here: [Azure CLI CLI - Private Link](https://docs.microsoft.com/cli/azure/network/application-gateway/private-link)
+A list of all Azure CLI references for Private Link Configuration on Application Gateway can be found here: [Azure CLI CLI - Private Link](/cli/azure/network/application-gateway/private-link)
 
 ---
 
