@@ -189,6 +189,8 @@
     items:
     - name: Azure PowerShell
       href: /powershell/module/az.dnsresolver
+    - name: Java
+      href: /java/api/com.azure.resourcemanager.dnsresolver
 - name: Resources
   items:
   - name: Azure Roadmap
