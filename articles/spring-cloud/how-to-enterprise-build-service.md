@@ -138,9 +138,9 @@ Currently, buildpack binding only supports binding the buildpacks listed below. 
 
 You can manage buildpack bindings with the Azure portal or the Azure CLI.
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
-## View buildpack bindings using the Azure portal
+### View buildpack bindings using the Azure portal
 
 Follow these steps to view the current buildpack bindings:
 
@@ -148,15 +148,15 @@ Follow these steps to view the current buildpack bindings:
 1. Select **Build Service**.
 1. Select **Edit** under the **Bindings** column to view the bindings configured under a builder.
 
-## Unbind a buildpack binding
+### Unbind a buildpack binding
 
 There are two ways to unbind a buildpack binding. You can either select the **Bound** hyperlink and then select **Unbind binding**, or select **Edit Binding** and then select **Unbind**.
 
 If you unbind a binding, the bind status will change from **Bound** to **Unbound**.
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
-## View buildpack bindings using the Azure CLI
+### View buildpack bindings using the Azure CLI
 
 View the current buildpack bindings using the following command:
 
@@ -167,7 +167,7 @@ az spring build-service builder buildpack-binding list \
     --builder-name <your-builder-name>
 ```
 
-## Create a binding
+### Create a binding
 
 Use this command to change the binding from **Unbound** to **Bound** status:
 
@@ -184,7 +184,7 @@ az spring build-service builder buildpack-binding create \
 
 For information on the `properties` and `secrets` parameters for your buildpack, see the [Buildpack bindings](#buildpack-bindings) section.
 
-## Show the details for a specific binding
+### Show the details for a specific binding
 
 You can view the details of a specific binding using the following command:
 
@@ -196,7 +196,7 @@ az spring build-service builder buildpack-binding show \
     --builder-name <your-builder-name>
 ```
 
-## Edit the properties of a binding
+### Edit the properties of a binding
 
 You can change a binding's properties using the following command:
 
@@ -213,7 +213,7 @@ az spring build-service builder buildpack-binding set \
 
 For more information on the `properties` and `secrets` parameters for your buildpack, see the [Buildpack bindings](#buildpack-bindings) section.
 
-#### Delete a binding
+### Delete a binding
 
 Use the following command to change the binding status from **Bound** to **Unbound**.
 

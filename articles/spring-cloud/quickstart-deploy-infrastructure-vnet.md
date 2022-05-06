@@ -81,7 +81,7 @@ You can either use the Azure portal to check the deployed resources, or use Azur
 
 If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI or Azure PowerShell, use the following commands:
 
-# [CLI](#tab/azure-cli)
+### [CLI](#tab/azure-cli)
 
 ```azurecli
 echo "Enter the Resource Group name:" &&
@@ -90,7 +90,7 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-# [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
