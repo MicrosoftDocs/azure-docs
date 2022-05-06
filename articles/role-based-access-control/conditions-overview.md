@@ -60,10 +60,10 @@ Currently, conditions can be added to built-in or custom role assignments that h
 - [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor)
 - [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner)
 - [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader)
-- [Storage Queue Data Contributor](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor)
-- [Storage Queue Data Message Processor](../../role-based-access-control/built-in-roles.md#storage-queue-data-message-processor)
-- [Storage Queue Data Message Sender](../../role-based-access-control/built-in-roles.md#storage-queue-data-message-sender)
-- [Storage Queue Data Reader](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader)
+- [Storage Queue Data Contributor](built-in-roles.md#storage-queue-data-contributor)
+- [Storage Queue Data Message Processor](built-in-roles.md#storage-queue-data-message-processor)
+- [Storage Queue Data Message Sender](built-in-roles.md#storage-queue-data-message-sender)
+- [Storage Queue Data Reader](built-in-roles.md#storage-queue-data-reader)
 
 Conditions are added at the same scope as the role assignment. Just like role assignments, you must have `Microsoft.Authorization/roleAssignments/write` permissions to add a condition.
 
