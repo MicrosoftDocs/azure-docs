@@ -45,14 +45,18 @@
     - name: Azure Kubernetes Service
       displayName: AKS, inference
       href: ../how-to-create-attach-kubernetes.md
-  - name: Network security
+  - name: Security
     items:
-    - name: Secure inferencing environment (v1)
-      displayName: vnet
-      href: ../how-to-secure-inferencing-vnet.md
-    - name: Configure secure web services (v1)
-      displayName: ssl, tls
-      href: ../how-to-secure-web-service.md
+    - name: Use managed identities for access control
+      href: how-to-use-managed-identities.md
+    - name: Network security
+      items:
+      - name: Secure inferencing environment (v1)
+        displayName: vnet
+        href: ../how-to-secure-inferencing-vnet.md
+      - name: Configure secure web services (v1)
+        displayName: ssl, tls
+        href: ../how-to-secure-web-service.md
   - name: Train models
     items: 
     - name: Train with SDK v1
