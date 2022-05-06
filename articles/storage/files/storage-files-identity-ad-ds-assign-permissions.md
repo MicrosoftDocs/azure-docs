@@ -5,7 +5,7 @@ author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 03/16/2022
+ms.date: 05/04/2022
 ms.author: kendownie 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps, devx-track-azurecli 
 ms.devlang: azurecli
@@ -52,6 +52,9 @@ The following table lists the share-level permissions and how they align with th
 ## Share-level permissions for specific Azure AD users or groups
 
 If you intend to use a specific Azure AD user or group to access Azure file share resources, that identity must be a **hybrid identity that exists in both on-premises AD DS and Azure AD**. For example, say you have a user in your AD that is user1@onprem.contoso.com and you have synced to Azure AD as user1@contoso.com using Azure AD Connect sync. For this user to access Azure Files, you must assign the share-level permissions to user1@contoso.com. The same concept applies to groups or service principals.
+
+> [!IMPORTANT]
+> **Assign permissions by explicitly declaring actions and data actions as opposed to using a wildcard (\*) character.** If a custom role definition for a data action contains a wildcard character, all identities assigned to that role are granted access for all possible data actions. This means that all such identities will also be granted any new data action added to the platform. The additional access and permissions granted through new actions or data actions may be unwanted behavior for customers using wildcard. To mitigate any unintended future impact, we highly recommend declaring actions and data actions explicitly as opposed to using the wildcard.
 
 In order for share-level permissions to work, you must:
 
