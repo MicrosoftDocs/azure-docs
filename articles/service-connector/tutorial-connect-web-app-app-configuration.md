@@ -69,7 +69,11 @@ Start by creating your Azure resources.
 
     * *location* &rarr; A location near you, for example `eastus`. Use `az account list-locations --output table` to list locations.
     * *resource-group* &rarr; You will use this resource group to organize all the Azure resources needed to complete this tutorial. (for example, `service-connector-tutorial-rg`)
-    * *name* &rarr; The app service name is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be **unique across all Azure** and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example, use `webapp-appconfig-smi-\<unique-id>` where `\<unique-id>` is any three characters.
+| Parameter    | Description                                                                             | Example |
+|--------------|-----------------------------------------------------------------------------------------|----------|
+| Location | Choose a location near you. Use `az account list-locations --output table` to list locations. | *eastus*     |
+| Resource group name    | You will use this resource group to organize all the Azure resources needed to complete this tutorial.              | *service-connector-tutorial-rg*     |
+| App service name   | The app service name is used as the name of the resource in Azure and to form the fully qualified domain name for your app, in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be unique across all Azure and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`.      | *webapp-appconfig-smi*   |
 
     ### [UMI](#tab/umi)
 
@@ -90,7 +94,11 @@ Start by creating your Azure resources.
 
     * *location* &rarr; A location near you, for example `eastus`. Use `az account list-locations --output table` to list locations.
     * *resource-group* &rarr; You will use this resource group to organize all the Azure resources needed to complete this tutorial. (for example, `service-connector-tutorial-rg`)
-    * *name* &rarr; The app service name is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be **unique across all Azure** and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example, use `webapp-appconfig-umi-\<unique-id>` where `\<unique-id>` is any three characters.
+| Parameter    | Description                                                                             | Example |
+|--------------|-----------------------------------------------------------------------------------------|----------|
+| Location | Choose a location near you. Use `az account list-locations --output table` to list locations. | *eastus*     |
+| Resource group name    | You will use this resource group to organize all the Azure resources needed to complete this tutorial.              | *service-connector-tutorial-rg*     |
+| App service name   | The app service name is used as the name of the resource in Azure and to form the fully qualified domain name for your app, in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be unique across all Azure and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`.      | *webapp-appconfig-umi*   |
 
     Create a user-assigned managed idendity. Save the output into a temporary notepad.
     ```azurecli
@@ -116,7 +124,11 @@ Start by creating your Azure resources.
 
     * *location* &rarr; A location near you, for example `eastus`. Use `az account list-locations --output table` to list locations.
     * *resource-group* &rarr; You will use this resource group to organize all the Azure resources needed to complete this tutorial. (for example, `service-connector-tutorial-rg`)
-    * *name* &rarr; The app service name is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be **unique across all Azure** and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example, use `webapp-appconfig-sp-\<unique-id>` where `\<unique-id>` is any three characters.
+| Parameter    | Description                                                                             | Example |
+|--------------|-----------------------------------------------------------------------------------------|----------|
+| Location | Choose a location near you. Use `az account list-locations --output table` to list locations. | *eastus*     |
+| Resource group name    | You will use this resource group to organize all the Azure resources needed to complete this tutorial.              | *service-connector-tutorial-rg*     |
+| App service name   | The app service name is used as the name of the resource in Azure and to form the fully qualified domain name for your app, in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be unique across all Azure and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`.      | *webapp-appconfig-sp*   |
 
     Create a service pricipal, make sure replace the `yourSubscriptionID` with your actual subscription ID. Save the output into a temporary notepad.
     
@@ -143,7 +155,11 @@ Start by creating your Azure resources.
 
     * *location* &rarr; A location near you, for example `eastus`. Use `az account list-locations --output table` to list locations.
     * *resource-group* &rarr; You will use this resource group to organize all the Azure resources needed to complete this tutorial. (for example, `service-connector-tutorial-rg`)
-    * *name* &rarr; The app service name is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be **unique across all Azure** and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example, use `webapp-appconfig-cs-\<unique-id>` where `\<unique-id>` is any three characters.
+| Parameter    | Description                                                                             | Example |
+|--------------|-----------------------------------------------------------------------------------------|----------|
+| Location | Choose a location near you. Use `az account list-locations --output table` to list locations. | *eastus*     |
+| Resource group name    | You will use this resource group to organize all the Azure resources needed to complete this tutorial.              | *service-connector-tutorial-rg*     |
+| App service name   | The app service name is used as the name of the resource in Azure and to form the fully qualified domain name for your app, in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be unique across all Azure and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`.      | *webapp-appconfig-cs*   |
 
     ---
 
@@ -161,8 +177,8 @@ Start by creating your Azure resources.
 
     Import the test configuration file to Azure App Configuration using a system-assigned managed identity.
 
-    1. Cd into the folder `serviceconnector-webapp-appconfig-dotnet\system-managed-identity\Microsoft.Azure.ServiceConnector.Sample`
-    1. Import the [./sampleconfigs.json](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/system-managed-identity/Microsoft.Azure.ServiceConnector.Sample/sampleconfigs.json) test configuration file into the App Configuration store. If you're using Cloud Shell, upload [sampleconfigs.json](../cloud-shell/persisting-shell-storage.md) before running the command.
+    1. Cd into the folder `serviceconnector-webapp-appconfig-dotnet\system-managed-identity\ServiceConnectorSample`
+    1. Import the [./sampleconfigs.json](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/system-managed-identity/ServiceConnectorSample/sampleconfigs.json) test configuration file into the App Configuration store. If you're using Cloud Shell, upload [sampleconfigs.json](../cloud-shell/persisting-shell-storage.md) before running the command.
 
         ```azurecli
         az appconfig kv import -n $APP_CONFIG_NAME --source file --format json --path ./sampleconfigs.json --separator : --yes
@@ -172,8 +188,8 @@ Start by creating your Azure resources.
 
     Import the test configuration file to Azure App Configuration using a user-assigned managed identity.
 
-    1. Cd into the folder `serviceconnector-webapp-appconfig-dotnet\user-assigned-managed-identity\Microsoft.Azure.ServiceConnector.Sample`
-    1. Import the [./sampleconfigs.json](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/user-assigned-managed-identity/Microsoft.Azure.ServiceConnector.Sample/sampleconfigs.json) test configuration file into the App Configuration store. If you're using Cloud Shell, upload [sampleconfigs.json](../cloud-shell/persisting-shell-storage.md) before running the command.
+    1. Cd into the folder `serviceconnector-webapp-appconfig-dotnet\user-assigned-managed-identity\ServiceConnectorSample`
+    1. Import the [./sampleconfigs.json](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/user-assigned-managed-identity/ServiceConnectorSample/sampleconfigs.json) test configuration file into the App Configuration store. If you're using Cloud Shell, upload [sampleconfigs.json](../cloud-shell/persisting-shell-storage.md) before running the command.
 
         ```azurecli
         az appconfig kv import -n $APP_CONFIG_NAME --source file --format json --path ./sampleconfigs.json --separator : --yes
@@ -183,8 +199,8 @@ Start by creating your Azure resources.
 
     Import the test configuration file to Azure App Configuration using service principal.
 
-    1. Cd into the folder `serviceconnector-webapp-appconfig-dotnet\service-principal\Microsoft.Azure.ServiceConnector.Sample`
-    1. Import the [./sampleconfigs.json](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/service-principal/Microsoft.Azure.ServiceConnector.Sample/sampleconfigs.json) test configuration file into the App Configuration store. If you're using Cloud Shell, upload [sampleconfigs.json](../cloud-shell/persisting-shell-storage.md) before running the command.
+    1. Cd into the folder `serviceconnector-webapp-appconfig-dotnet\service-principal\ServiceConnectorSample`
+    1. Import the [./sampleconfigs.json](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/service-principal/ServiceConnectorSample/sampleconfigs.json) test configuration file into the App Configuration store. If you're using Cloud Shell, upload [sampleconfigs.json](../cloud-shell/persisting-shell-storage.md) before running the command.
 
         ```azurecli
         az appconfig kv import -n $APP_CONFIG_NAME --source file --format json --path ./sampleconfigs.json --separator : --yes
@@ -194,8 +210,8 @@ Start by creating your Azure resources.
 
     Import the test configuration file to Azure App Configuration using a connection string.
 
-    1. Cd into the folder `serviceconnector-webapp-appconfig-dotnet\connection-string\Microsoft.Azure.ServiceConnector.Sample`
-    1. Import the [./sampleconfigs.json](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/connection-string/Microsoft.Azure.ServiceConnector.Sample/sampleconfigs.json) test configuration file into the App Configuration store. If you're using Cloud Shell, upload [sampleconfigs.json](../cloud-shell/persisting-shell-storage.md) before running the command.
+    1. Cd into the folder `serviceconnector-webapp-appconfig-dotnet\connection-string\ServiceConnectorSample`
+    1. Import the [./sampleconfigs.json](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/connection-string/ServiceConnectorSample/sampleconfigs.json) test configuration file into the App Configuration store. If you're using Cloud Shell, upload [sampleconfigs.json](../cloud-shell/persisting-shell-storage.md) before running the command.
 
         ```azurecli
         az appconfig kv import -n $APP_CONFIG_NAME --source file --format json --path ./sampleconfigs.json --separator : --yes
@@ -266,14 +282,15 @@ Find below what Service Connector manages behind the scenes for each authenticat
 
 Service Connector manages the connection configuration for you:
 
-- Set up the web app's `AZURE_APPCONFIGURATION_ENDPOINT` to let the application access it and get the App Configuration endpoint. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/system-managed-identity/Microsoft.Azure.ServiceConnector.Sample/Program.cs#L37).
-- Activate the web app's system-assigned managed authentication and grant App Configuration a Data Reader role to let the application authenticate to the App Configuration using DefaultAzureCredential from Azure.Identity. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/system-managed-identity/Microsoft.Azure.ServiceConnector.Sample/Program.cs#L43).
+- Set up the web app's `AZURE_APPCONFIGURATION_ENDPOINT` to let the application access it and get the App Configuration endpoint. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/system-managed-identity/ServiceConnectorSample/Program.cs#L10).
+- Activate the web app's system-assigned managed authentication and grant App Configuration a Data Reader role to let the application authenticate to the App Configuration using DefaultAzureCredential from Azure.Identity. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/system-managed-identity/ServiceConnectorSample/Program.cs#L13).
 
 ### [UMI](#tab/umi)
 
 Service Connector manages the connection configuration for you:
 
-- Set up the web app's `AZURE_APPCONFIGURATION_ENDPOINT` to let the application access it and get the App Configuration endpoint. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/user-assigned-managed-identity/Microsoft.Azure.ServiceConnector.Sample/Program.cs#L37).
+- Setup the web app's  `AZURE_APPCONFIGURATION_ENDPOINT`, `AZURE_APPCONFIGURATION_CLIENTID`
+to let the application access it and get app configuration endpoint in [code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/user-assigned-managed-identity/ServiceConnectorSample/Program.cs#L10-L12);
 - Activate the web app's user-assigned managed authentication and grant App Configuration a Data Reader role to let the application authenticate to the App Configuration using DefaultAzureCredential from Azure.Identity. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/user-assigned-managed-identity/ServiceConnectorSample/Program.cs#L16).
 
 ### [Service principal](#tab/serviceprincipal)
@@ -281,7 +298,7 @@ Service Connector manages the connection configuration for you:
 Service Connector manages the connection configuration for you:
 
 - Set up the web app's `AZURE_APPCONFIGURATION_ENDPOINT` to let the application access it and get the App Configuration endpoint. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/service-principal/ServiceConnectorSample/Program.cs#L10).
-- Activate the web app's system-assigned managed authentication and grant App Configuration a Data Reader role to let the application authenticate to the App Configuration using DefaultAzureCredential from Azure.Identity. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/service-principal/Microsoft.Azure.ServiceConnector.Sample/Program.cs#L43).
+- save service principal credential to WebApp AppSettings `AZURE_APPCONFIGURATION_CLIENTID`. `AZURE_APPCONFIGURATION_TENANTID`, `AZURE_APPCONFIGURATION_CLIENTSECRET` and grant App Configuration Data Reader role to the service principal, so the application could be authenticated to the App Configuration in [code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/service-principal/ServiceConnectorSample/Program.cs#L11-L18), by using `ClientSecretCredential` from [Azure.Identity](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.Identity/1.0.0/api/index.html).
 
 ### [Connection string](#tab/connectionstring)
 
