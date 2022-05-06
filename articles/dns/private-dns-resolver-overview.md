@@ -29,7 +29,7 @@ The DNS query process when using an Azure DNS Private Resolver is summarized bel
 4. If the query doesn't match a Private DNS zone linked to the virtual network, then [Virtual Network Links](#virtual-network-links) for [DNS Forwarding Rulesets](#dns-forwarding-rulesets) are consulted.
 5. If no ruleset links are present, then Azure DNS is used to resolve the query.
 6. If ruleset links are present, the [DNS Forwarding Rules](#dns-forwarding-rules) are evaluated.
-7. If a suffix match is found, query is forwarded to the specified address.
+7. If a suffix match is found, the query is forwarded to the specified address.
 8. If multiple matches are present, the longest suffix is used.
 9. If no match is found, no DNS forwarding occurs and Azure DNS is used to resolve the query.
 
