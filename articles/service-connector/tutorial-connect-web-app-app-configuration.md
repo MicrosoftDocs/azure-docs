@@ -69,11 +69,12 @@ Start by creating your Azure resources.
 
     * *location* &rarr; A location near you, for example `eastus`. Use `az account list-locations --output table` to list locations.
     * *resource-group* &rarr; You will use this resource group to organize all the Azure resources needed to complete this tutorial. (for example, `service-connector-tutorial-rg`)
-| Parameter    | Description                                                                             | Example |
-|--------------|-----------------------------------------------------------------------------------------|----------|
-| Location | Choose a location near you. Use `az account list-locations --output table` to list locations. | *eastus*     |
-| Resource group name    | You will use this resource group to organize all the Azure resources needed to complete this tutorial.              | *service-connector-tutorial-rg*     |
-| App service name   | The app service name is used as the name of the resource in Azure and to form the fully qualified domain name for your app, in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be unique across all Azure and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`.      | *webapp-appconfig-smi*   |
+
+    | Parameter    | Description                                                                             | Example |
+    |--------------|-----------------------------------------------------------------------------------------|----------|
+    | Location | Choose a location near you. Use `az account list-locations --output table` to list locations. | *eastus*     |
+    | Resource group name    | You will use this resource group to organize all the Azure resources needed to complete this tutorial.              | *service-connector-tutorial-rg*     |
+    | App service name   | The app service name is used as the name of the resource in Azure and to form the fully qualified domain name for your app, in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be unique across all Azure and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`.      | *webapp-appconfig-smi*   |
 
     ### [UMI](#tab/umi)
 
@@ -94,11 +95,12 @@ Start by creating your Azure resources.
 
     * *location* &rarr; A location near you, for example `eastus`. Use `az account list-locations --output table` to list locations.
     * *resource-group* &rarr; You will use this resource group to organize all the Azure resources needed to complete this tutorial. (for example, `service-connector-tutorial-rg`)
-| Parameter    | Description                                                                             | Example |
-|--------------|-----------------------------------------------------------------------------------------|----------|
-| Location | Choose a location near you. Use `az account list-locations --output table` to list locations. | *eastus*     |
-| Resource group name    | You will use this resource group to organize all the Azure resources needed to complete this tutorial.              | *service-connector-tutorial-rg*     |
-| App service name   | The app service name is used as the name of the resource in Azure and to form the fully qualified domain name for your app, in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be unique across all Azure and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`.      | *webapp-appconfig-umi*   |
+
+    | Parameter    | Description                                                                             | Example |
+    |--------------|-----------------------------------------------------------------------------------------|----------|
+    | Location | Choose a location near you. Use `az account list-locations --output table` to list locations. | *eastus*     |
+    | Resource group name    | You will use this resource group to organize all the Azure resources needed to complete this tutorial.              | *service-connector-tutorial-rg*     |
+    | App service name   | The app service name is used as the name of the resource in Azure and to form the fully qualified domain name for your app, in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be unique across all Azure and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`.      | *webapp-appconfig-umi*   |
 
     Create a user-assigned managed idendity. Save the output into a temporary notepad.
     ```azurecli
@@ -124,14 +126,15 @@ Start by creating your Azure resources.
 
     * *location* &rarr; A location near you, for example `eastus`. Use `az account list-locations --output table` to list locations.
     * *resource-group* &rarr; You will use this resource group to organize all the Azure resources needed to complete this tutorial. (for example, `service-connector-tutorial-rg`)
-| Parameter    | Description                                                                             | Example |
-|--------------|-----------------------------------------------------------------------------------------|----------|
-| Location | Choose a location near you. Use `az account list-locations --output table` to list locations. | *eastus*     |
-| Resource group name    | You will use this resource group to organize all the Azure resources needed to complete this tutorial.              | *service-connector-tutorial-rg*     |
-| App service name   | The app service name is used as the name of the resource in Azure and to form the fully qualified domain name for your app, in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be unique across all Azure and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`.      | *webapp-appconfig-sp*   |
+    
+    | Parameter    | Description                                                                             | Example |
+    |--------------|-----------------------------------------------------------------------------------------|----------|
+    | Location | Choose a location near you. Use `az account list-locations --output table` to list locations. | *eastus*     |
+    | Resource group name    | You will use this resource group to organize all the Azure resources needed to complete this tutorial.              | *service-connector-tutorial-rg*     |
+    | App service name   | The app service name is used as the name of the resource in Azure and to form the fully qualified domain name for your app, in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be unique across all Azure and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`.      | *webapp-appconfig-sp*   |
 
     Create a service pricipal, make sure replace the `yourSubscriptionID` with your actual subscription ID. Save the output into a temporary notepad.
-    
+
     ```azurecli
     az ad sp create-for-rbac --name myServicePrincipal --role Contributor --scopes /subscriptions/{yourSubscriptionID}/resourceGroups/$RESOURCE_GROUP_NAME
     ```
@@ -155,13 +158,14 @@ Start by creating your Azure resources.
 
     * *location* &rarr; A location near you, for example `eastus`. Use `az account list-locations --output table` to list locations.
     * *resource-group* &rarr; You will use this resource group to organize all the Azure resources needed to complete this tutorial. (for example, `service-connector-tutorial-rg`)
-| Parameter    | Description                                                                             | Example |
-|--------------|-----------------------------------------------------------------------------------------|----------|
-| Location | Choose a location near you. Use `az account list-locations --output table` to list locations. | *eastus*     |
-| Resource group name    | You will use this resource group to organize all the Azure resources needed to complete this tutorial.              | *service-connector-tutorial-rg*     |
-| App service name   | The app service name is used as the name of the resource in Azure and to form the fully qualified domain name for your app, in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be unique across all Azure and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`.      | *webapp-appconfig-cs*   |
 
-    ---
+    | Parameter    | Description                                                                             | Example |
+    |--------------|-----------------------------------------------------------------------------------------|----------|
+    | Location | Choose a location near you. Use `az account list-locations --output table` to list locations. | *eastus*     |
+    | Resource group name    | You will use this resource group to organize all the Azure resources needed to complete this tutorial.              | *service-connector-tutorial-rg*     |
+    | App service name   | The app service name is used as the name of the resource in Azure and to form the fully qualified domain name for your app, in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be unique across all Azure and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`.      | *webapp-appconfig-cs*   |
+
+---
 
 1. Create an Azure App Configuration store
 
@@ -217,7 +221,7 @@ Start by creating your Azure resources.
         az appconfig kv import -n $APP_CONFIG_NAME --source file --format json --path ./sampleconfigs.json --separator : --yes
         ```
 
-    ---
+---
 
 ## Connect the web app to App Configuration
 
