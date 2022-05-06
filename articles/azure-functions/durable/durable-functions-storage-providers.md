@@ -37,7 +37,7 @@ The source code for the DTFx components of the Azure Storage storage provider ca
 > [!NOTE]
 > Standard general purpose Azure Storage accounts are required when using the Azure Storage provider. All other storage account types are not supported. We highly recommend using legacy v1 general purpose storage accounts because the newer v2 storage accounts can be significantly more expensive for Durable Functions workloads. For more information on Azure Storage account types, see the [Storage account overview](../../storage/common/storage-account-overview.md) documentation.
 
-## <a name="netherite"></a>Netherite (preview)
+## <a name="netherite"></a>Netherite
 
 The Netherite storage backend was designed and developed by [Microsoft Research](https://www.microsoft.com/research). It uses [Azure Event Hubs](../../event-hubs/event-hubs-about.md) and the [FASTER](https://www.microsoft.com/research/project/faster/) database technology on top of [Azure Page Blobs](../../storage/blobs/storage-blob-pageblob-overview.md). The design of Netherite enables significantly higher-throughput processing of orchestrations and entities compared to other providers. In some benchmark scenarios, throughput was shown to increase by more than an order of magnitude when compared to the default Azure Storage provider.
 
@@ -83,9 +83,6 @@ The Azure Storage provider is the default storage provider and doesn't require a
 ### Configuring the Netherite storage provider
 
 To use the Netherite storage provider, you must first add a reference to the [Microsoft.Azure.DurableTask.Netherite.AzureFunctions](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions) NuGet package in your **csproj** file (.NET apps) or your **extensions.proj** file (JavaScript, Python, and PowerShell apps).
-
-> [!NOTE]
-> The Netherite storage provider is not yet supported in apps that use [extension bundles](../functions-bindings-register.md#extension-bundles).
 
 The following host.json example shows the minimum configuration required to enable the Netherite storage provider.
 
@@ -137,18 +134,19 @@ There are many significant tradeoffs between the various supported storage provi
 
 | Storage provider | Azure Storage | Netherite | MSSQL |
 |- |-              |-          |-      |
-| Official support status | ✅ Generally available (GA) | ⚠ Public preview | ⚠ Public preview |
+| Official support status | ✅ Generally available (GA) | ✅ Generally available (GA) | ⚠ Public preview |
 | External dependencies | Azure Storage account (general purpose v1) | Azure Event Hubs<br/>Azure Storage account (general purpose) | [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) or Azure SQL Database |
-| Local development and emulation options | [Azurite v3.12+](../../storage/common/storage-use-azurite.md) (cross platform)<br/>[Azure Storage Emulator](../../storage/common/storage-use-emulator.md) (Windows only) | In-memory emulation ([more information](https://microsoft.github.io/durabletask-netherite/#/emulation)) | SQL Server Developer Edition (supports [Windows](/sql/database-engine/install-windows/install-sql-server), [Linux](/sql/linux/sql-server-linux-setup), and [Docker containers](/sql/linux/sql-server-linux-docker-container-deployment)) |
+| Local development and emulation options | [Azurite v3.12+](../../storage/common/storage-use-azurite.md) (cross platform)<br/>[Azure Storage Emulator](../../storage/common/storage-use-emulator.md) (Windows only) | Supports in-memory emulation of task hubs ([more information](https://microsoft.github.io/durabletask-netherite/#/emulation)) | SQL Server Developer Edition (supports [Windows](/sql/database-engine/install-windows/install-sql-server), [Linux](/sql/linux/sql-server-linux-setup), and [Docker containers](/sql/linux/sql-server-linux-docker-container-deployment)) |
 | Task hub configuration | Explicit | Explicit | Implicit by default ([more information](https://microsoft.github.io/durabletask-mssql/#/taskhubs)) |
 | Maximum throughput | Moderate | Very high | Moderate |
 | Maximum orchestration/entity scale-out (nodes) | 16 | 32 | N/A |
 | Maximum activity scale-out (nodes) | N/A | 32 | N/A |
-| Consumption plan support | ✅ Fully supported | ❌ Not supported | ❌ Not supported |
-| Elastic Premium plan support | ✅ Fully supported | ⚠ Requires [runtime scale monitoring](../functions-networking-options.md#premium-plan-with-virtual-network-triggers) | ⚠ Requires [runtime scale monitoring](../functions-networking-options.md#premium-plan-with-virtual-network-triggers) |
+| Consumption plan support | ✅ Fully supported | ✅ Fully supported | ✅ Fully supported |
+| Elastic Premium plan support | ✅ Fully supported | ✅ Fully supported | ✅ Fully supported |
 | [KEDA 2.0](https://keda.sh/) scaling support<br/>([more information](../functions-kubernetes-keda.md)) | ❌ Not supported | ❌ Not supported | ✅ Supported using the [MSSQL scaler](https://keda.sh/docs/scalers/mssql/) ([more information](https://microsoft.github.io/durabletask-mssql/#/scaling)) |
-| Support for [extension bundles](../functions-bindings-register.md#extension-bundles) (recommended for non-.NET apps) | ✅ Fully supported | ❌ Not supported | ❌ Not supported |
+| Support for [extension bundles](../functions-bindings-register.md#extension-bundles) (recommended for non-.NET apps) | ✅ Fully supported | ✅ Fully supported | ❌ Not supported |
 | Price-performance configurable? | ❌ No | ✅ Yes (Event Hubs TUs and CUs) | ✅ Yes (SQL vCPUs) |
+| Managed Identity Support | ✅ Fully supported | ❌ Not supported | ✅ Fully supported |
 | Disconnected environment support | ❌ Azure connectivity required | ❌ Azure connectivity required | ✅ Fully supported |
 
 ## Next steps
