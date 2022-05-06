@@ -43,6 +43,8 @@ For the Stream Analytics job to access your Service Bus using managed identity, 
 - [Azure Service Bus Data Sender](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender): Use this role to give send access to Service Bus namespace and its entities.
 - [Azure Service Bus Data Receiver](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver): Use this role to give receiving access to Service Bus namespace and its entities. 
 
+Please note that Stream Analytics Jobs do not need nor do they use [Azure Service Bus Data Receiver](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver). 
+
 > [!TIP] 
 > When you assign roles, assign only the needed access. For more information about the importance of least privilege access, see the [Lower exposure of privileged accounts](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts) article.
 
@@ -54,7 +56,7 @@ For the Stream Analytics job to access your Service Bus using managed identity, 
 
     | Setting | Value |
     | --- | --- |
-    | Role | Azure Service Bus Data Owner |
+    | Role | Azure Service Bus Data Owner or Azure Service Bus Data Sender |
     | Assign access to | User, group, or service principal |
     | Members | \<Name of your Stream Analytics job> |
 
