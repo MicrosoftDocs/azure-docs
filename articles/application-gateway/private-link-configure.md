@@ -19,7 +19,7 @@ Application Gateway Private Link allows you to connect your workloads over a pri
 
 ## Configuration options
 
-Application Gateway Private Link can be configured via multiple options, such as, but not limited to, the Azure Portal, Azure PowerShell, and Azure CLI.
+Application Gateway Private Link can be configured via multiple options, such as, but not limited to, the Azure portal, Azure PowerShell, and Azure CLI.
 
 # [Azure portal](#tab/portal)
 
