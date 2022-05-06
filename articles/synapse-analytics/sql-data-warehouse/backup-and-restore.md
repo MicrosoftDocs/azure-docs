@@ -91,11 +91,11 @@ You can either keep the restored data warehouse and the current one, or delete o
 
 To restore a data warehouse, see [Restore a dedicated SQL pool](sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal).
 
-To restore a deleted data warehouse, see [Restore a deleted database](sql-data-warehouse-restore-deleted-dw), or if the entire server was deleted, see [Restore a data warehouse from a deleted server](sql-data-warehouse-restore-from-deleted-server).
+To restore a deleted data warehouse, see [Restore a deleted database](sql-data-warehouse-restore-deleted-dw.md), or if the entire server was deleted, see [Restore a data warehouse from a deleted server](sql-data-warehouse-restore-from-deleted-server.md).
 
 ## Cross subscription restore
 
-You can perform a cross-subscription restore by follow the guidance [here](sql-data-warehouse-restore-active-paused-dw.md#l#restore-an-existing-dedicated-sql-pool-to-a-different-subscription-through-powershell).
+You can perform a cross-subscription restore by follow the guidance [here](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-dedicated-sql-pool-to-a-different-subscription-through-powershell).
 
 ## Geo-redundant restore
 
