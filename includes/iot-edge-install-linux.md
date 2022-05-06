@@ -51,20 +51,15 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
 
 > [!IMPORTANT]
 > By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye.
->
-> To install IoT Edge on Bullseye refer to the steps for Debian.
 
 Installing can be done with a few commands.  Open a terminal and run the following commands:
 
-* **Stretch**:
+* **Latest**:
 
-   ```bash
-   curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
-   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-
-   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-   ```
+    ```bash
+    curl https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb > ./packages-microsoft-prod.deb
+    sudo apt install ./packages-microsoft-prod.deb
+    ```
 
 ---
 
@@ -97,8 +92,6 @@ Install the Moby engine.
 
 > [!IMPORTANT]
 > By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye.
->
-> To install IoT Edge on Bullseye refer to the steps for Debian.
 
 Install the Moby engine.
 
@@ -159,8 +152,6 @@ Install IoT Edge version 1.1.* along with the **libiothsm-std** package:
 
 > [!IMPORTANT]
 > By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye.
->
-> To install IoT Edge on Bullseye refer to the steps for Debian.
 
    ```bash
    sudo apt-get update; \
@@ -225,8 +216,6 @@ To list other versions of IoT Edge and the IoT identity service that are availab
 
 > [!IMPORTANT]
 > By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye.
->
-> To install IoT Edge on Bullseye refer to the steps for Debian.
 
 Install the latest version of IoT Edge and the IoT identity service package:
 
