@@ -1,5 +1,5 @@
 ---
-title: "Quickstart - Build and deploy apps to Azure Spring Cloud Enterprise tier"
+title: "Quickstart - Build and deploy apps to Azure Spring Cloud Enterprise Tier"
 description: Describes app deployment to Azure Spring Cloud Enterprise tier.
 author: maly7
 ms.author: 
@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 
 ms.custom: 
 ---
-# Quickstart: Build and deploy apps to Azure Spring Cloud using the Enterprise tier
+# Quickstart: Build and deploy apps to Azure Spring Cloud using the Enterprise Tier
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
@@ -19,29 +19,30 @@ This quickstart shows you how to build and deploy applications to Azure Spring C
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A license for Azure Spring Cloud Enterprise Tier. For more information, see [View Azure Spring Cloud Enterprise Tier Offer in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 - [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
+- [Git](https://git-scm.com/).
+- [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 
 ## Download the sample app
 
-Use alocal command prompt for the following steps.
+Use a local terminal for the following steps.
 
 1. Create a new folder and clone the sample app repository.
 
-   ```console
+   ```bash
    mkdir source-code
    ```
 
-   ```console
+   ```bash
    cd source-code
    ```
-
-   ```console
+   ```bash
    git clone https://github.com/Azure-Samples/acme-fitness-store
    ```
 
 1. Navigate into the repository directory.
 
-   ```console
+   ```bash
    cd acme-fitness-store
    ```
 
@@ -265,6 +266,9 @@ Use the following steps to deploy and build applications. For these steps make s
         --source-path apps/acme-shopping
     ```
 
+> [!TIP]
+> To troubleshot deployments, you can use the following command to get logs streaming in real time whenever the app is running `az spring-cloud app logs --name <app name> -f`.
+
 ## Effortlessly Route Requests to Apps with Spring Cloud Gateway
 
 Use the following steps to configure Spring Cloud Gateway and configure routes to applications.
@@ -277,7 +281,7 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
 
 1. Configure Spring Cloud Gateway API information using the following command:
 
-    ```bash
+    ```azurecli
     GATEWAY_URL=$(az spring-cloud gateway show | jq -r '.properties.url')
     
     az spring-cloud gateway update \
@@ -329,7 +333,7 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
     ```bash
     echo "https://${GATEWAY_URL}"
     ```
-    
+
     The above URL can be opened in a browser, use this to explore the deployed application.
 
 ## Browse and Try APIs with API Portal
@@ -344,12 +348,13 @@ Use the following steps to configure API Portal.
 
 1. Retrieve the URL for API Portal using the following commands:
 
-    ```bash
+    ```azurecli
     PORTAL_URL=$(az spring-cloud api-portal show | jq -r '.properties.url')
-    open "https://${PORTAL_URL}"
+    echo "https://${PORTAL_URL}"
     ```
 
      The above URL can be opened in a browser, use this to explore the application APIs.
+
 ---
 
 ## Clean up resources
@@ -366,4 +371,4 @@ echo "Press [ENTER] to continue ..."
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Configure Single Sign On](quickstart-configure-single-sign-on.md.md)
+> [Quickstart: Configure Single Sign On](quickstart-configure-single-sign-on-enterprise.md)
