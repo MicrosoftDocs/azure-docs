@@ -1,10 +1,10 @@
 items:
-- name: Translator Service Documentation
+- name: Azure Cognitive Services Translator Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is Translator?
+  - name: What is Translator Service?
     href: translator-overview.md
   - name: Language Support
     href: language-support.md
@@ -12,7 +12,7 @@ items:
     href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator
   - name: What's new?
     href: whats-new.md
-  - name: Translator FAQ
+  - name: FAQ
     href: translator-faq.md
 - name: Text Translation
   expanded: true
@@ -48,7 +48,7 @@ items:
   - name: How-to guides
     items:
     - name: Create a Translator resource
-      href: ./translator-how-to-signup.md
+      href: ./how-to-create-translator-resource.md
     - name: Migrate to V3 Text API
       href: migrate-to-v3.md
     - name: Add profanity filtering
@@ -80,7 +80,7 @@ items:
     - name: Translate text with Translator
       href: /learn/modules/translate-text-with-translator-service?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
     - name: Build a Translator app with Flask and Python
-      href: /learn/modules/python-flask-build-ai-web-app?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json 
+      href: /learn/modules/python-flask-build-ai-web-app?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
   - name: Reference
     items:
     - name: v3 Translator reference
@@ -113,7 +113,7 @@ items:
       href: document-translation/get-started-with-document-translation.md
     - name: How-to guides
       items:
-      - name: Generate SAS tokens for Document Translation
+      - name: Create SAS tokens for storage containers
         href: document-translation/create-sas-tokens.md
       - name: Create and use managed identities
         href: document-translation/managed-identity.md
@@ -145,6 +145,8 @@ items:
   items:
   - name: What is Custom Translator?
     href: custom-translator/overview.md
+  - name: Key terms
+    href: custom-translator/key-terms.md
   - name: Custom Translation | Preview
     items:
     - name: Custom Translator for beginners
@@ -193,8 +195,6 @@ items:
         href: custom-translator/unsupported-language-deployments.md
     - name: Concepts
       items:
-      - name: Key terms
-        href: custom-translator/terminology.md
       - name: Customize and improve text translation
         href: customization.md
       - name: Workspaces and projects
@@ -223,7 +223,7 @@ items:
     href: custom-translator/faq.md
 - name: Resources
   items:
-  - name: Sovereign Clouds
+  - name: Translator in sovereign clouds
     displayName: fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china
     href: sovereign-clouds.md
   - name: Compliance and certification

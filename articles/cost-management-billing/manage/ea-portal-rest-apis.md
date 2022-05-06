@@ -41,8 +41,8 @@ Role owners can perform the following steps in the Azure EA portal. Navigate to 
 ### Generate or retrieve the API Key
 
 1. Sign in as an enterprise administrator.
-2. Click **Reports** on the left navigation window and then click the **Download Usage** tab.
-3. Click **API Access Key**.
+2. Select **Reports** on the left navigation window and then select the **Download Usage** tab.
+3. Select **API Access Key**.
 4. Under **Enrollment Access Keys**, select the generate key symbol to generate either a primary or secondary key.
 5. Select **Expand Key** to view the entire generated API access key.
 6. Select **Copy** to get the API access key for immediate use.
@@ -51,11 +51,11 @@ Role owners can perform the following steps in the Azure EA portal. Navigate to 
 
 If you want to give the API access keys to people who aren't enterprise administrators in your enrollment, perform the following steps:
 
-1. In the left navigation window, click **Manage**.
-2. Click the pencil symbol next to **DA view charges** (Department Administrator view charges).
-3. Select **Enable** and then click **Save**.
-4. Click the pencil symbol next to **AO view charges** (Account Owner view charges).
-5. Select **Enable** and then click **Save**.
+1. In the left navigation window, select **Manage**.
+2. Select the pencil symbol next to **DA view charges** (Department Administrator view charges).
+3. Select **Enable** and then select **Save**.
+4. Select the pencil symbol next to **AO view charges** (Account Owner view charges).
+5. Select **Enable** and then select **Save**.
 
 ![Example showing DA and AO view charges enabled](./media/ea-portal-rest-apis/create-ea-generate-or-retrieve-api-key-enable-ao-do-view.png)
 The preceding steps give API access key holders with access to cost and pricing information in usage reports.

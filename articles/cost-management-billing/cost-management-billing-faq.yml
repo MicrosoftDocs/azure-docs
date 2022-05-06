@@ -195,7 +195,7 @@ sections:
           If you're sure that you've been set up as the EA administrator, you don't have to wait to receive the activation email to sign in to the Azure EA portal. Instead, you can go to https://ea.azure.com and sign in with your email address (work, school, or Microsoft account) and your password.
       - question: How do I add a new EA administrator to my enrollment?
         answer: |
-          A new enterprise admin can be added by existing enterprise admins. If you are the EA administrator, please sign in to the EA portal > Click **Manage** > Click **+ Add Administrator** in the top-right corner to add a new EA administrator. Please ensure you have their email address and a preferred sign-in method, such as via work/school authentication or Microsoft Live ID to have the users added.
+          A new enterprise admin can be added by existing enterprise admins. If you are the EA administrator, please sign in to the EA portal > Select **Manage** > Select **+ Add Administrator** in the top-right corner to add a new EA administrator. Please ensure you have their email address and a preferred sign-in method, such as via work/school authentication or Microsoft Live ID to have the users added.
           
           If you're the EA administrator of a direct enrollment, sign in to the Azure portal > select **Billing scope** > navigate to **Access control(IAM)** > select **+ Add** in the top-left corner to add a new EA administrator. Ensure that you have their email address and a preferred sign-in method, such as via work/school authentication or Microsoft Live ID, available.
           
@@ -226,7 +226,7 @@ sections:
           Please note that if there are other EA administrators on the enrollment, we will reach out to the EA administrators to request for approval on administrative changes on the enrollment.
       - question: My enrollment is showing in pending status. How do I activate my enrollment?
         answer: |
-          Enrollments will be in pending status if the initial EA administrator has not logged on to the enrollment before. If you are the EA administrator, please sign in to the Azure EA portal. On the landing page with all your enrollment numbers, you may not see your pending enrollment. Please uncheck the "active" box on the top-right corner of your EA portal, this action would display the pending enrollment. Please click on the enrollment to access the information and once you have reached the Manage page of the enrollment, the status will be updated from Pending to Active.
+          Enrollments will be in pending status if the initial EA administrator has not logged on to the enrollment before. If you are the EA administrator, please sign in to the Azure EA portal. On the landing page with all your enrollment numbers, you may not see your pending enrollment. Please uncheck the "active" box on the top-right corner of your EA portal, this action would display the pending enrollment. Please select the enrollment to access the information and once you have reached the Manage page of the enrollment, the status will be updated from Pending to Active.
           
           If you're a direct enterprise customer, sign in to Azure portal. On the billing scope page, select your billing account. When you're on the enrollment overview page, the status is updated from **Pending** to **Active**. Navigate to the **Properties** menu to view the update status.
       - question: Why is my account stuck in pending status?
@@ -257,9 +257,9 @@ sections:
           1. Open Internet Explorer.
           1. Press F12, which will open a box at the bottom of IE.
           1. Select the **Network** Tab.
-          1. Click on **Start Capturing**.
+          1. Select **Start Capturing**.
           1. Perform the action that is causing the error.
-          1. Once you get the error, click on **Stop Capturing**.
+          1. Once you get the error, select **Stop Capturing**.
           1. Save the file and include the information in the support request.
           1. Ensure that you provide your enrollment number and email address within the support request.
       - question: What is the difference between a work/school account and Microsoft account?

@@ -664,12 +664,20 @@
   - name: Troubleshoot migration errors
     href: single-server/how-to-troubleshoot-common-errors.md
     displayName: SUPER privilege, DBA role, Access is denied
-  - name: Profile query performance
-    href: single-server/how-to-troubleshoot-query-performance.md
-    displayName: debug, performance issues, query performance
-  - name: Tune performance using the sys_schema
-    href: single-server/how-to-troubleshoot-sys-schema.md
-    displayName: sys schema, views
+  - name: Query performance
+    items: 
+    - name: Troubleshoot query performance
+      href: single-server/how-to-troubleshoot-query-performance-new.md
+      displayName: debug, performance issues, query performance
+    - name: Profile query performance
+      href: single-server/how-to-troubleshoot-query-performance.md
+      displayName: debug, performance issues, query performance
+  - name: Troubleshoot low memory issues
+    href: single-server/how-to-troubleshoot-low-memory-issues.md
+    displayName: low memory, performance issues
+  - name: Troubleshoot high CPU utilization
+    href: single-server/how-to-troubleshoot-high-cpu-utilization.md
+    displayName: cpu utilization, performance issues
   - name: Troubleshoot data encryption
     href: single-server/how-to-data-encryption-troubleshoot.md
     displayName: encryption, security
@@ -679,6 +687,9 @@
   - name: Troubleshoot database corruption
     href: single-server/how-to-fix-corrupt-database.md
     displayName: corrupt data
+  - name: Tune performance using the sys_schema
+    href: single-server/how-to-troubleshoot-sys-schema.md
+    displayName: sys schema, views
 - name: Best Practices
   items:
   - name: Monitoring best practices

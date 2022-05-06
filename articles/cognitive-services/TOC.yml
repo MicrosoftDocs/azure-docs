@@ -17,6 +17,9 @@
     href: cognitive-services-apis-create-account-cli.md
   - name: Create a new resource using the client library
     href: cognitive-services-apis-create-account-client-library.md
+  - name: Create a new resource using Bicep
+    displayName: Resource Manager, ARM, Template
+    href: create-account-bicep.md
   - name: Create a new resource using an ARM template
     displayName: Resource Manager
     href: create-account-resource-manager-template.md  
