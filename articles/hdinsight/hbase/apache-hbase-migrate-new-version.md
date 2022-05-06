@@ -215,17 +215,21 @@ sudo -u hbase hdfs dfs -Dfs.azure.page.blob.dir="/hbase-wals" -cp <source-contai
 2. On source cluster
    ```bash
    sudo bash migrate-hbase-source.sh
-
+   ```
+   
 3. On destination cluster
    ```bash
    sudo bash migrate-hbase-dest.sh  -f <src_default_Fs>
-
-Mandatory argument for the above command:```
-	-f, --src-fs
-		The fs.defaultFS of the source cluster
-		For example:
-		-f wasb://anynamehbase0316encoder-2021-03-17t01-07-55-935z@anynamehbase0hdistorage.blob.core.windows.net
-	```
+   ```
+   
+Mandatory argument for the above command:
+   
+```
+   -f, --src-fs
+   The fs.defaultFS of the source cluster
+   For example:
+   -f wasb://anynamehbase0316encoder-2021-03-17t01-07-55-935z@anynamehbase0hdistorage.blob.core.windows.net
+```
   
 
 ## Next steps
