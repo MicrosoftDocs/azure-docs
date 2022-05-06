@@ -48,6 +48,8 @@ description: "Collect metrics and logs of Azure Arc-enabled Kubernetes clusters 
     | `dc.services.visualstudio.com` | 443 |
     
 
+- If you are using an Arc enabled cluster on AKS, and previously installed [monitoring for AKS](./container-insights-enable-existing-clusters.md), please ensure that you have [disabled monitoring](./container-insights-optout.md) before proceeding to avoid issues during the extension install
+
 - If you had previously deployed Azure Monitor Container Insights on this cluster using script without cluster extensions, follow the instructions listed [here](container-insights-optout-hybrid.md) to delete this Helm chart. You can then continue to creating a cluster extension instance for Azure Monitor Container Insights.
 
 

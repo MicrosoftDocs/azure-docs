@@ -400,13 +400,6 @@ productDirectory:
         - analytics
       url: /power-bi/developer/azure-pbie-what-is-power-bi-embedded
     # Card
-    - title: R Server for HDInsight
-      summary: Predictive analytics, machine learning, and statistical modeling for big data
-      imageSrc: https://static.docs.com/ui/media/product/azure/hdinsight.svg
-      azureCategories:
-        - analytics
-      url: hdinsight/r-server/r-server-overview.md
-    # Card
     - title: Azure Cosmos DB
       summary: Fast NoSQL database with open APIs for any scale
       imageSrc: https://static.docs.com/ui/media/product/azure/cosmos-db.svg

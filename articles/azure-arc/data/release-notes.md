@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 05/03/2022
+ms.date: 05/04/2022
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
@@ -16,9 +16,9 @@ ms.custom: references_regions, devx-track-azurecli
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
-## May 3, 2022
+## May 4, 2022
 
-This release is published May 3, 2022.
+This release is published May 4, 2022.
 
 ### Image tag
 
@@ -41,7 +41,7 @@ Updated ElasticSearch to latest version `7.9.1-36fefbab37-205465`.  Also Grafana
 
 All container image sizes were reduced by approximately 40% on average.
 
-Introduced new `create-sql-keytab.ps1` PowerShell script to add in creation of keytabs.
+Introduced new `create-sql-keytab.ps1` PowerShell script to aid in creation of keytabs.
 
 ### SQL Managed Instance
 
@@ -53,8 +53,10 @@ Add support for `NodeSelector`, `TopologySpreadConstraints` and `Affinity`.  Onl
 
 Add support for specifying labels and annotations on the secondary service endpoint. `REQUIRED_SECONDARIES_TO_COMMIT` is now a function of the number of replicas.  
 
-- If more than three replicas, then `REQUIRED_SECONDARIES_TO_COMMIT = 1`.  
+- If three replicas, then `REQUIRED_SECONDARIES_TO_COMMIT = 1`.  
 - If one or two replicas, then `REQUIRED_SECONDARIES_TO_COMMIT = 0`.
+
+In this release, the default value of the readable secondary service is `Cluster IP`.  The secondary service type can be set in the Kubernetes yaml/json at `spec.services.readableSecondaries.type`. In the next release, the default value will be the same as the primary service type.
 
 ### User experience improvements
 
@@ -149,7 +151,7 @@ For complete release version information, see [Version log](version-log.md).
 
 - Support for readable secondary replicas:
     - To set readable secondary replicas use `--readable-secondaries` when you create or update an Arc-enabled SQL Managed Instance deployment. 
-    - Set `--readable secondaries` to any value between 0 and the number of replicas minus 1.
+    - Set `--readable-secondaries` to any value between 0 and the number of replicas minus 1.
     - `--readable-secondaries` only applies to Business Critical tier. 
 - Automatic backups are taken on the primary instance in a Business Critical service tier when there are multiple replicas. When a failover happens, backups move to the new primary. 
 - RWX capable storage class is required for backups, for both General Purpose and Business Critical service tiers.

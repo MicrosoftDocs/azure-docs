@@ -158,6 +158,16 @@ Failed to publish temperature
 
 * Confirm that the *Pricing and scale tier* is one of *Free* or *Standard*. **Basic is not supported** as it doesn't support cloud-to-device and device twin communication.
 
+## Issue: Extra messages sent when connecting to IoT Central or IoT Hub
+
+### Description
+
+Because [Defender for IoT module](/defender-for-iot/device-builders/iot-security-azure-rtos) is enabled by default from the device end, you might observe extra messages that are caused by that.
+
+### Resolution
+
+* To disable it, define `NX_AZURE_DISABLE_IOT_SECURITY_MODULE` in the NetX Duo header file `nx_port.h`.
+
 ## Next steps
 
 If after reviewing the issues in this article, you still can't monitor your device in a terminal or connect to Azure IoT, there might be an issue with your device's hardware or physical configuration. See the manufacturer's page for your device to find documentation and support options.

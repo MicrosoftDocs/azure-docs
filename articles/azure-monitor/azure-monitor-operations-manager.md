@@ -91,11 +91,6 @@ When you move machines to the cloud, the monitoring requirements for their softw
 
 Azure Monitor also doesn't measure the health of different applications and services running on a virtual machine. Metric alerts can automatically resolve when a value drops below a threshold, but Azure Monitor doesn't currently have the ability to define health criteria for applications and services running on the machine, nor does it provide health rollup to group the health of related components.
 
-> [!NOTE]
-> A new [guest health feature for VM insights](vm/vminsights-health-overview.md) is now in public preview and does alert based on the health state of a set of performance metrics. This is initially limited though to a specific set of performance counters related to the guest operating system and not applications or other workloads running in the virtual machine.
-> 
-> [![VM insights guest health](media/azure-monitor-operations-manager/vm-insights-guest-health.png)](media/azure-monitor-operations-manager/vm-insights-guest-health.png#lightbox)
-
 Monitoring the software on your machines in a hybrid environment will typically use a combination of VM insights and Operations Manager, depending on the requirements of each machine and on your maturity developing operational processes around Azure Monitor. The Microsoft Management Agent (referred to as the Log Analytics agent in Azure Monitor) is used by both platforms so that a single machine can be simultaneously monitored by both.
 
 > [!NOTE]
