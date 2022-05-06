@@ -25,7 +25,7 @@ The time to train a model varies on the dataset, and may take up to several hour
     * Text data that [has been uploaded](create-project.md#prepare-training-data) to your storage account.
 * [Tagged data](tag-data.md)
 
-See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
+See the [application development lifecycle](../overview.md#project-development-lifecycle) for more information.
 
 ## Train model in Language studio
 

@@ -34,7 +34,7 @@ See the [project development lifecycle](../overview.md#project-development-lifec
 After you have viewed your [model's evaluation](view-model-evaluation.md), you'll have formed an idea on your model performance. In this page, you can view how your model performs vs how it's expected to perform. You can view predicted and tagged entities side by side for each document in your test set. You can review entities that were extracted differently than they were originally tagged.
 
 
-To review inconsistent predictions in the [test set](train-model.md#data-splitting) from within the [Language Studio](https://aka.ms/LanguageStudio):
+To review inconsistent predictions in the [test set](train-model.md) from within the [Language Studio](https://aka.ms/LanguageStudio):
 
 1. Select **Improve model** from the left side menu.
 

@@ -25,7 +25,7 @@ After your model has finished training, you can view the model details and see h
 * [Tagged data](tag-data.md)
 * A [successfully trained model](train-model.md)
 
-See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
+See the [application development lifecycle](../overview.md#project-development-lifecycle) for more information.
 
 ## View the model's evaluation details
 
