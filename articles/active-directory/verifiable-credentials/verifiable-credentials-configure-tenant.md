@@ -22,10 +22,11 @@ Specifically, you learn how to:
 
 > [!div class="checklist"]
 >
-> - Set up a service principal.
+
 > - Create an Azure Key Vault instance.
-> - Register an application in Azure AD. 
 > - Set up the Verifiable Credentials service.
+> - Register an application in Azure AD.
+
 
 The following diagram illustrates the Azure AD Verifiable Credentials architecture and the component you configure.
 
