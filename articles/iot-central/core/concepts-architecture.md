@@ -7,7 +7,7 @@ ms.date: 08/31/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-
+ms.custom: [iot-central-frontdoor]
 ---
 
 # Azure IoT Central architecture

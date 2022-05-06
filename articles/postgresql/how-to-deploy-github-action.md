@@ -4,8 +4,9 @@ description: Use Azure PostgreSQL from a GitHub Actions workflow
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: quickstart
-ms.author: sumuth
-author: mksuni
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.custom: github-actions-azure, mode-other
 ms.date: 10/12/2020
 ---

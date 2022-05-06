@@ -387,6 +387,9 @@ using Microsoft.ApplicationInsights.Channel;
     }
 ```
 
+> [!NOTE]
+> See [Flushing data](api-custom-events-metrics.md#flushing-data) if you want to flush the buffer--for example, if you are using the SDK in an application that shuts down.
+
 ### Disable telemetry dynamically
 
 If you want to disable telemetry conditionally and dynamically, you can resolve the `TelemetryConfiguration` instance with an ASP.NET Core dependency injection container anywhere in your code and set the `DisableTelemetry` flag on it.
