@@ -136,7 +136,7 @@ landingContent:
             url: diagnostic-services.md
       - linkListType: concept
         links:
-          - text: Understanding Azure Monitor Metrics for Spring Cloud
+          - text: Metrics for Azure Spring Apps
             url: concept-metrics.md
       - linkListType: how-to-guide
         links:
