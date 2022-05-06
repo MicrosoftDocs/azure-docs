@@ -8,150 +8,119 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 05/05/2022
+ms.date: 05/06/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, references_regions, ignite-fall-2021
 ---
 
-# How to create custom text classification projects
+# How to create custom text classification project
 
-Use this article to learn how to set up these requirements and create a project. 
+Use this article to learn how to set up the requirements for starting with custom text classification and create a project.
 
 ## Prerequisites
 
-Before you start using custom text classification, you will need several things:
+Before you start using custom text classification, you will need:
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
-* An Azure Language resource 
-* An Azure storage account to store data for your project
-* You should have an idea of the [project schema](design-schema.md) you will use for your data.
 
-## Azure resources
+## Create a Language resource 
 
-Before you start using custom text classification, you will need an Azure Language resource. We recommend following the steps below for creating your resource in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions pre-configured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with custom text classification.
+Before you start using custom text classification, you will need an Azure Language resource. It is recommended to create your Language resource and connect a storage account to it in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions pre-configured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with custom text classification.
 
 You also will need an Azure storage account where you will upload your `.txt` files that will be used to train a model to classify text.
 
-# [Azure portal](#tab/portal)
+> [!NOTE]
+>  * You need to have an **owner** role assigned on the resource group to create a Language resource.
+>  * If you will connect a pre-existing storage account, you should have an **owner** role assigned to it.
+
+## Create Language resource and connect storage account
+
+### [Using the Azure portal](#tab/azure-portal)
 
 [!INCLUDE [create a new resource from the Azure portal](../includes/resource-creation-azure-portal.md)]
 
-<!-- :::image type="content" source="../../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the resource creation screen in Language Studio." lightbox="../../media/azure-portal-resource-credentials.png"::: -->
+### [Using Language Studio](#tab/language-studio)
 
-# [Language Studio](#tab/studio)
+[!INCLUDE [create a new resource from the Language Studio](../includes/language-studio/resource-creation-language-studio.md)]
 
-### Create a new resource from Language Studio
+### [Using Azure PowerShell](#tab/azure-powershell)
 
-If it's your first time logging in, you'll see a window in [Language Studio](https://aka.ms/languageStudio) that will let you choose a language resource or create a new one. You can also create a resource by clicking the settings icon in the top-right corner, selecting **Resources**, then clicking **Create a new resource**.
+[!INCLUDE [create a new resource with Azure PowerShell](../includes/resource-creation-powershell.md)]
 
-> [!IMPORTANT]
-> * To use custom text classification, you'll need a Language resource in **West US 2** or **West Europe** with the Standard (**S**) pricing tier.
-> * Be sure to to select **Managed Identity** when you create a resource. 
+---
 
-:::image type="content" source="../../media/create-new-resource-small.png" alt-text="A screenshot showing the resource creation screen in Language Studio." lightbox="../../media/create-new-resource.png":::
+> [!NOTE]
+> * The process of connecting a storage account to your Language resource is irreversible, it cannot be disconnected later.
+> * You can only connect your language resource to one storage account.
 
-To use custom text classification, you'll need to [create an Azure storage account](../../../../storage/common/storage-account-create.md) if you don't have one already. 
+## Using a pre-existing Language resource
 
-Next you'll need to assign the [correct roles](#roles-for-your-storage-account) for the storage account to connect it to your Language resource. 
+[!INCLUDE [use an existing resource](../includes/use-pre-existing-resource.md)]
 
-# [Azure PowerShell](#tab/powershell)
 
-### Create a new resource with the Azure PowerShell
+## Create a custom text classification project
 
-You can create a new resource and a storage account using the following CLI [template](https://github.com/Azure-Samples/cognitive-services-sample-data-files) and [parameters](https://github.com/Azure-Samples/cognitive-services-sample-data-files) files, which are hosted on GitHub.
+Once your resource and storage container are configured, create a new custom text classification project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have access to the Azure resource being used. If you have labeled data, you can [import it](#import-a-custom-text-classification-project) to get started.
 
-Edit the following values in the parameters file:
+### [Language Studio](#tab/studio)
 
-| Parameter name | Value description |
-|--|--|
-|`name`| Name of your Language resource|
-|`location`| Region in which your resource is hosted. Custom text classification is only available in **West US 2** and **West Europe**.|
-|`sku`| Pricing tier of your resource. Custom text only works with **S** tier|
-|`storageResourceName`| Name of your storage account|
-|`storageLocation`| Region in which your storage account is hosted.|
-|`storageSkuType`| SKU of your [storage account](/rest/api/storagerp/srp_sku_types).|
-|`storageResourceGroupName`| Resource group of your storage account|
-<!-- |builtInRoleType| Set this role to **"Contributor"**| -->
+[!INCLUDE [Language Studio project creation](../includes/language-studio/create-project.md)]
 
-Use the following PowerShell command to deploy the Azure Resource Manager (ARM) template with the files you edited.
 
-```powershell
-New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile <path-to-arm-template> `
-  -TemplateParameterFile <path-to-parameters-file>
-```
+### [Rest APIs](#tab/apis)
 
-See the ARM template documentation for information on [deploying templates](../../../../azure-resource-manager/templates/deploy-powershell.md#parameter-files) and [parameter files](../../../../azure-resource-manager/templates/parameter-files.md?tabs=json).
+[!INCLUDE [Rest APIs project creation](../includes/rest-api/create-project.md)]
 
---- 
+---
 
-## Using a pre-existing Azure resource
+## Import a custom text classification project
 
-You can use an existing Language resource to get started with custom text classification as long as this resource meets the below requirements:
+If you have already labeled data, you can use it to get started with the service. Make sure that your labeled data follows the [accepted data formats](../concepts/data-formats.md).
 
-|Requirement  |Description  |
-|---------|---------|
-|Regions     | Make sure your existing resource is provisioned in one of the two supported regions, **West US 2** or **West Europe**. If not, you will need to create a new resource in these regions.        |
-|Pricing tier     | Make sure your existing resource is in the Standard (**S**) pricing tier. Only this pricing tier is supported. If your resource doesn't use this pricing  tier, you will need to create a new resource.        |
-|Managed identity     | Make sure that the resource-managed identity setting is enabled. Otherwise, read the next section. |
+### [Language Studio](#tab/studio)
 
-To use custom text classification, you'll need to [create an Azure storage account](../../../../storage/common/storage-account-create.md) if you don't have one already. 
+[!INCLUDE [Import project](../includes/language-studio/import-project.md)]
 
-Next you'll need to assign the [correct roles](#roles-for-your-storage-account) for the storage account to connect it to your Language resource. 
+### [Rest APIs](#tab/apis)
 
-## Roles for your Azure Language resource
+[!INCLUDE [Import project](../includes/rest-api/import-project.md)]
 
-You should have the **owner** or **contributor** role assigned on your Azure Language resource.
+---
 
-## Enable identity management for your resource
+## Get project details
 
-Your Language resource must have identity management, which can be enabled either using the Azure portal or from Language Studio. To enable it using [Language Studio](https://aka.ms/languageStudio):
-1. Click the settings icon in the top right corner of the screen
-2. Select **Resources**
-3. Select **Managed Identity** for your Azure resource.
+### [Language Studio](#tab/studio)
 
-## Roles for your storage account
+[!INCLUDE [Language Studio project details](../includes/language-studio/project-details.md)]
 
-Your Azure blob storage account must have the below roles:
+### [Rest APIs](#tab/apis)
 
-* Your resource has the **owner** or **contributor** role on the storage account.
-* Your resource has the **Storage blob data owner** or **Storage blob data contributor** role on the storage account.
-* Your resource has the **Reader** role on the storage account.
+[!INCLUDE [Rest API project details](../includes/rest-api/project-details.md)]
 
-To set proper roles on your storage account:
-
-1. Go to your storage account page in the [Azure portal](https://portal.azure.com/).
-2. Select **Access Control (IAM)** in the left navigation menu.
-3. Select **Add** to **Add Role Assignments**, and choose the appropriate role for your Language resource.
-4. Select **Managed identity** under **Assign access to**. 
-5. Select **Members** and find your resource. In the window that appears, select your subscription, and **Language** as the managed identity. You can search for user names in the **Select** field. Repeat this for all roles. 
-
-[!INCLUDE [Storage connection note](../includes/storage-account-note.md)]
-
-### Enable CORS for your storage account
-
-Make sure to allow (**GET, PUT, DELETE**) methods when enabling Cross-Origin Resource Sharing (CORS). Make sure to add an asterisk (`*`) to the fields, and add the recommended value of 500 for the maximum age.
-
-:::image type="content" source="../../custom-named-entity-recognition/media/cors.png" alt-text="A screenshot showing how to use CORS for storage accounts." lightbox="../../custom-named-entity-recognition/media/cors.png":::
+---
 
 ## Prepare training data
 
-* As a prerequisite for creating a custom text classification project, your training data needs to be uploaded to a blob container in your storage account. You can create and upload training files from Azure directly or through using the Azure Storage Explorer tool. Using Azure Storage Explorer tool allows you to upload more data in less time.
+When you're ready to prepare your training data:
 
-  * [Create and upload files from Azure](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
-  * [Create and upload files using Azure Storage Explorer](../../../../vs-azure-tools-storage-explorer-blobs.md)
+* You should have an idea of the [project schema](design-schema.md) you will use to label your data.
 
-* You can only use `.txt`. files for custom text classification. If your data is in other format, you can use [Cognitive Services Language Utilities tool](https://aka.ms/CognitiveServicesLanguageUtilities) to parse your file to `.txt` format.
+* After your project is created, you can start [labeling your data](tag-data.md), which will inform your text classification model how to interpret text, and is used for training and evaluation.
 
-* You can either upload tagged data, or you can tag your data in Language Studio. Tagged data must follow the [tags file format](../concepts/data-formats.md). 
+## Delete project
 
->[!TIP]
-> See [How to design a schema](design-schema.md) for information on data selection and preparation.
+### [Language Studio](#tab/studio)
 
-## Create a project
+[!INCLUDE [Delete project using the Language studio](../includes/language-studio/delete-project.md)]
 
-[!INCLUDE [Language Studio project creation](../includes/create-project.md)]
+### [Rest APIs](#tab/apis)
+
+[!INCLUDE [Delete project using the REST API](../includes/rest-api/delete-project.md)]
+
+---
 
 ## Next steps
 
-After your project is created, you can start [tagging your data](tag-data.md), which will inform your text classification model how to interpret text, and is used for training and evaluation.
+* You should have an idea of the [project schema](design-schema.md) you will use to label your data.
+
+* After your project is created, you can start [labeling your data](tag-data.md), which will inform your text classification model how to interpret text, and is used for training and evaluation.
