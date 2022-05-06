@@ -140,7 +140,7 @@ Steps:
 
 9. Verify that the restored dedicated SQL pool (formerly SQL DW) is online.
 
-10. If the desired destination is a Synapse Workspace, uncomment the code to perform the additional restore step.
+10. **If the desired destination is a Synapse Workspace, uncomment the code to perform the additional restore step.**
     1. Create a restore point for the newly created data warehouse.
     2. Retrieve the last restore point created by using the "Select -Last 1" syntax.
     3. Perform the restore to the desired Synapse workspace.
@@ -198,7 +198,11 @@ $RestoredDatabase.status
 
 ```
 
-
+## Troubleshooting
+A restore operation can result in a deployment failure based on a "RequestTimeout" exception. 
+![TimeoutException](../media/sql-pools/restore-sqlpool-troubleshooting-01.PNG)
+This timeout can be ignored. Review the dedicated SQL pool blade in the portal and it may still have status of "Restoring" and eventually will transition to "Online". 
+![Restoring](../media/sql-pools/restore-sqlpool-troubleshooting-02.png)
 
 ## Next Steps
 
