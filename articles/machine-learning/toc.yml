@@ -631,9 +631,13 @@
             - name: Create ML pipelines using components (CLI v2)
               href: how-to-create-component-pipelines-cli.md
             - name: Create ML pipelines using components (Python SDK v2)
-              href: how-to-create-component-pipeline-python-v2.md
+              href: how-to-create-component-pipeline-python.md
             - name: How to use sweep in pipelines (v2)
-              href: how-to-use-sweep-in-pipeline-v2.md
+              href: how-to-use-sweep-in-pipeline.md
+            - name: Build and debug pipelines (UI)
+              href: how-to-use-pipeline-ui.md
+            - name: Create ML pipelines using components (UI)
+              href: how-to-create-component-pipelines-ui.md
             - name: Moving data into and between ML pipeline steps (Python)
               href: how-to-move-data-in-out-of-pipelines.md
             - name: Use automated ML in ML pipelines (Python)
@@ -647,10 +651,6 @@
               href: how-to-trigger-published-pipeline.md
             - name: Designer (drag-n-drop)
               items: 
-                - name: Build and debug pipelines (UI)
-                  href: how-to-use-pipeline-ui.md
-                - name: Create ML pipelines using components (UI)
-                  href: how-to-create-component-pipelines-ui.md
                 - name: Log metrics
                   displayName: designer, logging
                   href: how-to-track-designer-experiments.md
