@@ -130,6 +130,7 @@ An exception policy controls the behavior of a Job based on a trigger and execut
 - [How jobs are matched to workers](matching-concepts.md)
 - [Router Rule concepts](router-rule-concepts.md)
 - [Classification concepts](classification-concepts.md)
+- [Distribution modes](distribution-concepts.md)
 - [Exception Policies](exception-policy.md)
 - [Quickstart guide](../../quickstarts/router/get-started-router.md)
 - [Manage queues](../../how-tos/router-sdk/manage-queue.md)
