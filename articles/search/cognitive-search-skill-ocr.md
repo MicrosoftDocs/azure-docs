@@ -41,7 +41,7 @@ Parameters are case-sensitive.
 | Parameter name     | Description |
 |--------------------|-------------|
 | `detectOrientation`    | Detects image orientation. Valid values are `true` or `false`.|
-| `defaultLanguageCode` | Language code of the input text. Supported languages include: <br/> `zh-Hans` (ChineseSimplified) <br/> `zh-Hant` (ChineseTraditional) <br/>`cs` (Czech) <br/>`da` (Danish) <br/>`nl` (Dutch) <br/>`en` (English) <br/>`fi` (Finnish)  <br/>`fr` (French) <br/>`de` (German) <br/>`el` (Greek) <br/>`hu` (Hungarian) <br/>`it` (Italian) <br/>`ja` (Japanese) <br/>`ko` (Korean) <br/>`nb` (Norwegian) <br/>`pl` (Polish) <br/>`pt` (Portuguese) <br/>`ru` (Russian) <br/>`es` (Spanish) <br/>`sv` (Swedish) <br/>`tr` (Turkish) <br/>`ar` (Arabic) <br/>`ro` (Romanian) <br/>`sr-Cyrl` (SerbianCyrillic) <br/>`sr-Latn` (SerbianLatin) <br/>`sk` (Slovak) <br/>`unk` (Unknown) <br/><br/> If the language code is unspecified or null, the language is set to English. If the language is explicitly set to "unk", the language is auto-detected. </p> |
+| `defaultLanguageCode` | Language code of the input text. Supported languages include: <br/> `zh-Hans` (ChineseSimplified) <br/> `zh-Hant` (ChineseTraditional) <br/>`cs` (Czech) <br/>`da` (Danish) <br/>`nl` (Dutch) <br/>`en` (English) <br/>`fi` (Finnish)  <br/>`fr` (French) <br/>`de` (German) <br/>`el` (Greek) <br/>`hu` (Hungarian) <br/>`it` (Italian) <br/>`ja` (Japanese) <br/>`ko` (Korean) <br/>`nb` (Norwegian) <br/>`pl` (Polish) <br/>`pt` (Portuguese) <br/>`ru` (Russian) <br/>`es` (Spanish) <br/>`sv` (Swedish) <br/>`tr` (Turkish) <br/>`ar` (Arabic) <br/>`ro` (Romanian) <br/>`sr-Cyrl` (SerbianCyrillic) <br/>`sr-Latn` (SerbianLatin) <br/>`sk` (Slovak) <br/>`unk` (Unknown) <br/><br/> If the language code is unspecified or null, the language is set to English. If the language is explicitly set to `unk`, the language is auto-detected. </p> |
 | `lineEnding` | The value to use as a line separator. Possible values: "Space", "CarriageReturn", "LineFeed".  The default is "Space". |
 
 In previous versions, there was a parameter called "textExtractionAlgorithm" to specify extraction of "printed" or "handwritten" text. This parameter is deprecated because the current Read API algorithm extracts both types of text at once. If your skill includes this parameter, you don't need to remove it, but it won't be used during skill execution.
@@ -131,9 +131,9 @@ In previous versions, there was a parameter called "textExtractionAlgorithm" to 
 }
 ```
 
-## Sample: Merging text extracted from embedded images with the content of the document.
+## Sample: Merging text extracted from embedded images with the content of the document
 
-Document cracking, which is the first action in skillset execution, separates text and image content. A common use case for Text Merger is merging the textual representation of images (text from an OCR skill, or the caption of an image) into the content field of a document for scenarios where the source document is a PDF or Word document that includes text with embedded images.
+Document cracking, the first step in skillset execution, separates text and image content. A common use case for Text Merger is merging the textual representation of images (text from an OCR skill, or the caption of an image) into the content field of a document. This is for scenarios where the source document is a PDF or Word document that combines text with embedded images.
 
 The following example skillset creates a *merged_text* field. This field contains the textual content of your document and the OCRed text from each of the images embedded in that document.
 
