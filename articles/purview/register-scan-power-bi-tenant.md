@@ -27,8 +27,10 @@ This article outlines how to register a Power BI tenant in a **same-tenant scena
 |Public access with Azure IR     |Allowed     |Allowed        |Azure Runtime      | Microsoft Purview Managed Identity   | [Review deployment checklist](#deployment-checklist) |
 |Public access with Self-hosted IR     |Allowed     |Allowed        |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](#deployment-checklist) |
 |Private access     |Allowed     |Denied         |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](#deployment-checklist) |
-|Private access     |Denied      |Allowed        |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](#deployment-checklist) |
+|Private access     |Denied      |Allowed*        |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](#deployment-checklist) |
 |Private access     |Denied      |Denied         |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](#deployment-checklist) |
+
+\* Power BI tenant must have a private endpoint which is deployed in a Virtual Network accessible from the self-hosted integration runtime VM. For more information, see [private endpoint for Power BI tenant](/power-bi/enterprise/service-security-private-links).
 
 ### Known limitations
 
