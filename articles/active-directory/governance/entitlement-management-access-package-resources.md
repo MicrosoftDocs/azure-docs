@@ -42,7 +42,7 @@ If you need to add resources to an access package, you should check whether the 
 
     ![List of resources in a catalog](./media/entitlement-management-access-package-resources/catalog-resources.png)
 
-1. If the resources are not already in the catalog, and you are an administrator or a catalog owner, you can [add resources to a catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog).
+1. If the resources aren't already in the catalog, and you're an administrator or a catalog owner, you can [add resources to a catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog).
 
 1. If you are an access package manager and you need to add resources to the catalog, you can ask the catalog owner to add them.
 
