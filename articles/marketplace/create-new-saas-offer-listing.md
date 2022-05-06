@@ -64,6 +64,9 @@ You must add at least one and a maximum of three marketing documents for your of
 
 ## Add marketplace media
 
+> [!IMPORTANT]
+> When creating media for your offer, make sure that the assets you create are welcoming and inclusive for all. To learn more about how to create accessible media, see [Create accessible media](https://www.microsoft.com/accessibility/supplier-toolkit-resources).
+
 ### Add logos
 
 Under **Logos**, upload a **Large** logo in PNG format between 216 x 216 and 350 x 350 pixels. Partner Center will automatically create **Small** (48 x 48) and **Medium** (90 x 90) logos, which you can replace later if you want.

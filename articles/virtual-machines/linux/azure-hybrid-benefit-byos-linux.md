@@ -20,7 +20,7 @@ ms.author: mathapli
 >The below article is scoped to Azure Hybrid Benefit for BYOS VMs (AHB BYOS) which caters to conversion of custom on-prem image VMs and RHEL or SLES BYOS VMs. For conversion of RHEL PAYG or SLES PAYG VMs, refer to [Azure Hybrid Benefit for PAYG VMs here](./azure-hybrid-benefit-linux.md). 
 
 >[!NOTE]
->Azure Hybrid Benefit for BYOS VMs is planned for Preview from **30 March 2022**. You can [sign up for the preview here.](https://aka.ms/ahb-linux-form) You will receive a mail from Microsoft once your subscriptions are enabled for Preview. 
+>Azure Hybrid Benefit for BYOS VMs is in Preview now. You can [sign up for the preview here.](https://aka.ms/ahb-linux-form) You will receive a mail from Microsoft once your subscriptions are enabled for Preview. 
 
 
 Azure Hybrid Benefit for BYOS VMs is a licensing benefit that helps you to get software updates and integrated support for Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) directly from Azure infrastructure. This benefit is available to RHEL and SLES custom on-prem image VMs (VMs generated from on-prem images), and to RHEL and SLES Marketplace bring-your-own-subscription (BYOS) VMs.
@@ -81,9 +81,9 @@ To start using the benefit for SUSE:
 
     | License Type  | Software Updates  | Allowed VMs|  
     |---|---|---|
-    | SLES | Installs SLES repositories into your virtual machine. | SLES BYOS VMs, SLES custom on-prem image VMs|
-    | SLES_SAP | Installs SLES SAP repositories into your virtual machine. | SLES SAP BYOS VMs, SLES custom on-prem image VMs|
-    | SLES_HPC | Installs SLES High Performance Compute related repositories into your virtual machine. | SLES HPC BYOS VMs, SLES custom on-prem image VMs|
+    | SLES  | Installs SLES repositories into your virtual machine. | SLES BYOS VMs, SLES custom on-prem image VMs|
+    | SLES_SAP | Installs SLES for SAP repositories into your virtual machine. | SLES for SAP BYOS VMs, SLES for SAP custom on-prem image VMs|
+    | SLES_HPC | Installs SLE High Performance Compute related repositories into your virtual machine. | SLE HPC BYOS VMs, SLE HPC custom on-prem image VMs|
 
 1. Wait for 5 minutes for the extension to read the license type value and install the repositories. 
 
@@ -132,9 +132,9 @@ you can use the `az vm update` command to update existing license type on runnin
     ```bash
     yum repolist
     ```
- 1. In case the extension is not running by itself, you can try the below command on the VM using:
+ 1. In case the extension is not running by itself, you can try the below command on the VM:
     ```bash
-        
+        systemctl start azure-hybrid-benefit.service
     ```
 
 ## Enable and disable the benefit for SLES
@@ -145,7 +145,7 @@ you can use the `az vm update` command to update existing license type on runnin
 ### CLI example to enable the benefit for SLES
 1. Install the Azure Hybrid Benefit extension on running VM using the portal or via Azure CLI using the command below:
     ```azurecli
-    az vm extension set -n AHBForSLES --publisher publisherName --vm-name myVMName --resource-group myResourceGroup
+    az vm extension set -n AHBForSLES --publisher SUSE.AzureHybridBenefit --vm-name myVMName --resource-group myResourceGroup
     ```
 1. Once, the extension is installed successfully, change the license type based on your requirements:
 
@@ -153,10 +153,10 @@ you can use the `az vm update` command to update existing license type on runnin
     # This will enable the benefit to fetch software updates for SLES repositories
     az vm update -g myResourceGroup -n myVmName --license-type SLES
 
-    # This will enable the benefit to fetch software updates for SLES SAP repositories
+    # This will enable the benefit to fetch software updates for SLES for SAP repositories
     az vm update -g myResourceGroup -n myVmName --license-type SLES_SAP
 
-    # This will enable the benefit to fetch software updates for SLES HPC repositories
+    # This will enable the benefit to fetch software updates for SLE HPC repositories
     az vm update -g myResourceGroup -n myVmName --license-type SLES_HPC
 
     ```
@@ -211,13 +211,17 @@ A: On using AHB for BYOS VMs, you will essentially convert your bring your own s
 | RHEL_BASESAPAPPS | [RHEL for SAP Business Applications](https://azure.microsoft.com/pricing/details/virtual-machines/rhel-sap-business/) |
 | RHEL_BASESAPHA | [RHEL for SAP with HA](https://azure.microsoft.com/pricing/details/virtual-machines/rhel-sap-ha/) |
 | RHEL_EUS | [Red Hat Enterprise Linux](https://azure.microsoft.com/pricing/details/virtual-machines/red-hat/)  |
-| SLES_ STANDARD | [SLES Standard](https://azure.microsoft.com/pricing/details/virtual-machines/sles-standard/) |
-| SLES_SAP | [SLES SAP](https://azure.microsoft.com/pricing/details/virtual-machines/sles-sap/)  |
-| SLES_HPC | [SLES HPC](https://azure.microsoft.com/pricing/details/virtual-machines/sles-hpc-standard/) |
+| SLES | [SLES](https://azure.microsoft.com/pricing/details/virtual-machines/sles-standard/) |
+| SLES_SAP | [SLES for SAP](https://azure.microsoft.com/pricing/details/virtual-machines/sles-sap/)  |
+| SLES_HPC | [SLE HPC](https://azure.microsoft.com/pricing/details/virtual-machines/sles-hpc-standard/) |
 
 *Q: Can I use a license type designated for RHEL (such as `RHEL_BASE`) with a SLES image, or vice versa?*
 
 A: No, you can't. Trying to enter a license type that incorrectly matches the distribution running on your VM will fail and you might end uo getting billed incorrectly. However, if you accidentally enter the wrong license type, either changing the license type to empty will remove the billing or updating your VM again to the correct license type will still enable the benefit.
+
+*Q: What are the supported versions for RHEL with AHB for BYOS VMs?*
+
+A: RHEL versions greater than 7.4 are supported with AHB for BYOS VMs.
 
 *Q: I've uploaded my own RHEL or SLES image from on-premises (via Azure Migrate, Azure Site Recovery, or otherwise) to Azure. Can I convert the billing on these images from BYOS to PAYG?*
 

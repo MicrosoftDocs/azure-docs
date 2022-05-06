@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 02/08/2022
+ms.date: 04/15/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -90,6 +90,8 @@ Many organizations have [common access concerns that Conditional Access policies
 Customers with [Microsoft 365 Business Premium licenses](/office365/servicedescriptions/office-365-service-descriptions-technet-library) also have access to Conditional Access features. 
 
 Risk-based policies require access to [Identity Protection](../identity-protection/overview-identity-protection.md), which is an Azure AD P2 feature.
+
+Other products and features that may interact with Conditional Access policies require appropriate licensing for those products and features.
 
 ## Next steps
 

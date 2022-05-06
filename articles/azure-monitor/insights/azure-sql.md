@@ -4,17 +4,15 @@ description: Azure SQL Analytics solution helps you manage your Azure SQL databa
 ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman 
-ms.date: 11/22/2021
+ms.date: 03/10/2022
 ms.reviewer: wiassaf, mathoma
 ms.custom: devx-track-azurepowershell
 ---
 
-# Monitor Azure SQL Database using Azure SQL Analytics (Preview)
+# Monitor Azure SQL Database using Azure SQL Analytics (preview)
 
 > [!CAUTION]
-> Azure SQL Analytics (preview) is an integration with Azure Monitor, where many monitoring solutions are no longer in active development. For more monitoring options, see [Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance](../../azure-sql/database/monitor-tune-overview.md).
-
-![Azure SQL Analytics symbol](./media/azure-sql/azure-sql-symbol.png)
+> Azure SQL Analytics (preview) is an integration with Azure Monitor, where many monitoring solutions are no longer in active development. For more monitoring options, see [Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance](/azure/azure-sql/database/monitor-tune-overview).
 
 Azure SQL Analytics (preview) is an advanced cloud monitoring solution for monitoring performance of all of your Azure SQL databases at scale and across multiple subscriptions in a single view. Azure SQL Analytics collects and visualizes key performance metrics with built-in intelligence for performance troubleshooting.
 
@@ -55,7 +53,7 @@ Use the process described in [Add Azure Monitor solutions from the Solutions Gal
 
 Once you have created Azure SQL Analytics solution in your workspace, you need to **configure each** resource that you want to monitor to stream its diagnostics telemetry to Azure SQL Analytics. Follow detailed instructions on this page:
 
-- Enable Azure Diagnostics for your database to [stream diagnostics telemetry to Azure SQL Analytics](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
+- Enable Azure Diagnostics for your database to [stream diagnostics telemetry to Azure SQL Analytics](/azure/azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure).
 
 The above page also provides instructions on enabling support for monitoring multiple Azure subscriptions from a single Azure SQL Analytics workspace as a single pane of glass.
 
@@ -97,7 +95,7 @@ Selecting the SQL Managed Instance view, shows details on the instance utilizati
 
 ### Intelligent Insights report
 
-Azure SQL Database [Intelligent Insights](../../azure-sql/database/intelligent-insights-overview.md) lets you know what is happening with performance of all Azure SQL databases. All Intelligent Insights collected can be visualized and accessed through the Insights perspective.
+Azure SQL Database [Intelligent Insights](/azure/azure-sql/database/intelligent-insights-overview) lets you know what is happening with performance of all Azure SQL databases. All Intelligent Insights collected can be visualized and accessed through the Insights perspective.
 
 ![Azure SQL Analytics Insights](./media/azure-sql/azure-sql-sol-insights.png)
 
@@ -155,7 +153,7 @@ Once the new role is created, assign this role to each user that you need to gra
 
 ## Analyze data and create alerts
 
-Data analysis in Azure SQL Analytics is based on [Log Analytics language](../logs/get-started-queries.md) for your custom querying and reporting. Find description of the available data collected from database resource for custom querying in [metrics and logs available](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md#metrics-and-logs-available).
+Data analysis in Azure SQL Analytics is based on [Log Analytics language](../logs/get-started-queries.md) for your custom querying and reporting. Find description of the available data collected from database resource for custom querying in [metrics and logs available](/azure/azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure#metrics-and-logs-available).
 
 Automated alerting in Azure SQL Analytics is based on writing a Log Analytics query that triggers an alert upon a condition met. Find below several examples on Log Analytics queries upon which alerting can be set up in Azure SQL Analytics.
 

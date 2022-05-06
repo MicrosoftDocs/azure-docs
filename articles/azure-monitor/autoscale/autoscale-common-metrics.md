@@ -2,7 +2,7 @@
 title: Autoscale common metrics
 description: Learn which metrics are commonly used for autoscaling your Cloud Services, Virtual Machines and Web Apps.
 ms.topic: conceptual
-ms.date: 12/6/2016
+ms.date: 04/22/2022
 ms.subservice: autoscale 
 ms.custom: devx-track-azurepowershell
 ---
