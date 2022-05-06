@@ -383,9 +383,9 @@ To resolve this issue, try to restore the VM from a different restore point.<br>
 
 ### UserErrorMigrationFromTrustedLaunchVM ToNonTrustedVMNotAllowed
 
-Error code: UserErrorMigrationFromTrustedLaunchVMToNonTrustedVMNotAllowed
+**Error code**: UserErrorMigrationFromTrustedLaunchVMToNonTrustedVMNotAllowed
 
-Error message: Backup cannot be configured for the VM which has migrated from Trusted Launch mode to non Trusted Launch mode.
+**Error message**: Backup cannot be configured for the VM which has migrated from Trusted Launch mode to non Trusted Launch mode.
 
 **Scenario 1**: Migration of Trusted Launch VM to Generation 2 VM is blocked.
 
