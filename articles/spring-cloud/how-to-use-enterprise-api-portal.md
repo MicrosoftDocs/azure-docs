@@ -48,6 +48,8 @@ API portal supports authentication and authorization using single sign-on (SSO) 
 | clientSecret | Yes | The OpenID Connect client secret provided by your IdP |
 | scope | Yes | A list of scopes to include in JWT identity tokens. This list should be based on the scopes allowed by your identity provider |
 
+See [guide](./how-to-setup-sso-with-azure-ad.md) to setup SSO with Azure AD.
+
 > [!NOTE]
 > If you configure the wrong SSO property, such as the wrong password, you should remove the entire SSO property and re-add the correct configuration.
 
