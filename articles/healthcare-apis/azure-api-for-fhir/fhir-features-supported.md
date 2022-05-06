@@ -2,12 +2,12 @@
 title: Supported FHIR features in Azure - Azure API for FHIR 
 description: This article explains which features of the FHIR specification that are implemented in Azure API for FHIR
 services: healthcare-apis
-author: caitlinv39
+author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/21/2022
-ms.author: cavoeg
+ms.date: 05/05/2022
+ms.author: mikaelw
 ---
 
 # Features
@@ -31,8 +31,8 @@ Below is a summary of the supported RESTful capabilities. For more information o
 | update | Yes                | Yes                             |         | 
 | update with optimistic locking | Yes       | Yes       |
 | update (conditional)           | Yes       | Yes       |
-| patch                          | Yes       | Yes       | Support for [JSON Patch](https://www.hl7.org/fhir/http.html#patch) only. We've included a workaround to use JSON Patch in a bundle in [this PR](https://github.com/microsoft/fhir-server/pull/2143).|
-| patch (conditional)            | Yes       | Yes       | Support for [JSON Patch](https://www.hl7.org/fhir/http.html#patch) only. We've included a workaround to use JSON Patch in a bundle in [this PR](https://github.com/microsoft/fhir-server/pull/2143).
+| patch                          | Yes       | Yes       | Support for [JSON Patch and FHIRPath Patch](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md#patch-and-conditional-patch) only.
+| patch (conditional)            | Yes       | Yes       | Support for [JSON Patch and FHIRPath Patch](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md#patch-and-conditional-patch) only. |
 | history                        | Yes       | Yes       |
 | create                         | Yes       | Yes       | Support both POST/PUT |
 | create (conditional)           | Yes       | Yes       | Issue [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
@@ -58,7 +58,7 @@ All the operations that are supported that extend the REST API.
 | [$validate](validation-against-profiles.md)              | Yes       | Yes       |         |
 | [$member-match](tutorial-member-match.md)          | Yes       | Yes       |         |
 | [$patient-everything](patient-everything.md)    | Yes       | Yes       |         |
-| $purge-history         | Yes       | Yes       |         |
+| [$purge-history](purge-history.md)         | Yes       | Yes       |         |
 
 ## Persistence
 

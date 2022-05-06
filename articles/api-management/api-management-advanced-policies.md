@@ -51,7 +51,7 @@ The `choose` policy applies enclosed policy statements based on the outcome of e
     </when>
     <otherwise>
         <!— one or more policy statements to be applied if none of the above conditions are true  -->
-</otherwise>
+    </otherwise>
 </choose>
 ```
 
@@ -532,6 +532,29 @@ In the following example, request forwarding is retried up to ten times using an
     delta="10"
     first-fast-retry="false">
         <forward-request buffer-request-body="true" />
+</retry>
+
+```
+
+### Example
+
+In the following example, sending a request to a URL other than the defined backend is retried up to three times if the connection is dropped/timed out, or the request results in a server-side error. Since `first-fast-retry` is set to true, the first retry is executed immediately upon the initial request failure. Note that `send-request` must set `ignore-error` to true in order for `response-variable-name` to be null in the event of an error.
+
+```xml
+
+<retry
+    condition="@(context.Variables["response"] == null || ((IResponse)context.Variables["response"]).StatusCode >= 500)"
+    count="3"
+    interval="1"
+    first-fast-retry="true">
+        <send-request 
+            mode="new" 
+            response-variable-name="response" 
+            timeout="3" 
+            ignore-error="true">
+		        <set-url>https://api.contoso.com/products/5</set-url>
+		        <set-method>GET</set-method>
+		</send-request>
 </retry>
 
 ```

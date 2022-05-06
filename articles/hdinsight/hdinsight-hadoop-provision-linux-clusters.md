@@ -4,7 +4,7 @@ description: Set up Hadoop, Kafka, Spark, HBase, or Storm clusters for HDInsight
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18, devx-track-azurecli
-ms.date: 08/06/2020
+ms.date: 03/30/2022
 ---
 
 # Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more

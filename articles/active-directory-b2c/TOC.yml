@@ -31,6 +31,7 @@
     href: tutorial-create-user-flows.md
   - name: 4 - Manage your tenant
     href: tenant-management.md
+    displayName: break glass account, emergence account
   - name: 5 - Clean up and delete tenant
     href: tutorial-delete-tenant.md
 - name: Samples
@@ -233,7 +234,7 @@
       displayName: Username, Email, Phone authorization, Phone sign-in
     - name: Add an identity provider
       href: add-identity-provider.md
-    - name: AD FS
+    - name: AD FS (OpenID Connect)
       href: identity-provider-adfs.md
       displayName: AD-FS, ADFS
     - name: AD FS (SAML)
@@ -273,6 +274,8 @@
       href: identity-provider-linkedin.md
     - name: Microsoft Account
       href: identity-provider-microsoft-account.md
+    - name: Mobile ID
+      href: identity-provider-mobile-id.md
     - name: PingOne (PingIdentity)
       href: identity-provider-ping-one.md
       displayName: Ping identity
@@ -331,8 +334,8 @@
         displayName: TOTP, time-based-one-time password, time-based one-time password, authenticator app, Microsoft authenticator app, mfa, 2fa
       - name: Partner integration
         items:
-        - name: Transmit Security
-          href: partner-bindid.md
+        - name: Asignio
+          href: partner-asignio.md
         - name: BlokSec
           href: partner-bloksec.md
         - name: Haventec
@@ -349,6 +352,8 @@
           href: partner-nevis.md
         - name: Nok Nok
           href: partner-nok-nok.md
+        - name: Transmit Security
+          href: partner-bindid.md
         - name: Trusona
           href: partner-trusona.md
         - name: Twilio
@@ -357,6 +362,8 @@
           href: partner-typingdna.md
         - name: WhoIAM
           href: partner-whoiam.md
+        - name: xID
+          href: partner-xid.md
     - name: Set up direct sign-in
       href: direct-signin.md
   - name: Tokens and session management
@@ -451,6 +458,8 @@
     - name: Identity verification and proofing partners
       href: identity-verification-proofing.md
       displayName: id verify, id verification, azure ad b2c proofing, id proofing
+    - name: eID-Me
+      href: partner-eid-me.md
     - name: Experian
       href: partner-experian.md
     - name: IDology
@@ -662,7 +671,7 @@
 - name: Resources
   items:
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
+    href: https://azure.microsoft.com/updates/?status=nowavailable,inpreview,indevelopment&category=identity,security&query=b2c
   - name: Frequently asked questions
     href: ./faq.yml
     displayName: FAQ
@@ -679,7 +688,7 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework
   - name: Support
-    href: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+    href: find-help-open-support-ticket.md
     displayName: technical
   - name: Videos
     href: azure-ad-external-identities-videos.md

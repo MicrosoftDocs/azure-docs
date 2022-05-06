@@ -148,6 +148,9 @@ By restricting operating system capabilities, you can strengthen the security of
 
 Trusted launch are Gen2 Azure VMs with enhanced security features aimed to protect against “bottom of the stack” threats through attack vectors such as rootkits, boot kits, and kernel-level malware. The following are the enhanced security features of trusted launch, all of which are supported in Azure Virtual Desktop. To learn more about trusted launch, visit [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
 
+>[!NOTE]
+>Bring your own custom image for Trusted Launch VM is not yet supported. When deploying an AVD Host Pool, you will be limited to the list of pre-canned OS images listed in the dropdown "Image" combo box. 
+
 ### Secure Boot
 
 Secure Boot is a mode that platform firmware supports that protects your firmware from malware-based rootkits and boot kits. This mode only allows signed OSes and drivers to start up the machine. 

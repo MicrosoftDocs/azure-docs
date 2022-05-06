@@ -5,9 +5,9 @@ description: Learn how Azure Machine Learning enables you to scale out a scikit-
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: jordane
-author: jpe316
-ms.date: 09/28/2020
+ms.author: larryfr
+author: blackmist
+ms.date: 03/21/2022
 ms.topic: how-to
 ms.custom: devx-track-python
 
@@ -24,13 +24,14 @@ Whether you're training a machine learning scikit-learn model from the ground-up
 
 ## Prerequisites
 
-Run this code on either of these environments:
- - Azure Machine Learning compute instance - no downloads or installation necessary
+You can run this code in either an Azure Machine Learning compute instance, or your own Jupyter Notebook:
 
-    - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md)  to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
-    - In the samples training folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > scikit-learn > train-hyperparameter-tune-deploy-with-sklearn** folder.
+ - Azure Machine Learning compute instance
+    - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to create a compute instance. Every compute instance includes a dedicated notebook server pre-loaded with the SDK and the notebooks sample repository. 
+    - Select the notebook tab in the Azure Machine Learning studio. In the samples training folder, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > scikit-learn > train-hyperparameter-tune-deploy-with-sklearn** folder.
+    - You can use the pre-populated code in the sample training folder to complete this tutorial.
 
- - Your own Jupyter Notebook server
+ - Create a Jupyter Notebook server and run the code in the following sections.
 
     - [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install) (>= 1.13.0).
     - [Create a workspace configuration file](how-to-configure-environment.md#workspace).

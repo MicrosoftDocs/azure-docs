@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 03/22/2022
+ms.date: 03/24/2022
 ms.author: ginle
 ms.custom: mode-api
 ---
@@ -64,13 +64,14 @@ Select **Create** to create a new Azure Health Data Services account.
 
 Now that the workspace is created, you can:
 
-* Deploy FHIR service
-* Deploy DICOM service
-* Deploy a MedTech service and ingest data to your FHIR service
-* Transform your data into different formats and secondary use through our conversion and de-identification APIs
-
+* [Deploy FHIR service](./../healthcare-apis/fhir/fhir-portal-quickstart.md)
+* [Deploy DICOM service](./../healthcare-apis/dicom/deploy-dicom-services-in-azure.md)
+* [Deploy a MedTech service and ingest data to your FHIR service](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md)
+* [Convert your data to FHIR](./../healthcare-apis/fhir/convert-data.md)
 
 [ ![Deploy different services](media/healthcare-apis-deploy-services.png) ](media/healthcare-apis-deploy-services.png)
+
+For more information about Azure Health Data Services workspace, see
 
 >[!div class="nextstepaction"]
 >[Workspace overview](workspace-overview.md)

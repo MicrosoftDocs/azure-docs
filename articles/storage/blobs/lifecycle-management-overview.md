@@ -5,7 +5,7 @@ description: Use Azure Storage lifecycle management policies to create automated
 author: tamram
 
 ms.author: tamram
-ms.date: 02/24/2022
+ms.date: 05/05/2022
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -150,7 +150,9 @@ Lifecycle management supports tiering and deletion of current versions, previous
 | tierToCool                  | Supported for `blockBlob`                  | Supported     | Supported     |
 | enableAutoTierToHotFromCool | Supported for `blockBlob`                  | Not supported | Not supported |
 | tierToArchive               | Supported for `blockBlob`                  | Supported     | Supported     |
-| delete                      | Supported for `blockBlob` and `appendBlob` | Supported     | Supported     |
+| delete<sup>1</sup>          | Supported for `blockBlob` and `appendBlob` | Supported     | Supported     |
+
+<sup>1</sup> When applied to an account with a hierarchical namespace enabled, a delete action removes empty directories. If the directory is not empty, then the delete action removes objects that meet the policy conditions within the first 24-hour cycle. If that action results in an empty directory that also meets the policy conditions, then that directory will be removed within the next 24-hour cycle, and so on.
 
 > [!NOTE]
 > If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.
@@ -384,17 +386,33 @@ For more information about pricing, see [Block Blob pricing](https://azure.micro
 
 ## FAQ
 
-**I created a new policy, why do the actions not run immediately?**
+### I created a new policy. Why do the actions not run immediately?
 
 The platform runs the lifecycle policy once a day. Once you configure a policy, it can take up to 24 hours for some actions to run for the first time.
 
-**If I update an existing policy, how long does it take for the actions to run?**
+### If I update an existing policy, how long does it take for the actions to run?
 
 The updated policy takes up to 24 hours to go into effect. Once the policy is in effect, it could take up to 24 hours for the actions to run. Therefore, the policy actions may take up to 48 hours to complete. If the update is to disable or delete a rule, and enableAutoTierToHotFromCool was used, auto-tiering to Hot tier will still happen. For example, set a rule including enableAutoTierToHotFromCool based on last access. If the rule is disabled/deleted, and a blob is currently in cool and then accessed, it will move back to Hot as that is applied on access outside of lifecycle management. The blob will not then move from Hot to Cool given the lifecycle management rule is disabled/deleted. The only way to prevent autoTierToHotFromCool is to turn off last access time tracking.
 
-**I manually rehydrated an archived blob, how do I prevent it from being moved back to the Archive tier temporarily?**
+### I manually rehydrated an archived blob. How do I prevent it from being moved back to the Archive tier temporarily?
 
 When a blob is moved from one access tier to another, its last modification time doesn't change. If you manually rehydrate an archived blob to hot tier, it would be moved back to archive tier by the lifecycle management engine. Disable the rule that affects this blob temporarily to prevent it from being archived again. Re-enable the rule when the blob can be safely moved back to archive tier. You may also copy the blob to another location if it needs to stay in hot or cool tier permanently.
+
+### The blob prefix match string did not apply the policy to the expected blobs
+
+The blob prefix match field of a policy is a full or partial blob path, which is used to match the blobs you want the policy actions to apply to. The path must start with the container name. If no prefix match is specified, then the policy will apply to all the blobs in the storage account. The format of the prefix match string is `[container name]/[blob name]`.
+
+Keep in mind the following points about the prefix match string:
+
+- A prefix match string like *container1/* applies to all blobs in the container named *container1*. A prefix match string of *container1*, without the trailing forward slash character (/), applies to all blobs in all containers where the container name begins with the string *container1*. The prefix will match containers named *container11*, *container1234*, *container1ab*, and so on.
+- A prefix match string of *container1/sub1/* applies to all blobs in the container named *container1* that begin with the string *sub1/*. For example, the prefix will match blobs named *container1/sub1/test.txt* or *container1/sub1/sub2/test.txt*.
+- The asterisk character `*` is a valid character in a blob name. If the asterisk character is used in a prefix, then the prefix will match blobs with an asterisk in their names. The asterisk does not function as a wildcard character.
+- The question mark character `?` is a valid character in a blob name. If the question mark character is used in a prefix, then the prefix will match blobs with a question mark in their names. The question mark does not function as a wildcard character.
+- The prefix match considers only positive (=) logical comparisons. Negative (!=) logical comparisons are ignored.
+
+### Is there a way to identify the time at which the policy will be executing?
+
+Unfortunately, there is no way to track the time at which the policy will be executing, as it is a background scheduling process. However, the platform will run the policy once per day.
 
 ## Next steps
 

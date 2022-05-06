@@ -49,7 +49,7 @@ If you don't have an Azure Migrate project, verify permissions to create one.
 
 
 1. In the Azure portal, open the subscription, and select **Access control (IAM)**.
-2. In **Check access**, find the relevant account, and click it to view permissions.
+2. In **Check access**, find the relevant account, and select it to view permissions.
 3. Verify that you have **Contributor** or **Owner** permissions.
 
     - If you just created a free Azure account, you're the owner of your subscription.
@@ -86,7 +86,7 @@ Azure Migrate Server Migration needs access to VMware servers to discover VMs yo
 **Task** | **Role/Permissions** | **Details**
 --- | --- | ---
 **VM discovery** | At least a read-only user<br/><br/> Data Center object –> Propagate to Child Object, role=Read-only | User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs, and networks).
-**Replication** |  Create a role (Azure_Site_Recovery) with the required permissions, and then assign the role to a VMware user or group<br/><br/> Data Center object –> Propagate to Child Object, role=Azure_Site_Recovery<br/><br/> Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network -> Network assign<br/><br/> Resource -> Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Tasks -> Create task, update task<br/><br/> Virtual machine -> Configuration<br/><br/> Virtual machine -> Interact -> answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine -> Inventory -> Create, register, unregister<br/><br/> Virtual machine -> Provisioning -> Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine -> Snapshots -> Remove snapshots | User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs, and networks).
+**Replication** |  Create a role (Azure Site Recovery) with the required permissions, and then assign the role to a VMware user or group<br/><br/> Data Center object –> Propagate to Child Object, role=Azure Site Recovery<br/><br/> Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network -> Network assign<br/><br/> Resource -> Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Tasks -> Create task, update task<br/><br/> Virtual machine -> Configuration<br/><br/> Virtual machine -> Interact -> answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine -> Inventory -> Create, register, unregister<br/><br/> Virtual machine -> Provisioning -> Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine -> Snapshots -> Remove snapshots | User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs, and networks).
 
 ### Prepare an account for Mobility service installation
 
@@ -112,7 +112,7 @@ The appliance is used to replication machines to Azure. The appliance is single,
 
 Prepare for the appliance as follows:
 
-- [Review appliance requirements](migrate-replication-appliance.md#appliance-requirements). Generally, you set up the replication appliance a VMware VM using a downloaded OVA file. The template creates a appliance that complies with all requirements.
+- [Review appliance requirements](migrate-replication-appliance.md#appliance-requirements). Generally, you set up the replication appliance a VMware VM using a downloaded OVA file. The template creates an appliance that complies with all requirements.
 - MySQL must be installed on the appliance. [Review](migrate-replication-appliance.md#mysql-installation) installation methods.
 - Review the [public cloud URLs](migrate-replication-appliance.md#url-access), and [Azure Government URLs](migrate-replication-appliance.md#azure-government-url-access) that the appliance machine needs to access.
 - [Review the ports](migrate-replication-appliance.md#port-access) that the replication appliance machine needs to access.
@@ -141,7 +141,7 @@ This procedure describes how to set up the appliance with a downloaded Open Virt
 
 Download the template as follows:
 
-1. In the Azure Migrate project click **Servers** under **Migration Goals**.
+1. In the Azure Migrate project, select **Servers, databases and web apps** under **Migration goals**.
 2. In **Azure Migrate - Servers** > **Azure Migrate: Server Migration**, click **Discover**.
 
     ![Discover VMs](./media/tutorial-migrate-vmware-agent/migrate-discover.png)
@@ -246,11 +246,11 @@ Select VMs for migration.
 9. Check each VM you want to migrate. Then click **Next: Target settings**.
 10. In **Target settings**, select the subscription, and target region to which you'll migrate, and specify the resource group in which the Azure VMs will reside after migration.
 11. In **Virtual Network**, select the Azure VNet/subnet to which the Azure VMs will be joined after migration.  
-12. In  **Cache storage account**, keep the default option to use the cache storage account that is automatically created for the project. Use the drop down if you'd like to specify a different storage account to use as the cache storage account for replication. <br/>
+12. In  **Cache storage account**, keep the default option to use the cache storage account that is automatically created for the project. Use the dropdown if you'd like to specify a different storage account to use as the cache storage account for replication. <br/>
     > [!NOTE]
     >
-    > - If you selected private endpoint as the connectivity method for the Azure Migrate project, grant the Recovery Services vault access to the cache storage account. [**Learn more**](how-to-use-azure-migrate-with-private-endpoints.md#grant-access-permissions-to-the-recovery-services-vault)
-    > - To replicate using ExpressRoute with private peering, create a private endpoint for the cache storage account. [**Learn more**](how-to-use-azure-migrate-with-private-endpoints.md#create-a-private-endpoint-for-the-storage-account-optional)
+    > - If you selected private endpoint as the connectivity method for the Azure Migrate project, grant the Recovery Services vault access to the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault )
+    > - To replicate using ExpressRoute with private peering, create a private endpoint for the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account-1)
 13. In **Availability options**, select:
     -  Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones
     -  Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option.
@@ -314,7 +314,7 @@ When delta replication begins, you can run a test migration for the VMs, before 
 Do a test migration as follows:
 
 
-1. In **Migration goals** > **Servers** > **Azure Migrate: Server Migration**, click **Test migrated servers**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Server Migration**, click **Test migrated servers**.
 
      ![Test migrated servers](./media/tutorial-migrate-vmware-agent/test-migrated-servers.png)
 

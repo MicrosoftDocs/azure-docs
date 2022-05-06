@@ -12,6 +12,9 @@
     href: manage-ddos-protection-powershell.md
   - name: Create a DDoS protection plan - CLI
     href: manage-ddos-protection-cli.md
+  - name: Create a DDoS protection plan - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: manage-ddos-protection-bicep.md
   - name: Create a DDoS protection plan - ARM template
     displayName: Resource Manager
     href: manage-ddos-protection-template.md
@@ -41,7 +44,7 @@
     href: /security/benchmark/azure/baselines/ddos-protection-security-baseline?toc=%2fazure%2fddos-protection%2ftoc.json?toc=/azure/ddos-protection/TOC.json
 - name: How-to guides
   items:
-    - name: Test through simulations
+    - name: Test with simulation partners
       href: test-through-simulations.md
     - name: Manage permissions and restrictions
       href: manage-permissions.md

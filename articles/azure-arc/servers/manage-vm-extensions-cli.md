@@ -1,7 +1,7 @@
 ---
 title: Enable VM extension using Azure CLI
 description: This article describes how to deploy virtual machine extensions to Azure Arc-enabled servers running in hybrid cloud environments using the Azure CLI.
-ms.date: 10/28/2021
+ms.date: 03/30/2022
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ---
@@ -92,12 +92,12 @@ az connectedmachine extension update --name "CustomScriptExtension" --type "Cust
 
 When a new version of a supported VM extension is released, you can upgrade it to that latest release. To upgrade a VM extension, use [az connectedmachine upgrade-extension](/cli/azure/connectedmachine) with the `--machine-name`, `--resource-group`, and `--extension-targets` parameters.
 
-For the `--extension-targets` parameter, you need to specify the extension and the latest version available. To find out what the latest version available is, you can get this information from the **Extensions** page for the selected Arc-enabled server in the Azure portal, or by running [az vm extension image list](/cli/azure/vm/extension/image#az-vm-extension-image-list).
+For the `--extension-targets` parameter, you need to specify the extension and the latest version available. To find out what the latest version available is, you can get this information from the **Extensions** page for the selected Arc-enabled server in the Azure portal, or by running [az vm extension image list](/cli/azure/vm/extension/image#az-vm-extension-image-list). You may specify multiple extensions in a single upgrade request by providing a comma-separated list of extensions, defined by their publisher and type (separated by a period) and the target version for each extension, as shown in the example below.
 
 To upgrade the Log Analytics agent extension for Windows that has a newer version available, run the following command:
 
 ```azurecli
-az connectedmachine upgrade-extension --machine-name "myMachineName" --resource-group "myResourceGroup --extension-targets  --extension-targets "{\"MicrosoftMonitoringAgent\":{\"targetVersion\":\"1.0.18053.0\"}}"" 
+az connectedmachine upgrade-extension --machine-name "myMachineName" --resource-group "myResourceGroup" --extension-targets '{\"Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\":{\"targetVersion\":\"1.0.18053.0\"}}'
 ```
 
 You can review the version of installed VM extensions at any time by running the command [az connectedmachine extension list](/cli/azure/connectedmachine/extension#az-connectedmachine-extension-list). The `typeHandlerVersion` property value represents the version of the extension.

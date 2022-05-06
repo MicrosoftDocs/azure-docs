@@ -21,7 +21,7 @@ Use the Face client library for JavaScript to:
 * [Identify a face](#identify-a-face)
 * [Find similar faces](#find-similar-faces)
 
-[Reference documentation](/javascript/api/overview/azure/cognitive-services/face-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-face) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-face) | [Samples](/samples/browse/?products=azure&term=face&languages=javascript)
+[Reference documentation](/javascript/api/overview/azure/cognitiveservices/face) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-face) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-face) | [Samples](/samples/browse/?products=azure&term=face&languages=javascript)
 
 ## Prerequisites
 
