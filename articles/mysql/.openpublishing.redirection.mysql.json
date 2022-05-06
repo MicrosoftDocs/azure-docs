@@ -59,7 +59,7 @@
         "source_path_from_root": "/articles/mysql/reference-azure-cli.md",
         "redirect_url": "/cli/azure/mysql",
         "redirect_document_id": false
-    }
+    },
     {
         "source_path_from_root": "/articles/mysql/tutorial-provision-mysql-server-using-azure-resource-manager-templates.md",
         "redirect_url": "/azure/mysql/single-server/tutorial-provision-mysql-server-using-azure-resource-manager-templates",
