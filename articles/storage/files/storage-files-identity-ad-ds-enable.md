@@ -5,7 +5,7 @@ author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 05/05/2022
+ms.date: 05/06/2022
 ms.author: kendownie 
 ms.custom: devx-track-azurepowershell
 ---
@@ -67,7 +67,9 @@ Connect-AzAccount
 
 # Define parameters
 # $StorageAccountName is the name of an existing storage account that you want to join to AD
-# $SamAccountName is an AD object that must be less than 20 characters (recommended to be less than 15 characters) and cannot contain any of these characters: ", \ [ ] : ; | = , + * ? < >
+# $SamAccountName is an AD object, see https://docs.microsoft.com/en-us/windows/win32/adschema/a-samaccountname
+# for more information.
+# If you want to use AES256 encryption (recommended), except for the trailing '$', the storage account name must be the same as the computer object's SamAccountName.
 $SubscriptionId = "<your-subscription-id-here>"
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
