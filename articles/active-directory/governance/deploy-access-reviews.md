@@ -319,7 +319,9 @@ To create access reviews for an application, set the **User assignment required?
 
  ![Screenshot that shows planning app assignments.](./media/deploy-access-review/6-plan-applications-assignment-required.png)
 
-Then [assign the users and groups](../manage-apps/assign-user-or-group-access-portal.md) that you want to have access.
+Then [assign the users and groups](../manage-apps/assign-user-or-group-access-portal.md) whose access you want to have reviewed.
+
+Read more about how to [prepare for an access review of users' access to an application](access-reviews-application-preparation.md).
 
 ### Reviewers for an application
 
