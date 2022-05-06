@@ -60,7 +60,15 @@ To access the sign-ins log, you need to be:
 
     - Reports reader
 
+### Who can access applied CA data in the sign-ins log?
 
+Only users with permission to read conditional access data can see applied conditional access policies in the sign-ins log. To see CA data in the sign-ins log, you need to be a user in one of the following roles:
+
+- Company administrator
+- Global reader
+- Security administrator
+- Security reader
+- Conditional access administrator
 
 ## What Azure AD license do you need?
 
