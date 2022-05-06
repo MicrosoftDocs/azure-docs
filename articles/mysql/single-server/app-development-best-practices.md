@@ -138,4 +138,4 @@ To avoid slow queries, you can use indexes. Indexes can help find rows with spec
 
 ### Use EXPLAIN for your SELECT queries
 
-Use the `EXPLAIN` statement to get insights on what MySQL is doing to run your query. It can help you detect bottlenecks or issues with your query. See [How to use EXPLAIN to profile query performance](./how-to-troubleshoot-query-performance.md).
+Use the `EXPLAIN` statement to get insights on what MySQL is doing to run your query. It can help you detect bottlenecks or issues with your query. See [How to use EXPLAIN to profile query performance](how-to-troubleshoot-query-performance.md).
