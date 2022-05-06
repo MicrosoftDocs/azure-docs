@@ -14,7 +14,7 @@ ms.custom: references_regions
 > Autoscale is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Autoscale (preview) lets you scale your session host virtual machines (VMs) in a host pool up or down to optimize deployment costs. You create a scaling plan that can be based on:
+Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down to optimize deployment costs. You create a scaling plan that can be based on:
 
 - Time of day
 - Specific days of the week
@@ -164,7 +164,7 @@ To assign the custom role with the Azure portal to the Azure Virtual Desktop ser
 >
 > 1. Open [Azure Cloud Shell](../cloud-shell/overview.md) with PowerShell as the shell type.
 >
-> 1. Get the object ID and store it in a variable:
+> 1. Get the object ID (which is unique in each Azure tenant) and store it in a variable:
 >
 >    ```powershell
 >    $objId = (Get-AzADServicePrincipal -AppId "9cdead84-a844-4324-93f2-b2e6bb768d07").Id
