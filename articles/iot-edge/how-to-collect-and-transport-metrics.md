@@ -17,7 +17,7 @@ services: iot-edge
 
 You can remotely monitor your IoT Edge fleet using Azure Monitor and built-in metrics integration. To enable this capability on your device, add the metrics-collector module to your deployment and configure it to collect and transport module metrics to Azure Monitor.
 
-> [!VIDEO https://aka.ms/docs/player?id=94a7d988-4a35-4590-9dd8-a511cdd68bee]
+> [!VIDEO https://docs.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=94a7d988-4a35-4590-9dd8-a511cdd68bee]
 
 <a href="/_themes/docs.theme/master/_themes/global/video-embed.html?id=94a7d988-4a35-4590-9dd8-a511cdd68bee" target="_blank">IoT Edge integration with Azure Monitor</a>(4:06)
 
