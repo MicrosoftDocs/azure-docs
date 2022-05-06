@@ -95,7 +95,7 @@ To restore a deleted data warehouse, see [Restore a deleted database](sql-data-w
 
 ## Cross subscription restore
 
-You can perform a cross-subscription restore by follow the guidance [here](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-dedicated-sql-pool-to-a-different-subscription-through-powershell).
+You can perform a cross-subscription restore by follow the guidance [here](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-dedicated-sql-pool-formerly-sql-dw-to-a-different-subscription-through-powershell).
 
 ## Geo-redundant restore
 
