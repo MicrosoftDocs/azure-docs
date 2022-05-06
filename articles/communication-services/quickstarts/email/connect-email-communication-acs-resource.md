@@ -50,7 +50,7 @@ ms.custom: private_preview
 
 ## Next steps
 
-> [How to Send an Email](../../quickstarts/email/send-email.md)
+> [How to send an Email](../../quickstarts/email/send-email.md)
 
 > [Best Practices for Sender Authentication Support in Azure Communication Services Email](../../concepts/email/email-authentication-bestpractice.md)
 
