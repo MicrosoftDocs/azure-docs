@@ -3,15 +3,15 @@ title: What is single sign-on?
 description: Learn about single sign-on for enterprise applications in Azure Active Directory.
 titleSuffix: Azure AD
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: overview
 ms.date: 11/18/2021
-ms.author: davidmu
-ms.reviewer: ergreenl
+ms.author: jomondi
+ms.reviewer: alamaral
 ms.custom: contperf-fy21q1, contperf-fy22q2, contperf-fy22q3
 # Customer intent: As an IT admin, I need to learn about single sign-on and my applications in Azure Active Directory.
 ---
