@@ -1,6 +1,6 @@
 ---
 title: Azure API Management validation policy for GraphQL requests | Microsoft Docs
-description: Reference for an Azure API Management policy to validate and authorize GraphQL requests. Provides policy usage, settings, and examples.
+description: Reference for Azure API Management policies to work with GraphQL APIs. Provides policy usage, settings, and examples.
 services: api-management
 author: dlepow
 ms.service: api-management
@@ -10,17 +10,16 @@ ms.author: danlep
 ms.custom: ignite-fall-2021
 ---
 
-# API Management policy to validate and authorize GraphQL requests (preview)
+# API Management policies to work with GraphQL APIs
 
 This article provides a reference for an API Management policy to validate and authorize requests to a [GraphQL API](graphql-api.md) imported to API Management.
 
 [!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
 
-## Validation policy
+## GraphQL API policies
 
-| Policy | Description |
-| ------ | ----------- |
-| [Validate GraphQL request](#validate-graphql-request) | Validates and authorizes a request to a GraphQL API. |
+- [Validate GraphQL request](#validate-graphql-request) - Validates and authorizes a request to a GraphQL API. 
+- [Set GraphQL resolver](#set-graphql-resolver) - Resolves...
 
 
 ## Validate GraphQL request
@@ -119,6 +118,12 @@ Available actions are described in the following table.
 |`allow`     | The field is passed to the back end.        |
 |`ignore`     | The rule is not valid for this case and the next rule is applied.        |
 
+### Error handling
+
+Failure to validate against the GraphQL schema, or a failure for the request's size or depth, is a request error and results in the request being failed with an errors block (but no data block). 
+
+Similar to the [`Context.LastError`](api-management-error-handling-policies.md#lasterror) property, all GraphQL validation errors are automatically propagated in the `GraphQLErrors` variable. If the errors need to be propagated separately, you can specify an error variable name. Errors are pushed onto the `error` variable and the `GraphQLErrors` variable. 
+
 ### Usage
 
 This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
@@ -127,10 +132,65 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 -   **Policy scopes:** all scopes
 
-## Error handling
+## Set GraphQL resolver
 
-Failure to validate against the GraphQL schema, or a failure for the request's size or depth, is a request error and results in the request being failed with an errors block (but no data block). 
+The `set-graphql-resolver` policy retrieves or sets data for a GraphQL field in an object type specified in a GraphQL schema. Currently the data must be resolved using an HTTP-based data source.
 
-Similar to the [`Context.LastError`](api-management-error-handling-policies.md#lasterror) property, all GraphQL validation errors are automatically propagated in the `GraphQLErrors` variable. If the errors need to be propagated separately, you can specify an error variable name. Errors are pushed onto the `error` variable and the `GraphQLErrors` variable. 
+* This policy is invoked only when a GraphQL query is executed. 
+* The policy resolves data for a single field. To resolve data for multiple fields, you can configure multiple occurences of this policy in a policy definition.
+* The context for the HTTP request and HTTP response (if specified) differs from the context for the original gateway API request: 
+    * The HTTP request context contains arguments that are passed in the GraphQL query as its body. 
+    * The HTTP response context is the response from the independent HTTP call made by the resolver, not the context for the complete response for the gateway request. 
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
+
+### Policy statement
+
+```xml
+<set-graphql-resolver parent-type="type" field="field"> 
+    <http-data-source> 
+        <http-request> 
+            <set-method>HTTP method</set-method> 
+            <set-url>URL</set-url>
+            [...]  
+        </http-request> 
+        <http-response>
+            [...]
+        </http-response>
+      </http-data-source> 
+</set-graphql-resolver> 
+```
+
+### Example
+
+
+### Elements
+
+| Name         | Description                                                                                                                                   | Required |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `set-graphql-resolver` | Root element.                                                                                                                               | Yes      |
+| `http-data-source` | Specifies the configuration for the HTTP request and response that are used to resolve data for the given `parent-type` and `field`.   | Yes |
+| `http-request` | Specifies a URL and policies to configure the HTTP request used to resolve the specified GraphQL query. Each policy can be specified at most once. <br/><br/>**Required policy**: [set-method](api-management-advanced-policies.md#SetRequestMethod)<br/><br/>**Optional policies**: [set-header](api-management-transformation-policies.md#SetHTTPheader), [set-body](api-management-transformation-policies.md#SetBody), authentication-token-store, [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity) | Yes |
+| `set-url` | The URL of the request. | Yes |
+| `http-response` |  Optionally specifies policies to configure the HTTP response used to resolve the specified GraphQL query. Each policy can be specified at most once. <br/><br/>**Optional policies**: [set-body](/api-management-transformation-policies.md#SetBody), [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML), [xml-to-json](api-management-transformation-policies#ConvertXMLtoJSON), [find-and-replace](api-management-transformation-policies.md#Findandreplacestringinbody) | No |
+
+### Attributes
+
+| Name                       | Description                                                                                                                                                            | Required | Default |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
+| `parent-type`| An object type in the GraphQL schema.  |   Yes    | N/A   |
+| `field`| A field of the specified `parent-type` in the GraphQL schema.  |   Yes    | N/A   |
+
+> [!NOTE]
+> Currently, the values of `parent-type` and `field` aren't validated by this policy. If they aren't valid, the policy is ignored, and the GraphQL query is forwarded to a GraphQL endpoint (if one is configured).
+
+### Usage
+
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
+
+-   **Policy sections:** backend
+
+-   **Policy scopes:** all scopes
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

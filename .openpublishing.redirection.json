@@ -21,7 +21,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/germany/germany-get-started-connect-with-vs.md",
+      "source_path": "articles/germany/graphql-validation-policies.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-get-started-connect-with-vs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/germany-get-started-connect-with-vs.md",
       "redirect_url": "/previous-versions/azure/germany/germany-get-started-connect-with-vs",
       "redirect_document_id": false
     },
@@ -32,7 +37,7 @@
     },
     {
       "source_path": "articles/germany/germany-image-gallery.md",
-      "redirect_url": "/previous-versions/azure/germany/germany-image-gallery",
+      "redirect_url": "/azure/api-management/validation-policies",
       "redirect_document_id": false
     },
     {

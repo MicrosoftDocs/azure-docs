@@ -365,8 +365,8 @@
               href: api-management-cross-domain-policies.md
             - name: Distributed Application Runtime (Dapr) integration policies
               href: api-management-dapr-policies.md
-            - name: GraphQL validation policies
-              href: graphql-validation-policies.md
+            - name: GraphQL policies
+              href: graphql-policies.md
             - name: Transformation policies
               href: api-management-transformation-policies.md
             - name: Validation policies
