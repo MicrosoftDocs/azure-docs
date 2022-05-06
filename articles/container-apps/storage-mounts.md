@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 05/04/2022
+ms.date: 05/06/2022
 ms.author: cshoe
 zone_pivot_groups: container-apps-config-types
 ---
