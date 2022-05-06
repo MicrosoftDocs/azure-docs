@@ -78,3 +78,4 @@ Follow these steps:
 - [Run a backup immediately](./backup-azure-vms-first-look-arm.md#run-a-backup-immediately)
 - [Verify Backup job status](./backup-azure-arm-vms-prepare.md#verify-backup-job-status)
 - [Restore Azure virtual machines](./backup-azure-arm-restore-vms.md#restore-disks)
+- [Troubleshoot VM backup](backup-azure-vms-troubleshoot#common-issues.md#usererrormigrationfromtrustedlaunchvmtonontrustedvmnotallowed)
