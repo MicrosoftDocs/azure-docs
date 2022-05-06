@@ -22,7 +22,7 @@ sections:
     - question:
         Does Document Translation translate content from scanned documents?
       answer: |
-        Yes. Currently, Document Translation can translate content from *scanned PDF* documents.
+        Currently, Document Translation can translate content from *scanned PDF* documents.
 
     - question:
         Can a page range or specific pages be selected in the Translator service API call?
