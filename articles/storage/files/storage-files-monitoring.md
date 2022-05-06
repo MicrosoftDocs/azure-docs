@@ -128,7 +128,7 @@ If you choose to stream your logs to an event hub, you'll pay for the volume of 
 
 #### Send to a partner solution
 
-You can also send platform metrics and logs to certain Azure Monitor partners. You must first install a partner integration into your subscription. Configuration options will vary by partner. Check the [Azure Monitor partner integrations documentation](../../partner-solutions/overview) for details.
+You can also send platform metrics and logs to certain Azure Monitor partners. You must first install a partner integration into your subscription. Configuration options will vary by partner. Check the [Azure Monitor partner integrations documentation](../../partner-solutions/overview.md) for details.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -200,7 +200,7 @@ For more information, see [Stream Azure Resource Logs to Log Analytics workspace
 
 #### Send to a partner solution
 
-You can also send platform metrics and logs to certain Azure Monitor partners. You must first install a partner integration into your subscription. Configuration options will vary by partner. Check the [Azure Monitor partner integrations documentation](../../partner-solutions/overview) for details.
+You can also send platform metrics and logs to certain Azure Monitor partners. You must first install a partner integration into your subscription. Configuration options will vary by partner. Check the [Azure Monitor partner integrations documentation](../../partner-solutions/overview.md) for details.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -270,7 +270,7 @@ Here's an example:
 
 #### Send to a partner solution
 
-You can also send platform metrics and logs to certain Azure Monitor partners. You must first install a partner integration into your subscription. Configuration options will vary by partner. Check the [Azure Monitor partner integrations documentation](../../partner-solutions/overview) for details.
+You can also send platform metrics and logs to certain Azure Monitor partners. You must first install a partner integration into your subscription. Configuration options will vary by partner. Check the [Azure Monitor partner integrations documentation](../../partner-solutions/overview.md) for details.
 
 ---
 
