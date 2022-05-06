@@ -197,7 +197,7 @@
       href: https://pypi.org/project/azure-mgmt-dnsresolver
     - name: REST
       href: /rest/api/dns/dnsresolver/dns-resolvers
-    - name: Typescript.Javascript
+    - name: Typescript/Javascript
       href: https://www.npmjs.com/package/@azure/arm-dnsresolver
     - name: Go
       href: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/dnsresolver/armdnsresolver
