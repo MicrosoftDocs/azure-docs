@@ -109,7 +109,7 @@ The following example ARM template deploys a Container Apps environment.
               "accountName": "[parameters('storage_account_name')]",
               "accountKey": "[parameters('storage_account_key')]",
               "shareName": "[parameters('storage_share_name')]",
-              "accessMode": "ReadOnly"
+              "accessMode": "ReadWrite"
             }
           }
         }
@@ -353,7 +353,7 @@ The following example ARM template deploys a container app.
             {
               "name": "azure-files-volume",
               "storageType": "AzureFile",
-              "storageName": "[parameters('storage_share_name')]"
+              "storageName": "myazurefiles"
             }
           ]
         }
