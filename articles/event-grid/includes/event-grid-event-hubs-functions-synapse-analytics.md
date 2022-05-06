@@ -34,7 +34,7 @@ In this article, you take the following steps:
 To complete this tutorial, you must have:
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- [Visual studio 2019](https://www.visualstudio.com/vs/) with workloads for: .NET desktop development, Azure development, ASP.NET and web development, Node.js development, and Python development.
+- [Visual studio](https://www.visualstudio.com/vs/) with workloads for: .NET desktop development, Azure development, ASP.NET and web development, Node.js development, and Python development.
 - Download the [EventHubsCaptureEventGridDemo sample project](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) to your computer.
     - WindTurbineDataGenerator – A simple publisher that sends sample wind turbine data to a capture-enabled event hub
     - FunctionDWDumper – An Azure Function that receives a notification from Azure Event Grid when an Avro file is captured to the Azure Storage blob. It receives the blob’s URI path, reads its contents, and pushes this data to Azure Synapse Analytics (dedicated SQL pool).
@@ -127,7 +127,7 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
     :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/resources-in-resource-group.png" alt-text="Resources in the resource group" lightbox="media/event-grid-event-hubs-functions-synapse-analytics/resources-in-resource-group.png":::
 
 ### Create a table in Azure Synapse Analytics
-Create a table in your data warehouse by running the [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) script. To run the script, you can use Visual Studio or the Query Editor in the portal. The following steps show you how to use the Query Editor: 
+In this section, you create a table in the dedicated SQL pool you created earlier.
 
 1. In the list of resources in the resource group, select your **dedicated SQL pool**. 
 2. On the **Dedicated SQL pool** page, in the **Common Tasks** section on the left menu, select **Query editor (preview)**. 
@@ -166,7 +166,7 @@ First, get the publish profile for the Functions app from the Azure portal. Then
 1. On the **Function App** page for your app, select **Get publish profile** on the command bar.
 
     :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/get-publish-profile.png" alt-text="Screenshot showing the selection of the **Get Publish Profile** button on the command bar of the function app page.":::
-1. Download and save the file into the **FunctionEGDDumper** folder of the **EventHubsCaptureEventGridDemo** folder. 
+1. Download and save the file into the **FunctionEGDDumper** subfolder of the **EventHubsCaptureEventGridDemo** folder. 
 
 ### Use the publish profile to publish the Functions app
 
@@ -178,8 +178,8 @@ First, get the publish profile for the Functions app from the Azure portal. Then
 
     :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/import-profile.png" alt-text="Screenshot showing the selection **Import Profile** on the **Publish** dialog box.":::
 1. On the **Import profile** tab, select the publish settings file that you saved earlier in the **FunctionEGDWDumper** folder, and then select **Finish**. 
-1. When Visual Studio has configured the profile, select **Publish**.
-2. In the tab that has the **Azure Function** page open, select  **Functions** on the left menu. Confirm that the **EventGridTriggerMigrateData** function shows up in the list. If you don't see it, try publishing from Visual Studio again, and then refresh the page in the portal. 
+1. When Visual Studio has configured the profile, select **Publish**. Confirm that the publishing succeeded.
+2. In the web browser that has the **Azure Function** page open, select  **Functions** on the left menu. Confirm that the **EventGridTriggerMigrateData** function shows up in the list. If you don't see it, try publishing from Visual Studio again, and then refresh the page in the portal. 
 
     :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/confirm-function-creation.png" alt-text="Confirm function creation":::    
 
