@@ -47,3 +47,14 @@ ms.custom: private_preview
 
     :::image type="content" source="./media/email-acs-domains-connect-disconnect.png" alt-text="Disconnect Domains":::
 
+
+## Next steps
+
+> [How to Send an Email](../../quickstarts/email/send-email.md)
+
+> [Best Practices for Sender Authentication Support in Azure Communication Services Email](../../concepts/email/email-authentication-bestpractice.md)
+
+
+The following documents may be interesting to you:
+
+- Familiarize yourself with the [Email client library](../../concepts/email/sdk-features.md)
