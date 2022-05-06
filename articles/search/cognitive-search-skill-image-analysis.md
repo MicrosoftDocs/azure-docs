@@ -51,15 +51,13 @@ Parameters are case-sensitive.
 
 | Output name   | Description                   |
 |---------------|-------------------------------|
-| `adult` | Output is a single [Adult](../cognitive-services/computer-vision/concept-detecting-adult-content.md) object of a complex type, consisting of boolean fields (`isAdultContent`, `isGoryContent`, `isRacyContent`) and double type scores (`AdultScore`, `GoreScore`, `RacyScore`). |
-| `brands` | Output is an array of [Brand](../cognitive-services/computer-vision/concept-brand-detection.md) objects, where the object is a complex type consisting of `Name` (string) and a `Confidence` score (double). It also returns a `Rectangle` with four bounding box coordinates (in pixels) indicating placement inside the image. |
-| `categories` | Output is an array of [category](../cognitive-services/computer-vision/concept-categorizing-images.md) objects, where each category object is a complex type consisting of a `Name` (string), `Score` (double), and optional `Detail` that contains celebrity or landmark details. See the [category taxonomy](../cognitive-services/Computer-vision/Category-Taxonomy.md) for the full list of category names. A detail is a nested complex type. A celebrity detail consists of a name, confidence score, and face bounding box. A landmark detail consists of a name and confidence score.|
-| `description` | Output is a single [Description](../cognitive-services/computer-vision/concept-describing-images.md) object of a complex type, consisting of lists of `Tags` and `Caption` (an array consisting of `Text` (string) and `Confidence` (double)). |
-| `faces` | Complex type consisting of `Age`, `Gender`, and `FaceBoundingBox` having four bounding box coordinates (in pixels) indicating placement inside the image.|
-| `objects` | Output is an array of [visual feature objects](../cognitive-services/computer-vision/concept-object-detection.md) Each object is a complex type, consisting of `Object` (string), `Confidence` (double), `Rectangle` (with four bounding box coordinates indicating placement inside the image), and an `ObjectHierarchyParent` that contains a child object, confidence and parent. | 
-| `tags` | Output is an array of [ImageTag](../cognitive-services/computer-vision/concept-detecting-image-types.md) objects, where a tag object is a complex type consisting of `Name` (string), `Hint` (string), and `Confidence` (double). The addition of a hint is rare. It's only generated if a tag is ambiguous. For example, an image tagged as "curling" might have a hint of "sports" to better indicate its content. |
-
-<!-- Portal (skillset designer) doesn't support inline editing for adult, brands, object outputs -->
+| `adult` | Output is a single [adult](../cognitive-services/computer-vision/concept-detecting-adult-content.md) object of a complex type, consisting of boolean fields (`isAdultContent`, `isGoryContent`, `isRacyContent`) and double type scores (`adultScore`, `goreScore`, `racyScore`). |
+| `brands` | Output is an array of [brand](../cognitive-services/computer-vision/concept-brand-detection.md) objects, where the object is a complex type consisting of `name` (string) and a `confidence` score (double). It also returns a `rectangle` with four bounding box coordinates (`x`, `y`, `w`, `h`, in pixels) indicating placement inside the image. For the rectangle, `x` and `y` are the top left. Bottom left is `x`, `y+h`. Top right is `x+w`, `y`. Bottom right is `x+w`, `y+h`.|
+| `categories` | Output is an array of [category](../cognitive-services/computer-vision/concept-categorizing-images.md) objects, where each category object is a complex type consisting of a `name` (string), `score` (double), and optional `detail` that contains celebrity or landmark details. See the [category taxonomy](../cognitive-services/Computer-vision/Category-Taxonomy.md) for the full list of category names. A detail is a nested complex type. A celebrity detail consists of a name, confidence score, and face bounding box. A landmark detail consists of a name and confidence score.|
+| `description` | Output is a single [description](../cognitive-services/computer-vision/concept-describing-images.md) object of a complex type, consisting of lists of `tags` and `caption` (an array consisting of `Text` (string) and `confidence` (double)). |
+| `faces` | Complex type consisting of `age`, `gender`, and `faceBoundingBox` having four bounding box coordinates (in pixels) indicating placement inside the image. Coordinates are `top`, `left`, `width`, `height`.|
+| `objects` | Output is an array of [visual feature objects](../cognitive-services/computer-vision/concept-object-detection.md) Each object is a complex type, consisting of `object` (string), `confidence` (double), `rectangle` (with four bounding box coordinates indicating placement inside the image), and a `parent` that contains an object name and confidence . | 
+| `tags` | Output is an array of [imageTag](../cognitive-services/computer-vision/concept-detecting-image-types.md) objects, where a tag object is a complex type consisting of `name` (string), `hint` (string), and `confidence` (double). The addition of a hint is rare. It's only generated if a tag is ambiguous. For example, an image tagged as "curling" might have a hint of "sports" to better indicate its content. |
 
 ## Sample skill definition
 
@@ -112,6 +110,8 @@ Parameters are case-sensitive.
 
 ### Sample index
 
+For single objects (such as `adult` and `description`), you can structure them in the index as a `Collection(Edm.ComplexType)` to return `adult` and `description` output for all of them. For more information about mapping outputs to index fields, see [Flattening information from complex types](cognitive-search-output-field-mapping.md#flattening-information-from-complex-types).
+
 ```json
 {
     "fields": [
@@ -142,7 +142,7 @@ Parameters are case-sensitive.
         },
         {
             "name": "adult",
-            "type": "Collection(Edm.ComplexType)",
+            "type": "Edm.ComplexType",
             "fields": [
                 {
                     "name": "isAdultContent",
@@ -205,6 +205,40 @@ Parameters are case-sensitive.
                     "searchable": false,
                     "filterable": false,
                     "facetable": false
+                },
+                {
+                    "name": "rectangle",
+                    "type": "Edm.ComplexType",
+                    "fields": [
+                        {
+                            "name": "x",
+                            "type": "Edm.Int32",
+                            "searchable": false,
+                            "filterable": false,
+                            "facetable": false
+                        },
+                        {
+                            "name": "y",
+                            "type": "Edm.Int32",
+                            "searchable": false,
+                            "filterable": false,
+                            "facetable": false
+                        },
+                        {
+                            "name": "w",
+                            "type": "Edm.Int32",
+                            "searchable": false,
+                            "filterable": false,
+                            "facetable": false
+                        },
+                        {
+                            "name": "h",
+                            "type": "Edm.Int32",
+                            "searchable": false,
+                            "filterable": false,
+                            "facetable": false
+                        }
+                    ]
                 }
             ]
         },
@@ -350,14 +384,28 @@ Parameters are case-sensitive.
                     "type": "Collection(Edm.ComplexType)",
                     "fields": [
                         {
-                            "name": "x",
+                            "name": "top",
                             "type": "Edm.Int32",
                             "searchable": false,
                             "filterable": false,
                             "facetable": false
                         },
                         {
-                            "name": "y",
+                            "name": "left",
+                            "type": "Edm.Int32",
+                            "searchable": false,
+                            "filterable": false,
+                            "facetable": false
+                        },
+                        {
+                            "name": "width",
+                            "type": "Edm.Int32",
+                            "searchable": false,
+                            "filterable": false,
+                            "facetable": false
+                        },
+                        {
+                            "name": "height",
                             "type": "Edm.Int32",
                             "searchable": false,
                             "filterable": false,
@@ -384,6 +432,60 @@ Parameters are case-sensitive.
                     "searchable": false,
                     "filterable": false,
                     "facetable": false
+                },
+                {
+                    "name": "rectangle",
+                    "type": "Edm.ComplexType",
+                    "fields": [
+                        {
+                            "name": "x",
+                            "type": "Edm.Int32",
+                            "searchable": false,
+                            "filterable": false,
+                            "facetable": false
+                        },
+                        {
+                            "name": "y",
+                            "type": "Edm.Int32",
+                            "searchable": false,
+                            "filterable": false,
+                            "facetable": false
+                        },
+                        {
+                            "name": "w",
+                            "type": "Edm.Int32",
+                            "searchable": false,
+                            "filterable": false,
+                            "facetable": false
+                        },
+                        {
+                            "name": "h",
+                            "type": "Edm.Int32",
+                            "searchable": false,
+                            "filterable": false,
+                            "facetable": false
+                        }
+                    ]
+                },
+                {
+                    "name": "parent",
+                    "type": "Edm.ComplexType",
+                    "fields": [
+                        {
+                            "name": "object",
+                            "type": "Edm.String",
+                            "searchable": true,
+                            "filterable": false,
+                            "facetable": false
+                        },
+                        {
+                            "name": "confidence",
+                            "type": "Edm.Double",
+                            "searchable": false,
+                            "filterable": false,
+                            "facetable": false
+                        }
+                    ]
                 }
             ]
         },
@@ -430,7 +532,7 @@ The target field can be a complex field or collection. The index definition spec
         "targetFieldName": "adult"
     },
     {
-        "sourceFieldName": "/document/normalized_images/*/brands/*/name",
+        "sourceFieldName": "/document/normalized_images/*/brands/*",
         "targetFieldName": "brands"
     },
     {
