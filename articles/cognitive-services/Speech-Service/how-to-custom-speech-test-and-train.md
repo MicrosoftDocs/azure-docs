@@ -50,6 +50,17 @@ Files should be grouped by type into a dataset and uploaded as a .zip file. Each
 > [!TIP]
 > When you train a new model, start with plain-text data or structured-text data. This data will improve the recognition of special terms and phrases. Training with text is much faster than training with audio (minutes versus days).
 
+
+The following table shows speech recognition scenarios and lists source materials to consider.
+
+| Scenario | Plain text data and <br> structured text data | Audio + human-labeled transcripts | New words with pronunciation |
+|--- |--- |--- |--- |
+| Call center | Marketing documents, website, product reviews related to call center activity | Call center calls transcribed by humans | Terms that have ambiguous pronunciations (see the *Xbox* example in the preceding section) |
+| Voice assistant | Lists of sentences that use various combinations of commands and entities | Recorded voices speaking commands into device, transcribed into text | Names (movies, songs, products) that have unique pronunciations |
+| Dictation  | Written input, such as instant messages or emails | Similar to preceding examples | Similar to preceding examples |
+| Video closed captioning | TV show scripts, movies, marketing content, video summaries | Exact transcripts of videos | Similar to preceding examples |
+| | |
+
 ## Audio + human-labeled transcript data for training or testing
 
 You can use audio + human-labeled transcript data for both training and testing purposes. You must provide human-labeled transcriptions (word by word) for comparison:

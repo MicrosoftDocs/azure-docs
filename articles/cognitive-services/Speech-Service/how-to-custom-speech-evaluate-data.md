@@ -45,17 +45,18 @@ By analyzing individual files, you can determine what type of errors exist, and 
 
 ## Create a test
 
-If you want to test the quality of the Microsoft speech-to-text baseline model or a custom model that you've trained, you can compare two models side by side. The comparison includes WER and recognition results. A custom model is ordinarily compared with the Microsoft baseline model.
+If you want to test the quality of the Microsoft speech-to-text baseline model or a custom model that you've trained, you can compare models side by side. The comparison includes WER and recognition results. A custom model is ordinarily compared with the Microsoft baseline model.
 
 To evaluate models side by side, do the following:
 
 1. Sign in to the [Speech Studio](https://speech.microsoft.com/customspeech).
-
-1. Select **Speech-to-text** > **Custom Speech** > **\<name of project>** > **Testing**.
-1. Select **Add Test**.
-1. Select **Evaluate accuracy**. Give the test a name and description, and then select your audio + human-labeled transcription dataset.
-1. Select up to two models that you want to test.
-1. Select **Create**.
+1. Under **Speech-to-text** select **Custom Speech** > Your project name > **Test models**.
+1. Select **Create new test**.
+1. Select **Evaluate accuracy** > **Next**. 
+1. Select one audio + human-labeled transcription dataset, and then select **Next**.
+1. Select up to two models to evaluate, and then select **Next**.
+1. Enter the test name and description, and then select **Next**.
+1. Review the test details, and then select **Save and close**.
 
 After your test has been successfully created, you can compare the results side by side.
 
@@ -77,7 +78,7 @@ Speech recognition scenarios vary by audio quality and language (vocabulary and 
 | Video closed captioning | Varied, including varied microphone use, added music | Varied, from meetings, recited speech, musical lyrics | Read, prepared, or loosely structured |
 | | |
 
-Different scenarios produce different quality outcomes. The following table examines how content from these four scenarios rates in the [WER](how-to-custom-speech-evaluate-data.md). The table shows which error types are most common in each scenario.
+Different scenarios produce different quality outcomes. The following table examines how content from these four scenarios rates in the [WER](how-to-custom-speech-evaluate-data.md). The table shows which error types are most common in each scenario. The insertion, substitution, and deletion error rates help you determine what kind of data to add to improve the model.
 
 | Scenario | Speech recognition quality | Insertion errors | Deletion errors | Substitution errors |
 |--- |--- |--- |--- |--- |
@@ -87,7 +88,7 @@ Different scenarios produce different quality outcomes. The following table exam
 | Video closed captioning | Depends on video type (can be <&nbsp;50%&nbsp;WER) | Low | Can be high because of music, noises, microphone quality | Jargon might cause these errors |
 | | |
 
-The insertion, substitution, and deletion error rates help you determine what kind of data to add to improve the model.
+
 
 ## Improve model recognition
 
@@ -143,17 +144,7 @@ Words that are made up or highly specialized might have unique pronunciations. T
 > [!NOTE]
 > This technique is available for only certain languages at this time. To see which languages support customization of pronunciation, search for "Pronunciation" in the **Customizations** column in the [speech-to-text table](language-support.md#speech-to-text).
 
-## Sources by scenario
 
-The following table shows voice recognition scenarios and lists source materials to consider within the three previously mentioned training content categories.
-
-| Scenario | Plain text data and <br> structured text data | Audio + human-labeled transcripts | New words with pronunciation |
-|--- |--- |--- |--- |
-| Call center | Marketing documents, website, product reviews related to call center activity | Call center calls transcribed by humans | Terms that have ambiguous pronunciations (see the *Xbox* example in the preceding section) |
-| Voice assistant | Lists of sentences that use various combinations of commands and entities | Recorded voices speaking commands into device, transcribed into text | Names (movies, songs, products) that have unique pronunciations |
-| Dictation  | Written input, such as instant messages or emails | Similar to preceding examples | Similar to preceding examples |
-| Video closed captioning | TV show scripts, movies, marketing content, video summaries | Exact transcripts of videos | Similar to preceding examples |
-| | |
 
 ## Next steps
 
