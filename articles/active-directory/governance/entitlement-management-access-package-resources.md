@@ -116,7 +116,7 @@ You can have Azure AD automatically assign users access to an Azure AD enterpris
 Applications can have multiple roles. When adding an application to an access package, if that application has more than one role, you will need to specify the appropriate role for those users in each access package. If you are developing applications, you can read more about how those roles are added to your applications in [How to: Configure the role claim issued in the SAML token for enterprise applications](../develop/active-directory-enterprise-app-role-management.md).
 
 > [!NOTE]
-> If an application has multiple roles, and more than one role of that application are in an access package, then the user will receive all the roles.  If instead you want users to only have some of the roles, then you will need to create multiple access packages in the catalog, with separate access packages for each of roles.
+> If an application has multiple roles, and more than one role of that application are in an access package, then the user will receive all the roles.  If instead you want users to only have some of the roles, then you will need to create multiple access packages in the catalog, with separate access packages for each of the roles.
 
 Once an application role is part of an access package:
 
