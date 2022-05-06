@@ -28,8 +28,6 @@ Follow the steps below to understand where is the issue. Start by checking if he
   describe 'table_name'
   ```
 
-![TroubleshootDataRetentionTTLIssuesExpiredDataNotBeingDeletedStorage_1.png](/.attachments/TroubleshootDataRetentionTTLIssuesExpiredDataNotBeingDeletedStorage_1-749c4ae8-ffe6-4139-bcce-f7ec0192cbe2.png)
-
 2)  If not configured, default TTL is set to 'FOREVER'. There are 2 possibilities why data is not expired as expected and removed from query result:
 * a)  If TTL has any other value than 'FOREVER', observe the value for column family and note down the value in seconds(pay special attention to value correlated with the unit measure as cell TTL is in ms, but column family TTL is in seconds) to confirm if it is the expected one. If the observed value is not correct, fix that first.
 * b) If TTL value is 'FOREVER' for all column families, configure TTL as first step and afterwards monitor if data is expired as expected.
@@ -46,8 +44,6 @@ Follow the steps below to understand where is the issue. Start by checking if he
   hdfs dfs -ls -R /hbase/data/default/table_name/ | grep "column_family_name"
   ```
 
-![TroubleshootDataRetentionTTLIssuesExpiredDataNotBeingDeletedStorage_2.png](/.attachments/TroubleshootDataRetentionTTLIssuesExpiredDataNotBeingDeletedStorage_2-e3bb0317-7997-40d2-b456-5c2ea0f5e07d.png)
-
 5)  Likely, there will be more results shown in the output, one result for each region ID that is part of the table and between 0 and more results for StoreFiles present under each region name, for the selected ColumnFamily. To count the overall number of rows in the result output above, run the following command:
 
   ```
@@ -63,9 +59,6 @@ flush 'table_name'
   ```
 
 7)  Observe the result by running again in  bash shell the command ``hdfs dfs -ls -R /hbase/data/default/table_name/ | grep "column_family_name"`` An additional store file is created compared to previous result output for each region where data is modified, the StoreFile will include current content of MemStore for that region:
-
-
-![TroubleshootDataRetentionTTLIssuesExpiredDataNotBeingDeletedStorage_3.png](/.attachments/TroubleshootDataRetentionTTLIssuesExpiredDataNotBeingDeletedStorage_3-c8088b94-e158-484b-84b7-6a52bd9dd0f4.png)
 
 
 ### Check the number and size of StoreFiles per table per region after major compaction
@@ -90,12 +83,9 @@ flush 'table_name'
 
 11) When the compaction status appears as "NONE" in hbase shell, if you switch quickly to bash and run command ``hdfs dfs -ls -R /hbase/data/default/table_name/ | grep "column_family_name"``, you will notice that an extra StoreFile has been created in addition to previous ones per region per ColumnFamily and after several moments only the last created StoreFile is kept per region per column family:
 
-![TroubleshootDataRetentionTTLIssuesExpiredDataNotBeingDeletedStorage_4.png](/.attachments/TroubleshootDataRetentionTTLIssuesExpiredDataNotBeingDeletedStorage_4-2c871ba7-4533-4b66-8120-90771f8f4a81.png)
-
 
 12) For the example region above, once the extra moments elapse, we can notice that one single StoreFile remained and the size occupied by this file on the storage is reduced as major compaction occurred and at this point any expired data that has not been deleted before(by another major compaction), will be deleted after running current major compaction operation:
 
-![TroubleshootDataRetentionTTLIssuesExpiredDataNotBeingDeletedStorage_5.png](/.attachments/TroubleshootDataRetentionTTLIssuesExpiredDataNotBeingDeletedStorage_5-fb09d0ac-cc29-4f7a-9e95-718eea695a80.png)
 
 > [!NOTE]
 > For this troubleshooting exercise we triggered the major compaction manually. But in practice, doing that manually for many tables might be time consuming. By default, major compaction is disabled on HDInsight cluster. The main reason for keeping major compaction disabled by default is because the performance of the table operations is impacted when a major compaction is in progress. However, you can enable major compaction by configuring the value for the property hbase.hregion.majorcompaction in ms or can use a cron tab job or another external system to schedule compaction at a time convenient for you, with lower workload. 
