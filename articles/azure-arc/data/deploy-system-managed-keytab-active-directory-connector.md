@@ -39,7 +39,7 @@ Before you proceed, you must have:
 
 The AD domain service account should have sufficient permissions to automatically create and delete users accounts inside the provided organizational unit (OU) in the active directory. 
 
-Gran the following permissions - scoped to the Organizational Unit (OU) - to the domain service account:
+Grant the following permissions - scoped to the Organizational Unit (OU) - to the domain service account:
  
 - Read all properties
 - Write all properties
@@ -47,7 +47,7 @@ Gran the following permissions - scoped to the Organizational Unit (OU) - to the
 - Delete User objects
 - Reset Password for Descendant User objects
 
-To know more further details about how to set up OU and AD account, go to [Deploy Azure Arc-enabled data services in Active Directory authentication with system-managed keytab - prerequisites](active-directory-prerequisites.md)
+For details about how to set up OU and AD account, go to [Deploy Azure Arc-enabled data services in Active Directory authentication with system-managed keytab - prerequisites](active-directory-prerequisites.md)
 
 ## Input for deploying Active Directory connector in system-managed keytab mode
 

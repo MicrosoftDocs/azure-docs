@@ -57,9 +57,9 @@ New-ADOrganizationalUnit -Name "<name>" -Path "<Distinguished name of the direct
 
 The examples in this article use `arcou` for the OU name.
 
-![Active Directory organizational unit](media/active-directory-deployment/start-new-organizational-unit.png)
+![Screenshot of Active Directory Users and computers menu.](media/active-directory-deployment/start-new-organizational-unit.png)
 
-![New object - organizational unit](media/active-directory-deployment/new-organizational-unit.png)
+![Screenshot of new object - organizational unit dialog.](media/active-directory-deployment/new-organizational-unit.png)
 
 ### Create the domain service account (DSA)
 
@@ -69,7 +69,7 @@ Create the Active Directory user that you will use as the domain service account
 
 To create a new user in AD, you can right-click the domain or the OU and select **New** > **User**:
 
-![Active Directory users dialog](media/active-directory-deployment/start-ad-new-user.png)
+![Screenshot of user properties.](media/active-directory-deployment/start-ad-new-user.png)
 
 This account will be referred to as *arcdsa* in this article.
 
@@ -97,7 +97,7 @@ Whether you have created a new account for the DSA or are using an existing Acti
 
 1. Select **Add...** and add the **arcdsa** user.
 
-    ![Add user](./media/active-directory-deployment/add-user.png)
+    ![Screenshot of add user dialog.](./media/active-directory-deployment/add-user.png)
 
 1. Select the **arcdsa** user and clear all permissions, then select **Advanced**.
 
@@ -109,7 +109,7 @@ Whether you have created a new account for the DSA or are using an existing Acti
 
     - Set **Applies To** to **This Object and all descendant objects**.
 
-        ![Set allow for properties](./media/active-directory-deployment/set-permissions.png)
+        ![Screenshot of permission entries.](./media/active-directory-deployment/set-permissions.png)
 
     - Scroll down to the bottom, and select **Clear all**.
 

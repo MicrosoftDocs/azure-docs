@@ -197,7 +197,7 @@ az arcdata ad-connector create
 --netbios-domain-name < AD domain NETBOIS name > 
 --nameserver-addresses < DNS server IP addresses >
 --account-provisioning < account provisioning mode > 
---ou-distinguished-name < AD domain Organisaltional distiguished name >
+--ou-distinguished-name < AD domain organizational distinguished name >
 --prefer-k8s-dns < whether Kubernetes DNS or AD DNS Server for IP address lookup >
 --data-controller-name < Arc Data Controller Name >
 --resource-group < resource-group >
