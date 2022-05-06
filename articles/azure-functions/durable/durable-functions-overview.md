@@ -466,9 +466,40 @@ while ($Context.CurrentUtcDateTime -lt $expiryTime) {
 $output
 ```
 
+# [Java](#tab/java)
+
+```java
+@FunctionName("Monitor")
+public String monitorOrchestrator(
+    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
+        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
+            JobInfo jobInfo = ctx.getInput(JobInfo.class);
+            String jobId = jobInfo.getJobId();
+            Instant expiryTime = jobInfo.getExpirationTime();
+
+            while (ctx.getCurrentInstant().compareTo(expiryTime) < 0) {
+                String status = ctx.callActivity("GetJobStatus", jobId, String.class).get();
+                
+                // Perform an action when a condition is met
+                if (status.equals("Completed")) {
+                    // send an alert and exit
+                    ctx.callActivity("SendAlert", jobId).get();
+                    break;
+                } else {
+                    // wait N minutes before doing the next poll
+                    Duration pollingDelay = jobInfo.getPollingDelay();
+                    ctx.createTimer(pollingDelay).get();
+                }
+            }
+
+            return "done";
+        });
+}
+```
+
 ---
 
-When a request is received, a new orchestration instance is created for that job ID. The instance polls a status until a condition is met and the loop is exited. A durable timer controls the polling interval. Then, more work can be performed, or the orchestration can end. When `nextCheck` exceeds `expiryTime`, the monitor ends.
+When a request is received, a new orchestration instance is created for that job ID. The instance polls a status until either a condition is met or until a timeout expires. A durable timer controls the polling interval. Then, more work can be performed, or the orchestration can end.
 
 ### <a name="human"></a>Pattern #5: Human interaction
 
@@ -593,7 +624,36 @@ $output
 ```
 To create the durable timer, call `Start-DurableTimer`. The notification is received by `Start-DurableExternalEventListener`. Then, `Wait-DurableTask` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
 
+# [Java](#tab/java)
+
+```java
+@FunctionName("ApprovalWorkflow")
+public String approvalWorkflow(
+    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
+        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
+            ApprovalInfo approvalInfo = ctx.getInput(ApprovalInfo.class);
+            ctx.callActivity("RequestApproval", approvalInfo).get();
+
+            Duration timeout = Duration.ofHours(72);
+            try {
+                // Wait for an approval. A TaskCanceledException will be thrown if the timeout expires.
+                boolean approved = ctx.waitForExternalEvent("ApprovalEvent", timeout, boolean.class).get();
+                approvalInfo.setApproved(approved);
+
+                ctx.callActivity("ProcessApproval", approvalInfo).get();
+            } catch (TaskCanceledException timeoutEx) {
+                ctx.callActivity("Escalate", approvalInfo).get();
+            }
+        });
+}
+```
+
+The `ctx.waitForExternalEvent(...).get()` method call pauses the orchestration until it receives an event named `ApprovalEvent`, which has a `boolean` payload. If the event is received, an activity function is called to process the approval result. However, if no such event is received before the `timeout` (72 hours) expires, a `TaskCanceledException` is raised and the `Escalate` activity function is called.
+
 ---
+
+> [!NOTE]
+> There is no charge for time spent waiting for external events when running in the Consumption plan.
 
 An external client can deliver the event notification to a waiting orchestrator function by using the [built-in HTTP APIs](durable-functions-http-api.md#raise-event):
 
@@ -646,7 +706,20 @@ async def main(client: str):
 
 Send-DurableExternalEvent -InstanceId $InstanceId -EventName "ApprovalEvent" -EventData "true"
 
-``````
+```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("RaiseEventToOrchestration")
+public void raiseEventToOrchestration(
+        @HttpTrigger(name = "instanceId") String instanceId,
+        @DurableClientInput(name = "durableContext") DurableClientContext durableContext) {
+
+    DurableTaskClient client = durableContext.getClient();
+    client.raiseEvent(instanceId, "ApprovalEvent", true);
+}
+```
 
 ---
 
@@ -811,6 +884,10 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
 Durable entities are currently not supported in PowerShell.
 
+# [Java](#tab/java)
+
+Durable entities are currently not supported in Java.
+
 ---
 
 Entity functions are available in [Durable Functions 2.0](durable-functions-versions.md) and above for C#, JavaScript, and Python.
@@ -835,6 +912,9 @@ You can get started with Durable Functions in under 10 minutes by completing one
 * [JavaScript using Visual Studio Code](quickstart-js-vscode.md)
 * [Python using Visual Studio Code](quickstart-python-vscode.md)
 * [PowerShell using Visual Studio Code](quickstart-powershell-vscode.md)
+
+> [!NOTE]
+> A quickstart for Java is coming soon.
 
 In these quickstarts, you locally create and test a "hello world" durable function. You then publish the function code to Azure. The function you create orchestrates and chains together calls to other functions.
 
