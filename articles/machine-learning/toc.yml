@@ -207,7 +207,7 @@
           href: concept-network-data-access.md
     - name: Collect data
       items:
-        - name: Sourcing Human Data Responsibly
+        - name: Sourcing human data responsibly
           href: concept-sourcing-human-data.md
     - name: Security
       items:
