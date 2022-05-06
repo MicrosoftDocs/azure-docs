@@ -19,7 +19,7 @@ This article introduces the workings of the attestation service and the policy e
 
 The minimum version of the policy supported by the service is version 1.0.
 
-:::image type="content" source="./media/maa-policy-version-10.png" alt-text="A diagram showing Azure attestation using policy version 1.0":::
+:::image type="content" source="./media/maa-policy-version-1-0-small.png" alt-text="A diagram showing Azure attestation using policy version 1.0" lightbox="./media/maa-policy-version-1-0.png":::
 
 The attestation service flow is as follows:
 - The platform sends the attestation evidence in the attest call to the attestation service.
