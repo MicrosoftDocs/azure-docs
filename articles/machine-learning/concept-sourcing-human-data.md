@@ -180,12 +180,12 @@ To enable people to self-identify, consider using the following survey questions
 *Select your age range*
 
 [*Include appropriate age ranges as defined by project purpose, geographical region, and guidance from domain experts*]
-<ul>
-<li># to # 
-<li># to # 
-<li> # to # 
-<li> Prefer not to answer
-</ul>
+
+- \# to # 
+- \# to # 
+- \# to # 
+- Prefer not to answer
+
 
 ### Ancestry
 
