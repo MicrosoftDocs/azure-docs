@@ -55,7 +55,7 @@ This section shows you how to enable SFTP support for an existing storage accoun
 
 ### [PowerShell](#tab/powershell)
 
-To enable SFTP support, call the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `-EnableSftp` parameter to true. Remember to replace the values in angle brackets with your own values:
+To enable SFTP support, call the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `-EnableSftp` parameter to true. You must have the [PowerShell Az.Storage preview](https://www.powershellgallery.com/packages/Az.Storage/4.1.2-preview) installed. Remember to replace the values in angle brackets with your own values:
 
 ```powershell
 $resourceGroupName = "<resource-group>"
@@ -66,7 +66,7 @@ Set-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccount
 
 ### [Azure CLI](#tab/azure-cli)
 
-To enable SFTP support, call the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and set the `--enable-sftp` parameter to true. Remember to replace the values in angle brackets with your own values:
+To enable SFTP support, call the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and set the `--enable-sftp` parameter to true. You must have the [storage-preview extension](https://github.com/Azure/azure-cli-extensions/tree/main/src/storage-preview) installed for this parameter to work. Remember to replace the values in angle brackets with your own values:
 
 ```azurecli
 az storage account update -g <resource-group> -n <storage-account> --enable-sftp=true
