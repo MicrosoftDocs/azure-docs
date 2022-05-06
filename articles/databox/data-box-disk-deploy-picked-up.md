@@ -7,8 +7,9 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 01/25/2022
+ms.date: 05/05/2022
 ms.author: alkohli
+zone_pivot_groups: data-box-shipping
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -45,11 +46,13 @@ Before you begin, make sure you've completed the [Tutorial: Copy data to Azure D
     - We recommend that you pack disks using a well-secured bubbled wrap.
     - Make sure the fit is snug to reduce any movements within the box.
 
-The next steps are determined by where you are returning the device. In many countries/regions, you can use [Microsoft managed shipping](#microsoft-managed-shipping) or [self-managed shipping](#self-managed-shipping).
+The next steps are determined by where you are returning the device. In many countries/regions, you can use Microsoft managed shipping or [self-managed shipping](#self-managed-shipping).
 
-### Microsoft managed shipping
+::: zone pivot="north-america" 
 
-Follow the guidelines for the region you're shipping from if you're using Microsoft managed shipping.
+If using Microsoft managed shipping, follow these steps. 
+
+## Shipping in North America
 
 ### [US & Canada](#tab/in-us-canada)
 
@@ -67,6 +70,14 @@ Take the following steps if returning the device in US or Canada.
     - If the tracking number isn't quoted, UPS will require you to pay an additional charge during pickup.
     - Instead of scheduling the pickup, you can also drop off the Data Box Disk at the nearest drop-off location.
 
+::: zone-end
+
+::: zone pivot="europe" 
+
+If using Microsoft managed shipping, follow these steps. 
+
+## Shipping in Europe
+
 ### [EU & UK](#tab/in-europe-uk)
 
 Take the following steps if returning the device in Europe or the UK.
@@ -79,6 +90,14 @@ Take the following steps if returning the device in Europe or the UK.
 3. Go to the country/region DHL Express website and select **Schedule a Pickup**. Under **Do you need a shipping label**, select **No** > **I have a DHL Waybill Number**.
 4. Specify the waybill number, and click **Schedule Pickup** to arrange for pickup.
 
+::: zone-end
+
+::: zone pivot="australia" 
+
+If using Microsoft managed shipping, follow these steps.
+
+## Shipping in Australia
+
 ### [Australia](#tab/in-australia)
 
 Azure datacenters in Australia have an additional security notification. All the inbound shipments must have an advanced notification. Take the following steps for pickup in Australia.
@@ -86,6 +105,14 @@ Azure datacenters in Australia have an additional security notification. All the
 1. Use the provided return ship label and make sure that the TAU code (reference number) is written on it. If the provided shipping label is missing or you have any other issues, email [Data Box Asia Operations](mailto:adbo@microsoft.com). Provide the order name in subject header and details of the issue.
 2. Affix the label on the box.
 3. Book a pickup online at the link https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference.
+
+::: zone-end
+
+::: zone pivot="asia" 
+
+If using Microsoft managed shipping, follow these steps.
+
+## Shipping in Asia
 
 ### [Japan](#tab/in-japan)
 
@@ -196,6 +223,13 @@ Take the following steps if returning the device in China.
 |Phone:      | 400.889.6066 ext. 3603 |
 |E-mail:     | [739951@fedex.com](mailto:739951@fedex.com) |
 
+::: zone-end
+
+::: zone pivot="africa" 
+
+If using Microsoft managed shipping, follow these steps. 
+
+## Shipping in Africa
 
 ### [S Africa](#tab/in-sa)
 
@@ -228,7 +262,7 @@ Take the following steps if returning the device in South Africa.
 
 5. If you come across any issues, email [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) with details of the issue(s), and put the waybill number in the Subject: line. You can also call +27(0)119213902.
 
----
+::: zone-end
 
 ### Self-managed shipping
 
