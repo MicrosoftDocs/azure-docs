@@ -94,7 +94,10 @@ You can create a maintenance window on the data controller, and if you have SQL 
 
 Metrics for each replica in a business critical instance are now sent to the Azure portal so you can view them in the monitoring charts.
 
-AD authentication connectors can now be set up in an `automatic mode` which will use a service account to automatically create SQL service accounts, SPNs, and DNS entries as an alternative to the AD authentication connectors which use the `Bring Your Own Keytab` mode.
+AD authentication connectors can now be set up in an `automatic mode` or *system-managed keytab* which will use a service account to automatically create SQL service accounts, SPNs, and DNS entries as an alternative to the AD authentication connectors which use the *customer-managed keytab* mode.
+
+> [!NOTE]
+> In some early releases customer-managed keytab mode was called *bring your own keytab* mode.
 
 Backup and point-in-time-restore when a database has Transparent Data Encryption (TDE) enabled is now supported.
 
