@@ -7,7 +7,7 @@ ms.date: 01/13/2022
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
-ms.custom: mode-other
+ms.custom: [mode-other, iot-central-frontdoor]
 ---
 
 # Quickstart - Use your smartphone as a device to send telemetry to an IoT Central application

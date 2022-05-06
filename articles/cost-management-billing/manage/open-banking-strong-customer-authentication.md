@@ -42,7 +42,7 @@ If your bank rejects the charges, your Azure account status will change to **Pas
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the Account Administrator.
 2. Search on **Cost Management + Billing.**
 3. On the **Cost Management + Billing** **Overview** page, review the status column in the **My subscriptions** grid.
-4. If your subscription is labeled **Past due**, click **Settle balance**. You're prompted to complete multi-factor authentication during the process.
+4. If your subscription is labeled **Past due**, select **Settle balance**. You're prompted to complete multi-factor authentication during the process.
 
 ### Settle outstanding charges for Marketplace and reservation purchases
 
