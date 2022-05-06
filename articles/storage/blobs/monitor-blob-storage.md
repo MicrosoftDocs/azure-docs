@@ -5,7 +5,7 @@ author: normesta
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/10/2021
+ms.date: 05/06/2022
 ms.author: normesta
 ms.reviewer: fryu
 ms.devlang: csharp
@@ -61,9 +61,16 @@ To collect resource logs, you must create a diagnostic setting. When you create 
 
 ## Creating a diagnostic setting
 
-You can create a diagnostic setting by using the Azure portal, PowerShell, the Azure CLI, an Azure Resource Manager template, or Azure Policy.
+This section shows you how to create a diagnostic setting by using the Azure portal, PowerShell, and the Azure CLI. This section provides steps specific to Azure Storage. For general guidance about how to create a diagnostic setting, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
-For general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
+> [!TIP] 
+> You can also create a diagnostic setting by using an Azure Resource manager template or by using a policy definition. A policy definition can ensure that a diagnostic setting is created for every account that is created or updated. 
+>
+> This section doesn't describe templates or policy definitions. 
+>
+> - To view an Azure Resource Manager template that creates a diagnostic setting, see [Diagnostic setting for Azure Storage](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage). 
+>
+> - To learn how to create a diagnostic setting by using a policy definition, see [Azure Policy built-in definitions for Azure Storage](../common/policy-reference.md).
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -80,9 +87,6 @@ For general guidance, see [Create diagnostic setting to collect platform logs an
 
 5. Click **Add diagnostic setting**.
 
-   > [!div class="mx-imgBorder"]
-   > ![portal - Resource logs - add diagnostic setting](media/monitor-blob-storage/diagnostic-logs-settings-pane-2.png)
-
    The **Diagnostic settings** page appears.
 
    > [!div class="mx-imgBorder"]
@@ -92,12 +96,9 @@ For general guidance, see [Create diagnostic setting to collect platform logs an
 
 #### Archive logs to a storage account
 
-If you choose to archive your logs to a storage account, you'll pay for the volume of logs that are sent to the storage account. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page.
+If you choose to archive your logs to a storage account, you'll pay for the volume of logs that are sent to the storage account. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page. You can't send logs to the same storage account that you are monitoring with this setting. This would lead to recursive logs in which a log entry describes the writing of another log entry. You must create an account or use another existing account to store log information.
 
 1. Select the **Archive to a storage account** checkbox, and then select the **Configure** button.
-
-   > [!div class="mx-imgBorder"]
-   > ![Diagnostic settings page archive storage](media/monitor-blob-storage/diagnostic-logs-settings-pane-archive-storage.png)
 
 2. In the **Storage account** drop-down list, select the storage account that you want to archive your logs to, and then select the **Save** button.
 
@@ -108,23 +109,17 @@ If you choose to archive your logs to a storage account, you'll pay for the volu
 
 #### Stream logs to Azure Event Hubs
 
-If you choose to stream your logs to an event hub, you'll pay for the volume of logs that are sent to the event hub. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page.
+If you choose to stream your logs to an event hub, you'll pay for the volume of logs that are sent to the event hub. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page. You'll need access to an existing event hub, or you'll need to create one before you complete this step.
 
 1. Select the **Stream to an event hub** checkbox, and then select the **Configure** button.
 
 2. In the **Select an event hub** pane, choose the namespace, name, and policy name of the event hub that you want to stream your logs to.
 
-   > [!div class="mx-imgBorder"]
-   > ![Diagnostic settings page event hub](media/monitor-blob-storage/diagnostic-logs-settings-pane-event-hub.png)
-
 3. Select the **Save** button.
 
 #### Send logs to Azure Log Analytics
 
-1. Select the **Send to Log Analytics** checkbox, select a log analytics workspace, and then select the **Save** button.
-
-   > [!div class="mx-imgBorder"]
-   > ![Diagnostic settings page log analytics](media/monitor-blob-storage/diagnostic-logs-settings-pane-log-analytics.png)
+1. Select the **Send to Log Analytics** checkbox, select a log analytics workspace, and then select the **Save** button. You'll need access to an existing log analytics workspace, or you'll need to create one before you complete this step.
 
 [!INCLUDE [no retention policy log analytics](../../../includes/azure-storage-logs-retention-policy-log-analytics.md)]
 
@@ -144,7 +139,7 @@ If you choose to stream your logs to an event hub, you'll pay for the volume of 
 
 #### Archive logs to a storage account
 
-If you choose to archive your logs to a storage account, you'll pay for the volume of logs that are sent to the storage account. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page.
+If you choose to archive your logs to a storage account, you'll pay for the volume of logs that are sent to the storage account. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page. You can't send logs to the same storage account that you are monitoring with this setting. This would lead to recursive logs in which a log entry describes the writing of another log entry. You must create an account or use another existing account to store log information.
 
 Enable logs by using the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet along with the `StorageAccountId` parameter.
 
@@ -166,7 +161,7 @@ For a description of each parameter, see the [Archive Azure Resource logs via Az
 
 #### Stream logs to an event hub
 
-If you choose to stream your logs to an event hub, you'll pay for the volume of logs that are sent to the event hub. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page.
+If you choose to stream your logs to an event hub, you'll pay for the volume of logs that are sent to the event hub. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page. You'll need access to an existing event hub, or you'll need to create one before you complete this step.
 
 Enable logs by using the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet with the `EventHubAuthorizationRuleId` parameter.
 
@@ -182,7 +177,7 @@ For a description of each parameter, see the [Stream Data to Event Hubs via Powe
 
 #### Send logs to Log Analytics
 
-Enable logs by using the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet with the `WorkspaceId` parameter.
+Enable logs by using the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet with the `WorkspaceId` parameter. You'll need access to an existing log analytics workspace, or you'll need to create one before you complete this step.
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operations-to-log>
@@ -210,7 +205,7 @@ For more information, see [Stream Azure Resource Logs to Log Analytics workspace
 
 #### Archive logs to a storage account
 
-If you choose to archive your logs to a storage account, you'll pay for the volume of logs that are sent to the storage account. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page.
+If you choose to archive your logs to a storage account, you'll pay for the volume of logs that are sent to the storage account. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page. You can't send logs to the same storage account that you are monitoring with this setting. This would lead to recursive logs in which a log entry describes the writing of another log entry. You must create an account or use another existing account to store log information.
 
 Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
 
@@ -232,7 +227,7 @@ For a description of each parameter, see the [Archive Resource logs via the Azur
 
 #### Stream logs to an event hub
 
-If you choose to stream your logs to an event hub, you'll pay for the volume of logs that are sent to the event hub. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page.
+If you choose to stream your logs to an event hub, you'll pay for the volume of logs that are sent to the event hub. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page. You'll need access to an existing event hub, or you'll need to create one before you complete this step.
 
 Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
 
@@ -248,7 +243,7 @@ For a description of each parameter, see the [Stream data to Event Hubs via Azur
 
 #### Send logs to Log Analytics
 
-Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
+Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.  You'll need access to an existing log analytics workspace, or you'll need to create one before you complete this step.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true}]'
@@ -261,14 +256,6 @@ Here's an example:
 `az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/blobServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
 
  For more information, see [Stream Azure Resource Logs to Log Analytics workspace in Azure Monitor](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
-
-### [Template](#tab/template)
-
-To view an Azure Resource Manager template that creates a diagnostic setting, see [Diagnostic setting for Azure Storage](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
-
-### [Azure Policy](#tab/policy)
-
-You can create a diagnostic setting by using a policy definition. That way, you can make sure that a diagnostic setting is created for every account that is created or updated. For more information, see [Azure Policy built-in definitions for Azure Storage](../common/policy-reference.md).
 
 ---
 
@@ -497,14 +484,6 @@ When a metric supports dimensions, you can read metric values and filter them by
 ```azurecli
 az monitor metrics list --resource <resource-ID> --metric "Transactions" --interval PT1H --filter "ApiName eq 'GetBlob' " --aggregation "Total" 
 ```
-
-### [Template](#tab/template)
-
-N/A.
-
-### [Azure Policy](#tab/policy)
-
-N/A.
 
 ---
 
