@@ -60,6 +60,10 @@ Currently, conditions can be added to built-in or custom role assignments that h
 - [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor)
 - [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner)
 - [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader)
+- [Storage Queue Data Contributor](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor)
+- [Storage Queue Data Message Processor](../../role-based-access-control/built-in-roles.md#storage-queue-data-message-processor)
+- [Storage Queue Data Message Sender](../../role-based-access-control/built-in-roles.md#storage-queue-data-message-sender)
+- [Storage Queue Data Reader](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader)
 
 Conditions are added at the same scope as the role assignment. Just like role assignments, you must have `Microsoft.Authorization/roleAssignments/write` permissions to add a condition.
 
@@ -132,6 +136,13 @@ To better understand Azure RBAC and Azure ABAC, you can refer back to the follow
 | attribute | In this context, a key-value pair such as Project=Blue, where Project is the attribute key and Blue is the attribute value. Attributes and tags are synonymous for access control purposes. |
 | expression | A statement in a condition that evaluates to true or false. An expression has the format of &lt;attribute&gt; &lt;operator&gt; &lt;value&gt;. |
 
+## Limits
+
+Here are some of the limits for conditions.
+
+| Resource | Limit | Notes |
+| --- | --- | --- |
+| Number of expressions per condition using the the visual editor | 5 | You can add more than 5 expressions using the code editor |
 
 ## Known issues
 
