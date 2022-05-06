@@ -30,6 +30,7 @@ Use the following commands to download the sample:
 ```bash
 git clone https://github.com/Azure-Samples/acme-fitness-store
 cd acme-fitness-store
+```
 
 ## Provision a service instance
 
