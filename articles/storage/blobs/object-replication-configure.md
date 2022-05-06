@@ -21,7 +21,7 @@ This article describes how to configure an object replication policy by using th
 
 ## Prerequisites
 
-Before you configure object replication, create the source and destination storage accounts if they do not already exist. The source and destination accounts can be either general-purpose v2 storage accounts or premium block blob accounts. For more information, see [Create an Azure Storage account](../common/storage-account-create.md).
+Before you configure object replication, create the source and destination storage accounts if they don't already exist. The source and destination accounts can be either general-purpose v2 storage accounts or premium block blob accounts. For more information, see [Create an Azure Storage account](../common/storage-account-create.md).
 
 Object replication requires that blob versioning is enabled for both the source and destination account, and that blob change feed is enabled for the source account. To learn more about blob versioning, see [Blob versioning](versioning-overview.md). To learn more about change feed, see [Change feed support in Azure Blob Storage](storage-blob-change-feed.md). Keep in mind that enabling these features can result in additional costs.
 
@@ -47,7 +47,7 @@ To create a replication policy in the Azure portal, follow these steps:
 
     :::image type="content" source="media/object-replication-configure/configure-replication-policy.png" alt-text="Screenshot showing replication rules in Azure portal":::
 
-1. If desired, specify one or more filters to copy only blobs that match a prefix pattern. For example, if you specify a prefix `b`, only blobs whose name begin with that letter are replicated. You can specify a virtual directory as part of the prefix. You can add a maximum of up to five prefix matches. The prefix string does not support wildcard characters.
+1. If desired, specify one or more filters to copy only blobs that match a prefix pattern. For example, if you specify a prefix `b`, only blobs whose name begin with that letter are replicated. You can specify a virtual directory as part of the prefix. You can add a maximum of up to five prefix matches. The prefix string doesn't support wildcard characters.
 
     The following image shows filters that restrict which blobs are copied as part of a replication rule.
 
@@ -218,7 +218,7 @@ az storage account or-policy show \
 
 ## Configure object replication using a JSON file
 
-If you do not have permissions to the source storage account or if you want to use more than 10 container pairs, then you can configure object replication on the destination account and provide a JSON file that contains the policy definition to another user to create the same policy on the source account. For example, if the source account is in a different Azure AD tenant from the destination account, then you can use this approach to configure object replication.
+If you don't have permissions to the source storage account or if you want to use more than 10 container pairs, then you can configure object replication on the destination account and provide a JSON file that contains the policy definition to another user to create the same policy on the source account. For example, if the source account is in a different Azure AD tenant from the destination account, then you can use this approach to configure object replication.
 
 > [!NOTE]
 > Cross-tenant object replication is permitted by default for a storage account. To prevent replication across tenants, you can set the **AllowCrossTenantReplication** property (preview) to disallow cross-tenant object replication for your storage accounts. For more information, see [Prevent object replication across Azure Active Directory tenants](object-replication-prevent-cross-tenant-policies.md).
@@ -252,7 +252,7 @@ You can then download a JSON file containing the policy definition that you can 
 
 The downloaded JSON file includes the policy ID that Azure Storage created for the policy on the destination account. You must use the same policy ID to configure object replication on the source account.
 
-Keep in mind that uploading a JSON file to create a replication policy for the destination account via the Azure portal does not automatically create the same policy in the source account. Another user must create the policy on the source account before Azure Storage begins replicating objects.
+Keep in mind that uploading a JSON file to create a replication policy for the destination account via the Azure portal doesn't automatically create the same policy in the source account. Another user must create the policy on the source account before Azure Storage begins replicating objects.
 
 # [PowerShell](#tab/powershell)
 
@@ -306,7 +306,7 @@ az storage account or-policy create \
 
 ## Check the replication status of a blob
 
-You can check the replication status for a blob in the source account using the Azure portal, PowerShell, or Azure CLI. Object replication properties are not populated until replication has either completed or failed.
+You can check the replication status for a blob in the source account using the Azure portal, PowerShell, or Azure CLI. Object replication properties aren't populated until replication has either completed or failed.
 
 # [Azure portal](#tab/portal)
 
@@ -363,7 +363,7 @@ To remove a replication policy in the Azure portal, follow these steps:
 
 1. Navigate to the source storage account in the Azure portal.
 1. Under **Settings**, select **Object replication**.
-1. Click the **More** button next to the policy name.
+1. Select the **More** button next to the policy name.
 1. Select **Delete Rules**.
 
 # [PowerShell](#tab/powershell)
