@@ -90,9 +90,7 @@ For API versions 2021-10-01 and newer, the error output will look like the follo
 
 ### Preview APIs
 
- The following APIs are deprecated, but still supported:
-- 2018-02-01-preview
-- 2019-02-01-preview
+ The following APIs is deprecated, but still supported:
 - 2019-05-01-preview
 
 
