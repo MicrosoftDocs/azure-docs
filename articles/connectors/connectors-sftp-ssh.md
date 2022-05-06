@@ -129,6 +129,30 @@ To make sure that the recurrence time doesn't shift when DST takes effect, manua
 
 * The logic app workflow where you want to access your SFTP account. To start with an SFTP-SSH trigger, [create a blank logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md). To use an SFTP-SSH action, start your workflow with another trigger, for example, the **Recurrence** trigger.
 
+## Considerations
+
+The following section describes considerations to review when you use this connector's triggers and actions.
+
+<a name="different-folders-trigger-processing-file-storage"></a>
+
+### Use different SFTP folders for file upload and processing
+
+On your SFTP server, use separate folders for storing uploaded files and for the trigger to monitor those files for processing. Otherwise, the trigger won't fire and behaves unpredictably, for example, skipping a random number of files that the trigger processes. However, this requirement means that you need a way to move files between those folders. 
+
+If this trigger problem happens, remove the files from the folder that the trigger monitors, and use a different folder to store the uploaded files.
+
+<a name="create-file"></a>
+
+### Create file
+
+To create a file on your SFTP server, you can use the SFTP-SSH **Create file** action. When this action creates the file, the Logic Apps service also automatically calls your SFTP server to get the file's metadata. However, if you move the newly created file before the Logic Apps service can make the call to get the metadata, you get a `404` error message, `'A reference was made to a file or folder which does not exist'`. To skip reading the file's metadata after file creation, follow the steps to [add and set the **Get all file metadata** property to **No**](#file-does-not-exist).
+
+> [!IMPORTANT]
+> If you use chunking with SFTP-SSH operations that create files on your SFTP server, 
+> these operations create temporary `.partial` and `.lock` files. These files help 
+> the operations use chunking. Don't remove or change these files. Otherwise, 
+> the file operations fail. When the operations finish, they delete the temporary files.
+
 <a name="convert-to-openssh"></a>
 
 ## Convert PuTTY-based key to OpenSSH
@@ -203,30 +227,6 @@ To get an MD5 fingerprint when you don't have a key, you can use the latest [Win
 1. After the **PuTTY: information about the server's host key** box appears, find the **MD5 fingerprint** property, and copy the *47-character string value*, for example.
 
    ![Screenshot showing the more information box with the "MD5 fingerprint" property and the string with the last 47 characters selected for copying.](media/connectors-sftp-ssh/copy-md5-fingerprint-key.png)
-
-## Considerations
-
-This section describes considerations to review when you use this connector's triggers and actions.
-
-<a name="different-folders-trigger-processing-file-storage"></a>
-
-### Use different SFTP folders for file upload and processing
-
-On your SFTP server, use separate folders for storing uploaded files and for the trigger to monitor those files for processing. Otherwise, the trigger won't fire and behaves unpredictably, for example, skipping a random number of files that the trigger processes. However, this requirement means that you need a way to move files between those folders. 
-
-If this trigger problem happens, remove the files from the folder that the trigger monitors, and use a different folder to store the uploaded files.
-
-<a name="create-file"></a>
-
-### Create file
-
-To create a file on your SFTP server, you can use the SFTP-SSH **Create file** action. When this action creates the file, the Logic Apps service also automatically calls your SFTP server to get the file's metadata. However, if you move the newly created file before the Logic Apps service can make the call to get the metadata, you get a `404` error message, `'A reference was made to a file or folder which does not exist'`. To skip reading the file's metadata after file creation, follow the steps to [add and set the **Get all file metadata** property to **No**](#file-does-not-exist).
-
-> [!IMPORTANT]
-> If you use chunking with SFTP-SSH operations that create files on your SFTP server, 
-> these operations create temporary `.partial` and `.lock` files. These files help 
-> the operations use chunking. Don't remove or change these files. Otherwise, 
-> the file operations fail. When the operations finish, they delete the temporary files.
 
 <a name="connect"></a>
 
