@@ -16,8 +16,8 @@ ms.custom: cliv2, sdkv1
 
 # Use Managed identities with Azure Machine Learning
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-[!INCLUDE [cli v2](../../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
 > * [v1](v1/how-to-use-managed-identities.md)
