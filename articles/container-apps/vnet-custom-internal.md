@@ -1,6 +1,6 @@
 ---
-title: Provide an external virtual network to an Azure Container Apps Preview environment
-description: Learn how to provide an external VNET to an Azure Container Apps environment.
+title: Provide an internal virtual network to an Azure Container Apps Preview environment
+description: Learn how to provide an internal VNET to an Azure Container Apps environment.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -10,7 +10,7 @@ ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
 
-# Provide an virtual network to an external Azure Container Apps (Preview) environment
+# Provide an virtual network to an internal Azure Container Apps (Preview) environment
 
 The following example shows you how to create a Container Apps environment in an existing virtual network.
 
@@ -44,7 +44,7 @@ The following example shows you how to create a Container Apps environment in an
     | Virtual Network Address Block | Keep the default values. |
     | Subnet Address Block | Keep the default values. |
 
-15. Under *Virtual IP*, select **External**.
+15. Under *Virtual IP*, select **Internal**.
 16. Select **Create**.
 
 <!-- Deploy -->
@@ -169,7 +169,7 @@ $APP_SUBNET=(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet
 
 ---
 
-Finally, create the Container Apps environment with the VNET and subnets.
+Finally, create the Container Apps environment with the internal VNET and subnets.
 
 # [Bash](#tab/bash)
 
@@ -177,9 +177,12 @@ Finally, create the Container Apps environment with the VNET and subnets.
 az containerapp env create \
   --name $CONTAINERAPPS_ENVIRONMENT \
   --resource-group $RESOURCE_GROUP \
+  --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
+  --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET \
   --location "$LOCATION" \
   --app-subnet-resource-id $APP_SUBNET \
-  --controlplane-subnet-resource-id $CONTROL_PLANE_SUBNET
+  --controlplane-subnet-resource-id $CONTROL_PLANE_SUBNET \
+  --internal-only
 ```
 
 # [PowerShell](#tab/powershell)
@@ -188,22 +191,27 @@ az containerapp env create \
 az containerapp env create `
   --name $CONTAINERAPPS_ENVIRONMENT `
   --resource-group $RESOURCE_GROUP `
+  --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
+  --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET `
   --location "$LOCATION" `
   --app-subnet-resource-id $APP_SUBNET `
-  --controlplane-subnet-resource-id $CONTROL_PLANE_SUBNET
+  --controlplane-subnet-resource-id $CONTROL_PLANE_SUBNET `
+  --internal-only
 ```
 
 ---
 
 > [!NOTE]
-> As you call `az containerapp create` to create the container app inside your environment, make sure the value for the `--image` parameter is in lower case.
+> As you call `az conatinerapp create` to create the container app inside your environment, make sure the value for the `--image` parameter is in lower case.
 
-The following table describes the parameters used in `containerapp env create`.
+The following table describes the parameters used in for `containerapp env create`.
 
 | Parameter | Description |
 |---|---|
 | `name` | Name of the container apps environment. |
 | `resource-group` | Name of the resource group. |
+| `logs-workspace-id` | The ID of the Log Analytics workspace. |
+| `logs-workspace-key` | The Log Analytics client secret.  |
 | `location` | The Azure location where the environment is to deploy.  |
 | `app-subnet-resource-id` | The resource ID of a subnet where containers are injected into the container app. This subnet must be in the same VNET as the subnet defined in `--control-plane-subnet-resource-id`. |
 | `controlplane-subnet-resource-id` | The resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in `--app-subnet-resource-id`. |
