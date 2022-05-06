@@ -581,7 +581,7 @@ This is a general error that indicates an issue when using the Role ARN. For exa
 
 - Make sure that the AWS role has the correct Microsoft account ID. In the AWS IAM area, select the **Role > Trust relationships** tab and then follow the steps in [Create a new AWS role for Microsoft Purview](#create-a-new-aws-role-for-microsoft-purview) again to verify your details.
 
-For more information, see [Can't find the specified bucket](#cannot-find-the-specified-bucket), 
+For more information, see [Can't find the specified bucket](#cant-find-the-specified-bucket), 
 
 ### Can't find the specified bucket
 
