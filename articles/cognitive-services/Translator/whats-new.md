@@ -1,5 +1,5 @@
 ---
-title: What's new in Translator?
+title: What's new in Azure Cognitive Services Translator?
 titleSuffix: Azure Cognitive Services
 description: Learn of the latest changes to the Translator Service API.
 author: laujan
@@ -13,7 +13,7 @@ ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
-# What's new in Azure Cognitive Services Translator
+# What's new in Azure Cognitive Services Translator?
 
 Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 

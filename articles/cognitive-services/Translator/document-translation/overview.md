@@ -1,6 +1,6 @@
 ---
 title: What is Microsoft Azure Cognitive Services Document Translation?
-description: An overview of the cloud-based batch document translation service and process.
+description: An overview of the cloud-based batch Document Translation service and process.
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -38,11 +38,11 @@ This documentation contains the following article types:
 > When translating documents with content in multiple languages, the feature is intended for complete sentences in a single language. If sentences are composed of more than one language, the content may not all translate into the target language.
 >
 
-## Scanned PDF document translation
+## Document Translation: scanned PDFs
 
-Document Translation uses optical character recognition (OCR) a foundational technology to power translation for scanned PDF documents such as agreements, contracts, manuals, and receipts:
+* Document Translation uses optical character recognition (OCR) a foundational technology to power translation for scanned PDF documents such as agreements, contracts, manuals, and receipts:
 
-* Scanned PDF document translation has [language support](../language-support.md#-document-translation-scanned-pdfs) for 164 print and 9 handwritten text languages.
+* Document Translation has scanned PDF [language support](../language-support.md#-document-translation-scanned-pdfs) for 164 print and 9 handwritten text languages.
 
 * Source language identification isn't required. Document Translation can automatically detect the language of the source text. You can provide the source language code to force the service to apply a specific language model.
 
@@ -74,7 +74,7 @@ You can add Document Translation to your applications using the REST API or a cl
 
 ## Get started
 
-In our how-to guide, you'll learn how to quickly get started using Document Translator. To begin, you'll need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
+In our how-to guide, you'll learn how to quickly get started using Document Translation. To begin, you'll need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
 
 > [!div class="nextstepaction"]
 > [Start here](get-started-with-document-translation.md "Learn how to use Document Translation with HTTP REST")
