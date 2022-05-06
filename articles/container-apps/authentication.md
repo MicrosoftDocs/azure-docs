@@ -40,7 +40,7 @@ Container Apps uses [federated identity](https://en.wikipedia.org/wiki/Federated
 | - | - | - |
 | [Microsoft Identity Platform](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` | [Microsoft Identity Platform](authentication-azure-active-directory.md) |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` | [Facebook](authentication-facebook.md) |
-| [GitHub](https://docs.github.com/en/developers/apps/building-oauth-apps/authorizing-oauth-apps) | `/.auth/login/github` | [Google](authentication-github.md) |
+| [GitHub](https://docs.github.com/en/developers/apps/building-oauth-apps/authorizing-oauth-apps) | `/.auth/login/github` | [GitHub](authentication-github.md) |
 | [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` | [Google](authentication-google.md) |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` | [Twitter](authentication-twitter.md) |
 | Any [OpenID Connect](https://openid.net/connect/) provider | `/.auth/login/<providerName>` | [OpenID Connect](authentication-openid.md) |
@@ -142,7 +142,7 @@ In a client-directed sign-in, the application signs in the user to the identity 
 To validate the provider token, container app must first be configured with the desired provider. At runtime, after you retrieve the authentication token from your provider, post the token to `/.auth/login/<provider>` for validation. For example:
 
 ```console
-POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
+POST https://<hostname>.azurecontainerapps.io/.auth/login/aad HTTP/1.1
 Content-Type: application/json
 
 {"id_token":"<token>","access_token":"<token>"}

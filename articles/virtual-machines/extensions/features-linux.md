@@ -207,6 +207,7 @@ When an update is available and automatic updates are enabled, the update is ins
 
 - Data disks
 - Extensions
+- Extension Tags
 - Boot diagnostics container
 - Guest OS secrets
 - VM size
