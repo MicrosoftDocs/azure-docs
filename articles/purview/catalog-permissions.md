@@ -13,7 +13,7 @@ ms.date: 03/09/2022
 Microsoft Purview uses **Collections** to organize and manage access across its sources, assets, and other artifacts. This article describes collections and access management in your Microsoft Purview account.
 
 > [!IMPORTANT]
-> This article refers to permissions required for the Microsoft Purview governance portal. If you are looking for permissions information for the Microsoft Purview compliance center, follow [the article for permissions in the Security and Compliance center](/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center).
+> This article refers to permissions required for the Microsoft Purview governance portal. If you are looking for permissions information for the Microsoft Purview compliance center, follow [the article for permissions in the Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center-permissions).
 
 ## Collections
 
