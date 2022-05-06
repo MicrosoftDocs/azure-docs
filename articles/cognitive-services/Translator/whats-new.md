@@ -23,7 +23,7 @@ Bookmark this page to stay up to date with release notes, feature enhancements, 
 
 ## May 2022
 
-### [Document Translation support for scanned PDF documents](document-translation/overview.md#scanned-pdf-documents)
+### [Document Translation support for scanned PDF documents](document-translation/overview.md#scanned-pdf-document-translation)
 
 * Optical character recognition (OCR) teams with Document Translation to power scanned PDF document translation.
 

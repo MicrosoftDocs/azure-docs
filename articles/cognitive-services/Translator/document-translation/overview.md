@@ -27,7 +27,7 @@ This documentation contains the following article types:
 | ---------| -------------|
 | **Translate large files**| Translate whole documents asynchronously.|
 |**Translate numerous files**|Translate multiple files across all supported languages and dialects while preserving document structure and data format.|
-|**Translate 🆕[scanned](#scanned-pdf-translation-key-features) and text-embedded pdf documents** |Translate printed and handwritten text in scanned PDF documents. |
+|**Translate 🆕[scanned](#scanned-pdf-document-translation) and text-embedded pdf documents** |Translate printed and handwritten text in scanned PDF documents. |
 |**Preserve source file presentation**| Translate files while preserving the original layout and format.|
 |**Apply custom translation**| Translate documents using general and [custom translation](../customization.md#custom-translator) models.|
 |**Apply custom glossaries**|Translate documents using custom glossaries.|
@@ -38,7 +38,7 @@ This documentation contains the following article types:
 > When translating documents with content in multiple languages, the feature is intended for complete sentences in a single language. If sentences are composed of more than one language, the content may not all translate into the target language.
 >
 
-## Scanned PDF documents
+## Scanned PDF document translation
 
 Document Translation uses optical character recognition (OCR) a foundational technology to power translation for scanned PDF documents such as agreements, contracts, manuals, and receipts:
 
