@@ -6,7 +6,7 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/02/2022
+ms.date: 05/06/2022
 tags: connectors
 ---
 
@@ -86,25 +86,6 @@ The following list describes key SFTP-SSH capabilities that differ from the SFTP
 
 * Caches the connection to SFTP server *for up to 1 hour*. This capability improves performance and reduces how often the connector tries connecting to the server. To set the duration for this caching behavior, edit the [**ClientAliveInterval** property](https://man.openbsd.org/sshd_config#ClientAliveInterval) in the SSH configuration on your SFTP server.
 
-## Prerequisites
-
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-* Your SFTP server address and account credentials, so your workflow can access your SFTP account. You also need access to an SSH private key and the SSH private key password. To upload large files using chunking, you need both read and write access for the root folder on your SFTP server. Otherwise, you get a "401 Unauthorized" error.
-
-  The SFTP-SSH connector supports both private key authentication and password authentication. However, the SFTP-SSH connector supports *only* these private key formats, encryption algorithms, fingerprints, and key exchange algorithms:
-
-  * **Private key formats**: RSA (Rivest Shamir Adleman) and DSA (Digital Signature Algorithm) keys in both OpenSSH and ssh.com formats. If your private key is in PuTTY (.ppk) file format, first [convert the key to the OpenSSH (.pem) file format](#convert-to-openssh).
-  * **Encryption algorithms**: Review [Encryption Method - SSH.NET](https://github.com/sshnet/SSH.NET#encryption-method).
-  * **Fingerprint**: MD5
-  * **Key exchange algorithms**: Review [Key Exchange Method - SSH.NET](https://github.com/sshnet/SSH.NET#key-exchange-method).
-
-  After you add an SFTP-SSH trigger or action to your workflow, you have to provide connection information for your SFTP server. When you provide your SSH private key for this connection, ***don't manually enter or edit the key***, which might cause the connection to fail. Instead, make sure that you ***copy the key*** from your SSH private key file, and ***paste*** that key into the connection details. For more information, see the [Connect to SFTP with SSH](#connect) section later this article.
-
-* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-
-* The logic app workflow where you want to access your SFTP account. To start with an SFTP-SSH trigger, [create a blank logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md). To use an SFTP-SSH action, start your workflow with another trigger, for example, the **Recurrence** trigger.
-
 ## How SFTP-SSH triggers work
 
 <a name="polling-behavior"></a>
@@ -129,6 +110,25 @@ Recurring connection-based triggers where you need to create a connection first,
 
 To make sure that the recurrence time doesn't shift when DST takes effect, manually adjust the recurrence. That way, your workflow continues to run at the expected time or specified start time. Otherwise, the start time shifts one hour forward when DST starts and one hour backward when DST ends. For more information, see [Recurrence for connection-based triggers](../connectors/apis-list.md#recurrence-for-connection-based-triggers).
 
+## Prerequisites
+
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+* Your SFTP server address and account credentials, so your workflow can access your SFTP account. You also need access to an SSH private key and the SSH private key password. To upload large files using chunking, you need both read and write access for the root folder on your SFTP server. Otherwise, you get a "401 Unauthorized" error.
+
+  The SFTP-SSH connector supports both private key authentication and password authentication. However, the SFTP-SSH connector supports *only* the following private key formats, key exchange algorithms, encryption algorithms, and fingerprints:
+
+  * **Private key formats**: RSA (Rivest Shamir Adleman) and DSA (Digital Signature Algorithm) keys in both OpenSSH and ssh.com formats. If your private key is in PuTTY (.ppk) file format, first [convert the key to the OpenSSH (.pem) file format](#convert-to-openssh).
+  * **Key exchange algorithms**: Review [Key Exchange Method - SSH.NET](https://github.com/sshnet/SSH.NET#key-exchange-method).
+  * **Encryption algorithms**: Review [Encryption Method - SSH.NET](https://github.com/sshnet/SSH.NET#encryption-method).
+  * **Fingerprint**: MD5
+
+  After you add an SFTP-SSH trigger or action to your workflow, you have to provide connection information for your SFTP server. When you provide your SSH private key for this connection, ***don't manually enter or edit the key***, which might cause the connection to fail. Instead, make sure that you ***copy the key*** from your SSH private key file, and ***paste*** that key into the connection details. For more information, see the [Connect to SFTP with SSH](#connect) section later this article.
+
+* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* The logic app workflow where you want to access your SFTP account. To start with an SFTP-SSH trigger, [create a blank logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md). To use an SFTP-SSH action, start your workflow with another trigger, for example, the **Recurrence** trigger.
+
 <a name="convert-to-openssh"></a>
 
 ## Convert PuTTY-based key to OpenSSH
@@ -151,19 +151,58 @@ The PuTTY format and OpenSSH format use different file name extensions. The PuTT
 
 ### Windows OS
 
-1. If you haven't done so already, [download the latest PuTTY Generator (puttygen.exe) tool](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html), and then launch the tool.
+1. If you haven't done so already, [download the latest PuTTY Generator (puttygen.exe) tool](https://www.puttygen.com), and then open the tool.
 
-1. On this screen, select **Load**.
+1. In the PuTTY Key Generator tool (puttygen.exe), under **Actions**, select **Load**.
 
-   ![Select "Load"](./media/connectors-sftp-ssh/puttygen-load.png)
+   ![Screenshot showing the PuTTY Key Generator tool and the "Actions" section with "Load" selected.](./media/connectors-sftp-ssh/puttygen-load.png)
 
 1. Browse to your private key file in PuTTY format, and select **Open**.
 
 1. From the **Conversions** menu, select **Export OpenSSH key**.
 
-   ![Select "Export OpenSSH key"](./media/connectors-sftp-ssh/export-openssh-key.png)
+   ![Screenshot showing the PuTTY Generator tool with the "Conversions" menu open and "Export OpenSSH key" selected.](./media/connectors-sftp-ssh/export-openssh-key.png)
 
-1. Save the private key file with the `.pem` file name extension.
+1. Save the private key file with the **.pem** file name extension.
+
+## Find the MD5 fingerprint
+
+The SFTP-SSH connector rejects a connection if both the SFTP server's fingerprint and expected fingerprint don't match. To get the MD5 fingerprint, which is a 47-character string delimited by colons, try the following options.
+
+### You have the key
+
+To get an MD5 fingerprint when you have the key, you can use tools such as `ssh-keygen`, for example:
+
+```bash
+ssh-keygen -l -f id_rsa.pub -E md5
+```
+
+### You don't have the key
+
+To get an MD5 fingerprint when you don't have the key, you can use the latest [WinSCP](https://winscp.net/eng/docs/ui_fsinfo), or you can use the PuTTY Configuration tool instead:
+
+1. In the PuTTY Configuration tool (putty.exe), in the **Category** window, open **Connection** > **SSH** > **Host keys**.
+
+1. Under **Host key algorithm preference**, in the **Algorithm selection policy** list, check that **RSA** appears at the top.
+
+1. If **RSA** doesn't appear at the top, select **RSA**, and then select **Up** until **RSA** moves to the top.
+
+   ![Screenshot showing the PuTTY Configuration tool, "Connection" category expanded to show "Host keys" selected. On right pane, "RSA" and "Up" button appear selected.](media/connectors-sftp-ssh/putty-select-rsa-key.png)
+
+1. Connect to your SFTP server with PuTTY. After the connection is created, when the PUTTY security alert appears, select **More info**.
+
+   ![Screenshot showing the PuTTY terminal and security alert with "More info" selected.](media/connectors-sftp-ssh/putty-security-alert-more-info.png)
+
+   > [!TIP]
+   >
+   > If the security alert doesn't appear, try clearing the **SshHostKeys** entry. Open the Windows registry editor, 
+   > and browse to the following entry:
+   >
+   > **Computer\HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\SshHostKeys**
+
+1. After the **PuTTY: information about the server's host key** box appears, find the **MD5 fingerprint** property, and copy the *47-character string value*, for example.
+
+   ![Screenshot showing the more information box with the "MD5 fingerprint" property and the string with the last 47 characters selected for copying.](media/connectors-sftp-ssh/copy-md5-fingerprint-key.png)
 
 ## Considerations
 
