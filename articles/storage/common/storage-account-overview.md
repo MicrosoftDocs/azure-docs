@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/04/2022
+ms.date: 05/05/2022
 ms.author: tamram
 ms.subservice: common
 ---
@@ -63,7 +63,7 @@ There are two types of service endpoints available for a storage account:
 Within a single subscription, you can create accounts with either standard or Azure DNS Zone endpoints, for a maximum of 5250 accounts per subscription.
 
 > [!IMPORTANT]
-> Creating a storage account with Azure DNS zone endpoints is currently in PREVIEW.
+> Azure DNS zone endpoints are currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 You can configure your storage account to use a custom domain for Blob Storage. For more information, see [Configure a custom domain name for your Azure Storage account](../blobs/storage-custom-domain-name.md).
@@ -105,14 +105,7 @@ The following table lists the format for Azure DNS Zone endpoints for each of th
 | Table Storage | `https://<storage-account>.z[00-99].table.core.windows.net` |
 
 > [!IMPORTANT]
-> You can create up to 5000 accounts with Azure DNS Zone endpoints per subscription. However, you may need to update your application code to query for the account endpoint at runtime.
-
-Include here:
-
-- Conceptual overview
-- Advantages of using DNS Zone endpoints
-- Any caveats user should be aware of
-    - e.g., you'll need to update your app to query endpoints @ runtime
+> You can create up to 5000 accounts with Azure DNS Zone endpoints per subscription. However, you may need to update your application code to query for the account endpoint at runtime. You can call the [Get Properties](/rest/api/storagerp/storage-accounts/get-properties) operation to query for the storage account endpoints.
 
 Azure DNS zone endpoints are supported for accounts created with the Azure Resource Manager deployment model only. For more information, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
 
@@ -124,11 +117,7 @@ The Azure DNS zone endpoints preview is available in the following regions:
 
 - EUAP regions? which ones???
 
-
-
 To register for the preview, follow the instructions provided in [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md#register-preview-feature). Specify `PartitionedDnsPublicPreview` as the feature name and `Microsoft.Storage` as the provider namespace.
-
-- Any known issues
 
 ## Migrate a storage account
 
