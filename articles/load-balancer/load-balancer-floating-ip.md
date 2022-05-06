@@ -68,7 +68,7 @@ netsh interface ipv4 set interface “interfacename” weakhostsend=enabled
 
 ## <a name = "limitations"></a>Limitations
 
-- Floating IP is not currently supported on secondary IP configurations for Load Balancing scenarios
+- Floating IP is not currently supported on secondary IP configurations for Load Balancing scenarios.  Note that this does not apply to Public load balancers with dual-stack configurations or to architectures that utilize a NAT Gateway for outbound connectivity.
 
 ## Next steps
 

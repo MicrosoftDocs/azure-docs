@@ -50,7 +50,7 @@ To configure repository-scoped permissions, you create a *token* with an associa
     * Configure multiple tokens with identical permissions to a set of repositories
     * Update token permissions when you add or remove repository actions in the scope map, or apply a different scope map 
 
-  Azure Container Registry also provides several system-defined scope maps you can apply when creating tokens. The permissions of system-defined scope maps apply to all repositories in your registry.
+  Azure Container Registry also provides several system-defined scope maps you can apply when creating tokens. The permissions of system-defined scope maps apply to all repositories in your registry.The individual *actions* corresponds to the limit of [Repositories per scope map.](container-registry-skus.md)
 
 The following image shows the relationship between tokens and scope maps. 
 
