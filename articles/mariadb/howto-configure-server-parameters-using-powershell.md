@@ -6,7 +6,7 @@ ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: how-to
-ms.date: 10/1/2020 
+ms.date: 05/06/2022
 ms.custom: 
 - devx-track-azurepowershell
 - kr2b-contr-experiment

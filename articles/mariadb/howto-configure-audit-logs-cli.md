@@ -5,7 +5,7 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 6/24/2020 
+ms.date: 05/06/2022 
 ms.custom: 
 - devx-track-azurecli
 - kr2b-contr-experiment
