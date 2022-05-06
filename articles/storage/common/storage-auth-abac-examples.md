@@ -65,7 +65,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | StringEquals |
 | Value | {keyValue} |
 
-![Screenshot of condition editor in Azure portal showing read access to blobs with a blob index tag.](./media/storage-auth-abac-examples/blob-index-tags-read-portal.png)
+:::image type="content" source="./media/storage-auth-abac-examples/blob-index-tags-read-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read access to blobs with a blob index tag." lightbox="./media/storage-auth-abac-examples/blob-index-tags-read-portal.png":::
 
 #### Azure PowerShell
 
@@ -127,7 +127,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | StringEquals |
 | Value | {keyValue} |
 
-![Screenshot of condition editor in Azure portal showing new blobs must include a blob index tag.](./media/storage-auth-abac-examples/blob-index-tags-new-blobs-portal.png)
+:::image type="content" source="./media/storage-auth-abac-examples/blob-index-tags-new-blobs-portal.png" alt-text="Screenshot of condition editor in Azure portal showing new blobs must include a blob index tag." lightbox="./media/storage-auth-abac-examples/blob-index-tags-new-blobs-portal.png":::
 
 #### Azure PowerShell
 
@@ -195,7 +195,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | ForAllOfAnyValues:StringEquals |
 | Value | {keyName1}<br/>{keyName2} |
 
-![Screenshot of condition editor in Azure portal showing existing blobs must have blob index tag keys.](./media/storage-auth-abac-examples/blob-index-tags-keys-portal.png)
+:::image type="content" source="./media/storage-auth-abac-examples/blob-index-tags-keys-portal.png" alt-text="Screenshot of condition editor in Azure portal showing existing blobs must have blob index tag keys." lightbox="./media/storage-auth-abac-examples/blob-index-tags-keys-portal.png":::
 
 #### Azure PowerShell
 
@@ -272,7 +272,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | ForAllOfAnyValues:StringEquals |
 | Value | {keyValue1}<br/>{keyValue2}<br/>{keyValue3} |
 
-![Screenshot of condition editor in Azure portal showing existing blobs must have a blob index tag key and values.](./media/storage-auth-abac-examples/blob-index-tags-key-values-portal.png)
+:::image type="content" source="./media/storage-auth-abac-examples/blob-index-tags-key-values-portal.png" alt-text="Screenshot of condition editor in Azure portal showing existing blobs must have a blob index tag key and values." lightbox="./media/storage-auth-abac-examples/blob-index-tags-key-values-portal.png":::
 
 #### Azure PowerShell
 
@@ -351,7 +351,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | StringEquals |
 | Value | {containerName} |
 
-![Screenshot of condition editor in Azure portal showing read, write, or delete blobs in named containers.](./media/storage-auth-abac-examples/containers-read-write-delete-portal.png)
+:::image type="content" source="./media/storage-auth-abac-examples/containers-read-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read, write, or delete blobs in named containers." lightbox="./media/storage-auth-abac-examples/containers-read-write-delete-portal.png":::
 
 #### Azure PowerShell
 
@@ -425,7 +425,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | StringLike |
 | Value | {pathString} |
 
-![Screenshot of condition editor in Azure portal showing read access to blobs in named containers with a path.](./media/storage-auth-abac-examples/containers-path-read-portal.png)
+:::image type="content" source="./media/storage-auth-abac-examples/containers-path-read-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read access to blobs in named containers with a path." lightbox="./media/storage-auth-abac-examples/containers-path-read-portal.png":::
 
 #### Azure PowerShell
 
@@ -564,7 +564,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | StringLike |
 | Value | {pathString} |
 
-![Screenshot of condition editor in Azure portal showing write access to blobs in named containers with a path.](./media/storage-auth-abac-examples/containers-path-write-portal.png)
+:::image type="content" source="./media/storage-auth-abac-examples/containers-path-write-portal.png" alt-text="Screenshot of condition editor in Azure portal showing write access to blobs in named containers with a path." lightbox="./media/storage-auth-abac-examples/containers-path-write-portal.png":::
 
 #### Azure PowerShell
 
@@ -640,7 +640,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | StringEquals |
 | Value | {keyValue} |
 
-![Screenshot of condition 1 editor in Azure portal showing read access to blobs with a blob index tag and a path.](./media/storage-auth-abac-examples/blob-index-tags-path-read-condition-1-portal.png)
+:::image type="content" source="./media/storage-auth-abac-examples/blob-index-tags-path-read-condition-1-portal.png" alt-text="Screenshot of condition 1 editor in Azure portal showing read access to blobs with a blob index tag and a path." lightbox="./media/storage-auth-abac-examples/blob-index-tags-path-read-condition-1-portal.png":::
 
 | Condition #2 | Setting |
 | --- | --- |
@@ -650,7 +650,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | StringLike |
 | Value | {pathString} |
 
-![Screenshot of condition 2 editor in Azure portal showing read access to blobs with a blob index tag and a path.](./media/storage-auth-abac-examples/blob-index-tags-path-read-condition-2-portal.png)
+:::image type="content" source="./media/storage-auth-abac-examples/blob-index-tags-path-read-condition-2-portal.png" alt-text="Screenshot of condition 2 editor in Azure portal showing read access to blobs with a blob index tag and a path." lightbox="./media/storage-auth-abac-examples/blob-index-tags-path-read-condition-2-portal.png":::
 
 #### Azure PowerShell
 
