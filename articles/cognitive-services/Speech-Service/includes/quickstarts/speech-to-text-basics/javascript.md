@@ -21,14 +21,6 @@ ms.author: eur
 
 Before you can do anything, you need to install the Speech SDK for JavaScript. If you just want the package name to install, run `npm install microsoft-cognitiveservices-speech-sdk`. For guided installation instructions, see [Set up the development environment](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript).
 
-Use the following `require` statement to import the SDK:
-
-```javascript
-const sdk = require("microsoft-cognitiveservices-speech-sdk");
-```
-
-For more information on `require`, see the [require documentation](https://nodejs.org/en/knowledge/getting-started/what-is-require/).
-
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
@@ -38,6 +30,10 @@ For more information on `require`, see the [require documentation](https://nodej
 Follow these steps to create a new console application for speech recognition.
 
 1. Open a command prompt where you want the new project, and create a new file named `SpeechRecognition.js`.
+1. Install the Speech SDK for JavaScript:
+    ```console
+    npm install microsoft-cognitiveservices-speech-sdk
+    ```
 1. Copy the following code into `SpeechRecognition.js`:
 
     ```javascript
