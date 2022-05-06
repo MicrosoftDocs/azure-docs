@@ -71,12 +71,14 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Profile validation
-            url: validation-against-profiles.md
-          - text: Patient/$everything
-            url: patient-everything.md
           - text: $member-match operation
             url: tutorial-member-match.md
+          - text: Patient/$everything
+            url: patient-everything.md
+          - text: Profile validation
+            url: validation-against-profiles.md
+          - text: $purge-history operation
+            url: purge-history.md     
   - title: Export and Convert Data
     linkLists:
       - linkListType: how-to-guide
