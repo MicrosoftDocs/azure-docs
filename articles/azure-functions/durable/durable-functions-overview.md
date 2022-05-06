@@ -17,9 +17,9 @@ ms.reviewer: azfuncdf
 
 Durable Functions works with all Azure Functions programming languages but may have different minimum requirements for each language. The following table shows the minimum supported app configurations:
 
-| Language stack | Azure Functions Runtime versions | Language worker version | Minimum bundles version |
+| Language stack | Functions runtime versions | Language worker versions | Extension bundles versions |
 | - | - | - | - |
-| .NET / C# / F# | Functions 1.0+ | In-process (GA) <br/> Out-of-process (preview) | N/A |
+| .NET / C# / F# | Functions 1.0+ | [In-process](../functions-dotnet-class-library.md) <br/> [.NET Isolated worker](../dotnet-isolated-process-guide.md) (preview) | n/a |
 | JavaScript/TypeScript | Functions 2.0+ | Node 8+ | 2.x bundles |
 | Python | Functions 2.0+ | Python 3.7+ | 2.x bundles |
 | PowerShell | Functions 3.0+ | PowerShell 7+ | 2.x bundles |
