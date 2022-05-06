@@ -129,6 +129,27 @@ Invoke-DurableActivity -FunctionName 'F4' -Input $Z
 
 You can use the `Invoke-DurableActivity` command to invoke other functions by name, pass parameters, and return function output. Each time the code calls `Invoke-DurableActivity` without the `NoWait` switch, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `Invoke-DurableActivity` call. For more information, see the next section, Pattern #2: Fan out/fan in.
 
+# [Java](#tab/java)
+
+```java
+@FunctionName("Chaining")
+public String helloCitiesOrchestrator(
+        @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
+    return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
+        String input = ctx.getInput(String.class);
+        int x = ctx.callActivity("F1", input, int.class).get();
+        int y = ctx.callActivity("F2", x, int.class).get();
+        int z = ctx.callActivity("F3", y, int.class).get();
+        return  ctx.callActivity("F4", z, double.class).get();
+    });
+}
+```
+
+You can use the `ctx` object to invoke other functions by name, pass parameters, and return function output. The output of these method calls is a `Task<V>` object where `V` is the type of data returned by the invoked function. Each time the you call `Task<V>.get()`, the Durable Functions framework checkpoints the progress of the current function instance. If the process unexpectedly recycles midway through the execution, the function instance resumes from the preceding `Task<V>.get()` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+
+> [!NOTE]
+> The orchestrator function logic must implemented as a lambda function and wrapped by a call to `OrchestrationRunner.loadAndRun(...)` as shown in the above example.
+
 ---
 
 ### <a name="fan-in-out"></a>Pattern #2: Fan out/fan in
@@ -245,6 +266,31 @@ Invoke-DurableActivity -FunctionName 'F3' -Input $Total
 The fan-out work is distributed to multiple instances of the `F2` function. Please note the usage of the `NoWait` switch on the `F2` function invocation: this switch allows the orchestrator to proceed invoking `F2` without waiting for activity completion. The work is tracked by using a dynamic list of tasks. The `Wait-ActivityFunction` command is called to wait for all the called functions to finish. Then, the `F2` function outputs are aggregated from the dynamic task list and passed to the `F3` function.
 
 The automatic checkpointing that happens at the `Wait-ActivityFunction` call ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("FanOutFanIn")
+public String fanOutFanInOrchestrator(
+        @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
+    return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
+        List<?> batch = ctx.callActivity("F1", null, List.class).get();
+
+        // Schedule each task to run in parallel
+        List<Task<Integer>> parallelTasks = IntStream.range(0, batch.size())
+                .mapToObj(i -> ctx.callActivity("F2", i, Integer.class))
+                .collect(Collectors.toList());
+
+        // Wait for all tasks to complete, then return the aggregated sum of the results
+        List<Integer> results = ctx.allOf(parallelTasks).get();
+        return results.stream().reduce(0, Integer::sum);
+    });
+}
+```
+
+The fan-out work is distributed to multiple instances of the `F2` function. The work is tracked by using a dynamic list of tasks. `ctx.allOf(parallelTasks).get()` is called to wait for all the called functions to finish. Then, the `F2` function outputs are aggregated from the dynamic task list and returned as the orchestrator function's ouput.
+
+The automatic checkpointing that happens at the `.get()` call on `ctx.allOf(parallelTasks)` ensures that an unexpected process recycle doesn't require restarting any already completed tasks.
 
 ---
 
