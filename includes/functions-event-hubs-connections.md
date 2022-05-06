@@ -30,7 +30,7 @@ If you are using [version 5.x or higher of the extension](../articles/azure-func
 In this mode, the extension requires the following properties:
 
 > [!NOTE]
-> The environment variable provided must be prefixed by AzureWebJobs to work in the Consumption plan. In Premium plans, this prefix is not required.
+> The environment variable provided must currently be prefixed by `AzureWebJobs` to work in the Consumption plan. In Premium plans, this prefix is not required.
 
 | Property                  | Environment variable template                       | Description                                | Example value                                        |
 |---------------------------|-----------------------------------------------------|--------------------------------------------|------------------------------------------------|
