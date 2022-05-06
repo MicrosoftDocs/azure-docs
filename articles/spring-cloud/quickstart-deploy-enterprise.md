@@ -406,7 +406,7 @@ Use the following steps to configure API Portal.
     echo "https://${PORTAL_URL}"
     ```
 
-     The above URL can be opened in a browser, use this to explore the application APIs.
+    The above URL can be opened in a browser, use this to explore the application APIs.
 
 ---
 
