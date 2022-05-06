@@ -12,12 +12,12 @@ ms.custom: responsible-ml
 
 Human data is data collected directly from, or about, people. Human data may include personal data such as names, age, images, or voice clips and sensitive data such as genetic data, biometric data, gender identity, religious beliefs, or political affiliations. 
 
-Collecting this data can be important to building AI systems that work for all users. But certain practices should be avoided, especially ones that can cause physical and psychological harm to data contributors, as well as flawed datasets.
+Collecting this data can be important to building AI systems that work for all users. But certain practices should be avoided, especially ones that can cause physical and psychological harm to data contributors.
 
 The best practices in this article will help you conduct manual data collection projects from volunteers where everyone involved is treated with respect, and potential harms—especially those faced by vulnerable groups—are anticipated and mitigated. This means that:
 
 - People contributing data are not coerced or exploited in any way, and they have control over what personal data is collected.
-- People collecting and labeling data have adequate training 
+- People collecting and labeling data have adequate training. 
 
 These practices can also help ensure more-balanced and higher-quality datasets and better stewardship of human data.
 
@@ -138,7 +138,7 @@ We suggest the following best practices for manually collecting human data direc
     :::column-end:::
 
     :::column span="":::
-        - When applicable, collecting data in restricted and/or unfamiliar geographies may result in unusable or low-quality data and may impact the safety of involved parties.
+        - When applicable, collecting data in areas of high geopolitical risk and/or unfamiliar geographies may result in unusable or low-quality data and may impact the safety of involved parties.
     :::column-end:::
 
 :::row-end:::
