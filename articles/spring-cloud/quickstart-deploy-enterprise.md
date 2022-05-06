@@ -25,26 +25,11 @@ This quickstart shows you how to build and deploy applications to Azure Spring C
 
 ## Download the sample app
 
-Use a local terminal for the following steps.
+Use the following commands to download the sample:
 
-1. Create a new folder and clone the sample app repository.
-
-   ```bash
-   mkdir source-code
-   ```
-
-   ```bash
-   cd source-code
-   ```
-   ```bash
-   git clone https://github.com/Azure-Samples/acme-fitness-store
-   ```
-
-1. Navigate into the repository directory.
-
-   ```bash
-   cd acme-fitness-store
-   ```
+```bash
+git clone https://github.com/Azure-Samples/acme-fitness-store
+cd acme-fitness-store
 
 ## Provision a service instance
 
