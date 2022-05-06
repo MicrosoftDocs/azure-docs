@@ -25,7 +25,7 @@ In this article, you will learn to how to use the export and import APIs to repl
 
 ##  Prerequisites
 
-* Two Azure Language resources in different Azure regions. [Create your resources](./how-to/create-project.md#azure-resources) and link them to an Azure storage account. It's recommended that you link both of your Language resources to the same storage account, though this might introduce slightly higher latency when importing your project, and training a model. 
+* Two Azure Language resources in different Azure regions. [Create your resources](./how-to/create-project.md#create-a-language-resource ) and link them to an Azure storage account. It's recommended that you link both of your Language resources to the same storage account, though this might introduce slightly higher latency when importing your project, and training a model. 
 
 ## Get your resource keys and endpoint
 
