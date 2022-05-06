@@ -94,7 +94,7 @@ For connector-specific technical information, such as triggers, actions, and lim
 
    ![Screenshot showing connection information for ISE-based File System trigger.](media/logic-apps-using-file-connector/file-system-connection-ise.png)
 
-1. Provide the required information for your trigger, select **Create**.
+1. After you provide the required information for your connection, select **Create**.
 
    Azure Logic Apps creates and tests your connection, making sure that the connection works properly. If the connection is set up correctly, the setup options appear for your selected trigger.
 
@@ -103,6 +103,11 @@ For connector-specific technical information, such as triggers, actions, and lim
    For example, to test your workflow, add an Outlook action that sends you an email when a file is created on the file system in specified folder. Enter the email recipients, subject, and body. For testing, you can use your own email address.
 
    ![Screenshot showing an action that sends email when a new file is created on the file system server.](media/logic-apps-using-file-connector/file-system-trigger-send-email.png)
+
+   > [!TIP]
+   >
+   > To add outputs from previous steps in the workflow, click inside the trigger's edit boxes. 
+   > When the dynamic content list appears, select from the available outputs.
 
 1. Save your logic app. Test your workflow by uploading a file and triggering the workflow.
 
@@ -144,33 +149,28 @@ For connector-specific technical information, such as triggers, actions, and lim
 
    ![Screenshot showing connection information for ISE-based File System action.](media/logic-apps-using-file-connector/file-system-connection-ise.png)
 
-1. Provide the required information for your action, select **Create**.
+1. After you provide the required information for your connection, select **Create**.
 
    Azure Logic Apps creates and tests your connection, making sure that the connection works properly. If the connection is set up correctly, the setup options appear for your selected action.
 
 1. Continue building your workflow.
 
-   For example, to test your workflow, add an Outlook action that sends you an email when a file is created on the file system in specified folder. Enter the email recipients, subject, and body. For testing, you can use your own email address.
+   1. Provide the required information for your action. For this example, select the folder path on your file system server to create the file, and enter the file name and content, based on the file uploaded to Dropbox.
 
-   ![Screenshot showing an action that sends email when a new file is created on the file system server.](media/logic-apps-using-file-connector/file-system-trigger-send-email.png)
+      ![Screenshot showing the "Create file" action, which creates a file on the file system server, based on a file uploaded to Dropbox.](media/logic-apps-using-file-connector/file-system-action-send-email.png)
 
-1. Save your logic app. Test your workflow by uploading a file and triggering the workflow.
+      > [!TIP]
+      >
+      > To add outputs from previous steps in the workflow, click inside the trigger's edit boxes. 
+      > When the dynamic content list appears, select from the available outputs.
 
-   If successful, your workflow sends an email about the new file.
+   1. To test your workflow, add an Outlook action that sends you an email when the File System action creates a file. Enter the email recipients, subject, and body. For testing, you can use your own email address.
 
+      ![Screenshot showing an action that sends email after a new file is created on the file system server.](media/logic-apps-using-file-connector/file-system-action-send-email.png)
 
+1. Save your logic app. Test your workflow by uploading a file to Dropbox.
 
-1. In the **Create file** action, provide the details for copying files from Dropbox to the root folder in your on-premises file share. To add outputs from previous steps, click inside the boxes, and select from available fields when the dynamic content list appears.
-
-   ![Create file action](media/logic-apps-using-file-connector/create-file-filled.png)
-
-1. Now, add an Outlook action that sends an email so the appropriate users know about the new file. Enter the recipients, title, and body of the email. For testing, you can use your own email address.
-
-   ![Send email action](media/logic-apps-using-file-connector/send-email.png)
-
-1. Save your logic app. Test your app by uploading a file to Dropbox.
-
-   Your workflow should copy the file to your on-premises file share, and send the recipients an email about the copied file.
+   If successful, your workflow creates a file on your file system server, based on the uploaded file in DropBox, and sends an email about the created file.
 
 ## Next steps
 
