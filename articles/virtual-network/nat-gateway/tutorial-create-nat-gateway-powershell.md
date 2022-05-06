@@ -1,27 +1,19 @@
 ---
-title: 'Tutorial: Create a NAT gateway - PowerShell'
+title: 'Quickstart: Create a NAT gateway - PowerShell'
 titlesuffix: Azure Virtual Network NAT
-description: Get started created a NAT gateway using Azure PowerShell.
+description: Get started creating a NAT gateway using Azure PowerShell.
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
 ms.subservice: nat
-ms.topic: tutorial 
+ms.topic: quickstart 
 ms.date: 03/09/2021
-ms.custom: template-tutorial, devx-track-azurepowershell
+ms.custom: template-quickstart, devx-track-azurepowershell
 ---
 
-# Tutorial: Create a NAT gateway using Azure PowerShell
+# Quickstart: Create a NAT gateway using Azure PowerShell
 
-This tutorial shows you how to use Azure Virtual Network NAT service. You'll create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
-
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Create a virtual network.
-> * Create a virtual machine.
-> * Create a NAT gateway and associate with the virtual network.
-> * Connect to virtual machine and verify NAT IP address.
+This quickstart shows you how to use Azure Virtual Network NAT service. You'll create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
 
 ## Prerequisites
 
