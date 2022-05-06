@@ -7,7 +7,7 @@ metadata:
   ms.service: active-directory
   ms.subservice: B2B
   ms.topic: faq
-  ms.date: 03/31/2022
+  ms.date: 05/06/2022
   ms.author: mimart
   author: msmimart
   manager: celestedg
@@ -56,10 +56,9 @@ sections:
           The inviting organization performs multifactor authentication. The inviting organization must make sure that the organization has enough licenses for their B2B users who are using multifactor authentication.
 
       - question: |
-          What if a partner organization already has multifactor authentication set up? Can we trust their multifactor authentication, and not use our own multifactor authentication?
+          What if a partner organization already has multifactor authentication set up? Can we trust their multifactor authentication?
         answer: |
-          This feature is currently not supported. If access to your organization's resources requires multifactor authentication, the partner organization will need to register for multifactor authentication in your (the inviting) organization.
-
+          [Cross-tenant access settings](cross-tenant-access-overview.md) (preview) let you trust multifactor authentication and device claims ([compliant claims and hybrid Azure AD joined claims](../conditional-access/howto-conditional-access-policy-compliant-device.md)) from other Azure AD organizations.
       - question: |
           How can I use delayed invitations?
         answer: |
