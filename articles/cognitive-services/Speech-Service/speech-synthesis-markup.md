@@ -146,7 +146,7 @@ This SSML snippet illustrates how the `<mstts:express-as>` element is used to ch
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
        xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
-    <voice name="en-US-AriaNeural">
+    <voice name="en-US-JennyNeural">
         <mstts:express-as style="cheerful">
             That'd be just amazing!
         </mstts:express-as>
@@ -169,9 +169,12 @@ The following table has descriptions of each supported style.
 |`style="disgruntled"`|Expresses a disdainful and complaining tone. Speech of this emotion displays displeasure and contempt.|
 |`style="embarrassed"`|Expresses an uncertain and hesitant tone when the speaker is feeling uncomfortable.|
 |`style="empathetic"`|Expresses a sense of caring and understanding.|
-|`style="envious"`|Express a tone of admiration when you desire something that someone else has.|
+|`style="envious"`|Expresses a tone of admiration when you desire something that someone else has.|
+|`style="excited"`|Expresses an upbeat and hopeful tone. It sounds like something great is happening and the speaker is really happy about that.|
 |`style="fearful"`|Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tension and unease.|
+|`style="friendly"`|Expresses a pleasant, inviting, and warm tone. It sounds sincere and caring.|
 |`style="gentle"`|Expresses a mild, polite, and pleasant tone, with lower pitch and vocal energy.|
+|`style="hopeful"`|Expresses a warm and yearning tone. It sounds like something good will happen to the speaker.|
 |`style="lyrical"`|Expresses emotions in a melodic and sentimental way.|
 |`style="narration-professional"`|Expresses a professional, objective tone for content reading.|
 |`style="narration-relaxed"`|Express a soothing and melodious tone for content reading.|
@@ -180,6 +183,10 @@ The following table has descriptions of each supported style.
 |`style="newscast-formal"`|Expresses a formal, confident, and authoritative tone for news delivery.|
 |`style="sad"`|Expresses a sorrowful tone.|
 |`style="serious"`|Expresses a strict and commanding tone. Speaker often sounds stiffer and much less relaxed with firm cadence.|
+|`style="shouting"`|Speaks like from a far distant or outside and to make self be clearly heard|
+|`style="whispering"`|Speaks very softly and make a quiet and gentle sound|
+|`style="terrified"`|Expresses a very scared tone, with faster pace and a shakier voice. It sounds like the speaker is in an unsteady and frantic status.|
+|`style="unfriendly"`|Expresses a cold and indifferent tone.|
 
 ### Style degree
 
