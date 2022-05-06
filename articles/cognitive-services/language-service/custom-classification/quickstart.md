@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 02/28/2022
+ms.date: 05/06/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021, mode-other
 zone_pivot_groups: usage-custom-language-features
@@ -16,7 +16,15 @@ zone_pivot_groups: usage-custom-language-features
 
 # Quickstart: Custom text classification (preview)
 
-Use this article to get started with creating a custom text classification project where you train custom models for text classification. A model is a machine learning object that will learn from example data we provide, and trained to classify text afterwards.
+Use this article to get started with creating a custom text classification project where you can train custom models for text classification. A model is an object that's trained to do a certain task. For this system, the models classify text. Models are trained by learning from tagged data.
+
+Custom text classification supports two types of projects: 
+
+* **Single label classification** - you can assign a single class for each document in your dataset. For example, a movie script could only be classified as "Romance" or "Comedy". 
+* **Multi label classification** - you can assign multiple classes for each document in your dataset. For example, a movie script could be classified as "Comedy" or "Romance" and "Comedy".
+
+In this quickstart you can use the sample datasets provided to build a multi label classification where you can classify movie scripts into one or more categories or you can use single label classification dataset where you can classify abstracts of scientific papers into one of the defined domains.
+
 
 ::: zone pivot="language-studio"
 
