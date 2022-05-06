@@ -83,8 +83,8 @@ Next, add a virtual network to the resource group that you created, and configur
     - Domain Name: Enter a domain name with a trailing dot (ex: contoso.com.).
     - Rule State: Choose **Enabled** or **Disabled**. The default is enabled.
     - Click **Add a destination** and enter a desired destination IPv4 address.
-    - Click *Add a destination** to add additional destination IPv4 addresses (ex: 11.0.1.4, 11.0.1.5).  
-    - When you are finished adding destination addresses, click **Add**.
+    - Click *Add a destination** to add more destination IPv4 addresses (ex: 11.0.1.4, 11.0.1.5).  
+    - When you're finished adding destination addresses, click **Add**.
 9. Click **Review and Create**, and then click **Create**.
 
 ![create resolver - ruleset](./media/dns-resolver-getstarted-portal/fig04a.png)
@@ -93,7 +93,7 @@ This example has only one conditional forwarding rule, but you can create many. 
 
 ![create resolver - review](./media/dns-resolver-getstarted-portal/fig04b.png)
 
-After clicking Create, the new DNS resolver will begin deployment. This process might take a minute or two, and you will see the status of each component as it is deployed.
+After clicking Create, the new DNS resolver will begin deployment. This process might take a minute or two, and you'll see the status of each component as it is deployed.
 
 ![create resolver - status](./media/dns-resolver-getstarted-portal/fig05.png)
 

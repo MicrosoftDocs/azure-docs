@@ -70,7 +70,7 @@ Azure DNS Private Resolver is available in the following regions:
 
 ### Inbound Endpoints
 
-An inbound endpoint enables name resolution from on-prem or other private locations via an IP address that is part of your private virtual network address space. This endpoint requires a subnet in the VNet where it’s provisioned. The subnet can only be delegated to **Microsoft.Network/dnsResolvers** and cannot be used for other services. DNS queries received by the inbound endpoint will ingress to Azure. You can resolve names in scenarios where you have Private DNS Zones, including VMs which are using auto registration, or Private Link enabled services.
+An inbound endpoint enables name resolution from on-prem or other private locations via an IP address that is part of your private virtual network address space. This endpoint requires a subnet in the VNet where it’s provisioned. The subnet can only be delegated to **Microsoft.Network/dnsResolvers** and cannot be used for other services. DNS queries received by the inbound endpoint will ingress to Azure. You can resolve names in scenarios where you have Private DNS Zones, including VMs that are using auto registration, or Private Link enabled services.
 
 ### Outbound Endpoints
 
@@ -78,15 +78,15 @@ An outbound endpoint enables conditional forwarding name resolution from Azure t
 
 ## Virtual Network Links
 
-Virtual network links enable name resolution for virtual networks which are linked to an outbound endpoint with a DNS forwarding ruleset. This is a 1:1 relationship.
+Virtual network links enable name resolution for virtual networks that are linked to an outbound endpoint with a DNS forwarding ruleset. This is a 1:1 relationship.
 
 ## DNS Forwarding Rulesets
 
-A DNS forwarding ruleset is a group of DNS forwarding rules (up to 1,000) which can be applied to one or more outbound endpoints, or linked to one or more virtual networks. This is a 1:N relationship.
+A DNS forwarding ruleset is a group of DNS forwarding rules (up to 1,000) that can be applied to one or more outbound endpoints, or linked to one or more virtual networks. This is a 1:N relationship.
 
 ## DNS forwarding rules
 
-A DNS rorwarding rule includes one or more target DNS servers that will be used for conditional forwarding, and is represented by:
+A DNS forwarding rule includes one or more target DNS servers that will be used for conditional forwarding, and is represented by:
 - A domain name, 
 - A target IP address, 
 - A target Port and Protocol (UDP or TCP).
@@ -105,7 +105,7 @@ Subnets used for DNS resolver have the following limitations:
 - A subnet must be a minimum of /28 address space or a maximum of /24 address space.
 - A subnet cannot be shared between multiple DNS resolver endpoints. A single subnet can only be used by a single DNS resolver endpoint.
 - All IP configurations for a DNS resolver inbound endpoint must reference the same subnet. Spanning multiple subnets in the IP configuration for a single DNS resolver inbound endpoint is not allowed.
-- The subnet used for for a DNS resolver inbound endpoint must be within the virtual network referenced by the parent DNS resolver.
+- The subnet used for a DNS resolver inbound endpoint must be within the virtual network referenced by the parent DNS resolver.
 
 ### Outbound endpoint restrictions
 
@@ -114,7 +114,7 @@ Outbound endpoints have the following limitations:
 
 ### DNS forwarding ruleset restrictions
 
-DNS forwarding ruleset have the following limitations:
+DNS forwarding rulesets have the following limitations:
 - A DNS forwarding ruleset cannot be deleted unless the virtual network links under it are deleted
 
 ### Other restrictions
@@ -125,6 +125,6 @@ DNS forwarding ruleset have the following limitations:
 
 ## Next steps
 
-* Learn how to create an Azure DNS Private Resolverby using [Azure PowerShell](./private-dns-resolver-getstarted-powershell.md) or [Azure Portal](./private-dns-resolver-getstarted-portal.md).
+* Learn how to create an Azure DNS Private Resolver by using [Azure PowerShell](./private-dns-resolver-getstarted-powershell.md) or [Azure Portal](./private-dns-resolver-getstarted-portal.md).
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
 * [Learn module: Introduction to Azure DNS](/learn/modules/intro-to-azure-dns).
