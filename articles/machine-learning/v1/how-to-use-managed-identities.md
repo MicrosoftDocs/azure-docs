@@ -114,7 +114,7 @@ When creating a compute cluster with the [AmlComputeProvisioningConfiguration](/
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli-interaction
 az ml computetarget create amlcompute --name <cluster name> -w <workspace> -g <resource group> --vm-size <vm sku> --assign-identity '[system]'
