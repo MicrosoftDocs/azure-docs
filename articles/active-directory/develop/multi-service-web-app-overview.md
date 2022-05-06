@@ -17,7 +17,7 @@ ms.custom: azureday1
 
 # Tutorial: Sign in users in App Service and access storage and Microsoft Graph
 
-This tutorial describes a common application scenario: an internal employee dashboard web application. Your web app will be hosted in Azure App Service and needs to connect to Microsoft Graph and Azure Storage in order to get data to visualize in the dashboard.  In some cases, the web app needs to get data that only the signed-in user can access.  In other cases, the web app needs to access data under the identity of the app itself, and not the signed-in user.  Access to the the web application needs to be restricted to users in your organization.
+This tutorial describes a common application scenario: an internal employee dashboard web application. Your web app will be hosted in Azure App Service and needs to connect to Microsoft Graph and Azure Storage in order to get data to visualize in the dashboard.  In some cases, the web app needs to get data that only the signed-in user can access.  In other cases, the web app needs to access data under the identity of the app itself, and not the signed-in user.  Access to the web application needs to be restricted to users in your organization.
 
 The goal of this tutorial is *not* to show how to build the dashboard itself or visualize data.  Rather, the tutorial focuses on the identity-related aspects of the described scenario.  Learn how to:  
 
