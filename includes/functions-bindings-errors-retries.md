@@ -26,7 +26,12 @@ Capturing and logging errors is critical to monitoring the health of your applic
 
 ## Retry policies (preview)
 
-A retry policy can be defined on any function for any trigger type in your function app.  The retry policy re-executes a function until either successful execution or until the maximum number of retries occur.  Retry policies can be defined for all functions in an app or for individual functions.  By default, a function app won't retry messages (aside from the [specific triggers that have a retry policy on the trigger source](#using-retry-support-on-top-of-trigger-resilience)).  A retry policy is evaluated whenever an execution results in an uncaught exception.  As a best practice, you should catch all exceptions in your code and rethrow any errors that should result in a retry.  Event Hubs and Azure Cosmos DB checkpoints won't be written until the retry policy for the execution has completed, meaning progressing on that partition is paused until the current batch has completed.
+A retry policy can be defined on any function for any trigger type in your function app.  The retry policy re-executes a function until either successful execution or until the maximum number of retries occur.  Retry policies can be defined for all functions in an app or for individual functions.  By default, a function app won't retry messages (aside from the [specific triggers that have a retry policy on the trigger source](#using-retry-support-on-top-of-trigger-resilience)).  
+
+> [!NOTE]
+> Retry policies are only available in [Azure Function runtime](../articles/azure-functions/functions-versions.md) version ~3 or later.
+
+A retry policy is evaluated whenever an execution results in an uncaught exception.  As a best practice, you should catch all exceptions in your code and rethrow any errors that should result in a retry.  Event Hubs and Azure Cosmos DB checkpoints won't be written until the retry policy for the execution has completed, meaning progressing on that partition is paused until the current batch has completed.
 
 ### Retry policy options
 
@@ -340,7 +345,7 @@ Here's the retry policy in the *function.json* file:
 
 The function app retry policy is independent of any retries or resiliency that the trigger provides.  The function retry policy will only layer on top of a trigger resilient retry.  For example, if using Azure Service Bus, by default queues have a message delivery count of 10.  The default delivery count means after 10 attempted deliveries of a queue message, Service Bus will dead-letter the message.  You can define a retry policy for a function that has a Service Bus trigger, but the retries will layer on top of the Service Bus delivery attempts.  
 
-For instance, if you used the default Service Bus delivery count of 10, and defined a function retry policy of 5.  The message would first dequeue, incrementing the service bus delivery account to 1.  If every execution failed, after five attempts to trigger the same message, that message would be marked as abandoned.  Service Bus would immediately requeue the message, it would trigger the function and increment the delivery count to 2.  Finally, after 50 eventual attempts (10 service bus deliveries * five function retries per delivery), the message would be abandoned and trigger a dead-letter on service bus.
+For instance, if you used the default Service Bus delivery count of 10, and defined a function retry policy of 5.  The message would first dequeue, incrementing the service bus delivery account to 1.  If every execution failed, after ten attempts to trigger the same message, that message would be marked as abandoned.  Service Bus would immediately requeue the message, it would trigger the function and increment the delivery count to 2.  Finally, after 50 eventual attempts (10 service bus deliveries * five function retries per delivery), the message would be abandoned and trigger a dead-letter on service bus.
 
 > [!WARNING]
 > It is not recommended to set the delivery count for a trigger like Service Bus Queues to 1, meaning the message would be dead-lettered immediately after a single function retry cycle.  This is because triggers provide resiliency with retries, while the function retry policy is best effort and may result in less than the desired total number of retries.

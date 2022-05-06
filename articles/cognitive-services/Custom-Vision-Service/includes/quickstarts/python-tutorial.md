@@ -19,7 +19,7 @@ Use the Custom Vision client library for Python to:
 * Publish the current iteration
 * Test the prediction endpoint
 
-[Reference documentation](/python/api/overview/azure/cognitiveservices/customvision) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-customvision/azure/cognitiveservices/vision/customvision) | [Package (PyPI)](https://pypi.org/project/azure-cognitiveservices-vision-customvision/) | [Samples](/samples/browse/?languages=python&products=azure&term=vision&terms=vision)
+[Reference documentation](/python/api/overview/azure/cognitiveservices-vision-computervision-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-customvision/azure/cognitiveservices/vision/customvision) | [Package (PyPI)](https://pypi.org/project/azure-cognitiveservices-vision-customvision/) | [Samples](/samples/browse/?languages=python&products=azure&term=vision&terms=vision)
 
 ## Prerequisites
 
@@ -177,4 +177,4 @@ Now you've seen how every step of the image classification process can be done i
 
 * [What is Custom Vision?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/CustomVision/ImageClassification/CustomVisionQuickstart.py)
-* [SDK reference documentation](/python/api/overview/azure/cognitiveservices/customvision)
+* [SDK reference documentation](/python/api/overview/azure/cognitiveservices-vision-computervision-readme)

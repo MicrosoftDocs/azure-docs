@@ -7,7 +7,7 @@ author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 03/18/2022
+ms.date: 03/25/2022
 ---
 
 # Add a custom skill to an Azure Cognitive Search enrichment pipeline
@@ -34,17 +34,15 @@ The interface for a custom skill is specified through the [Custom Web API skill]
 "timeout": "PT230S",
 ```
 
-The URI is the HTTPS endpoint of your function or app. If your code is hosted in an Azure function app, the URI should include an [API key in the header or as a URI parameter](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization) to authorize the request. 
+The URI is the HTTPS endpoint of your function or app. When setting the URI, make sure the URI is secure (HTTPS). If your code is hosted in an Azure function app, the URI should include an [API key in the header or as a URI parameter](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization) to authorize the request. 
 
-Alternatively, if your function or app is accessed through Azure managed identities and Azure roles, the custom skill can include an authentication token on the request if you set "authResourceId" in the [custom skill definition](cognitive-search-custom-skill-web-api.md):
+If instead your function or app uses Azure managed identities and Azure roles for authentication and authorization, the custom skill can include an authentication token on the request. The following points describe the requirements for this approach:
 
 + The search service, which sends the request on the indexer's behalf, must be [configured to use a managed identity](search-howto-managed-identities-data-sources.md) (either system or user-assigned) so that the caller can be authenticated by Azure Active Directory.
 
 + Your function or app must be [configured for Azure Active Directory](../app-service/configure-authentication-provider-aad.md).
 
-+ " authResourceId" takes an application (client) ID, in a [supported format](../active-directory/develop/security-best-practices-for-app-registration.md#appid-uri-configuration): `api://<appId>` 
-
-When setting the URI, make sure the URI is secure (HTTPS).
++ Your [custom skill definition](cognitive-search-custom-skill-web-api.md) must include an "authResourceId" property. This property takes an application (client) ID, in a [supported format](../active-directory/develop/security-best-practices-for-app-registration.md#appid-uri-configuration): `api://<appId>`.
 
 By default, the connection to the endpoint will time out if a response is not returned within a 30-second window. The indexing pipeline is synchronous and indexing will produce a timeout error if a response is not received in that time frame. You can increase the interval to a maximum value of 230 seconds by setting the timeout parameter:
 

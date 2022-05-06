@@ -61,9 +61,10 @@ To join the program, we ask partners to commit to:
 
 ## Next steps
 
+- [Sign up for the Microsoft Partner Network](https://partner.microsoft.com/?msclkid=0ea9c859bb5611ec801255d300e7c499)
 - [Sign up for MS Startups for access to credits and support](https://startups.microsoft.com/)
 - [Downlink data from satellites using Azure Orbital](overview.md)
 - [Analyze space data on Azure](/azure/architecture/example-scenario/data/geospatial-data-processing-analytics-azure)
 - [Drive insights with geospatial partners on Azure – ESRI  and visualize with Power BI](https://azuremarketplace.microsoft.com/en/marketplace/apps/esri.arcgis-enterprise?tab=Overview)
 - [Use the Azure Software Radio Developer VM to jump start your software radio development](https://github.com/microsoft/azure-software-radio)
-- [List your app on the Azure Marketplace](/azure/marketplace/determine-your-listing-type#free-trial)
+- [List your app on the Azure Marketplace](../marketplace/determine-your-listing-type.md#free-trial)

@@ -9,34 +9,53 @@ ms.date: 03/22/2022
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
-This article lists Defender for IoT's new features and enhancements for organizations from the last 6 months. 
+This article lists Microsoft Defender for IoT's new features and enhancements for end-user organizations from the last nine months.
 
-Features released earlier than 6 months ago are listed in [What's new archive for in Microsoft Defender for IoT for organizations](release-notes-archive.md).
+Features released earlier than nine months ago are listed in [What's new archive for in Microsoft Defender for IoT for organizations](release-notes-archive.md).
 
 Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Versioning and support for Defender for IoT
+## Versioning and support for on-premises software versions
 
-Listed below are the support, breaking change policies for Microsoft Defender for IoT, and the versions of Microsoft Defender for IoT that are currently available.
+The Defender for IoT architecture uses on-premises sensors and management servers. This section describes the servicing information and timelines for the available on-premises software versions.
 
-### Servicing information and timelines
+- Each General Availability (GA) version of the Defender for IoT sensor and on-premises management console software is supported for nine months after release. Fixes and new functionality are applied to each new version and are not applied to older versions.
 
-Each General Availability (GA) version of the Defender for IoT sensor and on-premises management console is supported for nine months after release. Fixes and new functionality will be applied to the current GA version that is currently supported and won't be applied to older GA versions.
+- Software update packages include new functionality and security patches. Urgent, high-risk security updates are applied in minor versions that may be released throughout the quarter.
 
-The Defender for IoT sensor and on-premises management console update packages includes new functionality and security patches. Urgent, high-risk security updates will be applied to minor releases occurring during the quarter.
+For more information, see the [Microsoft Security Development Lifecycle practices](https://www.microsoft.com/en-us/securityengineering/sdl/), which describes Microsoft's SDK practices, including training, compliance, threat modeling, design requirements, tools such as Microsoft Component Governance, pen testing, and more.
 
-*Making changes to packages manually might have detrimental effects on the sensor and on-premises management console. In such cases, Microsoft is unable to provide support for your deployment.*
+> [!IMPORTANT]
+> Manual changes to software packages may have detrimental effects on the sensor and on-premises management cosnole. Microsoft is unable to support deployments with manual changes made to packages.
+>
 
-### Versions and support dates
+**Current versions of the sensor and on-premises management console software include**:
 
 | Version | Date released | End support date |
 |--|--|--|
+| 22.1.4 | 04/2022 | 12/2022 |
 | 22.1.3 | 03/2022 | 11/2022 |
 | 22.1.1 | 02/2022 | 10/2022 |
 | 10.5.5 | 12/2021 | 09/2022 |
 | 10.5.4 | 12/2021 | 09/2022 |
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
+
+## April 2022
+
+**Sensor software version**: 22.1.4
+
+### Extended device property data in the Device inventory
+
+Starting for sensors updated to version 22.1.4, the **Device inventory** page on the Azure portal shows extended data for the following fields:
+
+- **Description**
+- **Tags**
+- **Protocols**
+- **Scanner**
+- **Last Activity**
+
+For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
 
 
 ## March 2022
@@ -49,7 +68,7 @@ The Defender for IoT sensor and on-premises management console update packages i
 
 ### Use Azure Monitor workbooks with Microsoft Defender for IoT (Public preview)
 
-[Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview) provide graphs and dashboards that visually reflect your data, and are now available directly in Microsoft Defender for IoT with data from [Azure Resource Graph](/azure/governance/resource-graph/).
+[Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md) provide graphs and dashboards that visually reflect your data, and are now available directly in Microsoft Defender for IoT with data from [Azure Resource Graph](../../governance/resource-graph/index.yml).
 
 In the Azure portal, use the new Defender for IoT **Workbooks** page to view workbooks created by Microsoft and provided out-of-the-box, or create custom workbooks of your own.
 
@@ -59,7 +78,7 @@ For more information, see [Use Azure Monitor workbooks in Microsoft Defender for
 
 ### IoT OT Threat Monitoring with Defender for IoT solution GA
 
-The IoT OT Threat Monitoring with Defender for IoT solution in Microsoft Sentinel is now GA. Use this solution to help secure your entire OT environment, whether you need to protect existing OT devices or build security into new OT innovations.
+The IoT OT Threat Monitoring with Defender for IoT solution in Microsoft Sentinel is now GA. In the Azure portal, use this solution to help secure your entire OT environment, whether you need to protect existing OT devices or build security into new OT innovations.
 
 For more information, see [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md) and [Tutorial: Integrate Defender for IoT and Sentinel](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended).
 
@@ -71,7 +90,7 @@ The **Device inventory** page in the Azure portal now supports the ability to ed
 
 For more information, see [Edit device details](how-to-manage-device-inventory-for-organizations.md#edit-device-details).
 
-You can also delete devices from Defender for IoT, if they've been inactive for more than 14 days.  For more information, see [Delete a device](how-to-manage-device-inventory-for-organizations.md#delete-a-device).
+You can only delete devices from Defender for IoT if they've been inactive for more than 14 days.  For more information, see [Delete a device](how-to-manage-device-inventory-for-organizations.md#delete-a-device).
 
 ### Key state alert updates (Public preview)
 

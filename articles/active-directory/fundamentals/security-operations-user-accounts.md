@@ -94,6 +94,8 @@ From the Azure portal you can view the Azure AD Audit logs and download as comma
 
 * **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)** – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps' compliance. 
 
+* **[Securing workload identities with Identity Protection Preview](..//identity-protection/concept-workload-identity-risk.md)** - Used to detect risk on workload identities across sign-in behavior and offline indicators of compromise.
+
 Much of what you will monitor and alert on are the effects of your Conditional Access policies. You can use the [Conditional Access insights and reporting workbook](../conditional-access/howto-conditional-access-insights-reporting.md) to examine the effects of one or more Conditional Access policies on your sign-ins, as well as the results of policies, including device state. This workbook enables you to view an impact summary, and identify the impact over a specific time period. You can also use the workbook to investigate the sign-ins of a specific user. 
 
  The remainder of this article describes what we recommend you monitor and alert on, and is organized by the type of threat. Where there are specific pre-built solutions we link to them or provide samples following the table. Otherwise, you can build alerts using the preceding tools. 
@@ -253,6 +255,13 @@ Configure Identity Protection to help ensure protection is in place that support
 
 The following are listed in order of importance based on the impact and severity of the entries.
 
+### Monitoring external user sign ins
+
+| What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
+| - |- |- |- |- |
+| Users authenticating to other Azure AD tenants.| Low| Azure AD Sign-ins log| Status = success<br>Resource tenantID != Home Tenant ID| Detects when a user has sucessfully authenticated to another Azure AD tenant with an identity in your organization's tenant.<br>Alert if Resource TenantID is not equal to Home Tenant ID |
+|User state changed from Guest to Member|Medium|Azure AD Audit logs|Activity: Update user<br>Category: UserManagement<br>UserType changed from Guest to Member|Monitor and alert on change of user type from Guest to Member. Was this expected?
+|Guest users invited to tenant by non-approved inviters|Medium|Azure AD Audit logs|Activity: Invite external user<br>Category: UserManagement<br>Initiated by (actor): User Principal Name|Monitor and alert on non-approved actors inviting external users. 
 ### Monitoring for failed unusual sign ins
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |

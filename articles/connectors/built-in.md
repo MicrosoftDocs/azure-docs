@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 04/15/2021
 ---
 
 # Built-in triggers and actions in Azure Logic Apps
@@ -80,10 +80,10 @@ Azure Logic Apps provides the following built-in triggers and actions:
         [**Response**][http-request-doc]: Respond to a request received by the **When a HTTP request is received** trigger in the same workflow.
     :::column-end:::
     :::column:::
-        [![Batch icon][batch-icon]][batch-doc]<br>(*Consumption logic app only*)
+        [![Batch icon][batch-icon]][batch-doc]
         \
         \
-        [**Batch**][batch-doc]
+        [**Batch**][batch-doc]<br>(*Consumption logic app only*)
         \
         \
         [**Batch messages**][batch-doc]: Trigger a workflow that processes messages in batches.
@@ -94,17 +94,22 @@ Azure Logic Apps provides the following built-in triggers and actions:
 :::row-end:::
 :::row:::
     :::column:::
-        [![STFP-SSH icon][sftp-ssh-icon]][sftp-ssh-doc]
+        [![FTP icon][ftp-icon]][ftp-doc]
         \
         \
-        [**STFP-SSH**][sftp-ssh-doc]<br>(*Standard logic app only*)
+        [**FTP**][ftp-doc]<br>(*Standard logic app only*)
+        \
+        \
+        Connect to FTP or FTPS servers you can access from the internet so that you can work with your files and folders.
+    :::column-end:::
+    :::column:::
+        [![SFTP-SSH icon][sftp-ssh-icon]][sftp-ssh-doc]
+        \
+        \
+        [**SFTP-SSH**][sftp-ssh-doc]<br>(*Standard logic app only*)
         \
         \
         Connect to SFTP servers that you can access from the internet by using SSH so that you can work with your files and folders.
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-    :::column:::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -145,7 +150,7 @@ Azure Logic Apps provides the following built-in actions for the following servi
         [**Azure Blob**][azure-blob-storage-doc]<br>(*Standard logic app only*)
         \
         \
-        Connect to your Azure Storage account so that you can create and manage blob content.
+        Connect to your Azure Blob Storage account so you can create and manage blob content.
     :::column-end:::
     :::column:::
         [![Azure Cosmos DB icon][azure-cosmos-db-icon]][azure-cosmos-db-doc]
@@ -186,6 +191,17 @@ Azure Logic Apps provides the following built-in actions for the following servi
         Manage asynchronous messages, queues, sessions, topics, and topic subscriptions.
     :::column-end:::
     :::column:::
+        ![Azure Table Storage icon][azure-table-storage-icon]
+        \
+        \
+        **Azure Table Storage**<br>(*Standard logic app only*)
+        \
+        \
+        Connect to your Azure Table Storage account so you can create and manage tables.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
         [![IBM DB2 icon][ibm-db2-icon]][ibm-db2-doc]
         \
         \
@@ -194,8 +210,6 @@ Azure Logic Apps provides the following built-in actions for the following servi
         \
         Connect to IBM DB2 in the cloud or on-premises. Update a row, get a table, and more.
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         [![Azure Event Hubs icon][azure-event-hubs-icon]][azure-event-hubs-doc]
         \
@@ -222,8 +236,6 @@ Azure Logic Apps provides the following built-in actions for the following servi
         \
         \
         Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries. <p>**Note**: Single-tenant Azure Logic Apps provides both SQL built-in and managed connector operations, while multi-tenant Azure Logic Apps provides only managed connector operations. <p>For more information, review [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md).
-    :::column-end:::
-    :::column:::
     :::column-end:::
 :::row-end:::
 
@@ -503,11 +515,13 @@ Azure Logic Apps provides the following built-in actions, which either require a
 [azure-functions-icon]: ./media/apis-list/azure-functions.png
 [azure-logic-apps-icon]: ./media/apis-list/azure-logic-apps.png
 [azure-service-bus-icon]: ./media/apis-list/azure-service-bus.png
+[azure-table-storage-icon]: ./media/apis-list/azure-table-storage.png
 [batch-icon]: ./media/apis-list/batch.png
 [condition-icon]: ./media/apis-list/condition.png
 [data-operations-icon]: ./media/apis-list/data-operations.png
 [date-time-icon]: ./media/apis-list/date-time.png
 [for-each-icon]: ./media/apis-list/for-each-loop.png
+[ftp-icon]: ./media/apis-list/ftp.png
 [http-icon]: ./media/apis-list/http.png
 [http-request-icon]: ./media/apis-list/request.png
 [http-response-icon]: ./media/apis-list/response.png
@@ -545,6 +559,7 @@ Azure Logic Apps provides the following built-in actions, which either require a
 [condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "Evaluate a condition and run different actions based on whether the condition is true or false"
 [data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "Perform data operations such as filtering arrays or creating CSV and HTML tables"
 [for-each-doc]: ../logic-apps/logic-apps-control-flow-loops.md#foreach-loop "Perform the same actions on every item in an array"
+[ftp-doc]: ./connectors-create-api-ftp.md "Connect to an FTP or FTPS server for FTP tasks, like uploading, getting, deleting files, and more"
 [http-doc]: ./connectors-native-http.md "Call HTTP or HTTPS endpoints from your logic apps"
 [http-request-doc]: ./connectors-native-reqres.md "Receive HTTP requests in your logic apps"
 [http-response-doc]: ./connectors-native-reqres.md "Respond to HTTP requests from your logic apps"

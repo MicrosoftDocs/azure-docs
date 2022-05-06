@@ -2,9 +2,10 @@
 title: Designing your Azure Monitor Logs deployment | Microsoft Docs
 description: This article describes the considerations and recommendations for customers preparing to deploy a workspace in Azure Monitor.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 09/20/2019
+author: guywi-ms
+ms.author: guywild
+ms.reviewer: meirm
+ms.date: 05/04/2022
 
 ---
 
@@ -20,7 +21,7 @@ A Log Analytics workspace provides:
 
 * A geographic location for data storage.
 * Data isolation by granting different users access rights following one of our recommended design strategies.
-* Scope for configuration of settings like [pricing tier](./manage-cost-storage.md#changing-pricing-tier), [retention](./manage-cost-storage.md#change-the-data-retention-period), and [data capping](./manage-cost-storage.md#manage-your-maximum-daily-data-volume).
+* Scope for configuration of settings like [pricing tier](cost-logs.md#commitment-tiers), [retention](data-retention-archive.md), and [data capping](daily-cap.md).
 
 Workspaces are hosted on physical clusters. By default, the system is creating and managing these clusters. Customers that ingest more than 4TB/day are expected to create their own dedicated clusters for their workspaces - it enables them better control and higher ingestion rate.
 

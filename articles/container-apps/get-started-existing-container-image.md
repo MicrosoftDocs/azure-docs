@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: quickstart
-ms.date: 12/16/2021
+ms.date: 03/21/2022
 ms.author: cshoe
 zone_pivot_groups: container-apps-registry-types
 ---
@@ -35,8 +35,6 @@ To create the environment, run the following command:
 az containerapp env create \
   --name $CONTAINERAPPS_ENVIRONMENT \
   --resource-group $RESOURCE_GROUP \
-  --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
-  --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET \
   --location $LOCATION
 ```
 
@@ -46,8 +44,6 @@ az containerapp env create \
 az containerapp env create `
   --name $CONTAINERAPPS_ENVIRONMENT `
   --resource-group $RESOURCE_GROUP `
-  --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
-  --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET `
   --location $LOCATION
 ```
 
@@ -75,7 +71,7 @@ For details on how to provide values for any of these parameters to the `create`
 
 ```bash
 CONTAINER_IMAGE_NAME=<CONTAINER_IMAGE_NAME>
-REGISTRY_LOGIN_SERVER=<REGISTRY_LOGIN_URL>
+REGISTRY_SERVER=<REGISTRY_SERVER>
 REGISTRY_USERNAME=<REGISTRY_USERNAME>
 REGISTRY_PASSWORD=<REGISTRY_PASSWORD>
 ```
@@ -88,7 +84,7 @@ az containerapp create \
   --resource-group $RESOURCE_GROUP \
   --image $CONTAINER_IMAGE_NAME \
   --environment $CONTAINERAPPS_ENVIRONMENT \
-  --registry-login-server $REGISTRY_LOGIN_SERVER \
+  --registry-server $REGISTRY_SERVER \
   --registry-username $REGISTRY_USERNAME \
   --registry-password $REGISTRY_PASSWORD
 ```
@@ -97,7 +93,7 @@ az containerapp create \
 
 ```powershell
 $CONTAINER_IMAGE_NAME=<CONTAINER_IMAGE_NAME>
-$REGISTRY_LOGIN_SERVER=<REGISTRY_LOGIN_URL>
+$REGISTRY_SERVER=<REGISTRY_SERVER>
 $REGISTRY_USERNAME=<REGISTRY_USERNAME>
 $REGISTRY_PASSWORD=<REGISTRY_PASSWORD>
 ```
@@ -110,7 +106,7 @@ az containerapp create `
   --resource-group $RESOURCE_GROUP `
   --image $CONTAINER_IMAGE_NAME `
   --environment $CONTAINERAPPS_ENVIRONMENT `
-  --registry-login-server $REGISTRY_LOGIN_SERVER `
+  --registry-server $REGISTRY_SERVER `
   --registry-username $REGISTRY_USERNAME `
   --registry-password $REGISTRY_PASSWORD 
 ```
@@ -125,7 +121,7 @@ az containerapp create `
 
 ```azurecli
 az containerapp create \
-  --image <REGISTRY_CONTAINER_URL> \
+  --image <REGISTRY_CONTAINER_NAME> \
   --name my-container-app \
   --resource-group $RESOURCE_GROUP \
   --environment $CONTAINERAPPS_ENVIRONMENT
@@ -135,7 +131,7 @@ az containerapp create \
 
 ```azurecli
 az containerapp create `
-  --image <REGISTRY_CONTAINER_URL> `
+  --image <REGISTRY_CONTAINER_NAME> `
   --name my-container-app `
   --resource-group $RESOURCE_GROUP `
   --environment $CONTAINERAPPS_ENVIRONMENT
@@ -143,11 +139,11 @@ az containerapp create `
 
 ---
 
-Before you run this command, replace `<REGISTRY_CONTAINER_URL>` with the URL to the public container registry location including tag.
+Before you run this command, replace `<REGISTRY_CONTAINER_NAME>` with the full name the public container registry location, including the registry path and tag. For example, a valid container name is `mcr.microsoft.com/azuredocs/containerapps-helloworld:latest`.
 
 ::: zone-end
 
-If you have enabled ingress on your container app, you can add `--query configuration.ingress.fqdn` to the `create` command to return the public URL for the application.
+If you have enabled ingress on your container app, you can add `--query properties.configuration.ingress.fqdn` to the `create` command to return the public URL for the application.
 
 ## Verify deployment
 
@@ -158,6 +154,8 @@ After about 5-10 minutes has passed, use the following steps to view logged mess
 # [Bash](#tab/bash)
 
 ```azurecli
+LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv`
+
 az monitor log-analytics query \
   --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
   --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated" \
@@ -167,6 +165,8 @@ az monitor log-analytics query \
 # [PowerShell](#tab/powershell)
 
 ```powershell
+$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv)
+
 $queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $LOG_ANALYTICS_WORKSPACE_CLIENT_ID -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5"
 $queryResults.Results
   --out table

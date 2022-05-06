@@ -304,7 +304,7 @@ AKS offers a separate feature to automatically scale node pools with a feature c
 If you no longer need a pool, you can delete it and remove the underlying VM nodes. To delete a node pool, use the [az aks node pool delete][az-aks-nodepool-delete] command and specify the node pool name. The following example deletes the *mynodepool* created in the previous steps:
 
 > [!CAUTION]
-> There are no recovery options for data loss that may occur when you delete a node pool. If pods can't be scheduled on other node pools, those applications are unavailable. Make sure you don't delete a node pool when in-use applications don't have data backups or the ability to run on other node pools in your cluster.
+> When you delete a node pool, AKS doesn't perform cordon and drain, and there are no recovery options for data loss that may occur when you delete a node pool. If pods can't be scheduled on other node pools, those applications become unavailable. Make sure you don't delete a node pool when in-use applications don't have data backups or the ability to run on other node pools in your cluster. To minimize the disruption of rescheduling pods currently running on the node pool you are going to delete, perform a cordon and drain on all nodes in the node pool before deleting. For more details, see [cordon and drain node pools][cordon-and-drain].
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name mynodepool --no-wait
@@ -543,48 +543,7 @@ Only pods that have this toleration applied can be scheduled on nodes in *taintn
 
 ### Setting nodepool labels
 
-You can also add labels to a node pool during node pool creation. Labels set at the node pool are added to each node in the node pool. These [labels are visible in Kubernetes][kubernetes-labels] for handling scheduling rules for nodes.
-
-To create a node pool with a label, use [az aks nodepool add][az-aks-nodepool-add]. Specify the name *labelnp* and use the `--labels` parameter to specify *dept=IT* and *costcenter=9999* for labels.
-
-```azurecli-interactive
-az aks nodepool add \
-    --resource-group myResourceGroup \
-    --cluster-name myAKSCluster \
-    --name labelnp \
-    --node-count 1 \
-    --labels dept=IT costcenter=9999 \
-    --no-wait
-```
-
-> [!NOTE]
-> Labels must be a key/value pair and have a [valid syntax][kubernetes-label-syntax].
-
-The following example output from the [az aks nodepool list][az-aks-nodepool-list] command shows that *labelnp* is *Creating* nodes with the specified *nodeLabels*:
-
-```azurecli
-az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
-
-```output
-[
-  {
-    ...
-    "count": 1,
-    ...
-    "name": "labelnp",
-    "orchestratorVersion": "1.15.7",
-    ...
-    "provisioningState": "Creating",
-    ...
-    "nodeLabels":  {
-      "dept": "IT",
-      "costcenter": "9999"
-    },
-    ...
-  },
- ...
-]
-```
+For more details on using labels with node pools, see [Use labels in an Azure Kubernetes Service (AKS) cluster][use-labels].
 
 ### Setting nodepool Azure tags
 
@@ -863,7 +822,7 @@ Learn more about [system node pools][use-system-pool].
 
 In this article, you learned how to create and manage multiple node pools in an AKS cluster. For more information about how to control pods across node pools, see [Best practices for advanced scheduler features in AKS][operator-best-practices-advanced-scheduler].
 
-To create and use Windows Server container node pools, see [Create a Windows Server container in AKS][aks-windows].
+To create and use Windows Server container node pools, see [Create a Windows Server container in AKS][aks-quickstart-windows-cli].
 
 Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your AKS applications.
 
@@ -877,7 +836,7 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [capacity-reservation-groups]:/azure/virtual-machines/capacity-reservation-associate-virtual-machine-scale-set
 
 <!-- INTERNAL LINKS -->
-[aks-windows]: windows-container-cli.md
+[aks-quickstart-windows-cli]: ./learn/quick-windows-container-deploy-cli.md
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-upgrades]: /cli/azure/aks#az_aks_get_upgrades
@@ -916,3 +875,5 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [node-image-upgrade]: node-image-upgrade.md
 [fips]: /azure/compliance/offerings/offering-fips-140-2
 [use-tags]: use-tags.md
+[use-labels]: use-labels.md
+[cordon-and-drain]: resize-node-pool.md#cordon-the-existing-nodes

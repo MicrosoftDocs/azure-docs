@@ -18,7 +18,9 @@ ms.author: wellee
 > 
 > This preview is provided without a service-level agreement and isn't recommended for production workloads. Some features might be unsupported or have constrained capabilities. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
-> To obtain access to the preview, please deploy two hubs in the same Azure region along side any gateways (Site-to-site VPN Gateways, Point-to-site Gateways and ExpressRouteGateways) and then reach out to previewinterhub@microsoft.com with the Virtual WAN ID, Subscription ID and Azure Region you wish to configure Routing Intent in. Expect a response within 48 business hours (Monday-Friday) with confirmation of feature enablement. Please note that any gateways created after feature enablement will need to be upgraded by the Virtual WAN team.
+> Inspecting inter-hub traffic via Azure Firewall or NVA between Virtual Hubs deployed in **different** Azure regions is available in select Azure Regions. Please reach out to previewinterhub@microsoft.com for more details. 
+>
+> To obtain access to the preview, please deploy any Virtual WAN hubs and gateways (Site-to-site VPN Gateways, Point-to-site Gateways and ExpressRouteGateways) and then reach out to previewinterhub@microsoft.com with the Virtual WAN ID, Subscription ID and Azure Region you wish to configure Routing Intent in. Expect a response within 48 business hours (Monday-Friday) with confirmation of feature enablement. Please note that any gateways created after feature enablement will need to be upgraded by the Virtual WAN team.
 
 ## Background
 
@@ -29,7 +31,7 @@ Routing Intent and Routing policies allow you to specify how the Virtual WAN hub
 While Private Traffic  includes both branch and Virtual Network address prefixes, Routing Policies considers them as one entity within the Routing Intent Concepts.
 
 >[!NOTE]
-> In the gated public preview of Virtual WAN Hub routing policies, inter-hub traffic is only inspected by Azure Firewall or a Network Virtual Appliance deployed in the Virtual WAN Hub if the Virtual WAN Hubs are in the same region.
+> Inter-region traffic can be inspected by Azure Firewall or NVA for Virtual Hubs deployed in select Azure regions. For available regions, please contact previewinterhub@microsoft.com.
 
 
 * **Internet Traffic Routing Policy**:  When an Internet Traffic Routing Policy is configured on a Virtual WAN hub, all branch (User VPN (Point-to-site VPN), Site-to-site VPN, and ExpressRoute) and Virtual Network connections to that Virtual WAN Hub will forward Internet-bound traffic to the Azure Firewall resource, Third-Party Security provider or Network Virtual Appliance specified as part of the Routing Policy.
@@ -43,12 +45,12 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 
 * You will **not** be able to enable routing policies on your deployments with existing Custom Route tables configured or if there are static routes configured in your Default Route Table.
 * Currently, Private Traffic Routing Policies are not supported in Hubs with Encrypted ExpressRoute connections (Site-to-site VPN Tunnel running over ExpressRoute Private connectivity). 
-* In the gated public preview of Virtual WAN Hub routing policies, inter-hub traffic is only inspected by Azure Firewall or Network Virtual Appliances deployed in the Virtual WAN Hub if the Virtual WAN Hubs are in the same region.
+* In the gated public preview of Virtual WAN Hub routing policies, inter-regional traffic is only inspected by Azure Firewall or Network Virtual Appliances deployed in the Virtual WAN Hub for traffic between select Azure regions. For more information, reach out to previewinterhub@microsoft.com.
 * Routing Intent and Routing Policies currently must be configured via the custom portal link provided in Step 3 of  **Prerequisites**. Routing Intents and Policies are not supported via Terraform, PowerShell, and CLI. 
 
 ## Prerequisites
 
-1. Create a Virtual WAN. Make sure you create at least two Virtual Hubs in the **same** region. For instance, you may create a Virtual WAN with two Virtual Hubs in East US. Note that if you only wish to inspect branch-to-branch traffic, you may deploy a single Virtual WAN Hub as opposed to multiple Hubs in the same region.
+1. Create a Virtual WAN. Make sure you create at least two Virtual Hubs if you wish to inspect inter-hub traffic. For instance, you may create a Virtual WAN with two Virtual Hubs in East US. Note that if you only wish to inspect branch-to-branch traffic, you may deploy a single Virtual WAN Hub as opposed to multiple hubs.
 2. Convert your Virtual WAN Hub into a Secured Virtual WAN Hub by deploying an Azure Firewall into the Virtual Hubs in the chosen region. For more information on converting your Virtual WAN Hub to a Secured Virtual WAN Hub, please see [How to secure your Virtual WAN Hub](howto-firewall.md).
 3. Deploy any Site-to-site VPN, Point-to-site VPN and ExpressRoute Gateways you will use for testing. Reach out to **previewinterhub@microsoft.com**  with the **Virtual WAN Resource ID** and the **Azure Virtual hub Region** you wish to configure Routing Policies in. To locate the Virtual WAN ID, open Azure portal, navigate to your Virtual WAN resource and select Settings > Properties > Resource ID. For example: 
     ```
@@ -185,11 +187,11 @@ The following section describes common issues encountered when you configure Rou
 
 ### Troubleshooting data path 
 
-* Currently, using Azure Firewall to inspect inter-hub traffic is only available for Virtual WAN hubs that are deployed in the **same** Azure Region. 
+* Currently, using Azure Firewall to inspect inter-hub traffic is  available for Virtual WAN hubs that are deployed in the **same** Azure Region. Inter-hub inspection for Virtual WAN hubs that are in different Azure regions is available on a limited basis. For a list of available regions, please email previewinterhub@mcirosoft.com.
 * Currently, Private Traffic Routing Policies are not supported in Hubs with Encrypted ExpressRoute connections (Site-to-site VPN Tunnel running over ExpressRoute Private connectivity).
 * You can verify that the Routing Policies have been applied properly by checking the Effective Routes of the DefaultRouteTable. If Private Routing Policies are configured, you should see routes in the DefaultRouteTable for private traffic prefixes with next hop Azure Firewall. If Internet Traffic Routing Policies are configured, you should see a default (0.0.0.0/0) route in the DefaultRouteTable with next hop Azure Firewall.
 * If there are any Site-to-site VPN gateways or Point-to-site VPN gateways created **after** the feature has been confirmed to be enabled on your deployment, you will have to reach out again to previewinterhub@microsoft.com to get the feature enabled. 
-* If you are using Private Routing Policies to faciliate ExpressRoute to ExpressRoute transit, please note that your ExpressRoute circuit cannot advertise exact address ranges for the RFC1918 address ranges (cannot advertise 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) or any exact CIDR range that is specified in the Private Traffic prefixes text box. Please ensure you are advertising more specific subnets (within RFC1918 ranges) as opposed to aggregate supernets. 
+* If you are using Private Routing Policies with ExpressRoute, please note that your ExpressRoute circuit cannot advertise exact address ranges for the RFC1918 address ranges (you cannot advertise 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16). Please ensure you are advertising more specific subnets (within RFC1918 ranges) as opposed to aggregate supernets. Additionally, if your ExpressRoute circuit is advertising a non-RFC1918 prefix to Azure, please make sure the address ranges that you put in the Private Traffic Prefixes text box are less specific than ExpressRoute advertised routes. For example, if the ExpressRoute Circuit is advertising 40.0.0.0/24 from on-premises, put a a /23 CIDR range or larger in the Private Traffic Prefix text box (example: 40.0.0.0/23). 
 
 ### Troubleshooting Azure Firewall
 
