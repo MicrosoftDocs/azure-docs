@@ -27,7 +27,7 @@ This documentation contains the following article types:
 | ---------| -------------|
 | **Translate large files**| Translate whole documents asynchronously.|
 |**Translate numerous files**|Translate multiple files across all supported languages and dialects while preserving document structure and data format.|
-|**Translate 🆕[scanned](#scanned-pdf-document-translation) and text-embedded pdf documents** |Translate printed and handwritten text in scanned PDF documents. |
+|**Translate 🆕[scanned](#document-translation-scanned-pdfs) and text-embedded pdf documents** |Translate printed and handwritten text in scanned PDF documents. |
 |**Preserve source file presentation**| Translate files while preserving the original layout and format.|
 |**Apply custom translation**| Translate documents using general and [custom translation](../customization.md#custom-translator) models.|
 |**Apply custom glossaries**|Translate documents using custom glossaries.|

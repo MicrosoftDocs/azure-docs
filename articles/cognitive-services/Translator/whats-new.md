@@ -23,7 +23,7 @@ Translator service supports language translation for more than 100 languages. If
 
 ## May 2022
 
-### [Document Translation support for scanned PDF documents](document-translation/overview.md#scanned-pdf-document-translation)
+### [Document Translation support for scanned PDF documents](document-translation/overview.md#document-translation-scanned-pdfs)
 
 * Optical character recognition (OCR) teams with Document Translation to power scanned PDF document translation.
 
