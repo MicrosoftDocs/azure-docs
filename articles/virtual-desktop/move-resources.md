@@ -3,7 +3,7 @@ title: Move Azure Virtual Desktop resources between regions - Azure
 description: How to move Azure Virtual Desktop resources between regions.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/25/2022
+ms.date: 05/06/2022
 ms.author: helohr
 manager: femila
 ---
@@ -27,10 +27,11 @@ The first step to move your resources is to create a template that contains ever
 
 To export a template:
 
-1. In the Azure portal, go to **Azure Virtual Desktop**, then go to **Overview** > **Resources**. Select every resource you want to move to the new region.
-2. Select the **...** button in the upper right-hand corner of the **Resources** tab. Once the drop-down menu opens, select **Export template**.
-3. Select **Download** to download a local copy of the generated template.
-4. Right-click the zip file and select **Extract All**.
+1. In the Azure portal, go to **Resource Groups**, then select the resource group that contains the resources you want to move.
+2. Once you've selected the resource group, go to **Overview** > **Resources** and select all the resources you want to move.
+3. Select the **...** button in the upper right-hand corner of the **Resources** tab. Once the drop-down menu opens, select **Export template**.
+4. Select **Download** to download a local copy of the generated template.
+5. Right-click the zip file and select **Extract All**.
 
 ## Modify the exported template
 
