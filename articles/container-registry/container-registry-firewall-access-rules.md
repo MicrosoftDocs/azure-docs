@@ -33,7 +33,7 @@ If your registry is [geo-replicated](container-registry-geo-replication.md), a c
 Registry has two FQDN's, the **login url** and the **data endpoint**.
 
 * Both the **login url** and the **data endpoint** are accessible from within the virtual network, using private IP's by enabling a private link.
-* A registry configured with a `*.blob.core.windows.net` data endpoint doesn’t provide isolation when configuring client firewall rules.
+* A registry that does not use data endpoints would have to access the data from an endpoint of the form `*.blob.core.windows.net` and does not provide the isolation required when configuring firewall rules. 
 * A registry with a private link enabled gets the dedicated data endpoint automatically.
 * A dedicated data endpoint is created per region for a registry.
 * Login url never changes irrespective of dedicated endpoint enabled/disabled.
