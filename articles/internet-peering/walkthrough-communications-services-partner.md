@@ -74,39 +74,52 @@ Use for Peering Services: 	**Enabled**
 > Ignore the following message while selecting for activating for Peering Services.
 > *Do not enable unless you have contacted peering@microsoft.com about becoming a MAPS provider.*
 
-
-
-
-
 **3.	Register your prefixes for Optimized Routing**
 
 For optimized routing for your Communication services infrastructure prefixes, you should register all your prefixes with your peering interconnects.
 
-Please ensure that the prefixes registered are being announced over the direct interconnects established for the region.
+Please ensure that the prefixes registered are being announced over the direct interconnects established in that location.
 If the same prefix is announced in multiple peering locations, it is sufficient to register them with just one of the peerings in order to retreive the unique prefix keys after validation.
 
-Prefix Registration
-**Step1:** If you are an Operator Connect Partner, you would be able to see “Register Prefix” tab on the left panel of your peering resource page. (../media/registered-prefixes-under-direct-peering.png)
-**Step2:** Register prefixes to access the activation keys (../media/registered-prefixes-blade.png)
+**Prefix Registration**
 
-(../media/registered-prefix-example.png)
+**Step1:** If you are an Operator Connect Partner, you would be able to see the “Register Prefix” tab on the left panel of your peering resource page. 
+    > [!div class="mx-imgBorder"]
+    > ![Registered prefixes under a peering enabled for Peering service.](media/registered-prefixes-under-direct-peering.png)
 
-(../media/prefix-after-registration.png)
+**Step2:** Register prefixes to access the activation keys 
+    > [!div class="mx-imgBorder"]
+    > ![Registered prefixes blade showing a list of prefixes with keys.](media/registered-prefixes-blade.png)
+    >
+    > ![Example of a prefix being registered.](media/registered-prefix-example.png)
+    >
+    > ![Registered prefixes blade showing a new prefix added.](media/prefix-after-registration.png)
 
-Prefix Activation
+**Prefix Activation**
+
 In the previous steps, you registered the prefix and generated the prefix key. The prefix registration DOES NOT activate the prefix for optimized routing (and will not even accept <\/24 prefixes) and it requires prefix activation and alignment to the right partner (In this case the OC partner) and the appropriate interconnect location (to ensure cold potato routing).
 
 Below are the steps to activate the prefix.
-**Step1:**  Look for “Peering Services” resource (../media/peering-service-search.png)
 
-(../media/peering-service-list.png)
+**Step1:**  Look for “Peering Services” resource 
+    > [!div class="mx-imgBorder"]
+    > ![Search for Peering Service on Azure portal.](media/peering-service-search.png)
+    >
+    > ![List of existing peering services.](media/peering-service-list.png)
 
-**Step2:** Create a new Peering Service resource (../media/create-peering-service.png)
+**Step2:** Create a new Peering Service resource
+    > [!div class="mx-imgBorder"]
+    > ![Create a new peering service.](media/create-peering-service.png)
+
 **Step3:** Provide details on the location, provider and primary and backup interconnect location. If backup location is set to “none”, the traffic will fail over the internet. 
-If you are an Operator Connect partner, you would be able to see yourself as the provider. 
-The prefix key should be the same as the one obtained in the "Prefix Registration" step. (../media/peering-service-properties.png)
 
-(../media/peering-service-deployment.png)
+If you are an Operator Connect partner, you would be able to see yourself as the provider. 
+The prefix key should be the same as the one obtained in the "Prefix Registration" step. 
+    > [!div class="mx-imgBorder"]
+    > ![The fields to be filled to create a peering service.](media/peering-service-properties.png)
+    >
+    > [!div class="mx-imgBorder"]
+    > ![Validation of peering service resource before deployment.](media/peering-service-deployment.png)
 
 ## FAQs:
 
