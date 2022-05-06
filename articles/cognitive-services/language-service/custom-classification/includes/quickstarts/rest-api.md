@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 01/25/2022
+ms.date: 05/06/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
@@ -20,7 +20,7 @@ Before you can use custom text classification, you’ll need to create an Azure 
 > [!IMPORTANT]
 > To get started quickly, we recommend creating a new Azure Language resource using the steps provided in this article, which will let you create the Language, and create and/or connect a storage account at the same time, which is easier than doing it later.
 >
-> If you have a [pre-existing resource](../../how-to/create-project.md#using-a-pre-existing-azure-resource) that you'd like to use, you will need to connect it to storage account.
+> If you have a [pre-existing resource](../../how-to/create-project.md#using-a-pre-existing-language-resource) that you'd like to use, you will need to connect it to storage account.
 
 [!INCLUDE [create a new resource from the Azure portal](../resource-creation-azure-portal.md)]
     

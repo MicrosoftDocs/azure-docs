@@ -52,9 +52,20 @@ Use this article to learn about the data and rate limits when using custom text 
 
 ## Regional availability 
 
-Custom text classification is only available select Azure regions. When you create an [Azure resource](how-to/create-project.md), it must be deployed into one of the following regions:
-* **West US 2**
-* **West Europe**
+Custom text classification is only available in some Azure regions. To use custom text classification, you must choose a Language resource in one of following regions:
+
+* West US 2
+* East US 
+* East US 2
+* West US 3
+* South Central US
+* West Europe
+* North Europe
+* UK south
+* Southeast Asia
+* Australia East
+* Sweden Central 
+
 
 ## Project limits
 
