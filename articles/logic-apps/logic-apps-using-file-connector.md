@@ -68,8 +68,6 @@ For connector-specific technical information, such as triggers, actions, and lim
 
 ## Add a File System trigger
 
-[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
-
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the workflow designer.
 
 1. On the designer, under the search box, select **All**. In the search box, enter **file system**. From the triggers list, select the File System trigger that you want. This example continues with the trigger named **When a file is created**.
@@ -90,39 +88,77 @@ For connector-specific technical information, such as triggers, actions, and lim
 
    The following example shows the connection information for the managed File System trigger:
 
-   ![Screenshot showing connection information for managed File System trigger.](media/logic-apps-using-file-connector/file-system-trigger-connection-consumption.png)
+   ![Screenshot showing connection information for managed File System trigger.](media/logic-apps-using-file-connector/file-system-connection-consumption.png)
 
    The following example shows the connection information for the ISE-based File System trigger:
 
-   ![Screenshot showing connection information for ISE-based File System trigger.](media/logic-apps-using-file-connector/file-system-trigger-connection-ise.png)
+   ![Screenshot showing connection information for ISE-based File System trigger.](media/logic-apps-using-file-connector/file-system-connection-ise.png)
 
-1. Provide the required information for your trigger and continue building your workflow.
+1. Provide the required information for your trigger, select **Create**.
+
+   Azure Logic Apps creates and tests your connection, making sure that the connection works properly. If the connection is set up correctly, the setup options appear for your selected trigger.
+
+1. Continue building your workflow.
+
+   For example, to test your workflow, add an Outlook action that sends you an email when a file is created on the file system in specified folder. Enter the email recipients, subject, and body. For testing, you can use your own email address.
+
+   ![Screenshot showing an action that sends email when a new file is created on the file system server.](media/logic-apps-using-file-connector/file-system-trigger-send-email.png)
+
+1. Save your logic app. Test your workflow by uploading a file and triggering the workflow.
+
+   If successful, your workflow sends an email about the new file.
 
 <a name="add-file-system-action"></a>
 
 ## Add a File System action
 
-1. Under the trigger, choose **Next step**. In the search box, enter "file system" as your filter. From the actions list, select this action: **Create file**
+1. In the [Azure portal](https://portal.azure.com), open your logic app in the workflow designer, if not already open.
 
-   ![Find File System connector](media/logic-apps-using-file-connector/find-file-system-action.png)
+1. After the last step or between steps in your workflow, add a new step or action.
 
-1. If you don't already have a connection to your file system, you're prompted to create a connection.
+   This example uses a Dropbox trigger and follows that step with a File System action.
 
-   ![Create connection](media/logic-apps-using-file-connector/file-system-connection.png)
+1. Under the **Choose an operation** search box, select **All**. In the search box, enter **file system**.
+
+1. From the actions list, select the File System action that you want. This example continues with the action named **Create file**.
+
+   ![Screenshot showing the Azure portal, the workflow designer open for a Consumption logic app, the search box with "file system" entered, and a File System action selected.](media/logic-apps-using-file-connector/select-file-system-action-consumption.png)
+
+1. If you're prompted to create your file system server connection, provide the following information as required:
 
    | Property | Required | Value | Description |
-   | -------- | -------- | ----- | ----------- |
-   | **Connection Name** | Yes | <*connection-name*> | The name you want for your connection |
-   | **Root folder** | Yes | <*root-folder-name*> | The root folder for your file system, for example, if you installed your on-premises data gateway  such as a local folder on the computer where the on-premises data gateway is installed, or the folder for a network share that the computer can access. <p>For example: `\\PublicShare\\DropboxFiles` <p>The root folder is the main parent folder, which is used for relative paths for all file-related actions. |
-   | **Authentication Type** | No | <*auth-type*> | The type of authentication that your file system uses: **Windows** |
-   | **Username** | Yes | <*domain*>\\<*username*> <p>-or- <p><*local-computer*>\\<*username*> | The username for the computer where you have your file system. <p>If your file system folder is on the same computer as the on-premises data gateway, you can use <*local-computer*>\\<*username*>. |
+   |----------|----------|-------|-------------|
+   | **Connection name** | Yes | <*connection-name*> | The name to use for your connection |
+   | **Root folder** | Yes | <*root-folder-name*> | The root folder for your file system, which is usually the main parent folder and is the folder used for the relative paths with all triggers that work on files. <br><br>For example, if you installed the on-premises data gateway, use the local folder on the computer with the data gateway installation. Or, use the folder for the network share where the computer can access that folder, for example, **`\\PublicShare\\MyFileSystem`**. |
+   | **Authentication Type** | No | <*auth-type*> | The type of authentication that your file system server uses, which is **Windows** |
+   | **Username** | Yes | <*domain-and-username*> | The domain and username for the computer where you have your file system. <br><br>For the managed File System connector, use one of the following values with the backslash (**`\`**): <br><br>- **<*domain*>\\<*username*>** <br>- **<*local-computer*>\\<*username*>** <br><br>For example, if your file system folder is on the same computer as the on-premises data gateway installation, you can use **<*local-computer*>\\<*username*>**. <br><br>- For the ISE-based File System connector, use the forward slash instead (**`/`**): <br><br>- **<*domain*>/<*username*>** <br>- **<*local-computer*>/<*username*>** |
    | **Password** | Yes | <*password*> | The password for the computer where you have your file system |
-   | **gateway** | Yes | <*data-gateway-name*> | The name for your data gateway resource in Azure |
+   | **gateway** | No | - <*Azure-subscription*> <br>- <*gateway-resource-name*> | This section applies only to the managed File System connector: <br><br>- **Subscription**: The Azure subscription associated with the data gateway resource <br>- **Connection Gateway**: The data gateway resource |
    |||||
 
-1. When you're done, choose **Create**.
+   The following example shows the connection information for the managed File System action:
 
-   Azure Logic Apps configures and tests your connection, making sure that the connection works properly. If the connection is set up correctly, options appear for the action that you previously selected.
+   ![Screenshot showing connection information for managed File System action.](media/logic-apps-using-file-connector/file-system-connection-consumption.png)
+
+   The following example shows the connection information for the ISE-based File System action:
+
+   ![Screenshot showing connection information for ISE-based File System action.](media/logic-apps-using-file-connector/file-system-connection-ise.png)
+
+1. Provide the required information for your action, select **Create**.
+
+   Azure Logic Apps creates and tests your connection, making sure that the connection works properly. If the connection is set up correctly, the setup options appear for your selected action.
+
+1. Continue building your workflow.
+
+   For example, to test your workflow, add an Outlook action that sends you an email when a file is created on the file system in specified folder. Enter the email recipients, subject, and body. For testing, you can use your own email address.
+
+   ![Screenshot showing an action that sends email when a new file is created on the file system server.](media/logic-apps-using-file-connector/file-system-trigger-send-email.png)
+
+1. Save your logic app. Test your workflow by uploading a file and triggering the workflow.
+
+   If successful, your workflow sends an email about the new file.
+
+
 
 1. In the **Create file** action, provide the details for copying files from Dropbox to the root folder in your on-premises file share. To add outputs from previous steps, click inside the boxes, and select from available fields when the dynamic content list appears.
 
