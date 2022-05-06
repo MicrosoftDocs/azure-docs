@@ -22,11 +22,9 @@ This tutorial builds on the app deployed in the [Deploy your code to Azure Conta
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
-> * Build and run a containerized application on your local machine
-> * Push the application's container image to Azure Container Registry
-> * Deploy the app to an existing Azure Container Apps environment
-> * Configure the app to call the first microservice
-> * Configure the first microservice's ingress to accept internal traffic only
+> * Deploy a front-end application to Azure Container Apps
+> * Link the front-end app to the API endpoint deployed in the previous quickstart
+> * Verify both container apps communicate together
 
 ## Prerequisites
 
@@ -34,37 +32,9 @@ This article directly follows the final steps from [Deploy your code to Azure Co
 
 ## Setup
 
-If you still have all the variables defined in your shell from the quickstart, you can skip the below steps and continue with the [Prepare the GitHub repository](#prepare-the-github-repository) section.
+If you still have all the variables defined and authenticated sessions in your shell from the quickstart, you can skip the following steps and go directly to the [Prepare the GitHub repository](#prepare-the-github-repository) section.
 
 [!INCLUDE [container-apps-code-to-cloud-setup.md](../../includes/container-apps-code-to-cloud-setup.md)]
-
-# [Bash](#tab/bash)
-
-```azurecli
-az acr login --name $ACR_NAME
-```
-
-Now store your ACR password in an environment variable.
-
-```azurecli
-ACR_PASSWORD=$(az acr credential show -n $ACR_NAME --query passwords[0].value)
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-az acr login --name $ACR_NAME
-```
-
-Now store your ACR password in an environment variable.
-
-```powershell
-$ACR_PASSWORD=(Get-AzContainerRegistryCredential `
- -ResourceGroupName $RESOURCE_GROUP `
- -Name $ACR_NAME | Select -Property Password).Password
-```
-
----
 
 Sign in to the Azure CLI.
 
@@ -78,6 +48,44 @@ az login
 
 ```powershell
 Connect-AzAccount
+```
+
+---
+
+::: zone pivot="docker-local"
+
+# [Bash](#tab/bash)
+
+```azurecli
+az acr login --name $ACR_NAME
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+az acr login --name $ACR_NAME
+```
+
+---
+
+::: zone-end
+
+# [Bash](#tab/bash)
+
+Next, store your ACR password in an environment variable.
+
+```azurecli
+ACR_PASSWORD=$(az acr credential show -n $ACR_NAME --query passwords[0].value)
+```
+
+# [PowerShell](#tab/powershell)
+
+Next, store your ACR password in an environment variable.
+
+```powershell
+$ACR_PASSWORD=(Get-AzContainerRegistryCredential `
+ -ResourceGroupName $RESOURCE_GROUP `
+ -Name $ACR_NAME | Select -Property Password).Password
 ```
 
 ---
@@ -103,157 +111,158 @@ Connect-AzAccount
     cd code-to-cloud-ui
     ```
 
----
+## Build the frontend application
 
-### Build the frontend application
+1. Create the following variables to help you deploy your new container app.
 
-Create the following variables to help you deploy your new container app.
+    # [Bash](#tab/bash)
 
-# [Bash](#tab/bash)
+    ```bash
+    FRONTEND_NAME=albumapp-ui
+    CONTAINER_IMAGE_NAME=$ACR_NAME.azurecr.io/$FRONTEND_NAME
+    ```
 
-```bash
-FRONTEND_NAME=albumsapp-ui
-ACR_LOGIN_SERVER=$ACR_NAME.azurecr.io
-ACR_ADMIN_USERNAME=$ACR_NAME
-CONTAINER_IMAGE_NAME=$ACR_LOGIN_SERVER/$FRONTEND_NAME
-```
+    # [PowerShell](#tab/powershell)
 
-# [PowerShell](#tab/powershell)
+    ```powershell
+    $FRONTEND_NAME=albumapp-ui
+    $$CONTAINER_IMAGE_NAME=$ACR_NAME.azurecr.io/$FRONTEND_NAME
+    ```
 
-```powershell
-$FRONTEND_NAME=albumsapp-ui
-$ACR_LOGIN_SERVER=$ACR_NAME.azurecr.io
-$ACR_ADMIN_USERNAME=$ACR_NAME
-$CONTAINER_IMAGE_NAME=$ACR_LOGIN_SERVER/$FRONTEND_NAME
-```
-
----
-
-## Build your application
+    ---
 
 ::: zone pivot="acr-remote"
 
-You can build your Dockerfile with the ACR build command.
+1. You can build your Dockerfile with the ACR build command.
 
-# [Bash](#tab/bash)
+    # [Bash](#tab/bash)
 
-```azurecli
-az acr build --registry $ACR_NAME --image $CONTAINER_IMAGE_NAME
-```
+    ```azurecli
+    az acr build --registry $ACR_NAME --image $CONTAINER_IMAGE_NAME
+    ```
 
-# [PowerShell](#tab/powershell)
+    # [PowerShell](#tab/powershell)
 
-```powershell
-az acr build --registry $ACR_NAME --image $CONTAINER_IMAGE_NAME
-```
+    ```powershell
+    az acr build --registry $ACR_NAME --image $CONTAINER_IMAGE_NAME
+    ```
 
----
+    ---
 
-Output from the `az acr build` command shows the upload progress of the source code to Azure and the details of the `docker build` operation.
+  Output from the `az acr build` command shows the upload progress of the source code to Azure and the details of the `docker build` operation.
 
-To verify that your image is now available in ACR, run the command below.
+1. To verify that your image is now available in ACR, run the command below.
 
-# [Bash](#tab/bash)
+    # [Bash](#tab/bash)
 
-```azurecli
-az acr manifest list-metadata \
-  --registry $ACR_NAME \
-  --name $CONTAINER_IMAGE_NAME
-```
+    ```azurecli
+    az acr manifest list-metadata \
+      --registry $ACR_NAME \
+      --name $CONTAINER_IMAGE_NAME
+    ```
 
-# [PowerShell](#tab/powershell)
+    # [PowerShell](#tab/powershell)
 
-```powershell
-Get-AzContainerRegistryManifest `
-  -RegistryName $ACR_NAME `
-  -Repository $CONTAINER_IMAGE_NAME
-```
+    ```powershell
+    Get-AzContainerRegistryManifest `
+      -RegistryName $ACR_NAME `
+      -Repository $CONTAINER_IMAGE_NAME
+    ```
 
 ::: zone-end
 
 ::: zone pivot="docker-local"
 
-## Build your application
+1. The following command builds the image using the Dockerfile for the UI application. The `.` represents the current build context, so run this command at the root of the repository where the Dockerfile is located.
 
-In the below steps, you build your container image locally using Docker. Once the image is built successfully, you push the image to your newly created container registry.
+    # [Bash](#tab/bash)
 
-### Build the container with Docker
+    ```azurecli
+    docker build -t $CONTAINER_IMAGE_NAME .
+    ```
 
-The following command builds the image using the Dockerfile for the UI application. The `.` represents the current build context, so run this command at the root of the repository where the Dockerfile is located.
+    # [PowerShell](#tab/powershell)
 
-# [Bash](#tab/bash)
+    ```powershell
+    docker build -t $CONTAINER_IMAGE_NAME .
+    ```
 
-```azurecli
-docker build -t $ACR_NAME.azurecr.io/$FRONTEND_NAME .
-```
+    ---
 
-# [PowerShell](#tab/powershell)
+1. If your image was successfully built, it's listed in the output of the following command:
 
-```powershell
-docker build -t $ACR_NAME.azurecr.io/$FRONTEND_NAME .
-```
+    # [Bash](#tab/bash)
 
----
+    ```azurecli
+    docker images
+    ```
 
-If your image was successfully built, it's listed in the output of the following command:
+    # [PowerShell](#tab/powershell)
 
-# [Bash](#tab/bash)
+    ```powershell
+    docker images
+    ```
 
-```azurecli
-docker images
-```
+    ---
 
-# [PowerShell](#tab/powershell)
+## Push the Docker image to your ACR registry
 
-```powershell
-docker images
-```
+1. First, sign in to your Azure Container Registry.
 
----
+    # [Bash](#tab/bash)
 
-### Push the Docker image to your ACR registry
+    ```azurecli
+    az acr login --name $ACR_NAME
+    ```
 
-First, sign in to your Azure Container Registry.
+    # [PowerShell](#tab/powershell)
 
-# [Bash](#tab/bash)
+    ```powershell
+    az acr login --name $ACR_NAME
+    ```
 
-```azurecli
-az acr login --name $ACR_NAME
-```
+    ---
 
-# [PowerShell](#tab/powershell)
+1. Now, push the image to your registry.
 
-```powershell
-az acr login --name $ACR_NAME
-```
+    # [Bash](#tab/bash)
 
----
+    ```azurecli
+    docker push $CONTAINER_IMAGE_NAME
+    ```
 
-Now, push the image to your registry.
+    # [PowerShell](#tab/powershell)
 
-# [Bash](#tab/bash)
+    ```powershell
+    docker push $CONTAINER_IMAGE_NAME
+    ```
 
-```azurecli
-docker push $ACR_NAME.azurecr.io/$FRONTEND_NAME
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-docker push $ACR_NAME.azurecr.io/$FRONTEND_NAME
-```
-
----
+    ---
 
 ::: zone-end
 
-# [Bash](#tab/bash)
+## Communicate between container apps
 
-## Link container apps
+In the previous quickstart, the album API was deployed by creating a container app and enabling external ingress. Making the container app set to external meant that the endpoint's URL is publicly available.
 
-\* **TODO: Update variable with URL to API on UI repo**
+Now you can configure the front-end application to call the API endpoint by going through the following steps:
+
+* Query the API application for its fully qualified domain name (FQDN)
+* Pass the API FQDN to `az containerapp create` so the UI app can use the API endpoint location.
+
+The [UI application](https://github.com/Azure-Samples/containerapps-albumui) uses this location during as it sets up the reference to the album API. The following code listing is an excerpt of the code used in the *routes > index.js* file.
+
+```javascript
+const api = axios.create({
+  baseURL: process.env.API_BASE_URL,
+  params: {},
+  timeout: process.env.TIMEOUT || 5000,
+});
+```
 
 Query for the API endpoint address.
+
+# [Bash](#tab/bash)
 
 ```azurecli
 API_ENDPOINT=$(az containerapp show --resource-group $RESOURCE_GROUP --name $API_NAME --query configuration.ingress.fqdn -o tsv)
@@ -267,11 +276,9 @@ $API_ENDPOINT=$(az containerapp show --resource-group $RESOURCE_GROUP --name $AP
 
 ---
 
-## Deploy your image to a container app
+Now that you have set the `API_ENDPOINT` variable with the FQDN of the API endpoint, you can now pass it to the UI application to link the two together.
 
-Now that you have an environment created, you can create and deploy your container app with the `az containerapp create` command.
-
-By setting `--ingress` to `external`, your container app will be accessible from the public internet.
+## Deploy front-end application
 
 Create and deploy your container app with the following command.
 
@@ -283,6 +290,7 @@ az containerapp create \
   --resource-group $RESOURCE_GROUP \
   --environment $ENVIRONMENT \
   --image $CONTAINER_IMAGE_NAME \
+  --env-vars "API_BASE_URL=$API_ENDPOINT" \
   --ingress 'external' \
   --registry-password $ACR_PASSWORD \
   --registry-username $ACR_NAME \
@@ -298,6 +306,7 @@ az containerapp create `
   --resource-group $RESOURCE_GROUP `
   --environment $ENVIRONMENT `
   --image $API_NAME `
+  --env-vars "API_BASE_URL=$API_ENDPOINT" `
   --target-port $API_PORT `
   --ingress 'external' `
   --registry-password $ACR_PASSWORD `
@@ -308,6 +317,8 @@ az containerapp create `
 ```
 
 ---
+
+By adding the argument `--env-vars "API_BASE_URL=$API_ENDPOINT"` to `az containerapp create`, you define an environment variable for your front-end application. With this syntax, the environment variable named `API_BASE_URL` is set to the API's FQDN.
 
 ## Verify deployment
 
