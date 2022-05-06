@@ -5,7 +5,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/28/2020
+ms.date: 05/06/2022
 ---
 
 # How to configure Apache Kafka on HDInsight to automatically create topics

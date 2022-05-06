@@ -205,6 +205,10 @@
           href: concept-optimize-data-processing.md
         - name: Studio network data access
           href: concept-network-data-access.md
+    - name: Collect data
+      items:
+        - name: Sourcing human data responsibly
+          href: concept-sourcing-human-data.md
     - name: Security
       items:
         - name: Enterprise security overview

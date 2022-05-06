@@ -14,7 +14,7 @@ ms.author: eur
 
 ## Download and install
 
-[!INCLUDE [SPX Setup](../../spx-setup.md)]
+[!INCLUDE [SPX Setup](../../spx-setup-quick.md)]
 
 ## Set source and target languages
 
