@@ -152,7 +152,7 @@ With the policy applied, it can take up to 1 hour to propagate and for users to 
 ### PowerShell
 
 > [!NOTE]
-> This configuration option uses HRD policy. For more information, see [homeRealmDiscoveryPolicy resource type](https://docs.microsoft.com/en-us/graph/api/resources/homeRealmDiscoveryPolicy?view=graph-rest-1.0).
+> This configuration option uses HRD policy. For more information, see [homeRealmDiscoveryPolicy resource type](/graph/api/resources/homeRealmDiscoveryPolicy?view=graph-rest-1.0).
 
 Once users with the *ProxyAddresses* attribute applied are synchronized to Azure AD using Azure AD Connect, you need to enable the feature for users to sign-in with email as an alternate login ID for your tenant. This feature tells the Azure AD login servers to not only check the sign-in identifier against UPN values, but also against *ProxyAddresses* values for the email address.
 
@@ -164,7 +164,7 @@ During preview, you can currently only enable email as an alternate login ID usi
     Install-Module Microsoft.Graph
     ```
 
-    For more information on installation, see [Install the Microsoft Graph PowerShell SDK](https://docs.microsoft.com/en-us/graph/powershell/installation).
+    For more information on installation, see [Install the Microsoft Graph PowerShell SDK](/graph/powershell/installation).
 
 1. Sign-in to your Azure AD tenant using the `Connect-MgGraph` cmdlet:
 
@@ -363,7 +363,7 @@ If users have trouble signing in with their email address, review the following 
 
 ### Sign-in logs
 
-![Review email as alternate login ID activity in the sign-in logs.](media/howto-authentication-use-email-signin/email-alternate-login-id-logs.png)
+:::image type="content" border="true" source="./media/howto-authentication-use-email-signin/email-alternate-login-id-logs.png" alt-text="Review email as alternate login ID activity in the sign-in logs.":::
 
 You can review the [sign-in logs in Azure AD][sign-in-logs] for more information. Sign-ins with email as an alternate login ID will emit `proxyAddress` in the *Sign-in identifier type* field and the inputted username in the *Sign-in identifier* field. 
 
@@ -448,7 +448,7 @@ For more information on hybrid identity operations, see [how password hash sync]
 [phs-overview]: ../hybrid/how-to-connect-password-hash-synchronization.md
 [pta-overview]: ../hybrid/how-to-connect-pta-how-it-works.md
 [identity-protection]: ../identity-protection/overview-identity-protection.md#risk-detection-and-remediation
-[sign-in-logs]: ../reports-monitoring/concept-sign-ins
+[sign-in-logs]: ../reports-monitoring/concept-sign-ins.md
 
 <!-- EXTERNAL LINKS -->
 [azure-portal]: https://portal.azure.com
