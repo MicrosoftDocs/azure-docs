@@ -57,12 +57,6 @@ Get started with facial recognition using the Face client library for Python. Fo
     python quickstart-file.py
     ```
 
-## Output
-
-```console
-TBD
-```
-
 > [!TIP]
 > The Face API runs on a set of pre-built models that are static by nature (the model's performance will not regress or improve as the service is run). The results that the model produces might change if Microsoft updates the model's backend without migrating to an entirely new model version. To take advantage of a newer version of a model, you can retrain your **PersonGroup**, specifying the newer model as a parameter with the same enrollment images.
 
