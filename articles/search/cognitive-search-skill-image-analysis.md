@@ -8,7 +8,7 @@ ms.author: chalton
 
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 05/03/2022
+ms.date: 05/06/2022
 ---
 
 # Image Analysis cognitive skill
@@ -38,7 +38,7 @@ Parameters are case-sensitive.
 | Parameter name | Description |
 |--------------------|-------------|
 | `defaultLanguageCode` | A string indicating the language to return. The service returns recognition results in a specified language. If this parameter is not specified, the default value is "en". <br/><br/>Supported languages are: <br/>*en* - English (default) <br/> *es* - Spanish <br/> *ja* - Japanese <br/> *pt* - Portuguese <br/> *zh* - Simplified Chinese|
-| `visualFeatures` | An array of strings indicating the visual feature types to return. Valid visual feature types include:  <ul><li>*adult* - detects if the image is pornographic in nature (depicts nudity or a sex act), or is gory (depicts extreme violence or blood). Sexually suggestive content (also known as racy content) is also detected.</li><li>*brands* - detects various brands within an image, including the approximate location. The *brands* visual feature is only available in English.</li><li> *categories* - categorizes image content according to a taxonomy defined in the Cognitive Services [Computer Vision documentation](../cognitive-services/computer-vision/category-taxonomy.md). </li><li>*description* - describes the image content with a complete sentence in supported languages.</li><li>*faces* - detects if faces are present. If present, generates coordinates, gender and age.</li><li>	*objects* - detects various objects within an image, including the approximate location. The *objects* visual feature is only available in English.</li><li> *tags* - tags the image with a detailed list of words related to the image content.</li></ul> Names of visual features are case-sensitive. Note that the *color* and *imageType* visual features have been deprecated, but this functionality could still be accessed via a [custom skill](./cognitive-search-custom-skill-interface.md).|
+| `visualFeatures` | An array of strings indicating the visual feature types to return. Valid visual feature types include:  <ul><li>*adult* - detects if the image is pornographic (depicts nudity or a sex act), gory (depicts extreme violence or blood) or suggestive (also known as racy content). </li><li>*brands* - detects various brands within an image, including the approximate location. The *brands* visual feature is only available in English.</li><li> *categories* - categorizes image content according to a taxonomy defined in the Cognitive Services [Computer Vision documentation](../cognitive-services/computer-vision/category-taxonomy.md). </li><li>*description* - describes the image content with a complete sentence in supported languages.</li><li>*faces* - detects if faces are present. If present, generates coordinates, gender and age.</li><li>	*objects* - detects various objects within an image, including the approximate location. The *objects* visual feature is only available in English.</li><li> *tags* - tags the image with a detailed list of words related to the image content.</li></ul> Names of visual features are case-sensitive. Note that the *color* and *imageType* visual features have been deprecated, but this functionality could still be accessed via a [custom skill](./cognitive-search-custom-skill-interface.md).|
 | `details`	| An array of strings indicating which domain-specific details to return. Valid visual feature types include: <ul><li>*celebrities* - identifies celebrities if detected in the image.</li><li>*landmarks* - identifies landmarks if detected in the image. </li></ul> |
 
 ## Skill inputs
@@ -51,13 +51,13 @@ Parameters are case-sensitive.
 
 | Output name   | Description                   |
 |---------------|-------------------------------|
-| `adult` | Complex type consisting of boolean fields (`isAdultContent`, `isGoryContent`, `isRacyContent`) and double type scores (`AdultScore`, `GoreScore`, `RacyScore`). |
-| `brands` | Complex type consisting of `Name` (string) and a `Confidence` score (double). It also returns a `Rectangle` with the four integers that demarcate the image area. |
-| `categories` | Complex type consisting of a `Name` (string), `Score` (double), and `Detail` that contains celebrity or landmark details. A celebrity detail consists of a name, confidence score, and face bounding box. A landmark detail consists of a name and confidence score.|
-| `description` | Complex type consisting of lists of `Tags` and `Caption` (an array consisting of `Text` (string) and `Confidence` (double)). |
-| `faces` | Complex type consisting of `Age`, `Gender`, and `FaceBoundingBox` having four integers that demarcate the image area.|
-| `objects` | Complex type that describes the visual feature. It consists of `Object` (string), `Confidence` (double), `Rectangle` (four integers that demarcate the image area), and an `ObjectHierarchyParent` that contains a child object, confidence and parent. |
-| `tags` | Complex type consisting of `Name` (string), `Hint` (string), and `Confidence` (double). |
+| `adult` | Output is a single [Adult](../cognitive-services/computer-vision/concept-detecting-adult-content.md) object of a complex type, consisting of boolean fields (`isAdultContent`, `isGoryContent`, `isRacyContent`) and double type scores (`AdultScore`, `GoreScore`, `RacyScore`). |
+| `brands` | Output is an array of of [Brand](../cognitive-services/computer-vision/concept-brand-detection.md) objects, where the object is a complex type consisting of `Name` (string) and a `Confidence` score (double). It also returns a `Rectangle` with four bounding box coordinates (in pixels) indicating placement inside the image. |
+| `categories` | Output is an array of [category](../cognitive-services/computer-vision/concept-categorizing-images.md) objects, where each category object is a complex type consisting of a `Name` (string), `Score` (double), and optional `Detail` that contains celebrity or landmark details. See the [category taxonomy](../cognitive-services/Computer-vision/Category-Taxonomy.md) for the full list of category names. A detail is a nested complex type. A celebrity detail consists of a name, confidence score, and face bounding box. A landmark detail consists of a name and confidence score.|
+| `description` | Output is a single [Description](../cognitive-services/computer-vision/concept-describing-images.md) object of a complex type, consisting of lists of `Tags` and `Caption` (an array consisting of `Text` (string) and `Confidence` (double)). |
+| `faces` | Complex type consisting of `Age`, `Gender`, and `FaceBoundingBox` having four bounding box coordinates (in pixels) indicating placement inside the image.|
+| `objects` | Output is an array of [visual feature objects](../cognitive-services/computer-vision/concept-object-detection.md) Each object is a complex type, consisting of `Object` (string), `Confidence` (double), `Rectangle` (with four bounding box coordinates indicating placement inside the image), and an `ObjectHierarchyParent` that contains a child object, confidence and parent. | 
+| `tags` | Output is an array of [ImageTag](../cognitive-services/computer-vision/concept-detecting-image-types.md) objects, where a tag object is a complex type consisting of `Name` (string), `Hint` (string), and `Confidence` (double). The addition of a hint is rare. It's only generated if a tag is ambiguous. For example, an image tagged as "curling" might have a hint of "sports" to better indicate its content. |
 
 <!-- Portal (skillset designer) doesn't support inline editing for adult, brands, object outputs -->
 
@@ -76,7 +76,7 @@ Parameters are case-sensitive.
         "description",
         "faces",
         "objects",
-        "tags",
+        "tags"
     ],
     "inputs": [
         {
@@ -86,6 +86,12 @@ Parameters are case-sensitive.
     ],
     "outputs": [
         {
+            "name": "adult"
+        },
+        {
+            "name": "brands"
+        },
+        {
             "name": "categories"
         },
         {
@@ -93,6 +99,9 @@ Parameters are case-sensitive.
         },
         {
             "name": "faces"
+        },
+        {
+            "name": "objects"
         },
         {
             "name": "tags"
@@ -130,6 +139,74 @@ Parameters are case-sensitive.
             "searchable": true,
             "filterable": false,
             "facetable": false
+        },
+        {
+            "name": "adult",
+            "type": "Collection(Edm.ComplexType)",
+            "fields": [
+                {
+                    "name": "isAdultContent",
+                    "type": "Edm.Boolean",
+                    "searchable": false,
+                    "filterable": true,
+                    "facetable": true
+                },
+                {
+                    "name": "isGoryContent",
+                    "type": "Edm.Boolean",
+                    "searchable": false,
+                    "filterable": true,
+                    "facetable": true
+                },
+                {
+                    "name": "isRacyContent",
+                    "type": "Edm.Boolean",
+                    "searchable": false,
+                    "filterable": true,
+                    "facetable": true
+                },
+                {
+                    "name": "adultScore",
+                    "type": "Edm.Double",
+                    "searchable": false,
+                    "filterable": false,
+                    "facetable": false
+                },
+                {
+                    "name": "goreScore",
+                    "type": "Edm.Double",
+                    "searchable": false,
+                    "filterable": false,
+                    "facetable": false
+                },
+                {
+                    "name": "racyScore",
+                    "type": "Edm.Double",
+                    "searchable": false,
+                    "filterable": false,
+                    "facetable": false
+                }
+            ]
+        },
+        {
+            "name": "brands",
+            "type": "Collection(Edm.ComplexType)",
+            "fields": [
+                {
+                    "name": "name",
+                    "type": "Edm.String",
+                    "searchable": true,
+                    "filterable": false,
+                    "facetable": false
+                },
+                {
+                    "name": "confidence",
+                    "type": "Edm.Double",
+                    "searchable": false,
+                    "filterable": false,
+                    "facetable": false
+                }
+            ]
         },
         {
             "name": "categories",
@@ -291,6 +368,26 @@ Parameters are case-sensitive.
             ]
         },
         {
+            "name": "objects",
+            "type": "Collection(Edm.ComplexType)",
+            "fields": [
+                {
+                    "name": "object",
+                    "type": "Edm.String",
+                    "searchable": true,
+                    "filterable": false,
+                    "facetable": false
+                },
+                {
+                    "name": "confidence",
+                    "type": "Edm.Double",
+                    "searchable": false,
+                    "filterable": false,
+                    "facetable": false
+                }
+            ]
+        },
+        {
             "name": "tags",
             "type": "Collection(Edm.ComplexType)",
             "fields": [
@@ -329,7 +426,7 @@ The target field can be a complex field or collection. The index definition spec
 ```json
 "outputFieldMappings": [
     {
-        "sourceFieldName": "/document/normalized_images/*/adult/*/isAdultContent",
+        "sourceFieldName": "/document/normalized_images/*/adult",
         "targetFieldName": "adult"
     },
     {
@@ -439,12 +536,7 @@ You can define output field mappings to lower-level properties, such as just cel
                   "confidence": 0.999028444
                 }
               ],
-              "landmarks": [
-                {
-                  "name": "Forbidden City",
-                  "confidence": 0.9978346
-                }
-              ]
+              "landmarks": [ ]
             }
           }
         ],
