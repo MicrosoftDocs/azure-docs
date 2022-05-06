@@ -18,7 +18,7 @@ This article explains how to manage access to logs and to administer the workspa
 * Users who need access to log data from specific resources using Azure role-based access control (Azure RBAC) - also known as [resource-context](../logs/workspace-design.md#access-mode)
 * Users who need access to log data in a specific table in the workspace using Azure RBAC.
 
-To understand the Logs concepts around Azure RBAC and access strategies, read [designing your Azure Monitor Logs deployment](../logs/workspace-design.md)
+To understand the Logs concepts around Azure RBAC and access strategies, read Design a Log Analytics workspace configuration(../logs/workspace-design.md)
 
 ## Configure access control mode
 
