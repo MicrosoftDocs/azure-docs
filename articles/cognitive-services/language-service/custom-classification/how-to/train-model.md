@@ -8,60 +8,80 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 04/05/2022
+ms.date: 05/05/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
 
 # How to train a custom text classification model
 
+Training is the process where the model learns from your [labeled data](tag-data.md). After training is completed, you will be able to [view the model's performance](view-model-evaluation.md) to determine if you need to [improve your model](improve-model.md).
 
-Training is the process where the model learns from your [tagged data](tag-data.md). After training is completed, you will be able to [use the model evaluation metrics](../how-to/view-model-evaluation.md) to determine if you need to [improve your model](../how-to/improve-model.md).
+To train a model, start a training job. Only successfully completed jobs create a usable model. Training jobs expire after seven days. After this period, you won't be able to retrieve the job details. If your training job completed successfully and a model was created, it won't be affected by the job expiration. You can only have one training job running at a time, and you can't start other jobs in the same project. 
+
+The training times can be anywhere from a few minutes when dealing with few documents, up to several hours depending on the dataset size and the complexity of your schema.
+
+Model evaluation is triggered automatically after training is completed successfully. The evaluation process starts by using the trained model to predict user defined classes for documents in the test set, and compares them with the provided data tags (which establishes a baseline of truth). The results are returned so you can review the [model’s performance](view-model-evaluation.md).
 
 ## Prerequisites
 
-Before you train your model you need:
+Before you train your model, you need:
 
 * [A successfully created project](create-project.md) with a configured Azure blob storage account, 
 * Text data that has [been uploaded](create-project.md#prepare-training-data) to your storage account.
-* [Tagged data](tag-data.md)
+* [Labeled data](tag-data.md)
 
-See the [application development lifecycle](../overview.md#project-development-lifecycle) for more information.
+See the [project development lifecycle](../overview.md#project-development-lifecycle) for more information.
 
-## Train model in Language Studio
+## Data splitting
 
-1. Go to your project page in [Language Studio](https://aka.ms/LanguageStudio).
+Before you start the training process, labeled documents in your project are divided into a training set and a testing set. Each one of them serves a different function.
+The **training set** is used in training the model, this is the set from which the model learns the class/classes assigned to each document. 
+The **testing set** is a blind set that is not introduced to the model during training but only during evaluation. 
+After the model is trained successfully, it is used to make predictions from the documents in the testing set. Based on these predictions, the model's [evaluation metrics](../concepts/evaluation.md) will be calculated. 
+It is recommended to make sure that all your classes are adequately represented in both the training and testing set.
 
-2. Select **Train** from the left side menu.
+Custom text classification supports two methods for data splitting:
 
-3. Select **Start a training job** from the top menu.
+* **Automatically splitting the testing set from training data**: The system will split your tagged data between the training and testing sets, according to the percentages you choose. The recommended percentage split is 80% for training and 20% for testing. 
 
-4. To train a new model, select **Train a new model** and type in the model name in the text box below. You can **overwrite an existing model** by selecting this option and select the model you want from the dropdown below.
+ > [!NOTE]
+ > If you choose the **Automatically splitting the testing set from training data** option, only the data assigned to training set will be split according to the percentages provided.
 
-    :::image type="content" source="../media/train-model.png" alt-text="Create a new model" lightbox="../media/train-model.png":::
+* **Use a manual split of training and testing data**: This method enables users to define which labeled documents should belong to which set. This step is only enabled if you have added documents to your testing set during [data labeling](tag-data.md).
 
-If you have enabled the [**Split project data manually** selection](tag-data.md#tag-your-data) when you were tagging your data, you will see two training options:
+## Train model
 
-* **Automatic split the testing**: The data will be randomly split for each class between training and testing sets, according to the percentages you choose. The default value is 80% for training and 20% for testing. To change these values, choose which set you want to change and write the new value.
+# [Language studio](#tab/Language-studio)
 
-* **Use a manual split**: Assign each document to either the training or testing set, this required first adding files in the test dataset.
+[!INCLUDE [Train model](../includes/language-studio/train-model.md)]
 
-5. Click on the **Train** button.
+# [REST APIs](#tab/REST-APIs)
 
-6. You can check the status of the training job in the same page. Only successfully completed training jobs will generate models.
+### Start training job
 
-You can only have one training job running at a time. You cannot create or start other tasks in the same project. 
+[!INCLUDE [train model](../includes/rest-api/train-model.md)]
 
-<!-- After training has completed successfully, keep in mind:
+### Get training job status
 
-* [View the model's evaluation details](../how-to/view-model-evaluation.md) After model training, model evaluation is done against the [test set](../how-to/train-model.md#data-splits), which was not introduced to the model during training. By viewing the evaluation, you can get a sense of how the model performs in real-life scenarios.
+Training could take sometime depending on the size of your training data and complexity of your schema. You can use the following request to keep polling the status of the training job until it is successfully completed.
 
-* [Examine data distribution](../how-to/improve-model.md#examine-data-distribution-from-language-studio) Make sure that all classes are well represented and that you have a balanced data distribution to make sure that all your classes are adequately represented. If a certain class is tagged far less frequent than the others, this class is likely under-represented and most occurrences probably won't be recognized properly by the model at runtime. In this case, consider adding more files that belong to this class to your dataset.
- -->
-* [Improve performance (optional)](../how-to/improve-model.md) Other than revising [tagged data](tag-data.md) based on error analysis, you may want to increase the number of tags for under-performing entity types, or improve the diversity of your tagged data. This will help your model learn to give correct predictions, over potential linguistic phenomena that cause failure.
+ [!INCLUDE [get training model status](../includes/rest-api/get-training-status.md)]
 
-<!-- * Define your own test set: If you are using a random split option and the resulting test set was not comprehensive enough, consider defining your own test to include a variety of data layouts and balanced tagged classes.
- -->
+---
+
+### Cancel training job
+
+# [Language Studio](#tab/language-studio)
+
+[!INCLUDE [Cancel training](../includes/language-studio/cancel-training.md)]
+
+# [REST APIs](#tab/rest-api)
+
+[!INCLUDE [Cancel training](../includes/rest-api/cancel-training.md)]
+
+---
+
 ## Next steps
 
-After training is completed, you will be able to [use the model evaluation metrics](../how-to/view-model-evaluation.md) to optionally [improve your model](../how-to/improve-model.md). Once you're satisfied with your model, you can deploy it, making it available to use for [classifying text](call-api.md).
+After training is completed, you will be able to [view the model's performance](view-model-evaluation.md) to optionally [improve your model](improve-model.md) if needed. Once you're satisfied with your model, you can deploy it, making it available to use for [classifying text](call-api.md).

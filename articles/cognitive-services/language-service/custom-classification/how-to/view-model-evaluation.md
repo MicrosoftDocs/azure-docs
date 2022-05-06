@@ -8,47 +8,59 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 05/05/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
 
-# View the model evaluation
+# View your text classification model's evaluation and details
 
-Reviewing model evaluation is an important step in developing a custom text classification model. It helps you learn how well your model is performing, and gives you an idea about how it will perform when used in production. 
+After your model has finished training, you can view the model performance and see the predicted classes for the documents in the test set. 
 
+> [!NOTE]
+> Using the **Automatically split the testing set from training data** option may result in different model evaluation result every time you [train a new model](train-model.md), as the test set is selected randomly from the data. To make sure that the evaluation is calculated on the same test set every time you train a model, make sure to use the **Use a manual split of training and testing data** option when starting a training job and define your **Test** documents when [tagging data](tag-data.md).
 
 ## Prerequisites
 
-Before you train your model you need:
-* [A custom text classification project](create-project.md) with a configured Azure blob storage account, 
+Before viewing model evaluation you need:
+
+* [A custom text classification project](create-project.md) with a configured Azure blob storage account.
 * Text data that has [been uploaded](create-project.md#prepare-training-data) to your storage account.
 * [Tagged data](tag-data.md)
 * A successfully [trained model](train-model.md)
 
-See the [application development lifecycle](../overview.md#project-development-lifecycle) for more information.
+See the [project development lifecycle](../overview.md#project-development-lifecycle) for more information.
 
-## Model evaluation
+## Model details
 
-The evaluation process uses the trained model to predict user-defined classes for files in the test set, and compares them with the provided data tags. The test set consists of data that was not introduced to the model during the training process. 
+### [Language studio](#tab/language-studio)
 
-## View the model details using Language Studio
+[!INCLUDE [View model details](../includes/language-studio/model-evaluation.md)]
 
-[!INCLUDE [View model details](../includes/model-evaluation-language-studio.md)]
+### [REST APIs](#tab/rest-api)
+
+### Single label classification
+[!INCLUDE [Model evaluation](../includes/rest-api/model-evaluation-single-label.md)]
+
+### Multi label classification 
+
+[!INCLUDE [Model evaluation](../includes/rest-api/model-evaluation-multi-label.md)]
+
+---
+
+## Delete model
+
+### [Language studio](#tab/language-studio)
+
+[!INCLUDE [Delete model](../includes/language-studio/delete-model.md)]
 
 
-Under the **Test set confusion matrix**, you can find the confusion matrix for the model.
+### [REST APIs](#tab/rest-api)
 
-> [!NOTE]
-> The confusion matrix is currently not supported for multi label classification projects.
+[!INCLUDE [Delete model](../includes/rest-api/delete-model.md)]
 
-**Single label classification**
 
-:::image type="content" source="../media/conf-matrix-single.png" alt-text="Confusion matrix for single label classification" lightbox="../media/conf-matrix-single.png":::
-
-<!-- **Multi label classification**
-
-:::image type="content" source="../media/conf-matrix-multi.png" alt-text="Confusion matrix for multi label classification" lightbox="../media/conf-matrix-multi.png"::: -->
+---
 
 ## Next steps
 

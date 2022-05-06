@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 04/05/2022
+ms.date: 05/06/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
@@ -108,9 +108,9 @@ Custom text classification models are expected to experience both false negative
 
 For example, if your scenario involves processing technical support tickets, predicting the wrong class could cause it to be forwarded to the wrong department/team. In this example, you should consider making your system more sensitive to false positives, and precision would be a more relevant metric for evaluation. 
 
-As another example, if your scenario involves categorizing email as  "*important*" or "*spam*", an incorrect prediction could cause you to miss a useful email if it's labeled "*spam*". However, if a spam email is labeled *important* you can simply disregard it. In this example, you should consider making your system more sensitive to false negatives, and recall would be a more relevant metric for evaluation. 
+As another example, if your scenario involves categorizing email as  "*important*" or "*spam*", an incorrect prediction could cause you to miss a useful email if it's labeled "*spam*". However, if a spam email is labeled *important* you can disregard it. In this example, you should consider making your system more sensitive to false negatives, and recall would be a more relevant metric for evaluation. 
 
-If you want to optimize for general purpose scenarios or when precision and recall are both important, you can utilize the F1 score. Evaluation scores are subjective based on your scenario and acceptance criteria. There is no absolute metric that works for every scenario. 
+If you want to optimize for general purpose scenarios or when precision and recall are both important, you can utilize the F1 score. Evaluation scores are subjective, based on your scenario and acceptance criteria. There is no absolute metric that works for every scenario. 
 
 ## See also
 
