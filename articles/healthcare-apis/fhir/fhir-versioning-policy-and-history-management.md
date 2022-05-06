@@ -50,7 +50,7 @@ To configure versioning policy, select the **Versioning Policy Configuration** b
 
 After you've browsed to Versioning Policy Configuration, you'll be able to configure the setting at both system level and the resource level (as an override of the system level). The system level configuration (annotated as 1) will apply to every resource in your FHIR service unless a resource specific override (annotated at 2) has been configured.
 
-:::image type="content" source="media/versioning-policy/resource-versioning.jpg" alt-text="Screenshot of Azure portal versioning policy configuration showing resource level configuration." lightbox="media/versioning-policy/resource-versioning.jpg":::
+:::image type="content" source="media/versioning-policy/system-level-versus-resource-level.png" alt-text="Screenshot of Azure portal versioning policy configuration showing system level vs resource level configuration." lightbox="media/versioning-policy/system-level-versus-resource-level.png":::
 
 When configuring resource level configuration, you'll be able to select the FHIR resource type (annotated as 1) and the specific versioning policy for this specific resource (annotated as 2). Make sure to select the **Add** button (annotated as 3) to queue up this setting for saving.
 
