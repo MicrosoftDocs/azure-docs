@@ -99,7 +99,7 @@ If you're not sure which resource roles to include, you can skip adding resource
 
     If you are a Global administrator, a User administrator, or catalog owner, you have the additional option of selecting resources you own that are not yet in the catalog. If you select resources not currently in the selected catalog, these resources will also be added to the catalog for other catalog administrators to build access packages with. To see all the resources that can be added to the catalog, check the **See all** check box at the top of the Select pane. If you only want to select resources that are currently in the selected catalog, leave the check box **See all** unchecked (default state).
 
-1. Once you have selected the resources, in the **Role** list, select the role you want users to be assigned for the resource.  For more information on selecting the appropriate roles for a resource, see [add resource roles](entitlement-management-access-package-resources.md#add-resource-roles).
+1. Once you've selected the resources, in the **Role** list, select the role you want users to be assigned for the resource.  For more information on selecting the appropriate roles for a resource, read [add resource roles](entitlement-management-access-package-resources.md#add-resource-roles).
 
     ![Access package - Resource role selection](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
