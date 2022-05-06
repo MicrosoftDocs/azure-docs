@@ -21,7 +21,6 @@ In this tutorial, you learn how to configure your Azure AD tenant so it can use 
 Specifically, you learn how to:
 
 > [!div class="checklist"]
-
 > - Create an Azure Key Vault instance.
 > - Set up the Verifiable Credentials service.
 > - Register an application in Azure AD.
