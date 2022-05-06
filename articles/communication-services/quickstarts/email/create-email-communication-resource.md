@@ -34,8 +34,8 @@ Create the Email Communications Service Resource using Portal
     - Provide a valid name for the resource. 
     - Select **United States** as the data location.
     - If you would like to add tags, click  **Next: Tags**. 
-    - Click **Review + create**. 
-    - Add any name/value pairs. Click **Next: Review + create**.
+      - Add any name/value pairs. 
+    - Click **Next: Review + create**.
     
       :::image type="content" source="./media/email-comm-create-review.png" alt-text="Review and Create Email Communication Service":::
 
