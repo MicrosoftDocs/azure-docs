@@ -261,6 +261,8 @@ Here's an example:
 
 ## Analyzing metrics
 
+For a list of all Azure Monitor support metrics, which includes Azure Blob Storage, see [Azure Monitor supported metrics](../../azure-monitor/essentials/metrics-supported.md).
+
 ### [Azure portal](#tab/azure-portal)
 
 You can analyze metrics for Azure Storage with metrics from other Azure services by using Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md).
@@ -279,8 +281,6 @@ Metrics for Azure Blob Storage are in these namespaces:
 
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/blobServices
-
-For a list of all Azure Monitor support metrics, which includes Azure Blob Storage, see [Azure Monitor supported metrics](../../azure-monitor/essentials/metrics-supported.md).
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -315,6 +315,8 @@ Get-AzMetric -ResourceId $resourceId -MetricName Transactions -TimeGrain 01:00:0
 ```
 
 ### [Azure CLI](#tab/azure-cli)
+
+For a list of all Azure Monitor support metrics, which includes Azure Blob Storage, see [Azure Monitor supported metrics](../../azure-monitor/essentials/metrics-supported.md).
 
 #### List the account-level metric definition
 
@@ -637,7 +639,7 @@ Get started with any of these guides.
 |---|---|
 | [Gather metrics from your Azure Blob Storage containers](/learn/modules/gather-metrics-blob-storage/) | Create charts that show metrics (Contains step-by-step guidance). |
 | [Monitor, diagnose, and troubleshoot your Azure Storage](/learn/modules/monitor-diagnose-and-troubleshoot-azure-storage/) | Troubleshoot storage account issues (contains step-by-step guidance). |
-| [Monitoring your storage service with Azure Monitor Storage insights](../common/storage-insights-overview.md) | A unified view of your Azure Storage services performance, capacity, and availability |
+| [Monitor storage with Azure Monitor Storage insights](../common/storage-insights-overview.md) | A unified view of storage performance, capacity, and availability |
 | [Best practices for monitoring Azure Blob Storage](blob-storage-monitoring-scenarios.md) | Guidance for common monitoring and troubleshooting scenarios. | 
 | [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md) | A tour of Metrics Explorer. 
 | [Overview of Log Analytics in Azure Monitor](../../azure-monitor/logs/log-analytics-overview.md) | A tour of Log Analytics. |
