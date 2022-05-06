@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 05/06/2021
 ms.custom: cliv1, sdkv1
 
 ---
@@ -69,7 +69,6 @@ az ml workspace create -w <workspace name> \
 
 If you do not bring your own ACR, Azure Machine Learning service will create one for you when you perform an operation that needs one. For example, submit a training run to Machine Learning Compute, build an environment, or deploy a web service endpoint. The ACR created by the workspace will have admin user enabled, and you need to disable the admin user manually.
 
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 1. Create a new workspace
 
@@ -113,7 +112,15 @@ When creating a compute cluster with the [AmlComputeProvisioningConfiguration](/
 [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli-interaction
-az ml computetarget create amlcompute --name cpucluster -w <workspace> -g <resource group> --vm-size <vm sku> --assign-identity '[system]'
+az ml computetarget create amlcompute --name <cluster name> -w <workspace> -g <resource group> --vm-size <vm sku> --assign-identity '[system]'
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```azurecli-interaction
+az ml compute create --name cpucluster --type <cluster name>  --identity-type systemassigned
 ```
 
 # [Portal](#tab/azure-portal)
@@ -140,18 +147,38 @@ To use a custom base image internal to your enterprise, you can use managed iden
 
 Create machine learning compute cluster with system-assigned managed identity enabled as described earlier. Then, determine the principal ID of the managed identity.
 
+# [Azure CLI](#tab/azure-cli)
+
 [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli-interactive
 az ml computetarget amlcompute identity show --name <cluster name> -w <workspace> -g <resource group>
 ```
 
+# [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+```azurecli-interactive
+az ml compute show --name <cluster name> -w <workspace> -g <resource group>
+```
+
 Optionally, you can update the compute cluster to assign a user-assigned managed identity:
 
+# [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 ```azurecli-interactive
-az ml computetarget amlcompute identity assign --name cpucluster \
+az ml computetarget amlcompute identity assign --name <cluster name> \
 -w $mlws -g $mlrg --identities <my-identity-id>
 ```
+
+# [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+```azurecli-interactive
+az ml compute update --name <cluster name> --user-assigned-identities <my-identity-id>
+```
+
 
 To allow the compute cluster to pull the base images, grant the managed service identity ACRPull role on the private ACR
 
