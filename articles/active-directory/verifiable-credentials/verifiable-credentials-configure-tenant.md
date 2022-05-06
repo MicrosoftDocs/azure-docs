@@ -38,10 +38,45 @@ See a [video walkthrough](https://www.youtube.com/watch?v=8jqjHjQo-3c) going ove
 - You need an Azure tenant with an active subscription. If you don't have Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Ensure that you have the [global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) permission for the directory you want to configure.
 
-## Configure the Verifiable Credentials service
+## Create a key vault
+
+[Azure Key Vault](../../key-vault/general/basic-concepts.md) is a cloud service that enables the secure storage and access of secrets and keys. Your Verifiable
+Credentials service stores public and private keys in Azure Key Vault. These keys are used to sign and verify credentials.
+
+If you don't have an instance of Azure Key Vault, follow these steps to create a key vault by using the Azure portal.
+
+>[!NOTE]
+>By default, the account that creates the key vault is the only one with access. The Verifiable Credentials service needs access to the key vault. You must configure the key vault with an access policy that allows the account used during configuration to create and delete keys. The account used during configuration also requires permission to sign to create the domain binding for Verifiable Credentials. If you use the same account while testing, modify the default policy to grant the account sign permission, in addition to the default permissions granted to vault creators.
+
+### Set access policies for the key vault
+
+After you create your key vault, Verifiable Credentials generates a set of keys used to provide message security. These keys are stored in Key Vault. You use a key set for signing, updating, and recovering verifiable credentials.
+
+A Key Vault [access policy](../../key-vault/general/assign-access-policy.md) defines whether a specified security principal can perform operations on Key Vault secrets and keys. Set access policies in your key vault for both the administrator account of the Azure AD Verifiable Credentials service, and for the Request Service API principal that you created.
+
+### Set access policies for the Verifiable Credentials Admin user
+
+1. In the [Azure portal](https://portal.azure.com/), go to the key vault you use for this tutorial.
+
+1. Under **Settings**, select **Access policies**.
+
+1. In **Add access policies**, under **USER**, select the account you use to follow this tutorial.
+
+1. For **Key permissions**, verify that the following permissions are selected: **Create**, **Delete**, and **Sign**. By default, **Create** and **Delete** are already enabled. **Sign** should be the only key permission you need to update.
+
+    ![Screenshot that shows how to configure the admin access policy.](media/verifiable-credentials-configure-tenant/set-key-vault-admin-access-policy.png)
+
+1. To save the changes, select **Save**.
+
+## Set up Verifiable Credentials 
+
+To set up Azure AD Verifiable Credentials, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), search for *verifiable credentials*. Then, select **Verifiable Credentials (Preview)**.
-1. In the **Verifiable Credentials (Preview) | Getting started** page, set up your organization by providing the following information:
+
+1. From the left menu, select **Getting started**.
+
+1. Set up your organization by providing the following information:
 
     1. **Organization name**: Enter a name to reference your business within Verifiable Credentials. Your customers don't see this name.
 
@@ -50,15 +85,11 @@ See a [video walkthrough](https://www.youtube.com/watch?v=8jqjHjQo-3c) going ove
         >[!IMPORTANT]
         > The domain can't be a redirect. Otherwise, the DID and domain can't be linked. Make sure to use HTTPS for the domain. For example: `https://contoso.com`.
 
-1. In the **Key Vault** section choose **Select key vault**. Here you may specify an existing vault or you can choose to create a new one.
-1. Choose **Create new key vault**. 
-1. In the **Resource group** section choose **Create new**. Provide a descriptive name for the resource group like **Verifiable-Credentials**.
-1. For vault name enter a unique name. 
-1. Choose **Review and Create**.
-1. Choose **Create**.
-1. Back at the select a vault page choose **Select**.
-1. Back at the **Verifiable Credentials (Preview) | Getting started** page choose **Save and create credential**.
-1. You have configured the Verifiable Credentials (Preview) on your tenant. You can now either proceed to create a credential from the **Create a new credential** page or you can choose **Discard** if you would rather create a credential later. For now, choose **Discard**.
+    1. **Key vault**: Enter the name of the key vault that you created earlier.
+
+1. Select **Save and create credential**.  
+    
+    ![Screenshots that shows how to set up Verifiable Credentials.](media/verifiable-credentials-configure-tenant/verifiable-credentials-getting-started.png)
 
 ## Register an application in Azure AD
 
