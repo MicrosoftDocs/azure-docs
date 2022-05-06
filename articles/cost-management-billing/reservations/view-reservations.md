@@ -39,7 +39,7 @@ If you're a billing administrator, use following steps to view and manage all re
     - If you're a Microsoft Customer Agreement billing profile owner, in the left menu, select **Billing profiles**. In the list of billing profiles, select one.
 1. In the left menu, select **Products + services** > **Reservations**.
 1. The complete list of reservations for your EA enrollment or billing profile is shown.
-1. Billing administrators can take ownership of a reservation by selecting one or multiple reservations, clicking on **Grant access** and selecting **Grant access** in the window that appears.
+1. Billing administrators can take ownership of a reservation by selecting one or multiple reservations, selecting **Grant access** and selecting **Grant access** in the window that appears.
 
 ### Add billing administrators
 

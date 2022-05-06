@@ -35,7 +35,7 @@ Note: enabling Photon will increase the DBU count.
 
 ## Determine plan use
 
-To determine your DBCU plan use, go to the Azure portal > **Reservations** and click the purchased Databricks plan. Your utilization to-date is shown with any remaining units. For more information about determining your reservation use, see the [See reservation usage](reservation-apis.md#see-reservation-usage) article.
+To determine your DBCU plan use, go to the Azure portal > **Reservations** and select the purchased Databricks plan. Your utilization to-date is shown with any remaining units. For more information about determining your reservation use, see the [See reservation usage](reservation-apis.md#see-reservation-usage) article.
 
 ## How discount application shows in usage data
 
