@@ -51,7 +51,7 @@ The sample app is composed of two Spring apps:
 
 The following diagram illustrates the sample app architecture:
 
-:::image type="content" source="media/spring-cloud-quickstart-sample-app-introduction/sample-app-diagram.png" alt-text="Sample app diagram":::
+:::image type="content" source="media/spring-cloud-quickstart-sample-app-introduction/sample-app-diagram.png" alt-text="Diagram of sample app architecture.":::
 
 > [!NOTE]
 > When the application is hosted in Azure Spring Cloud Enterprise tier, the managed Application Configuration Service for VMware Tanzu® assumes the role of Spring Cloud Config Server and the managed VMware Tanzu® Service Registry assumes the role of Eureka Service Discovery without any code changes to the application. For more information, see [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md) and [Use Tanzu Service Registry](how-to-enterprise-service-registry.md).

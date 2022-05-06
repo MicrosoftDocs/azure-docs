@@ -143,9 +143,9 @@ Set-AzStorageAccount `
         -ActiveDirectoryAzureStorageSid "<your-storage-account-sid>"
 ```
 
-#### (Optional) Enable AES256 encryption
+#### Enable AES-256 encryption (recommended)
 
-To enable AES 256 encryption, follow the steps in this section. If you plan to use RC4, skip this section.
+To enable AES-256 encryption, follow the steps in this section. If you plan to use RC4, skip this section.
 
 The domain object that represents your storage account must meet the following requirements:
 - The storage account name cannot exceed 15 characters.
@@ -154,13 +154,13 @@ The domain object that represents your storage account must meet the following r
 
 If your domain object doesn't meet those requirements, delete it and create a new domain object that does.
 
-Replace `<domain-object-identity>` and `<domain-name>` with your values, then use the following command to configure AES256 support: 
+Replace `<domain-object-identity>` and `<domain-name>` with your values, then run the following cmdlet to configure AES-256 support: 
 
 ```powershell
 Set-ADComputer -Identity <domain-object-identity> -Server <domain-name> -KerberosEncryptionType "AES256"
 ```
 
-After you've ran that command, replace `<domain-object-identity>` in the following script with your value, then run the script to refresh your domain object password:
+After you've run that cmdlet, replace `<domain-object-identity>` in the following script with your value, then run the script to refresh your domain object password:
 
 ```powershell
 $KeyName = "kerb1" # Could be either the first or second kerberos key, this script assumes we're refreshing the first
