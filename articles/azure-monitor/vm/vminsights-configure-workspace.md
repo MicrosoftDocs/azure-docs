@@ -30,7 +30,7 @@ Access Log Analytics workspaces in the Azure portal from the **Log Analytics wor
 
 [![Log Anlytics workspaces](media/vminsights-configure-workspace/log-analytics-workspaces.png)](media/vminsights-configure-workspace/log-analytics-workspaces.png#lightbox)
 
-You can create a new Log Analytics workspace using any of the following methods. See [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md) for guidance on determining the number of workspaces you should use in your environment and how to design their access strategy.
+You can create a new Log Analytics workspace using any of the following methods. See [Designing your Azure Monitor Logs deployment](../logs/workspace-design.md) for guidance on determining the number of workspaces you should use in your environment and how to design their access strategy.
 
 
 * [Azure portal](../logs/quick-create-workspace.md)
