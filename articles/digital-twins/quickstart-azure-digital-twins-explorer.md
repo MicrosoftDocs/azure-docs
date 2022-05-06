@@ -275,7 +275,7 @@ In this quickstart, you made the temperature update manually. It's common in Azu
 
 To clean up after this quickstart, choose which resources you want to remove based on what you want to do next.
 
-* If you plan to continue to the Azure Digital Twins tutorials, you can reuse the instance in this quickstart for those articles, and you don't need to remove it.
+* If you plan to continue through the Azure Digital Twins quickstarts and tutorials, you can reuse the instance in this quickstart for those articles, and you don't need to remove it.
 
 [!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
  
@@ -291,7 +291,7 @@ You may also want to delete the sample project folder from your local machine.
 
 ## Next steps
 
-Next, continue on to the Azure Digital Twins tutorials to build out your own Azure Digital Twins scenario and interaction tools.
+Move on to the next quickstart to visualize an Azure Digital Twins scenario in a 3D environment.
 
 > [!div class="nextstepaction"]
-> [Code a client app](tutorial-code.md)
+> [Get started with 3D Scenes Studio](quickstart-3d-scenes-studio.md)
