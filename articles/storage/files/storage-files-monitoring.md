@@ -122,7 +122,7 @@ If you choose to stream your logs to an event hub, you'll pay for the volume of 
 
 #### Send logs to Azure Log Analytics
 
-1. Select the **Send to Log Analytics** checkbox, select a log analytics workspace, and then click the and then click the **Save** button. You'll need access to an existing log analytics workspace, or you'll need to create one before you complete this step.
+1. Select the **Send to Log Analytics** checkbox, select a log analytics workspace, and then click the **Save** button. You'll need access to an existing log analytics workspace, or you'll need to create one before you complete this step.
 
 [!INCLUDE [no retention policy log analytics](../../../includes/azure-storage-logs-retention-policy-log-analytics.md)]
 
