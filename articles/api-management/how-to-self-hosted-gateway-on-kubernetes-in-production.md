@@ -147,6 +147,26 @@ Pods can experience disruption due to [various](https://kubernetes.io/docs/conce
 
 Consider using [Pod Disruption Budgets](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pod-disruption-budgets) to enforce a minimum number of pods to be available at any given time.
 
+## Security
+The self-hosted gateway is able to run as non-root in Kubernetes allowing customers to run the gateway securely.
+
+Here is an example of the security context for the self-hosted gateway:
+```yml
+securityContext:
+  allowPrivilegeEscalation: false
+  runAsNonRoot: true
+  runAsUser: 1000
+  runAsGroup: 2000
+  privileged: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop:
+    - all
+```
+
+> [!WARNING]
+> When using local CA certificates, using `readOnlyRootFilesystem: true` is not supported. 
+
 ## Next steps
 
 * To learn more about the self-hosted gateway, see [Self-hosted gateway overview](self-hosted-gateway-overview.md).
