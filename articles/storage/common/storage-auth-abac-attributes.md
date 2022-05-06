@@ -52,19 +52,6 @@ In this preview, storage accounts support the following suboperations:
 
 This section lists the supported Azure Blob storage actions and suboperations you can target for conditions.
 
-### All read operations
-
-> [!div class="mx-tdCol2BreakAll"]
-> | Property | Value |
-> | --- | --- |
-> | **Display name** | All read operations |
-> | **Description** | All Blob read operations including list. |
-> | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
-> | **Suboperation** |  |
-> | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name |
-> | **Request attributes** |  |
-> | **Principal attributes support** | True |
-
 ### List blobs
 
 > [!div class="mx-tdCol2BreakAll"]
