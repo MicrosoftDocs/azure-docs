@@ -58,7 +58,7 @@ Use the table below to find which model versions are supported by each feature.
 | Custom NER                                          | `2021-11-01-preview`                                                |                                    | `2021-11-01-preview`   |
 | Personally Identifiable Information (PII) detection | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`, `2021-01-15` | `2021-01-15`                       |                        |
 | Question answering                                  | `2021-10-01`                                                        | `2021-10-01`                                  |
-| Text Analytics for health                           | `2021-05-15`                                                        | `2021-05-15`                       |                        |
+| Text Analytics for health                           | `2021-05-15`, `2022-03-01`                                                        | `2022-03-01`                       |                        |
 | Key phrase extraction                               | `2019-10-01`, `2020-07-01`, `2021-06-01`                            | `2021-06-01`                       |                        |
 | Text summarization                                  | `2021-08-01`                                                        | `2021-08-01`                       |                        |
 
