@@ -19,18 +19,17 @@ ms.custom: aaddev, has-adal-ref
 
 # Single sign-on with MSAL.js
 
-Single Sign-On (SSO) enables users to enter their credentials once to sign in and establish a session, which can be reused across multiple applications without requiring to authenticate again. The session provides a seamless experience to the user and reduces the repeated prompts for credentials.
+Single sign-on (SSO) provides more seamless experience by reducing the number of times your users are asked for their credentials. Users enter their credentials once, and the established session can be reused by other applications on the device without further prompting. 
 
-Azure Active Directory (Azure AD) provides SSO capabilities to applications by setting a session cookie when the user authenticates the first time. The MSAL.js library allows applications to apply a session cookie in a few ways.
+Azure Active Directory (Azure AD) enables SSO by setting a session cookie when a user first authenticates. MSAL.js allows applications to use session cookie for SSO between browser tabs opened for a single application or between applications.
 
 ## SSO between browser tabs
 
-When your application is open in multiple tabs and you first sign in the user on one tab, the user is also signed in on the other tabs without being prompted. MSAL.js caches the ID token for the user in the browser `localStorage` and will sign the user in to the application on the other open tabs.
+When a user has your application open in several tabs and signs in on one of them, they're signed into the same app open on the other tabs without being prompted. MSAL.js caches the ID token for the user in the browser `localStorage` and will sign the user in to the application on the other open tabs.
 
 By default, MSAL.js uses `sessionStorage`, which doesn't allow the session to be shared between tabs. To get SSO between tabs, make sure to set the `cacheLocation` in MSAL.js to `localStorage` as shown below.
 
 ```javascript
-
 const config = {
   auth: {
     clientId: "abcd-ef12-gh34-ikkl-ashdjhlhsdg",
