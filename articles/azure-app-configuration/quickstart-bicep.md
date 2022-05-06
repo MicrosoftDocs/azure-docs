@@ -35,7 +35,7 @@ Two Azure resources are defined in the Bicep file:
 - [Microsoft.AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores): create an App Configuration store.
 - [Microsoft.AppConfiguration/configurationStores/keyValues](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores/keyvalues): create a key-value inside the App Configuration store.
 
-With this Bicep file, we create one key with two different values.
+With this Bicep file, we create one key with two different values, one of which has a unique label.
 
 ## Deploy the Bicep file
 
