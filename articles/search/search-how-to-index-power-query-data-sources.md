@@ -25,7 +25,7 @@ The Power Query connector preview was announced in May 2021 and will not be movi
 ## Prerequisites
 
 - An Azure Storage account. If you don't have one, [create a Storage account](../storage/common/storage-account-create.md).
-- An Azure Data Factory. If you don't have one, [create a Data Factory](../data-factory/quickstart-create-data-factory-portal.md).
+- An Azure Data Factory. If you don't have one, [create a Data Factory](../data-factory/quickstart-create-data-factory-portal.md). See [Data Factory Pipelines Pricing](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) before implementation to understand associated costs. Also, check [Data Factory pricing through examples](../data-factory/pricing-concepts.md).
 
 ## Migrate a Snowflake data pipeline
 
