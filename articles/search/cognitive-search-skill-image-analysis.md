@@ -37,15 +37,15 @@ Parameters are case-sensitive.
 
 | Parameter name | Description |
 |--------------------|-------------|
-| `defaultLanguageCode` | A string indicating the language to return. The service returns recognition results in a specified language. If this parameter is not specified, the default value is "en". <br/><br/>Supported languages are: <br/>*en* - English (default) <br/> *es* - Spanish <br/> *ja* - Japanese <br/> *pt* - Portuguese <br/> *zh* - Simplified Chinese|
-| `visualFeatures` | An array of strings indicating the visual feature types to return. Valid visual feature types include:  <ul><li>*adult* - detects if the image is pornographic (depicts nudity or a sex act), gory (depicts extreme violence or blood) or suggestive (also known as racy content). </li><li>*brands* - detects various brands within an image, including the approximate location. The *brands* visual feature is only available in English.</li><li> *categories* - categorizes image content according to a taxonomy defined in the Cognitive Services [Computer Vision documentation](../cognitive-services/computer-vision/category-taxonomy.md). </li><li>*description* - describes the image content with a complete sentence in supported languages.</li><li>*faces* - detects if faces are present. If present, generates coordinates, gender and age.</li><li>	*objects* - detects various objects within an image, including the approximate location. The *objects* visual feature is only available in English.</li><li> *tags* - tags the image with a detailed list of words related to the image content.</li></ul> Names of visual features are case-sensitive. Note that the *color* and *imageType* visual features have been deprecated, but this functionality could still be accessed via a [custom skill](./cognitive-search-custom-skill-interface.md).|
+| `defaultLanguageCode` | A string indicating the language to return. The service returns recognition results in a specified language. If this parameter isn't specified, the default value is "en". <br/><br/>Supported languages are: <br/>`en` - English (default) <br/>`es` - Spanish <br/>`ja` - Japanese <br/>`pt` - Portuguese <br/>`zh` - Simplified Chinese|
+| `visualFeatures` | An array of strings indicating the visual feature types to return. Valid visual feature types include:  <ul><li>*adult* - detects if the image is pornographic (depicts nudity or a sex act), gory (depicts extreme violence or blood) or suggestive (also known as racy content). </li><li>*brands* - detects various brands within an image, including the approximate location. The *brands* visual feature is only available in English.</li><li> *categories* - categorizes image content according to a taxonomy defined in the Cognitive Services [Computer Vision documentation](../cognitive-services/computer-vision/category-taxonomy.md). </li><li>*description* - describes the image content with a complete sentence in supported languages.</li><li>*faces* - detects if faces are present. If present, generates coordinates, gender and age. </li><li>*objects* - detects various objects within an image, including the approximate location. The *objects* visual feature is only available in English.</li><li> *tags* - tags the image with a detailed list of words related to the image content.</li></ul> Names of visual features are case-sensitive. Both *color* and *imageType* visual features have been deprecated, but you can access this functionality through a [custom skill](./cognitive-search-custom-skill-interface.md).|
 | `details`	| An array of strings indicating which domain-specific details to return. Valid visual feature types include: <ul><li>*celebrities* - identifies celebrities if detected in the image.</li><li>*landmarks* - identifies landmarks if detected in the image. </li></ul> |
 
 ## Skill inputs
 
 | Input name  | Description                                          |
 |---------------|------------------------------------------------------|
-| `image`         | Complex Type. Currently only works with "/document/normalized_images" field, produced by the Azure Blob indexer when ```imageAction``` is set to a value other than ```none```. See the [sample](#sample-output) for more information.|
+| `image`         | Complex Type. Currently only works with "/document/normalized_images" field, produced by the Azure Blob indexer when ```imageAction``` is set to a value other than ```none```. |
 
 ## Skill outputs
 
@@ -641,11 +641,11 @@ In the following error cases, no elements are extracted.
 
 | Error Code | Description |
 |------------|-------------|
-| `NotSupportedLanguage` | The language provided is not supported. |
+| `NotSupportedLanguage` | The language provided isn't supported. |
 | `InvalidImageUrl` | Image URL is badly formatted or not accessible.|
-| `InvalidImageFormat` | Input data is not a valid image. |
+| `InvalidImageFormat` | Input data isn't a valid image. |
 | `InvalidImageSize` | Input image is too large. |
-| `NotSupportedVisualFeature`  | Specified feature type is not valid. |
+| `NotSupportedVisualFeature`  | Specified feature type isn't valid. |
 | `NotSupportedImage` | Unsupported image, for example, child pornography. |
 | `InvalidDetails` | Unsupported domain-specific model. |
 
