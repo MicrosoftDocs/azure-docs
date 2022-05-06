@@ -21,14 +21,14 @@ Whenever you find yourself building the same logic in an expression in across mu
 
 To get started with user defined functions, you must first create a data flow library. Navigate to the management page and then find data flow libraries under the author section.
 
-![Screenshot showing the A D F management pane and data flow libraries](./media/data-flow-udf/data-flow-udf-library.png)
+![Screenshot showing the A D F management pane and data flow libraries.](./media/data-flow-udf/data-flow-udf-library.png)
 
 
 
 ## Data flow library
 
 From here, you can click on +New button to create a new data flow library. Fill out the name and description and then you are ready to create your user defined function.
-![Screenshot showing the data flow libraries creation pane](./media/data-flow-udf/data-flow-udf-library-create.png)
+![Screenshot showing the data flow libraries creation pane.](./media/data-flow-udf/data-flow-udf-library-create.png)
 
 ## New user defined function
 
