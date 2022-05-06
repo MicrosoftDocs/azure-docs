@@ -29,7 +29,7 @@ Load Ratio = Aggregate of capacity consumed by all jobs assigned to the worker /
 ### Example
 Assume that each `chat` job has been configured to consume one capacity for a worker.  A new chat job is queued into Job Router and the following workers are available to take the job:
 
-```json
+```
 Worker A:
 TotalCapacity = 5
 ConsumedScore = 3 (Currently handling 3 chats)
@@ -53,11 +53,12 @@ TotalCapacity = 3
 ConsumedScore = 0 (Currently idle)
 LoadRatio = 0 / 4 = 0
 LastAvailable: 2 min ago
-
-Workers would be matched in order: D, C, A, B
 ```
+Workers would be matched in order: D, C, A, B
 
-Explanation: Worker D has the lowest load ratio (0), so Worker D will be offered the job first.  Workers A and C are tied with the same load ratio (0.6).  However, Worker C has been available for a longer time (7 minutes ago) than Worker A (5 minutes ago), so Worker C will be matched before Worker A.  Finally, Worker B will be matched last since Worker B has the highest load ratio (0.75).
+Explanation:
+
+Worker D has the lowest load ratio (0), so Worker D will be offered the job first.  Workers A and C are tied with the same load ratio (0.6).  However, Worker C has been available for a longer time (7 minutes ago) than Worker A (5 minutes ago), so Worker C will be matched before Worker A.  Finally, Worker B will be matched last since Worker B has the highest load ratio (0.75).
 
 ## Best Worker Mode
 The workers that are best able to handle the job are picked first.  The logic to rank Workers can be customized, with an expression or Azure function to compare two workers by specifying a Scoring Rule. [See example][worker-scoring]
@@ -115,6 +116,7 @@ Worker C's match score = 1 (for matching english language label) / 2 (total numb
 ```
 
 Explanation:
+
 Worker A would be matched first.  Next, Worker B or Worker C would be matched, depending on who was available for a longer time, since the match score is tied.
 
 ### Default Worker Selector Matching
@@ -171,6 +173,7 @@ Worker F's match score = 1 (for segment not equal to vip) / 2 (total number of l
 ```
 
 Explanation:
+
 Worker E would be matched first.  Next, Worker D or Worker F would be matched, depending on who was available for a longer time, since the match score is tied.
 
 #### Other Label Operators
@@ -243,4 +246,5 @@ Worker I's match score = (1 + 1 / (1 + e^-((10 - 10) / 10)) + 1 / (1 + e^-((10 -
 ```
 
 Explanation:
+
 All three workers match the worker selectors on the job and are eligible to work on it.  However, we can see that Worker H exceeds the "sales" worker selector's value by a margin of 5.  Meanwhile, Worker I only exceeds the cost worker selector's value by a margin of 1.  Worker G doesn't exceed any of the worker selector's values at all.  Therefore, Worker H would be matched first, followed by Worker I and finally Worker G would be matched last.
