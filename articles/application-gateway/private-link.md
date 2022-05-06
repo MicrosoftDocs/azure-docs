@@ -22,7 +22,7 @@ Private Link for Application Gateway allows you to connect workloads over a priv
 :::image type="content" source="media/private-link/private-link.png" alt-text="Diagram showing Application Gateway Private Link":::
 
 
-## Features and Capabilities
+## Features and capabilities
 
 Private Link allows you to extend private connectivity to Application Gateway via a Private Endpoint in the following scenarios:
 -	VNet in the same or different region from Application Gateway
