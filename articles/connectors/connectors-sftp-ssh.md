@@ -171,7 +171,7 @@ The SFTP-SSH connector rejects a connection if both the SFTP server's fingerprin
 
 ### You have the key
 
-To get an MD5 fingerprint when you have the key, you can use tools such as `ssh-keygen`, for example:
+To get an MD5 fingerprint when you have a key, you can use tools such as `ssh-keygen`, for example:
 
 ```bash
 ssh-keygen -l -f id_rsa.pub -E md5
@@ -179,7 +179,7 @@ ssh-keygen -l -f id_rsa.pub -E md5
 
 ### You don't have the key
 
-To get an MD5 fingerprint when you don't have the key, you can use the latest [WinSCP](https://winscp.net/eng/docs/ui_fsinfo), or you can use the PuTTY Configuration tool instead:
+To get an MD5 fingerprint when you don't have a key, you can use the latest [WinSCP](https://winscp.net/eng/docs/ui_fsinfo), or you can use the PuTTY Configuration tool instead:
 
 1. In the PuTTY Configuration tool (putty.exe), in the **Category** window, open **Connection** > **SSH** > **Host keys**.
 
