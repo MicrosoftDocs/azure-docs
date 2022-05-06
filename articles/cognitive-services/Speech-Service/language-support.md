@@ -899,7 +899,21 @@ Arabic|`ar-DZ`<br/>`ar-BH`<br/>`ar-EG`<br/>`ar-IQ`<br/>`ar-OM`<br/>`ar-SY`|
 
 ## Pronunciation assessment
 
-The [pronunciation assessment](how-to-pronunciation-assessment.md) feature currently supports the `en-US` locale, which is available with all speech-to-text regions. Support for `en-GB` and `zh-CN` languages is in preview.
+The [pronunciation assessment](how-to-pronunciation-assessment.md) feature supports the following released languages and preview languages.
+
+| Language | Locale |
+|--|--|
+|Chinese (Mandarin, Simplified)|`zh-CN`<sup>Public preview</sup> |
+|English (Australia)|`en-AU`<sup>Public preview</sup> |
+|English (United Kingdom)|`en-GB`<sup>Public preview</sup> |
+|English (United States)|`en-US`|
+|French (France)|`fr-FR`<sup>Public preview</sup> |
+|Spanish (Spain)|`es-ES`<sup>Public preview</sup> |
+
+> [!NOTE]
+> In addition to released languages and public preview languages, you can also try other available [Speech-to-Text languages](#speech-to-text) and send us your feedback (pronscorefeedback@microsoft.com). If you use the Pronunciation Assessment API, you can switch to other locales without any approval from Microsoft. But when you use this feature through the Speech Studio portal, you need to be granted to try the non-public languages. You can send us a request email to pronscorefeedback@microsoft.com to get access to the non-public languages. 
+> 
+> The feature is available in all [Speech-to-Text regions](regions.md#speech-to-text-text-to-speech-and-translation). 
 
 ## Speech translation
 
