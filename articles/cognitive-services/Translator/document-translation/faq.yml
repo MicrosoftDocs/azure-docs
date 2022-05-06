@@ -27,6 +27,11 @@ sections:
         Yes. Currently, Document translation can translate content from *scanned PDF* documents.
 
     - question:
+        Can a page range or specific pages be selected in the Translator service API call?
+      answer:  |
+        No. The Document Translator API doesn't support specific page translation to allow for document formats without page concepts like html, xliff, and md.
+
+    - question:
         Will the text embedded in an image within a document gets translated?
       answer: |
         The text embedded in a scanned PDF will be translated. Currently Document Translation does not support translating text within images.

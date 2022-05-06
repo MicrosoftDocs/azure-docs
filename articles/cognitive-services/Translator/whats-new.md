@@ -23,7 +23,11 @@ Bookmark this page to stay up to date with release notes, feature enhancements, 
 
 ## May 2022
 
-* Document Translation supports optical character recognition (OCR) for translating scanned PDF documents. OCR identifies and extracts printed and handwritten text in scanned PDF documents. The OCR extracted text can then be processed and translated by the Translator Service Document Translation feature. To determine whether your PDF is a text-based or scanned PDF, use your cursor to try to select text elements. You can't select text in a scanned PDF, only the image area. With a text-based PDF, you can easily select and copy text.
+### [Document Translation support for scanned PDF documents](document-translation/overview.md#scanned-pdf-documents)
+
+* Optical character recognition (OCR) teams with Document Translation to power scanned PDF document translation.
+
+* OCR identifies printed and handwritten text in scanned PDF documents. The text is then processed and translated by the Translator Service Document Translation feature.
 
 ## April 2022
 

@@ -27,38 +27,42 @@ This documentation contains the following article types:
 | ---------| -------------|
 | **Translate large files**| Translate whole documents asynchronously.|
 |**Translate numerous files**|Translate multiple files across all supported languages and dialects while preserving document structure and data format.|
+|**Translate 🆕[scanned](#scanned-pdf-translation-key-features) and text-embedded pdf documents** |Translate printed and handwritten text in scanned PDF documents. |
 |**Preserve source file presentation**| Translate files while preserving the original layout and format.|
 |**Apply custom translation**| Translate documents using general and [custom translation](../customization.md#custom-translator) models.|
 |**Apply custom glossaries**|Translate documents using custom glossaries.|
 |**Automatically detect document language**|Let the Document Translation service determine the language of the document.|
 |**Translate documents with content in multiple languages**|Use the autodetect feature to translate documents with content in multiple languages into your target language.|
-|**Translate 🆕scanned and text-embedded pdf documents** |Translate printed and handwritten text in scanned PDF documents. |
 
 > [!NOTE]
 > When translating documents with content in multiple languages, the feature is intended for complete sentences in a single language. If sentences are composed of more than one language, the content may not all translate into the target language.
 >
 
-## Scanned image translation key features
+## Scanned PDF documents
 
-* Optical character recognition (OCR) is the foundational technology powering document translation from scanned PDF documents like agreements, contracts, manuals, and receipts.
+Document Translation uses optical character recognition (OCR) a foundational technology to power translation for scanned PDF documents such as agreements, contracts, manuals, and receipts:
 
-* Document translation is supported in 164 print and 9 handwritten text languages.
+* Scanned PDF document translation has [language support](../language-support.md#-document-translation-scanned-pdfs) for 164 print and 9 handwritten text languages.
 
-* Source language identification isn't required. You can provide the source language code if you want to force the service to apply a specific language model.
+* Source language identification isn't required. Document Translation can automatically detect the language of the source text. You can provide the source language code to force the service to apply a specific language model.
 
-* Support for mixed languages and mixed modes (print and handwritten) in the same document.
-
-* Select pages and page ranges from large, multi-page documents.
+* Document Translation supports scanned PDFs with multiple languages and mixed modes (print and handwritten text) in the same document.
 
 ## Input requirements
 
 * Scanned PDF documents: For best results, provide one high-quality scan per document.
+
 * PDF dimensions: ≤ 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
+
 * If your PDFs are password-locked, you must remove the lock before submission.
+
 * Document size: ≤ 40 mb
-* Total number of files per single request: ≤ 1000
-* Total content size in a single request: ≤ 250 mb
-* Number of target languages in a batch request: ≤ 10
+
+* Total number of **files** (not pages) per single request: ≤ 1000.
+
+* Total content size in a single request: ≤ 250 mb.
+
+* Number of target languages in a batch request: ≤ 10.
 
 ## Document Translation development options
 
