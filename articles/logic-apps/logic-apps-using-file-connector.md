@@ -100,14 +100,20 @@ For connector-specific technical information, such as triggers, actions, and lim
 
 1. Continue building your workflow.
 
-   For example, to test your workflow, add an Outlook action that sends you an email when a file is created on the file system in specified folder. Enter the email recipients, subject, and body. For testing, you can use your own email address.
+   1. Provide the required information for your trigger.
 
-   ![Screenshot showing an action that sends email when a new file is created on the file system server.](media/logic-apps-using-file-connector/file-system-trigger-send-email.png)
+      For this example, select the folder path on your file system server to check for a newly created file. Specify the number of files to return and how often you want to check.
 
-   > [!TIP]
-   >
-   > To add outputs from previous steps in the workflow, click inside the trigger's edit boxes. 
-   > When the dynamic content list appears, select from the available outputs.
+      ![Screenshot showing the "When a file is created" trigger, which checks for a newly created file on the file system server.](media/logic-apps-using-file-connector/file-system-trigger-when-file-created.png)
+
+   1. To test your workflow, add an Outlook action that sends you an email when a file is created on the file system in specified folder. Enter the email recipients, subject, and body. For testing, you can use your own email address.
+
+      ![Screenshot showing an action that sends email when a new file is created on the file system server.](media/logic-apps-using-file-connector/file-system-trigger-send-email.png)
+
+      > [!TIP]
+      >
+      > To add outputs from previous steps in the workflow, click inside the trigger's edit boxes. 
+      > When the dynamic content list appears, select from the available outputs.
 
 1. Save your logic app. Test your workflow by uploading a file and triggering the workflow.
 
@@ -155,9 +161,11 @@ For connector-specific technical information, such as triggers, actions, and lim
 
 1. Continue building your workflow.
 
-   1. Provide the required information for your action. For this example, select the folder path on your file system server to create the file, and enter the file name and content, based on the file uploaded to Dropbox.
+   1. Provide the required information for your action.
 
-      ![Screenshot showing the "Create file" action, which creates a file on the file system server, based on a file uploaded to Dropbox.](media/logic-apps-using-file-connector/file-system-action-send-email.png)
+      For this example, select the folder path on your file system server to use, which is the root folder here. Enter the file name and content, based on the file uploaded to Dropbox.
+
+      ![Screenshot showing the "Create file" action, which creates a file on the file system server, based on a file uploaded to Dropbox.](media/logic-apps-using-file-connector/file-system-action-create-file.png)
 
       > [!TIP]
       >
