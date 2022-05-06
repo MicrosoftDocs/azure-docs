@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 7/9/2021
+ms.date: 05/06/2022
 ---
 
 # Restart Azure Database for PostgreSQL - Hyperscale (Citus)
@@ -21,9 +21,9 @@ all** to continue.
 > an Azure support request to restart the server group.
 
 Restarting the server group applies to all nodes; you can't selectively restart
-individual nodes. The restart applies to the nodes' entire virtual machines,
-not just the PostgreSQL server instances. Any applications attempting to use
-the database will experience connectivity downtime while the restart happens.
+individual nodes. The restart applies to the PostgreSQL server processes in the
+nodes. Any applications attempting to use the database will experience
+connectivity downtime while the restart happens.
 
 **Next steps**
 

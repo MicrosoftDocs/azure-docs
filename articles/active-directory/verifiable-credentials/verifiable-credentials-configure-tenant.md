@@ -7,7 +7,7 @@ author: barclayn
 manager: karenhoran
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 04/26/2022
+ms.date: 05/06/2022
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
@@ -16,16 +16,15 @@ ms.date: 04/26/2022
 
 Azure Active Directory (Azure AD) Verifiable Credentials safeguards your organization with an identity solution that's seamless and decentralized. The service allows you to issue and verify credentials. For issuers, Azure AD provides a service that they can customize and use to issue their own verifiable credentials. For verifiers, the service provides a free REST API that makes it easy to request and accept verifiable credentials in your apps and services.
 
-In this tutorial, you learn how to configure your Azure AD tenant so it can use this credentials service.
+In this tutorial, you learn how to configure your Azure AD tenant so it can use the verifiable credentials service.
 
 Specifically, you learn how to:
 
 > [!div class="checklist"]
->
-> - Set up a service principal.
 > - Create an Azure Key Vault instance.
-> - Register an application in Azure AD. 
 > - Set up the Verifiable Credentials service.
+> - Register an application in Azure AD.
+
 
 The following diagram illustrates the Azure AD Verifiable Credentials architecture and the component you configure.
 
@@ -67,6 +66,29 @@ A Key Vault [access policy](../../key-vault/general/assign-access-policy.md) def
     ![Screenshot that shows how to configure the admin access policy.](media/verifiable-credentials-configure-tenant/set-key-vault-admin-access-policy.png)
 
 1. To save the changes, select **Save**.
+
+## Set up Verifiable Credentials 
+
+To set up Azure AD Verifiable Credentials, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com/), search for *verifiable credentials*. Then, select **Verifiable Credentials (Preview)**.
+
+1. From the left menu, select **Getting started**.
+
+1. Set up your organization by providing the following information:
+
+    1. **Organization name**: Enter a name to reference your business within Verifiable Credentials. Your customers don't see this name.
+
+    1. **Domain**: Enter a domain that's added to a service endpoint in your decentralized identity (DID) document. The domain is what binds your DID to something tangible that the user might know about your business. Microsoft Authenticator and other digital wallets use this information to validate that your DID is linked to your domain. If the wallet can verify the DID, it displays a verified symbol. If the wallet can't verify the DID, it informs the user that the credential was issued by an organization it couldn't validate.
+            
+        >[!IMPORTANT]
+        > The domain can't be a redirect. Otherwise, the DID and domain can't be linked. Make sure to use HTTPS for the domain. For example: `https://contoso.com`.
+
+    1. **Key vault**: Enter the name of the key vault that you created earlier.
+
+1. Select **Save and create credential**.  
+    
+    ![Screenshots that shows how to set up Verifiable Credentials.](media/verifiable-credentials-configure-tenant/verifiable-credentials-getting-started.png)
 
 ## Register an application in Azure AD
 
@@ -112,28 +134,6 @@ To add the required permissions, follow these steps:
 
 1. Select **Grant admin consent for \<your tenant name\>**.
 
-## Set up Verifiable Credentials 
-
-To set up Azure AD Verifiable Credentials, follow these steps:
-
-1. In the [Azure portal](https://portal.azure.com/), search for *verifiable credentials*. Then, select **Verifiable Credentials (Preview)**.
-
-1. From the left menu, select **Getting started**.
-
-1. Set up your organization by providing the following information:
-
-    1. **Organization name**: Enter a name to reference your business within Verifiable Credentials. Your customers don't see this name.
-
-    1. **Domain**: Enter a domain that's added to a service endpoint in your decentralized identity (DID) document. The domain is what binds your DID to something tangible that the user might know about your business. Microsoft Authenticator and other digital wallets use this information to validate that your DID is linked to your domain. If the wallet can verify the DID, it displays a verified symbol. If the wallet can't verify the DID, it informs the user that the credential was issued by an organization it couldn't validate.
-            
-        >[!IMPORTANT]
-        > The domain can't be a redirect. Otherwise, the DID and domain can't be linked. Make sure to use HTTPS for the domain. For example: `https://contoso.com`.
-
-    1. **Key vault**: Enter the name of the key vault that you created earlier.
-
-1. Select **Save and create credential**.  
-    
-    ![Screenshots that shows how to set up Verifiable Credentials.](media/verifiable-credentials-configure-tenant/verifiable-credentials-getting-started.png)
 
 ## Next steps
 
