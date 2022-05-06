@@ -1,19 +1,14 @@
 ---
 title: Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions
-description: This article shows how customers can easily find and deploy data analysis tools, packaged together with data connectors and other content.
+description: Learn how to find and deploy data analysis tools, packaged together with data connectors and other content.
 author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 05/06/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
+
 # Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions (Public preview)
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-> [!IMPORTANT]
->
-> Microsoft Sentinel solutions and the Microsoft Sentinel Content Hub are currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 The Microsoft Sentinel Content hub provides access to Microsoft Sentinel out-of-the-box (built-in) content and solutions, which are packed with content for end-to-end product, domain, or industry needs.
 
@@ -23,9 +18,12 @@ This article describes how to install solutions in your Microsoft Sentinel works
 
 - Install the solution in your workspace when you find one that fits your organization's needs. Make sure to keep it updated with the latest changes.
 
-> [!TIP]
-> If you are a partner who wants to create your own solution, see the [Microsoft Sentinel Solutions Build Guide](https://aka.ms/sentinelsolutionsbuildguide) for solution authoring and publishing.
+If you are a partner who wants to create your own solution, see the [Microsoft Sentinel Solutions Build Guide](https://aka.ms/sentinelsolutionsbuildguide) for solution authoring and publishing.
+
+> [!IMPORTANT]
 >
+> Microsoft Sentinel solutions and the Microsoft Sentinel Content Hub are currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Find a solution
 
 1. From the Microsoft Sentinel navigation menu, under **Content management**, select **Content hub (Preview)**.
