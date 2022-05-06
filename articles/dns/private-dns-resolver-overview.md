@@ -5,14 +5,17 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 05/05/2022
+ms.date: 05/06/2022
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
 
-# What is Azure DNS Private Resolver?
+# What is Azure DNS Private Resolver? 
 
-Azure DNS Private Resolver is a new service currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Azure DNS Private Resolver enables you to query Azure DNS private zones from an on-prem environment and vice versa without deploying VM based DNS servers. 
+Azure DNS Private Resolver is a new service that enables you to query Azure DNS private zones from an on-prem environment and vice versa without deploying VM based DNS servers. 
+
+> [!IMPORTANT]
+> Azure DNS Private Resolver is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 ## How does it work?
 
