@@ -1631,12 +1631,12 @@ groups:
     title: North America
   - id: europe
     title: Europe
-  - id: asia-australia
-    title: Asia, Australia
+  - id: asia
+    title: Asia
   - id: africa
     title: Africa
-  - id: self-managed
-    title: Self-managed
+  - id: australia
+    title: Australia
 # Owner: timlt
 - id: iot-develop-toolset
   title: IoT Devices
