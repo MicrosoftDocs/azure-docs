@@ -65,7 +65,7 @@ With this Bicep file, we create one key with two different values.
 
 ## Review deployed resources
 
-Use Azure CLI, Azure PowerShell, or the Azure portal to list the deployed resources in the resource group.
+Use Azure CLI or Azure PowerShell to list the deployed resources in the resource group.
 
 # [CLI](#tab/CLI)
 
@@ -79,7 +79,9 @@ az resource list --resource-group exampleRG
 Get-AzResource -ResourceGroupName exampleRG
 ```
 
-# [Azure portal](#tab/Portal)
+---
+
+You can also use the Azure portal to list the resources:
 
 1. Sign in to the Azure portal.
 1. In the search box, enter *App Configuration*, then select **App Configuration** from the list.
@@ -87,11 +89,9 @@ Get-AzResource -ResourceGroupName exampleRG
 1. Under **Operations**, select **Configuration explorer**.
 1. Verify that two key-values exist.
 
----
-
 ## Clean up resources
 
-When no longer needed, use Azure CLI, Azure PowerShell, or the Azure portal to delete the resource group and its resources.
+When no longer needed, use Azure CLI or Azure PowerShell to delete the resource group and its resources.
 
 # [CLI](#tab/CLI)
 
@@ -105,13 +105,13 @@ az group delete --name exampleRG
 Remove-AzResourceGroup -Name exampleRG
 ```
 
-# [Azure portal](#tab/Portal)
+---
+
+You can also use the Azure portal to delete the resource group:
 
 1. Navigate to your resource group.
 1. Select **Delete resource group**.
 1. A tab will appear. Enter the resource group name and select **Delete**.
-
----
 
 ## Next steps
 
