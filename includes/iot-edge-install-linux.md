@@ -51,6 +51,8 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
 
 > [!IMPORTANT]
 > By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye.
+>
+> To install IoT Edge on Bullseye refer to the steps for Debian.
 
 Installing can be done with a few commands.  Open a terminal and run the following commands:
 
@@ -95,6 +97,8 @@ Install the Moby engine.
 
 > [!IMPORTANT]
 > By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye.
+>
+> To install IoT Edge on Bullseye refer to the steps for Debian.
 
 Install the Moby engine.
 
@@ -155,6 +159,8 @@ Install IoT Edge version 1.1.* along with the **libiothsm-std** package:
 
 > [!IMPORTANT]
 > By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye.
+>
+> To install IoT Edge on Bullseye refer to the steps for Debian.
 
    ```bash
    sudo apt-get update; \
@@ -219,6 +225,8 @@ To list other versions of IoT Edge and the IoT identity service that are availab
 
 > [!IMPORTANT]
 > By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye.
+>
+> To install IoT Edge on Bullseye refer to the steps for Debian.
 
 Install the latest version of IoT Edge and the IoT identity service package:
 
