@@ -96,7 +96,7 @@ Use the following steps to provision an Azure Spring Cloud service instance:
 
     ```azurecli
     az monitor log-analytics workspace create \
-      --workspace-name <workspace-name>} 
+        --workspace-name <workspace-name>
     ```
 
 1. Retrieve the Resource ID for your Log Analytics Workspace and Azure Spring Cloud service using the following commands:
@@ -202,7 +202,7 @@ Use the following steps to deploy and build applications. For these steps make s
 
     ```azurecli
     az spring-cloud build-service builder create \
-        -n quickstart-builder \
+        --name quickstart-builder \
         --builder-file azure/builder.json 
     ```
 
