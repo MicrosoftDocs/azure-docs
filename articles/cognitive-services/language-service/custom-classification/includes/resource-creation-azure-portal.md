@@ -13,6 +13,8 @@ ms.author: aahi
 
 Go to the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Language resource. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following parameters.  
 
+:::image type="content" source="../media/select-custom-feature-azure-portal.png" alt-text="A screenshot showing available additional features." lightbox="../media/select-custom-feature-azure-portal.png":::
+
 |Requirement  |Required value  |
 |---------|---------|
 |Location | "West US 2" or "West Europe"         |

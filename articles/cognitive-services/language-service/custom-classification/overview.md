@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 05/06/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
 
 # What is custom text classification (preview)?
 
-Custom text classification is one of the features offered by [Azure Cognitive Service for Language](../overview.md). It is a cloud-based API service that applies machine-learning intelligence to enable you to build custom models for text classification tasks. 
+Custom text classification is one of the custom features offered by [Azure Cognitive Service for Language](../overview.md). It is a cloud-based API service that applies machine-learning intelligence to enable you to build custom models for text classification tasks. 
 
-Custom text classification is offered as part of the custom features within Azure Cognitive for Language. This feature enables its users to build custom AI models to classify text into custom categories pre-defined by the user. By creating a custom text classification project, developers can iteratively tag data, train, evaluate, and improve model performance before making it available for consumption. The quality of the tagged data greatly impacts model performance. To simplify building and customizing your model, the service offers a custom web portal that can be accessed through the [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
+Custom text classification enables users to build custom AI models to classify text into custom classes pre-defined by the user. By creating a custom text classification project, developers can iteratively tag data, train, evaluate, and improve model performance before making it available for consumption. The quality of the tagged data greatly impacts model performance. To simplify building and customizing your model, the service offers a custom web portal that can be accessed through the [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
 
 Custom text classification supports two types of projects: 
 
-* **Single label classification** - you can assign a single class for each file of your dataset. For example, a movie script could only be classified as "Action" or "Thriller". 
-* **Multiple label classification** - You can assign multiple classes for each file of your dataset. For example, a movie script could be classified as "Action" or "Action and Thriller".
+* **Single label classification** - you can assign a single class for each document in your dataset. For example, a movie script could only be classified as "Romance" or "Comedy". 
+* **Multi label classification** - you can assign multiple classes for each document in your dataset. For example, a movie script could be classified as "Comedy" or "Romance" and "Comedy".
 
 This documentation contains the following article types:
 
@@ -32,13 +32,15 @@ This documentation contains the following article types:
 
 ## Example usage scenarios
 
-### Automatic emails/ticket triage
+Custom text classification can be used in multiple scenarios across a variety of industries:
 
-Support centers of all types receive thousands to hundreds of thousands of emails/tickets containing unstructured, free-form text, and attachments. Timely review, acknowledgment, and routing to subject matter experts within internal teams is critical. However, email triage at this scale involving people to review and route to the right departments takes time and precious resources. Custom text classification can be used to analyze incoming text triage and categorize the content to be automatically routed to the relevant department to take necessary actions.
+### Automatic emails or ticket triage
+
+Support centers of all types receive a high volume of emails or tickets containing unstructured, freeform text and attachments. Timely review, acknowledgment, and routing to subject matter experts within internal teams is critical. Email triage at this scale requires people to review and route to the right departments, which takes time and resources. Custom text classification can be used to analyze incoming text, and triage and categorize the content to be automatically routed to the relevant departments for further action.
 
 ### Knowledge mining to enhance/enrich semantic search
 
-Search is foundational to apps that display text content to users, with common scenarios including: catalog or document search, retail product search, or knowledge mining for data science. Many enterprises across various industries are looking into building a rich search experience over private, heterogeneous content, which includes both structured and unstructured documents. As a part of their pipeline, developers can use custom text classification to categorize text into classes that are relevant to their industry. The predicted classes could be used to enrich the indexing of the file for a more customized search experience. 
+Search is foundational to any app that surfaces text content to users. Common scenarios include catalog or document searches, retail product searches, or knowledge mining for data science. Many enterprises across various industries are seeking to build a rich search experience over private, heterogeneous content, which includes both structured and unstructured documents. As a part of their pipeline, developers can use custom text classification to categorize their text into classes that are relevant to their industry. The predicted classes can be used to enrich the indexing of the file for a more customized search experience.
 
 ## Project development lifecycle
 
@@ -48,9 +50,9 @@ Creating a custom text classification project typically involves several differe
 
 Follow these steps to get the most out of your model:
 
-1. **Define schema**: Know your data and identify the classes you want differentiate between, avoid ambiguity.
+1. **Define schema**: Know your data and identify the [classes](glossary.md#class) you want differentiate between, avoid ambiguity.
 
-2. **Tag data**: The quality of data tagging is a key factor in determining model performance. Tag all the files you want to include in training. Files that belong to the same class should always have the same class, if you have a file that can fall into two classes use  **Multiple class classification** projects. Avoid class ambiguity, make sure that your classes are clearly separable from each other, especially with Single class classification projects.
+2. **Tag data**: The quality of data tagging is a key factor in determining model performance. Documents that belong to the same class should always have the same class, if you have a document that can fall into two classes use  **Multi label classification** projects. Avoid class ambiguity, make sure that your classes are clearly separable from each other, especially with single label classification projects.
 
 3. **Train model**: Your model starts learning from your tagged data.
 
@@ -60,7 +62,26 @@ Follow these steps to get the most out of your model:
 
 6. **Deploy model**: Deploying a model makes it available for use via the [Analyze API](https://aka.ms/ct-runtime-swagger).
 
-7. **Classify text**: Use your custom modeled for text classification tasks.
+7. **Classify text**: Use your custom model for custom text classification tasks.
+
+## Reference documentation and code samples
+
+As you use custom text classification, see the following reference documentation and samples for Azure Cognitive Services for Language:
+
+|Development option / language  |Reference documentation |Samples  |
+|---------|---------|---------|
+|REST APIs (Authoring)   | [REST API documentation](https://aka.ms/ct-authoring-swagger)        |         |
+|REST APIs (Runtime)    | [REST API documentation](https://aka.ms/ct-runtime-swagger)        |         |
+|C#     | [C# documentation](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)        | [C# samples - Single label classification](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample10_SingleCategoryClassify.md) [C# samples - Multi label classification](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample11_MultiCategoryClassify.md)       |
+| Java     | [Java documentation](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true)        | [Java Samples - Single label classification](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/ClassifyDocumentSingleCategory.java) [Java Samples - Multi label classification](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/ClassifyDocumentMultiCategory.java) |
+|JavaScript     | [JavaScript documentation](/javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true)        | [JavaScript samples - Single label classification](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/customText.js) [JavaScript samples - Multi label classification](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/customText.js) |
+|Python | [Python documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true)        | [Python samples - Single label classification](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_single_category_classify.py) [Python samples - Multi label classification](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_multi_category_classify.py) |
+
+## Responsible AI 
+
+An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the [transparency note for custom text classification]() to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
+
+[!INCLUDE [Responsible AI links](../includes/overview-responsible-ai-links.md)]
 
 ## Next steps
 
@@ -68,4 +89,4 @@ Follow these steps to get the most out of your model:
 
 * As you go through the project development lifecycle, review the [glossary](glossary.md) to learn more about the terms used throughout the documentation for this feature. 
 
-* Remember to view the [service limits](service-limits.md) for information such as [regional availability](service-limits.md#regional-availability).
+* Remember to view the [service limits](service-limits.md) for information such as regional availability.
