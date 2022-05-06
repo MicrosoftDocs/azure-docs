@@ -54,10 +54,6 @@ The Private link configuration defines the infrastructure used by Application Ga
 
 A private endpoint is a network interface that uses a private IP address from the virtual network containing clients wishing to connect to your gateway. Each of the clients will use the private IP address of the Private Endpoint to tunnel traffic to the Application Gateway. To create a private endpoint, complete the following steps:
 
-1. Go to the [Azure portal](https://portal.azure.com)
-1. Search for and select **Application Gateways**.
-1. Select the name of the application gateway you want to enable private link.
-1. Select **Private Link**.
 1. Select the **Private endpoint connections** tab.
 1. Select **Create**.
 1. On the **Basics** tab, configure a resource group, name, and region for the Private Endpoint.  Select **Next**.
