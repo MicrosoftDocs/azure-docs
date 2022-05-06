@@ -30,9 +30,9 @@ sections:
         No. The Document Translation API doesn't support specific page translation to allow for document formats without page concepts like html, xliff, and md.
 
     - question:
-        Will the text embedded in an image within a document get translated?
+        Will the text in an image within a document get translated?
       answer: |
-        The text in a *scanned PDF* will be translated. Currently, Document Translation doesn't support translating text within other format such as JPG or PNG images.
+        The text in a *scanned PDF* will be translated. Currently, Document Translation doesn't support translating text within other image formats such as JPG or PNG.
 
     - question:
         When should I specify the source language of the document in the request?
