@@ -29,7 +29,7 @@ For this quickstart you need:
    | **Configure Service Endpoint** | Public | [Portal](./how-to-manage-vnet-using-portal.md) <br/> [CLI](./how-to-manage-vnet-using-cli.md)| 
    | **Configure private link** | Private | [Portal](./how-to-configure-private-link-portal.md) <br/> [CLI](./how-to-configure-private-link-cli.md) | 
 
-- [Create a database and non-admin user](./howto-create-users.md)
+- [Create a database and non-admin user](./how-to-create-users.md)
 
 ## Install Python and the MySQL connector
 

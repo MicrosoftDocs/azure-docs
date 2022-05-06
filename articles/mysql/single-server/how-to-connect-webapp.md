@@ -44,7 +44,7 @@ You can explicitly add all the outbound IPs of your Azure App Service.
 Though the Azure App service attempts to keep IP addresses constant over time, there are cases where the IP addresses may change. For example, this can occur when the app recycles or a scale operation occurs, or when new computers are added in Azure regional data centers to increase capacity. When the IP addresses change, the app could experience downtime in the event it can no longer connect to the MySQL server. Keep this consideration in mind when choosing one of the preceding solutions.
 
 ## SSL configuration
-Azure Database for MySQL has SSL enabled by default. If your application is not using SSL to connect to the database, then you need to disable SSL on the MySQL server. For details on how to configure SSL, see [Using SSL with Azure Database for MySQL](howto-configure-ssl.md).
+Azure Database for MySQL has SSL enabled by default. If your application is not using SSL to connect to the database, then you need to disable SSL on the MySQL server. For details on how to configure SSL, see [Using SSL with Azure Database for MySQL](how-to-configure-ssl.md).
 
 ### Django (PyMySQL)
 ```python
