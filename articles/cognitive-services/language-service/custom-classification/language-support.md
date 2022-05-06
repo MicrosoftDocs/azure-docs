@@ -8,21 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 03/14/2022
+ms.date: 05/06/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
 
-# Language support
+# Language support for custom text classification
 
-Use this article to learn which languages are supported by custom text classification.
+Use this article to learn about the languages currently supported by custom text classification feature.
 
-## Multiple language support
+## Multi-lingual option
 
-With custom text classification, you can train a model in one language and test in another language. This feature is very powerful because it helps you save time and effort, instead of building separate projects for every language, you can handle multi-lingual dataset in one project.  Your dataset doesn't have to be entirely in the same language but you have to specify this option at project creation. If you notice your model performing poorly in certain languages during the evaluation process, consider adding more data in this language to your training set.
+With custom text classification, you can train a model in one language and use to classify documents in another language. This feature is useful because it helps save time and effort. Instead of building separate projects for every language, you can handle multi-lingual dataset in one project. Your dataset doesn't have to be entirely in the same language but you should enable the multi-lingual option for your project while creating or later in project settings. If you notice your model performing poorly in certain languages during the evaluation process, consider adding more data in these languages to your training set.
 
-> [!NOTE]
-> To enable support for multiple languages, you need to enable this option when [creating your project](how-to/create-project.md) or you can enbale it later form the project settings page.
+You can train your project entirely with English documents, and query it in: French, German, Mandarin, Japanese, Korean, and others. Custom text classification
+makes it easy for you to scale your projects to multiple languages by using multilingual technology to train your models.
+
+Whenever you identify that a particular language is not performing as well as other languages, you can add more documents for that language in your project. In the [data labeling](how-to/tag-data.md) page in Language Studio, you can select the language of the document you're adding. When you introduce more documents for that language to the model, it is introduced to more of the syntax of that language, and learns to predict it better.
+
+You aren't expected to add the same number of documents for every language. You should build the majority of your project in one language, and only add a few documents in languages you observe aren't performing well. If you create a project that is primarily in English, and start testing it in French, German, and Spanish, you might observe that German doesn't perform as well as the other two languages. In that case, consider adding 5% of your original English documents in German, train a new model and test in German again. You should see better results for German queries. The more labeled documents you add, the more likely the results are going to get better. 
+
+When you add data in another language, you shouldn't expect it to negatively affect other languages. 
 
 ## Languages supported by custom text classification
 
@@ -127,4 +133,4 @@ Custom text classification supports `.txt` files in the following languages:
 ## Next steps
 
 * [Custom text classification overview](overview.md)
-* [Data limits](service-limits.md)
+* [Service limits](service-limits.md)
