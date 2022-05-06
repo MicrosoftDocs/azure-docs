@@ -1,6 +1,6 @@
 ---
 title: Application management videos
-description: A list of videos about modern authentication and the Microsoft identity platform
+description: A list of videos about app registrations, enterprise apps, consent and permissions, and app ownership and assignment in Azure AD
 services: azure AD
 author: omondiatieno
 manager: CelesteDG
@@ -17,19 +17,19 @@ ms.reviewer: celested
 
 # Application management videos
 
-Learn about the key concepts of application management such as App registrations vs enterprise apps, consent and permissions framework and app ownership and assignment.
+Learn about the key concepts of application management such as App registrations vs enterprise apps, consent and permissions framework and app ownership and, user assignment.
 
 ## App registrations and Enterprise apps
 
-Learn about the key difference between app registration and enterprise apps.
+Learn about the different use cases and personas involved in App Registrations and Enterprise Apps and how developers and admins interact with each option to manage applications in Azure AD.
+___
 
----
 :::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=JeahL9ZtGfQ&list=PLlrxD0HtieHiBPIyUWkqVzoMrgfwKi4dY&index=4&t=2s" target="_blank">What is the difference between app registrations and enterprise apps?</a>(2:01)
     :::column-end:::
     :::column:::
-        > [!Video https://www.youtube.com/embed/JeahL9ZtGfQ] 
+        >[!Video https://www.youtube.com/embed/JeahL9ZtGfQ] 
     :::column-end:::
 :::row-end:::
 
@@ -37,7 +37,7 @@ Learn about the key difference between app registration and enterprise apps.
 
 ## Consent and permissions for admins
 
-Learn how to manage consent and permissions in your Azure AD tenant.
+Learn about the options available for managing consent to applications in a tenant. Learn how about delegated permissions and how to revoke previously consented permissions to mitigate risks posed by malicious applications.
 ___
 
 :::row:::
@@ -70,9 +70,9 @@ ___
 :::row-end:::
 
 
-## Assigning owners and users to an enterprise apps
-
-Learn how to assign owners, users and groups to an enterprise application and how and why an enterprise app may end up in a tenant. 
+## Assigning owners and users to an enterprise app
+Learn about who can assign owners to service principals, how to assign these owners, permissions that owners have, and what to do when an owner leaves the organization.
+Learn how to assign users and, groups to an enterprise application and how and why an enterprise app may show up in a tenant. 
 ___
 
 :::row:::
@@ -95,5 +95,11 @@ ___
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/NhbcVt5xOVI]
+    :::column-end:::
+    :::column:::
+
+    :::column-end:::
+    :::column:::
+
     :::column-end:::
 :::row-end:::
