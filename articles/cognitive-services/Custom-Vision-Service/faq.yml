@@ -94,8 +94,3 @@ sections:
       - answer: | 	
           Use [Diagnostic logging](https://docs.microsoft.com/azure/cognitive-services/diagnostic-logging).
 
-      - question: | 
-          My initial reserved budget is used up; how can I increase the budget?
-
-      - question: | 
-          The training process is taking too long; what can I do to speed it up?
