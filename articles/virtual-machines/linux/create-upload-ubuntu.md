@@ -175,7 +175,8 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 14. Azure only accepts fixed-size VHDs. If the VM's OS disk is not a fixed-size VHD, use the `Convert-VHD` PowerShell cmdlet and specify the `-VHDType Fixed` option. Please have a look at the docs for `Convert-VHD` here: [Convert-VHD](/powershell/module/hyper-v/convert-vhd).
 
-15. To bring a Generation 2 VM on Azure, please follow these additional steps:
+15. To bring a Generation 2 VM on Azure, follow these steps:
+
 
     1. Change directory to the boot EFI directory:
     
