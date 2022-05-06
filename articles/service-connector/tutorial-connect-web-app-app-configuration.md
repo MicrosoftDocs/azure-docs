@@ -67,9 +67,6 @@ Start by creating your Azure resources.
     az webapp up --location $LOCATION --resource-group $RESOURCE_GROUP_NAME --name $APP_SERVICE_NAME
     ```
 
-    * *location* &rarr; A location near you, for example `eastus`. Use `az account list-locations --output table` to list locations.
-    * *resource-group* &rarr; You will use this resource group to organize all the Azure resources needed to complete this tutorial. (for example, `service-connector-tutorial-rg`)
-
     | Parameter    | Description                                                                             | Example |
     |--------------|-----------------------------------------------------------------------------------------|----------|
     | Location | Choose a location near you. Use `az account list-locations --output table` to list locations. | *eastus*     |
@@ -92,9 +89,6 @@ Start by creating your Azure resources.
 
     az webapp up --location $LOCATION --resource-group $RESOURCE_GROUP_NAME --name $APP_SERVICE_NAME
     ```
-
-    * *location* &rarr; A location near you, for example `eastus`. Use `az account list-locations --output table` to list locations.
-    * *resource-group* &rarr; You will use this resource group to organize all the Azure resources needed to complete this tutorial. (for example, `service-connector-tutorial-rg`)
 
     | Parameter    | Description                                                                             | Example |
     |--------------|-----------------------------------------------------------------------------------------|----------|
@@ -124,9 +118,6 @@ Start by creating your Azure resources.
     az webapp up --location $LOCATION --resource-group $RESOURCE_GROUP_NAME --name $APP_SERVICE_NAME
     ```
 
-    * *location* &rarr; A location near you, for example `eastus`. Use `az account list-locations --output table` to list locations.
-    * *resource-group* &rarr; You will use this resource group to organize all the Azure resources needed to complete this tutorial. (for example, `service-connector-tutorial-rg`)
-    
     | Parameter    | Description                                                                             | Example |
     |--------------|-----------------------------------------------------------------------------------------|----------|
     | Location | Choose a location near you. Use `az account list-locations --output table` to list locations. | *eastus*     |
@@ -155,9 +146,6 @@ Start by creating your Azure resources.
 
     az webapp up --location $LOCATION --resource-group $RESOURCE_GROUP_NAME --name $APP_SERVICE_NAME
     ```
-
-    * *location* &rarr; A location near you, for example `eastus`. Use `az account list-locations --output table` to list locations.
-    * *resource-group* &rarr; You will use this resource group to organize all the Azure resources needed to complete this tutorial. (for example, `service-connector-tutorial-rg`)
 
     | Parameter    | Description                                                                             | Example |
     |--------------|-----------------------------------------------------------------------------------------|----------|
