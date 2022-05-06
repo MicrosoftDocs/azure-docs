@@ -110,6 +110,9 @@ The following key applications are included in the Office 365 client app:
 
 A complete list of all services included can be found in the article [Apps included in Conditional Access Office 365 app suite](reference-office-365-application-contents.md).
 
+> [!IMPORTANT] 
+> Conditional Access is not supported for Office Add-ins on iOS. Those add-ins use [embedded Safari](/office/dev/add-ins/concepts/browsers-used-by-office-web-add-ins), not Edge.
+
 ### Microsoft Azure Management
 
 The Microsoft Azure Management application includes multiple services. 
