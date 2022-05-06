@@ -7,6 +7,7 @@ ms.date: 12/27/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
+ms.custom: [iot-central-frontdoor]
 
 ---
 
