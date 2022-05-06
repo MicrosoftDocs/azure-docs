@@ -381,7 +381,7 @@ To resolve this issue, try to restore the VM from a different restore point.<br>
 | The selected subnet doesn't exist: <br>Select a subnet that exists. |None |
 | The Backup service doesn't have authorization to access resources in your subscription. |To resolve this error, first restore disks by using the steps in [Restore backed-up disks](backup-azure-arm-restore-vms.md#restore-disks). Then use the PowerShell steps in [Create a VM from restored disks](backup-azure-vms-automation.md#restore-an-azure-vm). |
 
-### UserErrorMigrationFromTrustedLaunchVMToNonTrustedVMNotAllowed
+### UserErrorMigrationFromTrustedLaunchVM ToNonTrustedVMNotAllowed
 
 Error code: UserErrorMigrationFromTrustedLaunchVMToNonTrustedVMNotAllowed
 
@@ -399,7 +399,7 @@ To resolve this issue:
 1. [Stop VM protection with delete backup data](backup-azure-manage-vms.md#stop-protection-and-delete-backup-data).
 1. Configure VM protection again with the appropriate policy after the old backup data deletion is complete from the Recovery Services vault.
 
->[Note]
+>[!Note]
 >You can also create a VM:
 >
 >- With a different name than the original one, **or**
