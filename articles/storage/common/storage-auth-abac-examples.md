@@ -597,7 +597,7 @@ This condition allows a user to read blobs with a blob index tag key of Program,
 > [!TIP]
 > Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags (preview)](../blobs/storage-manage-find-blobs.md).
 
-You must add this condition to any role assignments that includes the following permission.
+You must add this condition to any role assignments that include the following permission.
 
 - `/blobs/read`
 
@@ -688,7 +688,7 @@ This condition allows a user to read current blob versions as well as read blobs
 > [!NOTE]
 > The condition includes a `NOT Exists` expression for the version ID attribute. This expression is included so that the Azure portal can list list the current version of the blob.
 
-You must add this condition to any role assignments that includes the following permission.
+You must add this condition to any role assignments that include the following permission.
 
 - `/blobs/read`
 
@@ -767,11 +767,11 @@ Here are the settings to add this condition using the Azure portal.
 
 This condition allows a user to read current blob versions and any blob snapshots.
 
-![Diagram of condition showing read access to current blob versions and any blob snapshots.](./media/storage-auth-abac-examples/read-blob-current-version-blob-snapshot.png)
-
-You must add this condition to any role assignments that includes the following permission.
+You must add this condition to any role assignments that include the following permission.
 
 - `/blobs/read`
+
+![Diagram of condition showing read access to current blob versions and any blob snapshots.](./media/storage-auth-abac-examples/read-blob-current-version-blob-snapshot.png)
 
 ```
 (
@@ -808,7 +808,43 @@ Here are the settings to add this condition using the Azure portal.
 | **Expression 3** |  |
 | Operator | Or |
 | Attribute source | Resource |
-| Attribute | Is hierarchical namespace enabled  |
+| Attribute | Is hierarchical namespace enabled |
+| Operator | BoolEquals |
+| Value | True |
+
+## Hierarchical namespace
+
+### Example: Read only storage accounts with hierarchical namespace enabled
+
+This condition allows a user to only read blobs in storage accounts with hierarchical namespace enabled.
+
+You must add this condition to any role assignments that include the following permission.
+
+- `/blobs/read`
+
+![Diagram of condition showing read access to storage accounts with hierarchical namespace enabled.](./media/storage-auth-abac-examples/hierarchical-namespace-accounts-read.png)
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})
+ )
+ OR 
+ (
+  @Resource[Microsoft.Storage/storageAccounts:isHnsEnabled] BoolEquals true
+ )
+)
+```
+
+#### Azure portal
+
+Here are the settings to add this condition using the Azure portal.
+
+| Condition #1 | Setting |
+| --- | --- |
+| Actions | Read a blob |
+| Attribute source | Resource |
+| Attribute | Is hierarchical namespace enabled |
 | Operator | BoolEquals |
 | Value | True |
 
@@ -816,9 +852,9 @@ Here are the settings to add this condition using the Azure portal.
 
 ### Example: Read blobs with specific encryption scopes
 
-This condition allows a user to read blobs with with encryption scope validScope1 or validScope2.
+This condition allows a user to read blobs with encryption scope validScope1 or validScope2.
 
-You must add this condition to any role assignments that includes the following permission.
+You must add this condition to any role assignments that include the following permission.
 
 - `/blobs/read`
 
@@ -835,6 +871,7 @@ You must add this condition to any role assignments that includes the following 
  )
 )
 ```
+
 #### Azure portal
 
 Here are the settings to add this condition using the Azure portal.
@@ -855,7 +892,7 @@ This condition allows read or write access to blobs if the user has a [custom se
  
 For example, if Brenda has the attribute `Project=Baker`, she can only read or write blobs with the `Project=Baker` blob index tag. Similarly, Chandra can only read or write blobs with `Project=Cascade`.
 
-You must add this condition to any role assignments that includes the following permissions.
+You must add this condition to any role assignments that include the following permissions.
 
 - `/blobs/read`
 - `/blobs/write`
@@ -921,7 +958,7 @@ This condition allows read access to blobs if the user has a [custom security at
  
 For example, if Chandra has the Project attribute with the values Baker and Cascade, she can only read blobs with the `Project=Baker` or `Project=Cascade` blob index tag.
 
-You must add this condition to any role assignments that includes the following permission.
+You must add this condition to any role assignments that include the following permission.
 
 - `/blobs/read`
 
