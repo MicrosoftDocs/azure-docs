@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 05/05/2022
+ms.date: 05/06/2022
 ms.author: mikaelw
 ---
 
@@ -46,22 +46,21 @@ Versioning policy available to configure at as a system-wide setting and also to
 
 To configure versioning policy, select the **Versioning Policy Configuration** blade inside your FHIR service.
 
-[ ![Screenshot of the Azure portal Versioning Policy Configuration.](media/versioning-policy/fhir-service-versioning-policy-configuration.png) ](media/versioning-policy/fhir-service-versioning-policy-configuration.png#lightbox)
+:::image type="content" source="media/versioning-policy/fhir-service-versioning-policy-configuration.png" alt-text="Screenshot of the Azure portal Versioning Policy Configuration." lightbox="media/versioning-policy/fhir-service-versioning-policy-configuration.png":::
 
 After you've browsed to Versioning Policy Configuration, you'll be able to configure the setting at both system level and the resource level (as an override of the system level). The system level configuration (annotated as 1) will apply to every resource in your FHIR service unless a resource specific override (annotated at 2) has been configured.
 
-[ ![Screenshot of Azure portal versioning policy configuration showing system level vs resource level configuration.](media/versioning-policy/system-level-versus-resource-level.png) ](media/versioning-policy/system-level-versus-resource-level.png#lightbox)
+:::image type="content" source="media/versioning-policy/system-level-versus-resource-level.png" alt-text="Screenshot of Azure portal versioning policy configuration showing system level vs resource level configuration." lightbox="media/versioning-policy/system-level-versus-resource-level.png":::
 
 When configuring resource level configuration, you'll be able to select the FHIR resource type (annotated as 1) and the specific versioning policy for this specific resource (annotated as 2). Make sure to select the **Add** button (annotated as 3) to queue up this setting for saving.
 
-[ ![Screenshot of Azure portal versioning policy configuration showing resource level configuration.](media/versioning-policy/resource-versioning.jpg) ](media/versioning-policy/resource-versioning.jpg#lightbox)
-
+:::image type="content" source="media/versioning-policy/resource-versioning.jpg" alt-text="Screenshot of Azure portal versioning policy configuration showing resource level configuration." lightbox="media/versioning-policy/resource-versioning.jpg":::
 
 **Make sure** to select **Save** after you've completed your versioning policy configuration.
 
-[ ![Screenshot of Azure portal versioning policy configuration configuration showing save button.](media/versioning-policy/save-button.jpg) ](media/versioning-policy/save-button.jpg#lightbox)
+:::image type="content" source="media/versioning-policy/save-button.jpg" alt-text="Screenshot of Azure portal versioning policy configuration configuration showing save button." lightbox="media/versioning-policy/save-button.jpg":::
 
-## History Management
+## History management
 
 History in FHIR is important for end users to see how a resource has changed over time. It's also useful in coordination with audit logs to see the state of a resource before and after a user modified it. In general, it's recommended to keep history for a resource unless you know that the history isn't needed. Frequent updates of resources can result in a large amount of data storage, which can be undesired in FHIR services with a large amount of data.
 
