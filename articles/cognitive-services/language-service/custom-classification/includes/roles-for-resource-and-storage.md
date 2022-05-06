@@ -13,8 +13,6 @@ ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
 
-### Set roles for your Azure Language resource and storage account
-
 Use the following steps to set the required roles for your Language resource and storage account.
 
 :::image type="content" source="../media/add-roles.gif" alt-text="An animated image showing how to set roles in the Azure portal" lightbox="../media/add-roles.gif":::

@@ -53,7 +53,7 @@ You also will need an Azure storage account where you will upload your `.txt` fi
 > * The process of connecting a storage account to your Language resource is irreversible, it cannot be disconnected later.
 > * You can only connect your language resource to one storage account.
 
-## Using a pre-existing Language resource
+### Set roles for your Azure Language resource and storage account
 
 [!INCLUDE [use an existing resource](../includes/use-pre-existing-resource.md)]
 
