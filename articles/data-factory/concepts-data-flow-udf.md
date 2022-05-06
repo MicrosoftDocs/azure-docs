@@ -13,8 +13,6 @@ ms.date: 04/20/2022
 
 # User defined functions in mapping data flow
 
-## What is a user defined function?
-
 A user defined function is a customized expression you can define to be able to reuse logic across multiple mapping data flows. User defined functions live in a collection called a data flow library to be able to easily group up common sets of customized functions.
 
 Whenever you find yourself building the same logic in an expression in across multiple mapping data flows this would be a good opportunity to turn that into a user defined function.
@@ -23,7 +21,7 @@ Whenever you find yourself building the same logic in an expression in across mu
 
 To get started with user defined functions, you must first create a data flow library. Navigate to the management page and then find data flow libraries under the author section.
 
-![Screenshot showing the ADF management pane and data flow libraries](./media/data-flow-udf/data-flow-udf-library.png)
+![Screenshot showing the A D F management pane and data flow libraries](./media/data-flow-udf/data-flow-udf-library.png)
 
 
 
@@ -35,13 +33,13 @@ From here, you can click on +New button to create a new data flow library. Fill 
 ## New user defined function
 
 To create a user defined function, from the data flow library you want to create the function in, click the +New button.
-![Screenshot showing the UDF new function button.](./media/data-flow-udf/data-flow-udf-function-new.png)
+![Screenshot showing the U D F new function button.](./media/data-flow-udf/data-flow-udf-function-new.png)
 
 Fill in the name of your user defined function.
 > [!Note]
 > You cannot use the name of an existing mapping data flow expression. For a list of the current mapping data flow expressions,  see [Data transformation expressions in mapping data flow | Microsoft Docs](data-transformation-functions.md)
 
-![Screenshot showing the UDF new function creation pane.](./media/data-flow-udf/data-flow-udf-function-pane.png)
+![Screenshot showing the U D F new function creation pane.](./media/data-flow-udf/data-flow-udf-function-pane.png)
 
 User defined functions can have zero or more arguments. Arguments allow you to pass in values when your function is called and refer to those arguments in your expression logic. Arguments are automatically named from i1, i2, etc. and you can choose the data type of the argument from the dropdown.
 
