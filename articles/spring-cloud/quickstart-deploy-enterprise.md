@@ -75,7 +75,7 @@ Use the following steps to provision an Azure Spring Cloud service instance:
    ```azurecli
    az spring-cloud create \
        --resource-group <resource-group-name> \
-       --name <service-instance-name> \
+       --name <spring-cloud-service> \
        --sku enterprise \
        --enable-application-configuration-service \
        --enable-service-registry \
@@ -96,10 +96,12 @@ Use the following steps to provision an Azure Spring Cloud service instance:
 
     ```bash
     LOG_ANALYTICS_RESOURCE_ID=$(az monitor log-analytics workspace show \
-        --workspace-name ${LOG_ANALYTICS_WORKSPACE} | jq -r '.id')
+        --resource-group <resource-group> \
+        --workspace-name <workspace-name> | jq -r '.id')
 
     SPRING_CLOUD_RESOURCE_ID=$(az spring-cloud show \
-        --name ${SPRING_CLOUD_SERVICE} | jq -r '.id')
+        --resource-group <resource-group> \
+        --name <spring-cloud-service> | jq -r '.id')
     ```
 
 1. Configure diagnostic settings for the Azure Spring Cloud Service using the following command:
