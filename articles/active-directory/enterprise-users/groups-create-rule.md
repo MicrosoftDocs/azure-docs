@@ -45,7 +45,7 @@ For examples of syntax, supported properties, operators, and values for a member
 1. Search for and select **Groups**.
 1. Select **All groups**, and select **New group**.
 
-   ![Select the command to add new group](./media/groups-create-rule/create-new-group-azure-active-directory.png)
+   ![Screenshot showing how to select the "add new group" action](./media/groups-create-rule/create-new-group-azure-active-directory.png)
 
 1. On the **Group** page, enter a name and description for the new group. Select a **Membership type** for either users or devices, and then select **Add dynamic query**. The rule builder supports up to five expressions. To add more than five expressions, you must use the text box.
 
@@ -66,7 +66,7 @@ If the rule you entered isn't valid, an explanation of why the rule couldn't be 
 1. Select a group to open its profile.
 1. On the profile page for the group, select **Dynamic membership rules**. The rule builder supports up to five expressions. To add more than five expressions, you must use the text box.
 
-   ![Add membership rule for a dynamic group](./media/groups-create-rule/update-dynamic-group-rule.png)
+   ![Screenshot showing how to add a membership rule for a dynamic group](./media/groups-create-rule/update-dynamic-group-rule.png)
 
 1. To see the custom extension properties available for your membership rule:
    1. Select **Get custom extension properties**
@@ -81,7 +81,7 @@ When a new Microsoft 365 group is created, a welcome email notification is sent 
 
 You can see the dynamic rule processing status and the last membership change date on the **Overview** page for the group.
   
-  ![display of dynamic group status](./media/groups-create-rule/group-status.png)
+  ![Diagram of dynamic group status](./media/groups-create-rule/group-status.png)
 
 The following status messages can be shown for **Dynamic rule processing** status:
 
@@ -99,7 +99,7 @@ The following status messages can be shown for **Last membership change** status
 
 If an error occurs while processing the membership rule for a specific group, an alert is shown on the top of the **Overview page** for the group. If no pending dynamic membership updates can be processed for all the groups within the organization for more than 24 hours, an alert is shown on the top of **All groups**.
 
-![processing error message alerts](./media/groups-create-rule/processing-error.png)
+![Screenshot showing how to process error message alerts](./media/groups-create-rule/processing-error.png)
 
 ## Next steps
 
