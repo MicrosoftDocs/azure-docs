@@ -25,7 +25,7 @@ ms.author: lajanuar
 
 ## Translation
 
-| Language | Language code | Cloud – Text Translation and Document Translation(embedded Text)| Containers – Text Translation|Custom Translator|Auto Language Detection|Dictionary
+|Language | Language code | Cloud – Text Translation and Document Translation(embedded Text)| Containers – Text Translation|Custom Translator|Auto Language Detection|Dictionary
 |:-|:-:|:-:|:-:|:-:|:-:|:-:|
 | Afrikaans | `af` |✔|✔|✔|✔|✔|
 | Albanian | `sq` |✔|✔||✔||
@@ -142,7 +142,7 @@ ms.author: lajanuar
 > [!NOTE]
 > Language code `pt` will default to `pt-br`, Portuguese (Brazil).
 
-## 🆕 Document Translation scanned PDFs
+## 🆕 Document Translation: scanned PDFs
 
 ### Handwritten text
 

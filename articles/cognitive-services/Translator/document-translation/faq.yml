@@ -13,9 +13,7 @@ metadata:
 title: Azure Cognitive Services Translator frequently asked questions
 summary: |
 
- The Azure Cognitive Services Document Translation feature can be used to translate multiple and complex documents across all supported languages and dialects while preserving original document structure and data format.
-
- Here are answers to common questions asked about Translator Service Document Translation.
+ The Azure Cognitive Services Document Translation feature can be used to translate multiple and complex documents across all supported languages and dialects while preserving original document structure and data format. Here are answers to common asked questions about Translator Service Document Translation.
 
 sections:
   - name: Document Translation
@@ -32,9 +30,9 @@ sections:
         No. The Document Translator API doesn't support specific page translation to allow for document formats without page concepts like html, xliff, and md.
 
     - question:
-        Will the text embedded in an image within a document gets translated?
+        Will the text embedded in an image within a document get translated?
       answer: |
-        The text embedded in a scanned PDF will be translated. Currently Document Translation does not support translating text within images.
+        The text in a scanned PDF will be translated. Currently Document Translation doesn't support translating text within other format such as JPG or PNG images.
 
     - question:
         When should I specify the source language of the document in the request?
@@ -44,4 +42,4 @@ sections:
     - question:
         To what extent are the layout, structure, and formatting maintained?
       answer: |
-       While translating text from the source to the target language, the overall length of translated text may differ from source.  This could result in reflow of text across pages. The same fonts may not be available both in source and target language. In general, the same font style is applied in target language to retain formatting closer to source.|
+       The overall length of translated text may differ from source when translating text from the source to the target language.  This difference could result in reflow of text across pages. The same fonts may not be available both in source and target language. In general, the same font style is applied in target language to retain formatting closer to source.|

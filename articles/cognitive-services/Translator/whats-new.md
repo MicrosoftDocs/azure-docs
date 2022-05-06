@@ -17,9 +17,9 @@ ms.author: lajanuar
 
 Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
-* Translator is a language service that enables users to translate text and documents, helps entities expand their global outreach, and supports preservation of at-risk and endangered languages.
+Translator is a language service that enables users to translate text and documents, helps entities expand their global outreach, and supports preservation of at-risk and endangered languages.
 
-* Translator supports language translation for more than 100 languages. If your language community is interested in partnering with Microsoft to add your language to Translator, contact us via the [Translator community partner onboarding form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOU1aMlNaWFJOOE5YODhRR1FWVzY0QzU1OS4u).
+Translator service supports language translation for more than 100 languages. If your language community is interested in partnering with Microsoft to add your language to Translator, contact us via the [Translator community partner onboarding form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOU1aMlNaWFJOOE5YODhRR1FWVzY0QzU1OS4u).
 
 ## May 2022
 
@@ -27,7 +27,7 @@ Bookmark this page to stay up to date with release notes, feature enhancements, 
 
 * Optical character recognition (OCR) teams with Document Translation to power scanned PDF document translation.
 
-* OCR identifies printed and handwritten text in scanned PDF documents. The text is then processed and translated by the Translator Service Document Translation feature.
+* OCR identifies [printed and handwritten text](language-support.md#-document-translation-scanned-pdfs) in scanned PDF documents. The text content, identified by OCR, is then processed and translated by the Document Translation API.
 
 ## April 2022
 
