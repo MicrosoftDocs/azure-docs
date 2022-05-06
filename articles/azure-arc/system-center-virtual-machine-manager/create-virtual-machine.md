@@ -1,7 +1,7 @@
 ---
 title:  Create a virtual machine on System Center Virtual Machine Manager using Azure Arc
 description: This article helps you create a virtual machine using Azure portal.
-ms.date: 04/28/2022
+ms.date: 05/25/2022
 ms.topic: conceptual
 ms.services: azure-arc
 author: jyothisuri
@@ -17,7 +17,7 @@ Once your administrator has connected an SCVMM management server to Azure, repre
 ## Prerequisites
 
 - An Azure subscription and resource group where you have *Arc SCVMM VM Contributor* role.
-- A resource pool resource on which you have *Arc SCVMM Private Cloud Resource User* role.
+- A cloud resource on which you have *Arc SCVMM Private Cloud Resource User* role.
 - A virtual machine template resource on which you have *Arc SCVMM Private Cloud Resource User role*.
 - A virtual network resource on which you have *Arc SCVMM Private Cloud Resource User* role.
 

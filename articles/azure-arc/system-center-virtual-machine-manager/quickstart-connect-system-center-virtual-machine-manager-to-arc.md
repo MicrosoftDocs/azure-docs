@@ -4,7 +4,7 @@ description: In this QuickStart, you will learn how to use the helper script to 
 author: jyothisuri
 ms.author: jsuri
 ms.topic: quickstart
-ms.date: 04/28/2022
+ms.date: 05/25/2022
 ms.custom: references_regions
 ---
 
@@ -101,7 +101,7 @@ The script execution will take up to half an hour and you'll be prompted for var
 | **SCVMM password** | Password for the SCVMM admin account |
 | **Private cloud selection** | Select the name of the private cloud where the Arc resource bridge VM should be deployed. |
 | **Virtual Network selection** | Select the name of the virtual network to which *Arc resource bridge VM* needs to be connected. This network should allow the appliance to talk to the VMM management server and the Azure endpoints (or internet). |
-| **Static IP** | Select the VMM static IP pool that will be used to allot IP address. |
+| **Static IP pool** | Select the VMM static IP pool that will be used to allot IP address. |
 | **Control Pane IP** | Provide a reserved IP address (a reserved IP address in your DHCP range or a static IP outside of DHCP range but still available on the network). The key thing is this IP address shouldn't be assigned to any other machine on the network. |
 | **Appliance proxy settings** | Type ‘Y’ if there's a proxy in your appliance network, else type ‘N’.|
 | **http** | Address of the HTTP proxy server. |
