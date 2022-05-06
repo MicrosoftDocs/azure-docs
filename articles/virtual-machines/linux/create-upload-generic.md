@@ -200,29 +200,29 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
 
 1. Don't create swap space on the OS disk. The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. The local resource disk is a temporary disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent, modify the following parameters in /etc/waagent.conf as needed.
     ```
-        ResourceDisk.Format=y
-        ResourceDisk.Filesystem=ext4
-        ResourceDisk.MountPoint=/mnt/resource
-        ResourceDisk.EnableSwap=y
-        ResourceDisk.SwapSizeMB=2048    ## NOTE: Set this to your desired size.
+    ResourceDisk.Format=y
+    ResourceDisk.Filesystem=ext4
+    ResourceDisk.MountPoint=/mnt/resource
+    ResourceDisk.EnableSwap=y
+    ResourceDisk.SwapSizeMB=2048    ## NOTE: Set this to your desired size.
     ```
 
 9.	Configure cloud-init to handle the provisioning:
-   **Configure waagent for cloud-init**:
-   ```bash
-   sed -i 's/Provisioning.Agent=auto/Provisioning.Agent=cloud-init/g' /etc/waagent.conf
-   sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
-   sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
-   ```
-   If you are migrating a specific virtual machine and do not wish to create a generalized image, set Provisioning.Agent=disabled on the /etc/waagent.conf config.
-   1. Configure mounts:
+    1. Configure waagent for cloud-init:
+       ```bash
+       sed -i 's/Provisioning.Agent=auto/Provisioning.Agent=cloud-init/g' /etc/waagent.conf
+       sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
+       sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+       ```
+     If you are migrating a specific virtual machine and do not wish to create a generalized image, set Provisioning.Agent=disabled on the /etc/waagent.conf config.
+    1. Configure mounts:
        ```
        echo "Adding mounts and disk_setup to init stage"
        sed -i '/ - mounts/d' /etc/cloud/cloud.cfg
        sed -i '/ - disk_setup/d' /etc/cloud/cloud.cfg
        sed -i '/cloud_init_modules/a\\ - mounts' /etc/cloud/cloud.cfg
        sed -i '/cloud_init_modules/a\\ - disk_setup' /etc/cloud/cloud.cfg
-   2. Configure Azure datasource:
+    2. Configure Azure datasource:
        ```
        echo "Allow only Azure datasource, disable fetching network setting via IMDS"
        cat > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg <<EOF
@@ -232,13 +232,14 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
             apply_network_config: False
        EOF
        ```
-   3. If configured, remove existing swapfile:
+    3. If configured, remove existing swapfile:
        ```
        if [[ -f /mnt/resource/swapfile ]]; then
        echo "Removing swapfile" #RHEL uses a swapfile by defaul
        swapoff /mnt/resource/swapfile
        rm /mnt/resource/swapfile -f
-    fi
+       fi
+       ```
    4.	Configure cloud-init logging:
        ```
        echo "Add console log file"
@@ -251,7 +252,7 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
        EOF
        ```
 
-10.	Swap configuration Do not create swap space on the operating system disk.
+10.	Swap configuration. Do not create swap space on the operating system disk.
    Previously, the Azure Linux Agent was used automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. However, this is now handled by cloud-init, you must not use the Linux Agent to format the resource disk create the swap file, modify the following parameters in /etc/waagent.conf appropriately:
    ``` 
    ResourceDisk.Format=n
