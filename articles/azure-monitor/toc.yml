@@ -270,9 +270,6 @@ items:
           href: logs/resource-manager-workspace.md
       - name: Configure
         items:
-        - name: Access control
-          displayName: Log Analytics workspace
-          href: logs/workspace-access-control.md
         - name: Manage access
           displayName: Log Analytics workspace
           href: logs/manage-access.md
