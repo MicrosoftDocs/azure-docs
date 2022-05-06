@@ -8,7 +8,7 @@ author: tamram
 ms.service: storage
 ms.devlang: python
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 05/05/2022
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
@@ -20,12 +20,7 @@ ms.subservice: common
 
 ## Overview
 
-The [Azure Storage Client Library for Python](https://pypi.python.org/pypi/azure-storage) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client.
-
-> [!NOTE]
-> The Azure Storage Python library is in preview.
->
->
+The [Azure Blob Storage client library for Python](https://pypi.org/project/azure-storage-blob/) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client.
 
 ## Encryption and decryption via the envelope technique
 
@@ -45,14 +40,14 @@ Encryption via the envelope technique works in the following way:
 
 Decryption via the envelope technique works in the following way:
 
-1. The client library assumes that the user is managing the key encryption key (KEK) locally. The user does not need to know the specific key that was used for encryption. Instead, a key resolver, which resolves different key identifiers to keys, can be set up and used.
+1. The client library assumes that the user is managing the key encryption key (KEK) locally. The user doesn't need to know the specific key that was used for encryption. Instead, a key resolver, which resolves different key identifiers to keys, can be set up and used.
 2. The client library downloads the encrypted data along with any encryption material that is stored on the service.
-3. The wrapped content encryption key (CEK) is then unwrapped (decrypted) using the key encryption key (KEK). Here again, the client library does not have access to KEK. It simply invokes the custom provider's unwrapping algorithm.
+3. The wrapped content encryption key (CEK) is then unwrapped (decrypted) using the key encryption key (KEK). Here again, the client library doesn't have access to KEK. It simply invokes the custom provider's unwrapping algorithm.
 4. The content encryption key (CEK) is then used to decrypt the encrypted user data.
 
 ## Encryption Mechanism
 
-The storage client library uses [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) in order to encrypt user data. Specifically, [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES. Each service works somewhat differently, so we will discuss each of them here.
+The storage client library uses [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) in order to encrypt user data. Specifically, [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES. Each service works differently, so we'll discuss each of them here.
 
 ### Blobs
 
@@ -69,7 +64,7 @@ Downloading an encrypted blob involves retrieving the content of the entire blob
 
 Downloading an arbitrary range (**get*** methods with range parameters passed in) in the encrypted blob involves adjusting the range provided by users in order to get a small amount of additional data that can be used to successfully decrypt the requested range.
 
-Block blobs and page blobs only can be encrypted/decrypted using this scheme. There is currently no support for encrypting append blobs.
+Block blobs and page blobs only can be encrypted/decrypted using this scheme. There's currently no support for encrypting append blobs.
 
 ### Queues
 
@@ -81,7 +76,7 @@ During encryption, the client library generates a random IV of 16 bytes along wi
 <MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
 ```
 
-During decryption, the wrapped key is extracted from the queue message and unwrapped. The IV is also extracted from the queue message and used along with the unwrapped key to decrypt the queue message data. Note that the encryption metadata is small (under 500 bytes), so while it does count toward the 64KB limit for a queue message, the impact should be manageable.
+During decryption, the wrapped key is extracted from the queue message and unwrapped. The IV is also extracted from the queue message and used along with the unwrapped key to decrypt the queue message data. The encryption metadata is small (under 500 bytes), so while it does count toward the 64-KB limit for a queue message, the impact should be manageable.
 
 ### Tables
 
@@ -97,17 +92,17 @@ Table data encryption works as follows:
 1. Users specify the properties to be encrypted.
 2. The client library generates a random Initialization Vector (IV) of 16 bytes along with a random content encryption key (CEK) of 32 bytes for every entity, and performs envelope encryption on the individual properties to be encrypted by deriving a new IV per property. The encrypted property is stored as binary data.
 3. The wrapped CEK and some additional encryption metadata are then stored as two additional reserved properties. The first reserved property (\_ClientEncryptionMetadata1) is a string property that holds the information about IV, version, and wrapped key. The second reserved property (\_ClientEncryptionMetadata2) is a binary property that holds the information about the properties that are encrypted. The information in this second property (\_ClientEncryptionMetadata2) is itself encrypted.
-4. Due to these additional reserved properties required for encryption, users may now have only 250 custom properties instead of 252. The total size of the entity must be less than 1MB.
+4. Due to these additional reserved properties required for encryption, users may now have only 250 custom properties instead of 252. The total size of the entity must be less than 1 MB.
 
-   Note that only string properties can be encrypted. If other types of properties are to be encrypted, they must be converted to strings. The encrypted strings are stored on the service as binary properties, and they are converted back to strings (raw strings, not EntityProperties with type EdmType.STRING) after decryption.
+   Only string properties can be encrypted. If other types of properties are to be encrypted, they must be converted to strings. The encrypted strings are stored on the service as binary properties, and they're converted back to strings (raw strings, not EntityProperties with type EdmType.STRING) after decryption.
 
-   For tables, in addition to the encryption policy, users must specify the properties to be encrypted. This can be done by either storing these properties in TableEntity objects with the type set to EdmType.STRING and encrypt set to true or setting the encryption_resolver_function on the tableservice object. An encryption resolver is a function that takes a partition key, row key, and property name and returns a boolean that indicates whether that property should be encrypted. During encryption, the client library will use this information to decide whether a property should be encrypted while writing to the wire. The delegate also provides for the possibility of logic around how properties are encrypted. (For example, if X, then encrypt property A; otherwise encrypt properties A and B.) Note that it is not necessary to provide this information while reading or querying entities.
+   For tables, in addition to the encryption policy, users must specify the properties to be encrypted. This can be done by either storing these properties in TableEntity objects with the type set to EdmType.STRING and encrypt set to true or setting the encryption_resolver_function on the table service object. An encryption resolver is a function that takes a partition key, row key, and property name and returns a boolean that indicates whether that property should be encrypted. During encryption, the client library will use this information to decide whether a property should be encrypted while writing to the wire. The delegate also provides for the possibility of logic around how properties are encrypted. (For example, if X, then encrypt property A; otherwise encrypt properties A and B.) It isn't necessary to provide this information while reading or querying entities.
 
 ### Batch Operations
 
 One encryption policy applies to all rows in the batch. The client library will internally generate a new random IV and random CEK per row in the batch. Users can also choose to encrypt different properties for every operation in the batch by defining this behavior in the encryption resolver.
-If a batch is created as a context manager through the tableservice batch() method, the tableservice's encryption policy will automatically be applied to the batch. If a batch is created explicitly by calling the constructor, the encryption policy must be passed as a parameter and left unmodified for the lifetime of the batch.
-Note that entities are encrypted as they are inserted into the batch using the batch's encryption policy (entities are NOT encrypted at the time of committing the batch using the tableservice's encryption policy).
+If a batch is created as a context manager through the table service batch() method, the table service's encryption policy will automatically be applied to the batch. If a batch is created explicitly by calling the constructor, the encryption policy must be passed as a parameter and left unmodified for the lifetime of the batch.
+Entities are encrypted as they're inserted into the batch using the batch's encryption policy (entities are NOT encrypted at the time of committing the batch using the table service's encryption policy).
 
 ### Queries
 
@@ -135,25 +130,25 @@ The KEK must implement the following methods to successfully encrypt data:
 
 - wrap_key(cek): Wraps the specified CEK (bytes) using an algorithm of the user's choice. Returns the wrapped key.
 - get_key_wrap_algorithm(): Returns the algorithm used to wrap keys.
-- get_kid(): Returns the string key id for this KEK.
+- get_kid(): Returns the string key ID for this KEK.
   The KEK must implement the following methods to successfully decrypt data:
 - unwrap_key(cek, algorithm): Returns the unwrapped form of the specified CEK using the string-specified algorithm.
-- get_kid(): Returns a string key id for this KEK.
+- get_kid(): Returns a string key ID for this KEK.
 
-The key resolver must at least implement a method that, given a key id, returns the corresponding KEK implementing the interface above. Only this method is to be assigned to the key_resolver_function property on the service object.
+The key resolver must at least implement a method that, given a key ID, returns the corresponding KEK implementing the interface above. Only this method is to be assigned to the key_resolver_function property on the service object.
 
 - For encryption, the key is used always and the absence of a key will result in an error.
 - For decryption:
 
-  - The key resolver is invoked if specified to get the key. If the resolver is specified but does not have a mapping for the key identifier, an error is thrown.
-  - If resolver is not specified but a key is specified, the key is used if its identifier matches the required key identifier. If the identifier does not match, an error is thrown.
+  - The key resolver is invoked if specified to get the key. If the resolver is specified but doesn't have a mapping for the key identifier, an error is thrown.
+  - If resolver isn't specified but a key is specified, the key is used if its identifier matches the required key identifier. If the identifier doesn't match, an error is thrown.
 
     The encryption samples in azure.storage.samples demonstrate a more detailed end-to-end scenario for blobs, queues and tables.
       Sample implementations of the KEK and key resolver are provided in the sample files as KeyWrapper and KeyResolver respectively.
 
 ### RequireEncryption mode
 
-Users can optionally enable a mode of operation where all uploads and downloads must be encrypted. In this mode, attempts to upload data without an encryption policy or download data that is not encrypted on the service will fail on the client. The **require_encryption** flag on the service object controls this behavior.
+Users can optionally enable a mode of operation where all uploads and downloads must be encrypted. In this mode, attempts to upload data without an encryption policy or download data that isn't encrypted on the service will fail on the client. The **require_encryption** flag on the service object controls this behavior.
 
 ### Blob service encryption
 
@@ -161,7 +156,7 @@ Set the encryption policy fields on the blockblobservice object. Everything else
 
 # [Python v12 SDK](#tab/python)
 
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+We're currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
 # [Python v2.1](#tab/python2)
 
@@ -195,7 +190,7 @@ Set the encryption policy fields on the queueservice object. Everything else wil
 
 # [Python v12 SDK](#tab/python)
 
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+We're currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
 # [Python v2.1](#tab/python2)
 
@@ -224,13 +219,13 @@ retrieved_message_list = my_queue_service.get_messages(queue_name)
 
 ### Table service encryption
 
-In addition to creating an encryption policy and setting it on request options, you must either specify an **encryption_resolver_function** on the **tableservice**, or set the encrypt attribute on the EntityProperty.
+In addition to creating an encryption policy and setting it on request options, you must either specify an **encryption_resolver_function** on the **table service**, or set the encrypt attribute on the EntityProperty.
 
 ### Using the resolver
 
 # [Python v12 SDK](#tab/python)
 
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+We're currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
 # [Python v2.1](#tab/python2)
 
@@ -273,7 +268,7 @@ As mentioned above, a property may be marked for encryption by storing it in an 
 
 # [Python v12 SDK](#tab/python)
 
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+We're currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
 # [Python v2.1](#tab/python2)
 
@@ -285,7 +280,7 @@ encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
 
 ## Encryption and performance
 
-Note that encrypting your storage data results in additional performance overhead. The content key and IV must be generated, the content itself must be encrypted, and additional metadata must be formatted and uploaded. This overhead will vary depending on the quantity of data being encrypted. We recommend that customers always test their applications for performance during development.
+Encrypting your storage data results in additional performance overhead. The content key and IV must be generated, the content itself must be encrypted, and additional metadata must be formatted and uploaded. This overhead will vary depending on the quantity of data being encrypted. We recommend that customers always test their applications for performance during development.
 
 ## Next steps
 
