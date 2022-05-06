@@ -48,9 +48,10 @@ WAF with Front Door provides detailed reporting on each threat it detects. Loggi
 The following query example returns WAF logs on blocked requests:
 
 ``` WAFlogQuery
-AzureDiagnostics
-| where ResourceType == "FRONTDOORS" and Category == "FrontdoorWebApplicationFirewallLog"
-| where action_s == "Block"
+
+AzureDiagnostics 
+| where ResourceProvider == "MICROSOFT.CDN" and Category == "FrontDoorWebApplicationFirewallLog" 
+| where action_s == "Block" 
 
 ```
 
@@ -88,8 +89,9 @@ Here is an example of a logged request in WAF log:
 The following example query returns AccessLogs entries:
 
 ``` AccessLogQuery
+
 AzureDiagnostics
-| where ResourceType == "FRONTDOORS" and Category == "FrontdoorAccessLog"
+| where ResourceProvider == "MICROSOFT.CDN" and Category == "FrontDoorAccessLog"
 
 ```
 
