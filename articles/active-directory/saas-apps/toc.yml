@@ -215,6 +215,8 @@
         href: attendancemanagementservices-tutorial.md
       - name: AuditBoard
         href: auditboard-tutorial.md
+      - name: Authomize
+        href: authomize-tutorial.md
       - name: Autodesk SSO
         href: autodesk-sso-tutorial.md
       - name: Autotask Endpoint Backup
