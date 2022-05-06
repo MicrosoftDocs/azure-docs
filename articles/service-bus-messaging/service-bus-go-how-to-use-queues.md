@@ -105,6 +105,8 @@ func SendMessage(message string, client *azservicebus.Client) {
 	if err != nil {
 		panic(err)
 	}
+	defer sender.Close(context.TODO())
+
 	sbMessage := &azservicebus.Message{
 		Body: []byte(message),
 	}
@@ -146,15 +148,17 @@ func SendMessageBatch(messages []string, client *azservicebus.Client) {
 
 ## Receive messages from a queue
 
-After you've sent messages to the queue, you can receive them with the `azservicebus.Receiver` type. To receive messages from a queue, add the `ReceiveMessage` function to your `main.go` file.
+After you've sent messages to the queue, you can receive them with the `azservicebus.Receiver` type. To receive messages from a queue, add the `GetMessage` function to your `main.go` file.
 
 ```go
-func ReceiveMessage(client *azservicebus.Client) {
-	receiver, err := client.NewReceiverForQueue("myqueue", nil)
+func GetMessage(count int, client *azservicebus.Client) {
+	receiver, err := client.NewReceiverForQueue("myqueue", nil) //Change myqueue to env var
 	if err != nil {
 		panic(err)
 	}
-	messages, err := receiver.ReceiveMessages(context.TODO(), 3, nil)
+	defer receiver.Close(context.TODO())
+
+	messages, err := receiver.ReceiveMessages(context.TODO(), count, nil)
 	if err != nil {
 		panic(err)
 	}
@@ -174,7 +178,7 @@ func ReceiveMessage(client *azservicebus.Client) {
 }
 ```
 
-`ReceiveMessage` takes an `azservicebus.Client` object and creates a new `azservicebus.Receiver` object. It then receives the messages from the queue. The `Receiver.ReceiveMessages` function takes two parameters: a context and the number of messages to receive. The `Receiver.ReceiveMessages` function returns a slice of `azservicebus.ReceivedMessage` objects. 
+`GetMessage` takes an `azservicebus.Client` object and creates a new `azservicebus.Receiver` object. It then receives the messages from the queue. The `Receiver.ReceiveMessages` function takes two parameters: a context and the number of messages to receive. The `Receiver.ReceiveMessages` function returns a slice of `azservicebus.ReceivedMessage` objects. 
 
 Next, a `for` loop iterates through the messages and prints the message body. Then the `CompleteMessage` function is called to complete the message, removing it from the queue.
 
@@ -183,26 +187,25 @@ Messages that exceed length limits, are sent to an invalid queue, or aren't succ
 
 ```go
 func DeadLetterMessage(client *azservicebus.Client) {
+	deadLetterOptions := &azservicebus.DeadLetterOptions{
+		ErrorDescription: to.Ptr("exampleErrorDescription"),
+		Reason:           to.Ptr("exampleReason"),
+	}
 
 	receiver, err := client.NewReceiverForQueue("myqueue", nil)
 	if err != nil {
 		panic(err)
 	}
+	defer receiver.Close(context.TODO())
 
 	messages, err := receiver.ReceiveMessages(context.TODO(), 1, nil)
 	if err != nil {
 		panic(err)
 	}
 
-	for _, message := range messages {
-		reason := "exampleReason"
-		errorDesc := "exampleErrorDescription"
-
-		deadLetterOptions := &azservicebus.DeadLetterOptions{
-			ErrorDescription: &errorDesc,
-			Reason:           &reason,
-		}
-		if err := receiver.DeadLetterMessage(context.TODO(), message, deadLetterOptions); err != nil {
+	if len(messages) == 1 {
+		err := receiver.DeadLetterMessage(context.TODO(), messages[0], deadLetterOptions)
+		if err != nil {
 			panic(err)
 		}
 	}
@@ -214,17 +217,17 @@ func DeadLetterMessage(client *azservicebus.Client) {
 To receive messages from the dead letter queue, add the `ReceiveDeadLetterMessage` function to your `main.go` file.
 
 ```go
-func ReceiveDeadLetterMessage(client *azservicebus.Client) {
+func GetDeadLetterMessage(client *azservicebus.Client) {
 	receiver, err := client.NewReceiverForQueue(
 		"myqueue",
 		&azservicebus.ReceiverOptions{
-			ReceiveMode: azservicebus.ReceiveModePeekLock,
-			SubQueue:    azservicebus.SubQueueDeadLetter,
+			SubQueue: azservicebus.SubQueueDeadLetter,
 		},
 	)
 	if err != nil {
 		panic(err)
 	}
+	defer receiver.Close(context.TODO())
 
 	messages, err := receiver.ReceiveMessages(context.TODO(), 1, nil)
 	if err != nil {
@@ -232,12 +235,16 @@ func ReceiveDeadLetterMessage(client *azservicebus.Client) {
 	}
 
 	for _, message := range messages {
-		fmt.Printf("DeadLetter Reason: %s\nDeadLetter Description: %s\n", *message.DeadLetterReason, *message.DeadLetterErrorDescription)
+		fmt.Printf("DeadLetter Reason: %s\nDeadLetter Description: %s\n", *message.DeadLetterReason, *message.DeadLetterErrorDescription) //change to struct an unmarshal into it
+		err := receiver.CompleteMessage(context.TODO(), message, nil)
+		if err != nil {
+			panic(err)
+		}
 	}
 }
 ```
 
-`ReceiveDeadLetterMessage` takes a `azservicebus.Client` object and creates a new `azservicebus.Receiver` object with options for the dead letter queue. It then receives the messages from the dead letter queue. The function then receives one message from the dead letter queue. Then it prints the dead letter reason and description for that message.
+`GetDeadLetterMessage` takes a `azservicebus.Client` object and creates a new `azservicebus.Receiver` object with options for the dead letter queue. It then receives the messages from the dead letter queue. The function then receives one message from the dead letter queue. Then it prints the dead letter reason and description for that message.
 
 ## Sample code
 
@@ -246,9 +253,11 @@ package main
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"os"
 
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 	"github.com/Azure/azure-sdk-for-go/sdk/messaging/azservicebus"
 )
@@ -276,6 +285,8 @@ func SendMessage(message string, client *azservicebus.Client) {
 	if err != nil {
 		panic(err)
 	}
+	defer sender.Close(context.TODO())
+
 	sbMessage := &azservicebus.Message{
 		Body: []byte(message),
 	}
@@ -290,6 +301,7 @@ func SendMessageBatch(messages []string, client *azservicebus.Client) {
 	if err != nil {
 		panic(err)
 	}
+	defer sender.Close(context.TODO())
 
 	batch, err := sender.NewMessageBatch(context.TODO(), nil)
 	if err != nil {
@@ -297,21 +309,25 @@ func SendMessageBatch(messages []string, client *azservicebus.Client) {
 	}
 
 	for _, message := range messages {
-		if err := batch.AddMessage(&azservicebus.Message{Body: []byte(message)}, nil); err != nil {
-			panic(err)
+		err := batch.AddMessage(&azservicebus.Message{Body: []byte(message)}, nil)
+		if errors.Is(err, azservicebus.ErrMessageTooLarge) {
+			fmt.Printf("Message batch is full. We should send it and create a new one.\n")
 		}
 	}
+
 	if err := sender.SendMessageBatch(context.TODO(), batch, nil); err != nil {
 		panic(err)
 	}
 }
 
-func ReceiveMessage(client *azservicebus.Client) {
-	receiver, err := client.NewReceiverForQueue("myqueue", nil)
+func GetMessage(count int, client *azservicebus.Client) {
+	receiver, err := client.NewReceiverForQueue("myqueue", nil) 
 	if err != nil {
 		panic(err)
 	}
-	messages, err := receiver.ReceiveMessages(context.TODO(), 3, nil)
+	defer receiver.Close(context.TODO())
+
+	messages, err := receiver.ReceiveMessages(context.TODO(), count, nil)
 	if err != nil {
 		panic(err)
 	}
@@ -331,41 +347,41 @@ func ReceiveMessage(client *azservicebus.Client) {
 }
 
 func DeadLetterMessage(client *azservicebus.Client) {
+	deadLetterOptions := &azservicebus.DeadLetterOptions{
+		ErrorDescription: to.Ptr("exampleErrorDescription"),
+		Reason:           to.Ptr("exampleReason"),
+	}
+
 	receiver, err := client.NewReceiverForQueue("myqueue", nil)
 	if err != nil {
 		panic(err)
 	}
+	defer receiver.Close(context.TODO())
 
 	messages, err := receiver.ReceiveMessages(context.TODO(), 1, nil)
 	if err != nil {
 		panic(err)
 	}
 
-	for _, message := range messages {
-		reason := "exampleReason"
-		errorDesc := "exampleErrorDescription"
-
-		deadLetterOptions := &azservicebus.DeadLetterOptions{
-			ErrorDescription: &errorDesc,
-			Reason:           &reason,
-		}
-		if err := receiver.DeadLetterMessage(context.TODO(), message, deadLetterOptions); err != nil {
+	if len(messages) == 1 {
+		err := receiver.DeadLetterMessage(context.TODO(), messages[0], deadLetterOptions)
+		if err != nil {
 			panic(err)
 		}
 	}
 }
 
-func ReceiveDeadLetterMessage(client *azservicebus.Client) {
+func GetDeadLetterMessage(client *azservicebus.Client) {
 	receiver, err := client.NewReceiverForQueue(
 		"myqueue",
 		&azservicebus.ReceiverOptions{
-			ReceiveMode: azservicebus.ReceiveModePeekLock,
-			SubQueue:    azservicebus.SubQueueDeadLetter,
+			SubQueue: azservicebus.SubQueueDeadLetter,
 		},
 	)
 	if err != nil {
 		panic(err)
 	}
+	defer receiver.Close(context.TODO())
 
 	messages, err := receiver.ReceiveMessages(context.TODO(), 1, nil)
 	if err != nil {
@@ -374,21 +390,30 @@ func ReceiveDeadLetterMessage(client *azservicebus.Client) {
 
 	for _, message := range messages {
 		fmt.Printf("DeadLetter Reason: %s\nDeadLetter Description: %s\n", *message.DeadLetterReason, *message.DeadLetterErrorDescription) 
+		err := receiver.CompleteMessage(context.TODO(), message, nil)
+		if err != nil {
+			panic(err)
+		}
 	}
 }
 
 func main() {
 	client := GetClient()
-	SendMessage("singleMessage", client)
 
-	messages := []string{"batchMessage1", "batchMessage2"}
+	fmt.Println("send a single message...")
+	SendMessage("firstMessage", client)
+
+	fmt.Println("send two messages as a batch...")
+	messages := [2]string{"secondMessage", "thirdMessage"}
 	SendMessageBatch(messages[:], client)
 
-	ReceiveMessage(client)
+	fmt.Println("\nget all three messages:")
+	GetMessage(3, client)
 
-	SendMessage("Send message to deadletter", client)
+	fmt.Println("\nsend a message to the Dead Letter Queue:")
+	SendMessage("Send message to Dead Letter", client)
 	DeadLetterMessage(client)
-	ReceiveDeadLetterMessage(client)
+	GetDeadLetterMessage(client)
 }
 
 ```
