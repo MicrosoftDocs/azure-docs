@@ -37,7 +37,7 @@ Use the Microsoft Sentinel **Content hub** to centrally discover and install out
 
 The Microsoft Sentinel Content Hub provides in-product discoverability, single-step deployment, and enablement of end-to-end product, domain, and/or vertical out-of-the-box solutions and content in Microsoft Sentinel.
 
-- In the **Content hub**, filter by [categories](#microsoft-sentinel-out-of-the-box-content-and-solution-categories) and other parameters, or use the powerful text search, to find the content that works best for your organization's needs. The **Content hub** also indicates the [support model](#microsoft-sentinel-out-of-the-box-content-and-solution-support-models) applied to each piece of content, as some content is maintained by Microsoft and others are maintained by partners or the community.
+- In the **Content hub**, filter by [categories](#categories-for-microsoft-sentinel-out-of-the-box-content-and-solutions) and other parameters, or use the powerful text search, to find the content that works best for your organization's needs. The **Content hub** also indicates the [support model](#support-models-for-microsoft-sentinel-out-of-the-box-content-and-solutions) applied to each piece of content, as some content is maintained by Microsoft and others are maintained by partners or the community.
 
     Manage [updates for out-of-the-box content](sentinel-solutions-deploy.md#install-or-update-a-solution) via the Microsoft Sentinel **Content hub**, and for custom content via the **Repositories** page.
 

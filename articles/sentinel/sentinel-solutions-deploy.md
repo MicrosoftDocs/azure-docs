@@ -18,7 +18,7 @@ This article describes how to install solutions in your Microsoft Sentinel works
 
 - Install the solution in your workspace when you find one that fits your organization's needs. Make sure to keep it updated with the latest changes.
 
-If you are a partner who wants to create your own solution, see the [Microsoft Sentinel Solutions Build Guide](https://aka.ms/sentinelsolutionsbuildguide) for solution authoring and publishing.
+If you're a partner who wants to create your own solution, see the [Microsoft Sentinel Solutions Build Guide](https://aka.ms/sentinelsolutionsbuildguide) for solution authoring and publishing.
 
 > [!IMPORTANT]
 >
@@ -32,7 +32,7 @@ If you are a partner who wants to create your own solution, see the [Microsoft S
 
     Filter the list displayed, either by selecting specific values from the filters, or entering any part of a solution name or description in the **Search** field.
 
-    For more information, see [Microsoft Sentinel out-of-the-box content and solution categories](sentinel-solutions.md#microsoft-sentinel-out-of-the-box-content-and-solution-categories).
+    For more information, see [Categories for Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions.md#categories-for-microsoft-sentinel-out-of-the-box-content-and-solutions).
 
     > [!TIP]
     > If a solution that you've deployed has updates since you deployed it, an orange triangle will indicate that you have updates to deploy, and it'll be indicated in the blue triangle at the top of the page.
@@ -81,6 +81,6 @@ In this document, you learned about Microsoft Sentinel solutions and how to find
 - Learn more about [Microsoft Sentinel solutions](sentinel-solutions.md).
 - See the full [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md).
 
-Many solutions include data connectors that you'll need to configure so that you can start ingesting your data into Microsoft Sentinel. Each data connector will have it's own set of requirements, detailed on the data connector page in Microsoft Sentinel. 
+Many solutions include data connectors that you'll need to configure so that you can start ingesting your data into Microsoft Sentinel. Each data connector will have its own set of requirements, detailed on the data connector page in Microsoft Sentinel. 
 
 For more information, see [Connect your data source](data-connectors-reference.md).
