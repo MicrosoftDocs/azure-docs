@@ -212,6 +212,9 @@
     - name: Blob storage
       href: blob-output-managed-identity.md
       displayName: managed identity, identities, authenticate
+    - name: Cosmos DB
+      href: cosmos-db-managed-identity.md
+      displayName: managed identity, identities, authenticate
     - name: Event Hubs
       href: event-hubs-managed-identity.md
       displayName: managed identity, identities, authenticate
@@ -220,6 +223,9 @@
       displayName: managed identity, identities, authenticate
     - name: Azure SQL & Azure Synapse
       href: sql-database-output-managed-identity.md
+      displayName: managed identity, identities, authenticate
+    - name: Service Bus
+      href: service-bus-managed-identity.md
       displayName: managed identity, identities, authenticate
   - name: Build solutions
     items:
