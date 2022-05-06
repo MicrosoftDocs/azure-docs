@@ -38,7 +38,7 @@ Also view server-side latency by different operations in a specific keyspace.
 :::image type="content" source="./media/cassandra-monitor-insights/avg-ss-latency-keyspace-operation.png" alt-text="Screenshot showing the average server side latency for a specific keyspace based on operation.":::
 
 
-:::image type="content" source="./media/cassandra-monitor-insights/avg-ss-latency-region-keyspace.png" alt-text="Screenshot showing the average server side latency for a by region and keyspace.":::
+:::image type="content" source="./media/cassandra-monitor-insights/avg-ss-latency-region-keyspace.png" alt-text="Screenshot showing the average server side latency by region and keyspace.":::
 
 
 Is your application experiencing any throttling? The chart below shows the total number of requests failed with a 429-response code. 
@@ -87,7 +87,7 @@ These operations can be analyzed within a given time interval, defined keyspace 
 The Normalized RU Consumption metric is a metric between 0% to 100% that is used to help measure the utilization of provisioned throughput on a database or container. The metric can also be used to view the utilization of individual partition key ranges on a database or container. One of the main factors of a scalable application is having a good cardinality of partition keys.
 The chart below shows if your application’s high RU consumption is because of hot partition.
 
-:::image type="content" source="./media/cassandra-monitor-insights/normalized-ru-pk-rangeid.png" alt-text="Screenshot showing normalized request unit consumption by partition key range id.":::
+:::image type="content" source="./media/cassandra-monitor-insights/normalized-ru-pk-rangeid.png" alt-text="Screenshot showing normalized request unit consumption by partition key range ID.":::
 
 The chart below shows a breakdown of requests by different status code. Understand the meaning of the different codes for you  [Cassandra API codes](./error-codes-solution.md)
 
