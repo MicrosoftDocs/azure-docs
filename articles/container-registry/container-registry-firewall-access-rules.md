@@ -36,7 +36,7 @@ Registry has two FQDN's, the **login url** and the **data endpoint**.
 * A registry that does not use data endpoints would have to access the data from an endpoint of the form `*.blob.core.windows.net` and does not provide the isolation required when configuring firewall rules. 
 * A registry with a private link enabled gets the dedicated data endpoint automatically.
 * A dedicated data endpoint is created per region for a registry.
-* Login url never changes irrespective of dedicated endpoint enabled/disabled.
+* Login url remains the same irrespective of whether data endpoint is enabled or disabled.
 ## Allow access by IP address range
 
 If your organization has policies to allow access only to specific IP addresses or address ranges, download [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519).
