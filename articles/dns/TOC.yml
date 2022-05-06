@@ -189,8 +189,12 @@
     items:
     - name: Azure PowerShell
       href: /powershell/module/az.dnsresolver
+    - name: .NET
+      href: /dotnet/api/azure.resourcemanager.dnsresolver
     - name: Java
       href: /java/api/com.azure.resourcemanager.dnsresolver
+    - name: Python
+      href: https://pypi.org/project/azure-mgmt-dnsresolver
 - name: Resources
   items:
   - name: Azure Roadmap

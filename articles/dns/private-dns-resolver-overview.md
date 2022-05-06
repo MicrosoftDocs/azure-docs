@@ -21,7 +21,7 @@ Azure DNS Private Resolver is a new service that enables you to query Azure DNS 
 
 Azure DNS Private Resolver requires an [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview).  When you create an Azure DNS Private Resolver inside a virtual network, one or more [inbound endpoints](#inbound-endpoints) are established that can be used as the destination for DNS queries. The resolver's [outbound endpoint](#outbound-endpoints) processes DNS queries based on a [DNS forwarding ruleset](#dns-forwarding-rulesets) that you configure.  DNS queries that are initiated in networks linked to a ruleset can be sent to other DNS servers.
 
-The DNS query process is summarized below:
+The DNS query process when using an Azure DNS Private Resolver is summarized below:
 
 1. A client in a virtual network issues a DNS query.
 2. If the DNS servers for this virtual network are [specified as custom](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#specify-dns-servers), then the query is forwarded to the specified IP addresses.
