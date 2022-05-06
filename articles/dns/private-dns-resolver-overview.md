@@ -23,7 +23,7 @@ The DNS query process is summarized below:
 1. A client in a virtual network issues a DNS query.
 2. If the DNS servers for this virtual network are [specified as custom](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#specify-dns-servers), then the query is forwarded to the specified IP addresses.
 3. If Default (Azure-provided) DNS servers are configured in the virtual network, and there are Private DNS zones [linked to the same virtual network](private-dns-virtual-network-links.md), these zones are consulted.
-4. If the query does not match a Private DNS zone linked to the virtual network, then [Virtual Network Links](#virtual-network-links) for [DNS Forwarding Rulesets](#dns-forwarding-rulesets) are consulted.
+4. If the query doesn't match a Private DNS zone linked to the virtual network, then [Virtual Network Links](#virtual-network-links) for [DNS Forwarding Rulesets](#dns-forwarding-rulesets) are consulted.
 5. If no ruleset links are present, then Azure DNS is used to resolve the query.
 6. If ruleset links are present, the [DNS Forwarding Rules](#dns-forwarding-rules) are evaluated.
 7. If a suffix match is found, query is forwarded to the specified address.
@@ -70,7 +70,7 @@ Azure DNS Private Resolver is available in the following regions:
 
 ### Inbound Endpoints
 
-An inbound endpoint enables name resolution from on-prem or other private locations via an IP address that is part of your private virtual network address space. This endpoint requires a subnet in the VNet where it’s provisioned. The subnet can only be delegated to **Microsoft.Network/dnsResolvers** and cannot be used for other services. DNS queries received by the inbound endpoint will ingress to Azure. You can resolve names in scenarios where you have Private DNS Zones, including VMs that are using auto registration, or Private Link enabled services.
+An inbound endpoint enables name resolution from on-prem or other private locations via an IP address that is part of your private virtual network address space. This endpoint requires a subnet in the VNet where it’s provisioned. The subnet can only be delegated to **Microsoft.Network/dnsResolvers** and can't be used for other services. DNS queries received by the inbound endpoint will ingress to Azure. You can resolve names in scenarios where you have Private DNS Zones, including VMs that are using auto registration, or Private Link enabled services.
 
 ### Outbound Endpoints
 
@@ -103,24 +103,24 @@ The following restrictions hold with respect to virtual networks:
 
 Subnets used for DNS resolver have the following limitations:
 - A subnet must be a minimum of /28 address space or a maximum of /24 address space.
-- A subnet cannot be shared between multiple DNS resolver endpoints. A single subnet can only be used by a single DNS resolver endpoint.
+- A subnet can't be shared between multiple DNS resolver endpoints. A single subnet can only be used by a single DNS resolver endpoint.
 - All IP configurations for a DNS resolver inbound endpoint must reference the same subnet. Spanning multiple subnets in the IP configuration for a single DNS resolver inbound endpoint is not allowed.
 - The subnet used for a DNS resolver inbound endpoint must be within the virtual network referenced by the parent DNS resolver.
 
 ### Outbound endpoint restrictions
 
 Outbound endpoints have the following limitations:
-- Outbound endpoint cannot be deleted unless the DNS forwarding ruleset and the virtual network links under it are deleted
+- An outbound endpoint can't be deleted unless the DNS forwarding ruleset and the virtual network links under it are deleted
 
 ### DNS forwarding ruleset restrictions
 
 DNS forwarding rulesets have the following limitations:
-- A DNS forwarding ruleset cannot be deleted unless the virtual network links under it are deleted
+- A DNS forwarding ruleset can't be deleted unless the virtual network links under it are deleted
 
 ### Other restrictions
 
-- DNS resolver endpoints cannot be updated to include IP configurations from a different subnet
-- IPv6 enabled subnets are not supported in Public Preview
+- DNS resolver endpoints can't be updated to include IP configurations from a different subnet
+- IPv6 enabled subnets aren't supported in Public Preview
 
 
 ## Next steps
