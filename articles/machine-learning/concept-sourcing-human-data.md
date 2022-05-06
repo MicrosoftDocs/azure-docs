@@ -27,18 +27,138 @@ These are emerging practices, and we are continually learning. The best practice
 
 We suggest the following best practices for manually collecting human data directly from people.
 
+:::column span="4":::
+
+:::row:::
+        :::column:::
+            **Best Practice**
+        :::column-end:::
+        :::column:::
+            **Why?**
+        :::column-end:::
+    :::row-end:::
+-----
+
+:::row:::
+    :::column:::
+        **Obtain voluntary informed consent.**
+    :::column-end:::
+
+    :::column:::
+        - Participants should understand and consent to data collection and how their data will be used.
+        - Data should only be stored, processed, and used for purposes that are part of the original documented informed consent.
+        - Consent documentation should be properly stored and associated with the collected data.
+    :::column-end:::
+:::row-end:::
+
+-----
+
+:::row:::
+    :::column:::
+        **Compensate data contributors appropriately.**
+    :::column-end:::
+
+    :::column:::
+        - Data contributors should not be pressured or coerced into data collections and should be fairly compensated for their time and data.
+        - Inappropriate compensation can be exploitative or coercive.
+    :::column-end:::
+
+:::row-end:::
+
+-----
  
-| **Best Practice**   | **Why**  |
-|:--------------------|:----------|
-| **Obtain voluntary informed consent.**  | <ul><li>Participants should understand and consent to data collection and how their data will be used.<li>Data should only be stored, processed, and used for purposes that are part of the original documented informed consent. <li>Consent documentation should be properly stored and associated with the collected data. <ul> |
-| **Compensate data contributors appropriately.** | <ul><li>Data contributors should not be pressured or coerced into data collections and should be fairly compensated for their time and data. <li>Inappropriate compensation can be exploitative or coercive.<ul> |
-| **Let contributors self-identify demographic information.**           | <ul><li>Demographic information that is not self-reported by data contributors but assigned by data collectors may 1) result in inaccurate metadata and 2) be disrespectful to data contributors.<ul>                                                                                                                                                                                                                                                  |
-| **Anticipate harms when recruiting vulnerable groups.**              | <ul><li>Collecting data from vulnerable population groups introduces risk to data contributors and your organization.<ul>                                                                                                                                                                                                                                                          |
-| **Treat data contributors with respect.**                            | <ul><li>Improper interactions with data contributors at any phase of the data collection can negatively impact data quality, as well as the overall data collection experience for data contributors and data collectors.<ul>                                                                                                                                                                                                                                       |
-| **Qualify external suppliers carefully.**                            | <ul><li>Data collections with unqualified suppliers may result in low quality data, poor data management, unprofessional practices, and potentially harmful outcomes for data contributors and data collectors (including violations of human rights). <li> Annotation or labeling work (e.g., audio transcription, image tagging) with unqualified suppliers may result in low quality or biased datasets, insecure data management, unprofessional practices, and potentially harmful outcomes for data contributors (including violations of human rights).<ul>  |
-| **Communicate expectations clearly in the Statement of Work (SOW) with suppliers.** | <ul><li>An SOW which lacks requirements for responsible data collection work may result in low-quality or poorly collected data.<ul>                                                                                                                                                                   |
-| **Qualify geographies carefully.**                                   | <ul><li> When applicable, collecting data in restricted and/or unfamiliar geographies may result in unusable or low-quality data and may impact the safety of involved parties.<ul>                                                                                                                                                                                     |
-| **Be a good steward of your datasets.**                              | <ul><li>Improper data management and poor documentation can result in data misuse.<ul>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+:::row:::
+    :::column:::
+        **Let contributors self-identify demographic information.**
+    :::column-end:::
+
+    :::column:::
+        - Demographic information that is not self-reported by data contributors but assigned by data collectors may 1) result in inaccurate metadata and 2) be disrespectful to data contributors.
+    :::column-end:::
+
+:::row-end:::
+
+-----
+
+:::row:::
+    :::column:::
+        **Anticipate harms when recruiting vulnerable groups.**
+    :::column-end:::
+
+    :::column:::
+        - Collecting data from vulnerable population groups introduces risk to data contributors and your organization.
+    :::column-end:::
+
+:::row-end:::
+
+-----
+
+:::row:::
+    :::column:::
+        **Treat data contributors with respect.**
+    :::column-end:::
+
+    :::column:::
+        - Improper interactions with data contributors at any phase of the data collection can negatively impact data quality, as well as the overall data collection experience for data contributors and data collectors.
+    :::column-end:::
+
+:::row-end:::
+
+-----
+
+:::row:::
+    :::column:::
+        **Qualify external suppliers carefully.**     
+    :::column-end:::
+
+    :::column:::
+        - Data collections with unqualified suppliers may result in low quality data, poor data management, unprofessional practices, and potentially harmful outcomes for data contributors and data collectors (including violations of human rights).
+        - Annotation or labeling work (e.g., audio transcription, image tagging) with unqualified suppliers may result in low quality or biased datasets, insecure data management, unprofessional practices, and potentially harmful outcomes for data contributors (including violations of human rights).
+    :::column-end:::
+
+:::row-end:::
+
+-----
+
+:::row:::
+    :::column:::
+        **Communicate expectations clearly in the Statement of Work (SOW) with suppliers.**
+    :::column-end:::
+
+    :::column:::
+        - An SOW which lacks requirements for responsible data collection work may result in low-quality or poorly collected data.     
+    :::column-end:::
+
+:::row-end:::
+
+-----
+
+:::row:::
+    :::column:::
+        **Qualify geographies carefully.** 
+    :::column-end:::
+
+    :::column:::
+        - When applicable, collecting data in restricted and/or unfamiliar geographies may result in unusable or low-quality data and may impact the safety of involved parties.
+    :::column-end:::
+
+:::row-end:::
+
+-----
+
+:::row:::
+    :::column:::
+        **Be a good steward of your datasets.**
+    :::column-end:::
+
+    :::column:::
+        - Improper data management and poor documentation can result in data misuse.
+    :::column-end:::
+
+:::row-end:::
+
+-----
+
 
 >[!NOTE]
 >This article focuses on recommendations for human data, including personal data and sensitive data such as biometric data, health data, racial or ethnic data, data collected manually from the general public or company employees, as well as metadata relating to human characteristics, such as age, ancestry, and gender identity, that may be created via annotation or labeling. 
