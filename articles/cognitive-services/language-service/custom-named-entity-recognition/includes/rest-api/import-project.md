@@ -126,7 +126,7 @@ Once you send your API request, you’ll receive a `202` response indicating tha
 
 Possible error scenarios for this request:
 
-* The selected resource doesn't have proper permission for the storage account. Learn more about [required permissions](../../how-to/create-project.md#required-roles-for-azure-language-resources) for storage account.
+* The selected resource doesn't have proper permission for the storage account. Learn more about [required permissions](../../how-to/create-project.md#create-a-language-resource) for storage account.
 * The `storageInputContainerName` specified doesn't exist.
 * Invalid language code is used, or if the language code type isn't string.
 * `multilingual` value is string and not boolean.

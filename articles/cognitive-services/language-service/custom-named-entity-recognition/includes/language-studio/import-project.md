@@ -29,7 +29,7 @@ ms.author: aahi
     > * This process is irreversible, if you connect a storage account to your Language resource you cannot disconnect it later.
     > * You can only connect your Language resource to one storage account.
 
-    :::image type="content" source="../../media/project-types.png" alt-text="A screenshot of the available custom classification project types." lightbox="../../media/project-types.png":::
+    <!--:::image type="content" source="../../media/project-types.png" alt-text="A screenshot of the available custom classification project types." lightbox="../../media/project-types.png":::-->
 
 4. Enter the project information, including a name, description, and the language of the files in your project. You won’t be able to change the name of your project later. Click **Next**.
        
@@ -38,7 +38,7 @@ ms.author: aahi
 
 5. Select the container where you have uploaded your dataset. 
 
-7. Click on **Yes, my files are already labeled and I have formatted JSON labels file** and select the labels file from the drop-down menu below to import your JSON labels file. Make sure it follows the [supported format](../concepts/data-formats.md).
+7. Click on **Yes, my files are already labeled and I have formatted JSON labels file** and select the labels file from the drop-down menu below to import your JSON labels file. Make sure it follows the [supported format](../../concepts/data-formats.md).
 
 8.   Click **Next**.
 
