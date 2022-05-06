@@ -41,7 +41,7 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
 
 1. Once validation succeeds, select the **Next** button.
 
-1. On the *Bind certificate + add** tab, enter the following values:
+1. On the *Bind certificate + add* tab, enter the following values:
 
     | Setting | Value | Notes |
     |--|--|--|
