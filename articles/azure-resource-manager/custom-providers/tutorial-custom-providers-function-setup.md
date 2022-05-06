@@ -7,7 +7,7 @@ ms.date: 05/06/2022
 ms.author: jobreen
 ---
 
-# Set up Azure Functions for Azure Custom Providers
+# Set up Azure Functions for custom providers
 
 A custom provider is a contract between Azure and an endpoint. With custom providers, you can change workflows in Azure. This tutorial shows how to set up a function app in Azure Functions to work as a custom provider endpoint.
 
