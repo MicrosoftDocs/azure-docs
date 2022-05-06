@@ -1,6 +1,6 @@
 ---
-title: Understand Insights reports in Microsoft Purview
-description: This article explains what Insights are in Microsoft Purview.
+title: Understand Data Estate Insights reports in Microsoft Purview
+description: This article explains what Data Estate Insights are in Microsoft Purview.
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/02/2020
 ---
 
-# Understand Insights in Microsoft Purview
+# Understand Data Estate Insights in Microsoft Purview
 
-This article provides an overview of the Insights feature in Microsoft Purview.
+This article provides an overview of the Data Estate Insights feature in Microsoft Purview.
 
-Insights are one of the key pillars of Microsoft Purview. The feature provides customers, a single pane of glass view into their catalog and further aims to provide specific insights to the data source administrators, business users, data stewards, data officer and, security administrators. Currently, Microsoft Purview has the following Insights reports that will be available to customers during Insight's public preview.
+Data Estate Insights are one of the key pillars of Microsoft Purview. The feature provides customers, a single pane of glass view into their catalog and further aims to provide specific insights to the data source administrators, business users, data stewards, data officer and, security administrators. Currently, Microsoft Purview has the following Data Estate Insights reports that will be available to customers during Insight's public preview.
 
 > [!IMPORTANT]
 > Microsoft Purview Data Estate Insights are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.

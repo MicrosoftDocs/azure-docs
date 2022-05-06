@@ -462,7 +462,7 @@ Use the other areas of Microsoft Purview to find out details about the content i
 
     All Microsoft Purview Insight reports include the Amazon S3 scanning results, along with the rest of the results from your Azure data sources. When relevant, an additional **Amazon S3** asset type was added to the report filtering options.
 
-    For more information, see the [Understand Insights in Microsoft Purview](concept-insights.md).
+    For more information, see the [Understand Data Estate Insights in Microsoft Purview](concept-insights.md).
 
 ## Minimum permissions for your AWS policy
 
@@ -596,4 +596,4 @@ Make sure that the S3 bucket URL is properly defined:
 Learn more about Microsoft Purview Insight reports:
 
 > [!div class="nextstepaction"]
-> [Understand Insights in Microsoft Purview](concept-insights.md)
+> [Understand Data Estate Insights in Microsoft Purview](concept-insights.md)

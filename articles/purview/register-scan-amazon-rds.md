@@ -254,7 +254,7 @@ Use the other areas of Microsoft Purview to find out details about the content i
 
     All Microsoft Purview Insight reports include the Amazon RDS scanning results, along with the rest of the results from your Azure data sources. When relevant, an **Amazon RDS** asset type is added to the report filtering options.
 
-    For more information, see the [Understand Insights in Microsoft Purview](concept-insights.md).
+    For more information, see the [Understand Data Estate Insights in Microsoft Purview](concept-insights.md).
 
 - **View RDS data in other Microsoft Purview features**, such as the **Scans** and **Glossary** areas. For more information, see:
 
@@ -521,4 +521,4 @@ The following errors may appear in Microsoft Purview:
 Learn more about Microsoft Purview Insight reports:
 
 > [!div class="nextstepaction"]
-> [Understand Insights in Microsoft Purview](concept-insights.md)
+> [Understand Data Estate Insights in Microsoft Purview](concept-insights.md)

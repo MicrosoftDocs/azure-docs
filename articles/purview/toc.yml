@@ -273,7 +273,7 @@ items:
       href: how-to-automatically-label-your-content.md
     - name: Sensitivity labels FAQ
       href: sensitivity-labels-frequently-asked-questions.yml
-  - name: Insights
+  - name: Data Estate Insights
     items:
     - name: View asset insights
       href: asset-insights.md
