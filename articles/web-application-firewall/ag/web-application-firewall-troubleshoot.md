@@ -153,6 +153,8 @@ In this example, you want to exclude the **Request attribute name** that equals 
 
 ![WAF exclusion lists](../media/web-application-firewall-troubleshoot/waf-config.png)
 
+You can create exclusions for WAF in Application Gateway at different scope levels. See [more information on exclusion scopes](application-gateway-waf-configuration.md#exclusion-scopes)
+
 ### Disabling rules
 
 Another way to get around a false positive is to disable the rule that matched on the input the WAF thought was malicious. Since you've parsed the WAF logs and have narrowed the rule down to 942130, you can disable it in the Azure portal. See [Customize web application firewall rules through the Azure portal](application-gateway-customize-waf-rules-portal.md).
