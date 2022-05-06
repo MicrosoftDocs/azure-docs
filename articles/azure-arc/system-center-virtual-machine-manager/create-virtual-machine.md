@@ -16,7 +16,7 @@ Once your administrator has connected an SCVMM management server to Azure, repre
 
 ## Prerequisites
 
-- An Azure subscription and resource group where you have *Arc SCVMM VM contributor* role.
+- An Azure subscription and resource group where you have *Arc SCVMM VM Contributor* role.
 - A resource pool resource on which you have *Arc SCVMM Private Cloud Resource User* role.
 - A virtual machine template resource on which you have *Arc SCVMM Private Cloud Resource User role*.
 - A virtual network resource on which you have *Arc SCVMM Private Cloud Resource User* role.

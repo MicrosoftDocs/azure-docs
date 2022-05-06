@@ -15,7 +15,7 @@ The article describes how you can view SCVMM management servers and enable SCVMM
 
 ## View SCVMM management servers
 
-You can view all the connected SCVMM management servers under **SCVMM management servers** blade in Azure Arc center.
+You can view all the connected SCVMM management servers under **SCVMM management servers** in Azure Arc center.
 
 :::image type="content" source="media/enable-scvmm-inventory-resources/view-scvmm-servers-inline.png" alt-text="Screenshot of how to view SCVMM servers." lightbox="media/enable-scvmm-inventory-resources/view-scvmm-servers-expanded.png":::
 
@@ -48,7 +48,7 @@ To enable the SCVMM inventory resources, follow these steps:
 
 To enable the existing virtual machines in Azure, follow these steps:
 
-1. From Azure home > **Azure Arc** center,  go to **SCVMM management servers (preview)** blade and go to your inventory resources blade.
+1. From Azure home > **Azure Arc** center,  go to **SCVMM management servers (preview)** blade and go to inventory resources blade.
 
 1. Go to **SCVMM inventory** resource blade, select **Virtual machines** and then select the VMs you want to enable and select **Enable in Azure**.
 
