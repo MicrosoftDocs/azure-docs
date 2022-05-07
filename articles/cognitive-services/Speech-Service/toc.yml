@@ -69,18 +69,18 @@ items:
         - name: Create a custom speech model 
           items:
           - name: Choose a Custom Speech model
-            href: how-to-custom-speech-upload-data.md
+            href: how-to-custom-speech-choose-model.md
           - name: Upload data for Custom Speech
             href: how-to-custom-speech-upload-data.md
           - name: Inspect Custom Speech data
             href: how-to-custom-speech-inspect-data.md
           - name: Evaluate and improve Custom Speech accuracy
             href: how-to-custom-speech-evaluate-data.md
-          - name: Train and deploy a Custom Speech model
+          - name: Train a Custom Speech model
             href: how-to-custom-speech-train-model.md
-          - name: CI/CD for Custom Speech
-            href: how-to-custom-speech-continuous-integration-continuous-deployment.md
-        - name: Custom Speech data types
+          - name: Deploy a Custom Speech model
+            href: how-to-custom-speech-deploy-model.md
+        - name: Custom Speech datasets
           items:
           - name: Training and testing data overview
             href: how-to-custom-speech-test-and-train.md
@@ -90,6 +90,8 @@ items:
             href: customize-pronunciation.md
         - name: Custom Speech model lifecycle
           href: how-to-custom-speech-model-and-endpoint-lifecycle.md
+        - name: CI/CD for Custom Speech
+          href: how-to-custom-speech-continuous-integration-continuous-deployment.md
     - name: Improve recognition with phrase list
       href: improve-accuracy-phrase-list.md
     - name: Speech-to-text FAQ

@@ -1,7 +1,7 @@
 ---
-title: Train and deploy a Custom Speech model - Speech service
+title: Train a Custom Speech model - Speech service
 titleSuffix: Azure Cognitive Services
-description: Learn how to train and deploy Custom Speech models. Training a speech-to-text model can improve recognition accuracy for the Microsoft baseline model or a custom model.
+description: Learn how to train Custom Speech models. Training a speech-to-text model can improve recognition accuracy for the Microsoft base model or a custom model.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -13,9 +13,9 @@ ms.author: eur
 ms.custom: ignite-fall-2021
 ---
 
-# Train and deploy a Custom Speech model
+# Train a Custom Speech model
 
-In this article, you'll learn how to train and deploy Custom Speech models. Training a speech-to-text model can improve recognition accuracy for the Microsoft baseline model. You use human-labeled transcriptions and related text to train a model. And you use these datasets, along with previously uploaded audio data, to refine and train the speech-to-text model.
+In this article, you'll learn how to train and deploy Custom Speech models. Training a speech-to-text model can improve recognition accuracy for the Microsoft base model. You use human-labeled transcriptions and related text to train a model. And you use these datasets, along with previously uploaded audio data, to refine and train the speech-to-text model.
 
 > [!NOTE]
 > You pay to use Custom Speech models, but you are not charged for training a model.
@@ -43,7 +43,7 @@ The first step in training a model is to upload training data. For step-by-step 
 
 1. Give your training a **Name** and **Description**.
 
-1. In the **Scenario and Baseline model** list, select the scenario that best fits your domain. If you're not sure which scenario to choose, select **General**. The baseline model is the starting point for training. The most recent model is usually the best choice.
+1. In the **Scenario and Base model** list, select the scenario that best fits your domain. If you're not sure which scenario to choose, select **General**. The base model is the starting point for training. The most recent model is usually the best choice.
 
 1. On the **Select training data** page, choose one or more related text datasets or audio + human-labeled transcription datasets that you want to use for training.
 

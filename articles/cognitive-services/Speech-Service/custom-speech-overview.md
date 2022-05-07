@@ -17,13 +17,13 @@ ms.custom: contperf-fy21q2, references_regions
 
 With Custom Speech, you can evaluate and improve the Microsoft speech-to-text accuracy for your applications and products. 
 
-Out of the box, speech to text utilizes a Universal Language Model as a baseline model that is trained with Microsoft-owned data and reflects commonly used spoken language. This baseline model is pre-trained with dialects and phonetics representing a variety of common domains. As a result, consuming the baseline model requires no additional configuration and works very well in most scenarios. When you make a speech recognition request, the current base model for each [supported language](language-support.md) is used by default.
+Out of the box, speech to text utilizes a Universal Language Model as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. This base model is pre-trained with dialects and phonetics representing a variety of common domains. As a result, consuming the base model requires no additional configuration and works very well in most scenarios. When you make a speech recognition request, the current base model for each [supported language](language-support.md) is used by default.
 
-The baseline model may not be sufficient if the audio contains ambient noise or includes a lot of industry and domain-specific jargon. In these cases, you can create and train custom speech models with acoustic, language, and pronunciation data. Custom speech models are private and can offer a competitive advantage. 
+The base model may not be sufficient if the audio contains ambient noise or includes a lot of industry and domain-specific jargon. In these cases, you can create and train custom speech models with acoustic, language, and pronunciation data. Custom speech models are private and can offer a competitive advantage. 
 
 There are three approaches to using speech-to-text models:
-1)	The baseline model applies when the audio is clear of ambient noise and the speech transcribed consists of commonly spoken language.
-2)	A custom model augments the baseline model to include domain-specific vocabulary shared across all areas of the custom domain.
+1)	The base model applies when the audio is clear of ambient noise and the speech transcribed consists of commonly spoken language.
+2)	A custom model augments the base model to include domain-specific vocabulary shared across all areas of the custom domain.
 3)	Multiple custom models make sense when the custom domain has numerous areas, each a specific vocabulary.
 
 For more information, see [Choose a model for Custom Speech](how-to-custom-speech-choose-model.md).

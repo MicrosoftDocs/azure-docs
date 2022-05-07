@@ -406,10 +406,10 @@ For full details about the preceding calls, see the [Speech-to-text REST API v3.
 
 This sample uses an asynchronous setup to post audio and receive transcription status. The `PostTranscriptions` method sends the audio file details, and the `GetTranscriptions` method receives the states. `PostTranscriptions` returns a handle, and `GetTranscriptions` uses it to create a handle to get the transcription status.
 
-This sample code doesn't specify a custom model. The service uses the baseline model for transcribing the file or files. To specify the model, you can pass on the same method the model reference for the custom model.
+This sample code doesn't specify a custom model. The service uses the base model for transcribing the file or files. To specify the model, you can pass on the same method the model reference for the custom model.
 
 > [!NOTE]
-> For baseline transcriptions, you don't need to declare the ID for the baseline model.
+> For baseline transcriptions, you don't need to declare the ID for the base model.
 
 ## Next steps
 

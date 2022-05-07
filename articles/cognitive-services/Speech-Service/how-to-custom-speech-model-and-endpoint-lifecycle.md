@@ -40,9 +40,9 @@ When a custom model or base model expires, typically speech recognition requests
 
 You can change the model that is used by your custom speech endpoint without downtime:
  - In the Speech Studio, go to your Custom Speech project and select **Deploy models**. Select the endpoint name to see its details, and then select **Change model**. Choose a new model and select **Done**.
- - Update the endpoint's model property via the [`UpdateEndpoint`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateEndpoint) REST API. 
+ - Update the endpoint's model property via the [`UpdateEndpoint`](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateEndpoint) REST API. 
 
-[Batch transcription](batch-transcription.md) requests for retired models will fail with a 4xx error. In the [`CreateTranscription`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateTranscription) REST API request body, update the `model` parameter to use a base model or custom model that hasn't yet retired. Otherwise you can remove the `model` entry from the JSON to always use the latest base model.
+[Batch transcription](batch-transcription.md) requests for retired models will fail with a 4xx error. In the [`CreateTranscription`](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateTranscription) REST API request body, update the `model` parameter to use a base model or custom model that hasn't yet retired. Otherwise you can remove the `model` entry from the JSON to always use the latest base model.
 
 ## Find out when a model expires
 You can get the adaptation and transcription expiration dates for a model via the Speech Studio and REST API.
@@ -58,9 +58,9 @@ Here's an example transcription expiration date shown on the deployment detail p
 
 
 ### Model expiration dates via REST API
-You can also check the expiration dates via the [`GetBaseModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel) and [`GetModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel) REST API. The `deprecationDates` property in the JSON response includes the adaptation and transcription expiration dates for each model
+You can also check the expiration dates via the [`GetBaseModel`](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel) and [`GetModel`](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel) REST API. The `deprecationDates` property in the JSON response includes the adaptation and transcription expiration dates for each model
 
-Here's an example base model retrieved via [`GetBaseModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel): 
+Here's an example base model retrieved via [`GetBaseModel`](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel): 
 
 ```json
 {
@@ -84,7 +84,7 @@ Here's an example base model retrieved via [`GetBaseModel`](https://westus.dev.c
 }
 ```
 
-Here's an example custom model retrieved via [`GetModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel). The custom model was adapted from the previously mentioned base model (`e065c68b-21d3-4b28-ae61-eb4c7e797789`):
+Here's an example custom model retrieved via [`GetModel`](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel). The custom model was adapted from the previously mentioned base model (`e065c68b-21d3-4b28-ae61-eb4c7e797789`):
 
 ```json
 {

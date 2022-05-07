@@ -45,12 +45,12 @@ By analyzing individual files, you can determine what type of errors exist, and 
 
 ## Create a test
 
-If you want to test the quality of the Microsoft speech-to-text baseline model or a custom model that you've trained, you can compare models side by side. The comparison includes WER and recognition results. A custom model is ordinarily compared with the Microsoft baseline model.
+If you want to test the quality of the Microsoft speech-to-text base model or a custom model that you've trained, you can compare models side by side. The comparison includes WER and recognition results. A custom model is ordinarily compared with the Microsoft base model.
 
 To evaluate models side by side, do the following:
 
 1. Sign in to the [Speech Studio](https://speech.microsoft.com/customspeech).
-1. Under **Speech-to-text** select **Custom Speech** > Your project name > **Test models**.
+1. Select **Custom Speech** > Your project name > **Test models**.
 1. Select **Create new test**.
 1. Select **Evaluate accuracy** > **Next**. 
 1. Select one audio + human-labeled transcription dataset, and then select **Next**.

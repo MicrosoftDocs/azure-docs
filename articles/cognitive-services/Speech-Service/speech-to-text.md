@@ -38,9 +38,9 @@ Batch transcription is a set of REST API operations that enable you to transcrib
 
 ## Custom Speech
 
-The Azure speech-to-text service analyzes audio in real-time or batch to transcribe the spoken word into text. Out of the box, speech to text utilizes a Universal Language Model as a baseline model that is trained with Microsoft-owned data and reflects commonly used spoken language. This baseline model is pre-trained with dialects and phonetics representing a variety of common domains. The baseline model works well in most scenarios.
+The Azure speech-to-text service analyzes audio in real-time or batch to transcribe the spoken word into text. Out of the box, speech to text utilizes a Universal Language Model as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. This base model is pre-trained with dialects and phonetics representing a variety of common domains. The base model works well in most scenarios.
 
-The baseline model may not be sufficient if the audio contains ambient noise or includes a lot of industry and domain-specific jargon. In these cases, building a custom speech model makes sense by training with additional data associated with that specific domain. You can create and train custom acoustic, language, and pronunciation models. For more information, see [Custom Speech](./custom-speech-overview.md).
+The base model may not be sufficient if the audio contains ambient noise or includes a lot of industry and domain-specific jargon. In these cases, building a custom speech model makes sense by training with additional data associated with that specific domain. You can create and train custom acoustic, language, and pronunciation models. For more information, see [Custom Speech](./custom-speech-overview.md).
 
 Customization options vary by language or locale. To verify support, see [Language and voice support for the Speech service](./language-support.md).
 
