@@ -61,7 +61,7 @@ parameters:
 ## Migrate in-tree persistent volumes
 
 > [!IMPORTANT]
-> If your in-tree Persistent Volume `reclaimPolicy` is set to **Delete**, you need to change its policy to **Retain** to persist your data.  This can be achieved using a [patch operation on the PV](https://kubernetes.io/docs/tasks/administer-cluster/change-pv-reclaim-policy/). For example:
+> If your in-tree persistent volume `reclaimPolicy` is set to **Delete**, you need to change its policy to **Retain** to persist your data.  This can be achieved using a [patch operation on the PV](https://kubernetes.io/docs/tasks/administer-cluster/change-pv-reclaim-policy/). For example:
 >
 > ```console
 > $ kubectl patch pv pv-azuredisk --type merge --patch '{"spec": {"persistentVolumeReclaimPolicy": "Retain"}}'
