@@ -44,7 +44,7 @@ Administrators can also choose to create a custom Conditional Access policy incl
 
 ## User risk policy
 
-Identity Protection can calculate what it believes is normal for a user's behavior and use that to base decisions for their risk. User risk is a calculation of probability that an identity has been compromised. Administrators can make a decision based on this risk score signal to enforce organizational requirements. Administrators can choose to block access, allow access, or allow access but require a password change using [Azure AD self-service password reset](../authentication/howto-sspr-deployment.md).
+Identity Protection can calculate what it believes is normal for a user's behavior and use that to base decisions for their risk. User risk is a calculation of probability that an identity has been compromised. Administrators can make a decision based on this risk score signal to enforce organizational requirements. Administrators can choose to block access, or allow access but require a password change using [Azure AD self-service password reset](../authentication/howto-sspr-deployment.md).
 
 If risk is detected, users can perform self-service password reset to self-remediate and close the user risk event to prevent unnecessary noise for administrators.
 
