@@ -7,15 +7,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.reviewer: laobri
+ms.reviewer: lagayhar
 ms.date:  05/24/2022
 ms.topic: conceptual
 ms.custom: 
 
 ---
 # What is an Azure Machine Learning component (preview)?
-
-[!INCLUDE [dev v1](../../includes/machine-learning-dev-v1.md)]
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
