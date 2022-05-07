@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli, build-spring-2022
 
 # Draft for Azure Kubernetes Service (AKS) (preview)
 
-[Draft](https://github.com/Azure/draftv2) is an open-source project that streamlines Kubernetes development by taking a non-containerized application and generating the Dockerfiles, Kubernetes manifests, Helm charts, Kustomize configuration, and other artifacts associated with a containerized application. Draft can also create a GitHub Action workflow file to quickly build and deploy applications onto any Kubernetes cluster.
+[Draft](https://github.com/Azure/draftv2) is an open-source project that streamlines Kubernetes development by taking a non-containerized application and generating the Dockerfiles, Kubernetes manifests, Helm charts, Kustomize configurations, and other artifacts associated with a containerized application. Draft can also create a GitHub Action workflow file to quickly build and deploy applications onto any Kubernetes cluster.
 
 ## How it works
 
@@ -20,7 +20,7 @@ Draft has the following commands to help ease your development on Kubernetes:
 - **draft create**: Creates the Dockerfile and the proper manifest files.
 - **draft setup-gh**: Sets up your GitHub OIDC.
 - **draft generate-workflow**: Generates the GitHub Action workflow file for deployment onto your cluster.
-- **draft up**: Sets up up your GitHub OIDC as well as generates the GitHub Action workflow file, combining the previous two commands.
+- **draft up**: Sets up up your GitHub OIDC and generates a GitHub Action workflow file, combining the previous two commands.
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ az extension add --name draft
 
 ### Set up the Azure CLI extension for cluster extensions
 
-You will also need the `k8s-extension` Azure CLI extension. Install this by running the following commands:
+You will also need the `k8s-extension` Azure CLI extension, which can be installed by running the following command:
   
 ```azurecli-interactive
 az extension add --name k8s-extension
@@ -54,9 +54,9 @@ If the `k8s-extension` extension is already installed, you can update it to the 
 az extension update --name k8s-extension
 ```
 
-## Create Dockerfiles and Kubernetes manifest files using `draft create`
+## Create artifacts using `draft create`
 
-To create the Dockerfile, Helm, Kubernetes manifests, or Kustomize files needed to deploy your application onto an AKS cluster, use the `draft create` command:
+To create a Dockerfile, Helm chart, Kubernetes manifest, or Kustomize files needed to deploy your application onto an AKS cluster, use the `draft create` command:
 
 ```azure-cli-interactive
 az aks draft create
@@ -70,7 +70,7 @@ az aks draft create --destination /Workspaces/ContosoAir
 
 ## Set up GitHub OIDC using `draft setup-gh`
 
-To use Draft, you have to register your application with GitHub using the command `draft setup-gh`:
+To use Draft, you have to register your application with GitHub using `draft setup-gh`. This step only needs to be done once per repository.
 
 ```azure-cli-interactive
 az aks draft setup-gh
@@ -92,7 +92,7 @@ az aks draft generate-workflow --destination /Workspaces/ContosoAir
 
 ## Set up GitHub OpenID Connect (OIDC) and generate a GitHub Action workflow file using `draft up`
 
-`draft up` is a single command to go through the GitHub OIDC workflow as well as generate a GitHub Action workflow file for deployment. It effectively combines the `draft setup-gh` and `draft generate-workflow` commands, meaning it's most commonly used when getting started in a new repository for the first time, and only needs to be run once.
+`draft up` is a single command to accomplish GitHub OIDC setup and generate a GitHub Action workflow file for deployment. It effectively combines the `draft setup-gh` and `draft generate-workflow` commands, meaning it's most commonly used when getting started in a new repository for the first time, and only needs to be run once. Subsequent updates to the GitHub Action workflow file can be made using `draft generate-workflow`.
 
 ```azure-cli-interactive
 az aks draft up
