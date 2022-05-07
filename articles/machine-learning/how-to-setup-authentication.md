@@ -119,13 +119,11 @@ The easiest way to create an SP and grant access to your workspace is by using t
     > [!IMPORTANT]
     > Owner access allows the service principal to do virtually any operation in your workspace. It is used in this document to demonstrate how to grant access; in a production environment Microsoft recommends granting the service principal the minimum access needed to perform the role you intend it for. For information on creating a custom role with the access needed for your scenario, see [Manage access to Azure Machine Learning workspace](how-to-assign-roles.md).
 
-    [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
-
-    ```azurecli-interactive
-    az ml workspace share -w your-workspace-name -g your-resource-group-name --user your-sp-object-id --role owner
-    ```
-
-    This call does not produce any output on success.
+    > [!NOTE]
+    > To grant access to the workspace and other resources used by Azure Machine Learning, use the information in the following articles:
+    > [How to assign roles and actions in AzureML](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-assign-roles)
+    > or
+    > [How to assign roles in the CLI](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-cli)
 
 ## Configure a managed identity
 
