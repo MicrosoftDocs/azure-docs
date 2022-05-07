@@ -20,7 +20,7 @@ Draft has the following commands to help ease your development on Kubernetes:
 - **draft create**: Creates the Dockerfile and the proper manifest files.
 - **draft setup-gh**: Sets up your GitHub OIDC.
 - **draft generate-workflow**: Generates the GitHub Action workflow file for deployment onto your cluster.
-- **draft up**: Sets up up your GitHub OIDC and generates a GitHub Action workflow file, combining the previous two commands.
+- **draft up**: Sets up your GitHub OIDC and generates a GitHub Action workflow file, combining the previous two commands.
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ az extension add --name draft
 
 ### Set up the Azure CLI extension for cluster extensions
 
-You will also need the `k8s-extension` Azure CLI extension, which can be installed by running the following command:
+You'll also need the `k8s-extension` Azure CLI extension, which can be installed by running the following command:
   
 ```azurecli-interactive
 az extension add --name k8s-extension
