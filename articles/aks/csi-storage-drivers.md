@@ -77,8 +77,8 @@ If you have in-tree Azure File persistent volumes, get `secretName`, `shareName`
 
 ## Next steps
 
-- To use the CSI drive for Azure disks, see [Use Azure disks with CSI drivers](azure-disk-csi.md).
-- To use the CSI drive for Azure Files, see [Use Azure Files with CSI drivers](azure-files-csi.md).
+- To use the CSI driver for Azure disks, see [Use Azure disks with CSI drivers](azure-disk-csi.md).
+- To use the CSI driver for Azure Files, see [Use Azure Files with CSI drivers](azure-files-csi.md).
 - For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
 - For more information on CSI migration, see [Kubernetes In-Tree to CSI Volume Migration][csi-migration-community].
 
