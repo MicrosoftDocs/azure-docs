@@ -1,25 +1,16 @@
 ---
-title: Design a Log Analytics workspace configuration in Azure Monitor
+title: Design a Log Analytics workspace architecture
 description: Describes the considerations and recommendations for customers preparing to deploy a workspace in Azure Monitor.
 ms.topic: conceptual
 ms.date: 05/19/2022
 
 ---
 
-# Design a Log Analytics workspace configuration
+# Design a Log Analytics workspace architecture
 While a single workspace [Log Analytics workspace](log-analytics-workspace-overview.md) may be sufficient for many environments, many organizations will create multiple workspaces to optimize costs and better meet different business requirements. This article presents a set of criteria for determining whether to use a single workspace or multiple workspaces and the configuration and placement of those workspace to meet your particular requirements while optimizing your costs.
 
 > [!NOTE]
 > This article includes both Azure Monitor and Microsoft Sentinel since many customers need to consider both in their design, and most of the decision criteria applies to both. If you only use one of these services, then you can simply ignore the other in your evaluation.
-
-## Working with multiple workspaces
-Your design should use the fewest number of workspaces that you can use to match your particular requirements. This reduces the complexity of managing multiple workspaces and in querying data from them. There are no performance limitations from the amount of data in your workspace, and multiple services and data sources can send data to the same workspace.
-
-Since many designs will include multiple workspaces, Azure Monitor and Microsoft Sentinel include features to assist you in analyzing this data across workspaces. For details, see the following:
-
-- [Create a log query across multiple workspaces and apps in Azure Monitor](cross-workspace-query.md)
-- [Extend Microsoft Sentinel across workspaces and tenants](../../sentinel/extend-sentinel-across-workspaces-tenants.md).
-
 
 ## Design criteria
 Designing a workspace configuration includes evaluation of multiple criteria, some of which may in conflict. For example, you may be able to reduce egress charges by creating a separate workspace in each Azure region, but consolidating into a single workspace might allow you to reduce charges even more with a commitment tier. Evaluate each of the criteria below independently and consider your particular requirements and priorities in determining which design will be most effective for your particular environment.
@@ -57,7 +48,7 @@ Most customers with a single tenant will use one workspace for Azure Monitor and
 For example, an international company using a single tenant might have four total workspaces - Azure Monitor and Sentinel workspaces in both United States and Europe.
 
 - **If you have a single Azure tenant**, then create a single workspace for that tenant.
-- **If you have multiple Azure tenants**, then create a workspace for each tenant. See [Log Analytics workspace design for service providers](workspace-design-service-providers.md) to determine whether you should create a separate workspace for each tenant.
+- **If you have multiple Azure tenants**, then create a workspace for each tenant. See [Multiple tenant strategies](multiple-tenant-strategies) for other options including strategies for service providers.
  
 ### Azure regions<a name="azure-regions"></a>
 Log Analytics workspaces each reside in a [particular Azure region](https://azure.microsoft.com/global-infrastructure/geographies/), and you may have regulatory or compliance purposes for keeping data in a particular region.
@@ -133,30 +124,31 @@ For example, you might grant access to only specific tables collected by Sentine
 - **If you require granular access control by table**, grant or deny access to specific tables using table-level RBAC.
 
 
-## Common models
+## Working with multiple workspaces
+Your design should use the fewest number of workspaces that you can use to match your particular requirements. This reduces the complexity of managing multiple workspaces and in querying data from them. There are no performance limitations from the amount of data in your workspace, and multiple services and data sources can send data to the same workspace.
 
-### Single tenant
-Most customers with a single tenant will use one workspace for Azure Monitor and one workspace for Microsoft Sentinel. If they have resources in multiple regions and have compliance requirements, then they may duplicate these workspaces in each major geographical region.
+Since many designs will include multiple workspaces, Azure Monitor and Microsoft Sentinel include features to assist you in analyzing this data across workspaces. For details, see the following:
 
-For example, an international company using a single tenant might have four total workspaces - Azure Monitor and Sentinel workspaces in both United States and Europe.
-
-
-Common Practice, Multi-Tenant. International, Cost Optimized, and Special Use Cases.
-
-### Multiple tenants
-Examples of companies that may have multiple Azure tenants are service providers (MSPs), independent software vendors (ISVs), and large enterprises. Large enterprises share many similarities with service providers, particularly when there is a centralized IT team that is responsible for managing IT for many different business units. For simplicity, this section uses the term *service provider* but the same functionality is also available for enterprises and other customers.
+- [Create a log query across multiple workspaces and apps in Azure Monitor](cross-workspace-query.md)
+- [Extend Microsoft Sentinel across workspaces and tenants](../../sentinel/extend-sentinel-across-workspaces-tenants.md).
+## Multiple tenant strategies
+Environments with multiple Azure tenants, including service providers (MSPs), independent software vendors (ISVs), and large enterprises, often require a strategy where a central administration team has access to administer workspaces located in other tenants. There are two basic strategies for this functionality as described below.
 
 > [!NOTE]
 > For partners and service providers who are part of the [Cloud Solution Provider (CSP) program](https://partner.microsoft.com/membership/cloud-solution-provider), Log Analytics in Azure Monitor is one of the Azure services available in Azure CSP subscriptions.
 
+Large enterprises share many similarities with service providers, particularly when there is a centralized IT team that is responsible for managing IT for many different business units. For simplicity, this section uses the term *service provider* but the same functionality is also available for enterprises and other customers.
+
 ### Distributed architecture
-In a distributed architecture, a Log Analytics workspace is created in Azure tenant. This is the only option you can use if you're monitoring Azure services other than virtual machines.
+In a distributed architecture, a Log Analytics workspace is created in each Azure tenant. This is the only option you can use if you're monitoring Azure services other than virtual machines.
 
 There are two options to allow service provider administrators to access the workspaces in the customer tenants.
 
 
-- Add individual users from the service provider as [Azure Active Directory guest users (B2B)](../../active-directory/external-identities/what-is-b2b.md). The customer tenant administrators manage individual access for each service provider administrator, and the service provider administrators will have to log in to the directory for each tenant in the Azure portal to be able to access these workspaces. 
 - Use [Azure Lighthouse](../../lighthouse/overview.md) to access each customer tenant. The service provider administrators are included in an Azure AD user group in the service provider’s tenant, and this group is granted access during the onboarding process for each customer. The administrators can then access each customer’s workspaces from within their own service provider tenant, rather than having to log into each customer’s tenant individually. For more information, see [Monitor customer resources at scale](../../lighthouse/how-to/monitor-at-scale.md).
+
+- Add individual users from the service provider as [Azure Active Directory guest users (B2B)](../../active-directory/external-identities/what-is-b2b.md). The customer tenant administrators manage individual access for each service provider administrator, and the service provider administrators must log in to the directory for each tenant in the Azure portal to be able to access these workspaces. 
+
 
 Advantages to this strategy are:
 
@@ -187,13 +179,15 @@ Disadvantages to this strategy are:
 
 
 ### Hybrid
-In a hybrid model, each tenant has its own workspace, and some mechanism is used to pull data into a central location for reporting and analytics. This data could includes be small number of data types or a summary of the activity such as daily statistics.
+In a hybrid model, each tenant has its own workspace, and some mechanism is used to pull data into a central location for reporting and analytics. This data could include a small number of data types or a summary of the activity such as daily statistics.
 
 There are two options to implement logs in a central location:
 
 - Central workspace. The service provider creates a workspace in its tenant and use a script that utilizes the [Query API](api/overview.md) with the [custom logs API](custom-logs-overview.md) to bring the data from the tenant workspaces to this central location. Another option is to use [Azure Logic Apps](../../logic-apps/logic-apps-overview.md).
 
 - Power BI. The tenant workspaces export data to Power BI it using the integration between the Log Analytics workspace and [Power BI](log-powerbi.md).
+
+
 ## Next steps
 
 - Get additional details for workspace design specific to Microsoft Sentinel.
