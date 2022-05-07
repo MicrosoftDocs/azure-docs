@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 Spring Cloud Gateway and API portal support authentication and authorization using Single Sign-On (SSO) with an OpenID identity provider (IdP) which supports OpenID Connect Discovery protocol. This article takes [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/external-identities/azure-ad-account) identity provider as an example to show how to configure SSO.
 
-## Create an Azure AD application registration
+## Create an Azure Active Directory application registration
 1. Open **Azure Active Directory**
 1. Select **App Registrations** and Add **New registrations**
 1. Input the name of the application and select the account type to register.
@@ -40,6 +40,9 @@ Spring Cloud Gateway and API portal support authentication and authorization usi
 ![Add Custom Scope screen](./media/enterprise/how-to-setup-sso-with-azure-ad/sso-add-scope.png)
 
 2. Add custom scopes
+
+## Azure Active Directory Issuer Uri
+Use "\<authentication-endpoint\>/\<tenant-id\>/v2.0" as issuer-uri of SSO configuration, and replace <authentication-endpoint> with the authentication endpoint for your cloud environment (e.g., "https://login.microsoftonline.com" for global Azure), also replacing <tenant-id> with the Directory (tenant) ID in which the app registration was created. For applications that use Azure AD v1, omit /v2.0 in the URL.
 
 ## Setup Redirect Uri
 1. Select **Authentication** in application and Add Redirect Uri
