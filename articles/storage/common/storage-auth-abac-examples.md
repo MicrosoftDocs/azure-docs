@@ -29,7 +29,7 @@ For information about the prerequisites to add or edit role assignment condition
 
 ## Blob index tags
 
-### Example: Read blobs with a tag
+### Example: Read blobs with a blob index tag
 
 This condition allows users to read blobs with a blob index tag key of Project and a tag value of Cascade. Attempts to access blobs without this key-value tag will not be allowed.
 
@@ -84,7 +84,7 @@ $bearerCtx = New-AzStorageContext -StorageAccountName $storageAccountName
 Get-AzStorageBlob -Container <containerName> -Blob <blobName> -Context $bearerCtx 
 ```
 
-### Example: New blobs must include a tag
+### Example: New blobs must include a blob index tag
 
 This condition requires that any new blobs must include a blob index tag key of Project and a tag value of Cascade.
 
@@ -153,7 +153,7 @@ $content = Set-AzStorageBlobContent -File $localSrcFile -Container example2 -Blo
 $content = Set-AzStorageBlobContent -File $localSrcFile -Container example2 -Blob "Example2.txt" -Tag $grantedTag -Context $bearerCtx
 ```
 
-### Example: Existing blobs must have tag keys
+### Example: Existing blobs must have blob index tag keys
 
 This condition requires that any existing blobs be tagged with at least one of the allowed blob index tag keys: Project or Program. This condition is useful for adding governance to existing blobs.
 
@@ -221,7 +221,7 @@ $content = Set-AzStorageBlobContent -File $localSrcFile -Container example3 -Blo
 $content = Set-AzStorageBlobContent -File $localSrcFile -Container example3 -Blob "Example3.txt" -Tag $grantedTag -Context $bearerCtx
 ```
 
-### Example: Existing blobs must have a tag key and values
+### Example: Existing blobs must have a blob index tag key and values
 
 This condition requires that any existing blobs to have a blob index tag key of Project and tag values of Cascade, Baker, or Skagit. This condition is useful for adding governance to existing blobs.
 
@@ -588,7 +588,7 @@ $content = Set-AzStorageBlobContent -Container $grantedContainer -Blob "Example7
 $content = Set-AzStorageBlobContent -Container $grantedContainer -Blob "uploads/contoso/Example7.txt" -Context $bearerCtx -File $localSrcFile
 ```
 
-### Example: Read blobs with a tag and a path
+### Example: Read blobs with a blob index tag and a path
 
 This condition allows a user to read blobs with a blob index tag key of Program, a tag value of Alpine, and a blob path of logs*. The blob path of logs* also includes the blob name. This condition does not allow a user to list or download blobs.
 
@@ -882,7 +882,7 @@ Here are the settings to add this condition using the Azure portal.
 
 ## Principal attributes
 
-### Example: Read or write blobs based on tags and custom security attributes
+### Example: Read or write blobs based on blob index tags and custom security attributes
 
 This condition allows read or write access to blobs if the user has a [custom security attribute](../../active-directory/fundamentals/custom-security-attributes-overview.md) that matches the blob index tag.
  
@@ -948,7 +948,7 @@ Here are the settings to add this condition using the Azure portal.
 | Attribute | Blob index tags [Values in key] |
 | Key | &lt;key&gt; |
 
-### Example: Read blobs based on tags and multi-value custom security attributes
+### Example: Read blobs based on blob index tags and multi-value custom security attributes
 
 This condition allows read access to blobs if the user has a [custom security attribute](../../active-directory/fundamentals/custom-security-attributes-overview.md) with any values that matches the blob index tag.
  
