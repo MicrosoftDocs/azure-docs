@@ -30,7 +30,7 @@ Migrating these storage classes involves deleting the existing ones, and re-crea
 
 ### Migrate storage class provisioner
 
-The following example YAML manifest shows the difference between the in-tree storage class definition configured to use Azure disks, and the equivalent using a CSI storage class definition. The CSI storage system supports the same features as the in-tree drivers, so the only change needed would be the provisioner.
+The following example YAML manifest shows the difference between the in-tree storage class definition configured to use Azure disks, and the equivalent using a CSI storage class definition. The CSI storage system supports the same features as the in-tree drivers, so the only change needed would be the value for `provisioner`.
 
 #### Original in-tree storage class definition
 
