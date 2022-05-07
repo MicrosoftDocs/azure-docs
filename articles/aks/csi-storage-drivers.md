@@ -22,15 +22,15 @@ The CSI storage driver support on AKS allows you to natively use:
 >
 > *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code opposed to the new CSI drivers, which are plug-ins.
 
-## Migrating custom in-tree storage classes to CSI
+## Migrate custom in-tree storage classes to CSI
 
 If you created in-tree driver storage classes, those storage classes continue to work since CSI migration is turned on after upgrading your cluster to 1.21.x. If you want to use CSI features you'll need to perform the migration.
 
 Migrating these storage classes involves deleting the existing ones, and re-creating them with the provisioner set to **disk.csi.azure.com** if using Azure disk storage, and **files.csi.azure.com** if using Azure Files.  
 
-### Migrating Storage Class provisioner
+### Migrate storage class provisioner
 
-The following example shows how to migrate to Azure disk. The CSI storage system supports the same features as the in-tree drivers, so the only change needed would be the provisioner.
+The following example YAML manifest shows the difference between the in-tree storage class definition configured to use Azure disks, and the equivalent using a CSI storage class definition. The CSI storage system supports the same features as the in-tree drivers, so the only change needed would be the provisioner.
 
 #### Original in-tree storage class definition
 
@@ -58,21 +58,22 @@ parameters:
   storageAccountType: Premium_LRS
 ```
 
-## Migrating in-tree persistent volumes
+## Migrate in-tree persistent volumes
 
 > [!IMPORTANT]
-> If your in-tree persistent volume reclaimPolicy is set to **Delete**, you need to change the Persistent Volume to Retain to persist your data.  This can be achieved via a [patch operation on the PV](https://kubernetes.io/docs/tasks/administer-cluster/change-pv-reclaim-policy/). For example:
+> If your in-tree Persistent Volume `reclaimPolicy` is set to **Delete**, you need to change the Persistent Volume to **Retain** to persist your data.  This can be achieved using a [patch operation on the PV](https://kubernetes.io/docs/tasks/administer-cluster/change-pv-reclaim-policy/). For example:
+>
 > ```console
 > $ kubectl patch pv pv-azuredisk --type merge --patch '{"spec": {"persistentVolumeReclaimPolicy": "Retain"}}'
 > ```
 
-### Migrating in-tree Azure Disk persistent volumes
+### Migrate in-tree Azure disk persistent volumes
 
-If you have in-tree Azure Disk persistent volumes, get `diskURI` from in-tree persistent volumes and then follow this [guide][azure-disk-static-mount] to set up CSI driver persistent volumes
+If you have in-tree Azure disk persistent volumes, get `diskURI` from in-tree persistent volumes and then follow this [guide][azure-disk-static-mount] to set up CSI driver persistent volumes.
 
-### Migrating in-tree Azure File persistent volumes
+### Migrate in-tree Azure File persistent volumes
 
-If you have in-tree Azure File persistent volumes, get `secretName`, `shareName` from in-tree persistent volumes and then follow this [guide][azure-file-static-mount] to set up CSI driver persistent volumes
+If you have in-tree Azure File persistent volumes, get `secretName`, `shareName` from in-tree persistent volumes and then follow this [guide][azure-file-static-mount] to set up CSI driver persistent volumes.
 
 ## Next steps
 
