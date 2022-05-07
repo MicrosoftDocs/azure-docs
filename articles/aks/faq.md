@@ -167,6 +167,10 @@ Moving or renaming your AKS cluster and its associated resources isn't supported
 
 Most clusters are deleted upon user request; in some cases, especially where customers are bringing their own Resource Group, or doing cross-RG tasks deletion can take additional time or fail. If you have an issue with deletes, double-check that you do not have locks on the RG, that any resources outside of the RG are disassociated from the RG, and so on.
 
+## Why is my private AKS cluster stop taking so long and why can't I access it?
+
+Most clusters are stopped upon user request; in some cases, especially where customers are bringing their own Resource Group, or doing cross-RG tasks stopping can take additional time or fail. This state also causes a broken private link. If you have an issue with stops or access, double-check that you do not have locks on the RG, that any resources outside of the RG are disassociated from the RG, and so on.
+
 ## If I have pod / deployments in state 'NodeLost' or 'Unknown' can I still upgrade my cluster?
 
 You can, but AKS doesn't recommend this. Upgrades should be performed when the state of the cluster is known and healthy.
