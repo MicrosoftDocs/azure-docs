@@ -170,8 +170,11 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
 
     /**
      * isReceiving API is currently an @alpha feature. Do not use in production.
+     * Create a CSS class to style your loading spinner. Take a look at our
+     * video calling quickstart, to see how to create a loading spinner.
      */
     let loadingSpinner = document.createElement('div');
+    // Create a CSS class to style your loading spinner.
     loadingSpinner.className = 'loading-spinner';
     remoteVideoStream.on('isReceivingChanged', () => {
         try {
