@@ -73,7 +73,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
     > [!NOTE]  
     > If you selected **All Microsoft 365 groups with guest users**, your only option is to review **Guest users only**.
 
-1. Or if you are conducting group membership review, you can create access reviews only for inactive users in the group (preview). In the *Users scope* section, check the box next to **Inactive users (on tenant level)**. If you check the box, the scope of the review will focus on inactive users only. Then, specify **Days inactive**  with a number of days inactive up to 730 days (two years). Users in the group inactive for the specified number of days will be the only users in the review.
+1. Or if you are conducting group membership review, you can create access reviews for only the inactive users in the group (preview). In the *Users scope* section, check the box next to **Inactive users (on tenant level)**. If you check the box, the scope of the review will focus on inactive users only, those who have not signed in either interactively or non-interactively to the tenant. Then, specify **Days inactive**  with a number of days inactive up to 730 days (two years). Users in the group inactive for the specified number of days will be the only users in the review.
 
 1. Select **Next: Reviews**.
 
