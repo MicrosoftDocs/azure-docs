@@ -55,27 +55,19 @@ For more information about how to create these examples, see [Examples of Azure 
 
 ## Where can conditions be added?
 
-Currently, conditions can be added to built-in or custom role assignments that have [storage blob data actions](conditions-format.md#actions). These include the following built-in roles:
+Currently, conditions can be added to built-in or custom role assignments that have [blob storage or queue storage data actions](conditions-format.md#actions). Conditions are added at the same scope as the role assignment. Just like role assignments, you must have `Microsoft.Authorization/roleAssignments/write` permissions to add a condition.
 
-- [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor)
-- [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner)
-- [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader)
-- [Storage Queue Data Contributor](built-in-roles.md#storage-queue-data-contributor)
-- [Storage Queue Data Message Processor](built-in-roles.md#storage-queue-data-message-processor)
-- [Storage Queue Data Message Sender](built-in-roles.md#storage-queue-data-message-sender)
-- [Storage Queue Data Reader](built-in-roles.md#storage-queue-data-reader)
+Here are some of the [blob storage attributes](../storage/common/storage-auth-abac-attributes.md#azure-blob-storage-attributes) you can use in your conditions.
 
-Conditions are added at the same scope as the role assignment. Just like role assignments, you must have `Microsoft.Authorization/roleAssignments/write` permissions to add a condition.
-
-Here are the storage attributes you can use in your conditions.
-
-- Container name
-- Blob path
-- Blob index tags keys
+- Account name
 - Blob index tags
-
-> [!TIP]
-> Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags (preview)](../storage/blobs/storage-manage-find-blobs.md).
+- Blob path
+- Blob prefix
+- Container name
+- Encryption scope name
+- Is hierarchical namespace enabled
+- Snapshot
+- Version ID
 
 ## What does a condition look like?
 
@@ -89,7 +81,7 @@ If Chandra tries to read a blob without the Project=Cascade tag, access will not
 
 Here is what the condition looks like in the Azure portal:
 
-![Build expression section with values for blob index tags.](./media/shared/condition-expressions.png)
+:::image type="content" source="./media/shared/condition-expressions.png" alt-text="Screenshot of condition editor in Azure portal showing build expression section with values for blob index tags." lightbox="./media/shared/condition-expressions.png":::
 
 Here is what the condition looks like in code:
 
@@ -115,10 +107,11 @@ Here's a list of the some of the primary features of conditions:
 
 | Feature | Status | Date |
 | --- | --- | --- |
-| Add conditions to Storage Blob Data role assignments | Preview | May 2021 |
+| Use the following [attributes](../storage/common/storage-auth-abac-attributes.md#azure-blob-storage-attributes) in a condition<ul><li>Account name</li><li>Blob prefix</li><li>Encryption scope name</li><li>Is hierarchical namespace enabled</li><li>Snapshot</li><li>Version ID</li></ul> | Preview | May 2022 |
+| Use [custom security attributes on a principal in a condition](conditions-format.md#principal-attributes) | Preview | November 2021 |
+| Add conditions to blob storage data role assignments | Preview | May 2021 |
 | Use attributes on a resource in a condition | Preview | May 2021 |
 | Use attributes that are part of the action request in a condition | Preview | May 2021 |
-| Use custom security attributes on a principal in a condition | Preview | November 2021 |
 
 ## Conditions and Privileged Identity Management (PIM)
 
