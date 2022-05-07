@@ -26,19 +26,19 @@ If you're using version 2 of the Computer Vision Read OCR container, Use this ar
 
 The Read v3.2 container uses version 3 of the Computer Vision API and has the following endpoints:
 
-* `/vision/v3.2-preview.1/read/analyzeResults/{operationId}`
-* `/vision/v3.2-preview.1/read/analyze`
-* `/vision/v3.2-preview.1/read/syncAnalyze`
+* `/vision/v3.2/read/analyzeResults/{operationId}`
+* `/vision/v3.2/read/analyze`
+* `/vision/v3.2/read/syncAnalyze`
 
 See the [Computer Vision v3 REST API migration guide](./upgrade-api-versions.md) for detailed information on updating your applications to use version 3 of cloud-based Read API. This information applies to the container as well. Sync operations are only supported in containers.
 
 ## Memory requirements
 
-The requirements and recommendations are based on benchmarks with a single request per second, using an 8-MB image of a scanned business letter that contains 29 lines and a total of 803 characters. The following table describes the minimum and recommended allocations of resources for each Read OCR container.
+The requirements and recommendations are based on benchmarks with a single request per second, using a 523-KB image of a scanned business letter that contains 29 lines and a total of 803 characters. The following table describes the minimum and recommended allocations of resources for each Read OCR container.
 
 |Container  |Minimum | Recommended  |
 |---------|---------|------|
-|Read 3.2-preview | 8 cores, 16-GB memory         | 8 cores, 24-GB memory |
+|Read 3.2 **2022-04-30** | 4 cores, 8-GB memory | 8 cores, 16-GB memory |
 
 Each core must be at least 2.6 gigahertz (GHz) or faster.
 

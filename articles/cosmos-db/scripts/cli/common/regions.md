@@ -15,7 +15,7 @@ ms.date: 02/21/2022
 The script in this article demonstrates three operations.
 
 - Add a region to an existing Azure Cosmos account.
-- Change regional failover priority (applies to accounts using automatic failover)
+- Change regional failover priority (applies to accounts using service-managed failover)
 - Trigger a manual failover from primary to secondary regions (applies to accounts with manual failover)
 
 This script uses a SQL (Core) API account, but these operations are identical across all database APIs in Cosmos DB.

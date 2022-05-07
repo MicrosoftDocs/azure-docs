@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emerb19
 ms.author: emerb
-ms.date: 04/06/2022
+ms.date: 04/28/2022
 ---
 
 # ISV to customer private offers
@@ -181,8 +181,13 @@ The payout amount and agency fee that Microsoft charges is based on the private 
 
 ## Next steps
 
+**Further reading**
+
 - [Frequently Asked Questions](isv-customer-faq.yml) about configuring ISV to customer private offers
-- Video series (YouTube):
-  - [ISV to Customer Private Offer Creation](https://youtu.be/M_h8g5_5K90)
-  - [ISV to Customer Private Offer Acceptance](https://youtu.be/l2zhmDqtB4U)
-  - [ISV to Customer Private Offer Purchase Experience](https://youtu.be/vm1MNZhK028)
+
+**Video tutorials (YouTube)**
+
+- [Private Offer Overview of ISV to Customer Offers](https://www.youtube.com/watch?v=SNfEMKNmstY)
+- [ISV to Customer Private Offer Creation](https://www.youtube.com/watch?v=WPSM2_v4JuE)
+- [ISV to Customer Private Offer Acceptance](https://www.youtube.com/watch?v=HWpLOOtfWZs)
+- [ISV to Customer Private Offer Purchase Experience](https://www.youtube.com/watch?v=mPX7gqdHqBk)

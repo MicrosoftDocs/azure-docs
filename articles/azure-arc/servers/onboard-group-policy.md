@@ -1,7 +1,7 @@
 ---
 title: Connect machines at scale using group policy
 description: In this article, you learn how to connect machines to Azure using Azure Arc-enabled servers using group policy. 
-ms.date: 04/26/2022
+ms.date: 04/29/2022
 ms.topic: conceptual
 ms.custom: template-how-to
 ---
@@ -135,7 +135,7 @@ In the **General** tab, set the following parameters under **Security Options**:
 
 1. In the field **Configure for**, select **Windows Vista or Window 2008**. 
 
-:::image type="content" source="media/onboard-group-policy/st-general.png" alt-text="Screenshot of the Azure Arc agent Deployment and Configuration properties window." :::
+:::image type="content" source="media/onboard-group-policy/general-properties.png" alt-text="Screenshot of the Azure Arc agent Deployment and Configuration properties window." :::
 
 ### Assign trigger parameters for the task
 

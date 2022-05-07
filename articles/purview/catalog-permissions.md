@@ -1,6 +1,6 @@
 ---
 title: Understand access and permissions
-description: This article gives an overview permission, access control, and collections in Microsoft Purview. Role-based access control (RBAC) is managed within Microsoft Purview itself, so this guide will cover the basics to secure your information.
+description: This article gives an overview permission, access control, and collections in Microsoft Purview. Role-based access control is managed within Microsoft Purview itself, so this guide will cover the basics to secure your information.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
@@ -12,19 +12,22 @@ ms.date: 03/09/2022
 
 Microsoft Purview uses **Collections** to organize and manage access across its sources, assets, and other artifacts. This article describes collections and access management in your Microsoft Purview account.
 
+> [!IMPORTANT]
+> This article refers to permissions required for the Microsoft Purview governance portal. If you are looking for permissions information for the Microsoft Purview compliance center, follow [the article for permissions in the Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center-permissions).
+
 ## Collections
 
 A collection is a tool Microsoft Purview uses to group assets, sources, and other artifacts into a hierarchy for discoverability and to manage access control. All accesses to Microsoft Purview's resources are managed from collections in the Microsoft Purview account itself.
 
 > [!NOTE]
-> As of November 8th, 2021, ***Insights*** is accessible to Data Curators. Data Readers do not have access to Insights.
+> As of November 8th, 2021, ***Microsoft Purview Data Estate Insights*** is accessible to Data Curators. Data Readers do not have access to Insights.
 
 ## Roles
 
 Microsoft Purview uses a set of predefined roles to control who can access what within the account. These roles are currently:
 
 - **Collection administrator** - a role for users that will need to assign roles to other users in Microsoft Purview or manage collections. Collection admins can add users to roles on collections where they're admins. They can also edit collections, their details, and add subcollections.
-- **Data curators** - a role that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and view insights. Data curators can create, read, modify, move, and delete assets. They can also apply annotations to assets.
+- **Data curators** - a role that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and view data estate insights. Data curators can create, read, modify, move, and delete assets. They can also apply annotations to assets.
 - **Data readers** - a role that provides read-only access to data assets, classifications, classification rules, collections and glossary terms.
 - **Data source administrator** - a role that allows a user to manage data sources and scans. If a user is granted only to **Data source admin** role on a given data source, they can run new scans using an existing scan rule. To create new scan rules, the user must be also granted as either **Data reader** or **Data curator** roles.
 - **Policy author (Preview)** - a role that allows a user to view, update, and delete Microsoft Purview policies through the policy management app within Microsoft Purview.
@@ -104,9 +107,23 @@ Similarly with the Data Curator and Data Source Admin roles, permissions for tho
 
 ### Add users to roles
 
-Role assignment is managed through the collections. Only a user with the [collection admin role](#roles) can grant permissions to other users on that collection. When new permissions need to be added, a collection admin will access the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/), navigate to data map, then the collections tab, and select the collection where a user needs to be added. From the Role Assignments tab they'll be able to add and manage users who need permissions.
+Role assignment is managed through the collections. Only a user with the [collection admin role](#roles) can grant permissions to other users on that collection. When new permissions need to be added, a collection admin will access the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/), navigate to data map, then the collections tab, and select the collection where a user needs to be added. From the Role Assignments tab, they'll be able to add and manage users who need permissions.
 
 For full instructions, see our [how-to guide for adding role assignments](how-to-create-and-manage-collections.md#add-role-assignments).
+
+## Administrator change
+
+There may be a time when your [root collection admin](#roles) needs to change. By default, the user who creates the Microsoft Purview account is automatically assigned collection admin to the root collection. To update the root collection admin, there are three options:
+
+- You can [assign permissions through the portal](how-to-create-and-manage-collections.md#add-role-assignments) as you have for any other role.
+
+- You can use the REST API to add a collection administrator. Instructions to use the REST API to add a collection admin can be found in our [REST API for collections documentation.](tutorial-metadata-policy-collections-apis.md#add-the-root-collection-administrator-role) For additional information, you can see our [REST API reference](/rest/api/purview/accounts/add-root-collection-admin).
+
+- You can also use [the below Azure CLI command](/cli/azure/purview/account#az-purview-account-add-root-collection-admin). The object-id is optional. For more information and an example, see the [CLI command reference page](/cli/azure/purview/account#az-purview-account-add-root-collection-admin).
+
+    ```azurecli
+    az purview account add-root-collection-admin --account-name [Microsoft Purview Account Name] --resource-group [Resource Group Name] --object-id [User Object Id]
+    ```
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster
 description: Learn how to quickly create a Kubernetes cluster using an Azure Resource Manager template and deploy an application in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: quickstart
-ms.date: 04/28/2021
+ms.date: 04/29/2021
 ms.custom: mvc, subject-armqs, devx-track-azurecli, mode-arm
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
@@ -116,7 +116,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
     ```
 
-### Run the application
+### Deploy the application
 
 A [Kubernetes manifest file][kubernetes-deployment] defines a cluster's desired state, such as which container images to run.
 
