@@ -40,7 +40,7 @@ Next, you'll need to modify the template to include the region you're moving you
 To modify the template you exported:
 
 1. Open the template.json file you extracted from the zip folder and a text editor of your choice, such as Notepad.
-2. In each resource inside the template file, find the "location" property and modify it to the location you want to move them to. For example, if your deployment's currently in the East US region but you want to move it to the West US region, you'd change the "eastus" location to "westus."
+2. In each resource inside the template file, find the "location" property and modify it to the location you want to move them to. For example, if your deployment's currently in the East US region but you want to move it to the West US region, you'd change the "eastus" location to "westus." Learn more about which Azure regions you can use at [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/#geographies).
 3. For each host pool, remove the "publicNetworkAccess" parameter, if present.
 
 ## Delete original resources
