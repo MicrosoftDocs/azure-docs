@@ -8,8 +8,6 @@ author: bmansheim
 ---
 # Introduction to Microsoft Defender for Servers
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Microsoft Defender for Servers is one of the enhanced security features of Microsoft Defender for Cloud. Use it to add threat detection and advanced defenses to your Windows and Linux machines whether they're running in Azure, AWS, GCP, and on-premises environment.
 
 To protect machines in hybrid and multi-cloud environments, Defender for Cloud uses [Azure Arc](../azure-arc/index.yml). Connect your hybrid and multi-cloud machines as explained in the relevant quickstart:

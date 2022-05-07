@@ -4,7 +4,7 @@ description: Customers meeting the minimum commitment tier could use dedicated c
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 07/29/2021
+ms.date: 05/01/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -29,7 +29,7 @@ Dedicated clusters are managed with an Azure resource that represents Azure Moni
 
 Once a cluster is created, workspaces can be linked to it, and new ingested data to them is stored on the cluster. Workspaces can be unlinked from a cluster at any time and new data then stored on shared Log Analytics clusters. The link and unlink operation doesn't affect your queries and access to data before, and after the operation. The Cluster and workspaces must be in the same region.
 
-All operations on the cluster level require the `Microsoft.OperationalInsights/clusters/write` action permission on the cluster. This permission could be granted via the Owner or Contributor that contains the `*/write` action or via the Log Analytics Contributor role that contains the `Microsoft.OperationalInsights/*` action. For more information on Log Analytics permissions, see [Manage access to log data and workspaces in Azure Monitor](./manage-access.md). 
+Operations on the cluster level require Microsoft.OperationalInsights/clusters/write action permission. Linking workspaces to a cluster requires both Microsoft.OperationalInsights/clusters/write and Microsoft.OperationalInsights/workspaces/write actions. Permission could be granted by the Owner or Contributor that have `*/write` action, or by  the Log Analytics Contributor role that have `Microsoft.OperationalInsights/*` action. For more information on Log Analytics permissions, see [Manage access to log data and workspaces in Azure Monitor](./manage-access.md). 
 
 
 ## Cluster pricing model
@@ -48,7 +48,7 @@ The user account that creates the clusters must have the standard Azure resource
 
 After you create your cluster resource, you can edit additional properties such as *sku*, *keyVaultProperties, or *billingType*. See more details below.
 
-You can have up to two active clusters per subscription per region. If the cluster is deleted, it is still reserved for 14 days. You can have up to four reserved clusters per subscription per region (active or recently deleted).
+You can have up to five active clusters per subscription per region. If the cluster is deleted, it is still reserved for 14 days. You can have up to four reserved clusters per subscription per region (active or recently deleted).
 
 > [!NOTE]
 > Cluster creation triggers resource allocation and provisioning. This operation can take a few hours to complete.
@@ -579,7 +579,7 @@ Authorization: Bearer <token>
 
 ## Limits and constraints
 
-- A maximum of two active clusters can be created in each region and subscription.
+- A maximum of five active clusters can be created in each region and subscription.
 
 - A maximum number of four reserved clusters (active or recently deleted) can be created in each region and subscription.
 

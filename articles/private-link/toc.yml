@@ -12,6 +12,9 @@
     href: create-private-endpoint-powershell.md
   - name: Create a private endpoint - Azure CLI
     href: create-private-endpoint-cli.md
+  - name: Create a private endpoint - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: create-private-endpoint-bicep.md
   - name: Create a private endpoint - ARM template
     displayName: Azure Resource Manager
     href: create-private-endpoint-template.md

@@ -2,7 +2,7 @@
 title: Template functions
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 04/12/2022
+ms.date: 05/02/2022
 ---
 
 # ARM template functions
@@ -85,6 +85,8 @@ For Bicep files, use the [coalesce](../bicep/operators-logical.md) logical opera
 Resource Manager provides the following functions for working with dates.
 
 * [dateTimeAdd](template-functions-date.md#datetimeadd)
+* [dateTimeFromEpoch](template-functions-date.md#datetimefromepoch)
+* [dateTimeToEpoch](template-functions-date.md#datetimetoepoch)
 * [utcNow](template-functions-date.md#utcnow)
 
 For Bicep files, use the [date](../bicep/bicep-functions-date.md) functions.

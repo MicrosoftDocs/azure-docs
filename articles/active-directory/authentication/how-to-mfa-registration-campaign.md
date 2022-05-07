@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 05/05/2022
 
 ms.author: justinha
 author: mjsantani
@@ -63,7 +63,7 @@ In addition to choosing who can be nudged, you can define how many days a user c
 
       ![Installation complete](./media/how-to-nudge-authenticator-app/finish.png)
 
-1. If a user wishes to not install the Authenticator app, they can tap **Not now** to snooze the prompt for a number of days, which can be defined by an admin. 
+1. If a user wishes to not install Microsoft Authenticator, they can tap **Not now** to snooze the prompt for up to 14 days, which can be set by an admin. 
  
    ![Snooze installation](./media/how-to-nudge-authenticator-app/snooze.png)
 

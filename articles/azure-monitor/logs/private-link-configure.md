@@ -103,9 +103,9 @@ To add a new connection, select **Add** and select the Azure Monitor Private Lin
 ### Virtual networks access configuration - Managing access from outside of private links scopes
 The settings on the bottom part of this page control access from public networks, meaning networks not connected to the listed scopes (AMPLSs).
 
-If you set **Allow public network access for ingestion** to **No**, then clients (machines, SDKs, etc.) outside of the connected scopes can't upload data or send logs to the resource.
+If you set **Accept data ingestion from public networks not connected through a Private Link Scope** to **No**, then clients (machines, SDKs, etc.) outside of the connected scopes can't upload data or send logs to the resource.
 
-If you set **Allow public network access for queries** to **No**, then clients (machines, SDKs etc.) outside of the connected scopes can't query data in the resource. That data includes access to logs, metrics, and the live metrics stream, as well as experiences built on top such as workbooks, dashboards, query API-based client experiences, insights in the Azure portal, and more. Experiences running outside the Azure portal and that query Log Analytics data also have to be running within the private-linked VNET.
+If you set **Accept queries from public networks not connected through a Private Link Scope** to **No**, then clients (machines, SDKs etc.) outside of the connected scopes can't query data in the resource. That data includes access to logs, metrics, and the live metrics stream, as well as experiences built on top such as workbooks, dashboards, query API-based client experiences, insights in the Azure portal, and more. Experiences running outside the Azure portal and that query Log Analytics data also have to be running within the private-linked VNET.
 
 
 ## Use APIs and command line
