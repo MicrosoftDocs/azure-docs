@@ -34,7 +34,7 @@ If you prefer to try out things without provisioning a full environment yourself
 Implement this step before moving to the next step. To deploy PostgreSQL Hyperscale server group onto Red Hat OpenShift in a project other than the default, you need to execute the following commands against your cluster to update the security constraints. This command grants the necessary privileges to the service accounts that will run your PostgreSQL Hyperscale server group. The security context constraint (SCC) arc-data-scc is the one you added when you deployed the Azure Arc data controller.
 
 ```Console
-oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace name>
+oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace-name>
 ```
 
 **Server-group-name is the name of the server group you will create during the next step.**
