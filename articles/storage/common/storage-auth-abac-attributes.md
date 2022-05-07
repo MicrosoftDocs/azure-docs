@@ -394,6 +394,9 @@ This section lists the Azure Blob storage attributes you can use in your conditi
 > [!NOTE]
 > Blob index tags are not supported for Data Lake Storage Gen2 storage accounts, which have a [hierarchical namespace](../blobs/data-lake-storage-namespace.md) (HNS). You should not author role assignment conditions using index tags on storage accounts that have HNS enabled.
 
+> [!NOTE]
+> Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags](../storage/blobs/storage-manage-find-blobs.md).
+
 ### Blob index tags [Values in key]
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -409,6 +412,9 @@ This section lists the Azure Blob storage attributes you can use in your conditi
 
 > [!NOTE]
 > Blob index tags are not supported for Data Lake Storage Gen2 storage accounts, which have a [hierarchical namespace](../blobs/data-lake-storage-namespace.md) (HNS). You should not author role assignment conditions using index tags on storage accounts that have HNS enabled.
+
+> [!NOTE]
+> Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags](../storage/blobs/storage-manage-find-blobs.md).
 
 ### Blob path
 
