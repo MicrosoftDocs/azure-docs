@@ -29,6 +29,8 @@ This quickstart demonstrates a solution for a Windows-based workstation. However
 
 The following prerequisites are for a Windows development environment. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
 
+* Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
+
 ::: zone pivot="programming-language-ansi-c"
 
 * Install [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
@@ -57,7 +59,9 @@ The following prerequisites are for a Windows development environment. For Linux
 
 * [Python 3.6 or later](https://www.python.org/downloads/) on your machine.
 
-* Install [OpenSSL](https://www.openssl.org/) on your machine and is added to the environment variables accessible to the command window. This library can either be built and installed from source or downloaded and installed from a [third party](https://wiki.openssl.org/index.php/Binaries) such as [this](https://sourceforge.net/projects/openssl/).
+* Make sure [OpenSSL](https://www.openssl.org/) is installed on your machine. On Windows, your installation of Git includes an installation of OpenSSL. You can access OpenSSL from the Git Bash command prompt. To verify that OpenSSL is installed, open a Git Bash command prompt and enter `openssl version`.
+
+  Unless you're familiar with OpenSSL and already have it installed on your Windows machine, we recommend using OpenSSL from the GitBash prompt. Alternatively, you can choose to download the source and build OpenSSL. To learn more, see the [OpenSSL Downloads](https://www.openssl.org/source/) page. You can also choose to download OpenSSL from a third-party. To learn more, see the [OpenSSL wiki](https://wiki.openssl.org/index.php/Binaries). Microsoft makes no guarantees about the validity of packages downloaded from third-parties. If you do choose to build or download OpenSSL make sure that the OpenSSL binary is accessible in your path and that the OPENSSL_CNF environment variable is set to the path of your openssl.cnf file.
 
 ::: zone-end
 
@@ -68,8 +72,6 @@ The following prerequisites are for a Windows development environment. For Linux
 * Download and install [Maven](https://maven.apache.org/install.html).
 
 ::: zone-end
-
-* Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
 
 ## Prepare your development environment
 
@@ -157,7 +159,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 ::: zone pivot="programming-language-python"
 
-1. Open a Git CMD or Git Bash command line environment.
+1. Open Git Bash command line environment.
 
 2. Clone the [Azure IoT Samples for Python](https://github.com/Azure/azure-iot-sdk-node.git) GitHub repository using the following command:
 
@@ -302,7 +304,7 @@ In addition to the tooling in the C SDK, the [Group certificate verification sam
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./python-device.key.pem -out ./python-device.pem -days 365 -extensions usr_cert -subj "//CN=Python-device-01"
+    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./python-device.key.pem -out ./python-device.pem -days 365 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=Python-device-01"
     ```
 
     > [!IMPORTANT]
@@ -311,7 +313,7 @@ In addition to the tooling in the C SDK, the [Group certificate verification sam
     # [Linux](#tab/linux)
 
     ```bash
-    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./python-device.key.pem -out ./python-device.pem -days 365 -extensions usr_cert -subj "/CN=Python-device-01"
+    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./python-device.key.pem -out ./python-device.pem -days 365 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=Python-device-01"
     ```
 
     ---
@@ -324,6 +326,21 @@ A test certificate file (*python-device.pem*) and private key file (*python-devi
 
 The certificate file has its subject common name (CN) set to `Python-device-01`. For an X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
 
+To view the common name (CN) and other properties of the certificate file, enter te following command.
+
+# [Windows](#tab/windows)
+
+```bash
+winpty openssl x509 -in ./python-device.pem -text -noout
+```
+
+# [Linux](#tab/linux)
+
+```bash
+openssl x509 -in ./python-device.pem -text -noout
+```
+
+---
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
@@ -607,30 +624,7 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
 
 4. The registration ID for the IoT device must match subject name on its device certificate. If you generated a self-signed test certificate, `Python-device-01` is both the subject name and the registration ID for the device.
 
-    If you already have a device certificate, you can use `certutil` to verify the subject common name used for your device, as shown below:
-
-    ```bash
-    $ certutil python-device.pem
-    X509 Certificate:
-    Version: 3
-    Serial Number: fa33152fe1140dc8
-    Signature Algorithm:
-        Algorithm ObjectId: 1.2.840.113549.1.1.11 sha256RSA
-        Algorithm Parameters:
-        05 00
-    Issuer:
-        CN=Python-device-01
-      Name Hash(sha1): 1dd88de40e9501fb64892b698afe12d027011000
-      Name Hash(md5): a62c784820daa931b9d3977739b30d12
-
-     NotBefore: 1/29/2021 7:05 PM
-     NotAfter: 1/29/2022 7:05 PM
-
-    Subject:
-        ===> CN=Python-device-01 <===
-      Name Hash(sha1): 1dd88de40e9501fb64892b698afe12d027011000
-      Name Hash(md5): a62c784820daa931b9d3977739b30d12
-    ```
+    If you already have a device certificate, you can use `openssl` to verify the subject common name used for your device, as shown in [Create a test certificate](#create-a-test-certificate).
 
 5. In the Git Bash prompt, set the environment variable for the registration ID as follows:
 
