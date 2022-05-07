@@ -237,6 +237,7 @@ For the details on installation, refer to the [GitOps Connector](https://github.
 | ENVIRONMENT_NAME | Dev |
 | MANIFESTS_BRANCH | `master` |
 | MANIFESTS_REPO | `arc-cicd-demo-gitops` |
+| MANIFESTS_FOLDER | `arc-cicd-cluster` |
 | ORGANIZATION_NAME | Name of Azure DevOps organization |
 | PROJECT_NAME | Name of GitOps project in Azure DevOps |
 | REPO_URL | Full URL for GitOps repository |
