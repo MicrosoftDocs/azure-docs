@@ -14,7 +14,7 @@ ms.author: eur
 
 # Upload data for Custom Speech
 
-You need audio or text data for testing the accuracy of Microsoft speech recognition or training your custom models. For information about the data types supported for testing or training your model, see [Prepare data for Custom Speech](how-to-custom-speech-test-and-train.md).
+You need audio or text data for testing the accuracy of Microsoft speech recognition or training your custom models. For information about the data types supported for testing or training your model, see [Training and testing data](how-to-custom-speech-test-and-train.md).
 
 ## Upload data in Speech Studio
 

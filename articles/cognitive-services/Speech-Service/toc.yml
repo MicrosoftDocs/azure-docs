@@ -66,16 +66,10 @@ items:
       items:
         - name: What is Custom Speech?
           href: custom-speech-overview.md
-        - name: Prepare data for Custom Speech
-          items:
-          - name: Diverse data types
-            href: how-to-custom-speech-test-and-train.md
-          - name: Human-labeled transcripts with audio
-            href: how-to-custom-speech-human-labeled-transcriptions.md
-          - name: Structured text phonetic pronunciation
-            href: customize-pronunciation.md
         - name: Create a custom speech model 
           items:
+          - name: Choose a Custom Speech model
+            href: how-to-custom-speech-upload-data.md
           - name: Upload data for Custom Speech
             href: how-to-custom-speech-upload-data.md
           - name: Inspect Custom Speech data
@@ -86,6 +80,14 @@ items:
             href: how-to-custom-speech-train-model.md
           - name: CI/CD for Custom Speech
             href: how-to-custom-speech-continuous-integration-continuous-deployment.md
+        - name: Custom Speech data types
+          items:
+          - name: Training and testing data overview
+            href: how-to-custom-speech-test-and-train.md
+          - name: Human-labeled transcripts with audio
+            href: how-to-custom-speech-human-labeled-transcriptions.md
+          - name: Structured text phonetic pronunciation
+            href: customize-pronunciation.md
         - name: Custom Speech model lifecycle
           href: how-to-custom-speech-model-and-endpoint-lifecycle.md
     - name: Improve recognition with phrase list
