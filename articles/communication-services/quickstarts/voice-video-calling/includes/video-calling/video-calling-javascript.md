@@ -97,13 +97,6 @@ The following classes and interfaces handle some of the major features of the Az
 
 Create a file in the root directory of your project called `client.js` to contain the application logic for this quickstart. Add the following code to client.js:
 ```JavaScript
-/*************************************
- * Example code - client.js          *
- * Convert this script into a        *
- * bundle.js that your html index    *
- * page can use.                     *
- *************************************/
-
 // Make sure to install the necessary dependencies
 const { CallClient, VideoStreamRenderer, LocalVideoStream } = require('@azure/communication-calling');
 const { AzureCommunicationTokenCredential } = require('@azure/communication-common');
