@@ -899,7 +899,7 @@ Arabic|`ar-DZ`<br/>`ar-BH`<br/>`ar-EG`<br/>`ar-IQ`<br/>`ar-OM`<br/>`ar-SY`|
 
 ## Pronunciation assessment
 
-The [pronunciation assessment](how-to-pronunciation-assessment.md) feature supports the following released languages and preview languages.
+The [pronunciation assessment](how-to-pronunciation-assessment.md) feature supports all available [Speech-to-Text languages](#speech-to-text) in all [Speech-to-Text regions](regions.md#speech-to-text-text-to-speech-and-translation). The following table only lists the released languages and public preview languages.
 
 | Language | Locale |
 |--|--|
@@ -911,9 +911,7 @@ The [pronunciation assessment](how-to-pronunciation-assessment.md) feature suppo
 |Spanish (Spain)|`es-ES`<sup>Public preview</sup> |
 
 > [!NOTE]
-> In addition to released languages and public preview languages, you can also try other available [Speech-to-Text languages](#speech-to-text) and send us your feedback (pronscorefeedback@microsoft.com). If you use the Pronunciation Assessment API, you can switch to other locales without any approval from Microsoft. But when you use this feature through the Speech Studio portal, you need to be granted to try the non-public languages. You can send us a request email to pronscorefeedback@microsoft.com to get access to the non-public languages. 
-> 
-> The feature is available in all [Speech-to-Text regions](regions.md#speech-to-text-text-to-speech-and-translation). 
+> If you use the Speech SDK or API, you can switch to other available [Speech-to-Text languages](#speech-to-text) including non-public ones without any approval from Microsoft. But when you use this feature through the Speech Studio portal, you need permission to try the non-public languages. You can send email to [pronscorefeedback@microsoft.com](mailto:pronscorefeedback@microsoft.com) to request access to the non-public languages or share feedback.
 
 ## Speech translation
 
