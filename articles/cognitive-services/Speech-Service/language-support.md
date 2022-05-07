@@ -911,7 +911,9 @@ The following table lists the released languages and public preview languages.
 |Spanish (Spain)|`es-ES`<sup>Public preview</sup> |
 
 > [!NOTE]
-> The [pronunciation assessment](how-to-pronunciation-assessment.md) feature supports more [Speech-to-Text languages](#speech-to-text) in all [Speech-to-Text regions](regions.md#speech-to-text-text-to-speech-and-translation). If you want to try the non-public languages, you can send email to [mspafeedback@microsoft.com](mailto:mspafeedback@microsoft.com) for more details.
+> The [pronunciation assessment](how-to-pronunciation-assessment.md) feature supports more [Speech-to-Text languages](#speech-to-text). If you want to try the non-public languages, you can send email to [mspafeedback@microsoft.com](mailto:mspafeedback@microsoft.com) for more details.
+>  
+> For pronunciation assessment feature, the released en-US language is available in all [Speech-to-Text regions](regions.md#speech-to-text-text-to-speech-and-translation), and preview languages are available in one region: West US.
 
 ## Speech translation
 
