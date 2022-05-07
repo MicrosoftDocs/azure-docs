@@ -1,5 +1,5 @@
 ---
-title: "Training and testing data - Speech service"
+title: "Training and testing datasets - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Learn about types of data for a Custom Speech model, along with how to use and manage that data.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.author: eur
 ms.custom: ignite-fall-2021
 ---
 
-# Training and testing data
+# Training and testing datasets
 
 When you're testing the accuracy of Microsoft speech recognition or training your custom models, you need audio and text data. This article covers the types of data that a Custom Speech model needs.
 
@@ -52,7 +52,7 @@ The following table lists accepted data types, when each data type should be use
 | [Audio only](#audio-data-for-testing) | Yes (visual inspection) | 5+ audio files | No | Not applicable |
 | [Audio + human-labeled transcripts](#audio--human-labeled-transcript-data-for-training-or-testing) | Yes (evaluation of accuracy) | 0.5-5 hours of audio | Yes | 1-20 hours of audio |
 | [Plain text](#plain-text-data-for-training) | No | Not applicable | Yes | 1-200 MB of related text |
-| [Structured text](#structured-text-data-for-training-public-preview) (public preview) | No | Not applicable | Yes | Up to 10 classes with up to 4,000 items and up to 50,000 training sentences |
+| [Structured text](#structured-text-data-for-training) (public preview) | No | Not applicable | Yes | Up to 10 classes with up to 4,000 items and up to 50,000 training sentences |
 | [Pronunciation](#pronunciation-data-for-training) | No | Not applicable | Yes | 1 KB to 1 MB of pronunciation text |
 
 Training with plain text or structured text usually finishes within a few minutes. 

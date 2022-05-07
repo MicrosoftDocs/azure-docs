@@ -66,23 +66,23 @@ items:
       items:
         - name: What is Custom Speech?
           href: custom-speech-overview.md
-        - name: Create a custom speech model 
+        - name: Create a Custom Speech model 
           items:
-          - name: Choose a Custom Speech model
+          - name: Choose a model
             href: how-to-custom-speech-choose-model.md
-          - name: Upload data for Custom Speech
+          - name: Upload testing and training datasets
             href: how-to-custom-speech-upload-data.md
-          - name: Inspect Custom Speech data
+          - name: Test recognition quality
             href: how-to-custom-speech-inspect-data.md
-          - name: Evaluate and improve Custom Speech accuracy
+          - name: Test model accuracy
             href: how-to-custom-speech-evaluate-data.md
-          - name: Train a Custom Speech model
+          - name: Train a model
             href: how-to-custom-speech-train-model.md
-          - name: Deploy a Custom Speech model
+          - name: Deploy a model
             href: how-to-custom-speech-deploy-model.md
         - name: Custom Speech datasets
           items:
-          - name: Training and testing data overview
+          - name: Training and testing datasets
             href: how-to-custom-speech-test-and-train.md
           - name: Human-labeled transcripts with audio
             href: how-to-custom-speech-human-labeled-transcriptions.md

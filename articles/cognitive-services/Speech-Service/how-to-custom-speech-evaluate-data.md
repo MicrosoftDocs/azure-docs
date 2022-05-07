@@ -1,5 +1,5 @@
 ---
-title: "Evaluate and improve Custom Speech accuracy - Speech service"
+title: "Test model accuracy - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "In this article, you learn how to quantitatively measure and improve the quality of our speech-to-text model or your custom model."
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.author: eur
 ms.custom: ignite-fall-2021
 ---
 
-# Evaluate and improve Custom Speech accuracy
+# Test model accuracy
 
 In this article, you learn how to quantitatively measure and improve the accuracy of the Microsoft speech-to-text model or your own custom models. Audio + human-labeled transcription data is required to test accuracy, and 30 minutes to 5 hours of representative audio should be provided in the [Speech Studio](speech-studio-overview.md). 
 
@@ -107,7 +107,7 @@ When you train a new custom model, start by adding plain text sentences of relat
 
 ### Add structured text data
 
-You can use structured text data in markdown format as you would with plain text sentences, but you would use structured text data when your data follows a particular pattern in particular utterances that differ only by words or phrases from a list. For more information, see [Structured text data for training](how-to-custom-speech-test-and-train.md#structured-text-data-for-training-public-preview). 
+You can use structured text data in markdown format as you would with plain text sentences, but you would use structured text data when your data follows a particular pattern in particular utterances that differ only by words or phrases from a list. For more information, see [Structured text data for training](how-to-custom-speech-test-and-train.md#structured-text-data-for-training). 
 
 > [!NOTE]
 > Training with structured text is supported only for these locales: en-US, de-DE, en-UK, en-IN, fr-FR, fr-CA, es-ES, and es-MX. You must use the latest base model for these locales. See [Language support](language-support.md) for a list of base models that support training with structured text data.

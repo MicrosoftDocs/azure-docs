@@ -1,5 +1,5 @@
 ---
-title: "Upload data for Custom Speech - Speech service"
+title: "Upload testing and training datasets for Custom Speech - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Learn about how to upload data to test or train a Custom Speech model.
 services: cognitive-services
@@ -12,9 +12,9 @@ ms.date: 03/03/2022
 ms.author: eur
 ---
 
-# Upload data for Custom Speech
+# Upload testing and training datasets for Custom Speech 
 
-You need audio or text data for testing the accuracy of Microsoft speech recognition or training your custom models. For information about the data types supported for testing or training your model, see [Training and testing data](how-to-custom-speech-test-and-train.md).
+You need audio or text data for testing the accuracy of Microsoft speech recognition or training your custom models. For information about the data types supported for testing or training your model, see [Training and testing datasets](how-to-custom-speech-test-and-train.md).
 
 ## Upload data in Speech Studio
 

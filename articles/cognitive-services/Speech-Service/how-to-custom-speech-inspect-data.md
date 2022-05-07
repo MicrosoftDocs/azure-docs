@@ -12,7 +12,7 @@ ms.date: 02/12/2021
 ms.author: eur
 ---
 
-# Inspect Custom Speech data
+# Test recognition quality
 
 Custom Speech lets you visually inspect the recognition quality of a model in the [Speech Studio](https://aka.ms/speechstudio/customspeech). You can play back uploaded audio and determine if the provided recognition result is correct. This tool helps you inspect quality of Microsoft's baseline speech-to-text model, inspect a trained custom model, or compare transcription by two models.
 
