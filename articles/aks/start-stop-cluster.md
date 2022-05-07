@@ -144,6 +144,7 @@ If the `ProvisioningState` shows `Starting` that means your cluster hasn't fully
 - To learn how to scale `User` pools to 0, see [Scale `User` pools to 0](scale-cluster.md#scale-user-node-pools-to-0).
 - To learn how to save costs using Spot instances, see [Add a spot node pool to AKS](spot-node-pool.md).
 - To learn more about the AKS support policies, see [AKS support policies](support-policies.md).
+- To learn how to troubleshoot common issues, see [AKS FAQ](faq.md).
 
 <!-- LINKS - external -->
 
