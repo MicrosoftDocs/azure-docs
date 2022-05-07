@@ -33,6 +33,10 @@ For information about the prerequisites to add or edit role assignment condition
 
 This condition allows users to read blobs with a blob index tag key of Project and a tag value of Cascade. Attempts to access blobs without this key-value tag will not be allowed.
 
+You must add this condition to any role assignments that include the following permission.
+
+- `/blobs/read`
+
 > [!TIP]
 > Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags](../blobs/storage-manage-find-blobs.md).
 
@@ -383,7 +387,7 @@ $content = Remove-AzStorageBlob -Container $grantedContainer -Blob "Example5.txt
 
 ### Example: Read blobs in named containers with a path
 
-This condition allows read access to storage containers named blobs-example-container with a blob path of readonly/*. This condition does not allow a user to list or download blobs. This condition is useful for sharing specific parts of storage containers for read access with other users in the subscription.
+This condition allows read access to storage containers named blobs-example-container with a blob path of readonly/*. This condition is useful for sharing specific parts of storage containers for read access with other users in the subscription.
 
 You must add this condition to any role assignments that include the following permission.
 
@@ -489,6 +493,9 @@ AND
 
 Here are the settings to add this condition using the Azure portal.
 
+> [!NOTE]
+> The Azure portal uses prefix='' to list blobs from container's root directory. After the condition is added with the list blobs operation using prefix StringStartsWith 'readonly/', targeted users won't be able to list blobs from container's root directory in the Azure portal.
+
 | Condition #1 | Setting |
 | --- | --- |
 | Actions | Read a blob |
@@ -590,7 +597,7 @@ $content = Set-AzStorageBlobContent -Container $grantedContainer -Blob "uploads/
 
 ### Example: Read blobs with a blob index tag and a path
 
-This condition allows a user to read blobs with a blob index tag key of Program, a tag value of Alpine, and a blob path of logs*. The blob path of logs* also includes the blob name. This condition does not allow a user to list or download blobs.
+This condition allows a user to read blobs with a blob index tag key of Program, a tag value of Alpine, and a blob path of logs*. The blob path of logs* also includes the blob name.
 
 > [!TIP]
 > Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags](../blobs/storage-manage-find-blobs.md).
@@ -848,7 +855,7 @@ Here are the settings to add this condition using the Azure portal.
 
 ### Example: Read blobs with specific encryption scopes
 
-This condition allows a user to read blobs with encryption scope validScope1 or validScope2.
+This condition allows a user to read blobs encrypted with encryption scope `validScope1` or `validScope2`.
 
 You must add this condition to any role assignments that include the following permission.
 
@@ -875,6 +882,57 @@ Here are the settings to add this condition using the Azure portal.
 | Condition #1 | Setting |
 | --- | --- |
 | Actions | Read a blob |
+| Attribute source | Resource |
+| Attribute | Encryption scope name |
+| Operator | ForAnyOfAnyValues:StringEquals |
+| Value | &lt;scopeName&gt; |
+
+### Example: Read or write blobs in named storage account with specific encryption scope
+
+This condition allows a user to read or write blobs in a storage account named `sampleaccount` and encrypted with encryption scope `ScopeCustomKey1`. If blobs are not encrypted or decrypted with `ScopeCustomKey1`, request will return forbidden.
+
+You must add this condition to any role assignments that include the following permissions.
+
+- `/blobs/read`
+- `/blobs/write`
+- `/blobs/add/action`
+
+> [!NOTE]
+> Since encryption scopes for different storage accounts could be different, it's recommended to use the `storageAccounts:name` attribute with the `encryptionScopes:name` attribute to restrict the specific encryption scope to be allowed.
+
+![Diagram of condition showing read or write access to blobs in sampleaccount storage account with encryption scope ScopeCustomKey1.](./media/storage-auth-abac-examples/encryption-scope-account-name-read-wite-blobs.png)
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'})
+ )
+ OR 
+ (
+  @Resource[Microsoft.Storage/storageAccounts:name] StringEquals 'sampleaccount'
+  AND
+  @Resource[Microsoft.Storage/storageAccounts/encryptionScopes:name] ForAnyOfAnyValues:StringEquals {'ScopeCustomKey1'}
+ )
+)
+```
+
+#### Azure portal
+
+Here are the settings to add this condition using the Azure portal.
+
+| Condition #1 | Setting |
+| --- | --- |
+| Actions | Read a blob<br/>Write to a blob<br/>Create a blob or snapshot, or append data |
+| Attribute source | Resource |
+| Attribute | Account name |
+| Operator | StringEquals |
+| Value | &lt;accountName&gt; |
+| **Expression 2** |  |
+| Operator | And |
 | Attribute source | Resource |
 | Attribute | Encryption scope name |
 | Operator | ForAnyOfAnyValues:StringEquals |
