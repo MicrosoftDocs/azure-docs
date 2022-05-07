@@ -17,12 +17,9 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 
 # Pronunciation assessment
 
-Pronunciation assessment evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. With pronunciation assessment, language learners can practice, get instant feedback, and improve their pronunciation so that they can speak and present with confidence. Educators can use the capability to evaluate pronunciation of multiple speakers in real time.
+Pronunciation assessment evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. With pronunciation assessment, language learners can practice, get instant feedback, and improve their pronunciation so that they can speak and present with confidence. Educators can use the capability to evaluate pronunciation of multiple speakers in real time. Pronunciation Assessment is announced generally available in US English, while [other languages](language-support.md#pronunciation-assessment) are available in preview. 
 
 In this article, you'll learn how to set up `PronunciationAssessmentConfig` and retrieve the `PronunciationAssessmentResult` using the speech SDK.
-
-> [!NOTE]
-> The [pronunciation assessment](how-to-pronunciation-assessment.md) feature supports all available [Speech-to-Text languages](language-support.md#speech-to-text) in all [Speech-to-Text regions](regions.md#speech-to-text-text-to-speech-and-translation). If you use the Speech SDK or API, you can switch to other available [Speech-to-Text languages](language-support.md#speech-to-text) including non-public ones without any approval from Microsoft. But when you use this feature through the Speech Studio portal, you need permission to try the non-public languages. You can send email to [pronscorefeedback@microsoft.com](mailto:pronscorefeedback@microsoft.com) to request access to the non-public languages or share feedback. For more information, see [languages support for pronunciation assessment](language-support.md#pronunciation-assessment).
 
 ## Pronunciation assessment with the Speech SDK
 
