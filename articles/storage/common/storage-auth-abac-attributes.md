@@ -382,6 +382,7 @@ This section lists the Azure Blob storage attributes you can use in your conditi
 > | **Attribute** | `Microsoft.Storage/storageAccounts:name` |
 > | **Attribute source** | Resource |
 > | **Attribute type** | String |
+> | **Examples** | `@Resource[Microsoft.Storage/storageAccounts:name] StringEquals 'sampleaccount'`<br/>[Example: Read or write blobs in named storage account with specific encryption scope](storage-auth-abac-examples.md#example-read-or-write-blobs-in-named-storage-account-with-specific-encryption-scope) |
 
 ### Blob index tags [Keys]
 
