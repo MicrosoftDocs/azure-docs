@@ -1,5 +1,5 @@
 ---
-title: Preparing for an access review of users' access to an application
+title: Preparing for an access review of users' access to an application - Azure AD
 description: Planning for a successful access reviews campaign for a particular application starts with understanding how to model access for that application in Azure AD.
 services: active-directory
 documentationCenter: ''
@@ -73,6 +73,7 @@ Now that you have identified the integration pattern for the application, check 
 1. If the application is not already listed, then check if the application is available the [application gallery](../manage-apps/overview-application-gallery.md) for applications that can be integrated for federated SSO or provisioning. If it is in the gallery, then use the [tutorials](../saas-apps/tutorial-list.md) to configure the application for federation, and if it supports provisioning, also [configure the application](/app-provisioning/configure-automatic-user-provisioning-portal.md) for provisioning.
 1. One the application is in the list of enterprise applications in your tenant, select the application from the list.
 1. Change to the **Properties** tab.  Verify that the **User assignment required?** option is set to **Yes**. If it's set to **No**, all users in your directory, including external identities, can access the application, and you can't review access to the application.
+
    ![Screenshot that shows planning app assignments.](./media/deploy-access-review/6-plan-applications-assignment-required.png)
 
 1. Change to the **Roles and administrators** tab. This tab displays the administrative roles, that give rights to control the representation of the application in Azure AD, not the access rights in the application.  For each administrative role that has permissions to allow changing the application integration or assignments, and has an assignment to that administrative role, ensure that only authorized users are in that role.
