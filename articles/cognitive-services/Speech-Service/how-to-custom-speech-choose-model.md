@@ -15,14 +15,6 @@ ms.custom: contperf-fy21q2, references_regions
 
 # Choose a model for Custom Speech
 
-With Custom Speech, you can evaluate and improve the Microsoft speech-to-text accuracy for your applications and products. 
-
-Out of the box, speech to text utilizes a Universal Language Model as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. This base model is pre-trained with dialects and phonetics representing a variety of common domains. As a result, consuming the base model requires no additional configuration and works very well in most scenarios. When you make a speech recognition request, the current base model for each [supported language](language-support.md) is used by default.
-
-The base model may not be sufficient if the audio contains ambient noise or includes a lot of industry and domain-specific jargon. In these cases, you can create and train custom speech models with acoustic, language, and pronunciation data. Custom speech models are private and can offer a competitive advantage. 
-
-## Custom Speech models
-
 Custom Speech models are created by adapting a chosen base model with data from your particular customer scenario. Once you create a custom model, the speech recognition accuracy and quality will remain consistent, even if the base model from which it was adapted gets updated.
 
 Base models are updated periodically to improve accuracy and quality. We recommend that if you use base models, use the latest default base models. But with Custom Speech you can take a snapshot of a particular base model without training it. In this case, "custom" means that speech recognition is pinned to a base model from a particular point in time.
@@ -31,16 +23,18 @@ Whether you train a new model or use a snapshot of a base model, you can use the
 
 ## Choose your model
 
+There are a few approaches to using speech-to-text models:
+- The base model applies when the audio is clear of ambient noise and the speech transcribed consists of commonly spoken language.
+- A custom model augments the base model to include domain-specific vocabulary shared across all areas of the custom domain.
+- Multiple custom models can be used when the custom domain has multiple areas, each with a specific vocabulary.
+
 The best way to see if the base model will suffice is to analyze the transcription produced from the base model and compare it with a human-generated transcript for the same audio. You can use the Speech Studio, Speech CLI, or REST API to compare the transcripts and obtain a word error rate (WER) score. If there are multiple incorrect word substitutions when evaluating the results, then training a custom model to recognize those words is recommended.
 
-Furthermore, depending on the size of the custom domain, it may also make sense to train multiple models and compartmentalize a model for an individual application. One model is typically sufficient if the utterances are closely related to one area or domain. On the other hand, multiple models are best if the vocabulary is quite different across the domain areas. Regardless, this situation still requires a decent variety of training data. For instance, Olympic commentators report on various events, each associated with its own vernacular. Because each Olympic event vocabulary differs significantly from others, building a custom model specific to an event increases accuracy by limiting the utterance data relative to that particular event. As a result, the model doesn’t need to sift through unrelated data to make a match. Include audio from various commentators who have different accents, gender, age, etc. 
+Furthermore, depending on the size of the custom domain, it may also make sense to train multiple models and compartmentalize a model for an individual application. 
+
+One model is typically sufficient if the utterances are closely related to one area or domain. On the other hand, multiple models are best if the vocabulary is quite different across the domain areas. Regardless, this situation still requires a decent variety of training data. For instance, Olympic commentators report on various events, each associated with its own vernacular. Because each Olympic event vocabulary differs significantly from others, building a custom model specific to an event increases accuracy by limiting the utterance data relative to that particular event. As a result, the model doesn’t need to sift through unrelated data to make a match. Include audio from various commentators who have different accents, gender, age, etc. 
 
 In addition, it is essential to consider which languages and locales need to be supported; it may make sense to create these models by locale. 
-
-There are three different approaches to implementing Azure speech-to-text:
-1)	The base model applies when the audio is clear of ambient noise and the speech transcribed consists of commonly spoken language.
-2)	A custom model augments the base model to include domain-specific vocabulary shared across all areas of the custom domain.
-3)	Multiple custom models make sense when the custom domain has numerous areas, each a specific vocabulary.
 
 
 ## Prerequisites

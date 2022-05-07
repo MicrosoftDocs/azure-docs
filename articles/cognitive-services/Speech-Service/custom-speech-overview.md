@@ -21,10 +21,10 @@ Out of the box, speech to text utilizes a Universal Language Model as a base mod
 
 The base model may not be sufficient if the audio contains ambient noise or includes a lot of industry and domain-specific jargon. In these cases, you can create and train custom speech models with acoustic, language, and pronunciation data. Custom speech models are private and can offer a competitive advantage. 
 
-There are three approaches to using speech-to-text models:
-1)	The base model applies when the audio is clear of ambient noise and the speech transcribed consists of commonly spoken language.
-2)	A custom model augments the base model to include domain-specific vocabulary shared across all areas of the custom domain.
-3)	Multiple custom models make sense when the custom domain has numerous areas, each a specific vocabulary.
+There are a few approaches to using speech-to-text models:
+- The base model applies when the audio is clear of ambient noise and the speech transcribed consists of commonly spoken language.
+- A custom model augments the base model to include domain-specific vocabulary shared across all areas of the custom domain.
+- Multiple custom models can be used when the custom domain has multiple areas, each with a specific vocabulary.
 
 For more information, see [Choose a model for Custom Speech](how-to-custom-speech-choose-model.md).
 

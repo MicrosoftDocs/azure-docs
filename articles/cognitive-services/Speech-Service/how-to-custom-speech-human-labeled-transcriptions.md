@@ -14,17 +14,23 @@ ms.author: eur
 
 # How to create human-labeled transcriptions
 
-Human-labeled transcriptions are word-by-word transcriptions of an audio file. You use human-labeled transcriptions to improve recognition accuracy, especially when words are deleted or incorrectly replaced.
+Human-labeled transcriptions are word-by-word transcriptions of an audio file. You use human-labeled transcriptions to improve recognition accuracy, especially when words are deleted or incorrectly replaced. This guide can help you create high-quality transcriptions. 
 
-A large sample of transcription data is required to improve recognition. We suggest providing between 1 and 20 hours of transcription data. The Speech service will use up to 20 hours of audio for training. On this page, we'll review guidelines designed to help you create high-quality transcriptions. This guide is broken up by locale, with sections for US English, Mandarin Chinese, and German.
+A large sample of transcription data is required to improve recognition. We suggest providing between 1 and 20 hours of audio data. The Speech service will use up to 20 hours of audio for training. This guide is broken up by locale, with sections for US English, Mandarin Chinese, and German.
 
-> [!NOTE]
-> If a base model doesn't support customization with audio data, only the transcription text will be used for training. If you switch to a base model that supports customization with audio data, the training time may increase from several hours to several days. The change in training time would be most noticeable when you switch to a base model in a region without dedicated hardware for training.
+The transcriptions for all WAV files are contained in a single plain-text file. Each line of the transcription file contains the name of one of the audio files, followed by the corresponding transcription. The file name and transcription are separated by a tab (`\t`).
 
-See [Language support](language-support.md#speech-to-text) for a list of base models that support training with audio data.
+For example:
 
+```tsv
+speech01.wav	speech recognition is awesome
+speech02.wav	the quick brown fox jumped all over the place
+speech03.wav	the lazy dog was not amused
+```
 
-Human-labeled transcriptions for languages other than English and Mandarin Chinese, must be UTF-8 encoded with a byte-order marker. One human-labeled transcript should be provided for each audio file. For other locales transcription requirements, see the sections below.
+The transcriptions are text-normalized so the system can process them. However, you must do some important normalizations before you upload the dataset. 
+
+Human-labeled transcriptions for languages other than English and Mandarin Chinese, must be UTF-8 encoded with a byte-order marker. For other locales transcription requirements, see the sections below.
 
 ## en-US
 
@@ -85,7 +91,7 @@ Here are a few examples of normalization automatically performed on the transcri
 
 ## de-DE
 
-Human-labeled transcriptions for German audio must be UTF-8 encoded with a byte-order marker. One human-labeled transcript should be provided for each audio file.
+Human-labeled transcriptions for German audio must be UTF-8 encoded with a byte-order marker. 
 
 ### Text normalization for German
 
