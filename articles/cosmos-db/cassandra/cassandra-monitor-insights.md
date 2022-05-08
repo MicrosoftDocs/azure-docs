@@ -82,7 +82,7 @@ These operations can be analyzed within a given time interval, defined keyspace 
 
 :::image type="content" source="./media/cassandra-monitor-insights/total-cassandra-requests.png" alt-text="Screenshot image of a graph showing the total Cassandra requests for an account.":::
 
-:::image type="content" source="./media/cassandra-monitor-insights/total-request-units.png" alt-text="Screenshot image of a graph showing the total request units for a cassandra account.":::
+:::image type="content" source="./media/cassandra-monitor-insights/total-request-units.png" alt-text="Screenshot image of a graph showing the total request units for a Cassandra account.":::
 
 The Normalized RU Consumption metric is a metric between 0% to 100% that is used to help measure the utilization of provisioned throughput on a database or container. The metric can also be used to view the utilization of individual partition key ranges on a database or container. One of the main factors of a scalable application is having a good cardinality of partition keys.
 The chart below shows if your application’s high RU consumption is because of hot partition.
