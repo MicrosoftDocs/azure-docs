@@ -24,8 +24,8 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 > [!NOTE]
 > Anomalies are in **PREVIEW**. 
 
-
-## Anomalous Account Access Removal
+## UEBA anomalies
+### Anomalous Account Access Removal
 
 **Description:** Adversaries may interrupt availability of system and network resources by inhibiting access to accounts utilized by legitimate users. Accounts may be deleted, locked, or manipulated (ex: changed credentials) to remove access to accounts.
 
@@ -38,7 +38,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **Activity:**                    | Microsoft.Authorization/roleAssignments/delete<br>Log Out |
 
 
-## Anomalous Account Creation
+### Anomalous Account Creation
 
 **Description:** Adversaries may create an <!-- additional? -->account to maintain access to targeted systems. With a sufficient level of access, creating such accounts may be used to establish secondary credentialed access without requiring persistent remote access tools to be deployed on the system.
 
@@ -52,7 +52,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **Activity:**                    | Core Directory/UserManagement/Add user                             |
 
 
-## Anomalous Account Deletion
+### Anomalous Account Deletion
 
 **Description:** Adversaries may interrupt availability of system and network resources by inhibiting access to accounts utilized by legitimate users. Accounts may be deleted, locked, or manipulated (ex: changed credentials) to remove access to accounts.
 
@@ -65,7 +65,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **Activity:**                    | Core Directory/UserManagement/Delete user<br>Core Directory/Device/Delete user<br>Core Directory/UserManagement/Delete user |
 
 
-## Anomalous Account Discovery (no rule?)
+### Anomalous Account Discovery (no rule?)
 
 **Description:** Adversaries may attempt to get a listing of accounts on a system or within an environment. This information can help adversaries determine which accounts exist to aid in follow-on behavior.
 
@@ -79,7 +79,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **Activity:**                    | Microsoft.Sql/managedInstances/administrators/read<br>Microsoft.Sql/servers/administrators/read<br>Microsoft.Authorization/classicAdministrators/read |
 
 
-## Anomalous Account Manipulation
+### Anomalous Account Manipulation
 
 **Description:** Adversaries may manipulate accounts to maintain access to target systems. These actions include adding new accounts to high-privileged groups. Dragonfly 2.0, for example, added newly created accounts to the administrators group to maintain elevated access. The query below generates an output of all high-Blast Radius users performing "Update user" (name change) to privileged role, or ones that changed users for the first time.
 
@@ -92,7 +92,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **Activity:**                    | Core Directory/UserManagement/Update user                          |
 
 
-## Anomalous Application Deletion (no rule?)
+### Anomalous Application Deletion (no rule?)
 
 **Description:** Adversaries may interrupt availability of system and network resources by inhibiting access to accounts utilized by legitimate users. Accounts may be deleted, locked, or manipulated (ex: changed credentials) to remove access to accounts.
 
@@ -105,7 +105,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **Activity:**                    | <br><br> |
 
 
-## Anomalous Code Execution
+### Anomalous Code Execution
 
 **Description:** Adversaries may abuse command and script interpreters to execute commands, scripts, or binaries. These interfaces and languages provide ways of interacting with computer systems and are a common feature across many different platforms.
 
@@ -118,7 +118,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **Activity:**                | <br><br> |
 
 
-## Anomalous Credential Access
+### Anomalous Credential Access (no rule?)
 
 **Description:** Adversaries may search for common password storage locations to obtain user credentials. Once credentials are obtained, they can be used to perform lateral movement and access restricted information.
 
@@ -131,7 +131,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **Activity:**                | <br><br> |
 
 
-## Anomalous Data Destruction
+### Anomalous Data Destruction
 
 **Description:** Adversaries may destroy data and files on specific systems or in large numbers on a network to interrupt availability to systems, services, and network resources. Data destruction is likely to render stored data irrecoverable by forensic techniques through overwriting files or data on local and remote drives.
 
@@ -144,7 +144,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **Activity:**                | <br><br> |
 
 
-## Anomalous Data Discovery
+### Anomalous Data Discovery (no rule?)
 
 **Description:** An adversary may attempt to enumerate the cloud services running on a system after gaining access. They may attempt to discover information about the services enabled throughout the environment.
 
@@ -157,7 +157,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **Activity:**                | <br><br> |
 
 
-## Anomalous Defensive Mechanism Discovery
+### Anomalous Defensive Mechanism Discovery (no rule?)
 
 **Description:** Adversaries may attempt to get a listing of security software, configurations, defensive tools, and sensors that are installed on a system or in a cloud environment. They may use this information during automated discovery to shape follow-on behaviors, including whether or not the adversary fully infects the target and/or attempts specific actions.
 
@@ -170,7 +170,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **Activity:**                | <br><br> |
 
 
-## Anomalous Defensive Mechanism Modification
+### Anomalous Defensive Mechanism Modification
 
 **Description:** Adversaries may disable security tools to avoid possible detection of their tools and activities.
 
@@ -183,7 +183,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **Activity:**                | <br><br> |
 
 
-## Anomalous Failed Logon
+### Anomalous Failed Sign-in
 
 **Description:** Adversaries with no prior knowledge of legitimate credentials within the system or environment may guess passwords to attempt access to accounts.
 
@@ -196,7 +196,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **Activity:**                | <br><br> |
 
 
-## Anomalous Password Reset
+### Anomalous Password Reset
 
 **Description:** Adversaries may interrupt availability of system and network resources by inhibiting access to accounts utilized by legitimate users. Accounts may be deleted, locked, or manipulated (ex: changed credentials) to remove access to accounts.
 
@@ -209,7 +209,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **Activity:**                | <br><br> |
 
 
-## Anomalous Privilege Granted
+### Anomalous Privilege Granted
 
 **Description:** Adversaries may add adversary-controlled credentials for Azure Service Principals in addition to existing legitimate credentials to maintain persistent access to victim Azure accounts.
 
@@ -222,7 +222,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **Activity:**                | <br><br> |
 
 
-## Anomalous Role Assignment
+### Anomalous Role Assignment (no rule?)
 
 **Description:** Adversaries may manipulate accounts to maintain access to victim systems. These actions include adding new accounts to high privileged groups.
 
@@ -235,7 +235,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **Activity:**                | <br><br> |
 
 
-## Anomalous Session Duration
+### Anomalous Session Duration (no rule?)
 
 **Description:** Adversaries may leverage external-facing remote services to initially access and/or persist within a network. Remote services such as VPNs, Citrix, and other access mechanisms allow users to connect to internal enterprise network resources from external locations.
 
@@ -248,7 +248,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **Activity:**                | <br><br> |
 
 
-## Anomalous Sign-in
+### Anomalous Sign-in
 
 **Description:** Adversaries may steal the credentials of a specific user or service account using Credential Access techniques or capture credentials earlier in their reconnaissance process through social engineering for means of gaining Persistence.
 
@@ -261,7 +261,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **Activity:**                | <br><br> |
 
 
-## Anomalous Process Creation
+### Anomalous Process Creation (no rule?)
 
 **Description:** Services, daemons, or agents may be created with administrator privileges but executed under root/SYSTEM privileges. Adversaries may leverage this functionality to create or modify system processes in order to escalate privileges.
 
@@ -274,56 +274,72 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **Activity:**                | <br><br> |
 
 
-## 
+## Customizable anomalies
+
+### Anomalous Azure AD sign-in sessions
 
 **Description:** 
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**            |                                    |
-| **Data sources:**            |                                    |
-| **MITRE ATT&CK tactics:**    |                                    |
-| **MITRE ATT&CK techniques:** |                                    |
-| **Activity:**                | <br><br> |
+| **Anomaly type:**                |                                    |
+| **Data sources:**                |                                    |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Activity:**                    | <br><br> |
 
 
-## 
-
-**Description:** 
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**            |                                    |
-| **Data sources:**            |                                    |
-| **MITRE ATT&CK tactics:**    |                                    |
-| **MITRE ATT&CK techniques:** |                                    |
-| **Activity:**                | <br><br> |
-
-
-## 
+### Anomalous Azure operations
 
 **Description:** 
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**            |                                    |
-| **Data sources:**            |                                    |
-| **MITRE ATT&CK tactics:**    |                                    |
-| **MITRE ATT&CK techniques:** |                                    |
-| **Activity:**                | <br><br> |
+| **Anomaly type:**                |                                    |
+| **Data sources:**                |                                    |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Activity:**                    | <br><br> |
 
 
-## 
+### Anomalous Code Execution (duplicate?)
 
 **Description:** 
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**            |                                    |
-| **Data sources:**            |                                    |
-| **MITRE ATT&CK tactics:**    |                                    |
-| **MITRE ATT&CK techniques:** |                                    |
-| **Activity:**                | <br><br> |
+| **Anomaly type:**                |                                    |
+| **Data sources:**                |                                    |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Activity:**                    | <br><br> |
+
+
+### 
+
+**Description:** 
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                |                                    |
+| **Data sources:**                |                                    |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Activity:**                    | <br><br> |
+
+
+### 
+
+**Description:** 
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                |                                    |
+| **Data sources:**                |                                    |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Activity:**                    | <br><br> |
+
 
 
 
