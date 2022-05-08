@@ -94,15 +94,16 @@ Changes in device commitment will take effect one hour after confirming the chan
 
 You will need to upload a new activation file to your on-premises management console. The activation file reflects the new number of committed devices. See[Upload an activation file](how-to-manage-the-on-premises-management-console.md#upload-an-activation-file).
 
-## Offboard a subscription
+## Remove a subscription
 
-You may need to offboard a subscription, for example if you need to work with a new payment entity. Subscription offboarding takes effect one hour after confirming the offboard. Your upcoming monthly bill will reflect this change.
+You may need to remove a subscription from Defender for IoT, for example if you need to work with a new payment entity. Removing a subscription from Defender for IoT takes effect one hour after confirmation. Your upcoming monthly bill will reflect this change.
 
-Remove all sensors that are associated with the subscription prior to offboarding. For more information on how to delete a sensor, see [Delete a sensor](how-to-manage-sensors-on-the-cloud.md#manage-on-boarded-sensors).
+Remove all sensors that are associated with the subscription prior to removing the subscription from Defender for IoT. For more information on how to delete a sensor, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
-**To offboard a subscription:**
+**To remove a subscription from Defender for IoT:**
 
 1. Go to [Defender for IoT: Getting started](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) in the Azure portal.
+
 1. Select the subscription, and then select the three dots (...).
 
 1. Select **Offboard subscription**.

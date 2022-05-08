@@ -384,7 +384,7 @@ If you're upgrading from a legacy version to version 22.1.x or higher, make sure
     - The sensor's **Overview** page shows an activation status of **Valid**.
     - In the Azure portal, on the **Sites and sensors** page, the sensor is listed as **OT cloud connected** and with the updated sensor version.
 
-Your legacy sensors will continue to appear in the **Sites and sensors** page until you delete them. For more information, see [Manage on-boarded sensors](how-to-manage-sensors-on-the-cloud.md#manage-on-boarded-sensors).
+Your legacy sensors will continue to appear in the **Sites and sensors** page until you delete them. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
 > [!NOTE]
 > After upgrading to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.

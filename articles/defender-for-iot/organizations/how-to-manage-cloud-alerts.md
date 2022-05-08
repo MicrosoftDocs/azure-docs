@@ -50,7 +50,7 @@ The following alert details are displayed by default in the grid:
 |--|--|
 | **Severity**|  A predefined alert severity assigned by the sensor. Update the sensorseverity as needed. For more information, see [Manage alert status and severity(#manage-alert-status-and-severity).
 | **Name** |  The alert title. |
-| **Site** |  The site associated with the sensor that detected the alert, as listed on the**Sites and sensors** page. For more information, see [View onboarded sensors(how-to-manage-sensors-on-the-cloud.md#manage-on-boarded-sensors).|
+| **Site** |  The site associated with the sensor that detected the alert, as listed on the **Sites and sensors** page. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).|
 | **Engine** | The sensor  engine that detected the Operational Technology (OT) traffic. Formore information, see [Detection engines](how-to-control-what-traffic-is-monitored.md#detection-engines). For device builders, the term *micro-agent* is displayed instead. |
 | **Detection time** | The time the alert was detected, for as long as the alert statusremains **New**. If an alert is closed and the same traffic is seen again, this alert timeis updated to the new time. |
 | **Status** | The alert status: *New*, *Active*, *Closed* |
