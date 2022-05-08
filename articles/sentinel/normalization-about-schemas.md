@@ -62,7 +62,7 @@ Each schema field has a type. Some have built-in, Log Analytics types, such as `
 |**FQDN**        |   String      |    A fully qualified domain name using a dot notation, for example, `docs.microsoft.com`. For more information, see [The Device entity](#the-device-entity). |
 |<a name="hostname"></a>**Hostname** | String | A hostname which is not an FQDN, includes up to 63 characters including letters, numbers and hyphens. For more information, see [The Device entity](#the-device-entity).|
 | **DomainType** | Enumerated | The type of domain stored in domain and FQDN fields. For a list of values and more information, see [The Device entity](#the-device-entity). |
-| **DvcIdType** | Enumerated | The type of the device ID stored in DvcId fields. For a list of allowed values and further information refer to [DvcIdType](#idtype). |
+| **DvcIdType** | Enumerated | The type of the device ID stored in DvcId fields. For a list of allowed values and further information refer to [DvcIdType](#dvcidtype). |
 |<a name="devicetype"></a>**DeviceType** | Enumerated | The type of the device stored in DeviceType fields. Possible values include:<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other`. For more information, see [The Device entity](#the-device-entity). |
 |<a name="username"></a>**Username** | String | A valid username in one of the supported [types](#usernametype). For more information, see [The User entity](#the-user-entity). |
 |<a name="usernametype"></a>**UsernameType** | Enumerated | The type of username stored in username fields. For more information and list of supported values, see [The User entity](#the-user-entity). |
@@ -153,7 +153,7 @@ Devices, or hosts, are the common terms used for the systems that take part in t
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
-| <a name="dvc"></a>**Dvc**, <a name="src"></a>**Src**, <a name="dst"></a>**Dst** | Mandatory  | String  | The `Dvc`, 'Src', or 'Dst' fields are used as a unique identifier of the device. It is set to the best available identified for the device. These fields can alias the [FQDN](#fqdn), [Id](#id), [Hostname](#hostname), or [IpAddr](#ipaddr) fields. For cloud sources, for which there is no apparent device, use the same value as the [Event Product](normalization-common-fields.md#eventproduct) field.            |
+| <a name="dvc"></a>**Dvc**, <a name="src"></a>**Src**, <a name="dst"></a>**Dst** | Mandatory  | String  | The `Dvc`, 'Src', or 'Dst' fields are used as a unique identifier of the device. It is set to the best available identified for the device. These fields can alias the [FQDN](#fqdn), [DvcId](#dvcid), [Hostname](#hostname), or [IpAddr](#ipaddr) fields. For cloud sources, for which there is no apparent device, use the same value as the [Event Product](normalization-common-fields.md#eventproduct) field.            |
 
 
 #### The device name
@@ -197,8 +197,8 @@ When the value provided by the source is an FQDN, or when the value may be eithe
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | <a name ="dvcid"></a>**DvcId**               | Optional    | String     | The unique ID of the device . For example: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
-| <a name="dvcidtype"></a>**DvcIdType** | Optional | Enumerated | The type of [Id](#id). This field is required if the [DvcId](#dvcid) field is used. |
-| **DvcAzureResourceId**, **DvcMDEid**, **DvcMD4IoTid**, **DvcVMConnectionId**, **DvcVectraId**, **DvcAwsVpcId** |  Optional | String | Fields used to store additional device IDs, if the original event includes multiple device IDs. Select the device ID most associated with the event as the primary ID stored in [Id](#id). |
+| <a name="dvcidtype"></a>**DvcIdType** | Optional | Enumerated | The type of [DvcId](#dvcid). This field is required if the [DvcId](#dvcid) field is used. |
+| **DvcAzureResourceId**, **DvcMDEid**, **DvcMD4IoTid**, **DvcVMConnectionId**, **DvcVectraId**, **DvcAwsVpcId** |  Optional | String | Fields used to store additional device IDs, if the original event includes multiple device IDs. Select the device ID most associated with the event as the primary ID stored in [DvcId](#dvcid). |
 
 Note that fields named should prepend a role prefix such as `Src` or `Dst`, but should not prepend a second `Dvc` prefix if used in that role.
 

@@ -41,7 +41,7 @@ For more information, see [ASIM parsers overview](normalization-parsers-overview
 
 When implementing custom process event parsers, name your KQL functions using the following syntax: `imProcessCreate<vendor><Product>` and `imProcessTerminate<vendor><Product>`. Replace `im` with `ASim` for the parameter-less version.
 
-Add your KQL function to the unifying parsers as described in [Managing ASIM parsers](normalization-managing-parsers.md).
+Add your KQL function to the unifying parsers as described in [Managing ASIM parsers](normalization-manage-parsers.md).
 
 ### Filtering parser parameters
 
