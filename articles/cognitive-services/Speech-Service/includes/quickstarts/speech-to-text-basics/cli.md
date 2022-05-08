@@ -17,7 +17,7 @@ ms.author: eur
 
 ## Set up the environment
 
-[!INCLUDE [SPX Setup](../../spx-setup.md)]
+[!INCLUDE [SPX Setup](../../spx-setup-quick.md)]
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
@@ -34,7 +34,7 @@ Speak into the microphone, and you see transcription of your words into text in 
 
 ```console
 Connection CONNECTED...
-RECOGNIZED: Text=I'm excited to try speech to text.
+RECOGNIZED: I'm excited to try speech to text.
 ```
 
 > [!div class="nextstepaction"]

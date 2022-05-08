@@ -59,19 +59,6 @@ To configure the minimum TLS version for an Event Hubs namespace with a template
 
 Configuring the minimum TLS version requires api-version 2022-01-01-preview or later of the Azure Event Hubs resource provider.
 
-## Check the minimum required TLS version for multiple namespaces
-
-To check the minimum required TLS version across a set of Event Hubs namespaces with optimal performance, you can use the Azure Resource Graph Explorer in the Azure portal. To learn more about using the Resource Graph Explorer, see [Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md).
-
-Running the following query in the Resource Graph Explorer returns a list of Event Hubs namespaces and displays the minimum TLS version for each namespace:
-
-```kusto
-resources 
-| where type =~ 'Microsoft.EventHub/namespaces'
-| extend minimumTlsVersion = parse\_json(properties).minimumTlsVersion
-| project subscriptionId, resourceGroup, name, minimumTlsVersion
-```
-
 ## Test the minimum TLS version from a client
 
 To test that the minimum required TLS version for an Event Hubs namespace forbids calls made with an older version, you can configure a client to use an older version of TLS. For more information about configuring a client to use a specific version of TLS, see [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version.md).

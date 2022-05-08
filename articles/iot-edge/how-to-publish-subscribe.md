@@ -433,7 +433,7 @@ Sending a direct method is an HTTP call and so doesn't go through the MQTT broke
 To connect two MQTT brokers, the IoT Edge hub includes an MQTT bridge. An MQTT bridge is commonly used to connect a running MQTT broker to another MQTT broker. Only a subset of the local traffic is typically pushed to another broker.
 
 > [!NOTE]
-> The IoT Edge hub bridge can currently only be used between nested IoT Edge devices. It can't be used to send data to IoT Hub since IoT Hub isn't a full-featured MQTT broker. To learn more about IoT Hub MQTT broker features support, see [Communicate with your IoT hub using the MQTT protocol](../iot-hub/iot-hub-mqtt-support.md). To learn more about nesting IoT Edge devices, see [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices).
+> The IoT Edge hub bridge can currently only be used between nested IoT Edge devices. It can't be used to send data to IoT Hub since IoT Hub isn't a full-featured MQTT broker. To learn more about IoT Hub MQTT broker features support, see [Communicate with your IoT hub using the MQTT protocol](../iot-hub/iot-hub-mqtt-support.md). To learn more about nesting IoT Edge devices, see [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md).
 
 In a nested configuration, the IoT Edge hub MQTT bridge acts as a client of the parent MQTT broker, so authorization rules must be set on the parent EdgeHub to allow the child EdgeHub to publish and subscribe to specific user-defined topics that the bridge is configured for.
 
@@ -455,28 +455,28 @@ The following JSON snippet is an example of an IoT Edge MQTT bridge configuratio
 
 ```json
 {
-	"schemaVersion": "1.2",
-	"mqttBroker": {
-		"bridges": [{
-			"endpoint": "$upstream",
-			"settings": [{
-					"direction": "in",
-					"topic": "alerts/#"
-				},
-				{
-					"direction": "out",
-					"topic": "#",
-					"inPrefix": "/local/telemetry/",
-					"outPrefix": "/remote/messages/"
-				}
-			]
-		}]
-	}
+    "schemaVersion": "1.2",
+    "mqttBroker": {
+        "bridges": [{
+            "endpoint": "$upstream",
+            "settings": [{
+                    "direction": "in",
+                    "topic": "alerts/#"
+                },
+                {
+                    "direction": "out",
+                    "topic": "#",
+                    "inPrefix": "/local/telemetry/",
+                    "outPrefix": "/remote/messages/"
+                }
+            ]
+        }]
+    }
 }
 ```
 
 > [!NOTE]
-> The MQTT protocol will automatically be used as upstream protocol when the MQTT broker is used and IoT Edge is in a nested configuration, for example, with a `parent_hostname` specified. To learn more about upstream protocols, see [Cloud communication](iot-edge-runtime.md#cloud-communication). To learn more about nested configurations, see [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices).
+> The MQTT protocol will automatically be used as upstream protocol when the MQTT broker is used and IoT Edge is in a nested configuration, for example, with a `parent_hostname` specified. To learn more about upstream protocols, see [Cloud communication](iot-edge-runtime.md#cloud-communication). To learn more about nested configurations, see [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md).
 
 ## Next steps
 
