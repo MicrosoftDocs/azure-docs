@@ -89,7 +89,7 @@ The chart below shows if your application’s high RU consumption is because of 
 
 :::image type="content" source="./media/cassandra-monitor-insights/normalized-ru-pk-rangeid.png" alt-text="Screenshot showing normalized request unit consumption by partition key range ID.":::
 
-The chart below shows a breakdown of requests by different status code. Understand the meaning of the different codes for you  [Cassandra API codes](./error-codes-solution.md)
+The chart below shows a breakdown of requests by different status code. Understand the meaning of the different codes for your  [Cassandra API codes](./error-codes-solution.md).
 
 :::image type="content" source="./media/cassandra-monitor-insights/total-request-by-status-code.png" alt-text="Screenshot image of a graph showing the total request by status code for a cassandra api account.":::
 
