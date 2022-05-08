@@ -21,6 +21,8 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 > [!TIP]
 > The [preview API](/rest/api/iotcentral/1.2-previewdataplane/users) includes support for the new [organizations feature](howto-create-organizations.md).
 
+[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
+
 ## Manage roles
 
 The REST API lets you list the roles defined in your IoT Central application. Use the following request to retrieve a list of role IDs from your application:

@@ -42,8 +42,14 @@ Known issues and limitations associated with online migrations from PostgreSQL t
 ## Size limitations
 
 - You can migrate up to 1 TB of data from PostgreSQL to Azure Database for PostgreSQL, using a single DMS service.
-- The number of tables you can migrate in one DMS activity is limited based on the number of characters in your table names. An upper limit of 7,500 characters applies to the combined length of schema_name.table_name. If the combined length of schema_name.table_name exceeds this limit, you'll see the error "(400) Bad Request. Entity too large." To avoid this error, try to migrate your tables by using multiple DMS activities. Each activity must adhere to the 7,500-character limit.
+- **pg_dump** command offers the ability to pick a few tables inside a database as a part of its dump operation. 
+```
+pg_dump -h hostname.postgres.com -U myusername -d database1 -t "\"public\".\"table_1\"" -t "\"public\".\"table_2\""
+```
+In the above example, the user has picked just the tables **table_1, table_2** under the **public** schema as a part the dump. 
 
+A maximum of **8191** characters can be included as a part of the **pg_dump** command. In scenarios where the users wants to include many tables, care should be taken that the length of the **pg_dump** does not exceed this limit. If exceeded, the command will error out.
+ 
 ## Datatype limitations
 
   **Limitation**: If there's no primary key on tables, changes might not be synced to the target database.

@@ -190,7 +190,7 @@ To add a Blob action to a logic app workflow in multi-tenant Azure Logic Apps, f
 
 To add an Azure Blob action to a logic app workflow in single-tenant Azure Logic Apps, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), pen your workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your workflow in the designer.
 
 1. If your workflow is blank, add any trigger that you want.
 

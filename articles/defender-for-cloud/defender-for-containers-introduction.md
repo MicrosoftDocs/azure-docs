@@ -9,8 +9,6 @@ ms.date: 04/28/2022
 
 # Overview of Microsoft Defender for Containers
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Microsoft Defender for Containers is the cloud-native solution for securing your containers. 
 
 On this page, you'll learn how you can use Defender for Containers to improve, monitor, and maintain the security of your clusters, containers, and their applications.
@@ -58,39 +56,24 @@ For example, you can mandate that privileged containers shouldn't be created, an
 
 Learn more in [Kubernetes data plane hardening](kubernetes-workload-protections.md).
 
-
-
-
 ## Vulnerability assessment
 
 ### Scanning images in ACR registries
 
-Defender for Containers includes an integrated vulnerability scanner for scanning images in Azure Container Registry registries.
+Defender for Containers includes an integrated vulnerability scanner for scanning images in Azure Container Registry registries. The vulnerability scanner runs on an image:
 
-There are four triggers for an image scan:
+- When you push the image to your registry
+- Weekly on any image that was pulled within the last 30
+- When you import the image to your Azure Container Registry
+- Continuously in specific situations
 
-- **On push** - Whenever an image is pushed to your registry, Defender for Containers automatically scans that image. To trigger the scan of an image, push it to your repository.
-
-- **Recently pulled** - Since new vulnerabilities are discovered every day, **Microsoft Defender for Containers** also scans, on a weekly basis, any image that has been pulled within the last 30 days. There's no extra charge for these rescans; as mentioned above, you're billed once per image.
-
-- **On import** - Azure Container Registry has import tools to bring images to your registry from Docker Hub, Microsoft Container Registry, or another Azure container registry. **Microsoft Defender for Containers** scans any supported images you import. Learn more in [Import container images to a container registry](../container-registry/container-registry-import-images.md).
-
-- **Continuous scan**- This trigger has two modes:
-
-    - A continuous scan based on an image pull.  This scan is performed every seven days after an image was pulled, and only for 30 days after the image was pulled. This mode doesn't require the security profile, or extension.
-
-    -  (Preview) Continuous scan for running images. This scan is performed every seven days for as long as the image runs. This mode runs instead of  the above mode when the Defender profile, or extension is running on the cluster.
-
-This scan typically completes within 2 minutes, but it might take up to 40 minutes. For every vulnerability identified, Defender for Cloud provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. 
-
-Defender for Cloud filters, and classifies findings from the scanner. When an image is healthy, Defender for Cloud marks it as such. Defender for Cloud generates security recommendations only for images that have issues to be resolved. By only notifying when there are problems, Defender for Cloud reduces the potential for unwanted informational alerts.
+Learn more in [Vulnerability assessment](defender-for-container-registries-usage.md).
 
 :::image type="content" source="./media/defender-for-containers/recommendation-acr-images-with-vulnerabilities.png" alt-text="Sample Microsoft Defender for Cloud recommendation about vulnerabilities discovered in Azure Container Registry (ACR) hosted images." lightbox="./media/defender-for-containers/recommendation-acr-images-with-vulnerabilities.png":::
 
-
 ### View vulnerabilities for running images 
 
-The recommendation **Running container images should have vulnerability findings resolved** shows vulnerabilities for running images by using the scan results from ACR registeries and information on running images from the Defender security profile/extension. Images that are deployed from a non ACR registry, will appear under the **Not applicable** tab.
+The recommendation **Running container images should have vulnerability findings resolved** shows vulnerabilities for running images by using the scan results from ACR registries and information on running images from the Defender security profile/extension. Images that are deployed from a non ACR registry, will appear under the **Not applicable** tab.
 
 :::image type="content" source="media/defender-for-containers/running-image-vulnerabilities-recommendation.png" alt-text="Screenshot showing where the recommendation is viewable" lightbox="media/defender-for-containers/running-image-vulnerabilities-recommendation-expanded.png":::
 

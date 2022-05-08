@@ -1,13 +1,13 @@
 ---
 title: Azure Confidential virtual machine options on AMD processors (preview)
 description: Azure Confidential Computing offers multiple options for confidential virtual machines that run on AMD processors backed by SEV-SNP technology.
-author: edendcohen
+author: mamccrea
+ms.author: mamccrea
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/15/2021
-ms.author: edcohen
 ---
 
 # Azure Confidential VM options on AMD (preview)

@@ -1,15 +1,15 @@
 ---
-title: "Manage and monitor app with Azure Spring Boot Actuator"
+title: "Manage and monitor app with Spring Boot Actuator"
 description: Learn how to manage and monitor app with Spring Boot Actuator.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 05/06/2022
 ms.custom: devx-track-java
 ---
 
-# Manage and monitor app with Azure Spring Boot Actuator
+# Manage and monitor app with Spring Boot Actuator
 
 **This article applies to:** ✔️ Java ❌ C#
 

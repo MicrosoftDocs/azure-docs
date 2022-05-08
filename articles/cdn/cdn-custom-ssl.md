@@ -357,6 +357,8 @@ The following table shows the operation progress that occurs when you disable HT
 7. *How do cert renewals work with Bring Your Own Certificate?*
 
     To ensure a newer certificate is deployed to PoP infrastructure, upload your new certificate to Azure KeyVault. In your TLS settings on Azure CDN, choose the newest certificate version and select save. Azure CDN will then propagate your new updated cert.
+    
+    For **Azure CDN from Verizon** profiles, if you use the same Azure Key Vault certificate on several custom domains (e.g. a wildcard certificate), ensure you update all of your custom domains that use that same certificate to the newer certificate version.
 
 8. *Do I need to re-enable HTTPS after the endpoint restarts?*
 

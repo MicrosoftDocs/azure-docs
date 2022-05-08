@@ -273,7 +273,7 @@ sections:
     questions:
 
       - question: What is the correct storage policy for the dedup setup?
-        answer: Use the *thin_provision* storage policy for your VM template.  The default is *thick_provision*.
+        answer: Use the *thin_provision* storage policy for your VM template.
 
       - question: What is the storage capacity of each host?
         answer: Each ESXi host has two vSAN disk groups with a capacity tier of 15.2TB and a 3.2-TB NVMe cache tier (1.6 TB in each disk group).      
@@ -286,15 +286,10 @@ sections:
 
       - question: What is the Fault tolerance of hardware failure on the vSAN?
         answer: |
-          FTT-1, RAID-1 (mirroring) with Object Space reservation set to Thick Provisioning is the Default Storage policy for the SDDC.
+          RAID-1, FTT-1, with Object Space reservation set to Thin Provisioning is the Default Storage policy for the software-defined datacenters (SDDCs).
           
-          :::image type="content" source="media/concepts/vsphere-vm-storage-policies.png" alt-text="Screenshot that shows the vSphere Client VM Storage Policies.":::  
-
-      - question: Why is thick provisioning the default vSAN policy in Azure VMware Solution?
+      - question: What is the difference between thick provisioning and thin provisioning? 
         answer: Thick provisioning is reserved or pre-allocated storage space.  Thick provisioning protects systems by allowing them to function even if the vSAN datastore is full because the space is already reserved. For example, suppose you create a 10GB virtual disk with thick provisioning. In that case, the full amount of virtual disk storage capacity is pre-allocated on the physical storage where the virtual disk is created and consumes all the space allocated to it in the datastore.  It won't allow other VMs to share the space from the datastore. A thin-provisioned virtual disk consumes the space that it needs initially and grows to the data space demand used in the datastore.
-
-      - question: Can I create a new VM in Azure VMware Solution with thin provisioning even if the default vSAN policy is thick provisioning?
-        answer: Yes. Outside of the default (thick_provision), you can create VMs with FTT1 thin provisioning. 
 
       - question: How many disks can fail on the vSAN before data loss occurs? 
         answer: It depends on how you plan your application workloads to run inside the SDDC (private cloud). Microsoft governs these failures regularly and replaces the hardware when such events are detected from an infrastructure perspective. As a default, a setting of FFT-1 is used, which accommodates a single host's failure.
