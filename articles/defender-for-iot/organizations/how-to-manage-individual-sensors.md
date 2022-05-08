@@ -324,7 +324,7 @@ This section describes how to update your OT sensor software version, either man
 
 # [Install manually](#tab/manual)
 
-This procedure describes how to upgrade your sensor, including downloading your update package and installing it manually on your sensor machine. 
+This procedure describes how to upgrade your sensor, including downloading your update package and installing it manually on your sensor machine.
 
 **To download your update and install it manually**:
 
@@ -346,9 +346,9 @@ This procedure describes how to upgrade your sensor, including downloading your 
 
     :::image type="content" source="media/how-to-manage-individual-sensors/defender-for-iot-version.png" alt-text="Screenshot of the upgrade version that appears after you sign in.":::
 
-# [From the Azure portal (Preview)](#tab/portal)
+# [From the Azure portal (Public preview)](#tab/portal)
 
-This procedure describes how to download the new sensor software version and then run the update directly from the Azure portal. 
+This procedure describes how to download the new sensor software version and then run the update directly from the Azure portal.
 
 > [!TIP]
 > Depending on your organization's needs, you might want to separate the software download and installation. For example, have the update downloaded overnight and then wait for an administrator to run the installation during a planned maintenance window.

@@ -29,7 +29,7 @@ The Defender for IoT architecture uses on-premises sensors and management server
 For more information, see the [Microsoft Security Development Lifecycle practices](https://www.microsoft.com/en-us/securityengineering/sdl/), which describes Microsoft's SDK practices, including training, compliance, threat modeling, design requirements, tools such as Microsoft Component Governance, pen testing, and more.
 
 > [!IMPORTANT]
-> Manual changes to software packages may have detrimental effects on the sensor and on-premises management cosnole. Microsoft is unable to support deployments with manual changes made to packages.
+> Manual changes to software packages may have detrimental effects on the sensor and on-premises management console. Microsoft is unable to support deployments with manual changes made to packages.
 >
 
 **Current versions of the sensor and on-premises management console software include**:
@@ -50,9 +50,9 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 **Sensor version**: 22.2.1
 
 - [Active discovery scans](#active-discovery-scans-public-preview)
-- [Sensor management from the Azure portal](#sensor-management-from-the-azure-portal)
+- [Sensor management from the Azure portal](#sensor-management-from-the-azure-portal-public-preview)
 - [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)
-- [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal)
+- [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal-public-preview)
 - [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)
 - [Refreshed Protocols DPI (Horizon Plugins) page for plugin management](#refreshed-protocols-dpi-horizon-plugins-page-for-plugin-management)
 - [Documentation improvements](#documentation-improvements)
@@ -73,7 +73,7 @@ Active discovery scans allow for faster deployments, enriching your existing dev
 
 View scanning data from active discovery scans from your sensor console only. For more information, see [Run active discovery scans from your OT sensor](active-discovery.md).
 
-### Sensor management from the Azure portal
+### Sensor management from the Azure portal (public preview)
 
 For sensor versions 22.2.x and higher, you can configure sensor settings, upgrade your sensor software, and monitor sensor health directly from the **Sites and sensors** page on the Azure portal.
 
@@ -117,11 +117,11 @@ For more information, see:
 - [Manage alerts from the sensor console](how-to-manage-the-alert-event.md)
 - [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
 
-### PCAP access from the Azure portal
+### PCAP access from the Azure portal (Public preview)
 
 Now you can access the raw traffic files, known as packet capture files or PCAP files, directly from the Azure portal. This feature supports SOC or OT security engineers who want to investigate alerts from Defender for IoT or Microsoft Sentinel, without having to access each sensor separately.
 
-:::image type="content" source="media/release-notes/pcap-request.png" alt-text="Screenshot of the Download PCAP button":::
+:::image type="content" source="media/release-notes/pcap-request.png" alt-text="Screenshot of the Download PCAP button" lightbox="media/release-notes/pcap-request.png":::
 
 PCAP files are downloaded to your Azure storage.
 
