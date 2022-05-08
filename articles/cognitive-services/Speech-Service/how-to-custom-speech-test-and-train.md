@@ -269,6 +269,6 @@ Even if a baseline model supports training with audio data, the service might us
 
 ## Next steps
 
-* [Upload your data](how-to-custom-speech-upload-data.md)
+- [Upload your data](how-to-custom-speech-upload-data.md)
 - [Test model accuracy](how-to-custom-speech-evaluate-data.md)
-* [Train a custom model](how-to-custom-speech-train-model.md)
+- [Train a custom model](how-to-custom-speech-train-model.md)

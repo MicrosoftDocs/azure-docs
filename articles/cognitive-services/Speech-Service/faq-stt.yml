@@ -47,7 +47,7 @@ sections:
           There's no limit to the number of models you can have in your collection.
 
       - question: |
-          I realize that I've made a mistake. How do I cancel a data import or model creation that’s in progress?
+          I realize that I've made a mistake. How do I cancel a data import or model creation that's in progress?
         answer: |
           Currently, you can't roll back an acoustic or language adaptation process. You can delete imported data and models when they're in a terminal state.
 
@@ -87,14 +87,14 @@ sections:
       - question: |
           Can I copy or move my datasets, models, and deployments to another region or subscription?
         answer: |
-          You can use the [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) to copy a custom model to another region or subscription. Datasets and deployments can't be copied. You can import a dataset again in another subscription and create endpoints there by using the model copies.
+          You can use the [REST API](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) to copy a custom model to another region or subscription. Datasets and deployments can't be copied. You can import a dataset again in another subscription and create endpoints there by using the model copies.
           
       - question: |
           Are my requests logged?
         answer: |
-          By default, requests aren't logged (neither audio nor transcription). If necessary, you can select the **Log content from this endpoint** option when you [create a custom endpoint](how-to-custom-speech-train-model.md#deploy-a-custom-model). You can also enable audio logging in the [Speech SDK](how-to-use-logging.md) on a per-request basis, without having to create a custom endpoint. In both cases, audio and recognition results of requests will be stored in secure storage. Subscriptions that use Microsoft-owned storage will be available for 30 days.
+          By default, requests aren't logged (neither audio nor transcription). If necessary, you can select the **Log content from this endpoint** option when you [create a custom endpoint](how-to-custom-speech-train-model.md#add-a-deployment-endpoint). You can also enable audio logging in the [Speech SDK](how-to-use-logging.md) on a per-request basis, without having to create a custom endpoint. In both cases, audio and recognition results of requests will be stored in secure storage. Subscriptions that use Microsoft-owned storage will be available for 30 days.
           
-          You can export the logged files on the deployment page in Speech Studio if you use a custom endpoint with **Log content from this endpoint** enabled. If audio logging is enabled via the SDK, call the [API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModelLogs) to access the files.
+          You can export the logged files on the deployment page in Speech Studio if you use a custom endpoint with **Log content from this endpoint** enabled. If audio logging is enabled via the SDK, call the [API](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModelLogs) to access the files.
           
       - question: |
           Are my requests throttled?
@@ -104,7 +104,7 @@ sections:
       - question: |
           How am I charged for dual channel audio?
         answer: |
-          If you submit each channel separately (that is, each in its own file), you'll be charged for the duration of each file. If you submit a single file with the channels multiplexed together, you'll be charged for the duration of the single file. For more information about pricing, see the [Azure Cognitive Services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+          If you submit each channel separately in their own file, you'll be charged for the duration of each file. If you submit a single file with the channels multiplexed together, you'll be charged for the duration of the single file. For more information about pricing, see the [Azure Cognitive Services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
           
           > [!IMPORTANT]
           > If you have further privacy concerns that prevent you from using the Custom Speech service, contact one of the support channels.
@@ -166,7 +166,7 @@ sections:
       - question: |
           What is word error rate (WER), and how is it computed?
         answer: |
-          WER is the evaluation metric for speech recognition. WER is calculated as the total number of errors (insertions, deletions, and substitutions), divided by the total number of words in the reference transcription. For more information, see [Evaluate Custom Speech accuracy](how-to-custom-speech-evaluate-data.md#evaluate-word-error-rate).
+          WER is the evaluation metric for speech recognition. WER is calculated as the total number of errors (insertions, deletions, and substitutions), divided by the total number of words in the reference transcription. For more information, see [Test model accuracy](how-to-custom-speech-evaluate-data.md#evaluate-word-error-rate).
           
       - question: |
           How do I determine whether the results of an accuracy test are good?
