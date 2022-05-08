@@ -48,7 +48,7 @@ The first step in training a model is to upload training data. For step-by-step 
 1. On the **Select training data** page, choose one or more related text datasets or audio + human-labeled transcription datasets that you want to use for training.
 
    > [!NOTE]
-   > When you train a new model, start with related text. Training with audio + human-labeled transcription might take much longer (up to [several days](how-to-custom-speech-evaluate-data.md#add-audio-with-human-labeled-transcripts)).
+   > When you train a new model, start with related text. Training with audio + human-labeled transcription might take up to several days.
 
    > [!NOTE]
    > Not all base models support training with audio. If a base model doesn't support it, the Speech service will use only the text from the transcripts and ignore the audio. For a list of base models that support training with audio data, see [Language support](language-support.md#speech-to-text).

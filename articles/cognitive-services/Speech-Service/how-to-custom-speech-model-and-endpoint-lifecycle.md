@@ -124,5 +124,5 @@ Here's an example custom model retrieved via [`GetModel`](https://eastus.dev.cog
 
 ## Next steps
 
-* [Train and deploy a model](how-to-custom-speech-train-model.md)
+* [Train a model](how-to-custom-speech-train-model.md)
 * [Use a custom model with batch transcription](batch-transcription.md)

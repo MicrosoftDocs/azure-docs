@@ -32,10 +32,7 @@ The best way to see if the base model will suffice is to analyze the transcripti
 
 Furthermore, depending on the size of the custom domain, it may also make sense to train multiple models and compartmentalize a model for an individual application. 
 
-One model is typically sufficient if the utterances are closely related to one area or domain. On the other hand, multiple models are best if the vocabulary is quite different across the domain areas. Regardless, this situation still requires a decent variety of training data. For instance, Olympic commentators report on various events, each associated with its own vernacular. Because each Olympic event vocabulary differs significantly from others, building a custom model specific to an event increases accuracy by limiting the utterance data relative to that particular event. As a result, the model doesn’t need to sift through unrelated data to make a match. Include audio from various commentators who have different accents, gender, age, etc. 
-
-In addition, it is essential to consider which languages and locales need to be supported; it may make sense to create these models by locale. 
-
+One model is typically sufficient if the utterances are closely related to one area or domain. On the other hand, multiple models are best if the vocabulary is quite different across the domain areas. Regardless, this situation still requires a decent variety of training data. For instance, Olympic commentators report on various events, each associated with its own vernacular. Because each Olympic event vocabulary differs significantly from others, building a custom model specific to an event increases accuracy by limiting the utterance data relative to that particular event. As a result, the model doesn’t need to sift through unrelated data to make a match. Include audio from various commentators who have different accents, gender, age, etcetera. 
 
 ## Prerequisites
 
@@ -63,4 +60,4 @@ If you want to use a base model right away, you can skip the training and testin
 
 * [Prepare and test your data](./how-to-custom-speech-test-and-train.md)
 * [Evaluate and improve model accuracy](how-to-custom-speech-evaluate-data.md)
-* [Train and deploy a model](how-to-custom-speech-train-model.md)
+* [Train a model](how-to-custom-speech-train-model.md)

@@ -66,11 +66,26 @@ You can use audio + human-labeled transcript data for both training and testing 
 - To improve the acoustic aspects like slight accents, speaking styles, and background noises.
 - To measure the accuracy of Microsoft's speech-to-text accuracy when it's processing your audio files. 
 
+For a list of base models that support training with audio data, see [Language support](language-support.md#speech-to-text). Even if a base model does support training with audio data, the service might use only part of the audio. And it will still use all the transcripts.
+
+Audio with human-labeled transcripts offers the greatest accuracy improvements if the audio comes from the target use case. Samples must cover the full scope of speech. For example, a call center for a retail store would get the most calls about swimwear and sunglasses during summer months. Ensure that your sample includes the full scope of speech that you want to detect.
+
+Consider these details:
+
+* Training with audio will bring the most benefits if the audio is also hard to understand for humans. In most cases, you should start training by using only related text.
+* If you use one of the most heavily used languages, such as US English, it's unlikely that you would need to train with audio data. For such languages, the base models already offer very good recognition results in most scenarios, so it's probably enough to train with related text.
+* Custom Speech can capture word context only to reduce substitution errors, not insertion or deletion errors.
+* Avoid samples that include transcription errors, but do include a diversity of audio quality.
+* Avoid sentences that are unrelated to your problem domain. Unrelated sentences can harm your model.
+* When the transcript quality varies, you can duplicate exceptionally good sentences, such as excellent transcriptions that include key phrases, to increase their weight.
+* The Speech service automatically uses the transcripts to improve the recognition of domain-specific words and phrases, as though they were added as related text.
+* It can take several days for a training operation to finish. To improve the speed of training, be sure to create your Speech service subscription in a region that has dedicated hardware for training.
+
 The best way to see if the base model will suffice is to test the transcription produced from the base model and [compare it with a human-generated transcript](how-to-custom-speech-evaluate-data.md) for the same audio. You can use the Speech Studio, Speech CLI, or REST API to compare the transcripts and obtain a word error rate (WER) score. If there are multiple incorrect word substitutions when evaluating the results, then training a custom model to recognize those words is recommended.
 
 A large training dataset is required to improve recognition. Generally, we recommend that you provide word-by-word transcriptions for 1 to 20 hours of audio. However, even as little as 30 minutes can help improve recognition results. Although creating human-labeled transcription can take time, improvements in recognition will only be as good as the data that you provide. You should only upload only high-quality transcripts.
 
-If a base model doesn't support customization with audio data, only the transcription text will be used for training. If you switch to a base model that supports customization with audio data, the training time may increase from several hours to several days. The change in training time would be most noticeable when you switch to a base model in a [region](regions.md#speech-to-text-text-to-speech-and-translation) without dedicated hardware for training. For a list of base models that support training with audio data, see [Language support](language-support.md#speech-to-text).
+If a base model doesn't support customization with audio data, only the transcription text will be used for training. If you switch to a base model that supports customization with audio data, the training time may increase from several hours to several days. The change in training time would be most noticeable when you switch to a base model in a [region](regions.md#speech-to-text-text-to-speech-and-translation) without dedicated hardware for training. If the audio data is not required, you should remove it to decrease the training time. 
 
 Audio files can have silence at the beginning and end of the recording. If possible, include at least a half-second of silence before and after speech in each sample file. Although audio with low recording volume or disruptive background noise is not helpful, it shouldn't hurt your custom model. Always consider upgrading your microphones and signal processing hardware before gathering audio samples.
 
@@ -88,11 +103,12 @@ Audio files can have silence at the beginning and end of the recording. If possi
 
 ## Plain-text data for training
 
-You can use domain-related sentences to improve accuracy in recognizing product names or industry-specific jargon. Provide sentences in a single text file. To improve accuracy, use text data that's closer to the expected spoken utterances. Training with plain text usually finishes within a few minutes.
+You can add plain text sentences of related text to improve the recognition of domain-specific words and phrases. Related text sentences can reduce substitution errors related to misrecognition of common words and domain-specific words by showing them in context. Domain-specific words can be uncommon or made-up words, but their pronunciation must be straightforward to be recognized.
 
-To create a custom model by using sentences, you'll need to provide a list of sample utterances. Utterances don't need to be complete or grammatically correct, but they must accurately reflect the spoken input that you expect in production. If you want certain terms to have increased weight, add several sentences that include these specific terms.
+Provide domain-related sentences in a single text file. Use text data that's close to the expected spoken utterances. Utterances don't need to be complete or grammatically correct, but they must accurately reflect the spoken input that you expect the model to recognize. When possible, try to have one sentence or keyword controlled on a separate line. To increase the weight of a term such as product names, add several sentences that include the term. But don't copy too much - it could affect the overall recognition rate.
 
-As general guidance, model adaptation is most effective when the training text is as close as possible to the real text expected in production. Domain-specific jargon and phrases that you're targeting to enhance should be included in training text. When possible, try to have one sentence or keyword controlled on a separate line. For keywords and phrases that are important to you (for example, product names), you can copy them a few times. But don't copy too much - it could affect the overall recognition rate.
+> [!NOTE]
+> Avoid related text sentences that include noise such as unrecognizable characters or words.
 
 Use this table to ensure that your plain text dataset file is formatted correctly:
 
@@ -114,7 +130,7 @@ You must also adhere to the following restrictions:
 > [!NOTE]
 > Structured-text data for training is in public preview.
 
-To simplify the creation of training data and to enable better modeling inside the Custom Language model, you can use a structured text in Markdown format to define lists of items and phonetic pronunciation of words. You can then reference these lists inside your training utterances. 
+Use structured text data when your data follows a particular pattern in particular utterances that differ only by words or phrases from a list. To simplify the creation of training data and to enable better modeling inside the Custom Language model, you can use a structured text in Markdown format to define lists of items and phonetic pronunciation of words. You can then reference these lists inside your training utterances. 
 
 Expected utterances often follow a certain pattern. One common pattern is that utterances differ only by words or phrases from a list. Examples of this pattern could be:
 
@@ -178,7 +194,9 @@ Here's an example structured text file:
 
 ## Pronunciation data for training
 
-If there are uncommon terms without standard pronunciations that your users will encounter or use, you can provide a custom pronunciation file to improve recognition. Don't use custom pronunciation files to alter the pronunciation of common words. For a list of languages that support custom pronunciation, see [language support](language-support.md#speech-to-text).
+Specialized or made up words might have unique pronunciations. These words can be recognized if they can be broken down into smaller words to pronounce them. For example, to recognize "Xbox", pronounce it as "X box". This approach won't increase overall accuracy, but can improve recognition of this and other keywords.
+
+You can provide a custom pronunciation file to improve recognition. Don't use custom pronunciation files to alter the pronunciation of common words. For a list of languages that support custom pronunciation, see [language support](language-support.md#speech-to-text).
 
 > [!NOTE]
 > You can either use a pronunciation data file on its own, or you can add pronunciation within a structured text data file. The Speech service doesn't support training a model where you select both of those datasets as input. 
