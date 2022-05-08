@@ -137,11 +137,11 @@ Delta will only read 2 partitions where **part_col == 5 and 8**  from the target
 
 In Settings tab, you will find three more options to optimize delta sink transformation. 
 
-* When merge schema option is enabled, any columns that are present in the previous stream, but not in the Delta table, are automatically added on to the end of the schema.
+* When **Merge schema** option is enabled, any columns that are present in the previous stream, but not in the Delta table, are automatically added on to the end of the schema.
 
-* When auto compact is enabled, after an individual write, transformation  checks if files can further be compacted, and runs a quick OPTIMIZE job (with 128 MB file sizes instead of 1GB) to further compact files for partitions that have the most number of small files. Auto compaction helps in coalescing a large number of small files into a smaller number of large files. Auto compaction only kicks in when there are at least 50 files. Once a compaction operation is performed, it creates a new version of the table, and writes a new file containing the data of several previous files in a compact compressed form. 
+* When **Auto compact** is enabled, after an individual write, transformation  checks if files can further be compacted, and runs a quick OPTIMIZE job (with 128 MB file sizes instead of 1GB) to further compact files for partitions that have the most number of small files. Auto compaction helps in coalescing a large number of small files into a smaller number of large files. Auto compaction only kicks in when there are at least 50 files. Once a compaction operation is performed, it creates a new version of the table, and writes a new file containing the data of several previous files in a compact compressed form. 
 
-* When optimize write is enabled, sink transformation dynamically optimizes partition sizes based on the actual data by attempting to write out 128 MB files for each table partition. This is an approximate size and can vary depending on dataset characteristics. Optimized writes  improve the overall efficiency of the *writes and  subsequent reads*. It organizes partitions such that the performance of subsequent reads will improve. 
+* When **Optimize write** is enabled, sink transformation dynamically optimizes partition sizes based on the actual data by attempting to write out 128 MB files for each table partition. This is an approximate size and can vary depending on dataset characteristics. Optimized writes  improve the overall efficiency of the *writes and  subsequent reads*. It organizes partitions such that the performance of subsequent reads will improve. 
 
 
 ### Known limitations
