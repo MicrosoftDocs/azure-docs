@@ -232,6 +232,10 @@ Use the following request to retrieve the details of the devices in a job:
 PUT https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006?api-version=1.2-preview
 ```
 
+The following request body requires the `group` of the device group that the job applies to. You can use the [get list of device groups](howto-manage-devices-with-rest-api.md#List-device-groups) REST API to get a list of the device groups in your application and use the required `group` from the response to create a new job.
+
+You can also [create a new device group](howto-manage-devices-with-rest-api.md#add-a-device-group) and use the value of the `ID` from the device group you created.
+
 ```json
 {
   "displayName": "Set target temperature",
