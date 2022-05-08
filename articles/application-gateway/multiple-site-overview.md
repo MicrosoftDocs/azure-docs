@@ -34,9 +34,6 @@ This ordering can be established by providing a 'Priority' field value to the re
 The priority field only impacts the order of evaluation of a request routing rule, this wont change the order of evaluation of path based rules within a `PathBasedRouting` request routing rule.
 
 >[!NOTE]
->This feature is currently available only through [Azure PowerShell](tutorial-multiple-sites-powershell.md#add-priority-to-routing-rules) and [Azure CLI](tutorial-multiple-sites-cli.md#add-priority-to-routing-rules). Portal support is coming soon.
-
->[!NOTE]
 >If you wish to use rule priority, you will have to specify rule-priority field values for all the existing request routing rules. Once the rule priority field is in use, any new routing rule that is created would also need to have a rule priority field value as part of its config.
 
 ## Wildcard host names in listener

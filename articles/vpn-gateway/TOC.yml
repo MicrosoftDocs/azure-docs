@@ -199,11 +199,11 @@
         items:
         - name: Install client certificates
           href: point-to-site-how-to-vpn-client-install-azure-cert.md
-        - name: Create and install VPN client configuration files
+        - name: Generate and install VPN client profile configuration files
           href: point-to-site-vpn-client-configuration-azure-cert.md
       - name: RADIUS authentication
         items:
-        - name: Create and install VPN client configuration files
+        - name: Generate and install VPN client profile configuration files
           href: point-to-site-vpn-client-configuration-radius.md
       - name: AAD authentication
         items:
@@ -211,7 +211,7 @@
           href: openvpn-azure-ad-client.md
         - name: macOS client
           href: openvpn-azure-ad-client-mac.md
-        - name: Generate VPN client profile files
+        - name: Generate VPN client profile configuration files
           href: about-vpn-profile-download.md 
         - name: Intune - Deploy VPN client profile
           href: vpn-profile-intune.md

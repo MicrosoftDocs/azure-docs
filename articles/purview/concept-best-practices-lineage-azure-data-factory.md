@@ -36,8 +36,10 @@ Data lineage is the process of describing what data exists, where it is 
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Screenshot showing warning to disconnect Azure Data Factory.":::
 
-* Data factory's managed identity is used to authenticate lineage in Microsoft Purview account, the data factory's managed identity Data Curator role on Microsoft Purview root collection is required. 
-* Support no more than 10 data factories at once. If you want to add more than 10 data factories at once, please file a support ticket. 
+* Data factory's managed identity is used to authenticate lineage push operations in Microsoft Purview account. The data factory's managed identity needs Data Curator role on Microsoft Purview root collection.
+
+* Currently, only 10 data factories can be connected at a time. If you want to add more than 10 data factories, please file a support ticket. 
+
 
 ### Azure Data Factory activities  
 
@@ -51,17 +53,14 @@ Data lineage is the process of describing what data exists, where it is 
     * Supported data sources in data flow activity is listed **Data Flow support** of [Connect to Azure Data Factory](how-to-link-azure-data-factory.md)
     * Supported data sources in SSIS is listed **SSIS execute package activity support** of [Lineage from SQL Server Integration Services](how-to-lineage-sql-server-integration-services.md)
 
-* Microsoft Purview cannot capture lineage if Azure Data Factory copy activity use copy activity features listed in **Limitations on copy activity lineage** of [Connect to Azure Data Factory](how-to-link-azure-data-factory.md)  
+* Microsoft Purview cannot capture lineage if Azure Data Factory copy activity uses copy activity features listed in **Limitations on copy activity lineage** of [Connect to Azure Data Factory](how-to-link-azure-data-factory.md)  
 
 * For the lineage of Dataflow activity, Microsoft Purview only support source and sink. The lineage for Dataflow transformation is not supported yet. 
 
 * Data flow lineage doesn't integrate with Microsoft Purview resource set. 
-
-    **Resource set example 1**    
-
-    Qualified name: https://myblob.blob.core.windows.net/sample-data/data{N}.csv 
-
-    Display name: "data" 
+    **Resource set example:**    
+        Qualified name: https://myblob.blob.core.windows.net/sample-data/data{N}.csv 
+        Display name: "data" 
 
 * For the lineage of Execute SSIS Package activity, we only support source and destination. The lineage for transformation is not supported yet. 
 

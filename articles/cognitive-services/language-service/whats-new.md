@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 03/15/2022
+ms.date: 04/20/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -16,6 +16,11 @@ ms.custom: ignite-fall-2021
 # What's new in Azure Cognitive Service for Language?
 
 Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## April 2022
+
+* Fast Healthcare Interoperability Resources (FHIR) support is available in the [Language REST API preview](text-analytics-for-health/quickstart.md?pivots=rest-api&tabs=language) for Text Analytics for health.
+
 
 ## March 2022
 

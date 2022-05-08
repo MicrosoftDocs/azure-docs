@@ -9,8 +9,6 @@ ms.date: 11/09/2021
 
 # Compare baselines using File Integrity Monitoring (FIM)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 File Integrity Monitoring (FIM) informs you when changes occur to sensitive areas in your resources, so you can investigate and address unauthorized activity. FIM monitors Windows files, Windows registries, and Linux files.
 
 This topic explains how to enable FIM on the files and registries. For more information about FIM, see [File Integrity Monitoring in Microsoft Defender for Cloud](file-integrity-monitoring-overview.md).

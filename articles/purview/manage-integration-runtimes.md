@@ -60,7 +60,7 @@ To create and set up a self-hosted integration runtime, use the following proced
 
 ### Create a self-hosted integration runtime
 
-1. On the home page of the [Microsoft Purview Studio](https://web.purview.azure.com/resource/), select **Data Map** from the left navigation pane.
+1. On the home page of the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/), select **Data Map** from the left navigation pane.
 
 2. Under **Sources and scanning** on the left pane, select **Integration runtimes**, and then select **+ New**.
 
@@ -140,7 +140,7 @@ Here are the domains and outbound ports that you need to allow at both **corpora
 | Domain names                  | Outbound ports | Description                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.frontend.clouddatahub.net` | 443 | Required to connect to the Microsoft Purview service. Currently wildcard is required as there's no dedicated resource. |
-| `*.servicebus.windows.net` | 443            | Required for setting up scan on Microsoft Purview Studio. This endpoint is used for interactive authoring from UI, for example, test connection, browse folder list and table list to scope scan. Currently wildcard is required as there's no dedicated resource. |
+| `*.servicebus.windows.net` | 443            | Required for setting up scan in the Microsoft Purview governance portal. This endpoint is used for interactive authoring from UI, for example, test connection, browse folder list and table list to scope scan. Currently wildcard is required as there's no dedicated resource. |
 | `<purview_account>.purview.azure.com` | 443 | Required to connect to Microsoft Purview service. |
 | `<managed_storage_account>.blob.core.windows.net` | 443 | Required to connect to the Microsoft Purview managed Azure Blob storage account. |
 | `<managed_storage_account>.queue.core.windows.net` | 443 | Required to connect to the Microsoft Purview managed Azure Queue storage account. |

@@ -10,6 +10,8 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [header](includes/edge-env.md)]
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 IoT Hub gives you the ability to invoke [direct methods](../../../iot-hub/iot-hub-devguide-direct-methods.md#method-invocation-for-iot-edge-modules) on edge devices from the cloud. The Azure Video Analyzer (Video Analyzer) module exposes several [direct methods](./direct-methods.md) that can be used to define, deploy, and activate different pipelines for analyzing live video.
 
 In this article, you will learn how to invoke direct method calls on Video Analyzer module via the Azure portal.

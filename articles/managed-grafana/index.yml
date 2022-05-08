@@ -33,7 +33,7 @@ landingContent:
         links:
           - text: Configure data source plugins with Managed Identity
             url: how-to-data-source-plugins-managed-identity.md
-          - text: Call APIs in your automation
+          - text: Call Grafana APIs programmatically
             url: how-to-api-calls.md
 
   - title: Manage your dashboard

@@ -20,7 +20,7 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
 You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
@@ -65,7 +65,7 @@ metadata:
   name: pv-azuredisk
 spec:
   capacity:
-    storage: 100Gi
+    storage: 20Gi
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
@@ -90,7 +90,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 100Gi
+      storage: 20Gi
   volumeName: pv-azuredisk
   storageClassName: managed-csi
 ```
@@ -108,7 +108,7 @@ Verify your *PersistentVolumeClaim* is created and bound to the *PersistentVolum
 $ kubectl get pvc pvc-azuredisk
 
 NAME            STATUS   VOLUME         CAPACITY    ACCESS MODES   STORAGECLASS   AGE
-pvc-azuredisk   Bound    pv-azuredisk   100Gi       RWO                           5s
+pvc-azuredisk   Bound    pv-azuredisk   20Gi        RWO                           5s
 ```
 
 Create a *azure-disk-pod.yaml* file to reference your *PersistentVolumeClaim*. For example:
@@ -158,8 +158,9 @@ For more information about AKS clusters interact with Azure disks, see the [Kube
 [az-disk-create]: /cli/azure/disk#az_disk_create
 [az-group-list]: /cli/azure/group#az_group_list
 [az-resource-show]: /cli/azure/resource#az_resource_show
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [install-azure-cli]: /cli/azure/install-azure-cli
 [azure-files-volume]: azure-files-volume.md

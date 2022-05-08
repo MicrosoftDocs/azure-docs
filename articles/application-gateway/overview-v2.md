@@ -113,3 +113,4 @@ An Azure PowerShell script is available in the PowerShell gallery to help you mi
 Depending on your requirements and environment, you can create a test Application Gateway using either the Azure portal, Azure PowerShell, or Azure CLI.
 
 - [Tutorial: Create an application gateway that improves web application access](tutorial-autoscale-ps.md)
+- [Learn module: Introduction to Azure Application Gateway](/learn/modules/intro-to-azure-application-gateway)

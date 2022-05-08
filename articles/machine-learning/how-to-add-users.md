@@ -49,12 +49,15 @@ To add a custom role, you must have `Microsoft.Authorization/roleAssignments/wri
 1. Replace these two lines with:
     
     ```json
-                    "actions": [
-                        "Microsoft.MachineLearningServices/workspaces/read",
-                        "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
-                        "Microsoft.MachineLearningServices/workspaces/labeling/labels/write"],
-                    "notActions": [
-                        "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"],
+                        "actions": [
+                            "Microsoft.MachineLearningServices/workspaces/read",
+                            "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
+                            "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read",
+                            "Microsoft.MachineLearningServices/workspaces/labeling/labels/read",
+                            "Microsoft.MachineLearningServices/workspaces/labeling/labels/write"   
+                        ],
+                        "notActions": [        
+                        ],
     ```
 
 1. Select **Save** at the top of the edit box to save your changes.
@@ -151,8 +154,8 @@ Send the following to your labelers, after filling in your workspace and project
 1. Follow the steps on the web page after you accept.  Don't worry if at the end you're on a page that says you don't have any apps.
 1. Open [Azure Machine Learning studio](https://ml.azure.com).
 1. Use the dropdown to select the workspace **\<workspace-name\>**.  
-1. Select the project **\<project-name\>**.
-1. Select **Start labeling** at the bottom of the page.
+1. Select the **Label data** tool for **\<project-name\>**.
+    :::image type="content" source="media/how-to-add-users/label-data.png" alt-text="Screenshot showing the label data tool.":::
 1. For more information about how to label data, see [Labeling images and text documents](how-to-label-data.md).
 
 ## Next steps

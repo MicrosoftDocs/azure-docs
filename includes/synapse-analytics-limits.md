@@ -62,6 +62,7 @@ Azure Synapse Analytics has the following default limits to ensure customer's su
 | Region group 1 | Central US, East US, East US 2, North Europe, West Europe, West US, West US 2 |
 | Region group 2 | Australia East, Australia Southeast, Brazil South, Central India, Japan East, North Central US, South Central US, Southeast Asia, West Central US |
 | Region group 3 | Other regions |
+
 If managed virtual network is enabled, the data integration unit (DIU) in all region groups are 2,400.
 
 <sup>3</sup> Pipeline, data set, and linked service objects represent a logical grouping of your workload. Limits for these objects don't relate to the amount of data you can move and process with Azure Synapse Analytics. Synapse Analytics is designed to scale to handle petabytes of data.

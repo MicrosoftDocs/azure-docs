@@ -14,7 +14,7 @@ ms.custom:
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[Access policies](concept-data-owner-policies.md) allow you to enable access to data sources that have been registered for *Data use governance* in Microsoft Purview.
+[Access policies](concept-data-owner-policies.md) allow you to enable access to data sources that have been registered for *Data Use Management* in Microsoft Purview.
 This article describes how a data owner can delegate in Microsoft Purview management of access to Azure Storage datasets. Currently, these two Azure Storage sources are supported:
 
 - Blob storage
@@ -28,7 +28,7 @@ This article describes how a data owner can delegate in Microsoft Purview manage
 ## Configuration
 [!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
-### Register the data sources in Microsoft Purview for Data use governance
+### Register the data sources in Microsoft Purview for Data Use Management
 The Azure Storage resources need to be registered first with Microsoft Purview to later define access policies.
 
 To register your resources, follow the **Prerequisites** and **Register** sections of these guides:
@@ -37,11 +37,11 @@ To register your resources, follow the **Prerequisites** and **Register** sectio
 
 -   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Microsoft Purview](register-scan-adls-gen2.md#prerequisites)
 
-After you've registered your resources, you'll need to enable *Data use governance*. Data use governance can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to data sources that have been registered. Secure practices related to *Data use governance* are described in this guide:
+After you've registered your resources, you'll need to enable *Data Use Management*. Data Use Management can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to data sources that have been registered. Secure practices related to *Data Use Management* are described in this guide:
 
-- [How to enable data use governance](./how-to-enable-data-use-governance.md) 
+- [How to enable Data Use Management](./how-to-enable-data-use-management.md) 
 
-Once your data source has the  **Data use governance** toggle **Enabled**, it will look like this picture:
+Once your data source has the  **Data Use Management** toggle **Enabled**, it will look like this picture:
 
 :::image type="content" source="./media/how-to-data-owner-policies-storage/register-data-source-for-policy-storage.png" alt-text="Screenshot that shows how to register a data source for policy by toggling the enable tab in the resource editor.":::
 

@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Provision the device to an IoT hub using the Azure IoT Hub Device Provisioning Service

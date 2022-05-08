@@ -100,6 +100,8 @@
               href: continuous-backup-restore-resource-model.md
             - name: Latest restorable timestamp
               href: latest-restore-timestamp-continuous-backup.md
+            - name: Auditing restore action with continuous backup
+              href: audit-restore-continuous.md              
     - name: Optimize your Azure Cosmos DB cost
       items:
         - name: Plan and manage costs
@@ -1282,7 +1284,7 @@
           href: mongodb/estimate-ru-capacity-planner.md
         - name: Optimize write performance
           href: mongodb/optimize-write-performance.md
-        - name: Create a container - MongoDB API
+        - name: Create a collection - MongoDB API
           href: mongodb/how-to-create-container-mongodb.md
         - name: Provision throughput- MongoDB API
           displayName: request units, RUs, RU, collection level
@@ -1548,6 +1550,20 @@
            href: scripts/cli/common/service-endpoints.md
          - name: Secure existing account with service endpoints
            href: scripts/cli/common/service-endpoints-ignore-missing-vnet.md
+     - name: Common Azure PowerShell samples
+       items:
+         - name: Overview common API samples
+           href: common-powershell-samples.md
+         - name: Account keys or connection strings
+           href: scripts/powershell/common/keys-connection-strings.md
+         - name: Change failover priority or trigger failover
+           href: scripts/powershell/common/failover-priority-update.md
+         - name: Create an account with IP Firewall
+           href: scripts/powershell/common/firewall-create.md
+         - name: Update account
+           href: scripts/powershell/common/account-update.md
+         - name: Update an account's regions
+           href: scripts/powershell/common/update-region.md
 - name: How-to guides
   items:
     - name: Free tier
@@ -1600,8 +1616,6 @@
               href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
         - name: Set up Azure DevOps CI/CD pipeline
           href: tutorial-setup-ci-cd.md
-        - name: Use Azure Storage Explorer
-          href: storage-explorer.md
         - name: Use Azure Cosmos DB Explorer
           href: data-explorer.md
     - name: Analytics and BI with Azure Synapse Link
