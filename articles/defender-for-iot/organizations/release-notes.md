@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 05/01/2022
+ms.date: 05/08/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -54,7 +54,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 - [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)
 - [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal-public-preview)
 - [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)
-- [Refreshed Protocols DPI (Horizon Plugins) page for plugin management](#refreshed-protocols-dpi-horizon-plugins-page-for-plugin-management)
+- [Improved security for uploading protocol plugins](#improved-security-for-uploading-protocol-plugins)
 - [Documentation improvements](#documentation-improvements)
 
 ### Active discovery scans (Public preview)
@@ -146,9 +146,9 @@ For more information, see:
 - [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview)
 
 
-### Refreshed Protocols DPI (Horizon Plugins) page for plugin management
+### Improved security for uploading protocol plugins
 
-This version of the sensor provides a refreshed page for managing proprietary plugins you've created using the Horizon SDK.
+This version of the sensor provides a improved security for uploading proprietary plugins you've created using the Horizon SDK.
 
 :::image type="content" source="media/release-notes/horizon.png" alt-text="Screenshot of the new Protocols DPI (Horizon Plugins) page.":::
 
