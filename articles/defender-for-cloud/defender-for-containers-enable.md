@@ -3,7 +3,7 @@ title: How to enable Microsoft Defender for Containers in Microsoft Defender for
 description: Enable the container protections of Microsoft Defender for Containers
 ms.topic: overview
 zone_pivot_groups: k8s-host
-ms.date: 05/03/2022
+ms.date: 05/08/2022
 ---
 # Enable Microsoft Defender for Containers
 
@@ -81,3 +81,25 @@ A full list of supported alerts is available in the [reference table of all Defe
 ::: zone pivot="defender-for-container-aks"
 [!INCLUDE [Remove the profile](./includes/defender-for-containers-remove-profile.md)]
 ::: zone-end
+
+## FAQ
+
+- How can I use my existing Log Analytics workspace?
+
+    You can use your existing Log Analytics workspace by following the steps in the [Override the default workspace](./includes/defender-for-containers-override-workspace.md) section of this article.
+
+- Can I delete the default workspaces created by Defender for Cloud? 
+
+    We do not recommend deleting the default workspace. Defender for Containers uses the default workspaces to collect security data from your clusters. Defender for Containers will be unable to collect data, and some security recommendations and alerts, will become unavailable if you delete the default workspace. 
+
+- I deleted my default workspace, how can I get it back?
+
+    To recover your default workspace, you need to remove the Defender profile/extension, and reinstall the agent. Reinstalling the Defender profile/extension creates a new default workspaces.
+
+- Where is the default Log Analytics workspace located?
+
+    Depending on your region the default Log Analytics workspace located will be located in various locations. To check your region see [Where is the default Log Analytics workspace created?](faq-data-collection-agents.yml)
+
+## Next steps
+
+[Use Defender for Containers to scan your ACR images for vulnerabilities](defender-for-container-registries-usage.md).

@@ -1,12 +1,14 @@
 ---
-author: bmansheim
-ms.author: benmansheim
+author: ElazarK
+ms.author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 04/28/2022
+ms.date: 05/08/2022
 
 ---
 ## Enable the plan
+
+**To enable the plan**:
 
 1. From Defender for Cloud's menu, open the [Environment settings page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/EnvironmentSettings) and select the relevant subscription.
 
