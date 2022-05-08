@@ -48,7 +48,7 @@ The following table summarizes the access modes:
 | Issue | Workspace-context | Resource-context |
 |:---|:---|:---|
 | Who is each model intended for? | Central administration.<br>Administrators who need to configure data collection and users who need access to a wide variety of resources. Also currently required for users who need to access logs for resources outside of Azure. | Application teams.<br>Administrators of Azure resources being monitored. Allows them to focus on their resource without filtering. |
-| What does a user require to view logs? | Permissions to the workspace.<br>See **Workspace permissions** in [Manage access using workspace permissions](./manage-access.md#manage-access-using-workspace-permissions). | Read access to the resource.<br>See **Resource permissions** in [Manage access using Azure permissions](./manage-access.md#manage-access-using-azure-permissions). Permissions can be inherited from the resource group or subscription or directly assigned to the resource. Permission to the logs for the resource will be automatically assigned. The user doesn't require access to the workspace.|
+| What does a user require to view logs? | Permissions to the workspace.<br>See **Workspace permissions** in [Manage access using workspace permissions](./manage-access.md#azure-rbac). | Read access to the resource.<br>See **Resource permissions** in [Manage access using Azure permissions](./manage-access.md#azure-rbac). Permissions can be inherited from the resource group or subscription or directly assigned to the resource. Permission to the logs for the resource will be automatically assigned. The user doesn't require access to the workspace.|
 | What is the scope of permissions? | Workspace.<br>Users with access to the workspace can query all logs in the workspace from tables that they have permissions to. See [Table access control](./manage-access.md#table-level-azure-rbac) | Azure resource.<br>User can query logs for specific resources, resource groups, or subscription they have access to in any workspace but can't query logs for other resources. |
 | How can user access logs? | Start **Logs** from **Azure Monitor** menu.<br><br>Start **Logs** from **Log Analytics workspaces**.<br><br>From Azure Monitor [Workbooks](../best-practices-analysis.md#workbooks). | Start **Logs** from the menu for the Azure resource. User will have access to data for that resource.<br><br>Start **Logs** from **Azure Monitor** menu. User will have access to data for all resources they have access to.<br><br>Start **Logs** from **Log Analytics workspaces**. User will have access to data for all resources they have access to.<br><br>From Azure Monitor [Workbooks](../best-practices-analysis.md#workbooks). |
 
@@ -56,7 +56,7 @@ The following table summarizes the access modes:
 
 The *Access control mode* is a setting on each workspace that defines how permissions are determined for the workspace.
 
-* **Require workspace permissions**: This control mode does not allow granular Azure RBAC. For a user to access the workspace, they must be [granted permissions to the workspace]() or to [specific tables](#table-level-rbac).
+* **Require workspace permissions**: This control mode does not allow granular Azure RBAC. For a user to access the workspace, they must be [granted permissions to the workspace](#azure-rbac) or to [specific tables](#table-level-azure-rbac).
 
     If a user accesses the workspace in [workspace-context mode](#access-mode), they have access to all data in any table they've been granted access to. If a user accesses the workspace in [resource-context mode](#access-mode), they have access to only data for that resource in any table they've been granted access to.
 
@@ -81,7 +81,7 @@ Azure Monitor stores [log](../logs/data-platform-logs.md) data in a Log Analytic
 This article explains how to manage access to logs and to administer the workspaces that contain them, including how to grant access to: 
 
 * The workspace using workspace permissions.
-* Users who need access to log data from specific resources using Azure role-based access control (Azure RBAC) - also known as [resource-context](../logs/workspace-design.md#access-mode)
+* Users who need access to log data from specific resources using Azure role-based access control (Azure RBAC) - also known as [resource-context](#access-mode)
 * Users who need access to log data in a specific table in the workspace using Azure RBAC.
 
 To understand the Logs concepts around Azure RBAC and access strategies, read Design a Log Analytics workspace configuration(../logs/workspace-design.md)
@@ -329,7 +329,7 @@ Following are examples of custom role actions to grant and deny access to specif
 
 ### Custom logs
 
- Custom logs are tables created from data sources such as [text logs](../agents/data-sources-text-logs.md) and [HTTP Data Collector API](data-collecter-api.md). The easiest way to identify the type of log is by checking the tables listed under [Custom Logs in the log schema](./log-analytics-tutorial.md#view-table-information).
+ Custom logs are tables created from data sources such as [text logs](../agents/data-sources-custom-logs.md) and [HTTP Data Collector API](data-collector-api.md). The easiest way to identify the type of log is by checking the tables listed under [Custom Logs in the log schema](./log-analytics-tutorial.md#view-table-information).
 
 > [!NOTE]
 > Tables created by the [custom logs API](../essentials/../logs/custom-logs-overview.md) does not yet support table level RBAC.

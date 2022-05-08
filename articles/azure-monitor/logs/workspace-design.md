@@ -48,7 +48,7 @@ Most customers with a single tenant will use one workspace for Azure Monitor and
 For example, an international company using a single tenant might have four total workspaces - Azure Monitor and Sentinel workspaces in both United States and Europe.
 
 - **If you have a single Azure tenant**, then create a single workspace for that tenant.
-- **If you have multiple Azure tenants**, then create a workspace for each tenant. See [Multiple tenant strategies](multiple-tenant-strategies) for other options including strategies for service providers.
+- **If you have multiple Azure tenants**, then create a workspace for each tenant. See [Multiple tenant strategies](#multiple-tenant-strategies) for other options including strategies for service providers.
  
 ### Azure regions<a name="azure-regions"></a>
 Log Analytics workspaces each reside in a [particular Azure region](https://azure.microsoft.com/global-infrastructure/geographies/), and you may have regulatory or compliance purposes for keeping data in a particular region.
@@ -57,9 +57,9 @@ Log Analytics workspaces each reside in a [particular Azure region](https://azur
 - **If you have requirements for keeping data in a particular geography**, create a separate workspace for each region with such requirements.
 - **If you do not have requirements for keeping data in a particular geography**, use a single workspace for all regions.
 
-You should also consider potential [egress charges](https://azure.microsoft.com/pricing/details/bandwidth/) that may apply when sending data to a workspace from a resource in another region, although these charges are usually minor relative to data ingestion costs for most customers. These charges will typically be when sending data to the workspace from a virtual machine since monitoring data from other Azure resources using [diagnostic settings](../essentials/diagnostic-settings.md) does not [incur egress charges](../usage-estimated-costs#data-transfer-charges.md).
+You should also consider potential [egress charges](https://azure.microsoft.com/pricing/details/bandwidth/) that may apply when sending data to a workspace from a resource in another region, although these charges are usually minor relative to data ingestion costs for most customers. These charges will typically be when sending data to the workspace from a virtual machine since monitoring data from other Azure resources using [diagnostic settings](../essentials/diagnostic-settings.md) does not [incur egress charges](../usage-estimated-costs.md#data-transfer-charges).
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator) to estimate the cost and determine which regions you actually need. Consider workspaces in multiple regions if egress charges are significant.
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost and determine which regions you actually need. Consider workspaces in multiple regions if egress charges are significant.
 
 
 - **If egress charges are significant enough to justify the additional complexity**, create a separate workspace for each region with virtual machines.
@@ -100,7 +100,7 @@ If you can commit to daily ingestion of at least 500 GB/day, then you should imp
 ### Legacy agent limitations<a name="legacy-agent-limitations"></a>
 While you should avoid sending duplicate data to multiple workspaces because of the additional charges, you may have virtual machines connected to multiple workspaces. The most common scenario is an agent connected to separate workspaces for Azure Monitor and Microsoft Sentinel.
 
- The [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and [Log Analytics agent for Windows](../agents/log-analytics-agent.md) can connect to multiple workspaces. The [Log Analytics agent for Linux](../agents/log-analytics-agent) though can only connect to a single workspace.
+ The [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and [Log Analytics agent for Windows](../agents/log-analytics-agent.md) can connect to multiple workspaces. The [Log Analytics agent for Linux](../agents/log-analytics-agent.md) though can only connect to a single workspace.
 
 - **If you use the Log Analytics agent for Linux**, migrate to the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) or ensure that your Linux machines only require access to a single workspace.
 
