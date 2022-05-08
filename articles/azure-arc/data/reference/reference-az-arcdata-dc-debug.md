@@ -12,6 +12,9 @@ ms.subservice: azure-arc-data
 ---
 
 # az arcdata dc debug
+
+Debug data controller.
+
 ## Commands
 | Command | Description|
 | --- | --- |

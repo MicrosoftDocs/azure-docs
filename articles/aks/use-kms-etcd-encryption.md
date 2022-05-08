@@ -67,7 +67,6 @@ The following limitations apply when you integrate KMS etcd encryption with AKS:
 * KMS etcd encryption does not work with System-Assigned Managed Identity. The keyvault access-policy is required to be set before the feature is enabled. In addition, System-Assigned Managed Identity is not available until cluster creation, thus there is a cycle dependency.
 * Using Azure Key Vault with PrivateLink enabled.
 * Using more than 2000 secrets in a cluster.
-* Managed HSM Support
 * Bring your own (BYO) Azure Key Vault from another tenant.
 
 

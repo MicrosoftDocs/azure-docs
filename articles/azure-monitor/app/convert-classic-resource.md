@@ -63,6 +63,7 @@ Once the migration is complete, you can use [diagnostic settings](../essentials/
     > - If the retention setting for your Application Insights instance under **Configure** > **Usage and estimated costs** > **Data Retention** is enabled, then use that setting to control the retention days for the telemetry data still saved in your classic resource's storage.
 
 - Understand [Workspace-based Application Insights](../logs/cost-logs.md#application-insights-billing) usage and costs.
+- Understand [Workspace-based resource changes](#workspace-based-resource-changes).
 
 ## Migrate your resource
 

@@ -6314,6 +6314,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-arc/data/deploy-byok-active-directory-connector.md",
+      "redirect_url": "/azure/azure-arc/data/deploy-customer-managed-keytab-active-directory-connector",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-arc/data/reference/reference-az-sql-mi-arc-dag.md",
+      "redirect_url": "/azure/azure-arc/data/reference/reference-az-sql-instance-failover-group-arc",
+      "redirect_document_id":true
+    },
+    {
       "source_path_from_root": "/articles/azure-arc/data/retrieve-the-username-password-for-data-controller.md",
       "redirect_url": "/azure/azure-arc/data/update-service-principal-credentials",
       "redirect_document_id": false

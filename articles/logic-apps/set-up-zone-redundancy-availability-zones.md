@@ -33,6 +33,9 @@ During preview, the following considerations apply:
   * Brazil South
   * Canada Central
   * France Central
+  * Japan East
+  * South Central US
+  * UK South
 
 * Azure Logic Apps currently supports the option to enable availability zones *only for new Consumption logic app workflows* that run in multi-tenant Azure Logic Apps.
 
