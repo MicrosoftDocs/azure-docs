@@ -242,7 +242,7 @@ For more information, see [Manage your device inventory from the Azure portal](h
 
 Sensor health features in the Azure portal are supported started with sensor version 22.1.3.
 
-For more information, see [Sensor management from the Azure portal](#sensor-management-from-the-azure-portal).
+For more information, see [Sensor management from the Azure portal (public preview)](#sensor-management-from-the-azure-portal-public-preview).
 
 ### Use Azure Monitor workbooks with Microsoft Defender for IoT (Public preview)
 

@@ -131,8 +131,8 @@
         href: how-to-activate-and-set-up-your-on-premises-management-console.md
     - name: Manage an Azure subscription
       href: how-to-manage-subscriptions.md
-    - name: Onboard and manage sensors from the Azure portal
-      href: how-to-manage-sensors-on-the-cloud.md
+    - name: Onboard sensors
+      href: onboard-sensors.md
     - name: Activate and set up your sensor
       href: how-to-activate-and-set-up-your-sensor.md
     - name: Maintain threat intelligence packages
@@ -141,6 +141,8 @@
       items:
       - name: Manage OT sensors
         items:
+        - name: Manage sensors from the Azure portal
+          href: how-to-manage-sensors-on-the-cloud.md
         - name: Manage individual sensors
           href: how-to-manage-individual-sensors.md
         - name: Control OT traffic monitoring
