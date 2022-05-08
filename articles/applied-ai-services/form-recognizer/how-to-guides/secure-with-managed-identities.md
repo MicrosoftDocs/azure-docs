@@ -15,34 +15,40 @@ ms.author: vikurpad
 
 This how to guide walks you through the process of securing your Form Recognizer resource and enabling secure connections. The connections secured are
 1. Communication between a client application within a VNET and the Form Recognizer Resource
-2. Communication between the Form Recognizer Studio or the sample labeling tool and the Form Recognizer resource
-3. Communication between the Form Recognizer resource and a storage account (needed when training a custom model)
+1. Communication between the Form Recognizer Studio or the sample labeling tool and the Form Recognizer resource
+1. Communication between the Form Recognizer resource and a storage account (needed when training a custom model)
 
 You will be setting up the environment as in the image below to secure the environment
 <Add Figure 1> End State
 
-## Deploy the required resources
+## Prerequisites
 
-Start by deploying the following resources within a region.
-1. Virtual Network 
-2. Form Recognizer
-3. Storage Account
+To get started, you'll need:
 
-:::image type="content" source="../media/managed-identities/resource-management-identity-tab.png" alt-text="Screenshot: resource management identity tab in the Azure portal.":::
+* An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/)—if you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
+
+* A [**Form Recognizer**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) or [**Cognitive Services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource in the Azure portal. For detailed steps, _see_ [Create a Cognitive Services resource using the Azure portal](../../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows).
+
+* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Form Recognizer resource. You'll create containers to store and organize your blob data within your storage account.
+
+* An [**Azure virtual network**](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) in the same region as your Form Recognizer resource. You'll create a virtual network to deploy your application resources to train models and analyze documents.
+
+* An [**Azure data science VM**](* An [**Azure virtual network**](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) optionally deploy a data science VM in the virtual network to test the secure connections being established.
 
 
 ## Configure resources
 
 As a first step configure each of the resources to ensure that the resources can communicate with eah other
 1. Configure the Form Recognizer Studio to use the newly created Form Recognizer resource by accessing the settings page and selecting the resource
-2. Validate that this works by selecting the Read API and analyzing a sample document. If the resource was configured right, you will see the request complete successfully.
-3. Add a training dataset to a container in the Storage account you just created.
-4. Select the custom model tile to create a custom project. Ensure that you select the same Form Recognizer resource and the storage account you created in the previous step and select the container with the training dataset you uploaded in the previous step. Ensure that if the training dataset is within a folder, the folder path is set appropriately.
-5. If you have the required permissions, the Studio will set the CORS setting required to access the storage account. If you do not have the permissions, you will need to ensure that the CORS settings are configured on the Storage account before you can proceed.
-6. Validate that the Studio is configured to access your training data, if you can see your documents in the labeling experience, all the required connections have been established.
+1. Validate that this works by selecting the Read API and analyzing a sample document. If the resource was configured right, you will see the request complete successfully.
+1. Add a training dataset to a container in the Storage account you just created.
+1. Select the custom model tile to create a custom project. Ensure that you select the same Form Recognizer resource and the storage account you created in the previous step and select the container with the training dataset you uploaded in the previous step. Ensure that if the training dataset is within a folder, the folder path is set appropriately.
+1. If you have the required permissions, the Studio will set the CORS setting required to access the storage account. If you do not have the permissions, you will need to ensure that the CORS settings are configured on the Storage account before you can proceed.
+1. Validate that the Studio is configured to access your training data, if you can see your documents in the labeling experience, all the required connections have been established.
 
-You now have a working implementation of all the components needed to build a Form Recognizer solution with the defaulr security model as described in the figure below. 
-<Add Figure 2> Default security
+You now have a working implementation of all the components needed to build a Form Recognizer solution with the default security model as described in the figure below. 
+
+:::image type="content" source="../media/managed-identities/default-config.png" alt-text="Default security configuration.":::
 
 
 ## Setup managed identity for Form Recognizer
