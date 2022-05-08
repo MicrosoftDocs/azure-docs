@@ -30,9 +30,9 @@ Azure Synapse data security and privacy are non-negotiable. The purpose of this 
 
 This white paper targets all enterprise security stakeholders. They include security administrators, network administrations, Azure administrators, workspace administrators, and database administrators.
 
-**Writers:** Vengatesh Parasuraman, Fretz Nuson, Ron Dunn, Khendr'a Reid, John Hoang, Nithesh Krishnappa, Mykola Kovalenko, Brad Schacht, Pedro Matinez, Mark Pryce-Maher, and Arshad Ali.
+**Writers:** Vengatesh Parasuraman, Fretz Nuson, Ron Dunn, Khendr'a Reid, John Hoang, Nithesh Krishnappa, Mykola Kovalenko, Brad Schacht, Pedro Martinez, Mark Pryce-Maher, and Arshad Ali.
 
-**Technical Reviewers:** Nandita Valsan, Rony Thomas, Daniel Crawford, and Tammy Richter Jones.
+**Technical Reviewers:** Nandita Valsan, Rony Thomas, Abhishek Narain, Daniel Crawford, and Tammy Richter Jones.
 
 **Applies to:** Azure Synapse Analytics, dedicated SQL pool (formerly SQL DW), serverless SQL pool, and Apache Spark pool.
 
@@ -52,6 +52,30 @@ Some common security questions include:
 - What are the tools that detect and notify me of threats?
 
 The purpose of this white paper is to provide answers to these common security questions, and many others.
+
+## Component Architecture
+
+Azure Synapse Analytics is a Platform-as-a-service (PaaS) that brings together multiple independent components such as Dedicated SQL pools, Serverless SQL pools, Apache Spark pools and Data Integration Pipelines that work together to provide a seamless analytical platform experience for the customers.
+
+Dedicated SQL pools are provisioned clusters that provide enterprise data warehousing capabilities for SQL workloads. The data is ingested into a managed storage powered by Azure Storage, which is another PaaS service by itself. Compute is isolated from storage which enables customers to scale compute independently of their data. Dedicated SQL pools also provide the ability to query the data files directly over the customer managed Azure Storage accounts via external tables.
+
+Serverless SQL pools are on-demand clusters that provide SQL interface to query and analyze data directly over customer managed Azure Storage accounts. Since they are serverless, there is no managed storage, and the compute nodes are scaled automatically depending on the query workload.
+
+Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of open-source Apache Spark in the cloud. Spark instances are provisioned on-demand based on the metadata configurations defined in the Spark pools. Each user gets their own dedicated Spark instance for running their jobs. The data files processed by the Spark instances are managed by the customers in their own Azure storage accounts.
+
+Pipelines and Data flows provide data integration capabilities. Pipelines are a logical grouping of activities that perform data movement and data transformation at scale. Data flow is a transformation activity in a pipeline that provides low-code user interface to author and execute data transformations at scale. Data flow leverages Apache Spark clusters of Azure Synapse Analytics behind the scenes to execute the generated code. Pipelines and Data flows are compute only services and they do not have any managed storage associated with them.
+
+Pipeline leverages the Integration Runtime as the scalable compute infrastructure for performing data movement activities that executes on the Integration Runtime and for dispatch activities that runs on variety of other compute engines such as Azure SQL Database, Azure HDInsight, Azure Databricks, Apache Spark clusters of Azure Synapse Analytics, etc. Azure Synapse Analytics supports two types of Integration Runtimes – Azure Integration Runtime and Self-hosted Integration Runtime.  Azure Integration Runtimes provide a fully managed, scalable, and on-demand compute infrastructure. Self-hosted Integration Runtimes are installed and configured by the users in their own networks, either in on-premises machines or in the Azure cloud virtual machines.
+
+Customers can choose to associate their Synapse workspace with a Managed workspace Virtual Network. When associated with a Managed workspace Virtual Network, Azure Integration Runtimes, and the Apache Spark clusters that are used by the Pipelines, Data flows and the Apache Spark pools are deployed inside the Managed workspace Virtual Network. This ensures network isolation between the workspaces for Pipelines and Apache Spark workloads.
+
+The following diagram depicts the various components of Azure Synapse Analytics.
+
+:::image type="content" source="media/security-white-paper-overview/azure-synapse-components.png" alt-text="Image shows the various components of Azure Synapse Analytics: Dedicated SQL pools, Serverless SQL pools, Apache Spark pools and Pipelines.":::
+
+## Component isolation
+
+Each individual component of Azure Synapse Analytics described above provides its own security features such as data protection, access control, authentication, network security and threat protection for securing the compute and the associated data that is processed. In addition to that, Azure Storage, being a PaaS service, provides additional security on its own, that is configured and managed by the users in their own storage accounts. This level of component isolation of Azure Synapse Analytics limits and minimizes the exposure in case of a security vulnerability in any one of it's components.
 
 ## Security layers
 
