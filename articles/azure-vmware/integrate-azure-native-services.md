@@ -60,7 +60,7 @@ You can configure the Log Analytics workspace with Microsoft Sentinel for alert 
 If you are new to Azure or unfamiliar with any of the services previously mentioned, review the following articles:
 
 - [Automation account authentication overview](../automation/automation-security-overview.md)
-- [Designing your Azure Monitor Logs deployment](../azure-monitor/logs/design-logs-deployment.md) and [Azure Monitor](../azure-monitor/overview.md)
+- [Designing your Azure Monitor Logs deployment](../azure-monitor/logs/workspace-design.md) and [Azure Monitor](../azure-monitor/overview.md)
 - [Planning](../security-center/security-center-planning-and-operations-guide.md) and [Supported platforms](../security-center/security-center-os-coverage.md) for Microsoft Defender for Cloud
 - [Enable Azure Monitor for VMs overview](../azure-monitor/vm/vminsights-enable-overview.md)
 - [What is Azure Arc enabled servers?](../azure-arc/servers/overview.md) and [What is Azure Arc enabled Kubernetes?](../azure-arc/kubernetes/overview.md)
@@ -133,7 +133,7 @@ Can collect data from different [sources to monitor and analyze](../azure-monito
 Monitor guest operating system performance to discover and map application dependencies for Azure VMware Solution or on-premises VMs. Your Log Analytics workspace in Azure Monitor enables log collection and performance counter collection using the Log Analytics agent or extensions. 
 
 
-1. [Design your Azure Monitor Logs deployment](../azure-monitor/logs/design-logs-deployment.md)
+1. [Design your Azure Monitor Logs deployment](../azure-monitor/logs/workspace-design.md)
 
 1. [Enable Azure Monitor for VMs overview](../azure-monitor/vm/vminsights-enable-overview.md)
 

@@ -70,7 +70,7 @@ To access archived data, you must first retrieve data from it in an Analytics Lo
 
 
 ## Permissions
-Permission to data in a Log Analytics workspace is defined by the [access control mode](workspace-design.md#access-control-mode), which is a setting on each workspace. Users can either be given explicit access to the workspace using a [built-in or custom role](../roles-permissions-security.md), or you can allow access to data collected for Azure resources to users with access to those resources.
+Permission to data in a Log Analytics workspace is defined by the [access control mode](manage-access.md#access-control-mode), which is a setting on each workspace. Users can either be given explicit access to the workspace using a [built-in or custom role](../roles-permissions-security.md), or you can allow access to data collected for Azure resources to users with access to those resources.
 
 See [Manage access to log data and workspaces in Azure Monitor](manage-access.md) for details on the different permission options and on configuring permissions.
 
