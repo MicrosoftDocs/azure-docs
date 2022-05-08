@@ -133,9 +133,9 @@ In such cases, do the following:
 1. [Onboard your sensor](#onboard-ot-sensors), registering it again with any new settings.
 1. [Upload your new activation file](how-to-manage-individual-sensors.md#upload-new-activation-files).
 
-### Reactivate a sensor for upgrades to version 22.x from a legacy version
+### Reactivate an OT sensor for upgrades to version 22.x from a legacy version
 
-If you're updating your sensor version from a legacy version to 22.1.x or higher, you'll need a different activation procedure than for earlier releases.
+If you're updating your OT sensor version from a legacy version to 22.1.x or higher, you'll need a different activation procedure than for earlier releases.
 
 Make sure that you've started with the relevant updates steps for this update. For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).
 
