@@ -41,9 +41,14 @@ The following prerequisites are for a Windows development environment. For Linux
 
 * Install [.NET SDK 6.0](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
 
-    ```bash
+    ```cmd
     dotnet --info
     ```
+
+* Make sure [OpenSSL](https://www.openssl.org/) is installed on your machine. On Windows, your installation of Git includes an installation of OpenSSL. You can access OpenSSL from the Git Bash command prompt. To verify that OpenSSL is installed, open a Git Bash command prompt and enter `openssl version`.
+
+  >[!NOTE]
+  > Unless you're familiar with OpenSSL and already have it installed on your Windows machine, we recommend using OpenSSL from the Git Bash prompt. Alternatively, you can choose to download the source code and build OpenSSL. To learn more, see the [OpenSSL Downloads](https://www.openssl.org/source/) page. Or, you can download OpenSSL pre-built from a third-party. To learn more, see the [OpenSSL wiki](https://wiki.openssl.org/index.php/Binaries). Microsoft makes no guarantees about the validity of packages downloaded from third-parties. If you do choose to build or download OpenSSL make sure that the OpenSSL binary is accessible in your path and that the `OPENSSL_CNF` environment variable is set to the path of your *openssl.cnf* file.
 
 ::: zone-end
 
@@ -136,7 +141,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 ::: zone pivot="programming-language-csharp"
 
-1. Open a Git CMD or Git Bash command line environment.
+1. Open a Git Bash command line environment.
 
 2. Clone the [Azure IoT Samples for C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository using the following command:
 
@@ -198,7 +203,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 ## Create a self-signed X.509 device certificate
 
-::: zone pivot="programming-language-ansi-c,programming-language-csharp,programming-language-nodejs,programming-language-java"
+::: zone pivot="programming-language-ansi-c,programming-language-nodejs,programming-language-java"
 
 In this section, you'll use sample code from the Azure IoT SDK to create a self-signed X.509 certificate. This certificate must be uploaded to your provisioning service, and verified by the service.
 
@@ -213,7 +218,7 @@ To create the X.509 certificate:
 
 ::: zone-end
 
-::: zone pivot="programming-language-python"
+::: zone pivot="programming-language-python,,programming-language-csharp"
 
 In this section, you'll use OpenSSL to create a self-signed X.509 certificate. This certificate must be uploaded to your provisioning service, and verified by the service.
 
@@ -322,11 +327,11 @@ The sample code is set up to use X.509 certificates that are stored within a pas
         Serial Number:
             77:3e:1d:e4:7e:c8:40:14:08:c6:09:75:50:9c:1a:35:6e:19:52:e2
         Signature Algorithm: sha256WithRSAEncryption
-        Issuer: CN = Python-device-01
+        Issuer: CN = iothubx509device1
         Validity
             Not Before: May  5 21:41:42 2022 GMT
             Not After : Jun  4 21:41:42 2022 GMT
-        Subject: CN = Python-device-01
+        Subject: CN = iothubx509device1
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
                 RSA Public-Key: (4096 bit)
@@ -380,7 +385,7 @@ The sample code is set up to use X.509 certificates that are stored within a pas
 
 1. When asked **Verifying - Enter Export Password:**, use the password `1234` again.
 
-    A PKCS12 formatted certificate file (*certificate.pfx*) should now be generated in the directory where you ran the `openssl` command. This is the file that you will use in the sample.
+    A PKCS12 formatted certificate file (*certificate.pfx*) should now be generated in the directory where you ran the `openssl` command.
 
 ::: zone-end
 
