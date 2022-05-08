@@ -56,7 +56,10 @@ The following prerequisites are for a Windows development environment. For Linux
 
 * Install [Node.js v4.0 or above](https://nodejs.org) on your machine.
 
-* Install [OpenSSL](https://www.openssl.org/) on your machine and is added to the environment variables accessible to the command window. This library can either be built and installed from source or downloaded and installed from a [third party](https://wiki.openssl.org/index.php/Binaries) such as [this](https://sourceforge.net/projects/openssl/).
+* Make sure [OpenSSL](https://www.openssl.org/) is installed on your machine. On Windows, your installation of Git includes an installation of OpenSSL. You can access OpenSSL from the Git Bash command prompt. To verify that OpenSSL is installed, open a Git Bash command prompt and enter `openssl version`.
+
+  >[!NOTE]
+  > Unless you're familiar with OpenSSL and already have it installed on your Windows machine, we recommend using OpenSSL from the Git Bash prompt. Alternatively, you can choose to download the source code and build OpenSSL. To learn more, see the [OpenSSL Downloads](https://www.openssl.org/source/) page. Or, you can download OpenSSL pre-built from a third-party. To learn more, see the [OpenSSL wiki](https://wiki.openssl.org/index.php/Binaries). Microsoft makes no guarantees about the validity of packages downloaded from third-parties. If you do choose to build or download OpenSSL make sure that the OpenSSL binary is accessible in your path and that the `OPENSSL_CNF` environment variable is set to the path of your *openssl.cnf* file.
 
 ::: zone-end
 
@@ -153,7 +156,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 ::: zone pivot="programming-language-nodejs"
 
-1. Open a Git CMD or Git Bash command line environment.
+1. Open a Git Bash command line environment.
 
 2. Clone the [Azure IoT Samples for Node.js](https://github.com/Azure/azure-iot-sdk-node.git) GitHub repository using the following command:
 
@@ -203,7 +206,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 ## Create a self-signed X.509 device certificate
 
-::: zone pivot="programming-language-ansi-c,programming-language-nodejs,programming-language-java"
+::: zone pivot="programming-language-ansi-c,programming-language-java"
 
 In this section, you'll use sample code from the Azure IoT SDK to create a self-signed X.509 certificate. This certificate must be uploaded to your provisioning service, and verified by the service.
 
@@ -218,7 +221,7 @@ To create the X.509 certificate:
 
 ::: zone-end
 
-::: zone pivot="programming-language-python,programming-language-csharp"
+::: zone pivot="programming-language-python,programming-language-csharp,programming-language-nodejs"
 
 In this section, you'll use OpenSSL to create a self-signed X.509 certificate. This certificate must be uploaded to your provisioning service, and verified by the service.
 
@@ -391,17 +394,98 @@ The sample code is set up to use X.509 certificates that are stored within a pas
 
 ::: zone pivot="programming-language-nodejs"
 
-1. Open a command prompt, and go to the certificate generator script and build the project:
+1. On Windows, open a Git Bash prompt. On Linux, you can use a regular Bash prompt.
 
-    ```cmd/sh
-    cd azure-iot-sdk-node/provisioning/tools
-    npm install
+1. From the location where you downloaded the SDK, go to the sample directory:
+
+    ```bash
+    cd ./azure-iot-sdk-node/provisioning/device/samples
     ```
 
-2. Create a _leaf_ X.509 certificate by running the script using your own _certificate-name_. For X.509-based enrollments, the leaf certificate's common name becomes the [Registration ID](./concepts-service.md#registration-id). The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The _certificate-name_ parameter must adhere to this format.
+1. Run the following command:
 
-    ```cmd/sh
-    node create_test_cert.js device {certificate-name}
+    # [Windows](#tab/windows)
+
+    ```bash
+    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device_key.pem -out ./device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=Python-device-01"
+    ```
+
+    > [!IMPORTANT]
+    > The extra forward slash given for the subject name (`//CN=node-device-01`) is only required to escape the string with Git on Windows platforms.
+
+    # [Linux](#tab/linux)
+
+    ```bash
+    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device_key.pem -out ./device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=node-device-01"
+    ```
+
+    ---
+
+1. When asked to **Enter PEM pass phrase:**, use the pass phrase `1234`.
+
+1. When asked **Verifying - Enter PEM pass phrase:**, use the pass phrase `1234` again.
+
+    A test certificate file (*device_cert.pem*) and private key file (*device_key.pem*) should now be generated in the directory where you ran the `openssl` command.
+
+    The certificate file has its subject common name (CN) set to `node-device-01`. For an X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
+
+1. To view the common name (CN) and other properties of the certificate file, enter the following command:
+
+    # [Windows](#tab/windows)
+
+    ```bash
+    winpty openssl x509 -in ./device_cert.pem -text -noout
+    ```
+
+    # [Linux](#tab/linux)
+
+    ```bash
+    openssl x509 -in ./device_cert.pem -text -noout
+    ```
+
+    ---
+
+    ```output
+    Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            77:3e:1d:e4:7e:c8:40:14:08:c6:09:75:50:9c:1a:35:6e:19:52:e2
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: CN = node-device-01
+        Validity
+            Not Before: May  5 21:41:42 2022 GMT
+            Not After : Jun  4 21:41:42 2022 GMT
+        Subject: CN = node-device-01
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (4096 bit)
+                Modulus:
+                    00:d2:94:37:d6:1b:f7:43:b4:21:c6:08:1a:d6:d7:
+                    e6:40:44:4e:4d:24:41:6c:3e:8c:b2:2c:b0:23:29:
+                    ...
+                    23:6e:58:76:45:18:03:dc:2e:9d:3f:ac:a3:5c:1f:
+                    9f:66:b0:05:d5:1c:fe:69:de:a9:09:13:28:c6:85:
+                    0e:cd:53
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints:
+                CA:FALSE
+            Netscape Comment:
+                OpenSSL Generated Certificate
+            X509v3 Subject Key Identifier:
+                63:C0:B5:93:BF:29:F8:57:F8:F9:26:44:70:6F:9B:A4:C7:E3:75:18
+            X509v3 Authority Key Identifier:
+                keyid:63:C0:B5:93:BF:29:F8:57:F8:F9:26:44:70:6F:9B:A4:C7:E3:75:18
+
+            X509v3 Extended Key Usage:
+                TLS Web Client Authentication
+    Signature Algorithm: sha256WithRSAEncryption
+         82:8a:98:f8:47:00:85:be:21:15:64:b9:22:b0:13:cc:9e:9a:
+         ed:f5:93:b9:4b:57:0f:79:85:9d:89:47:69:95:65:5e:b3:b1:
+         ...
+         cc:b2:20:9a:b7:f2:5e:6b:81:a1:04:93:e9:2b:92:62:e0:1c:
+         ac:d2:49:b9:36:d2:b0:21
     ```
 
 ::: zone-end
@@ -578,7 +662,7 @@ This article demonstrates an individual enrollment for a single device to be pro
 6. In the **Add Enrollment** page, enter the following information.
 
     * **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
-    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *{certificate-name}_cert.pem* that you created in the previous section.
+    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *device_cert.pem* that you created in the previous section.
     * Optionally, you can provide the following information:
         * Select an IoT hub linked with your provisioning service.
         * Enter a unique device ID. Make sure to avoid sensitive data while naming your device.
@@ -715,34 +799,27 @@ In this section, we'll update the sample code to send the device's boot sequence
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
 
-2. Copy the **_ID Scope_** and **Global device endpoint** values.
+1. Copy the **_ID Scope_** and **Global device endpoint** values.
 
     :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope-and-global-device-endpoint.png" alt-text="Copy ID Scope from the portal.":::
 
-3. Copy your _certificate_ and _key_ to the sample folder.
+1. In a command window, from the location where you downloaded the SDK, go to the sample directory, and build the project:
 
     ```cmd/sh
-    copy .\{certificate-name}_cert.pem ..\device\samples\{certificate-name}_cert.pem
-    copy .\{certificate-name}_key.pem ..\device\samples\{certificate-name}_key.pem
-    ```
-
-4. Navigate to the device test script and build the project.
-
-    ```cmd/sh
-    cd ..\device\samples
+    cd ./azure-iot-sdk-node/provisioning/device/samples
     npm install
     ```
 
-5. Edit the **register\_x509.js** file with the following changes:
+5. Edit the **register_x509.js** file amd make the following changes:
 
     * Replace `provisioning host` with the **_Global Device Endpoint_** noted in **Step 1** above.
     * Replace `id scope` with the **_ID Scope_** noted in **Step 1** above.
     * Replace `registration id` with the **_Registration ID_** noted in the previous section.
-    * Replace `cert filename` and `key filename` with the files you copied in **Step 2** above.
+    * Replace `cert filename` and `key filename` with the files you generated previously, *device_cert.pem* and *device_key.pem*.
 
 6. Save the file.
 
-7. Execute the script and verify that the device was provisioned successfully.
+7. Run the script and verify that the device was provisioned successfully.
 
     ```cmd/sh
     node register_x509.js
