@@ -446,6 +446,7 @@ Learn more about ASIM parsers:
 - [ASIM parsers overview](normalization-parsers-overview.md)
 - [Use ASIM parsers](normalization-about-parsers.md)
 - [Manage  ASIM parsers](normalization-manage-parsers.md)
+- [The ASIM parsers list](normalization-parsers-list.md)
 
 Learn more about the ASIM in general: 
 
