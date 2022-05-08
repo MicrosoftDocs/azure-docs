@@ -33,7 +33,7 @@ To get started, you'll need:
 
 * An [**Azure virtual network**](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) in the same region as your Form Recognizer resource. You'll create a virtual network to deploy your application resources to train models and analyze documents.
 
-* An [**Azure data science VM**](* An [**Azure virtual network**](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) optionally deploy a data science VM in the virtual network to test the secure connections being established.
+* An [**Azure data science VM**](https://portal.azure.com/#create/microsoft-dsvm.dsvm-win-2019winserver-2019) optionally deploy a data science VM in the virtual network to test the secure connections being established.
 
 
 ## Configure resources
