@@ -99,7 +99,7 @@ Ensure you have fulfilled [prerequisites](#prerequisites). Assuming your cluster
 
 Azure Machine Learning workspace defaults to having a system-assigned managed identity to access Azure ML resources. The steps are completed if the system assigned default setting is on. 
 
-:::image type="content" source="media/how-to-attach-arc-kubernetes/ws-msi.png" alt-text="Settings for default Kubernetes cluster:::
+:::image type="content" source="media/how-to-attach-arc-kubernetes/ws-msi.png" alt-text="Settings for default Kubernetes cluster":::
 
 Otherwise, if a user-assigned managed identity is specified in Azure Machine Learning workspace creation, the following role assignments need to be granted to the identity manually before attaching the compute.
 
