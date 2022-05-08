@@ -8,7 +8,7 @@ ms.date: 05/08/2022
 
 ## Enable the plan
 
-When you enable the plan through the Azure Portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to auto provision (automatically install) required components to provide the protections offered by plan, including the assignment of a default workspace. You can [override the default workspace](defender-for-containers-override-workspace.md) through Azure Policy.
+When you enable the plan through the Azure Portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to auto provision (automatically install) required components to provide the protections offered by plan, including the assignment of a default workspace. You can [override the default workspace](/azure/defender-for-cloud/defender-for-containers-enable?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks) through Azure Policy.
 
 The Defender profile/extension uses a default Log Analytics workspace. If you do not already have a default Log Analytics workspace, Defender for Cloud will creates a new resource group and default workspace when the Defender for Containers plan is enabled. The default workspace is created based on your [region](../faq-data-collection-agents.yml), and connects the Defender profile/extension to that workspace.
 
