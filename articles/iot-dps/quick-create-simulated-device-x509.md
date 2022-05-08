@@ -198,7 +198,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 ## Create a self-signed X.509 device certificate
 
-::: zone pivot="programming-language-ansi-c", "programming-language-csharp", "programming-language-nodejs", "programming-language-java"
+::: zone pivot="programming-language-ansi-c,programming-language-csharp,programming-language-nodejs,programming-language-java"
 
 In this section, you'll use sample code from the Azure IoT SDK to create a self-signed X.509 certificate. This certificate must be uploaded to your provisioning service, and verified by the service.
 
