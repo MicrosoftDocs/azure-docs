@@ -22,7 +22,7 @@ For the usage with [Form Recognizer SDK](quickstarts/try-v3-csharp-sdk.md), [For
 |--|--|--|
 | **Concurrent Request limit** | 1 | 15 (default value) |
 | Adjustable | No | Yes<sup>2</sup> |
-| **Max document size** | 50MB | 50MB |
+| **Max document size** | 500MB | 500MB |
 | Adjustable | No | No |
 | **Max number of pages (Analysis)** | 2 | No limit |
 | Adjustable | No | No |
