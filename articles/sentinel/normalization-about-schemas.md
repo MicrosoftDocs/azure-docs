@@ -123,7 +123,7 @@ The allowed values for a user id type are:
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
 | <a name="username"></a>**Username** | Optional | String | The source username, including domain information when available. Use the simple form only if domain information isn't available. Store the Username type in the [UsernameType](#usernametype) field. |
-| <a name="usernametype"></a>**UsernameType** | Optional | UsernameType | Specifies the type of the username stored in the [SrcUsername](#srcusername) field.  |
+| <a name="usernametype"></a>**UsernameType** | Optional | UsernameType | Specifies the type of the username stored in the [Username](#username) field.  |
 | **UPN**, **WindowsUsername**, **DNUsername**, **SimpleUsername** |  Optional | String | Fields used to store additional usernames, if the original event includes multiple usernames. Select the username most associated with the event as the primary username stored in [Username](#username). |
 
 The allowed values for a username type are:
@@ -196,9 +196,11 @@ When the value provided by the source is an FQDN, or when the value may be eithe
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
-| <a name ="id"></a>**Id**               | Optional    | String     | The unique ID of the device . For example: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
-| <a name="idtype"></a>**DvcIdType** | Optional | Enumerated | The type of [Id](#id). This field is required if the [DvcId](#id) field is used. |
-| **AzureResourceId**, **MDEid**, **MD4IoTid**, **VMConnectionId**, **VectraId**, **AwsVpcId** |  Optional | String | Fields used to store additional device IDs, if the original event includes multiple device IDs. Select the device ID most associated with the event as the primary ID stored in [Id](#id). |
+| <a name ="dvcid"></a>**DvcId**               | Optional    | String     | The unique ID of the device . For example: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
+| <a name="dvcidtype"></a>**DvcIdType** | Optional | Enumerated | The type of [Id](#id). This field is required if the [DvcId](#dvcid) field is used. |
+| **DvcAzureResourceId**, **DvcMDEid**, **DvcMD4IoTid**, **DvcVMConnectionId**, **DvcVectraId**, **DvcAwsVpcId** |  Optional | String | Fields used to store additional device IDs, if the original event includes multiple device IDs. Select the device ID most associated with the event as the primary ID stored in [Id](#id). |
+
+Note that fields named should prepend a role prefix such as `Src` or `Dst`, but should not prepend a second `Dvc` prefix if used in that role.
 
 The allowed values for a device id type are:
 
@@ -212,7 +214,7 @@ The allowed values for a device id type are:
 | **VectraId** | A Vectra AI assigned resource ID.|
 | **Other** | An ID type not listed above.| 
 
-For example, the Azure Monitor [VM Insights solution](https://docs.microsoft.com/azure/azure-monitor/vm/vminsights-log-search) provides network sessions information in the `VMConnection`. The table provides an Azure Resource ID in the `_ResourceId` field and a VM insights specific device ID in the `Machine` field. Use the following mapping to represent those IDs:
+For example, the Azure Monitor [VM Insights solution](/azure/azure-monitor/vm/vminsights-log-search) provides network sessions information in the `VMConnection`. The table provides an Azure Resource ID in the `_ResourceId` field and a VM insights specific device ID in the `Machine` field. Use the following mapping to represent those IDs:
 
 | Field | Map to  |
 | ----- | ----- | 
@@ -226,16 +228,18 @@ For example, the Azure Monitor [VM Insights solution](https://docs.microsoft.com
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
-| <a name ="dvcipaddr"></a>**DvcIpAddr**           | Recommended | IP address | The IP address of the device on which the event occurred or which reported the event, depending on the schema. <br><br>Example: `45.21.42.12`    |
+| <a name ="ipaddr"></a>**IpAddr**           | Recommended | IP address | The IP address of the device. <br><br>Example: `45.21.42.12`    |
 | <a name = "dvcdescription"></a>**DvcDescription** | Optional | String | A descriptive text associated with the device. For example: `Primary Domain Controller`. |
-| <a name="dvcmacaddr"></a>**DvcMacAddr**          | Optional    | MAC        |   The MAC address of the device on which the event occurred or which reported the event.  <br><br>Example: `00:1B:44:11:3A:B7`       |
-| <a name="dvczone"></a>**DvcZone** | Optional | String | The network on which the event occurred or which reported the event, depending on the schema. The zone is defined by the reporting device.<br><br>Example: `Dmz` |
+| <a name="macaddr"></a>**MacAddr**          | Optional    | MAC        |   The MAC address of the device on which the event occurred or which reported the event.  <br><br>Example: `00:1B:44:11:3A:B7`       |
+| <a name="zone"></a>**Zone** | Optional | String | The network on which the event occurred or which reported the event, depending on the schema. The zone is defined by the reporting device.<br><br>Example: `Dmz` |
 | <a name="dvcos"></a>**DvcOs**               | Optional    | String     |         The operating system running on the device on which the event occurred or which reported the event.    <br><br>Example: `Windows`    |
 | <a name="dvcosversion"></a>**DvcOsVersion**        | Optional    | String     |   The version of the operating system on the device on which the event occurred or which reported the event. <br><br>Example: `10` |
 | <a name="dvcaction"></a>**DvcAction** | Optional | String | For reporting security systems, the action taken by the system, if applicable. <br><br>Example: `Blocked` |
 | <a name="dvcoriginalaction"></a>**DvcOriginalAction** | Optional | String | The original [DvcAction](#dvcaction) as provided by the reporting device. |
-| <a name="dvcinterface"></a>**DvcInterface** | Optional | String | The network interface on which data was captured. This field is  typically relevant to network related activity which is captured by an intermediate or tap device. | 
-| <a name="dvcsubscription"></a>**DvcSubscriptionId** | Optional | String | The cloud platform subscription ID the device belongs to. **DvcSubscriptionId** map to a subscription ID on Azure and to an account ID on AWS. | 
+| <a name="interface"></a>**Interface** | Optional | String | The network interface on which data was captured. This field is  typically relevant to network related activity which is captured by an intermediate or tap device. | 
+| <a name="subscription"></a>**SubscriptionId** | Optional | String | The cloud platform subscription ID the device belongs to. **DvcSubscriptionId** map to a subscription ID on Azure and to an account ID on AWS. | 
+
+Note that fields named in the list with the Dvc prefix should prepend a role prefix such as `Src` or `Dst`, but should not prepend a second `Dvc` prefix if used in that role. 
 
 
 ### Sample entity mapping
