@@ -1,7 +1,7 @@
 ---
 title: Manage sensors with Defender for IoT in the Azure portal
 description: Learn how to onboard, view, and manage sensors with Defender for IoT in the Azure portal.
-ms.date: 04/10/2022
+ms.date: 05/08/2022
 ms.topic: how-to
 ---
 
@@ -102,43 +102,13 @@ This procedure describes how to define sensor settings from the Azure portal and
 
 **To configure and apply a sensor setting**:
 
-1. In Defender for IoT on the Azure portal, select **Sites and sensors** > **Sensor settings (Preview)**.
+1. In Defender for IoT on the Azure portal, select **Sites and sensors**. To apply settings to multiple sensors, select **Sensor settings (Preview)**. To start from a single sensor, navigate to and select your sensor. Then, on the sensor details page, select **Sensor settings (Preview)**.
 
 1. Select **Add** and use the wizard to define values for your setting.
 
 1. On the **Basics** tab, select your subscription and setting type. Then, define a meaningful name and an optional description for your setting.
 
-1. On the **Setting** tab, define the value for your selected setting type, and then select **Next**. Use the following tabs to learn more:
-
-    # [Bandwidth cap](#tab/bandwidth)
-
-    For a bandwidth cap, define the maximum bandwidth you want the sensor to use for outgoing communication from the sensor to the cloud, either in Kbps or Mbps.
-
-    **Default**: 1500 Kbps
-
-    **Minimum required for a stable connection to Azure** 350 Kbps. At this minimum setting, connections to the sensor console may be slower than usual.
-
-    # [Subnet](#tab/subnet)
-
-    To define your sensor's subnets do any of the following:
-
-    - Select **Import subnets** to import a comma-separated list of subnet IP addresses and masks. Select **Export subnets** to export a list of currently configured data, or **Clear all** to start from scratch.
-
-    - Select **Auto subnet learning** to have Defender for IoT automatically learn subnets from existing network data.
-
-    - Select **Resolve all Internet traffic as internal/private** to treat all public IPs as local addresses. If you select this option, your sensor will not send any alerts about unauthorized internet activity.
-
-    - Select **Add subnet** to add subnet details manually, including each IP address, mask, and subnet name.
-
-    For example:
-
-    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-settings-subnet-setting.png" alt-text="Screenshot of a sensor setting to define subnets.":::
-
-    # [VLAN naming](#tab/vlan)
-
-    To define a VLAN for your sensor, enter the VLAN ID and a meaningful name.
-
-    ---
+1. On the **Setting** tab, define the value for your selected setting type, and then select **Next**. For more information, see [Sensor setting reference](#sensor-setting-reference) below.
 
 1. On the **Apply** tab, select the sites, zones, and sensors where you want to apply your setting.
 
@@ -150,6 +120,35 @@ This procedure describes how to define sensor settings from the Azure portal and
 1. When you're finished, select **Review and create** to create your setting and apply it as configured. If your new setting replaces an existing setting, a :::image type="icon" source="media/how-to-manage-individual-sensors/warning-icon.png" border="false"::: warning is shown to indicate the existing setting.
 
 After you've created sensor settings, they're listed on the **Sites and sensors** > **Sensor settings** page, by setting type. Each setting shows a card with the setting name and value, and any sites, zones and sensors where the setting is applied.
+
+Settings applied to specific sensors are also listed on the sensor details page. Select the link to the setting name to modify any values or applied sensors.
+
+:::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-settings-details.png" alt-text="Screenshot of a sensor setting on a sensor details page.":::
+
+### Sensor setting reference
+
+Use the following tabs to learn more about individual OT sensor settings:
+
+# [Bandwidth cap](#tab/bandwidth)
+
+For a bandwidth cap, define the maximum bandwidth you want the sensor to use for outgoing communication from the sensor to the cloud, either in Kbps or Mbps.
+**Default**: 1500 Kbps
+**Minimum required for a stable connection to Azure** 350 Kbps. At this minimum setting, connections to the sensor console may be slower than usual.
+# [Subnet](#tab/subnet)
+
+To define your sensor's subnets do any of the following:
+- Select **Import subnets** to import a comma-separated list of subnet IP addresses and masks. Select **Export subnets** to export a list of currently configured data, or **Clear all** to start from scratch.
+- Select **Auto subnet learning** to have Defender for IoT automatically learn subnets from existing network data.
+- Select **Resolve all Internet traffic as internal/private** to treat all public IPs as local addresses. If you select this option, your sensor will not send any alerts about unauthorized internet activity.
+- Select **Add subnet** to add subnet details manually, including each IP address, mask, and subnet name.
+
+For example:
+
+:::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-settings-subnet-setting.png" alt-text="Screenshot of a sensor setting to define subnets.":::
+# [VLAN naming](#tab/vlan)
+To define a VLAN for your sensor, enter the VLAN ID and a meaningful name.
+
+---
 
 ### In case of Internet outage
 
