@@ -111,8 +111,18 @@
       href: tutorial-splunk.md
     - name: Integrate ServiceNow
       href: tutorial-servicenow.md
-  - name: System deployment
+  - name: System deployment and maintenance
     items:
+    - name: Manage an Azure subscription
+      href: how-to-manage-subscriptions.md
+    - name: Onboard sensors
+      href: onboard-sensors.md
+    - name: Activate and set up your sensor
+      href: how-to-activate-and-set-up-your-sensor.md
+    - name: Manage sensors from the Azure portal
+      href: how-to-manage-sensors-on-the-cloud.md
+    - name: Maintain threat intelligence packages
+      href: how-to-work-with-threat-intelligence-packages.md
     - name: OT system setup
       items:
       - name: Set up OT network monitoring
@@ -129,20 +139,10 @@
           href: how-to-connect-sensor-by-proxy.md
       - name: Activate and set up your on-premises management console
         href: how-to-activate-and-set-up-your-on-premises-management-console.md
-    - name: Manage an Azure subscription
-      href: how-to-manage-subscriptions.md
-    - name: Onboard sensors
-      href: onboard-sensors.md
-    - name: Activate and set up your sensor
-      href: how-to-activate-and-set-up-your-sensor.md
-    - name: Maintain threat intelligence packages
-      href: how-to-work-with-threat-intelligence-packages.md
     - name: OT system maintenance
       items:
       - name: Manage OT sensors
         items:
-        - name: Manage sensors from the Azure portal
-          href: how-to-manage-sensors-on-the-cloud.md
         - name: Manage individual sensors
           href: how-to-manage-individual-sensors.md
         - name: Control OT traffic monitoring
