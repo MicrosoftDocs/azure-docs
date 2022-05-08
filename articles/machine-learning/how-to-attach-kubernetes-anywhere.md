@@ -23,7 +23,7 @@ In this article, you can learn about steps to configure and attach an existing K
 
 1. A running Kubernetes cluster - **We recommend minimum of 4 vCPU cores and 8GB memory, around 2 vCPU cores and 3GB memory will be used by Azure Arc agent and AzureML extension components**.
 1. Connect your Kubernetes cluster to Azure Arc. Follow instructions in [connect existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md).
-   * if you have Azure RedHat OpenShift Service (ARO) cluster or OpenShift Container Platform (OCP) cluster, follow another prerequisite step [here](#prerequisite-for-azure-arc-enabled-kubernetes) before AzureML extension deployment.
+    a. if you have Azure RedHat OpenShift Service (ARO) cluster or OpenShift Container Platform (OCP) cluster, follow another prerequisite step [here](#prerequisite-for-azure-arc-enabled-kubernetes) before AzureML extension deployment.
 1. If you have an AKS cluster in Azure, register the AKS-ExtensionManager feature flag by using the ```az feature register --namespace "Microsoft.ContainerService" --name "AKS-ExtensionManager``` command. **Azure Arc connection is not required and not recommended**. 
 1. Install or upgrade Azure CLI to version >=2.16.0
 1. Install the Azure CLI extension ```k8s-extension``` (version>=1.0.0) by running ```az extension add --name k8s-extension```
@@ -97,9 +97,9 @@ Ensure you have fulfilled [prerequisites](#prerequisites). Assuming your cluster
 
 ### Prerequisite for Azure Arc enabled Kubernetes
 
-Azure Machine Learning workspace defaults to having a system-assigned managed identity to access Azure ML resources. The steps are completed if this default setting is applied. 
+Azure Machine Learning workspace defaults to having a system-assigned managed identity to access Azure ML resources. The steps are completed if the system assigned default setting is on. 
 
-![Managed Identity in workspace](./media/how-to-attach-arc-kubernetes/ws-msi.png)
+:::image type="content" source="media/how-to-attach-arc-kubernetes/ws-msi.png" alt-text="Settings for default Kubernetes cluster:::
 
 Otherwise, if a user-assigned managed identity is specified in Azure Machine Learning workspace creation, the following role assignments need to be granted to the identity manually before attaching the compute.
 
@@ -119,7 +119,7 @@ Attaching an Azure Arc-enabled Kubernetes cluster makes it available to your wor
 1. Select the **Attached computes** tab.
 1. Select **+New > Kubernetes (preview)**
 
-   ![Attach Kubernetes cluster](./media/how-to-attach-arc-kubernetes/attach-kubernetes-cluster.png)
+   :::image type="content" source="media/how-to-attach-arc-kubernetes/attach-kubernetes-cluster.png" alt-text="Settings for Kubernetes cluster to make available in your workspace":::
 
 1. Enter a compute name and select your Azure Arc-enabled Kubernetes cluster from the dropdown.
 
@@ -127,13 +127,13 @@ Attaching an Azure Arc-enabled Kubernetes cluster makes it available to your wor
 
     * **(Optional)** Assign system-assigned or user-assigned managed identity. Managed identities eliminate the need for developers to manage credentials. For more information, see [managed identities overview](../active-directory/managed-identities-azure-resources/overview.md) .
 
-    ![Configure Kubernetes cluster](./media/how-to-attach-arc-kubernetes/configure-kubernetes-cluster-2.png)
+    :::image type="content" source="media/how-to-attach-arc-kubernetes/configure-kubernetes-cluster-2.png" alt-text="Settings for developer configuration of Kubernetes cluster":::
 
 1. Select **Attach**
 
     In the Attached compute tab, the initial state of your cluster is *Creating*. When the cluster is successfully attached, the state changes to *Succeeded*. Otherwise, the state changes to *Failed*.
 
-    ![Provision resources](./media/how-to-attach-arc-kubernetes/provision-resources.png)
+    :::image type="content" source="media/how-to-attach-arc-kubernetes/provision-resources.png" alt-text="Attached settings for configuration of Kubernetes cluster":::
 
 ### [CLI](#tab/cli)
 
@@ -196,11 +196,11 @@ resources:
     nvidia.com/gpu: null
 ```
 
-[!Note] 
-- The default instance type purposefully uses little resources.  To ensure all ML workloads
+[!NOTE] 
+> - The default instance type purposefully uses little resources.  To ensure all ML workloads
 run with appropriate resources, for example GPU resource, it is highly recommended to create custom instance types.
-- `defaultinstancetype` will not appear as an InstanceType custom resource in the cluster when running the command ```kubectl get instancetype```, but it will appear in all clients (UI, CLI, SDK).
-- `defaultinstancetype` can be overridden with a custom instance type definition having the same name as `defaultinstancetype` (see [Create custom instance types](#create-custom-instance-types) section)
+> - `defaultinstancetype` will not appear as an InstanceType custom resource in the cluster when running the command ```kubectl get instancetype```, but it will appear in all clients (UI, CLI, SDK).
+> - `defaultinstancetype` can be overridden with a custom instance type definition having the same name as `defaultinstancetype` (see [Create custom instance types](#create-custom-instance-types) section)
 
 ## Create custom instance types
 
@@ -234,13 +234,13 @@ The following steps will create an instance type with the labeled behavior:
 - Pods will be assigned resource requests of `700m` CPU and `1500Mi` memory.
 - Pods will be assigned resource limits of `1` CPU, `2Gi` memory and `1` Nvidia GPU.
 
-Note:
-- Nvidia GPU resources are only specified in the `limits` section as integer values.  For more information,
+> [!NOTE]
+> - Nvidia GPU resources are only specified in the `limits` section as integer values.  For more information,
   see the Kubernetes [documentation](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/#using-device-plugins).
-- CPU and memory resources are string values.
-- CPU can be specified in millicores, for example `100m`, or in full numbers, for example `"1"`
+> - CPU and memory resources are string values.
+> - CPU can be specified in millicores, for example `100m`, or in full numbers, for example `"1"`
   is equivalent to `1000m`.
-- Memory can be specified as a full number + suffix, for example `1024Mi` for 1024 MiB.
+> - Memory can be specified as a full number + suffix, for example `1024Mi` for 1024 MiB.
 
 It is also possible to create multiple instance types at once:
 
