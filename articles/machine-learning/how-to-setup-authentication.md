@@ -121,9 +121,9 @@ The easiest way to create an SP and grant access to your workspace is by using t
 
     > [!NOTE]
     > To grant access to the workspace and other resources used by Azure Machine Learning, use the information in the following articles:
-    > [How to assign roles and actions in AzureML](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-assign-roles)
+    > [How to assign roles and actions in AzureML](how-to-assign-roles.md)
     > or
-    > [How to assign roles in the CLI](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-cli)
+    > [How to assign roles in the CLI](role-assignments-cli.md)
 
 ## Configure a managed identity
 
