@@ -1,118 +1,56 @@
 ---
 title: Train a Custom Speech model - Speech service
 titleSuffix: Azure Cognitive Services
-description: Learn how to train Custom Speech models. Training a speech-to-text model can improve recognition accuracy for the Microsoft base model or a custom model.
+description: Learn how to train Custom Speech models. Training a speech-to-text model can improve recognition accuracy for the Microsoft baseline model or a custom model.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 01/23/2022
+ms.date: 05/08/2022
 ms.author: eur
 ms.custom: ignite-fall-2021
 ---
 
 # Train a Custom Speech model
 
-In this article, you'll learn how to train Custom Speech models. Training a speech-to-text model can improve recognition accuracy for the Microsoft base model. You use human-labeled transcriptions and related text to train a model. And you use these datasets, along with previously uploaded audio data, to refine and train the speech-to-text model.
+In this article, you'll learn how to train Custom Speech models. Training a speech-to-text model can improve recognition accuracy for the Microsoft baseline model. You use human-labeled transcriptions and related text to train a model. And you use these datasets, along with previously uploaded audio data, to refine and train the speech-to-text model.
 
 > [!NOTE]
 > You pay to use Custom Speech models, but you are not charged for training a model.
 
-## Use training to resolve accuracy problems
-
-If you're encountering recognition problems with a base model, you can use human-labeled transcripts and related data to train a custom model and help improve accuracy. To determine which dataset to use to address your problems, refer to the following table:
-
-| Use case | Data type |
-| -------- | --------- |
-| Improve recognition accuracy on industry-specific vocabulary and grammar, such as medical terminology or IT jargon. | Plain text or structured text data |
-| Define the phonetic and displayed form of a word or term that has nonstandard pronunciation, such as product names or acronyms. | Pronunciation data or phonetic pronunciation in structured text |
-| Improve recognition accuracy on speaking styles, accents, or specific background noises. | Audio + human-labeled transcripts |
-| | |
-
 ## Train and evaluate a model
 
-The first step in training a model is to upload training data. For step-by-step instructions for preparing human-labeled transcriptions and related text (utterances and pronunciations), see [Prepare and test your data](./how-to-custom-speech-test-and-train.md). After you upload training data, follow these instructions to start training your model:
+The first step in training a model is to upload [training and testing datasets](./how-to-custom-speech-test-and-train.md). After you upload training data, follow these instructions to start training your model:
+
+You will first select a baseline model that is the starting point for a new model. Then select the datasets you’d like to use for training. It can take several minutes to generate the new model.
 
 1. Sign in to the [Speech Studio](https://speech.microsoft.com/customspeech). If you plan to train a model with audio + human-labeled transcription datasets, pick a Speech subscription in a region with dedicated hardware for training.
 
-1. Go to **Speech-to-text** > **Custom Speech** > **[name of project]** > **Training**.
+1. Select **Custom Speech** > Your project name > **Train custom models**.
+1. Select **Train a new model**.
+1. On the **Select a baseline model** page, select a baseline model, and then select **Next**. If you are unsure, select the most recent model from the top of the list. 
 
-1. Select **Train model**.
+    > [!NOTE]
+    > Take note of the **Expiration for adaptation** date. This is the last date that you can use the model for training. For more information, see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md).
 
-1. Give your training a **Name** and **Description**.
+1. On the **Choose data** page, select one or more datasets that you want to use for training. If there aren't any datasets available, cancel the setup, and then go to the **Speech datasets** menu to [upload datasets](how-to-custom-speech-upload-data.md).
+1. Enter a **Name** and **Description**, and then select **Next**.
+1. Optionally, check the **Add test in the next step** box. You can skip this step and create tests later. For more information, see [Test recognition quality](how-to-custom-speech-inspect-data.md) and [Test model accuracy](how-to-custom-speech-evaluate-data.md).
+1. Select **Save and close** to kick off the build for your custom model.
 
-1. In the **Scenario and Base model** list, select the scenario that best fits your domain. If you're not sure which scenario to choose, select **General**. The base model is the starting point for training. The most recent model is usually the best choice.
-
-1. On the **Select training data** page, choose one or more related text datasets or audio + human-labeled transcription datasets that you want to use for training.
-
-   > [!NOTE]
-   > When you train a new model, start with related text. Training with audio + human-labeled transcription might take up to several days.
-
-   > [!NOTE]
-   > Not all base models support training with audio. If a base model doesn't support it, the Speech service will use only the text from the transcripts and ignore the audio. For a list of base models that support training with audio data, see [Language support](language-support.md#speech-to-text).
-
-   > [!NOTE]
-   > In cases when you change the base model used for training, and you have audio in the training dataset, *always* check to see whether the new selected base model [supports training with audio data](language-support.md#speech-to-text). If the previously used base model didn't support training with audio data, and the training dataset contains audio, training time with the new base model will *drastically* increase, and might easily go from several hours to several days and more. This is especially true if your Speech service subscription isn't in a region with the dedicated hardware for training.
-   >
-   > If you face the issue described in the preceding paragraph, you can quickly decrease the training time by reducing the amount of audio in the dataset or removing it completely and leaving only the text. We recommend the latter option if your Speech service subscription isn't in a region with the dedicated hardware for training.
-
-1. After training is complete, you can do accuracy testing on the newly trained model. This step is optional.
-1. Select **Create** to build your custom model.
-
-The **Training** table displays a new entry that corresponds to the new model. The table also displays the status: *Processing*, *Succeeded*, or *Failed*.
+The training table displays a new entry for the new model. The table also displays the status: *Processing*, *Succeeded*, or *Failed*.
 
 For more information, see the [how-to article](how-to-custom-speech-evaluate-data.md) about evaluating and improving Custom Speech model accuracy. If you choose to test accuracy, it's important to select an acoustic dataset that's different from the one you used with your model. This approach can provide a more realistic sense of the model's performance.
 
 > [!NOTE]
-> Both base models and custom models can be used only up to a certain date (see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md)). Speech Studio displays this date in the **Expiration** column for each model and endpoint. After that date, a request to an endpoint or to batch transcription might fail or fall back to base model.
+> Both baseline models and custom models can be used only up to a certain date (see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md)). Speech Studio displays this date in the **Expiration** column for each model and endpoint. After that date, a request to an endpoint or to batch transcription might fail or fall back to baseline model.
 >
-> Retrain your model by using the most recent base model to benefit from accuracy improvements and to avoid allowing your model to expire.
+> Retrain your model by using the most recent baseline model to benefit from accuracy improvements and to avoid allowing your model to expire.
 
-## Deploy a custom model
+## Next steps
 
-After you upload and inspect data, evaluate accuracy, and train a custom model, you can deploy a custom endpoint to use with your apps, tools, and products. 
-
-To create a custom endpoint:
-
-1. Sign in to the [Speech Studio](https://speech.microsoft.com/customspeech). 
-
-1. On the **Custom Speech** menu at the top of the page, select **Deployment**. 
-
-   If this is your first run, you'll notice that there are no endpoints listed in the table. After you create an endpoint, you use this page to track each deployed endpoint.
-
-1. Select **Add endpoint**, and then enter a **Name** and **Description** for your custom endpoint. 
-
-1. Select the custom model that you want to associate with the endpoint. 
-
-   You can also enable logging from this page. Logging allows you to monitor endpoint traffic. If logging is disabled, traffic won't be stored.
-
-   ![Screenshot showing the selected `Log content from this endpoint` checkbox on the `New endpoint` page.](./media/custom-speech/custom-speech-deploy-model.png)
-
-
-1. Select **Create**. 
-
-   This action returns you to the **Deployment** page. The table now includes an entry that corresponds to your custom endpoint. The endpoint’s status shows its current state. It can take up to 30 minutes to instantiate a new endpoint that uses your custom models. When the status of the deployment changes to **Complete**, the endpoint is ready to use.
-
-   After your endpoint is deployed, the endpoint name appears as a link. 
-
-    > [!NOTE]
-    > Endpoints used by `F0` Speech resources are deleted after seven days.
-
-1. Select the endpoint link to view information specific to it, such as the endpoint key, endpoint URL, and sample code. 
-
-   Note the model expiration date, and update the endpoint's model before that date to ensure uninterrupted service.
-
-## View logging data
-
-Logging data is available for export from the endpoint's page, under **Deployments**.
-
-> [!NOTE]
-> Logging data is available on Microsoft-owned storage for 30 days, after which it will be removed. If a customer-owned storage account is linked to the Cognitive Services subscription, the logging data won't be automatically deleted.
-
-## Additional resources
-
-- [Learn how to use your custom model](how-to-specify-source-language.md)
-- [Inspect your data](how-to-custom-speech-inspect-data.md)
-- [Evaluate your data](how-to-custom-speech-evaluate-data.md)
+- [Test recognition quality](how-to-custom-speech-inspect-data.md)
+- [Test model accuracy](how-to-custom-speech-evaluate-data.md)
+* [Deploy a model](how-to-custom-speech-deploy-model.md)

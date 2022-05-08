@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 05/07/2022
+ms.date: 05/08/2022
 ms.author: eur
 ---
 
 # Deploy a Custom Speech model
 
-In this article, you'll learn how to deploy Custom Speech models. Training a speech-to-text model can improve recognition accuracy for the Microsoft base model. You use human-labeled transcriptions and related text to train a model. And you use these datasets, along with previously uploaded audio data, to refine and train the speech-to-text model.
+In this article, you'll learn how to deploy Custom Speech models. Training a speech-to-text model can improve recognition accuracy for the Microsoft baseline model. You use human-labeled transcriptions and related text to train a model. And you use these datasets, along with previously uploaded audio data, to refine and train the speech-to-text model.
 
-## Deploy the model to an endpoint
+## Add a deployment endpoint
 
 After you upload and inspect data, evaluate accuracy, and train a custom model, you can deploy a custom endpoint to use with your apps, tools, and products. 
 
@@ -57,8 +57,7 @@ Logging data is available for export from the endpoint's page, under **Deploymen
 > [!NOTE]
 > Logging data is available on Microsoft-owned storage for 30 days, after which it will be removed. If a customer-owned storage account is linked to the Cognitive Services subscription, the logging data won't be automatically deleted.
 
-## Additional resources
+## Next steps
 
-- [Learn how to use your custom model](how-to-specify-source-language.md)
-- [Inspect your data](how-to-custom-speech-inspect-data.md)
-- [Evaluate your data](how-to-custom-speech-evaluate-data.md)
+- [CI/CD for Custom Speech](how-to-custom-speech-continuous-integration-continuous-deployment.md)
+- [Custom Speech model lifecycle](how-to-custom-speech-model-and-endpoint-lifecycle.md)

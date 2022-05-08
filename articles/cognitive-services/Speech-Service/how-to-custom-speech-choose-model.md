@@ -8,27 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 05/06/2022
+ms.date: 05/08/2022
 ms.author: eur
 ms.custom: contperf-fy21q2, references_regions
 ---
 
 # Choose a model for Custom Speech
 
-Custom Speech models are created by adapting a chosen base model with data from your particular customer scenario. Once you create a custom model, the speech recognition accuracy and quality will remain consistent, even if the base model from which it was adapted gets updated.
+Custom Speech models are created by adapting a chosen baseline model with data from your particular customer scenario. Once you create a custom model, the speech recognition accuracy and quality will remain consistent, even if the baseline model from which it was adapted gets updated.
 
-Base models are updated periodically to improve accuracy and quality. We recommend that if you use base models, use the latest default base models. But with Custom Speech you can take a snapshot of a particular base model without training it. In this case, "custom" means that speech recognition is pinned to a base model from a particular point in time.
+Baseline models are updated periodically to improve accuracy and quality. We recommend that if you use baseline models, use the latest default baseline models. But with Custom Speech you can take a snapshot of a particular baseline model without training it. In this case, "custom" means that speech recognition is pinned to a baseline model from a particular point in time.
 
-Whether you train a new model or use a snapshot of a base model, you can use the model for a limited time. For more information, see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md).
+Whether you train a new model or use a snapshot of a baseline model, you can use the model for a limited time. For more information, see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md).
 
 ## Choose your model
 
 There are a few approaches to using speech-to-text models:
-- The base model applies when the audio is clear of ambient noise and the speech transcribed consists of commonly spoken language.
-- A custom model augments the base model to include domain-specific vocabulary shared across all areas of the custom domain.
+- The baseline model applies when the audio is clear of ambient noise and the speech transcribed consists of commonly spoken language.
+- A custom model augments the baseline model to include domain-specific vocabulary shared across all areas of the custom domain.
 - Multiple custom models can be used when the custom domain has multiple areas, each with a specific vocabulary.
 
-The best way to see if the base model will suffice is to analyze the transcription produced from the base model and compare it with a human-generated transcript for the same audio. You can use the Speech Studio, Speech CLI, or REST API to compare the transcripts and obtain a word error rate (WER) score. If there are multiple incorrect word substitutions when evaluating the results, then training a custom model to recognize those words is recommended.
+The best way to see if the baseline model will suffice is to analyze the transcription produced from the baseline model and compare it with a human-generated transcript for the same audio. You can use the Speech Studio, Speech CLI, or REST API to compare the transcripts and obtain a word error rate (WER) score. If there are multiple incorrect word substitutions when evaluating the results, then training a custom model to recognize those words is recommended.
 
 Furthermore, depending on the size of the custom domain, it may also make sense to train multiple models and compartmentalize a model for an individual application. 
 
@@ -54,10 +54,10 @@ Custom Speech projects contain models, training and testing datasets, and deploy
 
 Select the new project by name or select **Go to project**. You will see these menu items in the left panel: **Speech datasets**, **Train custom models**, **Test models**, and **Deploy models**. 
 
-If you want to use a base model right away, you can skip the training and testing steps. See [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md) to start using a base or custom model.
+If you want to use a baseline model right away, you can skip the training and testing steps. See [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md) to start using a base or custom model.
 
 ## Next steps
 
-* [Prepare and test your data](./how-to-custom-speech-test-and-train.md)
-* [Evaluate and improve model accuracy](how-to-custom-speech-evaluate-data.md)
+* [Training and testing datasets](./how-to-custom-speech-test-and-train.md)
+* [Test model accuracy](how-to-custom-speech-evaluate-data.md)
 * [Train a model](how-to-custom-speech-train-model.md)

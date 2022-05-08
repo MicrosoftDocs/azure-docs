@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 05/08/2022
 ms.author: eur
 ---
 
@@ -179,6 +179,6 @@ Here are some examples of automatic transcription normalization:
 
 ## Next Steps
 
-- [Inspect your data](how-to-custom-speech-inspect-data.md)
-- [Evaluate your data](how-to-custom-speech-evaluate-data.md)
+- [Test model accuracy](how-to-custom-speech-evaluate-data.md)
+- [Test recognition quality](how-to-custom-speech-inspect-data.md)
 - [Train your model](how-to-custom-speech-train-model.md)

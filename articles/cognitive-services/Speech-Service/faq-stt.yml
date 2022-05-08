@@ -20,21 +20,21 @@ sections:
   - name: General
     questions:
       - question: |
-          What is the difference between a base model and a custom speech-to-text model?
+          What is the difference between a baseline model and a custom speech-to-text model?
         answer: |
           A baseline speech-to-text model has been trained with Microsoft-owned data and is already deployed in the cloud. You can create and use a custom model to better fit an environment that has specific ambient noise or language. Factory floors, cars, or noisy streets would require an adapted acoustic model. Topics such as biology, physics, radiology, product names, and custom acronyms would require an adapted language model. If you want to train a custom model, you should start with related text to improve the recognition of special terms and phrases.
 
       - question: |
-          Where do I start if I want to use a base model?
+          Where do I start if I want to use a baseline model?
         answer: |
-          First, get a Speech resource key and region in the [Azure portal](https://portal.azure.com). If you want to make REST calls to a predeployed base model, see the [REST APIs](rest-speech-to-text.md) documentation. If you want to use WebSockets, [download the Speech SDK](speech-sdk.md).
+          First, get a Speech resource key and region in the [Azure portal](https://portal.azure.com). If you want to make REST calls to a predeployed baseline model, see the [REST APIs](rest-speech-to-text.md) documentation. If you want to use WebSockets, [download the Speech SDK](speech-sdk.md).
           
       - question: |
           Do I always need to build a custom speech model?
         answer: |
           No. If your application uses generic, day-to-day language, you don't need to customize a model. If your application is used in an environment where there's little or no background noise, you don't need to customize a model.
           
-          You can deploy baseline and customized models in the portal and then run accuracy tests against them. You can use this feature to measure the accuracy of a base model versus a custom model.
+          You can deploy baseline and customized models in the portal and then run accuracy tests against them. You can use this feature to measure the accuracy of a baseline model versus a custom model.
           
       - question: |
           How will I know when the processing for my dataset or model is complete?
@@ -59,9 +59,9 @@ sections:
           The other results are likely worse and might not have full capitalization and punctuation applied. These results are most useful in special scenarios, such as giving users the option to pick corrections from a list or handling incorrectly recognized commands.
           
       - question: |
-          Why are there multiple base models?
+          Why are there multiple baseline models?
         answer: |
-          You can choose from more than one base model in Speech service. Each model name contains the date when it was added. When you start training a custom model, use the most recent model to get the best accuracy. Older base models are still available for some time after a new model is made available. You can continue using the model that you've worked with until it is retired (see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md)). We still recommend that you switch to the latest base model for better accuracy.
+          You can choose from more than one baseline model in Speech service. Each model name contains the date when it was added. When you start training a custom model, use the most recent model to get the best accuracy. Older baseline models are still available for some time after a new model is made available. You can continue using the model that you've worked with until it is retired (see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md)). We still recommend that you switch to the latest baseline model for better accuracy.
           
       - question: |
           Can I update my existing model (model stacking)?
@@ -71,13 +71,13 @@ sections:
           The old dataset and the new dataset must be combined in a single .zip file (for acoustic data) or in a .txt file (for language data). When the adaptation is finished, redeploy the new, updated model to obtain a new endpoint.
           
       - question: |
-          When a new version of a base model is available, is my deployment automatically updated?
+          When a new version of a baseline model is available, is my deployment automatically updated?
         answer: |
           Deployments are *not* automatically updated.
           
-          If you've adapted and deployed a model, the existing deployment will remain as is. You can decommission the deployed model, readapt it by using the newer version of the base model, and redeploy it for better accuracy.
+          If you've adapted and deployed a model, the existing deployment will remain as is. You can decommission the deployed model, readapt it by using the newer version of the baseline model, and redeploy it for better accuracy.
           
-          Both base models and custom models will be retired after some time (see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md)).
+          Both baseline models and custom models will be retired after some time (see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md)).
           
       - question: |
           Can I download my model and run it locally?
@@ -171,10 +171,10 @@ sections:
       - question: |
           How do I determine whether the results of an accuracy test are good?
         answer: |
-          The results show a comparison between the base model and the model you customized. To make customization worthwhile, you should aim to beat the base model.
+          The results show a comparison between the baseline model and the model you customized. To make customization worthwhile, you should aim to beat the baseline model.
 
       - question: |
-          How do I determine the WER of a base model so I can see whether it improved?
+          How do I determine the WER of a baseline model so I can see whether it improved?
         answer: |
           The offline test results show the baseline accuracy of the custom model and the improvement over baseline.
 

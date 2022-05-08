@@ -30,7 +30,7 @@ You can use online transcription with the [Speech SDK](speech-sdk.md) or the [sp
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| Concurrent request limit - base model endpoint | 1 | 100 (default value) |
+| Concurrent request limit - baseline model endpoint | 1 | 100 (default value) |
 | Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
 | Concurrent request limit - custom endpoint | 1 | 100 (default value) |
 | Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
@@ -132,10 +132,10 @@ The next sections describe specific cases of adjusting quotas.
 
 ### Speech-to-text: increase online transcription concurrent request limit
 
-By default, the number of concurrent requests is limited to 100 per resource in the base model, and 100 per custom endpoint in the custom model. For the standard pricing tier, you can increase this amount. Before submitting the request, ensure that you're familiar with the material discussed earlier in this article, such as the best practices to mitigate throttling.
+By default, the number of concurrent requests is limited to 100 per resource in the baseline model, and 100 per custom endpoint in the custom model. For the standard pricing tier, you can increase this amount. Before submitting the request, ensure that you're familiar with the material discussed earlier in this article, such as the best practices to mitigate throttling.
 
 >[!NOTE]
-> If you use custom models, be aware that one Speech service resource might be associated with many custom endpoints hosting many custom model deployments. Each custom endpoint has the default limit of concurrent requests (100) set by creation. If you need to adjust it, you need to make the adjustment of each custom endpoint *separately*. Note also that the value of the limit of concurrent requests for the base model of a resource has *no* effect to the custom endpoints associated with this resource.
+> If you use custom models, be aware that one Speech service resource might be associated with many custom endpoints hosting many custom model deployments. Each custom endpoint has the default limit of concurrent requests (100) set by creation. If you need to adjust it, you need to make the adjustment of each custom endpoint *separately*. Note also that the value of the limit of concurrent requests for the baseline model of a resource has *no* effect to the custom endpoints associated with this resource.
 
 Increasing the limit of concurrent requests doesn't directly affect your costs. Speech service uses a payment model that requires that you pay only for what you use. The limit defines how high the service can scale before it starts throttle your requests.
 
@@ -148,14 +148,14 @@ You aren't able to see the existing value of the concurrent request limit parame
 
 #### Have the required information ready
 
-- For the base model:
+- For the baseline model:
   - Speech resource ID
   - Region
 - For the custom model:
   - Region
   - Custom endpoint ID
 
-How to get information for the base model:
+How to get information for the baseline model:
 
 1. Go to the [Azure portal](https://portal.azure.com/).
 1. Select the Speech service resource for which you would like to increase the concurrency request limit.

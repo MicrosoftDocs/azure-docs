@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 03/03/2022
+ms.date: 05/08/2022
 ms.author: eur
 ---
 
@@ -62,6 +62,6 @@ You can obtain the project URL that's required for the `project` element by usin
 
 ## Next steps
 
-* [Inspect your data](how-to-custom-speech-inspect-data.md)
-* [Evaluate your data](how-to-custom-speech-evaluate-data.md)
+* [Test recognition quality](how-to-custom-speech-inspect-data.md)
+* [Test model accuracy](how-to-custom-speech-evaluate-data.md)
 * [Train a custom model](how-to-custom-speech-train-model.md)

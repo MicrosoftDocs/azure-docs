@@ -336,13 +336,13 @@ To improve the results of a trained model, the acoustic data is automatically us
 
 ### Retrieving base and custom models
 
-To simplify getting the available models, v3 has separated the collections of "base models" from the customer owned "customized models". The two routes are now
+To simplify getting the available models, v3 has separated the collections of "baseline models" from the customer owned "customized models". The two routes are now
 `GET /speechtotext/v3.0/models/base` and `GET /speechtotext/v3.0/models/`.
 
 In v2, all models were returned together in a single response.
 
 >[!IMPORTANT]
->To get a list of provided base models for customization, use `GET` on `/speechtotext/v3.0/models/base`. You can find your own customized models with a `GET` on `/speechtotext/v3.0/models`.
+>To get a list of provided baseline models for customization, use `GET` on `/speechtotext/v3.0/models/base`. You can find your own customized models with a `GET` on `/speechtotext/v3.0/models`.
 
 ### Name of an entity
 

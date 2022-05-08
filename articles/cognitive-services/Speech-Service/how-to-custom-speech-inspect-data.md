@@ -1,26 +1,22 @@
 ---
 title: Test recognition quality of a Custom Speech model - Speech service
 titleSuffix: Azure Cognitive Services
-description: Custom Speech lets you visually inspect the recognition quality of a model. You can play back uploaded audio and determine if the provided recognition result is correct.
+description: Custom Speech lets you qualitatively inspect the recognition quality of a model. You can play back uploaded audio and determine if the provided recognition result is correct.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 05/08/2022
 ms.author: eur
 ---
 
 # Test recognition quality of a Custom Speech model
 
-Custom Speech lets you visually inspect the recognition quality of a model in the [Speech Studio](https://aka.ms/speechstudio/customspeech). You can play back uploaded audio and determine if the provided recognition result is correct. This tool helps you inspect quality of Microsoft's baseline speech-to-text model, inspect a trained custom model, or compare transcription by two models.
+Custom Speech lets you qualitatively inspect the recognition quality of a model in the [Speech Studio](https://aka.ms/speechstudio/customspeech). You can play back uploaded audio and determine if the provided recognition result is correct. This tool helps you inspect quality of Microsoft's baseline speech-to-text model, inspect a trained custom model, or compare transcription by two models.
 
-This article describes how to visually inspect the quality of Microsoft's baseline speech-to-text model or custom models that you've trained. You'll also see how to use the online transcription editor to create and refine labeled audio datasets.
-
-## Prerequisites
-
-You've read [Prepare test data for Custom Speech](./how-to-custom-speech-test-and-train.md) and have uploaded a dataset for inspection.
+This article describes how to qualitatively inspect the quality of Microsoft's baseline speech-to-text model or custom models that you've trained. You'll also see how to use the online transcription editor to create and refine labeled audio datasets.
 
 ## Create a test
 
@@ -30,7 +26,7 @@ Follow these instructions to create a test:
 1. Navigate to **Speech Studio** > **Custom Speech** and select your project name from the list.
 1. Select **Test models** > **Create new test**.
 1. Select **Inspect quality (Audio-only data)** > **Next**. 
-1. Choose an audio dataset that you'd like to use for testing, then select **Next**.
+1. Choose an audio dataset that you'd like to use for testing, then select **Next**. If there aren't any datasets available, cancel the setup, and then go to the **Speech datasets** menu to [upload datasets](how-to-custom-speech-upload-data.md).
 
     :::image type="content" source="media/custom-speech/custom-speech-choose-test-data.png" alt-text="Review your keyword":::
 
@@ -96,11 +92,7 @@ The files exported to Data will be used as a brand-new dataset and will not affe
 
 ## Next steps
 
-- [Evaluate your data](how-to-custom-speech-evaluate-data.md)
+- [Test model accuracy](how-to-custom-speech-evaluate-data.md)
 - [Train your model](how-to-custom-speech-train-model.md)
-- [Improve your model](./how-to-custom-speech-evaluate-data.md)
 - [Deploy your model](./how-to-custom-speech-train-model.md)
 
-## Additional resources
-
-- [Prepare test data for Custom Speech](./how-to-custom-speech-test-and-train.md)

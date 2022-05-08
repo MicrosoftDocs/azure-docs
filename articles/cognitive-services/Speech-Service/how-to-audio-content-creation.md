@@ -117,7 +117,7 @@ You can get your content into the Audio Content Creation tool in either of two w
         | File name | Each file must have a unique name. Duplicate files aren't supported. |
         | Text length | Character limit is 20,000. If your files exceed the limit, split them according to the instructions in the tool. |
         | SSML restrictions | Each SSML file can contain only a single piece of SSML. |
-        | | |
+        
 
         \* **Plain text example**:
 
@@ -149,7 +149,7 @@ After you've reviewed your audio output and are satisfied with your tuning and a
     |--- |--- |--- |--- |--- |
     | wav | riff-8khz-16bit-mono-pcm | riff-16khz-16bit-mono-pcm | riff-24khz-16bit-mono-pcm |riff-48khz-16bit-mono-pcm |
     | mp3 | N/A | audio-16khz-128kbitrate-mono-mp3 | audio-24khz-160kbitrate-mono-mp3 |audio-48khz-192kbitrate-mono-mp3 |
-    | | |
+    
 
 1. To view the status of the task, select the **Export task** tab. 
 
@@ -206,11 +206,7 @@ If you want to allow a user to grant access to other users, you need to assign t
 1. Search for the user's Microsoft account, go to their detail page, and then select **Assigned roles**.
 1. Select **Add assignments** > **Directory Readers**. If the **Add assignments** button is unavailable, it means that you don't have access. Only the global administrator of this directory can add assignments to users.
 
-## See also
+## Next steps
 
 * [Long Audio API](./long-audio-api.md)
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Speech Studio](https://speech.microsoft.com)

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 02/02/2022
+ms.date: 05/08/2022
 ms.author: eur
 ms.custom: ignite-fall-2021
 ---
@@ -16,8 +16,6 @@ ms.custom: ignite-fall-2021
 # Training and testing datasets
 
 When you're testing the accuracy of Microsoft speech recognition or training your custom models, you need audio and text data. This article covers the types of data that a Custom Speech model needs.
-
-## Dataset diversity
 
 Text and audio that you use to test and train a custom model need to include samples from a diverse set of speakers and scenarios that you want your model to recognize. Consider these factors when you're gathering data for custom model testing and training:
 
@@ -27,21 +25,6 @@ Text and audio that you use to test and train a custom model need to include sam
 * Record audio with hardware devices that the production system will use. If your model needs to identify speech recorded on devices of varying quality, the audio data that you provide to train your model must also represent these diverse scenarios.
 * Keep the dataset diverse and representative of your project needs. You can add more data to your model later. 
 * Only include data that your model needs to transcribe. Including data that isn't within your custom model's recognition needs can harm recognition quality overall. 
-
-A model that's trained on a subset of scenarios can perform well in only those scenarios. Carefully choose data that represents the full scope of scenarios that you need your custom model to recognize. The following table shows datasets to consider for some speech recognition scenarios:
-
-| Scenario | Plain text data and <br> structured text data | Audio + human-labeled transcripts | New words with pronunciation |
-|--- |--- |--- |--- |
-| Call center | Marketing documents, website, product reviews related to call center activity | Call center calls transcribed by humans | Terms that have ambiguous pronunciations (see the *Xbox* example in the preceding section) |
-| Voice assistant | Lists of sentences that use various combinations of commands and entities | Recorded voices speaking commands into device, transcribed into text | Names (movies, songs, products) that have unique pronunciations |
-| Dictation  | Written input, such as instant messages or emails | Similar to preceding examples | Similar to preceding examples |
-| Video closed captioning | TV show scripts, movies, marketing content, video summaries | Exact transcripts of videos | Similar to preceding examples |
-| | |
-
-> [!TIP]
-> Start with plain-text data or structured-text data. This data will improve the recognition of special terms and phrases. Training with text is much faster than training with audio (minutes versus days).
-> 
-> Start with small sets of sample data that match the language, acoustics, and hardware where your model will be used. Small datasets of representative data can expose problems before you invest in gathering larger datasets for training. For sample Custom Speech data, see <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">this GitHub repository</a>.
 
 ## Data types
 
@@ -59,6 +42,30 @@ Training with plain text or structured text usually finishes within a few minute
 
 If you will train a custom model with audio data, choose a Speech resource [region](regions.md#speech-to-text-text-to-speech-and-translation) with dedicated hardware available for training audio data. In regions with dedicated hardware for Custom Speech training, the Speech service will use up to 20 hours of your audio training data, and can process about 10 hours of data per day. In other regions, the Speech service uses up to 8 hours of your audio data, and can process about 1 hour of data per day. After the model is trained, you can copy the model to another region as needed with the [CopyModelToSubscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) REST API.
 
+## Choose datasets
+
+A model that's trained on a subset of scenarios can perform well in only those scenarios. Carefully choose data that represents the full scope of scenarios that you need your custom model to recognize. The following table shows datasets to consider for some speech recognition scenarios:
+
+| Scenario | Plain text data and <br> structured text data | Audio + human-labeled transcripts | New words with pronunciation |
+|--- |--- |--- |--- |
+| Call center | Marketing documents, website, product reviews related to call center activity | Call center calls transcribed by humans | Terms that have ambiguous pronunciations (see the *Xbox* example in the preceding section) |
+| Voice assistant | Lists of sentences that use various combinations of commands and entities | Recorded voices speaking commands into device, transcribed into text | Names (movies, songs, products) that have unique pronunciations |
+| Dictation  | Written input, such as instant messages or emails | Similar to preceding examples | Similar to preceding examples |
+| Video closed captioning | TV show scripts, movies, marketing content, video summaries | Exact transcripts of videos | Similar to preceding examples |
+
+> [!TIP]
+> Start with plain-text data or structured-text data. This data will improve the recognition of special terms and phrases. Training with text is much faster than training with audio (minutes versus days).
+> 
+> Start with small sets of sample data that match the language, acoustics, and hardware where your model will be used. Small datasets of representative data can expose problems before you invest in gathering larger datasets for training. For sample Custom Speech data, see <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">this GitHub repository</a>.
+
+To help determine which dataset to use to address your problems, refer to the following table:
+
+| Use case | Data type |
+| -------- | --------- |
+| Improve recognition accuracy on industry-specific vocabulary and grammar, such as medical terminology or IT jargon. | Plain text or structured text data |
+| Define the phonetic and displayed form of a word or term that has nonstandard pronunciation, such as product names or acronyms. | Pronunciation data or phonetic pronunciation in structured text |
+| Improve recognition accuracy on speaking styles, accents, or specific background noises. | Audio + human-labeled transcripts |
+
 ## Audio + human-labeled transcript data for training or testing
 
 You can use audio + human-labeled transcript data for both training and testing purposes. You must provide human-labeled transcriptions (word by word) for comparison:
@@ -66,14 +73,17 @@ You can use audio + human-labeled transcript data for both training and testing 
 - To improve the acoustic aspects like slight accents, speaking styles, and background noises.
 - To measure the accuracy of Microsoft's speech-to-text accuracy when it's processing your audio files. 
 
-For a list of base models that support training with audio data, see [Language support](language-support.md#speech-to-text). Even if a base model does support training with audio data, the service might use only part of the audio. And it will still use all the transcripts.
+For a list of baseline models that support training with audio data, see [Language support](language-support.md#speech-to-text). Even if a baseline model does support training with audio data, the service might use only part of the audio. And it will still use all the transcripts.
+
+> [!IMPORTANT]
+> If a baseline model doesn't support customization with audio data, only the transcription text will be used for training. If you switch to a baseline model that supports customization with audio data, the training time may increase from several hours to several days. The change in training time would be most noticeable when you switch to a baseline model in a [region](regions.md#speech-to-text-text-to-speech-and-translation) without dedicated hardware for training. If the audio data is not required, you should remove it to decrease the training time. 
 
 Audio with human-labeled transcripts offers the greatest accuracy improvements if the audio comes from the target use case. Samples must cover the full scope of speech. For example, a call center for a retail store would get the most calls about swimwear and sunglasses during summer months. Ensure that your sample includes the full scope of speech that you want to detect.
 
 Consider these details:
 
 * Training with audio will bring the most benefits if the audio is also hard to understand for humans. In most cases, you should start training by using only related text.
-* If you use one of the most heavily used languages, such as US English, it's unlikely that you would need to train with audio data. For such languages, the base models already offer very good recognition results in most scenarios, so it's probably enough to train with related text.
+* If you use one of the most heavily used languages, such as US English, it's unlikely that you would need to train with audio data. For such languages, the baseline models already offer very good recognition results in most scenarios, so it's probably enough to train with related text.
 * Custom Speech can capture word context only to reduce substitution errors, not insertion or deletion errors.
 * Avoid samples that include transcription errors, but do include a diversity of audio quality.
 * Avoid sentences that are unrelated to your problem domain. Unrelated sentences can harm your model.
@@ -81,11 +91,9 @@ Consider these details:
 * The Speech service automatically uses the transcripts to improve the recognition of domain-specific words and phrases, as though they were added as related text.
 * It can take several days for a training operation to finish. To improve the speed of training, be sure to create your Speech service subscription in a region that has dedicated hardware for training.
 
-The best way to see if the base model will suffice is to test the transcription produced from the base model and [compare it with a human-generated transcript](how-to-custom-speech-evaluate-data.md) for the same audio. You can use the Speech Studio, Speech CLI, or REST API to compare the transcripts and obtain a word error rate (WER) score. If there are multiple incorrect word substitutions when evaluating the results, then training a custom model to recognize those words is recommended.
+The best way to see if the baseline model will suffice is to test the transcription produced from the baseline model and [compare it with a human-generated transcript](how-to-custom-speech-evaluate-data.md) for the same audio. You can use the Speech Studio, Speech CLI, or REST API to compare the transcripts and obtain a word error rate (WER) score. If there are multiple incorrect word substitutions when evaluating the results, then training a custom model to recognize those words is recommended.
 
 A large training dataset is required to improve recognition. Generally, we recommend that you provide word-by-word transcriptions for 1 to 20 hours of audio. However, even as little as 30 minutes can help improve recognition results. Although creating human-labeled transcription can take time, improvements in recognition will only be as good as the data that you provide. You should only upload only high-quality transcripts.
-
-If a base model doesn't support customization with audio data, only the transcription text will be used for training. If you switch to a base model that supports customization with audio data, the training time may increase from several hours to several days. The change in training time would be most noticeable when you switch to a base model in a [region](regions.md#speech-to-text-text-to-speech-and-translation) without dedicated hardware for training. If the audio data is not required, you should remove it to decrease the training time. 
 
 Audio files can have silence at the beginning and end of the recording. If possible, include at least a half-second of silence before and after speech in each sample file. Although audio with low recording volume or disruptive background noise is not helpful, it shouldn't hurt your custom model. Always consider upgrading your microphones and signal processing hardware before gathering audio samples.
 
@@ -137,7 +145,7 @@ Expected utterances often follow a certain pattern. One common pattern is that u
 * "I have a question about `product`," where `product` is a list of possible products. 
 * "Make that `object` `color`," where `object` is a list of geometric shapes and `color` is a list of colors. 
 
-For a list of supported base models and locales for training with structured text, see [Language support](language-support.md#speech-to-text). You must use the latest base model for these locales. For locales that don't support training with structured text, the service will take any training sentences that don't reference any classes as part of training with plain-text data. 
+For a list of supported baseline models and locales for training with structured text, see [Language support](language-support.md#speech-to-text). You must use the latest baseline model for these locales. For locales that don't support training with structured text, the service will take any training sentences that don't reference any classes as part of training with plain-text data. 
 
 The structured-text file should have an .md extension. The maximum file size is 200 MB, and the text encoding must be UTF-8 BOM. The syntax of the Markdown is the same as that from the Language Understanding models, in particular list entities and example utterances. For more information about the complete Markdown syntax, see the <a href="/azure/bot-service/file-format/bot-builder-lu-file-format" target="_blank"> Language Understanding Markdown</a>. 
 
@@ -255,12 +263,12 @@ Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX</a> 
 
 ### Audio data for training
 
-Not all base models support [training with audio data](language-support.md#speech-to-text). For a list of base models that support training with audio data, see [Language support](language-support.md#speech-to-text). 
+Not all baseline models support [training with audio data](language-support.md#speech-to-text). For a list of baseline models that support training with audio data, see [Language support](language-support.md#speech-to-text). 
 
-Even if a base model supports training with audio data, the service might use only part of the audio. In [regions](regions.md#speech-to-text-text-to-speech-and-translation) with dedicated hardware available for training audio data, the Speech service will use up to 20 hours of your audio training data. In other regions, the Speech service uses up to 8 hours of your audio data.
+Even if a baseline model supports training with audio data, the service might use only part of the audio. In [regions](regions.md#speech-to-text-text-to-speech-and-translation) with dedicated hardware available for training audio data, the Speech service will use up to 20 hours of your audio training data. In other regions, the Speech service uses up to 8 hours of your audio data.
 
 ## Next steps
 
 * [Upload your data](how-to-custom-speech-upload-data.md)
-* [Inspect your data](how-to-custom-speech-inspect-data.md)
+- [Test model accuracy](how-to-custom-speech-evaluate-data.md)
 * [Train a custom model](how-to-custom-speech-train-model.md)

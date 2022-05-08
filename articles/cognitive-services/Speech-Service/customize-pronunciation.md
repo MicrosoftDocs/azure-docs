@@ -5,7 +5,7 @@ author: ut-karsh
 ms.author: umaheshwari
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/01/2022
+ms.date: 05/08/2022
 ms.custom: template-concept, ignite-fall-2021
 ---
 
@@ -27,5 +27,5 @@ See the sections in this article for the Universal Phone Set for each locale.
 ## Next steps
 
 - [Upload your data](how-to-custom-speech-upload-data.md)
-- [Inspect your data](how-to-custom-speech-inspect-data.md)
+- [Test recognition quality](how-to-custom-speech-inspect-data.md)
 - [Train your model](how-to-custom-speech-train-model.md)

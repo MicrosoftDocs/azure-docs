@@ -8,7 +8,7 @@ manager: cmayomsft
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 05/08/2022
 ms.author: kaprochi
 ---
 
@@ -84,7 +84,5 @@ The [Speech DevOps template repo](https://github.com/Azure-Samples/Speech-Servic
 - Execute the CD workflow to create an endpoint when the WER improves.
 
 ## Next steps
-
-Learn more about DevOps with Speech:
 
 - Use the [Speech DevOps template repo](https://github.com/Azure-Samples/Speech-Service-DevOps-Template) to implement DevOps for Custom Speech with GitHub Actions.

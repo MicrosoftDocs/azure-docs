@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 01/23/2022
+ms.date: 05/08/2022
 ms.author: eur
 ms.custom: ignite-fall-2021
 ---
 
 # Test accuracy of a Custom Speech model
 
-In this article, you learn how to quantitatively measure and improve the accuracy of the Microsoft speech-to-text model or your own custom models. Audio + human-labeled transcription data is required to test accuracy, and 30 minutes to 5 hours of representative audio should be provided in the [Speech Studio](speech-studio-overview.md). 
+In this article, you learn how to quantitatively measure and improve the accuracy of the Microsoft speech-to-text model or your own custom models. [Audio + human-labeled transcript](how-to-custom-speech-test-and-train.md#audio--human-labeled-transcript-data-for-training-or-testing) data is required to test accuracy, and 30 minutes to 5 hours of representative audio should be provided. 
 
 ## Create a test
 
@@ -27,14 +27,18 @@ Follow these steps to create a test:
 1. Select **Custom Speech** > Your project name > **Test models**.
 1. Select **Create new test**.
 1. Select **Evaluate accuracy** > **Next**. 
-1. Select one audio + human-labeled transcription dataset, and then select **Next**.
+1. Select one audio + human-labeled transcription dataset, and then select **Next**. If there aren't any datasets available, cancel the setup, and then go to the **Speech datasets** menu to [upload datasets](how-to-custom-speech-upload-data.md).
+    
+    > [!NOTE]
+    > It's important to select an acoustic dataset that's different from the one you used with your model. This approach can provide a more realistic sense of the model's performance.
+
 1. Select up to two models to evaluate, and then select **Next**.
 1. Enter the test name and description, and then select **Next**.
 1. Review the test details, and then select **Save and close**.
 
 After your test has been successfully created, you can compare the [word error rate (WER)](#evaluate-word-error-rate) and recognition results side by side.
 
-### Side-by-side comparison
+## Side-by-side comparison
 
 After the test is complete, as indicated by the status change to *Succeeded*, you'll find a WER number for both models included in your test. Select the test name to view the test details page. This page lists all the utterances in your dataset and the recognition results of the two models, alongside the transcription from the submitted dataset. 
 
@@ -66,7 +70,7 @@ How the errors are distributed is important. When many deletion errors are encou
 
 By analyzing individual files, you can determine what type of errors exist, and which errors are unique to a specific file. Understanding issues at the file level will help you target improvements.
 
-## Improve Custom Speech accuracy
+## Example scenario outcomes
 
 Speech recognition scenarios vary by audio quality and language (vocabulary and speaking style). The following table examines four common scenarios:
 
@@ -89,6 +93,6 @@ Different scenarios produce different quality outcomes. The following table exam
 
 ## Next steps
 
+* [Test recognition quality](how-to-custom-speech-inspect-data.md)
 * [Train a model](how-to-custom-speech-train-model.md)
-* [Prepare and test your data](./how-to-custom-speech-test-and-train.md)
-* [Inspect your data](how-to-custom-speech-inspect-data.md)
+* [Deploy a model](how-to-custom-speech-deploy-model.md)
