@@ -15,7 +15,7 @@ This article describes how to configure data export to send data to the Webhook.
 
 [!INCLUDE [iot-central-data-export](../../../includes/iot-central-data-export.md)]
 
-## Set up an Webhook export destination
+## Set up a Webhook export destination
 
 For Webhook destinations, IoT Central exports data in near real time. The data in the message body is in the same format as for Event Hubs and Service Bus.
 

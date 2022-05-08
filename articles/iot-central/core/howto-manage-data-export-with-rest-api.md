@@ -52,7 +52,7 @@ The request body has some required fields:
 
 * `displayName`: Display name of the destination.
 * `type`:  Type of destination object which can be one of: `blobstorage@v1`, `dataexplorer@v1`, `eventhubs@v1`, `servicebusqueue@v1`, `servicebustopic@v1`, `webhook@v1`.
-* `connectionString`:The connection string for accessing the destination resource.
+* `connectionString`: The connection string for accessing the destination resource.
 * `containerName`: For a blob storage destination, the name of the container where data should be written.
 
 The response to this request looks like the following example: 

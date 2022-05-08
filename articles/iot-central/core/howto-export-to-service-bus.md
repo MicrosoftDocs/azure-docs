@@ -15,7 +15,7 @@ This article describes how to configure data export to send data to the Service 
 
 [!INCLUDE [iot-central-data-export](../../../includes/iot-central-data-export.md)]
 
-## Set up an Service Bus export destination
+## Set up a Service Bus export destination
 
 Both queues and topics are supported for Azure Service Bus destinations.
 
