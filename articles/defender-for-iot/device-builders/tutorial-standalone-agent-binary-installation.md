@@ -32,7 +32,7 @@ In this tutorial you will learn how to:
 
 - You must have [added a resource group to your IoT solution](quickstart-configure-your-solution.md).
 
-- You must have [Created a Defender for IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md).
+- You must have [created a Defender for IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md).
 
 ## Download and install the micro agent
 
