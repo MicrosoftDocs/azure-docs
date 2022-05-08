@@ -80,7 +80,7 @@ The Total Request Units metric displays the requests unit   usage based on opera
 
 These operations can be analyzed within a given time interval, defined keyspace or table.
 
-:::image type="content" source="./media/cassandra-monitor-insights/total-cassandra-requests.png" alt-text="Screenshot image of a graph showing the total cassandra requests for an account.":::
+:::image type="content" source="./media/cassandra-monitor-insights/total-cassandra-requests.png" alt-text="Screenshot image of a graph showing the total Cassandra requests for an account.":::
 
 :::image type="content" source="./media/cassandra-monitor-insights/total-request-units.png" alt-text="Screenshot image of a graph showing the total request units for a cassandra account.":::
 
