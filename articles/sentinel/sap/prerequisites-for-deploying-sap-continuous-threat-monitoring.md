@@ -100,7 +100,6 @@ Experienced SAP administrators may choose to create the role manually and assign
 | SAP BASIS versions | Sample CR |
 | --- | --- |
 | Any version  | *NPLK900206** [K900206.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900206.NPL), [R900206.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900206.NPL)|
-| | * An SAP account is required to access SAP notes |
 | | |
 
 ## Next steps
