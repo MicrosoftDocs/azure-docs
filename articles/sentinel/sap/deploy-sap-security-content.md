@@ -39,7 +39,7 @@ Track your SAP solution deployment journey through this series of articles:
 
 Deploy the [SAP security content](sap-solution-security-content.md) from the Microsoft Sentinel **Content hub** and **Watchlists** areas.
 
-The **Microsoft Sentinel - Continuous Threat Monitoring for SAP** solution enables the SAP data connector to be displayed in the Microsoft Sentinel **Data connectors** area. The solution also deploys the **SAP - System Applications and Products** workbook and SAP-related analytics rules.
+Deploying the **Microsoft Sentinel - Continuous Threat Monitoring for SAP** solution causes the SAP data connector to be displayed in the Microsoft Sentinel **Data connectors** area. The solution also deploys the **SAP - System Applications and Products** workbook and SAP-related analytics rules.
 
 To deploy SAP solution security content, do the following:
 
@@ -51,7 +51,7 @@ To deploy SAP solution security content, do the following:
 
     :::image type="content" source="./media/deploy-sap-security-content/sap-solution.png" alt-text="Screenshot of the 'Microsoft Sentinel - Continuous Threat Monitoring for SAP' solution pane." lightbox="media/deploy-sap-security-content/sap-solution.png":::
 
-1. To launch the solution deployment wizard, select **Create**, and then enter the details of the Azure subscription, resource group, and Log Analytics workspace (the one which is used by Microsoft Sentinel) where you want to deploy the solution.
+1. To launch the solution deployment wizard, select **Create**, and then enter the details of the Azure subscription, resource group, and Log Analytics workspace (the one used by Microsoft Sentinel) where you want to deploy the solution.
 
 1. Select **Next** to cycle through the **Data Connectors**, **Analytics**, and **Workbooks** tabs, where you can learn about the components that will be deployed with this solution.
 
