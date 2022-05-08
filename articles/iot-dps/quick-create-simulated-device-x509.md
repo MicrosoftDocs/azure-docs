@@ -218,7 +218,7 @@ To create the X.509 certificate:
 
 ::: zone-end
 
-::: zone pivot="programming-language-python,,programming-language-csharp"
+::: zone pivot="programming-language-python,programming-language-csharp"
 
 In this section, you'll use OpenSSL to create a self-signed X.509 certificate. This certificate must be uploaded to your provisioning service, and verified by the service.
 
