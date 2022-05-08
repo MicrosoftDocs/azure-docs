@@ -98,11 +98,11 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**            |                                    |
-| **Data sources:**            |                                    |
-| **MITRE ATT&CK tactics:**    |                                    |
-| **MITRE ATT&CK techniques:** |                                    |
-| **Activity:**                | <br><br> |
+| **Anomaly type:**                | UEBA                                                               |
+| **Data sources:**                | Azure Active Directory audit logs                                  |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Activity:**                    | <br><br> |
 
 
 ## Anomalous Code Execution
@@ -111,8 +111,8 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**            |                                    |
-| **Data sources:**            |                                    |
+| **Anomaly type:**                | UEBA                                                               |
+| **Data sources:**                | Azure Activity logs                                                |
 | **MITRE ATT&CK tactics:**    |                                    |
 | **MITRE ATT&CK techniques:** |                                    |
 | **Activity:**                | <br><br> |
@@ -124,8 +124,8 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**            |                                    |
-| **Data sources:**            |                                    |
+| **Anomaly type:**                | UEBA                                                               |
+| **Data sources:**                | Azure Activity logs                                                |
 | **MITRE ATT&CK tactics:**    |                                    |
 | **MITRE ATT&CK techniques:** |                                    |
 | **Activity:**                | <br><br> |
@@ -137,8 +137,8 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**            |                                    |
-| **Data sources:**            |                                    |
+| **Anomaly type:**                | UEBA                                                               |
+| **Data sources:**                | Azure Activity logs                                                |
 | **MITRE ATT&CK tactics:**    |                                    |
 | **MITRE ATT&CK techniques:** |                                    |
 | **Activity:**                | <br><br> |
@@ -150,8 +150,8 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**            |                                    |
-| **Data sources:**            |                                    |
+| **Anomaly type:**                | UEBA                                                               |
+| **Data sources:**                | Azure Activity logs                                                |
 | **MITRE ATT&CK tactics:**    |                                    |
 | **MITRE ATT&CK techniques:** |                                    |
 | **Activity:**                | <br><br> |
@@ -163,14 +163,118 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**            |                                    |
+| **Anomaly type:**                | UEBA                                                               |
+| **Data sources:**                | Azure Activity logs                                                |
+| **MITRE ATT&CK tactics:**    |                                    |
+| **MITRE ATT&CK techniques:** |                                    |
+| **Activity:**                | <br><br> |
+
+
+## Anomalous Defensive Mechanism Modification
+
+**Description:** Adversaries may disable security tools to avoid possible detection of their tools and activities.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | UEBA                                                               |
+| **Data sources:**                | Azure Activity logs                                                |
+| **MITRE ATT&CK tactics:**    |                                    |
+| **MITRE ATT&CK techniques:** |                                    |
+| **Activity:**                | <br><br> |
+
+
+## Anomalous Failed Logon
+
+**Description:** Adversaries with no prior knowledge of legitimate credentials within the system or environment may guess passwords to attempt access to accounts.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | UEBA                                                               |
 | **Data sources:**            |                                    |
 | **MITRE ATT&CK tactics:**    |                                    |
 | **MITRE ATT&CK techniques:** |                                    |
 | **Activity:**                | <br><br> |
 
 
-## Anomaly name
+## Anomalous Password Reset
+
+**Description:** Adversaries may interrupt availability of system and network resources by inhibiting access to accounts utilized by legitimate users. Accounts may be deleted, locked, or manipulated (ex: changed credentials) to remove access to accounts.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | UEBA                                                               |
+| **Data sources:**                | Azure Active Directory audit logs                                  |
+| **MITRE ATT&CK tactics:**    |                                    |
+| **MITRE ATT&CK techniques:** |                                    |
+| **Activity:**                | <br><br> |
+
+
+## Anomalous Privilege Granted
+
+**Description:** Adversaries may add adversary-controlled credentials for Azure Service Principals in addition to existing legitimate credentials to maintain persistent access to victim Azure accounts.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | UEBA                                                               |
+| **Data sources:**                | Azure Active Directory audit logs                                  |
+| **MITRE ATT&CK tactics:**    |                                    |
+| **MITRE ATT&CK techniques:** |                                    |
+| **Activity:**                | <br><br> |
+
+
+## Anomalous Role Assignment
+
+**Description:** Adversaries may manipulate accounts to maintain access to victim systems. These actions include adding new accounts to high privileged groups.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | UEBA                                                               |
+| **Data sources:**                | Azure Active Directory audit logs                                  |
+| **MITRE ATT&CK tactics:**    |                                    |
+| **MITRE ATT&CK techniques:** |                                    |
+| **Activity:**                | <br><br> |
+
+
+## Anomalous Session Duration
+
+**Description:** Adversaries may leverage external-facing remote services to initially access and/or persist within a network. Remote services such as VPNs, Citrix, and other access mechanisms allow users to connect to internal enterprise network resources from external locations.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | UEBA                                                               |
+| **Data sources:**            |                                    |
+| **MITRE ATT&CK tactics:**    |                                    |
+| **MITRE ATT&CK techniques:** |                                    |
+| **Activity:**                | <br><br> |
+
+
+## Anomalous Sign-in
+
+**Description:** Adversaries may steal the credentials of a specific user or service account using Credential Access techniques or capture credentials earlier in their reconnaissance process through social engineering for means of gaining Persistence.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | UEBA                                                               |
+| **Data sources:**            |                                    |
+| **MITRE ATT&CK tactics:**    |                                    |
+| **MITRE ATT&CK techniques:** |                                    |
+| **Activity:**                | <br><br> |
+
+
+## Anomalous Process Creation
+
+**Description:** Services, daemons, or agents may be created with administrator privileges but executed under root/SYSTEM privileges. Adversaries may leverage this functionality to create or modify system processes in order to escalate privileges.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | UEBA                                                               |
+| **Data sources:**            |                                    |
+| **MITRE ATT&CK tactics:**    |                                    |
+| **MITRE ATT&CK techniques:** |                                    |
+| **Activity:**                | <br><br> |
+
+
+## 
 
 **Description:** 
 
@@ -183,7 +287,33 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **Activity:**                | <br><br> |
 
 
-## Anomaly name
+## 
+
+**Description:** 
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**            |                                    |
+| **Data sources:**            |                                    |
+| **MITRE ATT&CK tactics:**    |                                    |
+| **MITRE ATT&CK techniques:** |                                    |
+| **Activity:**                | <br><br> |
+
+
+## 
+
+**Description:** 
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**            |                                    |
+| **Data sources:**            |                                    |
+| **MITRE ATT&CK tactics:**    |                                    |
+| **MITRE ATT&CK techniques:** |                                    |
+| **Activity:**                | <br><br> |
+
+
+## 
 
 **Description:** 
 
