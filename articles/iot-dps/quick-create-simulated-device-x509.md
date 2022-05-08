@@ -411,12 +411,12 @@ The sample code is set up to use X.509 certificates that are stored within a pas
     ```
 
     > [!IMPORTANT]
-    > The extra forward slash given for the subject name (`//CN=node-device-01`) is only required to escape the string with Git on Windows platforms.
+    > The extra forward slash given for the subject name (`//CN=nodejs-device-01`) is only required to escape the string with Git on Windows platforms.
 
     # [Linux](#tab/linux)
 
     ```bash
-    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device_key.pem -out ./device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=node-device-01"
+    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device_key.pem -out ./device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=nodejs-device-01"
     ```
 
     ---
@@ -427,7 +427,7 @@ The sample code is set up to use X.509 certificates that are stored within a pas
 
     A test certificate file (*device_cert.pem*) and private key file (*device_key.pem*) should now be generated in the directory where you ran the `openssl` command.
 
-    The certificate file has its subject common name (CN) set to `node-device-01`. For an X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
+    The certificate file has its subject common name (CN) set to `nodejs-device-01`. For an X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
 
 1. To view the common name (CN) and other properties of the certificate file, enter the following command:
 
@@ -452,11 +452,11 @@ The sample code is set up to use X.509 certificates that are stored within a pas
         Serial Number:
             77:3e:1d:e4:7e:c8:40:14:08:c6:09:75:50:9c:1a:35:6e:19:52:e2
         Signature Algorithm: sha256WithRSAEncryption
-        Issuer: CN = node-device-01
+        Issuer: CN = nodejs-device-01
         Validity
             Not Before: May  5 21:41:42 2022 GMT
             Not After : Jun  4 21:41:42 2022 GMT
-        Subject: CN = node-device-01
+        Subject: CN = nodejs-device-01
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
                 RSA Public-Key: (4096 bit)
