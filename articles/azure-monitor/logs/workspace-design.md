@@ -109,7 +109,7 @@ While you should avoid sending duplicate data to multiple workspaces because of 
 When you grant a user [access to a workspace](manage-access.md), they have access to all data in that workspace. This is appropriate for a member of a central administration or security team who must access data for all resources. Access to the workspace is also determined by resource-context RBAC and table-level RBAC.
 
 **Resource-context RBAC**
-By default, if a user has read access to an Azure resource, they inherit permissions to any of that resource's monitoring data sent to the workspace. This allows users to access information about resources they manage without being granted explicit access to the workspace. If you need to block this access, you can change the [access control mode](workspace-access-control.md#access-control-mode) to require explicit workspace permissions.
+By default, if a user has read access to an Azure resource, they inherit permissions to any of that resource's monitoring data sent to the workspace. This allows users to access information about resources they manage without being granted explicit access to the workspace. If you need to block this access, you can change the [access control mode](manage-access.md#access-control-mode) to require explicit workspace permissions.
 
 - **If you want users to be able to access data for their resources**, keep the default access control mode of *Use resource or workspace permissions*.
 - **If you want to explicitly assign permissions for all users**, change the access control mode to *Require workspace permissions*.
