@@ -52,7 +52,7 @@ Before you begin, consider the following information:
 - Using Cross Region Restore will incur additional charges. [Learn more](https://azure.microsoft.com/pricing/details/backup/).
 - After you opt in, it might take up to 48 hours for the backup items to be available in secondary regions.
 - Cross Region Restore currently can't be reverted to GRS or LRS after the protection starts for the first time.
-- Currently, the recovery point objective for a secondary region is up to 12 hours from the primary region, even though [read-access geo-redundant storage (RA-GRS)](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) replication is 15 minutes.
+- Currently, secondary region RPO is 36 hours. This is because the RPO in the primary region is 24 hours and can take up to 12 hours to replicate the backup data from the primary to the secondary region.
 
 A vault created with GRS redundancy includes the option to configure the Cross Region Restore feature. Every GRS vault has a banner that links to the documentation. 
 

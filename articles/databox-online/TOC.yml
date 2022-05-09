@@ -1,6 +1,62 @@
 - name: Azure Stack Edge Documentation 
   href: ./index.yml
   expanded: true
+- name: Azure Stack Edge Pro 2
+  items:
+  - name: Overview
+    items:
+    - name: What is Azure Stack Edge Pro 2?
+      href: azure-stack-edge-pro-2-overview.md
+  - name: Tutorials
+    items:
+    - name: 0 - Get checklist
+      href: azure-stack-edge-pro-2-deploy-checklist.md  
+    - name: 1 - Order, prepare 
+      href: azure-stack-edge-pro-2-deploy-prep.md
+      displayName: Azure CLI, az databoxedge device, az databoxedge order
+    - name: 2 - Install
+      href: azure-stack-edge-pro-2-deploy-install.md
+    - name: 3 - Connect
+      href: azure-stack-edge-pro-2-deploy-connect.md
+    - name: 4 - Configure network
+      href: azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy.md
+    - name: 5 - Configure device 
+      href: azure-stack-edge-pro-2-deploy-set-up-device-update-time.md
+    - name: 6 - Configure certificates
+      href: azure-stack-edge-pro-2-deploy-configure-certificates.md
+    - name: 7 - Activate
+      href: azure-stack-edge-pro-2-deploy-activate.md 
+    - name: 8 - Configure compute
+      href: azure-stack-edge-pro-2-deploy-configure-compute.md  
+      
+  - name: Concepts
+    items:
+    - name: Ready safety
+      href: azure-stack-edge-pro-2-safety.md
+    - name: Review requirements
+      href: azure-stack-edge-pro-2-system-requirements.md
+    - name: Understand limits
+      href: azure-stack-edge-pro-2-limits.md 
+    - name: Review specifications
+      href: azure-stack-edge-pro-2-technical-specifications-compliance.md
+    - name: Clustering (preview)
+      items:
+      - name: What is clustering?
+        href: azure-stack-edge-gpu-clustering-overview.md
+      - name: Cluster witness
+        href: azure-stack-edge-gpu-cluster-witness-overview.md
+      - name: Kubernetes failover on clustered device
+        href: azure-stack-edge-gpu-kubernetes-failover-scenarios.md
+
+    - name: How to
+      items:
+      - name: Mount your device
+        items:
+        - name: Using a 2-post rackmount
+          href: azure-stack-edge-pro-2-two-post-rack-mounting.md
+        - name: Using wallmount
+          href: azure-stack-edge-pro-2-safety.md
+
 - name: Azure Stack Edge Pro - GPU
   items:
   - name: Overview
@@ -51,6 +107,20 @@
         href: azure-stack-edge-gpu-technical-specifications-compliance.md
       - name: Power cord specifications
         href: azure-stack-edge-technical-specifications-power-cords-regional.md
+    - name: FAQ - Billing model
+      href: azure-stack-edge-gpu-faq-billing-model.yml
+    - name: Clustering (preview)
+      items:
+      - name: What is clustering?
+        href: azure-stack-edge-gpu-clustering-overview.md
+      - name: Cluster witness
+        href: azure-stack-edge-gpu-cluster-witness-overview.md
+      - name: Cluster failover scenarios
+        href: azure-stack-edge-gpu-cluster-failover-scenarios.md
+      - name: Cluster management
+        href: azure-stack-edge-gpu-manage-cluster.md
+      - name: Kubernetes failover on clustered device
+        href: azure-stack-edge-gpu-kubernetes-failover-scenarios.md
 
 - name: Azure Stack Edge Pro R
   items:
@@ -92,7 +162,7 @@
       href: azure-stack-edge-gpu-deploy-configure-compute.md
   - name: How to
     items:
-    - name: Configure VPN (Preview)
+    - name: Configure VPN (preview)
       items:
       - name: Configure via Azure PowerShell
         href: azure-stack-edge-mini-r-configure-vpn-powershell.md 
@@ -139,7 +209,7 @@
       href: azure-stack-edge-gpu-deploy-configure-compute.md 
   - name: How to
     items:
-    - name: Configure VPN (Preview)
+    - name: Configure VPN (preview)
       items:
       - name: Configure via Azure PowerShell
         href: azure-stack-edge-mini-r-configure-vpn-powershell.md 
@@ -150,9 +220,9 @@
     - name: Use Wi-Fi profiles
       href: azure-stack-edge-mini-r-use-wifi-profiles.md
 
-- name: Shared features - Pro GPU, Pro R, Mini R
+- name: Shared features - Pro 2, Pro GPU, Pro R, Mini R
   items:
-    - name: Local Azure Resource Manager (Preview)
+    - name: Local Azure Resource Manager
       items:
       - name: What is local Azure Resource Manager?
         href: azure-stack-edge-gpu-local-resource-manager-overview.md 
@@ -184,7 +254,7 @@
       - name: Troubleshoot certificate errors
         href: azure-stack-edge-gpu-certificate-troubleshooting.md 
 
-    - name: Virtual machines (Preview)
+    - name: Virtual machines
       items:
       - name: What are VMs?
         href: azure-stack-edge-gpu-virtual-machine-overview.md
@@ -208,7 +278,7 @@
           href: azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md 
       - name: Deploy
         items:
-        - name: VMs - Azure portal
+        - name: VMs - Azure portal (preview)
           href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md 
         - name: VMs - templates
           href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
@@ -228,6 +298,8 @@
           href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
         - name: GPU extension
           href: azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md
+        - name: Password reset extension
+          href: azure-stack-edge-gpu-deploy-virtual-machine-install-password-reset-extension.md
       - name: Manage
         items:        
         - name: Network interfaces
@@ -242,6 +314,8 @@
           href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
         - name: VM tags
           href: azure-stack-edge-gpu-manage-virtual-machine-tags-powershell.md
+      - name: Reset VM password
+        href: azure-stack-edge-gpu-deploy-virtual-machine-reset-password-portal.md
       - name: Back up VM disks 
         href: azure-stack-edge-gpu-back-up-virtual-machine-disks.md
       - name: Monitor
@@ -346,7 +420,7 @@
       - name: Troubleshoot blob storage issues
         href: azure-stack-edge-gpu-troubleshoot-blob-storage.md
 
-- name: Shared device - Pro GPU, Pro R, Mini R
+- name: Shared device - Pro 2, Pro GPU, Pro R, Mini R
   items:
   - name: Shared concepts
     items:
@@ -358,6 +432,10 @@
       href: azure-stack-edge-gpu-data-residency.md 
     - name: View key vault integration 
       href: azure-stack-edge-gpu-activation-key-vault.md
+    - name: Understand disconnected use
+      href: azure-stack-edge-gpu-disconnected-scenario.md
+    - name: Understand data resiliency
+      href: azure-stack-edge-gpu-data-resiliency.md
   - name: Shared security
     items:
     - name: Security overview
@@ -366,6 +444,8 @@
       href: /security/benchmark/azure/baselines/stack-edge-security-baseline?toc=/azure/databox-online/TOC.json
   - name: Shared how-tos
     items:         
+    - name: Check network readiness 
+      href: azure-stack-edge-deploy-check-network-readiness.md
     - name: Manage Edge compute 
       href: azure-stack-edge-gpu-manage-compute.md
     - name: Manage Edge container registry
@@ -416,7 +496,11 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2111 - Current
+    - name: 2203 - Current
+      href: azure-stack-edge-gpu-2203-release-notes.md
+    - name: 2202 
+      href: azure-stack-edge-gpu-2202-release-notes.md
+    - name: 2111 
       href: azure-stack-edge-gpu-2111-release-notes.md
     - name: 2110 
       href: azure-stack-edge-gpu-2110-release-notes.md

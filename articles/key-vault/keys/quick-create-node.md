@@ -228,7 +228,7 @@ The code sample below will show you how to create a client, set a key, retrieve 
 
 ## Integrating with App Configuration
 
-The Azure SDK provides a helper method, [parseKeyVaultKeyIdentifier](/javascript/api/@azure/keyvault-keys#functions), to parse the given Key Vault Key ID. This is necessary if you use [App Configuration](/azure/azure-app-configuration/) references to Key Vault. App Config stores the Key Vault Key ID. You need the _parseKeyVaultKeyIdentifier_ method to parse that ID to get the key name. Once you have the key name, you can get the current key value using code from this quickstart.  
+The Azure SDK provides a helper method, [parseKeyVaultKeyIdentifier](/javascript/api/@azure/keyvault-keys#functions), to parse the given Key Vault Key ID. This is necessary if you use [App Configuration](../../azure-app-configuration/index.yml) references to Key Vault. App Config stores the Key Vault Key ID. You need the _parseKeyVaultKeyIdentifier_ method to parse that ID to get the key name. Once you have the key name, you can get the current key value using code from this quickstart.  
 
 ## Next steps
 

@@ -32,6 +32,9 @@ The list of geographies you can choose from includes:
 - India
 - Japan
 - Korea
+- Norway
+- Switzerland
+- United Arab Emirates
 - United Kingdom
 - United States
 
@@ -102,7 +105,7 @@ Call recordings are stored temporarily in the same geography that was selected f
 
 ## Azure Monitor and Log Analytics
 
-Azure Communication Services will feed into Azure Monitor logging data for understanding operational health and utilization of the service. Some of these logs include Communication Service identities and phone numbers as field data. To delete any potentially personal data [use these procedures for Azure Monitor](../../azure-monitor/logs/personal-data-mgmt.md). You may also want to configure [the default retention period for Azure Monitor](../../azure-monitor/logs/manage-cost-storage.md).
+Azure Communication Services will feed into Azure Monitor logging data for understanding operational health and utilization of the service. Some of these logs include Communication Service identities and phone numbers as field data. To delete any potentially personal data [use these procedures for Azure Monitor](../../azure-monitor/logs/personal-data-mgmt.md). You may also want to configure [the default retention period for Azure Monitor](../../azure-monitor/logs/data-retention-archive.md).
 
 ## Additional resources
 

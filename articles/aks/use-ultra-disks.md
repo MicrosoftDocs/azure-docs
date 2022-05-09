@@ -178,6 +178,9 @@ Events:
 [...]
 ```
 
+## Using Azure tags
+
+For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
 
 ## Next steps
 
@@ -211,3 +214,4 @@ Events:
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[use-tags]: use-tags.md

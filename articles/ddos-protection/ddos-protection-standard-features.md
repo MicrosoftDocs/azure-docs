@@ -3,13 +3,13 @@ title: Azure DDoS Protection features
 description: Learn Azure DDoS Protection features
 services: ddos-protection
 documentationcenter: na
-author: aletheatoh
+author: KumudD
 ms.service: ddos-protection
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
-ms.author: yitoh
+ms.author: kumud
 
 ---
 # Azure DDoS Protection Standard features
@@ -32,9 +32,9 @@ DDoS protection drops attack traffic and forwards the remaining traffic to its i
 
 ## Adaptive real time tuning
 
-The Azure DDoS Protection Basic service helps protect customers and prevent impacts to other customers. For example, if a service is provisioned for a typical volume of legitimate incoming traffic that's smaller than the *trigger rate* of the infrastructure-wide DDoS Protection policy, a DDoS attack on that customer’s resources might go unnoticed. More generally, the complexity of recent attacks (for example, multi-vector DDoS) and the application-specific behaviors of tenants call for per-customer, tailored protection policies. The service accomplishes this by using two insights:
+The complexity of attacks (for example, multi-vector DDoS attacks) and the application-specific behaviors of tenants call for per-customer, tailored protection policies. The service accomplishes this by using two insights:
 
-- Automatic learning of per-customer (per- Public IP) traffic patterns for Layer 3 and 4.
+- Automatic learning of per-customer (per-Public IP) traffic patterns for Layer 3 and 4.
 
 - Minimizing false positives, considering that the scale of Azure allows it to absorb a significant amount of traffic.
 

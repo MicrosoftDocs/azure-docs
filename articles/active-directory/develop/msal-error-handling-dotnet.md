@@ -21,11 +21,22 @@ ms.custom: aaddev
 
 ## Error handling in MSAL.NET
 
+### Exception types
+[MsalClientException](/dotnet/api/microsoft.identity.client.msalexception) is thrown when the library itself detects an error state, such as a bad configuration.
+
+[MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception) is thrown when the Identity Provider (AAD) returns an error. It is a translation of the server error.
+
+[MsalUIRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception) is type of [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception) and indicates that user interaction is required, for example because MFA is required or because the user has changed their password and a token cannot be acquired silently. 
+
+
+### Processing exceptions
 When processing .NET exceptions, you can use the exception type itself and the `ErrorCode` member to distinguish between exceptions. `ErrorCode` values are constants of type [MsalError](/dotnet/api/microsoft.identity.client.msalerror).
 
 You can also have a look at the fields of [MsalClientException](/dotnet/api/microsoft.identity.client.msalexception), [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception), and [MsalUIRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception).
 
 If [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception) is thrown, try [Authentication and authorization error codes](reference-aadsts-error-codes.md) to see if the code is listed there.
+
+If [MsalUIRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception) is thrown, it is an indication that an interactive flow needs to happen for the user to resolve the issue. In public client apps such as desktop and mobile app, this is resolved by calling `AcquireTokenInteractive` which displays a browser. In confidential client apps, web apps should redirect the user to the authorization page, and web APIs should return an HTTP status code and header indicative of the authentication failure (401 Unauthorized and a WWW-Authenticate header).
 
 ### Common .NET exceptions
 
@@ -34,7 +45,7 @@ Here are the common exceptions that might be thrown and some possible mitigation
 | Exception | Error code | Mitigation|
 | --- | --- | --- |
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception) | AADSTS65001: The user or administrator has not consented to use the application with ID '{appId}' named '{appName}'. Send an interactive authorization request for this user and resource.| Get user consent first. If you aren't using .NET Core (which doesn't have any Web UI), call (once only) `AcquireTokeninteractive`. If you are using .NET core or don't want to do an `AcquireTokenInteractive`, the user can navigate to a URL to give consent: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read`. to call `AcquireTokenInteractive`: `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
-| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception) | AADSTS50079: The user is required to use [multi-factor authentication (MFA)](../authentication/concept-mfa-howitworks.md).| There is no mitigation. If MFA is configured for your tenant and Azure Active Directory (AAD) decides to enforce it, fall back to an interactive flow such as `AcquireTokenInteractive` or `AcquireTokenByDeviceCode`.|
+| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception) | AADSTS50079: The user is required to use [multi-factor authentication (MFA)](../authentication/concept-mfa-howitworks.md).| There is no mitigation. If MFA is configured for your tenant and Azure Active Directory (AAD) decides to enforce it, fall back to an interactive flow such as `AcquireTokenInteractive`.|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception) |AADSTS90010: The grant type isn't supported over the */common* or */consumers* endpoints. Use the */organizations* or tenant-specific endpoint. You used */common*.| As explained in the message from Azure AD, the authority needs to have a tenant or otherwise */organizations*.|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception) | AADSTS70002: The request body must contain the following parameter: `client_secret or client_assertion`.| This exception can be thrown if your application was not registered as a public client application in Azure AD. In the Azure portal, edit the manifest for your application and set `allowPublicClient` to `true`. |
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception)| `unknown_user Message`: Could not identify logged in user| The library was unable to query the current Windows logged-in user or this user isn't AD or Azure AD joined (work-place joined users aren't supported). Mitigation 1: on UWP, check that the application has the following capabilities: Enterprise Authentication, Private Networks (Client and Server), User Account Information. Mitigation 2: Implement your own logic to fetch the username (for example, john@contoso.com) and use the `AcquireTokenByIntegratedWindowsAuth` form that takes in the username.|

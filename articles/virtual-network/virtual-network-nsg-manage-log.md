@@ -3,14 +3,15 @@ title: Diagnostic resource logging for a network security group
 titlesuffix: Azure Virtual Network
 description: Learn how to enable event and rule counter diagnostic resource logs for an Azure network security group.
 services: virtual-network
-author: KumudD
+author: mbender-ms
 manager: mtillman
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
-ms.author: kumud 
-ms.custom: devx-track-azurepowershell
+ms.author: mbender 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Resource logging for a network security group
@@ -91,9 +92,9 @@ View and analyze logs. For more information, see [View and analyze logs](#view-a
 
 You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the Azure CLI from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. If you run the CLI from your computer, you need version 2.0.38 or later. Run `az --version` on your computer, to find the installed version. If you need to upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If you are running the CLI locally, you also need to run `az login` to sign in to Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
 
-To enable resource logging, you need the Id of an existing NSG. If you don't have an existing NSG, you can create one with [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create).
+To enable resource logging, you need the Id of an existing NSG. If you don't have an existing NSG, you can create one with [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).
 
-Retrieve the network security group that you want to enable resource logging for with [az network nsg show](/cli/azure/network/nsg#az_network_nsg_show). For example, to retrieve an NSG named *myNsg* that exists in a resource group named *myResourceGroup*, enter the following command:
+Retrieve the network security group that you want to enable resource logging for with [az network nsg show](/cli/azure/network/nsg#az-network-nsg-show). For example, to retrieve an NSG named *myNsg* that exists in a resource group named *myResourceGroup*, enter the following command:
 
 ```azurecli-interactive
 nsgId=$(az network nsg show \
@@ -105,7 +106,7 @@ nsgId=$(az network nsg show \
 
 You can write resource logs to three destination types. For more information, see [Log destinations](#log-destinations). In this article, logs are sent to the *Log Analytics* destination, as an example. For more information, see [Log categories](#log-categories).
 
-Enable resource logging for the NSG with [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create). The following example logs both event and counter category data to an existing workspace named *myWorkspace*, which exists in a resource group named *myWorkspaces*, and the ID of the NSG you retrieved previously:
+Enable resource logging for the NSG with [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create). The following example logs both event and counter category data to an existing workspace named *myWorkspace*, which exists in a resource group named *myWorkspaces*, and the ID of the NSG you retrieved previously:
 
 ```azurecli-interactive
 az monitor diagnostic-settings create \

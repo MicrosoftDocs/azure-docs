@@ -36,18 +36,19 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 
 ### ECasv5-series feature support
 
-*Supported* features in DCasv5-series VMs:
+*Supported* features in ECasv5-series VMs:
 
 - [Premium Storage](premium-storage-performance.md)
 - [Premium Storage caching](premium-storage-performance.md)
 - [VM Generation 2](generation-2.md)
 
-*Unsupported* features in DCasv5-series VMs:
+*Unsupported* features in ECasv5-series VMs:
 
 - [Live Migration](maintenance-and-updates.md)
 - [Memory Preserving Updates](maintenance-and-updates.md)
 - [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md)
 - [Ephemeral OS Disks](ephemeral-os-disks.md)
+- [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)
 
 ### ECasv5-series products
 

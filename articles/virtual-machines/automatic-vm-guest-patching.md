@@ -1,15 +1,14 @@
 ---
 title: Automatic VM Guest Patching for Azure VMs
 description: Learn how to automatically patch virtual machines in Azure.
-author: mayanknayar
+author: mimckitt
 ms.service: virtual-machines
 ms.subservice: maintenance
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 10/20/2021
-ms.author: manayar
-ms.custom: devx-track-azurepowershell
-
+ms.author: mimckitt
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Automatic VM guest patching for Azure VMs
 
@@ -68,9 +67,10 @@ For OS types that release patches on a fixed cadence, VMs configured to the publ
 As a new rollout is triggered every month, a VM will receive at least one patch rollout every month if the VM is powered on during off-peak hours. This process ensures that the VM is patched with the latest available security and critical patches on a monthly basis. To ensure consistency in the set of patches installed, you can configure your VMs to assess and download patches from your own private repositories.
 
 ## Supported OS images
-Only VMs created from certain OS platform images are currently supported. Custom images are currently not supported.
 
-The following platform SKUs are currently supported (and more are added periodically):
+> [!IMPORTANT]
+> Automatic VM guest patching, on-demand patch assessment and on-demand patch installation are supported only on VMs created from images with the exact combination of publisher, offer and sku from the below supported OS images list. Custom images or any other publisher, offer, sku combinations are not supported. More images are added periodically.
+
 
 | Publisher               | OS Offer      |  Sku               |
 |-------------------------|---------------|--------------------|
@@ -79,7 +79,7 @@ The following platform SKUs are currently supported (and more are added periodic
 | Canonical  | 0001-com-ubuntu-server-focal | 20_04-lts |
 | Canonical  | 0001-com-ubuntu-pro-focal | pro-20_04-lts |
 | Redhat  | RHEL | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7_9, 7-RAW, 7-LVM |
-| Redhat  | RHEL | 8, 8.1, 8.2, 8_3, 8_4, 8-LVM |
+| Redhat  | RHEL | 8, 8.1, 8.2, 8_3, 8_4, 8_5, 8-LVM |
 | Redhat  | RHEL-RAW | 8-raw |
 | OpenLogic  | CentOS | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7_8, 7_9, 7-LVM |
 | OpenLogic  | CentOS | 8.0, 8_1, 8_2, 8_3, 8-lvm |
@@ -91,14 +91,15 @@ The following platform SKUs are currently supported (and more are added periodic
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Server-Core |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-Core |
-
-> [!NOTE]
->Automatic VM guest patching, on-demand patch assessment and on-demand patch installation are supported only on VMs created from images with the exact combination of publisher, offer and sku from the supported OS images list. Custom images or any other publisher, offer, sku combinations are not supported.
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter    |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-core |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-azure-edition |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-azure-edition-smalldisk |
 
 ## Patch orchestration modes
 VMs on Azure now support the following patch orchestration modes:
 
-**AutomaticByPlatform:**
+**AutomaticByPlatform (Azure-orchestrated patching):**
 - This mode is supported for both Linux and Windows VMs.
 - This mode enables automatic VM guest patching for the virtual machine and subsequent patch installation is orchestrated by Azure.
 - This mode is required for availability-first patching.
@@ -116,7 +117,7 @@ VMs on Azure now support the following patch orchestration modes:
 
 **Manual:**
 - This mode is supported only for Windows VMs.
-- This mode disables Automatic Updates on the Windows virtual machine.
+- This mode disables Automatic Updates on the Windows virtual machine. When deploying a VM using CLI or PowerShell, setting `--enable-auto-updates` to `false` will also set `patchMode` to `manual` and will disable Automatic Updates. 
 - This mode does not support availability-first patching.
 - This mode should be set when using custom patching solutions.
 - To use this mode on Windows VMs, set the property `osProfile.windowsConfiguration.enableAutomaticUpdates=false`, and set the property  `osProfile.windowsConfiguration.patchSettings.patchMode=Manual` in the VM template.
@@ -198,17 +199,22 @@ Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName
 ```
 
 ### Azure CLI for Windows VMs
-Use [az vm create](/cli/azure/vm#az_vm_create) to enable automatic VM guest patching when creating a new VM. The following example configures automatic VM guest patching for a VM named *myVM* in the resource group named *myResourceGroup*:
+Use [az vm create](/cli/azure/vm#az-vm-create) to enable automatic VM guest patching when creating a new VM. The following example configures automatic VM guest patching for a VM named *myVM* in the resource group named *myResourceGroup*:
 
 ```azurecli-interactive
 az vm create --resource-group myResourceGroup --name myVM --image Win2019Datacenter --enable-agent --enable-auto-update --patch-mode AutomaticByPlatform
 ```
 
-To modify an existing VM, use [az vm update](/cli/azure/vm#az_vm_update)
+To modify an existing VM, use [az vm update](/cli/azure/vm#az-vm-update)
 
 ```azurecli-interactive
 az vm update --resource-group myResourceGroup --name myVM --set osProfile.windowsConfiguration.enableAutomaticUpdates=true osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatform
 ```
+
+### Azure portal
+When creating a VM using the Azure portal, patch orchestration modes can be set under the **Management** tab for both Linux and Windows. 
+
+:::image type="content" source="./media/automatic-vm-guest-patching/auto-guest-patching-portal.png" alt-text="Shows the management tab in the Azure portal used to enable patch orchestration modes.":::
 
 ## Enablement and assessment
 
@@ -249,7 +255,7 @@ Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM" -Status
 PowerShell currently only provides information on the patch extension. Information about `patchStatus` will also be available soon through PowerShell.
 
 ### Azure CLI
-Use [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view) to access the instance view for your VM.
+Use [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view) to access the instance view for your VM.
 
 ```azurecli-interactive
 az vm get-instance-view --resource-group myResourceGroup --name myVM
@@ -295,7 +301,7 @@ Invoke-AzVmPatchAssessment -ResourceGroupName "myResourceGroup" -VMName "myVM"
 ```
 
 ### Azure CLI
-Use [az vm assess-patches](/cli/azure/vm#az_vm_assess_patches) to assess available patches for your virtual machine.
+Use [az vm assess-patches](/cli/azure/vm#az-vm-assess-patches) to assess available patches for your virtual machine.
 
 ```azurecli-interactive
 az vm assess-patches --resource-group myResourceGroup --name myVM
@@ -362,7 +368,7 @@ Invoke-AzVmInstallPatch -ResourceGroupName "myResourceGroup" -VMName "myVM" -Max
 ```
 
 ### Azure CLI
-Use [az vm install-patches](/cli/azure/vm#az_vm_install_patches) to install patches on your virtual machine.
+Use [az vm install-patches](/cli/azure/vm#az-vm-install-patches) to install patches on your virtual machine.
 
 Example to install all Critical patches on a Linux VM:
 ```azurecli-interactive

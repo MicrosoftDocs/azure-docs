@@ -7,7 +7,8 @@ ms.service: static-web-apps
 ms.topic:  quickstart
 ms.date: 11/17/2021
 ms.author: cshoe
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Quickstart: Building your first static site using the Azure CLI
@@ -36,7 +37,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
 1. Create a resource group.
 
-    ```bash
+    ```azurecli
     az group create \
       --name my-swa-group \
       --location "eastus2"
@@ -76,6 +77,20 @@ Now that the repository is created, you can create a static web app from the Azu
         --branch main \
         --app-location "/" \
         --output-location "dist/angular-basic" \
+        --login-with-github
+    ```
+
+    # [Blazor](#tab/blazor)
+
+    ```azurecli
+    az staticwebapp create \
+        --name my-first-static-web-app \
+        --resource-group my-swa-group \
+        --source https://github.com/$GITHUB_USER_NAME/my-first-static-web-app \
+        --location "eastus2" \
+        --branch main \
+        --app-location "Client" \
+        --output-location "wwwroot"  \
         --login-with-github
     ```
 
@@ -132,7 +147,7 @@ Before you can navigate to your new static site, the deployment build must first
 
 1. Return to your console window and run the following command to list the URLs associated with your app.
 
-    ```bash
+    ```azurecli
     az staticwebapp show \
       --name  my-first-static-web-app \
       --query "repositoryUrl"
@@ -150,7 +165,7 @@ Before you can navigate to your new static site, the deployment build must first
 
 1. Run the following command to query for your website's URL.
 
-    ```bash
+    ```azurecli
     az staticwebapp show \
       --name my-first-static-web-app \
       --query "defaultHostname"

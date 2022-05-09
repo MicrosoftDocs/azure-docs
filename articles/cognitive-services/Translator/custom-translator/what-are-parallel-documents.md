@@ -55,8 +55,6 @@ available for you delete. Do not use the Custom Translator as a document
 repository, you will not be able to download the documents you uploaded in the
 format you uploaded them.
 
-
-
 ## Next steps
 
 - Learn how to use a [dictionary](what-is-dictionary.md) in Custom Translator.

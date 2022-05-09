@@ -1,11 +1,11 @@
 ---
 title: Mount SMB Azure file share on Linux | Microsoft Docs
 description: Learn how to mount an Azure file share over SMB on Linux. See the list of prerequisites. Review SMB security considerations on Linux clients.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 05/05/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ---
 
@@ -120,7 +120,7 @@ Next, mount the file share using the `mount` command. In the following example, 
 > [!Note]  
 > Starting in Linux kernel version 5.0, SMB 3.1.1 is the default negotiated protocol. If you're using a version of the Linux kernel older than 5.0, specify `vers=3.1.1` in the mount options list.  
 
-```bash
+```azurecli
 # This command assumes you have logged in with az login
 httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
@@ -137,7 +137,7 @@ sudo mount -t cifs $smbPath $mntPath -o username=$storageAccountName,password=$s
 ```
 
 # [SMB 3.0](#tab/smb30)
-```bash
+```azurecli
 # This command assumes you have logged in with az login
 httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
@@ -154,7 +154,7 @@ sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,pa
 ```
 
 # [SMB 2.1](#tab/smb21)
-```bash
+```azurecli
 # This command assumes you have logged in with az login
 httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \

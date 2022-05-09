@@ -1,9 +1,9 @@
 ---
 title: Upload files from devices to Azure IoT Hub with Java | Microsoft Docs
 description: How to upload files from a device to the cloud using Azure IoT device SDK for Java. Uploaded files are stored in an Azure storage blob container.
-author: wesmc7777
+author: kgremban
 
-ms.author: wesmc
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
@@ -28,7 +28,7 @@ The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-
 These files are typically batch processed in the cloud using tools such as [Azure Data Factory](../data-factory/introduction.md) or the [Hadoop](../hdinsight/index.yml) stack. When you need to upload files from a device, however, you can still use the security and reliability of IoT Hub. This sample shows you how. Also, there are two samples located at [https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/file-upload-sample/src/main/java/samples/com/microsoft/azure/sdk/iot](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/file-upload-sample/src/main/java/samples/com/microsoft/azure/sdk/iot) in GitHub.
 
 > [!NOTE]
-> IoT Hub supports many device platforms and languages (including C, .NET, and Javascript) through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot) for step-by-step instructions on how to connect your device to Azure IoT Hub.
+> IoT Hub supports many device platforms and languages (including C, .NET, and JavaScript) through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot) for step-by-step instructions on how to connect your device to Azure IoT Hub.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 

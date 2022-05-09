@@ -3,15 +3,57 @@ metadata:
   title: Monitoring Alert and Reports FAQ
   description: In this article, discover answers to common questions about the Azure Backup Monitoring Alert and Azure Backup reports.
   ms.reviewer: srinathv
-  ms.topic: article
+  ms.topic: faq
   ms.service: backup
-  ms.date: 07/08/2019
-    
+  ms.date: 02/14/2022
+  author: v-amallick
+  ms.author: v-amallick
 title: Azure Backup Monitoring Alert - FAQ
 summary: This article answers common questions about Azure Backup monitoring and reporting.
 
 
 sections:
+  - name: Alerting for backup
+    questions:
+      - question: |
+          What're the different alerting solutions that Azure Backup provides?
+        answer: |
+          Azure Backup supports multiple alerting options - built-in Azure Monitor alerts, Azure Monitor metric alerts, custom-log alerts, and classic alerts. If you're currently using classic alerts, we recommend you to start using Azure Monitor based alerts as they provide multiple benefits. [Learn more about the different alerting options provided by Azure Backup](monitoring-and-alerts-overview.md).
+
+      - question: |
+          Are there any costs to use built-in Azure Monitor alerts for Azure Backup?
+        answer: |
+          With [built-in Azure Monitor alerts](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup-preview), _alerts_ for critical operations/failures generate by default (that you can view in the portal or via non-portal interfaces) at no additional cost. However, to route these alerts to a notification channel (such as email), it incurs a minor cost for notifications beyond the free tier (of 1000 emails per month). [Learn more about Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+
+      - question: |
+          Are there any costs for using metric alerts for Azure Backup?
+        answer: |
+          With [metric alerts](metrics-overview.md), in addition to the notification costs described above, there is also a cost per alert rule. The cost of the alert rule varies in proportion to the number of dimensions selected as part of the alert rule. [Learn more about Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+
+      - question: |
+          What's the difference between alert rules, alert processing rules (action rules), and action groups?
+        answer: |
+          As per backup alerts:
+
+          - **Alert rule**: Refers to a user-created rule that specifies the condition on which an alert should be fired. [Learn more](../azure-monitor/alerts/alerts-overview.md#overview)
+          - **Alert processing rule (earlier called Action rule)**: Refers to a user-created rule that specifies the notification channels a particular fired alert should be routed to. You can also use alert processing rules to suppress notifications for a period of time. [Learn more](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal)
+          - **Action group**: Refers to the notification channel (such as email, ITSM endpoint, logic app, webhook, and so on) that a fired alert can be routed to. [Learn more](../azure-monitor/alerts/action-groups.md)
+
+          In case of built-in Azure Monitor alerts, as alerts already generate by default, you don't need to create an alert rule. To route these alerts to a notification channel, you should create an alert processing rule and an action group for these alerts. [See example](backup-azure-monitoring-built-in-monitor.md#configuring-notifications-for-alerts)
+
+          In case of metric alerts, as alerts don't generate by default, you need to first create an alert rule to specify the condition for which an alert should be fired. To route these alerts to a notification channel, you can directly link the alert rule to an action group, or use an alert processing rule. [See example](metrics-overview.md#configure-alerts-and-notifications-on-your-metrics)
+
+      - question: |
+          Can I configure alerts for successful backup jobs?
+        answer: |
+          Yes, you can use metric alerts to configure alerts for successful backups. [Learn more](metrics-overview.md#configure-alerts-and-notifications-on-your-metrics)
+
+      - question: |
+          Can I configure notifications programmatically?
+        answer: |
+          If you're using Azure Monitor based alerts, you can configure notifications ([Alert processing rules](../azure-monitor/alerts/alerts-action-rules.md?tabs=azure-cli) and [Action Groups](/cli/azure/monitor/action-group)) programmatically. If you're using classic alerts, programmatic creation of notifications isn't supported.      
+
+
   - name: Configure Azure Backup reports
     questions:
       - question: |

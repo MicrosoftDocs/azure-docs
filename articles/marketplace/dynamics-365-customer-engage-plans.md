@@ -21,7 +21,7 @@ You need to define at least one plan, if your offer has app license management e
 
 1. Near the top of the **Plan overview** page, select **+ Create new plan**.
 1. In the dialog box that appears, in the **Plan ID** box, enter a unique plan ID. Use up to 50 lowercase alphanumeric characters, dashes, or underscores. You cannot modify the plan ID after you select **Create**.
-1. In the **Plan name** box, enter a unique name for this plan. Use a maximum of 50 characters.
+1. In the **Plan name** box, enter a unique name for this plan. Use a maximum of 200 characters.
 1. Select **Create**.
 
 ## Define the plan listing
@@ -29,7 +29,7 @@ You need to define at least one plan, if your offer has app license management e
 On the **Plan listing** tab, you can define the plan name and description as you want them to appear in the commercial marketplace. This information will be shown on the Microsoft AppSource listing page.
 
 1. In the **Plan name** box, the name you provided earlier for this plan appears here. You can change it at any time. This name will appear in the commercial marketplace as the title of your offer's software plan.
-1. In the **Plan description** box, explain what makes this software plan unique and any differences from other plans within your offer. This description may contain up to 500 characters.
+1. In the **Plan description** box, explain what makes this software plan unique and any differences from other plans within your offer. This description may contain up to 3,000 characters.
 1. Select **Save draft**, and then in the breadcrumb at the top of the page, select **Plans**.
 
     [ ![Screenshot shows the Plan overview link on the Plan listing page of an offer in Partner Center.](./media/third-party-license/bronze-plan-workspaces.png) ](./media/third-party-license/bronze-plan-workspaces.png#lightbox)

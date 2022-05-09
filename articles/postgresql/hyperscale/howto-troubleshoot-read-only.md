@@ -2,8 +2,8 @@
 title: Troubleshoot read-only access - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Learn why a Hyperscale (Citus) server group can become read-only, and what to do
 keywords: postgresql connection,read only
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to

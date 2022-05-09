@@ -7,10 +7,11 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/01/2021
+ms.date: 04/01/2022
 ms.author: tamram
-ms.reviewer: fryu 
-ms.custom: devx-track-azurepowershell
+ms.reviewer: nachakra 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Prevent Shared Key authorization for an Azure Storage account
@@ -232,6 +233,10 @@ Some Azure tools offer the option to use Azure AD authorization to access Azure 
 | Azure CLI | Supported. For information about how to authorize Azure CLI commands with Azure AD for access to blob and queue data, see [Run Azure CLI commands with Azure AD credentials to access blob or queue data](../blobs/authorize-data-operations-cli.md). |
 | Azure IoT Hub | Supported. For more information, see [IoT Hub support for virtual networks](../../iot-hub/virtual-network-support.md). |
 | Azure Cloud Shell | Azure Cloud Shell is an integrated shell in the Azure portal. Azure Cloud Shell hosts files for persistence in an Azure file share in a storage account. These files will become inaccessible if Shared Key authorization is disallowed for that storage account. For more information, see [Connect your Microsoft Azure Files storage](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> To run commands in Azure Cloud Shell to manage storage accounts for which Shared Key access is disallowed, first make sure that you have been granted the necessary permissions to these accounts via Azure RBAC. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md). |
+
+## Disallow Shared Key authorization to use Azure AD Conditional Access
+
+To protect an Azure Storage account with Azure AD [Conditional Access](../../active-directory/conditional-access/overview.md) policies, you must disallow Shared Key authorization for the storage account. Follow the steps described in [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) to analyze the potential impact of this change for existing storage accounts before disallowing Shared Key authorization.
 
 ## Transition Azure Files and Table storage workloads
 

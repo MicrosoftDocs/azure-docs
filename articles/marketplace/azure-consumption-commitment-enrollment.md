@@ -33,8 +33,6 @@ An offer must meet the following requirements to be enrolled in the MACC program
 
 ## How to see if your offer is enrolled in the MACC program
 
-[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
-
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Marketplace offers** tile.
 

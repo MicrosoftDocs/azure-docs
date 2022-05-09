@@ -6,10 +6,11 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 1/5/2021
 ms.author: pafarley
 ms.devlang: csharp
+ms.custom: non-critical
 ---
 
 # How to: mitigate latency when using the Face service

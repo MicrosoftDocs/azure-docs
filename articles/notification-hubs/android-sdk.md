@@ -54,7 +54,7 @@ The first step is to create a project in Android Studio:
 
 ## Create a Firebase project that supports FCM
 
-1. Sign in to the [Firebase console](https://firebase.google.com/console/). Create a new Firebase project if you don't already have one.
+1. Sign in to the [Firebase console](https://console.firebase.google.com/). Create a new Firebase project if you don't already have one.
 
 2. After you create your project, select **Add Firebase to your Android app**.
 
@@ -161,7 +161,8 @@ also have the connection strings that are necessary to send notifications to a d
 
    ```gradle
    implementation 'com.microsoft.azure:notification-hubs-android-sdk-fcm:1.1.4'
-   implementation 'androidx.appcompat:appcompat:1.0.0'
+   implementation 'androidx.appcompat:appcompat:1.4.1'
+   implementation 'com.android.volley:volley:1.2.1'
    ```
 
 2. Add the following repository after the dependencies section:
@@ -221,9 +222,9 @@ also have the connection strings that are necessary to send notifications to a d
    protected void onCreate(Bundle savedInstanceState) {
 
       super.onCreate(savedInstanceState);
-      setContentView(R.layout.activity\_main);
+      setContentView(R.layout.activity_main);
       NotificationHub.setListener(new CustomNotificationListener());
-      NotificationHub.start(this.getApplication(), “Connection-String”, "Hub Name");
+      NotificationHub.start(this.getApplication(), "Hub Name", “Connection-String”);
 
    }
    ```

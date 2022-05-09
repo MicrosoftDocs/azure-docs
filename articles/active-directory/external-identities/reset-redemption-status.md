@@ -60,15 +60,18 @@ If a user wants to sign in using a different email:
 >
 ### Use PowerShell to reset redemption status
 
-Install the latest AzureADPreview PowerShell module and create a new invitation with `InvitedUserEmailAddress` set to the new email address, and `ResetRedemption` set to `true`.
+```powershell
+Install-Module Microsoft.Graph
+Select-MgProfile -Name beta
+Connect-MgGraph
 
-```powershell  
-Uninstall-Module AzureADPreview 
-Install-Module AzureADPreview 
-Connect-AzureAD 
-$ADGraphUser = Get-AzureADUser -objectID "UPN of User to Reset"  
-$msGraphUser = New-Object Microsoft.Open.MSGraph.Model.User -ArgumentList $ADGraphUser.ObjectId 
-New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitationMessage $True -InviteRedirectUrl "http://myapps.microsoft.com" -InvitedUser $msGraphUser -ResetRedemption $True 
+$user = Get-MgUser -Filter "startsWith(mail, 'john.doe@fabrikam.net')"
+New-MgInvitation `
+    -InvitedUserEmailAddress $user.Mail `
+    -InviteRedirectUrl "http://myapps.microsoft.com" `
+    -ResetRedemption `
+    -SendInvitationMessage `
+    -InvitedUser $user
 ```
 
 ### Use Microsoft Graph API to reset redemption status

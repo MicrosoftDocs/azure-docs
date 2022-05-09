@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use the features of Azure Digital Twins Explorer
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 1/5/2022
+ms.date: 02/24/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -20,7 +20,7 @@ ms.service: digital-twins
 [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) is a tool for visualizing and working with Azure Digital Twins. This article describes the features of Azure Digital Twins Explorer, and how to use them to manage the data in your Azure Digital Twins instance. You can interact with the Azure Digital Twins Explorer using clicks or [keyboard shortcuts](#accessibility-and-advanced-settings).
 
 >[!NOTE]
->This tool is currently in **public preview**.
+>This tool is currently in public preview.
 
 ## How to access
 
@@ -36,12 +36,12 @@ Once in the application, you're also able to change which instance is currently 
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/instance-url-1.png" alt-text="Screenshot of Azure Digital Twins Explorer. The instance name in the top toolbar is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/instance-url-1.png":::
 
-Doing so will bring up the **Azure Digital Twins URL modal**, where you can enter the host name of another Azure Digital Twins instance after the *https://* to connect to that instance.
+Doing so will bring up the **Azure Digital Twins URL modal**, where you can enter the host name of another Azure Digital Twins instance after the `https://` prefix to connect to that instance.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/instance-url-2.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Azure Digital Twins URL modal displays an editable box containing https:// and a host name." lightbox="media/how-to-use-azure-digital-twins-explorer/instance-url-2.png":::
 
 >[!NOTE]
->At this time, the ability to switch contexts within the app is **not** available for personal Microsoft Accounts (MSA). MSA users will need to access the explorer from the chosen instance in the Azure portal, or may connect to a certain instance through a [direct link to the environment](#link-to-your-environment).
+>At this time, the ability to switch contexts within the app isn't available for personal Microsoft Accounts (MSA). MSA users will need to access the explorer from the chosen instance in the Azure portal, or may connect to a certain instance through a [direct link to the environment](#link-to-your-environment-and-specific-query).
 
 
 ## Query your digital twin graph
@@ -50,7 +50,9 @@ You can use the **Query Explorer** panel to run [queries](concepts-query-languag
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/query-explorer-panel.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Query Explorer panel is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/query-explorer-panel.png":::
 
-Enter the query you want to run and select the **Run Query** button. Doing so will load the query results in the **Twin Graph** panel.
+Enter the query you want to run. If you want to enter a query in multiple lines, you can use SHIFT + ENTER to add a new line to the query box. 
+
+Select the **Run Query** button to display query results in the **Twin Graph** panel.
 
 >[!NOTE]
 > Query results containing relationships can only be rendered in the **Twin Graph** panel if the results include at least one twin as well. While queries that return only relationships are possible in Azure Digital Twins, you can only view them in Azure Digital Twins Explorer by using the [Output panel](#accessibility-and-advanced-settings).
@@ -183,7 +185,7 @@ To set the number of layers to expand, use the **Expansion Level** option. This 
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-expansion-level.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The Expansion Level button is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-expansion-level.png":::
 
-To indicate which types of relationships to follow when expanding, use the **Expansion Direction** button. Doing so allows you to select from incoming, outgoing, or *both* incoming and outgoing relationships.
+To indicate which types of relationships to follow when expanding, use the **Expansion Direction** button. Doing so allows you to select from incoming, outgoing, or both incoming and outgoing relationships.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-expansion-direction.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The Expansion Direction button is highlighted, showing a menu with the options In, Out, and In/Out." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-expansion-direction.png":::
 
@@ -254,7 +256,7 @@ Once the two twins are simultaneously selected, right-click the target twin to b
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-add-relationship.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The FactoryA and Consumer twins are selected, and a menu shows the option to Add relationships." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-add-relationship.png":::
 
-Doing so will bring up the **Create Relationship** dialog, which shows the source twin and target twin of the relationship, followed by a **Relationship** dropdown menu that contains the types of relationship that the source twin can have (defined in its DTDL model). Select an option for the relationship type, and **Save** the new relationship.
+Doing so will bring up the **Create Relationship** dialog, populated with the source twin and target twin of the relationship (you can also use the **Swap Relationship** icon to switch them). There is a **Relationship** dropdown menu that contains the types of relationship that the source twin can have, according to its DTDL model. Select an option for the relationship type, and **Save** the new relationship.
 
 ### Edit twin and relationship properties
 
@@ -475,8 +477,8 @@ You can use the import feature to add twins, relationships, and models to your i
 The first step in importing a graph is creating a file representing the twins and relationships you want to add.
 
 The import file can be in either of these two formats:
-* The **custom Excel-based format** described in the rest of this section. This format allows you to upload twins and relationships.
-* The **JSON-based format** generated on [graph export](#export-graph-and-models). This format can contain twins, relationships, and/or models.
+* The *custom Excel-based format* described in the rest of this section. This format allows you to upload twins and relationships.
+* The *JSON-based format* generated on [graph export](#export-graph-and-models). This format can contain twins, relationships, and/or models.
 
 To create a custom graph in Excel, use the following format.
 
@@ -485,7 +487,7 @@ Use the following columns to structure the twin or relationship data. The column
 
 | ModelID | ID | Relationship (source) | Relationship Name | Init Data |
 | --- | --- | --- | --- | --- |
-| *Optional*<br>The DTMI model ID for a twin that should be created.<br><br>You can leave this column blank for a row if you want that row to create only a relationship (no twins). | *Required*<br>The unique ID for a twin.<br><br>If a new twin is being created in this row, this value will be the ID of the new twin.<br>If there's relationship information in the row, this ID will be used as the **target** of the relationship. | *Optional*<br>The ID of a twin that should be the **source** twin for a new relationship.<br><br>You can leave this column blank for a row if you want that row to create only a twin (no relationships). | *Optional*<br>The name for the new relationship to create. The relationship direction will be **from** the twin in column C **to** the twin in column B. | *Optional*<br>A JSON string containing property settings for the twin to be created. The properties must match the ones defined in the model from column A. |
+| (Optional)<br>The DTMI model ID for a twin that should be created.<br><br>You can leave this column blank for a row if you want that row to create only a relationship (no twins). | (Required)<br>The unique ID for a twin.<br><br>If a new twin is being created in this row, this value will be the ID of the new twin.<br>If there's relationship information in the row, this ID will be used as the target of the relationship. | (Optional)<br>The ID of a twin that should be the source twin for a new relationship.<br><br>You can leave this column blank for a row if you want that row to create only a twin (no relationships). | (Optional)<br>The name for the new relationship to create. The relationship direction will be from the twin in column C to the twin in column B. | (Optional)<br>A JSON string containing property settings for the twin to be created. The properties must match the ones defined in the model from column A. |
 
 Here's an example .xlsx file creating a small graph of two floors and two rooms.
 
@@ -528,16 +530,16 @@ This action enables a **Download** link in the Twin Graph box. Select it to down
 >[!TIP]
 >This file can be edited and/or re-uploaded to Azure Digital Twins through the [import](#import-graph) feature.
 
-## Link to your environment
+## Link to your environment and specific query
 
 You can share your Azure Digital Twins Explorer environment with others to collaborate on work. This section describes how to send your Azure Digital Twins Explorer environment to someone else and verify they have the permissions to access it.
 
-To share your environment, you can send a link to the recipient that will open an Azure Digital Twins Explorer window connected to your instance. Use the link below and replace the placeholders for your **tenant ID** and the **host name** of your Azure Digital Twins instance. 
+To share your environment in general , you can send a link to the recipient that will open an Azure Digital Twins Explorer window connected to your instance. Use the link below and replace the placeholders for your *tenant ID* and the *host name* of your Azure Digital Twins instance. 
 
 `https://explorer.digitaltwins.azure.net/?tid=<tenant-ID>&eid=<Azure-Digital-Twins-host-name>`
 
 >[!NOTE]
-> The value for the host name placeholder is **not** preceded by *https://* here.
+> The value for the host name placeholder is not preceded by the `https://` prefix here.
 
 Here's an example of a URL with the placeholder values filled in:
 
@@ -545,7 +547,7 @@ Here's an example of a URL with the placeholder values filled in:
 
 For the recipient to view the instance in the resulting Azure Digital Twins Explorer window, they must log into their Azure account, and have **Azure Digital Twins Data Reader** access to the instance (you can read more about Azure Digital Twins roles in [Security](concepts-security.md)). For the recipient to make changes to the graph and the data, they must have the **Azure Digital Twins Data Owner** role on the instance.
 
-### Link with a query
+### Link to a specific query
 
 You may want to share an environment and specify a query to execute upon landing, to highlight a subgraph or custom view for a teammate. To do so, start with the URL for the environment and add the query text to the URL as a querystring parameter:
 
@@ -573,13 +575,13 @@ You can use the **Keyboard Shortcuts** icon in the top-right toolbar to view a l
  :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/keyboard-shortcuts.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Keyboard Shortcuts icon is highlighted in the top toolbar." lightbox="media/how-to-use-azure-digital-twins-explorer/keyboard-shortcuts.png":::
 
 There are several advanced features that can be accessed under the Settings cog in the top-right toolbar:
-* **Eager Loading**: When a query returns twins that have relationships to other twins that **are not** included in the query results, this feature will load the "missing" twins before rendering the graph.
+* **Eager Loading**: When a query returns twins that have relationships to other twins that aren't included in the query results, this feature will load the "missing" twins before rendering the graph.
 * **Caching**: When this feature is enabled, Azure Digital Twins Explorer will keep a local cache of relationships and models in memory to improve query performance. These caches are cleared on any write operations on the relevant elements, as well as on browser refresh. This feature is off by default.
 * **Console**: This feature enables display of a console window, capable of using simple shell functions for working with the graph.
 * **Output**: This feature enables display of an output window, which shows a diagnostic trace of operations.
 * **High Contrast**: This feature changes the colors of the Azure Digital Twins Explorer so they appear with greater contrast.
 
-You can **customize panel layout** by editing the position of the panels that make up Azure Digital Twins Explorer (Query Explorer, Twins, Models, Twin Graph, Model Graph). To move a panel to a different location, click and hold the panel name, and drag it to its new desired position.
+You can customize the panel layout by editing the positions of the panels that make up Azure Digital Twins Explorer (Query Explorer, Twins, Models, Twin Graph, Model Graph). To move a panel to a different location, click and hold the panel name, and drag it to its new desired position.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/panels.png" alt-text="Screenshot of Azure Digital Twins Explorer. The names of the Query Explorer, Models, Twin Graph, and Model Graph panels are highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/panels.png":::
 

@@ -5,8 +5,6 @@ ms.topic: conceptual
 ms.date: 11/04/2020
 ms.devlang: java
 ms.custom: devx-track-java
-author: mattmccleary
-ms.author: mmcc
 ---
 
 # Configuration options - Azure Monitor Application Insights for Java
@@ -16,6 +14,8 @@ ms.author: mmcc
 >
 > Please review all the configuration options below carefully, as the json structure has completely changed,
 > in addition to the file name itself which went all lowercase.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Connection string and role name
 
@@ -30,21 +30,21 @@ Connection string and role name are the most common settings needed to get start
 }
 ```
 
-The connection string is required, and the role name is important any time you are sending data
+The connection string is required, and the role name is important anytime you are sending data
 from different applications to the same Application Insights resource.
 
 You will find more details and additional configuration options below.
 
 ## Configuration file path
 
-By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.2.4.jar`.
+By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.2.11.jar`.
 
 You can specify your own configuration file path using either
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable, or
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.2.4.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.2.11.jar` is located.
 
 Alternatively, instead of using a configuration file, you can specify the entire _content_ of the json configuration
 via the environment variable `APPLICATIONINSIGHTS_CONFIGURATION_CONTENT`.
@@ -64,6 +64,22 @@ Connection string is required. You can find your connection string in your Appli
 
 You can also set the connection string using the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`
 (which will then take precedence over connection string specified in the json configuration).
+
+You can also set the connection string by specifying a file to load the connection string from.
+
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.2.11.jar` is located.
+
+```json
+{
+  "connectionString": "${file:connection-string-file.txt}"
+}
+```
+
+The file should contain only the connection string, for example:
+
+```
+InstrumentationKey=...
+```
 
 Not setting the connection string will disable the Java agent.
 
@@ -228,6 +244,18 @@ Instrumentation key overrides allow you to override the [default instrumentation
 }
 ```
 
+## Autocollect InProc dependencies (preview)
+
+Starting from 3.2.0, if you want to capture controller "InProc" dependencies, please use the following configuration:
+
+```json
+{
+  "preview": {
+    "captureControllerSpans": true
+  }
+}
+```
+
 ## Telemetry processors (preview)
 
 It allows you to configure rules that will be applied to request, dependency and trace telemetry, for example:
@@ -308,6 +336,64 @@ To disable auto-collection of Micrometer metrics (including Spring Boot Actuator
     "micrometer": {
       "enabled": false
     }
+  }
+}
+```
+
+## HTTP headers
+
+Starting from 3.2.11, you can capture request and response headers on your server (request) telemetry:
+
+```json
+{
+  "preview": {
+    "captureHttpServerHeaders": {
+      "requestHeaders": [
+        "My-Header-A"
+      ],
+      "responseHeaders": [
+        "My-Header-B"
+      ]
+    }
+  }
+}
+```
+
+The header names are case-insensitive.
+
+The examples above will be captured under property names `http.request.header.my_header_a` and
+`http.response.header.my_header_b`.
+
+Similarly, you can capture request and response headers on your client (dependency) telemetry:
+
+```json
+{
+  "preview": {
+    "captureHttpClientHeaders": {
+      "requestHeaders": [
+        "My-Header-C"
+      ],
+      "responseHeaders": [
+        "My-Header-D"
+      ]
+    }
+  }
+}
+```
+
+Again, the header names are case-insensitive, and the examples above will be captured under property names
+`http.request.header.my_header_c` and `http.response.header.my_header_d`.
+
+## Http server 4xx response codes
+
+By default, http server requests that result in 4xx response codes are captured as errors.
+
+Starting from version 3.2.11, you can change this behavior to capture them as success if you prefer:
+
+```json
+{
+  "preview": {
+    "captureHttpServer4xxAsError": false
   }
 }
 ```
@@ -395,12 +481,16 @@ Starting from version 3.2.0, the following preview instrumentations can be enabl
       "akka": { 
         "enabled": true
       },
+      "vertx": {
+        "enabled": true
+      }
     }
   }
 }
 ```
 > [!NOTE]
 > Akka instrumentation is available starting from version 3.2.2
+> Vertx HTTP Library instrumentation is available starting from version 3.2.11
 
 ## Metric interval
 
@@ -444,7 +534,7 @@ If you are using the heartbeat metric to trigger alerts, you can increase the fr
 
 ## Authentication (preview)
 > [!NOTE]
-> Authentication feature is available starting from version 3.2.0-BETA
+> Authentication feature is available starting from version 3.2.0
 
 It allows you to configure agent to generate [token credentials](/java/api/overview/azure/identity-readme#credentials) that are required for Azure Active Directory Authentication.
 For more information, check out the [Authentication](./azure-ad-authentication.md) documentation.
@@ -495,14 +585,19 @@ and the console, corresponding to this configuration:
 `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 
 `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.2.4.jar` is located.
+`applicationinsights-agent-3.2.11.jar` is located.
 
 `maxSizeMb` is the max size of the log file before it rolls over.
 
 `maxHistory` is the number of rolled over log files that are retained (in addition to the current log file).
 
-Starting from version 3.0.2, you can also set the self-diagnostics `level` using the environment variable `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`
+Starting from version 3.0.2, you can also set the self-diagnostics `level` using the environment variable
+`APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`
 (which will then take precedence over self-diagnostics level specified in the json configuration).
+
+And starting from version 3.0.3, you can also set the self-diagnostics file location using the environment variable
+`APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_FILE_PATH`
+(which will then take precedence over self-diagnostics file path specified in the json configuration).
 
 ## An example
 

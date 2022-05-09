@@ -15,14 +15,16 @@ This document outlines the device specific capabilities that will be represented
 
 ## Program Purpose
 
-IoT Plug and Play Preview enables solution builders to integrate smart devices with their solutions without any manual configuration. At the core of IoT Plug and Play, is a device model that a device uses to advertise its capabilities to an IoT Plug and Play-enabled application. This model is structured as a set of elements: Telemetry, Properties and Commands.
+IoT Plug and Play enables solution builders to integrate smart devices with their solutions without any manual configuration. At the core of IoT Plug and Play, is a device model that advertises the device capabilities to an IoT Plug and Play-enabled application.
 
 Promise of IoT Plug and Play certification are:
 
-1.  Defined device models and interfaces are compliant with the  [Digital Twin Definition Language](https://github.com/Azure/opendigitaltwins-dtdl)  
-1.  Easy integration with Azure IoT based solutions using the [Digital Twin APIs](../iot-develop/concepts-digital-twin.md)  : Azure IoT Hub and Azure IoT Central
-1.  Validated product truth on certified devices
-1.  Meets all requirements of [Azure Certified Device](./program-requirements-azure-certified-device.md)
+1.	Defined device models and interfaces are compliant with the [Digital Twin Definition Language](https://github.com/Azure/opendigitaltwins-dtdl)
+1.	Easy integration with Azure IoT based solutions using the [Digital Twin APIs](../iot-develop/concepts-digital-twin.md)  : Azure IoT Hub and Azure IoT Central
+1.	Product truth validated through testing telemetry from end point to cloud using DTDL 
+
+> [!Note]
+> Upon completed testing and validation, we may request that the product is evaluated by Microsoft.
 
 ## Requirements
 
@@ -37,6 +39,16 @@ Promise of IoT Plug and Play certification are:
 | **Validation**          | Device must send any telemetry schemas to IoT Hub. Microsoft provides the [portal workflow](https://certify.azure.com) to execute the tests. Device to cloud (required): **1.** Validates that the device can send message to AICS managed IoT Hub **2.** User must specify the number and frequency of messages. **3.** AICS validates the telemetry is received by the Hub instance |
 | **Resources**           | [Certification steps](./overview.md) (has all the additional resources) |
 
+**[Required] DPS:  The purpose of test is to check the device implements and supports IoT Hub Device Provisioning Service with one of the three attestation methods**
+
+| **Name**                | AzureCertified.DPS                                               |
+| ----------------------- | ------------------------------------------------------------ |
+| **Target Availability** | New                                                          |
+| **Applies To**          | Any device                                                   |
+| **OS**                  | Agnostic                                                     |
+| **Validation Type**     | Automated                                                    |
+| **Validation**          | Device supports easy input of target DPS ID scope ownership. Microsoft provides the [portal workflow](https://certify.azure.com) to execute the tests to validate that the device supports DPS **1.** User must select one of the attestation methods (X.509, TPM and SAS key) **2.** Depending on the attestation method, user needs to take corresponding action such as **a)** Upload X.509 cert to AICS managed DPS scope **b)** Implement SAS key or endorsement key into the device |
+| **Resources**           | [Device provisioning service overview](../iot-dps/about-iot-dps.md) |
 
 **[Required] DTDL v2:  The purpose of test to ensure defined device models and interfaces are compliant with the Digital Twins Definition Language v2.**                                                              
 
@@ -60,17 +72,6 @@ Promise of IoT Plug and Play certification are:
 | **Validation**          | All device models are required to be published in public repository. Device models are resolved via models available in public repository **1.** User must manually publish the models to the public repository before submitting for the certification. **2.** Note that once the models are published, it is immutable. We strongly recommend publishing only when the models and embedded device code are finalized.*1  *1 User must contact Microsoft support to revoke the models once published to the model repository **3.** [Portal workflow](https://certify.azure.com) checks the existence of the models in the public repository when the device is connected to the certification service |
 | **Resources**           | [Model repository](../iot-develop/overview-iot-plug-and-play.md) |
 
-**[Required] Physical device validation using the GSG**
-
-| **Name**                                  | IoTPnP.Physicaldevice                                      |
-| ----------------------------------------- | ------------------------------------------------------------ |
-| **Target Availability**                   | Available now                                                |
-| **Applies To**                            | Any device                                                   |
-| **OS**                                    | Agnostic                                                     |
-| **Validation Type**                       | Manual                                                       |
-| **Validation**                            | Partners must engage with Microsoft contact ([iotcert@microsoft.com](mailto:iotcert@microsoft.com)) to make arrangements to perform additional validations on physical device. Due to COVID-19 situation, we are exploring various ways to perform physical device validation without shipping the device to Microsoft. |
-| **Resources**                             | Details are available later                                 |
-| **Azure Recommended**       | N/A    |
 
 **[If implemented] Device info Interface:  The purpose of test is to validate device info interface is implemented properly in the device code**
 

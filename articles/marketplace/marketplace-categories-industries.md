@@ -32,7 +32,6 @@ Following are the categories and industries applicable to each online stores, by
 | Dynamics 365 Operations Apps | | &#x2714; | &#x2714; |
 | Dynamics 365 Business Central | | &#x2714; | &#x2714; |
 | Power BI app | | &#x2714; | &#x2714; |
-|
 
 ## Applicable store by offer type
 
@@ -48,7 +47,6 @@ Following are the combinations of options applicable to each online stores:
 |  |  |  | &#x2714; |  | AppSource<sup>1</sup><br>Azure Marketplace<sup>1</sup> |
 |  |  |  |  | &#x2714; | AppSource<sup>1</sup><br>Azure Marketplace<sup>1,2</sup> |
 |  |  |  |  | &#x2714; | AppSource<sup>1</sup><br>Azure Marketplace<sup>1</sup> |
-|
 
 <sup>1</sup> Depending on category/subcategory and industry selection.<br>
 <sup>2</sup> Offers with private plans will be published to the Azure portal.<br>
@@ -89,8 +87,7 @@ Industry selection applies only for offers published to AppSource and Consulting
 | Media and Communications | Media and Entertainment<br>Telecommunications | 
 | Professional Services | Partner Professional Services<br>Legal<br>Architecture and Construction<br>Real Estate | 
 | Distribution | Wholesale<br>Parcel and Package Shipping |  
-| Hospitality and Travel | Travel & Transportation<br>Hotels and Leisure<br>Restaurants and Food Services | 
-|
+| Hospitality and Travel | Travel & Transportation<br>Hotels and Leisure<br>Restaurants and Food Services |
 
 ## Applicable products
 

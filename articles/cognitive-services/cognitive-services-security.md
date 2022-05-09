@@ -6,7 +6,7 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: pafarley
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"

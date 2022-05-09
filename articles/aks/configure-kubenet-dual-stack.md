@@ -377,11 +377,11 @@ curl -s "http://[${SERVICE_IP}]" | head -n5
 [kubernetes-dual-stack]: https://kubernetes.io/docs/concepts/services-networking/dual-stack/
 
 <!-- LINKS - Internal -->
-[deploy-arm-template]: /azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal
-[deploy-bicep-template]: /azure/azure-resource-manager/bicep/deploy-cli
-[kubenet]: /azure/aks/configure-kubenet
-[aks-out-of-tree]: /azure/aks/out-of-tree
-[nat-gateway]: /azure/virtual-network/nat-gateway/nat-overview
+[deploy-arm-template]: ../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md
+[deploy-bicep-template]: ../azure-resource-manager/bicep/deploy-cli.md
+[kubenet]: ./configure-kubenet.md
+[aks-out-of-tree]: ./out-of-tree.md
+[nat-gateway]: ../virtual-network/nat-gateway/nat-overview.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-network-concepts]: concepts-network.md
 [aks-network-nsg]: concepts-network.md#network-security-groups

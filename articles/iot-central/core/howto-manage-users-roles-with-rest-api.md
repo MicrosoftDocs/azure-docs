@@ -19,7 +19,9 @@ Every IoT Central REST API call requires an authorization header. To learn more,
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
 > [!TIP]
-> The [preview API](/rest/api/iotcentral/1.1-previewdataplane/users) includes support for the new [organizations feature](howto-create-organizations.md).
+> The [preview API](/rest/api/iotcentral/1.2-previewdataplane/users) includes support for the new [organizations feature](howto-create-organizations.md).
+
+[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
 ## Manage roles
 
@@ -229,4 +231,4 @@ DELETE https://{your app subdomain}.azureiotcentral.com/api/users/user-001?api-v
 
 ## Next steps
 
-Now that you've learned how to manage users and roles with the REST API, a suggested next step is to [How to use the IoT Central REST API to manage data exports.](howto-manage-data-export-with-rest-api.md)
+Now that you've learned how to manage users and roles with the REST API, a suggested next step is to [How to use the IoT Central REST API to manage organizations.](howto-manage-organizations-with-rest-api.md)

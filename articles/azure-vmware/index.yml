@@ -33,6 +33,8 @@ landingContent:
             url: concepts-api-management.md
           - text: Hub and spoke
             url: concepts-hub-and-spoke.md
+          - text: Network design considerations
+            url: concepts-network-design-considerations.md
           - text: Networking and interconnectivity
             url: concepts-networking.md
           - text: Private clouds and clusters
@@ -188,6 +190,10 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Configure HCX network extension
+            url: configure-hcx-network-extension.md
+          - text: Configure HCX network extension high availability
+            url: configure-hcx-network-extension-high-availability.md
           - text: Configure vRealize Operations
             url: vrealize-operations-for-azure-vmware-solution.md
           - text: Deploy VMware Horizon
@@ -206,6 +212,8 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
+          - text: Operating system support for VMs
+            url: ecosystem-os-vms.md
           - text: Backup solutions for VMs
             url: ecosystem-back-up-vms.md
           - text: Migration solutions for VMs

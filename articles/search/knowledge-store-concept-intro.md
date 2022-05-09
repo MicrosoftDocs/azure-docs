@@ -76,17 +76,19 @@ To create knowledge store, use the portal or an API. You will need [Azure Storag
 
 Go with the portal approach for the fastest route to a finished knowledge store. Or, choose the REST API for a deeper understanding of how objects are defined and related.
 
-### [**Azure portal**](#tab/kstore-portal)
+### [**Azure portal**](#tab/portal)
 
 [**Create your first knowledge store in four steps**](knowledge-store-create-portal.md) using the **Import data** wizard.
 
-1. Define your data source
+1. [Sign in to Azure portal](https://portal.azure.com).
+
+1. Define your data source.
 
 1. Define  your skillset and specify a knowledge store.
 
 1. Define  an index schema. The wizard requires it and can infer one for you.
 
-1. Run the wizard. Extraction, enrichment, and storage occur in this last step.
+1. Complete the wizard. Extraction, enrichment, and storage occur in this last step.
 
 The wizard automates tasks that you would otherwise have to be handled manually. Specifically, both shaping and projections (definitions of physical data structures in Azure Storage) are created for you. 
 

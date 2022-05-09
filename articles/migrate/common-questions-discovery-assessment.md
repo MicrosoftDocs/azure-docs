@@ -20,7 +20,7 @@ This article answers common questions about discovery, assessment, and dependenc
 
 ## What geographies are supported for discovery and assessment with Azure Migrate?
 
-Review the supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
+Review the supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
 ## How many servers can I discover with an appliance?
 
@@ -180,7 +180,7 @@ This can happen when the target deployment type chosen in the assessment propert
 The user is recommended to create an assessment in Azure Migrate with assessment type as **Azure VM** to determine if the server on which the instance is running is ready to migrate to an Azure VM instead:
 
 - Azure VM assessments in Azure Migrate are currently lift-an-shift focused and will not consider the specific performance metrics for running SQL instances and databases on the Azure virtual machine.
-- When you run an Azure VM assessment on a server, the recommended size and cost estimates will be for all instances running on the server and can be migrated to an Azure VM using the Server Migration tool. Before you migrate, [review the performance guidelines](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md) for SQL Server on Azure virtual machines.
+- When you run an Azure VM assessment on a server, the recommended size and cost estimates will be for all instances running on the server and can be migrated to an Azure VM using the Server Migration tool. Before you migrate, [review the performance guidelines](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist) for SQL Server on Azure virtual machines.
 
 ## I can't see some databases in my assessment even though the instance is part of the assessment
 
@@ -188,7 +188,7 @@ The Azure SQL assessment only includes databases that are in online status. In c
 
 ## I want to compare costs for running my SQL instances on Azure VM Vs Azure SQL Database/Azure SQL Managed Instance
 
-You can create an assessment with type **Azure VM** on the same group that was used in your **Azure SQL** assessment. You can then compare the two reports side by side. Though, Azure VM assessments in Azure Migrate are currently lift-and-shift focused and will not consider the specific performance metrics for running SQL instances and databases on the Azure virtual machine. When you run an Azure VM assessment on a server, the recommended size and cost estimates will be for all instances running on the server and can be migrated to an Azure VM using the Server Migration tool. Before you migrate, [review the performance guidelines](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md) for SQL Server on Azure virtual machines.
+You can create an assessment with type **Azure VM** on the same group that was used in your **Azure SQL** assessment. You can then compare the two reports side by side. Though, Azure VM assessments in Azure Migrate are currently lift-and-shift focused and will not consider the specific performance metrics for running SQL instances and databases on the Azure virtual machine. When you run an Azure VM assessment on a server, the recommended size and cost estimates will be for all instances running on the server and can be migrated to an Azure VM using the Server Migration tool. Before you migrate, [review the performance guidelines](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist) for SQL Server on Azure virtual machines.
 
 ## The storage cost in my Azure SQL assessment is zero
 
@@ -215,7 +215,7 @@ IOPS to be provisioned =  (Throughput discovered) *1024/256
 
 ### Does the Ultra disk recommendation consider latency?
 
-No, currently only disk size, total throughput and total IOPS is used for sizing and costing.
+No, currently only disk size, total throughput, and total IOPS are used for sizing and costing.
 
 ### I can see M series supports Ultra disk, but in my assessment where Ultra disk was recommended, it says “No VM found for this location”?
 

@@ -48,7 +48,7 @@ To use the HTTP Data Collector API, you create a POST request that includes the 
 | Log-Type |Specify the record type of the data that's being submitted. It can contain only letters, numbers, and the underscore (_) character, and it can't exceed 100 characters. |
 | x-ms-date |The date that the request was processed, in RFC 7234 format. |
 | x-ms-AzureResourceId | The resource ID of the Azure resource that the data should be associated with. It populates the [_ResourceId](./log-standard-columns.md#_resourceid) property and allows the data to be included in [resource-context](./design-logs-deployment.md#access-mode) queries. If this field isn't specified, the data won't be included in resource-context queries. |
-| time-generated-field | The name of a field in the data that contains the timestamp of the data item. If you specify a field, its contents are used for **TimeGenerated**. If you don't specify this field, the default for **TimeGenerated** is the time that the message is ingested. The contents of the message field should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. |
+| time-generated-field | The name of a field in the data that contains the timestamp of the data item. If you specify a field, its contents are used for **TimeGenerated**. If you don't specify this field, the default for **TimeGenerated** is the time that the message is ingested. The contents of the message field should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. Note: the Time Generated value cannot be older than 3 days before received time or the row will be dropped.|
 | | |
 
 ## Authorization
@@ -163,6 +163,8 @@ If you then submit the following entry, before the record type is created, Azure
 The following properties are reserved and shouldn't be used in a custom record type. You'll receive an error if your payload includes any of these property names:
 
 - tenant
+- TimeGenerated
+- RawData
 
 ## Data limits
 The data posted to the Azure Monitor Data collection API is subject to certain constraints:
@@ -223,7 +225,7 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 # Specify the name of the record type that you'll be creating
 $LogType = "MyRecordType"
 
-# You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
+# Optional name of a field that includes the timestamp for the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
 $TimeStampField = ""
 
 
@@ -381,6 +383,13 @@ namespace OIAPIExample
 ```
 
 ### Python sample
+
+>[!NOTE]
+> If using Python 2, you may need to change the line:
+> `bytes_to_hash = bytes(string_to_hash, encoding="utf-8")`
+> to
+> `bytes_to_hash = bytes(string_to_hash).encode("utf-8")`
+
 ```python
 import json
 import requests

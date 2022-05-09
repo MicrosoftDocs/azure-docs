@@ -1,15 +1,15 @@
 ---
-title: Deploy container image from Azure Container Registry
-description: Learn how to deploy containers in Azure Container Instances by pulling container images from an Azure container registry.
+title: Deploy container image from Azure Container Registry using a service principal
+description: Learn how to deploy containers in Azure Container Instances by pulling container images from an Azure container registry using a service principal.
 services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc, devx-track-azurecli
 ---
 
-# Deploy to Azure Container Instances from Azure Container Registry
+# Deploy to Azure Container Instances from Azure Container Registry using a service principal
 
-[Azure Container Registry](../container-registry/container-registry-intro.md) is an Azure-based, managed container registry service used to store private Docker container images. This article describes how to pull container images stored in an Azure container registry when deploying to Azure Container Instances. A recommended way to configure registry access is to create an Azure Active Directory service principal and password, and store the login credentials in an Azure key vault.
+[Azure Container Registry](../container-registry/container-registry-intro.md) is an Azure-based, managed container registry service used to store private Docker container images. This article describes how to pull container images stored in an Azure container registry when deploying to Azure Container Instances. One way to configure registry access is to create an Azure Active Directory service principal and password, and store the login credentials in an Azure key vault.
 
 ## Prerequisites
 
@@ -19,8 +19,7 @@ ms.custom: mvc, devx-track-azurecli
 
 ## Limitations
 
-* You can't authenticate to Azure Container Registry to pull images during container group deployment by using a [managed identity](container-instances-managed-identity.md) configured in the same container group.
-* You can't pull images from [Azure Container Registry](../container-registry/container-registry-vnet.md) deployed into an Azure Virtual Network at this time.
+* The [Azure Container Registry](../container-registry/container-registry-vnet.md) must have [Public Access set to 'All Networks'](../container-registry/container-registry-access-selected-networks.md). To use an Azure container registry with Public Access set to 'Select Networks' or 'None', visit [ACI's article for using Managed-Identity based authentication with ACR](/using-azure-container-registry-mi.md).
 
 ## Configure registry authentication
 

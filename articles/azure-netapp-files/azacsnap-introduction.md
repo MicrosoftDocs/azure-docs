@@ -20,7 +20,7 @@ ms.author: phjensen
 
 Azure Application Consistent Snapshot tool (AzAcSnap) is a command-line tool that enables data protection for third-party databases by handling all the orchestration required to put them into an application consistent state before taking a storage snapshot, after which it returns them to an operational state.
 
-## Supported Platforms and OS
+## Supported Databases, OS and Azure Platforms
 
 - **Databases**
   - SAP HANA (refer to [support matrix](azacsnap-get-started.md#snapshot-support-matrix-from-sap) for details)
@@ -28,6 +28,13 @@ Azure Application Consistent Snapshot tool (AzAcSnap) is a command-line tool tha
 - **Operating Systems**
   - SUSE Linux Enterprise Server 12+
   - Red Hat Enterprise Linux 7+
+
+- **Azure Platforms**
+  - Azure Virtual Machine with Azure NetApp Files storage
+  - Azure Large Instance (on BareMetal Infrastructure)
+
+> [!TIP]
+> If looking for new features, or support for other databases, operating systems and platforms, check out the [Preview](azacsnap-preview.md) page.  You can also provide [feedback or suggestions](https://aka.ms/azacsnap-feedback).
 
 ## Benefits of using AzAcSnap
 

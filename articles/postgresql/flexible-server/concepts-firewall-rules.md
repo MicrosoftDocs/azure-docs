@@ -4,9 +4,11 @@ description: This article describes how to use firewall rules to connect to Azur
 author: gennadNY
 ms.author: gennadyk
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 11/30/2021
 ---
+
 # Firewall rules in Azure Database for PostgreSQL - Flexible Server
 When you're running Azure Database for PostgreSQL - Flexible Server, you have two main networking options. The options are private access (virtual network integration) and public access (allowed IP addresses). 
 

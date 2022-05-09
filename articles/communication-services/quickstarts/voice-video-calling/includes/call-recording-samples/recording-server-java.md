@@ -35,26 +35,53 @@ The following classes handle some of the major features of the recording Server 
 | CallingServerClientBuilder | This class is used to create instance of CallingServerClient.|
 | CallingServerClient | This class is needed for the calling functionality. You obtain an instance via CallingServerClientBuilder and use it to start/hangup a call, play/cancel audio and add/remove participants |
 
-## Getting serverCallId as a requirement for call recording server APIs
+## Getting serverCallId as a requirement for call recording server APIs from JavaScript application
 
 > [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this API please use 'beta' release of ACS Calling Web SDK. A client sample with recording flows is available at [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/public-preview).
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this API please use 'beta' release of Azure Communication Services Calling Web SDK. A client sample with recording flows is available at [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/public-preview).
 
 
-Call recording is an extended feature of the core Call API. You first need to obtain the recording feature API object:
+Call recording is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
 
-```JavaScript
-const callRecordingApi = call.api(Features.Recording);
+```js
+import { Features} from "@azure/communication-calling";
+```
+
+Then you can get the recording feature API object from the call instance:
+
+```js
+const callTransferApi = call.feature(Features.Recording);
 ```
 
 Subscribe to recording changes:
 
 ```JavaScript
-const isRecordingActiveChangedHandler = () => {
-  console.log(callRecordingApi.isRecordingActive);
+const recordingStateChanged = () => {
+    let recordings = callRecordingApi.recordings;
+
+    let state = SDK.RecordingState.None;
+    if (recordings.length > 0) {
+        state = recordings.some(r => r.state == SDK.RecordingState.Started)
+            ? SDK.RecordingState.Started
+            : SDK.RecordingState.Paused;
+    }
+    
+	console.log(`RecordingState: ${state}`);
+}
+
+const recordingsChangedHandler = (args: { added: SDK.RecordingInfo[], removed: SDK.RecordingInfo[]}) => {
+    args.added?.forEach(a => {
+        a.on('recordingStateChanged', recordingStateChanged);
+    });
+
+    args.removed?.forEach(r => {
+        r.off('recordingStateChanged', recordingStateChanged);
+    });
+
+    recordingStateChanged();
 };
 
-callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler);
+callRecordingApi.on('recordingsUpdated', recordingsChangedHandler);
 ```
 
 Get server call ID which can be used to start/stop/pause/resume recording sessions:
@@ -161,8 +188,8 @@ Below is an example of the event schema.
             "recordingChunks": [
                 {
                     "documentId": string, // Document id for retrieving from AMS storage
-                    "contentLocation": string, //ACS URL where the content is located
-                    "metadataLocation": string, // ACS URL where the metadata for this chunk is located
+                    "contentLocation": string, //Azure Communication Services URL where the content is located
+                    "metadataLocation": string, // Azure Communication Services URL where the metadata for this chunk is located
                     "index": int, // Index providing ordering for this chunk in the entire recording
                     "endReason": string, // Reason for chunk ending: "SessionEnded", "ChunkMaximumSizeExceeded”, etc.
                 }
@@ -180,7 +207,7 @@ Below is an example of the event schema.
 ```
 Use `downloadToWithResponse` method of `CallingServerClient` class for downloading the recorded media. Following are the supported parameters for `downloadToWithResponse` method:
 
-- `contentLocation`: ACS URL where the content is located.
+- `contentLocation`: Azure Communication Services URL where the content is located.
 - `destinationPath` : File location.
 - `parallelDownloadOptionss`: An optional ParallelDownloadOptions object to modify how the - parallel download will work.
 - `overwrite`: True to overwrite the file if it exists.

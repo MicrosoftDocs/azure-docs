@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
-ms.reviewer: jlu, annaba, hirsin
+ms.reviewer: marsma, ludwignick
 ROBOTS: NOINDEX
 ---
 

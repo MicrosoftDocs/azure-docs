@@ -2,6 +2,8 @@
 title: Create and manage claimable VMs
 description: Learn how to use the Azure portal to add a claimable virtual machine in Azure DevTest Labs and see the processes to follows to claim/unclaim a virtual machine.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 06/26/2020
 ---
 

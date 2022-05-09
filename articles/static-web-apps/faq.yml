@@ -4,11 +4,10 @@ metadata:
   description: Find answers to the frequently asked questions about Azure Static Web Apps.
   keywords: azure static web apps, frequently asked questions
   author: craigshoemaker
-  ms.topic: article
+  ms.topic: faq
   ms.service: static-web-apps
   ms.date: 10/23/2021
   ms.author: cshoe
-    
 title: Azure Static Web Apps Frequently Asked Questions
   
 sections:
@@ -168,7 +167,7 @@ sections:
       - question: |
           Am I limited to using a single identity provider?
         answer: |
-          When using Static Web Apps' built-in authentication, users can log in with any of the supported identity providers. If you want to prevent users from logging in with a specific identity provider, you can [block it](authentication-authorization.md?#block-an-authorization-provider).
+          When using Static Web Apps' built-in authentication, users can log in with any of the supported identity providers. If you want to prevent users from logging in with a specific identity provider, you can [block it](authentication-authorization.md?#block-an-authentication-provider).
 
           If you're using [custom authentication](authentication-custom.md), you can configure one or more identity providers.
 

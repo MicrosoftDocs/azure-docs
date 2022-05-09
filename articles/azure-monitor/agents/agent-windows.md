@@ -2,20 +2,21 @@
 title: Install Log Analytics agent on Windows computers
 description: This article describes how to connect Windows computers hosted in other clouds or on-premises to Azure Monitor with the Log Analytics agent for Windows.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 12/16/2021
+ms.date: 03/31/2022
 
 ---
 
 # Install Log Analytics agent on Windows computers
+
 This article provides details on installing the Log Analytics agent on Windows computers using the following methods:
 
 * Manual installation using the [setup wizard](#install-agent-using-setup-wizard) or [command line](#install-agent-using-command-line).
 * [Azure Automation Desired State Configuration (DSC)](#install-agent-using-dsc-in-azure-automation). 
 
+The installation methods described in this article are typically used for virtual machines on-premises or in other clouds. See [Installation options](./log-analytics-agent.md#installation-options) for more efficient options you can use for Azure virtual machines.
+
 >[!IMPORTANT]
-> The installation methods described in this article are typically used for virtual machines on-premises or in other clouds. See [Installation options](./log-analytics-agent.md#installation-options) for more efficient options you can use for Azure virtual machines.
+>The Log Analytics agents are on a **deprecation path** and will no longer be supported after **August 31, 2024**. If you use the Log Analytics agents to ingest data to Azure Monitor, make sure to [migrate to the new Azure Monitor agent](./azure-monitor-agent-migration.md) prior to that date.  
 
 > [!NOTE]
 > Installing the Log Analytics agent will typically not require you to restart the machine.  
@@ -42,7 +43,7 @@ See [Log Analytics agent overview](./log-analytics-agent.md#network-requirements
 
    
 ## Configure Agent to use TLS 1.2
-[TLS 1.2](/windows-server/security/tls/tls-registry-settings#tls-12) protocol ensure the security of data in transit for communication between the Windows agent and the Log Analytics service. If you're installing on an [operating system without TLS 1.2 enabled by default](../logs/data-security.md#sending-data-securely-using-tls-12), then you should configure TLS 1.2 using the steps below.
+[TLS 1.2](/windows-server/security/tls/tls-registry-settings#tls-12) protocol ensures the security of data in transit for communication between the Windows agent and the Log Analytics service. If you're installing on an [operating system without TLS 1.2 enabled by default](../logs/data-security.md#sending-data-securely-using-tls-12), then you should configure TLS 1.2 using the steps below.
 
 1. Locate the following registry subkey: **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
 2. Create a subkey under **Protocols** for TLS 1.2 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**
@@ -102,7 +103,7 @@ The following table highlights the specific parameters supported by setup for th
 |OPINSIGHTS_WORKSPACE_ID                | Workspace ID (guid) for the workspace to add                    |
 |OPINSIGHTS_WORKSPACE_KEY               | Workspace key used to initially authenticate with the workspace |
 |OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE  | Specify the cloud environment where the workspace is located <br> 0 = Azure commercial cloud (default) <br> 1 = Azure Government |
-|OPINSIGHTS_PROXY_URL               | URI for the proxy to use |
+|OPINSIGHTS_PROXY_URL               | URI for the proxy to use. Example: OPINSIGHTS_PROXY_URL=IPAddress:Port or OPINSIGHTS_PROXY_URL=FQDN:Port |
 |OPINSIGHTS_PROXY_USERNAME               | Username to access an authenticated proxy |
 |OPINSIGHTS_PROXY_PASSWORD               | Password to access an authenticated proxy |
 

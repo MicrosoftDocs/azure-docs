@@ -1,9 +1,9 @@
 ---
-author: msftradford
+author: pamistel
 ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 11/12/2021
-ms.author: parkerra
+ms.author: pamistel
 ---
 When you start a new Unity project, you can choose between the [Unity XR Plug-in Framework](https://docs.unity3d.com/Manual/XRPluginArchitecture.html) and Legacy Built-in XR.
 

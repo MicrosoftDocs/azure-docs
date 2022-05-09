@@ -8,9 +8,10 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: eur
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Develop Custom Commands applications
@@ -371,7 +372,7 @@ Then, configure and host a web endpoint that returns a JSON file that lists the 
     "lights" : [
         "bulb",
         "bulbs",
-        "light"
+        "light",
         "light bulb"
     ],
     "tv" : [

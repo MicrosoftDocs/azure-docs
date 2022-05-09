@@ -38,10 +38,6 @@ landingContent:
   # Card (optional)
   - title: Get started
     linkLists:
-      - linkListType: video
-        links:
-        - text: Introduction to Chaos Studio
-          url: https://channel9.msdn.com/Shows/Azure-Videos/Azure-Chaos-Studio-Curious-to-control-chaos
       - linkListType: how-to-guide
         links:
         - text: Create a chaos experiment that uses a service-direct fault to fail over an Azure Cosmos DB instance

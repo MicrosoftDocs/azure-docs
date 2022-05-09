@@ -5,7 +5,7 @@ description: Use Azure Storage lifecycle management policies to create automated
 author: tamram
 
 ms.author: tamram
-ms.date: 08/18/2021
+ms.date: 05/05/2022
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -20,8 +20,8 @@ Data sets have unique lifecycles. Early in the lifecycle, people access some dat
 With the lifecycle management policy, you can:
 
 - Transition blobs from cool to hot immediately when they are accessed, to optimize for performance.
-- Transition blobs, blob versions, and blob snapshots to a cooler storage tier if these objects have not been accessed or modified for a period of time, to optimize for cost. In this scenario, the lifecycle management policy can move objects from hot to cool, from hot to archive, or from cool to archive.
-- Delete blobs, blob versions, and blob snapshots at the end of their lifecycles.
+- Transition current versions of a blob, previous versions of a blob, or blob snapshots to a cooler storage tier if these objects have not been accessed or modified for a period of time, to optimize for cost. In this scenario, the lifecycle management policy can move objects from hot to cool, from hot to archive, or from cool to archive.
+- Delete current versions of a blob, previous versions of a blob, or blob snapshots at the end of their lifecycles.
 - Define rules to be run once per day at the storage account level.
 - Apply rules to containers or to a subset of blobs, using name prefixes or [blob index tags](storage-manage-find-blobs.md) as filters.
 
@@ -80,7 +80,7 @@ The following sample rule filters the account to run the actions on objects that
 - Tier blob to cool tier 30 days after last modification
 - Tier blob to archive tier 90 days after last modification
 - Delete blob 2,555 days (seven years) after last modification
-- Delete previous blob versions 90 days after creation
+- Delete previous versions 90 days after creation
 
 ```json
 {
@@ -122,6 +122,9 @@ The following sample rule filters the account to run the actions on objects that
 }
 ```
 
+> [!NOTE]
+> The **baseBlob** element in a lifecycle management policy refers to the current version of a blob. The **version** element refers to a previous version.
+
 ### Rule filters
 
 Filters limit rule actions to a subset of blobs within the storage account. If more than one filter is defined, a logical `AND` runs on all filters.
@@ -131,7 +134,7 @@ Filters include:
 | Filter name | Filter type | Notes | Is Required |
 |-------------|-------------|-------|-------------|
 | blobTypes   | An array of predefined enum values. | The current release supports `blockBlob` and `appendBlob`. Only delete is supported for `appendBlob`, set tier is not supported. | Yes |
-| prefixMatch | An array of strings for prefixes to be matched. Each rule can define up to 10 case-senstive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/sample-container/blob1/...` for a rule, the prefixMatch is `sample-container/blob1`. | If you don't define prefixMatch, the rule applies to all blobs within the storage account. | No |
+| prefixMatch | An array of strings for prefixes to be matched. Each rule can define up to 10 case-sensitive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/sample-container/blob1/...` for a rule, the prefixMatch is `sample-container/blob1`. | If you don't define prefixMatch, the rule applies to all blobs within the storage account. | No |
 | blobIndexMatch | An array of dictionary values consisting of blob index tag key and value conditions to be matched. Each rule can define up to 10 blob index tag condition. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/` for a rule, the blobIndexMatch is `{"name": "Project","op": "==","value": "Contoso"}`. | If you don't define blobIndexMatch, the rule applies to all blobs within the storage account. | No |
 
 To learn more about the blob index feature together with known issues and limitations, see [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md).
@@ -140,25 +143,27 @@ To learn more about the blob index feature together with known issues and limita
 
 Actions are applied to the filtered blobs when the run condition is met.
 
-Lifecycle management supports tiering and deletion of blobs, previous blob versions, and blob snapshots. Define at least one action for each rule on base blobs, previous blob versions, or blob snapshots.
+Lifecycle management supports tiering and deletion of current versions, previous versions, and blob snapshots. Define at least one action for each rule.
 
-| Action                      | Base Blob                                  | Snapshot      | Version
+| Action                      | Current Version                            | Snapshot      | Previous Versions
 |-----------------------------|--------------------------------------------|---------------|---------------|
 | tierToCool                  | Supported for `blockBlob`                  | Supported     | Supported     |
 | enableAutoTierToHotFromCool | Supported for `blockBlob`                  | Not supported | Not supported |
 | tierToArchive               | Supported for `blockBlob`                  | Supported     | Supported     |
-| delete                      | Supported for `blockBlob` and `appendBlob` | Supported     | Supported     |
+| delete<sup>1</sup>          | Supported for `blockBlob` and `appendBlob` | Supported     | Supported     |
+
+<sup>1</sup> When applied to an account with a hierarchical namespace enabled, a delete action removes empty directories. If the directory is not empty, then the delete action removes objects that meet the policy conditions within the first 24-hour cycle. If that action results in an empty directory that also meets the policy conditions, then that directory will be removed within the next 24-hour cycle, and so on.
 
 > [!NOTE]
 > If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.
 
-The run conditions are based on age. Base blobs use the last modified time, blob versions use the version creation time, and blob snapshots use the snapshot creation time to track age.
+The run conditions are based on age. Current versions use the last modified time or last access time, previous versions use the version creation time, and blob snapshots use the snapshot creation time to track age.
 
 | Action run condition | Condition value | Description |
 |--|--|--|
-| daysAfterModificationGreaterThan | Integer value indicating the age in days | The condition for base blob actions |
-| daysAfterCreationGreaterThan | Integer value indicating the age in days | The condition for blob version and blob snapshot actions |
-| daysAfterLastAccessTimeGreaterThan | Integer value indicating the age in days | The condition for base blob actions when access tracking is enabled |
+| daysAfterModificationGreaterThan | Integer value indicating the age in days | The condition for actions on a current version of a blob |
+| daysAfterCreationGreaterThan | Integer value indicating the age in days | The condition for actions on a previous version of a blob or a blob snapshot |
+| daysAfterLastAccessTimeGreaterThan | Integer value indicating the age in days | The condition for a current version of a blob when access tracking is enabled |
 
 ## Examples of lifecycle policies
 
@@ -261,7 +266,7 @@ Some data stays idle in the cloud and is rarely, if ever, accessed. The followin
 
 ### Expire data based on age
 
-Some data is expected to expire days or months after creation. You can configure a lifecycle management policy to expire data by deletion based on data age. The following example shows a policy that deletes all block blobs older than 365 days.
+Some data is expected to expire days or months after creation. You can configure a lifecycle management policy to expire data by deletion based on data age. The following example shows a policy that deletes all block blobs that have not been modified in the last 365 days.
 
 ```json
 {
@@ -322,7 +327,7 @@ Some data should only be expired if explicitly marked for deletion. You can conf
 }
 ```
 
-### Manage versions
+### Manage previous versions
 
 For data that is modified and accessed regularly throughout its lifetime, you can enable blob storage versioning to automatically maintain previous versions of an object. You can create a policy to tier or delete previous versions. The version age is determined by evaluating the version creation time. This policy rule tiers previous versions within container `activedata` that are 90 days or older after version creation to cool tier, and deletes previous versions that are 365 days or older.
 
@@ -381,17 +386,33 @@ For more information about pricing, see [Block Blob pricing](https://azure.micro
 
 ## FAQ
 
-**I created a new policy, why do the actions not run immediately?**
+### I created a new policy. Why do the actions not run immediately?
 
 The platform runs the lifecycle policy once a day. Once you configure a policy, it can take up to 24 hours for some actions to run for the first time.
 
-**If I update an existing policy, how long does it take for the actions to run?**
+### If I update an existing policy, how long does it take for the actions to run?
 
 The updated policy takes up to 24 hours to go into effect. Once the policy is in effect, it could take up to 24 hours for the actions to run. Therefore, the policy actions may take up to 48 hours to complete. If the update is to disable or delete a rule, and enableAutoTierToHotFromCool was used, auto-tiering to Hot tier will still happen. For example, set a rule including enableAutoTierToHotFromCool based on last access. If the rule is disabled/deleted, and a blob is currently in cool and then accessed, it will move back to Hot as that is applied on access outside of lifecycle management. The blob will not then move from Hot to Cool given the lifecycle management rule is disabled/deleted. The only way to prevent autoTierToHotFromCool is to turn off last access time tracking.
 
-**I manually rehydrated an archived blob, how do I prevent it from being moved back to the Archive tier temporarily?**
+### I manually rehydrated an archived blob. How do I prevent it from being moved back to the Archive tier temporarily?
 
 When a blob is moved from one access tier to another, its last modification time doesn't change. If you manually rehydrate an archived blob to hot tier, it would be moved back to archive tier by the lifecycle management engine. Disable the rule that affects this blob temporarily to prevent it from being archived again. Re-enable the rule when the blob can be safely moved back to archive tier. You may also copy the blob to another location if it needs to stay in hot or cool tier permanently.
+
+### The blob prefix match string did not apply the policy to the expected blobs
+
+The blob prefix match field of a policy is a full or partial blob path, which is used to match the blobs you want the policy actions to apply to. The path must start with the container name. If no prefix match is specified, then the policy will apply to all the blobs in the storage account. The format of the prefix match string is `[container name]/[blob name]`.
+
+Keep in mind the following points about the prefix match string:
+
+- A prefix match string like *container1/* applies to all blobs in the container named *container1*. A prefix match string of *container1*, without the trailing forward slash character (/), applies to all blobs in all containers where the container name begins with the string *container1*. The prefix will match containers named *container11*, *container1234*, *container1ab*, and so on.
+- A prefix match string of *container1/sub1/* applies to all blobs in the container named *container1* that begin with the string *sub1/*. For example, the prefix will match blobs named *container1/sub1/test.txt* or *container1/sub1/sub2/test.txt*.
+- The asterisk character `*` is a valid character in a blob name. If the asterisk character is used in a prefix, then the prefix will match blobs with an asterisk in their names. The asterisk does not function as a wildcard character.
+- The question mark character `?` is a valid character in a blob name. If the question mark character is used in a prefix, then the prefix will match blobs with a question mark in their names. The question mark does not function as a wildcard character.
+- The prefix match considers only positive (=) logical comparisons. Negative (!=) logical comparisons are ignored.
+
+### Is there a way to identify the time at which the policy will be executing?
+
+Unfortunately, there is no way to track the time at which the policy will be executing, as it is a background scheduling process. However, the platform will run the policy once per day.
 
 ## Next steps
 

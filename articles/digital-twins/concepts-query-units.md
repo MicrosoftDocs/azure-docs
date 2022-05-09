@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the billing concept of Query Units in Azure Digital Twins
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 12/09/2021
+ms.date: 03/01/2022
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 This article covers Query Units, how they're used by Azure Digital Twins, and how to find the Query Unit consumption in Azure Digital Twins.
 
-An Azure Digital Twins **Query Unit (QU)** is a unit of on-demand computation that's used to execute your [Azure Digital Twins queries](how-to-query-graph.md) using the [Query API](/rest/api/digital-twins/dataplane/query). 
+An Azure Digital Twins *Query Unit (QU)* is a unit of on-demand computation that's used to execute your [Azure Digital Twins queries](how-to-query-graph.md) using the [Query API](/rest/api/digital-twins/dataplane/query). 
 
 It abstracts away the system resources like CPU, IOPS, and memory that are required to perform query operations supported by Azure Digital Twins, allowing you to track usage in Query Units instead.
 

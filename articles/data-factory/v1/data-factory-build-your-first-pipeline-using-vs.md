@@ -555,7 +555,7 @@ In this tutorial, you created an Azure Data Factory to process data by running H
 3. Created two **datasets**, which describe input and output data for HDInsight Hive activity in the pipeline.
 4. Created a **pipeline** with a **HDInsight Hive** activity.  
 
-## Next Steps
+## Next steps
 In this article, you have created a pipeline with a transformation activity (HDInsight Activity) that runs a Hive script on an on-demand HDInsight cluster. To see how to use a Copy Activity to copy data from an Azure Blob to Azure SQL, see [Tutorial: Copy data from an Azure blob to Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 You can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. See [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) for detailed information. 

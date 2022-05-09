@@ -66,6 +66,9 @@ Following table shows a summary of key types and supported algorithms.
 - **AES-GCM** - AES encryption in Galois Counter Mode ([NIST SP 800-38d](https://csrc.nist.gov/publications/sp800))
 - **AES-CBC** - AES encryption in Cipher Block Chaining Mode ([NIST SP 800-38a](https://csrc.nist.gov/publications/sp800))
 
+> [!NOTE] 
+> Sign and verify operations algorithms must match the key type, otherwise service will return key size is incorrect error.
+
 ##  Key operations
 
 Key Vault, including Managed HSM, supports the following operations on key objects:  
@@ -98,12 +101,12 @@ Users may restrict any of the cryptographic operations that Key Vault supports o
 
 For more information on JWK objects, see [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41).  
 
-##  Key rotation policy operations (preview)
+##  Key rotation policy operations
 
 Key vault key auto-rotation can be set by configuring key auto-rotation policy. It is only available on Key Vault resource.
 
--   **Get Rotation Policy (preview)**: Allows a client to retrieve rotation policy configuration
--   **Set Rotation Policy (preview)**: Allows a client to set rotation policy configuration 
+-   **Get Rotation Policy**: Allows a client to retrieve rotation policy configuration
+-   **Set Rotation Policy**: Allows a client to set rotation policy configuration 
 
 ## Key attributes
 
@@ -163,7 +166,7 @@ The following permissions can be granted, on a per user / service principal basi
 - Permissions for privileged operations
   - *purge*: Purge (permanently delete) a deleted key
 
-For more information on working with keys, see [Key operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy). 
+For more information on working with keys, see [Key operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/keyvault/vaults/create-or-update) and [Vaults - Update Access Policy](/rest/api/keyvault/keyvault/vaults/update-access-policy). 
 
 ## Next steps
 - [About Key Vault](../general/overview.md)

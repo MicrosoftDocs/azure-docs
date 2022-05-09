@@ -15,7 +15,7 @@ To optimize your costs further during these periods, you can completely turn off
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][kubernetes-walkthrough-powershell], or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
 ### Limitations
 
@@ -81,6 +81,9 @@ If the `ProvisioningState` shows `Stopping` that means your cluster hasn't fully
 
 ## Start an AKS Cluster
 
+> [!CAUTION]
+> It is important that you don't repeatedly start/stop your cluster. Repeatedly starting/stopping your cluster may result in errors. Once your cluster is stopped, you should wait 15-30 minutes before starting it up again. 
+
 ### [Azure CLI](#tab/azure-cli)
 
 You can use the `az aks start` command to start a stopped AKS cluster's nodes and control plane. The cluster is restarted with the previous control plane state and number of agent nodes.
@@ -145,8 +148,9 @@ If the `ProvisioningState` shows `Starting` that means your cluster hasn't fully
 <!-- LINKS - external -->
 
 <!-- LINKS - internal -->
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: /learn/quick-kubernetes-deploy-powershell.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update

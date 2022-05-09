@@ -50,7 +50,7 @@ To assign these permissions granularly, you can [create a custom role](../role-b
 All user interactions with Chaos Studio happen through Azure Resource Manager. If a user starts an experiment, the experiment may interact with endpoints other than Resource Manager depending on the fault.
 * Service-direct faults - Most service-direct faults are executed through Azure Resource Manager. Target resources do not require any allowlisted network endpoints.
 * Service-direct AKS Chaos Mesh faults - Service-direct faults for Azure Kubernetes Service that use Chaos Mesh require access that the AKS cluster have a publicly-exposed Kubernetes API server. [You can learn how to limit AKS network access to a set of IP ranges here.](../aks/api-server-authorized-ip-ranges.md)
-* Agent-based faults - Agent-based faults require agent access to the Chaos Studio agent service. A virtual machine or virtual machine scale set must have outbound access to http://agentcommunicationservice-frontdoor-canary.trafficmanager.net for the agent to connect successfully.
+* Agent-based faults - Agent-based faults require agent access to the Chaos Studio agent service. A virtual machine or virtual machine scale set must have outbound access to the agent service endpoint for the agent to connect successfully. The agent service endpoint is `https://acs-prod-<region>.chaosagent.trafficmanager.net`, replacing `<region>` with the region where your virtual machine is deployed, for example, `https://acs-prod-eastus.chaosagent.trafficmanager.net` for a virtual machine in East US.
 
 Azure Chaos Studio does not support Service Tags or Private Link.
 

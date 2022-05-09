@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: responsible-ml
 ms.author: slbird
 author: slbird
-ms.reviewer: luquinta
+ms.reviewer: ssalgado
 ms.date: 10/21/2021
 # Customer intent: As an experienced data scientist, I want to use differential privacy in Azure Machine Learning.
 ---
@@ -38,7 +38,7 @@ Use pip to install the [SmartNoise Python packages](https://pypi.org/project/ope
 
 `pip install opendp-smartnoise`
 
-To verify that the packages are installed, launch a python prompt and type:
+To verify that the packages are installed, launch a Python prompt and type:
 
 ```python
 import opendp.smartnoise.core

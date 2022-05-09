@@ -5,9 +5,9 @@ summary: Learn about the QnA Maker service and how this service's knowledge base
 
 metadata:
   ms.topic: landing-page
-  ms.date: 06/08/2020
-  ms.author: nitinme
-  author: nitinme
+  ms.date: 01/11/2022
+  ms.author: jboback
+  author: jboback
   ms.service: cognitive-services
   ms.subservice: qna-maker
   services: cognitive-services
@@ -36,7 +36,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Build a bot in minutes
-            url: https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker
+            url: /Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker
   - title: Create and edit knowledge base
     linkLists:
       - linkListType: get-started

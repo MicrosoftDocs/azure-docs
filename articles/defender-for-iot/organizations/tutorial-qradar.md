@@ -1,10 +1,8 @@
 ---
 title: Integrate Qradar with Microsoft Defender for IoT
 description: In this tutorial, learn how to integrate Qradar with Microsoft Defender for IoT.
-author: ElazarK
-ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 11/09/2021
+ms.date: 02/07/2022
 ms.custom: template-tutorial
 ---
 
@@ -100,15 +98,16 @@ For the integration to work, you will need to setup in the Defender for IoT appl
 
 1. In the side menu, select **Forwarding**.
 
-1. Select **Create Forwarding Rule**.
-
-1. Set the Action to **QRadar**.
+1. Select **Create new rule**.
+1. Define a rule name.
+1. Define the rule conditions.
+1. In the Actions section, select **QRadar** .
 
     :::image type="content" source="media/tutorial-qradar/create.png" alt-text="Screenshot of, create a Forwarding Rule window.":::
 
-1. Configure the QRadar IP address, and the timezone.
+1. Define the QRadar IP address, and the timezone.
 
-1. Select **Submit**.
+1. Select **Save**.
 
 ## Map notifications to QRadar
 

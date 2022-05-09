@@ -21,7 +21,7 @@ This article describes how to create an Azure Maps account with a SAS token that
 This scenario assumes:
 
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you continue.
-- The current user must have subscription `Owner` role permissions on the Azure subscription to create an [Azure Key Vault](/azure/key-vault/general/basic-concepts), user-assigned managed identity, assign the managed identity a role, and create an Azure Maps account.
+- The current user must have subscription `Owner` role permissions on the Azure subscription to create an [Azure Key Vault](../key-vault/general/basic-concepts.md), user-assigned managed identity, assign the managed identity a role, and create an Azure Maps account.
 - Azure CLI is installed to deploy the resources. Read more on [How to install the Azure CLI](/cli/azure/install-azure-cli).
 - The current user is signed-in to Azure CLI with an active Azure subscription using `az login`.
 

@@ -4,16 +4,15 @@ metadata:
   titleSuffix: Azure Cognitive Services
   description: Get answers to frequently asked questions about the Computer Vision API in Azure Cognitive Services.
   services: cognitive-services
-  author: KellyDF
+  author: PatrickFarley
   manager: nitinme
   
   ms.service: cognitive-services
   ms.subservice: computer-vision
-  ms.topic: conceptual
-  ms.date: 04/17/2019
-  ms.author: kefre
-  ms.custom: seodec18
-    
+  ms.topic: faq
+  ms.date: 05/09/2022
+  ms.author: pafarley
+  ms.custom: [seodec18, non-critical]
 title: Computer Vision API Frequently Asked Questions
 summary: |
   > [!TIP]
@@ -58,7 +57,3 @@ sections:
         answer: |
           Yes, the OCR (Read) cloud API is also available as a Docker container for on-premise deployment. Learn [how to deploy the OCR containers](./computer-vision-how-to-install-containers.md).
           
-      - question: |
-          Can Computer Vision be used to read license plates?
-        answer: |
-          The Vision API includes the deep learning powered OCR capabilities with the latest Read feature. We are constantly trying to improve our services to work across all scenarios.

@@ -1,56 +1,63 @@
 ---
 title: Azure API Management soft-delete (preview) | Microsoft Docs
-description: Soft-delete allows you to recover deleted API Management instances.
+description: Soft-delete allows you to recover a recently deleted API Management instance.
 ms.service: api-management
 ms.topic: conceptual
 author: dlepow
 ms.author: danlep
-ms.date: 11/27/2020
+ms.date: 02/07/2022
 ---
 
 # API Management soft-delete (preview)
 
-With API Management soft-delete (preview), you can recover and restore recently deleted API Management (APIM) instances.
+With API Management soft-delete, you can recover and restore a recently deleted API Management instance. This feature protects against accidental deletion of your API Management instance.
 
-> [!IMPORTANT]
-> Only API Management instances deleted using `2020-06-01-preview` and later API versions will be soft-deleted and recoverable using the steps described in this article. APIM instances deleted using previous API versions will continue to be hard-deleted. Azure PowerShell and Azure CLI currently do not use the `2020-06-01-preview` version and will also result in hard-delete behavior.
+Currently, depending on how you delete an API Management instance, the instance is either soft-deleted and recoverable during a retention period, or it's permanently deleted:
+
+* When you use the Azure portal or REST API version `2020-06-01-preview` or later to delete an API Management instance, it's **soft-deleted**.
+* An API Management instance deleted using a REST API version before `2020-06-01-preview` is **permanently deleted**.
+* An API Management instance deleted using API Management commands in Azure PowerShell or Azure CLI is **permanently deleted**.
 
 ## Supporting interfaces
 
-The soft-delete feature is available through [REST API](/rest/api/apimanagement/current-ga/api-management-service/restore).
+Recovery and other operations on a soft-deleted instance are enabled through [REST API](/rest/api/apimanagement/current-ga/api-management-service/restore) version `2020-06-01-preview` or later, or the Azure SDK for .NET, Go, or Python.
 
 > [!TIP]
-> Refer to [Azure REST API Reference](/rest/api/azure/) for tips and tools for calling Azure REST APIs.
+> Refer to [Azure REST API Reference](/rest/api/azure/) for tips and tools for calling Azure REST APIs and [API Management REST](/rest/api/apimanagement/) for additional information specific to API Management.
 
 | Operation | Description | API Management namespace | Minimum API version |
 |--|--|--|--|
 | [Create or Update](/rest/api/apimanagement/current-ga/api-management-service/create-or-update) | Creates or updates an API Management service.  | API Management Service | Any |
-| [Create or Update](/rest/api/apimanagement/current-ga/api-management-service/create-or-update) with `restore` property set to **true** | Undeletes API Management Service if it was previously soft-deleted. If `restore` is specified and set to `true` all other properties will be ignored.  | API Management Service |  2020-06-01-preview |
+| [Create or Update](/rest/api/apimanagement/current-ga/api-management-service/create-or-update) with `restore` property set to **true** | Recovers (undeletes) an API Management Service if it was previously soft-deleted. If `restore` is specified and set to `true` all other properties will be ignored.  | API Management Service |  2020-06-01-preview |
 | [Delete](/rest/api/apimanagement/current-ga/api-management-service/delete) | Deletes an existing API Management service. | API Management Service | 2020-06-01-preview|
 | [Get By Name](/rest/api/apimanagement/current-ga/deleted-services/get-by-name) | Get soft-deleted Api Management Service by name. | Deleted Services | 2020-06-01-preview |
 | [List By Subscription](/rest/api/apimanagement/current-ga/deleted-services/list-by-subscription) | Lists all soft-deleted services available for undelete for the given subscription. | Deleted Services | 2020-06-01-preview
-| [Purge](/rest/api/apimanagement/current-ga/deleted-services/purge) | Purges API Management Service (deletes it with no option to undelete). | Deleted Services | 2020-06-01-preview
+| [Purge](/rest/api/apimanagement/current-ga/deleted-services/purge) | Purges API Management Service (permanently deletes it with no option to undelete). | Deleted Services | 2020-06-01-preview
 
 ## Soft-delete behavior
 
-You can use any API version to create your API Management instance, however you'll need to use `2020-06-01-preview` or later versions to soft-delete your APIM instance (and have the option to recover it).
+You can use any API version to create your API Management instance. When you use the Azure portal, Azure REST API, or another Azure tool using API version `2020-06-01-preview` or later to delete an API Management instance, it's automatically soft-deleted. 
 
-Upon deleting an API Management instance, the service will exist in a deleted state, making it inaccessible to any APIM  operations. While in this state, the APIM instance can only be listed, recovered, or purged (permanently deleted).
+Upon soft-deleting an API Management instance, the service will exist in a deleted state, making it inaccessible to normal API Management operations.
 
-At the same time, Azure will schedule the deletion of the underlying data corresponding to APIM instance for execution after the predetermined (48 hour) retention interval. The DNS record corresponding to the instance is also retained for the duration of the retention interval. You cannot reuse the name of an API Management instance that has been soft-deleted until the retention period has passed.
+In the soft-deleted state: 
 
-If your APIM instance is not recovered within 48 hours, it will be hard deleted (unrecoverable). You can also choose to [purge](#purge-a-soft-deleted-apim-instance) (permanently delete) your APIM instance, forgoing soft-delete retention period.
+* The API Management instance can only be [listed](#list-deleted-api-management-instances), [recovered](#recover-a-soft-deleted-instance), or [purged](#purge-a-soft-deleted-instance) (permanently deleted).
+* Azure will schedule the permanent deletion of the underlying data corresponding to the API Management instance after the predetermined (48 hour) retention period. 
+* You can't reuse the name of the API Management instance.
 
-## List deleted APIM instances
+If your API Management instance isn't recovered or purged by you within 48 hours, it's automatically deleted permanently. 
 
-You can verify that a soft-deleted APIM instance is available to restore (undelete) using either the Deleted Services [Get By Name](/rest/api/apimanagement/current-ga/deleted-services/get-by-name) or [List By Subscription](/rest/api/apimanagement/current-ga/deleted-services/list-by-subscription) operations.
+## List deleted API Management instances
+
+You can verify that a soft-deleted API Management instance is available to restore (undelete) using either the Deleted Services [Get By Name](/rest/api/apimanagement/current-ga/deleted-services/get-by-name) or [List By Subscription](/rest/api/apimanagement/current-ga/deleted-services/list-by-subscription) operations.
 
 ### Get a soft-deleted instance by name
 
 Use the API Management [Get By Name](/rest/api/apimanagement/current-ga/deleted-services/get-by-name) operation, substituting `{subscriptionId}`, `{location}`, and `{serviceName}` with your Azure subscription, resource location, and API Management instance name:
 
 ```rest
-GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/locations/{location}/deletedservices/{serviceName}?api-version=2020-06-01-preview
+GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/locations/{location}/deletedservices/{serviceName}?api-version=2021-08-01
 ```
 
 If available for undelete, Azure will return a record of the APIM instance showing its `deletionDate` and `scheduledPurgeDate`, for example:
@@ -63,8 +70,8 @@ If available for undelete, Azure will return a record of the APIM instance showi
     "location": "South Central US",
     "properties": {
         "serviceId": "/subscriptions/########-####-####-####-############/resourceGroups/apimtestgroup/providers/Microsoft.ApiManagement/service/apimtest",
-        "scheduledPurgeDate": "2020-11-26T19:40:26.3596893Z",
-        "deletionDate": "2020-11-24T19:40:50.1013572Z"
+        "scheduledPurgeDate": "2021-11-26T19:40:26.3596893Z",
+        "deletionDate": "2021-11-24T19:40:50.1013572Z"
     }
 }
 ```
@@ -74,12 +81,12 @@ If available for undelete, Azure will return a record of the APIM instance showi
 Use the API Management [List By Subscription](/rest/api/apimanagement/current-ga/deleted-services/list-by-subscription) operation, substituting `{subscriptionId}` with your subscription ID:
 
 ```rest
-GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/deletedservices?api-version=2020-06-01-preview
+GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/deletedservices?api-version=2021-08-01
 ```
 
 This will return a list all soft-deleted services available for undelete under the given subscription, showing the `deletionDate` and `scheduledPurgeDate` for each.
 
-## Recover a deleted APIM instance
+## Recover a soft deleted instance
 
 Use the API Management [Create Or Update](/rest/api/apimanagement/current-ga/api-management-service/create-or-update) operation, substituting `{subscriptionId}`, `{resourceGroup}`, and `{apimServiceName}` with your Azure subscription, resource group name, and API Management name:
 
@@ -105,12 +112,12 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 }
 ```
 
-## Purge a soft-deleted APIM instance
+## Purge a soft-deleted instance
 
 Use the API Management [Purge](/rest/api/apimanagement/current-ga/deleted-services/purge) operation, substituting `{subscriptionId}`, `{location}`, and `{serviceName}` with your Azure subscription, resource location, and API Management name:
 
 ```rest
-DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/locations/{location}/deletedservices/{serviceName}?api-version=2020-06-01-preview
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/locations/{location}/deletedservices/{serviceName}?api-version=2021-08-01
 ```
 
 This will permanently delete your API Management instance from Azure.

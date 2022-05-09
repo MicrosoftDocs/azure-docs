@@ -6,7 +6,7 @@ services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 11/30/2021
+ms.date: 02/15/2022
 ms.topic: tutorial
 #Customer intent: As an Azure user, I want to learn how to identify and fix bottlenecks in a web app so that I can improve the performance of the web apps that I'm running in Azure.
 ---
@@ -16,6 +16,8 @@ ms.topic: tutorial
 In this tutorial, you'll learn how to identify performance bottlenecks in a web application by using Azure Load Testing Preview. You'll create a load test for a sample Node.js application.
 
 The sample application consists of a Node.js web API, which interacts with a NoSQL database. You'll deploy the web API to Azure App Service web apps and use Azure Cosmos DB as the database.
+
+Learn more about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).
 
 In this tutorial, you'll learn how to:
 
@@ -42,7 +44,7 @@ Before you can load test the sample app, you have to get it deployed and running
 
 1. Open Windows PowerShell, sign in to Azure, and set the subscription:  
 
-   ```powershell
+   ```azurecli
    az login
    az account set --subscription <your-Azure-Subscription-ID>
    ```

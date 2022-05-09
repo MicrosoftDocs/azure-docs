@@ -1,10 +1,11 @@
 ---
-title: Tutorial to extend Azure Active Directory B2C with F5 BIG-IP  
+title: Tutorial to enable Secure Hybrid Access to applications with Azure AD B2C and F5 BIG-IP
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with F5 BIG-IP for secure hybrid access 
 author: gargi-sinha
 ms.author: gasinh
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.subservice: B2C
 ms.workload: identity
@@ -12,7 +13,7 @@ ms.topic: how-to
 ms.date: 10/15/2021
 ---
 
-# Tutorial: Extend Azure Active Directory B2C using F5 BIG-IP
+# Tutorial: Secure Hybrid Access to applications with Azure AD B2C and F5 BIG-IP
 
 In this sample tutorial, learn how to integrate Azure Active Directory (Azure AD) B2C with [F5 BIG-IP Access Policy Manager (APM)](https://www.f5.com/services/resources/white-papers/easily-configure-secure-access-to-all-your-applications-via-azure-active-directory). This tutorial demonstrates how legacy applications can be securely exposed to the internet through BIG-IP security combined with Azure AD B2C pre-authentication, Conditional Access (CA), and Single sign-on (SSO).
 
@@ -72,8 +73,6 @@ The following diagram illustrates the Service Provider (SP) initiated flow for t
 |4. | Azure AD B2C redirects user back to the SP with authorization code |
 | 5. | OIDC client asks the authorization server to exchange authorization code for an ID token |
 | 6. | BIG-IP APM grants user access and injects the HTTP headers in the client request forwarded on to the application |
-
-For increased security, organizations using this pattern could also consider blocking all direct access to the application, in that way forcing a strict path through the BIG-IP.
 
 ## Azure AD B2C Configuration
 
@@ -337,6 +336,8 @@ You will then be redirected to sign up and authenticate against your Azure AD B2
 
 ![Screenshot shows post sign in welcome message](./media/partner-f5/welcome-page.png)
 
+For increased security, organizations using this pattern could also consider blocking all direct access to the application, in that way forcing a strict path through the BIG-IP.
+
 ### Supplemental configurations
 
 **Single Log-Out (SLO)**
@@ -358,7 +359,7 @@ One optional step for improving the user login experience would be to suppress t
 
    ![Screenshot shows optimized login flow](./media/partner-f5/optimized-login-flow.png)
 
-   Unlocking the strict configuration prevents any further changes via the wizard UI, leaving all BIG-IP objects associated with the published instance of the application open for direct management.
+Unlocking the strict configuration prevents any further changes via the wizard UI, leaving all BIG-IP objects associated with the published instance of the application open for direct management.
 
 2. Navigate to **Access** > **Profiles/ Policies** > **Access Profiles (Per-session Policies)** and select the **Per-Session Policy** Edit link for the application’s policy object.
 
@@ -378,7 +379,7 @@ The next attempt at connecting to the application should take you straight to th
 
 Failure to access the protected application could be down to any number of potential factors, including a misconfiguration.
 
-- BIG-IP logs are a great source of information for isolating all authentication and SSO issues. If troubleshooting you should increase the log verbosity level.
+BIG-IP logs are a great source of information for isolating all authentication and SSO issues. If troubleshooting you should increase the log verbosity level.
 
   1. Go to **Access Policy** > **Overview** > **Event Logs** > **Settings**.
 
@@ -405,11 +406,11 @@ Your application’s logs would then help understand if it received those attrib
 
   ![Screenshot shows the error message](./media/partner-f5/error-message.png)
 
-  This is a policy violation due to the BIG-IP’s inability to validate the signature of the token issued by Azure AD B2C. The same access log should be able to provide more detail on the issue.
+This is a policy violation due to the BIG-IP’s inability to validate the signature of the token issued by Azure AD B2C. The same access log should be able to provide more detail on the issue.
 
   ![Screenshot shows the access logs](./media/partner-f5/access-log.png)
 
-  Exact root cause is still being investigated by F5 engineering, but issue appears related to the AGC not enabling the Auto JWT setting during deployment, thereby preventing the APM from obtaining the current token signing keys.
+Exact root cause is still being investigated by F5 engineering, but issue appears related to the AGC not enabling the Auto JWT setting during deployment, thereby preventing the APM from obtaining the current token signing keys.
 
   Until resolved, one way to work around the issue is to manually enable this setting. 
 
@@ -421,8 +422,8 @@ Your application’s logs would then help understand if it received those attrib
 
   4. Check the **Use Auto JWT** box then select **Discover**, followed by **Save**.
 
-    You should now see the Key (JWT) field populated with the key ID (KID) of the token signing certificate provided through the OpenID URI metadata.
+You should now see the Key (JWT) field populated with the key ID (KID) of the token signing certificate provided through the OpenID URI metadata.
   
-  5. Finally, select the yellow **Apply Access Policy** option in the top left-hand corner, located next to the F5 logo. Apply those settings and select **Apply** again to refresh the access profile list.
+  5. Finally, select the yellow **Apply Access Policy** option in the top left-hand corner, located next to the F5 logo. Then select **Apply** again to refresh the access profile list.
 
 See F5’s guidance for more [OAuth client and resource server troubleshooting tips](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-sso-13-0-0/37.html#GUID-774384BC-CF63-469D-A589-1595D0DDFBA2)

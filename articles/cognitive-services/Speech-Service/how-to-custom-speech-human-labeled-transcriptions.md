@@ -173,8 +173,6 @@ In Japanese (ja-JP), there's a maximum length of 90 characters for each sentence
 
 ## Next Steps
 
-- [Prepare and test your data](./how-to-custom-speech-test-and-train.md)
 - [Inspect your data](how-to-custom-speech-inspect-data.md)
 - [Evaluate your data](how-to-custom-speech-evaluate-data.md)
 - [Train your model](how-to-custom-speech-train-model.md)
-- [Deploy your model](./how-to-custom-speech-train-model.md)

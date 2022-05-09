@@ -8,7 +8,7 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-azurecli
 ---
 
 # Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
@@ -32,12 +32,13 @@ For more details on Open Liberty, see [the Open Liberty project page](https://op
   * Install a Java SE implementation (for example, [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
+* Please make sure you have been assigned either `Owner` role or `Contributor` and `User Access Administrator` roles of the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group)
 
 ## Create a resource group
 
 An Azure resource group is a logical group in which Azure resources are deployed and managed.  
 
-Create a resource group called *java-liberty-project* using the [az group create](/cli/azure/group#az_group_create) command in the *eastus* location. This resource group will be used later for creating the Azure Container Registry (ACR) instance and the AKS cluster. 
+Create a resource group called *java-liberty-project* using the [az group create](/cli/azure/group#az-group-create) command in the *eastus* location. This resource group will be used later for creating the Azure Container Registry (ACR) instance and the AKS cluster. 
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=java-liberty-project
@@ -46,7 +47,7 @@ az group create --name $RESOURCE_GROUP_NAME --location eastus
 
 ## Create an ACR instance
 
-Use the [az acr create](/cli/azure/acr#az_acr_create) command to create the ACR instance. The following example creates an ACR instance named *youruniqueacrname*. Make sure *youruniqueacrname* is unique within Azure.
+Use the [az acr create](/cli/azure/acr#az-acr-create) command to create the ACR instance. The following example creates an ACR instance named *youruniqueacrname*. Make sure *youruniqueacrname* is unique within Azure.
 
 ```azurecli-interactive
 export REGISTRY_NAME=youruniqueacrname
@@ -77,7 +78,7 @@ You should see `Login Succeeded` at the end of command output if you have logged
 
 ## Create an AKS cluster
 
-Use the [az aks create](/cli/azure/aks#az_aks_create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
+Use the [az aks create](/cli/azure/aks#az-aks-create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
 
 ```azurecli-interactive
 CLUSTER_NAME=myAKSCluster
@@ -95,13 +96,13 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 ### Connect to the AKS cluster
 
-To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az_aks_install_cli) command:
+To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az-aks-install-cli) command:
 
 ```azurecli-interactive
 az aks install-cli
 ```
 
-To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
+To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME --overwrite-existing
@@ -218,7 +219,6 @@ export DB_PORT_NUMBER=1433
 export DB_NAME=<Database name>
 export DB_USER=<Server admin login>@<Database name>
 export DB_PASSWORD=<Server admin password>
-export PULL_SECRET=acr-secret
 export NAMESPACE=${OPERATOR_NAMESPACE}
 
 mvn clean install
@@ -313,14 +313,12 @@ The steps in this section deploy the application.
 
 Follow steps below to deploy the Liberty application on the AKS cluster.
 
-1. Create a pull secret so that the AKS cluster is authenticated to pull image from the ACR instance.
+1. Attach the ACR instance to the AKS cluster so that the AKS cluster is authenticated to pull image from the ACR instance.
 
-   ```bash
-   kubectl create secret docker-registry ${PULL_SECRET} \
-      --docker-server=${LOGIN_SERVER} \
-      --docker-username=${USER_NAME} \
-      --docker-password=${PASSWORD}
+   ```azurecli-interactive
+   az aks update -n $CLUSTER_NAME -g $RESOURCE_GROUP_NAME --attach-acr $REGISTRY_NAME
    ```
+
 1. Retrieve the value for `artifactId` defined in `pom.xml`.
 
    ```bash
@@ -358,13 +356,10 @@ Follow steps below to deploy the Liberty application on the AKS cluster.
 
 Follow steps below to deploy the Liberty application on the AKS cluster.
 
-1. Create a pull secret so that the AKS cluster is authenticated to pull image from the ACR instance.
+1. Attach the ACR instance to the AKS cluster so that the AKS cluster is authenticated to pull image from the ACR instance.
 
    ```azurecli-interactive
-   kubectl create secret docker-registry acr-secret \
-      --docker-server=${LOGIN_SERVER} \
-      --docker-username=${USER_NAME} \
-      --docker-password=${PASSWORD}
+   az aks update -n $CLUSTER_NAME -g $RESOURCE_GROUP_NAME --attach-acr $REGISTRY_NAME
    ```
 
 1. Verify the current working directory is `javaee-app-simple-cluster/target` of your local clone.
@@ -417,7 +412,7 @@ Open a web browser to the external IP address of your service (`52.152.189.57` f
 
 ## Clean up the resources
 
-To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, container service, container registry, and all related resources.
+To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, and all related resources.
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait

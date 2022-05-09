@@ -71,6 +71,9 @@ Use the following steps to create an Azure IR using UI.
 
 1. You'll see a pop-up notification when the creation completes. On the **Integration runtimes** page, make sure that you see the newly created IR in the list.
 
+> [!NOTE]
+> If you want to enable managed virtual network on Azure IR, please see [How to enable managed virtual network](managed-virtual-network-private-endpoint.md)
+
 ## Use Azure IR
 
 Once an Azure IR is created, you can reference it in your Linked Service definition. Below is a sample of how you can reference the Azure Integration Runtime created above from an Azure Storage Linked Service:

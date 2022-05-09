@@ -73,7 +73,7 @@ For deployment script API version 2020-10-01 or later, there are two principals 
 - **Deployment script principal**: This principal is only required if the deployment script needs to authenticate to Azure and call Azure CLI/PowerShell. There are two ways to specify the deployment script principal:
 
   - Specify a [user-assigned managed identity]() in the `identity` property (see [Sample Bicep files](#sample-bicep-files)). When specified, the script service calls `Connect-AzAccount -Identity` before invoking the deployment script. The managed identity must have the required access to complete the operation in the script. Currently, only user-assigned managed identity is supported for the `identity` property. To login with a different identity, use the second method in this list.
-  - Pass the service principal credentials as secure environment variables, and then can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) or [az login](/cli/azure/reference-index#az_login) in the deployment script.
+  - Pass the service principal credentials as secure environment variables, and then can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) or [az login](/cli/azure/reference-index#az-login) in the deployment script.
 
   If a managed identity is used, the deployment principal needs the **Managed Identity Operator** role (a built-in role) assigned to the managed identity resource.
 
@@ -256,7 +256,7 @@ Different from the PowerShell deployment script, CLI/bash support doesn't expose
 
 Deployment script outputs must be saved in the `AZ_SCRIPTS_OUTPUT_PATH` location, and the outputs must be a valid JSON string object. The contents of the file must be saved as a key-value pair. For example, an array of strings is stored as `{ "MyResult": [ "foo", "bar"] }`.  Storing just the array results, for example `[ "foo", "bar" ]`, is invalid.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deployment-script/passValue-cli.bicep" range="1-25" highlight="19":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deployment-script/passValue-cli.bicep" range="1-35" highlight="29":::
 
 [jq](https://stedolan.github.io/jq/) is used in the previous sample. It comes with the container images. See [Configure development environment](#configure-development-environment).
 
@@ -399,10 +399,10 @@ Timeout             : PT1H
 
 Using Azure CLI, you can manage deployment scripts at subscription or resource group scope:
 
-- [az deployment-scripts delete](/cli/azure/deployment-scripts#az_deployment_scripts_delete): Delete a deployment script.
-- [az deployment-scripts list](/cli/azure/deployment-scripts#az_deployment_scripts_list): List all deployment scripts.
-- [az deployment-scripts show](/cli/azure/deployment-scripts#az_deployment_scripts_show): Retrieve a deployment script.
-- [az deployment-scripts show-log](/cli/azure/deployment-scripts#az_deployment_scripts_show_log): Show deployment script logs.
+- [az deployment-scripts delete](/cli/azure/deployment-scripts#az-deployment-scripts-delete): Delete a deployment script.
+- [az deployment-scripts list](/cli/azure/deployment-scripts#az-deployment-scripts-list): List all deployment scripts.
+- [az deployment-scripts show](/cli/azure/deployment-scripts#az-deployment-scripts-show): Retrieve a deployment script.
+- [az deployment-scripts show-log](/cli/azure/deployment-scripts#az-deployment-scripts-show-log): Show deployment script logs.
 
 The list command output is similar to:
 
@@ -464,7 +464,7 @@ The list command output is similar to:
 ]
 ```
 
-### Use Rest API
+### Use REST API
 
 You can get the deployment script resource deployment information at the resource group level and the subscription level by using REST API:
 

@@ -12,7 +12,7 @@ ms.date: 12/09/2020
 
 # Delta copy from a database with a control table
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes a template that's available to incrementally load new or updated rows from a database table to Azure by using an external control table that stores a high-watermark value.
 

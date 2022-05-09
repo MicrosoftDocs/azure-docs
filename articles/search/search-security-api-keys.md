@@ -8,19 +8,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/25/2021
+ms.date: 01/26/2022
 ---
 
 # Use API keys for Azure Cognitive Search authentication
 
-Cognitive Search uses API keys as its primary authentication methodology. For inbound requests to the search services, such as requests that create or query an index, API keys are the only authentication option you have. A few outbound request scenarios, particularly those involving indexers, can use Azure Active Directory identities and roles.
-
-API keys are generated when the service created. Passing a valid API key on the request is considered proof that the request is from an authorized client. There are two kinds of keys. *Admin keys* convey write permissions on the service and also grant rights to query system information. *Query keys* convey read permissions and can be used by apps to query a specific index. 
+Cognitive Search uses key-based authentication as its primary authentication methodology. For inbound requests to a search service endpoint, such as requests that create or query an index, API keys are the only generally available authentication option you have. A few outbound request scenarios, particularly those involving indexers, can use Azure Active Directory identities and roles.
 
 > [!NOTE]
-> Authorization for data plane operations using Azure role-based access control (RBAC) is now in preview. You can use this preview capability to supplement or replace API keys [with Azure roles for Search](search-security-rbac.md). 
+> [Authorization for data plane operations](search-security-rbac.md) using Azure role-based access control (RBAC) is now in preview. You can use this preview capability to supplement or replace API keys on search index requests.
 
 ## Using API keys in search
+
+API keys are generated when the service created. Passing a valid API key on the request is considered proof that the request is from an authorized client. There are two kinds of keys. *Admin keys* convey write permissions on the service and also grant rights to query system information. *Query keys* convey read permissions and can be used by apps to query a specific index. 
 
 When connecting to a search service, all requests must include an API key that was generated specifically for your service.
 
