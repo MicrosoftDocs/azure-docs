@@ -2,7 +2,7 @@
 title: Sub-orchestrations for Durable Functions - Azure
 description: How to call orchestrations from orchestrations in the Durable Functions extension for Azure Functions.
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 05/09/2022
 ms.author: azfuncdf
 ---
 
@@ -15,7 +15,7 @@ An orchestrator function can call another orchestrator function using the `CallS
 Sub-orchestrator functions behave just like activity functions from the caller's perspective. They can return a value, throw an exception, and can be awaited by the parent orchestrator function. 
 
 > [!NOTE]
-> Sub-orchestrations are currently supported in .NET, JavaScript, and Python.
+> Sub-orchestrations are currently supported in .NET, JavaScript, Python, and Java.
 
 ## Example
 
@@ -82,6 +82,29 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     yield context.call_activity("DownloadCompletedAck")
 
     # Step 4: ...
+```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("DeviceProvisioningOrchestration")
+public String deviceProvisioningOrchestration(
+    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
+        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
+            // Step 1: Create an installation package in blob storage and return a SAS URL.
+            String deviceId = ctx.getInput(String.class);
+            String blobUri = ctx.callActivity("CreateInstallPackage", deviceId, String.class).get();
+
+            // Step 2: Notify the device that the installation package is ready.
+            String[] args = { deviceId, blobUri };
+            ctx.callActivity("SendPackageUrlToDevice", args).get();
+
+            // Step 3: Wait for the device to acknowledge that it has downloaded the new package.
+            ctx.waitForExternalEvent("DownloadCompletedAck").get();
+
+            // Step 4: ...
+        });
+}
 ```
 
 ---
@@ -164,6 +187,27 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
     # ...
 ```
+
+# [Java](#tab/java)
+
+
+```java
+@FunctionName("ProvisionNewDevices")
+public String provisionNewDevices(
+    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
+        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
+            List<?> deviceIDs = ctx.getInput(List.class);
+
+            // Schedule each device provisioning sub-orchestration to run in parallel
+            List<Task<Void>> parallelTasks = deviceIDs.stream()
+                .map(device -> ctx.callSubOrchestrator("DeviceProvisioningOrchestration", device))
+                .collect(Collectors.toList());
+
+            // ...
+        });
+}
+```
+
 ---
 
 > [!NOTE]
