@@ -31,7 +31,7 @@ Use the following steps to configure a Stream Analytics job to capture data in A
 1. When the connection is established successfully, you'll see:
     - Fields that are present in the input data. You can choose **Add field** or you can select the three dot symbol next to a field to optionally remove, rename, or change its name.
     - A live sample of incoming data in the **Data preview** table under the diagram view. It refreshes periodically. You can select **Pause streaming preview** to view a static view of the sample input.  
-        :::image type="content" source="./media/capture-event-hub-data-parquet/edit-fields.png" alt-text="Screenshot showing sample data under Data Preview." lightbox="./media/capture-event-hub-data-parquet/xxx.png" :::
+        :::image type="content" source="./media/capture-event-hub-data-parquet/edit-fields.png" alt-text="Screenshot showing sample data under Data Preview." lightbox="./media/capture-event-hub-data-parquet/edit-fields.png" :::
 1. Select the **Streaming blob** tile to edit the configuration. 
     1. Select the subscription, storage account name and container from the drop-down menu. 
     1. Once the subscription is selected, the authentication method and storage account key should be automatically filled in.  
