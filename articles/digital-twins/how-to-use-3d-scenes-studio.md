@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Build 3D scenes with 3D Scenes Studio for Azure Digital Twins
 
-Azure Digital Twins [3D Scenes Studio](http://dev.explorer.azuredigitaltwins-test.net/3dscenes) is an immersive 3D environment, where business and front-line workers can consume and investigate operational data from their Azure Digital Twins solutions with visual context.
+Azure Digital Twins [3D Scenes Studio](https://explorer.digitaltwins.azure.net/3dscenes) is an immersive 3D environment, where business and front-line workers can consume and investigate operational data from their Azure Digital Twins solutions with visual context.
 
 ## Prerequisites
 
@@ -25,9 +25,9 @@ To use 3D Scenes Studio, you'll need the following resources:
 * An Azure Digital Twins instance. For instructions, see [Set up an instance and authentication](how-to-set-up-instance-cli.md).
     * Obtain *Azure Digital Twins Data Owner* or *Azure Digital Twins Data Reader* access to the instance. For instructions, see [Set up user access permissions](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
     * Take note of the *host name* of your instance to use later.
-* An Azure storage account. For instructions, see [Create a storage account](/storage/common/storage-account-create?tabs=azure-portal).
+* An Azure storage account. For instructions, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-portal).
     * Obtain *Storage Blob Data Owner* access to the storage account. For instructions, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
-* A private container in the storage account. For instructions, see [Create a container](/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
+* A private container in the storage account. For instructions, see [Create a container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
     * Take note of the *URL* of your storage container to use later.
 
 You should also configure CORS for your storage account, so that 3D Scenes Studio will be able to access your storage container.
@@ -47,7 +47,7 @@ Now you have all the necessary resources to work with scenes in 3D Scenes Studio
 
 In this section, you'll create an environment in *3D Scenes Studio* and customize your scene for the sample graph that's in your Azure Digital Twins instance.
 
-1. Navigate to the [3D Scenes Studio](http://dev.explorer.azuredigitaltwins-test.net/3dscenes). The studio will open, connected to the Azure Digital Twins instance that you accessed last in the Azure Digital Twins Explorer.
+1. Navigate to the [3D Scenes Studio](https://explorer.digitaltwins.azure.net/3dscenes). The studio will open, connected to the Azure Digital Twins instance that you accessed last in the Azure Digital Twins Explorer.
 1. Select the **Edit** icon next to the instance name to configure the instance and storage container details.
 
     :::image type="content" source="media/how-to-use-3d-scenes-studio/studio-edit-environment-1.png" alt-text="Screenshot of 3D Scenes Studio highlighting the edit environment icon, which looks like a pencil." lightbox="media/how-to-use-3d-scenes-studio/studio-edit-environment-1.png":::
@@ -93,11 +93,11 @@ The resulting globe view looks like this:
 
 You can select an individual scene from the home page to open it in **Build** mode. Here, you can see the 3D mesh for the scene and edit its [elements](#add-elements) and [behaviors](#add-behaviors).
 
-:::image type="content" source="media/how-to-use-3d-scenes-studio/scene-build.png" alt-text="Screenshot of 3D Scenes Studio, showing a scene in Build mode." lightbox="media/how-to-use-3d-scenes-studio/scene-build.png":::
+:::image type="content" source="media/how-to-use-3d-scenes-studio/scene-build.png" alt-text="Screenshot of 3D Scenes Studio, showing a scene in the builder." lightbox="media/how-to-use-3d-scenes-studio/scene-build.png":::
 
 You can switch to **View** mode to enable filtering on specific elements and visualization of element behaviors that you've created.
 
-:::image type="content" source="media/how-to-use-3d-scenes-studio/scene-view.png" alt-text="Screenshot of 3D Scenes Studio, showing a scene in View mode." lightbox="media/how-to-use-3d-scenes-studio/scene-view.png":::
+:::image type="content" source="media/how-to-use-3d-scenes-studio/scene-view.png" alt-text="Screenshot of 3D Scenes Studio, showing a scene in the viewer." lightbox="media/how-to-use-3d-scenes-studio/scene-view.png":::
 
 ## Add elements
 
@@ -105,11 +105,11 @@ An *element* is a self-defined set of 3D meshes that is linked to data on one or
 
 One way to create a new element is to select **New element** from the **Elements** tab in the **Build** view for a scene.
 
-:::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-start-button.png" alt-text="Screenshot of 3D Scenes Studio in Build mode for a scene. The New element button is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-element-start-button.png":::
+:::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-start-button.png" alt-text="Screenshot of 3D Scenes Studio in the builder for a scene. The New element button is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-element-start-button.png":::
 
 Alternatively, you can select a mesh component directly from the visualization and create a new element that is connected to it already.
 
-:::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-start-mesh.png" alt-text="Screenshot of 3D Scenes Studio in Build mode for a scene. The mesh for a tank in the 3D visualization is highlighted and there is an option to Create new element." lightbox="media/how-to-use-3d-scenes-studio/new-element-start-mesh.png":::
+:::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-start-mesh.png" alt-text="Screenshot of 3D Scenes Studio in the builder for a scene. The mesh for a tank is highlighted and there is an option to Create new element." lightbox="media/how-to-use-3d-scenes-studio/new-element-start-mesh.png":::
 
 This will open the **New element** panel where you can fill in element information.
 
@@ -161,7 +161,7 @@ A *behavior* is a scenario for your scene that will leverage particular data on 
 
 One way to create a new behavior is to select **New behavior** from the **Behaviors** tab of the **Build** view for a scene.
 
-:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-start-button.png" alt-text="Screenshot of 3D Scenes Studio in Build mode for a scene. The New behavior button is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-start-button.png":::
+:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-start-button.png" alt-text="Screenshot of 3D Scenes Studio in the builder for a scene. The New behavior button is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-start-button.png":::
 
 Alternatively, you can select an element from the **Elements** tab, and create a new behavior from [that element's Behaviors tab](#behaviors).
 
@@ -176,7 +176,7 @@ This will open the **New behavior** panel where you can fill in behavior informa
 Start by choosing a **Display name** for the behavior.
 
 >[!TIP]
->It's a good idea to name your behavior in the context of the general scenario, since the behavior name will be displayed in the viewer.
+>Choose a name that will be clear to end users that will be viewing the scene, because this behavior name will be displayed as part of the scene visualization. 
 
 For the **Scene layers** dropdown menu, you can add this behavior to an existing layer or create a new layer to help organize this behavior. For more information on layers, see [Manage layers](#manage-layers).
 
@@ -245,7 +245,7 @@ You can create *layers* in your scene to help organize your [behaviors](#add-beh
 
 One way to create layers is to use the **Scene layers** button in the **Build** view for a scene.
 
-:::image type="content" source="media/how-to-use-3d-scenes-studio/layers-start-button.png" alt-text="Screenshot of 3D Scenes Studio in Build mode for a scene. The Scene layers button is highlighted." lightbox="media/how-to-use-3d-scenes-studio/layers-start-button.png":::
+:::image type="content" source="media/how-to-use-3d-scenes-studio/layers-start-button.png" alt-text="Screenshot of 3D Scenes Studio builder for a scene. The Scene layers button is highlighted." lightbox="media/how-to-use-3d-scenes-studio/layers-start-button.png":::
 
 Selecting **New layer** will prompt you to enter a name for the new layer you want to create.
 
@@ -257,7 +257,7 @@ Alternatively, you can create layers while [creating or modifying a behavior](#n
 
 In the **Build** view for a scene, you can use the **Theme** button to change the style, object colors, and background color of the display.
 
-:::image type="content" source="media/how-to-use-3d-scenes-studio/theme.png" alt-text="Screenshot of 3D Scenes Studio in Build mode for a scene. The Theme button is highlighted." lightbox="media/how-to-use-3d-scenes-studio/theme.png":::
+:::image type="content" source="media/how-to-use-3d-scenes-studio/theme.png" alt-text="Screenshot of 3D Scenes Studio builder for a scene. The Theme button is highlighted." lightbox="media/how-to-use-3d-scenes-studio/theme.png":::
 
 ## Next steps 
 

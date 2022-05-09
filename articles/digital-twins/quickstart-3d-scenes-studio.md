@@ -19,31 +19,111 @@ ms.service: digital-twins
 
 Azure Digital Twins *3D Scenes Studio* is an immersive 3D environment, where business and front-line workers can consume and investigate operational data from their Azure Digital Twins solutions with visual context.
 
-In this article, you'll set up all the required resources for using 3D Scenes Studio. Then, you'll create a scene in the studio that's connected to a sample Azure Digital Twins environment.
+In this article, you'll set up all the required resources for using 3D Scenes Studio, including Azure storage resources and an Azure Digital Twins instance with sample data. Then, you'll create a scene in the studio that's connected to the sample Azure Digital Twins environment.
+
+The scene will look like this: 
+
+:::image type="content" source="media/quickstart-3d-scenes-studio/studio-full.png" alt-text="Screenshot of a sample scene in 3D Scenes Studio." lightbox="media/quickstart-3d-scenes-studio/studio-full.png":::
 
 ## Prerequisites
 
-For this article, you'll need to set up an Azure Digital Twins instance and make sure you have at least *Azure Digital Twins Data Reader* access to the instance. For instructions, see [Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md). 
+You'll need an Azure subscription to complete this quickstart. If you don't have one already, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
-You'll need the instance's *host name* value, which you can get from the instance's overview page in the Azure portal. 
+You'll also need to download a sample 3D file to use for the scene in this quickstart. [Select this link to download OutdoorTanks.gltf](https://cardboardresources.blob.core.windows.net/cardboard-mock-files/OutdoorTanks.gltf).
 
-You'll also need a sample 3D file for this scene. This 3D file should already be segmented and be in .GLTF format. For this example, we've provided an outdoor tanks 3D model. [Select this link to download OutdoorTanks.gltf](https://cardboardresources.blob.core.windows.net/cardboard-mock-files/OutdoorTanks.gltf).
+## Set up Azure Digital Twins and sample data
+
+The first step in working with Azure Digital Twins is to create an Azure Digital Twins instance. After you create an instance of the service, you can link the instance to a 3D Scenes Studio visualization later in the quickstart.
+
+The rest of this section walks you through the instance creation. If you already have an Azure Digital Twins instance set up from an earlier quickstart, you can skip to the [next section](#create-storage-resources).
+
+[!INCLUDE [digital-twins-quickstart-setup.md](../../includes/digital-twins-quickstart-setup.md)]
+
+### Collect host name
+
+After deployment completes, use the **Go to resource** button to navigate to the instance's Overview page in the portal.
+
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/deployment-complete.png" alt-text="Screenshot of the deployment page for Azure Digital Twins in the Azure portal. The page indicates that deployment is complete.":::
+
+Next, take note of the instance's **host name** value to use later.
+
+:::image type="content" source="media/quickstart-3d-scenes-studio/host-name.png" alt-text="Screenshot of the Azure portal showing the Overview page for an Azure Digital Twins instance. The host name is highlighted." lightbox="media/quickstart-3d-scenes-studio/host-name.png":::
+
+### Generate sample models and twins
+
+In this section, you'll use the *Azure Digital Twins data simulator* tool to generate sample models and twins to populate your instance.
+
+1. Navigate to the [data simulator](https://explorer.digitaltwins.azure.net/tools/data-pusher). 
+1. In the **Instance URL** space, enter the *host name* of your Azure Digital Twins instance from the [previous section](#collect-host-name).
+1. Use the **Generate environment** button to create a sample environment with models and twins.
+
+    :::image type="content"  source="media/quickstart-3d-scenes-studio/data-simulator.png" alt-text="Screenshot of the Azure Digital Twins Data simulator. The Generate environment button is highlighted." lightbox="media/quickstart-3d-scenes-studio/data-simulator.png":::
+1. Select **Start simulation** to start sending simulated data to your Azure Digital Twins instance. The simulation will only run while this window is open and the **Start simulation** option is active.
+
+You can view the models and graph that have been created by using the [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) tool. To enter the tool, navigate to your Azure Digital Twins instance in the Azure portal and select **Open Azure Digital Twins Explorer (preview)**.
+
+:::image type="content" source="media/includes/azure-digital-twins-explorer-portal-access.png" alt-text="Screenshot of the Azure portal showing where to open Azure Digital Twins for an Azure Digital Twins instance." lightbox="media/includes/azure-digital-twins-explorer-portal-access.png":::
+
+Then, use the **Run Query** button to query for all the twins and relationships that have been created in the instance.
+
+:::image type="content" source="media/quickstart-3d-scenes-studio/run-query.png" alt-text="Screenshot of the Azure Digital Twins Explorer highlighting the Run Query button in the upper-right corner of the window." lightbox="media/quickstart-3d-scenes-studio/run-query.png":::
+
+To see all the models that have been uploaded and how they relate to each other, select **Model graph**.
+
+:::image type="content" source="media/quickstart-3d-scenes-studio/model-graph.png" alt-text="Screenshot of the Azure Digital Twins Explorer highlighting the Model Graph button for the view pane." lightbox="media/quickstart-3d-scenes-studio/model-graph.png":::
+
+>[!TIP]
+>For an introduction to Azure Digital Twins Explorer, see the quickstart [Get started with Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md).
 
 ## Create storage resources
 
-First, create a new storage account. This storage account will be used to store your 3D files, as well as a 3D Scenes Studio configuration file that will automatically be added to the storage account and should not be modified directly. You'll need to have read and write permissions to the storage account.
+Next, create a new storage account and a container in the storage account. 3D Scenes Studio will use this storage container to store your 3D file and configuration information. You'll also set up read and write permissions to the storage account.
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and search for *storage accounts* in the top search bar. 
+### Create the storage account 
+
+1. In the [Azure portal](https://portal.azure.com), search for *storage accounts* in the top search bar. 
 1. On the **Storage accounts** page, select **+ Create**.
 
-    :::image type="content"  source="media/quickstart-3d-scenes-studio/create-storage-account.png" alt-text="Screenshot of the Azure portal showing the Storage accounts page and highlighting the Create button." lightbox="media/quickstart-3d-scenes-studio/create-storage-account.png":::
-1. Follow the portal process to create a storage account. For detailed steps and information on all setup options, see [Create a storage account](/storage/common/storage-account-create?tabs=azure-portal).
-1. When the account is finished deploying, navigate to it in the Azure portal.
-1. Select **Access Control (IAM)** from the left menu and use it to grant yourself *Storage Blob Data Owner* access to the storage account. This level of access allows for both read and write operations. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    :::image type="content"  source="media/quickstart-3d-scenes-studio/create-storage-account-1.png" alt-text="Screenshot of the Azure portal showing the Storage accounts page and highlighting the Create button." lightbox="media/quickstart-3d-scenes-studio/create-storage-account-1.png":::
 
-Next, create a private container in the storage account.
+1. Fill in the details on the **Basics** tab, including your **Subscription** and **Resource group**. Choose a **Storage account name** and **Region**, select **Standard** performance, and select **Geo-redundant storage (GRS)**.
+    :::image type="content"  source="media/quickstart-3d-scenes-studio/create-storage-account-2.png" alt-text="Screenshot of the Azure portal showing the Basics tab of storage account creation." lightbox="media/quickstart-3d-scenes-studio/create-storage-account-2.png":::
+
+    Select **Review + create**.
+
+1. You will see a summary page on the **Review + create** tab showing the details you've entered. Confirm and create the storage account by selecting **Create**.
+1. After deployment completes, use the **Go to resource** button to navigate to the storage account in the portal.
+    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/deployment-complete-storage.png" alt-text="Screenshot of the deployment page for the storage account in the Azure portal. The page indicates that deployment is complete." lightbox="media/quickstart-azure-digital-twins-explorer/deployment-complete-storage.png":::
+
+1. Select **Access Control (IAM)** from the storage account's left menu, **+ Add**, and **Add role assignment**.
+    :::image type="content" source="media/quickstart-3d-scenes-studio/add-storage-role-1.png" alt-text="Screenshot of the IAM tab for the storage account in the Azure portal." lightbox="media/quickstart-3d-scenes-studio/add-storage-role-1.png":::
+
+1. Search for *Storage Blob Data Owner* and select **Next**. This level of access will allow you to perform both read and write operations in 3D Scenes Studio.
+1. Switch to the **Members** tab. Assign access to a **User, group, or service principal**, and select **+ Select members**. Search for your name in the list and hit **Select**.
+    :::image type="content" source="media/quickstart-3d-scenes-studio/add-storage-role-2.png" alt-text="Screenshot of granting a user Storage Blob Data Owner in the Azure portal." lightbox="media/quickstart-3d-scenes-studio/add-storage-role-2.png":::
+
+    Select **Review + assign** to review the details of your assignment, and **Review + assign** again to confirm and finish the role assignment.
+
+### Configure CORS
+
+Next, configure CORS for your storage account. This will be necessary for 3D Scenes Studio to access your storage container.
+
+1. Return to the storage account's page in the portal.
+1. Scroll down in the left menu to **Resource sharing (CORS)** and select it.
+1. On the **Resource sharing (CORS)** page for your storage account, fill in an entry with the following details:
+    1. **Allowed origins** - Enter *https://adtexplorer-tsi-local.azurewebsites.net,https://localhost:8443,https://explorer.digitaltwins.azure.net,https://dev.explorer.azuredigitaltwins-test.net*
+    1. **Allowed methods** - Select the checkboxes for *GET*, *POST*, *OPTIONS*, and *PUT*.
+    1. **Allowed headers** - Enter *Authorization,x-ms-version,x-ms-blob-type*
+1. Select **Save**.
+
+    :::image type="content"  source="media/quickstart-3d-scenes-studio/cors.png" alt-text="Screenshot of the Azure portal where the CORS entry is being created and saved." lightbox="media/quickstart-3d-scenes-studio/cors.png":::
+
+### Create the container
+
+Lastly, create a private container in the storage account.
 
 1. Select **Containers** from the left menu for the storage account and use **+ Container** to create a new container.
+
 1. Enter a **Name** for the container and set the **Public access level** to **Private**. Select **Create**.
 
     :::image type="content"  source="media/quickstart-3d-scenes-studio/create-container.png" alt-text="Screenshot of the Azure portal highlighting Containers for the storage account." lightbox="media/quickstart-3d-scenes-studio/create-container.png":::
@@ -56,51 +136,16 @@ Next, create a private container in the storage account.
 
     :::image type="content"  source="media/quickstart-3d-scenes-studio/container-url.png" alt-text="Screenshot of the Azure portal highlighting the container's U R L value." lightbox="media/quickstart-3d-scenes-studio/container-url.png":::
 
-Finally, configure CORS for your storage account. This is necessary for 3D Scenes Studio to access your storage container.
-
-1. Return to the storage account's page in the portal.
-1. Scroll down in the left menu to **Resource sharing (CORS)** and select it.
-1. On the **Resource sharing (CORS)** page for your storage account, fill in an entry with the following details:
-    1. **Allowed origins** - Enter *https://adtexplorer-tsi-local.azurewebsites.net,https://localhost:8443,https://explorer.digitaltwins.azure.net,https://dev.explorer.azuredigitaltwins-test.net*
-    1. **Allowed methods** - Select the checkboxes for *GET*, *POST*, *OPTIONS*, and *PUT*.
-    1. **Allowed headers** - Enter *Authorization,x-ms-version,x-ms-blob-type*
-1. Select **Save**.
-
-    :::image type="content"  source="media/quickstart-3d-scenes-studio/cors.png" alt-text="Screenshot of the Azure portal where the CORS entry is being created and saved." lightbox="media/quickstart-3d-scenes-studio/cors.png":::
-
-## Generate sample environment
-
-In this section, you'll use the *Azure Digital Twins data simulator* tool to generate a sample environment.
-
-1. Navigate to the [data simulator](https://explorer.digitaltwins.azure.net/tools/data-pusher). 
-1. In the **Instance URL** space, enter the *host name* of your Azure Digital Twins instance from the [Prerequisites](#prerequisites) section.
-1. Use the **Generate environment** button to create a sample environment with models and twins.
-
-    :::image type="content"  source="media/quickstart-3d-scenes-studio/data-simulator.png" alt-text="Screenshot of the Azure Digital Twins Data simulator. The Generate environment button is highlighted." lightbox="media/quickstart-3d-scenes-studio/data-simulator.png":::
-1. Select **Start simulation** to start sending simulated data to your Azure Digital Twins instance. The simulation will only run while this window is open and the **Start simulation** option is active.
-
-You can view the models and graph that have been created in the [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) tool. To enter the tool, navigate to your Azure Digital Twins instance in the Azure portal and select  **Open Azure Digital Twins Explorer (preview)**.
-
-:::image type="content" source="media/includes/azure-digital-twins-explorer-portal-access.png" alt-text="Screenshot of the Azure portal showing where to open Azure Digital Twins for an Azure Digital Twins instance." lightbox="media/includes/azure-digital-twins-explorer-portal-access.png":::
-
-Then, use the **Run Query** button to query for all the twins and relationships that have been created in the instance.
-
-:::image type="content" source="media/quickstart-3d-scenes-studio/run-query.png" alt-text="Screenshot of the Azure Digital Twins Explorer highlighting the Run Query button in the upper-right corner of the window." lightbox="media/quickstart-3d-scenes-studio/run-query.png":::
-
-To see all the models that have been uploaded and how they relate to each other, select **Model graph**.
-
-:::image type="content" source="media/quickstart-3d-scenes-studio/model-graph.png" alt-text="Screenshot of the Azure Digital Twins Explorer highlighting the Model Graph button for the view pane." lightbox="media/quickstart-3d-scenes-studio/model-graph.png":::
-
 ## Initialize your 3D Scenes Studio environment
 
-In this section, you'll create an environment in *3D Scenes Studio* and customize your scene for the sample graph that's in your Azure Digital Twins instance.
+Now that all your resources are set up, you can use them to create an environment in *3D Scenes Studio*. In this section, you'll create a scene and customize it for the sample graph that's in your Azure Digital Twins instance.
 
-1. Navigate to the [3D Scenes Studio](http://dev.explorer.azuredigitaltwins-test.net/3dscenes). The studio will open, connected to the Azure Digital Twins instance that you accessed last in the Azure Digital Twins Explorer.
+1. Navigate to the [3D Scenes Studio](https://explorer.digitaltwins.azure.net/3dscenes). The studio will open, connected to the Azure Digital Twins instance that you accessed last in the Azure Digital Twins Explorer.
 1. Select the **Edit** icon next to the instance name to configure the instance and storage container details.
 
     :::image type="content" source="media/quickstart-3d-scenes-studio/studio-edit-environment-1.png" alt-text="Screenshot of 3D Scenes Studio highlighting the edit environment icon, which looks like a pencil." lightbox="media/quickstart-3d-scenes-studio/studio-edit-environment-1.png":::
 
-    1. The **Environment URL** should start with *https://*, followed by the *host name* of your instance from the [Prerequisites](#prerequisites) section.
+    1. The **Environment URL** should start with *https://*, followed by the *host name* of your instance.
     
     1. For the **Container URL**, enter the URL of your container from the [Create storage resources](#create-storage-resources) step.
     
@@ -124,9 +169,9 @@ In this section you'll create a new 3D scene, using the *OutdoorTanks.gltf* mode
 
     :::image type="content" source="media/quickstart-3d-scenes-studio/factory-scene.png" alt-text="Screenshot of the factory scene in 3D Scenes Studio." lightbox="media/quickstart-3d-scenes-studio/factory-scene.png":::
 
-### Create an element
+## Create a 3D element
 
-Next, you'll define an *element* in the 3D visualization and link it to a twin in the Azure Digital Twins graph you set up earlier in [Generate sample environment](#generate-sample-environment).
+Next, you'll define an *element* in the 3D visualization and link it to a twin in the Azure Digital Twins graph you set up earlier in [Generate sample models and twins](#generate-sample-models-and-twins).
 
 1. Select any tank in the scene visualization. This will bring up the possible element actions. Select **+ Create new element**.
 
@@ -141,7 +186,7 @@ Next, you'll define an *element* in the 3D visualization and link it to a twin i
 
 The element will now show up in the list of elements for the scene.
 
-### Create behaviors
+## Create behaviors
 
 Next, you'll create a set of *behaviors* for the element. These behaviors allow you to customize the element's data visuals and the associated business logic. Then, you can explore these data visuals to understand the state of the physical environment.
 
@@ -200,7 +245,7 @@ Next, you'll create a set of *behaviors* for the element. These behaviors allow 
 
 The *InFlow* behavior set will now show up in the list of behaviors for the scene.
 
-### View
+## View completed scene
 
 So far, you've been working with 3D Scenes Studio in **Build** mode. Now, switch the mode to **View**. 
 
@@ -208,8 +253,29 @@ So far, you've been working with 3D Scenes Studio in **Build** mode. Now, switch
 
 From the list of **Elements**, select the **PasteurizationMachine_A01** element that you created. The visualization will zoom in to show the visual element and display the behaviors you set up for it.
 
-:::image type="content" source="media/quickstart-3d-scenes-studio/factory-scene-view-2.png" alt-text="Screenshot of the factory scene in 3D Scenes Studio, showing the View mode for the pasteurization machine." lightbox="media/quickstart-3d-scenes-studio/factory-scene-view-2.png":::
+:::image type="content" source="media/quickstart-3d-scenes-studio/factory-scene-view-2.png" alt-text="Screenshot of the factory scene in 3D Scenes Studio, showing the viewer for the pasteurization machine." lightbox="media/quickstart-3d-scenes-studio/factory-scene-view-2.png":::
+
+## Clean up resources
+
+To clean up after this quickstart, choose which resources you want to remove based on what you want to do next.
+
+* If you plan to continue through the Azure Digital Twins quickstarts and tutorials, you can reuse the instance in this quickstart for those articles, and you don't need to remove it.
+
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
+ 
+* If you don't need your Azure Digital Twins instance anymore, you can delete it using the Azure portal.
+    
+    Navigate back to the instance's **Overview** page in the portal. (If you've already closed that tab, you can find the instance again by searching for its name in the Azure portal search bar and selecting it from the search results.)
+
+    Select **Delete** to delete the instance, including all of its models and twins.
+
+    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/delete-instance.png" alt-text="Screenshot of the Overview page for an Azure Digital Twins instance in the Azure portal. The Delete button is highlighted.":::
+
+You may also want to delete the sample 3D file from your local machine.
 
 ## Next steps 
 
-Explore the rest of 3D Scenes Studio's capabilities and features in [Use 3D Scenes Studio](how-to-use-3d-scenes-studio.md).
+Next, continue on to the Azure Digital Twins tutorials to build out your own Azure Digital Twins scenario and interaction tools.
+
+> [!div class="nextstepaction"]
+> [Code a client app](tutorial-code.md)
