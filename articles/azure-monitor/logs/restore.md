@@ -10,7 +10,7 @@ ms.date: 01/19/2022
 The restore operation makes a specific time range of data in a table available in the hot cache for high-performance queries. This article describes how to restore data, query that data, and then dismiss the data when you're done.
 
 ## When to restore logs
-Use the restore operation to query data in [Archived Logs](data-retention-archive.md). You can also use the restore operation to run powerful queries within a specific time range on any Analytics table when the log queries you run on the source table cannot complete within the log query timeout of 10 minutes.
+Use the restore operation to query data in [Archived Logs](data-retention-archive.md). You can also use the restore operation to run powerful queries within a specific time range on any Analytics table when the log queries you run on the source table can't complete within the log query timeout of 10 minutes.
 
 > [!NOTE]
 > Restore is one method for accessing archived data. Use restore to run queries against a set of data within a particular time range. Use [Search jobs](search-jobs.md) to access data based on specific criteria.
@@ -20,7 +20,7 @@ When you restore data, you specify the source table that contains the data you w
 
 The restore operation creates the restore table and allocates additional compute resources for querying the restored data using high-performance queries that support full KQL.
 
-The destination table provides a view of the underlying source data, but does not affect it in any way. The table has no retention setting, and you must explicitly [dismiss the restored data](#dismiss-restored-data) when you no longer need it. 
+The destination table provides a view of the underlying source data, but doesn't affect it in any way. The table has no retention setting, and you must explicitly [dismiss the restored data](#dismiss-restored-data) when you no longer need it. 
 
 ## Restore data
 
@@ -108,7 +108,7 @@ Set the query time range by either:
 
 To save costs, dismiss restored data when you no longer need it by deleting the restored table.
 
-Deleting the restored table does not delete the data in the source table.
+Deleting the restored table doesn't delete the data in the source table.
 
 > [!NOTE]
 > Restored data is available as long as the underlying source data is available. When you delete the source table from the workspace or when the source table's retention period ends, the data is dismissed from the restored table. However, the empty table will remain if you do not delete it explicitly. 
@@ -136,7 +136,7 @@ Restore is subject to the following limitations.
 You can: 
 
 - Restore data for a minimum of two days.
-- Restore up to 60TB.
+- Restore up to 60 TB.
 - Perform up to four restores per workspace per week. 
 - Run up to two restore processes in a workspace concurrently.
 - Run only one active restore on a specific table at a given time. Executing a second restore on a table that already has an active restore will fail. 
