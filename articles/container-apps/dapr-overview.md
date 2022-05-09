@@ -24,7 +24,7 @@ Dapr APIs, also referred to as building blocks, are built on best practice indus
 | Building block | Description |
 | -------------- | ----------- |
 | [**Service-to-service invocation**][dapr-serviceinvo] | Discover services and perform reliable, direct service-to-service calls with automatic mTLS authentication and encryption. |
-| [**State management**][dapr-statemgmt] | Provides state management capabilities for: <br>- CRUD operations <br> - Transactions<br> |
+| [**State management**][dapr-statemgmt] | Provides state management capabilities for: <br><br>- CRUD operations - Transactions |
 | [**Pub/sub**][dapr-pubsub] | Allows publisher and subscriber container apps to intercommunicate via an intermediary message broker. |
 | [**Bindings**][dapr-bindings] | Trigger your application with incoming or outgoing events, without SDK or library dependencies. |
 | [**Actors**][dapr-actors] | Dapr actors apply the scalability and reliability that the underlying platform provides. |
