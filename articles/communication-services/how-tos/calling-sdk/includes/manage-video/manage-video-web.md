@@ -289,7 +289,7 @@ const isAvailable: boolean = remoteVideoStream.isAvailable;
 	    - When the remote mobile participant has their video on and they put the browser app in the background, they will stop sending video stream data until the app is brought back to the foreground.
 		- When the remote participant has their video on and they have bad network connectivity and video is cutting off / lagging
 	- This feature improves the user experience for rendering remote video streams.
-	- You can display a loading spinner over the remote video stream when isReceiving flag changes to false. You dont have to do a loading spinner, you can do anything you desire, but a loading spinner is the most common usage
+	- You can display a loading spinner over the remote video stream when isReceiving flag changes to false. You don't have to do a loading spinner, you can do anything you desire, but a loading spinner is the most common usage
 ```js
 const isReceiving: boolean = remoteVideoStream.isReceiving;
 ```
