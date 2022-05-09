@@ -11,7 +11,7 @@ ms.author: juliako
 
 >Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` into your RSS feed reader.
 
-To stay up-to-date with the most recent Azure Video Indexer (former Video Indexer) developments, this article provides you with information about:
+To stay up-to-date with the most recent Azure Video Indexer (formerly Azure Video Analyzer for Media) developments, this article provides you with information about:
 
 * [Important notice](#upcoming-critical-changes) about planned changes
 * The latest releases
@@ -23,7 +23,6 @@ To stay up-to-date with the most recent Azure Video Indexer (former Video Indexe
 
 > [!Important]
 > This section describes a critical upcoming change for the `Upload-Video` API.
-
 
 ### Upload-Video API
 

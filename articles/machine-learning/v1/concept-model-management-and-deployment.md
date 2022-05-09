@@ -6,13 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-author: jpe316
-ms.author:  jordane
+author: rsethur
+ms.author:  seramasu
+ms.reviewer: larryfr
 ms.custom: seodec18, mktng-kw-nov2021
 ms.date: 11/04/2021
 ---
 
 # MLOps: Model management, deployment, lineage, and monitoring with Azure Machine Learning v1
+
+[!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you are using:"]
 > * [v1](concept-model-management-and-deployment.md)
@@ -157,7 +160,7 @@ Azure ML gives you the capability to track the end-to-end audit trail of all of 
 
 
 ## Notify, automate, and alert on events in the ML lifecycle
-Azure ML publishes key events to Azure EventGrid, which can be used to notify and automate on events in the ML lifecycle. For more information, please see [this document](../how-to-use-event-grid.md).
+Azure ML publishes key events to Azure Event Grid, which can be used to notify and automate on events in the ML lifecycle. For more information, please see [this document](../how-to-use-event-grid.md).
 
 
 ## Monitor for operational & ML issues

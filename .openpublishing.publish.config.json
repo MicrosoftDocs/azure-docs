@@ -903,6 +903,7 @@
     ".openpublishing.redirection.healthcare-apis.json",
     ".openpublishing.redirection.iot-hub.json",
     ".openpublishing.redirection.key-vault.json",
+    ".openpublishing.redirection.sql-database.json",
     ".openpublishing.redirection.security-benchmark.json",
     "articles/synapse-analytics/.openpublishing.redirection.synapse-analytics.json",
     ".openpublishing.redirection.azure-web-pubsub.json",
