@@ -1,7 +1,7 @@
 ---
-title: 'About point-to-site VPN client profile config files for Azure AD authentication'
+title: 'P2S VPN client profile config files - Azure AD authentication'
 titleSuffix: Azure VPN Gateway
-description: Learn about P2S VPN client profile configuration files for Azure AD authentication.
+description: Learn how to generate P2S VPN client profile configuration files for Azure AD authentication.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
@@ -9,9 +9,9 @@ ms.date: 05/04/2022
 ms.author: cherylmc
 
 ---
-# Generate P2S Azure VPN client profile config files - Azure AD authentication
+# Generate P2S Azure VPN Client profile config files - Azure AD authentication
 
-After you install the Azure VPN Client, you configure the VPN client profile. Client profile config files contain information that's necessary to configure a VPN connection. This article helps you obtain and understand the information needed to configure an Azure VPN Client profile.
+After you install the Azure VPN Client, you configure the VPN client profile. Client profile config files contain information that's necessary to configure a VPN connection. This article helps you obtain and understand the information needed to configure an Azure VPN Client profile for Azure VPN Gateway point-to-site configurations that use Azure AD authentication.
 
 ## <a name="generate"></a>Generate profile files
 
