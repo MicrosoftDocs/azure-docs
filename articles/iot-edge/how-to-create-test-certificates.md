@@ -220,6 +220,7 @@ Device identity certificates go in the **Provisioning** section of the config fi
 | Device identity certificate | `certs/iot-edge-device-identity-<device-id>.cert.pem` | Signed by the intermediate certificate generated earlier. Contains just the identity certificate. Specify in `config.toml` for DPS individual enrollment or IoT Hub provisioning.  |
 | Full chain certificate | `certs/iot-edge-device-identity-<device-id>-full-chain.cert.pem` | Contains the full certificate chain including the intermediate certificate. Specify in `config.toml` for IoT Edge to present to DPS for group enrollment provisioning. |
 | Private key | `private/iot-edge-device-identity-<device-id>.key.pem` | Private key associated with the device identity certificate. Should be specified in `config.toml` as long as you're using some sort of certificate authentication (thumbprint or CA) for either DPS or IoT Hub. |
+
 ---
 
 <!--1.1-->
@@ -232,7 +233,7 @@ Device identity certificates go in the **Provisioning** section of the config fi
 The **device CA** certificate is also responsible for creating certificates for modules running on the device, but IoT Edge runtime can create temporary certificate if device CA isn't configured. Device CA certificates go in the **Certificate** section of the `config.yaml` file on the IoT Edge device. To learn more, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md). 
 
 :::moniker-end
-s
+
 <!--1.2-->
 :::moniker range=">=iotedge-2020-11"
 
