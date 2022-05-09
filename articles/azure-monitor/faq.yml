@@ -675,7 +675,7 @@ sections:
           > If the resource you are creating in a new region is replacing a classic resource we recommend exploring the benefits of [creating a new workspace-based resource](app/create-workspace-resource.md) or alternatively [migrating your existing resource to workspace-based](app/convert-classic-resource.md).
           
       - question: |
-          What versions of ASP.NET and ASP.NET Core are supported by the Application Insights?
+          What versions of ASP.NET and ASP.NET Core are supported by Application Insights?
         answer: |
           .NET and .NET Core [LTS](https://dotnet.microsoft.com/download/visual-studio-sdks)
         
