@@ -20,7 +20,7 @@ items:
       href: quickstart-portal-spring-cloud-connection.md
     - name: CLI
       href: quickstart-cli-spring-cloud-connection.md
-  - name: Create a service connection in Container Apps from the Azure portal
+  - name: Service Connector in Container Apps
     href: quickstart-portal-container-apps.md
 - name: Tutorials
   expanded: true
