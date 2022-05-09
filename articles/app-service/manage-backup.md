@@ -16,13 +16,13 @@ Backup and restore**Standard**, **Premium**, **Isolated**. For more information 
 
 ## Automatic vs custom backups
 
-There are two types of backups in App Service. Automatic backups made for your app regularly as long as it's in a supported pricing tier. Custom backups requires initial configuration, and can be made on-demand or on a schedule. The following table shows the differences between the two types.
+There are two types of backups in App Service. Automatic backups made for your app regularly as long as it's in a supported pricing tier. Custom backups require initial configuration, and can be made on-demand or on a schedule. The following table shows the differences between the two types.
 
 ||Automatic backups | Custom backups |
 |-|-|-|
 | Pricing tiers | **Standard**, **Premium**. | **Standard**, **Premium**, **Isolated**. |
 | Configuration required | No. | Yes. |
-| Backup size | 30 GB. | 10 GB, 4GB of which can be the linked database. |
+| Backup size | 30 GB. | 10 GB, 4 GB of which can be the linked database. |
 | Linked database | Not backed up. | The following linked databases can be backed up: [SQL Database](/azure/azure-sql/database/), [Azure Database for MySQL](../mysql/index.yml), [Azure Database for PostgreSQL](../postgresql/index.yml), [MySQL in-app](https://azure.microsoft.com/blog/mysql-in-app-preview-app-service/). |
 | [Storage account](../storage/index.yml) required | Yes. | No. |
 | Backup frequency | Hourly, not configurable. | Configurable. |
@@ -38,7 +38,7 @@ There are two types of backups in App Service. Automatic backups made for your a
 
 # [Azure portal](#tab/portal)
 
-1. In your app management page in the [Azure portal](https://portal.azure.com), in the left menu, click **Backups**. The **Backups** page lists all the automatic and custom backups for your app and the status of each. If the backup fails, you can click the 
+1. In your app management page in the [Azure portal](https://portal.azure.com), in the left menu, select **Backups**. The **Backups** page lists all the automatic and custom backups for your app and the status of each.
    
     :::image type="content" source="./media/manage-backup/open-backups-page.png" alt-text="Screenshot that shows how to open the backups page.":::
 
@@ -48,7 +48,7 @@ There are two types of backups in App Service. Automatic backups made for your a
    
 1. The **Backup details** section is automatically populated for you. 
 
-1. Specify the restore destination in **Choose a destination**. To restore to a new app, click **Create new** under the **App Service** box. To restore to a new [deployment slot](deploy-staging-slots.md), select **Create new** under the **Deployment slot** box. 
+1. Specify the restore destination in **Choose a destination**. To restore to a new app, select **Create new** under the **App Service** box. To restore to a new [deployment slot](deploy-staging-slots.md), select **Create new** under the **Deployment slot** box. 
 
     If you choose an existing slot, all existing data in its file system is erased and overwritten. The production slot has the same name as the app name.
    
@@ -112,15 +112,15 @@ There are two types of backups in App Service. Automatic backups made for your a
 
 ## Create a custom backup
 
-1. In your app management page in the [Azure portal](https://portal.azure.com), in the left menu, click **Backups**.
+1. In your app management page in the [Azure portal](https://portal.azure.com), in the left menu, select **Backups**.
 
     :::image type="content" source="./media/manage-backup/open-backups-page.png" alt-text="Screenshot that shows how to open the backups page.":::
 
 1. At the top of the **Backups** page, select **Configure custom backups**.
 
-1. In **Storage account**, select an existing storage account (in the same subscription) or click **Create new**. Do the same with **Container**.
+1. In **Storage account**, select an existing storage account (in the same subscription) or select **Create new**. Do the same with **Container**.
 
-    To included the linked databases, click **Next: Advanced** > **Include database**, and select the database(s) to back up.
+    To back up the linked database(s), select **Next: Advanced** > **Include database**, and select the database(s) to back up.
 
     > [!NOTE]
     > For a supported database to appear in this list, its connection string must exist in the **Connection strings** section of the **Configuration** page for your app. 
@@ -133,11 +133,11 @@ There are two types of backups in App Service. Automatic backups made for your a
 
 Once the storage account and container is configured, you can initiate a manual backup at any time. Manual backups are retained indefinitely.
 
-1. At the top of the **Backups** page, click **Backup Now**.
+1. At the top of the **Backups** page, select **Backup Now**.
 
     :::image type="content" source="./media/manage-backup/manual-backup.png" alt-text="Screenshot that shows how to make an on-demand backup.":::
 
-    The on-demand backup is displayed in the list with a progress indicator. If it fails with an error, you can click the line item to see the error message.
+    The on-demand backup is displayed in the list with a progress indicator. If it fails with an error, you can select the line item to see the error message.
 
 <a name="automatedbackups"></a>
 
@@ -145,7 +145,7 @@ Once the storage account and container is configured, you can initiate a manual 
 
 1. In the **Configure custom backups** page, select **Set schedule**.
 
-1. Configure the backup schedule as desired and click **Configure**.
+1. Configure the backup schedule as desired and select **Configure**.
 
 <a name="partialbackups"></a>
 
@@ -161,7 +161,7 @@ Partial backups allow you choose exactly which files you want to back up.
 
 ### Exclude files from your backup
 
-Suppose you have an app that contains log files and static images that you've backed up once and are not going to change. You can exclude those folders and files from being stored in your future backups. To exclude them, create a `_backup.filter` file in the [`%HOME%\site\wwwroot` folder](operating-system-functionality.md#network-drives-unc-shares) of your app. Specify the list of files and folders you want to exclude in this file.
+Suppose you have an app that contains log files and static images that you've backed up once and aren't going to change. You can exclude those folders and files from being stored in your future backups. To exclude them, create a `_backup.filter` file in the [`%HOME%\site\wwwroot` folder](operating-system-functionality.md#network-drives-unc-shares) of your app. Specify the list of files and folders you want to exclude in this file.
 
 > [!TIP]
 > You can access your files by navigating to `https://<app-name>.scm.azurewebsites.net/DebugConsole`. If prompted, sign in to your Azure account.
@@ -199,7 +199,7 @@ The database backup for the app is stored in the root of the .zip file. For SQL 
 
 ## Error messages
 
-The **Backups** page shows you the status of each backup. To get log details regarding a failed backup, click the line item in the list. Use the following table to help you troubleshoot your backup. If the failure isn't documented in the table, open a support ticket.
+The **Backups** page shows you the status of each backup. To get log details regarding a failed backup, select the line item in the list. Use the following table to help you troubleshoot your backup. If the failure isn't documented in the table, open a support ticket.
 
 | Error | Fix |
 | - | - |
@@ -213,7 +213,7 @@ The **Backups** page shows you the status of each backup. To get log details reg
 | A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server). | Check that the connection string is valid. Allow the app's [outbound IPs](overview-inbound-outbound-ips.md) in the database server settings. |
 | Cannot open server "\<name>" requested by the login. The login failed. | Check that the connection string is valid. |
 | Missing mandatory parameters for valid Shared Access Signature. | Delete the backup schedule and reconfigure it. |
-| SSL connection is required. Please specify SSL options and retry. when trying to connect. | SSL connectivity to Azure Database for MySQL and Azure Database for PostgreSQL is not supported for database backups. Use the native backup feature in the respective database instead. |
+| SSL connection is required. Please specify SSL options and retry. when trying to connect. | SSL connectivity to Azure Database for MySQL and Azure Database for PostgreSQL isn't supported for database backups. Use the native backup feature in the respective database instead. |
 
 ## Automate with scripts
 
@@ -224,7 +224,7 @@ For samples, see:
 - [Azure CLI samples](samples-cli.md)
 - [Azure PowerShell samples](samples-powershell.md)
 
-## Frequently-asked questions
+## Frequently asked questions
 
 <a name="requirements"></a>
 
@@ -245,7 +245,7 @@ Each backup is a complete offline copy of your app, not an incremental update.
 
 #### Does Azure Functions support automatic backups?
 
-Automatic backups are available in preview for Azure Functions in [dedicated (App Service)](../azure-functions/dedicated-plan.md) **Standard** or **Premium** tiers. Function apps in the [**Consumption**](../azure-functions/consumption-plan.md) or [**Elastic Premium**](../azure-functions/functions-premium-plan.md) pricing tiers are not supported for automatic backups.
+Automatic backups are available in preview for Azure Functions in [dedicated (App Service)](../azure-functions/dedicated-plan.md) **Standard** or **Premium** tiers. Function apps in the [**Consumption**](../azure-functions/consumption-plan.md) or [**Elastic Premium**](../azure-functions/functions-premium-plan.md) pricing tiers aren't supported for automatic backups.
 
 #### What's included in an automatic backup?
 
@@ -282,32 +282,32 @@ A custom backup (one-time backup or scheduled backup) includes all content and c
 
 #### Why is my linked database not backed up?
 
-Linked databases are backed up only for custom backups, up to the allowable maximum size. If the maximum backup size (10 GB) or the maximum database size (4 GB) is exceeded, your backup fails. Here are a few common reasons why your linked database is not backed up: 
+Linked databases are backed up only for custom backups, up to the allowable maximum size. If the maximum backup size (10 GB) or the maximum database size (4 GB) is exceeded, your backup fails. Here are a few common reasons why your linked database isn't backed up: 
 
-* Backups of [TLS enabled Azure Database for MySQL](../mysql/concepts-ssl-connection-security.md) is not supported. If a backup is configured, you will encounter backup failures.
-* Backups of [TLS enabled Azure Database for PostgreSQL](../postgresql/concepts-ssl-connection-security.md) is not supported. If a backup is configured, you will encounter backup failures.
+* Backups of [TLS enabled Azure Database for MySQL](../mysql/concepts-ssl-connection-security.md) isn't supported. If a backup is configured, you'll encounter backup failures.
+* Backups of [TLS enabled Azure Database for PostgreSQL](../postgresql/concepts-ssl-connection-security.md) isn't supported. If a backup is configured, you'll encounter backup failures.
 * In-app MySQL databases are automatically backed up without any configuration. If you make manual settings for in-app MySQL databases, such as adding connection strings, the backups may not work correctly.
 
 #### What happens if the backup size exceeds the allowable maximum?
 
-Automatic backups can't be restored if the backup size exceeds the maximum size. Similarly, manual backups fail if the maximum backup size or the maximum database size is exceeded. To reduce your storage size, consider moving files like logs, images, audios, and videos to Azure Storage, for example.
+Automatic backups can't be restored if the backup size exceeds the maximum size. Similarly, manual backups fail if the maximum backup size or the maximum database size is exceeded. To reduce your storage size, consider moving files like logs, images, audio, and videos to Azure Storage, for example.
 
 ## Can I use a storage account that has security features enabled?
 
-The following security features in Azure storage are not supported for custom backups:
+The following security features in Azure storage aren't supported for custom backups:
 
-* Using a [firewall enabled storage account](../storage/common/storage-network-security.md) as the destination for your backups is not supported. If a backup is configured, you will encounter backup failures.
-* Using a [private endpoint enabled storage account](../storage/common/storage-private-endpoints.md) for backup and restore is not supported.
+* Using a [firewall enabled storage account](../storage/common/storage-network-security.md) as the destination for your backups isn't supported. If a backup is configured, you will encounter backup failures.
+* Using a [private endpoint enabled storage account](../storage/common/storage-private-endpoints.md) for backup and restore isn't supported.
 
 ## How do I restore to an app in a different subscription?
 
 1. Make a custom backup to an Azure Storage container.
 1. [Download the backup ZIP file](../storage/blobs/storage-quickstart-blobs-portal.md) to your local machine.
-1. In the **Backups** page for your target app, click **Restore** in the top menu.
+1. In the **Backups** page for your target app, select **Restore** in the top menu.
 1. In **Backup details**, select **Storage** in **Source**.
 1. Select the preferred storage account.
 1. In **Zip file**, select **Upload file**.
-1. In Name, click **Browse** and select the downloaded ZIP file.
+1. In Name, select **Browse** and select the downloaded ZIP file.
 1. Configure the rest of the sections like in [Restore a backup](#restore-a-backup).
 
 <a name="nextsteps"></a>
