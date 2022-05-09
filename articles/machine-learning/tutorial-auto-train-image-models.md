@@ -98,7 +98,7 @@ az ml compute create -f [PATH_TO_YML_FILE] --workspace-name [YOUR_AZURE_WORKSPAC
 
 The created compute can be provided using `compute` key in the `automl` task configuration yaml: 
 
-:::code language="yml" source="~/azureml-examples-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml" id="compute_settings":::
+:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml" id="compute_settings":::
 
 # [Python SDK v2 (preview)](#tab/SDK-v2-2)
 
@@ -127,7 +127,7 @@ You can use an Experiment to track your model training runs.
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 Experiment name can be provided using `experiment_name` key as follows: 
 
-:::code language="yml" source="~/azureml-examples-main/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml" id="experiment_name":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml" id="experiment_name":::
 
 # [Python SDK v2 (preview)](#tab/SDK-v2-3)
 Experiment name is used later while creating the task specific `automl` job.
@@ -220,22 +220,22 @@ In order to use the data for training, upload data to default Blob Storage of yo
 - Easy to share with other members of the team
 - Versioning of the metadata (location, description, etc)
 - Lineage tracking
-# [CLI v2](#tab/CLI-v2)
+# [CLI v2](#tab/CLI-v2-0)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK v2 (preview)](#tab/SDK-v2-0)
 [!Notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=upload-data)]
 ---
 
 Next step is to create `MLTable` from your data in jsonl format as shown below. MLtable package your data into a consumable object for training.
 
-:::code language="yml" source="~/azureml-examples-sdk-preview/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/data/training-mltable-folder/MLTable":::
+:::code language="yaml" source="~/azureml-examples-sdk-preview/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/data/training-mltable-folder/MLTable":::
 
 # [CLI v2](#tab/CLI-v2-4)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 The following configuration creates training and validation data from the MLTable.
 
-:::code language="yml" source="~/azureml-examples-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml" id="mltable_settings":::
+:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml" id="mltable_settings":::
 
 # [Python SDK v2 (preview)](#tab/SDK-v2-4)
 
@@ -252,7 +252,7 @@ To configure automated ML runs for image-related tasks, create a task specific A
 # [CLI v2](#tab/CLI-v2-5)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-:::code language="yml" source="~/azureml-examples-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml" id="task_settings":::
+:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml" id="task_settings":::
 
 # [Python SDK v2 (preview)](#tab/SDK-v2-5)
 
@@ -278,9 +278,9 @@ The Bandit early termination policy is also used. This policy terminates poor pe
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-:::code language="yml" source="~/azureml-examples-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml" id="sweep_settings":::
+:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml" id="sweep_settings":::
 
-:::code language="yml" source="~/azureml-examples-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml" id="search_space_settings":::
+:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml" id="search_space_settings":::
 
 # [Python SDK v2 (preview)](#tab/SDK-v2-6)
 
