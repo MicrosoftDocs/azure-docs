@@ -22,7 +22,7 @@ Azure Container Apps implements container app versioning by creating revisions. 
 
 ## Revision modes
 
-The revision mode controls whether only a single revision (*single revision mode*) or multiple revisions (*multiple revision mode*) of your container app can be simultaneously active. You can set your app's revision mode from your container app's **Revision management** page in the Azure portal, using Azure CLI commands, or in the ARM template.
+The revision mode controls whether only a single revision or multiple revisions of your container app can be simultaneously active. You can set your app's revision mode from your container app's **Revision management** page in the Azure portal, using Azure CLI commands, or in the ARM template.
 
 ### Single revision mode
 
@@ -32,7 +32,7 @@ By default, a container app is in *single revision mode*. In this mode, only one
 
 Set the revision mode to *multiple revision mode*, to run multiple revisions of your app simultaneously. While in *multiple revision mode*, new revisions are activated alongside current active revisions. 
 
-In *multiple revision mode*, traffic isn't automatically allocated to new revision for apps with external HTTP ingress.  Configure splitting from your container app's **Revision management** page in the Azure portal, using Azure CLI commands, or in an ARM template. 
+In *multiple revision mode*, traffic isn't automatically allocated to new revisions for apps with external HTTP ingress.  Configure splitting from your container app's **Revision management** page in the Azure portal, using Azure CLI commands, or in an ARM template. 
 
 ## Use cases
 
@@ -40,8 +40,8 @@ Container Apps revisions help you manage the versioning of your container app.  
 
 - Release a new version of your app.
 - Quickly revert to an earlier version of your app.
-- Split traffic between revisions to A/B testing [A/B testing](https://wikipedia.org/wiki/A/B_testing.
-- Gradually phase in a new revision in blue-green deployments [BlueGreen deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html).
+- Split traffic between revisions for [A/B testing](https://wikipedia.org/wiki/A/B_testing).
+- Gradually phase in a new revision in blue-green deployments.  For more information about blue-green deployment, see [BlueGreenDeployment](https://martinfowler.com/bliki/BlueGreenDeployment.html).
 
 The following diagram shows a container app with two revisions.
 
@@ -91,9 +91,9 @@ These parameters include:
 
 ## Revision Labels
 
-For container apps with external HTTP traffic, labels are a portable means to direct traffic to specific revisions.  A label provides a unique URL that points whichever revision the label is assigned.  You can provide the URL to direct traffic to a revision.  To switch traffic between revisions, move the label from one revision to another.
+For container apps with external HTTP traffic, labels are a portable means to direct traffic to specific revisions. A label provides a unique URL that you can use to route traffic to the revision that the label is assigned. To switch traffic between revisions, you can move the label from one revision to another.
 
-- Label name rules are the same of container app names.
+- Label name rules are the same as container app names.
 - The same label can't be applied to more than one active or inactive revision.
 - Labels keep the same URL when moved from one revision to another.
 - Traffic allocation isn't required for revisions with labels.
