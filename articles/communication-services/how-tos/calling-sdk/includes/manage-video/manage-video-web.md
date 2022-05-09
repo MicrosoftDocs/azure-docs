@@ -253,9 +253,8 @@ const type: MediaStreamType = remoteVideoStream.mediaStreamType;
 const isAvailable: boolean = remoteVideoStream.isAvailable;
 ```
 
-> [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'alpha' release of Azure Communication Services Calling Web SDK.
 - `isReceiving`:
+    - ***This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'alpha' release of Azure Communication Services Calling Web SDK.***
     - Will inform the application if remote video stream data is being received. Such cases are:
 	    - When the remote mobile participant has their video on and they put the browser app in the background, they will stop sending video stream data until the app is brought back to the foreground.
 		- When the remote participant has their video on and they have bad network connectivity and video is cutting off / lagging
