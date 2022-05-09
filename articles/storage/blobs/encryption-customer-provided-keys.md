@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 12/14/2020
+ms.date: 05/09/2022
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -29,7 +29,9 @@ If the client application sends an encryption key on the request, and the storag
 
 To send the encryption key as part of the request, a client must establish a secure connection to Azure Storage using HTTPS.
 
-Each blob snapshot can have its own encryption key.
+Each blob snapshot or blob version can have its own encryption key.
+
+Object replication is not supported for blobs in the source account that are encrypted with a customer-provided key.
 
 ## Request headers for specifying customer-provided keys
 

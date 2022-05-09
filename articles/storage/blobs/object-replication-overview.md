@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/02/2022
+ms.date: 05/09/2022
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
@@ -28,7 +28,7 @@ The following diagram shows how object replication replicates block blobs from a
 
 To learn how to configure object replication, see [Configure object replication](object-replication-configure.md).
 
-## Prerequisites for object replication
+## Prerequisites and caveats for object replication
 
 Object replication requires that the following Azure Storage features are also enabled:
 
@@ -38,6 +38,10 @@ Object replication requires that the following Azure Storage features are also e
 Enabling change feed and blob versioning may incur additional costs. For more details, refer to the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/).
 
 Object replication is supported for general-purpose v2 storage accounts and premium block blob accounts. Both the source and destination accounts must be either general-purpose v2 or premium block blob accounts. Object replication supports block blobs only; append blobs and page blobs are not supported.
+
+Object replication is supported for accounts that are encrypted with customer-managed keys. For more information about customer-managed keys, see [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md).
+
+Object replication is not supported for blobs in the source account that are encrypted with a customer-provided key. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
 
 Customer-managed failover is not supported for either the source or the destination account in an object replication policy.
 
