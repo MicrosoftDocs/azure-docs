@@ -192,6 +192,8 @@
       items:
         - name: Process data using Azure Stream Analytics
           href: process-data-azure-stream-analytics.md
+        - name: Materialize data to Cosmos DB
+          href: ../stream-analytics/no-code-materialize-cosmosdb.md?toc=%2fazure%2fevent-hubs%2ftoc.json
     - name: Integrate with Spring framework
       items:
         - name: Create a Spring Cloud Stream Binder app

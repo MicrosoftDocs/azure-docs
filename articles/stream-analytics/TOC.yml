@@ -198,6 +198,10 @@
       href: data-protection.md
     - name: Geo-redundancy
       href: geo-redundancy.md
+  - name: Build with no code editor
+    items:
+    - name: Materialize data to Cosmos DB
+      href: no-code-materialize-cosmosdb.md
   - name: Authenticate with managed identity
     items:
     - name: Managed Identities Overview
