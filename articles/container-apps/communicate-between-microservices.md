@@ -277,13 +277,13 @@ Next, you'll query for the API endpoint address to pass to the UI application wh
 # [Bash](#tab/bash)
 
 ```azurecli
-API_ENDPOINT=$(az containerapp show --resource-group $RESOURCE_GROUP --name $API_NAME --query configuration.ingress.fqdn -o tsv)
+API_ENDPOINT=$(az containerapp show --resource-group $RESOURCE_GROUP --name $API_NAME --query properties.configuration.ingress.fqdn -o tsv)
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$API_ENDPOINT=$(az containerapp show --resource-group $RESOURCE_GROUP --name $API_NAME --query configuration.ingress.fqdn -o tsv)
+$API_ENDPOINT=$(az containerapp show --resource-group $RESOURCE_GROUP --name $API_NAME --query properties.configuration.ingress.fqdn -o tsv)
 ```
 
 ---

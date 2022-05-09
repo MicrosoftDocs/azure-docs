@@ -16,6 +16,10 @@ This article demonstrates how to deploy to Azure Container Apps from a repositor
 
 This quickstart is the first in a series of articles that walk you through how to use core capabilities within Azure Container Apps. The first step is to create a backend web API for an application that returns a static collection of music albums.
 
+The following screenshot shows the final results of the API deployed in this article.
+
+:::image type="content" source="media/quickstart-code-to-cloud/azure-container-apps-album-api.png" alt-text="Screenshot of response from albums API endpoint.":::
+
 ## Prerequisites
 
 To complete this project, you'll need the following items:
@@ -397,7 +401,7 @@ The `az containerapp create` command returns the fully qualified domain name (FQ
 
 From your web browser, navigate to the `/albums` endpoint off the FQDN.
 
-**TODO** screenshot
+:::image type="content" source="media/quickstart-code-to-cloud/azure-container-apps-album-api.png" alt-text="Screenshot of response from albums API endpoint.":::
 
 ## Clean up resources
 
