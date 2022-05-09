@@ -94,7 +94,7 @@ This command uses the following variables:
     >[!Note] 
     >For more information on other options, you can use with mydumper, run the following command:
     **mydumper --help** . For more details see, [mydumper\myloader documentation](https://centminmod.com/mydumper.html)<br>
-    >To dump multiple databases in parallel, you can modiffy regex variable as shown in the example:  **regex ’^(DbName1\.|DbName2\.)**
+    >To dump multiple databases in parallel, you can modify regex variable as shown in the example:  **regex ’^(DbName1\.|DbName2\.)**
 
 ## Restore your database using myloader
 

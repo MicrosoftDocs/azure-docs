@@ -53,11 +53,11 @@ Now try Speech Studio to see how phrase list can improve recognition accuracy.
 1. Sign in to [Speech Studio](https://speech.microsoft.com/). 
 1. Select **Real-time Speech-to-text**.
 1. You test speech recognition by uploading an audio file or recording audio with a microphone. For example, select **record audio with a microphone** and then say "Hi Rehaan, this is Jessie from Contoso bank. " Then select the red button to stop recording. 
-1. You should see the transcription result in the **Test results** text box. If "Rehaan", "Jesse", or "Contoso" were recognized incorrectly, you can add the terms to a phrase list in the next step.
+1. You should see the transcription result in the **Test results** text box. If "Rehaan", "Jessie", or "Contoso" were recognized incorrectly, you can add the terms to a phrase list in the next step.
 1. Select **Show advanced options** and turn on **Phrase list**. 
 1. Enter "Contoso;Jessie;Rehaan" in the phrase list text box. Note that multiple phrases need to be separated by a semicolon.
     :::image type="content" source="./media/custom-speech/phrase-list-after-zoom.png" alt-text="Screenshot of a phrase list applied in Speech Studio." lightbox="./media/custom-speech/phrase-list-after-full.png":::
-1. Use the microphone to test recognition again. Otherwise you can select the retry arrow next to your audio file to re-run your audio. The terms "Rehaan", "Jesse", or "Contoso" should be recognized. 
+1. Use the microphone to test recognition again. Otherwise you can select the retry arrow next to your audio file to re-run your audio. The terms "Rehaan", "Jessie", or "Contoso" should be recognized. 
 
 ## Implement phrase list
 
