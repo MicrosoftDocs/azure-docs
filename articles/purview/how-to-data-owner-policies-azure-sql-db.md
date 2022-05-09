@@ -52,7 +52,7 @@ Set-AzSqlServer -ResourceGroupName "RESOURCEGROUPNAME" -ServerName "SERVERNAME" 
 ### Register the data sources in Microsoft Purview
 The Azure SQL DB resources need to be registered first with Microsoft Purview to later define access policies. You can follow these guides:
 
-[Register and scan Azure SQL DB](./register-scan-azure-sql-database)
+[Register and scan Azure SQL DB](./register-scan-azure-sql-database.md)
 
 After you've registered your resources, you'll need to enable *Data Use Management*. Data Use Management can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. Secure practices related to Data Use Management are described in this guide:
 
@@ -141,10 +141,9 @@ This section contains a reference of how actions in Microsoft Purview data polic
 
 ## Next steps
 Check blog, demo and related how-to guides
+* [Demo of access policy for Azure Storage](/video/media/8ce7c554-0d48-430f-8f63-edf94946947c/purview-policy-storage-dataowner-scenario_mid.mp4)
+* [Concepts for Microsoft Purview data owner policies](./concept-data-owner-policies.md)
 * Blog: [Private Preview: controlling access to Azure SQL at scale with policies in Purview](https://techcommunity.microsoft.com/t5/azure-sql-blog/private-preview-controlling-access-to-azure-sql-at-scale-with/ba-p/2945491)
-* [What's New in Microsoft Purview at Microsoft Ignite 2021](https://techcommunity.microsoft.com/t5/azure-purview/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954)
-* [Demo of data owner access policies for Azure Storage](https://www.youtube.com/watch?v=CFE8ltT19Ss)
-* [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](https://docs.microsoft.com/azure/purview/./how-to-data-owner-policies-resource-group)
-* [Enable Microsoft Purview data owner policies for SQL Performance Monitor and Security Auditor roles](./how-to-data-owner-policies-sql-performance-monitor.md)
+* [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md)
 * [Enable Microsoft Purview data owner policies on an Arc-enabled SQL Server](./how-to-data-owner-policies-arc-sql-server.md)
 
