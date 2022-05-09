@@ -10,6 +10,7 @@ ms.date: 05/24/2022
 
 # Redistribute throughput across partitions (preview)
 [!INCLUDE [appliesto-sql-api](../../../../Documents/cosmos/Azure-docs-pr/articles/cosmos-db/includes/appliesto-sql-api.md)]
+[!INCLUDE [appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 By default, Azure Cosmos DB distributes the provisioned throughput of a database or container equally across all physical partitions. However, scenarios may arise where due to a skew in the workload or choice of partition key, certain logical (and thus physical) partitions need more throughput than others. For these scenarios, Azure Cosmos DB gives you the ability to redistribute your provisioned throughput across physical partitions. This helps you achieve better performance without having to provision your overall throughput based on the hottest partition. 
 
@@ -20,7 +21,6 @@ In general, usage of this feature is recommended for scenarios when both the fol
 
 - You're consistently seeing greater than 1-5% overall rate of 429s
 - You've a consistent, predictable hot partition
-
 
 If you aren't seeing 429s and your end to end latency is acceptable, then no action to reconfigure RU/s per partition is required. Similarly, if you have a workload that has consistent traffic with occasional unpredictable spikes across *all your partitions*, it's recommended to use [autoscale](provision-throughput-autoscale.md) and [burst capacity (preview)](burst-capacity.md). This will ensure you can meet your throughput requirements. 
 
@@ -133,15 +133,18 @@ To enroll in the preview, file a support ticket in the [Azure portal](https://po
 ## Frequently asked questions
 
 ### What resources can I use this feature on?
-- The feature is only supported for SQL API accounts and on collections with dedicated throughput (either manual or autoscale). Shared throughput databases aren't supported in the preview.
+The feature is only supported for SQL and API for MongoDB accounts and on collections with dedicated throughput (either manual or autoscale). Shared throughput databases aren't supported in the preview.
 
 ### Which version of the Azure Cosmos DB PowerShell and CLI support this feature?
 The ability to redistribute RU/s across physical partitions is only supported in the latest preview version of the Azure Cosmos DB PowerShell and CLI.
 
 ### What is the maximum number of physical partitions I can change in one request?
-- The maximum number of physical partitions you can update in one request is 20. 
-- You must provide at least one source and one target physical partition in each request. 
+- The maximum number of source and physical partitions that can be included in a single request is 20 each.
+- You must provide at least one source and one target physical partition in each request. The source partition(s) must have enough RU/s to redistribute to the target partition(s).
 - The desired RU/s for each target physical partition can't exceed 10,000 RU/s or the total RU/s of the overall resource. If your desired RU/s is greater than the RU/s of the overall resource, increase your overall RU/s first before redistributing the RU/s.
+
+### Is there a limit on how frequently I can make a call to redistribute throughput across partitions?
+You can make a maximum of 5 requests per minute to redistribute throughput across partitions. 
 
 ### What happens to my RU/s distribution when I change the overall RU/s?
 - If you lower your RU/s, each physical partition gets the equivalent fraction of the new RU/s (`current throughput fraction * new RU/s`). For example, suppose you have a collection with 6000 RU/s and 3 physical partitions. You scale it down to 3000 RU/s.
@@ -153,7 +156,8 @@ The ability to redistribute RU/s across physical partitions is only supported in
     |P1: 4000 RU/s      |  P1: 1000 RU/s       |   2/3      |
     |P2: 1000 RU/s      |  P2: 500 RU/s       |       1/6  |
 
-- If you increase your RU/s without triggering a split - that is, you scale to a total RU/s <= current partition count * 10,000 RU/s - each physical partition gets `MAX(current throughput fraction * new RU/s, new RU/s / total partition count).`
+- If you increase your RU/s without triggering a split - that is, you scale to a total RU/s <= current partition count * 10,000 RU/s - each physical partition will have RU/s >= `MIN(current throughput fraction * new RU/s, 10,000 RU/s)`
+
 For example, suppose you have a collection with 6000 RU/s and 3 physical partitions. You scale it up to 12,000 RU/s:
 
     |Before scale-up (6000 RU/s)  |After scale up (12,000 RU/s)  |Fraction of total RU/s  |
