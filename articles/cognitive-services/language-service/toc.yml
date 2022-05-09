@@ -817,10 +817,8 @@ items:
     href: text-summarization/quickstart.md
   - name: Conversation summarization quickstart
     href: conversation-summarization/quickstart.md
-  - name: Document summarization language support
+  - name: Language support
     href: text-summarization/language-support.md
-  - name: Conversation summarization language support
-    href: conversation-summarization/language-support.md
   - name: Responsible use of AI
     items: 
     - name: Transparency note for text summarization
@@ -834,9 +832,9 @@ items:
       displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
-    - name: Call the document summarization API
+    - name: Summarize documents
       href: text-summarization/how-to/call-api.md
-    - name: Call the conversation summarization API
+    - name: Summarize customer support conversations
       href: conversation-summarization/how-to/call-api.md
   - name: Reference
     items:
