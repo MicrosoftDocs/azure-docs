@@ -35,8 +35,6 @@ This page is updated monthly, so revisit it regularly.
  
 <tr><td><b>Monitoring</b></td><td>Multiple updates to ADF monitoring experiences</td><td>New updates to the monitoring experience in Azure Data Factory including the ability to export results to a CSV, clear all filters, open a run in a new tab, and improved caching of columns and results.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/adf-monitoring-improvements/ba-p/3295531">Learn more</a></td></tr>
  
-<tr><td><b>Orchestration</b></td><td>Azure Functions available in ADF managed virtual network</td><td>Now managed private endpoints for Azure Functions are available in Azure Data Factory managed virtual network. So you can leverage private link and secure the communications to Azure Functions during the orchestration.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/azure-functions-available-in-adf-managed-virtual-network/ba-p/3298383">Learn more</a></td></tr> 
-
 <tr><td><b>User Interface</b></td><td>New Regional format support</td><td>Choose your language and the regional format that will influence how data such as dates and times appear in the Azure Data Factory Studio monitoring. These language and regional settings affect only the Azure Data Factory Studio user interface and do not change/modify your actual data.</td></tr>
  
 </table>
