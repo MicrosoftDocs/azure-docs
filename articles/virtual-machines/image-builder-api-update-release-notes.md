@@ -28,7 +28,7 @@ This document contains all major API changes and feature updates for the Azure I
 
 **Breaking Change**:
  
-Our 2021-10-01 API introduces a change to the error schema that will be part of every future API release. Any customer that has automated our service needs to expect to receive a new error output when switching to 2021-10-01 or newer API versions (new schema shown below). We recommend that once customers switch to the new API version (2021-10-01 and beyond), they don't revert to older versions as they'll have to change their automation again to expect the older error schema. We don't anticipate changing the error schema again in future releases.
+Our 2021-10-01 API introduces a change to the error schema that will be part of every future API release. Any Azure Image Builder automations you may have need to take account the new error output when switching to 2021-10-01 or newer API versions (new schema shown below). We recommend that once customers switch to the new API version (2021-10-01 and beyond), they don't revert to older versions as they'll have to change their automation again to expect the older error schema. We don't anticipate changing the error schema again in future releases.
 
 For API versions 2020-02-14 and older, the error output will look like the following messages:
 
