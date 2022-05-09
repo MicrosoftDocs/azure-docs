@@ -153,7 +153,7 @@
       href: billing.md
     - name: Manage workspace access
       href: resource-context-rbac.md
-  - name: Migrate
+  - name: Migrate Microsoft Sentinel
     items:
     - name: Plan your migration
       items:
@@ -168,9 +168,9 @@
       - name: Review migration architectures
         href: migration-architectures.md
       - name: Compare and contrast SIEMs
-        href: migration-compare-siems
+        href: migration-compare-siems.md
       - name: Identify your migration priorities
-        href: migration-priorities
+        href: migration-priorities.md
       - name: Identify use cases
         href: migration-identify-use-cases.md
       - name: Identify rules
@@ -182,16 +182,15 @@
       - name: Identify historical data
         href: migration-identify-historical-data.md
       - name: Review Security Operations (SOC)
+        href: migration-review-soc-operations.md
     - name: Implement
       items:
-      - name: Migrate IBM
+      - name: Migrate IBM SOAR automation
         href: migration-ibm.md
       - name: Migrate ArcSight
-        href: migration-arcsight.md
-      - name: Migrate ArcSight
-        href: migration-arcsight.md
-      - name: Migrate QRadar
-        href: migration-qradar.md
+        href: migration-arcsight.md      
+      - name: Migrate Splunk
+        href: migration-splunk.md
       - name: Migrate QRadar
         href: migration-qradar.md
       - name: Migrate LogRhythm
@@ -206,6 +205,8 @@
         href: migration-export-ingest.md
     - name: Migrate SOC analyst processes
       items:
+      - name: Overview
+        href: migration-soc-overview.md
       - name: Incident triage
         href: migration-incident-triage.md
       - name: Analyst workflow
