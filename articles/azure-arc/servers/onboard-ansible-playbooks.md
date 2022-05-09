@@ -1,12 +1,12 @@
 ---
 title: Connect machines at scale using Ansible Playbooks
-description: In this article, you learn how to connect machines to Azure using Azure Arc-enabled servers using group policy. 
+description: In this article, you learn how to connect machines to Azure using Azure Arc-enabled servers using Ansible playbooks. 
 ms.date: 05/09/2022
 ms.topic: conceptual
 ms.custom: template-how-to
 ---
 
-## Connect machines at scale using Ansible playbooks
+# Connect machines at scale using Ansible playbooks
 
 You can onboard Ansible managed nodes to Azure Arc-enabled servers at scale using Ansible playbooks. To do so, you'll need to download, modify, and then run the appropriate playbook.
 
@@ -14,7 +14,7 @@ Before you get started, be sure to review the [prerequisites](prerequisites.md) 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-### Generate a service principal and collect Azure details
+## Generate a service principal and collect Azure details
 
 Before you can run the script to connect your machines, you'll need to do the following:
 
@@ -25,7 +25,7 @@ Before you can run the script to connect your machines, you'll need to do the fo
 
 1. Collect details on the region, resource group, tenant id, and subscription id where the Azure Arc-enabled resource will be projected.
 
-### Download the Ansible playbook
+## Download the Ansible playbook
 
 If you are onboarding Windows servers to Azure Arc-enabled servers, copy the following Ansible playbook template and save the playbook as `arc-server-onboard-playbook.yml`.
 
@@ -71,7 +71,7 @@ If you are onboarding Linux servers to Azure Arc-enabled servers, download the f
         when: ansible_system == 'Linux'
 ```
 
-### Modify the Ansible playbook
+## Modify the Ansible playbook
 
 After downloading the Ansible playbook, complete the following steps:
 
@@ -86,7 +86,7 @@ After downloading the Ansible playbook, complete the following steps:
 
 1. Enter the correct hosts field capturing the target servers for onboarding to Azure Arc. You can employ Ansible patterns to selectively target which hybrid machines to onboard.
 
-### Run the Ansible playbook
+## Run the Ansible playbook
 
 From the Ansible control node, run the Ansible playbook by invoking the `ansible-playbook` command:
 
@@ -96,7 +96,7 @@ ansible-playbook arc-server-onboard-playbook.yml
 
 After the playbook has run completely, the **PLAY RECAP** will indicate that all tasks were completed successfully and surface any nodes where tasks failed.
 
-### Verify the connect with Azure Arc
+## Verify the connect with Azure Arc
 
 After you have successfully installed the agent and configured it to connect to Azure Arc-enabled servers, go to the Azure portal to verify that the servers in your target hosts have successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal). 
 
