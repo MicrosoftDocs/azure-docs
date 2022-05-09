@@ -103,7 +103,7 @@ For more information about the format of conditions, see [Azure role assignment 
 
 ## Features of conditions
 
-Here's a list of the some of the primary features of conditions:
+Here's a list of the primary features of conditions:
 
 | Feature | Status | Date |
 | --- | --- | --- |
@@ -135,7 +135,7 @@ Here are some of the limits for conditions.
 
 | Resource | Limit | Notes |
 | --- | --- | --- |
-| Number of expressions per condition using the the visual editor | 5 | You can add more than 5 expressions using the code editor |
+| Number of expressions per condition using the visual editor | 5 | You can add more than five expressions using the code editor |
 
 ## Known issues
 

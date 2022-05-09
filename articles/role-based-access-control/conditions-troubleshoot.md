@@ -213,7 +213,7 @@ If you created a condition with the Read a blob action prior to May 2022, you mi
 
 **Solution**
 
-Open the **Select an action** pane and re-select the **Read a blob** action.
+Open the **Select an action** pane and reselect the **Read a blob** action.
 
 ## Next steps
 
