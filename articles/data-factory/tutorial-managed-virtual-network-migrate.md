@@ -19,14 +19,14 @@ This tutorial provides steps to move existing Azure integration runtime to an Az
 ## Steps to move existing Azure integration runtime to an Azure integration runtime in a managed virtual network
 1. Enable managed virtual network on your Azure integration runtime. You can enable it either on a new Azure integration time or an existing one.
 
-:::image type="content" source="./media/tutorial-managed-virtual-network/enable-managed-virtual network.png" alt-text="Enable managed virtual network during the creation or edit Azure integration runtime":::
+:::image type="content" source="./media/tutorial-managed-virtual-network/enable-managed-virtual network.png" alt-text="Screenshot of enabling managed virtual network during the creation or edit Azure integration runtime.":::
 
 > [!NOTE]
 > You can't enable managed virtual network on the default auto-resolve integration runtime.
 
 2. Modify all the integration runtime references in the linked service to the newly created Azure integration runtime in the managed virtual network. 
 
-:::image type="content" source="./media/tutorial-managed-virtual-network/modify-linked-service.png" alt-text="Modify the integration runtime reference in the linked service":::
+:::image type="content" source="./media/tutorial-managed-virtual-network/modify-linked-service.png" alt-text="Screenshot of modifying the integration runtime reference in the linked service.":::
 
 
 ## Next steps
