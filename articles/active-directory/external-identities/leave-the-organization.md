@@ -38,15 +38,18 @@ In your My Account portal, on the Organizations page, you can view and manage th
 To leave an organization, follow these steps.
 
 1. Go to your **My Account** page by doing one of the following:
-- If you're using a work or school account, go to https://myaccount.microsoft.com and sign in.
-- If you're using a personal account, go to https://myapps.microsoft.com and sign in, and then select your account icon in the upper right and select **View account**. Or, use a My Account URL that includes your tenant information to go directly to your My Account page (examples are shown in the following note).  
+
+   - If you're using a work or school account, go to https://myaccount.microsoft.com and sign in.
+   - If you're using a personal account, go to https://myapps.microsoft.com and sign in, and then select your account icon in the upper right and select **View account**. Or, use a My Account URL that includes your tenant information to go directly to your My Account page (examples are shown in the following note).  
    > [!NOTE]
    > If you use the email one-time passcode feature when signing in, you'll need to use a My Account URL that includes your tenant name or tenant ID, for example: `https://myaccount.microsoft.com?tenantId=wingtiptoys.onmicrosoft.com` or `https://myaccount.microsoft.com?tenantId=ab123456-cd12-ef12-gh12-ijk123456789`.
 
-2. Under **Other organizations you belong to**, find the organization that you want to leave, and select **Leave organization**.
+1. Select **Organizations** from the left navigation pane or select the **Manage organizations** link from the **Organizations** block.
+
+1. Under **Other organizations you belong to**, find the organization that you want to leave, and select **Leave organization**.
 
    ![Screenshot showing Leave organization option in the user interface](media/leave-the-organization/leave-org.png)
-3. When asked to confirm, select **Leave**.
+1. When asked to confirm, select **Leave**.
 
 > [!NOTE]
    > You cannot leave your home organization.
