@@ -193,6 +193,28 @@ If you copy a condition from a document, it might include special characters and
 
 If you copied a condition from a rich text editor and you are certain the condition is correct, delete all spaces and returns and then add back the relevant spaces. Alternatively, use a plain text editor or a code editor, such as Visual Studio Code.
 
+## Symptom - Attribute does not apply error in visual editor for previously saved condition
+
+When you open a previously saved condition in the visual editor, you get the following message:
+
+`Attribute does not apply for the selected actions. Select a different set of actions.`
+
+**Cause**
+
+In May 2022, the Read a blob action was changed from the following format:
+
+`!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})`
+
+To include the `Blob.List` suboperation:
+
+`!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})`
+
+If you created a condition with the Read a blob action prior to May 2022, you might see this error message in the visual editor.
+
+**Solution**
+
+Open the **Select an action** pane and re-select the **Read a blob** action.
+
 ## Next steps
 
 - [Azure role assignment condition format and syntax (preview)](conditions-format.md)
