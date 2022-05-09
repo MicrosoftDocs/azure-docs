@@ -22,11 +22,11 @@ When applications are made up of multiple individual web application using diffe
 
 The following figure shows an example for complex application domain structure.
 
-![Diagram of domain structure for a complex application showing resource sharing between primary and secondary application](./media/application-proxy-configure-complex-application/complex-app-structure.png)
+![Diagram of domain structure for a complex application showing resource sharing between primary and secondary application.](./media/application-proxy-configure-complex-application/complex-app-structure.png)
 
 With [Azure AD Application Proxy](application-proxy.md), you can address this issue by using complex application publishing that is made up of multiple URLs across various domains. 
 
-![Diagram of a Complex application with multiple application segments definition](./media/application-proxy-configure-complex-application/complex-app-flow.png)
+![Diagram of a Complex application with multiple application segments definition.](./media/application-proxy-configure-complex-application/complex-app-flow.png)
 
 A complex app has multiple app segments, with each app segment being a pair of an internal & external URL.
 There is one conditional access policy associated with the app and access to any of the external URLs work with pre-authentication with the same set of policies that are enforced for all.
