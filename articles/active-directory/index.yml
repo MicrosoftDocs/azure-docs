@@ -116,7 +116,7 @@ additionalContent:
           url: ./privileged-identity-management/index.yml
         # Card
         - title: External Identities
-          summary: Collaborate with anyone while letting them authenticate using their own identity.
+          summary: Collaborate with partners using their own identities (B2B), or design customer identity and access management for your app (B2C).
           url: ./external-identities/index.yml
         # Card
         - title: Cloud sync
@@ -156,7 +156,7 @@ additionalContent:
           url: ./manage-apps/index.yml
         # Card
         - title: Microsoft identity platform
-          summary: Build your app on the Microsoft identity platform and user Azure AD as your authentication service.
+          summary: Build your app on the Microsoft identity platform and use Azure AD as your authentication service.
           url: ./develop/index.yml
         # Card
         - title: Managed identities
