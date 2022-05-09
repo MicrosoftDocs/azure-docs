@@ -27,7 +27,7 @@ Translator service supports language translation for more than 100 languages. If
 
 * Optical character recognition (OCR) teams with Document Translation to power scanned PDF document translation.
 
-* OCR identifies [printed and handwritten text](language-support.md#-document-translation-scanned-pdfs) in scanned PDF documents. The text content, identified by OCR, is then processed and translated by the Document Translation API.
+* OCR identifies [printed text](language-support.md#-document-translation-scanned-pdfs) in scanned PDF documents. The text content, identified by OCR, is then processed and translated by the Document Translation API.
 
 ## April 2022
 

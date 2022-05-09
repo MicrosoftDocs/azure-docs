@@ -139,7 +139,7 @@ items:
         href: document-translation/reference/get-translation-status.md
       - name: Cancel translation
         href: document-translation/reference/cancel-translation.md
-    - name: FAQ
+    - name: Document Translation FAQ
       href: document-translation/faq.yml
 - name: Custom Translator
   items:

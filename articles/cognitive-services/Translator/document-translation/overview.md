@@ -27,7 +27,7 @@ This documentation contains the following article types:
 | ---------| -------------|
 | **Translate large files**| Translate whole documents asynchronously.|
 |**Translate numerous files**|Translate multiple files across all supported languages and dialects while preserving document structure and data format.|
-|**Translate 🆕[scanned](#document-translation-scanned-pdfs) and text-embedded pdf documents** |Translate printed and handwritten text in scanned PDF documents. |
+|**Translate 🆕[scanned](#document-translation-scanned-pdfs) and text-embedded pdf documents** |Translate printed text in scanned PDF documents. |
 |**Preserve source file presentation**| Translate files while preserving the original layout and format.|
 |**Apply custom translation**| Translate documents using general and [custom translation](../customization.md#custom-translator) models.|
 |**Apply custom glossaries**|Translate documents using custom glossaries.|
@@ -42,19 +42,19 @@ This documentation contains the following article types:
 
 * Uses optical character recognition (OCR) foundational technology to power translation for scanned PDF documents such as agreements, contracts, manuals, and receipts.
 
-* Includes scanned PDF [language support](../language-support.md#-document-translation-scanned-pdfs) for 164 print and 9 handwritten text languages.
+* Includes extensive [language support](../language-support.md#-document-translation-scanned-pdfs) for printed text languages.
 
-* Supports scanned PDFs with multiple languages and mixed modes (print and handwritten text) in the same document.
+* Supports scanned PDFs with multiple languages in the same document.
 
-## Input requirements
+## Document Translation input requirements
 
 * Scanned PDF documents: For best results, provide one high-quality scan per document.
 
-* PDF dimensions: ≤ 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
+* Scanned or text-embedded PDF dimensions: ≤ 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
 
-* If your PDFs are password-locked, you must remove the lock before submission.
+* If your scanned or text-embedded PDFs are password-locked, you must remove the lock before submission.
 
-* Source language identification isn't required. Document Translation can automatically detect the language of the source text. You can provide the source language code to force the service to apply a specific language model.
+* Source language identification isn't required. Document Translation can automatically detect the language of the source text. However, if the language of the content in the source document is known, it's recommended that the source language is specified in the request to get a better translation. You can provide the source language code if you want to force the service to apply a specific language model.
 
 * Document size: ≤ 40 mb
 
