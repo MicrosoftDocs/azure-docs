@@ -28,13 +28,16 @@ Because zonal VMs are created across the availability zones, all migration optio
 
 To migrate to availability zone support, your VM SKUs must be available for your region. To check for VM SKU availability, use one of the following methods:
 
--  Use PowerShell to [Check VM SKU availability](../virtual-machines/windows/create-PowerShell-availability-zone.md#check-vm-sku-availability).
--  Use the Azure CLI to [Check VM SKU availability](../virtual-machines/linux/create-cli-availability-zone.md#check-vm-sku-availability).
--  Go to [Foundational Services](az-region.md#an-icon-that-signifies-this-service-is-foundational-foundational-services).
+- Use PowerShell to [Check VM SKU availability](../virtual-machines/windows/create-PowerShell-availability-zone.md#check-vm-sku-availability).
+- Use the Azure CLI to [Check VM SKU availability](../virtual-machines/linux/create-cli-availability-zone.md#check-vm-sku-availability).
+- Go to [Foundational Services](az-region.md#an-icon-that-signifies-this-service-is-foundational-foundational-services).
 
+
+## Downtime requirements
+
+Because zonal VMs are created across the availability zones, all migration options mentioned in this article require downtime during deployment.
 
 ## Migration Option 1: Redeployment
-
 
 ### When to use redeployment
 
@@ -75,6 +78,9 @@ To learn how to move VMs to another region, see [Move Azure VMs to an availabili
 To learn how to move encrypted VMs to another region, see [Tutorial: Move encrypted Azure VMs across regions](../resource-mover/tutorial-move-region-encrypted-virtual-machines.md)
 
 ## Migration Option 3: Regional to Zonal Move (Preview)
+
+[!IMPORTANT]
+This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 
 ### When to use Regional to Zonal Move
 
