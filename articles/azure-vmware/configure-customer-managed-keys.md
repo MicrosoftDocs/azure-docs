@@ -2,7 +2,7 @@
 title: Configure customer-managed key encryption at rest in Azure VMware Solution
 description: Learn how to encrypt data in Azure VMware Solution with customer-managed keys using Azure Key Vault.
 ms.topic: how-to 
-ms.date: 1/31/2022
+ms.date: 5/09/2022
 
 ---
 
@@ -10,7 +10,7 @@ ms.date: 1/31/2022
 
 ## Overview
 
-This article will show you how to encrypt VMware vSAN Key Encryption Keys (KEK) with customer-managed keys (CMKs) handled by customer-owned Azure Key Vault. 
+This article will show you how to encrypt VMware vSAN Key Encryption Keys (KEK) with customer-managed keys (CMKs) managed by customer-owned Azure Key Vault. 
 
 When CMK encryptions are enabled on your Azure VMware Solution private cloud, Azure VMware Solution uses the CMK from your Key Vault to encrypt the vSAN KEKs. Each ESXi host that participates in the vSAN cluster uses randomly generated Disk Encryption Keys (DEKs) that ESXi uses to encrypt disk data at rest. vSAN encrypts all DEKs with a KEK provided by Azure VMware Solution key management system (KMS). Azure VMware Solution private cloud and Key Vault don't need to be in the same subscription.
 
@@ -27,7 +27,7 @@ Customer-managed keys (CMKs) feature supports, see the following shown by key ty
 
 ## Topology 
 
-<!-- New content from Rahi to go here -->
+The following diagram shows how Azure VMware Solution uses Azure Active Directory (Azure AD) and a key vault to deliver the customer-managed key.
 
 :::image type="content" source="media/configure-customer-managed-keys/customer-managed-keys-topology-diagram.png" alt-text="Diagram showing the customer-managed keys topology." border="false" lightbox="media/configure-customer-managed-keys/customer-managed-keys-topology-diagram.png":::
 
@@ -46,11 +46,8 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
 1. Navigate to **Azure VMware Solution** and locate your SDDC.
 1. From the left navigation, open **Manage** and select **Identity**. 
 1. In **System Assigned**, check **Enable** and select **Save**.
-    1. **System Assigned identity** should be enabled.
-1. To validate, select the **Overview** tab of SDDC.
-    <!-- New image from Rahi to go here -->
-1. Find **JSON View** in the upper right corner and select it.
-1. In the **Resource JSON** window, use the **API version** drop-down menu to find and select the appropriate API version.
+
+**System Assigned identity** should now be enabled.
 
 # [Template](#tab/azure-resource-manager)
 
@@ -274,7 +271,7 @@ Use the given JSON file to create an Azure Resource Manager template (ARM templa
 
 ## Customer-managed key version lifecycle
 
-Change the customer-managed key (CMK) by creating a new version of the key. The creation of a new version won't interrupt the virtual machine (VM) workflow.
+You can change the Customer Managed Key by creating a new version of the key at any time without interrupting the virtual machine (VM) workload.
 
 In Azure VMware Solution, CMK key version rotation will depend on the key selection setting you've chosen during CMK setup.
 
@@ -284,7 +281,7 @@ A customer enables CMK encryption without supplying a specific key version for C
 
 **Key selection setting 2**
 
-A customer can enable CMK encryption for a specified CMK key version to supply the full key version URI under the **Enter Key from URI** option. In this scenario, when the customer's current key expires, the customer will need to re-enable CMK encryption with a new key.
+A customer can enable CMK encryption for a specified CMK key version to supply the full key version URI under the **Enter Key from URI** option. When the customer's current key expires, the customer will need to re-enable CMK encryption with a new key.
 
 ## Change from customer-managed key to Microsoft managed key 
 
