@@ -3,13 +3,14 @@ title: Use Computer Vision container with Kubernetes and Helm
 titleSuffix: Azure Cognitive Services
 description: Learn how to deploy the Computer Vision container using Kubernetes and Helm.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: how-to
-ms.date: 01/27/2020
-ms.author: aahi
+ms.date: 05/09/2022
+ms.author: pafarley
+ms.custom: non-critical
 ---
 
 # Use Computer Vision container with Kubernetes and Helm

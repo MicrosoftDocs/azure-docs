@@ -12,6 +12,7 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
+ms.custom: non-critical
 ---
 
 # Upgrade from Read v2.x to Read v3.x
