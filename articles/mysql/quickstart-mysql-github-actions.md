@@ -165,51 +165,51 @@ You need to provide your application's **Client ID**, **Tenant ID**, and **Subsc
 
 4. Rename your workflow `MySQL for GitHub Actions` and add the checkout and login actions. These actions will check out your site code and authenticate with Azure using the `AZURE_CREDENTIALS` GitHub secret you created earlier.
 
-# [Service principal](#tab/userlevel)
-
-```yaml
-name: MySQL for GitHub Actions
-
-on:
-    push:
-        branches: [ main ]
-    pull_request:
-        branches: [ main ]
-
-jobs:
-    build:
-        runs-on: windows-latest
-        steps:
-        - uses: actions/checkout@v1
-        - uses: azure/login@v1
-            with:
-                creds: ${{ secrets.AZURE_CREDENTIALS }}
-  ```
-
-# [OpenID Connect](#tab/openid)
-
-```yaml
-name: MySQL for GitHub Actions
-
-on:
-    push:
-        branches: [ main ]
-    pull_request:
-        branches: [ main ]
-
-jobs:
-    build:
-        runs-on: windows-latest
-        steps:
-        - uses: actions/checkout@v1
-        - uses: azure/login@v1
-            with:
-              client-id: ${{ secrets.AZURE_CLIENT_ID }}
-              tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-              subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-```
-
-___
+    # [Service principal](#tab/userlevel)
+    
+    ```yaml
+    name: MySQL for GitHub Actions
+    
+    on:
+        push:
+            branches: [ main ]
+        pull_request:
+            branches: [ main ]
+    
+    jobs:
+        build:
+            runs-on: windows-latest
+            steps:
+            - uses: actions/checkout@v1
+            - uses: azure/login@v1
+                with:
+                    creds: ${{ secrets.AZURE_CREDENTIALS }}
+      ```
+    
+    # [OpenID Connect](#tab/openid)
+    
+    ```yaml
+    name: MySQL for GitHub Actions
+    
+    on:
+        push:
+            branches: [ main ]
+        pull_request:
+            branches: [ main ]
+    
+    jobs:
+        build:
+            runs-on: windows-latest
+            steps:
+            - uses: actions/checkout@v1
+            - uses: azure/login@v1
+                with:
+                  client-id: ${{ secrets.AZURE_CLIENT_ID }}
+                  tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+                  subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    ```
+    
+    ___
 
 5. Use the Azure MySQL Deploy action to connect to your MySQL instance. Replace `MYSQL_SERVER_NAME` with the name of your server. You should have a MySQL data file named `data.sql` at the root level of your repository.
 
@@ -223,42 +223,11 @@ ___
 
 6. Complete your workflow by adding an action to sign out of Azure. Here's the completed workflow. The file will appear in the `.github/workflows` folder of your repository.
 
-# [Service principal](#tab/userlevel)
-
-```yaml
-name: MySQL for GitHub Actions
-
-on:
-  push:
-      branches: [ main ]
-  pull_request:
-      branches: [ main ]
-jobs:
-    build:
-        runs-on: windows-latest
-        steps:
-          - uses: actions/checkout@v1
-          - uses: azure/login@v1
-            with:
-              creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-          - uses: azure/mysql@v1
-            with:
-              server-name: MYSQL_SERVER_NAME
-              connection-string: ${{ secrets.AZURE_MYSQL_CONNECTION_STRING }}
-              sql-file: './data.sql'
-
-            # Azure logout
-          - name: logout
-            run: |
-              az logout
-```
-# [OpenID Connect](#tab/openid)
-
-```yaml
+    # [Service principal](#tab/userlevel)
+    
     ```yaml
     name: MySQL for GitHub Actions
-
+    
     on:
       push:
           branches: [ main ]
@@ -271,21 +240,51 @@ jobs:
               - uses: actions/checkout@v1
               - uses: azure/login@v1
                 with:
-                  client-id: ${{ secrets.AZURE_CLIENT_ID }}
-                  tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-                  subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+                  creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
               - uses: azure/mysql@v1
                 with:
                   server-name: MYSQL_SERVER_NAME
                   connection-string: ${{ secrets.AZURE_MYSQL_CONNECTION_STRING }}
                   sql-file: './data.sql'
-
+    
                 # Azure logout
               - name: logout
                 run: |
                   az logout
-```
-___
+    ```
+    # [OpenID Connect](#tab/openid)
+    
+    ```yaml
+      name: MySQL for GitHub Actions
+    
+      on:
+        push:
+            branches: [ main ]
+        pull_request:
+            branches: [ main ]
+      jobs:
+          build:
+              runs-on: windows-latest
+              steps:
+                - uses: actions/checkout@v1
+                - uses: azure/login@v1
+                  with:
+                    client-id: ${{ secrets.AZURE_CLIENT_ID }}
+                    tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+                    subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+                - uses: azure/mysql@v1
+                  with:
+                    server-name: MYSQL_SERVER_NAME
+                    connection-string: ${{ secrets.AZURE_MYSQL_CONNECTION_STRING }}
+                    sql-file: './data.sql'
+    
+                  # Azure logout
+                - name: logout
+                  run: |
+                    az logout
+    ```
+    ___
 
 ## Review your deployment
 
