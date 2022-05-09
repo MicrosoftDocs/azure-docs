@@ -152,7 +152,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-export-data.md",
-      "redirect_url": "/articles/iot-central/core/howto-export-to-blob-storage/",
+      "redirect_url": "/articles/iot-central/core/howto-export-to-blob-storage",
       "redirect_document_id": false
     },
     {
