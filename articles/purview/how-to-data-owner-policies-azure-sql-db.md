@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 05/06/2022
+ms.date: 05/09/2022
 ms.custom:
 ---
 # Access provisioning by data owner for Azure SQL DB (preview)
@@ -72,7 +72,7 @@ Execute the steps in the [data-owner policy authoring tutorial](./how-to-data-ow
 
 **Example #2: SQL Security Auditor policy**. Similar to example 1, but choose the *SQL Security auditing* action (instead of *SQL Performance monitoring*), when authoring the policy.
 
-**Example #3: Read policy**. This policy assigns the AAD principal 'Rober Murphy' to the *SQL Data reader* role, in the scope of SQL server *relecloud-sql-srv2*. This policy has also been published to that server.
+**Example #3: Read policy**. This policy assigns the AAD principal 'Robert Murphy' to the *SQL Data reader* role, in the scope of SQL server *relecloud-sql-srv2*. This policy has also been published to that server.
 
 ![Screenshot that shows a sample data owner policy giving Data Reader access to an Azure SQL DB](./media/how-to-data-owner-policies-sql/data-owner-policy-example-azure-sql-db-data-reader.png)
 
