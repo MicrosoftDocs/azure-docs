@@ -126,8 +126,8 @@ In the *3b_pipeline_with_data* example, we have created a three step pipeline.
 
 ![pipeline-input-output](./media/how-to-create-component-pipelines-cli/pipeline-inputs-and-outputs.png)
 
-### Reading and writing data in pipeline
-One common scenario is to reading and writing data in your pipeline. In AuzreML, we use the same schema to read and write data for all type of jobs (pipeline job, command job, and sweep job). See how to use data(link to Sam's data article) to learn more about how to read and write data. Below are pipeline job examples of using data for common scenarios. 
+### Read and write data in pipeline
+One common scenario is to read and write data in your pipeline. In AuzreML, we use the same schema to read and write data for all type of jobs (pipeline job, command job, and sweep job). See how to read and write data(to-do: add link to Sam/Nina's data article. pr is here https://github.com/MicrosoftDocs/azure-docs-pr/pull/195953 ) to learn more about how to read and write data. Below are pipeline job examples of using data for common scenarios. 
 
 - [local data](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines-with-components/basics/4a_local_data_input) 
 - [web file with public URL](https://github.com/Azure/azureml-examples/blob/sdk-preview/cli/jobs/pipelines-with-components/basics/4c_web_url_input/pipeline.yml)
