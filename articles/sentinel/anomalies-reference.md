@@ -74,7 +74,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **Anomaly type:**                | UEBA - Single activity                                             |
 | **Data sources:**                | Azure Activity logs                                                |
 | **MITRE ATT&CK tactics:**        | Discovery                                                          |
-| **MITRE ATT&CK techniques:**     | Cloud Discovery                                                    |
+| **MITRE ATT&CK techniques:**     | T1087 - Account Discovery                                          |
 | **MITRE ATT&CK sub-techniques:** | Cloud Account                                                      |
 | **Activity:**                    | Microsoft.Sql/managedInstances/administrators/read<br>Microsoft.Sql/servers/administrators/read<br>Microsoft.Authorization/classicAdministrators/read |
 
@@ -100,9 +100,9 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
 | **Data sources:**                | Azure Active Directory audit logs                                  |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Activity:**                    | <br><br> |
+| **MITRE ATT&CK tactics:**        | Impact                                                             |
+| **MITRE ATT&CK techniques:**     | T1531 - Account Access Removal                                     |
+| **Activity:**                    | Core Directory/ApplicationManagement/Delete application            |
 
 
 ### Anomalous Code Execution
@@ -113,9 +113,10 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
 | **Data sources:**                | Azure Activity logs                                                |
-| **MITRE ATT&CK tactics:**    |                                    |
-| **MITRE ATT&CK techniques:** |                                    |
-| **Activity:**                | <br><br> |
+| **MITRE ATT&CK tactics:**        | Execution                                                          |
+| **MITRE ATT&CK techniques:**     | T1059 - Command and Scripting Interpreter                          |
+| **MITRE ATT&CK sub-techniques:** | PowerShell                                                         |
+| **Activity:**                    | Microsoft.Compute/virtualMachines/runCommand/action                |
 
 
 ### Anomalous Credential Access (no rule?)
@@ -126,9 +127,9 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
 | **Data sources:**                | Azure Activity logs                                                |
-| **MITRE ATT&CK tactics:**    |                                    |
-| **MITRE ATT&CK techniques:** |                                    |
-| **Activity:**                | <br><br> |
+| **MITRE ATT&CK tactics:**        | Credential Access                                                  |
+| **MITRE ATT&CK techniques:**     | T1555 - Credentials from Password Stores                           |
+| **Activity:**                    | Microsoft.KeyVault/vaults/keys/read<br>Microsoft.KeyVault/vaults/secrets/getSecret/action<br>Microsoft.KeyVault/vaults/storageaccounts/regeneratekey/action<br>Microsoft.KeyVault/vaults/storageaccounts/sas/set/action |
 
 
 ### Anomalous Data Destruction
@@ -139,9 +140,9 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
 | **Data sources:**                | Azure Activity logs                                                |
-| **MITRE ATT&CK tactics:**    |                                    |
-| **MITRE ATT&CK techniques:** |                                    |
-| **Activity:**                | <br><br> |
+| **MITRE ATT&CK tactics:**        | Impact                                                             |
+| **MITRE ATT&CK techniques:**     | T1485 - Data Destruction                                           |
+| **Activity:**                    | Microsoft.Compute/disks/delete<br>Microsoft.Compute/galleries/images/delete<br>Microsoft.Compute/hostGroups/delete<br>Microsoft.Compute/hostGroups/hosts/delete<br>Microsoft.Compute/images/delete<br>Microsoft.Compute/virtualMachines/delete<br>Microsoft.Compute/virtualMachineScaleSets/delete<br>Microsoft.Compute/virtualMachineScaleSets/virtualMachines/delete<br>Microsoft.Devices/digitalTwins/Delete<br>Microsoft.Devices/iotHubs/Delete<br>Microsoft.KeyVault/vaults/delete<br>Microsoft.Logic/integrationAccounts/delete  <br>Microsoft.Logic/integrationAccounts/maps/delete <br>Microsoft.Logic/integrationAccounts/schemas/delete <br>Microsoft.Logic/integrationAccounts/partners/delete <br>Microsoft.Logic/integrationServiceEnvironments/delete<br>Microsoft.Logic/workflows/delete<br>Microsoft.Resources/subscriptions/resourceGroups/delete<br>Microsoft.Sql/instancePools/delete<br>Microsoft.Sql/managedInstances/delete<br>Microsoft.Sql/managedInstances/administrators/delete<br>Microsoft.Sql/managedInstances/databases/delete<br>Microsoft.Storage/storageAccounts/delete<br>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete<br>Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete<br>Microsoft.Storage/storageAccounts/blobServices/containers/delete<br>Microsoft.AAD/domainServices/delete |
 
 
 ### Anomalous Data Discovery (no rule?)
@@ -152,9 +153,9 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
 | **Data sources:**                | Azure Activity logs                                                |
-| **MITRE ATT&CK tactics:**    |                                    |
-| **MITRE ATT&CK techniques:** |                                    |
-| **Activity:**                | <br><br> |
+| **MITRE ATT&CK tactics:**        | Discovery                                                          |
+| **MITRE ATT&CK techniques:**     | T1526 - Cloud Service Discovery<br>T1518 - Software Discovery      |
+| **Activity:**                    | Microsoft.SecurityGraph/diagnosticsettings/read<br>Microsoft.KeyVault/vaults/eventGridFilters/read<br>Microsoft.KeyVault/vaults/certificatecas/read |
 
 
 ### Anomalous Defensive Mechanism Discovery (no rule?)
@@ -165,9 +166,10 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
 | **Data sources:**                | Azure Activity logs                                                |
-| **MITRE ATT&CK tactics:**    |                                    |
-| **MITRE ATT&CK techniques:** |                                    |
-| **Activity:**                | <br><br> |
+| **MITRE ATT&CK tactics:**        | Discovery                                                          |
+| **MITRE ATT&CK techniques:**     | T1518 - Software Discovery                                         |
+| **MITRE ATT&CK sub-techniques:** | Security Software Discovery                                        |
+| **Activity:**                    | Microsoft.Network/azurefirewalls/read<br>Microsoft.Sql/servers/firewallRules/read<br>Microsoft.Network/firewallPolicies/ruleGroups/read<br>Microsoft.Network/networkSecurityGroups/securityRules/read<br>Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/rules/baselines/read<br>Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/read<br>Microsoft.Network/networkSecurityGroups/read<br>Microsoft.Network/ddosProtectionPlans/read<br>Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/read<br>Microsoft.Authorization/policyAssignments/read |
 
 
 ### Anomalous Defensive Mechanism Modification
@@ -178,9 +180,10 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
 | **Data sources:**                | Azure Activity logs                                                |
-| **MITRE ATT&CK tactics:**    |                                    |
-| **MITRE ATT&CK techniques:** |                                    |
-| **Activity:**                | <br><br> |
+| **MITRE ATT&CK tactics:**        | Defense Evasion **(Excel)**<br>Impact **(UI)**                     |
+| **MITRE ATT&CK techniques:**     | T1562 - Impair Defenses **(Excel)**<br>T1531 - Account Access Removal **(UI)** |
+| **MITRE ATT&CK sub-techniques:** | Disable or Modify Tools<br>Disable or Modify Cloud Firewall<br>**(Excel)** |
+| **Activity:**                | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/rules/baselines/delete<br>Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/delete<br>Microsoft.Network/networkSecurityGroups/securityRules/delete<br>Microsoft.Network/networkSecurityGroups/delete<br>Microsoft.Network/ddosProtectionPlans/delete<br>Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/delete<br>Microsoft.Network/applicationSecurityGroups/delete<br>Microsoft.Authorization/policyAssignments/delete<br>Microsoft.Sql/servers/firewallRules/delete<br>Microsoft.Network/firewallPolicies/delete<br>Microsoft.Network/azurefirewalls/delete |
 
 
 ### Anomalous Failed Sign-in
@@ -190,10 +193,10 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**            |                                    |
-| **MITRE ATT&CK tactics:**    |                                    |
-| **MITRE ATT&CK techniques:** |                                    |
-| **Activity:**                | <br><br> |
+| **Data sources:**                | Azure Active Directory sign-in logs<br>Check Point VPN logs<br>Windows Security logs |
+| **MITRE ATT&CK tactics:**        | Credential Access                                                  |
+| **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
+| **Activity:**                    | Sign-in activity<br>Failed Log In<br>4625                          |
 
 
 ### Anomalous Password Reset
@@ -204,9 +207,9 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
 | **Data sources:**                | Azure Active Directory audit logs                                  |
-| **MITRE ATT&CK tactics:**    |                                    |
-| **MITRE ATT&CK techniques:** |                                    |
-| **Activity:**                | <br><br> |
+| **MITRE ATT&CK tactics:**        | Impact                                                             |
+| **MITRE ATT&CK techniques:**     | T1531 - Account Access Removal                                     |
+| **Activity:**                    | Core Directory/UserManagement/User password reset |
 
 
 ### Anomalous Privilege Granted
@@ -217,9 +220,10 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
 | **Data sources:**                | Azure Active Directory audit logs                                  |
-| **MITRE ATT&CK tactics:**    |                                    |
-| **MITRE ATT&CK techniques:** |                                    |
-| **Activity:**                | <br><br> |
+| **MITRE ATT&CK tactics:**        | Persistence **(Excel)**<br>Impact **(UI)**                         |
+| **MITRE ATT&CK techniques:**     | T1098 - Account Manipulation **(Excel)**<br>T1531 - Account Access Removal **(UI)** |
+| **MITRE ATT&CK sub-techniques:** | Additional Azure Service Principal Credentials                     |
+| **Activity:**                    | Account provisioning/Application Management/Add app role assignment to service principal |
 
 
 ### Anomalous Role Assignment (no rule?)
@@ -230,9 +234,9 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
 | **Data sources:**                | Azure Active Directory audit logs                                  |
-| **MITRE ATT&CK tactics:**    |                                    |
-| **MITRE ATT&CK techniques:** |                                    |
-| **Activity:**                | <br><br> |
+| **MITRE ATT&CK tactics:**        | Persistence                                                        |
+| **MITRE ATT&CK techniques:**     | T1098 - Account Manipulation                                       |
+| **Activity:**                    | Add member to group<br>Add member to role                          |
 
 
 ### Anomalous Session Duration (no rule?)
@@ -242,10 +246,10 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**            |                                    |
-| **MITRE ATT&CK tactics:**    |                                    |
-| **MITRE ATT&CK techniques:** |                                    |
-| **Activity:**                | <br><br> |
+| **Data sources:**                | VPN logs                                                           |
+| **MITRE ATT&CK tactics:**        | Persistence                                                        |
+| **MITRE ATT&CK techniques:**     | T1133 - External Remote Services                                   |
+| **Activity:**                    | Log Out |
 
 
 ### Anomalous Sign-in
@@ -255,10 +259,10 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**            |                                    |
-| **MITRE ATT&CK tactics:**    |                                    |
-| **MITRE ATT&CK techniques:** |                                    |
-| **Activity:**                | <br><br> |
+| **Data sources:**                | Azure Active Directory sign-in logs<br>Check Point VPN logs<br>Windows Security logs |
+| **MITRE ATT&CK tactics:**        | Persistence **(Excel)**<br>Impact **(UI)**                         |
+| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
+| **Activity:**                    | Sign-in activity<br>4624<br>Successful Log In                      |
 
 
 ### Anomalous Process Creation (no rule?)
@@ -268,10 +272,10 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**            |                                    |
-| **MITRE ATT&CK tactics:**    |                                    |
-| **MITRE ATT&CK techniques:** |                                    |
-| **Activity:**                | <br><br> |
+| **Data sources:**                | Windows Security logs                                              |
+| **MITRE ATT&CK tactics:**        | Persistence<br>Privilege Escalation                                |
+| **MITRE ATT&CK techniques:**     | T1543 - Create or Modify System Processes                          |
+| **Activity:**                    | 4688                                                               |
 
 
 ## Customizable anomalies
