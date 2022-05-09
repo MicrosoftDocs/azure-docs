@@ -27,7 +27,7 @@ Use the following steps to develop a Stream Analytics job to materialize data in
 3.	Enter a name for your job and select **Create**.
 4.	Specify the **Serialization** type of your data in the event hub and the **Authentication method** that the job will use to connect to the Event Hubs. Then select **Connect**.
 5.	If the connection is successful and you have data streams flowing into your Event Hubs instance, you'll immediately see two things:
-    -  Fields that are present in your input payload. Selecting the ellipsis (**...**) symbol next to a field gives you the option to remove, rename, or change the data type of the field.  
+    -  Fields that are present in your input payload. Select the three dot symbol next to a field optionally remove, rename, or change the data type of the field.  
         :::image type="content" source="./media/no-code-materialize-cosmosdb/no-code-schema.png" alt-text="Screenshot showing the event hub fields of input for you to review." lightbox="./media/no-code-materialize-cosmosdb/no-code-schema.png" :::    
     - A sample of your input data in the bottom pane under **Data preview** that automatically refreshes periodically. You can select **Pause streaming preview** if you prefer to have a static view of your sample input data.  
         :::image type="content" source="./media/no-code-materialize-cosmosdb/no-code-sample-input.png" alt-text="Screenshot showing sample input data." lightbox="./media/no-code-materialize-cosmosdb/no-code-sample-input.png" :::
