@@ -1,6 +1,6 @@
 ---
-title: Understand Insights reports in Microsoft Purview
-description: This article explains what Insights are in Microsoft Purview.
+title: Understand Data Estate Insights reports in Microsoft Purview
+description: This article explains what Data Estate Insights are in Microsoft Purview.
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
@@ -9,11 +9,19 @@ ms.topic: conceptual
 ms.date: 05/08/2022
 ---
 
+<<<<<<< HEAD
 # Understand Microsoft Purview Data Estate Insights application
 
 This article provides an overview of the Data Estate Insights application in Microsoft Purview.
 
 Data Estate Insights App is purpose-built for the governance stakeholders, primarily keeping the Chief Data Officer in mind. The App provides actionable insights into the organization’s data estate, catalog usage and adoption and processes. As organizations scan and populate their Microsoft Purview Data Map, Data Estate Insights App automatically extracts valuable governance gaps and highlights them in its top KPIs, top metrics and gives a drill-down experience that enables all stakeholders, such as data owners and stewards to take appropriate action to close the gaps. 
+=======
+# Understand Data Estate Insights in Microsoft Purview
+
+This article provides an overview of the Data Estate Insights feature in Microsoft Purview.
+
+Data Estate Insights are one of the key pillars of Microsoft Purview. The feature provides customers, a single pane of glass view into their catalog and further aims to provide specific insights to the data source administrators, business users, data stewards, data officer and, security administrators. Currently, Microsoft Purview has the following Data Estate Insights reports that will be available to customers during Insight's public preview.
+>>>>>>> 9f8f9d2981575dec466d2629ea9de6f0abf36d0d
 
 Out of the box, the Chief Data Officers, Data Stewards and Owners can get the following dashboards, to get them started on their data governance journey.
 
@@ -21,16 +29,29 @@ The app intuitively addresses three areas of governance – Health, Inventory an
 
 ## Health
 
+<<<<<<< HEAD
 The CDOs and Data Stewards can start at this dashboard to understand all they need to know about their estate health and return on investment on their catalog.
 
 ## Data Stewardship
+=======
+The report provides broad insights through graphs and KPIs and later deep dive into specific anomalies such as misplaced files. The report also supports an end-to-end customer experience, where customer can view count of assets with a specific classification, can break down the information by source types and top folders, and can also view the list of assets for further investigation.
+
+> [!NOTE]
+> File Extension Insights has been merged into Asset Insights with richer trend report showing growth in data size by file extension. Learn more by exploring [Asset Insights](asset-insights.md).
+>>>>>>> 9f8f9d2981575dec466d2629ea9de6f0abf36d0d
 
 The dashboard highlights key performing indicators that the governance stakeholders need to focus on, to attain a clean and governance-ready data estate. The dashboard contains a leaderboard of key metrics, calculated out of the box, curation percentages and trends of the estate health over time.
 
+<<<<<<< HEAD
 The CDOs can also get a high-level understanding of weekly and monthly active users of their catalog. Is the catalog being adopted across their organization, as better adoption will lead to better overall governance penetration in the organization.
 
 ## Inventory and Ownership
 This area focuses on giving a data estate inventory to Data Stewards and Curators, with ability to look at gaps by specific asset groups so they can remediate on the spot, from the Data estate insights app.
+=======
+This report gives the Data Stewards a status report on glossary. Data Stewards can view this report to understand distribution of glossary terms by status, learn how many glossary terms are attached to assets and how many aren't yet attached to any asset. Business users can also learn about completeness of their glossary terms.
+
+This report summarizes top items that a Data Steward needs to focus on, to create a complete and usable glossary for their organization. Stewards can also navigate into the "Glossary" experience from "Glossary Insights" experience, to make changes on a specific glossary term.
+>>>>>>> 9f8f9d2981575dec466d2629ea9de6f0abf36d0d
 
 ## Assets
 
@@ -59,7 +80,11 @@ This report provides details about where classified data is located, the classif
 
 In Microsoft Purview, classifications are similar to subject tags, and are used to mark and identify content of a specific type in your data estate.
 
+<<<<<<< HEAD
 Use the Classification Insights report to identify content with specific classifications and understand required actions, such as adding extra security to the repositories, or moving content to a more secure location.
+=======
+Use the Classification Insights report to identify content with specific classifications and understand required actions, such as adding more security to the repositories, or moving content to a more secure location.
+>>>>>>> 9f8f9d2981575dec466d2629ea9de6f0abf36d0d
 
 For more information, see [Classification insights about your data from Microsoft Purview](classification-insights.md).
 

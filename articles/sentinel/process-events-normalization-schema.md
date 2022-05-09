@@ -39,9 +39,9 @@ For more information, see [ASIM parsers overview](normalization-parsers-overview
 
 ## Add your own normalized parsers
 
-When implementing custom parsers for the [Process Event](normalization-about-schemas.md#the-process-entity) information model, name your KQL functions using the following syntax: `imProcessCreate<vendor><Product>` and `imProcessTerminate<vendor><Product>`. Replace `im` with `ASim` for the parameter-less version
+When implementing custom process event parsers, name your KQL functions using the following syntax: `imProcessCreate<vendor><Product>` and `imProcessTerminate<vendor><Product>`. Replace `im` with `ASim` for the parameter-less version.
 
-Add your KQL function to the `imProcess<Type>` and `imProcess` unifying parsers to ensure that any content using the [Process Event](normalization-about-schemas.md#the-process-entity) model also uses your new parser.
+Add your KQL function to the unifying parsers as described in [Managing ASIM parsers](normalization-manage-parsers.md).
 
 ### Filtering parser parameters
 
