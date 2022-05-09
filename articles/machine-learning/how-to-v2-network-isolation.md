@@ -42,7 +42,7 @@ If you __don't__ want to use the v2 API, Azure Machine Learning will provide a *
 
 We provide a new workspace level parameter called v1_legacy_mode. By default, if you create a workspace and configure a private endpoint during workspace creation, this parameter will be enabled. The following are the scenarios that are impacted by this behavior:
 
-* If you have an __existing__Azure Machine Learning workspace with a private endpoint, which was created before this parameter was implemented, __this parameter will automatically be enabled for your workspace__. So your existing v1 API communications will continue to be secured using the workspace private endpoint.
+* If you have an __existing__ Azure Machine Learning workspace with a private endpoint, which was created before this parameter was implemented, __this parameter will automatically be enabled for your workspace__. So your existing v1 API communications will continue to be secured using the workspace private endpoint.
 
 * If you create a __new__ Azure Machine Learning workspace with a private endpoint, __this parameter will be enabled for your workspace__. Even if you use the v2 API to create the workspace, the v1_legacy_mode will be enabled if the workspace is created with a private endpoint configuration.
 
