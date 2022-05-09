@@ -17,7 +17,7 @@ This article describes advanced configuration options you can set when using the
 
 The Azure Functions trigger for Cosmos DB uses the [Change Feed Processor Library](change-feed-processor.md) internally, and the library generates a set of health logs that can be used to monitor internal operations for [troubleshooting purposes](./troubleshoot-changefeed-functions.md).
 
-The health logs describe how the Azure Functions trigger for Cosmos DB behaves when attempting operations during load-balancing scenarios or initialization.
+The health logs describe how the Azure Functions trigger for Cosmos DB behaves when attempting operations during load-balancing, initialization, and processing scenarios.
 
 ### Enabling logging
 
@@ -37,7 +37,7 @@ To enable logging when using Azure Functions trigger for Cosmos DB, locate the `
 
 After the Azure Function is deployed with the updated configuration, you'll see the Azure Functions trigger for Cosmos DB logs as part of your traces. You can view the logs in your configured logging provider under the *Category* `Host.Triggers.CosmosDB`.
 
-### Which type of logs are exposed?
+### Which type of logs are emitted?
 
 Once enabled, there are three levels of log events that will be emitted:
 
