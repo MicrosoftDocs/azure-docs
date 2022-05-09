@@ -159,7 +159,7 @@ az acr create \
 Now store your ACR password in an environment variable.
 
 ```azurecli
-ACR_PASSWORD=$(az acr credential show -n $ACR_NAME --query "passwords[0].value")
+ACR_PASSWORD=$(az acr credential show -n $ACR_NAME --query "passwords[0].value" | tr -d '"')
 ```
 
 # [PowerShell](#tab/powershell)
