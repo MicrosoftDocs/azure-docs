@@ -17,7 +17,7 @@ ms.custom: how-to, studio, managed-batch-endpoints
 
 In this article, you learn how to use batch endpoints to do batch scoring in [Azure Machine Learning studio](https://ml.azure.com). For more, see [What are Azure Machine Learning endpoints?](concept-endpoints.md).
 
-[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
+
 
 In this article, you learn about:
 

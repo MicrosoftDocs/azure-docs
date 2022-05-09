@@ -17,7 +17,7 @@ ms.devlang: azurecli
 # Deploy a TensorFlow model served with TF Serving using a custom container in an online endpoint (preview)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
+
 
 Learn how to deploy a custom container as an online endpoint in Azure Machine Learning.
 

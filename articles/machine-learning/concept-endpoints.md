@@ -16,7 +16,8 @@ ms.date: 04/29/2022
 
 # What are Azure Machine Learning endpoints?
 
-[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+
 
 Use Azure Machine Learning endpoints to streamline model deployments for both real-time and batch inference deployments. Endpoints provide a unified interface to invoke and manage model deployments across compute types.
 

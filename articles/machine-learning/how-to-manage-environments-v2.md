@@ -21,7 +21,7 @@ ms.custom: devx-track-azurecli, devplatv2
 > * [v1](./v1/how-to-use-environments.md)
 > * [v2 (current version)](how-to-manage-environments-v2.md)
 
-[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
+
 
 Azure Machine Learning environments define the execution environments for your jobs or deployments and encapsulate the dependencies for your code. Azure ML uses the environment specification to create the Docker container that your training or scoring code runs in on the specified compute target. You can define an environment from a conda specification, Docker image, or Docker build context.
 
