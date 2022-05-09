@@ -265,6 +265,8 @@
             - name: Configure required network traffic
               href: how-to-access-azureml-behind-firewall.md
               displayName: firewall, user-defined route, udr
+            - name: API platform network isolation
+              href: how-to-v2-network-isolation.md
         - name: Data protection
           items:
             - name: Failover & disaster recovery
