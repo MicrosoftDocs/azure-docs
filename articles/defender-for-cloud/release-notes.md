@@ -33,7 +33,7 @@ Microsoft Defender for SQL now provides a unified cross-environment experience t
 
 Using the multi-cloud onboarding experience, you can enable and enforce databases protection for VMs in AWS and GCP. After enabling multi-cloud protection, all supported resources covered by your subscription are protected. Future resources created within the same subscription will also be protected.
 
-Learn how to protect and connect your [AWS accounts](quickstart-onboard-aws.md) and your [your GCP projects](quickstart-onboard-gcp.md) with Microsoft Defender for Cloud.
+Learn how to protect and connect your [AWS accounts](quickstart-onboard-aws.md) and your [GCP projects](quickstart-onboard-gcp.md) with Microsoft Defender for Cloud.
 
 
 ## April 2022
