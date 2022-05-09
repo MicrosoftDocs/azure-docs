@@ -30,7 +30,7 @@ By default, a container app is in *single revision mode*. In this mode, only one
 
 ### Multiple revision mode
 
-When you set the revision mode to *multiple revision mode*, you can run multiple revisions of your app simultaneously. While in *multiple revision mode*, new revisions are activated alongside current active revisions. 
+Set the revision mode to *multiple revision mode*, to run multiple revisions of your app simultaneously. While in *multiple revision mode*, new revisions are activated alongside current active revisions. 
 
 In *multiple revision mode*, traffic isn't automatically allocated to new revision for apps with external HTTP ingress.  Configure splitting from your container app's **Revision management** page in the Azure portal, using Azure CLI commands, or in an ARM template. 
 
