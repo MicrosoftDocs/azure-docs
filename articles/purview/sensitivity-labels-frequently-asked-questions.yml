@@ -110,7 +110,7 @@ sections:
 
       - question: Which data sources can I apply sensitivity labels to in the Microsoft Purview Data Map? 
         answer: |
-          You can apply sensitivity labels to all the data sources that can be scanned in the Microsoft Purview Data Map. For more information, see [Supported data types for sensitivity labels in the Microsoft Purview Data Map](create-sensitivity-label.md#supported-data-sources). 
+          You can apply sensitivity labels to all the data sources listed under [Supported data sources for sensitivity labels in the Microsoft Purview Data Map](create-sensitivity-label.md#supported-data-sources). 
           
       - question: Can I manually label an asset, or manually modify or remove a label in the Microsoft Purview Data Map? 
         answer: |
@@ -119,7 +119,7 @@ sections:
           The Microsoft Purview Data Map doesn't currently support manually applying a label, modifying, or removing a label from an asset. 
 
       - question: Can automatic labeling apply to assets that may include credential content?
-        answer: The Microsoft Purview Data Map doesn't currently support scanning for credentials. When the data map supports scanning for credentials, you should be able to apply labels based on credentials found.
+        answer: The Microsoft Purview Data Map currently doesn't  support scanning for credentials. When the Data Map supports scanning for credentials, you should be able to apply labels based on credentials found.
 
       - question: Can I apply encryption and/or content marking to files in the Microsoft Purview Data Map, as I can for Office documents and emails?
         answer: No, although the sensitivity label might be configured for these protection actions, we don't currently support encryption and content marking for files in the Microsoft Purview Data Map.
@@ -153,8 +153,8 @@ sections:
       - question: Who can search and browse assets with sensitivity labels in the Microsoft Purview Data Catalog? 
         answer: All users with at least data reader access to the Microsoft Purview Data Map have permissions to search and browse assets with sensitivity labels in the data catalog. 
 
-      - question: Who can view the sensitivity label insights report in Microsoft Purview Insights? 
-        answer: All users with at least data reader access to the Microsoft Purview Data Map have permissions to view sensitivity label insights reports in Microsoft Purview Insights. </br></br>
+      - question: Who can view the sensitivity label insights report in Microsoft Purview Data Estate Insights? 
+        answer: All users with at least data reader access to the Microsoft Purview Data Map have permissions to view sensitivity label insights reports in Microsoft Purview Data Estate Insights. </br></br>
 
   - name: Technical details
     questions:

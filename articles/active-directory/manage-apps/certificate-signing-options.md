@@ -10,7 +10,7 @@ ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/30/2021
-ms.author: davidmu
+ms.author: saumadan
 ms.reviewer: saumadan
 ms.custom: aaddev
 ms.collection: M365-identity-device-management

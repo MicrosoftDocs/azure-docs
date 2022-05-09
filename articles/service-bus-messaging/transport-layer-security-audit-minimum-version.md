@@ -5,7 +5,7 @@ description: Configure Azure Policy to audit compliance of Azure Service Bus for
 services: service-bus
 author: EldertGrootenboer
 
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 04/22/2022
 ms.author: egrootenboer

@@ -6,7 +6,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: reference
-ms.date: 04/27/2022
+ms.date: 05/04/2022
 ms.custom: references_regions
 ms.author: barclayn
 
@@ -18,12 +18,15 @@ ms.author: barclayn
 
 This article lists the latest features, improvements, and changes in the Azure Active Directory (Azure AD) Verifiable Credentials service.
 
+## May
+
+We are expanding our service to all Azure AD customers! Verifiable credentials are now available to everyone with an Azure AD subscription (Free and Premium). Existing tenants that configured the Verifiable Credentials service prior to May 4, 2022 must make a [small change](verifiable-credentials-faq.md#updating-the-vc-service-configuration) to avoid service disruptions.
+
 ## April
 
-Verifiable Credentials service Administrators must perform a small configuration change before **May 4, 2022** following [these steps](verifiable-credentials-faq.md?#updating-the-vc-service-configuration) to avoid service disruptions. On May 4, 2022 we'll roll out updates on our service that will result in errors on issuance and presentation on those tenants that haven't applied the changes.
-
+Starting next month, we are rolling out exciting changes to the subscription requirements for the Verifiable Credentials service. Administrators must perform a small configuration change before **May 4, 2022** to avoid service disruptions. Follow [these steps](verifiable-credentials-faq.md?#updating-the-vc-service-configuration) to apply the required configuration changes.
 >[!IMPORTANT]
-> When the configuration on your tenant has not been updated, . [Service configuration instructions](verifiable-credentials-faq.md?#updating-the-vc-service-configuration).
+> If changes are not applied before **May 4, 2022**, you will experience errors on issuance and presentation for your application or service using the Azure AD Verifiable Credentials Service. [Update service configuration instructions](verifiable-credentials-faq.md?#updating-the-vc-service-configuration).
 
 ## March 2022
 - Azure AD Verifiable Credentials customers can now change the [domain linked](how-to-dnsbind.md) to their DID easily from the Azure portal.

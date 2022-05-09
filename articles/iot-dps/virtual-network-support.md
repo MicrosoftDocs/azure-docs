@@ -27,7 +27,7 @@ For several reasons, customers may wish to restrict connectivity to Azure resour
 * Enabling a private connectivity experience from your on-premises network assets ensuring that your data and traffic 
 is transmitted directly to Azure backbone network.
 
-* Preventing exfiltration attacks from sensitive on-premises networks. 
+* Preventing exfiltration attacks from sensitive on-premises networks.
 
 * Following established Azure-wide connectivity patterns using [private endpoints](../private-link/private-endpoint-overview.md).
 
@@ -60,6 +60,8 @@ Note the following current limitations for DPS when using private endpoints:
 * The lowest latency allocation policy is used to assign a device to the IoT hub with the lowest latency. This allocation policy is not reliable in a virtual network environment.
 
 * Enabling one or more private endpoints typically involves [disabling public access](public-network-access.md) to your DPS instance. This means that you can no longer use the Azure portal to manage enrollments. Instead you can manage enrollments using the Azure CLI, PowerShell, or service APIs from machines inside the VNET(s)/private endpoint(s) configured on the DPS instance.
+
+* When using private endpoints, we recommend deploying DPS in one of the regions that support [Availability Zones](iot-dps-ha-dr.md). Otherwise, DPS instances with private endpoints enabled may see reduced availability in the event of outages.
 
 >[!NOTE]
 >**Data residency consideration:**

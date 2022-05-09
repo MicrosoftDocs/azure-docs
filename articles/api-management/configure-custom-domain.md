@@ -37,7 +37,7 @@ When you create an Azure API Management service instance in the Azure cloud, Azu
  
 ## Endpoints for custom domains
 
-There are several API Management service endpoints to which you can assign a custom domain name. Currently, the following endpoints are available:
+There are several API Management endpoints to which you can assign a custom domain name. Currently, the following endpoints are available:
 
 | Endpoint | Default |
 | -------- | ----------- |

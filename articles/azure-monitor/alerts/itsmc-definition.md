@@ -42,13 +42,11 @@ When the ITSMC resource is deployed, a notification appears at the upper-right c
 
 ## Create an ITSM connection
 
-After you've installed ITSMC, you must prep your ITSM tool to allow the connection from ITSMC. Based on the ITSM product that you're connecting to, select one of the following links for instructions:
-
-- [ServiceNow](./itsmc-connections-servicenow.md)
-- [System Center Service Manager](./itsmc-connections-scsm.md)
+After you've installed ITSMC, follow these steps to create the ITSM connection.
 
 After you've prepped your ITSM tool, complete these steps to create a connection:
 
+1. [Configure ServiceNow](./itsmc-connections-servicenow.md) to allow the connection from ITSMC.
 1. In **All resources**, look for **ServiceDesk(*your workspace name*)**:
 
    ![Screenshot that shows recent resources in the Azure portal.](media/itsmc-definition/create-new-connection-from-resource.png)
@@ -80,7 +78,7 @@ Action groups provide a modular and reusable way to trigger actions for your Azu
 
 ### Define a template
 
-Certain work item types can use templates that you define in the ITSM tool. Using templates, you can define fields that will be automatically populated using fixed values for an action group. You can define which template you want to use as a part of the definition of an action group. Find information about how to create templates [here](https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/form-administration/task/t_CreateATemplateUsingTheTmplForm.html).
+Certain work item types can use templates that you define in the ServiceNow. Using templates, you can define fields that will be automatically populated using constant values that is defined in ServiceNow (not values from the payload). The templates synced with Azure and you can define which template you want to use as a part of the definition of an action group. Find information about how to create templates [here](https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/form-administration/task/t_CreateATemplateUsingTheTmplForm.html).
 
 To create an action group:
 
