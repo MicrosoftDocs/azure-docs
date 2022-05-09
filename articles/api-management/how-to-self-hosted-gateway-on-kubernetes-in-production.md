@@ -158,14 +158,16 @@ securityContext:
   runAsUser: 1000
   runAsGroup: 2000
   privileged: false
-  readOnlyRootFilesystem: true
   capabilities:
     drop:
     - all
 ```
 
 > [!WARNING]
-> When using local CA certificates, using `readOnlyRootFilesystem: true` is not supported. 
+> Running the self-hosted gateway with read-only filesystem (`readOnlyRootFilesystem: true`) is not supported.
+
+> [!WARNING]
+> When using local CA certificates, the self-hosted gateway must run with user ID (UID) `1001` in order to manage the CA certificates otherwise the gateway will not start up.
 
 ## Next steps
 
