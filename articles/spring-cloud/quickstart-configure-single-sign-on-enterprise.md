@@ -31,9 +31,98 @@ To configure Single Sign-On for the application, you will need to prepare creden
 
 ### Use an Existing Provider
 
+Follow these steps to configure Single Sign-On using an existing Identity Provider. If you're provisioning an Azure Active Directory App Registration, continue on to [Provision Azure Active Directory](#provision-azure-active-directory).
+
+1. Add the urls output from the following command to your Single Sign-On Provider's configuration:
+
+    ```azurecli
+    GATEWAY_URL=$(az spring-cloud gateway show \
+        --resource-group <resource-group> \
+        --service <spring-cloud-service> | jq -r '.properties.url')
+
+    PORTAL_URL=$(az spring-cloud api-portal show \
+        --resource-group <resource-group> \
+        --service <spring-cloud-service> | jq -r '.properties.url')
+
+    echo "https://${GATEWAY_URL}/login/oauth2/code/sso"
+    echo "https://${PORTAL_URL}/oauth2-redirect.html" 
+    echo "https://${PORTAL_URL}/login/oauth2/code/sso"
+    ```
+
+1. Obtain the `Client ID` and `Client Secret` for your identity provider.
+
+1. Obtain the `Issuer URI` for your identity provider. The provider needs to be configured with an issuer URI which is the URI that the it asserts as its Issuer Identifier. For example, if the issuer-uri provided is "https://example.com", then an OpenID Provider Configuration Request will be made to "https://example.com/.well-known/openid-configuration". The result is expected to be an OpenID Provider Configuration Response.
+
+> Note that only authorization servers supporting OpenID Connect Discovery protocol can be used.
+
+1. Obtain the `JSON Web Key (JWK) URI` for your identity provider. The `JWK URI` typically takes the form `${ISSUER_URI}/keys` or `${ISSUER_URI}/<version>/keys`. 
+
 ### Provision Azure Active Directory
 
+To register the application with Azure Active Directory, follow these steps. If using an existing provider's credentials then continue on to [Deploy the Identity Service Application](#deploy-the-identity-service-application).
 
+1. Create an Application registration with Azure Active Directory and save the output using the following command:
+
+    ```azurecli
+    az ad app create --display-name <app-registration-name> > ad.json
+    ```
+
+1. Retrieve the Application ID and collect the client secret using the following commands:
+
+    ```azurecli
+    APPLICATION_ID=$(cat ad.json | jq -r '.appId')
+    az ad app credential reset --id ${APPLICATION_ID} --append > sso.json
+    ```
+
+1. Use the following command to assign a Service Principal to the Application Registration:
+
+    ```azurecli
+    az ad sp create --id ${APPLICATION_ID}
+    ```
+
+1. Retrieve the URLs for Spring Cloud Gateway and API Portal and add the necessary Reply URLs to the Active Directory App Registration using the following command:
+
+    ```azurecli
+    APPLICATION_ID=$(cat ad.json | jq -r '.appId')
+
+    GATEWAY_URL=$(az spring-cloud gateway show \
+        --resource-group <resource-group> \
+        --service <spring-cloud-service> | jq -r '.properties.url')
+
+    PORTAL_URL=$(az spring-cloud api-portal show \
+        --resource-group <resource-group> \
+        --service <spring-cloud-service> | jq -r '.properties.url')
+    
+    az ad app update \
+        --id ${APPLICATION_ID} \
+        --reply-urls "https://${GATEWAY_URL}/login/oauth2/code/sso" "https://${PORTAL_URL}/oauth2-redirect.html" "https://${PORTAL_URL}/login/oauth2/code/sso"
+    ```
+
+1. The Application's `Client ID` is needed for later. The following command will retrieve it and save the output for later:
+
+    ```bash
+    cat sso.json | jq -r '.appId'
+    ```
+
+1. The Application's `Client Secret` is needed for later. The following command will retrieve it and save the output for later:
+
+    ```bash
+    cat sso.json | jq -r '.password'
+    ```
+
+1. The `Issuer URI` is needed for later. The following command will retrieve it and save the output for later:
+
+    ```bash
+    TENANT_ID=$(cat sso.json | jq -r '.tenant')
+    echo "https://login.microsoftonline.com/${TENANT_ID}/v2.0"
+    ```
+
+1. The `JSON Web Key (JWK) URI` is needed for later. The following command will retrieve it and save the output for later:
+
+    ```bash
+    TENANT_ID=$(cat sso.json | jq -r '.tenant')
+    echo "https://login.microsoftonline.com/${TENANT_ID}/discovery/v2.0/keys"
+    ```
 
 ## Deploy the Identity Service Application
 
@@ -109,7 +198,7 @@ Spring Cloud Gateway can be configured to authenticate requests via Single Sign-
         --allowed-origins "*" \
         --client-id <client-id> \
         --client-secret <client-secret> \
-        --scope <scopes> \
+        --scope "openid,profile" \
         --issuer-uri <issuer-uri>
     ```
 
