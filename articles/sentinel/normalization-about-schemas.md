@@ -99,7 +99,7 @@ Each schema explicitly defines the central entities and entity fields. The follo
 
 Users are central to activities reported by events. The fields listed in this section are used to describe the users involved in the action. Prefixes are used to designate the role of the user in the activity. The prefixes `Src` and `Dst` are used to designate the user role in network related events, in which a source system and a destination system communicate. The prefixes 'Actor' and 'Target' are used for system oriented events such as process events.
 
-#### The user id
+#### The user ID
 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
@@ -107,7 +107,7 @@ Users are central to activities reported by events. The fields listed in this se
 | <a name="useridtype"></a>**UserIdType** | Optional | UserIdType | The type of the ID stored in the [UserId](#userid) field. |
 | **SID**, **UID**, **AADID**, **OktaId**, **AWSId** | Optional | String | Fields used to store additional user IDs, if the original event includes multiple user IDs. Select the ID most associated with the event as the primary ID stored in [UserId](#userid). 
 
-The allowed values for a user id type are:
+The allowed values for a user ID type are:
 
 | Type | Description | Example |
 | ---- | ------- | ------------- |
@@ -202,11 +202,11 @@ When the value provided by the source is an FQDN, or when the value may be eithe
 
 Note that fields named should prepend a role prefix such as `Src` or `Dst`, but should not prepend a second `Dvc` prefix if used in that role.
 
-The allowed values for a device id type are:
+The allowed values for a device ID type are:
 
 | Type | Description | 
 | ---- | ------- |
-| **MDEid** | The system ID assgined by . | 
+| **MDEid** | The system ID assigned by Microsoft Defender for Endpoint. | 
 | **AzureResourceId** | The Azure resource ID. | 
 | **MD4IoTid**| The Microsoft Defender for IoT resource ID.|
 | **VMConnectionId** | The Azure Monitor VM Insights solution resource ID. |

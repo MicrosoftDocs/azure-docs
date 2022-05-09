@@ -42,7 +42,7 @@ _Im_Dns
 > When using the ASIM parsers in the **Logs** page, the time range selector is set to `custom`. You can still set the time range yourself. Alternatively, specify the time range using parser parameters.
 >
 
-The following table lists the available unifying parsers :
+The following table lists the available unifying parsers:
 
 | Schema | Unifying parser | 
 | ------ | ------------------------- |
