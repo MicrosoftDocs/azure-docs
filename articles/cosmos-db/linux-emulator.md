@@ -26,6 +26,7 @@ The Azure Cosmos DB Linux Emulator provides a high-fidelity emulation of the Azu
 Functionality that relies on the Azure infrastructure like global replication, single-digit millisecond latency for reads/writes, and tunable consistency levels aren't applicable when you use the emulator.
 
 ## Differences between the Linux Emulator and the cloud service
+
 Since the Azure Cosmos DB Emulator provides an emulated environment that runs on the local developer workstation, there are some differences in functionality between the emulator and an Azure Cosmos account in the cloud:
 
 - Currently, the **Data Explorer** pane in the emulator fully supports SQL and MongoDB API clients only.
@@ -173,9 +174,9 @@ This section provides tips to troubleshoot errors when using the Linux emulator.
 
 - Try to access the endpoint and port for the emulator using the Docker container's IP address instead of "localhost".
 
-- Make sure that the emulator self-signed certificate has been properly added to [KeyChain](#consume-endpoint-ui).
+- Make sure that the emulator self-signed certificate has been properly added to [KeyChain](#consume-the-endpoint-via-ui).
 
-- For Java applications, make sure you imported the certificate to the [Java Certificates Store section](#run-on-linux).
+- For Java applications, make sure you imported the certificate to the [Java Certificates Store section](#run-the-linux-emulator-on-linux-os).
 
 - For .NET applications you can disable TLS/SSL validation:
 
@@ -220,7 +221,7 @@ This error is likely because the current Docker Host processor type is incompati
 
 #### My app received too many connectivity-related timeouts
 
-- The Docker container isn't provisioned with enough resources [(cores or memory)](#config-options). We recommend increasing the number of cores and alternatively, reduce the number of physical partitions provisioned upon startup.
+- The Docker container isn't provisioned with enough resources [(cores or memory)](#configuration-options). We recommend increasing the number of cores and alternatively, reduce the number of physical partitions provisioned upon startup.
 
 - Ensure the number of TCP connections doesn't exceed your current OS settings.
 
@@ -228,7 +229,7 @@ This error is likely because the current Docker Host processor type is incompati
     
 #### My app couldn't create databases or containers
 
-The number of physical partitions provisioned on the emulator is too low. Either delete your unused databases/collections or start the emulator with a [larger number of physical partitions](#config-options).
+The number of physical partitions provisioned on the emulator is too low. Either delete your unused databases/collections or start the emulator with a [larger number of physical partitions](#configuration-options).
 
 ### Reliability and crashes
 
@@ -250,7 +251,7 @@ The number of physical partitions provisioned on the emulator is too low. Either
 
 - The emulator is crashing:
 
-  - Confirm that creating a container with the [recommended settings](#run-on-linux) works. If yes, most likely the cause of failure is the extra settings passed via the respective Docker command upon starting the container.
+  - Confirm that creating a container with the [recommended settings](#run-the-linux-emulator-on-linux-os) works. If yes, most likely the cause of failure is the extra settings passed via the respective Docker command upon starting the container.
 
   - Start the emulator's Docker container in an attached mode (see `docker start -it`).
 
@@ -270,7 +271,7 @@ The number of physical partitions provisioned on the emulator is too low. Either
 
 Number of requests per second is low, latency of the requests is high:
 
-- The Docker container isn't provisioned with enough resources [(cores or memory)](#config-options). We recommend increasing the number of cores and alternatively, reduce the number of physical partitions provisioned upon startup.
+- The Docker container isn't provisioned with enough resources [(cores or memory)](#configuration-options). We recommend increasing the number of cores and alternatively, reduce the number of physical partitions provisioned upon startup.
 
 ## Refresh Linux container
 
