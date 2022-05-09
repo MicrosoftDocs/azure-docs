@@ -33,7 +33,7 @@ An Azure Active Directory (Azure AD) B2B collaboration user can decide to leave 
 In your My Account portal, on the Organizations page, you can view and manage the organizations you have access to:
 
 - **Home organization**: Your home organization is listed first. This is the organization that owns your work or school account. Because your account is managed by your administrator, you're not allowed to leave your home organization. (If you don't have an assigned home organization, you'll just see a single heading that says Organizations with the list of your associated organizations.).  
-- **Other organizations you belong to**: You'll also see the other organizations that you've signed in to previously using your work or school account. You can leave any of these other organizations at any time. 
+- **Other organizations you belong to**: You'll also see the other organizations that you've signed in to previously using your work or school account. You can leave any of these organizations at any time. 
 
 To leave an organization, follow these steps.
 
