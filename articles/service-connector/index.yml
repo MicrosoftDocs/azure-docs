@@ -36,6 +36,8 @@ landingContent:
             url: quickstart-portal-app-service-connection.md 
           - text: Create new service connection in Spring Cloud
             url: quickstart-portal-spring-cloud-connection.md
+          - text: Create a service connection in Container Apps from the Azure portal
+            url: quickstart-portal-container-apps.md
   - title: Common tasks
     linkLists:
       - linkListType: tutorial
