@@ -191,11 +191,11 @@ The PuTTY format and OpenSSH format use different file name extensions. The PuTT
 
 ## Find the MD5 fingerprint
 
-The SFTP-SSH connector rejects a connection if both the SFTP server's fingerprint and expected fingerprint don't match. To get the MD5 fingerprint, which is a 47-character string delimited by colons, try the following options.
+The SFTP-SSH connector rejects a connection if both the SFTP server's fingerprint and expected fingerprint don't match. To get the MD5 fingerprint, which is a sequence with 16 pairs of hex digits delimited by colons, try the following options.
 
 ### You have the key
 
-To get an MD5 fingerprint when you have a key, you can use tools such as `ssh-keygen`, for example:
+The MD5 key is a 47-character string delimited by colons. To get the MD5 fingerprint when you have the key, you can use tools such as `ssh-keygen`, for example:
 
 ```bash
 ssh-keygen -l -f id_rsa.pub -E md5
@@ -203,7 +203,7 @@ ssh-keygen -l -f id_rsa.pub -E md5
 
 ### You don't have the key
 
-To get an MD5 fingerprint when you don't have a key, you can use the latest [WinSCP](https://winscp.net/eng/docs/ui_fsinfo), or you can use the PuTTY Configuration tool instead:
+To get an MD5 fingerprint when you don't have a key, you can use the latest [Server and Protocol Information Dialog tool by WinSCP](https://winscp.net/eng/docs/ui_fsinfo), or you can use the PuTTY Configuration tool instead:
 
 1. In the PuTTY Configuration tool (putty.exe), in the **Category** window, open **Connection** > **SSH** > **Host keys**.
 
