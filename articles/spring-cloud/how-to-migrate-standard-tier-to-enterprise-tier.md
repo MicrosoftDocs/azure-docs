@@ -34,13 +34,13 @@ Follow these steps to use Application Configuration Service for Tanzu as a centr
 1. Select **Application Configuration Service**.
 1. Select **Overview** to view the running state and resources allocated to Application Configuration Service for Tanzu.
 
-   ![Application Configuration Service Overview screen](./media/enterprise/getting-started-enterprise/config-service-overview.png)
+   :::image type="content" source="./media/enterprise/getting-started-enterprise/config-service-overview.png" alt-text="Application Configuration Service Overview screen" lightbox="./media/enterprise/getting-started-enterprise/config-service-overview.png":::
 
 1. Select **Settings**, then add a new entry in the **Repositories** section with the Git backend information.
 
 1. Select **Validate** to validate access to the target URI. After validation completes successfully, select **Apply** to update the configuration settings.
 
-   ![Application Configuration Service Settings overview](./media/enterprise/getting-started-enterprise/config-service-settings.png)
+   :::image type="content" source="./media/enterprise/getting-started-enterprise/config-service-settings.png" alt-text="Application Configuration Service Settings overview" lightbox="./media/enterprise/getting-started-enterprise/config-service-settings.png":::
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -64,7 +64,7 @@ When you use Application Configuration Service for Tanzu with a Git backend, you
 
 1. Select **Bind app** and choose one app in the dropdown, then select **Apply** to bind.
 
-   ![Bind Application Configuration Service](./media/enterprise/how-to-enterprise-application-configuration-service/config-service-app-bind-dropdown.png)
+   :::image type="content" source="./media/enterprise/how-to-enterprise-application-configuration-service/config-service-app-bind-dropdown.png" alt-text="How to bind Application Configuration Service screenshot":::
 
    > [!NOTE]
    > When you change the bind/unbind status, you must restart or redeploy the app for the binding to take effect.
@@ -79,7 +79,7 @@ When you use Application Configuration Service for Tanzu with a Git backend, you
 
    1. In the **Config file patterns** dropdown, choose one or more patterns from the list.
 
-      ![Bind Application Configuration Service in deployment](./media/enterprise/how-to-enterprise-application-configuration-service/config-service-pattern.png)
+      :::image type="content" source="./media/enterprise/how-to-enterprise-application-configuration-service/config-service-pattern.png" alt-text="Bind Application Configuration Service in deployment screenshot":::
 
    1. Select **Save**.
 
@@ -107,7 +107,7 @@ Use the following steps to bind an application to Tanzu Service Registry.
 
 1. Select **Bind app** and choose one app in the dropdown, then select **Apply** to bind.
 
-   ![Bind Service Registry](./media/enterprise/how-to-enterprise-service-registry/service-reg-app-bind-dropdown.png)
+   :::image type="content" source="./media/enterprise/how-to-enterprise-service-registry/service-reg-app-bind-dropdown.png" alt-text="Bind Service Registry dropdown screenshot":::
 
    > [!NOTE]
    > When you change the bind/unbind status, you must restart or redeploy the app to make the change take effect.
@@ -132,7 +132,7 @@ Use the following steps to create and configure an application using Spring Clou
 
    1. Select **Yes** next to *Assign endpoint* to assign a public endpoint. You'll get a URL in a few minutes. Save the URL to use later.
 
-   ![Gateway overview](./media/enterprise/getting-started-enterprise/gateway-overview.png)
+   :::image type="content" source="./media/enterprise/getting-started-enterprise/gateway-overview.png" alt-text="Gateway overview screenshot showing assigning endpoint" lightbox="./media/enterprise/getting-started-enterprise/gateway-overview.png":::
 
    # [Azure CLI](#tab/azure-cli)
 
@@ -156,7 +156,7 @@ Use the following steps to create and configure an application using Spring Clou
 
    You can view the properties in the portal.
 
-   ![Gateway configuration](./media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-configuration.png)
+   :::image type="content" source="./media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Gateway Configuration settings screenshot":::
 
 1. Configure routing rules to apps.
 
@@ -193,7 +193,7 @@ Use the following steps to create and configure an application using Spring Clou
 
    You can view the routes in the portal.
 
-   ![Gateway route config](media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png)
+   :::image type="content" source="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png" alt-text="Example screenshot of gateway routing configuration" lightbox="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png":::
 
 ## Access application APIs through the gateway endpoint
 
