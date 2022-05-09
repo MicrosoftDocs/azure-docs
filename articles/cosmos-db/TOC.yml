@@ -730,7 +730,14 @@
                   href: sql/how-to-provision-database-throughput.md
                 - name: Provision autoscale throughput - database or container
                   displayName: request units, RUs, RU, shared throughput, database level, collection level, autoscale
-                  href: sql/how-to-provision-autoscale-throughput.md
+                  href: sql/how-to-provision-autoscale-throughput.md                
+                - name: Distribute throughput across partitions (preview) - container
+                  displayName: request units, RUs, RU, collection levels
+                  items:
+                    - name: Distribute throughput across partitions overview        
+                      href: sql/distribute-throughput-across-partitions.md
+                    - name: Distribute throughput across partitions FAQ        
+                      href: sql/distribute-throughput-across-partitions-faq.yml
                 - name: Estimate RU/s with capacity planner
                   displayName: request units, RUs, RU, capacity
                   href: sql/estimate-ru-with-capacity-planner.md
