@@ -128,7 +128,8 @@ If you're following along with the example in the [TODO: AzureML Examples repo](
 
 Let's see `prep.py` first. It contains a normal python function, which performs the prepare data logic.
 
-TODO: check link
+
+TODO: check link, test update in lauryn's branch
 :::code language="python" source="~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/prep/prep.py":::
 
 ```python
