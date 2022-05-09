@@ -49,7 +49,7 @@ You can define the Dapr configuration for a container app through the Azure CLI 
 | Field | Description |
 | ----- | ----------- |
 | `--enable-dapr` / `enabled` | Enables Dapr on the container app. |
-| `--dapr-app-port` / `appPort` | Identifies on which port your application is listening. |
+| `--dapr-app-port` / `appPort` | Identifies which port your application is listening. |
 | `--dapr-app-protocol` / `appProtocol` | Tells Dapr which protocol your application is using. Valid options are `http` or `grpc`. Default is `http`. |
 | `--dapr-app-id` / `appId` | The unique ID of the application. Used for service discovery, state encapsulation, and the pub/sub consumer ID. |
 
@@ -61,7 +61,7 @@ Once Dapr is enabled on your container app, you're able to plug in and use the [
 
 - Allow you to use the individual Dapr building block APIs.
 - Can be scoped to specific container apps.
-- Can be easily modified to point to any one of the 70+ component implementations.
+- Can be easily modified to point to any one of the component implementations.
 - Can reference secure configuration values using Container Apps secrets.
 
 Based on your needs, you can "plug in" certain Dapr component types like state stores, pub/sub brokers, and more. In the examples below, you will find the various schemas available for defining a Dapr component in Azure Container Apps. The Container Apps manifests differ sightly from the Dapr OSS manifests in order to simplify the component creation experience.
