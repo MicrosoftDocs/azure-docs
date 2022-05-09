@@ -4,6 +4,7 @@ description: Learn how to troubleshoot low memory issues in Azure Database for M
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: troubleshooting
 ms.date: 4/22/2022
 ---

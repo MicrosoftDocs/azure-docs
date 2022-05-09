@@ -3,10 +3,10 @@ title: Partnering with Azure DDoS Protection Standard
 description: "Understand partnering opportunities enabled by Azure DDoS Protection Standard."
 ms.service: ddos-protection
 documentationcenter: na
-author: KumudD
+author: AbdullahBell
 ms.topic: how-to
 ms.date: 08/28/2020
-ms.author: kumud
+ms.author: abell
 ---
 # Partnering with Azure DDoS Protection Standard
 This article describes partnering opportunities enabled by the Azure DDoS Protection Standard. This article is designed to help product managers and business development roles understand the investment paths and provide insight into the partnering value propositions.
