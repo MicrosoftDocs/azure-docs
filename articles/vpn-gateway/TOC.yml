@@ -205,7 +205,7 @@
         items:
         - name: All clients
           href: point-to-site-vpn-client-configuration-radius.md
-        - name: Username-password authentication clients
+        - name: Password authentication clients
           href: point-to-site-vpn-client-configuration-radius-password.md
       - name: AAD authentication clients
         items:
