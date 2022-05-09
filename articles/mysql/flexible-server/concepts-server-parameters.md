@@ -4,6 +4,7 @@ description: This topic provides guidelines for configuring server parameters in
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 11/10/2020
 ---
@@ -48,7 +49,7 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-
 |Burstable (B1s)|1|1|134217728|33554432|134217728|
 |Burstable (B1ms)|1|2|536870912|134217728|536870912|
 |Burstable|2|4|2147483648|134217728|2147483648|
-|General Purpose|2|8|6442450944|134217728|6442450944|
+|General Purpose|2|8|5368709120|134217728|5368709120|
 |General Purpose|4|16|12884901888|134217728|12884901888|
 |General Purpose|8|32|25769803776|134217728|25769803776|
 |General Purpose|16|64|51539607552|134217728|51539607552|

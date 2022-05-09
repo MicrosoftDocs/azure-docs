@@ -4,6 +4,7 @@ description: This tutorial explains how to build a PHP app with flexible server.
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: tutorial
 ms.devlang: php
 ms.date: 9/21/2020

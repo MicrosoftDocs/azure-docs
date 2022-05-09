@@ -2,8 +2,8 @@
 title: Manage resources and quotas
 titleSuffix: Microsoft Purview
 description: Learn about the quotas and limits on resources for Microsoft Purview and how to request quota increases.
-author: chandrakavya
-ms.author: kchandra
+author: whhender
+ms.author: whhender
 ms.service: purview
 ms.topic: conceptual
 ms.date: 03/21/2022
