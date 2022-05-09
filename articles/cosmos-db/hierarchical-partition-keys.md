@@ -1,5 +1,5 @@
 ---
-title: Hierarchical partition keys in Azure Cosmos DB
+title: Hierarchical partition keys in Azure Cosmos DB (preview)
 description: Learn about subpartitioning in Azure Cosmos DB, how to use the feature, and how to manage logical partitions
 author: seesharprun
 ms.author: sidandrews
@@ -9,7 +9,7 @@ ms.reviewer: dech
 ms.date: 05/09/2022
 ---
 
-# Hierarchical partition keys in Azure Cosmos DB
+# Hierarchical partition keys in Azure Cosmos DB (preview)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB distributes your data across logical and physical partitions based on your partition key to enable horizontal scaling. With hierarchical partition keys, or subpartitoning, you can now configure up to a three level hierarchy for your partition keys to further optimize data distribution and enable higher scale.
