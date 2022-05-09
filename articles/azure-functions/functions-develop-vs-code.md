@@ -120,11 +120,11 @@ The Functions extension lets you create a function app project, along with your 
 
     ![Select Function authorization](./media/functions-develop-vs-code/create-function-auth.png)
 
-1. From the dropdown, select **Add to workplace**.
+1. From the dropdown list, select **Add to workplace**.
 
     ![Select Add to workplace](./media/functions-develop-vs-code/add-to-workplace.png)
 
-1. In **Do you trust the authors of the files in this folder?**, select **yes**.
+1. In **Do you trust the authors of the files in this folder?** window, select **yes**.
 
     ![Select author of the file](./media/functions-develop-vs-code/select-author-file.png)
 
