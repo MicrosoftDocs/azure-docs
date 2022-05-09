@@ -2,11 +2,11 @@
 title: "Quickstart: Deploy your code to Azure Container Apps"
 description: Code to cloud deploying your application to Azure Container Apps
 services: container-apps
-author: cebundy
+author: craigshoemaker
 ms.service: container-apps
 ms.topic: quickstart
-ms.date: 04/04/2022
-ms.author: v-bcatherine
+ms.date: 05/09/2022
+ms.author: cshoe
 zone_pivot_groups: container-apps-image-build-type
 ---
 
@@ -159,7 +159,7 @@ az acr create \
 Now store your ACR password in an environment variable.
 
 ```azurecli
-ACR_PASSWORD=$(az acr credential show -n $ACR_NAME --query passwords[0].value)
+ACR_PASSWORD=$(az acr credential show -n $ACR_NAME --query "passwords[0].value")
 ```
 
 # [PowerShell](#tab/powershell)
@@ -393,9 +393,11 @@ az containerapp create `
 
 ## Verify deployment
 
-The `az containerapp create` command returns the fully qualified domain name for the container app. Copy this location to a web browser.
+The `az containerapp create` command returns the fully qualified domain name (FQDN) for the container app. Copy this location to a web browser.
 
-From your web browser, navigate to the FQDN on the `/albums` endpoint.
+From your web browser, navigate to the `/albums` endpoint off the FQDN.
+
+**TODO** screenshot
 
 ## Clean up resources
 
@@ -420,7 +422,7 @@ Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 
 ## Next steps
 
-This quickstart is the entrypoint for a set of progressive tutorials that showcase the various features within Azure Container Apps. To continue with the tutorial path, `ADD LINKS`.
+This quickstart is the entrypoint for a set of progressive tutorials that showcase the various features within Azure Container Apps. Continue on to learn how to enable communication between two microservices.
 
 > [!div class="nextstepaction"]
-> [Environments in Azure Container Apps](environment.md)
+> [Communication between microservices](communicate-between-microservices.md)

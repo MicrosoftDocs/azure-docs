@@ -23,7 +23,7 @@ Before you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with 
 Next, define a container registry name unique to you.
 
 ```azurecli
-ACR_NAME="acaalbums-"$GITHUB_USERNAME
+ACR_NAME="acaalbums"$GITHUB_USERNAME
 ```
 
 # [PowerShell](#tab/powershell)
@@ -43,7 +43,7 @@ Before you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with 
 Next, define a container registry name unique to you.
 
 ```powershell
-$ACR_NAME="acaalbums-"+$GITHUB_USERNAME
+$ACR_NAME="acaalbums"+$GITHUB_USERNAME
 ```
 
 ---

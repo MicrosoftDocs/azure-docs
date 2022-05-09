@@ -32,7 +32,7 @@ In this tutorial, you learn to:
 
 ## Prerequisites
 
-This article directly follows the final steps from [Deploy your code to Azure Container Apps](./quickstart-code-to-cloud.md). See the prerequisites from [Deploy your code to Azure Container Apps](quickstart-code-to-cloud.md#prerequisites) to continue.
+This article directly follows the final steps from [the "code to cloud" quickstart](./quickstart-code-to-cloud.md). See the prerequisites from [Deploy your code to Azure Container Apps](quickstart-code-to-cloud.md#prerequisites) to continue.
 
 ## Setup
 
@@ -100,6 +100,12 @@ $ACR_PASSWORD=(Get-AzContainerRegistryCredential `
 
     Select the **Fork** button at the top of the page to fork the repo to your account. Follow the prompts from GitHub to fork the repository and return here once the operation is complete.
 
+1. If your terminal is still *code-to-cloud* folder, back out to the parent folder.
+
+    ```console
+    cd ..
+    ```
+
 1. Use the following git command to clone your forked repo into the *code-to-cloud-ui* folder:
 
     ```git
@@ -142,13 +148,13 @@ $ACR_PASSWORD=(Get-AzContainerRegistryCredential `
     # [Bash](#tab/bash)
 
     ```azurecli
-    az acr build --registry $ACR_NAME --image $CONTAINER_IMAGE_NAME
+    az acr build --registry $ACR_NAME --image $CONTAINER_IMAGE_NAME .
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```powershell
-    az acr build --registry $ACR_NAME --image $CONTAINER_IMAGE_NAME
+    az acr build --registry $ACR_NAME --image $CONTAINER_IMAGE_NAME .
     ```
 
     ---
