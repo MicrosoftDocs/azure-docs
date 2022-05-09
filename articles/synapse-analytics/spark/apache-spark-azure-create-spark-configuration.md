@@ -1,5 +1,5 @@
 ---
-title: Apache Spark Configuration Management
+title: Manage Apache Spark configuration
 description: Learn how to create an Apache Spark configuration for your synapse studio.
 services: synapse-analytics 
 author: jejiang
@@ -11,7 +11,7 @@ ms.subservice: spark
 ms.date: 04/21/2022
 ms.custom: references_regions
 ---
-# Apache Spark Configuration Management
+# Manage Apache Spark configuration
 
 In this tutorial, you will learn how to create an Apache Spark configuration for your synapse studio. The created Apache Spark configuration can be managed in a standardized manner and when you create Notebook or Apache spark job definition can select the Apache Spark configuration that you want to use with your Apache Spark pool. When you select it, the details of the configuration are displayed.
 
@@ -24,7 +24,7 @@ You can create custom configurations from different entry points, such as from t
 Follow the steps below to create an Apache Spark Configuration in Synapse Studio.
 
    1. Select **Manage** > **Apache Spark configurations**.
-   2. Click on **New** button to create an new Apache Spark configuration, or click on **Import** a local .json file to your workspace.
+   2. Click on **New** button to create a new Apache Spark configuration, or click on **Import** a local .json file to your workspace.
    3. **New Apache Spark configuration** page will be opened after you click on **New** button.
    4. For **Name**, you can enter your preferred and valid name.
    5. For **Description**, you can input some description in it.

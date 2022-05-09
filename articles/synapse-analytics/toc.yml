@@ -776,7 +776,7 @@ items:
         href: ./spark/azure-synapse-diagnostic-emitters-azure-storage.md
       - name: Collect Apache Spark applications logs and metrics with Azure Event Hubs
         href: ./spark/azure-synapse-diagnostic-emitters-azure-eventhub.md
-      - name: Apache Spark Configuration Management
+      - name: Manage Apache Spark configuration
         href: ./spark/apache-spark-azure-create-spark-configuration.md          
     - name: Data sources
       items:
