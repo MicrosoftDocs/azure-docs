@@ -29,7 +29,7 @@ See the [application development lifecycle](../overview.md#project-development-l
 
 ## View the model's evaluation details
 
-[!INCLUDE [View model evaluation using Language Studio](../includes/view-model-evaluation-language-studio.md)]
+[!INCLUDE [View model evaluation using Language Studio](../includes/language-studio/model-evaluation.md)]
 
 ## Next steps
 
