@@ -25,9 +25,9 @@ To use 3D Scenes Studio, you'll need the following resources:
 * An Azure Digital Twins instance. For instructions, see [Set up an instance and authentication](how-to-set-up-instance-cli.md).
     * Obtain *Azure Digital Twins Data Owner* or *Azure Digital Twins Data Reader* access to the instance. For instructions, see [Set up user access permissions](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
     * Take note of the *host name* of your instance to use later.
-* An Azure storage account. For instructions, see [Create a storage account](/storage/common/storage-account-create?tabs=azure-portal).
+* An Azure storage account. For instructions, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-portal).
     * Obtain *Storage Blob Data Owner* access to the storage account. For instructions, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
-* A private container in the storage account. For instructions, see [Create a container](/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
+* A private container in the storage account. For instructions, see [Create a container](azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
     * Take note of the *URL* of your storage container to use later.
 
 You should also configure CORS for your storage account, so that 3D Scenes Studio will be able to access your storage container.

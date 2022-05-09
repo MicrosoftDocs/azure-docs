@@ -37,16 +37,17 @@ Each 3D scene relies on two files:
 * A 3D file, which contains environment data and meshes for your visualization. You import this file into 3D Scenes Studio.
 * A configuration file, which is automatically created for you when you use the studio. This file contains the mapping definition between 3D content and Azure Digital Twins, as well as bits of business logic.
 
-The files for a scene are stored in linked [Azure storage](/storage/blobs/), which you create and manage in your Azure account. As a result, you'll be able to modify any of the stored files directly. However, it's **not recommended** to manually edit the configuration file, as this creates a risk of inconsistencies in the file that could break the viewer experience.
+The files for a scene are stored in linked [Azure storage](/azure/storage/blobs/), which you create and manage in your Azure account. As a result, you'll be able to modify any of the stored files directly. However, it's **not recommended** to manually edit the configuration file, as this creates a risk of inconsistencies in the file that might not be handled correctly in the viewer experience.
 
 ## Set up
 
 To work with 3D Scenes Studio, you'll need the following required resources:
 * An [Azure Digital Twins instance](how-to-set-up-instance-cli.md)
     * You'll need *Azure Digital Twins Data Owner* or *Azure Digital Twins Data Reader* access to the instance
-* An [Azure storage account](/storage/common/storage-account-create?tabs=azure-portal)
-    * You'll need *Storage Blob Data Owner* access to the storage account
-* A [private container](/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in the storage account
+    * The instance should be populated with [models](concepts-models.md) and [twins](concepts-twins-graph.md)
+* An [Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal)
+    * To build 3D scenes, you'll need *Storage Blob Data Owner* access to the storage account. If you only need to consume 3D scenes that others have created, you'll need *Storage Blob Data Reader*.
+* A [private container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in the storage account
 
 Then, you can access 3D Scenes Studio at this link: [3D Scenes Studio](http://dev.explorer.azuredigitaltwins-test.net/3dscenes).
 
