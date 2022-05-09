@@ -91,10 +91,8 @@ Restored logs retain their original timestamps. When you run a query on restored
 
 Set the query time range by either: 
 
-- Selecting **Custom** in the **Time range** dropdown at the top of the query editor and setting **From** and **To** values.
-    
+- Selecting **Custom** in the **Time range** dropdown at the top of the query editor and setting **From** and **To** values.<br>  
     or 
-
 - Specifying the time range in the query. For example:
 
     ```kusto
