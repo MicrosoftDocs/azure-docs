@@ -1,6 +1,6 @@
 ---
-title: "Quickstart - Integrate with Azure Database for PostgreSQL and Azure Cache for Redis"
-description: Explains how to provision and prepare an Azure Database for PostgreSQL and an Azure Cache for Redis to be used with apps running Azure Spring Cloud Enterprise tier. 
+title: "Quickstart - Securely Load Application Secrets using Key Vault"
+description: Explains how to use Azure Key Vault to securely load secrets for apps running Azure Spring Cloud Enterprise tier. 
 author: maly7
 ms.author: 
 ms.service: spring-cloud
@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.date: 
 ms.custom: 
 ---
-# Quickstart: Integrate with Azure Database for PostgreSQL and Azure Cache for Redis
+# Quickstart:  - Securely Load Application Secrets using Key Vault
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This quickstart shows you how to provision and prepare an Azure Database for PostgreSQL and an Azure Cache for Redis to be used with apps running Azure Spring Cloud Enterprise tier.
+This quickstart shows you how to securely load secrets using Azure Key Vault for apps running Azure Spring Cloud Enterprise tier.
 
 ## Prerequisites
 
@@ -24,6 +24,7 @@ This quickstart shows you how to provision and prepare an Azure Database for Pos
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 - Complete the previous quickstarts in this series:
   - [Build and deploy apps to Azure Spring Cloud using the Enterprise Tier](./quickstart-deploy-enterprise.md).
+  - [Integrate with Azure Database for PostgreSQL and Azure Cache for Redis](./quickstart-integrate-azure-database-and-redis-enterprise.md)
 
 ## Clean up resources
 
@@ -39,4 +40,4 @@ echo "Press [ENTER] to continue ..."
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Securely Load Application Secrets using Key Vault](./quickstart-key-vault-enterprise.md)
+> [Quickstart:  Monitor Applications End-to-End](./quickstart-monitor-end-to-end-enterprise.md)

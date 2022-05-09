@@ -1,6 +1,6 @@
 ---
-title: "Quickstart - Integrate with Azure Database for PostgreSQL and Azure Cache for Redis"
-description: Explains how to provision and prepare an Azure Database for PostgreSQL and an Azure Cache for Redis to be used with apps running Azure Spring Cloud Enterprise tier. 
+title: "Quickstart - Monitor Applications End-to-End"
+description: Explains how to monitor apps running Azure Spring Cloud Enterprise tier using Application Insights and Log Analytics.
 author: maly7
 ms.author: 
 ms.service: spring-cloud
@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.date: 
 ms.custom: 
 ---
-# Quickstart: Integrate with Azure Database for PostgreSQL and Azure Cache for Redis
+# Quickstart:  - Monitor Application End-to-End
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This quickstart shows you how to provision and prepare an Azure Database for PostgreSQL and an Azure Cache for Redis to be used with apps running Azure Spring Cloud Enterprise tier.
+This quickstart shows you how monitor apps running Azure Spring Cloud Enterprise tier using Application Insights and Log Analytics.
 
 ## Prerequisites
 
@@ -23,7 +23,9 @@ This quickstart shows you how to provision and prepare an Azure Database for Pos
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 - Complete the previous quickstarts in this series:
-  - [Build and deploy apps to Azure Spring Cloud using the Enterprise Tier](./quickstart-deploy-enterprise.md).
+  - [Build and deploy apps to Azure Spring Cloud using the Enterprise Tier](./quickstart-deploy-enterprise.md)
+  - [Integrate with Azure Database for PostgreSQL and Azure Cache for Redis](./quickstart-integrate-azure-database-and-redis-enterprise.md)
+  - [Securely Load Application Secrets using Key Vault](./quickstart-key-vault-enterprise.md)
 
 ## Clean up resources
 
@@ -39,4 +41,4 @@ echo "Press [ENTER] to continue ..."
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Securely Load Application Secrets using Key Vault](./quickstart-key-vault-enterprise.md)
+> [Quickstart: Set Request Rate Limits](./quickstart-set-request-rate-limits-enterprise.md)

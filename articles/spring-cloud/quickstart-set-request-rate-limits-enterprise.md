@@ -1,6 +1,6 @@
 ---
-title: "Quickstart - Integrate with Azure Database for PostgreSQL and Azure Cache for Redis"
-description: Explains how to provision and prepare an Azure Database for PostgreSQL and an Azure Cache for Redis to be used with apps running Azure Spring Cloud Enterprise tier. 
+title: "Quickstart - Set Request Rate Limits"
+description: Explains how to set request rate limits using Spring Cloud Gateway on Azure Spring Cloud Enterprise tier.
 author: maly7
 ms.author: 
 ms.service: spring-cloud
@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.date: 
 ms.custom: 
 ---
-# Quickstart: Integrate with Azure Database for PostgreSQL and Azure Cache for Redis
+# Quickstart:  - Set Request Rate Limits
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This quickstart shows you how to provision and prepare an Azure Database for PostgreSQL and an Azure Cache for Redis to be used with apps running Azure Spring Cloud Enterprise tier.
+This quickstart shows you how to set request rate limits using Spring Cloud Gateway on Azure Spring Cloud Enterprise tier. 
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ This quickstart shows you how to provision and prepare an Azure Database for Pos
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 - Complete the previous quickstarts in this series:
-  - [Build and deploy apps to Azure Spring Cloud using the Enterprise Tier](./quickstart-deploy-enterprise.md).
+  - [Build and deploy apps to Azure Spring Cloud using the Enterprise Tier](./quickstart-deploy-enterprise.md)
 
 ## Clean up resources
 
@@ -39,4 +39,4 @@ echo "Press [ENTER] to continue ..."
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Securely Load Application Secrets using Key Vault](./quickstart-key-vault-enterprise.md)
+> [Quickstart: Automate Deployments](./quickstart-automate-deployments-github-actions-enterprise.md)
