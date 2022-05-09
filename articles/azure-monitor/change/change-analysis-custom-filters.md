@@ -6,7 +6,7 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
 ms.reviewer: cawa
-ms.date: 05/04/2022
+ms.date: 05/09/2022
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 ---
@@ -17,7 +17,7 @@ Browsing through a long list of changes in the entire subscription is time consu
 
 ## Custom filters and search bar
 
-:::image type="content" source="./media/change-analysis/filters-searchbar.png" alt-text="Filters and search bar are available at the top of Change Analysis homepage, right above the changes section":::
+:::image type="content" source="./media/change-analysis/filters-search-bar.png" alt-text="Screenshot showing that filters and search bar are available at the top of Change Analysis homepage, right above the changes section.":::
 
 ### Filters
 
