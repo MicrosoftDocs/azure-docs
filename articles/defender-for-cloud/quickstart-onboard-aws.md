@@ -66,7 +66,7 @@ This screenshot shows AWS accounts displayed in Defender for Cloud's [overview d
         
         - To manually install Azure Arc on your existing and future EC2 instances, follow the instructions in the [EC2 instances should be connected to Azure Arc](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/231dee23-84db-44d2-bd9d-c32fbcfb42a3) recommendation.
         
-    - Additional extensions should be enabled on the Arc-connected machines. These extensions are currently configured in the subscription level. It means that all the multicloud accounts and projects (from both AWS and GCP) under the same subscription will inherit the subscription settings with regards to these components.
+    - Additional extensions should be enabled on the Arc-connected machines. These extensions are currently configured at the subscription level. This means that all the multicloud accounts and projects (from both AWS and GCP) under the same subscription will inherit the subscription settings with regards to these components.
         - Microsoft Defender for Endpoint
         - VA solution (TVM/ Qualys)
         - Log Analytics (LA) agent on Arc machines. Ensure the selected workspace has security solution installed.
