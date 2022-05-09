@@ -84,6 +84,23 @@ az monitor log-analytics workspace table restore create --subscription ContosoSI
 ```
 
 ---
+
+## Query restored data
+
+Restored logs retain their original timestamps. When you run a query on restored logs, set the time range for your query based on when the data was originally generated.
+
+Set the query time range by either: 
+
+- Selecting **Custom** in the **Time range** dropdown at the top of the query editor and setting **From** and **To** values.
+- Specifying the time range in the query. For example:
+
+    ```kusto
+    let startTime =datetime(01/01/2022 8:00:00 PM);
+    let endTime =datetime(01/05/2022 8:00:00 PM);
+    TabelName_RST
+    | where TimeGenerated between(startTime .. endTime)
+    ```
+
 ## Dismiss restored data
 
 To save costs, dismiss restored data when you no longer need it by deleting the restored table.
