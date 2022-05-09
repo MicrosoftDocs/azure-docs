@@ -38,14 +38,14 @@ The example used in this article can be found in [azureml-example repo](https://
 
 Assume you already have a command component defined in `train.yaml`. A two step pipeline job YAML looks like below.
 
-:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/pipelines-with-components/pipeline_with_hyperparameter_sweep/pipeline.yml highlight="7-48"":::
+:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/pipelines-with-components/pipeline_with_hyperparameter_sweep/pipeline.yml" highlight="7-48":::
 
 
-The `sweep_step` is the step for hyperparameter tuning. Step type needs to be `sweep`.  And `trial` refers to the command component defined in `train.yaml`. From the `search sapce` field we can see three hyparmeters(`c_value`, `kernel`, and `coef`) are added to the search space. After submitting this pipeline job, Azure Machine Learning will run the trial component multiple times to sweep over hypermaters based on the search space and terminate policy you defined in `sweep_step`. Check [sweep job YAML schema](reference-yaml-job-sweep.mdmd) for full schema of sweep job.
+The `sweep_step` is the step for hyperparameter tuning. Step type needs to be `sweep`.  And `trial` refers to the command component defined in `train.yaml`. From the `search sapce` field we can see three hyparmeters(`c_value`, `kernel`, and `coef`) are added to the search space. After submitting this pipeline job, Azure Machine Learning will run the trial component multiple times to sweep over hypermaters based on the search space and terminate policy you defined in `sweep_step`. Check [sweep job YAML schema](reference-yaml-job-sweep.md) for full schema of sweep job.
 
 Below is the trial component (`train.yml`) definition. The hyperparamters added to search space need to be inputs for the component.
 
-:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/pipelines-with-components/pipeline_with_hyperparameter_sweep/train.yml highlight="60"":::
+:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/pipelines-with-components/pipeline_with_hyperparameter_sweep/train.yml" highlight="60":::
 
 
 You can see the source code of trial component in `./train-scr` folder(line 60). This is the code that will be executed in every trial of the sweep job. Make sure in your training script, you log the metric with exactly the same name as `primary_metric` value in pipeline YAML. In this example, we use `mlflow.autolog()`. We suggest using mlflow to track your ML experiments. See more about mlflow [here](./how-to-use-mlflow-cli-runs.md)  

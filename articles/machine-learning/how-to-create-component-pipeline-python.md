@@ -20,7 +20,7 @@ ms.custom: devx-track-python, sdkv2
 
 > * [v1](v1/tutorial-pipeline-python-sdk)
 
-> * [v2 (preview)](how-to-create-component-pipeline-python-v2.md)
+> * [v2 (preview)](how-to-create-component-pipeline-python.md)
 
 In this article, you learn how to build an [Azure Machine Learning pipeline](concept-ml-pipelines.md) using Python SDK v2 to complete an image classification task containing three steps: prepare data, train an image classification model, and score the model. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on machine learning instead of infrastructure and automation.  
 
@@ -140,7 +140,7 @@ Following is what a component looks like in the studio UI.
 
 You'll need to modify the runtime environment in which your component runs. 
 
-:::code language="python" source=""~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/prep/prep_dsl_component.py" range="5-10":::
+:::code language="python" source="~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/prep/prep_dsl_component.py" range="5-10":::
 
 
 The above code creates an object of `Environment` class which represents the runtime environment in which the component runs.
