@@ -217,30 +217,30 @@ In this scenario, Azure Machine Learning service builds the training or inferenc
         value={"ResourceId": "<user-assigned managed identity resource id>", "ClientId": "<user-assigned managed identity client ID>"})
     ```
 
-Once the configuration is complete, you can use the base images from private ACR when building environments for training or inference. The following code snippet demonstrates how to specify the base image ACR and image name in an environment definition:
+1. Once the configuration is complete, you can use the base images from private ACR when building environments for training or inference. The following code snippet demonstrates how to specify the base image ACR and image name in an environment definition:
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
-```python
-from azureml.core import Environment
+    ```python
+    from azureml.core import Environment
 
-env = Environment(name="my-env")
-env.docker.base_image = "<acr url>/my-repo/my-image:latest"
-```
+    env = Environment(name="my-env")
+    env.docker.base_image = "<acr url>/my-repo/my-image:latest"
+    ```
 
-Optionally, you can specify the managed identity resource URL and client ID in the environment definition itself by using [RegistryIdentity](/python/api/azureml-core/azureml.core.container_registry.registryidentity). If you use registry identity explicitly, it overrides any workspace connections specified earlier:
+    Optionally, you can specify the managed identity resource URL and client ID in the environment definition itself by using [RegistryIdentity](/python/api/azureml-core/azureml.core.container_registry.registryidentity). If you use registry identity explicitly, it overrides any workspace connections specified earlier:
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
-```python
-from azureml.core.container_registry import RegistryIdentity
+    ```python
+    from azureml.core.container_registry import RegistryIdentity
 
-identity = RegistryIdentity()
-identity.resource_id= "<user-assigned managed identity resource ID>"
-identity.client_id="<user-assigned managed identity client ID>"
-env.docker.base_image_registry.registry_identity=identity
-env.docker.base_image = "my-acr.azurecr.io/my-repo/my-image:latest"
-```
+    identity = RegistryIdentity()
+    identity.resource_id= "<user-assigned managed identity resource ID>"
+    identity.client_id="<user-assigned managed identity client ID>"
+    env.docker.base_image_registry.registry_identity=identity
+    env.docker.base_image = "my-acr.azurecr.io/my-repo/my-image:latest"
+    ```
 
 ## Use Docker images for inference
 
