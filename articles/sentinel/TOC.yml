@@ -155,54 +155,61 @@
       href: resource-context-rbac.md
   - name: Migrate
     items:
-    - name: Overview
-      href: migration-overview.md
     - name: Plan your migration
       items:
-      - name: Review migration phases
+      - name: Overview
+        href: migration-overview.md
+      - name: Migration phases
         href: migration-phases.md
-      - name: Review migration activities
-        href: migration-activities.md
-      - name: Track your migration
+      - name: Track migration with a workbook
         href: migration-track.md
-    - name: Migrate detection rules
-      href: migration-detection-rules.md
-    - name: Add or migrate a SOAR
+    - name: Discover and design
+      items: 
+      - name: Review migration architectures
+        href: migration-architectures.md
+      - name: Compare and contrast SIEMs
+        href: migration-compare-siems
+      - name: Identify your migration priorities
+        href: migration-priorities
+      - name: Identify use cases
+        href: migration-identify-use-cases.md
+      - name: Identify rules
+        href: migration-identify-rules.md
+      - name: Identify SOAR use cases
+        href: migration-identify-soar-use-cases.md
+      - name: Review dashboards
+        href: migration-review-dashboards.md
+      - name: Identify historical data
+        href: migration-identify-historical-data.md
+      - name: Review Security Operations (SOC)
+    - name: Implement
       items:
-      - name: Overview
-        href: migration-soar-overview.md
-      - name: Migrate key tasks from ArcSight automation (sample flow)
-        href: migration-soar-arcsight.md
-      - name: Migrate key tasks from IBM SOAR (sample flow)
-        href: migration-soar-ibm.md
-      - name: Migrate key tasks from Splunk (sample flow)
-        href: migration-soar-splunk.md
-      - name: Review additional automation scenarios
-        href: migration-soar-automation.md
-      - name: Review post-migration considerations
-        href: migration-soar-post-migration.md
-    - name: Convert dashboards or views to Azure workbooks
-      items:
-      - name: Best practices
-        href: migration-dashboards-best-practices.md
-      - name: Gather data from existing dashboards
-        href: migration-dashboards-gather-data.md
-      - name: Convert data to workbooks
-        href: migration-dashboards-convert-data.md
-    - name: Migrate historical data
-      items:
-      - name: Choose a migration platform
-        href: migration-choose-platform.md
-      - name: Migrate historical data into Microsoft Sentinel
+      - name: Migrate IBM
+        href: migration-ibm.md
+      - name: Migrate ArcSight
+        href: migration-arcsight.md
+      - name: Migrate ArcSight
+        href: migration-arcsight.md
+      - name: Migrate QRadar
+        href: migration-qradar.md
+      - name: Migrate QRadar
+        href: migration-qradar.md
+      - name: Migrate LogRhythm
+        href: migration-logrhythm.md
+      - name: Convert dashboards to workbooks
+        href: migration-convert-dashboards.md
+      - name: Azure workbook tasks
+        href: migration-workbook-tasks.md
+      - name: Migrate historical data
         href: migration-historical-data.md
-    - name: Migrate SOC operations
+      - name: Export and ingest data
+        href: migration-export-ingest.md
+    - name: Migrate SOC analyst processes
       items:
-      - name: Overview
-        href: migration-soc-overview.md
-      - name: Migrate incident triage
-        href: migration-soc-incident-triage.md
-    - name: Recommended content
-      href: migration-recommended-content
+      - name: Incident triage
+        href: migration-incident-triage.md
+      - name: Analyst workflow
+        href: migration-analyst-workflow.md
   - name: Use Microsoft Sentinel side-by-side with legacy SIEM
     href: migration-legacy.md
   - name: Understand MITRE ATT&CK coverage
