@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
-ms.date: 02/28/2022
+ms.date: 04/14/2022
 ms.author: aahi
 ms.custom: 
 ---
@@ -27,29 +27,83 @@ In this tutorial, you will learn how to:
 
 * [An Azure Language resource connected to an Azure blob storage account](../how-to/create-project.md).
     * We recommend following the instructions for creating a resource using the Azure portal, for easier setup. 
-
 * [An Azure Cognitive Search service](../../../../search/search-create-service-portal.md) in your current subscription
     * You can use any tier, and any region for this service.
-
 * An [Azure function app](../../../../azure-functions/functions-create-function-app-portal.md)
 
-* Download this [sample data](https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/language-service/Custom%20text%20classification/Custom%20multi%20classification%20-%20movies%20summary.zip).
+## Upload sample data to blob container
 
-## Create a custom text classification project through Language studio
+[!INCLUDE [Uploading sample data for custom NER](../includes/quickstarts/blob-storage-upload.md)]
 
-[!INCLUDE [Create a project using Language Studio](../includes/create-project.md)]
+# [Language studio](#tab/Language-studio)
+
+## Create a custom text classification project
+
+Once your resource and storage container are configured, create a new custom text classification project. A project is a work area for building your custom ML models based on your data. Your project can only be accessed by you and others who have access to the Language resource being used.
+
+[!INCLUDE [Create a project using Language Studio](../includes/language-studio/create-project.md)]
 
 ## Train your model
 
-[!INCLUDE [Train a model using Language Studio](../includes/train-model-language-studio.md)]
+Typically after you create a project, you go ahead and start [tagging the documents](../how-to/tag-data.md) you have in the container connected to your project. For this tutorial, you have imported a sample tagged dataset and initialized your project with the sample JSON tags file.
+
+[!INCLUDE [Train a model using Language Studio](../includes/language-studio/train-model.md)]
 
 ## Deploy your model
 
-To deploy your model, go to your project in [Language Studio](https://aka.ms/custom-classification). You can also use the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2022-03-01-preview/operations/Projects_TriggerImportProjectJob).
+Generally after training a model you would review it's [evaluation details](../how-to/view-model-evaluation.md) and [make improvements](../how-to/improve-model.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in the Language studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
 
-[!INCLUDE [Deploy a model using Language Studio](../includes/deploy-model-language-studio.md)]
+[!INCLUDE [Deploy a model using Language Studio](../includes/language-studio/deploy-model.md)]
 
-If you deploy your model through Language Studio, your `deployment-name` will be `prod`.
+
+# [REST APIs](#tab/REST-APIs)
+
+### Get your resource keys and endpoint
+
+[!INCLUDE [Get keys and endpoint Azure Portal](../includes/get-keys-endpoint-azure.md)]
+
+## Create a custom text classification project
+
+Once your resource and storage container are configured, create a new custom text classification project. A project is a work area for building your custom ML models based on your data. Your project can only be accessed by you and others who have access to the Language resource being used.
+
+### Trigger import project job 
+
+[!INCLUDE [Import a project using the REST API](../includes/rest-api/import-project.md)]
+
+### Get import job Status
+
+ [!INCLUDE [get import project status](../includes/rest-api/get-import-status.md)]
+
+## Train your model
+
+Typically after you create a project, you go ahead and start [tagging the documents](../how-to/tag-data.md) you have in the container connected to your project. For this tutorial, you have imported a sample tagged dataset and initialized your project with the sample JSON tags file.
+
+### Start training your model
+
+After your project has been imported, you can start training your model. 
+
+[!INCLUDE [train model](../includes/rest-api/train-model.md)]
+
+### Get training job status
+
+Training could take sometime between 10 and 30 minutes for this sample dataset. You can use the following request to keep polling the status of the training job until it is successfully completed.
+
+ [!INCLUDE [get training model status](../includes/rest-api/get-training-status.md)]
+
+## Deploy your model
+
+Generally after training a model you would review it's [evaluation details](../how-to/view-model-evaluation.md) and [make improvements](../how-to/improve-model.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in the Language studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
+
+### Submit deployment job
+
+[!INCLUDE [deploy model](../includes/rest-api/deploy-model.md)]
+
+### Get deployment job status
+
+[!INCLUDE [get deployment status](../includes/rest-api/get-deployment-status.md)]
+
+
+---
 
 ## Use CogSvc language utilities tool for Cognitive search integration
  
@@ -85,18 +139,13 @@ If you deploy your model through Language Studio, your `deployment-name` will be
 
 5. Get your resource keys endpoint
 
-    1. Navigate to your resource in the [Azure portal](https://portal.azure.com/#home).
-    2. From the menu on the left side, select **Keys and Endpoint**. You will need the endpoint and one of the keys for the API requests.
-
-        :::image type="content" source="../../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint screen in the Azure portal" lightbox="../../media/azure-portal-resource-credentials.png":::
+   [!INCLUDE [Get keys and endpoint Azure Portal](../includes/get-keys-endpoint-azure.md)]
 
 6. Get your custom text classification project secrets
 
     1. You will need your **project-name**, project names are case-sensitive.
 
     2. You will also need the **deployment-name**. 
-        * If you’ve deployed your model via Language Studio, your deployment name will be `prod` by default. 
-        * If you’ve deployed your model programmatically, using the API, this is the deployment name you assigned in your request.
 
 ### Run the indexer command
 
