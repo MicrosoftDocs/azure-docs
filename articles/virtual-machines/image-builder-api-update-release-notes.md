@@ -75,6 +75,8 @@ For API versions 2021-10-01 and newer, the error output will look like the follo
     - Windows Update (Windows) (with search criteria, filters, and update limit)
 - Added support for the following distribution types:
     - VHD
+    - Managed Image
+    - Azure Compute Gallery
 - **Other Features**
     - Added support for customers to use their own VNet.
     - Added support for customers to customize the build VM (VM size, OS disk size).
