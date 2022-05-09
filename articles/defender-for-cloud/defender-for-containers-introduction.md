@@ -104,7 +104,7 @@ Defender for Containers protects your clusters whether they're running in:
 - **An unmanaged Kubernetes distribution** (using Azure Arc-enabled Kubernetes) - Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters hosted on-premises or on IaaS.
 
 > [!NOTE]
-> Defender for Containers' support for Arc-enabled Kubernetes clusters (including AWS EKS, and GCP GKE clusters) is a preview feature.
+> Defender for Containers' support for Arc-enabled Kubernetes clusters (AWS, EKS, and GCP GKE clusters) is a preview feature.
 
 For high-level diagrams of each scenario, see the relevant tabs below. 
 
