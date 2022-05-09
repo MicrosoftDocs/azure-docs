@@ -289,7 +289,7 @@
         "articles/connectors/*.md": "ecfan",
         "articles/container-instances/**/*.md": "macolso",
         "articles/container-registry/**/*.md": "tejaswikolli-web",
-        "articles/data-catalog/*.md": "ChandraKavya",
+        "articles/data-catalog/*.md": "whhender",
         "articles/data-lake-analytics/*.md": "xujxu",
         "articles/defender-for-cloud/*.md": "elazark",
         "articles/defender-for-iot/organizations/*.md": "batamig",
