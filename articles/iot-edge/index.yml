@@ -23,12 +23,16 @@ landingContent:
             url: about-iot-edge.md
           - text: What is Azure IoT Edge for Linux on Windows (EFLOW)?
             url: iot-edge-for-linux-on-windows.md
+          - text: Understand the Azure IoT Edge runtime and its architecture
+            url: iot-edge-runtime.md
+          - text: IoT Edge open-source repository
+            url: https://github.com/Azure/iotedge
+          - text: Azure IoT Edge supported systems
+            url: support.md
+      - linkListType: how-to-guide
+        links:
           - text: How an IoT Edge device can be used as a gateway
             url: iot-edge-as-gateway.md
-          - text: Azure IoT Edge versions and release notes
-            url: version-history.md
-          - text: IoT Edge GitHub repository
-            url: https://github.com/Azure/iotedge
   - title: Getting started using Linux devices
     linkLists:
       - linkListType: quickstart
@@ -41,10 +45,10 @@ landingContent:
             url: tutorial-develop-for-linux.md
       - linkListType: how-to-guide
         links:
-          - text: Register and provision Linux devices at scale
-            url: how-to-provision-devices-at-scale-linux-symmetric.md
           - text: Install the IoT Edge runtime on Linux devices
             url: how-to-provision-single-device-linux-symmetric.md
+          - text: Register and provision Linux devices at scale
+            url: how-to-provision-devices-at-scale-linux-symmetric.md
           - text: Use Visual Studio Code to develop and debug modules
             url: how-to-vs-code-develop-module.md
   - title: Getting started using Windows devices
