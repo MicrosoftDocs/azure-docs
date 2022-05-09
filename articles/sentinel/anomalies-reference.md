@@ -282,70 +282,527 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 
 ### Anomalous Azure AD sign-in sessions
 
-**Description:** 
+**Description:** The machine learning model groups the Azure AD sign-in logs on a per-user basis. The model is trained on the previous 6 days of user sign-in behavior. It indicates anomalous user sign-in sessions in the last day. 
+
+An autoencoder model is used. Its aim is to compress the user sign-in sessions into a bottleneck encoding. It then attempts to reconstruct the input sessions as best it can from the bottleneck encoding. The sessions with high reconstruction errors are assumed to be anomalous. ***THIS ISN'T NECESSARY, RIGHT?***
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                |                                    |
-| **Data sources:**                |                                    |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Activity:**                    | <br><br> |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | Azure Active Directory sign-in logs                                |
+| **MITRE ATT&CK tactics:**        | Initial Access                                                     |
+| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts<br>T1566 - Phishing<br>T1133 - External Remote Services |
+| **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, UPN Suffix, AaadTenantId, AaaUserId,  isDomainJoined, LastVerdict |
 
 
 ### Anomalous Azure operations
 
-**Description:** 
+**Description:** This detection algorithm generates anomaly of a caller who performed sequence of an operation(s) which is uncommon in their workspace. We collect and featurize last 21 days of operation happened in the workspace grouped by the caller as a training data for ML algorithm. The trained model is used to score the operation performed by the caller on the test date and we tag those caller as anomaly whose error score is greater than given thershold. From Security perspective, this anomaly will capture the caller along with operation performed on the test date which are not common in their workspace.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                |                                    |
-| **Data sources:**                |                                    |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Activity:**                    | <br><br> |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | Azure Activity logs                                                |
+| **MITRE ATT&CK tactics:**        | Initial Access                                                     |
+| **MITRE ATT&CK techniques:**     | T1190 - Exploit Public-Facing Application                          |
+| **Entities:**                    |                                                                    |
 
 
 ### Anomalous Code Execution (duplicate?)
 
-**Description:** 
+**Description:** Adversaries may abuse command and script interpreters to execute commands, scripts, or binaries. These interfaces and languages provide ways of interacting with computer systems and are a common feature across many different platforms.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                |                                    |
-| **Data sources:**                |                                    |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Activity:**                    | <br><br> |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | Azure Activity logs                                                |
+| **MITRE ATT&CK tactics:**        | Execution                                                          |
+| **MITRE ATT&CK techniques:**     | T1059 - Command and Scripting Interpreter                          |
+| **Entities:**                    |                                                                    |
 
 
-### 
+### Anomalous local account creation
 
-**Description:** 
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                |                                    |
-| **Data sources:**                |                                    |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Activity:**                    | <br><br> |
-
-
-### 
-
-**Description:** 
+**Description:** This algorithm is to detect anomalous local account creation on windows systems. Adversaries may create local accounts to maintain access to victim systems. This algorithm analyzes historical local account creation activity (14 days) by users and compare with current day to find similar activity from the users who were not previously seen in historical activity. You can further customize the allowlist to filter known users from triggering this anomaly.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                |                                    |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | Windows Security logs                                              |
+| **MITRE ATT&CK tactics:**        | Persistence                                                        |
+| **MITRE ATT&CK techniques:**     | T1136 - Create Account                                             |
+| **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, isDomainJoined, IsValid, LastVerdict |
+
+
+### Anomalous scanning activity
+
+**Description:** The Scanning Activity anomaly is looking to determine if there is potential port scanning anomaly in an environment coming from a single source IP to one or more destination IPs.  
+The algorithm takes into account whether the IP is public, meaning external, or private, meaning internal, and the event is marked accordingly. Only private to public or public to private is considered at this time. Scanning activity can indicate an attacker attempting to determine available services in an environment that can be potentially exploited and used for ingress or lateral movement. A high number of source ports and high number of destination ports from a single source IP to either a single or multiple destination IP or IPs can be interesting and indicate anomalous scanning. Additionally, if there is a high ratio of destination IPs to the single source IP this can indicate anomalous scanning. Configuration details - Job run default is daily, with hourly bins The algorithm uses the following defaults to limit the results based on hourly bins, each is configurable -> Included device actions - accept, allow, start -> Excluded ports - 53, 67, 80, 8080, 123, 137, 138, 443, 445, 3389 -> Distinct destination port count >= 600 -> Distinct source port count >= 600 -> Distinct source port count divided by distinct destination port, ratio converted to percent >= 99.99 -> Source IP (always 1) divided by destination IP, ratio converted to percent >= 99.99
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CEF, CheckPoint, Fortinet)        |
+| **MITRE ATT&CK tactics:**        | Discovery                                                          |
+| **MITRE ATT&CK techniques:**     | T1046 - Network Service Scanning                                   |
+| **Entities:**                    | **Type:** IP<br><br>**Field:** IP                                  |
+
+
+### Anomalous user activities in Office Exchange
+
+**Description:** This machine learning model groups the Office Exchange logs on a per-user basis into hourly buckets. We define one hour as a session. The model is trained on the previous 7 days of behavior across all regular (non-admin) users. It indicates anomalous user Office.  
+An autoencoder model is used. Its aim is to compress the user Office Exchange sessions into a bottleneck encoding. It then attempts to reconstruct the input sessions as best it can from the bottleneck encoding. The sessions with high reconstruction errors are assumed to be anomalous.xchange sessions in the last day.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | Office Activity log (Exchange)                                     |
+| **MITRE ATT&CK tactics:**        | Persistence<br>Collection                                          |
+| **MITRE ATT&CK techniques:**     | **Collection:**<br>T1114 - Email Collection<br>T1213 - Data from Information Repositories<br><br>**Persistence:**<br>T1098 - Account Manipulation<br>T1136 - Create Account<br>T1137 - Office Application Startup<br>T1505 - Server Software Component |
+| **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, UPNSuffix, IsDomainJoined, LastVerdict |
+
+
+### Anomalous user/app activities in Azure audit logs
+
+**Description:** This autoencoder model identifies anomalous user/app Azure sessions in audit logs for the last day. We define 10 minutes to be the length of a session. It groups the Azure audit logs on a per-user/app basis into sessions. It compresses these user/app Azure sessions into a bottleneck encoding. It then reconstructs the input sessions as best it can from the bottleneck encoding. If the sessions have high reconstruction errors, they are assumed to be anomalous. The model is trained on the previous 21 days of behavior across all users and apps. This algorithm checks for sufficient volume of data before training the model.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | Azure Active Directory audit logs                                  |
+| **MITRE ATT&CK tactics:**        | Collection<br>Discovery<br>Initial Access<br>Persistence<br>Privilege Escalation |
+| **MITRE ATT&CK techniques:**     | **Collection:**<br>T1530 - Data from Cloud Storage Object<br><br>**Discovery:**<br>T1087 - Account Discovery<br>T1538 - Cloud Service Dashboard<br>T1526 - Cloud Service Discovery<br>T1069 - Permission Groups Discovery<br>T1518 - Software Discovery<br><br>**Initial Access:**<br>T1190 - Exploit Public-Facing Application<br>T1078 - Valid Accounts<br><br>**Persistence:**<br>T1098 - Account Manipulation<br>T1136 - Create Account<br>T1078 - Valid Accounts<br><br>**Privilege Escalation:**<br>T1484 - Domain Policy Modification<br>T1078 - Valid Accounts  |
+| **Entities:**                    | <br><br> |
+
+
+### Anomalous W3CIIS logs activity
+
+**Description:** This anomaly indicates anomalous W3CIIS sessions within the last day, due to reasons such as a high number of distinct uri queries, specific http verbs or http statuses, user agents, or an unusually high number of logs in a session. The machine learning algorithm identifies unusual W3CIIS log events within an hourly session, grouped by site name and client IP. The model is trained on the previous 7 days of W3CIIS activity, using an autoencoder. The algorithm checks for sufficient volume of W3CIIS activity before training the model. The autoencoder compressess these site name/client IP sessions using a bottleneck encoding, and reconstructs the input sessions using a decoder. Sessions with high reconstruction errors are marked as anomalous.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
 | **Data sources:**                |                                    |
 | **MITRE ATT&CK tactics:**        |                                    |
 | **MITRE ATT&CK techniques:**     |                                    |
-| **Activity:**                    | <br><br> |
+| **Entities:**                    | <br><br> |
 
 
+### Anomalous web request activity
 
+**Description:** This algorithm groups the W3CIIS logs into per site name and per URI stem hourly sessions. The machine learning model identifies the sessions with anomalous requests that triggered response code 5xx in the last day. 5xx codes are an indication that some application instability or error condition has been triggered by the request. They can be an indication that an attacker is probing the URI stem for vulnerabilities and configuration issues, performing some exploitation activity such as SQL injection, or leveraging an unpatched vulnerability.  
+The algorithm uses 6 days of data for training. It identifies unusual high volume of web requests that generated respond code 5xx in the last day.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                |                                    |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Attempted computer brute force
+
+**Description:** This algorithm detects an unusually high volume of failed login attempts to each computer. The model is trained on the previous 21 days of security event ID 4625 on a computer. It indicates anomalous high volume of failed login attempts in the last day.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | Windows Security logs                                              |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Attempted user account brute force
+
+**Description:** This algorithm detects an unusually high volume of failed login attempts per user account. The model is trained on the previous 21 days of security event ID 4625 on an account. It indicates anomalous high volume of failed login attempts in the last day.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | Windows Security logs                                              |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Attempted user account brute force per login type
+
+**Description:** This algorithm detects an unusually high volume of failed login attempts per user account per logon type. The model is trained on the previous 21 days of security event ID 4625 on an account and a logon type. It indicates anomalous high volume of failed login attempts with certain logon type in the last day.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | Windows Security logs                                              |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Attempted user account bruteforce per failure reason
+
+**Description:** This algorithm detects an unusually high volume of failed login attempts per user account per failure reason. The model is trained on the previous 21 days of security event ID 4625 on an account and a failure reason. It indicates anomalous high volume of failed login attempts with certain failure reason in the last day.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | Windows Security logs                                              |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Detect machine generated network beaconing behavior
+
+**Description:** This algorithm identifies beaconing patterns from network traffic connection logs based on recurrent time delta patterns. Any network connection towards the untrusted public networks at repetitive time delta is an indication of malware callbacks or data exfiltration attempts. The anomaly will calculate time delta between consecutive network connection between same source and destination IP as well as count (Connections in time-delta sequence) of time-delta sequence between same source and destination. Percentage of beaconing is calculated between connections in time-delta sequence against total connections in a day.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                |                                    |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Domain generation algorithm (DGA) on DNS domains
+
+**Description:** This machine learning model indicates potential DGA domains from the last day in the DNS logs. The algorithm applies to the DNS records that resolve to IPv4 and IPv6 addresses.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                |                                    |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Domain Reputation Palo Alto anomaly
+
+**Description:** This anomaly evaluates the reputation for all domains seen specifically for Palo Alto firewall (PAN-OS product). A high anomaly score indicates a low reputation, suggesting that the domain has been observed to host malicious content or is likely to do so.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                |                                    |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Excessive data transfer anomaly
+
+**Description:** This algorithm is to detect unusually high data transfer seen in network logs. It uses time series to decompose the data into seasonal, trend and residual components to calculate baseline. Any sudden large deviation from the historical baseline is considered anomalous activity.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CheckPoint, Fortinet)             |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Excessive Downloads via Palo Alto GlobalProtect
+
+**Description:** This algorithm detects unusually high volume of download per user account via Palo Alto VPN solution. The model is trained on the previous 14 days of the VPN logs. It indicates anomalous high volume of downloads in the last day.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | CommonSecurityLog (PAN VPN)                                        |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Excessive uploads via Palo Alto GlobalProtect
+
+**Description:** This algorithm detects unusually high volume of upload per user account via Palo Alto VPN solution. The model is trained on the previous 14 days of the VPN logs. It indicates anomalous high volume of upload in the last day.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | CommonSecurityLog (PAN VPN)                                        |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Login from an unusual region via Palo Alto GlobalProtect account logins
+
+**Description:** When a Palo Alto GlobalProtect account logs in from a source region that has rarely been logged in from during the last 14 days, an anomaly is triggered. This anomaly may indicate that the account has been compromised.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | CommonSecurityLog (PAN VPN)                                        |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Multi-region logins in a single day via Palo Alto GlobalProtect
+
+**Description:** This algorithm detects a user account which had logins from multiple non-adjacent regions in a single day via Palo Alto VPN.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | CommonSecurityLog (PAN VPN)                                        |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Potential data staging
+
+**Description:** the algorithm compares the downloads of distinct files on a per user basis from the previous week with the downloads for the current day for each user and an anomaly is triggered when the number of downloads of distinct files exceeds the configured number of standard deviations above the mean. Currently the algorithm only analyze commonly seen files during exfiltration of type documents, images, videos and archives with the extensions ["doc","docx","xls","xlsx","xlsm","ppt","pptx","one","pdf","zip","rar","bmp","jpg","mp3","mp4","mov"].
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                |                                    |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Potential domain generation algorithm (DGA) on next-level DNS Domains
+
+**Description:** This machine learning model indicates the next-level domains (third-level and up) of the domain names from the last day of DNS logs are unusual. They could potentially be the output of a domain generation algorithm (DGA). The anomaly applies to the DNS records that resolve to IPv4 and IPv6 addresses.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                |                                    |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Suspicious geography change in Palo Alto GlobalProtect account logins
+
+**Description:** A match indicates that a user logged in remotely from a country that is different from the country of the user's last remote login. This rule might also indicate an account compromise, particularly if the rule matches occurred closely in time. (include impossible travel)
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | CommonSecurityLog (PAN VPN)                                        |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Suspicious number of protected documents accessed
+
+**Description:** This algorithm is to detect high volume of access to protected documents in Azure Information Protection (AIP) logs. It considers AIP workload records for a given number of days and determines whether the user performed unusual access to protected documents in a day given his/her historical behavior.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                |                                    |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Suspicious volume of AWS API calls from Non-AWS source IP address from a user account id per workspace on a daily basis
+
+**Description:** This algorithm detects an unusually high volume of AWS API calls from Source IPs not in AWS Source IP ranges from one user account per workspace within the last day. The model is trained on the previous 21 days of AWS cloud trail log events on source IP address basis. This activity may indicate that the user account is compromised.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                |                                    |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Suspicious volume of AWS cloud trail logs events of group user account by EventTypeName
+
+**Description:** This algorithm detects an unusually high volume of AWS cloud trail log events per group user account by different event types (AwsApiCall, AwsServiceEvent, AwsConsoleSignIn, AwsConsoleAction) within the last day. The model is trained on the previous 21 days of AWS cloud trail log events on a group user account basis. This activity may indicate that the account is compromised.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                |                                    |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Suspicious volume of AWS write API calls from a user account
+
+**Description:** This algorithm detects an unusually high volume of AWS write API calls per user account within the last day. The model is trained on the previous 21 days of AWS cloud trail log events on a user account basis. This activity may indicate that the account is compromised.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                |                                    |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Suspicious volume of failed login attempts to AWS Console by each group user account
+
+**Description:** This algorithm detects an unusually high volume of AWS cloud trail log console failed login events per group user account within the last day. The model is trained on the previous 21 days of AWS cloud trail log events on group user account basis. This activity may indicate that the account is compromised.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                |                                    |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Suspicious volume of failed login attempts to AWS Console by each source IP address
+
+**Description:** This algorithm detects an unusually high volume of AWS cloud trail log console failed login events per source IP address within the last day. The model is trained on the previous 21 days of AWS cloud trail log events on source IP address basis. This activity may indicate that the IP address is compromised.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                |                                    |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Suspicious volume of logins to computer
+
+**Description:** This algorithm detects an unusually high volume of successful logins per computer. The model is trained on the previous 21 days of security event ID 4624 on a computer. It indicates anomalous high volume of successful logins in the last day
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | Windows Security logs                                              |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Suspicious volume of logins to computer with elevated token
+
+**Description:** This algorithm detects an unusually high volume of successful logins with elevated token per user account. The model is trained on the previous 21 days of security event ID 4624 on an account. It indicates anomalous high volume of successful logins with administrator privileges in the last day.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | Windows Security logs                                              |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Suspicious volume of logins to user account
+
+**Description:** This algorithm detects an unusually high volume of successful logins per user account. The model is trained on the previous 21 days of security event ID 4624 on an account. It indicates anomalous high volume of successful logins in the last day
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | Windows Security logs                                              |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Suspicious volume of logins to user account by logon types
+
+**Description:** This algorithm detects an unusually high volume of successful logins per user account by different logon types. The model is trained on the previous 21 days of security event ID 4624 on an account. It indicates anomalous high volume of successful logins in the last day.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | Windows Security logs                                              |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Suspicious volume of logins to user account with elevated token
+
+**Description:** This algorithm detects an unusually high volume of successful logins with elevated token per user account. The model is trained on the previous 21 days of security event ID 4624 on an account. It indicates anomalous high volume of successful logins with administrator privileges in the last day.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | Windows Security logs                                              |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Unusual external firewall alarm detected
+
+**Description:** This algorithm identifies unusual external firewall alarms which are threat signatures released by a firewall vendor. The anomaly takes last 7 days activities to calculate top 10 noisy signatures and also noisy source hosts which are repeatedly seen triggering threat signatures. After excluding both type of noisy events, it triggers an anomaly only after exceeding the threshold of number of signatures triggered in a single day.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | CommonSecurityLog (PAN)                                            |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Unusual mass downgrade  AIP label
+
+**Description:** This algorithm is to detect unusual high volume of downgrade label activity in Azure Information Protection (AIP) logs. It considers "AIP" workload records for a given number of days and determines the sequence of activity performed on documents along with the label applied to classify unusual volume of downgrade activity.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                |                                    |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Unusual network communication on commonly used ports
+
+**Description:** This algorithm identifies unusual network communication on commonly used ports, comparing daily traffic to a baseline from the previous 7 days. This includes traffic on commonly used ports (22, 53, 80, 443, 8080, 8888), and compares daily traffic to the mean and standard deviation of several network traffic attributes calculated over the baseline period. The traffic attributes considered are daily total events, daily data transfer and number of distinct source IP addresses per port. An anomaly is triggered when the daily values are greater than the configured number of standard deviations above the mean.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CheckPoint, Fortinet)             |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Unusual network volume anomaly
+
+**Description:** This algorithm is to detect unusually high volume of connections in network logs. It uses time series to decompose the data into seasonal, trend and residual components to calculate baseline. Any sudden large deviation from the historical baseline is considered as anomalous activity.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CheckPoint, Fortinet)             |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
+
+
+### Unusual web traffic detected with IP in URL path
+
+**Description:** This algorithm identifies unusual web requests which have a direct IP address as the host. This can be an attempt to bypass URL reputation services etc for malicious purposes. The anomaly filters all web requests with IP addresses in the URL path and compares them with the previous week of data to exclude known benign traffic. After excluding known benign traffic, it triggers an anomaly only after exceeding certain thresholds with configured values such as total web requests, numbers of URLs seen with same host destination IP address, and number of distinct source IPs within the set of URLs with the same destination IP address.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | Customizable machine learning                                      |
+| **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CheckPoint, Fortinet)             |
+| **MITRE ATT&CK tactics:**        |                                    |
+| **MITRE ATT&CK techniques:**     |                                    |
+| **Entities:**                    | <br><br> |
 
 
 ## Next steps
