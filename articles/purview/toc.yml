@@ -313,6 +313,8 @@ items:
       href: how-to-data-owner-policy-authoring-generic.md
     - name: Data owner policies for Azure Storage
       href: how-to-data-owner-policies-storage.md
+    - name: Data owner policies for Azure SQL DB
+      href: how-to-data-owner-policies-azure-sql-db.md
     - name: Data owner policies on resource groups or subscriptions
       href: how-to-data-owner-policies-resource-group.md
     - name: View self-service data access policy
