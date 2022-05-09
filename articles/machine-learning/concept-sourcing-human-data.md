@@ -121,11 +121,11 @@ We suggest the following best practices for manually collecting human data direc
 
 :::row:::
     :::column span="":::
-        **Communicate expectations clearly in the Statement of Work (SOW) with suppliers.**
+        **Communicate expectations clearly in the Statement of Work (SOW) (contracts or agreements) with suppliers.**
     :::column-end:::
 
     :::column span="":::
-        - An SOW which lacks requirements for responsible data collection work may result in low-quality or poorly collected data.     
+        - A contract which lacks requirements for responsible data collection work may result in low-quality or poorly collected data.     
     :::column-end:::
 
 :::row-end:::
