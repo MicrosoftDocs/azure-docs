@@ -131,8 +131,78 @@ Following are sample queries that you can use to help you monitor your Azure Eve
     | where ResourceProvider == "MICROSOFT.EVENTHUB"
     | where Category == "ArchiveLogs"
     | summarize count() by "failures", "durationInSeconds"    
+
     ```
+
+## Using Runtime logs 
+
+Runtime audit logs capture aggregated diagnostic information for all data plane access operations 
+
+### Enabling Runtime logs
+Azure Event Hubs 
+
+![Metrics Explorer with Event Hubs namespace selected](./media/monitor-event-hubs/add-diagnostic-settings.png)
+
+Azure Event Hubs 
+![Metrics Explorer with Event Hubs namespace selected](./media/monitor-event-hubs/configure-diagnostic-settings.png)
+
+
+### Publishing and consuming sample data 
+Azure Event Hubs 
+
+Publish data using Event Hubs SDK (AMQP)
+
+Consume data using Event Hubs SDK 
+
+
+
+
+Query logs using: 
+
+
+
+
+
+
+
+
+### Analyzing Runtime Audit logs
+
+AzureDiagnostics
+| where TimeGenerated > ago(1h)
+| where ResourceProvider =="MICROSOFT.EVENTHUB"
+| where Category == "RuntimeAuditLogs"
+
+
+Azure Event Hubs 
+![Metrics Explorer with Event Hubs namespace selected](./media/monitor-event-hubs/runtime-audit-logs.png)
+
+
+
+### Analyzing Application metrics 
+Application metrics logs capture the aggregated information on certain metrics related to data plane operations. The captured information includes the following runtime metrics. 
+
+
+AzureDiagnostics
+| where TimeGenerated > ago(1h)
+| where Category == "ApplicationMetricsLogs"
+
+![Metrics Explorer with Event Hubs namespace selected](./media/monitor-event-hubs/application-metrics-logs.png)
+
+
+
+
+resources: 
+
++ Get errors fro
+
+
+
+df
+
+
     
+
 ## Alerts
 You can access alerts for Azure Event Hubs by selecting **Alerts** from the **Azure Monitor** section on the home page for your Event Hubs namespace. See [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md) for details on creating alerts.
 
