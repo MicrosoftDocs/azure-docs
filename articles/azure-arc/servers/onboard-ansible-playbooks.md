@@ -27,27 +27,42 @@ Before you can run the script to connect your machines, you'll need to do the fo
 
 ## Download the Ansible playbook
 
-If you are onboarding Windows servers to Azure Arc-enabled servers, copy the following Ansible playbook template and save the playbook as `arc-server-onboard-playbook.yml`.
+If you are onboarding machines to Azure Arc-enabled servers, copy the following Ansible playbook template and save the playbook as `arc-server-onboard-playbook.yml`.
 
 ```
 ---
-- name: Onboard Windows Server to Azure Arc-enabled servers with public endpoint
+- name: Onboard Linux and Windows Servers to Azure Arc-enabled servers with public endpoint connectivity
   hosts: <INSERT-HOSTS>
-  tasks: 
-    - name: Download the Connected Machine Agent
-      win_get_url:
-        url: https://aka.ms/AzureConnectedMachineAgent
-        dest: C:\AzureConnectedMachineAgent.msi
-      when: ansible_os_family == 'Windows'
-    - name: Install the Connected Machine Agent
+  tasks:
+      - name: Download the Connected Machine Agent on Linux servers 
+        become: yes
+        get_url:
+          url: https://aka.ms/azcmagent
+          dest: ~/install_linux_azcmagent.sh
+          mode: '700'
+        when: ansible_system == 'Linux'
+    	- name: Download the Connected Machine Agent on Windows servers
+	  win_get_url:
+        	url: https://aka.ms/AzureConnectedMachineAgent
+        	dest: C:\AzureConnectedMachineAgent.msi
+        when: ansible_os_family == 'Windows'
+      - name: Install the Connected Machine Agent on Linux servers
+        become: yes
+        shell: bash ~/install_linux_azcmagent.sh
+        when: ansible_system == 'Linux'
+      - name: Install the Connected Machine Agent on Windows servers
         path: C:\AzureConnectedMachineAgent.msi
-      when: ansible_os_family == 'Windows'
-    - name: Connect the Connected Machine Agent to Azure
-        win_shell: '& $env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe connect --service-principal-id "<INSERT SERVICE PRINCIPAL CLIENT ID>"  --service-principal-secret "<INSERT SERVICE PRINCIPAL SECRET>" --resource-group "<INSERT RESOURCE GROUP NAME>" --tenant-id "<INSERT TENANT ID>" --location "<INSERT LOCATION>" --subscription-id "<INSERT SUBSCRIPTION ID"'
-      when: ansible_os_family == 'Windows'
+        when: ansible_os_family == 'Windows'
+      - name: Connect the Connected Machine Agent on Linux servers to Azure Arc
+        become: yes
+        shell: sudo azcmagent connect --service-principal-id <INSERT-SERVICE-PRINCIPAL-CLIENT-ID> --service-principal-secret <INSERT-SERVICE-PRINCIPAL-SECRET> --resource-group <INSERT-RESOURCE-GROUP> --tenant-id <INSERT-TENANT-ID> --location <INSERT-REGION> --subscription-id <INSERT-SUBSCRIPTION-ID>
+        when: ansible_system == 'Linux'
+      - name: Connect the Connected Machine Agent on Windows servers to Azure
+        win_shell: '& $env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe connect --service-principal-id <INSERT-SERVICE-PRINCIPAL-CLIENT-ID> --service-principal-secret <INSERT-SERVICE-PRINCIPAL-SECRET> --resource-group <INSERT-RESOURCE-GROUP> --tenant-id <INSERT-TENANT-ID> --location <INSERT-REGION> --subscription-id <INSERT-SUBSCRIPTION-ID>'
+        when: ansible_os_family == 'Windows'
 ```
 
-If you are onboarding Linux servers to Azure Arc-enabled servers, download the following Ansible playbook template and save the playbook as `arc-server-onboard-playbook.yml`.
+<!--If you are onboarding Linux servers to Azure Arc-enabled servers, download the following Ansible playbook template and save the playbook as `arc-server-onboard-playbook.yml`.
 
 ```
 ---
@@ -69,7 +84,7 @@ If you are onboarding Linux servers to Azure Arc-enabled servers, download the f
         become: yes
         shell: sudo azcmagent connect --service-principal-id <INSERT-SERVICE-PRINCIPAL-CLIENT-ID> --service-principal-secret <INSERT-SERVICE-PRINCIPAL-SECRET> --resource-group <INSERT-RESOURCE-GROUP> --tenant-id <INSERT-TENANT-ID> --location <INSERT-REGION> --subscription-id <INSERT-SUBSCRIPTION-ID>
         when: ansible_system == 'Linux'
-```
+```-->
 
 ## Modify the Ansible playbook
 
