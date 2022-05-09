@@ -19,18 +19,25 @@ Use this article to learn about the data and service limits when using custom te
 
 ## Language resource limits
 
-* Your Language resource has to be created in one of the [supported regions](region-support.md). Supported [pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/) are listed below
-
-  |Tier|Description|Limit|
-  |--|--|--|
-  |F|Free tier|You are only allowed one Language resource per subscription.|
-  |S|Paid tier|This pricing tier, you can have unlimited Language resources per subscription| 
+* Your Language resource has to be created in one of the supported regions and pricing tiers listed below.
 
 * You can only connect 1 storage account per resource. This process is irreversible. If you connect a storage account to your resource, you cannot unlink it later. Learn more about [connecting a storage account](how-to/create-project.md#create-language-resource-and-connect-storage-account)
 
 * You can have up to 500 projects per resource.
 
 * Project names have to be unique within the same resource across all custom features.
+
+## Pricing tiers
+
+Custom text classification is available with the following pricing tiers:
+
+|Tier|Description|Limit|
+|--|--|--|
+|F|Free tier|You are only allowed one F tier Language resource per subscription.|
+|S|Paid tier|You can have unlimited Language S tier resources per subscription. | 
+
+
+See [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/) for more information.
 
 ## Regional availability 
 

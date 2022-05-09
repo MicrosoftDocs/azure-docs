@@ -15,7 +15,7 @@ ms.author: aahi
 |Requirement  |Description  |
 |---------|---------|
 |Regions     | Make sure your existing resource is provisioned in one of the [supported regions](../service-limits.md#regional-availability). If you don't have a resource, you will need to create a new one in a supported region.        |
-|Pricing tier     | The [pricing tier](../service-limits.md#azure-resource-limits) for your resource.       |
+|Pricing tier     | The [pricing tier](../service-limits.md#language-resource-limits) for your resource.       |
 |Managed identity     | Make sure that the resource's managed identity setting is enabled. Otherwise, read the next section. |
 
 To use custom text classification, you'll need to [create an Azure storage account](../../../../storage/common/storage-account-create.md) if you don't have one already. 
