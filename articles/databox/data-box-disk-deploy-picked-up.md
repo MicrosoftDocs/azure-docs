@@ -264,7 +264,7 @@ Take the following steps if returning the device in South Africa.
 
 ::: zone-end
 
-### Self-managed shipping
+## Self-managed shipping
 
 Self-managed shipping is available in the following regions:
 
