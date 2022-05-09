@@ -141,17 +141,16 @@ Use the following steps to create and configure an application using Spring Clou
    ```
 
    ---
-
 1. Configure Spring Cloud Gateway for Tanzu properties using the CLI:
 
-```azurecli
-az spring-cloud gateway update \
-    --api-description "<api-description>" \
-    --api-title "<api-title>" \
-    --api-version "v0.1" \
-    --server-url "<endpoint-in-the-previous-step>" \
-    --allowed-origins "*"
-```
+   ```azurecli
+   az spring-cloud gateway update \
+       --api-description "<api-description>" \
+       --api-title "<api-title>" \
+       --api-version "v0.1" \
+       --server-url "<endpoint-in-the-previous-step>" \
+       --allowed-origins "*"
+   ```
 
    You can view the properties in the portal.
 
