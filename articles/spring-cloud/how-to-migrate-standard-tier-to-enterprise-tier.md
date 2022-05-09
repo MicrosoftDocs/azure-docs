@@ -29,7 +29,7 @@ In Enterprise tier, Application Configuration Service provides external configur
 
 Follow these steps to use Application Configuration Service for Tanzu as a centralized configuration service.
 
-# [Azure Portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 1. Select **Application Configuration Service**.
 1. Select **Overview** to view the running state and resources allocated to Application Configuration Service for Tanzu.
@@ -58,7 +58,7 @@ az spring-cloud application-configuration-service git repo add \
 
 When you use Application Configuration Service for Tanzu with a Git backend, you must bind the app to Application Configuration Service for Tanzu. After binding the app, you'll need to configure which pattern will be used by the app. Follow these steps to bind and configure the pattern for the app.
 
-# [Azure Portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 1. Open the **App binding** tab.
 
@@ -126,7 +126,7 @@ Use the following steps to create and configure an application using Spring Clou
 
 1. Assign a public endpoint to the gateway to access it.
 
-   # [Azure Portal](#tab/azure-portal)
+   # [Azure [portal](#tab/azure-portal)
 
    1. Select the **Spring Cloud Gateway** section, then select **Overview** to view the running state and resources given to Spring Cloud Gateway and its operator.
 
@@ -162,7 +162,7 @@ Use the following steps to create and configure an application using Spring Clou
 
    Create rules to access apps deployed in the above steps through Spring Cloud Gateway for Tanzu.
 
-   Save the following content to the your application's JSON file, changing the placeholders to your application's information.
+   Save the following content to your application's JSON file, changing the placeholders to your application's information.
 
    ```json
    [
