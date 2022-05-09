@@ -202,7 +202,7 @@
     items:
     - name: Materialize data to Cosmos DB
       href: no-code-materialize-cosmosdb.md
-    - name: Capture Event Hub data in Parquet
+    - name: Capture Event Hub data in Parquet format
       href: capture-event-hub-data-parquet.md
   - name: Authenticate with managed identity
     items:
