@@ -66,6 +66,8 @@
               href: burst-capacity.md
             - name: Burst capacity FAQ
               href: burst-capacity-faq.yml
+        - name: Merge (preview)
+          href: merge.md
     - name: Security
       items:
         - name: Security overview

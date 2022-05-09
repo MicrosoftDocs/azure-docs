@@ -400,15 +400,17 @@ For more information, see [Azure Cosmos DB emulator](/azure/cosmos-db/local-emul
 
 ## Limitations and known issues
 
-- Working with containers that use hierarchical partition keys is supported only in the preview versions of the .NET v3 and Java v4 SDKs. You must use a supported SDK to create new containers with hierarchical partition keys and to perform CRUD/query operations on the data. Support for other SDK languages (Python, JavaScript) is planned and not yet available. 
-- Passing in a partition key in ``QueryRequestOptions`` isn't currently supported when issuing queries from the SDK. You must specify the partition key paths in the query text itself.
-- Azure portal support is planned and not yet available.
-- Support for automation platforms (Azure PowerShell, Azure CLI) is planned and not yet available.
-- In the Data Explorer in the portal, you currently can't view documents in a container with hierarchical partition keys. You can read or edit these documents with the supported .NET v3 or Java v4 SDK version\[s\].
-- You can only specify hierarchical partition keys up to three layers in depth. 
-- Hierarchical partition keys can currently only be enabled on new containers. The desired partition key paths must be specified at the time of container creation and can't be changed later. 
-- Hierarchical partition keys are currently supported only for SQL API accounts (API for MongoDB and Cassandra API aren't currently supported).
+* Working with containers that use hierarchical partition keys is supported only in the preview versions of the .NET v3 and Java v4 SDKs. You must use a supported SDK to create new containers with hierarchical partition keys and to perform CRUD/query operations on the data. Support for other SDK languages (Python, JavaScript) is planned and not yet available. 
+* Passing in a partition key in ``QueryRequestOptions`` isn't currently supported when issuing queries from the SDK. You must specify the partition key paths in the query text itself.
+* Azure portal support is planned and not yet available.
+* Support for automation platforms (Azure PowerShell, Azure CLI) is planned and not yet available.
+* In the Data Explorer in the portal, you currently can't view documents in a container with hierarchical partition keys. You can read or edit these documents with the supported .NET v3 or Java v4 SDK version\[s\].
+* You can only specify hierarchical partition keys up to three layers in depth. 
+* Hierarchical partition keys can currently only be enabled on new containers. The desired partition key paths must be specified at the time of container creation and can't be changed later. 
+* Hierarchical partition keys are currently supported only for SQL API accounts (API for MongoDB and Cassandra API aren't currently supported).
 
 ## Next steps
 
 * See the FAQ on [hierarchical partition keys.](hierarchical-partition-keys-faq.yml)
+* Learn more about [partitioning in Azure Cosmos DB.](partitioning-overview.md)
+* Learn more about [using Azure Resource Manager templates with Azure Cosmos DB.](/azure/templates/microsoft.documentdb/databaseaccounts)

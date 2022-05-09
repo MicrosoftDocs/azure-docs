@@ -25,15 +25,15 @@ Let's take an example of a physical partition that has 100 RU/s of provisioned t
 
 After the 10 seconds is over, the burst capacity has been used up. If the workload continues to exceed the provisioned 100 RU/s, any requests that are consumed beyond the provisioned 100 RU/s would now be rate limited (429). The maximum amount of burst capacity a physical partition can accumulate at any point in time is equal to 300 seconds * the provisioned RU/s of the container. 
 
-## Enroll in the preview
+## Getting started
 
-To enroll in the preview, in to [the Azure portal](https://portal.azure.com) and open a support ticket.
+To get started using burst capacity, enroll in the preview by filing a support ticket in the [Azure portal](https://portal.azure.com). 
 
 ## Limitations
 
 ### SDK requirements
 
-Burst capacity is supported only in the preview version of the .NET v3 SDK. When the feature is enabled on your account, you must use the supported SDK. Requests sent from other SDKs or earlier versions won't be accepted.
+Burst capacity is supported only in the latest preview version of the .NET v3 SDK. When the feature is enabled on your account, you must only use the supported SDK. Requests sent from other SDKs or earlier versions won't be accepted.
 
 Find the latest preview version the supported SDK:
 
@@ -48,20 +48,20 @@ Support for other SDKs is planned for the future.
 
 ### Unsupported connectors
 
-- Azure Data Factory
-- Azure Stream Analytics
-- Logic Apps
-- Azure Functions
-- Azure Search
+If you enroll in the preview, the following connectors will fail.
 
-If you enroll in the preview, request from the connectors will fail. Support for these connectors is planned for the future.
+* Azure Data Factory
+* Azure Stream Analytics
+* Logic Apps
+* Azure Functions
+* Azure Search
+
+Support for these connectors is planned for the future.
 
 ## Next steps
 
-Learn about how to use provisioned throughput with the following articles:
-
 * See the FAQ on [burst capacity.](burst-capacity-faq.yml)
-- Learn more about [provisioned throughput.](set-throughput.md)
-- Learn more about [request units.](request-units.md)
-- Trying to decide between provisioned throughput and serverless? See [choose between provisioned throughput and serverless.](throughput-serverless.md)
-- Want to learn the best practices? See [best practices for scaling provisioned throughput.](scaling-provisioned-throughput-best-practices.md)
+* Learn more about [provisioned throughput.](set-throughput.md)
+* Learn more about [request units.](request-units.md)
+* Trying to decide between provisioned throughput and serverless? See [choose between provisioned throughput and serverless.](throughput-serverless.md)
+* Want to learn the best practices? See [best practices for scaling provisioned throughput.](scaling-provisioned-throughput-best-practices.md)
