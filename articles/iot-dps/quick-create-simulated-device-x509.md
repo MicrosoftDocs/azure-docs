@@ -1016,8 +1016,6 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
 
 4. The registration ID for the IoT device must match subject name on its device certificate. If you generated a self-signed test certificate, `Python-device-01` is both the subject name and the registration ID for the device.
 
-    If you already have a device certificate, you can use `openssl` to verify the subject common name used for your device, as shown in [Create a test certificate](#create-a-test-certificate).
-
 5. In the Git Bash prompt, set the environment variable for the registration ID as follows:
 
     ```bash
