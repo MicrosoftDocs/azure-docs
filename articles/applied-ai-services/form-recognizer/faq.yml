@@ -429,6 +429,12 @@ sections:
           Form Recognizer connected containers send billing information to Azure by using a Form Recognizer resource on your Azure account. Connected containers don't send customer data, such as the image or text that's being analyzed, to Microsoft. See the [Cognitive Services container FAQ](../../cognitive-services/containers/disconnected-container-faq.yml#how-does-billing-work) for an example of the information sent to Microsoft for billing.
 
       - question: |
+          I get a "OutOfQuota" error message. Container is not in a valid state. Subscription validation failed with status 'OutOfQuota'. Api Key is out of quota.
+        answer: |
+
+          Form Recognizer connected containers send billing information to Azure by using a Form Recognizer resource on your Azure account. You could get this message if the containers cannot communicate with the billing endpoint.
+
+      - question: |
           Can I use local storage for the Form Recognizer Sample Labeling Tool (FOTT) container?
         answer: |
 

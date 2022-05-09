@@ -134,6 +134,22 @@ To validate your deployment, you can deploy a VM to the virtual network and conn
 2. Remote desktop into the VM to launch a browser session to access the Studio
 3. Analyze requests and the training operations should now work successfully
 
+## Common error messages
+
+| Error message | Example | Resolution |
+|--|--|--|
+| Failed to access Blob container | :::image type="content" source="../media/managed-identities/cors-error.png" alt-text="Error message when CORS config is required"::: | [Configure CORS](../quickstarts/try-v3-form-recognizer-studio#prerequisites-for-new-users)| 
+AuthorizationFailure | :::image type="content" source="../media/managed-identities/auth-failure.png" alt-text="Authorization failure"::: | Ensure that there is network line-of-sight between the computer accessing the form recognizer studio and the storage account. For example, you may need  to add the client IP address in the storage account's networking tab. |
+ContentSourceNotAccessible | :::image type="content" source="../media/managed-identities/content-source-error.png" alt-text="Content Source Not Accessible"::: | Make sure you have given the form recognizer service's managed identity  the role of" Storage Blob Data Reader" and enable Trusted services access or Resource instance rules on the networking tab. |
+AccessDenied | :::image type="content" source="../media/managed-identities/access-denied.png" alt-text="AccessDenied"::: | Check to make sure there is connectivity between the computer accessing the form recognizer studio and the form recognizer service. For example, you may need to add the client IP address to the Form Recognizer service's networking tab.|
+
+
+
+
+
+
+
+
 
 
 
