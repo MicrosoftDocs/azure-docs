@@ -9,42 +9,45 @@ ms.author: azfuncdf
 
 # Task hubs in Durable Functions (Azure Functions)
 
-A *task hub* in [Durable Functions](durable-functions-overview.md) is a logical collection of storage resources that hold the current state of the application. When a function app executes activity, orchestration, and entity functions, all progress is automatically persisted in the task hub. This ensures that the application can resume processing where it left off, should it require to be restarted after being temporarily stopped or interrupted for some reason.
+A *task hub* in [Durable Functions](durable-functions-overview.md) is a logical collection of storage resources that hold the current state of the application. While a function app is running, the progress of orchestration, activity, and entity functions is automatically persisted in the task hub. This ensures that the application can resume processing where it left off, should it require to be restarted after being temporarily stopped or interrupted for some reason. Also, it allows the function app to scale the compute workers dynamically.
 
-![Diagram showing shared and dedicated storage accounts.](./media/durable-functions-task-hubs/taskhub-wide.png)
+![Diagram showing concept of function app and task hub concept.](./media/durable-functions-task-hubs/taskhub.png)
 
 Conceptually, a task hub comprises the following data:
 
-* An **instance store** that contains the state and history of instances (orchestrations and entities).
-* A **task queue** that contains activity function invocations that are ready to be executed.
-* A **message queue** that contains messages bound for instances.
+* An **instance store** that contains the current state of all orchestration and entity instances. For each instance, it stores status information, as well as the orchestration history or entity state.
+* A **task queue** that contains pending activity function invocations.
+* A **message queue** that contains pending messages that will be delivered to orchestration or entity instances. It may include timer messages that are scheduled for delivery at a certain time.
 
-The queues represent *work* that the function app should process. While a function app is running, it continuously fetches and executes work from the task hub. Depending on the type of the fetched work item, the function app may execute an activity function, orchestration function, or entity function. When it finishes executing the work item, it saves the results back to the task hub.
+Collectively, the two queues contain the *work* that the function app needs to process. While the function app is running, it continuously fetches work items (messages or tasks) from the queues in the task hub. Depending on the type of the work item, the function app then executes an activity function, orchestration function, or entity function. When it finishes executing the work item, it atomically commits the results (state updates and/or enqueue operations) to the task hub.
 
 Internally, each storage provider uses a different organization to represent task hubs in storage.
-These differences do not matter much as far as the general design of the application is concerned.
-We discuss them in more detail in the section [Internal storage organization](durable-functions-task-hubs.md#internal-storage-organization).
+These differences do not matter as far as the design of the application is concerned, but they can influence the performance characteristics. We discuss them in more detail in the section [Representation in storage](durable-functions-task-hubs.md#representation-in-storage).
 
 ## Task hub management
 
 ### Creation and deletion
 
-If it does not already exist, an empty task hub with all the required resources is automatically created in storage when a function app is started the first time.
+An empty task hub with all the required resources is automatically created in storage when a function app is started the first time.
 
-If using the default Azure Storage provider, no extra configuration is required. Otherwise, follow the [instructions for configuring storage providers](durable-functions-storage-providers.md#configuring-alternate-storage-providers) to ensure that the storage provider can properly provision and access the required storage resources.
+If using the default Azure Storage provider, no extra configuration is required. Otherwise, follow the [instructions for configuring storage providers](durable-functions-storage-providers.md#configuring-alternate-storage-providers) to ensure that the storage provider can properly provision and access the storage resources required for the task hub.
 
-[!NOTE] The task hub is *not* automatically deleted when you stop or delete the function app. To restart from a clean state, you can either delete the existing task hub, or [change the configured task hub name](durable-functions-task-hubs.md#task-hub-names).
+> [!NOTE]
+> The task hub is *not* automatically deleted when you stop or delete the function app. You must delete the taskhub, its contents, or the containing storage account manually if you no longer want to keep that data.
+
+> [!TIP]
+> In a development scenario, you may need to restart from a clean state often. To do so quickly, you can just [change the configured task hub name](durable-functions-task-hubs.md#task-hub-names). This will force the creation of a new, empty task hub when you restart the application.
 
 ### Multiple function apps
 
-If multiple function apps share a storage account, each function app *must* be configured with a separate task hub name. A storage account can contain multiple task hubs.
-
-> [!NOTE]
-> The exception to the task hub sharing rule is if you are configuring your app for regional disaster recovery. See the [disaster recovery and geo-distribution](durable-functions-disaster-recovery-geo-distribution.md) article for more information.
+If multiple function apps share a storage account, each function app *must* be configured with a separate [task hub name](durable-functions-task-hubs.md#task-hub-names). A storage account can contain multiple task hubs if they have distinct names.
 
 The following diagram illustrates one task hub per function app in shared and dedicated Azure Storage accounts.
 
 ![Diagram showing shared and dedicated storage accounts.](./media/durable-functions-task-hubs/multiple-apps.png)
+
+> [!NOTE]
+> The exception to the task hub sharing rule is if you are configuring your app for regional disaster recovery. See the [disaster recovery and geo-distribution](durable-functions-disaster-recovery-geo-distribution.md) article for more information.
 
 ### Content inspection
 
@@ -52,10 +55,14 @@ There are several common ways to inspect the contents of a task hub:
 
 1. Within a function app, the client object provides methods to query the instance store. To learn more about what types of queries are supported, see the [Instance Management](durable-functions-instance-management.md) article.
 2. Similarly, The [HTTP API](durable-functions-http-features.md) offers REST requests to query the state of orchestrations and entities. See the [HTTP API Reference](durable-functions-http-api.md) for more details.
-3. If using the Azure Storage provider, the instance store is represented by an [Instance Table]((durable-functions-perf-and-scale.md#history-table)) and a [History Table](durable-functions-perf-and-scale.md#history-table) that can be inspected using tools such as Azure Storage Explorer.
-4. If using the MSSQL storage provider, SQL queries and tools can be used to inspect the task hub contents.
+3. The [Durable Functions Monitor](https://github.com/microsoft/DurableFunctionsMonitor) tool can inspect task hubs and offers various options for visual display.
 
-## Internal storage organization
+For some of the storage providers, it is also possible to inspect the taskhub by going directly to the underlying storage:
+
+1. If using the Azure Storage provider, the instance store is represented by an [Instance Table]((durable-functions-perf-and-scale.md#history-table)) and a [History Table](durable-functions-perf-and-scale.md#history-table) that can be inspected using tools such as Azure Storage Explorer.
+2. If using the MSSQL storage provider, SQL queries and tools can be used to inspect the task hub contents inside the database.
+
+## Representation in storage
 
 Each storage provider uses a different internal organization to represent task hubs in storage. Understanding this organization, while not required, can be helpful when  troubleshooting a function app or when trying to ensure performance, scalability, or cost targets. We thus briefly explain, for each storage provider, how the data is organized in storage. For more information on the various storage provider options and how they compare, see the [Durable Functions storage providers](durable-functions-storage-providers.md).
 
@@ -63,38 +70,38 @@ Each storage provider uses a different internal organization to represent task h
 
 For this storage provider, a task hub consists of the following components:
 
-* One or more Azure Queues that store the messages.
 * One Azure Queue that stores the tasks.
+* One or more Azure Queues that store the messages.
 * Two Azure Tables that represent the instance store.
 * Some extra blob containers for lease blobs and/or large messages.
- 
+
 For example, for a taskhub named `x` with `PartitionCount = 4`, the queues and tables are named as follows:
 
 ![Diagram showing Azure Storage provider storage storage organization for 4 control queues.](./media/durable-functions-task-hubs/azure-storage.png)
 
 ### Netherite storage provider
 
-Netherite partitions the two queues and the instance store into a number of partitions; the currently supported range is 1 - 32. The state of each partition is stored in several Azure Storage page blobs. 
+Netherite partitions the two queues and the instance store into a number of partitions; the currently supported range is 1 - 32. The state of each partition is stored in Azure Storage page blobs.
 
 ![Diagram showing Netherite storage organization for 32 partitions.](./media/durable-functions-task-hubs/netherite-storage.png)
 
 Netherite uses an event-sourcing mechanism, based on a log and checkpoints, to represent the current state of a partition. It is not possible to read this format from storage directly, so the function app has to be running when querying the instance store.
 
-For more details, see [Task Hub information for the Netherite storage provider](https://microsoft.github.io/durabletask-netherite/#/storage).
+For more details on task hubs for the Netherite storage provider, see [Task Hub information for the Netherite storage provider](https://microsoft.github.io/durabletask-netherite/#/storage).
 
 ### MSSQL storage provider
 
 All taskhub data is stored in a single relational database, using several tables:
 
-- The `t.Instances` and `dt.History` tables represent the instance store.
-- The `dt.NewEvents` table represents the message queue and the timer store.
-- The `dt.NewTasks` table represents the task queue.
+* The `t.Instances` and `dt.History` tables represent the instance store.
+* The `dt.NewEvents` table represents the message queue.
+* The `dt.NewTasks` table represents the task queue.
 
-![Diagram showing MSSQL storage organization for 32 partitions.](./media/durable-functions-task-hubs/mssql-storage.png)
+![Diagram showing MSSQL storage organization.](./media/durable-functions-task-hubs/mssql-storage.png)
 
 To enable multiple task hubs to coexist independently in the same database, each table includes a TaskHub column as part of its primary key.
 
-For more details, see [Task Hub information for the Microsoft SQL (MSSQL) storage provider](https://microsoft.github.io/durabletask-mssql/#/taskhubs) 
+For more details on task hubs for the MSSQL storage provider, see [Task Hub information for the Microsoft SQL (MSSQL) storage provider](https://microsoft.github.io/durabletask-mssql/#/taskhubs).
 
 ## Task hub names
 
@@ -225,7 +232,7 @@ Task hub names in Azure Storage must start with a letter and consist of only let
 
 | Durable extension version | Default task hub name |
 | - | - |
-| 2.x | When deployed in Azure, the task hub name is derived from the name of the _function app_. When running outside of Azure, the default task hub name is `TestHubName`. |
+| 2.x | When deployed in Azure, the task hub name is derived from the name of the *function app*. When running outside of Azure, the default task hub name is `TestHubName`. |
 | 1.x | The default task hub name for all environments is `DurableFunctionsHub`. |
 
 For more information about the differences between extension versions, see the [Durable Functions versions](durable-functions-versions.md) article.
