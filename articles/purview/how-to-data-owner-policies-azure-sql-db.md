@@ -20,7 +20,6 @@ This how-to guide describes how a data owner can delegate authoring policies in 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
 - Create a new Azure SQL DB or use an existing one in one of the currently available regions for this preview feature. You can [follow this guide to create a new Azure SQL DB](/azure/azure-sql/database/single-database-create-quickstart).
-- The SQL Database servers need to have a managed identity assigned to them.
 
 **Enforcement of Microsoft Purview policies is available only in the following regions for Azure SQL DB**
 - East US
@@ -58,7 +57,7 @@ After you've registered your resources, you'll need to enable *Data Use Manageme
 
 [How to enable Data Use Management](./how-to-enable-data-use-management.md)
 
-Once your data source has the **Data Use Management** toggle **Enabled*, it will look like this picture. This will enable the access policies to be used with the given SQL server and all its contained databases.
+Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this picture. This will enable the access policies to be used with the given SQL server and all its contained databases.
 ![Image shows how to register a data source for policy.](./media/how-to-data-owner-policies-sql/register-data-source-for-policy-azure-sql-db.png)
 
 
