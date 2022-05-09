@@ -62,27 +62,27 @@ For a reference list of all the recommendations Defender for Cloud can provide f
 
 1. Select **Next: Select plans**.
 
-![Graphical user interface, text, application, email Description
-automatically generated](./media/quickstart-onboard-github/image013.png)
+7. Select **Next: Authorize connection**.
 
-7.  Click **Next: Authorize connection**
+8. Select **Authorize** to grant your Azure subscription access to your GitHub repositories. Login if required with an account that has permissions to the repositories you want to protect
 
-8.  Click **Authorize** to grant access for Azure to access your GitHub repositories. Login if required with an account that has permissions to the repositories you want to protect
+1. Select **Install**.
 
-     Click **Install** and choose the repositories to install the GitHub app
+    :::image type="content" source="media/quickstart-onboard-github/install-devops-app.png" alt-text="Screenshot that shows where to select install, to install the Defender for DevOps application.":::
 
-![Graphical user interface Description automatically generated with
-medium confidence](./media/quickstart-onboard-github/image014.png)
+1. Select the repositories to install the GitHub application.
 
->*Note: This will install the Defender for DevOps App on the selected repositories which will grant Defender for DevOps access to the repositories.*
+    > [!Note]
+    > This will install the Defender for DevOps application on the selected repositories which will grant Defender for DevOps access to the selected repositories.
 
-9.  Click **Next : Review and create**
+9.  Select **Next: Review and create**.
 
-10. Click **Create**
+10. Select **Create**.
 
-    The GitHub connector should look like the following screenshot when completed:
+When the process completes, the GitHub connector will appear on your Environmental settings page.
 
-![Graphical user interface, text, application, email Description
-automatically generated](./media/quickstart-onboard-github/image015.png)
+:::image type="content" source="media/quickstart-onboard-github/github-connector.png" alt-text="Screenshot showing the Environmental page with the GitHub connector now connected.":::
 
-The Defender for DevOps service will now start discovering your repositories and analyzing any security issues. Once discovered, the Inventory blade will show the repositories and the Recommendations blade will show any security issues related to a repository.
+The Defender for DevOps service will automatically start discovering your repositories and analyze any security issues. When repositories or security issues are discovered, the Inventory page will show the repositories, and the Recommendations page will show any security issues related to a repository.
+
+## Next steps
