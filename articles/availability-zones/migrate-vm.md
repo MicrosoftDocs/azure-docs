@@ -22,8 +22,6 @@ Virtual Machine (VM) and Virtual Machine Scale Sets (VMSS) are zonal services, w
 
 When you migrate resources to availability zone support, we recommend that you select multiple zones for your new VMs and VMSS, to ensure high-availability of your compute resources.
 
-Because zonal VMs are created across the availability zones, all migration options mentioned in this article require downtime during deployment.
-
 ## Prerequisites
 
 To migrate to availability zone support, your VM SKUs must be available for your region. To check for VM SKU availability, use one of the following methods:
