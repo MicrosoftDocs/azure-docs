@@ -35,12 +35,12 @@ Key differences between persistent and ephemeral OS disks:
 | **Disk type support**| Managed and unmanaged OS disk| Managed OS disk only|
 | **Region support**| All regions| All regions|
 | **Data persistence**| OS disk data written to OS disk are stored in Azure Storage| Data written to OS disk is stored on local VM storage and isn't persisted to Azure Storage. |
-| **Stop-deallocated state**| VMs and scale set instances can be stop-deallocated and restarted from the stop-deallocated state | VMs and scale set instances cannot be stop-deallocated|
+| **Stop-deallocated state**| VMs and scale set instances can be stop-deallocated and restarted from the stop-deallocated state | Not Supported |
 | **Specialized OS disk support** | Yes| No|
 | **OS disk resize**| Supported during VM creation and after VM is stop-deallocated| Supported during VM creation only|
 | **Resizing to a new VM size**| OS disk data is preserved| Data on the OS disk is deleted, OS is reprovisioned |
 | **Redeploy** | OS disk data is preserved | Data on the OS disk is deleted, OS is reprovisioned | 
-| **Stop/ Start of VM** | OS disk data is preserved | VMs and scale set instances cannot be stopped. | 
+| **Stop/ Start of VM** | OS disk data is preserved | Not Supported | 
 | **Page file placement**| For Windows, page file is stored on the resource disk| For Windows, page file is stored on the OS disk (for both OS cache placement and Temp disk placement).|
 
 

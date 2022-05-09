@@ -16,7 +16,7 @@
 - name: Tutorials
   items:
   - name: Create a new ARM account (Preview)
-    href: create-video-analyzer-for-media-account.md
+    href: create-account-portal.md
   - name: Create a new account
     href: connect-to-azure.md
   - name: Use Azure Video Indexer API

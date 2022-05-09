@@ -4,11 +4,11 @@ description: This article describes how you can query against resources from mul
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/30/2021
+ms.date: 04/28/2022
 
 ---
 
-# Perform log queries in Azure Monitor that span across workspaces and apps
+# Create a log query across multiple workspaces and apps in Azure Monitor
 
 Azure Monitor Logs support querying across multiple Log Analytics workspaces and Application Insights apps in the same resource group, another resource group, or another subscription. This provides you with a system-wide view of your data.
 

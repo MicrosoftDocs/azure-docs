@@ -85,7 +85,7 @@ An entry in the Business glossary that defines a concept specific to an organiza
 A scan that detects and processes assets that have been created, modified, or deleted since the previous successful scan. To run an incremental scan, at least one full scan must be completed on the source.
 ## Ingested asset
 An asset that has been scanned, classified (when applicable), and added to the Microsoft Purview data map. Ingested assets are discoverable and consumable within the data catalog through automated scanning or external connections, such as Azure Data Factory and Azure Synapse.
-## Insights
+## Data Estate Insights
 An area within Microsoft Purview where you can view reports that summarize information about your data.
 ## Integration runtime
 The compute infrastructure used to scan in a data source.

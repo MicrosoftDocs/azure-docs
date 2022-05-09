@@ -4,8 +4,9 @@ description: This article provides an Azure PowerShell example to generate a con
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: how-to
-ms.author: sumuth
-author: mksuni
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.custom: mvc, devx-track-azurepowershell
 ms.date: 8/6/2020
 ---
