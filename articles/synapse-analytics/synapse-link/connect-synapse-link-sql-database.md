@@ -93,7 +93,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 1. Select one or more source tables to replicate to your Synapse workspace and select **Continue**.
 
    > [!NOTE]
-   > A given source table can only be enabled in at most one link connection at a time. See the [Known issues and restrictions page](#known-issues) section to learn more about the supported data types.
+   > A given source table can only be enabled in at most one link connection at a time.
 
 1. Select a target Synapse SQL database and pool.
 
