@@ -108,7 +108,7 @@ If bot protection is enabled, incoming requests that match bot rules are logged 
 
 ## Configuration
 
-You can configure and deploy all WAF policies using the Azure portal, REST APIs, Azure Resource Manager templates, and Azure PowerShell. You can also configure and manage Azure WAF policies at scale using Firewall Manager integration. For more information, see <Link #1 article>.
+You can configure and deploy all WAF policies using the Azure portal, REST APIs, Azure Resource Manager templates, and Azure PowerShell. You can also configure and manage Azure WAF policies at scale using Firewall Manager integration (preview). For more information, see <Link #1 article>.
 
 ## Monitoring
 
