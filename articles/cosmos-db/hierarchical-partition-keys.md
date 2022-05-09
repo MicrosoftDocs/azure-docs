@@ -340,9 +340,9 @@ pagedResponse.byPage().flatMap(fluxResponse -> {
 
 ---
 
-## Using ARM templates to create Hierarchical partition containers.
+## Using Azure Resource Manager templates
 
-The ARM template for a subpartitioned container is mostly identical to a standard container with the only key difference being the value of the ``properties/partitionKey`` path. For more information about creating an ARM template for an Azure Cosmos DB resource, see [the Azure Resource Manager template reference for Azure Cosmos DB](/azure/templates/microsoft.documentdb/databaseaccounts).
+The Azure Resource Manager template for a subpartitioned container is mostly identical to a standard container with the only key difference being the value of the ``properties/partitionKey`` path. For more information about creating an Azure Resource Manager template for an Azure Cosmos DB resource, see [the Azure Resource Manager template reference for Azure Cosmos DB](/azure/templates/microsoft.documentdb/databaseaccounts).
 
 Configure the ``partitionKey`` object with the following values to create a subpartitioned container.
 
