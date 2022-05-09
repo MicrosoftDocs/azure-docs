@@ -57,11 +57,11 @@ Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | Read content from a blob with tag conditions |
+| Actions | [Read content from a blob with tag conditions](storage-auth-abac-attributes.md#read-content-from-a-blob-with-tag-conditions) |
 | Attribute source | Resource |
-| Attribute | Blob index tags [Values in key] |
+| Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
 | Key | {keyName} |
-| Operator | StringEquals |
+| Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 | Value | {keyValue} |
 
 :::image type="content" source="./media/storage-auth-abac-examples/blob-index-tags-read-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read access to blobs with a blob index tag." lightbox="./media/storage-auth-abac-examples/blob-index-tags-read-portal.png":::
@@ -116,11 +116,11 @@ Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | Write to a blob with blob index tags<br/>Write content to a blob with blob index tags |
+| Actions | [Write to a blob with blob index tags](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags)<br/>[Write to a blob with blob index tags](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags) |
 | Attribute source | Request |
-| Attribute | Blob index tags [Values in key] |
+| Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
 | Key | {keyName} |
-| Operator | StringEquals |
+| Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 | Value | {keyValue} |
 
 :::image type="content" source="./media/storage-auth-abac-examples/blob-index-tags-new-blobs-portal.png" alt-text="Screenshot of condition editor in Azure portal showing new blobs must include a blob index tag." lightbox="./media/storage-auth-abac-examples/blob-index-tags-new-blobs-portal.png":::
@@ -182,10 +182,10 @@ Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | Write to a blob with blob index tags<br/>Write blob index tags |
+| Actions | [Write to a blob with blob index tags](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags)<br/>[Write blob index tags](storage-auth-abac-attributes.md#write-blob-index-tags) |
 | Attribute source | Request |
-| Attribute | Blob index tags [Keys] |
-| Operator | ForAllOfAnyValues:StringEquals |
+| Attribute | [Blob index tags [Keys]](storage-auth-abac-attributes.md#blob-index-tags-keys) |
+| Operator | [ForAllOfAnyValues:StringEquals](../../role-based-access-control/conditions-format.md#forallofanyvalues) |
 | Value | {keyName1}<br/>{keyName2} |
 
 :::image type="content" source="./media/storage-auth-abac-examples/blob-index-tags-keys-portal.png" alt-text="Screenshot of condition editor in Azure portal showing existing blobs must have blob index tag keys." lightbox="./media/storage-auth-abac-examples/blob-index-tags-keys-portal.png":::
@@ -249,17 +249,17 @@ Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | Write to a blob with blob index tags<br/>Write blob index tags |
+| Actions | [Write to a blob with blob index tags](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags)<br/>[Write blob index tags](storage-auth-abac-attributes.md#write-blob-index-tags) |
 | Attribute source | Request |
-| Attribute | Blob index tags [Keys] |
-| Operator | ForAnyOfAnyValues:StringEquals |
+| Attribute | [Blob index tags [Keys]](storage-auth-abac-attributes.md#blob-index-tags-keys) |
+| Operator | [ForAnyOfAnyValues:StringEquals](../../role-based-access-control/conditions-format.md#foranyofanyvalues) |
 | Value | {keyName} |
 | Operator | And |
 | **Expression 2** |  |
 | Attribute source | Request |
-| Attribute | Blob index tags [Values in key] |
+| Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
 | Key | {keyName} |
-| Operator | ForAllOfAnyValues:StringEquals |
+| Operator | [ForAllOfAnyValues:StringEquals](../../role-based-access-control/conditions-format.md#forallofanyvalues) |
 | Value | {keyValue1}<br/>{keyValue2}<br/>{keyValue3} |
 
 :::image type="content" source="./media/storage-auth-abac-examples/blob-index-tags-key-values-portal.png" alt-text="Screenshot of condition editor in Azure portal showing existing blobs must have a blob index tag key and values." lightbox="./media/storage-auth-abac-examples/blob-index-tags-key-values-portal.png":::
@@ -335,10 +335,10 @@ Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | Delete a blob<br/>Read a blob<br/>Write to a blob<br/>Create a blob or snapshot, or append data |
+| Actions | [Delete a blob](storage-auth-abac-attributes.md#delete-a-blob)<br/>[Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[Write to a blob](storage-auth-abac-attributes.md#write-to-a-blob)<br/>[Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#create-a-blob-or-snapshot-or-append-data) |
 | Attribute source | Resource |
-| Attribute | Container name |
-| Operator | StringEquals |
+| Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
+| Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 | Value | {containerName} |
 
 :::image type="content" source="./media/storage-auth-abac-examples/containers-read-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read, write, or delete blobs in named containers." lightbox="./media/storage-auth-abac-examples/containers-read-write-delete-portal.png":::
@@ -403,16 +403,16 @@ Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | Read a blob |
+| Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob) |
 | Attribute source | Resource |
-| Attribute | Container name |
-| Operator | StringEquals |
+| Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
+| Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 | Value | {containerName} |
 | **Expression 2** |  |
 | Operator | And |
 | Attribute source | Resource |
-| Attribute | Blob path |
-| Operator | StringLike |
+| Attribute | [Blob path](storage-auth-abac-attributes.md#blob-path) |
+| Operator | [StringLike](../../role-based-access-control/conditions-format.md#stringlike) |
 | Value | {pathString} |
 
 :::image type="content" source="./media/storage-auth-abac-examples/containers-path-read-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read access to blobs in named containers with a path." lightbox="./media/storage-auth-abac-examples/containers-path-read-portal.png":::
@@ -486,30 +486,30 @@ Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | Read a blob |
+| Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob) |
 | Attribute source | Resource |
-| Attribute | Container name |
-| Operator | StringEquals |
+| Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
+| Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 | Value | {containerName} |
 | **Expression 2** |  |
 | Operator | And |
 | Attribute source | Resource |
-| Attribute | Blob path |
-| Operator | StringStartsWith |
+| Attribute | [Blob path](storage-auth-abac-attributes.md#blob-path) |
+| Operator | [StringStartsWith](../../role-based-access-control/conditions-format.md#stringstartswith) |
 | Value | {pathString} |
 
 | Condition #2 | Setting |
 | --- | --- |
 | Actions | List blobs |
 | Attribute source | Resource |
-| Attribute | Container name |
-| Operator | StringEquals |
+| Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
+| Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 | Value | {containerName} |
 | **Expression 2** |  |
 | Operator | And |
 | Attribute source | Request |
-| Attribute | Blob prefix |
-| Operator | StringStartsWith |
+| Attribute | [Blob prefix](storage-auth-abac-attributes.md#blob-prefix) |
+| Operator | [StringStartsWith](../../role-based-access-control/conditions-format.md#stringstartswith) |
 | Value | {pathString} |
 
 ### Example: Write blobs in named containers with a path
@@ -545,16 +545,16 @@ Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | Write to a blob<br/>Create a blob or snapshot, or append data |
+| Actions | [Write to a blob](storage-auth-abac-attributes.md#write-to-a-blob)<br/>[Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#create-a-blob-or-snapshot-or-append-data) |
 | Attribute source | Resource |
-| Attribute | Container name |
-| Operator | StringEquals |
+| Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
+| Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 | Value | {containerName} |
 | **Expression 2** |  |
 | Operator | And |
 | Attribute source | Resource |
-| Attribute | Blob path |
-| Operator | StringLike |
+| Attribute | [Blob path](storage-auth-abac-attributes.md#blob-path) |
+| Operator | [StringLike](../../role-based-access-control/conditions-format.md#stringlike) |
 | Value | {pathString} |
 
 :::image type="content" source="./media/storage-auth-abac-examples/containers-path-write-portal.png" alt-text="Screenshot of condition editor in Azure portal showing write access to blobs in named containers with a path." lightbox="./media/storage-auth-abac-examples/containers-path-write-portal.png":::
@@ -621,21 +621,21 @@ Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | Read content from a blob with tag conditions |
+| Actions | [Read content from a blob with tag conditions](storage-auth-abac-attributes.md#read-content-from-a-blob-with-tag-conditions) |
 | Attribute source | Resource |
-| Attribute | Blob index tabs [Values in key] |
+| Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
 | Key | {keyName} |
-| Operator | StringEquals |
+| Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 | Value | {keyValue} |
 
 :::image type="content" source="./media/storage-auth-abac-examples/blob-index-tags-path-read-condition-1-portal.png" alt-text="Screenshot of condition 1 editor in Azure portal showing read access to blobs with a blob index tag and a path." lightbox="./media/storage-auth-abac-examples/blob-index-tags-path-read-condition-1-portal.png":::
 
 | Condition #2 | Setting |
 | --- | --- |
-| Actions | Read a blob |
+| Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob) |
 | Attribute source | Resource |
-| Attribute | Blob path |
-| Operator | StringLike |
+| Attribute | [Blob path](storage-auth-abac-attributes.md#blob-path) |
+| Operator | [StringLike](../../role-based-access-control/conditions-format.md#stringlike) |
 | Value | {pathString} |
 
 :::image type="content" source="./media/storage-auth-abac-examples/blob-index-tags-path-read-condition-2-portal.png" alt-text="Screenshot of condition 2 editor in Azure portal showing read access to blobs with a blob index tag and a path." lightbox="./media/storage-auth-abac-examples/blob-index-tags-path-read-condition-2-portal.png":::
@@ -702,16 +702,16 @@ Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | Read a blob |
+| Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob) |
 | Attribute source | Request |
-| Attribute | Version ID |
-| Operator | DateTimeEquals |
+| Attribute | [Version ID](storage-auth-abac-attributes.md#version-id) |
+| Operator | [DateTimeEquals](../../role-based-access-control/conditions-format.md#datetime-comparison-operators) |
 | Value | &lt;blobVersionId&gt; |
 | **Expression 2** |  |
 | Operator | Or |
 | Attribute source | Request |
-| Attribute | Version ID |
-| Exists | Checked |
+| Attribute | [Version ID](storage-auth-abac-attributes.md#version-id) |
+| [Exists](../../role-based-access-control/conditions-format.md#exists) | Checked |
 | Negate this expression | Checked |
 
 ### Example: Delete old blob versions
@@ -745,10 +745,10 @@ Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | Delete a blob<br/>Delete a version of a blob |
+| Actions | [Delete a blob](storage-auth-abac-attributes.md#delete-a-blob)<br/>[Delete a version of a blob](storage-auth-abac-attributes.md#delete-a-version-of-a-blob) |
 | Attribute source | Request |
-| Attribute | Version ID |
-| Operator | DateTimeLessThan |
+| Attribute | [Version ID](storage-auth-abac-attributes.md#version-id) |
+| Operator | [DateTimeLessThan](../../role-based-access-control/conditions-format.md#datetime-comparison-operators) |
 | Value | &lt;blobVersionId&gt; |
 
 ### Example: Read current blob versions and any blob snapshots
@@ -783,21 +783,21 @@ Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | Read a blob |
+| Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob) |
 | Attribute source | Request |
-| Attribute | Snapshot |
-| Exists | Checked |
+| Attribute | [Snapshot](storage-auth-abac-attributes.md#snapshot) |
+| [Exists](../../role-based-access-control/conditions-format.md#exists) | Checked |
 | **Expression 2** |  |
 | Operator | Or |
 | Attribute source | Request |
-| Attribute | Version ID |
-| Exists | Checked |
+| Attribute | [Version ID](storage-auth-abac-attributes.md#version-id) |
+| [Exists](../../role-based-access-control/conditions-format.md#exists) | Checked |
 | Negate this expression | Checked |
 | **Expression 3** |  |
 | Operator | Or |
 | Attribute source | Resource |
-| Attribute | Is hierarchical namespace enabled |
-| Operator | BoolEquals |
+| Attribute | [Is hierarchical namespace enabled](storage-auth-abac-attributes.md#is-hierarchical-namespace-enabled) |
+| Operator | [BoolEquals](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
 | Value | True |
 
 ## Hierarchical namespace
@@ -830,10 +830,10 @@ Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | Read a blob |
+| Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob) |
 | Attribute source | Resource |
-| Attribute | Is hierarchical namespace enabled |
-| Operator | BoolEquals |
+| Attribute | [Is hierarchical namespace enabled](storage-auth-abac-attributes.md#is-hierarchical-namespace-enabled) |
+| Operator | [BoolEquals](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
 | Value | True |
 
 ## Encryption scope
@@ -866,10 +866,10 @@ Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | Read a blob |
+| Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob) |
 | Attribute source | Resource |
-| Attribute | Encryption scope name |
-| Operator | ForAnyOfAnyValues:StringEquals |
+| Attribute | [Encryption scope name](storage-auth-abac-attributes.md#encryption-scope-name) |
+| Operator | [ForAnyOfAnyValues:StringEquals](../../role-based-access-control/conditions-format.md#foranyofanyvalues) |
 | Value | &lt;scopeName&gt; |
 
 ### Example: Read or write blobs in named storage account with specific encryption scope
@@ -911,16 +911,16 @@ Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | Read a blob<br/>Write to a blob<br/>Create a blob or snapshot, or append data |
+| Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[Write to a blob](storage-auth-abac-attributes.md#write-to-a-blob)<br/>[Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#create-a-blob-or-snapshot-or-append-data) |
 | Attribute source | Resource |
-| Attribute | Account name |
-| Operator | StringEquals |
+| Attribute | [Account name](storage-auth-abac-attributes.md#account-name) |
+| Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 | Value | &lt;accountName&gt; |
 | **Expression 2** |  |
 | Operator | And |
 | Attribute source | Resource |
-| Attribute | Encryption scope name |
-| Operator | ForAnyOfAnyValues:StringEquals |
+| Attribute | [Encryption scope name](storage-auth-abac-attributes.md#encryption-scope-name) |
+| Operator | [ForAnyOfAnyValues:StringEquals](../../role-based-access-control/conditions-format.md#foranyofanyvalues) |
 | Value | &lt;scopeName&gt; |
 
 ## Principal attributes
@@ -971,24 +971,24 @@ Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | Read content from a blob with tag conditions |
-| Attribute source | Principal |
+| Actions | [Read content from a blob with tag conditions](storage-auth-abac-attributes.md#read-content-from-a-blob-with-tag-conditions) |
+| Attribute source | [Principal](../../role-based-access-control/conditions-format.md#principal-attributes) |
 | Attribute | &lt;attributeset&gt;_&lt;key&gt; |
-| Operator | StringEquals |
+| Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 | Option | Attribute |
 | Attribute source | Resource |
-| Attribute | Blob index tags [Values in key] |
+| Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
 | Key | &lt;key&gt; |
 
 | Condition #2 | Setting |
 | --- | --- |
-| Actions | Write to a blob with blob index tags<br/>Write to a blob with blob index tags |
-| Attribute source | Principal |
+| Actions | [Write to a blob with blob index tags](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags)<br/>[Write to a blob with blob index tags](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags) |
+| Attribute source | [Principal](../../role-based-access-control/conditions-format.md#principal-attributes) |
 | Attribute | &lt;attributeset&gt;_&lt;key&gt; |
-| Operator | StringEquals |
+| Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 | Option | Attribute |
 | Attribute source | Request |
-| Attribute | Blob index tags [Values in key] |
+| Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
 | Key | &lt;key&gt; |
 
 ### Example: Read blobs based on blob index tags and multi-value custom security attributes
@@ -1023,13 +1023,13 @@ Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | Read content from a blob with tag conditions |
+| Actions | [Read content from a blob with tag conditions](storage-auth-abac-attributes.md#read-content-from-a-blob-with-tag-conditions) |
 | Attribute source | Resource |
-| Attribute | Blob index tags [Values in key] |
+| Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
 | Key | &lt;key&gt; |
-| Operator | ForAnyOfAnyValues:StringEquals |
+| Operator | [ForAnyOfAnyValues:StringEquals](../../role-based-access-control/conditions-format.md#foranyofanyvalues) |
 | Option | Attribute |
-| Attribute source | Principal |
+| Attribute source | [Principal](../../role-based-access-control/conditions-format.md#principal-attributes) |
 | Attribute | &lt;attributeset&gt;_&lt;key&gt; |
 
 ## Next steps
