@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
 ms.date: 05/09/2022
-ms.custom:
+ms.custom: references_regions
 ---
 # Access provisioning by data owner for Azure SQL DB (preview)
 
@@ -34,7 +34,7 @@ This how-to guide describes how a data owner can delegate authoring policies in 
 - Australia East
 
 ## Configuration
-[!INCLUDE Access policies generic configuration]
+[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
 ### Azure SQL Database configuration
 Each Azure SQL Database server needs a Managed Identity assigned to it.
@@ -58,7 +58,7 @@ After you've registered your resources, you'll need to enable *Data Use Manageme
 [How to enable Data Use Management](./how-to-enable-data-use-management.md)
 
 Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this picture. This will enable the access policies to be used with the given SQL server and all its contained databases.
-![Image shows how to register a data source for policy.](./media/how-to-data-owner-policies-sql/register-data-source-for-policy-azure-sql-db.png)
+![Screenshot shows how to register a data source for policy.](./media/how-to-data-owner-policies-sql/register-data-source-for-policy-azure-sql-db.png)
 
 
 ## Create and publish a data owner policy
@@ -67,13 +67,13 @@ Execute the steps in the [data-owner policy authoring tutorial](./how-to-data-ow
 
 **Example #1: SQL Performance Monitor policy**. This policy assigns the AAD principal 'Mateo Gomez' to the *SQL Performance monitoring* role, in the scope of SQL server *relecloud-sql-srv2*. This policy has also been published to that server.
 
-![Screenshot that shows a sample data owner policy giving SQL Performance Monitor access to an Azure SQL DB](./media/how-to-data-owner-policies-sql/data-owner-policy-example-azure-sql-db-performance-monitor.png)
+![Screenshot shows a sample data owner policy giving SQL Performance Monitor access to an Azure SQL DB.](./media/how-to-data-owner-policies-sql/data-owner-policy-example-azure-sql-db-performance-monitor.png)
 
 **Example #2: SQL Security Auditor policy**. Similar to example 1, but choose the *SQL Security auditing* action (instead of *SQL Performance monitoring*), when authoring the policy.
 
 **Example #3: Read policy**. This policy assigns the AAD principal 'Robert Murphy' to the *SQL Data reader* role, in the scope of SQL server *relecloud-sql-srv2*. This policy has also been published to that server.
 
-![Screenshot that shows a sample data owner policy giving Data Reader access to an Azure SQL DB](./media/how-to-data-owner-policies-sql/data-owner-policy-example-azure-sql-db-data-reader.png)
+![Screenshot shows a sample data owner policy giving Data Reader access to an Azure SQL DB.](./media/how-to-data-owner-policies-sql/data-owner-policy-example-azure-sql-db-data-reader.png)
 
 
 >[!Important]
