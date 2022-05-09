@@ -120,25 +120,27 @@ For more information, see [Use Tanzu Service Registry](./how-to-enterprise-servi
 
 Use the following steps to create and configure an application using Spring Cloud Gateway for Tanzu.
 
+### Create an app for Spring Cloud Gateway to route traffic to
+
 1. Create an app which Spring Cloud Gateway for Tanzu will route traffic to by following the instructions in [Quickstart: Build and deploy apps to Azure Spring Cloud using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
 
 1. Assign a public endpoint to the gateway to access it.
 
-# [Azure Portal](#tab/azure-portal)
+   # [Azure Portal](#tab/azure-portal)
 
-1. Select the **Spring Cloud Gateway** section, then select **Overview** to view the running state and resources given to Spring Cloud Gateway and its operator.
+   1. Select the **Spring Cloud Gateway** section, then select **Overview** to view the running state and resources given to Spring Cloud Gateway and its operator.
 
-1. Select **Yes** next to *Assign endpoint* to assign a public endpoint. You'll get a URL in a few minutes. Save the URL to use later.
+   1. Select **Yes** next to *Assign endpoint* to assign a public endpoint. You'll get a URL in a few minutes. Save the URL to use later.
 
-![Gateway overview](./media/enterprise/getting-started-enterprise/gateway-overview.png)
+   ![Gateway overview](./media/enterprise/getting-started-enterprise/gateway-overview.png)
 
-# [Azure CLI](#tab/azure-cli)
+   # [Azure CLI](#tab/azure-cli)
 
    ```azurecli
    az spring-cloud gateway update --assign-endpoint
    ```
 
----
+   ---
 
 1. Configure Spring Cloud Gateway for Tanzu properties using the CLI:
 
