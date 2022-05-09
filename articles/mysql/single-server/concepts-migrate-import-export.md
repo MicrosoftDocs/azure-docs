@@ -34,11 +34,11 @@ To get connected, do the following:
 
 1. In the Azure portal, look for the connection information on the **Overview** pane of your Azure Database for MySQL.
 
-   :::image type="content" source="./media/concepts-migrate-import-export/1_server-overview-name-login.png" alt-text="Screenshot of the Azure Database for MySQL server connection information in the Azure portal.":::
+   :::image type="content" source="./media/concepts-migrate-import-export/1-server-overview-name-login.png" alt-text="Screenshot of the Azure Database for MySQL server connection information in the Azure portal.":::
 
 1. Add the connection information to MySQL Workbench.
 
-   :::image type="content" source="./media/concepts-migrate-import-export/2_setup-new-connection.png" alt-text="Screenshot of the MySQL Workbench connection string.":::
+   :::image type="content" source="./media/concepts-migrate-import-export/2-setup-new-connection.png" alt-text="Screenshot of the MySQL Workbench connection string.":::
 
 ## Determine when to use import and export techniques
 

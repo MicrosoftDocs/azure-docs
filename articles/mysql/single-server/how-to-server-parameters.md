@@ -23,11 +23,11 @@ Azure Database for MySQL supports configuration of some server parameters. This 
 2. Under the **SETTINGS** section, click **Server parameters** to open the server parameters page for the Azure Database for MySQL server.
 :::image type="content" source="./media/how-to-server-parameters/auzre-portal-server-parameters.png" alt-text="Azure portal server parameters page":::
 3. Locate any settings you need to adjust. Review the **Description** column to understand the purpose and allowed values.
-:::image type="content" source="./media/how-to-server-parameters/3-toggle_parameter.png" alt-text="Enumerate drop down":::
+:::image type="content" source="./media/how-to-server-parameters/3-toggle-parameter.png" alt-text="Enumerate drop down":::
 4. Click  **Save** to save your changes.
-:::image type="content" source="./media/how-to-server-parameters/4-save_parameters.png" alt-text="Save or Discard changes":::
+:::image type="content" source="./media/how-to-server-parameters/4-save-parameters.png" alt-text="Save or Discard changes":::
 5. If you have saved new values for the parameters, you can always revert everything back to the default values by selecting **Reset all to default**.
-:::image type="content" source="./media/how-to-server-parameters/5-reset_parameters.png" alt-text="Reset all to default":::
+:::image type="content" source="./media/how-to-server-parameters/5-reset-parameters.png" alt-text="Reset all to default":::
 
 ## Setting parameters not listed
 

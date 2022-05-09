@@ -41,7 +41,7 @@ The DEKs, encrypted with the KEKs, are stored separately. Only an entity with ac
 
 ## How data encryption with a customer-managed key work
 
-:::image type="content" source="media/concepts-data-access-and-security-data-encryption/mysqloverview.png" alt-text="Diagram that shows an overview of Bring Your Own Key":::
+:::image type="content" source="media/concepts-data-access-and-security-data-encryption/mysql-overview.png" alt-text="Diagram that shows an overview of Bring Your Own Key":::
 
 For a MySQL server to use customer-managed keys stored in Key Vault for encryption of the DEK, a Key Vault administrator gives the following access rights to the server:
 

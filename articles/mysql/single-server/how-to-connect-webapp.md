@@ -33,11 +33,11 @@ You can explicitly add all the outbound IPs of your Azure App Service.
 
 1. On the App Service Properties blade, view your **OUTBOUND IP ADDRESS**.
 
-   :::image type="content" source="./media/how-to-connect-webapp/2_1-outbound-ip-address.png" alt-text="Azure portal - View outbound IPs":::
+   :::image type="content" source="./media/how-to-connect-webapp/2-1-outbound-ip-address.png" alt-text="Azure portal - View outbound IPs":::
 
 2. On the MySQL Connection security blade, add outbound IPs one by one.
 
-   :::image type="content" source="./media/how-to-connect-webapp/2_2-add-explicit-ips.png" alt-text="Azure portal - Add explicit IPs":::
+   :::image type="content" source="./media/how-to-connect-webapp/2-2-add-explicit-ips.png" alt-text="Azure portal - Add explicit IPs":::
 
 3. Remember to **Save** your firewall rules.
 

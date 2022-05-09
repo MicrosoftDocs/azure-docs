@@ -62,7 +62,7 @@ Get the connection information you need to connect to Azure Database for MySQL f
    
 1. In the portal search bar, search for and select the Azure Database for MySQL server you created, such as **mydemoserver**.
    
-   :::image type="content" source="./media/connect-python/1_server-overview-name-login.png" alt-text="Azure Database for MySQL server name":::
+   :::image type="content" source="./media/connect-python/1-server-overview-name-login.png" alt-text="Azure Database for MySQL server name":::
    
 1. From the server's **Overview** page, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this page.
    
