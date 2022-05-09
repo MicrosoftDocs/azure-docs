@@ -321,12 +321,8 @@
       items:
         - name: Manage the hosting plan
           href: app-service-plan-manage.md
-        - name: Back up an app
+        - name: Backup and restore
           href: manage-backup.md
-        - name: Restore a backup
-          href: web-sites-restore.md
-        - name: Restore a snapshot
-          href: app-service-web-restore-snapshots.md
         - name: Clone an app
           href: app-service-web-app-cloning.md
         - name: Restore deleted App Service

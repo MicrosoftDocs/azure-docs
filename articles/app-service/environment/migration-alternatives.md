@@ -37,9 +37,9 @@ App Service Environment v3 uses Isolated v2 App Service plans that are priced an
 
 ## Back up and restore
 
-The [back up](../manage-backup.md) and [restore](../web-sites-restore.md) feature allows you to keep your app configuration, file content, and database connected to your app when migrating to your new environment. Make sure you review the [requirements and restrictions](../manage-backup.md#requirements-and-restrictions) of this feature.
+The [back up](../manage-backup.md) and [restore](../manage-backup.md) feature allows you to keep your app configuration, file content, and database connected to your app when migrating to your new environment. Make sure you review the [requirements and restrictions](../manage-backup.md#requirements-and-restrictions) of this feature.
 
-The step-by-step instructions in the current documentation for [back up](../manage-backup.md) and [restore](../web-sites-restore.md) should be sufficient to allow you to use this feature. When restoring, the **Storage** option lets you select any backup ZIP file from any existing Azure Storage account container in your subscription. A sample of a restore configuration is given in the following screenshot.
+The step-by-step instructions in the current documentation for [back up](../manage-backup.md) and [restore](../manage-backup.md) should be sufficient to allow you to use this feature. When restoring, the **Storage** option lets you select any backup ZIP file from any existing Azure Storage account container in your subscription. A sample of a restore configuration is given in the following screenshot.
 
 ![back up and restore sample](./media/migration/back-up-restore-sample.png)
 
