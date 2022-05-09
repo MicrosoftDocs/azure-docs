@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 05/04/2022
+ms.date: 05/06/2022
 ms.author: cshoe
 zone_pivot_groups: container-apps-config-types
 ---
@@ -194,10 +194,9 @@ When using Azure Files, you must use the Azure CLI with a YAML definition to cre
     ```azure-cli
     az containerapp env storage set --name my-env -resource-group my-group \
         --storage-name mystorage \
-        --type AzureFile \
-        --account-name <storage_account_name> \
-        --account-key <storage_account_key> \
-        --share-name <storage_share_name> \
+        --azure-file-account-name <storage_account_name> \
+        --azure-file-account-key <storage_account_key> \
+        --azure-file-share-name <storage_share_name> \
         --access-mode ReadWrite
     ```
 
@@ -277,7 +276,7 @@ The following ARM template snippets demonstrate how to add an Azure Files share 
               "accountName": "[parameters('storage_account_name')]",
               "accountKey": "[parameters('storage_account_key')]",
               "shareName": "[parameters('storage_share_name')]",
-              "accessMode": "ReadOnly"
+              "accessMode": "ReadWrite"
             }
           }
         }
@@ -323,7 +322,7 @@ The following ARM template snippets demonstrate how to add an Azure Files share 
             {
               "name": "azure-files-volume",
               "storageType": "AzureFile",
-              "storageName": "[parameters('storage_share_name')]"
+              "storageName": "myazurefiles"
             }
           ]
         }
