@@ -3,12 +3,12 @@ title: Form Recognizer quotas and limits
 titleSuffix: Azure Applied AI Services
 description: Quick reference, detailed description, and best practices on Azure Form Recognizer service Quotas and Limits
 services: cognitive-services
-author: vkurpad
+author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 05/09/2022
 ms.author: lajanuar
 ---
 
