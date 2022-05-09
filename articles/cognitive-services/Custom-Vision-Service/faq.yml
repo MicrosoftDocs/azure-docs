@@ -24,65 +24,65 @@ sections:
     questions:
       - question: | 	
           Can I stop training once it has started?
-      - answer: | 	
+        answer: | 	
           There is no way to cancel a training once it has been started.
       - question: | 	
           Where is my subscription key?
-      - answer: |
+        answer: |
           You can find your subscription key in the Azure portal, under the **key and endpoint** tab.
       - question: | 	
           Where is my prediction resource id?
-      - answer: |
+        answer: |
           You can find the prediction resource ID on the resource's **Properties** tab in the Azure portal, listed as **Resource ID**.
       - question: | 	
           Does my Custom vision prediction endpoint accept base64 encoded images?
-      - answer: | 	
+        answer: | 	
           Yes. We recommend using open-source libraries that help you convert URL images to base64 encoded images and back. The OpenCV and Pillow libraries are popular with our customers for image conversion.
       - question: | 	
           Is Custom Vision available in my region?
-      - answer: | 	
+        answer: | 	
           You can find the region availability for Custom Vision on the [Region support](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) page.
       - question: | 	
           Will I have to re-label images if I change domains in a project?
-      - answer: | 	
+        answer: | 	
           You can switch domains in the project without re-labeling, as long as you keep the same supervised learning domain (object detection or image classification).
       - question: | 	
           Once I have trained a Custom Vision model, can I manage/deploy the same model to different regions?
-      - answer: | 	
+        answer: | 	
           We don't have a use case for publishing a model to a different region, but we do offer the ability to export/import a project into different regions. See [Copy and back up Custom Vision projects](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/copy-move-projects).
       - question: | 	
           What is the difference between Custom Vision and AutoML?
-      - answer: | 	
+        answer: | 	
           Custom Vision is a tool for easily building computer vision models without needing to have any data science or ML knowledge. These models are pre-trained using datasets optimized for specific domains.
 
           Sometimes, your scenario might require more control over model training, deployment and the end-to-end ML lifecycle. AutoML is the ideal solution when when you need this additional control, and it's addressed to customers with ML knowledge, to boost their productivity when building computer vision models.
       - question: | 	
           Does Custom Vision support polygon bounding boxes?
-      - answer: | 	
+        answer: | 	
           No, we only support rectangle bounding boxes.
 
       - question: | 	
           What is the difference between the free and standard pricing tiers?
-      - answer: | 	
+        answer: | 	
           See the [Limits and quotas](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/limits-and-quotas) page.
 
       - question: | 	
           How can users be added to a Cognitive Services multi-service account to collaborate on a Custom Vision project in the web portal?
-      - answer: | 	
+        answer: | 	
           You can use RBAC roles to give specific users access to collaborate on a custom vision portal project. See the [Role-based access control docs](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/role-based-access-control)
       - question: | 	 
           Can training images be exported with the tags that were added in the Custom Vision portal?
-      - answer: | 	
+        answer: | 	
           Yes, you can use the [GetImages API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb4) for this.
 
       - question: | 	 
           I'm getting the message, `Can’t train just yet. Reserved budget in hours is not enough to do advanced training`. What should I do? 
-      - answer: | 	
+        answer: | 	
           If you get this message, you need to increase your training budget to train a higher volume of images.
 
       - question: | 	 
           My project training took many hours to complete. Why is the turnaround time so long?
-      - answer: | 	
+        answer: | 	
           42 hours is the maximum compute hours that can be used for training. However, this is different from wall clock hours: with N compute hours reserved, it does not mean the training will finish right at 42 hours.
 
           As we do parallel training in the backend (multiple compute nodes running at the same time), it is possible the operation might finish within 32 hours, but customers will see a 42-hour billing.
@@ -91,6 +91,6 @@ sections:
 
       - question: | 	 
           How can I write logs on this service?
-      - answer: | 	
+        answer: | 	
           Use [Diagnostic logging](https://docs.microsoft.com/azure/cognitive-services/diagnostic-logging).
 
