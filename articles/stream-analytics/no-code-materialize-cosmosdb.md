@@ -43,7 +43,7 @@ To start the job, you must specify:
 
 ## Next steps
 
-Now you know how to use the Stream Analytics no code editor to create a job that reads from Event Hubs and manages private endpoints in an Azure Stream Analytics cluster. Next, learn how to scale clusters and run jobs in them:
+Now you know how to use the Stream Analytics no code editor to develop a job that reads from Event Hubs and calculates aggregates such as counts, averages and writes it to your Azure Cosmos DB resource.
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Monitor Stream Analytics jobs](stream-analytics-monitoring.md)
