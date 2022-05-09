@@ -36,9 +36,17 @@ For this article you need,
 
 * The Azure Machine Learning Python SDK v2 (preview) installed.
     To install the SDK you can either, 
-    * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) for more information. 
+    * Create a compute instance, which already has installed the latest AzureML Python SDK and is pre-configured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) for more information. 
 
-    * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
+    * Use the followings commands to install Azure ML Python SDK v2:
+       * Uninstall previous preview version:
+       ```Python
+       pip uninstall azure-ml
+       ```
+       * Install the Azure ML Python SDK v2:
+       ```Python
+       pip install azure-ml
+       ```
 
     [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
 
@@ -68,15 +76,15 @@ except Exception as ex:
 
 ## Data source and format
 
-Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into a **MLtable**.
+In order to provide training data to AutoML in SDK v2 you need to upload it into the cloud through an **MLTable**.
 
-Requirements for training data in machine learning:
+Requirements for loading data into an MLTable:
 - Data must be in tabular form.
 - The value to predict, target column, must be in the data.
 
-Training data must be accessible from the remote compute. Automated ML only accepts MLtable data assets when working on a remote compute. 
+Training data must be accessible from the remote compute. Automated ML v2 (Python SDK and CLI/YAML) accepts MLTable data assets (v2), although for backwards compatibility it also supports v1 Tabular Datasets from v1 (a registered Tabular Dataset) through the same input dataset properties. However the recommendation is to use MLTable available in v2.
 
-The following shows how to provide your training data from your local directory or cloud storage.
+The following shows how to provide your training data from your local directory and it'll be automatically uploaded into the cloud (default Workspace Datastore) or by providing a MLTable already registered and uploaded into the cloud.
 
 ```Python
 from azure.ml.constants import AssetTypes
@@ -116,13 +124,13 @@ If you want to override these heuristics, apply the following settings:
 
 Task | Setting | Notes
 |---|---|---
-Block&nbsp;data streaming algorithms | Use the `blocked_models` parameter in the `set_training()` function and list the model(s) you don't want to use. | Results in either run failure or long run time
-Use&nbsp;data&nbsp;streaming&nbsp;algorithms| Use the `allowed_models` parameter in the `set_training()` function and list the model(s) you want to use.| 
+Block&nbsp;data streaming algorithms | Use the `blocked_algorithms` parameter in the `set_training()` function and list the model(s) you don't want to use. | Results in either run failure or long run time
+Use&nbsp;data&nbsp;streaming&nbsp;algorithms| Use the `allowed_algorithms` parameter in the `set_training()` function and list the model(s) you want to use.| 
 Use&nbsp;data&nbsp;streaming&nbsp;algorithms <br> [(studio UI experiments)](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)|Block all models except the big data algorithms you want to use. |
 
 ## Compute to run experiment
 
-Automated ML jobs with the Python SDK v2 are only supported on remote computes. 
+Automated ML jobs with the Python SDK v2 (or CLI v2) are currently only supported on Azure ML remote compute (cluster or compute instance).
  
 <a name='configure-experiment'></a>
 
@@ -130,7 +138,7 @@ Automated ML jobs with the Python SDK v2 are only supported on remote computes.
 
 There are several options that you can use to configure your automated ML experiment. These configuration parameters are set in your task method. You can also set job training settings and [exit criteria](#exit-criteria) with the `set_training()` and `set_limits()` functions, respectively. 
 
-The following example shows the required parameters for a classification task that specifies accuracy as the [primary metric](#primary-metric) and 2 cross-validation folds.
+The following example shows the required parameters for a classification task that specifies accuracy as the [primary metric](#primary-metric) and 5 cross-validation folds.
 
 ```python
 
@@ -170,15 +178,24 @@ Before you can submit your automated ML job, you need to determine the kind of m
 Automated ML supports classification, regression, forecasting, computer vision, and natural language processing tasks. Learn more about [task types](concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting-computer-vision--nlp).
 
 
-### Supported models
+### Supported algorithms
 
 Automated machine learning tries different models and algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm. 
 
-The task method determine the list of algorithms, or models, to apply. Use the `allowed_models` or `blocked_models` parameters in the `set_training()` to further modify iterations with the available models to include or exclude. See the reference documentation for the supported models for each task type.
+The task method determine the list of algorithms, or models, to apply. Use the `allowed_models` or `blocked_models` parameters in the `set_training()` to further modify iterations with the available models to include or exclude. 
  
-* [Classification](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification)
-* [Regression](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression) 
-* [Forecasting](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting)
+* Classification (Tabular data)
+* Regression (Tabular data)
+* Time Series Forecasting (Tabular data)
+* Image Classification (Multi-class) (New)
+* Image Classification (Multi-label) (New)
+* Image Object Detection (New)
+* Image Instance Segmentation (New)
+* NLP Text Classification (Multi-class) (New)
+* NLP Text Classification (Multi-label) (New)
+* NLP Text Named Entity Recognition (NER) (New)
+
+Follow [this link](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/automl-standalone-jobs) for example material of each task type.
 
 ### Primary metric
 
