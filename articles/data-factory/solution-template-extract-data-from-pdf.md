@@ -45,7 +45,7 @@ This template defines 4 parameters:
 
 	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-2.png" alt-text="Screenshot of how to create a new connection or select existing connection from a drop down menu to Form Recognizer in template set up.":::
 	
-  In your connection to Form Recognizer, make sure to add a **Linked service Parameter**. You will need to use this parameter as your dynamic **Base URL**.
+    In your connection to Form Recognizer, make sure to add a **Linked service Parameter**. You will need to use this parameter as your dynamic **Base URL**.
    
    :::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-9.png" alt-text="Screenshot of where to add your Form Recognizer linked service parameter.":::
    
