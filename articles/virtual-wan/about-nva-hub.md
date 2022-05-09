@@ -3,11 +3,11 @@ title: 'About Network Virtual Appliances - Virtual WAN hub'
 titleSuffix: Azure Virtual WAN
 description: Learn about Network Virtual Appliances in a Virtual WAN hub.
 services: virtual-wan
-author: cherylmc
+author: wtnlee
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/02/2021
-ms.author: cherylmc
+ms.author: wellee
 ms.custom: references_regions
 # Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in a Virtual WAN hub.
 ---
