@@ -24,7 +24,7 @@ Below are the QPS usage limits for each Azure Maps service by Pricing Tier.
 | Data Service | 50 | 50 |  Not Available  |
 | Elevation Service | 50 | 50 |  Not Available  |
 | Geolocation Service | 50 | 50 | 50 |
-| Render Service - Contour tiles, DEM tiles, Elevation tiles and Customer tiles | 50 | 50 | Not Available |
+| Render Service - Contour tiles, Digital Elevation Model (DEM) tiles and Customer tiles | 50 | 50 | Not Available |
 | Render Service - Traffic tiles and Static maps | 50 | 50 | 50 |
 | Render Service - Road tiles | 500 | 500 | 50 |
 | Render Service - Satellite tiles | 250 | 250 | Not Available |
