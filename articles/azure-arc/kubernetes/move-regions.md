@@ -42,9 +42,9 @@ Source control configurations and extensions are child resources to the connecte
 ### Kubernetes Configurations
 
 1. Do a LIST of all configuration resources in the source cluster (the cluster to be moved) and save the response body to be used as the request body when re-creating these resources.
-    - [Microsoft.KubernetesConfiguration/SourceControlConfiguration](https://docs.microsoft.com/en-us/cli/azure/k8sconfiguration?view=azure-cli-latest#az-k8sconfiguration-list)
-    - [Microsoft.KubernetesConfiguration/Extensions](https://docs.microsoft.com/en-us/cli/azure/k8s-extension?view=azure-cli-latest#az-k8s-extension-list)
-    - [Microsoft.KubernetesConfiguration/FluxConfigurations](https://docs.microsoft.com/en-us/cli/azure/k8s-configuration/flux?view=azure-cli-latest#az-k8s-configuration-flux-list)
+    - [Microsoft.KubernetesConfiguration/SourceControlConfiguration](/cli/azure/k8sconfiguration?view=azure-cli-latest&preserve-view=true#az-k8sconfiguration-list)
+    - [Microsoft.KubernetesConfiguration/Extensions](/cli/azure/k8s-extension?view=azure-cli-latest&preserve-view=true#az-k8s-extension-list)
+    - [Microsoft.KubernetesConfiguration/FluxConfigurations](/cli/azure/k8s-configuration/flux?view=azure-cli-latest&preserve-view=true#az-k8s-configuration-flux-list)
     > [!NOTE]
     > LIST/GET of configuration resources **do not** return `ConfigurationProtectedSettings`.
     > For such cases, the only option is to save the original request body and reuse them while creating the resources in the new region.
