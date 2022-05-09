@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/30/2022 
+ms.date: 12/09/2021
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -156,7 +156,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 | ------- | :--: | ----- |
 | [MFA using time-based one-time password (TOTP) with authenticator apps](multi-factor-authentication.md#verification-methods) | Preview |  Users can use any authenticator app that supports TOTP verification, such as the [Microsoft Authenticator app](https://www.microsoft.com/security/mobile-authenticator-app).|
 | [Phone factor authentication](phone-factor-technical-profile.md) | GA |  |
-| [Azure AD MFA authentication](multi-factor-auth-technical-profile.md) | GA |  |
+| [Azure AD MFA authentication](multi-factor-auth-technical-profile.md) | Preview |  |
 | [One-time password](one-time-password-technical-profile.md) | GA |  |
 | [Azure Active Directory](active-directory-technical-profile.md) as local directory | GA |  |
 | [Predicate validations](predicates.md) | GA | For example, password complexity. |
@@ -168,8 +168,8 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 | Feature | Custom policy | Notes |
 | ------- | :--: | ----- |
 | Azure portal | GA |   |
-| [Application Insights user journey logs](troubleshoot-with-application-insights.md) | GA | Used for troubleshooting during development.  |
-| [Application Insights event logs](analytics-with-application-insights.md) | GA | Used to monitor user flows in production. |
+| [Application Insights user journey logs](troubleshoot-with-application-insights.md) | Preview | Used for troubleshooting during development.  |
+| [Application Insights event logs](analytics-with-application-insights.md) | Preview | Used to monitor user flows in production. |
 
 ## Responsibilities of custom policy feature-set developers
 
