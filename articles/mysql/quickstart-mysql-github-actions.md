@@ -256,33 +256,33 @@ You need to provide your application's **Client ID**, **Tenant ID**, and **Subsc
     # [OpenID Connect](#tab/openid)
     
     ```yaml
-      name: MySQL for GitHub Actions
-    
-      on:
-        push:
-            branches: [ main ]
-        pull_request:
-            branches: [ main ]
-      jobs:
-          build:
-              runs-on: windows-latest
-              steps:
-                - uses: actions/checkout@v1
-                - uses: azure/login@v1
-                  with:
-                    client-id: ${{ secrets.AZURE_CLIENT_ID }}
-                    tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-                    subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-                - uses: azure/mysql@v1
-                  with:
-                    server-name: MYSQL_SERVER_NAME
-                    connection-string: ${{ secrets.AZURE_MYSQL_CONNECTION_STRING }}
-                    sql-file: './data.sql'
-    
-                  # Azure logout
-                - name: logout
-                  run: |
-                    az logout
+    name: MySQL for GitHub Actions
+  
+    on:
+      push:
+          branches: [ main ]
+      pull_request:
+          branches: [ main ]
+    jobs:
+        build:
+            runs-on: windows-latest
+            steps:
+              - uses: actions/checkout@v1
+              - uses: azure/login@v1
+                with:
+                  client-id: ${{ secrets.AZURE_CLIENT_ID }}
+                  tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+                  subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+              - uses: azure/mysql@v1
+                with:
+                  server-name: MYSQL_SERVER_NAME
+                  connection-string: ${{ secrets.AZURE_MYSQL_CONNECTION_STRING }}
+                  sql-file: './data.sql'
+  
+                # Azure logout
+              - name: logout
+                run: |
+                  az logout
     ```
     ___
 
