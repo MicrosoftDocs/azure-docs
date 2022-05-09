@@ -24,7 +24,7 @@ To create a service connection and store secrets in Key Vault with Service Conne
 * Basic knowledge of [using Service Connector](.\quickstart-portal-app-service-connection.md)
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 * An app hosted on App Service. If you don't have one yet, [create and deploy an app to App Service](../app-service/quickstart-dotnetcore.md)
-* An Azure Key Vault. If you don't have one, [Create an Azure Key Vault](../key-vault\general\quick-create-portal.md)
+* An Azure Key Vault. If you don't have one, [create an Azure Key Vault](../key-vault\general\quick-create-portal.md)
 * Another target service instance supported by Service Connector. In this tutorial, you'll use [Azure Blob Storage](../storage/blobs/storage-quickstart-blobs-portal.md)
 * Read and write access to the App Service, Key Vault and the target service.
 
@@ -32,7 +32,7 @@ To create a service connection and store secrets in Key Vault with Service Conne
 
 To store your connection access keys and secrets into a key vault, start by connecting your App Service to a key vault.
 
-1. Select the **All resources** button on the left of the Azure portal. Type **App Service** in the filter and select the name of the App Service you want to use in the list.
+1. Select the **All resources** button on the left of the Azure portal. Type **App Service** in the filter and select the name of the App Service you want to use from the list.
 1. Select **Service Connector** from the left table of contents. Then select **Create**.
 1. Select or enter the following settings.
 
@@ -81,7 +81,7 @@ Now you can create a service connection to another target service and directly s
 
 ### [Service principal](#tab/serviceprincipal)
 
-1. Select the **All resources** button on the left of the Azure portal. Type **App Service** in the filter and select the name of the App Service you want to use in the list.
+1. Select the **All resources** button on the left of the Azure portal. Type **App Service** in the filter and select the name of the App Service you want to use from the list.
 1. Select **Service Connector** from the left table of contents. Then select **Create**.
 1. Select or enter the following settings.
 
