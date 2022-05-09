@@ -8,7 +8,7 @@ ms.custom: template-how-to
 
 # Connect machines at scale using Ansible playbooks
 
-You can onboard Ansible managed nodes to Azure Arc-enabled servers at scale using Ansible playbooks. To do so, you'll need to download, modify, and then run the appropriate playbook.
+You can onboard Ansible-managed nodes to Azure Arc-enabled servers at scale using Ansible playbooks. To do so, you'll need to download, modify, and then run the appropriate playbook.
 
 Before you get started, be sure to review the [prerequisites](prerequisites.md) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions). Also review our [at-scale planning guide](plan-at-scale-deployment.md) to understand the design and deployment criteria, as well as our management and monitoring recommendations.  
 
@@ -94,7 +94,7 @@ From the Ansible control node, run the Ansible playbook by invoking the `ansible
 ansible-playbook arc-server-onboard-playbook.yml
 ```
 
-After the playbook has run completely, the **PLAY RECAP** will indicate that all tasks were completed successfully and surface any nodes where tasks failed.
+After the playbook has run, the **PLAY RECAP** will indicate if all tasks were completed successfully and surface any nodes where tasks failed.
 
 ## Verify the connect with Azure Arc
 
