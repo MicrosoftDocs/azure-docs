@@ -64,7 +64,7 @@ For API versions 2021-10-01 and newer, the error output will look like the follo
 **Improvements:**
 
 - Added support for creating images from the following sources:
-    - Azure Artifact Gallery
+    - Managed Image
     - Azure Compute Gallery
     - Platform Image Repository (including Platform Image Purchase Plan)
 - Added support for the following customizations:
@@ -74,8 +74,6 @@ For API versions 2021-10-01 and newer, the error output will look like the follo
     - Windows Restart (Windows)
     - Windows Update (Windows) (with search criteria, filters, and update limit)
 - Added support for the following distribution types:
-    - Azure Artifact Gallery
-    - Azure Artifact Gallery Image Version (including replication and the ability to exclude from latest)
     - VHD
 - **Other Features**
     - Added support for customers to use their own VNet.
