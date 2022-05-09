@@ -81,12 +81,13 @@ These changes include modifications to:
 
 These parameters include:
 
-- [Secret values](manage-secrets.md)  (Revisions must be [restarted](revisions.md) before a container recognizes new secret values.)
+- [Secret values](manage-secrets.md)
+  - Revisions must be [restarted](revisions.md) before a container recognizes new secret values.
 - Revision mode
 - Ingress configuration including:
   - Turning [ingress](ingress.md) on or off
   - [Traffic splitting rules](revisions-manage.md#traffic-splitting)
-  - labels
+  - Labels
 - Credentials for private container registries
 - Dapr settings
 
@@ -94,7 +95,7 @@ These parameters include:
 
 For container apps with external HTTP traffic, labels are a portable means to direct traffic to specific revisions. A label provides a unique URL that you can use to route traffic to the revision that the label is assigned. To switch traffic between revisions, you can move the label from one revision to another.
 
-- Label name rules are the same as container app names.
+- Label name rules are the same as for container app names.
 - The same label can't be applied to more than one active or inactive revision.
 - Labels keep the same URL when moved from one revision to another.
 - Traffic allocation isn't required for revisions with labels.
