@@ -89,6 +89,9 @@ With a list of available versions for your AKS cluster, use the [az aks upgrade]
 - This process repeats until all nodes in the cluster have been upgraded. 
 - At the end of the process, the last buffer node will be deleted, maintaining the existing agent node count and zone balance.
 
+> [!NOTE]
+> If no patch is specified, the cluster will automatically be upgraded to the specified minor version's latest patch. For example, setting `--kubernetes-version` to `1.21` will result in the cluster upgrading to `1.21.9`.
+
 ```azurecli-interactive
 az aks upgrade \
     --resource-group myResourceGroup \
