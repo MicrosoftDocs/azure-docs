@@ -59,7 +59,7 @@ After you've registered your resources, you'll need to enable *Data Use Manageme
 [How to enable Data Use Management](./how-to-enable-data-use-management.md)
 
 Once your data source has the **Data Use Management** toggle **Enabled*, it will look like this picture. This will enable the access policies to be used with the given SQL server and all its contained databases.
-![Image shows how to register a data source for policy.](./media/how-to-data-owner-policies-sql/register-data-source-for-policy-sql.png)
+![Image shows how to register a data source for policy.](./media/how-to-data-owner-policies-sql/register-data-source-for-policy-azure-sql-db.png)
 
 
 ## Create and publish a data owner policy

@@ -58,31 +58,35 @@ Register each data source with Microsoft Purview to later define access policies
 1. Navigate to the **Data map** feature on the left pane, then **Sources** then **Register** then type "Azure Arc" in the search box and select **SQL Server on Azure Arc**. Then select **Continue**
 ![Image shows how to select a source for registration.](./media/how-to-data-owner-policies-sql/select-arc-sql-server-for-registration.png)
 
-1. Enter a **Name** for this registration, select an **Azure subscription**, **Server name**, **Server endpoint** and **Select a collection** to put this registration in. 
+1. Enter a **Name** for this registration. It is best practice to make the name of the registration the same as the server name in the next step.
+
+1. select an **Azure subscription**, **Server name** and **Server endpoint**.
+
+1. **Select a collection** to put this registration in. 
 
 1. Turn the switch **Data Use Management** to **Enabled**. This enables the access-policies to be used with the given Arc-enabled SQL server. Note: Data Use Management can affect the security of your data, as it delegates to certain Microsoft Purview roles managing access to the data sources. Secure practices related to Data Use Management are described in this guide: [registering a data resource for Data Use Management](./how-to-enable-data-use-management.md)
 
 1. Enter the **Application ID** from the App Registration related to this Arc-enabled SQL server.
 
-1. Select **Register** at the bottom
+1. Select **Register** or **Apply** at the bottom
 
 Once your data source has the **Data Use Management** toggle **Enabled*, it will look like this picture. 
-![Image shows how to register a data source for policy.](./media/how-to-data-owner-policies-sql/register-data-source-for-policy-sql.png)
+![Image shows how to register a data source for policy.](./media/how-to-data-owner-policies-sql/register-data-source-for-policy-arc-sql.png)
 
 
 ## Create and publish a data owner policy
 
 Execute the steps in the [data-owner policy authoring tutorial](./how-to-data-owner-policy-authoring-generic.md) to create and then publish a data owner policy similar to one of the examples shown in the images.
 
-**Example #1: SQL Performance Monitor policy**. This policy assigns the AAD principal 'Christie Cline' to the *SQL Performance monitoring* role, in the scope of Arc-enabled SQL server *ArcEnabledSQLServer-Fnz*. This policy has also been published to that server.
+**Example #1: SQL Performance Monitor policy**. This policy assigns the AAD principal 'Christie Cline' to the *SQL Performance monitoring* role, in the scope of Arc-enabled SQL server *DESKTOP-xxx*. This policy has also been published to that server.
 
 ![Screenshot that shows a sample data owner policy giving SQL Performance Monitor access to an Azure SQL DB](./media/how-to-data-owner-policies-sql/data-owner-policy-example-arc-sql-server-performance-monitor.png)
 
 **Example #2: SQL Security Auditor policy**. Similar to example 1, but choose the *SQL Security auditing* action (instead of *SQL Performance monitoring*), when authoring the policy.
 
-**Example #3: Read policy**. This policy assigns the AAD principal 'Robert Murphy' to the *SQL Data reader* role, in the scope of SQL server *ArcEnabledSQLServer-Fnz*. This policy has also been published to that server.
+**Example #3: Read policy**. This policy assigns the AAD principal 'sg-Finance' to the *SQL Data reader* role, in the scope of SQL server *DESKTOP-xxx*. This policy has also been published to that server.
 
-![Screenshot that shows a sample data owner policy giving Data Reader access to an Azure SQL DB](./media/how-to-data-owner-policies-sql/data-owner-policy-example-azure-sql-db-data-reader.png)
+![Screenshot that shows a sample data owner policy giving Data Reader access to an Azure SQL DB](./media/how-to-data-owner-policies-sql/data-owner-policy-example-arc-sql-server-data-reader.png)
 
 
 >[!Important]
