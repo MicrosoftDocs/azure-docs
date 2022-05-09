@@ -12,6 +12,7 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
+ms.custom: non-critical
 ---
 
 # Upgrade from Read v2.x to Read v3.x
@@ -62,7 +63,7 @@ When the call to `Get Read Operation Result` is successful, it returns a status 
 Note the following changes to the json:
 * In v2.x, `Get Read Operation Result` will return the OCR recognition json when the status is `Succeeded"`. In v3.0, this field is `succeeded`.
 * To get the root for page array,  change the json hierarchy from `recognitionResults` to `analyzeResult`/`readResults`. The per-page line and words json hierarchy remains unchanged, so no code changes are required.
-* The page angle `clockwiseOrientation` has been renamed to `angle` and the range has been changed from 0 - 360 degrees to -180 to 180 degrees. Depending on your code, you may or may not have to makes changes as most math functions can handle either range.
+* The page angle `clockwiseOrientation` has been renamed to `angle` and the range has been changed from 0 - 360 degrees to -180 to 180 degrees. Depending on your code, you may or may not have to make changes as most math functions can handle either range.
 
 The v3.0 API also introduces the following improvements you can optionally leverage:
 * `createdDateTime` and `lastUpdatedDateTime` are added so you can track the duration of processing. See documentation for more details. 
