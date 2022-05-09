@@ -5,7 +5,7 @@ author: greenie-msft
 ms.author: nigreenf
 ms.service: container-service
 ms.topic: article
-ms.date: 05/04/2022
+ms.date: 05/09/2022
 ms.custom: devx-track-azurecli, ignite-fall-2021
 ---
 
@@ -58,7 +58,7 @@ az extension update --name k8s-extension
 
 ## Create the extension and install Dapr on your AKS or Arc-enabled Kubernetes cluster
 
-When installing the Dapr extension on your AKS or Arc-enabled Kubernetes cluster, you can use either of the following flags:
+When installing the Dapr extension, use the flag value that corresponds to your cluster type:
 
 - **AKS cluster**: `--cluster-type managedClusters`. 
 - **Arc-enabled Kubernetes cluster**: `--cluster-type connectedClusters`.
