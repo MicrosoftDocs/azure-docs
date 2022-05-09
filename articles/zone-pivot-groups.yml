@@ -849,6 +849,29 @@ groups:
     title: Swift
   - id: programming-language-python
     title: Python
+- id: programming-languages-speech-sdk-cli
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-objectivec
+    title: Objective-C
+  - id: programming-language-swift
+    title: Swift
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-cli
+    title: CLI
 - id: programming-languages-speech-services
 # Owner: eur
   title: Programming languages
