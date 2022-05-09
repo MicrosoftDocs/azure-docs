@@ -20,13 +20,13 @@ Once you are satisfied with how your model performs, it is ready to be deployed,
 ## Prerequisites
 
 * A successfully [created project](create-project.md) with a configured Azure blob storage account
-    * Text data that [has been uploaded](create-project.md#prepare-training-data) to your storage account.
+    * Text data that [has been uploaded](design-schema.md#data-preparation) to your storage account.
 * [Tagged data](tag-data.md)
 * A [successfully trained model](train-model.md)
 * Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
     * (optional) [Made improvements](improve-model.md) to your model if its performance isn't satisfactory.
 
-See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
+See the [application development lifecycle](../overview.md#project-development-lifecycle) for more information.
 
 ## Deploy your model
 

@@ -52,7 +52,7 @@ For more information, see [Get speech recognition results](get-speech-recognitio
 
 ## Get partial results
 
-Consider when to start displaying captions, and how many words to show at a time. Speech recognition results are subject to change while an utterance is still being recognized. Partial partial results are returned with each `Recognizing` event. As each word is processed, the Speech service re-evaluates an utterance in the new context and again returns the best result. The new result isn't guaranteed to be the same as the previous result. The complete and final transcription of an utterance is returned with the `Recognized` event.
+Consider when to start displaying captions, and how many words to show at a time. Speech recognition results are subject to change while an utterance is still being recognized. Partial results are returned with each `Recognizing` event. As each word is processed, the Speech service re-evaluates an utterance in the new context and again returns the best result. The new result isn't guaranteed to be the same as the previous result. The complete and final transcription of an utterance is returned with the `Recognized` event.
 
 > [!NOTE]
 > Punctuation of partial results is not available. 
