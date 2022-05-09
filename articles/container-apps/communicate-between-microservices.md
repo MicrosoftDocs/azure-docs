@@ -19,6 +19,10 @@ https://gist.github.com/kendallroden/391a0fb9a67c943902f8c2b49418f152
 
 This tutorial builds on the app deployed in the [Deploy your code to Azure Container Apps](./quickstart-code-to-cloud.md) article and adds a front end microservice to the container app. In this article, you learn how to enable communication between different microservices.
 
+**TODO:**
+ - screenshot
+ - explain conceptual overview
+
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
@@ -92,9 +96,9 @@ $ACR_PASSWORD=(Get-AzContainerRegistryCredential `
 
 ## Prepare the GitHub repository
 
-1. Navigate to the [repository for the UI application](https://github.com/azure-samples/containerapps-albumui) and fork the repository.
+1. In a new browser tab, navigate to the [repository for the UI application](https://github.com/azure-samples/containerapps-albumui) and fork the repository.
 
-    Select the **Fork** button at the top of the page to fork the repo to your account.
+    Select the **Fork** button at the top of the page to fork the repo to your account. Follow the prompts from GitHub to fork the repository and return here once the operation is complete.
 
 1. Use the following git command to clone your forked repo into the *code-to-cloud-ui* folder:
 
@@ -149,7 +153,7 @@ $ACR_PASSWORD=(Get-AzContainerRegistryCredential `
 
     ---
 
-  Output from the `az acr build` command shows the upload progress of the source code to Azure and the details of the `docker build` operation.
+    Output from the `az acr build` command shows the upload progress of the source code to Azure and the details of the `docker build` operation.
 
 1. To verify that your image is now available in ACR, run the command below.
 
@@ -243,7 +247,7 @@ $ACR_PASSWORD=(Get-AzContainerRegistryCredential `
 
 ## Communicate between container apps
 
-In the previous quickstart, the album API was deployed by creating a container app and enabling external ingress. Making the container app set to external meant that the endpoint's URL is publicly available.
+In the previous quickstart, the album API was deployed by creating a container app and enabling external ingress. Making the container app set to *external* meant that the endpoint's URL is publicly available.
 
 Now you can configure the front-end application to call the API endpoint by going through the following steps:
 
@@ -260,7 +264,9 @@ const api = axios.create({
 });
 ```
 
-Query for the API endpoint address.
+Notice how the the `baseURL` property get its value from the `API_BASE_URL` environment variable.
+
+Next, you'll query for the API endpoint address to pass to the UI application when you create a the new container app instance.
 
 # [Bash](#tab/bash)
 
@@ -320,23 +326,11 @@ az containerapp create `
 
 By adding the argument `--env-vars "API_BASE_URL=$API_ENDPOINT"` to `az containerapp create`, you define an environment variable for your front-end application. With this syntax, the environment variable named `API_BASE_URL` is set to the API's FQDN.
 
-## Verify deployment
+## View website
 
-Your container should be listed in the output of the following command.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az acr show --name $ACR_NAME
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-az acr show --name $ACR_NAME
-```
-
----
+**TODO:**
+ - open in browser
+ - screenshot
 
 ## Clean up resources
 
