@@ -177,7 +177,7 @@
         items:
         - name: Configure P2S for multiple authentication types
           href: howto-point-to-site-multi-auth.md          
-      - name: OpenVPN
+      - name: OpenVPN tunnel type
         items:
         - name: Configure OpenVPN tunnel type
           href: vpn-gateway-howto-openvpn.md
@@ -195,17 +195,17 @@
           href: create-custom-policies-p2s-ps.md
     - name: P2S client configuration
       items:
-      - name: Certificate authentication
+      - name: Certificate authentication clients
         items:
         - name: Install client certificates
           href: point-to-site-how-to-vpn-client-install-azure-cert.md
         - name: Generate and install VPN client profile configuration files
           href: point-to-site-vpn-client-configuration-azure-cert.md
-      - name: RADIUS authentication
+      - name: RADIUS authentication clients
         items:
         - name: Generate and install VPN client profile configuration files
           href: point-to-site-vpn-client-configuration-radius.md
-      - name: AAD authentication
+      - name: AAD authentication clients
         items:
         - name: Windows client
           href: openvpn-azure-ad-client.md
@@ -215,10 +215,8 @@
           href: about-vpn-profile-download.md 
         - name: Intune - Deploy VPN client profile
           href: vpn-profile-intune.md
-      - name: OpenVPN
-        items:
-        - name: Configure OpenVPN clients
-          href: vpn-gateway-howto-openvpn-clients.md
+      - name: Install and configure an OpenVPN client
+        href: vpn-gateway-howto-openvpn-clients.md
   - name: Routing, BGP, and VNet Peering
     items:
     - name: Configure BGP for a VPN gateway
