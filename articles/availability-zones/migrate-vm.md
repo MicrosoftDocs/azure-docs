@@ -55,9 +55,9 @@ To redeploy, you'll need to recreate your VM and VMSS resources. To ensure high-
 
 To learn how create VMs in an availability zone, see:
 
-   - [Create VM using Azure CLI](../virtual-machines/linux/create-cli-availability-zone.md)
-   - [Create VM using Azure PowerShell](../virtual-machines/windows/create-PowerShell-availability-zone.md)
-   - [Create VM using Azure portal](../virtual-machines/create-portal-availability-zone.md?tabs=standard)
+- [Create VM using Azure CLI](../virtual-machines/linux/create-cli-availability-zone.md)
+- [Create VM using Azure PowerShell](../virtual-machines/windows/create-PowerShell-availability-zone.md)
+- [Create VM using Azure portal](../virtual-machines/create-portal-availability-zone.md?tabs=standard)
 
 To learn how create VMSS in an availability zone, see [Create a virtual machine scale set that uses Availability Zones](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md).
 
