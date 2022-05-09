@@ -65,7 +65,7 @@ To learn how create VMSS in an availability zone, see [Create a virtual machine 
 
 ### When to use Azure Resource Mover
 
-Use Azure Resource Mover for an easy way to move VMs or encrypted VMs from one region without availability zones to another with availability zones. If you want to learn more about the benefits of using Azure Resource Mover, see [Why use Azure Resource Mover?](../resource-mover/overview.md#why-use-resource-mover.md).
+Use Azure Resource Mover for an easy way to move VMs or encrypted VMs from one region without availability zones to another with availability zones. If you want to learn more about the benefits of using Azure Resource Mover, see [Why use Azure Resource Mover?](../resource-mover/overview.md#why-use-resource-mover).
 
 ### Azure Resource Mover considerations
 
