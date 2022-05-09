@@ -372,7 +372,7 @@ An autoencoder model is used. Its aim is to compress the user Office Exchange se
 | **Data sources:**                | Azure Active Directory audit logs                                  |
 | **MITRE ATT&CK tactics:**        | Collection<br>Discovery<br>Initial Access<br>Persistence<br>Privilege Escalation |
 | **MITRE ATT&CK techniques:**     | **Collection:**<br>T1530 - Data from Cloud Storage Object<br><br>**Discovery:**<br>T1087 - Account Discovery<br>T1538 - Cloud Service Dashboard<br>T1526 - Cloud Service Discovery<br>T1069 - Permission Groups Discovery<br>T1518 - Software Discovery<br><br>**Initial Access:**<br>T1190 - Exploit Public-Facing Application<br>T1078 - Valid Accounts<br><br>**Persistence:**<br>T1098 - Account Manipulation<br>T1136 - Create Account<br>T1078 - Valid Accounts<br><br>**Privilege Escalation:**<br>T1484 - Domain Policy Modification<br>T1078 - Valid Accounts  |
-| **Entities:**                    | <br><br> |
+| **Entities:**                    | **Type:** cloud-application<br><br>**Fields:** Name, InstanceName, LastVerdict |
 
 
 ### Anomalous W3CIIS logs activity
@@ -382,10 +382,10 @@ An autoencoder model is used. Its aim is to compress the user Office Exchange se
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                |                                    |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **Data sources:**                | W3CIIS logs                                                        |
+| **MITRE ATT&CK tactics:**        | Initial Access<br>Persistence                                      |
+| **MITRE ATT&CK techniques:**     | **Initial Access:**<br>T1190 - Exploit Public-Facing Application<br><br>**Persistence:**<br>T1505 - Server Software Component                                |
+| **Entities:**                    |                                                                    |
 
 
 ### Anomalous web request activity
@@ -396,10 +396,10 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                |                                    |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **Data sources:**                | W3CIIS logs                                                        |
+| **MITRE ATT&CK tactics:**        | Initial Access<br>Persistence                                      |
+| **MITRE ATT&CK techniques:**     | **Initial Access:**<br>T1190 - Exploit Public-Facing Application<br><br>**Persistence:**<br>T1505 - Server Software Component                                |
+| **Entities:**                    | **Type:** IP<br><br>**Fields:** Address, LastVerdict               |
 
 
 ### Attempted computer brute force
@@ -410,9 +410,9 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
 | **Data sources:**                | Windows Security logs                                              |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **MITRE ATT&CK tactics:**        | Credential Access                                                  |
+| **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
+| **Entities:**                    | **Type:** Host<br><br>**Fields:** Hostname                         |
 
 
 ### Attempted user account brute force
@@ -423,9 +423,9 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
 | **Data sources:**                | Windows Security logs                                              |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **MITRE ATT&CK tactics:**        | Credential Access                                                  |
+| **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
+| **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined          |
 
 
 ### Attempted user account brute force per login type
@@ -436,9 +436,9 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
 | **Data sources:**                | Windows Security logs                                              |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **MITRE ATT&CK tactics:**        | Credential Access                                                  |
+| **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
+| **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined          |
 
 
 ### Attempted user account bruteforce per failure reason
@@ -449,9 +449,9 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
 | **Data sources:**                | Windows Security logs                                              |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **MITRE ATT&CK tactics:**        | Credential Access                                                  |
+| **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
+| **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined          |
 
 
 ### Detect machine generated network beaconing behavior
@@ -461,10 +461,10 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                |                                    |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **Data sources:**                | CommonSecurityLog (PAN)                                            |
+| **MITRE ATT&CK tactics:**        | Command and Control                                                |
+| **MITRE ATT&CK techniques:**     | T1071 - Application Layer Protocol<br>T1132 - Data Encoding<br>T1001 - Data Obfuscation<br>T1568 - Dynamic Resolution<br>T1573 - Encrypted Channel<br>T1008 - Fallback Channels<br>T1104 - Multi-Stage Channels<br>T1095 - Non-Application Layer Protocol<br>T1571 - Non-Standard Port<br>T1572 - Protocol Tunneling<br>T1090 - Proxy<br>T1205 - Traffic Signaling<br>T1102 - Web Service |
+| **Entities:**                    | **Type:** Network Connection<br><br>**Fields:** SourceIP, DestinationIP, DestinationPort, Protocol |
 
 
 ### Domain generation algorithm (DGA) on DNS domains
@@ -474,10 +474,10 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                |                                    |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **Data sources:**                | DNS Events                                                         |
+| **MITRE ATT&CK tactics:**        | Command and Control                                                |
+| **MITRE ATT&CK techniques:**     | T1568 - Dynamic Resolution                                         |
+| **Entities:**                    | **Type:** IP<br><br>**Fields:** IP, Location, ASN                  |
 
 
 ### Domain Reputation Palo Alto anomaly
@@ -487,10 +487,10 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                |                                    |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **Data sources:**                | CommonSecurityLog (PAN)                                            |
+| **MITRE ATT&CK tactics:**        | Command and Control                                                |
+| **MITRE ATT&CK techniques:**     | T1568 - Dynamic Resolution                                         |
+| **Entities:**                    | **Type:** IP<br><br>**Fields:** Address, LastVerdict               |
 
 
 ### Excessive data transfer anomaly
@@ -500,10 +500,10 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CheckPoint, Fortinet)             |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CEF, CheckPoint, Fortinet)        |
+| **MITRE ATT&CK tactics:**        | Exfiltration                                                       |
+| **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits<br>T1041 - Exfiltration Over C2 Channel<br>T1011 - Exfiltration Over Other Network Medium<br>T1567 - Exfiltration Over Web Service<br>T1029 - Scheduled Transfer<br>T1537 - Transfer Data to Cloud Account |
+| **Entities:**                    | **Type:** IP<br><br>**Field:** IP                                  |
 
 
 ### Excessive Downloads via Palo Alto GlobalProtect
@@ -514,9 +514,9 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
 | **Data sources:**                | CommonSecurityLog (PAN VPN)                                        |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **MITRE ATT&CK tactics:**        | Exfiltration                                                       |
+| **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits<br>T1041 - Exfiltration Over C2 Channel<br>T1011 - Exfiltration Over Other Network Medium<br>T1567 - Exfiltration Over Web Service<br>T1029 - Scheduled Transfer<br>T1537 - Transfer Data to Cloud Account |
+| **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined          |
 
 
 ### Excessive uploads via Palo Alto GlobalProtect
@@ -527,9 +527,9 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
 | **Data sources:**                | CommonSecurityLog (PAN VPN)                                        |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **MITRE ATT&CK tactics:**        | Exfiltration                                                       |
+| **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits<br>T1041 - Exfiltration Over C2 Channel<br>T1011 - Exfiltration Over Other Network Medium<br>T1567 - Exfiltration Over Web Service<br>T1029 - Scheduled Transfer<br>T1537 - Transfer Data to Cloud Account |
+| **Entities:**                    |                                                                    |
 
 
 ### Login from an unusual region via Palo Alto GlobalProtect account logins
@@ -540,9 +540,9 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
 | **Data sources:**                | CommonSecurityLog (PAN VPN)                                        |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **MITRE ATT&CK tactics:**        | Credential Access<br>Initial Access<br>Lateral Movement            |
+| **MITRE ATT&CK techniques:**     | T1133 - External Remote Services                                   |
+| **Entities:**                    |                                                                    |
 
 
 ### Multi-region logins in a single day via Palo Alto GlobalProtect
@@ -553,9 +553,9 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
 | **Data sources:**                | CommonSecurityLog (PAN VPN)                                        |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **MITRE ATT&CK tactics:**        | Defense Evasion<br>Initial Access                                  |
+| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
+| **Entities:**                    |                                                                    |
 
 
 ### Potential data staging
@@ -565,10 +565,10 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                |                                    |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **Data sources:**                | Office Activity log (Exchange)                                     |
+| **MITRE ATT&CK tactics:**        | Collection                                                         |
+| **MITRE ATT&CK techniques:**     | T1074 - Data Staged                                                |
+| **Entities:**                    |                                                                    |
 
 
 ### Potential domain generation algorithm (DGA) on next-level DNS Domains
@@ -578,10 +578,10 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                |                                    |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **Data sources:**                | DNS Events                                                         |
+| **MITRE ATT&CK tactics:**        | Command and Control                                                |
+| **MITRE ATT&CK techniques:**     | T1568 - Dynamic Resolution                                         |
+| **Entities:**                    |                                                                    |
 
 
 ### Suspicious geography change in Palo Alto GlobalProtect account logins
@@ -592,9 +592,9 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
 | **Data sources:**                | CommonSecurityLog (PAN VPN)                                        |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **MITRE ATT&CK tactics:**        | Initial Access<br>Credential Access                                |
+| **MITRE ATT&CK techniques:**     | T1133 - External Remote Services<br>T1078 - Valid Accounts         |
+| **Entities:**                    |                                                                    |
 
 
 ### Suspicious number of protected documents accessed
@@ -604,10 +604,10 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                |                                    |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **Data sources:**                | Azure Information Protection logs                                  |
+| **MITRE ATT&CK tactics:**        | Collection                                                         |
+| **MITRE ATT&CK techniques:**     | T1530 - Data from Cloud Storage Object<br>T1213 - Data from Information Repositories<br>T1005 - Data from Local System<br>T1039 - Data from Network Shared Drive<br>T1114 - Email Collection |
+| **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, AadTenantId, IsDomainJoined |
 
 
 ### Suspicious volume of AWS API calls from Non-AWS source IP address from a user account id per workspace on a daily basis
@@ -617,10 +617,10 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                |                                    |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **Data sources:**                | AWS CloudTrail logs                                                |
+| **MITRE ATT&CK tactics:**        | Initial Access                                                     |
+| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
+| **Entities:**                    |                                                                    |
 
 
 ### Suspicious volume of AWS cloud trail logs events of group user account by EventTypeName
@@ -630,10 +630,10 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                |                                    |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **Data sources:**                | AWS CloudTrail logs                                                |
+| **MITRE ATT&CK tactics:**        | Initial Access                                                     |
+| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
+| **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, NTDomain, DnsDomain, UPNSuffix, Host, Sid, AadTenantId, AaadUserId, PUID, IsDomainJoined, ObjectGuid |
 
 
 ### Suspicious volume of AWS write API calls from a user account
@@ -643,10 +643,10 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                |                                    |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **Data sources:**                | AWS CloudTrail logs                                                |
+| **MITRE ATT&CK tactics:**        | Initial Access                                                     |
+| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
+| **Entities:**                    |                                                                    |
 
 
 ### Suspicious volume of failed login attempts to AWS Console by each group user account
@@ -656,10 +656,10 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                |                                    |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **Data sources:**                | AWS CloudTrail logs                                                |
+| **MITRE ATT&CK tactics:**        | Initial Access                                                     |
+| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
+| **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined, LastVerdict |
 
 
 ### Suspicious volume of failed login attempts to AWS Console by each source IP address
@@ -669,10 +669,10 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                |                                    |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **Data sources:**                | AWS CloudTrail logs                                                |
+| **MITRE ATT&CK tactics:**        | Initial Access                                                     |
+| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
+| **Entities:**                    | **Type:** IP<br><br>**Fields:** Address, LastVerdict               |
 
 
 ### Suspicious volume of logins to computer
@@ -683,9 +683,9 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
 | **Data sources:**                | Windows Security logs                                              |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **MITRE ATT&CK tactics:**        | Initial Access                                                     |
+| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
+| **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined          |
 
 
 ### Suspicious volume of logins to computer with elevated token
@@ -696,8 +696,8 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
 | **Data sources:**                | Windows Security logs                                              |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
+| **MITRE ATT&CK tactics:**        | Initial Access                                                     |
+| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    | <br><br> |
 
 
@@ -709,8 +709,8 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
 | **Data sources:**                | Windows Security logs                                              |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
+| **MITRE ATT&CK tactics:**        | Initial Access                                                     |
+| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    | <br><br> |
 
 
@@ -722,9 +722,9 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
 | **Data sources:**                | Windows Security logs                                              |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **MITRE ATT&CK tactics:**        | Initial Access                                                     |
+| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
+| **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined          |
 
 
 ### Suspicious volume of logins to user account with elevated token
@@ -735,8 +735,8 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
 | **Data sources:**                | Windows Security logs                                              |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
+| **MITRE ATT&CK tactics:**        | Initial Access                                                     |
+| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    | <br><br> |
 
 
@@ -748,9 +748,9 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
 | **Data sources:**                | CommonSecurityLog (PAN)                                            |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **MITRE ATT&CK tactics:**        | Discovery<br>Command and Control                                   |
+| **MITRE ATT&CK techniques:**     | **Discovery:**<br>T1046 - Network Service Scanning<br>T1135 - Network Share Discovery<br><br>**Command and Control:**<br>T1071 - Application Layer Protocol<br>T1095 - Non-Application Layer Protocol<br>T1571 - Non-Standard Port |
+| **Entities:**                    | **Type:** IP<br><br>**Field:** IP                                  |
 
 
 ### Unusual mass downgrade  AIP label
