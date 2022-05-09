@@ -1009,27 +1009,31 @@ items:
       - name: Overview
         displayName: profiling, debugging, code performance, perf
         href: app/profiler-overview.md
-      - name: Enable Profiler for an App Service
-        href: app/profiler.md
-      - name: Enable Profiler for an Azure Functions app
-        href: app/profiler-azure-functions.md
-      - name: Enable Profiler for a Cloud Service
-        href: app/profiler-cloudservice.md
-      - name: Enable Profiler for a Service Fabric Application
-        href: app/profiler-servicefabric.md
-      - name: Enable Profiler for an Azure VM
-        href: app/profiler-vm.md
-      - name: Enable Profiler for Linux App services (preview)
-        href: app/profiler-aspnetcore-linux.md
-      - name: Enable Profiler for a Container
-        href: app/profiler-containers.md
-      - name: Profiler Settings
-        href: app/profiler-settings.md
-      - name: Track Requests for Profiling
+      - name: Enable Profiler
+        items:        
+        - name: App Service
+          href: app/profiler.md
+        - name: Azure Functions app
+          href: app/profiler-azure-functions.md
+        - name: Cloud Service
+          href: app/profiler-cloudservice.md
+        - name: Service Fabric Application
+          href: app/profiler-servicefabric.md
+        - name: Azure VM
+          href: app/profiler-vm.md
+        - name: Linux App services (preview)
+          href: app/profiler-aspnetcore-linux.md
+        - name: ASP.NET Core Container
+          href: app/profiler-containers.md
+      - name: Configure
+        items:        
+        - name: Configure Settings
+          href: app/profiler-settings.md
+        - name: Configure BYOS (Bring Your Own Storage)
+          href: app/profiler-bring-your-own-storage.md
+      - name: Track Requests
         href: app/profiler-trackrequests.md
-      - name: Configure BYOS (Bring Your Own Storage)
-        href: app/profiler-bring-your-own-storage.md
-      - name: Profiler Troubleshooting
+      - name: Troubleshooting
         href: app/profiler-troubleshooting.md
     - name: Snapshot Debugger
       items:
