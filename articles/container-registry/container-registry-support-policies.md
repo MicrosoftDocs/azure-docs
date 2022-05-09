@@ -27,15 +27,12 @@ This article provides details about Azure Container Registry (ACR) support polic
 ## Microsoft/ACR can’t extend support 
 
 * Any local network issues that interrupt the connection to ACR service. 
-* Restore deleted images/registries that exceed the 30-day recovery period.
-* Vulnerabilities or issues while running third-party container images using ACR Tasks.
+* Vulnerabilities or issues caused by running third-party container images using ACR Tasks.
 * Vulnerabilities or bugs with images in the ACR customer store. 
 
 ## Microsoft/ACR extends support 
 
-* General queries about the supported features of ACR.
-* Restore a deleted registry within the 30-day recovery period.   
-* Restore deleted images within the 30-day recovery period.   
+* General queries about the supported features of ACR.  
 * Unable to pull image due to authentication errors, image size, and client-side issues with container runtime.
 * Unable to push an image to ACR due to authentication errors, image size, and client-side issues with container runtime.
 * Unable to add VNET/Subnet to ACR Firewall across subscription.
@@ -54,14 +51,14 @@ This article provides details about Azure Container Registry (ACR) support polic
 * Microsoft/ACR can’t make any changes with Dockerfile. Customers have to identify and review it from their end.  
 
 | ACR Support                  | Link                                                                       |
-|------------------------------|----------------------------------------------------------------------------|
+| ---------------------------- | -------------------------------------------------------------------------- |
 | Create a support ticket      | https://aka.ms/acr/support/create-ticket                                   |
 | Service updates and releases | [ACR Blog](https://azure.microsoft.com/blog/tag/azure-container-registry/) |
 | Roadmap                      | https://aka.ms/acr/roadmap                                                 |
 | FAQ                          | https://aka.ms/acr/faq                                                     |
 | Audit Logs                   | https://aka.ms/acr/audit-logs                                              |
 | Health-Check-CLI             | https://aka.ms/acr/health-check                                            |
-| ACR Links                    | https://aka.ms/acr/links                                                   
+| ACR Links                    | https://aka.ms/acr/links                                                   |
 ### API and SDK reference
 
 >* [SDK for Python](https://pypi.org/project/azure-mgmt-containerregistry/)
