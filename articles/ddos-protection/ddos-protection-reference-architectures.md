@@ -2,12 +2,12 @@
 title: Azure DDoS Protection reference architectures
 description: Learn Azure DDoS protection reference architectures.
 services: ddos-protection
-author: aletheatoh
+author: KumudD
 ms.service: ddos-protection
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/29/2022
-ms.author: yitoh
+ms.author: kumud
 ms.custom: fasttrack-edit
 ---
 
