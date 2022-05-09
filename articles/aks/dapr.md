@@ -32,7 +32,7 @@ Once Dapr is installed on your AKS cluster, you can begin to develop using the D
 > [!WARNING]
 > If you install Dapr through the AKS extension, our recommendation is to continue using the extension for future management of Dapr instead of the Dapr CLI. Combining the two tools can cause conflicts and result in undesired behavior.
 
-## Supported Kubernetes versions
+## Supported Dapr versions
 
 The Dapr extension uses support window similar to AKS, but instead of N-2, Dapr supports N-1. For more, see the [Kubernetes version support policy][k8s-version-support-policy].
 
