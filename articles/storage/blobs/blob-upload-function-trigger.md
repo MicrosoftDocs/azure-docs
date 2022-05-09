@@ -88,7 +88,7 @@ To create the storage account and container, we can run the CLI commands seen be
 ```azurecli-interactive
 az group create --location eastus --name msdocs-storage-function \
 
-az storage account create --name msdocsstorageaccount -resource-group msdocs-storage-function -l eastus --sku Standard_LRS \
+az storage account create --name msdocsstorageaccount --resource-group msdocs-storage-function -l eastus --sku Standard_LRS \
 
 az storage container create --name imageanalysis --account-name msdocsstorageaccount --resource-group msdocs-storage-function
 ```
@@ -98,7 +98,7 @@ You may need to wait a few moments for Azure to provision these resources.
 After the commands complete, we also need to retrieve the connection string for the storage account.  The connection string will be used later to connect our Azure Function to the storage account.
 
 ```azurecli-interactive
-az storage account show-connection-string -g msdocs-storage-function -n msdocsstoragefunction
+az storage account show-connection-string -g msdocs-storage-function -n msdocsstorageaccount
 ```
 
 Copy the value of the `connectionString` property and paste it somewhere to use for later. You'll also want to make a note of the storage account name `msdocsstoragefunction` for later as well. 

@@ -8,8 +8,6 @@ author: ElazarK
 ---
 # Introduction to Microsoft Defender for container registries (deprecated)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Azure Container Registry (ACR) is a managed, private Docker registry service that stores and manages your container images for Azure deployments in a central registry. It's based on the open-source Docker Registry 2.0.
 
 To protect the Azure Resource Manager based registries in your subscription, enable **Microsoft Defender for container registries** at the subscription level. Defender for Cloud will then scan all images when they’re pushed to the registry, imported into the registry, or pulled within the last 30 days. You’ll be charged for every image that gets scanned – once per image.

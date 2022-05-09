@@ -27,6 +27,16 @@ You will use the control plane of the SAP deployment automation framework to dep
 > 
 > This automation framework also follows the [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/).
 
+The automation framework can be used to deploy the following SAP architectures: 
+
+- Standalone
+- Distributed
+- Distributed (Highly Available)
+
+In the Standalone architecture all the SAP roles are installed on a single server. In the distributed architecture you can separate the database server and the application tier. The application tier can further be separated in two by having SAP Central Services on a virtual machine and one or more application servers.
+
+The Distributed (Highly Available) deployment is similar to the Distributed architecture but either the datebase or SAP Central Services are both highly available using two virtual machines each with Pacemaker clusters.
+
 The dependency between the control plane and the application plane is illustrated in the diagram below. In a typical deployment a single control plane is used to manage multiple SAP deployments.
 
 :::image type="content" source="./media/automation-deployment-framework/control-plane-sap-infrastructure.png" alt-text="Diagram showing the SAP deployment automation framework's dependency between the control plane and application plane.":::

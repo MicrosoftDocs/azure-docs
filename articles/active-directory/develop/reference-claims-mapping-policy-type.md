@@ -337,6 +337,7 @@ The ID element identifies which property on the source provides the value for th
 | User | preferreddatalocation | Preffered Data Location |
 | User | proxyaddresses | Proxy Addresses |
 | User | usertype | User Type |
+| User | telephonenumber| Business Phones / Office Phones |
 | application, resource, audience | displayname | Display Name |
 | application, resource, audience | objectid | ObjectID |
 | application, resource, audience | tags | Service Principal Tag |
@@ -428,6 +429,7 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 | User | userprincipalname|User Principal Name|
 | User | onpremisessamaccountname|On Premises Sam Account Name|
 | User | employeeid|Employee ID|
+| User | telephonenumber| Business Phones / Office Phones |
 | User | extensionattribute1 | Extension Attribute 1 |
 | User | extensionattribute2 | Extension Attribute 2 |
 | User | extensionattribute3 | Extension Attribute 3 |

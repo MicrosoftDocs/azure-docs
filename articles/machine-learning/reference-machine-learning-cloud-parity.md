@@ -225,6 +225,7 @@ The information in the rest of this document provides information on what featur
 * Sample notebook may not work, if it needs access to public data.
 * IP address ranges: The CLI command used in the [required public internet access](how-to-secure-training-vnet.md#required-public-internet-access) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure China](https://www.microsoft.com//download/details.aspx?id=57062) instead.
 * Azure Machine Learning compute instances preview is not supported in a workspace where Private Endpoint is enabled for now, but CI will be supported in the next deployment for the service expansion to all AML regions.
+* Searching for assets in the web UI with Chinese characters will not work correctly.
 
 ## Next steps
 

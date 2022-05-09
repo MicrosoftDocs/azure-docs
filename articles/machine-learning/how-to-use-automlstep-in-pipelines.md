@@ -5,8 +5,8 @@ description: The AutoMLStep allows you to use automated machine learning in your
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.author: nibaccam
-author: nibaccam
+ms.author: larryfr
+author: blackmist
 manager: cgronlun
 ms.date: 10/21/2021
 ms.topic: how-to

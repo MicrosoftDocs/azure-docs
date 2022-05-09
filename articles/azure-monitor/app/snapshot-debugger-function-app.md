@@ -142,7 +142,7 @@ Below is an example of the `host.json` updated with the US Government Cloud agen
 
 Below are the supported overrides of the Snapshot Debugger agent endpoint:
 
-|Property    | US Government Cloud | China Cloud |   
+|Property    | US Government Cloud | China Cloud |
 |---------------|---------------------|-------------|
 |AgentEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
 
