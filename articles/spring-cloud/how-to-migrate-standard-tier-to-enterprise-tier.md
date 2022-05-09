@@ -156,7 +156,7 @@ Use the following steps to create and configure an application using Spring Clou
 
    You can view the properties in the portal.
 
-   :::image type="content" source="./media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Gateway Configuration settings screenshot":::
+   :::image type="content" source="./media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Gateway Configuration settings screenshot" lightbox="./media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-configuration.png":::
 
 1. Configure routing rules to apps.
 
