@@ -19,12 +19,12 @@ Dapr APIs, also referred to as building blocks, are built on best practice indus
 
 ## Dapr building blocks
 
-:::image type="content" source="media/dapr-overview/building_blocks.png" alt-text="Visualization of Dapr building blocks":::
+:::image type="content" source="media/dapr-overview/building_blocks.png" alt-text="Diagram that shows Dapr building blocks.":::
 
 | Building block | Description |
 | -------------- | ----------- |
 | [**Service-to-service invocation**][dapr-serviceinvo] | Discover services and perform reliable, direct service-to-service calls with automatic mTLS authentication and encryption. |
-| [**State management**][dapr-statemgmt] | Provides state management capabilities for: <ul><li>CRUD operations</li><li>Transactions</li></ul> |
+| [**State management**][dapr-statemgmt] | Provides state management capabilities for: <br>- CRUD operations - Transactions<br> |
 | [**Pub/sub**][dapr-pubsub] | Allows publisher and subscriber container apps to intercommunicate via an intermediary message broker. |
 | [**Bindings**][dapr-bindings] | Trigger your application with incoming or outgoing events, without SDK or library dependencies. |
 | [**Actors**][dapr-actors] | Dapr actors apply the scalability and reliability that the underlying platform provides. |
@@ -34,7 +34,7 @@ Dapr APIs, also referred to as building blocks, are built on best practice indus
 
 The following Pub/sub example demonstrates how Dapr works alongside your container app:
 
-:::image type="content" source="media/dapr-overview/dapr-in-aca.png" alt-text="Diagram demonstrating Dapr pub/sub and how it works with Container Apps":::
+:::image type="content" source="media/dapr-overview/dapr-in-aca.png" alt-text="Diagram demonstrating Dapr pub/sub and how it works with Container Apps.":::
 
 | Label | Dapr settings | Description |  
 | ----- | ------------- | ----------- |
