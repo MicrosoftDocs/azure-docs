@@ -72,6 +72,9 @@ The following sections provide details about properties you can use to define Da
 
 ## Linked service properties
 
+> [!Important]
+> Due to Azure service security and compliance request, system-assigned managed identity authentication is no longer available in REST connector for both Copy and Mapping data flow. You are recommended to migrate existing linked services that use system-managed identity authentication to user-assigned managed identity authentication or other authentication types. Please make sure the migration to be done by **September 15, 2022**. For more detailed steps about how to create, manage user-assigned managed identities, refer to this [document](data-factory-service-identity.md#user-assigned-managed-identity). Starting **September 16, 2022**, connections using system-assigned managed identity authentication in REST connector will start to fail.  
+
 The following properties are supported for the REST linked service:
 
 | Property | Description | Required |
