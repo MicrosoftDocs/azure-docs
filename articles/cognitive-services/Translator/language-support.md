@@ -144,94 +144,54 @@ ms.author: lajanuar
 
 ## 🆕 Document Translation: scanned PDFs
 
-In addition to those listed above, Document Translation supports the following languages for scanned PDF: 
+In addition to those listed above, Document Translation supports the following languages for scanned PDF:
 
 ### Print text
 
-|Language| Code (optional) |
-|:-----|:----:|
-|Angika (Devanagari)| `anp` |
-|Asturian|   `ast` | 
-|Awadhi-Hindi (Devanagari) | `awa` |
-|Bagheli  |  `bfy` |
-| Belarusian (Cyrillic) | `be`, `be-cyrl` |
-|Belarusian (Latin) |  `be`, `be-latn`|
-|Bhojpuri-Hindi (Devanagari) | `bho` |
-|Bislama |   `bi` |
-| Bodo (Devanagari) | `brx` |
-| Brajbha | `bra` |
-| Bundeli  |  `bns` |
-| Buryat (Cyrillic) | `bua` |
-| Cebuano |`ceb` |
-| Chamling |`rab` |
-| Chamorro |    `ch`|
-| Chhattisgarhi (Devanagari) | `hne`|
-| Cornish |   `kw` |
-| Corsican |   `co` |
-| Crimean Tatar (Latin) |   `crh` |
-| Dhimal (Devanagari) |   `dhi`|
-| Dogri (Devanagari)  |  `doi`|
-| Erzya (Cyrillic)  |  `myv`|
-| Frisian - Western |  `fy`|
-| Friulian  |  `fur`|
-| Gagauz (Latin) | `gag` |
-| Gilbertese  |  `gil`|
-| Gondi (Devanagari) | `gon` |
-| Greenlandic |   `kl` |
-| Gurung (Devanagari) | `gvr` |
-| Halbi (Devanagari)  |  `hlb` |
-| Hani  | `hni` |
-| Haryanvi  |  `bgc` |
-| Hawaiian  |  `haw` |
-| Ho (Devanagari) | `hoc` |
-| Jaunsari (Devanagari) | `jns` |
-| Javanese  |  `jv` |
-| Kabuverdianu  |  `kea` |
-| Kachin (Latin) |   `kac` |
-| Kangri (Devanagari) |   `xnr`|
-| Karachay-Balkar  | `krc` |
+|Language| Code (optional) |Language| Code (optional) |
+|:-----|:----:|:-----|:----:|
+|Angika (Devanagari)| `anp` | Kashubian  |  `csb` |
+|Asturian|   `ast` | Kazakh (Cyrillic) |  `kk-cyrl` |
+|Awadhi-Hindi (Devanagari) | `awa` |Kazakh (Latin)  |  `kk-latn` |
+|Bagheli  |  `bfy` | Lakota  |  `lkt` |
+| Belarusian (Cyrillic) | `be`, `be-cyrl` |Latin  |  `la` |
+|Belarusian (Latin) |  `be`, `be-latn`|Lule Sami |   `smj` |
+|Bhojpuri-Hindi (Devanagari) | `bho` | Luxembourgish |  `lb` |
+|Bislama |   `bi` |Mahasu Pahari (Devanagari) | `bfz`|
+| Bodo (Devanagari) | `brx` | Malto (Devanagari)  |  `kmj`|
+| Brajbha | `bra` |Manx  |  `gv` |
+| Bundeli  |  `bns` |Montenegrin (Cyrillic) |  `cnr-cyrl` |
+| Buryat (Cyrillic) | `bua` |Montenegrin (Latin)  |  `cnr-latn` |
+| Cebuano |`ceb` |Neapolitan  |  `nap` |
+| Chamling |`rab` | Niuean |   `niu` |
+| Chamorro |    `ch`|Nogay  |  `nog` |
+| Chhattisgarhi (Devanagari) | `hne`|Occitan |   `oc` |
+| Cornish |   `kw` | Ossetic  |  `os` |
+| Corsican |   `co` |Ripuarian |   `ksh` |
+| Crimean Tatar (Latin) |   `crh` | Romansh   | `rm` |
+| Dhimal (Devanagari) |   `dhi`| Sadri (Devanagari) |  `sck` |
+| Dogri (Devanagari)  |  `doi`| Sanskrit (Devanagari) |  `sa` |
+| Erzya (Cyrillic)  |  `myv`|Santali(Devanagari)   | `sat` |
+| Frisian - Western |  `fy`|Scots  |  `sco` |
+| Friulian  |  `fur`|Scottish Gaelic |  `gd`|
+| Gagauz (Latin) | `gag` |Sherpa (Devanagari)  |  `xsr` |
+| Gilbertese  |  `gil`| Sirmauri (Devanagari) |  `srx` |
+| Gondi (Devanagari) | `gon` | Sorbian - Lower |  `dsb` |
+| Greenlandic |   `kl` |Sorbian - Upper  |  `hsb` |
+| Gurung (Devanagari) | `gvr` |  Sami - Northern (Latin)  |  `sme` |
+| Halbi (Devanagari)  |  `hlb` |Sami - Skolt | `sms` |
+| Hani  | `hni` |  Sami - Southern | `sma` |
+| Haryanvi  |  `bgc` |Tajik (Cyrillic) | `tg` |
+| Hawaiian  |  `haw` |Tetum  |  `tet` |
+| Ho (Devanagari) | `hoc` |Thangmi | `thf` |
+| Jaunsari (Devanagari) | `jns` |Tuvan   | `tyv` |
+| Javanese  |  `jv` |Uzbek (Cyrillic) | `uz-cyrl`|
+| Kabuverdianu  |  `kea` |Uzbek (Latin)  |  `uz`|
+| Kachin (Latin) |   `kac` |Volapük  |  `vo` |
+| Kangri (Devanagari) |   `xnr`| Walser  |  `wae` |
+| Karachay-Balkar  | `krc` |Zhuang  |  `za` |
 | Kara-Kalpak (Cyrillic) | `kaa-cyrl`|
 | Kara-Kalpak (Latin)  | `kaa` |
-| Kashubian  |  `csb` |
-| Kazakh (Cyrillic) |  `kk-cyrl` |
-| Kazakh (Latin)  |  `kk-latn` |
-| Lakota  |  `lkt` |
-| Latin  |  `la` |
-| Lule Sami |   `smj` |
-| Luxembourgish |  `lb` |
-| Mahasu Pahari (Devanagari) | `bfz`|
-| Malto (Devanagari)  |  `kmj`|
-| Manx  |  `gv` |
-| Montenegrin (Cyrillic) |  `cnr-cyrl` |
-| Montenegrin (Latin)  |  `cnr-latn` |
-| Neapolitan  |  `nap` |
-| Niuean |   `niu` |
-| Nogay  |  `nog` |
-| Occitan |   `oc` |
-| Ossetic  |  `os` |
-| Ripuarian |   `ksh` |
-| Romansh   | `rm` |
-| Sadri (Devanagari) |  `sck` |
-| Sanskrit (Devanagari) |  `sa` |
-| Santali(Devanagari)   | `sat` |
-| Scots  |  `sco` |
-| Scottish Gaelic |  `gd`|
-| Sherpa (Devanagari)  |  `xsr` |
-| Sirmauri (Devanagari) |  `srx` |
-| Sorbian - Lower |  `dsb` |
-| Sorbian - Upper  |  `hsb` |
-| Sami - Northern (Latin)  |  `sme` |
-| Sami - Skolt | `sms` |
-| Sami - Southern | `sma` |
-| Tajik (Cyrillic) | `tg` |
-| Tetum  |  `tet` |
-| Thangmi | `thf` |
-| Tuvan   | `tyv` |
-| Uzbek (Cyrillic) | `uz-cyrl`|
-| Uzbek (Latin)  |  `uz`|
-| Volapük  |  `vo` |
-| Walser  |  `wae` |
-| Zhuang  |  `za` |
 
 ## Transliteration
 
