@@ -1,5 +1,5 @@
 ---
-title: Create Synapse Link for SQL Server 2022 (Preview)
+title: Create Azure Synapse Link for SQL Server 2022 (Preview)
 description: Learn how to create and connect a SQL Server 2022 instance to an Azure Synapse workspace with Azure Synapse Link (Preview).
 author: SnehaGunda
 ms.service: synapse-analytics
@@ -10,17 +10,17 @@ ms.author: sngun
 ms.reviewer: sngun
 ---
 
-# Get started with Synapse Link for SQL Server 2022 (Preview)
+# Get started with Azure Synapse Link for SQL Server 2022 (Preview)
 
 This article provides a step-by-step guide for getting started with Azure Synapse Link for SQL Server 2022.
 
 > [!IMPORTANT]
-> Synapse Link for SQL Server 2022 is currently in PREVIEW.
+> Azure Synapse Link for SQL Server 2022 is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
-* [Create a new Synapse workspace](https://portal.azure.com/#create/Microsoft.Synapse) to get Synapse link for SQL Server 2022. Ensure to check “Disable Managed virtual network” and “Allow connections from all IP address” when creating Synapse workspace.
+* [Create a new Synapse workspace](https://portal.azure.com/#create/Microsoft.Synapse) to get Azure Synapse Link for SQL Server 2022. Ensure to check "Disable Managed virtual network" and "Allow connections from all IP address" when creating Synapse workspace.
 
 * Create an Azure Data Lake Storage Gen2 account used as the landing zone to stage the data submitted by SQL Server 2022. See [how to create a Azure Data Lake Storage Gen2 account](../../storage/blobs/create-data-lake-storage-account.md) article for more details.
 
@@ -258,7 +258,7 @@ SAS token is required for SQL change feed to get access on landing zone and push
 The following is the list of known limitations for Synapse Link for SQL Server 2022.
 
 * Users must create new Synapse workspace to get Synapse link for SQL Server 2022.
-* Synapse link for SQL Server 2022 cannot be used in virtual network environment. Users need to check “Disable Managed virtual network” for Synapse workspace.
+* Synapse link for SQL Server 2022 cannot be used in virtual network environment. Users need to check "Disable Managed virtual network" for Synapse workspace.
 * Users need to manually create schema in destination Synapse SQL pool in advance if your expected schema is not available in Synapse SQL pool. The destination database schema object will not be automatically created in data replication. If your schema is dbo, you can skip this step.
 * When creating SQL Server linked service, please choose SQL Auth, Windows Auth or Azure AD auth.
 * Synapse Link for SQL Server 2022 can work with SQL Server on Linux. But HA scenarios with Linux Pacemaker are not supported. Shelf hosted IR cannot be installed on Linux environment 

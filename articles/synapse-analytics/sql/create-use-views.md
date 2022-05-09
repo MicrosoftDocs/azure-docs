@@ -162,7 +162,7 @@ FROM OPENROWSET(
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 
-Find more details about [querying CosmosDB containers using Synapse Link here](query-cosmos-db-analytical-store.md).
+Find more details about [querying CosmosDB containers using Azure Synapse Link here](query-cosmos-db-analytical-store.md).
 
 ## Use a view
 

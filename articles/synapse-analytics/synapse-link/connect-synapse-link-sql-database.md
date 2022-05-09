@@ -1,5 +1,5 @@
 ---
-title: Get started with Synapse Link for Azure SQL Database (Preview)
+title: Get started with Azure Synapse Link for Azure SQL Database (Preview)
 description: Learn how to connect an Azure SQL database to an Azure Synapse workspace with Azure Synapse Link (Preview).
 author: SnehaGunda
 ms.service: synapse-analytics
@@ -10,17 +10,17 @@ ms.author: sngun
 ms.reviewer: sngun
 ---
 
-# Get started with Synapse Link for Azure SQL Database (Preview)
+# Get started with Azure Synapse Link for Azure SQL Database (Preview)
 
 This article provides a step-by-step guide for getting started with Azure Synapse Link for Azure SQL Database.
 
 > [!IMPORTANT]
-> Synapse Link for Azure SQL Database is currently in PREVIEW.
+> Azure Synapse Link for Azure SQL Database is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
-* [Create a new Synapse workspace](https://ms.portal.azure.com/#create/Microsoft.Synapse) to get Synapse link for Azure SQL Database. Ensure to check “Disable Managed virtual network” and “Allow connections from all IP address” when creating Synapse workspace.
+* [Create a new Synapse workspace](https://ms.portal.azure.com/#create/Microsoft.Synapse) to get Synapse link for Azure SQL Database. Ensure to check "Disable Managed virtual network" and "Allow connections from all IP address" when creating Synapse workspace.
 
 * For DTU-based provisioning, make sure your Azure SQL Database service is at least Standard tier with a minimum of 100 DTUs. Free, Basic, or Standard tiers with fewer than 100 DTUs provisioned are not supported.
 
@@ -81,7 +81,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 1. Enter the information for your source Azure SQL Database.
 
    * Select the subscription, server, and database corresponding to your Azure SQL Database.
-   * If you wish to connect your Synapse workspace to the source DB using the workspace’s managed identity, set **Authentication type** to **Managed Identity**.
+   * If you wish to connect your Synapse workspace to the source DB using the workspace's managed identity, set **Authentication type** to **Managed Identity**.
    * If you wish to use SQL authentication instead and know the username/password to use, select **SQL Authentication** instead.
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/studio-new-linked-service.png" alt-text="Enter the server, database details to create a new linked service.":::
@@ -183,7 +183,7 @@ The following is the list of known limitations for Synapse Link for Azure SQL Da
 
 * Synapse link for SQL DB is not supported on Free, Basic or Standard tier (S0,S1,S2) in Azure SQL database. Users need to use Azure SQL databases tiers above Standard 3.
 
-* Synapse link for SQL DB cannot be used in virtual network environment. Users need to check “Allow Azure Service and resources to access to this server” on Azure SQL database and check “Disable Managed virtual network” and “Allow connections from all IP address” for Synapse workspace.
+* Synapse link for SQL DB cannot be used in virtual network environment. Users need to check "Allow Azure Service and resources to access to this server" on Azure SQL database and check "Disable Managed virtual network" and "Allow connections from all IP address" for Synapse workspace.
 
 * Users need to manually create schema in destination Synapse SQL pool in advance if your expected schema is not available in Synapse SQL pool. The destination database schema object will not be automatically created in data replication. If your schema is dbo, you can skip this step.
 
@@ -218,7 +218,7 @@ The following is the list of known limitations for Synapse Link for Azure SQL Da
   * Change Data Capture
   * Temporal history table
   * Always encrypted
-	
+    
 * System tables in SQL database will not be replicated.
 * Security configuration of Azure SQL database will NOT be reflected to Synapse SQL Pool. 
 * Enabling Synpase Link will create a new schema on the Azure SQL DB as 'changefeed', please do not use this schema name for your workload.

@@ -64,9 +64,19 @@ sections:
           Yes, as of June 10, 2021, Synapse Studio now allows you to add more than one Power BI workspace to a single Azure Synapse Workspace. 
 
       - question: |
-          Is Synapse Link to Cosmos DB GA?
+          Is Azure Synapse Link to Azure Cosmos DB generally available?
         answer: |
-          Synapse Link for Apache Spark is GA. Synapse Link for serverless SQL pool is in Public Preview.
+          Azure Synapse Link for Apache Spark is GA. Synapse Link for serverless SQL pool is in preview. For more information, see [Azure Synapse Link for Cosmos DB](../cosmos-db/synapse-link.md).
+
+      - question: |
+          Is Azure Synapse Link to SQL Server 2022 generally available?
+        answer: |
+          Azure Synapse Link for SQL Server 2022 is in preview.  For more information, see [Azure Synapse Link to Azure SQL Database](/synapse-link/connect-synapse-link-sql-server-2022.md).
+
+      - question: |
+          Is Azure Synapse Link to Azure SQL Database generally available?
+        answer: |
+          Azure Synapse Link for Azure SQL Database is in preview. For more information, see [Azure Synapse Link to Azure SQL Database](/synapse-link/connect-synapse-link-sql-database.md).
 
       - question: |
           Does Azure Synapse workspace Support CI/CD? 
