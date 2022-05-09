@@ -32,7 +32,6 @@ To migrate to availability zone support, your VM SKUs must be available for your
 - Use the Azure CLI to [Check VM SKU availability](../virtual-machines/linux/create-cli-availability-zone.md#check-vm-sku-availability).
 - Go to [Foundational Services](az-region.md#an-icon-that-signifies-this-service-is-foundational-foundational-services).
 
-
 ## Downtime requirements
 
 Because zonal VMs are created across the availability zones, all migration options mentioned in this article require downtime during deployment.
@@ -106,3 +105,11 @@ The following requirements should be part of a disaster recovery strategy that h
 - To enable VM disaster recovery between availability zones, follow the instructions in [Enable Azure VM disaster recovery between availability zones](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md) .  
 
 ## Next Steps
+
+Learn more about:
+
+> [!div class="nextstepaction"]
+> [Regions and Availability Zones in Azure](az-overview.md)
+
+> [!div class="nextstepaction"]
+> [Azure Services that support Availability Zones](az-region.md)
