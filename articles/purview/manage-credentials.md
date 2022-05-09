@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 05/09/2022
 ms.custom: ignite-fall-2021, fasttrack-edit
 ---
 
@@ -22,7 +22,7 @@ This article describes how you can create credentials in Microsoft Purview. Thes
 
 A credential is authentication information that Microsoft Purview can use to authenticate to your registered data sources. A credential object can be created for various types of authentication scenarios, such as Basic Authentication requiring username/password. Credential capture specific information required to authenticate, based on the chosen type of authentication method. Credentials use your existing Azure Key Vaults secrets for retrieving sensitive authentication information during the Credential creation process.
 
-In Microsoft Purview, there are few options to use as authentication method to scan data sources such as the following options:
+In Microsoft Purview, there are few options to use as authentication method to scan data sources such as the following options. Learn from each [data source article](azure-purview-connector-overview.md) for the its supported authentication.
 
 - [Microsoft Purview system-assigned managed identity](#use-microsoft-purview-system-assigned-managed-identity-to-set-up-scans)
 - [User-assigned managed identity](#create-a-user-assigned-managed-identity) (preview)
@@ -30,10 +30,9 @@ In Microsoft Purview, there are few options to use as authentication method to s
 - SQL Authentication (using [Key Vault](#create-azure-key-vaults-connections-in-your-microsoft-purview-account))
 - Service Principal (using [Key Vault](#create-azure-key-vaults-connections-in-your-microsoft-purview-account))
 - Consumer Key (using [Key Vault](#create-azure-key-vaults-connections-in-your-microsoft-purview-account))
+- And more
 
-Before creating any credentials, consider your data source types and networking requirements to decide which authentication method you need for your scenario. Review the following decision tree to find which credential is most suitable:
-
-   :::image type="content" source="media/manage-credentials/manage-credentials-decision-tree-small.png" alt-text="Manage credentials decision tree" lightbox="media/manage-credentials/manage-credentials-decision-tree.png":::
+Before creating any credentials, consider your data source types and networking requirements to decide which authentication method you need for your scenario.
 
 ## Use Microsoft Purview system-assigned managed identity to set up scans
 
@@ -74,6 +73,9 @@ At the bottom of the page, under Exception, enable the **Allow trusted Microsoft
 #### Private endpoint connections
 
 To connect to Azure Key Vault with private endpoints, follow [Azure Key Vault's private endpoint documentation](../key-vault/general/private-link-service.md).
+
+> [!NOTE]
+> Private endpoint connection option is supported when using Azure integration runtime in [managed virtual network](catalog-managed-vnet.md) to scan the data sources. For self-hosted integration runtime, you need to enable [trusted Microsoft services](#trusted-microsoft-services).
 
 ### Microsoft Purview permissions on the Azure Key Vault
 
@@ -128,7 +130,7 @@ Follow these steps only if permission model in your Azure Key Vault resource is 
 
 Before you can create a Credential, first associate one or more of your existing Azure Key Vault instances with your Microsoft Purview account.
 
-1. From the [Azure portal](https://portal.azure.com), select your Microsoft Purview account and open the [Microsoft Purview Studio](https://web.purview.azure.com/resource/). Navigate to the **Management Center** in the studio and then navigate to **credentials**.
+1. From the [Azure portal](https://portal.azure.com), select your Microsoft Purview account and open the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/). Navigate to the **Management Center** in the studio and then navigate to **credentials**.
 
 2. From the **Credentials** page, select **Manage Key Vault connections**.
 
@@ -219,9 +221,9 @@ The following steps will show you how to create a UAMI for Microsoft Purview to 
    :::image type="content" source="media/manage-credentials/status-successful.png" alt-text="Screenshot the Microsoft Purview account in the Azure portal with Status highlighted under the overview tab and essentials menu.":::
 
 
-1. Once the managed identity is successfully deployed, navigate to the [Microsoft Purview Studio](https://web.purview.azure.com/), by selecting the **Open Microsoft Purview Studio** button.
+1. Once the managed identity is successfully deployed, navigate to the [Microsoft Purview governance portal](https://web.purview.azure.com/), by selecting the **Open Microsoft Purview governance portal** button.
 
-1. In the [Microsoft Purview Studio](https://web.purview.azure.com/), navigate to the Management Center in the studio and then navigate to the Credentials section.
+1. In the [Microsoft Purview governance portal](https://web.purview.azure.com/), navigate to the Management Center in the studio and then navigate to the Credentials section.
 
 1. Create a user-assigned managed identity by selecting **+New**. 
 1. Select the Managed identity authentication method, and select your user assigned managed identity from the drop-down menu.

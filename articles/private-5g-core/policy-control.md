@@ -115,6 +115,8 @@ When you first come to design the policy control configuration for your own priv
     1. [Collect the required information for a SIM policy](collect-required-information-for-sim-policy.md)
     1. [Configure a SIM policy - Azure portal](configure-sim-policy-azure-portal.md)
 
+You can also use the example Azure Resource Manager template (ARM template) in [Configure a service and SIM policy using an ARM template](configure-service-sim-policy-arm-template.md) to quickly create a SIM policy with a single associated service. 
+
 ## Next steps
 
 - [Learn how to create an example set of policy control configuration](tutorial-create-example-set-of-policy-control-configuration.md)

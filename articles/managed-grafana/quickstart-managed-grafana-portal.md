@@ -5,7 +5,7 @@ ms.service: managed-grafana
 ms.topic: quickstart
 author: maud-lv
 ms.author: malev
-ms.date: 03/31/2022
+ms.date: 04/18/2022
 --- 
 
 # Quickstart: Create a workspace in Azure Managed Grafana Preview using the Azure portal
@@ -20,11 +20,11 @@ An Azure account with an active subscription. [Create an account for free](https
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.  
 
-1. In the upper-left corner of the home page, select **Create a resource**. In the **Search services and Marketplace** box, enter *Grafana* and select **Enter**.
+1. In the upper-left corner of the home page, select **Create a resource**. In the **Search services and marketplace** box, enter *Managed Grafana* and select **Azure Managed Grafana**.
 
-1. Select **Grafana Workspaces** from the search results, and then **Create**.
+    :::image type="content" source="media/managed-grafana-quickstart-marketplace.png" alt-text="Screenshot of the Azure platform. Find Azure Managed Grafana in the marketplace." lightbox="media/managed-grafana-quickstart-marketplace-expanded.png":::
 
-    :::image type="content" source="media/managed-grafana-quickstart-portal-grafana-create.png" alt-text="Screenshot of the Azure portal. Create Grafana workspace.":::
+1. Select **Create**.
 
 1. In the Create Grafana Workspace pane, enter the following settings.
 
@@ -68,5 +68,5 @@ You can now start interacting with the Grafana application to configure data sou
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure permissions for Azure Managed Grafana Preview](./how-to-data-source-plugins-managed-identity.md)
-> [Configure data source plugins for Azure Managed Grafana Preview with Managed Identity](./how-to-data-source-plugins-managed-identity.md)
+> [How to configure data sources for Azure Managed Grafana](./how-to-data-source-plugins-managed-identity.md)
+> [How to modify access permissions to Azure Monitor](./how-to-permissions.md)

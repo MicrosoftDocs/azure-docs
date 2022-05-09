@@ -123,7 +123,7 @@ Review your prices carefully before publishing, as there are some restrictions o
 
 - After a plan is published, the pricing model can't be changed.
 - After a billing term is published for a plan, it can't be removed later.
-- After a price for a market in your plan is published, it can't be changed later.
+- See [Changing prices in active commercial marketplace offers](price-changes.md) for details and limitations on changing prices in active transactable offers.
 
 Prices set in United States Dollars (USD) are converted into the local currency of all selected markets using the current exchange rates when saved. Validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market you selected.
 

@@ -59,7 +59,7 @@ For step-by-step explanations and manual setup:
 
 Now that Event Hubs is deployed and created, connect Microsoft Purview diagnostics audit logging to Event Hubs.
 
-1. Go to your Microsoft Purview account home page. This page is where the overview information is displayed. It's not the Microsoft Purview Studio home page.
+1. Go to your Microsoft Purview account home page. This page is where the overview information is displayed. It's not the Microsoft Purview governance portal home page.
 
 1. On the left menu, select **Monitoring** > **Diagnostic settings**.
 

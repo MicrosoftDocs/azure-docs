@@ -77,7 +77,7 @@ As an example, if a Microsoft Purview account name is 'Contoso-Purview', when it
 | `Contoso-Purview.purview.azure.com` | CNAME | `Contoso-Purview.privatelink.purview.azure.com` |
 | `Contoso-Purview.privatelink.purview.azure.com` | CNAME | \<Microsoft Purview public endpoint\> |
 | \<Microsoft Purview public endpoint\> | A | \<Microsoft Purview public IP address\> |
-| `Web.purview.azure.com` | CNAME | \<Microsoft Purview Studio public endpoint\> |
+| `Web.purview.azure.com` | CNAME | \<Microsoft Purview governance portal public endpoint\> |
 
 The DNS resource records for Contoso-Purview, when resolved in the virtual network hosting the private endpoint, will be:
 
@@ -91,7 +91,7 @@ The DNS resource records for Contoso-Purview, when resolved in the virtual netwo
 
 ### Use existing Azure Private DNS Zones
 
-During the deployment of Azure purview private endpoints, you can choose _Private DNS integration_ using existing Azure Private DNS zones. This is common case for organizations where private endpoint is used for other services in Azure. In this case, during the deployment of private endpoints, make sure you select the existing DNS zones instead of creating new ones. 
+During the deployment of Microsft Purview private endpoints, you can choose _Private DNS integration_ using existing Azure Private DNS zones. This is common case for organizations where private endpoint is used for other services in Azure. In this case, during the deployment of private endpoints, make sure you select the existing DNS zones instead of creating new ones. 
 
 This scenario also applies if your organization uses a central or hub subscription for all Azure Private DNS Zones.
 
@@ -146,7 +146,7 @@ As an example, if a Microsoft Purview account name is 'Contoso-Purview', when it
 | `Contoso-Purview.purview.azure.com` | CNAME | `Contoso-Purview.privatelink.purview.azure.com` |
 | `Contoso-Purview.privatelink.purview.azure.com` | CNAME | \<Microsoft Purview public endpoint\> |
 | \<Microsoft Purview public endpoint\> | A | \<Microsoft Purview public IP address\> |
-| `Web.purview.azure.com` | CNAME | \<Microsoft Purview Studio public endpoint\> |
+| `Web.purview.azure.com` | CNAME | \<Microsoft Purview governance portal public endpoint\> |
 
 The DNS resource records for Contoso-Purview, when resolved in the virtual network hosting the private endpoint, will be:
 

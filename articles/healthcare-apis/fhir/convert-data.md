@@ -120,17 +120,19 @@ Change the status to **On** to enable managed identity in FHIR service.
 
 ### Provide access of the ACR to FHIR service
 
-1. Select **Access Control (IAM)**.
+1. Select **Access control (IAM)**.
 
 1. Select **Add > Add role assignment**. If the **Add role assignment** option is grayed out, ask your Azure administrator to assign you permission to perform this task.
 
    :::image type="content" source="../../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
-1. On the **Roles** tab, select the [AcrPull](../../role-based-access-control/built-in-roles.md#acrpull) role.
+1. On the **Role** tab, select the [AcrPull](../../role-based-access-control/built-in-roles.md#acrpull) role.
 
    [![Screen shot showing user interface of Add role assignment page.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)](../../../includes/role-based-access-control/media/add-role-assignment-page.png#lightbox)
 
 1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
+
+1. Select your Azure subscription.
 
 1. Select **System-assigned managed identity**, and then select the FHIR service.
 
@@ -150,7 +152,7 @@ You can register up to 20 ACR servers in the FHIR service.
 
 Install the Azure Health Data Services CLI from Azure PowerShell if needed:
 
-```powershell
+```azurecli
 az extension add -n healthcareapis
 ```
 
@@ -158,13 +160,13 @@ Register the acr servers to FHIR service following the examples below:
 
 ##### Register a single ACR server
 
-```powershell
+```azurecli
 az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io" --resource-group fhir-test --resource-name fhirtest2021
 ```
 
 ##### Register multiple ACR servers
 
-```powershell
+```azurecli
 az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.azurecr.io" --resource-group fhir-test --resource-name fhirtest2021
 ```
 ### Configure ACR firewall

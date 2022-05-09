@@ -6,15 +6,12 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/17/2022
+ms.date: 04/21/2022
 ms.custom: references_regions
 # Customer intent: As a Microsoft Purview admin, I want to set up Managed Virtual Network and managed private endpoints for my Microsoft Purview account.
 ---
 
 # Use a Managed VNet with your Microsoft Purview account
-
-> [!IMPORTANT]
-> Microsoft Purview Managed Vnet, VNet Integration Runtime, and managed private endpoint connections are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 > [!IMPORTANT]
 > Currently, Managed Virtual Network and managed private endpoints are available for Microsoft Purview accounts that are deployed in the following regions:
@@ -56,8 +53,8 @@ Currently, the following data sources are supported to have a managed private en
 Additionally, you can deploy managed private endpoints for your Azure Key Vault resources if you need to run scans using any authentication options rather than Managed Identities, such as SQL Authentication or Account Key.  
 
 > [!IMPORTANT]
-> If you are planning to scan Azure Synapse workspaces using Managed Virtual Network, you are also required to [configure Azure Synapse workspace firewall access](register-scan-synapse-workspace.md#set-up-azure-synapse-workspace-firewall-access) to enable **Allow Azure services and resources to access this workspace**. Currently, we do not support setting up scans for an Azure Synapse workspace from Microsoft Purview Studio, if you cannot enable **Allow Azure services and resources to access this workspace** on your Azure Synapse workspaces. If you cannot enable the firewall:
->  - You can use [Microsoft Purview Rest API - Scans - Create Or Update](/rest/api/purview/scanningdataplane/scans/create-or-update/) to create a new scan for your Synapse workspaces including dedicated and serverless pools.
+> If you are planning to scan Azure Synapse workspaces using Managed Virtual Network, you are also required to [configure Azure Synapse workspace firewall access](register-scan-synapse-workspace.md#set-up-azure-synapse-workspace-firewall-access) to enable **Allow Azure services and resources to access this workspace**. Currently, we do not support setting up scans for an Azure Synapse workspace from the Microsoft Purview governance portal, if you cannot enable **Allow Azure services and resources to access this workspace** on your Azure Synapse workspaces. If you cannot enable the firewall:
+>  - You can use [Microsoft Purview REST API - Scans - Create Or Update](/rest/api/purview/scanningdataplane/scans/create-or-update/) to create a new scan for your Synapse workspaces including dedicated and serverless pools.
 >  - You must use **SQL Authentication** as authentication mechanism.
 
 ### Managed Virtual Network
@@ -137,7 +134,7 @@ Before deploying a Managed VNet and Managed VNet Runtime for a Microsoft Purview
 
    :::image type="content" source="media/catalog-managed-vnet/purview-managed-azure-portal.png" alt-text="Screenshot that shows the Microsoft Purview account":::
 
-2. **Open Microsoft Purview Studio** and navigate to the **Data Map --> Integration runtimes**.
+2. **Open Microsoft Purview governance portal** and navigate to the **Data Map --> Integration runtimes**.
 
    :::image type="content" source="media/catalog-managed-vnet/purview-managed-vnet.png" alt-text="Screenshot that shows Microsoft Purview Data Map menus":::
 
@@ -149,7 +146,7 @@ Before deploying a Managed VNet and Managed VNet Runtime for a Microsoft Purview
 
    :::image type="content" source="media/catalog-managed-vnet/purview-managed-ir-region.png" alt-text="Screenshot that shows to create a Managed VNet Runtime":::
 
-5. Deploying the Managed VNet Runtime for the first time triggers multiple workflows in Microsoft Purview Studio for creating managed private endpoints for Microsoft Purview and its Managed Storage Account. Click on each workflow to approve the private endpoint for the corresponding Azure resource.
+5. Deploying the Managed VNet Runtime for the first time triggers multiple workflows in the Microsoft Purview governance portal for creating managed private endpoints for Microsoft Purview and its Managed Storage Account. Click on each workflow to approve the private endpoint for the corresponding Azure resource.
 
    :::image type="content" source="media/catalog-managed-vnet/purview-managed-ir-workflows.png" alt-text="Screenshot that shows deployment of a Managed VNet Runtime":::
 
@@ -195,9 +192,9 @@ To scan any data sources using Managed VNet Runtime, you need to deploy and appr
 
     :::image type="content" source="media/catalog-managed-vnet/purview-managed-data-source-pe-azure-approved.png" alt-text="Screenshot that shows approved private endpoint for data sources in Azure portal":::
 
-7. Inside Microsoft Purview Studio, the managed private endpoint must be shown as approved as well.
+7. Inside the Microsoft Purview governance portal, the managed private endpoint must be shown as approved as well.
    
-    :::image type="content" source="media/catalog-managed-vnet/purview-managed-pe-list-2.png" alt-text="Screenshot that shows managed private endpoints including data sources' in purview studio":::
+    :::image type="content" source="media/catalog-managed-vnet/purview-managed-pe-list-2.png" alt-text="Screenshot that shows managed private endpoints including data sources' in Purview governance portal":::
 
 ### Register and scan a data source using Managed VNet Runtime
 
@@ -235,7 +232,7 @@ You can use any of the following options to scan data sources using Microsoft Pu
 
 To scan a data source using a Managed VNet Runtime and Microsoft Purview managed identity perform these steps:
 
-1. Select the **Data Map** tab on the left pane in the Microsoft Purview Studio.
+1. Select the **Data Map** tab on the left pane in the Microsoft Purview governance portal.
 
 1. Select the data source that you registered.
 
@@ -277,7 +274,7 @@ To set up a scan using Account Key or SQL Authentication follow these steps:
 
 6. Provide a name for the managed private endpoint, select the Azure subscription and the Azure Key Vault from the drop down lists. Select **create**.
 
-    :::image type="content" source="media/catalog-managed-vnet/purview-managed-pe-key-vault-create.png" alt-text="Screenshot that shows how to create a managed private endpoint for Azure Key Vault in Microsoft Purview Studio":::
+    :::image type="content" source="media/catalog-managed-vnet/purview-managed-pe-key-vault-create.png" alt-text="Screenshot that shows how to create a managed private endpoint for Azure Key Vault in the Microsoft Purview governance portal":::
 
 7. From the list of managed private endpoints, click on the newly created managed private endpoint for your Azure Key Vault and then click on **Manage approvals in the Azure portal**, to approve the private endpoint in Azure portal.
 
@@ -289,11 +286,11 @@ To set up a scan using Account Key or SQL Authentication follow these steps:
 
     :::image type="content" source="media/catalog-managed-vnet/purview-managed-pe-key-vault-az-approved.png" alt-text="Screenshot that shows approved private endpoint for Azure Key Vault in Azure portal":::
 
-9.  Inside Microsoft Purview Studio, the managed private endpoint must be shown as approved as well.
+9.  Inside the Microsoft Purview governance portal, the managed private endpoint must be shown as approved as well.
    
-    :::image type="content" source="media/catalog-managed-vnet/purview-managed-pe-list-3.png" alt-text="Screenshot that shows managed private endpoints including Azure Key Vault in purview studio":::
+    :::image type="content" source="media/catalog-managed-vnet/purview-managed-pe-list-3.png" alt-text="Screenshot that shows managed private endpoints including Azure Key Vault in Purview governance portal":::
 
-10. Select the **Data Map** tab on the left pane in the Microsoft Purview Studio.
+10. Select the **Data Map** tab on the left pane in the Microsoft Purview governance portal.
     
 11. Select the data source that you registered.
 

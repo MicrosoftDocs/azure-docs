@@ -4,8 +4,8 @@ description: Lists Azure Policy built-in policy definitions for Azure Migrate. T
 ms.date: 03/08/2022
 ms.topic: reference
 ms.service: azure-migrate
-author: SGSneha
-ms.author: v-ssudhir
+author: MaggiePucciEvans
+ms.author: evansma
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure Migrate

@@ -25,7 +25,7 @@ The autoscale feature (preview) lets you scale your Azure Virtual Desktop deploy
 > - Autoscale doesn't support Azure Virtual Desktop for Azure Stack HCI 
 > - Autoscale doesn't support scaling of ephemeral disks.
 > - Autoscale doesn't support scaling of generalized VMs.
-
+> - You can't use the autoscale feature and [scale session hosts using Azure Automation](set-up-scaling-script.md) on the same host pool. You must use one or the other.
 
 For best results, we recommend using autoscale with VMs you deployed with Azure Virtual Desktop Azure Resource Manager templates or first-party tools from Microsoft.
 
@@ -34,7 +34,20 @@ For best results, we recommend using autoscale with VMs you deployed with Azure 
 >
 > - You can only use autoscale in the Azure public cloud.
 > - You can only configure autoscale with the Azure portal.
-> - You can only deploy the scaling plan to US, Canadian, and European regions.
+> - You can only deploy the scaling plan to these regions:
+>   - Canada Central
+>   - Canada East
+>   - Central US
+>   - East US
+>   - East US 2
+>   - North Central US
+>   - North Europe
+>   - South Central US
+>   - West Central US
+>   - West Europe
+>   - West US
+>   - West US 2
+
 
 ## Requirements
 
@@ -103,20 +116,20 @@ To create and assign the custom role to your subscription with the Azure portal:
 
 4. On the **Permissions** tab, add the following permissions to the subscription you're assigning the role to:
 
-    ```azcopy
-   		"Microsoft.Insights/eventtypes/values/read"
-				 "Microsoft.Compute/virtualMachines/deallocate/action"
-				 "Microsoft.Compute/virtualMachines/restart/action"
-				 "Microsoft.Compute/virtualMachines/powerOff/action"
-				 "Microsoft.Compute/virtualMachines/start/action"
-				 "Microsoft.Compute/virtualMachines/read"
-				 "Microsoft.DesktopVirtualization/hostpools/read"
-				 "Microsoft.DesktopVirtualization/hostpools/write"
-				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read"
-				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/write"
-				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete"
-				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read"
-				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action"
+    ```
+   	"Microsoft.Insights/eventtypes/values/read"
+	"Microsoft.Compute/virtualMachines/deallocate/action"
+	"Microsoft.Compute/virtualMachines/restart/action"
+	"Microsoft.Compute/virtualMachines/powerOff/action"
+	"Microsoft.Compute/virtualMachines/start/action"
+	"Microsoft.Compute/virtualMachines/read"
+	"Microsoft.DesktopVirtualization/hostpools/read"
+	"Microsoft.DesktopVirtualization/hostpools/write"
+	"Microsoft.DesktopVirtualization/hostpools/sessionhosts/read"
+	"Microsoft.DesktopVirtualization/hostpools/sessionhosts/write"
+	"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete"
+	"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read"
+	"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action"
     ```
 
 5. When you're finished, select **Ok**.

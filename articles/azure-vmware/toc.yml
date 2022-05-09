@@ -182,6 +182,8 @@
     items:
     - name: Configure HCX network extension
       href: configure-hcx-network-extension.md
+    - name: Configure HCX network extension high availability
+      href: configure-hcx-network-extension-high-availability.md
     - name: Configure vRealize Operations
       href: vrealize-operations-for-azure-vmware-solution.md
     - name: Deploy VMware Horizon

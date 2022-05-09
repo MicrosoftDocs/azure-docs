@@ -84,11 +84,11 @@ The following steps describe how to assign the App Configuration Data Reader rol
 
 1. Select **Add** > **Add role assignment**.
 
-    ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
 
 1. On the **Role** tab, select the **App Configuration Data Reader** role.
 
-    ![Add role assignment page with Role tab selected.](./media/add-role-assignment-role.png)
+    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-role-generic.png" alt-text="Screenshot showing Add role assignment page with Role tab selected.":::
 
 1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
 
