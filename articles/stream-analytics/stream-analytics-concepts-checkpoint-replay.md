@@ -37,7 +37,7 @@ Current Stream Analytics does not show a report when this kind of recovery proce
 
 ## Job recovery from a service upgrade 
 
-Microsoft occasionally upgrades the binaries that run the Stream Analytics jobs in the Azure service. At these times, users’ running jobs are upgraded to newer aversion and the job restarts automatically. 
+Microsoft occasionally upgrades the binaries that run the Stream Analytics jobs in the Azure service. At these times, users’ running jobs are upgraded to a newer version and the job restarts automatically. 
 
 Azure Stream Analytics uses checkpoints where possible to restore data from the last checkpointed state. In scenarios where internal checkpoints can't be used, the state of the streaming query is restored entirely using a replay technique. In order to allow Stream Analytics jobs to replay the exact same input from before, it’s important to set the retention policy for the source data to at least the window sizes in your query. Failing to do so may result in incorrect or partial results during service upgrade, since the source data may not be retained far enough back to include the full window size. 
 
