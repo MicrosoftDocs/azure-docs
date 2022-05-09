@@ -193,12 +193,8 @@ items:
     items:
     - name: Overview
       href: alerts/alerts-overview.md
-    - name: Metric alerts
-      href: alerts/alerts-metric-overview.md
-    - name: Log alerts
-      href: alerts/alerts-unified-log.md
-    - name: Activity log alerts
-      href: alerts/activity-log-alerts.md
+    - name: Alert Types
+      href: alerts/alert-types.md
   - name: Partner integrations
     href: partners.md
   - name: Security

@@ -10,19 +10,144 @@ ms.custom: template-concept
 
 # Types of Azure Monitor Alerts
 
-[add your introductory paragraph]
+There are four kinds of Azure Monitor alerts:
+- Metric alerts
+- Log alerts
+- Activity log alerts
+- Smart detection alerts
 
 ## Metric Alerts
-<!-- add your content here -->
+
+A metric alert rule monitors a resource by evaluating conditions on the resource metrics at regular intervals. If the conditions are met, an alert is fired. A metric time-series is a series of metric values captured over a period of time.
+
+You can create rules using these metrics:
+- [Platform metrics](alerts-metric-near-real-time.md#metrics-and-dimensions-supported)
+- [Custom metrics](../essentials/metrics-custom-overview.md)
+- [Application Insights custom metrics](../app/api-custom-events-metrics.md)
+- [Selected logs from a Log Analytics workspace converted to metrics](alerts-metric-logs.md)
+
+Metric alert rules include these features:
+- You can use multiple conditions on an alert rule for a single resource.
+- You can add granularity by [monitoring multiple metric dimensions](#splitting-by-dimensions). 
+- You can use [Dynamic thresholds](#dynamic-thresholds) driven by machine learning. 
+- You can configure if metric alerts are [stateful or stateless](alerts-overview-new.md#alerts-and-state). Metric alerts are stateful by default.
+
+The target of the metric alert rule can be:
+- A single resource, such as a VM. See this article for supported resource types.
+- [Multiple resources](#monitoring-multiple-resources) of the same type in the same Azure region, such as a resource group.
+
+### Multiple Conditions
+
+When you create an alert rule for a single resource, you can apply multiple conditions. For example, you could create an alert rule to monitor an Azure virtual machine and alert when both "Percentage CPU is higher than 90%" and "Queue length is over 300 items". When an alert rule has multiple conditions, the alert fires when all the conditions in the alert rule are true and is resolved when at least one of the conditions is no longer true for three consecutive checks.
+### Narrow your metric alert target with dimensions
+
+Dimensions are name-value pairs that contain additional data about the metric value. Using dimensions allows you to filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values. 
+For example, the Transactions metric of a storage account has an API name dimension, that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, PutPage). You can choose to have an alert fired when the number of transactions is high across all API names (which is the aggregated data), or you can use dimensions to further break it down into alerting only when the number of transactions is high for specific API names.
+If you use more than one dimension, the metric alert rule can monitor multiple dimension values from different dimensions of a metric. 
+The alert rule separately monitors all the dimensions value combinations.
+See [this article](alerts-metric-multiple-time-series-single-rule.md) for detailed instructions on using dimensions in metric alert rules.
+
+### Dynamic thresholds
+
+Dynamic thresholds use advanced machine learning (ML) to:
+- Learn metrics' historical behavior
+- Identify patterns and adapt to metric changes over time, such as hourly, daily or weekly patterns. 
+- Recognize anomalies that indicate possible service issues
+- Calculate the most appropriate threshold for the metric 
+
+Machine Learning continuously uses new data to learn more and make the threshold more accurate. By adapting to the metrics’ behavior over time and alerting based on deviations from its pattern you are relieved of the the burden of knowing the "right" threshold for each metric. 
+
+Dynamic thresholds help you:
+- Create scalable alerts for hundreds of metric series with one alert rule. Less alert rules means less time you have to spend on creating and managing alerts rules.
+- Create rules without having to know what threshold to configure
+- Configure up metric alerts using high-level concepts without extensive domain knowledge about the metric
+- Prevent noisy (low precision) or wide (low recall) thresholds that don’t have an expected pattern
+- Handle noisy metrics (such as machine CPU or memory) as well as metrics with low dispersion (such as availability and error rate).
+
+See [this article](alerts-dynamic-thresholds.md) for detailed instructions on using dynamic thresholds in metric alert rules.
+
+### Create resource-centric alerts using splitting by dimensions
+
+To monitor for the same condition on multiple Azure resources, you can use splitting by dimensions. Splitting by dimensions allows you to create resource-centric alerts at scale for a subscription or resource group.  Alerts are split into separate alerts by grouping combinations. Splitting on Azure resource ID column makes the specified resource into the alert target.
+
+You may also decide not to split when you want a condition applied to multiple resources in the scope. For example, if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.
+
+### Monitoring multiple resources
+
+You can monitor at scale by applying the same metric alert rule to multiple resources of the same type for resources that exist in the same Azure region. Individual notifications are sent for each monitored resource.
+
+These platform metrics for these services in the following Azure clouds are supported:
+
+| Service                      | Public Azure | Government | China   |
+|:-----------------------------|:-------------|:-----------|:--------|
+| Virtual machines<sup>1</sup> | Yes      |Yes     | Yes |
+| SQL server databases         | Yes      | Yes    | Yes |
+| SQL server elastic pools     | Yes      | Yes    | Yes |
+| NetApp files capacity pools  | Yes      | Yes    | Yes |
+| NetApp files volumes         | Yes      | Yes    | Yes |
+| Key vaults                   | Yes      | Yes    | Yes |
+| Azure Cache for Redis        | Yes      | Yes    | Yes |
+| Data box edge devices        | Yes      | Yes    | Yes |
+| Recovery Services vaults     | Yes      | No     | No  |
+
+<sup>1</sup> Not supported for virtual machine network metrics (Network In Total, Network Out Total, Inbound Flows, Outbound Flows, Inbound Flows Maximum Creation Rate, Outbound Flows Maximum Creation Rate).
+
+You can specify the scope of monitoring with a single metric alert rule in one of three ways. For example, with virtual machines you can specify the scope as:  
+
+- a list of virtual machines (in one Azure region) within a subscription
+- all virtual machines (in one Azure region) in one or more resource groups in a subscription
+- all virtual machines (in one Azure region) in a subscription
 
 ## Log Alerts
-<!-- add your content here -->
+A log alert rule monitors a resource by using a Log Analytics query to evaluate resource logs at a set frequency. If the conditions are met, an alert is fired. Because you can use Log Analytics queries, log alerts allow you to perform advanced logic operations on your data and to use the robust features of KQL for data manipulation of log data.
+
+The target of the log alert rule can be:
+- A single resource, such as a VM. 
+- Multiple resources of the same type in the same Azure region, such as a resource group. This is currently available for selected resource types.
+- Multiple resources using [cross-resource query](../logs/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights). 
+
+Log alerts can measure two different things which can be used for different monitoring scenarios:
+- Table rows: The number of rows returned can be used to work with events such as Windows event logs, syslog, application exceptions.
+- Calculation of a value: Calculations based on any numeric column can be used to include any number of resources. For example, CPU percentage.
+
+You can configure if log alerts are [stateful or stateless](alerts-overview-new.md#alerts-and-state) (currently in preview).
+
+### Dimensions in Log alert rules
+You can use dimensions when creating log alert rules to monitor the values of multiple instances of a resource with one rule. For example, you can monitor CPU usage on multiple instances running your website or app. Each instance is monitored individually notifications are sent for each instance.
+
+### Splitting by dimensions in log alert rules
+To monitor for the same condition on multiple Azure resources, you can use splitting by dimensions. Splitting by dimensions allows you to create resource-centric alerts at scale for a subscription or resource group.  Alerts are split into separate alerts by grouping combinations using numerical or string columns. Splitting on Azure resource ID column makes the specified resource into the alert target.
+You may also decide not to split when you want a condition applied to multiple resources in the scope. For example, if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.
+
+> [!NOTE]
+> Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](api-alerts.md). Learn more about [switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).
 
 ## Activity Log Alerts
-<!-- add your content here -->
+An activity log alert monitors a resource by checking the activity logs for a new activity log event that matches the defined conditions. 
 
+You may want to use activity log alerts for these types of scenarios: 
+- When a specific operation occurs on resources in a specific resource group or subscription. For example, you may want to be notified when:
+    - Any virtual machine in a production resource group is deleted. 
+    - Any new roles are assigned to a user in your subscription.
+- A service health event occurs. Service health events include notifications of incidents and maintenance events that apply to resources in your subscription.
 
+You can create an activity log alert on:
+- Any of the activity log [event categories](../essentials/activity-log-schema.md), other than on alert events. 
+- Any activity log event in top-level property in the JSON object.
+
+Activity log alert rules are Azure resources, so they can be created by using an Azure Resource Manager template. They also can be created, updated, or deleted in the Azure portal. 
+
+An activity log alert only monitors events in the subscription in which the alert is created.
+
+## Smart Detection alerts
+After setting up Application Insights for your project, when your app generates a certain minimum amount of data, Smart Detection takes 24 hours to learn the normal behavior of your app. Your app's performance has a typical pattern of behavior. Some requests or dependency calls will be more prone to failure than others; and the overall failure rate may go up as load increases. Smart Detection uses machine learning to find these anomalies. Smart Detection monitors the data received from your app, and in particular the failure rates. Application Insights automatically alerts you in near real time if your web app experiences an abnormal rise in the rate of failed requests.
+
+As data comes into Application Insights from your web app, Smart Detection compares the current behavior with the patterns seen over the past few days. If there is an abnormal rise in failure rate compared to previous performance, an analysis is triggered. To help you triage and diagnose the problem, an analysis of the characteristics of the failures and related application data is provided in the alert details. There are also links to the Application Insights portal for further diagnosis. The feature needs no set-up nor configuration, as it uses machine learning algorithms to predict the normal failure rate.
+
+While metric alerts tell you there might be a problem, Smart Detection starts the diagnostic work for you, performing much of the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
+
+Smart detection works for any web app, hosted in the cloud or on your own servers, that generate application request or dependency data.
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write concepts](contribute-how-to-write-concept.md)
-- [Links](links-how-to.md)
+- Get an [overview of alerts](alerts-overview.md).
+- [Create an alert rule](contribute-how-to-write-concept.md).
+- Learn more about [Smart Detection](../app/proactive-failure-diagnostics.md).

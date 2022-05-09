@@ -7,7 +7,7 @@ ms.date: 2/23/2022
 ---
 # The alerts page
 
-The alerts page summarizes all of the alert instances across Azure generated in the last 30 days. This article shows how you can view alerts and how to find a specific alert instance for troubleshooting. You can see all your different types of alerts from multiple subscriptions in a single pane.
+The alerts page summarizes all alert instances in all your Azure resources generated in the last 30 days. This article shows how you can view alerts and how to find a specific alert instance for troubleshooting. You can see all your different types of alerts from multiple subscriptions in a single pane.
 
 You can get to the alerts page in any of the following ways:
 
@@ -18,8 +18,6 @@ You can get to the alerts page in any of the following ways:
 - From a specific resource, go to the **Monitoring** section, and choose **Alerts**. The landing page is pre-filtered for alerts on that specific resource.
 
 :::image type="content" source="media/alerts-managing-alert-instances/alerts-resource-menu.png" alt-text="Screenshot of alerts link on a resource's menu.":::
-
-
 ## Alert rule recommendations (preview)
 
 > [!NOTE]
