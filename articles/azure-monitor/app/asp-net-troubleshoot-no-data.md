@@ -31,7 +31,7 @@ ms.date: 05/21/2020
 
 ## Request count collected by Application Insights SDK doesn't match the IIS log count for my application
 
-Internet Information Services (IIS) logs counts of all request reaching IIS and inherently could differ from the total request reaching an application. Due to this, it isn't guaranteed that the request count collected by the SDKs will match the total IIS log count. 
+Internet Information Services (IIS) logs counts of all request reaching IIS and inherently could differ from the total request reaching an application. Due to this behavior, it isn't guaranteed that the request count collected by the SDKs will match the total IIS log count. 
 
 ## No data from my server
 * I installed my app on my web server, and now I don't see any telemetry from it. It worked OK on my dev machine.*
@@ -218,13 +218,13 @@ Performance data (CPU, IO rate, and so on) is available for [Java web services](
 * Have you hit your monthly quota of data points? Open the Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for more capacity. See the [pricing scheme](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ## I don't see all the data I'm expecting
-If your application sends a lot of data and you're using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the [adaptive sampling](./sampling.md) feature may operate and send only a percentage of your telemetry.
+If your application sends considerable data and you're using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the [adaptive sampling](./sampling.md) feature may operate and send only a percentage of your telemetry.
 
-You can disable it, but doing so is not recommended. Sampling is designed so that related telemetry is correctly transmitted, for diagnostic purposes.
+You can disable it, but doing so isn't recommended. Sampling is designed so that related telemetry is correctly transmitted, for diagnostic purposes.
 
 ## Client IP address is 0.0.0.0
 
-On February 5 2018, we announced that we removed logging of the Client IP address. This doesn't affect Geo Location.
+On February 5 2018, we announced that we removed logging of the Client IP address. This recommendation doesn't affect Geo Location.
 
 > [!NOTE]
 > If you need the first 3 octets of the IP address, you can use a [telemetry initializer](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) to add a custom attribute.
@@ -245,7 +245,7 @@ Follow these instructions to capture troubleshooting logs for your framework.
 > [!NOTE]
 > Starting in version 2.14, the [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) package is no longer necessary, SDK logs are now collected with the [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) package. No additional package is required.
 
-1. Modify your applicationinsights.config file to include the following:
+1. Modify your applicationinsights.config file to include the following XML:
 
     ```xml
     <TelemetryModules>
@@ -307,7 +307,7 @@ For more information,
 
 ## Collect logs with dotnet-trace
 
-Alternatively, customers can also use a cross-platform .NET Core tool, [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace) for collecting logs that can further help in troubleshooting. This may be helpful for linux-based environments.
+Alternatively, customers can also use a cross-platform .NET Core tool, [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace) for collecting logs that can further help in troubleshooting. This tool may be helpful for linux-based environments.
 
 After installation of [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace), execute the command below in bash.
 
