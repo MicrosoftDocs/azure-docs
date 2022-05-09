@@ -40,7 +40,7 @@ Log Analytics workspace data export continuously exports data that is sent to yo
 - Destinations must be in the same region as the Log Analytics workspace.
 - Storage Account must be unique across rules in workspace.
 - Tables names can be no longer than 60 characters when exporting to Storage Account and 47 characters to Event Hubs. Tables with longer names will not be exported.
-- Data export isn't supported in Government regions currently
+- Data export isn't supported in China currently.
 
 ## Data completeness
 Data export is optimized for moving large data volume to your destinations, and in certain retry conditions, can include a fraction of duplicated records. The export operation could fail when ingress limits are reached, see details under [Create or update data export rule](#create-or-update-data-export-rule). In such case, a retry continues for up to 30 minutes, and if destination is unavailable yet, data will be discarded until destination becomes available.

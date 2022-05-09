@@ -3,7 +3,7 @@ title: Create a static volume for pods in Azure Kubernetes Service (AKS)
 description: Learn how to manually create a volume with Azure disks for use with a pod in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 05/09/2019
 
 
 #Customer intent: As a developer, I want to learn how to manually create and attach storage to a specific pod in AKS.
@@ -20,9 +20,9 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster with 1.21 or later version. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
-You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+If you want to interact with Azure Disks on an AKS cluster with 1.20 or previous version, see the [Kubernetes plugin for Azure Disks][kubernetes-disks].
 
 ## Create an Azure disk
 
@@ -145,8 +145,6 @@ kubectl apply -f azure-disk-pod.yaml
 ## Next steps
 
 For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
-
-For more information about AKS clusters interact with Azure disks, see the [Kubernetes plugin for Azure Disks][kubernetes-disks].
 
 <!-- LINKS - external -->
 [kubernetes-disks]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_disk/README.md
