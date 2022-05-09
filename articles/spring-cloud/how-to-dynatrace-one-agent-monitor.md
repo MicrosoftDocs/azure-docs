@@ -157,7 +157,7 @@ Next, go to the **Profiling and optimization** section.
 
 You can find the **CPU analysis** from **Profiling and optimization/CPU analysis**:
 
-:::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png" alt-text="Screenshot of the 'CPU analysis' report." lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png":::
+:::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png" alt-text="Screenshot of the 'C P U analysis' report." lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png":::
 
 Next, go to the **Databases** section.
 

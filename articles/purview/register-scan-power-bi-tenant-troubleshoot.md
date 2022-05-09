@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 04/29/2022
+ms.date: 05/06/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -14,11 +14,26 @@ ms.custom: template-how-to, ignite-fall-2021
 
 This article explores common troubleshooting methods for scanning Power BI tenants in [Microsoft Purview](overview.md).
 
-## Supported capabilities
+## Supported scenarios for Power BI scans
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](register-scan-power-bi-tenant.md#deployment-checklist)| [Yes](register-scan-power-bi-tenant.md#deployment-checklist)| Yes | No | No | No| [Yes](how-to-lineage-powerbi.md)|
+### Same-tenant
+
+|**Scenarios**  |**Microsoft Purview public access allowed/denied** |**Power BI public access allowed /denied** | **Runtime option** | **Authentication option**  | **Deployment checklist** | 
+|---------|---------|---------|---------|---------|---------|
+|Public access with Azure IR     |Allowed     |Allowed        |Azure Runtime      | Microsoft Purview Managed Identity   | [Review deployment checklist](register-scan-power-bi-tenant.md#deployment-checklist) |
+|Public access with Self-hosted IR     |Allowed     |Allowed        |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](register-scan-power-bi-tenant.md#deployment-checklist) |
+|Private access     |Allowed     |Denied         |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](register-scan-power-bi-tenant.md#deployment-checklist) |
+|Private access     |Denied      |Allowed*        |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](register-scan-power-bi-tenant.md#deployment-checklist) |
+|Private access     |Denied      |Denied         |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](register-scan-power-bi-tenant.md#deployment-checklist) |
+
+\* Power BI tenant must have a private endpoint which is deployed in a Virtual Network accessible from the self-hosted integration runtime VM. For more information, see [private endpoint for Power BI tenant](/power-bi/enterprise/service-security-private-links).
+
+### Cross-tenant
+
+|**Scenarios**  |**Microsoft Purview public access allowed/denied** |**Power BI public access allowed /denied** | **Runtime option** | **Authentication option**  | **Deployment checklist** | 
+|---------|---------|---------|---------|---------|---------|
+|Public access with Azure IR     |Allowed     |Allowed        |Azure runtime      |Delegated Authentication    | [Deployment checklist](register-scan-power-bi-tenant-cross-tenant.md#deployment-checklist) |
+|Public access with Self-hosted IR     |Allowed     |Allowed        |Self-hosted runtime        |Delegated Authentication  | [Deployment checklist](register-scan-power-bi-tenant-cross-tenant.md#deployment-checklist) |
 
 ## Troubleshooting tips
 

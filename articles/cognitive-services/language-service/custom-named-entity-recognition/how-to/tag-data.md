@@ -22,9 +22,9 @@ Before building your custom entity extraction models, you need to have tagged da
 Before you can tag data, you need:
 
 * A successfully [created project](create-project.md) with a configured Azure blob storage account
-    * Text data that [has been uploaded](create-project.md#prepare-training-data) to your storage account.
+    * Text data that [has been uploaded](design-schema.md#data-preparation) to your storage account.
 
-See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
+See the [application development lifecycle](../overview.md#project-development-lifecycle) for more information.
 
 ## Tag your data
 

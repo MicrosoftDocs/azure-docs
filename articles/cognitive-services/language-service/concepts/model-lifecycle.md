@@ -26,7 +26,7 @@ Pre-built Model Capabilities: As new models and new functionality become availab
 
 During the model version deprecation period, API calls to the soon-to-be retired model versions will return a warning. After model-version deprecation, API calls to deprecated model-versions will return responses using the newest model version with an additional warning message. So, your implementation will never break, but results might change.
 
-The model-version retirement period is defined as: the period of time from the release of a newer model-version, to the time the older version is deprecated. This period is defined as six months for generally available, stable model versions, and three months for previews. For example, a stable model-version 2021-01-01 will be deprecated six months after a successor model-version 2021-07-01 is released, on January 1, 2022. Preview capabilities in preview APIs do not maintain a minimum retirement period and can be deprecated at any time.
+The model-version retirement period is defined as: the period of time from a release of a newer model-version for the capability, until a specific older version is deprecated. This period is defined as six months for stable model versions, and three months for previews. For example, a stable model-version `2021-01-01` will be deprecated six months after a successor model-version `2021-07-01` is released, on January 1, 2022. Preview capabilities in preview APIs do not maintain a minimum retirement period and can be deprecated at any time.
 
 
 #### Choose the model-version used on your data

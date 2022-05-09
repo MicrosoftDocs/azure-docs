@@ -277,6 +277,9 @@ items:
             displayName: cumeDist, denseRank, lag, lead, nTile, rank, rowNumber
           - name: Alphabetical usage details for all functions
             href: data-flow-expressions-usage.md
+      - name: User defined functions
+        href: concepts-data-flow-udf.md
+        displayName: udf, user defined function,data flow library
     - name: Prepare data with Power Query data wrangling
       items:
       - name: Data wrangling overview

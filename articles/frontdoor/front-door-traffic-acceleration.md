@@ -8,7 +8,7 @@ ms.service: frontdoor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/27/2022
+ms.date: 05/05/2022
 ms.author: jodowns
 zone_pivot_groups: front-door-tiers
 ---
@@ -23,7 +23,7 @@ Front Door optimizes the traffic path from the end user to the origin server. Th
 
 ::: zone pivot="front-door-classic"
 
-Front Door optimizes the traffic path from the end user to the backend server. This article describes how traffic is routed from the user to Front Door and to the backend.
+Front Door optimizes the traffic path from the end user to the backend server. This article describes how traffic is routed from the user to Front Door and from Front Door to the backend.
 
 ::: zone-end
 

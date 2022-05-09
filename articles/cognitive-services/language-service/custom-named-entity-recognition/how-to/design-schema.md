@@ -15,7 +15,7 @@ ms.custom: language-service-custom-ner, ignite-fall-2021
 
 # How to prepare data and define a schema for custom NER
 
-In order to create a custom NER model, you will need quality data to train it. This article covers how you should approach selecting and preparing your data, along with defining a schema. The schema defines the entity types/categories that you need your model to extract from text at runtime, and is the first step of [developing an entity extraction model](../overview.md#application-development-lifecycle).
+In order to create a custom NER model, you will need quality data to train it. This article covers how you should approach selecting and preparing your data, along with defining a schema. The schema defines the entity types/categories that you need your model to extract from text at runtime, and is the first step of [developing an entity extraction model](../overview.md#project-development-lifecycle).
 
 ## Schema design
 
