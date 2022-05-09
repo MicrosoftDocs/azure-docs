@@ -159,44 +159,105 @@ Whenever availability of a remote stream changes you can choose to destroy the w
 or keep them, but this will result in displaying blank video frame.
 
 ```js
-subscribeToRemoteVideoStream = async (remoteVideoStream) => {
-    // Create a video stream renderer for the remote video stream.
-    let videoStreamRenderer = new VideoStreamRenderer(remoteVideoStream);
-    let view;
-    const remoteVideoContainer = document.getElementById('remoteVideoContainer');
-    const renderVideo = async () => {
-        try {
-            // Create a renderer view for the remote video stream.
-            view = await videoStreamRenderer.createView();
-            // Attach the renderer view to the UI.
-            remoteVideoContainer.appendChild(view.target);
-        } catch (e) {
-            console.warn(`Failed to createView, reason=${e.message}, code=${e.code}`);
-        }
-    }
-    remoteVideoStream.on('isAvailableChanged', async () => {
-        // Participant has switched video on.
-        if (remoteVideoStream.isAvailable) {
-            await renderVideo();
+// Reference to the html's div where we would display a grid of all remote video stream from all participants.
+let remoteVideosGallery = document.getElementById('remoteVideosGallery');
 
-        // Participant has switched video off.
-        } else {
-            if (view) {
-                view.dispose();
-                view = undefined;
+subscribeToRemoteVideoStream = async (remoteVideoStream) => {
+   let renderer = new VideoStreamRenderer(remoteVideoStream);
+    let view;
+    let remoteVideoContainer = document.createElement('div');
+    remoteVideoContainer.className = 'remote-video-container';
+
+    /**
+     * isReceiving API is currently an @alpha feature. Do not use in production.
+     * To use this api please use 'alpha' release of Azure Communication Services Calling Web SDK.
+     */
+    let loadingSpinner = document.createElement('div');
+    // See the css example below for styling the loading spinner.
+    loadingSpinner.className = 'loading-spinner';
+    remoteVideoStream.on('isReceivingChanged', () => {
+        try {
+            if (remoteVideoStream.isAvailable) {
+                const isReceiving = remoteVideoStream.isReceiving;
+                const isLoadingSpinnerActive = remoteVideoContainer.contains(loadingSpinner);
+                if (!isReceiving && !isLoadingSpinnerActive) {
+                    remoteVideoContainer.appendChild(loadingSpinner);
+                } else if (isReceiving && isLoadingSpinnerActive) {
+                    remoteVideoContainer.removeChild(loadingSpinner);
+                }
             }
+        } catch (e) {
+            console.error(e);
         }
     });
 
-    // Participant has video on initially.
+    const createView = async () => {
+        // Create a renderer view for the remote video stream.
+        view = await renderer.createView();
+        // Attach the renderer view to the UI.
+        remoteVideoContainer.appendChild(view.target);
+        remoteVideosGallery.appendChild(remoteVideoContainer);
+    }
+
+    // Remote participant has switched video on/off
+    remoteVideoStream.on('isAvailableChanged', async () => {
+        try {
+            if (remoteVideoStream.isAvailable) {
+                await createView();
+            } else {
+                view.dispose();
+                remoteVideosGallery.removeChild(remoteVideoContainer);
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    });
+
+    // Remote participant has video on initially.
     if (remoteVideoStream.isAvailable) {
-        await renderVideo();
+        try {
+            await createView();
+        } catch (e) {
+            console.error(e);
+        }
     }
     
     console.log(`Initial stream size: height: ${remoteVideoStream.size.height}, width: ${remoteVideoStream.size.width}`);
     remoteVideoStream.on('sizeChanged', () => {
         console.log(`Remote video stream size changed: new height: ${remoteVideoStream.size.height}, new width: ${remoteVideoStream.size.width}`);
     });
+}
+```
+
+CSS for styling the loading spinner over the remote video stream.
+ ```css
+.remote-video-container {
+    position: relative;
+}
+.loading-spinner {
+    border: 12px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 12px solid #ca5010;
+    width: 100px;
+    height: 100px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translate(-50%, -50%);
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
 }
 ```
 
@@ -220,6 +281,17 @@ const type: MediaStreamType = remoteVideoStream.mediaStreamType;
 
 ```js
 const isAvailable: boolean = remoteVideoStream.isAvailable;
+```
+
+- `isReceiving`:
+    - ***This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'alpha' release of Azure Communication Services Calling Web SDK.***
+    - Will inform the application if remote video stream data is being received. Such cases are:
+	    - When the remote mobile participant has their video on and they put the browser app in the background, they will stop sending video stream data until the app is brought back to the foreground.
+		- When the remote participant has their video on and they have bad network connectivity and video is cutting off / lagging
+	- This feature improves the user experience for rendering remote video streams.
+	- You can display a loading spinner over the remote video stream when isReceiving flag changes to false. You don't have to do a loading spinner, you can do anything you desire, but a loading spinner is the most common usage
+```js
+const isReceiving: boolean = remoteVideoStream.isReceiving;
 ```
 
 - `size`: The stream size. The higher the stream size, the better the video quality.

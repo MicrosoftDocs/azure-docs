@@ -5,7 +5,7 @@ description: Use Azure Storage lifecycle management policies to create automated
 author: tamram
 
 ms.author: tamram
-ms.date: 04/18/2022
+ms.date: 05/05/2022
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -150,7 +150,9 @@ Lifecycle management supports tiering and deletion of current versions, previous
 | tierToCool                  | Supported for `blockBlob`                  | Supported     | Supported     |
 | enableAutoTierToHotFromCool | Supported for `blockBlob`                  | Not supported | Not supported |
 | tierToArchive               | Supported for `blockBlob`                  | Supported     | Supported     |
-| delete                      | Supported for `blockBlob` and `appendBlob` | Supported     | Supported     |
+| delete<sup>1</sup>          | Supported for `blockBlob` and `appendBlob` | Supported     | Supported     |
+
+<sup>1</sup> When applied to an account with a hierarchical namespace enabled, a delete action removes empty directories. If the directory is not empty, then the delete action removes objects that meet the policy conditions within the first 24-hour cycle. If that action results in an empty directory that also meets the policy conditions, then that directory will be removed within the next 24-hour cycle, and so on.
 
 > [!NOTE]
 > If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.

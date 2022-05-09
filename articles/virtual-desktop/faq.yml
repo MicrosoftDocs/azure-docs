@@ -100,7 +100,7 @@ sections:
 
       - question: |
          How does Azure Virtual Desktop handle backups?
-        answer: There are multiple options in Azure for handling backup. You can use Azure backup, Site Recovery, and snapshots.
+        answer: There are multiple options in Azure Virtual Desktop for handling backup. At the Compute level, backup is recommended only for Personal Host Pools through [Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction). At the Storage level, recomemmended backup solution varies based on the backend storage used to store user profiles. If Azure Files Share is used, [Azure Backup for File Share](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview) is recommended. If Azure NetApp Files is used, [Snaphots/Policies](https://docs.microsoft.com/azure/azure-netapp-files/snapshots-manage-policy) or [Azure NetApp Files Backup](https://docs.microsoft.com/en-us/azure/azure-netapp-files/backup-introductionhttps://docs.microsoft.com/azure/azure-netapp-files/backup-introduction) are tools available.
 
       - question: |
          Does Azure Virtual Desktop support third-party collaboration apps?

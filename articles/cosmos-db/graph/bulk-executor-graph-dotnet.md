@@ -4,7 +4,7 @@ description: Learn how to use the bulk executor library to massively import grap
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
-ms.date: 05/28/2019
+ms.date: 05/02/2020
 author: manishmsfte
 ms.author: mansha
 ms.devlang: csharp
@@ -24,7 +24,7 @@ The [bulk executor library](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.gr
 
 The following process outlines how data migration can be used for a Gremlin API container:
 1. Retrieve records from the data source.
-2. Construct `GremlinVertex` and `GremlinEdge` objects from the obtained records and add them into an `IEnumerable` data structure. In this part of the application the logic to detect and add relationships should be implemented, in case the data source is not a graph database.
+2. Construct `GremlinVertex` and `GremlinEdge` objects from the obtained records and add them into an `IEnumerable` data structure. In this part of the application the logic to detect and add relationships should be implemented, in case the data source isn't a graph database.
 3. Use the [Graph BulkImportAsync method](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph.graphbulkexecutor.bulkimportasync) to insert the graph objects into the collection.
 
 This mechanism will improve the data migration efficiency as compared to using a Gremlin client. This improvement is experienced because inserting data with Gremlin will require the application send a query at a time that will need to be validated, evaluated, and then executed to create the data. The bulk executor library will handle the validation in the application and send multiple graph objects at a time for each network request.
@@ -70,9 +70,9 @@ catch (Exception e)
 }
 ```
 
-For more information on the parameters of the bulk executor library, refer to the [BulkImportData to Azure Cosmos DB topic](../bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account).
+For more information about the parameters of the bulk executor library, see [BulkImportData to Azure Cosmos DB article](../bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account).
 
-The payload needs to be instantiated into `GremlinVertex` and `GremlinEdge` objects. Here is how these objects can be created:
+The payload needs to be instantiated into `GremlinVertex` and `GremlinEdge` objects. Here's how these objects can be created:
 
 **Vertices**:
 ```csharp
@@ -111,7 +111,7 @@ e.AddProperty("customProperty", "value");
 ## Sample application
 
 ### Prerequisites
-* Visual Studio 2019 with the Azure development workload. You can get started with the [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/) for free.
+* Latest [!INCLUDE [cosmos-db-visual-studio](../includes/cosmos-db-visual-studio.md)]
 * An Azure subscription. You can create [a free Azure account here](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Alternatively, you can create a Cosmos database account with [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
 * An Azure Cosmos DB Gremlin API database with an **unlimited collection**. This guide shows how to get started with [Azure Cosmos DB Gremlin API in .NET](./create-graph-dotnet.md).
 * Git. For more information check out the [Git Downloads page](https://git-scm.com/downloads).
@@ -135,9 +135,9 @@ In the `App.config` file, the following are the configuration values that can be
 
 Setting|Description
 ---|---
-`EndPointUrl`|This is **your .NET SDK endpoint** found in the Overview blade of your Azure Cosmos DB Gremlin API database account. This has the format of `https://your-graph-database-account.documents.azure.com:443/`
+`EndPointUrl`|This is **your .NET SDK endpoint** found in the Overview page of your Azure Cosmos DB Gremlin API database account. This has the format of `https://your-graph-database-account.documents.azure.com:443/`
 `AuthorizationKey`|This is the Primary or Secondary key listed under your Azure Cosmos DB account. Learn more about [Securing Access to Azure Cosmos DB data](../secure-access-to-data.md#primary-keys)
-`DatabaseName`, `CollectionName`|These are the **target database and collection names**. When `ShouldCleanupOnStart` is set to `true` these values, along with `CollectionThroughput`, will be used to drop them and create a new database and collection. Similarly, if `ShouldCleanupOnFinish` is set to `true`, they will be used to delete the database as soon as the ingestion is over. Note that the target collection must be **an unlimited collection**.
+`DatabaseName`, `CollectionName`|These are the **target database and collection names**. When `ShouldCleanupOnStart` is set to `true` these values, along with `CollectionThroughput`, will be used to drop them and create a new database and collection. Similarly, if `ShouldCleanupOnFinish` is set to `true`, they'll be used to delete the database as soon as the ingestion is over. The target collection must be **an unlimited collection**.
 `CollectionThroughput`|This is used to create a new collection if the `ShouldCleanupOnStart` option is set to `true`.
 `ShouldCleanupOnStart`|This will drop the database account and collections before the program is run, and then create new ones with the `DatabaseName`, `CollectionName` and `CollectionThroughput` values.
 `ShouldCleanupOnFinish`|This will drop the database account and collections with the specified `DatabaseName` and `CollectionName` after the program is run.
@@ -147,8 +147,8 @@ Setting|Description
 
 ### Run the sample application
 
-1. Add your specific database configuration parameters in `App.config`. This will be used to create a DocumentClient instance. If the database and container have not been created yet, they will be created automatically.
-2. Run the application. This will call `BulkImportAsync` two times, one to import Vertices and one to import Edges. If any of the objects generates an error when they're inserted, they will be added to either `.\BadVertices.txt` or `.\BadEdges.txt`.
+1. Add your specific database configuration parameters in `App.config`. This will be used to create a DocumentClient instance. If the database and container haven't been created yet, they'll be created automatically.
+2. Run the application. This will call `BulkImportAsync` two times, one to import Vertices and one to import Edges. If any of the objects generates an error when they're inserted, they'll be added to either `.\BadVertices.txt` or `.\BadEdges.txt`.
 3. Evaluate the results by querying the graph database. If the `ShouldCleanupOnFinish` option is set to true, then the database will automatically be deleted.
 
 ## Next steps
