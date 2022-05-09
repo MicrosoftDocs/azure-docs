@@ -5,7 +5,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 05/06/2022
+ms.date: 05/09/2022
 ms.author: ranku
 ---
 
@@ -46,19 +46,25 @@ After you've created a workspace, you can deploy a FHIR service, DICOM service, 
 
 ## FHIR service
 
-FHIR service in Azure Health Data Services enables rapid exchange of data through FHIR APIs that's backed by a managed Platform-as-a Service (PaaS) offering in the cloud. It makes it easier for anyone working with health data to ingest, manage, and persist Protected Health Information PHI in the cloud.  For more information about the FHIR service, see [What is FHIR service?](./../healthcare-apis/fhir/overview.md) and [Get started with FHIR service](./../healthcare-apis/fhir/get-started-with-fhir.md).
+FHIR service in Azure Health Data Services enables rapid exchange of data through FHIR APIs that's backed by a managed Platform-as-a Service (PaaS) offering in the cloud. It makes it easier for anyone working with health data to ingest, manage, and persist Protected Health Information (PHI) in the cloud.  
+
+FHIR service is secured by Azure Active Directory (Azure AD) that can't be disabled. To access the service API, you must create a client application that's also referred to as a service principal in Azure AD and grant it with the right permissions. For more information about registering a client application, granting access permissions, and assigning roles to the FHIR service, see [Get started with FHIR service](./../healthcare-apis/fhir/get-started-with-fhir.md).
 
 ## DICOM service
 
 DICOM (Digital Imaging and Communications in Medicine) is the international standard to transmit, store, retrieve, print, process, and display medical imaging information, and is the primary medical imaging standard accepted across healthcare.
 
-DICOM service is a managed service within Azure Health Data Services that ingests and persists DICOM objects at multiple thousands of images per second. It facilitates communication and transmission of imaging data with any DICOMweb™ enabled systems or applications via DICOMweb Standard APIs like [Store (STOW-RS)](./../healthcare-apis/dicom/dicom-services-conformance-statement.md#store-stow-rs), [Search (QIDO-RS)](./../healthcare-apis/dicom/dicom-services-conformance-statement.md#search-qido-rs), [Retrieve (WADO-RS)](./../healthcare-apis/dicom/dicom-services-conformance-statement.md#retrieve-wado-rs). For more information about the DICOM service, see [Overview of the DICOM service](./../healthcare-apis/dicom/dicom-services-overview.md) and [Get started with the DICOM service](./../healthcare-apis/dicom/get-started-with-dicom.md).
+DICOM service is a managed service within Azure Health Data Services that ingests and persists DICOM objects at multiple thousands of images per second. It facilitates communication and transmission of imaging data with any DICOMweb™ enabled systems or applications via DICOMweb Standard APIs like [Store (STOW-RS)](./../healthcare-apis/dicom/dicom-services-conformance-statement.md#store-stow-rs), [Search (QIDO-RS)](./../healthcare-apis/dicom/dicom-services-conformance-statement.md#search-qido-rs), [Retrieve (WADO-RS)](./../healthcare-apis/dicom/dicom-services-conformance-statement.md#retrieve-wado-rs). 
+
+DICOM service is secured by Azure AD that can't be disabled. To access the service API, you must create a client application that's also referred to as a service principal in Azure AD and grant it with the right permissions. For more information about registering a client application, granting access permissions, assigning roles, and obtaining an access token for the DICOM service, see [Get started with the DICOM service](./../healthcare-apis/dicom/get-started-with-dicom.md).
 
 ## MedTech service
 
 MedTech service is an optional service of the Azure Health Data Services designed to ingest health data from multiple and disparate Internet of Medical Things (IoMT) devices and persisting the health data in a FHIR service.
 
-MedTech service transforms device data into FHIR-based observation resources and then persists the transformed messages into Azure Health Data Services FHIR service. This allows for a unified approach to health data access, standardization, and trend capture enabling the discovery of operational and clinical insights, connecting new device applications, and enabling new research projects. For more information about the MedTech service, see [What is the MedTech service?](./../healthcare-apis/iot/iot-connector-overview.md) and [Get started with the MedTech service](./../healthcare-apis/iot/get-started-with-iot.md).
+MedTech service transforms device data into FHIR-based observation resources and then persists the transformed messages into Azure Health Data Services FHIR service. This allows for a unified approach to health data access, standardization, and trend capture enabling the discovery of operational and clinical insights, connecting new device applications, and enabling new research projects. 
+
+MedTech service works with the Azure Event Hub and the FHIR service. You can create a new FHIR service or use an existing one in the same or different workspace. Similarly, you can create a new Event Hub or use an existing one. You assign roles to allow the MedTech service to access Event Hub and FHIR service. Additionally, you can send data to the Event Hub, which is associated with the MedTech service. For more information about assigning roles to allow the MedTech service to access Event Hub and the FHIR service, see [Get started with the MedTech service](./../healthcare-apis/iot/get-started-with-iot.md).
 
 ## Authentication and authorization
 
