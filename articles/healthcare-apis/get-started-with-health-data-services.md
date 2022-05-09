@@ -48,7 +48,7 @@ After you've created a workspace, you can deploy a FHIR service, DICOM service, 
 
 FHIR service in Azure Health Data Services enables rapid exchange of data through FHIR APIs that's backed by a managed Platform-as-a Service (PaaS) offering in the cloud. It makes it easier for anyone working with health data to ingest, manage, and persist Protected Health Information (PHI) in the cloud.  
 
-FHIR service is secured by Azure Active Directory (Azure AD) that can't be disabled. To access the service API, you must create a client application that's also referred to as a service principal in Azure AD and grant it with the right permissions. For more information about registering a client application, granting access permissions, and assigning roles to the FHIR service, see [Get started with FHIR service](./../healthcare-apis/fhir/get-started-with-fhir.md).
+FHIR service is secured by Azure Active Directory (Azure AD) that can't be disabled. To access the service API, you must create a client application that's also referred to as a service principal in Azure AD and grant it with the right permissions. For more information about registering a client application, granting access permissions, and assigning roles to the FHIR service, see [Get started with the FHIR service](./../healthcare-apis/fhir/get-started-with-fhir.md).
 
 ## DICOM service
 
