@@ -3,7 +3,7 @@ title: Service Connector internals
 description: Learn about Service Connector internals, the architecture, the connections and how data is transmitted.
 author: shizn
 ms.author: xshi
-ms.service: serviceconnector
+ms.service: service-connector
 ms.topic: conceptual
 ms.date: 10/29/2021
 ms.custom: ignite-fall-2021

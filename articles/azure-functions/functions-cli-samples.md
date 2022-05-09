@@ -31,4 +31,3 @@ The following table includes links to bash scripts for Azure Functions that use 
 | Continuous deployment | Description|
 |---|---|
 | [Deploy from GitHub](scripts/functions-cli-create-function-app-github-continuous.md) | Create a function app that deploys from a GitHub repository.  |
-| [Deploy from Azure DevOps](scripts/functions-cli-create-function-app-vsts-continuous.md) | Create a function app that deploys from an Azure DevOps repository.  |

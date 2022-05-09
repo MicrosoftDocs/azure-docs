@@ -23,6 +23,7 @@ Microsoft works with each vendor to:
 - Establish a joint support process with the SBC vendors.
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+[!INCLUDE [Dynamics 365 Omnichannel Notice](../includes/direct-routing-omnichannel-note.md)]
 
 Media bypass is not yet supported by Azure Communication Services. 
 Early media is not supported by a web-based client.
@@ -53,4 +54,4 @@ Note the certification granted to a major version. That means that firmware with
 
 ### Quickstarts
 
-- [Call to Phone](../../quickstarts/voice-video-calling/pstn-call.md)
+- [Call to Phone](../../quickstarts/telephony/pstn-call.md)

@@ -3,13 +3,11 @@ metadata:
   title: Microsoft Defender for Cloud FAQ - data collection and agents
   description: Frequently asked questions about data collection, agents, and workspaces for Microsoft Defender for Cloud, a product that helps you prevent, detect, and respond to threats
   services: defender-for-cloud
-  author: memildin
-  ms.author: memildin
+  author: elkrieger
+  ms.author: elkrieger
   manager: raynew
-  ms.topic: conceptual
-  ms.date: 11/21/2021
-    
-    
+  ms.topic: faq
+  ms.date: 01/02/2022
 title: 'FAQ - Questions about data collection, agents, and workspaces'
 summary: |
   Defender for Cloud collects data from your Azure virtual machines (VMs), Virtual machine scale sets, IaaS containers, and non-Azure computers (including on-premises machines) to monitor for security vulnerabilities and threats. Data is collected using the Log Analytics agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis.
@@ -28,7 +26,7 @@ sections:
           
           - **All Microsoft Defender for Cloud plans enabled** – Defender for Cloud enables the "Security" solution on the default workspace.
           
-          For pricing details in your local currency or region, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+          For pricing details in your local currency or region, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
           
           > [!NOTE]
           > The log analytics pricing tier of workspaces created by Defender for Cloud does not affect Defender for Cloud billing.
@@ -127,10 +125,13 @@ sections:
               > The list only includes workspaces to which you have access and which are in your Azure subscription.
           
           1. Select **Save**. You will be asked if you would like to reconfigure monitored VMs.
-          
+
+              > [!IMPORTANT]
+              > This choice is only relevant if you're changing the configuration from the default workspace to a custom workspace. If you're changing the setting from one custom workspace to another, or from a custom workspace to the default workspace, the change won't be applied to existing machines.
+
               - Select **No** if you want the new workspace settings to **apply on new VMs only**. The new workspace settings only apply to new agent installations; newly discovered VMs that do not have the Log Analytics agent installed.
               - Select **Yes** if you want the new workspace settings to **apply on all VMs**. In addition, every VM connected to a Defender for Cloud created workspace is reconnected to the new target workspace.
-          
+
               > [!NOTE]
               > If you select **Yes**, don't delete any workspaces created by Defender for Cloud until all VMs have been reconnected to the new target workspace. This operation fails if a workspace is deleted too early.
           

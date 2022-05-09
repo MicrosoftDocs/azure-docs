@@ -34,7 +34,7 @@ The list of supported VM sizes in AKS is evolving with the release of new VM SKU
 
 VM sizes with less than 2 CPUs may not be used with AKS.
 
-Each node in an AKS cluster contains a fixed amount of compute resources such as vCPU and memory. If an AKS node contains insufficient compute resources, pods might fail to run correctly. To ensure the required *kube-system* pods and your applications can be reliably scheduled, AKS requires nodes use VM sizes with > 2 CPUs.
+Each node in an AKS cluster contains a fixed amount of compute resources such as vCPU and memory. If an AKS node contains insufficient compute resources, pods might fail to run correctly. To ensure the required *kube-system* pods and your applications can be reliably scheduled, AKS requires nodes use VM sizes with at least 2 CPUs.
 
 For more information on VM types and their compute resources, see [Sizes for virtual machines in Azure][vm-skus].
 
@@ -59,7 +59,7 @@ When you create a cluster using the Azure portal, you can choose a preset config
 You can increase certain default limits and quotas. If your resource supports an increase, request the increase through an [Azure support request][azure-support] (for **Issue type**, select **Quota**).
 
 <!-- LINKS - External -->
-[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
+[azure-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
 [region-availability]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 
 <!-- LINKS - Internal -->

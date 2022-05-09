@@ -1,9 +1,11 @@
 ---
 title: List of built-in policy initiatives
 description: List built-in policy initiatives for Azure Policy. Categories include Regulatory Compliance, Guest Configuration, and more.
-ms.date: 12/15/2021
+ms.date: 04/19/2022
 ms.topic: sample
 ms.custom: generated
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Azure Policy built-in initiative definitions
 

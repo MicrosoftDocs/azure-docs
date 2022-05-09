@@ -40,7 +40,7 @@ In this phase, administrators enable baseline security features to create a more
 
 | Task | Detail | Required license |
 | ---- | ------ | ---------------- |
-| [Create more than one global administrator](../roles/security-emergency-access.md) | Assign at least two cloud-only permanent global administrator accounts for use in an emergency. These accounts aren't be used daily and should have long and complex passwords. | Azure AD Free |
+| [Create more than one global administrator](../roles/security-emergency-access.md) | Assign at least two cloud-only permanent global administrator accounts for use in an emergency. These accounts aren't to be used daily and should have long and complex passwords. | Azure AD Free |
 | [Use non-global administrative roles where possible](../roles/permissions-reference.md) | Give your administrators only the access they need to only the areas they need access to. Not all administrators need to be global administrators. | Azure AD Free |
 | [Enable Privileged Identity Management for tracking admin role use](../privileged-identity-management/pim-getting-started.md) | Enable Privileged Identity Management to start tracking administrative role usage. | Azure AD Premium P2 |
 | [Roll out self-service password reset](../authentication/howto-sspr-deployment.md) | Reduce helpdesk calls for password resets by allowing staff to reset their own passwords using policies you as an administrator control. | Azure AD Premium P1 |

@@ -29,7 +29,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
 * A [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true
 ), version 8 or later
-* A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!TIP]
 > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
@@ -92,7 +92,7 @@ You will create the following directory structure:
 
 :::image type="content" source="../../media/quickstarts/java-directories.png" alt-text="Screenshot: Java directory structure":::
 
-Navigate to the java directory and create a file called *FormRecognizer.java*.  Open it in your preferred editor or IDE and add the following package declaration and  `import` statements:
+Navigate to the Java directory and create a file called *FormRecognizer.java*.  Open it in your preferred editor or IDE and add the following package declaration and `import` statements:
 
 ```java
 import com.azure.ai.formrecognizer.*;
@@ -133,7 +133,7 @@ Update your application's **FormRecognizer** class, with the following code (be 
 
 ```java
 
-static final String key = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
+static final String key = "PASTE_YOUR_FORM_RECOGNIZER_KEY_HERE";
 static final String endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
 
 public static void main(String[] args) {FormRecognizerClient recognizerClient = new FormRecognizerClientBuilder()
@@ -194,7 +194,7 @@ Update your application's **FormRecognizer** class, with the following code (be 
 
 ```java
 
-static final String key = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
+static final String key = "PASTE_YOUR_FORM_RECOGNIZER_KEY_HERE";
 static final String endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
 
 public static void main(String[] args) {

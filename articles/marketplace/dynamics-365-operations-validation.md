@@ -37,8 +37,6 @@ To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:app
 
 ### Option 2: Upload a demo video and LCS screenshots
 
-#### [Workspaces view](#tab/workspaces-view)
-
 1. Record a video and upload the address to the hosting site of your choice. Follow these guidelines:
 
     - Viewable by the Microsoft certification team.
@@ -73,45 +71,6 @@ To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:app
     2. Add the text and images to a .zip file in [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290) on the offer's **Supplemental content** tab.
 
     [ ![Illustrates a zip file uploaded to the Supplemental content page.](./media//dynamics-365-operations/supplemental-content-workspaces.png) ](./media//dynamics-365-operations/supplemental-content-workspaces.png#lightbox)
-
-#### [Current view](#tab/current-view)
-
-1. Record a video and upload the address to the hosting site of your choice. Follow these guidelines:
-
-    - Viewable by the Microsoft certification team.
-    - Less than 20 minutes long.
-    - Includes up to three core functionality highlights of your solution in the Dynamics 365 environment.
-
-    > [!NOTE]
-    > It is acceptable to use an existing marketing video if it meets the guidelines.
-
-2. Take the following screenshots of the [LCS](https://lcs.dynamics.com/) environment that match the offer or solution you want to publish. They must be clear enough for the certification team to read the text. Save the screenshots as JPG files.
-
-    1. Go to **LCS** > **Business Process Modeler** > **Project library**. Take screenshots of all the Process steps. Include the **Diagrams** and **Reviewed** columns, as shown here:
-
-       :::image type="content" source="media/dynamics-365-operations/project-library.png" alt-text="Shows the project library window.":::
-
-      2. Go to **LCS** > **Solution Management** > **Test Solution Package**. Take screenshots that include the package overview and contents shown in these examples:
-
-    | Field | Image |
-    | --- | --- |
-    | Package overview | [![Screenshot that shows the "Package overview" window.](media/dynamics-365-operations/package-overview-45.png)](media/dynamics-365-operations/package-overview.png#lightbox) |
-    | <ul><li>Solution approvers</li></ul> | [![Package overview screen](media/dynamics-365-operations/solution-approvers-45.png)](media/dynamics-365-operations/solution-approvers.png#lightbox) |
-    | Package contents<ul><li>Model</li><li>Software deployable package</li></ul> | [![Package contents screen one](media/dynamics-365-operations/package-contents-1-45.png)](media/dynamics-365-operations/package-contents-1.png#lightbox) |
-    | <ul><li>GER configuration</li><li>Database backup</li></ul><br>Artifacts are not required in the **GER configuration** section. | [![Package contents screen two](media/dynamics-365-operations/package-contents-2-45.png)](media/dynamics-365-operations/package-contents-2.png#lightbox) |
-    | <ul><li>Power BI report model</li><li>BPM artifact</li></ul><br>Artifacts are not required in the **Power BI** section. | [![Package contents screen three](media/dynamics-365-operations/package-contents-3-45.png)](media/dynamics-365-operations/package-contents-3.png#lightbox) |
-    | <ul><li>Process data package</li><li>Solution license agreement and privacy policy</li></ul><br>The **GER configuration** and **Power BI report model** sections are optional to include for operations offers. | [![Package contents screen four](media/dynamics-365-operations/package-contents-4-45.png)](media/dynamics-365-operations/package-contents-4.png#lightbox) |
-
-    To learn more about each section of the LCS portal, see the [LCS User Guide](/dynamics365/fin-ops-core/dev-itpro/lifecycle-services/lcs-user-guide).
-
-3. Upload to Partner Center.
-
-    1. Create a text document that includes the demo video address and screenshots, or save the screenshots as separate JPG files.
-    2. Add the text and images to a .zip file in [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290) on the offer's **Supplemental content** tab.
-
-    [![Shows the project library window](media/dynamics-365-operations/supplemental-content.png)](media/dynamics-365-operations/supplemental-content.png#lightbox)
-
----
 
 ## Next steps
 

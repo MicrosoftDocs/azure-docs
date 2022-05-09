@@ -3,12 +3,11 @@ title: Review your access to resources in access reviews - Azure AD
 description: Learn how to review your own access to resources in Azure Active Directory access reviews.
 services: active-directory
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 08/27/2021

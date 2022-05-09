@@ -21,14 +21,16 @@ To contact a satellite, it must be registered as a spacecraft resource with the 
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal](https://portal.azure.com).
+Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 
 ## Create spacecraft resource
 
-1. Select **Create a resource** in the upper left-hand corner of the portal.
-2. In the search box, enter **Spacecrafts*. Select **Spacecrafts** in the search results. 
-3. In the **Spacecrafts** page, select Create.
-4. In **Create spacecraft resource**, enter or select this information in the Basics tab:
+> [!NOTE]
+> These steps must be followed as is or you won't be able to find the resources. Please use the specific link above to sign in directly to the Azure Orbital Preview page.
+
+1. In the Azure portal search box, enter **Spacecrafts*. Select **Spacecrafts** in the search results.
+2. In the **Spacecrafts** page, select Create.
+3. In **Create spacecraft resource**, enter or select this information in the Basics tab:
 
    | **Field** | **Value** |
    | --- | --- |
@@ -40,23 +42,26 @@ Sign in to the [Azure portal](https://portal.azure.com).
    | TLE title line | Enter TLE title line |
    | TLE line 1 | Enter TLE line 1 |
    | TLE line 2 | Enter TLE line 2 |
+   
+   > [!NOTE]
+   > TLE stands for Two-Line Element.
 
    :::image type="content" source="media/orbital-eos-register-bird.png" alt-text="Register Spacecraft Resource Page" lightbox="media/orbital-eos-register-bird.png":::
 
-5. Select the **Links** tab, or select the **Next: Links** button at the bottom of the page.
-6. In the **Links** page, enter or select this information:
+4. Select the **Links** tab, or select the **Next: Links** button at the bottom of the page.
+5. In the **Links** page, enter or select this information:
 
    | **Field** | **Value** |
    | --- | --- |
    | Direction | Select Uplink or Downlink |
    | Center Frequency | Enter the center frequency in Mhz |
    | Bandwidth | Enter the bandwidth in Mhz |
-   | Polarization | Select RHCP, LHCP, Dual, or Linear Vertical |
+   | Polarization | Select RHCP, LHCP, or Linear Vertical |
 
    :::image type="content" source="media/orbital-eos-register-links.png" alt-text="Spacecraft Links Resource Page" lightbox="media/orbital-eos-register-links.png":::
 
-7. Select the **Review + create** tab, or select the **Review + create** button.
-8. Select **Create**
+6. Select the **Review + create** tab, or select the **Review + create** button.
+7. Select **Create**
 
 ## Authorize the new spacecraft resource
 
@@ -64,8 +69,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
 2. Provide the following information:
 
    - Spacecraft name
-   - Contact info: name and email*
-   - Azure Subscription ID*
+   - Region where spacecraft resource was created
+   - Company name and email
+   - Azure Subscription ID
 
 3. Submit the form
 4. Await a 'Spacecraft resource authorized' email from Azure Orbital
@@ -79,4 +85,4 @@ Sign in to the [Azure portal](https://portal.azure.com).
 ## Next steps
 
 - [Quickstart: Configure a contact profile](contact-profile.md)
-- [How-to: Schedule a contact](schedule-contact.md)
+- [Quickstart: Schedule a contact](schedule-contact.md)

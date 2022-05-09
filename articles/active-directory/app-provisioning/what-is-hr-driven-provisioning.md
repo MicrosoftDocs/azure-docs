@@ -3,7 +3,7 @@ title: 'What is HR driven provisioning with Azure Active Directory? | Microsoft 
 description: Describes overview of HR driven provisioning.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview

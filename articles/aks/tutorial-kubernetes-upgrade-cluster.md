@@ -185,6 +185,31 @@ Tags                    : {}
 
 ---
 
+## View the upgrade events
+
+When you upgrade your cluster, the following Kubenetes events may occur on each node:
+
+* Surge – Create surge node.
+* Drain – Pods are being evicted from the node. Each pod has a 5 minute timeout to complete the eviction.
+* Update – Update of a node has succeeded or failed.
+* Delete – Deleted a surge node.
+
+Use `kubectl get events` to show events in the default namespaces while running an upgrade. For example:
+
+```azurecli-interactive
+kubectl get events 
+```
+
+The following example output shows some of the above events listed during an upgrade. 
+
+```output
+...
+default 2m1s Normal Drain node/aks-nodepool1-96663640-vmss000001 Draining node: [aks-nodepool1-96663640-vmss000001]
+...
+default 9m22s Normal Surge node/aks-nodepool1-96663640-vmss000002 Created a surge node [aks-nodepool1-96663640-vmss000002 nodepool1] for agentpool %!s(MISSING)
+...
+```
+
 ## Validate an upgrade
 
 ### [Azure CLI](#tab/azure-cli)

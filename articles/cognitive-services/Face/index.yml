@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
 title: Face documentation # < 60 characters 
-summary: On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or features included in Azure Services, such as Face or Azure Video Analyzer for Media, if a customer is, or is allowing use of such services by or for, a police department in the United States.
+summary: "The Azure Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many different scenarios, such as identity verification, touchless access control, and face blurring for privacy. \n\nOn June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or features included in Azure Services, such as Face or Azure Video Analyzer for Media, if a customer is, or is allowing use of such services by or for, a police department in the United States."
 metadata:
   title: Face documentation - Quickstarts, tutorials, API reference - Azure Cognitive Services | Microsoft Docs
-  description: The cloud-based Face service provides developers with access to advanced face algorithms. Microsoft Face algorithms enable face attribute detection and face recognition. Learn how to analyze content in different ways with quickstarts, tutorials, and samples.
+  description: The cloud-based Azure Face service provides developers with access to advanced face algorithms. Face algorithms enable face attribute detection and face recognition for comparison and identification. Learn how to analyze content in different ways with quickstarts, tutorials, and samples.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: face-api
@@ -52,7 +52,7 @@ landingContent:
           - text: Specify a face recognition model version
             url: Face-API-How-to-Topics/specify-recognition-model.md
 
-  - title: Detection and analysis
+  - title: Face detection and analysis
     linkLists:
       - linkListType: concept
         links:
@@ -91,9 +91,7 @@ landingContent:
           - text: Java SDK
             url: /java/api/overview/azure/cognitiveservices/client/faceapi
           - text: Node.js SDK
-            url: /javascript/api/overview/azure/cognitive-services/face-readme
-          - text: Go SDK
-            url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
+            url: /javascript/api/overview/azure/cognitiveservices/face
           - text: Azure PowerShell
             url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)

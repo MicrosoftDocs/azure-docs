@@ -23,32 +23,31 @@ Configure a contact profile with Azure Orbital to save and reuse contact configu
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal](https://portal.azure.com).
+Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 
 ## Create a contact profile resource
 
-1. Select **Create a resource** in the upper left-hand corner of the portal.
-2. In the search box, enter **Contact profile**. Select **Contact profile** in the search results. 
-3. In the **Contact profile** page, select **Create**.
-4. In **Create contact profile resource**, enter or select this information in the **Basics** tab:
+1. In the Azure portal search box, enter **Contact profile**. Select **Contact profile** in the search results. 
+2. In the **Contact profile** page, select **Create**.
+3. In **Create contact profile resource**, enter or select this information in the **Basics** tab:
 
    | **Field** | **Value** |
    | --- | --- |
    | Subscription | Select your subscription |
    | Resource group | Select your resource group |
-   | Name | Enter contact profile name. Specify the antenna provider and mission information here. *i.e. Microsoft_Aqua_Uplink+Downlink_1* |
+   | Name | Enter contact profile name. Specify the antenna provider and mission information here. Like *Microsoft_Aqua_Uplink+Downlink_1* |
    | Region | Select **West US 2** |
-   | Minimum viable contact duration | Define the minimum duration of the contact as a prerequisite to show you available time slots to communicate with your spacecraft. If an available time window is less than this time, it won't show in the list of available options. Provide minimum contact duration in ISO 8601 format. *i.e. PT1M* |
+   | Minimum viable contact duration | Define the minimum duration of the contact as a prerequisite to show you available time slots to communicate with your spacecraft. If an available time window is less than this time, it won't show in the list of available options. Provide minimum contact duration in ISO 8601 format. Like *PT1M* |
    | Minimum elevation | Define minimum elevation of the contact, after acquisition of signal (AOS), as a prerequisite to show you available time slots to communicate with your spacecraft. Using higher value can reduce the duration of the contact. Provide minimum viable elevation in decimal degrees. |
    | Auto track configuration | Select the frequency band to be used for autotracking during the contact. X band, S band, or Disabled. |
-   | Event Hubs Namespace | Select an Event Hubs Namespace to which you will send telemetry data of your contacts. Select a Subscription before you can select an Event Hubs Namespace. |
+   | Event Hubs Namespace | Select an Event Hubs Namespace to which you'll send telemetry data of your contacts. Select a Subscription before you can select an Event Hubs Namespace. |
    | Event Hubs Instance | Select an Event Hubs Instance that belongs to the previously selected Namespace. *This field will only appear if an Event Hubs Namespace is selected first*. |
 
    :::image type="content" source="media/orbital-eos-contact-profile.png" alt-text="Contact Profile Resource Page" lightbox="media/orbital-eos-contact-profile.png":::
 
-5. Select the **Links** tab, or select the **Next: Links** button at the bottom of the page.
-6. In the **Links** page, select **Add new Link**
-7. In the **Add Link** page, enter, or select this information per link direction:
+4. Select the **Links** tab, or select the **Next: Links** button at the bottom of the page.
+5. In the **Links** page, select **Add new Link**
+6. In the **Add Link** page, enter, or select this information per link direction:
 
    | **Field** | **Value** |
    | --- | --- |
@@ -64,11 +63,11 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
    :::image type="content" source="media/orbital-eos-contact-link.png" alt-text="Contact Profile Links Page" lightbox="media/orbital-eos-contact-link.png":::
 
-8. Select the **Submit** button
-9. Select the **Review + create** tab or select the **Review + create** button
-10. Select the **Create** button
+7. Select the **Submit** button
+8. Select the **Review + create** tab or select the **Review + create** button
+9. Select the **Create** button
 
 ## Next steps
 
 - [Quickstart: Schedule a contact](schedule-contact.md)
-- [How-to: Cancel a contact](delete-contact.md)
+- [Tutorial: Cancel a contact](delete-contact.md)

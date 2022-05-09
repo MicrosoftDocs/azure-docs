@@ -5,9 +5,10 @@ services: cognitive-services
 author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/28/2021
 ms.author: marhamil
+ms.devlang: python
 ms.custom: mode-other
 ---
 
@@ -78,7 +79,7 @@ If you're using containerized Cognitive Services, one popular option for deployi
 
 To get started on Azure Kubernetes Service, follow these steps:
 
-1. [Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](../../aks/kubernetes-walkthrough-portal.md)
+1. [Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](../../aks/learn/quick-kubernetes-deploy-portal.md)
 1. [Install the Apache Spark 2.4.0 helm chart](https://hub.helm.sh/charts/microsoft/spark)
 1. [Install a cognitive service container using Helm](../computer-vision/deploy-computer-vision-on-premises.md)
 

@@ -3,7 +3,7 @@ title: 'What is identity lifecycle management with Azure Active Directory? | Mic
 description: Describes overview of identity lifecycle management.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview

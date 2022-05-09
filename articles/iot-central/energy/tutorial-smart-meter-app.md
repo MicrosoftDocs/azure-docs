@@ -1,30 +1,40 @@
 ---
 title: Tutorial - Azure IoT smart meter monitoring | Microsoft Docs
 description: This tutorial shows you how to deploy and use the smart meter monitoring application template for IoT Central.
-author: op-ravi
-ms.author: omravi
-ms.date: 08/02/2021
+author: eross-msft
+ms.author: lizross
+ms.date: 12/23/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
 ---
 
-# Tutorial: Deploy and walk through the smart meter monitoring app template 
+# Tutorial: Deploy and walk through the smart meter monitoring application template
 
-Use the IoT Central *smart meter monitoring* application template and the guidance in this article to develop an end-to-end smart meter monitoring solution.
+The smart meters not only enable automated billing, but also advanced metering use cases such as real-time readings and bi-directional communication. The _smart meter monitoring_ application template enables utilities and partners to monitor smart meters status and data, define alarms and notifications. It provides sample commands, such as disconnect meter and update software. The meter data can be set up to egress to other business applications and to develop custom solutions.
 
-  :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-app-architecture.png" alt-text="smart meter architecture.":::
+App's key functionalities:
+
+- Meter sample device model
+- Meter info and live status
+- Meter readings such as energy, power, and voltages
+- Meter command samples
+- Built-in visualization and dashboards
+- Extensibility for custom solution development
+
+
+:::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-app-architecture.png" alt-text="smart meter architecture.":::
 
 This architecture consists of the following components. Some solutions may not require every component listed here.
 
 ### Smart meters and connectivity
 
-A smart meter is one of the most important devices among all the energy assets. It records and communicates energy consumption data to utilities for monitoring and other use cases, such as billing and demand response. Based on the meter type, it can connect to IoT Central either using gateways or other intermediate devices or systems, such edge devices and head-end systems. Build IoT Central device bridge to connect devices, which can't be connected directly. The IoT Central device bridge is an open-source solution and you can find the complete details [here](../core/howto-build-iotc-device-bridge.md). 
+A smart meter is one of the most important devices among all the energy assets. It records and communicates energy consumption data to utilities for monitoring and other use cases, such as billing and demand response. Typically, a meter uses a gateway or bridge to connect to an IoT Central application. To learn more about bridges, see [Use the IoT Central device bridge to connect other IoT clouds to IoT Central](../core/howto-build-iotc-device-bridge.md).
 
 ### IoT Central platform
 
-Azure IoT Central is a platform that simplifies building your IoT solution and helps reduce the burden and costs of IoT management, operations, and development. With IoT Central, you can easily connect, monitor, and manage your Internet of Things (IoT) assets at scale. After you connect your smart meters to IoT Central, the app template uses built-in features such as device models, commands, and dashboards. The app template also uses the IoT Central storage for warm path scenarios such as near real-time meter data monitoring, analytics, rules, and visualization. 
+When you build an IoT solution, Azure IoT Central simplifies the build process and helps to reduce the burden and costs of IoT management, operations, and development. With IoT Central, you can easily connect, monitor, and manage your Internet of Things (IoT) assets at scale. After you connect your smart meters to IoT Central, the application template uses built-in features such as device models, commands, and dashboards. The application template also uses the IoT Central storage for warm path scenarios such as near real-time meter data monitoring, analytics, rules, and visualization.
 
 ### Extensibility options to build with IoT Central
 
@@ -57,15 +67,16 @@ The following sections walk you through the key features of the application:
 
 ### Dashboard
 
-After you deploy the application template, it comes with sample smart meter device, device model, and a dashboard. 
+After you deploy the application template, it comes with sample smart meter device, device model, and a dashboard.
 
-Adatum is a fictitious energy company, who monitors and manages smart meters. On the smart meter monitoring dashboard, you see smart meter properties, data, and sample commands. It enables operators and support teams to proactively perform the following activities before it turns into support incidents: 
-* Review the latest meter info and its installed [location](../core/howto-use-location-data.md) on the map
-* Proactively check the meter network and connection status 
-* Monitor Min and Max voltage readings for network health 
-* Review the energy, power, and voltage trends to catch any anomalous patterns 
-* Track the total energy consumption for planning and billing purposes
-* Command and control operations such as reconnect meter and update firmware version. In the template, the command buttons show the possible functionalities and don't send real commands. 
+Adatum is a fictitious energy company, who monitors and manages smart meters. On the smart meter monitoring dashboard, you see smart meter properties, data, and sample commands. It enables operators and support teams to proactively perform the following activities before it turns into support incidents:
+
+* Review the latest meter info and its installed [location](../core/howto-use-location-data.md) on the map.
+* Proactively check the meter network and connection status.
+* Monitor Min and Max voltage readings for network health.
+* Review the energy, power, and voltage trends to catch any anomalous patterns.
+* Track the total energy consumption for planning and billing purposes.
+* Command and control operations such as reconnect meter and update firmware version. In the template, the command buttons show the possible functionalities and don't send real commands.
 
 :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png" alt-text="Smart meter monitoring dashboard.":::
 
@@ -89,12 +100,11 @@ Click on the **Device templates** tab to see the smart meter device model. The m
 
 If you decide to not continue using this application, delete your application with the following these steps:
 
-1. From the left pane, open Administration tab
-1. Select Application settings and click Delete button at the bottom of the page. 
+1. From the left pane, open the **Application** tab.
+1. Select **Management** and then the **Delete** button.
 
     :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png" alt-text="Delete application.":::
 
 ## Next steps
 
 > [Tutorial: Deploy and walk through a Solar panel application template](tutorial-solar-panel-app.md)
-

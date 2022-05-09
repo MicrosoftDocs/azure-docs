@@ -5,7 +5,7 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 10/18/2021
 ms.custom: devx-track-js
@@ -455,7 +455,7 @@ Now that you have built the application, you can run it locally by using the fol
 
 ## <a name="deploy-app"></a>Deploy your application to App Service
 
-After your application succeeds locally, you can deploy it to Azure App Service. In the terminal, make sure you're in the *todo* app directory. Deploy the code in your local folder (todo) using the following [az webapp up](/cli/azure/webapp?view=azure-cli-latest#az_webapp_up&preserve-view=true) command:
+After your application succeeds locally, you can deploy it to Azure App Service. In the terminal, make sure you're in the *todo* app directory. Deploy the code in your local folder (todo) using the following [az webapp up](/cli/azure/webapp#az-webapp-up) command:
 
 ```azurecli
 az webapp up --sku F1 --name <app-name>

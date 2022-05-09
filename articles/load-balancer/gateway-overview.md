@@ -5,7 +5,7 @@ description: Overview of gateway load balancer SKU for Azure Load Balancer.
 ms.service: load-balancer
 author: asudbring
 ms.author: allensu
-ms.date: 11/02/2021
+ms.date: 12/28/2021
 ms.topic: conceptual
 ms.custom: ignite-fall-2021
 ---
@@ -20,7 +20,7 @@ You can insert appliances transparently for different kinds of scenarios such as
 * Advanced packet analytics
 * Intrusion detection and prevention systems
 * Traffic mirroring
-* inline DDoS
+* DDoS protection
 * Custom appliances
 
 With Gateway Load Balancer, you can easily add or remove advanced network functionality without additional management overhead. It provides the bump-in-the-wire technology you need to ensure all traffic to a public endpoint is first sent to the appliance before your application. In scenarios with NVAs, it's especially important that flows are symmetrical. Gateway Load Balancer maintains flow stickiness to a specific instance in the backend pool along with flow symmetry. As a result, a consistent route to your network virtual appliance is ensured – without additional manual configuration. As a result, packets traverse the same network path in both directions and appliances that need this key capability are able to function seamlessly.
@@ -46,7 +46,7 @@ Gateway Load Balancer has the following benefits:
 
 * Chain applications across regions and subscriptions
 
-A Standard Public Load balancer or the IP configuration of a virtual machine can be chained to a Gateway Load Balancer. Once chained to a Standard Public Load Balancer frontend or IP configuration on a virtual machine, no additional configuration is needed to ensure traffic to and from the application endpoint is sent to the Gateway Load Balancer.
+A Standard Public Load balancer or a Standard IP configuration of a virtual machine can be chained to a Gateway Load Balancer. Once chained to a Standard Public Load Balancer frontend or Standard IP configuration on a virtual machine, no additional configuration is needed to ensure traffic to and from the application endpoint is sent to the Gateway Load Balancer.
 
 Traffic moves from the consumer virtual network to the provider virtual network. The traffic then returns to the consumer virtual network. The consumer virtual network and provider virtual network can be in different subscriptions, tenants, or regions removing management overhead.
 
@@ -70,19 +70,17 @@ Gateway Load Balancer consists of the following components:
 
 * **Tunnel interfaces** - Gateway Load balancer backend pools have another component called the tunnel interfaces. The tunnel interface enables the appliances in the backend to ensure network flows are handled as expected. Each backend pool can have up to 2 tunnel interfaces. Tunnel interfaces can be either internal or external. For traffic coming to your backend pool, you should use the external type. For traffic going from your appliance to the application, you should use the internal type.
 
-* **Chain** - A Gateway Load Balancer can be referenced by a Standard Public Load Balancer frontend or a Public IP configuration on a virtual machine. The addition of advanced networking capabilities in a specific sequence is known as service chaining. As a result, this reference is called a chain.
+* **Chain** - A Gateway Load Balancer can be referenced by a Standard Public Load Balancer frontend or a Standard Public IP configuration on a virtual machine. The addition of advanced networking capabilities in a specific sequence is known as service chaining. As a result, this reference is called a chain.
 
 ## Pricing
 
-There's no charge for Gateway Load Balancer during preview. 
-
-For pricing that will be effective during the general availability release, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/).
+For pricing see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 ## Limitations
 
 * Gateway Load Balancer doesn't work with the Global Load Balancer tier.
-* Gateway Load Balancer portal support is currently unavailable in China cloud and Government cloud regions. CLI, PowerShell, Templates or alternatives can be used.
 * Cross-tenant chaining is not supported through the Azure portal.
+* Gateway Load Balancer does not currently support IPv6
 
 ## Next steps
 

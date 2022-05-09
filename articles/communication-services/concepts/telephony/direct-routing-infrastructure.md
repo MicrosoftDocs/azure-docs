@@ -1,5 +1,5 @@
 ---
-title: Azure direct routing infrastructure requirements - Azure Communication Services
+title: Azure direct routing infrastructure requirements — Azure Communication Services
 description: Familiarize yourself with the infrastructure requirements for Azure Communication Services direct routing configuration
 author: boris-bazilevskiy
 manager: nmurav
@@ -15,9 +15,9 @@ ms.subservice: pstn
 # Azure direct routing infrastructure requirements 
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
-
+[!INCLUDE [Dynamics 365 Omnichannel Notice](../includes/direct-routing-omnichannel-note.md)]
  
-This article describes infrastructure, licensing, and Session Border Controller (SBC) connectivity details that you'll want to keep in mind as your plan your Azure direct routing deployment.
+This article describes infrastructure, licensing, and Session Border Controller (SBC) connectivity details that you want to keep in mind as your plan your Azure direct routing deployment.
 
 
 ## Infrastructure requirements
@@ -26,95 +26,62 @@ The infrastructure requirements for the supported SBCs, domains, and other netwo
 |Infrastructure requirement|You need the following|
 |:--- |:--- |
 |Session Border Controller (SBC)|A supported SBC. For more information, see [Supported SBCs](#supported-session-border-controllers-sbcs).|
-|Telephony trunks connected to the SBC|One or more telephony trunks connected to the SBC. On one end, the SBC connects to the Azure Communication Service via direct routing. The SBC can also connect to third-party telephony entities, such as PBXs, Analog Telephony Adapters, and so on. Any PSTN connectivity option connected to the SBC will work. (For configuration of the PSTN trunks to the SBC, refer to the SBC vendors or trunk providers.)|
+|Telephony trunks connected to the SBC|One or more telephony trunks connected to the SBC. On one end, the SBC connects to the Azure Communication Service via direct routing. The SBC can also connect to third-party telephony entities, such as PBXs, Analog Telephony Adapters. Any Public Switched Telephony Network (PSTN) connectivity option connected to the SBC works. (For configuration of the PSTN trunks to the SBC, refer to the SBC vendors or trunk providers.)|
 |Azure subscription|An Azure subscription that you use to create Communication Services resource, and the configuration and connection to the SBC.|
 |Communication Services Access Token|To make calls, you need a valid Access Token with `voip` scope. See [Access Tokens](../identity-model.md#access-tokens)|
 |Public IP address for the SBC|A public IP address that can be used to connect to the SBC. Based on the type of SBC, the SBC can use NAT.|
-|Fully Qualified Domain Name (FQDN) for the SBC|An FQDN for the SBC, where the domain portion of the FQDN does not match registered domains in your Microsoft 365 or Office 365 organization. For more information, see [SBC domain names](#sbc-domain-names).|
-|Public DNS entry for the SBC |A public DNS entry mapping the SBC FQDN to the public IP Address. |
-|Public trusted certificate for the SBC |A certificate for the SBC to be used for all communication with Azure direct routing. For more information, see [Public trusted certificate for the SBC](#public-trusted-certificate-for-the-sbc).|
+|Fully Qualified Domain Name (FQDN) for the SBC|For more information, see [SBC certificates and domain names](#sbc-certificates-and-domain-names).|
+|Public DNS entry for the SBC |A public DNS entry mapping the SBC FQDN to the public IP address. |
+|Public trusted certificate for the SBC |A certificate for the SBC to be used for all communication with Azure direct routing. For more information, see [SBC certificates and domain names](#sbc-certificates-and-domain-names).|
 |Firewall IP addresses and ports for SIP signaling and media |The SBC communicates to the following services in the cloud:<br/><br/>SIP Proxy, which handles the signaling<br/>Media Processor, which handles media<br/><br/>These two services have separate IP addresses in Microsoft Cloud, described later in this document.
 
 
-## SBC domain names
+## SBC certificates and domain names
 
-Customers without Office 365 can use any domain name for which they can obtain a public certificate.
+Microsoft recommends that you request the certificate for the SBC by a certification signing request (CSR). For specific instructions on how to generate a CSR for an SBC, refer to the interconnection instructions or documentation provided by your SBC vendors. 
 
-The following table shows examples of DNS names registered for the tenant, whether the name can be used as a fully qualified domain name (FQDN) for the SBC, and examples of valid FQDN names:
+ >[!NOTE]
+ > Most Certificate Authorities (CAs) require the private key size to be at least 2048. Keep this in mind when you generate the CSR.
 
-|DNS name|Can be used for SBC FQDN|Examples of FQDN names|
-|:--- |:--- |:--- |
-contoso.com|Yes|**Valid names:**<br/>sbc1.contoso.com<br/>ssbcs15.contoso.com<br/>europe.contoso.com|
-|contoso.onmicrosoft.com|No|Using *.onmicrosoft.com domains is not supported for SBC names
+The certificate must have the SBC FQDN as the common name (CN) or the subject alternative name (SAN) field. The certificate should be issued directly from a certification authority, not an intermediate provider.
 
-If you are an Office 365 customer, then the SBC domain name must not match registered in Domains of the Office 365 tenant. Below is the example of Office 365 and Azure Communication Service coexistence:
+Alternatively, Communication Services direct routing supports a wildcard in the CN and/or SAN, and the wildcard must conform to standard [RFC HTTP Over TLS](https://tools.ietf.org/html/rfc2818#section-3.1). 
 
-|Domain registered in Office 365|Examples of SBC FQDN in Teams|Examples of SBC FQDN names in Azure Communication Services|
-|:--- |:--- |:--- |
-**contoso.com** (second level domain)|**sbc.contoso.com** (name in the second level domain)|**sbc.acs.contoso.com** (name in the third level domain)<br/>**sbc.fabrikam.com** (any name within different domain)|
-|**o365.contoso.com** (third level domain)|**sbc.o365.contoso.com** (name in the third level domain)|**sbc.contoso.com** (name in the second level domain)<br/>**sbc.acs.o365.contoso.com** (name in the fourth level domain)<br/>**sbc.fabrikam.com** (any name within different domain)
-
-SBC pairing works on the Communication Services resource level, meaning you can pair many SBCs to a single Communication Services resource, but you cannot pair a single SBC to more than one Communication Services resource. Unique SBC FQDNs are required for pairing to different resources.
-
-## Public trusted certificate for the SBC
-
-Microsoft recommends that you request the certificate for the SBC by generating a certification signing request (CSR). For specific instructions on generating a CSR for an SBC, refer to the interconnection instructions or documentation provided by your SBC vendors. 
-
-  > [!NOTE]
-  > Most Certificate Authorities (CAs) require the private key size to be at least 2048. Keep this in mind when generating the CSR.
-
-The certificate needs to have the SBC FQDN as the common name (CN) or the subject alternative name (SAN) field. The certificate should be issued directly from a certification authority, not from an intermediate provider.
-
-Alternatively, Communication Services direct routing supports a wildcard in the CN and/or SAN, and the wildcard needs to conform to standard [RFC HTTP Over TLS](https://tools.ietf.org/html/rfc2818#section-3.1). 
+Customers who already use Office 365 and have a domain registered in Microsoft 365 Admin Center can use SBC FQDN from the same domain.
+Domains that aren’t previously used in O365 must be provisioned.
 
 An example would be using `\*.contoso.com`, which would match the SBC FQDN `sbc.contoso.com`, but wouldn't match with `sbc.test.contoso.com`.
 
-The certificate needs to be generated by one of the following root certificate authorities:
+ >[!NOTE]
+ > SBC FQDN in Azure Communication Services direct routing must be different from SBC FQDN in Teams Direct Routing.
 
-- AffirmTrust
-- AddTrust External CA Root
-- Baltimore CyberTrust Root*
-- Buypass
-- Cybertrust
-- Class 3 Public Primary Certification Authority
-- Comodo Secure Root CA
-- Deutsche Telekom 
-- DigiCert Global Root CA
-- DigiCert High Assurance EV Root CA
-- Entrust
-- GlobalSign
-- Go Daddy
-- GeoTrust
-- Verisign, Inc. 
-- SSL.com
-- Starfield
-- Symantec Enterprise Mobile Root for Microsoft 
-- SwissSign
-- Thawte Timestamping CA
-- Trustwave
-- TeliaSonera 
-- T-Systems International GmbH (Deutsche Telekom)
-- QuoVadis
-- USERTrust RSA Certification Authority
-- Hongkong Post Root CA 1,2,3
-- Sectigo Root CA
+>[!IMPORTANT]
+>During Public Preview only: if you plan to use a wildcard certificate for the domain that is not registered in Teams, please raise a support ticket, and our team will add it as a trusted domain.
 
-Microsoft is working on adding more certification authorities based on customer requests. 
+Communication Services only trusts certificates signed by Certificate Authorities (CAs) that are part of the Microsoft Trusted Root Certificate Program. Ensure that your SBC certificate is signed by a CA that is part of the program, and that Extended Key Usage (EKU) extension of your certificate includes Server Authentication.
+Learn more:
+
+[Program Requirements — Microsoft Trusted Root Program](/security/trusted-root/program-requirements)
+ 
+[Included CA Certificate List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT)
+
+SBC pairing works on the Communication Services resource level. It means you can pair many SBCs to a single Communication Services resource. Still, you cannot pair a single SBC to more than one Communication Services resource. Unique SBC FQDNs are required for pairing to different resources.
+
 
 ## SIP Signaling: FQDNs 
 
 The connection points for Communication Services direct routing are the following three FQDNs:
 
-- **sip.pstnhub.microsoft.com** – Global FQDN – must be tried first. When the SBC sends a request to resolve this name, the Microsoft Azure DNS servers return an IP address pointing to the primary Azure datacenter assigned to the SBC. The assignment is based on performance metrics of the datacenters and geographical proximity to the SBC. The IP address returned corresponds to the primary FQDN.
-- **sip2.pstnhub.microsoft.com** – Secondary FQDN – geographically maps to the second priority region.
-- **sip3.pstnhub.microsoft.com** – Tertiary FQDN – geographically maps to the third priority region.
+- **sip.pstnhub.microsoft.com — Global FQDN — must be tried first. When the SBC sends a request to resolve this name, the Microsoft Azure DNS servers return an IP address that points to the primary Azure datacenter assigned to the SBC. The assignment is based on performance metrics of the datacenters and geographical proximity to the SBC. The IP address returned corresponds to the primary FQDN.
+- **sip2.pstnhub.microsoft.com — Secondary FQDN — geographically maps to the second priority region.
+- **sip3.pstnhub.microsoft.com — Tertiary FQDN — geographically maps to the third priority region.
 
-Placing these three FQDNs in order is required to:
+These three FQDNs in order are required to:
 
 - Provide optimal experience (less loaded and closest to the SBC datacenter assigned by querying the first FQDN).
-- Provide failover when connection from an SBC is established to a datacenter that is experiencing a temporary issue. For more information, see [Failover mechanism](#failover-mechanism-for-sip-signaling) below.  
+- Provide failover when connection from an SBC is established to a datacenter that is experiencing a temporary issue. For more information, see [Failover mechanism](#failover-mechanism-for-sip-signaling).  
 
-The FQDNs – sip.pstnhub.microsoft.com, sip2.pstnhub.microsoft.com, and sip3.pstnhub.microsoft.com – will be resolved to one of the following IP addresses:
+The FQDNs — sip.pstnhub.microsoft.com, sip2.pstnhub.microsoft.com, and sip3.pstnhub.microsoft.com — resolve to one of the following IP addresses:
 
 - `52.112.0.0/14 (IP addresses from 52.112.0.1 to 52.115.255.254)`
 - `52.120.0.0/14 (IP addresses from 52.120.0.1 to 52.123.255.254)`
@@ -127,12 +94,12 @@ Use the following ports for Communication Services Azure direct routing:
 
 |Traffic|From|To|Source port|Destination port|
 |:--- |:--- |:--- |:--- |:--- |
-|SIP/TLS|SIP Proxy|SBC|1024 – 65535|Defined on the SBC (For Office 365 GCC High/DoD only port 5061 must be used)|
+|SIP/TLS|SIP Proxy|SBC|1024–65535|Defined on the SBC|
 SIP/TLS|SBC|SIP Proxy|Defined on the SBC|5061|
 
 ### Failover mechanism for SIP Signaling
 
-The SBC makes a DNS query to resolve sip.pstnhub.microsoft.com. Based on the SBC location and the datacenter performance metrics, the primary datacenter is selected. If the primary datacenter experiences an issue, the SBC will try the sip2.pstnhub.microsoft.com, which resolves to the second assigned datacenter, and, in the rare case that datacenters in two regions are not available, the SBC retries the last FQDN (sip3.pstnhub.microsoft.com), which provides the tertiary datacenter IP.
+The SBC makes a DNS query to resolve sip.pstnhub.microsoft.com. Based on the SBC location and the datacenter performance metrics, the primary datacenter is selected. If the primary datacenter experiences an issue, the SBC tries the sip2.pstnhub.microsoft.com, which resolves to the second assigned datacenter, and, in the rare case that datacenters in two regions aren’t available, the SBC retries the last FQDN (sip3.pstnhub.microsoft.com), which provides the tertiary datacenter IP.
 
 ## Media traffic: IP and Port ranges
 
@@ -144,8 +111,8 @@ The port range of the Media Processors is shown in the following table:
 
 |Traffic|From|To|Source port|Destination port|
 |:--- |:--- |:--- |:--- |:--- |
-|UDP/SRTP|Media Processor|SBC|3478-3481 and 49152 – 53247|Defined on the SBC|
-|UDP/SRTP|SBC|Media Processor|Defined on the SBC|3478-3481 and 49152 – 53247|
+|UDP/SRTP|Media Processor|SBC|3478–3481 and 49152–53247|Defined on the SBC|
+|UDP/SRTP|SBC|Media Processor|Defined on the SBC|3478–3481 and 49152–53247|
 
   > [!NOTE]
   > Microsoft recommends at least two ports per concurrent call on the SBC.
@@ -154,17 +121,18 @@ The port range of the Media Processors is shown in the following table:
 ## Media traffic: Media processors geography
 
 The media traffic flows via components called media processors. Media processors are placed in the same datacenters as SIP proxies:
-- US (two in US West and US East datacenters)
-- Europe (Amsterdam and Dublin datacenters)
-- Asia (Singapore and Hong Kong SAR datacenters)
-- Australia (AU East and Southeast datacenters)
+- NOAM (US South Central, two in US West and US East datacenters)
+- Europe (UK South, France Central, Amsterdam and Dublin datacenters)
+- Asia (Singapore datacenter)
 - Japan (JP East and West datacenters)
-
+- Australia (AU East and Southeast datacenters)
+- LATAM (Brazil South)
+- Africa (South Africa North)
 
 
 ## Media traffic: Codecs
 
-### Leg between SBC and Cloud Media Processor or Microsoft Teams client.
+### Leg between SBC and Cloud Media Processor.
 
 The Azure direct routing interface on the leg between the Session Border Controller and Cloud Media Processor can use the following codecs:
 
@@ -174,7 +142,7 @@ You can force use of the specific codec on the Session Border Controller by excl
 
 ### Leg between Communication Services Calling SDK app and Cloud Media Processor
 
-On the leg between the Cloud Media Processor and Communication Services Calling SDK app, G.722 is used. Microsoft is working on adding more codecs on this leg. 
+On the leg between the Cloud Media Processor and Communication Services Calling SDK app, G.722 is used. Work on adding more codecs on this leg is in progress. 
 
 ## Supported Session Border Controllers (SBCs)
 
@@ -191,4 +159,4 @@ On the leg between the Cloud Media Processor and Communication Services Calling 
 
 ### Quickstarts
 
-- [Call to Phone](../../quickstarts/voice-video-calling/pstn-call.md)
+- [Call to Phone](../../quickstarts/telephony/pstn-call.md)

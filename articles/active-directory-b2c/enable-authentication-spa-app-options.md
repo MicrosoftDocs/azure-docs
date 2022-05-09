@@ -25,7 +25,7 @@ To use a custom domain and your tenant ID in the authentication URL, follow the 
 
 The following JavaScript code shows the MSAL configuration object *before* the change: 
 
-```Javascript
+```javascript
 const msalConfig = {
     auth: {
       ...
@@ -39,7 +39,7 @@ const msalConfig = {
 
 The following JavaScript code shows the MSAL configuration object *after* the change: 
 
-```Javascript
+```javascript
 const msalConfig = {
     auth: {
       ...
@@ -123,11 +123,13 @@ After logout, the user is redirected to the URI specified in the `post_logout_re
 To support a secured logout redirect URI, follow the steps below:
 
 1. Create a globally accessible variable to store the `id_token`.
+
     ```javascript
     let id_token = "";
     ```
     
 1. In the MSAL `handleResponse` function, parse the `id_token` from the `authenticationResult` object into the `id_token` variable.
+
     ```javascript
     function handleResponse(response) {
         if (response !== null) {
@@ -140,6 +142,7 @@ To support a secured logout redirect URI, follow the steps below:
     ```
     
 1. In the `signOut` function, add the `id_token_hint` parameter to the **logoutRequest** object.
+
     ```javascript
     function signOut() {
         const logoutRequest = {

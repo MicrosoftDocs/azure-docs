@@ -9,6 +9,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 06/02/2020
+ms.devlang: scala
 ms.custom: seodec18
 ---
 

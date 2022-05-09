@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-health, ignite-fall-2021
@@ -46,7 +46,7 @@ This setting can be found in the following place:
 
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
-|Yes| `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gathering required parameters](use-containers.md#gathering-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../../../cognitive-services-custom-subdomains.md). |
+|Yes| `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gather required parameters](use-containers.md#gather-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../../../cognitive-services-custom-subdomains.md). |
 
 ## Eula setting
 

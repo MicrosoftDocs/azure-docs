@@ -1,6 +1,6 @@
 ---
-title: Upgrade an indirect mode Azure Arc-enabled Managed Instance using the CLI
-description: Upgrade an indirect mode Azure Arc-enabled Managed Instance using the CLI
+title: Upgrade an indirectly connected Azure Arc-enabled Managed Instance using the CLI
+description: Article describes how to upgrade an indirectly connected Azure Arc-enabled Managed Instance using the CLI
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,7 +11,9 @@ ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
-# Upgrade an indirect mode Azure Arc-enabled Managed Instance using the CLI
+# Upgrade an indirectly connected Azure Arc-enabled Managed Instance using the CLI
+
+This article describes how to upgrade a SQL Managed Instance deployed on an indirectly connected Azure Arc-enabled data controller using the Azure CLI (`az`).
 
 ## Prerequisites
 
@@ -40,10 +42,18 @@ The output will be:
 
 ```output
 Preparing to upgrade sql sqlmi-1 in namespace arc to data controller version.
-****Dry Run****1 instance(s) would be upgraded by this commandsqlmi-1 would be upgraded to 20211024.1.
+****Dry Run****1 instance(s) would be upgraded by this commandsqlmi-1 would be upgraded to <version-tag>.
 ```
 
 ### General Purpose
+
+During a SQL Managed Instance General Purpose upgrade, the containers in the pod will be upgraded and will be reprovisioned. This will cause a short amount of downtime as the new pod is created. You will need to build resiliency into your application, such as connection retry logic, to ensure minimal disruption. Read [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview) for more information on architecting resiliency and [Retry Guidance for Azure Services](/azure/architecture/best-practices/retry-service-specific#sql-database-using-adonet).
+
+### Business Critical 
+
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-business-critical-upgrade.md)]
+
+### Upgrade
 
 To upgrade the Managed Instance, use the following command:
 
@@ -54,7 +64,7 @@ az sql mi-arc upgrade --name <instance name> --desired-version <version> --k8s-n
 Example:
 
 ````cli
-az sql mi-arc upgrade --name instance1 --target v1.0.0.20211028 --k8s-namespace arc1 --use-k8s
+az sql mi-arc upgrade --name instance1 --desired-version v1.0.0.20211028 --k8s-namespace arc1 --use-k8s
 ````
 
 ## Monitor
@@ -99,7 +109,7 @@ Status:
   Observed Generation:   2
   Primary Endpoint:      30.76.129.38,1433
   Ready Replicas:        1/1
-  Running Version:       20211024.1
+  Running Version:       <version-tag>
   State:                 Ready
 ```
 

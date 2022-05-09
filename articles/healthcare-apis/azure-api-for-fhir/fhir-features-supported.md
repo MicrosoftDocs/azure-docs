@@ -2,12 +2,12 @@
 title: Supported FHIR features in Azure - Azure API for FHIR 
 description: This article explains which features of the FHIR specification that are implemented in Azure API for FHIR
 services: healthcare-apis
-author: caitlinv39
+author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 11/11/2021
-ms.author: cavoeg
+ms.date: 05/05/2022
+ms.author: mikaelw
 ---
 
 # Features
@@ -24,15 +24,15 @@ Previous versions also currently supported include: `3.0.2`
 
 Below is a summary of the supported RESTful capabilities. For more information on the implementation of these capabilities, see [FHIR REST API capabilities](fhir-rest-api-capabilities.md).
 
-| API    | Azure API for FHIR | FHIR service in Healthcare APIs | Comment |
+| API    | Azure API for FHIR | FHIR service in Azure Health Data Services | Comment |
 |--------|--------------------|---------------------------------|---------|
 | read   | Yes                | Yes                             |         |
 | vread  | Yes                | Yes                             |         |
 | update | Yes                | Yes                             |         | 
 | update with optimistic locking | Yes       | Yes       |
 | update (conditional)           | Yes       | Yes       |
-| patch                          | Yes       | Yes       | Support for [JSON Patch](https://www.hl7.org/fhir/http.html#patch) only. We have included a workaround to use JSON Patch in a bundle in [this PR](https://github.com/microsoft/fhir-server/pull/2143).|
-| patch (conditional)            | Yes       | Yes       |
+| patch                          | Yes       | Yes       | Support for [JSON Patch and FHIRPath Patch](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md#patch-and-conditional-patch) only.
+| patch (conditional)            | Yes       | Yes       | Support for [JSON Patch and FHIRPath Patch](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md#patch-and-conditional-patch) only. |
 | history                        | Yes       | Yes       |
 | create                         | Yes       | Yes       | Support both POST/PUT |
 | create (conditional)           | Yes       | Yes       | Issue [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
@@ -51,14 +51,14 @@ Below is a summary of the supported RESTful capabilities. For more information o
 
 All the operations that are supported that extend the REST API.
 
-| Search parameter type | Azure API for FHIR | FHIR service in Healthcare APIs| Comment |
+| Search parameter type | Azure API for FHIR | FHIR service in Azure Health Data Services| Comment |
 |------------------------|-----------|-----------|---------|
-| [$export](../../healthcare-apis/data-transformation/export-data.md) (whole system) | Yes       | Yes       | Supports system, group, and patient.   |
+| [$export](../../healthcare-apis/data-transformation/export-data.md) | Yes       | Yes       | Supports system, group, and patient.   |
 | [$convert-data](convert-data.md)          | Yes       | Yes       |         |
 | [$validate](validation-against-profiles.md)              | Yes       | Yes       |         |
 | [$member-match](tutorial-member-match.md)          | Yes       | Yes       |         |
 | [$patient-everything](patient-everything.md)    | Yes       | Yes       |         |
-| $purge-history         | Yes       | Yes       |         |
+| [$purge-history](purge-history.md)         | Yes       | Yes       |         |
 
 ## Persistence
 
@@ -76,15 +76,13 @@ Currently, the allowed actions for a given role are applied *globally* on the AP
 
 ## Service limits
 
-* [**Request Units (RUs)**](../../cosmos-db/concepts-limits.md) - You can configure up to 10,000 RUs in the portal for Azure API for FHIR. You will need a minimum of 400 RUs or 40 RUs/GB, whichever is larger. If you need more than 10,000 RUs, you can put in a support ticket to have the RUs increased. The maximum available is 1,000,000.
+* [**Request Units (RUs)**](../../cosmos-db/concepts-limits.md) - You can configure up to 10,000 RUs in the portal for Azure API for FHIR. You'll need a minimum of 400 RUs or 40 RUs/GB, whichever is larger. If you need more than 10,000 RUs, you can put in a support ticket to have the RUs increased. The maximum available is 1,000,000. In addition, we support [autoscaling of RUs](autoscale-azure-api-fhir.md).
 
 * **Bundle size** - Each bundle is limited to 500 items.
 
 * **Data size** - Data/Documents must each be slightly less than 2 MB.
 
-* **Subscription Limit** - By default, each subscription is limited to a maximum of 10 FHIR Server Instances. If you need more instances per subscription, open a support ticket and provide details about your needs.
-
-* **Concurrent connections and Instances** - By default, you have 15 concurrent connections on two instances in the cluster (for a total of 30 concurrent requests). If you need more concurrent requests, open a support ticket and provide details about your needs.
+* **Subscription limit** - By default, each subscription is limited to a maximum of 10 FHIR server instances. If you need more instances per subscription, open a support ticket and provide details about your needs.
 
 ## Next steps
 

@@ -2,15 +2,18 @@
 title: Restore Azure Database for PostgreSQL 
 description: Learn about how to restore Azure Database for PostgreSQL backups.
 ms.topic: how-to
-ms.date: 10/01/2021
+ms.date: 01/21/2022
 ms.custom: devx-track-azurecli
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
-# Restore Azure Database for PostgreSQL backups (preview)
+# Restore Azure Database for PostgreSQL backups
 
 This article explains how to restore a database to an Azure PostgreSQL server backed up by Azure Backup.
 
-You can restore a database to any Azure PostgreSQL server within the same subscription, if the service has the appropriate [set of permissions](backup-azure-database-postgresql-overview.md#azure-backup-authentication-with-the-postgresql-server) on the target server.
+You can restore a database to any Azure PostgreSQL server of a different/same subscription but within the same region of the vault, if the service has the appropriate [set of permissions](backup-azure-database-postgresql-overview.md#azure-backup-authentication-with-the-postgresql-server) on the target server.
 
 ## Restore Azure PostgreSQL database
 
@@ -65,7 +68,7 @@ Assign the Backup vault MSI the permission to access the storage account contain
 
 1. Select the **Storage Blob Data Contributor** role in the **Role** drop-down list to the Backup vault MSI.
 
-   :::image type="content" source="./media/restore-azure-database-postgresql/assign-vault-msi-permission-to-access-storage-account-containers-azure-portal-inline.png" alt-text="Screenshot showing the process to assign Backup vault MSI the permission to access the storage account containers using the Azure portal." lightbox="./media/restore-azure-database-postgresql/assign-vault-msi-permission-to-access-storage-account-containers-azure-portal-expanded.png":::
+   :::image type="content" source="./media/restore-azure-database-postgresql/assign-vault-msi-permission-to-access-storage-account-containers-azure-portal-inline.png" alt-text="Screenshot showing the process to assign Backup vault M S I the permission to access the storage account containers using the Azure portal." lightbox="./media/restore-azure-database-postgresql/assign-vault-msi-permission-to-access-storage-account-containers-azure-portal-expanded.png":::
 
 Alternatively, give granular permissions to the specific container you're restoring to by using the Azure CLI [az role assignment](/cli/azure/role/assignment) create command.
 
@@ -74,9 +77,9 @@ az role assignment create --assignee $VaultMSI_AppId  --role "Storage Blob Data 
 ```
 Replace the assignee parameter with the _Application ID_ of the vault's MSI and the scope parameter to refer to your specific container. To get the **Application ID** of the vault MSI, select **All applications** under **Application type**. Search for the vault name and copy the Application ID.
 
- :::image type="content" source="./media/restore-azure-database-postgresql/select-application-type-for-id-inline.png" alt-text="Screenshot showing the process to get the Application ID of the vault MSI." lightbox="./media/restore-azure-database-postgresql/select-application-type-for-id-expanded.png":::
+ :::image type="content" source="./media/restore-azure-database-postgresql/select-application-type-for-id-inline.png" alt-text="Screenshot showing the process to get the Application I D of the vault MSI." lightbox="./media/restore-azure-database-postgresql/select-application-type-for-id-expanded.png":::
 
- :::image type="content" source="./media/restore-azure-database-postgresql/copy-vault-id-inline.png" alt-text="Screenshot showing the process to copy  the Application ID of the vault." lightbox="./media/restore-azure-database-postgresql/copy-vault-id-expanded.png":::
+ :::image type="content" source="./media/restore-azure-database-postgresql/copy-vault-id-inline.png" alt-text="Screenshot showing the process to copy  the Application I D of the vault." lightbox="./media/restore-azure-database-postgresql/copy-vault-id-expanded.png":::
  
 ## Next steps
 

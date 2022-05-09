@@ -3,7 +3,7 @@ title: Network isolation and Private Link -question answering
 description: Users can restrict public access to question answering resources.
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---

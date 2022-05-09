@@ -43,7 +43,7 @@ Automation can target virtual or physical Windows or Linux machines, in the clou
 
 ### Management of all your DSC artifacts
 
-Azure Automation State Configuration brings the same management layer to [PowerShell Desired State Configuration](/powershell/dsc/overview/overview) as it offers for PowerShell scripting. From the Azure portal or from PowerShell, you can manage all your DSC configurations, resources, and target nodes.
+Azure Automation State Configuration brings the same management layer to [PowerShell Desired State Configuration](/powershell/dsc/overview) as it offers for PowerShell scripting. From the Azure portal or from PowerShell, you can manage all your DSC configurations, resources, and target nodes.
 
 ![Screenshot of the Azure Automation page](./media/automation-dsc-overview/azure-automation-blade.png)
 
@@ -91,7 +91,7 @@ Check [Azure Automation Network Configuration](automation-network-configuration.
 
 #### Proxy support
 
-Proxy support for the DSC agent is available in Windows version 1809 and later. This option is enabled by setting the values for `ProxyURL` and `ProxyCredential` properties in the [metaconfiguration script](automation-dsc-onboarding.md#generate-dsc-metaconfigurations)
+Proxy support for the DSC agent is available in Windows release 1809 and later. This option is enabled by setting the values for `ProxyURL` and `ProxyCredential` properties in the [metaconfiguration script](automation-dsc-onboarding.md#generate-dsc-metaconfigurations)
 used to register nodes.
 
 >[!NOTE]

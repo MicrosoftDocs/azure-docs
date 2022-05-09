@@ -5,6 +5,7 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
+ms.devlang: javascript
 ms.custom: devx-track-js, mode-api
 ---
 

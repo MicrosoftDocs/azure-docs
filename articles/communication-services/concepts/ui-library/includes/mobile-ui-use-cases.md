@@ -30,7 +30,7 @@ Composites enable developers to easily integrate a whole calling experience into
 |                                                                                     | Participant roster                                     |
 | Call configuration                                                                              | Microphone device management                           |
 |                                                                                                 | Camera device management                               |
-|                                                                                                 | Speaker device management                              |
+|                                                                                                 | Speaker device management(wired & bluetooth supported)                              |
 |                                                                                                 | Local preview available for user to check video        |
 | Call Controls                                                                                   | Mute/unmute call                                       |
 |                                                                                                 | Video on/off on call                                   |
@@ -50,6 +50,10 @@ To enable Teams Interop, developers can use the calling composite, which will ta
 
 :::image type="content" source="../../media/mobile-ui/teams-meet.png" alt-text="Pre-meeting experience":::
 
+## View shared content
+
+The Mobile UI Library provides the capability of the calling participants to view the shared content when other participants share their screens during the calling; also, the participant can zoom on the screen, making the pinching gestures over the screen to get a better look over the shared content.
+
 ## Theming
 
 The UI Library Calling Composite for iOS and Android provides the capability for developers to update the theme of the all experience by passing a primary color. The Composite uses that primary color to provide appropriate theming across the experience.
@@ -57,7 +61,6 @@ The UI Library Calling Composite for iOS and Android provides the capability for
 | Android                            | iOS                                     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
 | :::image type="content" source="../../media/mobile-ui/android-color.png" alt-text="android theming"::: | :::image type="content" source="../../media/mobile-ui/ios-dark.png" alt-text="iOS theming":::  |
-
 
 ## Screen size
 
@@ -67,6 +70,11 @@ The calling composite offers to adapt to any screen size that would bring suppor
 |---------|---------|
 | :::image type="content" source="../../media/mobile-ui/meet-splitscreen.png" alt-text="split screen"::: |  :::image type="content" source="../../media/mobile-ui/tablet-landscape.png" alt-text="tablet mode"::: |
 
+## Localization
+
+Localization is a key to making products that can be used across the world and by people who speak different languages.
+
+Localization is a key to making products that can be used across the world. The Mobile UI Library now provides support for 13 languages: ***English, Spanish, French, German, Italian, Japanese, Korean, Dutch, Portuguese, Russian, Turkish and Chinese*** and RTL capabilities.
 
 ## Recommended Architecture
 
@@ -88,8 +96,8 @@ These client libraries also require the context for the call they will join. Sim
 
 |Platform | Versions|
 |---------|---------|
-| iOS     | iOS 13+ |
-| Android | v23+    |
+| iOS     | iOS 14+ |
+| Android | v21+    |
 
 > [!div class="nextstepaction"]
 > [Quickstart guides](../../../quickstarts/ui-library/get-started-composites.md)

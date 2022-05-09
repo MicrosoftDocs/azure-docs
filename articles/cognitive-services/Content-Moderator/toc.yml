@@ -10,14 +10,10 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator
     expanded: true
-  - name: What's new
-    href: whats-new.md
 - name: Quickstarts
   items:
   - name: Using the client library or REST API
     href: client-libraries.md
-  - name: Using the web-based UI
-    href: quick-start.md
 - name: Samples 
   items: 
   - name: Samples browser
@@ -52,36 +48,8 @@
         href: image-lists-quickstart-dotnet.md
       - name: Check text against custom terms
         href: term-lists-quickstart-dotnet.md
-  - name: Define and use reviews
-    items:
-    - name: Review tool (browser)
-      href: Review-Tool-User-Guide/Review-Moderated-Images.md
-    - name: API console
-      href: try-review-api-review.md
-    - name: Video reviews (.NET)
-      href: video-reviews-quickstart-dotnet.md
-    - name: Video transcript reviews (.NET)
-      href: video-transcript-reviews-quickstart-dotnet.md
-  - name: Define and use workflows
-    items:
-    - name: Review tool (browser)
-      href: Review-Tool-User-Guide/Workflows.md
-    - name: API console
-      href: try-review-api-workflow.md
-  - name: Define and use jobs
-    items:
-    - name: API console
-      href: try-review-api-job.md
-    - name: .NET SDK
-      href: moderation-jobs-quickstart-dotnet.md
-  - name: Configure the Review tool
-    href: Review-Tool-User-Guide/Configure.md
   - name: Export or delete account data
     href: ./export-delete-data.md
-  - name: Customize Content Moderator
-    items:
-    - name: Reviews, workflows, and jobs
-      href: review-api.md
   - name: Enterprise readiness
     items:
       - name: Set up Virtual Networks
@@ -94,16 +62,6 @@
     href: image-moderation-api.md
   - name: Text moderation
     href: text-moderation-api.md
-  - name: Video moderation
-    href: video-moderation-human-review.md
-  - name: Review tool
-    href: Review-Tool-User-Guide/human-in-the-loop.md
-- name: Tutorials
-  items:
-  - name: Moderate e-commerce images
-    href: ecommerce-retail-catalog-moderation.md
-  - name: Moderate Facebook content
-    href: facebook-post-moderation.md
 - name: Reference
   items:
   - name: Content Moderator REST API

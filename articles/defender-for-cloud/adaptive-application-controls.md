@@ -1,21 +1,23 @@
 ---
 title: Adaptive application controls in Microsoft Defender for Cloud
-description: This document helps you use adaptive application control in Microsoft Defender for Cloud to create an allow list of applications running for Azure machines.
+description: This document helps you use adaptive application control in Microsoft Defender for Cloud to create an allowlist of applications running for Azure machines.
+author: bmansheim
+ms.author: benmansheim
 ms.topic: how-to
 ms.date: 11/09/2021
 
 ---
 # Use adaptive application controls to reduce your machines' attack surfaces
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 
 Learn about the benefits of Microsoft Defender for Cloud's adaptive application controls and how you can enhance your security with this data-driven, intelligent feature.
 
 ## What are adaptive application controls?
 
-Adaptive application controls are an intelligent and automated solution for defining allow lists of known-safe applications for your machines. 
+Adaptive application controls are an intelligent and automated solution for defining allowlists of known-safe applications for your machines. 
 
-Often, organizations have collections of machines that routinely run the same processes. Microsoft Defender for Cloud uses machine learning to analyze the applications running on your machines and create a list of the known-safe software. Allow lists are based on your specific Azure workloads, and you can further customize the recommendations using the instructions below.
+Often, organizations have collections of machines that routinely run the same processes. Microsoft Defender for Cloud uses machine learning to analyze the applications running on your machines and create a list of the known-safe software. Allowlists are based on your specific Azure workloads, and you can further customize the recommendations using the instructions below.
 
 When you've enabled and configured adaptive application controls, you'll get security alerts if any application runs other than the ones you've defined as safe.
 
@@ -37,11 +39,11 @@ No enforcement options are currently available. Adaptive application controls ar
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Requires [Microsoft Defender for servers](defender-for-servers-introduction.md)|
+|Pricing:|Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans)|
 |Supported machines:|:::image type="icon" source="./media/icons/yes-icon.png"::: Azure and non-Azure machines running Windows and Linux<br>:::image type="icon" source="./media/icons/yes-icon.png"::: [Azure Arc](../azure-arc/index.yml) machines|
 |Required roles and permissions:|**Security Reader** and **Reader** roles can both view groups and the lists of known-safe applications<br>**Contributor** and **Security Admin** roles can both edit groups and the lists of known-safe applications|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)|
-|||
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts|
+
 
 
 
@@ -57,26 +59,27 @@ Select the recommendation, or open the adaptive application controls page to vie
 
     The **Adaptive application controls** page opens with your VMs grouped into the following tabs:
 
-    - **Configured** - Groups of machines that already have a defined allow list of applications. For each group, the configured tab shows:
+    - **Configured** - Groups of machines that already have a defined allowlist of applications. For each group, the configured tab shows:
         - the number of machines in the group
         - recent alerts
 
-    - **Recommended** - Groups of machines that consistently run the same applications, and don't have an allow list configured. We recommend that you enable adaptive application controls for these groups.
+    - **Recommended** - Groups of machines that consistently run the same applications, and don't have an allowlist configured. We recommend that you enable adaptive application controls for these groups.
     
       > [!TIP]
       > If you see a group name with the prefix "REVIEWGROUP", it contains machines with a partially consistent list of applications. Microsoft Defender for Cloud can't see a pattern but recommends reviewing this group to see whether _you_ can manually define some adaptive application controls rules as described in [Editing a group's adaptive application controls rule](#edit-a-groups-adaptive-application-controls-rule).
       >
       > You can also move machines from this group to other groups as described in [Move a machine from one group to another](#move-a-machine-from-one-group-to-another).
 
-    - **No recommendation** - Machines without a defined allow list of applications, and which don't support the feature. Your machine might be in this tab for the following reasons:
+    - **No recommendation** - Machines without a defined allowlist of applications, and which don't support the feature. Your machine might be in this tab for the following reasons:
       - It's missing a Log Analytics agent
       - The Log Analytics agent isn't sending events
       - It's a Windows machine with a pre-existing [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) policy enabled by either a GPO or a local security policy
+      - AppLocker is not available (Windows Server Core installations)
 
       > [!TIP]
-      > Defender for Cloud needs at least two weeks of data to define the unique recommendations per group of machines. Machines that have recently been created, or which belong to subscriptions that were only recently protected by Microsoft Defender for servers, will appear under the **No recommendation** tab.
+      > Defender for Cloud needs at least two weeks of data to define the unique recommendations per group of machines. Machines that have recently been created, or which belong to subscriptions that were only recently protected by Microsoft Defender for Servers, will appear under the **No recommendation** tab.
 
-1. Open the **Recommended** tab. The groups of machines with recommended allow lists appears.
+1. Open the **Recommended** tab. The groups of machines with recommended allowlists appears.
 
    ![Recommended tab.](./media/adaptive-application/adaptive-application-recommended-tab.png)
 
@@ -90,7 +93,7 @@ Select the recommendation, or open the adaptive application controls page to vie
    
    1. **Recommended applications** - Review this list of applications that are common to the machines within this group, and recommended to be allowed to run.
    
-   1. **More applications** - Review this list of applications that are either seen less frequently on the machines within this group, or are known to be exploitable. A warning icon indicates that a specific application could be used by an attacker to bypass an application allow list. We recommend that you carefully review these applications.
+   1. **More applications** - Review this list of applications that are either seen less frequently on the machines within this group, or are known to be exploitable. A warning icon indicates that a specific application could be used by an attacker to bypass an application allowlist. We recommend that you carefully review these applications.
 
       > [!TIP]
       > Both application lists include the option to restrict a specific application to certain users. Adopt the principle of least privilege whenever possible.
@@ -104,7 +107,7 @@ Select the recommendation, or open the adaptive application controls page to vie
 
 ## Edit a group's adaptive application controls rule
 
-You might decide to edit the allow list for a group of machines because of known changes in your organization. 
+You might decide to edit the allowlist for a group of machines because of known changes in your organization. 
 
 To edit the rules for a group of machines:
 
@@ -235,13 +238,13 @@ Some of the functions that are available from the REST API:
 No enforcement options are currently available. Adaptive application controls are intended to provide **security alerts** if any application runs other than the ones you've defined as safe. They have a range of benefits ([What are the benefits of adaptive application controls?](#what-are-the-benefits-of-adaptive-application-controls)) and are extremely customizable as shown on this page.
 
 ### Why do I see a Qualys app in my recommended applications?
-[Microsoft Defender for servers](defender-for-servers-introduction.md) includes vulnerability scanning for your machines at no extra cost. You don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Defender for Cloud. For details of this scanner and instructions for how to deploy it, see [Defender for Cloud's integrated Qualys vulnerability assessment solution](deploy-vulnerability-assessment-vm.md).
+[Microsoft Defender for Servers](defender-for-servers-introduction.md) includes vulnerability scanning for your machines at no extra cost. You don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Defender for Cloud. For details of this scanner and instructions for how to deploy it, see [Defender for Cloud's integrated Qualys vulnerability assessment solution](deploy-vulnerability-assessment-vm.md).
 
-To ensure no alerts are generated when Defender for Cloud deploys the scanner, the adaptive application controls recommended allow list includes the scanner for all machines. 
+To ensure no alerts are generated when Defender for Cloud deploys the scanner, the adaptive application controls recommended allowlist includes the scanner for all machines. 
 
 
 ## Next steps
-On this page, you learned how to use adaptive application control in Microsoft Defender for Cloud to define allow lists of applications running on your Azure and non-Azure machines. To learn more about some other cloud workload protection features, see:
+On this page, you learned how to use adaptive application control in Microsoft Defender for Cloud to define allowlists of applications running on your Azure and non-Azure machines. To learn more about some other cloud workload protection features, see:
 
 * [Understanding just-in-time (JIT) VM access](just-in-time-access-overview.md)
 * [Securing your Azure Kubernetes clusters](defender-for-kubernetes-introduction.md)

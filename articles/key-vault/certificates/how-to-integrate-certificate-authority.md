@@ -8,16 +8,20 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
-ms.date: 06/02/2020
-ms.author: sebansal 
+ms.date: 01/24/2022
+ms.author: shisriva 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Integrating Key Vault with DigiCert certificate authority
+# Integrating Key Vault with Integrated Certificate Authorities
 
 Azure Key Vault allows you to easily provision, manage, and deploy digital certificates for your network and to enable secure communications for applications. A digital certificate is an electronic credential that establishes proof of identity in an electronic transaction. 
 
-Azure Key Vault users can generate DigiCert certificates directly from their key vaults. Key Vault has a trusted partnership with DigiCert certificate authority. This partnership ensures end-to-end certificate lifecycle management for certificates issued by DigiCert.
+Azure Key Vault has a trusted partnership with the following Certificate Authorities:
+- [DigiCert](https://www.digicert.com/)
+- [GlobalSign](https://www.globalsign.com/en)
+
+Azure Key Vault users can generate DigiCert/GlobalSign certificates directly from their key vaults. Key Vault's partnership ensures end-to-end certificate lifecycle management for certificates issued by DigiCert.
 
 For more general information about certificates, see [Azure Key Vault certificates](./about-certificates.md).
 
@@ -36,15 +40,31 @@ To complete the procedures in this article, you need to have:
 
 ### Before you begin
 
+#### DigiCert
+
 Make sure you have the following information from your DigiCert CertCentral account:
 -	CertCentral account ID
 -	Organization ID
 -	API key
+-   Account ID
+-   Account Password
+
+#### GlobalSign
+
+Make sure you have the following information from your Global Sign account:
+
+- Account ID
+- Account Password
+- First Name of Administrator
+- Last Name of Administrator
+- E-mail of Administrator
+- Phone Number of Administrator
+
 
 ## Add the certificate authority in Key Vault 
 After you gather the preceding information from your DigiCert CertCentral account, you can add DigiCert to the certificate authority list in the key vault.
 
-### Azure portal
+### Azure portal (DigiCert)
 
 1.	To add DigiCert certificate authority, go to the key vault you want to add it to. 
 2.	On the Key Vault property page, select **Certificates**.
@@ -62,6 +82,28 @@ After you gather the preceding information from your DigiCert CertCentral accoun
 1. Select **Create**.
    
 DigicertCA is now in the certificate authority list.
+
+### Azure portal (GlobalSign)
+
+1.	To add DigiCert certificate authority, go to the key vault you want to add it to. 
+2.	On the Key Vault property page, select **Certificates**.
+3.	Select the **Certificate Authorities** tab:
+:::image type="content" source="../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png" alt-text="Screenshot that shows selecting the Certificate Authorities tab.":::
+4.	Select **Add**:
+:::image type="content" source="../media/certificates/how-to-integrate-certificate-authority/add-global-sign-certificate-authority.jpg" alt-text="Screenshot that shows the Add button on the Global Sign Certificate Authorities tab.":::
+5.	Under **Create a certificate authority**, enter these values:
+    - 	**Name**: An identifiable issuer name. For example, **GlobalSignCA**.
+    - 	**Provider**: **GlobalSign**.
+    - 	**Account ID**: Your GlobalSign account ID.
+    -   **Account Password**: Your GlobalSign account password.
+    -   **First Name of Administrator**: The first name of administrator of the Global Sign account.
+    -   **Last Name of Administrator**: The last name of administrator of the Global Sign account.
+    -   **E-mail of Administrator**: The email of administrator of the Global Sign account.
+    -   **Phone number of Administrator**: The phone number of administrator of the Global Sign account.
+
+1. Select **Create**.
+   
+GlobalSignCA is now in the certificate authority list.
 
 
 ### Azure PowerShell
@@ -126,7 +168,7 @@ Error message: "Please perform a merge to complete this certificate request."
    
 Merge the CSR signed by the certificate authority to complete the request. For information about merging a CSR, see [Create and merge a CSR](./create-certificate-signing-request.md).
 
-For more information, see [Certificate operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update access policy](/rest/api/keyvault/vaults/updateaccesspolicy).
+For more information, see [Certificate operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or update](/rest/api/keyvault/keyvault/vaults/create-or-update) and [Vaults - Update access policy](/rest/api/keyvault/keyvault/vaults/update-access-policy).
 
 ## Frequently asked questions
 

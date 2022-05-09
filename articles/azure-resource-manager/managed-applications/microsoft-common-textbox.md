@@ -77,28 +77,31 @@ The following example uses a text box with the [Microsoft.Solutions.ArmApiContro
 
 ```json
 "basics": [
-  {
-    "name": "nameApi",
-    "type": "Microsoft.Solutions.ArmApiControl",
-    "request": {
-      "method": "POST",
-      "path": "[concat(subscription().id, '/providers/Microsoft.Storage/checkNameAvailability?api-version=2019-06-01')]",
-      "body": "[parse(concat('{\"name\": \"', basics('txtStorageName'), '\", \"type\": \"Microsoft.Storage/storageAccounts\"}'))]"
-    }
-  },
-  {
-    "name": "txtStorageName",
-    "type": "Microsoft.Common.TextBox",
-    "label": "Storage account name",
-    "constraints": {
-      "validations": [
-        {
-          "isValid": "[not(equals(basics('nameApi').nameAvailable, false))]",
-          "message": "[concat('Name unavailable: ', basics('txtStorageName'))]"
+    {
+        "name": "nameApi",
+        "type": "Microsoft.Solutions.ArmApiControl",
+        "request": {
+            "method": "POST",
+            "path": "[concat(subscription().id, '/providers/Microsoft.Storage/checkNameAvailability?api-version=2021-04-01')]",
+            "body": {
+                "name": "[basics('txtStorageName')]",
+                "type": "Microsoft.Storage/storageAccounts"
+            }
         }
-      ]
+    },
+    {
+        "name": "txtStorageName",
+        "type": "Microsoft.Common.TextBox",
+        "label": "Storage account name",
+        "constraints": {
+            "validations": [
+                {
+                    "isValid": "[basics('nameApi').nameAvailable]",
+                    "message": "[basics('nameApi').message]"
+                }
+            ]
+        }
     }
-  }
 ]
 ```
 

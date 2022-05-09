@@ -4,22 +4,31 @@ metadata:
   description: Learn answers to frequently asked questions (FAQ) about using Azure AD Application Proxy to publish internal, on-premises applications to remote users.  
   services: active-directory
   author: kenwith
-  manager: karenh444
+  manager: 
   ms.service: active-directory
   ms.subservice: app-proxy
   ms.workload: identity
-  ms.topic: reference
-  ms.date: 04/27/2021
+  ms.topic: faq
+  ms.date: 01/10/2022
   ms.author: kenwith
   ms.reviewer: ashishj
-    
 title: Active Directory (Azure AD) Application Proxy frequently asked questions
 summary: This page answers frequently asked questions about Azure Active Directory (Azure AD) Application Proxy.
 
 
 sections:
-  - name: Ignored
+  - name: General
     questions:
+
+      - question: |
+         Can I modify an App Proxy app from the **App registrations** page in the Azure portal?
+        answer: |
+            No, the following configuration items are being used by app proxy and should not be altered or deleted:
+            -	Enable/Disable “Allow public clients flows”.
+            -	CWAP_AuthSecret (Client secrets).
+            -	API Permissions.
+            Modifying any of the above configuration items on the App registration page will break pre-authentication for Azure AD Application Proxy. 
+
       - question: |
          Can I delete an App Proxy app from the App registrations page in the Azure portal? 
         answer: |
@@ -62,8 +71,8 @@ sections:
         answer: |
           No, this scenario isn't supported. The default settings are:
           
-          - Microsoft AAD Application Proxy Connector - WAPCSvc - Network Service
-          - Microsoft AAD Application Proxy Connector Updater - WAPCUpdaterSvc - NT Authority\System
+          - Microsoft Azure Active Directory Application Proxy Connector - WAPCSvc - Network Service
+          - Microsoft Azure Active Directory Application Proxy Connector Updater - WAPCUpdaterSvc - NT Authority\System
           
       - question: |
          Can a guest user with the Global Administrator or the Application Administrator role register the connector for the (guest) tenant?
@@ -102,7 +111,7 @@ sections:
           
           1. Select **Start**, type "Perfmon", and press ENTER.
           2. Select **Performance Monitor** and click the green **+** icon.
-          3. Add the **Microsoft AAD Application Proxy Connector** counters you want to monitor.
+          3. Add the **Microsoft Azure Active Directory Application Proxy Connector** counters you want to monitor.
           
       - question: |
          Does the Azure AD Application Proxy connector have to be on the same subnet as the resource?
@@ -118,8 +127,20 @@ sections:
           HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
           ```
           
+      - question: |
+         Why is the connector still showing in Azure AD portal after I uninstalled the connector from the Server?
+        answer: |
+           When a connector is running, it remains active as it connects to the service. Uninstalled /Unused connectors are tagged as inactive and are removed after 10 days of inactivity from the portal.
+           There is no way to remove the Inactive connector manually from the Azure portal.
+          
   - name: Application configuration
     questions:
+      - question: |
+         Can I use the domain suffixes [tenantname].onmicrosoft.com or [tenantname].mail.onmicrosoft.com in the external URL?
+        answer: |
+            Although these suffixes appear in the suffix list, you should not use them. These domain suffixes are not meant to be used with Azure AD Application Proxy. If you use these domain suffixes, the created Azure AD Application Proxy application won't work.
+            You can use either the standard domain suffix `msappproxy.net` or a [custom domain](application-proxy-configure-custom-domain.md).
+
       - question: |
          I am receiving an error about an invalid certificate or possible wrong password
         answer: |
@@ -176,6 +197,53 @@ sections:
          Can I configure Application Proxy to add the HSTS header?
         answer: |
               Application Proxy does not automatically add the HTTP Strict-Transport-Security header to HTTPS responses, but it will maintain the header if it is in the original response sent by the published application. Proving a setting to enable this functionality is on the roadmap.
+
+      - question: |
+         Can I use a custom port number in the external URL?
+        answer: |
+              No, if the protocol `http` is configured in the external URL then the Azure AD Application Proxy endpoint accepts incoming request on the port TCP 80, if the protocol `https` then on the port TCP 443.
+
+      - question: |
+         Can I use a custom port number in the internal URL?
+        answer: |
+              Yes, some examples for internal URLs including ports: `http://app.contoso.local:8888/`, `https://app.contoso.local:8080/`, `https://app.contoso.local:8081/test/`.
+
+      - question: |
+         What are the challenges, if the external and the internal URLs are different?
+        answer: |
+              Some responses sent by the published web applications might contain hard-coded URLs.
+              In this case it must be ensured by using a link translation solution that the client always uses the correct URL.
+              Link translation solutions might be complex and might not work in all the scenarios. You can find [here](application-proxy-configure-hard-coded-link-translation.md) our documented solutions for link translation.
+              
+              As best practice it is advised to use identical external and internal URLs. External and internal URLs are considered to be identical, if the `protocol://hostname:port/path/` in both URLs are identical.
+              
+              This can be achieved by using the [Custom Domains](application-proxy-configure-custom-domain.md) feature.
+              
+              Examples:
+              
+              Identical:
+              ```
+              External URL: https://app1.contoso.com/test/
+              Internal URL: https://app1.contoso.com/test/
+              ```
+              
+              Not identical:
+              
+              ```
+              External URL: https://app1.contoso.com/test/
+              Internal URL: http://app1.contoso.com/test/
+              
+              External URL: https://app1.contoso.com/test/
+              Internal URL: https://app1.contoso.com:8080/test/
+              
+              External URL: https://app1.msappproxy.net/test/
+              Internal URL: https://app1.contoso.com:/test/
+              ```
+              
+              Making the external and internal URLs identical is not possible. Different ports or using http and https must be used in the internal and external URLs.
+              
+              In some scenarios changes must be done in the configuration of the web app.
+
 
   - name: Integrated Windows authentication
     questions:
@@ -270,11 +338,14 @@ sections:
   - name: WebSocket
     questions:
       - question: |
-         Does WebSocket support work for applications other than QlikSense and Remote Desktop Web Client (HTML5)?
+         Does Azure AD Application Proxy support the WebSocket protocol?
         answer: |
-              Currently, WebSocket protocol support is still in public preview and it may not work for other applications. Some customers have had mixed success using WebSocket protocol with other applications.
-          
-              Features (Eventlogs, PowerShell and Remote Desktop Services) in Windows Admin Center (WAC) do not work through Azure AD Application Proxy presently.
+              Applications that use the WebSocket protocol, for example QlikSense and Remote Desktop Web Client (HTML5), are now supported. The following are known limitations:
+              * Application proxy discards the cookie that is set on the server response while opening the WebSocket connection.
+              * There is no SSO applied to the WebSocket request.
+              * Features (Eventlogs, PowerShell and Remote Desktop Services) in the Windows Admin Center (WAC) do not work through Azure AD Application Proxy.
+              
+              The WebSocket application doesn't have any unique publishing requirements, and can be [published](application-proxy-add-on-premises-application.md) the same way as all your other Application Proxy applications. 
           
   - name: Link translation
     questions:

@@ -6,7 +6,6 @@ documentationcenter: ''
 author: duongau
 editor: ''
 ms.service: frontdoor
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

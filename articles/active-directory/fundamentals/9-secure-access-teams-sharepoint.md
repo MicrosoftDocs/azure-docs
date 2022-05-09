@@ -3,7 +3,7 @@ title: Secure external access to Microsoft Teams, SharePoint, and OneDrive with 
 description: Secure access to Microsoft 365 services as a part of your overall external access security.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals

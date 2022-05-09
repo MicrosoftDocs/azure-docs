@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 01/27/2022
 ms.author: yexu
 ---
 #  Data consistency verification in copy activity
@@ -18,7 +18,7 @@ When you move data from source to destination store, the copy activity provides 
 
 ## Supported data stores and scenarios
 
--   Data consistency verification is supported by all the connectors except FTP, sFTP, and HTTP. 
+-   Data consistency verification is supported by all the connectors except FTP, SFTP, HTTP, Snowflake, Office 365 and Azure Databricks Delta Lake. 
 -   Data consistency verification is not supported in staging copy scenario.
 -   When copying binary files, data consistency verification is only available when 'PreserveHierarchy' behavior is set in copy activity.
 -   When copying multiple binary files in single copy activity with data consistency verification enabled, you have an option to either abort the copy activity or continue to copy the rest by enabling fault tolerance setting to skip inconsistent files. 

@@ -4,8 +4,8 @@ description: Use an Azure Resource Manager template to create a new Windows virt
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-author: amjads1
-ms.author: amjads
+ms.author: gabsta
+author: MsGabsta
 ms.collection: windows
 ms.date: 05/31/2017
 

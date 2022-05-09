@@ -39,14 +39,14 @@ First you register a fault provider on the subscription where your network secur
 1. Launch a [Cloud Shell](https://shell.azure.com/).
 1. Replace **$SUBSCRIPTION_ID** with the Azure subscription ID containing the network security group you wish to use in your experiment and run the following command to ensure the provider will be registered on the correct subscription.
 
-    ```bash
+    ```azurecli
     az account set --subscription $SUBSCRIPTION_ID
     ```
 
 1. Drag and drop the **AzureNetworkSecurityGroupChaos.json** into the cloud shell window to upload the file.
 1. Replace **$SUBSCRIPTION_ID** used in the prior step and execute the following command to register the AzureNetworkSecurityGroupChaos fault provider.
 
-    ```bash
+    ```azurecli
     az rest --method put --url "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/microsoft.chaos/chaosProviderConfigurations/AzureNetworkSecurityGroupChaos?api-version=2021-06-21-preview" --body @AzureNetworkSecurityGroupChaos.json --resource "https://management.azure.com"
     ```
 
@@ -168,6 +168,6 @@ Follow these steps if you're not going to continue to using any faults related t
 1. Launch a [Cloud Shell](https://shell.azure.com/).
 1. Replace **$SUBSCRIPTION_ID** with the Azure subscription ID where the network security group fault provider was provisioned and run the following command.
 
-    ```bash
+    ```azurecli
     az rest --method delete --url "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/microsoft.chaos/chaosProviderConfigurations/AzureNetworkSecurityGroupChaos?api-version=2021-06-21-preview" --resource "https://management.azure.com"
     ```

@@ -10,7 +10,6 @@ editor: TomSh
 ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -29,7 +28,7 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 ## General Azure security
 |Service|Description|
 |--------|--------|
-|[Azure&nbsp;Security&nbsp;Center](../../security-center/security-center-introduction.md)| A cloud workload protection solution that provides security management and advanced threat protection across hybrid cloud workloads.|
+|[Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)| A cloud workload protection solution that provides security management and advanced threat protection across hybrid cloud workloads.|
 |[Azure Key Vault](../../key-vault/general/overview.md)| A secure secrets store for the passwords, connection strings, and other information you need to keep your apps working. |
 |[Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md)|A monitoring service that collects telemetry and other data, and provides a query language and analytics engine to deliver operational insights for your apps and resources. Can be used alone or with other services such as Defender for Cloud. |
 |[Azure Dev/Test Labs](../../devtest-labs/devtest-lab-overview.md)|A service that helps developers and testers quickly create environments in Azure while minimizing waste and controlling cost.  |
@@ -52,12 +51,12 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 ## Database security
 |Service|Description|
 |------|--------|
-| [Azure&nbsp;SQL&nbsp;Firewall](../../azure-sql/database/firewall-configure.md)|A network access control feature that protects against network-based attacks to database. |
+| [Azure&nbsp;SQL&nbsp;Firewall](/azure/azure-sql/database/firewall-configure)|A network access control feature that protects against network-based attacks to database. |
 |[Azure&nbsp;SQL&nbsp;Cell&nbsp;Level Encryption](/archive/blogs/sqlsecurity/recommendations-for-using-cell-level-encryption-in-azure-sql-database)| A database security technology that provides encryption at a granular level.  |
-| [Azure&nbsp;SQL&nbsp;Connection Encryption](../../azure-sql/database/logins-create-manage.md)|To provide security, SQL Database controls access with firewall rules limiting connectivity by IP address, authentication mechanisms requiring users to prove their identity, and authorization mechanisms limiting users to specific actions and data. |
+| [Azure&nbsp;SQL&nbsp;Connection Encryption](/azure/azure-sql/database/logins-create-manage)|To provide security, SQL Database controls access with firewall rules limiting connectivity by IP address, authentication mechanisms requiring users to prove their identity, and authorization mechanisms limiting users to specific actions and data. |
 | [Azure SQL Always Encryption](/sql/relational-databases/security/encryption/always-encrypted-database-engine)|Protects sensitive data, such as credit card numbers or national identification numbers (for example, U.S. social security numbers), stored in Azure SQL Database or SQL Server databases.  |
 | [Azure&nbsp;SQL&nbsp;Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)| A database security feature that encrypts the storage of an entire database. |
-| [Azure SQL Database Auditing](../../azure-sql/database/auditing-overview.md)|A database auditing feature that tracks database events and writes them to an audit log in your Azure storage account.  |
+| [Azure SQL Database Auditing](/azure/azure-sql/database/auditing-overview)|A database auditing feature that tracks database events and writes them to an audit log in your Azure storage account.  |
 
 
 ## Identity and access management

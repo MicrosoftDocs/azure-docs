@@ -1,9 +1,10 @@
 ---
 title: Compute and Storage Options - Azure Database for PostgreSQL - Flexible Server
 description: This article describes the compute and storage options in Azure Database for PostgreSQL - Flexible Server.
-author: sunilagarwal
 ms.author: sunila
+author: sunilagarwal
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 11/30/2021
 ---
@@ -30,7 +31,7 @@ To choose a pricing tier, use the following table as a starting point.
 | General Purpose | Most business workloads that require balanced compute and memory with scalable I/O throughput. Examples include servers for hosting web and mobile apps and other enterprise applications.|
 | Memory Optimized | High-performance database workloads that require in-memory performance for faster transaction processing and higher concurrency. Examples include servers for processing real-time data and high-performance transactional or analytical apps.|
 
-After you create a server, the compute tier, number of vCores and storage size can be changed up or down within seconds. You also can independently adjust the backup retention period up or down. For more information, see the [Scale resources](#scale-resources) section.
+After you create a server, the compute tier, number of vCores can be changed up or down and storage size can be changed up within seconds. You also can independently adjust the backup retention period up or down. For more information, see the [Scale resources](#scale-resources) section.
 
 ## Compute tiers, vCores, and server types
 

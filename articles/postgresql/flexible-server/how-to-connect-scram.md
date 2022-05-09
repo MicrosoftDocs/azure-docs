@@ -4,6 +4,7 @@ description: Instructions and information on how to configure and connect using 
 author: sr-msft 
 ms.author: srranga
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 11/30/2021
 ---

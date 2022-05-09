@@ -4,9 +4,9 @@ description: In this tutorial, you import an OpenAPI Specification API into Azur
 
 author: dlepow
 ms.service: api-management
-ms.custom: mvc
+ms.custom: mvc, devdivchpfy22
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 12/10/2021
 ms.author: danlep
 
 ---
@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 
 After import, you can manage the API in the Azure portal.
 
-:::image type="content" source="media/import-and-publish/created-api.png" alt-text="New API in API Management":::
+:::image type="content" source="media/import-and-publish/created-api-1.png" alt-text="New API in API Management":::
 
 ## Prerequisites
 
@@ -40,16 +40,16 @@ This section shows how to import and publish an OpenAPI Specification backend AP
 1. In the left navigation of your API Management instance, select **APIs**.
 1. Select the **OpenAPI** tile.
 1. In the **Create from OpenAPI specification** window, select **Full**.
-1. Enter the values from the following table. Then select **Create** to create your API.
+1. Enter the values from the following table.
 
    You can set API values during creation or later by going to the **Settings** tab.
 
-   :::image type="content" source="media/import-and-publish/create-api.png" alt-text="Create an API":::
+   :::image type="content" source="media/import-and-publish/open-api-specs.png" alt-text="Create an API":::
 
 
    |Setting|Value|Description|
    |-------|-----|-----------|
-   |**OpenAPI specification**|*https:\//conferenceapi.azurewebsites.net?format=json*|The service implementing the API. API Management forwards requests to this address. The service must be hosted at a publicly accessible internet address. |
+   |**OpenAPI specification**|*https:\//conferenceapi.azurewebsites.net?format=json*|The service implementing the API. API Management forwards requests to this address. The service must be hosted at a publicly accessible internet address.|
    |**Display name**|After you enter the preceding service URL, API Management fills out this field based on the JSON.|The name displayed in the [developer portal](api-management-howto-developer-portal.md).|
    |**Name**|After you enter the preceding service URL, API Management fills out this field based on the JSON.|A unique name for the API.|
    |**Description**|After you enter the preceding service URL, API Management fills out this field based on the JSON.|An optional description of the API.|
@@ -63,7 +63,7 @@ This section shows how to import and publish an OpenAPI Specification backend AP
    > [!NOTE]
    > To publish the API to API consumers, you must associate it with a product.
 
-2. Select **Create**.
+1. Select **Create** to create your API.
 
 If you have problems importing an API definition, see the [list of known issues and restrictions](api-management-api-import-restrictions.md).
 
@@ -75,7 +75,7 @@ You can call API operations directly from the Azure portal, which provides a con
 1. Select the **Test** tab, and then select **GetSpeakers**. The page shows **Query parameters** and **Headers**, if any. The **Ocp-Apim-Subscription-Key** is filled in automatically for the subscription key associated with this API.
 1. Select **Send**.
 
-   :::image type="content" source="media/import-and-publish/01-import-first-api-01.png" alt-text="Test API in Azure portal":::
+   :::image type="content" source="media/import-and-publish/test-new-api.png" alt-text="Test API in Azure portal":::
 
    The backend responds with **200 OK** and some data.
 

@@ -3,7 +3,7 @@ title: 'How to schedule a contact on Azure Orbital Earth Observation service'
 description: 'How to schedule a contact'
 author: wamota
 ms.service: orbital
-ms.topic: how-to
+ms.topic: quickstart
 ms.custom: public-preview
 ms.date: 11/16/2021
 ms.author: wamota
@@ -22,7 +22,7 @@ Schedule a contact with the selected satellite for data retrieval/delivery on Az
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal](https://portal.azure.com).
+Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 
 ## Select an available contact
 

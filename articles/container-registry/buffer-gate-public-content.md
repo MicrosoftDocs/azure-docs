@@ -3,8 +3,8 @@ title: Manage public content in private container registry
 description: Practices and workflows in Azure Container Registry to manage dependencies on public images from Docker Hub and other public content
 author: dlepow
 ms.topic: article
-ms.author: danlep
-ms.date: 06/17/2021
+ms.author: tejaswikolli
+ms.date: 02/01/2022
 ---
 
 # Manage public content with Azure Container Registry
@@ -63,10 +63,13 @@ For details, see [Docker Hub authenticated pulls on App Service](https://azure.g
  
 To begin managing copies of public images, you can create an Azure container registry if you don't already have one. Create a registry using the [Azure CLI](container-registry-get-started-azure-cli.md), [Azure portal](container-registry-get-started-portal.md), [Azure PowerShell](container-registry-get-started-powershell.md), or other tools. 
 
-As a recommended one-time step, [import](container-registry-import-images.md) base images and other public content to your Azure container registry. The [az acr import](/cli/azure/acr#az_acr_import) command in the Azure CLI supports image import from public registries such as Docker Hub and Microsoft Container Registry and from other private container registries. 
+As a recommended one-time step, [import](container-registry-import-images.md) base images and other public content to your Azure container registry. The [az acr import](/cli/azure/acr#az-acr-import) command in the Azure CLI supports image import from public registries such as Docker Hub and Microsoft Container Registry and from other private container registries. 
 
 `az acr import` doesn't require a local Docker installation. You can run it with a local installation of the Azure CLI or directly in Azure Cloud Shell. It supports images of any OS type, multi-architecture images, or OCI artifacts such as Helm charts.
 
+Depending on your organization's needs, you can import to a dedicated registry or a repository in a shared registry.
+
+# [Azure CLI](#tab/azure-cli) 
 Example:
 
 ```azurecli-interactive
@@ -78,7 +81,18 @@ az acr import \
   --password <Docker Hub token>
 ```
 
-Depending on your organization's needs, you can import to a dedicated registry or a repository in a shared registry.
+# [PowerShell](#tab/azure-powershell)
+Example:
+
+```azurepowershell-interactive
+Import-AzContainerRegistryImage 
+      -SourceImage library/busybox:latest 
+      -ResourceGroupName $resourceGroupName 
+      -RegistryName $RegistryName 
+      -SourceRegistryUri docker.io 
+      -TargetTag busybox:latest
+```
+ Credentials are required if the source registry is not available publicly or the admin user is disabled.
 
 ## Update image references
 

@@ -1,126 +1,168 @@
 ---
 title: Deliver a proof of concept
-description: Learn how to deliver a proof of concept so Azure DevTest Labs can be successfully incorporated into an enterprise environment.
+description: Use a proof of concept or pilot deployment to investigate incorporating Azure DevTest Labs into an enterprise environment.
 ms.topic: how-to
-ms.date: 06/2/2020
+ms.author: rosemalcolm
+author: RoseHJM
+ms.date: 03/22/2022
 ---
 
-# Deliver a proof of concept 
+# Deliver a proof of concept for Azure DevTest Labs enterprise deployment
 
-One of the key scenarios for Azure DevTest Labs is enabling development and testing environments in the cloud. Examples include:
+This article describes how an enterprise can deliver a successful proof of concept or pilot for an Azure DevTest Labs deployment. Proof of concept uses a concentrated effort from a single team to establish organizational value.
 
-* Creating developer desktops in the cloud.
-* Configuring environments for testing.
-* Enabling access to virtual machines and other Azure resources.
-* Setting up a sandbox area for developers to learn and experiment.
+Every enterprise has different requirements for incorporating Azure DevTest Labs into their organization. Proof of concept is a first step toward a successful end-to-end deployment.
 
-DevTest Labs policy guardrails and cost controls help enterprises provide developers with "self-serve Azure" that adheres to corporate security, regulatory, and compliance policies. 
+For a successful proof of concept:
 
-Every enterprise has different requirements for how Azure DevTest Labs can be successfully incorporated into their environment. This article describes the most common steps that enterprises need to complete to ensure a successful proof of concept. A proof of concept is the first step toward a successful end-to-end deployment. 
+1. Pick one or two teams.
+1. Identify the teams' scenarios, such as developer virtual machines (VMs) or test environments.
+1. Document current use cases.
+1. Deploy DevTest Labs to fulfill the teams' scenarios and use cases.
+1. Evaluate success and lessons learned.
 
-## Getting started 
+Key [DevTest Labs scenarios](devtest-lab-guidance-get-started.md) include cloud development, testing, and training environments. Use cases include:
 
-To get started on delivering a proof of concept. It’s important to spend some time to learn about Azure and DevTest Labs.  Here are some starting resources: 
-
-* [Understanding the Azure portal](https://azure.microsoft.com/features/azure-portal/)
-* [Basics of DevTest Labs](devtest-lab-overview.md)
-* [DevTest Labs supported scenarios](devtest-lab-guidance-get-started.md)
-* [DevTest Labs enterprise documentation](devtest-lab-guidance-prescriptive-adoption.md)
-* [Intro to Azure networking](../virtual-network/virtual-networks-overview.md)
+- Creating developer desktops.
+- Configuring test environments.
+- Enabling VM and Azure resource access.
+- Setting up sandboxes for learning and experimentation.
+- Configuring lab policies and cost controls that comply with corporate regulations.
 
 ## Prerequisites 
 
-To successfully complete a pilot or proof of concept with DevTest Labs, there are a few prerequisites: 
+To successfully complete a DevTest Labs proof of concept, fulfill the following prerequisites:
 
-* **Azure subscription**: Enterprises often have an existing [Enterprise Agreement](https://azure.microsoft.com/pricing/purchase-options/enterprise-agreement/) in place that enables access to Azure, and they can use an existing or new subscription for DevTest Labs. Alternatively, enterprises can use a [Visual Studio subscription](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/) during the pilot (taking advantage of the free Azure credits). If neither of those options is available, an enterprise can create and use a [free Azure account](https://azure.microsoft.com/free/search/?&OCID=AID719825_SEM_g4lyBqgB&lnkd=Bing_Azure_Brand&msclkid=ecc4275a31b61375749e7a5322c20de8&dclid=CMGW5-m78-ICFaLt4QodmUwGtQ). If there's an Enterprise Agreement in place, an [Enterprise Dev/Test subscription](https://azure.microsoft.com/offers/ms-azr-0148p/) is a great option. You get access to Windows 10/Windows 8.1 client operating systems and discounted rates for development and testing workloads. 
-* **Azure Active Directory tenant**: For management, such as adding users or adding lab owners, users must be part of the [Azure Active Directory tenant](https://azure.microsoft.com/services/active-directory/) for the Azure subscription the pilot uses. Often enterprises will set up [hybrid identity](../active-directory/hybrid/whatis-hybrid-identity.md) to enable users to use their on-premises identity in the cloud. You don't need a hybrid identity for the DevTest Labs pilot. 
+### Learn the basics
 
-## Scoping of the pilot 
+Learn about Azure and DevTest Labs by using the following resources:
 
-It's important to plan a pilot before you start the implementation. Knowing in advance that the resources won’t stay around indefinitely sets appropriate expectations for users of the pilot. 
+- [Understand the Azure portal](https://azure.microsoft.com/features/azure-portal)
+- [DevTest Labs overview](devtest-lab-overview.md)
+- [DevTest Labs scenarios](devtest-lab-guidance-get-started.md)
+- [DevTest Labs in the enterprise](devtest-lab-guidance-prescriptive-adoption.md)
+- [DevTest Labs enterprise reference architecture](devtest-lab-reference-architecture.md)
 
-> [!IMPORTANT]
-> We can't emphasize enough the importance of crisply scoping the pilot and setting expectations up front.
+### Get an Azure subscription
 
-Answer these key questions before you kick off the pilot: 
+- Enterprises with an existing [Enterprise Agreement](https://azure.microsoft.com/pricing/purchase-options/enterprise-agreement) that enables access to Azure can use an existing or new subscription for DevTest Labs. If there's an Enterprise Agreement in place, an [Enterprise Dev/Test subscription](https://azure.microsoft.com/offers/ms-azr-0148p/) gives you access to Windows 10/Windows 8.1 client operating systems, and discounted rates for development and testing workloads.
 
-* What do you want to learn, and what does success look like for the pilot? 
-* What workloads or scenarios will be covered in the pilot? It’s important to define only a small set to ensure that the pilot can be scoped and completed quickly. 
-* What resources must be available in the lab? For example: custom images, marketplace images, policies, network topology. 
-* Who are the users and teams that will be involved in the pilot to verify the experience?  
-* What is the duration of the pilot? Choose a timeframe that aligns well to planned scope, like two weeks or one month. 
-* After the pilot is complete, what will happen with the allocated resources that were used during the pilot? Do you plan to discard the pilot resources? You might think:
-   
-   "If we plan on throwing away the virtual machines and labs at the end of the pilot, we can set up a single subscription for the pilot and do all our work there. We can resolve questions about the scale rollout in parallel." 
+- Alternatively, you can use a [Visual Studio subscription](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions) for the pilot deployment, and take advantage of free Azure credits.
 
-There's a tendency to try to make the pilot "perfect," so it's identical to the final state after rolling out the service at the company. This assumption is false. The closer you get to "perfect," the more you have to complete *before* getting started on the pilot. The purpose of the pilot is to be able to make the right decisions on scaling up and rolling out the final service. 
+- You can also create and use a [free Azure account](https://azure.microsoft.com/free/search/?&OCID=AID719825_SEM_g4lyBqgB&lnkd=Bing_Azure_Brand&msclkid=ecc4275a31b61375749e7a5322c20de8&dclid=CMGW5-m78-ICFaLt4QodmUwGtQ) for the pilot.
 
-The focus of the pilot should be to pick the minimum necessary workloads and dependencies to decide whether Azure DevTest Labs is right for your enterprise. We recommend you choose the simplest workload with the least dependencies to help ensure a quick and clean success. If that isn't possible, pick a most representative workload that exposes potential complexities, so you can replicate pilot success in the scale-out phase. 
+### Enroll all users in Azure AD
 
-The following example demonstrates a well-scoped proof of concept. 
+For management, such as adding users or adding lab owners, all lab users must belong to the [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) tenant for the Azure subscription the pilot uses. Many enterprises set up [hybrid identity](../active-directory/hybrid/whatis-hybrid-identity.md) to enable users to use their on-premises identities in the cloud. You don't need a hybrid identity for a DevTest Labs proof of concept.
 
-## Example: proof-of-concept plan 
+## Scope the proof of concept
 
-This section shows a sample to use for scoping a proof of concept of the pilot for DevTest Labs. 
+The focus of the pilot is to use the minimum necessary workloads and dependencies to decide whether Azure DevTest Labs is right for your enterprise. Choose the simplest workload with the fewest dependencies to help ensure quick and clean success. Or, pick the most representative workload that exposes potential complexities, so you can replicate pilot success in the [scale-out phase](devtest-lab-guidance-scale.md).
 
-> [!TIP]
-> To minimize the possibility of setting up your project for failure, we highly recommend that you don't skip the example described in this section. 
+Plan the proof of concept carefully before you start the implementation. Be sure to set appropriate expectations with users that the pilot resources won't stay around indefinitely.
 
-### Overview 
+Do these tasks to scope the pilot:
 
-Our enterprise plans to develop a new Azure environment based on DevTest Labs. This environment will be isolated from the corporate network. To determine if the solution will meet the requirements, we'll develop a proof of concept to validate the end-to-end solution. We've included several vendors to try out and verify the experience. 
+- Define goals and success criteria.
+- List a small set of workloads or scenarios for the pilot to cover.
+- Determine what resources the lab must make available, such as custom images or Marketplace images.
+- Decide on network topology and lab policies.
+- Choose the users and teams to be involved in the pilot and to verify the results.
+- Decide on the pilot duration, such as two weeks or a month.
+- Decide how to dispose of the pilot resources when the pilot ends.
 
-### Outcomes 
+There's a tendency to try to make the pilot perfect, so it will mirror the final state after DevTest Labs rollout. However, trying to make the proof of concept perfect means too much effort before you can start the pilot. The purpose of the pilot is to determine the right decisions for scaling up and rolling out the final service.
 
-When building a proof of concept, we focus first on the outcomes (what are we trying to achieve). By the end of the proof of concept, we expect: 
+## Make other planning and design decisions
 
-* A working end-to-end solution for vendors to use guest accounts in Azure Active Directory (Azure AD) to access an isolated environment in Azure. The environment has the resources required for them to be productive. 
-* Any potential blocking issues that affect broader scale use and adoption are enumerated and understood.
-* The individuals involved in developing the proof of concept have a good understanding of all code. They also understand collateral involved and are confident in broader adoption.
+A full DevTest Labs solution includes some important planning and design decisions. The proof of concept can help you make these decisions. Further considerations include:
 
-### Open questions and prerequisites 
+### Subscription topology
 
-* Do we have a subscription created that we can use for this project? 
-* Do we have an Azure AD tenant and an Azure AD global admin identified who can provide help and guidance for Azure AD-related questions? 
-* Do we have a place to collaborate for the individuals working on the project? 
+The enterprise-level requirements for resources in Azure can extend beyond the [available quotas within a single subscription](../azure-resource-manager/management/azure-subscription-service-limits.md). You might need several Azure subscriptions, or you might need to make service requests to increase initial subscription limits. For more information, see [Scalability considerations](devtest-lab-reference-architecture.md#scalability-considerations).
 
-   * Source code and scripts (like Azure Repos) 
-   * Documents (like Microsoft Teams or SharePoint)  
-   * Conversations (like Microsoft Teams) 
-   * Work items (like Azure Boards) 
-* What are the required resources for vendors? Resources include applications available on the network, both locally on the virtual machines and on other required servers. 
-* Will the virtual machines be joined to a domain in Azure? If so, will this be Azure Active Directory Domain Services (Azure AD DS) or something else? 
-* Have we identified the team or vendors that will be the target of the proof of concept? Who will be the customers for the environment?
-* Which Azure region will we use for the proof of concept? 
-* Do we have a list of services the vendors are allowed to use via DevTest Labs besides IaaS (VMs)? 
-* How do we plan to train vendors/users on using the lab? 
+It's important to decide how to distribute resources across subscriptions before final, full-scale rollout, because it's difficult to move resources to another subscription later. For example, you can't move a lab to another subscription after it's created. The [Subscription decision guide](/azure/architecture/cloud-adoption/decision-guides/subscriptions) is a valuable planning resource.
 
-### Components of the proof-of-concept solution 
+### Network topology
 
-We are expecting the solution to have the following components: 
+The [default network infrastructure](../app-service/networking-features.md) that DevTest Labs automatically creates might not meet requirements and constraints for enterprise users. For example, enterprises often use:
 
-* Various vendor teams will use a set of labs in Azure.
-* The labs are connected to a network infrastructure that supports the requirements.
-* The vendors have access to the labs via Azure AD and role assignments.
-* Vendors have a way to successfully connect to their resources. Specifically, a site-to-site VPN enables accessing virtual machines directly without public IP addresses.
-* A set of artifacts covers the required software that the vendors need on the virtual machines.
+- [Azure ExpressRoute-connected virtual networks](/azure/architecture/reference-architectures/hybrid-networking) for connecting on-premises networks to Azure.
+- [Peered virtual networks](../virtual-network/virtual-network-peering-overview.md) in a [hub-spoke configuration](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) for connecting virtual networks across subscriptions.
+- [Forced tunneling](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) to limit traffic to on-premises networks.
 
-## Other planning and design decisions 
+For more information, see [Networking components](devtest-lab-reference-architecture.md#networking-components).
 
-Before you release a full DevTest Labs solution, you have to make some important planning and design decisions. The experience of working on a proof of concept can help you make these decisions. Further consideration includes: 
+DevTest Labs also supports adding existing virtual networks to the lab to use for creating new VMs. For more information, see [Add a virtual network in Azure DevTest Labs](devtest-lab-configure-vnet.md).
 
-* **Subscription topology**: The enterprise-level requirements for resources in Azure can extend beyond the [available quotas within a single subscription](../azure-resource-manager/management/azure-subscription-service-limits.md). You might need multiple Azure subscriptions, or service requests to increase initial subscription limits. It's important to decide up front how to distribute resources across subscriptions, because it's difficult to move resources to another subscription later. For example, you can't move a lab to another subscription after it's created. One valuable resource is the [subscription decision guide](/azure/architecture/cloud-adoption/decision-guides/subscriptions/).   
-* **Network topology**: The [default network infrastructure](../app-service/networking-features.md) that DevTest Labs automatically creates might not be sufficient to meet the requirements and constraints for the enterprise users. It’s common to see [Azure ExpressRoute connected virtual networks](/azure/architecture/reference-architectures/hybrid-networking/), [hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) for connectivity across subscriptions, and even [forced routing](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) to ensure on-premises connectivity only. DevTest Labs allows for existing virtual networks to be connected to the lab to enable their use when you're creating new virtual machines in the lab. 
-* **Remote access of virtual machines**: There are many options to remotely access the virtual machines located in DevTest Labs. The easiest is to use public IPs or shared public IPs. [These settings](devtest-lab-shared-ip.md) are available in the lab. If these options aren't sufficient, using a remote access gateway is also an option. The [DevTest Labs enterprise reference architecture](devtest-lab-reference-architecture.md) shows this option. For more information, see [Configure a lab to use Remote Desktop Gateway](configure-lab-remote-desktop-gateway.md). Enterprises can also use ExpressRoute or a site-to-site VPN to connect their labs to their on-premises network. This option enables direct remote desktop or SSH connections to the virtual machines based on their private IP addresses. There's no exposure to the internet. 
-* **Handling permissions**: The two key permissions commonly used in DevTest Labs are [Owner and Lab User](devtest-lab-add-devtest-user.md). It's important to decide before rolling out DevTest Labs broadly who will be entrusted with each level of access in the lab. A common model is the budget owner (team lead, for example) as the lab owner and the team members as lab users. This model enables the person (team lead) responsible for the budget to adjust the policy settings and keep the team within budget.  
+### Virtual machine remote access
 
-## Completing the proof of concept 
+There are several options for enterprise users to remotely access DevTest Labs VMs:
 
-After the expected learnings have been covered, it's time to complete the pilot. Gather feedback from the users, determine if the pilot was successful, and decide if the organization will move ahead on an enterprise-scale rollout of DevTest Labs. It's also a great time to consider automating deployment of DevTest Labs and associated resources to ensure consistency throughout the scale rollout. 
+- The easiest and most secure method is to use browser connectivity through Azure Bastion. The VMs don't need to use public IP addresses. For more information, see [Enable browser connection to DevTest Labs VMs with Azure Bastion](enable-browser-connection-lab-virtual-machines.md).
+
+- Another option is to use public IPs or [shared public IPs](devtest-lab-shared-ip.md), and connect through Remote Desktop Protocol (RDP) or secure shell (SSH).
+
+- If the preceding options aren't sufficient, you can connect through a remote access gateway, as shown in the [DevTest Labs enterprise reference architecture](devtest-lab-reference-architecture.md). For more information, see [Configure a lab to use Remote Desktop Gateway](configure-lab-remote-desktop-gateway.md).
+
+- Enterprises can also connect their labs to their on-premises networks through ExpressRoute or a site-to-site VPN. This option enables direct RDP or SSH connections to the VMs based on their private IP addresses, with no exposure to the internet.
+
+### Lab access and permissions
+
+Before final DevTest Labs rollout, it's important to decide broadly who to give each level of lab access. The two key DevTest Labs [permission levels](devtest-lab-add-devtest-user.md) are Owner and DevTest Labs User. A common model is for the budget owner, such as the team lead, to be the lab owner, with the team members as lab users. The person responsible for the budget can then adjust lab policy settings and keep the team within budget.
+
+## Complete the proof of concept 
+
+After you cover the defined scenarios, complete the pilot. Gather feedback from the users, determine if the pilot was successful, and decide if the organization will move ahead on an enterprise-scale DevTest Labs rollout. Start to consider automating deployment of DevTest Labs and associated resources to ensure consistency throughout the scaled rollout.
+
+## Example proof-of-concept plan
+
+This following example shows a plan for scoping a DevTest Labs proof of concept deployment.
+
+### Overview
+
+An enterprise plans to develop a new Azure DevTest Labs environment for vendors to use, which is isolated from the corporate network. To determine if the solution will meet the requirements, the organization develops a proof of concept to validate the end-to-end scenario.
+
+### Goals
+
+The proof of concept has the following goals:
+
+- A working end-to-end solution for vendors using Azure AD guest accounts to access an isolated Azure environment.
+- A DevTest Labs environment with all the necessary resources for vendors to be productive.
+- Identification and understanding of any potential blocking issues that affect broader use and adoption.
+- Good understanding of all code and collateral by the individuals developing the solution.
+- Confidence in the broader adoption by all participants.
+
+### Requirements
+
+The solution has the following requirements:
+
+- Vendor teams can use a set of labs in Azure DevTest Labs.
+- The vendors have access to the labs via Azure AD and role assignments.
+- Vendors have a way to successfully connect to their resources, such as a site-to-site VPN that enables accessing VMs without using public IP addresses.
+- The labs connect to a network infrastructure that supports the requirements.
+- DevTest Labs installs the set of software artifacts that vendors need on the VMs.
+
+### Prerequisites 
+
+- A subscription to use for the project
+- An Azure AD tenant, and an Azure AD global administrator who can provide Azure AD help and guidance
+- Ways for project members to collaborate, such as:
+  - Azure Repos for source code and scripts
+  - Microsoft Teams or SharePoint for documents
+  - Microsoft Teams for conversations
+  - Azure Boards for work items
+
+### Setup tasks
+
+- Decide what Azure region to use for the proof of concept.
+- Decide whether to join lab VMs to the Azure AD domain, and whether to use Azure Active Directory Domain Services (Azure AD DS) or another method.
+- Identify the vendors who will use the proof of concept environment.
+- Determine the required resources for the vendors, such as software available on the VMs.
+- Decide on the Azure services, other than VMs, that the vendors can use in DevTest Labs.
+- Plan how to train vendors to use the lab.
 
 ## Next steps 
 
-* [DevTest Labs enterprise documentation](devtest-lab-guidance-prescriptive-adoption.md)
-* [Reference architecture for an enterprise](devtest-lab-reference-architecture.md)
-* [Scaling up your DevTest Labs deployment](devtest-lab-guidance-orchestrate-implementation.md)
-* [Orchestrate the implementation of Azure DevTest Labs](devtest-lab-guidance-orchestrate-implementation.md)
+- [Scale up a DevTest Labs deployment](devtest-lab-guidance-orchestrate-implementation.md)
+- [Orchestrate DevTest Labs implementation](devtest-lab-guidance-orchestrate-implementation.md)

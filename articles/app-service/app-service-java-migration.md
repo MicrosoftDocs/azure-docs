@@ -28,7 +28,7 @@ Azure App Service provides tools to discover web apps deployed to on-premise web
 
 ## Standalone Tomcat Web App Migration (Windows OS)
 
-Download this [preview tool](https://azure.microsoft.com/services/app-service/migration-assistant/) to migrate a Java web app on Apache Tomcat to App Service on Windows. For more information, see the [video](https://channel9.msdn.com/Shows/The-Launch-Space/Updates-on-Migrating-to-Azure-App-Service) and [how-to](https://github.com/Azure/App-Service-Migration-Assistant/wiki/TOMCAT-Java-Information).
+Download this [preview tool](https://azure.microsoft.com/services/app-service/migration-assistant/) to migrate a Java web app on Apache Tomcat to App Service on Windows. For more information, see the [video](/Shows/The-Launch-Space/Updates-on-Migrating-to-Azure-App-Service) and [how-to](https://github.com/Azure/App-Service-Migration-Assistant/wiki/TOMCAT-Java-Information).
 
 ## Containerize standalone Tomcat Web App
 

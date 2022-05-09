@@ -3,7 +3,7 @@ title: Upload a VHD to Azure or copy a disk across regions - Azure PowerShell
 description: Learn how to upload a VHD to an Azure managed disk and copy a managed disk across regions, using Azure PowerShell, via direct upload.    
 author: roygara
 ms.author: rogarana
-ms.date: 09/07/2021
+ms.date: 02/01/2022
 ms.topic: how-to
 ms.service: storage
 ms.tgt_pltfrm: linux
@@ -15,18 +15,54 @@ ms.custom: devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Windows VMs 
 
-[!INCLUDE [disks-upload-vhd-to-disk-intro](../../../includes/disks-upload-vhd-to-disk-intro.md)]
+This article explains how to either upload a VHD from your local machine to an Azure managed disk or copy a managed disk to another region, using the Azure PowerShell module. The process of uploading a managed disk, also known as direct upload, enables you to upload a VHD up to 32 TiB in size directly into a managed disk. Currently, direct upload is supported for standard HDD, standard SSD, and premium SSDs. It isn't supported for ultra disks, yet.
 
-## Prerequisites
-
-- Download the latest [version of AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
-- [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
-- If you intend to upload a VHD from on-premises: A fixed size VHD that [has been prepared for Azure](prepare-for-upload-vhd-image.md), stored locally.
-- Or, a managed disk in Azure, if you intend to perform a copy action.
+If you're providing a backup solution for IaaS VMs in Azure, you should use direct upload to restore customer backups to managed disks. When uploading a VHD from a source external to Azure, speeds depend on your local bandwidth. When uploading or copying from an Azure VM, your bandwidth would be the same as standard HDDs.
 
 ## Getting started
 
-If you'd prefer to upload disks through a GUI, you can do so using Azure Storage Explorer. For details refer to: [Use Azure Storage Explorer to manage Azure managed disks](../disks-use-storage-explorer-managed-disks.md)
+There are two ways you can upload a VHD with the Azure PowerShell module: You can either use the [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0) command, which will automate most of the process for you, or you can perform the upload manually with AzCopy.
+
+Generally, you should use [Add-AzVHD](#use-add-azvhd). However, if you need to upload a VHD that is larger than 50 GiB, consider [uploading the VHD manually with AzCopy](#manual-upload). VHDs 50 GiB and larger will upload faster using AzCopy.
+
+For guidance on how to copy a managed disk from one region to another, see [Copy a managed disk](#copy-a-managed-disk).
+
+## Use Add-AzVHD
+
+### Prerequisites
+
+- [Install the Azure PowerShell module](/powershell/azure/install-Az-ps).
+- A VHD [has been prepared for Azure](prepare-for-upload-vhd-image.md), stored locally.
+    - On Windows: You don't need to convert your VHD to VHDx, convert it a fixed size, or resize it to include the 512-byte offset. `Add-AZVHD` performs these functions for you.
+        - [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) must be enabled for Add-AzVHD to perform these functions.
+    - On Linux: You must perform these actions manually. See [Resizing VHDs](../linux/create-upload-generic.md?branch=pr-en-us-185925) for details.
+
+### Upload a VHD
+
+The following example uploads a VHD from your local machine to a new Azure managed disk using [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0). Replace `<your-filepath-here>`, `<your-resource-group-name>`,`<desired-region>`, and `<desired-managed-disk-name>` with your parameters:
+
+```azurepowershell
+# Required parameters
+$path = <your-filepath-here>.vhd
+$resourceGroup = <your-resource-group-name>
+$location = <desired-region>
+$name = <desired-managed-disk-name>
+
+# Optional parameters
+# $Zone = <desired-zone>
+# $sku=<desired-SKU>
+
+# To use $Zone or #sku, add -Zone or -DiskSKU parameters to the command
+Add-AzVhd -LocalFilePath $path -ResourceGroupName $resourceGroup -Location $location -DiskName $name
+```
+
+## Manual upload
+
+### Prerequisites
+
+- Download the latest [version of AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
+- [Install the Azure PowerShell module](/powershell/azure/install-Az-ps).
+- A fixed size VHD that [has been prepared for Azure](prepare-for-upload-vhd-image.md), stored locally.
 
 To upload your VHD to Azure, you'll need to create an empty managed disk that is configured for this upload process. Before you create one, there's some additional information you should know about these disks.
 
@@ -38,7 +74,7 @@ This kind of managed disk has two unique states:
 > [!NOTE]
 > While in either of these states, the managed disk will be billed at [standard HDD pricing](https://azure.microsoft.com/pricing/details/managed-disks/), regardless of the actual type of disk. For example, a P10 will be billed as an S10. This will be true until `revoke-access` is called on the managed disk, which is required in order to attach the disk to a VM.
 
-## Create an empty managed disk
+### Create an empty managed disk
 
 Before you can create an empty standard HDD for uploading, you'll need the file size of the VHD you want to upload, in bytes. The example code will get that for you but, to do it yourself you can use: `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length`. This value is used when specifying the **-UploadSizeInBytes** parameter.
 
@@ -69,7 +105,7 @@ $diskSas = Grant-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -Disk
 $disk = Get-AzDisk -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>'
 ```
 
-## Upload a VHD
+### Upload a VHD
 
 Now that you have a SAS for your empty managed disk, you can use it to set your managed disk as the destination for your upload command.
 
@@ -93,10 +129,10 @@ Revoke-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -DiskName '<you
 
 Direct upload also simplifies the process of copying a managed disk. You can either copy within the same region or copy your managed disk to another region.
 
-The follow script will do this for you, the process is similar to the steps described earlier, with some differences, since you're working with an existing disk.
+The following script will do this for you, the process is similar to the steps described earlier, with some differences, since you're working with an existing disk.
 
 > [!IMPORTANT]
-> You need to add an offset of 512 when you're providing the disk size in bytes of a managed disk from Azure. This is because Azure omits the footer when returning the disk size. The copy will fail if you do not do this. The following script already does this for you.
+> You must add an offset of 512 when you're providing the disk size in bytes of a managed disk from Azure. This is because Azure omits the footer when returning the disk size. The copy will fail if you don't do this. The following script already does this for you.
 
 Replace the `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, `<yourOSTypeHere>` and `<yourTargetLocationHere>` (an example of a location value would be uswest2) with your values, then run the following script in order to copy a managed disk.
 

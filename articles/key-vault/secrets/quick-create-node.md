@@ -3,10 +3,11 @@ title: Quickstart -  Azure Key Vault secret client library for JavaScript (versi
 description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the JavaScript client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 12/13/2021
+ms.date: 02/03/2022
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
+ms.devlang: javascript
 ms.custom: devx-track-js, mode-api
 ---
 
@@ -80,7 +81,7 @@ Create a Node.js application that uses your key vault.
 
 ## Grant access to your key vault
 
-Create an access policy for your key vault that grants secret permissions to your user account with the [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) command.
+Create an access policy for your key vault that grants secret permissions to your user account with the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) command.
 
 ```azurecli
 az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --secret-permissions delete get list set purge
@@ -119,10 +120,6 @@ The code samples below will show you how to create a client, set a secret, retri
     dotenv.config();
     
     async function main() {
-      // DefaultAzureCredential expects the following three environment variables:
-      // - AZURE_TENANT_ID: The tenant ID in Azure Active Directory
-      // - AZURE_CLIENT_ID: The application (client) ID registered in the AAD tenant
-      // - AZURE_CLIENT_SECRET: The client secret for the registered application
       const credential = new DefaultAzureCredential();
     
       const keyVaultName = process.env["KEY_VAULT_NAME"];
@@ -131,6 +128,9 @@ The code samples below will show you how to create a client, set a secret, retri
       const client = new SecretClient(url, credential);
     
       // Create a secret
+      // The secret can be a string of any kind. For example,
+      // a multiline text block such as an RSA private key with newline characters,
+      // or a stringified JSON object, like `JSON.stringify({ mySecret: 'MySecretValue'})`.
       const uniqueString = new Date().getTime();
       const secretName = `secret${uniqueString}`;
       const result = await client.setSecret(secretName, "MySecretValue");
@@ -201,7 +201,7 @@ The code samples below will show you how to create a client, set a secret, retri
 
 ## Integrating with App Configuration
 
-The Azure SDK provides a helper method, [parseKeyVaultSecretIdentifier](/javascript/api/@azure/keyvault-secrets/#parseKeyVaultSecretIdentifier_string_), to parse the given Key Vault Secret ID. This is necessary if you use [App Configuration](/azure/azure-app-configuration/) references to Key Vault. App Config stores the Key Vault Secret ID. You need the _parseKeyVaultSecretIdentifier_ method to parse that ID to get the secret name. Once you have the secret name, you can get the current secret value using code from this quickstart.  
+The Azure SDK provides a helper method, [parseKeyVaultSecretIdentifier](/javascript/api/@azure/keyvault-secrets/#parseKeyVaultSecretIdentifier_string_), to parse the given Key Vault Secret ID. This is necessary if you use [App Configuration](../../azure-app-configuration/index.yml) references to Key Vault. App Config stores the Key Vault Secret ID. You need the _parseKeyVaultSecretIdentifier_ method to parse that ID to get the secret name. Once you have the secret name, you can get the current secret value using code from this quickstart.  
 
 ## Next steps
 

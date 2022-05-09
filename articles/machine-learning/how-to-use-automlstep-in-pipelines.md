@@ -5,8 +5,8 @@ description: The AutoMLStep allows you to use automated machine learning in your
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.author: laobri
-author: lobrien
+ms.author: larryfr
+author: blackmist
 manager: cgronlun
 ms.date: 10/21/2021
 ms.topic: how-to
@@ -104,14 +104,20 @@ The code blocks until the target is provisioned and then prints some details of 
 
 ### Configure the training run
 
-The AutoMLStep configures its dependencies automatically during job submission. The runtime context is set by creating and configuring a `RunConfiguration` object. Here we set the compute target.
+The runtime context is set by creating and configuring a `RunConfiguration` object. Here we set the compute target.
 
 ```python
 from azureml.core.runconfig import RunConfiguration
+from azureml.core.conda_dependencies import CondaDependencies
 
 aml_run_config = RunConfiguration()
 # Use just-specified compute target ("cpu-cluster")
 aml_run_config.target = compute_target
+
+# Specify CondaDependencies obj, add necessary packages
+aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
+    conda_packages=['pandas','scikit-learn'], 
+    pip_packages=['azureml-sdk[automl]', 'pyarrow'])
 ```
 
 ## Prepare data for automated machine learning

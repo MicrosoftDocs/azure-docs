@@ -6,7 +6,7 @@ services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 11/30/2021
+ms.date: 02/15/2022
 ms.topic: tutorial
 #Customer intent: As an Azure user, I want to learn how to identify and fix bottlenecks in a web app so that I can improve the performance of the web apps that I'm running in Azure.
 ---
@@ -16,6 +16,8 @@ ms.topic: tutorial
 In this tutorial, you'll learn how to identify performance bottlenecks in a web application by using Azure Load Testing Preview. You'll create a load test for a sample Node.js application.
 
 The sample application consists of a Node.js web API, which interacts with a NoSQL database. You'll deploy the web API to Azure App Service web apps and use Azure Cosmos DB as the database.
+
+Learn more about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).
 
 In this tutorial, you'll learn how to:
 
@@ -42,7 +44,7 @@ Before you can load test the sample app, you have to get it deployed and running
 
 1. Open Windows PowerShell, sign in to Azure, and set the subscription:  
 
-   ```powershell
+   ```azurecli
    az login
    az account set --subscription <your-Azure-Subscription-ID>
    ```
@@ -86,40 +88,16 @@ Now that you have the application deployed and running, you can run your first l
 
 ## Configure and create the load test
 
-In this section, you'll create a load test by using an existing Apache JMeter test script.
+In this section, you'll create a load test by using a sample Apache JMeter test script.
 
-### Configure the Apache JMeter script
-
-The sample application's source repo includes an Apache JMeter script named *SampleApp.jmx*. This script makes three API calls on each test iteration:  
+The sample application's source repo includes an Apache JMeter script named *SampleApp.jmx*. This script makes three API calls to the web app on each test iteration:  
 
 * `add`: Carries out a data insert operation on Azure Cosmos DB for the number of visitors on the web app.
 * `get`: Carries out a GET operation from Azure Cosmos DB to retrieve the count.
 * `lasttimestamp`: Updates the time stamp since the last user went to the website.
 
-In this section, you'll update the Apache JMeter script with the URL of the sample web app that you just deployed.
-
-1. Open the directory of the cloned sample app in Visual Studio Code:
-
-    ```powershell
-    cd nodejs-appsvc-cosmosdb-bottleneck
-    code .
-    ```
- 
-1. Open *SampleApp.jmx*.
-
-1. Search for `<stringProp name="HTTPSampler.domain">`.
-
-   You'll see three instances of `<stringProp name="HTTPSampler.domain">` in the file.
-
-1. Replace the value with the URL of the newly deployed sample application:
-
-   ```xml
-   <stringProp name="HTTPSampler.domain">your-app-name.azurewebsites.net</stringProp>
-   ```
-
-   Update the value in all three places. Don't include the `https://` prefix.  
-
-1. Save your changes and close the file.
+> [!NOTE]
+> The sample Apache JMeter script requires two plugins: ```Custom Thread Groups``` and ```Throughput Shaping Timer```. To open the script on your local Apache JMeter instance, you need to install both plugins. You can use the [Apache JMeter Plugins Manager](https://jmeter-plugins.org/install/Install/) to do this.
 
 ### Create the Azure Load Testing resource
 
@@ -148,6 +126,12 @@ To create a load test in the Load Testing resource for the sample app:
    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create-new-test-test-plan.png" alt-text="Screenshot that shows the Test plan tab and how to upload an Apache JMeter script." :::
 
     Optionally, you can select and upload additional Apache JMeter configuration files or other files that are referenced in the JMX file. For example, if your test script uses CSV data sets, you can upload the corresponding *.csv* file(s).
+
+1. On the **Parameters** tab, add a new environment variable. Enter *webapp* for the **Name** and *`<yourappname>.azurewebsites.net`* for the **Value**. Replace the placeholder text `<yourappname>` with the name of the newly deployed sample application. Don't include the `https://` prefix.
+
+    The Apache JMeter test script uses the environment variable to retrieve the web application URL. The script then invokes the three APIs in the web application.
+
+    :::image type="content" source="media/tutorial-identify-bottlenecks-azure-portal/create-new-test-parameters.png" alt-text="Screenshot that shows the parameters tab to add environment variable.":::
 
 1. On the **Load** tab, configure the following details. You can leave the default value for this tutorial.
 

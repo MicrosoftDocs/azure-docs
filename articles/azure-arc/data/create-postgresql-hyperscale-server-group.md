@@ -34,7 +34,7 @@ If you prefer to try out things without provisioning a full environment yourself
 Implement this step before moving to the next step. To deploy PostgreSQL Hyperscale server group onto Red Hat OpenShift in a project other than the default, you need to execute the following commands against your cluster to update the security constraints. This command grants the necessary privileges to the service accounts that will run your PostgreSQL Hyperscale server group. The security context constraint (SCC) arc-data-scc is the one you added when you deployed the Azure Arc data controller.
 
 ```Console
-oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace name>
+oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace-name>
 ```
 
 **Server-group-name is the name of the server group you will create during the next step.**
@@ -60,14 +60,18 @@ The main parameters should consider are:
 
 
 
-|You need   |Shape of the server group you will deploy   |`-w` parameter to use   |Note   |
-|---|---|---|---|
-|A scaled out form of Postgres to satisfy the scalability needs of your applications.   |Three or more Postgres instances, one is coordinator, n  are workers with n >=2.   |Use `-w n`, with n>=2.   |The Citus extension that provides the Hyperscale capability is loaded.   |
-|A basic form of Postgres Hyperscale for you to do functional validation of your application at minimum cost. Not valid for performance and scalability validation. For that you need to use the type of deployments described above.   |One Postgres instance that is both coordinator and worker.   |Use `-w 0` and load the Citus extension. Use the following parameters if deploying from command line: `-w 0` --extensions Citus.   |The Citus extension that provides the Hyperscale capability is loaded.   |
-|A simple instance of Postgres that is ready to scale out when you need it.   |One Postgres instance. It is not yet aware of the semantic for coordinator and worker. To scale it out after deployment, edit the configuration, increase the number of worker nodes and distribute the data.   |Use `-w 0` or do not specify `-w`.   |The Citus extension that provides the Hyperscale capability is present on your deployment but is not yet loaded.   |
-|   |   |   |   |
+    |You need   |Shape of the server group you will deploy   |`-w` parameter to use   |Note   |
+    |---|---|---|---|
+    |A scaled out form of Postgres to satisfy the scalability needs of your applications.   |Three or more Postgres instances, one is coordinator, n  are workers with n >=2.   |Use `-w n`, with n>=2.   |The Citus extension that provides the Hyperscale capability is loaded.   |
+    |A basic form of Postgres Hyperscale for you to do functional validation of your application at minimum cost. Not valid for performance and scalability validation. For that you need to use the type of deployments described above.   |One Postgres instance that is both coordinator and worker.   |Use `-w 0` and load the Citus extension. Use the following parameters if deploying from command line: `-w 0` --extensions Citus.   |The Citus extension that provides the Hyperscale capability is loaded.   |
+    |A simple instance of Postgres that is ready to scale out when you need it.   |One Postgres instance. It is not yet aware of the semantic for coordinator and worker. To scale it out after deployment, edit the configuration, increase the number of worker nodes and distribute the data.   |Use `-w 0` or do not specify `-w`.   |The Citus extension that provides the Hyperscale capability is present on your deployment but is not yet loaded.   |
+    |   |   |   |   |
 
-While using `-w 1` works, we do not recommend you use it. This deployment will not provide you much value. With it, you will get two instances of Postgres: One coordinator and one worker. With this setup, you actually do not scale out the data since you deploy a single worker. As such you will not see an increased level of performance and scalability. We will remove the support of this deployment in a future release.
+    This table is demonstrated in the following figure:
+
+    :::image type="content" source="media/postgres-hyperscale/deployment-parameters.png" alt-text="Diagram that depicts Postgres Hyperscale worker node parameters and associated architecture." border="false":::
+
+    While using `-w 1` works, we do not recommend you use it. This deployment will not provide you much value. With it, you will get two instances of Postgres: One coordinator and one worker. With this setup, you actually do not scale out the data since you deploy a single worker. As such you will not see an increased level of performance and scalability. We will remove the support of this deployment in a future release.
 
 - **The storage classes** you want your server group to use. It is important you set the storage class right at the time you deploy a server group as this setting cannot be changed after you deploy. You may specify the storage classes to use for the data, logs and the backups. By default, if you do not indicate storage classes, the storage classes of the data controller will be used.
     - To set the storage class for the data, indicate the parameter `--storage-class-data` or `-scd` followed by the name of the storage class.
@@ -199,13 +203,13 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 
 - Connect to your Azure Arc-enabled PostgreSQL Hyperscale: read [Get Connection Endpoints And Connection Strings](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md)
 - Read the concepts and How-to guides of Azure Database for PostgreSQL Hyperscale to distribute your data across multiple PostgreSQL Hyperscale nodes and to benefit from better performances potentially:
-    * [Nodes and tables](../../postgresql/concepts-hyperscale-nodes.md)
-    * [Determine application type](../../postgresql/concepts-hyperscale-app-type.md)
-    * [Choose a distribution column](../../postgresql/concepts-hyperscale-choose-distribution-column.md)
-    * [Table colocation](../../postgresql/concepts-hyperscale-colocation.md)
-    * [Distribute and modify tables](../../postgresql/howto-hyperscale-modify-distributed-tables.md)
-    * [Design a multi-tenant database](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
-    * [Design a real-time analytics dashboard](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
+    * [Nodes and tables](../../postgresql/hyperscale/concepts-nodes.md)
+    * [Determine application type](../../postgresql/hyperscale/howto-app-type.md)
+    * [Choose a distribution column](../../postgresql/hyperscale/howto-choose-distribution-column.md)
+    * [Table colocation](../../postgresql/hyperscale/concepts-colocation.md)
+    * [Distribute and modify tables](../../postgresql/hyperscale/howto-modify-distributed-tables.md)
+    * [Design a multi-tenant database](../../postgresql/hyperscale/tutorial-design-database-multi-tenant.md)*
+    * [Design a real-time analytics dashboard](../../postgresql/hyperscale/tutorial-design-database-realtime.md)*
 
     > \* In the documents above, skip the sections **Sign in to the Azure portal**, & **Create an Azure Database for PostgreSQL - Hyperscale (Citus)**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for PostgreSQL Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc-enabled PostgreSQL Hyperscale.
 

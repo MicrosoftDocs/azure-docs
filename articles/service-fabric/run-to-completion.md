@@ -106,6 +106,7 @@ The following points should be noted for the current RunToCompletion support.
 * These semantics are only supported for [containers][containers-introduction-link] and [guest executable][guest-executables-introduction-link] applications.
 * Upgrade scenarios for applications with RunToCompletion semantics are not allowed. Users should delete and recreate such applications, if necessary.
 * Failover events can cause CodePackages to re-execute after successful completion, on the same node, or other nodes of the cluster. Examples of failover events are, node restarts and Service Fabric runtime upgrades on a node.
+* RunToCompletion is incompatible with ServicePackageActivationMode="SharedProcess". Users must specify ServicePackageActivationMode="ExclusiveProcess", given that SharedProcess is the default value. Service Fabric runtime version 9.0 and higher will fail validation for such services.
 
 ## Next steps
 

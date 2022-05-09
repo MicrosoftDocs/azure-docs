@@ -10,9 +10,7 @@ metadata:
   description: Learn how to deploy resources to complex and distributed environments across on-premises, edge and multicloud. Azure Arc enables deployment of Azure services anywhere and extends Azure management to any infrastructure.
   ms.service: azure-arc
   ms.topic: hub-page
-  author: MGoedtel
-  ms.author: magoedte
-  ms.date: 06/28/2021
+  ms.date: 05/02/2022
   ms.custom: e2e-hybrid
 
 # highlightedContent section (optional)
@@ -61,7 +59,7 @@ conceptualContent:
           text: Security overview
         - url: ./servers/policy-reference.md
           itemType: learn
-          text: Admission control policy definitions using Azure Policy
+          text: Azure Policy definitions
         - url: /sql/sql-server/azure-arc/overview
           itemType: overview
           text: Connect SQL Server
@@ -77,13 +75,13 @@ conceptualContent:
           text: Connect a cluster to Azure Arc
         - url: ../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json
           itemType: tutorial
-          text: Monitor using Azure Monitor for containers
+          text: Use Azure Monitor Container Insights
         - url: ./kubernetes/tutorial-use-gitops-flux2.md
           itemType: how-to-guide
-          text: Apply configurations on cluster using GitOps
+          text: Apply configurations on clusters using GitOps
         - url: ./kubernetes/tutorial-arc-enabled-open-service-mesh.md
           itemType: tutorial
-          text: Azure Arc-enabled Open Service Mesh (Preview)
+          text: Azure Arc-enabled Open Service Mesh
       # footerLink (optional)
       footerLink:
         url: ./kubernetes/index.yml
@@ -91,6 +89,9 @@ conceptualContent:
     # Card
     - title: Azure Arc-enabled data services 
       links:
+        - url: ./data/plan-azure-arc-data-services.md
+          itemType: get-started
+          text: Plan deployment
         - url: ./data/install-client-tools.md
           itemType: deploy
           text: Install tools
@@ -100,36 +101,49 @@ conceptualContent:
         - url: ./data/create-postgresql-hyperscale-server-group.md
           itemType: how-to-guide
           text: Create PostgreSQL Hyperscale
-        - url: ./data/index.yml
-          itemType: get-started
-          text: See more...
+      # footerLink (optional)
+      footerLink:
+        url: ./data/index.yml
+        text: See more
     # Card
-    - title: Application services
+    - title: SQL Server on Azure Arc-enabled servers
       links:
-        - url: ../app-service/overview-arc-integration.md
-          itemType: overview
-          text: App Service, Functions, and Logic Apps on Azure Arc (preview)
+        - url: /sql/sql-server/azure-arc/connect
+          itemType: deploy
+          text: Connect SQL Server to Azure Arc
+        - url: /sql/sql-server/azure-arc/assess
+          itemType: learn
+          text: Assess instance
+        - url: /sql/sql-server/azure-arc/configure-advanced-data-security
+          itemType: how-to-guide
+          text: Configure advanced data security
     # Card
     - title: Management services supporting Azure Arc
       links:
-        - url: ../azure-monitor/overview.md?
+        - url: ../azure-monitor/overview.md
           itemType: overview
           text: Azure Monitor overview
         - url: ../governance/policy/overview.md
           itemType: overview
           text: Azure Policy overview
-        - url: ../security-center/azure-defender.md
+        - url: ../defender-for-cloud/defender-for-cloud-introduction.md
           itemType: overview
           text: Microsoft Defender for Cloud overview
         - url: ../automation/automation-intro.md
           itemType: overview
           text: Azure Automation overview
     # Card
-    - title: SQL Server on Azure Arc-enabled servers
+    - title: Azure Arc-enabled private clouds
       links:
-        - url: /sql/sql-server/azure-arc/assess
-          itemType: how-to-guide
-          text: Assess instance
-        - url: /sql/sql-server/azure-arc/configure-advanced-data-security
-          itemType: how-to-guide
-          text: Configure advanced data security
+        - url: ./resource-bridge/overview.md
+          itemType: overview
+          text: Azure Arc resource bridge (preview)
+        - url: ./vmware-vsphere/overview.md
+          itemType: overview
+          text: Azure Arc-enabled VMware vSphere (preview)
+    # Card
+    - title: Application services
+      links:
+        - url: ../app-service/overview-arc-integration.md
+          itemType: overview
+          text: App Service, Functions, and Logic Apps on Azure Arc (preview)

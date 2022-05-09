@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid: 3fba300d-18fc-4355-9924-d8662f563a1f
 ms.service: active-directory
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity

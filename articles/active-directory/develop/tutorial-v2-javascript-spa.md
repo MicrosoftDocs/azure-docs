@@ -436,8 +436,8 @@ The `acquireTokenSilent` method handles token acquisition and renewal without an
 
    ```JavaScript
       const graphConfig = {
-        graphMeEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me",
-        graphMailEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me/messages"
+        graphMeEndpoint: "Enter_the_Graph_Endpoint_Here/v1.0/me",
+        graphMailEndpoint: "Enter_the_Graph_Endpoint_Here/v1.0/me/messages"
       };
    ```
 
@@ -480,6 +480,10 @@ In the sample application created by this guide, the `callMSGraph()` method is u
    npm start
    ```
 1. In your browser, enter **http://localhost:3000** or **http://localhost:{port}**, where *port* is the port that your web server is listening to. You should see the contents of your *index.html* file and the **Sign In** button.
+
+
+> [!Important]
+> Enable popups and redirects for your site in your browser settings.
 
 After the browser loads your *index.html* file, select **Sign In**. You're prompted to sign in with the Microsoft identity platform:
 

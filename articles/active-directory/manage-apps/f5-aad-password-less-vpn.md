@@ -3,35 +3,35 @@ title: Configure F5 BIG-IP SSL-VPN solution in Azure AD
 titleSuffix: Azure AD
 description: Tutorial to configure F5’s BIG-IP based  Secure socket layer Virtual private network (SSL-VPN) solution with Azure Active Directory (AD) for Secure Hybrid Access (SHA) 
 services: active-directory
-author: davidmu1
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 10/12/2020
-ms.author: davidmu
+ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.reviewer: miccohen
+ms.reviewer: v-nisba
 ---
 
-# Configure F5 BIG-IP SSL-VPN solution in Azure AD
+# Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO
 
-In this tutorial, learn how to configure F5’s BIG-IP based  Secure socket layer Virtual private network (SSL-VPN) solution with Azure Active Directory (AD) for Secure Hybrid Access (SHA).
+In this tutorial, learn how to integrate F5’s BIG-IP based Secure socket layer Virtual Private Network (SSL-VPN) with Azure Active Directory (AD) for Secure Hybrid Access (SHA).
 
-Configuring a BIG-IP SSL-VPN with Azure AD provides [many key benefits](f5-aad-integration.md), including:
+Enabling a BIG-IP SSL-VPN for Azure AD single sign-on (SSO) provides many benefits, including:
 
-- Improved Zero trust governance through [Azure AD pre-authentication and authorization](../../app-service/overview-authentication-authorization.md)
-
+- Improved Zero trust governance through Azure AD pre-authentication and [Conditional Access](../conditional-access/overview.md)
 - [Password-less authentication to the VPN service](https://www.microsoft.com/security/business/identity/passwordless)
+- Manage Identities and access from a single control plane, the [Azure portal](https://azure.microsoft.com/features/azure-portal/)
 
-- Manage Identities and access from a single control plane - The [Azure portal](https://portal.azure.com/#home)
+To learn about all of the benefits, see [Integrate F5 BIG-IP with Azure Active Directory](./f5-aad-integration.md) and [What is single sign-on in Azure Active Directory?](/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Despite these great value adds, the classic VPN does however remain predicated on the notion of a network perimeter, where trusted is on the inside and untrusted the outside. This model is no longer effective in achieving a true Zero Trust posture, since corporate assets are no longer confined to the walls of an enterprise data center, but rather across multi-cloud environments with no fixed boundaries. For this reason, we encourage our customers to consider moving to a more Identity driven approach at managing [access on a per application basis](../fundamentals/five-steps-to-full-application-integration-with-azure-ad.md).
+Despite these great value adds, classic VPNs do however remain network orientated, often providing little to zero fine grained access to corporate applications. For this reason, we encourage moving to a more Identity centric approach at achieving Zero Trust [access on a per application basis](../fundamentals/five-steps-to-full-application-integration-with-azure-ad.md).
 
 ## Scenario description
 
-In this scenario, the BIG-IP APM instance of the SSL-VPN service will be configured as a SAML Service Provider (SP) and Azure AD becomes the trusted SAML IDP, providing pre-authentication. Single sign-on (SSO) from Azure AD is then provided through claims-based authentication to the BIG-IP APM, providing a seamless VPN access experience.
+In this scenario, the BIG-IP APM instance of the SSL-VPN service will be configured as a SAML Service Provider (SP) and Azure AD becomes the trusted SAML IDP. SSO from Azure AD is then provided through claims-based authentication to the BIG-IP APM, providing a seamless VPN access experience.
 
 ![Image shows ssl-vpn architecture](media/f5-sso-vpn/ssl-vpn-architecture.png)
 
@@ -54,7 +54,7 @@ Prior experience or knowledge of F5 BIG-IP isn't necessary, however, you'll need
 
 - The BIG-IP should be provisioned with the necessary SSL certificates for publishing services over HTTPS.
 
-Familiarizing yourself with [F5 BIG-IP terminology](https://www.f5.com/services/resources/glossary) will also help understand the various components that are referenced throughout the tutorial.
+Familiarizing yourself with [F5 BIG-IP terminology](https://www.f5.com/services/resources/glossary) will also help understand the various components referenced throughout the tutorial.
 
 >[!NOTE]
 >Azure is constantly evolving so don’t be surprised if you find any nuances between the instructions in this guide and what you see in the Azure portal. Screenshots are from BIG-IP v15, however, remain relatively similar from v13.1.
@@ -89,7 +89,7 @@ Setting up a SAML federation trust between the BIG-IP allows the Azure AD BIG-IP
 
    - For the Logout URL enter the BIG-IP APM Single logout (SLO) endpoint pre-pended by the host header of the service being published. For example, `https://ssl-vpn.contoso.com/saml/sp/profile/redirect/slr`
 
-   Providing an SLO URL ensures a user session is terminated at both ends, the BIG-IP and Azure AD, after the user signs out. BIG-IP APM also provides an [option](https://support.f5.com/csp/article/K12056) for terminating all sessions when calling a specific application URL.
+Providing an SLO URL ensures a user session is terminated at both ends, the BIG-IP and Azure AD, after the user signs out. BIG-IP APM also provides an [option](https://support.f5.com/csp/article/K12056) for terminating all sessions when calling a specific application URL.
 
 ![Image shows basic saml configuration](media/f5-sso-vpn/basic-saml-configuration.png).
 
@@ -136,7 +136,7 @@ The following section creates the BIG-IP SAML service provider and corresponding
 
 ![Image shows creating new SAML SP service](media/f5-sso-vpn/create-new-saml-sp.png)
 
-   SP **Name** settings are only required if the entity ID isn't an exact match of the hostname portion of the published URL, or if it isn’t in regular hostname-based URL format. Provide the external scheme and hostname of the application being published if entity ID is `urn:ssl-vpn:contosoonline`.
+SP **Name** settings are only required if the entity ID isn't an exact match of the hostname portion of the published URL, or if it isn’t in regular hostname-based URL format. Provide the external scheme and hostname of the application being published if entity ID is `urn:ssl-vpn:contosoonline`.
 
 3. Scroll down to select the new **SAML SP object** and select **Bind/UnBind IDP Connectors**.
 
@@ -292,15 +292,6 @@ With all the settings in place, the APM now requires a front-end virtual server 
 
 8.	Your SSL-VPN service is now published and accessible via SHA, either directly via its URL or through Microsoft’s application portals.
 
-## Additional resources
-
-- [The end of passwords, go passwordless](https://www.microsoft.com/security/business/identity/passwordless)
-
-- [What is Conditional Access?](../conditional-access/overview.md)
-
-- [Microsoft Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)
-
-- [Five steps to full application integration with Azure AD](../fundamentals/five-steps-to-full-application-integration-with-azure-ad.md)
 
 ## Next steps
 
@@ -310,3 +301,12 @@ Open a browser on a remote Windows client and browse to the URL of the **BIG-IP 
 
 Selecting the VPN tile will install the BIG-IP Edge client and establish a VPN connection  configured for SHA.
 The F5 VPN application should also be visible as a target resource in Azure AD Conditional Access. See our [guidance](../conditional-access/concept-conditional-access-policies.md) for building Conditional Access policies and also enabling users for Azure AD [password-less authentication](https://www.microsoft.com/security/business/identity/passwordless).
+
+
+## Additional resources
+
+- [The end of passwords, go passwordless](https://www.microsoft.com/security/business/identity/passwordless)
+
+- [Five steps to full application integration with Azure AD](../fundamentals/five-steps-to-full-application-integration-with-azure-ad.md)
+
+- [Microsoft Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)

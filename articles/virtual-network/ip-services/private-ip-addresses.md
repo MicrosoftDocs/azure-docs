@@ -7,7 +7,6 @@ documentationcenter: na
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

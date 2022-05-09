@@ -2,17 +2,17 @@
 title: Create custom security policies in Microsoft Defender for Cloud | Microsoft Docs
 description: Azure custom policy definitions monitored by Microsoft Defender for Cloud.
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.author: benmansheim
+author: bmansheim
+ms.date: 12/23/2021
 zone_pivot_groups: manage-asc-initiatives
 ---
 
 # Create custom security initiatives and policies
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 To help secure your systems and environment, Microsoft Defender for Cloud generates security recommendations. These recommendations are based on industry best practices, which are incorporated into the generic, default security policy supplied to all customers. They can also come from Defender for Cloud's knowledge of industry and regulatory standards.
 
-With this feature, you can add your own *custom* initiatives. You'll then receive recommendations if your environment doesn't follow the policies you create. Any custom initiatives you create will appear alongside the built-in initiatives in the regulatory compliance dashboard, as described in the tutorial [Improve your regulatory compliance](regulatory-compliance-dashboard.md).
+With this feature, you can add your own *custom* initiatives. Although custom initiatives are not included in the secure score, you'll receive recommendations if your environment doesn't follow the policies you create. Any custom initiatives you create are shown in the list of all recommendations and you can filter by initiative to see the recommendations for your initiative. They are also shown with the built-in initiatives in the regulatory compliance dashboard, as described in the tutorial [Improve your regulatory compliance](regulatory-compliance-dashboard.md).
 
 As discussed in [the Azure Policy documentation](../governance/policy/concepts/definition-structure.md#definition-location), when you specify a location for your custom initiative, it must be a management group or a subscription. 
 
@@ -23,34 +23,32 @@ As discussed in [the Azure Policy documentation](../governance/policy/concepts/d
 
 ## To add a custom initiative to your subscription 
 
-1. From Defender for Cloud's menu, select **Security policy**.
+1. From Defender for Cloud's menu, open **Environment settings**.
 
-1. Select a subscription or Management Group to which you would like to add a custom initiative.
-
-    [![Selecting a subscription for which you'll create your custom policy.](media/custom-security-policies/custom-policy-selecting-a-subscription.png)](media/custom-security-policies/custom-policy-selecting-a-subscription.png#lightbox)
+1. Select the relevant subscription or management group to which you would like to add a custom initiative.
 
     > [!NOTE]
     > For your custom initiatives to be evaluated and displayed in Defender for Cloud, you must add them at the subscription level (or higher). We recommend that you select the widest scope available.
 
-1. In the Security policy page, under Your custom initiatives, click **Add a custom initiative**.
+1. Open the **Security policy** page, and in the **Your custom initiatives** area, select **Add a custom initiative**.
 
-    [![Click Add a custom initiative.](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
+    :::image type="content" source="media/custom-security-policies/accessing-security-policy-page.png" alt-text="Screenshot of accessing the security policy page in Microsoft Defender for Cloud." lightbox="media/custom-security-policies/accessing-security-policy-page.png":::
 
-    The following page appears:
+1. In the Add custom initiatives page, review the list of custom policies already created in your organization.
+
+    - If you see one you want to assign to your subscription, select **Add**. 
+    - If there isn't an initiative in the list that meets your needs, create a new custom initiative:
+
+        1. Select **Create new**.
+        1. Enter the definition's location and name.
+        1. Select the policies to include and select **Add**.
+        1. Enter any desired parameters.
+        1. Select **Save**.
+        1. In the Add custom initiatives page, click refresh. Your new initiative will be available.
+        1. Select **Add** and assign it to your subscription.
 
     ![Create or add a policy.](media/custom-security-policies/create-or-add-custom-policy.png)
 
-1. In the Add custom initiatives page, review the list of custom policies already created in your organization. If you see one you want to assign to your subscription, click **Add**. If there isn't an initiative in the list that meets your needs, skip this step.
-
-1. To create a new custom initiative:
-
-    1. Click **Create new**.
-    1. Enter the definition's location and name.
-    1. Select the policies to include and click **Add**.
-    1. Enter any desired parameters.
-    1. Click **Save**.
-    1. In the Add custom initiatives page, click refresh. Your new initiative will be shown as available.
-    1. Click **Add** and assign it to your subscription.
 
     > [!NOTE]
     > Creating new initiatives requires subscription owner credentials. For more information about Azure roles, see [Permissions in Microsoft Defender for Cloud](permissions.md).
@@ -93,7 +91,7 @@ In the following examples, replace these variables:
 - **{policyAssignmentName}** enter the name of the relevant policy assignment
 - **{name}** enter your name, or the name of the administrator who approved the policy change
 
-This example shows you how to assign the built-in Defender for Cloud initiative on a subscription or management group
+This example shows you how to assign the built-in Defender for Cloud initiative on a subscription or management group:
  
  ```
     PUT  
@@ -163,11 +161,71 @@ This example shows you how to assign the built-in Defender for Cloud initiative 
     
     } 
  ```
+
+This example shows you how to assign a custom Defender for Cloud initiative on a subscription or management group:
+
+> [!NOTE]
+> Make sure you include `"ASC":"true"` in the request body as shown here. The `ASC` field onboards the initiative to Microsoft Defender for Cloud.
+ 
+```
+  PUT  
+  PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policySetDefinitions/{policySetDefinitionName}?api-version=2021-06-01
+
+  Request Body (JSON) 
+
+  {
+    "properties": {
+      "displayName": "Cost Management",
+      "description": "Policies to enforce low cost storage SKUs",
+      "metadata": {
+        "category": "Cost Management"
+        "ASC":"true"
+      },
+      "parameters": {
+        "namePrefix": {
+          "type": "String",
+          "defaultValue": "myPrefix",
+          "metadata": {
+            "displayName": "Prefix to enforce on resource names"
+          }
+        }
+      },
+      "policyDefinitions": [
+        {
+          "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
+          "policyDefinitionReferenceId": "Limit_Skus",
+          "parameters": {
+            "listOfAllowedSKUs": {
+              "value": [
+                "Standard_GRS",
+                "Standard_LRS"
+              ]
+            }
+          }
+        },
+        {
+          "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+          "policyDefinitionReferenceId": "Resource_Naming",
+          "parameters": {
+            "prefix": {
+              "value": "[parameters('namePrefix')]"
+            },
+            "suffix": {
+              "value": "-LC"
+            }
+          }
+        }
+      ]
+    }
+  }
+```
+
 This example shows you how to remove an assignment:
- ```
-    DELETE   
-    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
- ```
+
+```
+  DELETE   
+  https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+```
 
 ::: zone-end
 

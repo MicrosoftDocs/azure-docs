@@ -86,7 +86,6 @@ az eventgrid event-subscription list --source-resource-id $SOURCE_RESOURCE_ID
 The following example output shows you're subscribed to events from the *MyAKS* cluster and those events are delivered to the *MyEventGridHub* event hub:
 
 ```output
-$ az eventgrid event-subscription list --source-resource-id $SOURCE_RESOURCE_ID
 [
   {
     "deadLetterDestination": null,
@@ -152,9 +151,9 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [aks-events]: ../event-grid/event-schema-aks.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [az-aks-create]: /cli/azure/aks#az_aks_create
-[az-eventhubs-namespace-create]: /cli/azure/eventhubs/namespace?view=azure-cli-latest&preserve-view=true#az-eventhubs-namespace-create
-[az-eventhubs-eventhub-create]: /cli/azure/eventhubs/eventhub?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-create
-[az-eventgrid-event-subscription-create]: /cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true#az-eventgrid-event-subscription-create
+[az-eventhubs-namespace-create]: /cli/azure/eventhubs/namespace#az-eventhubs-namespace-create
+[az-eventhubs-eventhub-create]: /cli/azure/eventhubs/eventhub#az-eventhubs-eventhub-create
+[az-eventgrid-event-subscription-create]: /cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register

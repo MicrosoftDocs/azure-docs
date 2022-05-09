@@ -7,7 +7,6 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 # Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for. 
-ms.devlang: na
 ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
@@ -95,6 +94,8 @@ Subscribe to the RSS feed and view the latest Azure Load Balancer feature update
 
 ## Next steps
 
-See [Create a public standard load balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a load balancer.
+* See [Create a public standard load balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a load balancer.
 
-For more information on Azure Load Balancer limitations and components, see [Azure Load Balancer components](./components.md) and [Azure Load Balancer concepts](./concepts.md)
+* For more information on Azure Load Balancer limitations and components, see [Azure Load Balancer components](./components.md) and [Azure Load Balancer concepts](./concepts.md)
+
+* [Learn module: Introduction to Azure Load Balancer](/learn/paths/intro-to-azure-application-delivery-services).

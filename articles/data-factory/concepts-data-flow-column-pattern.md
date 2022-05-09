@@ -95,5 +95,5 @@ The above example matches on all subcolumns of complex column `a`. `a` contains 
 * `origin` is the transformation where a column originated or was last updated
 
 ## Next steps
-* Learn more about the mapping data flow [expression language](data-flow-expression-functions.md) for data transformations
+* Learn more about the mapping data flow [expression language](data-transformation-functions.md) for data transformations
 * Use column patterns in the [sink transformation](data-flow-sink.md) and [select transformation](data-flow-select.md) with rule-based mapping

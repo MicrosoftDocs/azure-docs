@@ -25,8 +25,6 @@ This article describes how to use the Monitoring and Management app to monitor, 
 > [!NOTE]
 > The user interface shown in the video may not exactly match what you see in the portal. It's slightly older, but concepts remain the same. 
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Data-Factory-Monitoring-and-Managing-Big-Data-Piplines/player]
->
 
 ## Launch the Monitoring and Management app
 To launch the Monitor and Management app, click the **Monitor & Manage** tile on the **Data Factory** blade for your data factory.

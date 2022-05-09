@@ -8,19 +8,19 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 12/06/2021
 ms.author: lajanuar
-ms.topic: conceptual
+ms.topic: how-to
 #Customer intent: As a Custom Translator user, I want to understand how to create project, so that I can build and manage a project.
 ---
 
 # Create a project
 
-A project is a container for models, documents, and tests. Each project automatically includes all documents that are uploaded into that workspace that have the correct language pair.
+A project contains translation models for one language pair. Each includes all documents that are uploaded into that workspace that have the correct language pair.
 
 Creating project is the first step toward building a model.
 
 ## Create a project
 
-1. In the [Custom Translator](https://portal.customtranslator.azure.ai) portal, select **Create project**.
+1. In the [Custom Translator](https://legacy.portal.customtranslator.azure.ai/) legacy portal, select **Create project**.
 
     ![Create project](media/how-to/how-to-create-project.png)
 

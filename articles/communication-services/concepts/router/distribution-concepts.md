@@ -1,234 +1,244 @@
 ---
-title: Job distribution concepts for Azure Communication Services
+title: Distribution mode concepts for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
-description: Learn about the Azure Communication Services Job Router distribution concepts.
-author: jasonshave
-manager: phans
+description: Learn about the Azure Communication Services Job Router distribution mode concepts.
+author: williamzhao
+manager: bgao
 services: azure-communication-services
 
-ms.author: jassha
-ms.date: 10/14/2021
+ms.author: williamzhao
+ms.date: 05/06/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Job distribution concepts
+# Distribution modes
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-Azure Communication Services Job Router uses a flexible distribution process, which involves the use of a policy and a Job offer lifecycle to assign Workers. This article describes the different ways a Job can be distributed, what the Job offer lifecycle is, and the effect this process has on Workers.
+When creating a distribution policy, we specify one of the following distribution modes to define the strategy to use when distributing jobs to workers:
 
-## Job distribution overview
+## Round robin mode
+Jobs will be distributed in a circular fashion such that each available worker will receive jobs in sequence.
 
-Deciding how to distribute Jobs to Workers is a key feature of Job Router and the SDK offers a similarly flexible and extensible model for you to customize your environment. As described in the [classification concepts](classification-concepts.md) guide, once a Job has been classified, Job Router will look for a suitable Worker based on the characteristics of the Job and the Distribution Policy. Alternatively, if Workers are busy, Job Router will look for a suitable Job when a Worker becomes available. Worker suitability is decided across three characteristics; [an available channel](#channel-configurations), their [abilities,](#worker-abilities) and [status](#worker-status). Once a suitable Worker has been found, a check is performed to make sure they have an open channel the Job can be assigned to.
+## Longest idle mode
+Jobs will be distributed to the worker that is least utilized first.  If there's a tie, we'll pick the worker that has been available for the longer time.  Utilization is calculated as a `Load Ratio` by the following algorithm:
 
-These two approaches are key concepts in how Job Router initiates the discovery of Jobs or Workers.
+Load Ratio = Aggregate of capacity consumed by all jobs assigned to the worker / Total capacity of the worker
 
-### Finding workers for a job
+### Example
+Assume that each `chat` job has been configured to consume one capacity for a worker.  A new chat job is queued into Job Router and the following workers are available to take the job:
 
-Once a Job has completed the [classification process](classification-concepts.md), Job Router will apply the Distribution Policy configured on the Queue to select one or more workers who meet the worker selectors on the job and generate offers for those workers to take on the job. 
+```
+Worker A:
+TotalCapacity = 5
+ConsumedScore = 3 (Currently handling 3 chats)
+LoadRatio = 3 / 5 = 0.6
+LastAvailable: 5 mins ago
 
-### Finding a job for a worker
+Worker B:
+TotalCapacity = 4
+ConsumedScore = 3 (Currently handling 3 chats)
+LoadRatio = 3 / 4 = 0.75
+LastAvailable: 3 min ago
 
-There are several scenarios, which will trigger Job Router to find a job for a worker:
+Worker C:
+TotalCapacity = 5
+ConsumedScore = 3 (Currently handling 3 chats)
+LoadRatio = 3 / 5 = 0.6
+LastAvailable: 7 min ago
 
-- When a Worker registers with Job Router
-- When a Job is closed and the channel is released
-- When a Job offer is declined or revoked
+Worker D:
+TotalCapacity = 3
+ConsumedScore = 0 (Currently idle)
+LoadRatio = 0 / 4 = 0
+LastAvailable: 2 min ago
 
-The distribution process is the same as finding Workers for a Job. When a worker is found, an [offer](#job-offer-overview) is generated.
-
-## Worker overview
-
-Workers **register** with Job Router using the SDK and supply the following basic information:
-
-- A worker ID and name
-- Queue IDs
-- Total capacity (number)
-- A list of **channel configurations**
-- A set of labels 
-
-Job Router will always hold a reference to any registered Worker even if they are manually or automatically **deregistered**.
-
-### Channel configurations
-
-Each Job requires a channel ID property representing a pre-configured Job Router channel or a custom channel. A channel configuration consists of a `channelId` string and a `capacityCostPerJob` number. Together they represent an abstract mode of communication and the cost of that mode. For example, most people can only be on one phone call at a time, thus a `Voice` channel may have a high cost of `100`. Alternatively, certain workloads such as chat can have a higher concurrency which means they have a lower cost. You can think of channel configurations as open slots in which a Job can be assigned or attached to. The following example illustrates this point:
-
-```csharp
-await client.RegisterWorkerAsync(
-    id: "EdmontonWorker",
-    queueIds: new[] { "XBOX_Queue", "XBOX_Escalation_Queue" },
-    totalCapacity: 100,
-    labels: new LabelCollection
-    {
-        { "Location", "Edmonton" },
-        { "XBOX_Hardware", 7 },
-    },
-    channelConfigurations: new List<ChannelConfiguration>
-    {
-        new (
-            channelId: ManagedChannels.AcsVoiceChannel,
-            capacityCostPerJob: 100
-        ),
-        new (
-            channelId: ManagedChannels.AcsChatChannel,
-            capacityCostPerJob: 33
-        )
-    }
-);
+Workers would be matched in order: D, C, A, B
 ```
 
-The above worker is registered with two channel configurations each with unique costs per channel. The effective result is that the `EdmontonWorker` can handle three concurrent `ManagedChannels.AcsChatChannel` Jobs or one `ManagedChannels.AcsVoiceChannel` Job.
+Worker D has the lowest load ratio (0), so Worker D will be offered the job first.  Workers A and C are tied with the same load ratio (0.6).  However, Worker C has been available for a longer time (7 minutes ago) than Worker A (5 minutes ago), so Worker C will be matched before Worker A.  Finally, Worker B will be matched last since Worker B has the highest load ratio (0.75).
 
-Job Router includes the following pre-configured channel IDs for you to use:
+## Best worker mode
+The workers that are best able to handle the job are picked first.  The logic to rank Workers can be customized, with an expression or Azure function to compare two workers by specifying a Scoring Rule. [See example][worker-scoring]
 
-- ManagedChannels.AcsChatChannel
-- ManagedChannels.AcsVoiceChannel
-- ManagedChannels.AcsSMSChannel
+When a Scoring Rule isn't provided, this distribution mode will use the default scoring method instead, which evaluates workers based on how the job's labels and selectors match with the worker's labels.  The algorithms are outlined below.
 
-New abstract channels can be created using the Job Router SDK as follows:
+### Default label matching
+For calculating a score based on the job's labels, we increment the `Match Score` by 1 for every worker label that matches a corresponding label on the job and then divide by the total number of labels on the job. Therefore, the more labels that matched, the higher a worker's `Match Score`.  The final `Match Score` will always be a value between 0 and 1.
 
-```csharp
-await client.SetChannelAsync(
-    id: "MakePizza",
-    name: "Make a pizza"
-);
-
-await client.SetChannelAsync(
-    id: "MakeDonairs",
-    name: "Make a donair"
-);
-
-await client.SetChannelAsync(
-    id: "MakeBurgers",
-    name: "Make a burger"
-);
+##### Example
+Job 1:
+```json
+{
+  "labels": {
+    { "language": "english" },
+    { "department": "sales" }
+  }
+}
 ```
 
-You can then use the channel when registering the Worker to represent their ability to take on a Job matching that channel ID as follows:
-
-```csharp
-await client.RegisterWorkerAsync(
-    id: "PizzaCook",
-    queueIds: new[] { "PizzaOrders", "DonairOrders", "BurgerOrders" },
-    totalCapacity: 100,
-    labels: new LabelCollection
-    {
-        { "Location", "New Jersey" },
-        { "Language", "English" },
-        { "PizzaMaker", 7 },
-        { "DonairMaker", 10},
-        { "BurgerMaker", 5}
-    },
-    channelConfigurations: new List<ChannelConfiguration>
-    {
-        new (
-            channelId: MakePizza,
-            capacityCostPerJob: 50
-        ),
-        new (
-            channelId: MakeDonair,
-            capacityCostPerJob: 33
-        ),
-        new (
-            channelId: MakeBurger,
-            capacityCostPerJob: 25        
-        )
-    }
-);
+Worker A:
+```json
+{
+  "labels": {
+    { "language": "english" },
+    { "department": "sales" }
+  }
+}
 ```
 
-The above example illustrates three abstract channels each with their own cost per Job. As such, the following Job concurrency examples are possible for the `PizzaCook` Worker:
-
-| MakePizza | MakeDonair | MakeBurger | Score |
-|--|--|--|--|
-| 2         |            |            | 100   |
-|           | 3          |            | 99    |
-| 1         | 1          |            | 83    |
-|           | 2          | 1          | 91    |
-|           |            | 4          | 100   |
-|           | 1          | 2          | 83    |
-
-### Worker abilities
-
-Aside from the available channels a Worker may have, the distribution process uses the labels collection of the registered Worker to determine their suitability for a Job. In the pizza cook example above, the Worker has a label collection consisting of:
-
-```csharp
-new LabelCollection
-    {
-        { "Location", "New Jersey" },
-        { "Language", "English" },
-        { "PizzaMaker", 7 },
-        { "DonairMaker", 10},
-        { "BurgerMaker", 5}
-    }
+Worker B:
+```json
+{
+  "labels": {
+    { "language": "english" }
+  }
+}
 ```
 
-When a Job is submitted, the **worker selectors** are used to define the requirements for that particular unit of work. If a Job requires an English-speaking person who is good at making donairs, the SDK call would be as follows:
-
-```csharp
-await client.CreateJobAsync(
-    channelId: "MakeDonair",
-    channelReference: "ReceiptNumber_555123",
-    queueId: "DonairOrders",
-    priority: 1,
-    workerSelectors: new List<LabelSelector>
-    {
-        new (
-            key: "DonairMaker",
-            @operator: LabelOperator.GreaterThanEqual,
-            value: 8),
-        new (
-            key: "English",
-            @operator: LabelOperator.GreaterThan,
-            value: 5)
-    });
+Worker C:
+```json
+{
+  "labels": {
+    { "language": "english" },
+    { "department": "support" }
+  }
+}
 ```
 
-### Worker status
+Calculation:
+```
+Worker A's match score = 1 (for matching english language label) + 1 (for matching department sales label) / 2 (total number of labels) = 1
+Worker B's match score = 1 (for matching english language label) / 2 (total number of labels) = 0.5
+Worker C's match score = 1 (for matching english language label) / 2 (total number of labels) = 0.5
+```
 
-Since Job Router can handle concurrent Jobs for a Worker depending on their Channel Configurations, the concept of availability is represented by three states:
+Worker A would be matched first.  Next, Worker B or Worker C would be matched, depending on who was available for a longer time, since the match score is tied.
 
-**Active -** A Worker is registered with the Job Router and is willing to accept a Job
+### Default worker selector matching
+In the case where the job also contains worker selectors, we'll calculate the `Match Score` based on the `LabelOperator` of that worker selector.
 
-**Draining -** A Worker has deregistered with the Job Router, however they are currently assigned one or more active Jobs
+#### Equal/notEqual label operators
+If the worker selector has the `LabelOperator` `Equal` or `NotEqual`, we increment the score by 1 for each job label that matches that worker selector, in a similar manner as the `Label Matching` above.
 
-**Inactive -** A Worker has deregistered with the Job Router and they have no active Jobs
+##### Example
+Job 2:
+```json
+{
+  "workerSelectors": [
+    { "key": "department", "labelOperator": "equals", "value": "billing" },
+    { "key": "segment", "labelOperator": "notEquals", "department": "vip" }
+  ]
+}
+```
 
-## Job offer overview
+Worker D:
+```json
+{
+  "labels": {
+    { "department": "billing" },
+    { "segment": "vip" }
+  }
+}
+```
 
-When the distribution process locates a suitable Worker who has an open channel and has the correct status, a Job offer is generated and an event is sent. The Distribution Policy contains the following configurable properties for the offer:
+Worker E:
+```json
+{
+  "labels": {
+    { "department": "billing" }
+  }
+}
+```
 
-**OfferTTL -** The time-to-live for each offer generated
+Worker F:
+```json
+{
+  "labels": {
+    { "department": "sales" },
+    { "segment": "new" }
+  }
+}
+```
 
-**Mode -** The **distribution modes** which contain both `minConcurrentOffers` and `maxConcurrentOffers` properties.
+Calculation:
+```
+Worker D's match score = 1 (for matching department selector) / 2 (total number of worker selectors) = 0.5
+Worker E's match score = 1 (for matching department selector) + 1 (for matching segment not equal to vip) / 2 (total number of worker selectors) = 1
+Worker F's match score = 1 (for segment not equal to vip) / 2 (total number of labels) = 0.5
+```
 
-> [!Important]
-> When a Job offer is generated for a Worker it consumes one of the channel configurations matching the channel ID of the Job. The consumption of this channel means the Worker will not receive another offer unless additional capacity for that channel is available on the Worker. If the Worker declines the offer or the offer expires, the channel is released.
+Worker E would be matched first.  Next, Worker D or Worker F would be matched, depending on who was available for a longer time, since the match score is tied.
 
-### Job offer lifecycle
+#### Other label operators
+For worker selectors using operators that compare by magnitude (`GreaterThan`/`GreaterThanEqual`/`LessThan`/`LessThanEqual`), we'll increment the worker's `Match Score` by an amount calculated using the logistic function (See Fig 1).  The calculation is based on how much the worker's label value exceeds the worker selector's value or a lesser amount if it doesn't exceed the worker selector's value. Therefore, the more worker selector values the worker exceeds, and the greater the degree to which it does so, the higher a worker's score will be.
 
-The following Job offer lifecycle events can be observed through your Event Grid subscription:
+:::image type="content" source="../media/router/distribution-concepts/logistic-function.png" alt-text="Diagram that shows logistic function.":::
 
-- RouterWorkerOfferIssued
-- RouterWorkerOfferAccepted
-- RouterWorkerOfferDeclined
-- RouterWorkerOfferExpired
-- RouterWorkerOfferRevoked
+Fig 1. Logistic function
 
-> [!NOTE]
-> An offer can be accepted or declined by a Worker by using the SDK while all other events are internally generated.
+The following function is used for GreaterThan or GreaterThanEqual operators:
+```
+MatchScore(x) = 1 / (1 + e^(-x)) where x = (labelValue - selectorValue) / selectorValue
+```
 
-## Distribution modes
+The following function is used for LessThan or LessThanEqual operators:
 
-Job Router includes the following distribution modes:
+```
+MatchScore(x) = 1 / (1 + e^(-x)) where x = (selectorValue - labelValue) / selectorValue
+```
 
-**LongestIdleMode -** Generates Offer for the longest idle Worker in a Queue
+#### Example
+Job 3:
+```json
+{
+  "workerSelectors": [
+    { "key": "language", "operator": "equals", "value": "french" },
+    { "key": "sales", "operator": "greaterThanEqual", "value": 10 },
+    { "key": "cost", "operator": "lessThanEqual", "value": 10 }
+  ]
+}
+```
 
-**RoundRobinMode -** Given a collection of Workers, pick the next Worker after the last one that was picked ordered by ID.
+Worker G:
+```json
+{
+  "labels": {
+    { "language": "french" },
+    { "sales", 10 },
+    { "cost", 10 }
+  }
+}
+```
 
-**BestWorkerMode -** Use the Job Router's [RuleEngine](router-rule-concepts.md) to choose a Worker based on their labels
+Worker H:
+```json
+{
+  "labels": {
+    { "language": "french" },
+    { "sales", 15 },
+    { "cost", 10 }
+  }
+}
+```
 
-## Distribution summary
+Worker I:
+```json
+{
+  "labels": {
+    { "language": "french" },
+    { "sales", 10 },
+    { "cost", 9 }
+  }
+}
+```
 
-Depending on several factors such as a Worker's status, channel configuration/capacity, the distribution policy's mode, and offer concurrency can influence the way Job offers are generated. It is suggested to start with a simple implementation and add complexity as your requirements dictate.
+Calculation:
+```
+Worker G's match score = (1 + 1 / (1 + e^-((10 - 10) / 10)) + 1 / (1 + e^-((10 - 10) / 10))) / 3 = 0.667
+Worker H's match score = (1 + 1 / (1 + e^-((15 - 10) / 10)) + 1 / (1 + e^-((10 - 10) / 10))) / 3 = 0.707
+Worker I's match score = (1 + 1 / (1 + e^-((10 - 10) / 10)) + 1 / (1 + e^-((10 - 9) / 10))) / 3 = 0.675
+```
+
+All three workers match the worker selectors on the job and are eligible to work on it.  However, we can see that Worker H exceeds the "sales" worker selector's value by a margin of 5.  Meanwhile, Worker I only exceeds the cost worker selector's value by a margin of 1.  Worker G doesn't exceed any of the worker selector's values at all.  Therefore, Worker H would be matched first, followed by Worker I and finally Worker G would be matched last.

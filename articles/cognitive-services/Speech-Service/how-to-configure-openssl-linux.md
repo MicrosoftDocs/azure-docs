@@ -7,11 +7,12 @@ author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2020
 ms.author: jhakulin
 zone_pivot_groups: programming-languages-set-two
 ROBOTS: NOINDEX
+ms.devlang: cpp, csharp, java, python
 ---
 
 # Configure OpenSSL for Linux
@@ -58,7 +59,7 @@ If a destination posing as the Speech Service reports a certificate that's been 
 
 One cause of CRL-related failures is the use of particularly large CRL files. This is typically only applicable to special environments with extended CA chains and standard, public endpoints should not encounter this class of issue.
 
-The default maximum size for a CRL used by the Speech SDK is 10MB. If an environment needs to use a larger CRL than this, the maximize size can be adjusted via a property set on the `*Config` object used when creating the `SpeechRecognizer` or other top-level object that manages a connection to the Speech Service. The property key for this adjustment is `CONFIG_MAX_CRL_SIZE_KB` and the value, specified as a string, is by default `"10000"` (10MB). In the snippet below, this is adjusted to 15MB to permit a larger CRL file.
+The default maximum CRL size used by the Speech SDK (10MB) can be adjusted per config object. The property key for this adjustment is `CONFIG_MAX_CRL_SIZE_KB` and the value, specified as a string, is by default "10000" (10MB). For example, when creating a `SpeechRecognizer` object (that manages a connection to the Speech Service), you can set this property in its `SpeechConfig`. In the snippet below, the configuration is adjusted to permit a CRL file size up to 15MB.
 
 ::: zone pivot="programming-language-csharp"
 

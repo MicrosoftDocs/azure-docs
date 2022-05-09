@@ -19,7 +19,7 @@ Azure Kubernetes Service (AKS) provides a plugin for Azure confidential computin
 
 The SGX Device plugin implements the Kubernetes device plugin interface for Enclave Page Cache (EPC) memory. In effect, this plugin makes EPC memory another resource type in Kubernetes. Users can specify limits on EPC just like other resources. Apart from the scheduling function, the device plugin helps assign SGX device driver permissions to confidential workload containers. [A sample implementation of the EPC memory-based deployment](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/helloworld/helm/templates/helloworld.yaml) (`kubernetes.azure.com/sgx_epc_mem_in_MiB`) is available.
 
-## PSM with SGX quote helper
+## PSW with SGX quote helper
 
 Enclave applications that do remote attestation need to generate a quote. The quote provides cryptographic proof of the identity and the state of the application, along with the enclave's host environment. Quote generation relies on certain trusted software components from Intel, which are part of the SGX Platform Software Components (PSW/DCAP). This PSW is packaged as a daemon set that runs per node. You can use the PSW when requesting attestation quote from enclave apps. Using the AKS provided service helps better maintain the compatibility between the PSW and other SW components in the host. Read the feature details below.
 
@@ -32,9 +32,9 @@ Enclave applications that do remote attestation need to generate a quote. The qu
  
 Intel supports two attestation modes to run the quote generation. For how to choose which type, see the [attestation type differences](#attestation-type-differences).
 
-- **in-proc**: hosts the trusted software components inside the enclave application process
+- **in-proc**: hosts the trusted software components inside the enclave application process. This method is useful when you are performing local attestation (between 2 enclave apps in a single VM node)
 
-- **out-of-proc**: hosts the trusted software components outside of the enclave application.
+- **out-of-proc**: hosts the trusted software components outside of the enclave application. This is a preferred method when performing remote attestation.
  
 SGX applications built using Open Enclave SDK by default use in-proc attestation mode. SGX-based applications allow out-of-proc and require extra hosting. These applications expose the required components such as Architectural Enclave Service Manager (AESM), external to the application.
 
@@ -56,7 +56,7 @@ You don't have to check for backward compatibility with PSW and DCAP. The provid
 
 ### Out-of-proc attestation for confidential workloads
 
-The out-of-proc attestation model works for confidential workloads. The quote requestor and quote generation are executed separately, but on the same physical machine. The quote generation happens in a centralized manner and serves requests for QUOTES from all entities. Properly define the interface, and make the interface discoverable for any entity to request quotes.
+The out-of-proc attestation model works for confidential workloads. The quote requestor and quote generation are executed separately, but on the same physical machine. The quote generation happens in a centralized manner and serves requests for QUOTES from all entities. Properly define the interface and make the interface discoverable for any entity to request quotes.
 
 ![Diagram of quote requestor and quote generation interface.](./media/confidential-nodes-out-of-proc-attestation/aesmmanager.png)
 
@@ -65,6 +65,9 @@ The abstract model applies to confidential workload scenarios. This model uses a
 Each container needs to opt in to use out-of-proc quote generation by setting the environment variable `SGX_AESM_ADDR=1` during creation. The container also must include the package `libsgx-quote-ex`, which directs the request to default Unix domain socket
 
 An application can still use the in-proc attestation as before. However, you can't simultaneously use both in-proc and out-of-proc within an application. The out-of-proc infrastructure is available by default and consumes resources.
+
+> [!NOTE]
+> If you are using a Intel SGX wrapper software(OSS/ISV) to run you unmodified containers the attestation interaction with hardware is typically handled for your higher level apps. Please refer to the attestation implementation per provider. 
 
 ### Sample implementation
 

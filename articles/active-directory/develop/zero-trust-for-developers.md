@@ -53,7 +53,7 @@ The Microsoft identity platform offers authentication mechanisms for verifying t
 
 ### Use least privileged access
 
-Using the Microsoft identity platform, you can grant permissions (scopes) and verify that a caller has been granted proper permission before allowing access. You can enforce least privileged access in your apps by enabling fine-grained permissions that allow you to grant the smallest amount of access necessary. Follow the practices described below to ensure you adhere to the [principle of least privilege](/secure-least-privileged-access.md).
+Using the Microsoft identity platform, you can grant permissions (scopes) and verify that a caller has been granted proper permission before allowing access. You can enforce least privileged access in your apps by enabling fine-grained permissions that allow you to grant the smallest amount of access necessary. Follow the practices described below to ensure you adhere to the [principle of least privilege](./secure-least-privileged-access.md).
 
 | Do                                    | Don't          |
 | ------------------------------------- | -------------- |
@@ -79,6 +79,5 @@ The Microsoft identity platform app registration portal is the primary entry poi
 
 ## Next steps
 
-- Zero Trust [Guidance Center](/security/zero-trust/)
-- Zero Trust for the Microsoft identity platform developer [whitepaper](https://www.microsoft.com/security/content-library/Search?SearchDataFor=OJZgGWbHnB3Ll5hblDBugaEMQAchNfvkzk5X5AmPM4tK43NHpbF5%2Bky%2Fnuivl7plZz89b%2FuLMMZsMqKeYbhPPw%3D%3D&IsKeywordSearch=evXIpssXVY6lIm6X2K9ieA%3D%3D) (downloadable PDF).
+- Zero Trust [Guidance Center](/security/zero-trust/)  
 - Microsoft identity platform [best practices and recommendations](./identity-platform-integration-checklist.md).

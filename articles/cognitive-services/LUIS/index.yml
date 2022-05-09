@@ -50,11 +50,11 @@ landingContent:
           - text: Intents
             url: luis-concept-intent.md
           - text: Entities
-            url: luis-concept-entity-types.md
+            url: concepts/entities.md
           - text: Utterances
-            url: luis-concept-utterance.md
+            url: concepts/utterances.md
           - text: Phrase list features
-            url: luis-concept-feature.md
+            url: concepts/patterns-features.md
       - linkListType: quickstart
         links:
           - text: "Portal: Create a new LUIS app"
@@ -71,7 +71,7 @@ landingContent:
           - text: Add intent with example utterances
             url: luis-how-to-add-intents.md
           - text: Add entities
-            url: ./luis-how-to-add-entities.md
+            url: how-to/entities.md
           - text: Add phrase list feature
             url: luis-how-to-add-features.md
 

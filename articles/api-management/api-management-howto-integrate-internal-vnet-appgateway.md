@@ -390,10 +390,10 @@ All configuration items must be set up before you create the application gateway
     $config = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
     ```
 
-1. Because TLS 1.0 currently is the default, set the application gateway to use the most recent [TLS 1.2 policy](../application-gateway/application-gateway-ssl-policy-overview.md#appgwsslpolicy20170401s).
+1. Because TLS 1.0 currently is the default, set the application gateway to use one of the recent [TLS 1.2 policy](../application-gateway/application-gateway-ssl-policy-overview.md#predefined-tls-policy).
 
     ```powershell
-    $policy = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20170401S
+    $policy = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20220101
     ```
 
 ## Create an application gateway
@@ -441,6 +441,7 @@ API Management configured in a virtual network provides a single gateway interfa
 
 ## Next steps
 
+* Set up using an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/private-webapp-with-app-gateway-and-apim).
 * Learn more about Application Gateway:
 
   * [Application Gateway overview](../application-gateway/overview.md)

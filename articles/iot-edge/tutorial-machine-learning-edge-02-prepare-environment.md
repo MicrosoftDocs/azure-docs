@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial: Set up environment - Machine Learning on Azure IoT Edge'
 description: 'Tutorial: Prepare your environment for development and deployment of modules for machine learning at the edge.'
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
@@ -78,7 +78,7 @@ It takes about 30 minutes to create and configure the virtual machine.
 
     When prompted, provide the following information:
 
-    * **Azure Subscription ID**: Your subscription ID, which can be found in [Azure Subscriptions](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in portal.
+    * **Azure Subscription ID**: Your subscription ID, which can be found in [Azure Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in portal.
     * **Resource Group Name**: The name of a new or existing resource group in Azure.
     * **Location**: Choose an Azure location where the virtual machine will be created. For example, 'West US 2' or 'North Europe'. For more information, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
     * **Username**: Provide a memorable name for the administrator account for the VM.

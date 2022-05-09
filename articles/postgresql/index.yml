@@ -86,19 +86,19 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Hyperscale ?
-            url: concepts-hyperscale-nodes.md
+            url: hyperscale/concepts-nodes.md
           - text: View all Hyperscale documentation
             url: hyperscale/index.yml
       - linkListType: concept
         links:
           - text: PostgreSQL extensions - Hyperscale
-            url: concepts-hyperscale-extensions.md
+            url: hyperscale/reference-extensions.md
           - text: Understand distributed data
-            url: concepts-hyperscale-distributed-data.md
+            url: hyperscale/concepts-distributed-data.md
       - linkListType: quickstart
         links:
           - text: Create a Hyperscale (Citus) cluster in the Azure Portal
-            url: quickstart-create-hyperscale-portal.md
+            url: hyperscale/quickstart-create-portal.md
 
 # Card
   - title: Connect and query
@@ -137,9 +137,9 @@ landingContent:
           - text: Design a Database on Single Server
             url: tutorial-design-database-using-azure-portal.md
           - text: Design a multi-tenant database using Hyperscale
-            url: tutorial-design-database-hyperscale-multi-tenant.md
+            url: hyperscale/tutorial-design-database-multi-tenant.md
           - text: Design a real-time database using Hyperscale
-            url: tutorial-design-database-hyperscale-realtime.md
+            url: hyperscale/tutorial-design-database-realtime.md
 
   # Card
   - title: Reference

@@ -28,7 +28,7 @@ The process to create an Azure Spot Virtual Machine using the Azure CLI is the s
 
 To create Azure Spot Virtual Machines, you need to be running the Azure CLI version 2.0.74 or later. Run **az --version** to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
 
-Sign in to Azure using [az login](/cli/azure/reference-index#az_login).
+Sign in to Azure using [az login](/cli/azure/reference-index#az-login).
 
 ```azurecli-interactive
 az login
@@ -68,7 +68,7 @@ You can simulate an eviction of an Azure Spot Virtual Machine using REST, PowerS
 
 In most cases, you will want to use the REST API [Virtual Machines - Simulate Eviction](/rest/api/compute/virtualmachines/simulateeviction) to help with automated testing of applications. For REST, a `Response Code: 204` means the simulated eviction was successful. You can combine simulated evictions with the [Scheduled Event service](scheduled-events.md), to automate how your app will respond when the VM is evicted.
 
-To see scheduled events in action, watch [Azure Friday - Using Azure Scheduled Events to prepare for VM maintenance](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance).
+To see scheduled events in action, watch Azure Friday - Using Azure Scheduled Events to prepare for VM maintenance.
 
 
 ### Quick test
@@ -87,7 +87,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 
 This first response could take up to 2 minutes. From now on, they should display output almost immediately.
 
-From a computer that has the Azure CLI installed (like your local machine), simulate an eviction using [az vm simulate-eviction](/cli/azure/vm#az_vm_simulate_eviction). Replace the resource group name and VM name with your own. 
+From a computer that has the Azure CLI installed (like your local machine), simulate an eviction using [az vm simulate-eviction](/cli/azure/vm#az-vm-simulate-eviction). Replace the resource group name and VM name with your own. 
 
 ```azurecli-interactive
 az vm simulate-eviction --resource-group mySpotRG --name mySpot

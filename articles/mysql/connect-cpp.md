@@ -8,6 +8,7 @@ ms.custom: mvc, mode-api
 ms.devlang: cpp
 ms.topic: quickstart
 ms.date: 5/26/2020
+adobe-target: true
 ---
 
 # Quickstart: Use Connector/C++ to connect and query data in Azure Database for MySQL

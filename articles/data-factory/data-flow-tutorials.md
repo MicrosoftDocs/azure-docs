@@ -105,6 +105,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [External Call transformation](https://www.youtube.com/watch?v=dIMfbwX8r0A)
 
+[Assert transformation](https://www.youtube.com/watch?v=8K7flL7JWMo)
+
 ## Source and sink
 
 [Reading and writing JSONs](https://www.youtube.com/watch?v=yY5aB7Kdhjg)
@@ -182,6 +184,10 @@ As updates are constantly made to the product, some features have added or diffe
 [Generic type 2 slowly changing dimension](http://youtu.be/tc283k8CWh8)
 
 [Delete rows in target when not present in source](https://www.youtube.com/watch?v=9i7qf1vczUw)
+
+[Incremental data loading with Azure Data Factory and Azure SQL DB](https://youtu.be/6tNWFErnGGU)
+
+[Transform Avro data from Event Hubs using Parse and Flatten](https://youtu.be/F2x7Eg-635o)
 
 ## Data flow expressions
 

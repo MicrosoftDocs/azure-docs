@@ -25,7 +25,7 @@ This article describes how you can create and configure a self-hosted IR.
 
 ## Considerations for using a self-hosted IR
 
-- You can use a single self-hosted integration runtime for multiple on-premises data sources. You can also share it with another data factory or Synapse workspace within the same Azure Active Directory (Azure AD) tenant. For more information, see [Sharing a self-hosted integration runtime](./create-shared-self-hosted-integration-runtime-powershell.md).
+- You can use a single self-hosted integration runtime for multiple on-premises data sources. You can also share it with another data factory within the same Azure Active Directory (Azure AD) tenant. For more information, see [Sharing a self-hosted integration runtime](./create-shared-self-hosted-integration-runtime-powershell.md).
 - You can install only one instance of a self-hosted integration runtime on any single machine. If you have two data factories or Synapse workspaces that need to access on-premises data sources, either use the [self-hosted IR sharing feature](./create-shared-self-hosted-integration-runtime-powershell.md) to share the self-hosted IR, or install the self-hosted IR on two on-premises computers, one for each data factory or Synapse workspace.  
 - The self-hosted integration runtime doesn't need to be on the same machine as the data source. However, having the self-hosted integration runtime close to the data source reduces the time for the self-hosted integration runtime to connect to the data source. We recommend that you install the self-hosted integration runtime on a machine that differs from the one that hosts the on-premises data source. When the self-hosted integration runtime and data source are on different machines, the self-hosted integration runtime doesn't compete with the data source for resources.
 - You can have multiple self-hosted integration runtimes on different machines that connect to the same on-premises data source. For example, if you have two self-hosted integration runtimes that serve two data factories, the same on-premises data source can be registered with both data factories.
@@ -33,6 +33,9 @@ This article describes how you can create and configure a self-hosted IR.
 - Treat your data source as an on-premises data source that is behind a firewall, even when you use Azure ExpressRoute. Use the self-hosted integration runtime to connect the service to the data source.
 - Use the self-hosted integration runtime even if the data store is in the cloud on an Azure Infrastructure as a Service (IaaS) virtual machine.
 - Tasks might fail in a self-hosted integration runtime that you installed on a Windows server for which FIPS-compliant encryption is enabled. To work around this problem, you have two options: store credentials/secret values in an Azure Key Vault or disable FIPS-compliant encryption on the server. To disable FIPS-compliant encryption, change the following registry subkey's value from 1 (enabled) to 0 (disabled): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`. If you use the [self-hosted integration runtime as a proxy for SSIS integration runtime](./self-hosted-integration-runtime-proxy-ssis.md), FIPS-compliant encryption can be enabled and will be used when moving data from on premises to Azure Blob Storage as a staging area.
+
+> [!NOTE]
+> Currently self-hosted integration runtime can only be shared with multiple data factories, it can't be shared across Synapse workspaces or between data factory and Synapse workspace.
 
 ## Command flow and data flow
 
@@ -55,10 +58,12 @@ Here is a high-level summary of the data-flow steps for copying with a self-host
 - The supported versions of Windows are:
   - Windows 8.1
   - Windows 10
+  - Windows 11
   - Windows Server 2012
   - Windows Server 2012 R2
   - Windows Server 2016
   - Windows Server 2019
+  - Windows Server 2022
 
 Installation of the self-hosted integration runtime on a domain controller isn't supported.
 
@@ -206,7 +211,7 @@ Here are details of the application's actions and arguments:
 9. Get the authentication key by using PowerShell. Here's a PowerShell example for retrieving the authentication key:
 
     ```powershell
-    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName
     ```
 
 10. On the **Register Integration Runtime (Self-hosted)** window of Microsoft Integration Runtime Configuration Manager running on your machine, take the following steps:
@@ -267,13 +272,7 @@ When the processor and available RAM aren't well utilized, but the execution of 
 
 ### TLS/SSL certificate requirements
 
-Here are the requirements for the TLS/SSL certificate that you use to secure communication between integration runtime nodes:
-
-- The certificate must be a publicly trusted X509 v3 certificate. We recommend that you use certificates that are issued by a public partner certification authority (CA).
-- Each integration runtime node must trust this certificate.
-- We don't recommend Subject Alternative Name (SAN) certificates because only the last SAN item is used. All other SAN items are ignored. For example, if you have a SAN certificate whose SANs are **node1.domain.contoso.com** and **node2.domain.contoso.com**, you can use this certificate only on a machine whose fully qualified domain name (FQDN) is **node2.domain.contoso.com**.
-- The certificate can use any key size supported by Windows Server 2012 R2 for TLS/SSL certificates.
-- Certificates that use CNG keys aren't supported.  
+ If you want to enable remote access from intranet with TLS/SSL certificate (Advanced) to secure communication between integration runtime nodes, you can follow steps in [Enable remote access from intranet with TLS/SSL certificate](tutorial-enable-remote-access-intranet-tls-ssl-certificate.md).
 
 > [!NOTE]
 > This certificate is used:
@@ -446,6 +445,18 @@ For example, to copy from an on-premises data store to a SQL Database sink or an
 
 > [!NOTE]
 > If your firewall doesn't allow outbound port 1433, the self-hosted integration runtime can't access the SQL database directly. In this case, you can use a [staged copy](copy-activity-performance.md) to SQL Database and Azure Synapse Analytics. In this scenario, you require only HTTPS (port 443) for the data movement.
+
+## Credentials store
+There are two ways to store the credentials when using self-hosted integration runtime:
+1. Use Azure Key Vault.
+This is the recommended way to store your credentials in Azure. The self-hosted integration runtime can directly get the credentials from Azure Key Vault which can highly avoid some potential security issues or any credential in-sync problems between self-hosted integration runtime nodes.
+2. Store credentials locally.
+The credentials will be push to the machine of your self-hosted integration runtime and be encrypted. 
+When your self-hosted integration runtime is recovered from crash, you can either recover credential from the one you backup before or edit linked service and let the credential be pushed to self-hosted integration runtime again. Otherwise, the pipeline doesn't work due to the lack of credential when running via self-hosted integration runtime.
+> [!NOTE]
+> If you prefer to store the credential locally, your need to put the domain for interactive authoring in the allowlist of your firewall 
+> and open the port. This channel is also for the self-hosted integration runtime to get the credentials. 
+> For the domain and port needed for interactive authoring, refer to [Ports and firewalls](#ports-and-firewalls)
 
 ## Installation best practices
 

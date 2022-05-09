@@ -1,5 +1,5 @@
 ---
-title: "Deploy a trusted launch VM"
+title: Deploy a trusted launch VM
 description: Deploy a VM that uses trusted launch.
 author: cynthn
 ms.author: cynthn
@@ -8,7 +8,7 @@ ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 12/07/2021
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Deploy a VM with trusted launch enabled
@@ -128,7 +128,7 @@ $vm = Set-AzVMOSDisk -VM $vm `
    -StorageAccountType "StandardSSD_LRS" `
    -CreateOption "FromImage" 
 
-$vm = Set-AzVmSecurityType -VM $vm `
+$vm = Set-AzVmSecurityProfile -VM $vm `
    -SecurityType "TrustedLaunch" 
 
 $vm = Set-AzVmUefi -VM $vm `
@@ -156,7 +156,7 @@ You can deploy trusted launch VMs using a quickstart template:
 
 ## Verify or update your settings
 
-You can view the trusted launch configuration for an existing VM by visiting the **Overview** page for the VM in the portal. The **Properties** tab will show the status of Trusted Launch features:
+For VMs created with trusted launch enabled, you can view the trusted launch configuration by visiting the **Overview** page for the VM in the portal. The **Properties** tab will show the status of Trusted Launch features:
 
 :::image type="content" source="media/trusted-launch/overview-properties.png" alt-text="Screenshot of the Trusted Launch properties of the VM.":::
 

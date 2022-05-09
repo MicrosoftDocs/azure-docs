@@ -7,7 +7,7 @@ manager: nitinme
 displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
@@ -30,7 +30,7 @@ Custom question answering uses Azure diagnostic logging to store the telemetry d
 // All QnA Traffic
 AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
-| where OperationName=="QnAMaker GenerateAnswer" // This OperationName is valid for custom question answering enabled resources
+| where OperationName=="CustomQuestionAnswering QueryKnowledgebases" // This OperationName is valid for custom question answering enabled resources
 | extend answer_ = tostring(parse_json(properties_s).answer)
 | extend question_ = tostring(parse_json(properties_s).question)
 | extend score_ = tostring(parse_json(properties_s).score)
@@ -46,7 +46,7 @@ let startDate = todatetime('2019-01-01');
 let endDate = todatetime('2020-12-31');
 AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
-| where OperationName=="QnAMaker GenerateAnswer" // This OperationName is valid for custom question answering enabled resources
+| where OperationName=="CustomQuestionAnswering QueryKnowledgebases" // This OperationName is valid for custom question answering enabled resources
 | where TimeGenerated <= endDate and TimeGenerated >=startDate
 | extend kbId_ = tostring(parse_json(properties_s).kbId)
 | extend userId_ = tostring(parse_json(properties_s).userId)
@@ -81,7 +81,7 @@ AzureDiagnostics
 // All unanswered questions
 AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
-| where OperationName=="QnAMaker GenerateAnswer" // This OperationName is valid for custom question answering enabled resources
+| where OperationName=="CustomQuestionAnswering QueryKnowledgebases" // This OperationName is valid for custom question answering enabled resources
 | extend answer_ = tostring(parse_json(properties_s).answer)
 | extend question_ = tostring(parse_json(properties_s).question)
 | extend score_ = tostring(parse_json(properties_s).score)

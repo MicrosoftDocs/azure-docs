@@ -42,7 +42,7 @@ To start the configuration, sign in to your Azure account and select the subscri
 
     ```azurepowershell-interactive
     New-AzResourceGroup -Name "your_resource_group" -Location "resource_location"
-    $keyVault = New-AzKeyVault -Name "your_key_vault_name" -ResourceGroupName "your_resource_group" -Location "resource_location" -EnableSoftDelete 
+    $keyVault = New-AzKeyVault -Name "your_key_vault_name" -ResourceGroupName "your_resource_group" -Location "resource_location" -SoftDeleteRetentionInDays 90
     ```
 
     If you already have a key vault or a resource group, you can reuse them. However, it is critical that you enable the [**soft-delete** feature](../key-vault/general/soft-delete-overview.md) on your existing key vault. If soft-delete is not enabled, you can use the following commands to enable it:
@@ -51,6 +51,11 @@ To start the configuration, sign in to your Azure account and select the subscri
     ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "your_existing_keyvault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
     Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
     ```
+    
+    > [!NOTE]
+    > The Key Vault shouldn't be behind a private endpoint because communicate to the ExpressRoute management plane is required.
+    >
+    
 2. Create a user identity.
 
     ```azurepowershell-interactive
@@ -98,6 +103,15 @@ To start the configuration, sign in to your Azure account and select the subscri
 ### To enable MACsec
 
 Each ExpressRoute Direct instance has two physical ports. You can choose to enable MACsec on both ports at the same time or enable MACsec on one port at a time. Doing it one port at time (by switching traffic to an active port while servicing the other port) can help minimize the interruption if your ExpressRoute Direct is already in service.
+
+   > [!NOTE]
+   > You can configure both XPN and Non-XPN ciphers:
+   > * GcmAes128
+   > * GcmAes256
+   > * GcmAesXpn128
+   > * GcmAesXpn256
+   >
+   > 
 
 1. Set MACsec secrets and cipher and associate the user identity with the port so that the ExpressRoute management code can access the MACsec secrets if needed.
 

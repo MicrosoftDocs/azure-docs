@@ -30,7 +30,7 @@ The single region data residency option is available only for Southeast Asia (Si
 The data residency posture of the Azure Stack Edge services can be summarized for the following aspects of the service:
 
 - Existing Azure Stack Edge ordering and management service.
-- New Azure Edge Hardware Center (Preview) that will be used for new orders going forward.
+- New Azure Edge Hardware Center that will be used for new orders going forward.
 <!--- Telemetry for the device and the service.
 - Proactive Support log collection where any logs that the service generates are stored in a single region and are not replicated to the paired region.-->
 
@@ -40,6 +40,8 @@ Azure Stack Edge service also integrates with the following dependent services a
 - Azure IoT Hub and Azure IoT Edge
 <!--- Azure Key Vault -->
 
+> [!NOTE]
+> - If you provide a support package with a crash dump for the Azure Stack Edge device, it can contain End User Identifiable Information (EUII) or End User Pseudonymous Information (EUPI) which will be processed and stored outside South East Asia.
 
 ## Azure Stack Edge classic ordering and management resource 
 
@@ -53,7 +55,7 @@ If you are creating a new Azure Stack Edge resource, you have the option to enab
 
 ## Azure Edge Hardware Center ordering and management resource 
 
-The new Azure Edge Hardware Center service (Preview) is now available and allows you to create and manage Azure Stack Edge resources. When placing an order in Southeast Asia region, you can select the option to have your data resides only within Singapore and not be replicated. 
+The new Azure Edge Hardware Center service is now available and allows you to create and manage Azure Stack Edge resources. When placing an order in Southeast Asia region, you can select the option to have your data resides only within Singapore and not be replicated. 
 
 In the event of region-wide outages, you won’t be able to access the order resources. You will not be able to return, cancel, or delete the resources. If you request for updates on your order status or need to initiate a device return urgently during the service outage, Microsoft Support will handle those requests.
 

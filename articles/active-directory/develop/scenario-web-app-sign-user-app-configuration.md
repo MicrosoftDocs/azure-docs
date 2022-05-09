@@ -135,6 +135,8 @@ In ASP.NET Core, another file ([properties\launchSettings.json](https://github.c
 In the Azure portal, the redirect URIs that you register on the **Authentication** page for your application need to match these URLs. For the two preceding configuration files, they would be `https://localhost:44321/signin-oidc`. The reason is that `applicationUrl` is `http://localhost:3110`, but `sslPort` is specified (44321). `CallbackPath` is `/signin-oidc`, as defined in `appsettings.json`.
 
 In the same way, the sign-out URI would be set to `https://localhost:44321/signout-oidc`.
+> [!NOTE]
+> SignedOutCallbackPath should set either to portal or the application to avoid conflict while handling the event.
 
 # [ASP.NET](#tab/aspnet)
 
@@ -304,9 +306,6 @@ In the code above:
 - The `AddMicrosoftIdentityUI` extension method is defined in **Microsoft.Identity.Web.UI**. It provides a default controller to handle sign-in and sign-out.
 
 You can find more details about how Microsoft.Identity.Web enables you to create web apps in <https://aka.ms/ms-id-web/webapp>
-
-> [!WARNING]
-> Currently, Microsoft.Identity.Web does not support the scenario of **Individual User Accounts** (storing user accounts in-app) when using Azure AD as and external login provider. For details, see: [AzureAD/microsoft-identity-web#133](https://github.com/AzureAD/microsoft-identity-web/issues/133)
 
 # [ASP.NET](#tab/aspnet)
 

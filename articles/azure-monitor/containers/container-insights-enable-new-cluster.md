@@ -3,7 +3,8 @@ title: Monitor a new Azure Kubernetes Service (AKS) cluster | Microsoft Docs
 description: Learn how to enable monitoring for a new Azure Kubernetes Service (AKS) cluster with Container insights subscription.
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Enable monitoring of a new Azure Kubernetes Service (AKS) cluster
@@ -17,7 +18,7 @@ You can enable monitoring of an AKS cluster using one of the supported methods:
 
 ## Enable using Azure CLI
 
-To enable monitoring of a new AKS cluster created with Azure CLI, follow the step in the quickstart article under the section [Create AKS cluster](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
+To enable monitoring of a new AKS cluster created with Azure CLI, follow the step in the quickstart article under the section [Create AKS cluster](../../aks/learn/quick-kubernetes-deploy-cli.md).  
 
 >[!NOTE]
 >If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.74 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli). 

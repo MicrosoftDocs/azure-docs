@@ -8,70 +8,63 @@ ms.author: madsd
 ---
 
 # Create an App Service Environment
+
+[App Service Environment][Intro] is a single-tenant deployment of Azure App Service. You use it with an Azure virtual network. You need one subnet for a deployment of App Service Environment, and this subnet can't be used for anything else. 
+
 > [!NOTE]
-> This article is about the App Service Environment v3 which is used with Isolated v2 App Service plans
-> 
+> This article is about App Service Environment v3, which is used with isolated v2 App Service plans.
 
-The [App Service Environment (ASE)][Intro] is a single tenant deployment of the App Service that injects into your Azure Virtual Network (VNet). A deployment of an ASE will require use of one subnet. This subnet can't be used for anything else other than the ASE. 
+## Before you create your App Service Environment
 
-## Before you create your ASE
-
-After your ASE is created, you can't change:
+Be aware that after you create your App Service Environment, you can't change any of the following:
 
 - Location
 - Subscription
 - Resource group
-- Azure Virtual Network (VNet) used
-- Subnets used
+- Azure virtual network
+- Subnets
 - Subnet size
-- Name of your ASE
+- Name of your App Service Environment
 
-The subnet needs to be large enough to hold the maximum size that you'll scale your ASE. Pick a large enough subnet to support your maximum scale needs since it can't be changed after creation. The recommended size is a /24 with 256 addresses.
+Make your subnet large enough to hold the maximum size that you'll scale your App Service Environment. The recommended size is a /24 with 256 addresses.
 
 ## Deployment considerations
 
-There are two important things that need to be thought out before you deploy your ASE.
+Before you deploy your App Service Environment, think about the virtual IP (VIP) type and the deployment type.
 
-- VIP type
-- deployment type
+With an *internal VIP*, an address in your App Service Environment subnet reaches your apps. Your apps aren't on a public DNS. When you create your App Service Environment in the Azure portal, you have an option to create an Azure private DNS zone for your App Service Environment. With an *external VIP*, your apps are on an address facing the public internet, and they're in a public DNS. 
 
-There are two different VIP types, internal and external. With an internal VIP, your apps will be reached on the ASE at an address in your ASE subnet and your apps are not on public DNS. During creation in the portal, there is an option to create an Azure private DNS zone for your ASE. With an external VIP, your apps will be on a public internet facing address and your apps are in public DNS. 
+For the deployment type, you can choose *single zone*, *zone redundant*, or *host group*. The single zone is available in all regions where App Service Environment v3 is available. With the single zone deployment type, you have a minimum charge in your App Service plan of one instance of Windows Isolated v2. As soon as you have one or more instances, then that charge goes away. It isn't an additive charge.
 
-There are three different deployment types;
+In a zone redundant App Service Environment, your apps spread across three zones in the same region. Zone redundant is available in regions that support availability zones. With this deployment type, the smallest size for your App Service plan is three instances. That ensures that there is an instance in each availability zone. App Service plans can be scaled up one or more instances at a time. Scaling doesn't need to be in units of three, but the app is only balanced across all availability zones when the total instances are multiples of three.
 
-- single zone
-- zone redundant
-- host group
+A zone redundant deployment has triple the infrastructure, and ensures that even if two of the three zones go down, your workloads remain available. Due to the increased system need, the minimum charge for a zone redundant App Service Environment is nine instances. If you have fewer than this number of instances, the difference is charged as Windows I1v2. If you have nine or more instances, there is no added charge to have a zone redundant App Service Environment. To learn more about zone redundancy, see [Regions and availability zones](./overview-zone-redundancy.md).
 
-The single zone ASE is available in all regions where ASEv3 is available. When you have a single zone ASE, you have a minimum App Service plan instance charge of one instance of Windows Isolated v2. As soon as you have one or more instances, then that charge goes away. It is not an additive charge.
+In a host group deployment, your apps are deployed onto a dedicated host group. The dedicated host group isn't zone redundant. With this type of deployment, you can install and use your App Service Environment on dedicated hardware. There is no minimum instance charge for using App Service Environment on a dedicated host group, but you do have to pay for the host group when you're provisioning the App Service Environment. You also pay a discounted App Service plan rate as you create your plans and scale out.
 
-In a zone redundant ASE, your apps spread across three zones in the same region. The zone redundant ASE is available in a subset of ASE capable regions primarily limited by the regions that support availability zones. When you have zone redundant ASE, the smallest size for your App Service plan is three instances. That ensures that there is an instance in each availability zone. App Service plans can be scaled up one or more instances at a time. Scaling does not need to be in units of three, but the app is only balanced across all availability zones when the total instances are multiples of three. A zone redundant ASE has triple the infrastructure and is made with zone redundant components so that if even two of the three zones go down for whatever reason, your workloads remain available. Due to the increased system need, the minimum charge for a zone redundant ASE is nine instances. If you have less than nine total App Service plan instances in your ASEv3, the difference will be charged as Windows I1v2. If you have nine or more instances, there is no added charge to have a zone redundant ASE. To learn more about zone redundancy, read [Regions and Availability zones](./overview-zone-redundancy.md).
+With a dedicated host group deployment, there are a finite number of cores available that are used by both the App Service plans and the infrastructure roles. This type of deployment can't reach the 200 total instance count normally available in App Service Environment. The number of total instances possible is related to the total number of App Service plan instances, plus the load-based number of infrastructure roles.
 
-In a host group deployment, your apps are deployed onto a dedicated host group. The dedicated host group is not zone redundant. Dedicated host group deployment enables your ASE to be deployed on dedicated hardware. There is no minimum instance charge for use of an ASE on a dedicated host group, but you do have to pay for the host group when provisioning the ASE. On top of that you pay a discounted App Service plan rate as you create your plans and scale out. There are a finite number of cores available with a dedicated host deployment that are used by both the App Service plans and the infrastructure roles. Dedicated host deployments of the ASE can't reach the 200 total instance count normally available in an ASE. The number of total instances possible is related to the total number of App Service plan instances plus the load based number of infrastructure roles.
+## Create an App Service Environment in the portal
 
-## Creating an ASE in the portal
+Here's how:
 
-1. To create an ASE, search the marketplace for **App Service Environment v3**.
+1. Search Azure Marketplace for *App Service Environment v3*.
 
-2. Basics:  Select the Subscription, select or create the Resource Group, and enter the name of your ASE.  Select the type of Virtual IP type. If you select Internal, your inbound ASE address will be an address in your ASE subnet. If you select External, your inbound ASE address will be a public internet facing address. The ASE name will be also used for the domain suffix of your ASE. If your ASE name is *contoso* and you have an Internal VIP ASE, then the domain suffix will be *contoso.appserviceenvironment.net*. If your ASE name is *contoso* and you have an external VIP, the domain suffix will be *contoso.p.azurewebsites.net*. 
+1. From the **Basics** tab, for **Subscription**, select the subscription. For **Resource Group**, select or create the resource group, and enter the name of your App Service Environment. For **Virtual IP**, select **Internal** if you want your inbound address to be an address in your subnet. Select **External** if you want your inbound address to face the public internet. For **App Service Environment Name**, enter a name. The name you choose will also be used for the domain suffix. For example, if the name you choose is *contoso*, and you have an internal VIP, the domain suffix will be `contoso.appserviceenvironment.net`. If the name you choose is *contoso*, and you have an external VIP, the domain suffix will be `contoso.p.azurewebsites.net`. 
 
-    ![App Service Environment create basics tab](./media/creation/creation-basics.png)
+    ![Screenshot that shows the App Service Environment basics tab.](./media/creation/creation-basics.png)
 
-3. Hosting: Select *Enabled* or *Disabled* for Host Group deployment. Host Group deployment is used to select dedicated hardware deployment. If you select Enabled, your ASE will be deployed onto dedicated hardware. When you deploy onto dedicated hardware, you are charged for the entire dedicated host during ASE creation and then a reduced price for your App Service plan instances.
+1. From the **Hosting** tab, for **Host group deployment**, select **Enabled** or **Disabled**. If you enable this option, you can deploy onto dedicated hardware. If you do so, you're charged for the entire dedicated host during the creation of the App Service Environment, and then you're charged a reduced price for your App Service plan instances.
 
-    ![App Service Environment hosting selections](./media/creation/creation-hosting.png)
+    ![Screenshot that shows the App Service Environment hosting selections.](./media/creation/creation-hosting.png)
 
-4. Networking:  Select or create your Virtual Network, select or create your subnet. If you are creating an internal VIP ASE, you can configure Azure DNS private zones to point your domain suffix to your ASE. Details on how to manually configure DNS are in the DNS section under [Using an App Service Environment][UsingASE].
+1. From the **Networking** tab, for **Virtual Network**, select or create your virtual network. For **Subnet**, select or create your subnet. If you're creating an App Service Environment with an internal VIP, you can configure Azure DNS private zones to point your domain suffix to your App Service Environment. For more details, see the DNS section in [Use an App Service Environment][UsingASE].
 
-    ![App Service Environment networking selections](./media/creation/creation-networking.png)
+    ![Screenshot that shows App Service Environment networking selections.](./media/creation/creation-networking.png)
 
-5. Review and Create: Check that your configuration is correct and select create. Your ASE can take up to nearly two hours to create. 
+1. From the **Review + create** tab, check that your configuration is correct, and select **Create**. Your App Service Environment can take up to two hours to create. 
 
-After your ASE creation completes, you can select it as a location when creating your apps. To learn more about creating apps in your new ASE or managing your ASE, read [Using an App Service Environment][UsingASE]
-
-## Dedicated hosts
-
-The ASE is normally deployed on VMs that are provisioned on a multi-tenant hypervisor. If you need to deploy on dedicated systems, including the hardware, you can provision your ASE onto dedicated hosts. Dedicated hosts come in a pair to ensure redundancy. Dedicated host-based ASE deployments are priced differently than normal. There is a charge for the dedicated host and then another charge for each App Service plan instance. Deployments on host groups are not zone redundant. To deploy onto dedicated hosts, select **enable** for host group deployment on the Hosting tab.
+When your App Service Environment has been successfully created, you can select it as a location when you're creating your apps.
 
 <!--Links-->
 [Intro]: ./overview.md

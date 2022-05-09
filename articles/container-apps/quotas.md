@@ -16,7 +16,7 @@ The following quotas exist per subscription for Azure Container Apps Preview.
 
 | Feature | Quantity |
 |---|---|
-| Environments | 2 |
+| Environments per region | 2 |
 | Container apps per environment | 20 |
 | Replicas per container app | 25 |
 | Cores per replica | 2 |

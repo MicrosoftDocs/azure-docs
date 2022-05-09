@@ -66,7 +66,7 @@ To add an automation rule to handle a false positive:
 
 ## Add exceptions by modifying analytics rules
 
-Another option for implementing exceptions is to modify the analytics rule query. You can include exceptions directly in the rule, or preferably, when possible, use a reference to a [watchlist](watchlists.md#use-watchlists-in-analytics-rules). You can then manage the exception list in the watchlist.
+Another option for implementing exceptions is to modify the analytics rule query. You can include exceptions directly in the rule, or preferably, when possible, use a reference to a [watchlist](watchlists-queries.md#create-an-analytics-rule-with-a-watchlist). You can then manage the exception list in the watchlist.
 
 ### Modify the query
 

@@ -1,14 +1,14 @@
 ---
 title: Control a device from Azure IoT Hub (Android) | Microsoft Docs
 description: In this quickstart, you run two sample Java applications. One application is a service application that can remotely control devices connected to your hub. The other application runs on a physical or simulated device connected to your hub that can be controlled remotely.
-author: wesmc7777
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, mqtt, devx-track-java, devx-track-azurecli, mode-other
 ms.date: 06/21/2019
-ms.author: wesmc
+ms.author: kgremban
 #Customer intent: As a developer new to IoT Hub, I need to use a service application written for Android to control devices connected to the hub.
 ---
 
@@ -81,7 +81,7 @@ You also need a _service connection string_ to enable the back-end service appli
 **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
 ```azurecli-interactive
-az iot hub connection-string show --policy-name service --name {YourIoTHubName} --output table
+az iot hub connection-string show --policy-name service --hub-name {YourIoTHubName} --output table
 ```
 
 Make a note of the service connection string, which looks like:

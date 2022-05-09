@@ -1,31 +1,31 @@
 ---
-title: Introduction to Azure Storage - Cloud storage on Azure | Microsoft Docs
-description: The core Azure Storage platform is Microsoft's cloud storage solution. Azure Storage provides storage for data objects that is highly available, secure, durable, massively scalable, and redundant.
+title: Introduction to Azure Storage - Cloud storage on Azure
+description: The Azure Storage platform is Microsoft's cloud storage solution. Azure Storage provides highly available, secure, durable, massively scalable, and redundant storage for data objects in the cloud. Learn about the services available in Azure Storage and how you can use them in your applications, services, or enterprise solutions.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 03/15/2022
 ms.author: tamram
 ms.subservice: common
 ---
 
-# Introduction to the core Azure Storage services
+# Introduction to Azure Storage
 
-The Azure Storage platform is Microsoft's cloud storage solution for modern data storage scenarios. Core storage services offer a massively scalable object store for data objects, disk storage for Azure virtual machines (VMs), a file system service for the cloud, a messaging store for reliable messaging, and a NoSQL store. The services are:
+The Azure Storage platform is Microsoft's cloud storage solution for modern data storage scenarios. Azure Storage offers highly available, massively scalable, durable, and secure storage for a variety of data objects in the cloud. Azure Storage data objects are accessible from anywhere in the world over HTTP or HTTPS via a REST API. Azure Storage also offers client libraries for developers building applications or services with .NET, Java, Python, JavaScript, C++, and Go. Developers and IT professionals can use Azure PowerShell and Azure CLI to write scripts for data management or configuration tasks. The Azure portal and Azure Storage Explorer provide user-interface tools for interacting with Azure Storage.
 
-- **Durable and highly available.** Redundancy ensures that your data is safe in the event of transient hardware failures. You can also opt to replicate data across datacenters or geographical regions for additional protection from local catastrophe or natural disaster. Data replicated in this way remains highly available in the event of an unexpected outage.
+## Benefits of Azure Storage
+
+Azure Storage services offer the following benefits for application developers and IT professionals:
+
+- **Durable and highly available.** Redundancy ensures that your data is safe in the event of transient hardware failures. You can also opt to replicate data across data centers or geographical regions for additional protection from local catastrophe or natural disaster. Data replicated in this way remains highly available in the event of an unexpected outage.
 - **Secure.** All data written to an Azure storage account is encrypted by the service. Azure Storage provides you with fine-grained control over who has access to your data.
 - **Scalable.** Azure Storage is designed to be massively scalable to meet the data storage and performance needs of today's applications.
 - **Managed.** Azure handles hardware maintenance, updates, and critical issues for you.
 - **Accessible.** Data in Azure Storage is accessible from anywhere in the world over HTTP or HTTPS. Microsoft provides client libraries for Azure Storage in a variety of languages, including .NET, Java, Node.js, Python, PHP, Ruby, Go, and others, as well as a mature REST API. Azure Storage supports scripting in Azure PowerShell or Azure CLI. And the Azure portal and Azure Storage Explorer offer easy visual solutions for working with your data.
 
-## Review options for storage in Azure
-
-Azure provides a variety of storage tools and services, including Azure Storage. To determine which Azure technology is best suited for your scenario, see [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options) in the Azure Cloud Adoption Framework.
-
-## About the core Azure Storage services
+## Azure Storage data services
 
 The Azure Storage platform includes the following data services:
 
@@ -37,7 +37,11 @@ The Azure Storage platform includes the following data services:
 
 Each service is accessed through a storage account. To get started, see [Create a storage account](storage-account-create.md).
 
-## Example scenarios
+## Review options for storing data in Azure
+
+Azure provides a variety of storage tools and services, including Azure Storage. To determine which Azure technology is best suited for your scenario, see [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options) in the Azure Cloud Adoption Framework.
+
+## Sample scenarios for Azure Storage services
 
 The following table compares Files, Blobs, Disks, Queues, and Tables, and shows example scenarios for each.
 
@@ -119,7 +123,7 @@ Every request to Azure Storage must be authorized. Azure Storage supports the fo
 
 ## Encryption
 
-There are two basic kinds of encryption available for the core storage services. For more information about security and encryption, see the [Azure Storage security guide](../blobs/security-recommendations.md).
+There are two basic kinds of encryption available for Azure Storage. For more information about security and encryption, see the [Azure Storage security guide](../blobs/security-recommendations.md).
 
 ### Encryption at rest
 
@@ -143,15 +147,15 @@ When making decisions about how your data is stored and accessed, you should als
 
 ## Storage APIs, libraries, and tools
 
-You can access resources in a storage account by any language that can make HTTP/HTTPS requests. Additionally, the core Azure Storage services offer programming libraries for several popular languages. These libraries simplify many aspects of working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, automatic retries, operational behavior, and so forth. Libraries are currently available for the following languages and platforms, with others in the pipeline:
+You can access resources in a storage account by any language that can make HTTP/HTTPS requests. Additionally, Azure Storage offer programming libraries for several popular languages. These libraries simplify many aspects of working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, automatic retries, operational behavior, and so forth. Libraries are currently available for the following languages and platforms, with others in the pipeline:
 
 ### Azure Storage data API and library references
 
 - [Azure Storage REST API](/rest/api/storageservices/)
 - [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage)
 - [Azure Storage client library for Java/Android](/java/api/overview/azure/storage)
-- [Azure Storage client library for Node.js](/javascript/api/overview/azure/storage-overview)
-- [Azure Storage client library for Python](https://github.com/Azure/azure-storage-python)
+- [Azure Storage client library for Node.js](../blobs/reference.md#javascript-client-libraries)
+- [Azure Storage client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob)
 - [Azure Storage client library for PHP](https://github.com/Azure/azure-storage-php)
 - [Azure Storage client library for Ruby](https://github.com/Azure/azure-storage-ruby)
 - [Azure Storage client library for C++](https://github.com/Azure/azure-storage-cpp)
@@ -177,4 +181,4 @@ You can access resources in a storage account by any language that can make HTTP
 
 ## Next steps
 
-To get up and running with core Azure Storage services, see [Create a storage account](storage-account-create.md).
+To get up and running with Azure Storage, see [Create a storage account](storage-account-create.md).

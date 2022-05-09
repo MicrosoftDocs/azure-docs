@@ -1,5 +1,5 @@
 ---
-title: Upgrade direct mode Azure Arc data controller using the CLI
+title: Upgrade directly connected Azure Arc data controller using the CLI
 description: Article describes how to upgrade a directly connected Azure Arc data controller using the CLI
 services: azure-arc
 ms.service: azure-arc
@@ -11,18 +11,20 @@ ms.date: 12/10/2021
 ms.topic: how-to
 ---
 
-# Upgrade direct mode Azure Arc data controller using the CLI
+# Upgrade a directly connected Azure Arc data controller using the CLI
 
 This article describes how to upgrade a directly connected Azure Arc-enabled data controller using the Azure CLI (`az`).
 
+During a data controller upgrade, portions of the data control plane such as Custom Resource Definitions (CRDs) and containers may be upgraded. An upgrade of the data controller will not cause downtime for the data services (SQL Managed Instance or PostgreSQL Hyperscale server).
+
 ## Prerequisites
 
-You will need a direct mode data controller with the imageTag v1.0.0_2021-07-30 or later.
+You will need a directly connected data controller with the imageTag v1.0.0_2021-07-30 or later.
 
 To check the version, run:
 
 ```console
-kubectl get datacontrollers -n -o custom-columns=BUILD:.spec.docker.imageTag
+kubectl get datacontrollers -n <namespace> -o custom-columns=BUILD:.spec.docker.imageTag
 ```
 
 ## Install tools
@@ -52,7 +54,7 @@ v1.0.0_2021-07-30
 
 ## Upgrade data controller
 
-This section shows how to upgrade a data controller in direct mode.
+This section shows how to upgrade a directly connected data controller.
 
 > [!NOTE]
 > Some of the data services tiers and modes are generally available and some are in preview.
@@ -60,7 +62,7 @@ This section shows how to upgrade a data controller in direct mode.
 > To upgrade, delete all non-GA database instances. You can find the list of generally available 
 > and preview services in the [Release Notes](./release-notes.md).
 
-### Direct mode
+### Upgrade  
 
 You will need to connect and authenticate to a Kubernetes cluster and have an existing Kubernetes context selected prior to beginning the upgrade of the Azure Arc data controller.
 
@@ -77,17 +79,19 @@ az arcdata dc upgrade --resource-group <resource group> --name <data controller 
 The output for the preceding command is:
 
 ```output
-Preparing to upgrade dc arcdc in namespace arc to version 20211024.1.
-Preparing to upgrade dc arcdc in namespace arc to version 20211024.1.
+Preparing to upgrade dc arcdc in namespace arc to version <version-tag>.
+Preparing to upgrade dc arcdc in namespace arc to version <version-tag>.
 ****Dry Run****
-Arcdata Control Plane would be upgraded to: 20211024.1
+Arcdata Control Plane would be upgraded to: <version-tag>
 ```
 
-To upgrade the data controller, run the `az arcdata dc upgrade` command. If you don't specify a target image, the data controller will be upgraded to the latest version. The following example uses a local variable (`$version`) to use the version you selected previously ([View available images and chose a version](#view-available-images-and-chose-a-version)).
+To upgrade the data controller, run the `az arcdata dc upgrade` command. If you don't specify a target image, the data controller will be upgraded to the latest version.
 
 ```azurecli
-az arcdata dc upgrade --resource-group <resource group> --name <data controller name> --desired-version <version> [--no-wait]
+az arcdata dc upgrade --resource-group <resource group> --name <data controller name> [--no-wait]
 ```
+
+In example above, you can include `--desired-version <version>` to specify a version if you do not want the latest version. 
 
 ## Monitor the upgrade status
 

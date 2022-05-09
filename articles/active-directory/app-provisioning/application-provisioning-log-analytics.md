@@ -3,7 +3,7 @@ title: Understand how Provisioning integrates with Azure Monitor logs in Azure A
 description: Understand how Provisioning integrates with Azure Monitor logs in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual

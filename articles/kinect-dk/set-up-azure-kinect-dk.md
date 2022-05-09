@@ -10,7 +10,6 @@ keywords: azure, kinect, dev kit, azure dk, set up, hardware, quick, usb, power,
 ms.custom: CI 114092, CSSTroubleshooting, mode-other
 audience: ITPro
 manager: dcscontentpm
-ms.localizationpriority: high
 #Customer intent: As an Azure Kinect DK developer, I want to set up Azure Kinect DK device before starting my development.
 ---
 

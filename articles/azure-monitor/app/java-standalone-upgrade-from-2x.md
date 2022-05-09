@@ -3,9 +3,8 @@ title: Upgrading from 2.x - Azure Monitor Application Insights Java
 description: Upgrading from Azure Monitor Application Insights Java 2.x
 ms.topic: conceptual
 ms.date: 11/25/2020
+ms.devlang: java
 ms.custom: devx-track-java
-author: mattmccleary
-ms.author: mmcc
 ---
 
 # Upgrading from Application Insights Java 2.x SDK
@@ -21,6 +20,8 @@ that was pointing to the 2.x agent.
 The rest of this document describes limitations and changes that you may encounter
 when upgrading from 2.x to 3.x, as well as some workarounds that you may find helpful.
 
+
+
 ## TelemetryInitializers and TelemetryProcessors
 
 The 2.x SDK TelemetryInitializers and TelemetryProcessors will not be run when using the 3.x agent.
@@ -30,10 +31,9 @@ or configuring [telemetry processors](./java-standalone-telemetry-processors.md)
 
 ## Multiple applications in a single JVM
 
-Currently, Application Insights Java 3.x only supports a single
-[connection string and role name](./java-standalone-config.md#connection-string-and-role-name)
-per running process. In particular, you can't have multiple tomcat web apps in the same tomcat deployment
-using different connection strings or different role names yet.
+This use case is supported in Application Insights Java 3.x using [Instrumentation keys overrides (preview)](./java-standalone-config.md#instrumentation-keys-overrides-preview).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Operation names
 

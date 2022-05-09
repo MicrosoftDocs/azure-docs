@@ -42,6 +42,11 @@ Here are some of the metrics emitted by Azure Data Factory version 2.
 | SSISPackageExecutionFailed           | Failed SSIS package execution metrics    | Count    | Total                | The total number of SSIS package executions that failed within a minute window. |
 | SSISPackageExecutionSucceeded        | Succeeded SSIS package execution metrics | Count    | Total                | The total number of SSIS package executions that succeeded within a minute window. |
 | PipelineElapsedTimeRuns | Elapsed time pipeline runs metrics | Count | Total | Number of times, within a minute window, a pipeline runs longer than user-defined expected duration. [(See more.)](tutorial-operationalize-pipelines.md) |
+| IntegrationRuntimeAvailableMemory       | Available memory for integration runtime | Byte    | Total                | The total number of bytes of available memory for the self-hosted integration runtime within a minute window. |
+| IntegrationRuntimeAvailableNodeNumber       | Available nodes for integration runtime | Count    | Total                | The total number of nodes available for the self-hosted integration runtime within a minute window. |
+| IntegrationRuntimeCpuPercentage       | CPU utilization for integration runtime | Percent    | Total                | The percetange of CPU utilization for the self-hosted integration runtime within a minute window. |
+| IntegrationRuntimeAverageTaskPickupDelay      | Queue duration for integration runtime | Seconds    | Total                | The queue duration for the self-hosted integration runtime within a minute window. |
+| IntegrationRuntimeQueueLength     | Queue length for integration runtime | Count    | Total                | The total queue length for the self-hosted integration runtime within a minute window. |
 
 To access the metrics, complete the instructions in [Azure Monitor data platform](../azure-monitor/data-platform.md).
 

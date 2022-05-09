@@ -2,15 +2,13 @@
 metadata:
   title: Frequently asked questions for Azure Red Hat OpenShift
   description: Here are answers to common questions about Microsoft Azure Red Hat OpenShift
-  author: jimzim
-  ms.author: jzim
+  author: rahulm23
+  ms.author: rahul mehta
   ms.service: azure-redhat-openshift
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 07/31/2020
-    
 title: Azure Red Hat OpenShift FAQ
 summary: This article answers frequently asked questions (FAQs) about Microsoft Azure Red Hat OpenShift.
-
 
 sections:
   - name: Installation and upgrade
@@ -31,19 +29,19 @@ sections:
         answer: |
           The actual number of supported pods depends on an application’s memory, CPU, and storage requirements.
           
-          Azure Red Hat OpenShift 4.x has a 250 pod-per-node limit and a 60 compute node limit. This caps the maximum number of pods supported in a cluster to 250&times;60 = 15,000.
+          Azure Red Hat OpenShift 4.x has a 250 pod-per-node limit and a 60 compute node limit. These limits cap the maximum number of pods supported in a cluster to 250&times;60 = 15,000.
           
-          Azure Red Hat OpenShift 3.11 has a 50 pod-per-node limit and a 20 compute node limit. This caps the maximum number of pods supported in a cluster to 50&times;20 = 1,000.
+          Azure Red Hat OpenShift 3.11 has a 50 pod-per-node limit and a 20 compute node limit. These limits cap the maximum number of pods supported in a cluster to 50&times;20 = 1,000.
           
       - question: Can a cluster have compute nodes across multiple Azure regions?
         answer: No. All nodes in an Azure Red Hat OpenShift cluster must originate in the same Azure region.
 
       - question: Can a cluster be deployed across multiple availability zones?
         answer: |
-          Yes. This happens automatically if your cluster is deployed to an Azure region that supports availability zones. For more information, see [Availability zones](../availability-zones/az-overview.md#availability-zones).
+          Yes. A cluster can be deployed across multiple availability zones automatically if your cluster is deployed to an Azure region that supports availability zones. For more information, see [Availability zones](../availability-zones/az-overview.md#availability-zones).
           
       - question: Are control plane nodes abstracted away as they are with Azure Kubernetes Service (AKS)?
-        answer: No. All resources, including the cluster master nodes, run in your customer subscription. These types of resources are put in a read-only resource group.
+        answer: No. All resources, including the cluster control plane nodes, run in your customer subscription. These types of resources are put in a read-only resource group.
 
       - question: Does the cluster reside in a customer subscription? 
         answer: The Azure Managed Application lives in a locked Resource Group with the customer subscription. Customers can view objects in that resource group but not modify them.
@@ -53,7 +51,7 @@ sections:
 
       - question: Are infrastructure nodes available?
         answer: |
-          On Azure Red Hat OpenShift 4.x clusters, infrastructure nodes are not currently available.
+          On Azure Red Hat OpenShift 4.x clusters, infrastructure nodes aren't currently available.
           
           On Azure Red Hat OpenShift 3.11 clusters, infrastructure nodes are included by default.
           
@@ -84,13 +82,13 @@ sections:
       - question: Can logs of underlying VMs be streamed out to a customer log analysis system?
         answer: Logs from underlying VMs are handled by the managed service and aren't exposed to customers.
 
-      - question: How can a customer get access to metrics like CPU/memory at the node level to take action to scale, debug issues, etc.? I cannot seem to run kubectl top on an Azure Red Hat OpenShift cluster.
+      - question: How can a customer get access to metrics like CPU/memory at the node level to take action to scale, debug issues, etc.? I can’t seem to run kubectl top on an Azure Red Hat OpenShift cluster.
         answer: |
           For Azure Red Hat OpenShift 4.x clusters, the OpenShift web console contains all metrics at the node level. For more information, see the Red Hat documentation on [viewing cluster information](https://docs.openshift.com/container-platform/4.6/web_console/using-dashboard-to-get-cluster-information.html).
           
           For Azure Red Hat OpenShift 3.11 clusters, customers can access the CPU/Memory metrics at the node level by using the command `oc adm top nodes` or `kubectl top nodes` with the customer-admin cluster role. Customers can also access the CPU/Memory metrics of `pods` with the command `oc adm top pods` or `kubectl top pods`.
           
-      - question: If we scale up the deployment, how do Azure fault domains map into pod placement to ensure all pods for a service do not get knocked out by a failure in a single fault domain?
+      - question: If we scale up the deployment, how do Azure fault domains map into pod placement to ensure all pods for a service don't get knocked out by a failure in a single fault domain?
         answer: |
           There are by default five fault domains when using virtual machine scale sets in Azure. Each virtual machine instance in a scale set will get placed into one of these fault domains. This ensures that applications deployed to the compute nodes in a cluster will get placed in separate fault domains.
           
@@ -103,7 +101,7 @@ sections:
           Caution must be used when using specific labels:
           
           - Hostname must not be used. Hostname gets rotated often with upgrades and updates and is guaranteed to change.
-          - If the customer has a request for specific labels or a deployment strategy, this could be accomplished but would require engineering efforts and is not supported today.
+          - If the customer has a request for specific labels or a deployment strategy, this could be accomplished. However, it would require engineering efforts, and it isn't supported today.
           
           For more information, see [Controlling pod placement](https://docs.openshift.com/container-platform/4.6/nodes/scheduling/nodes-scheduler-about.html).
           
@@ -122,12 +120,12 @@ sections:
         answer: |
           In 4.x clusters, you can deploy a cluster into an existing VNet.
           
-          In 3.11 clusters, you cannot deploy a cluster into an existing VNet. You can connect an Azure Red Hat OpenShift 3.11 cluster to an existing VNet via peering.
+          In 3.11 clusters, you can’t deploy a cluster into an existing VNet. You can connect an Azure Red Hat OpenShift 3.11 cluster to an existing VNet via peering.
           
       - question: Is cross-namespace networking supported?
         answer: Customer and individual project admins can customize cross-namespace networking (including denying it) on a per-project basis using `NetworkPolicy` objects.
 
-      - question: I am trying to peer into a virtual network in a different subscription but getting Failed to get VNet CIDR error.
+      - question: I'm trying to peer into a virtual network in a different subscription but getting Failed to get VNet CIDR error.
         answer: |
           In the subscription that has the virtual network, make sure to register `Microsoft.ContainerService` provider with the following command: `az provider register -n Microsoft.ContainerService --wait`
           
@@ -135,15 +133,15 @@ sections:
         answer: |
           In 4.x clusters, you can specify your own IP ranges.
           
-          In 3.11 clusters, Azure Red Hat OpenShift supports VNet peering and allows the customer to provide a VNet to peer with and a VNet CIDR in which the OpenShift network will operate.
+          In 3.11 clusters, Azure Red Hat OpenShift supports VNet peering. Azure Red Hat OpenShift allows the customer to provide a VNet to peer with and a VNet CIDR in which the OpenShift network will operate.
           
-          The VNet created by Azure Red Hat OpenShift will be protected and will not accept configuration changes. The VNet that is peered is controlled by the customer and resides in their subscription.
+          The VNet created by Azure Red Hat OpenShift will be protected and won't accept configuration changes. The VNet that is peered is controlled by the customer and resides in their subscription.
           
       - question: Is the Software Defined Network module configurable?
-        answer: The Software Defined Network is `openshift-ovs-networkpolicy` and is not configurable.
+        answer: The Software Defined Network is `openshift-ovs-networkpolicy` and isn't configurable.
 
       - question: What Azure Load balancer is used by Azure Red Hat OpenShift?  Is it Standard or Basic and is it configurable?
-        answer: Azure Red Hat OpenShift uses Standard Azure Load Balancer, and it is not configurable.
+        answer: Azure Red Hat OpenShift uses Standard Azure Load Balancer, and it isn't configurable.
 
   - name: Permissions
     questions:
@@ -156,7 +154,7 @@ sections:
           
       - question: Can I restrict users from creating projects?
         answer: |
-          Yes. Log in to your cluster as an administrator and execute this command:
+          Yes. Sign in to your cluster as an administrator and execute this command:
           
           ```
           oc adm policy \
@@ -192,12 +190,26 @@ sections:
       - question: Is data on my cluster encrypted?
         answer: |
           By default, data is encrypted at rest. The Azure Storage platform automatically encrypts your data before persisting it, and decrypts the data before retrieval. For more information, see [Azure Storage Service Encryption for data at rest](../storage/common/storage-service-encryption.md).
-          
+
+      - question: How are my storage accounts secured?
+        answer: |
+          Storage accounts are set to private access only. 
+
+          Storage accounts are encrypted (new clusters only). Existing clusters need to be re-created. 
+
+          Storage accounts are created with general-purpose v2 for new clusters. 
+
+          General-purpose v2 storage accounts support the latest Azure Storage features and incorporate all the functionality of general-purpose v1 and Blob storage accounts. 
+
+          Storage accounts access is limited with firewall rules via Azure network security groups (NSGs), which filter network traffic to and from your storage accounts. For more information, see [Azure network security groups overview](../virtual-network/network-security-groups-overview.md). 
+
+          Transport Layer Security (TLS) protocol version 1.2 provides secure communications, data privacy, and data integrity.     
+
       - question: Is data stored in etcd encrypted on Azure Red Hat OpenShift?
         answer: |
-          For Azure Red Hat OpenShift 4 clusters, data is not encrypted by default but you do have the option to enable encryption. For more information, see the guide on [encrypting etcd](https://docs.openshift.com/container-platform/4.6/security/encrypting-etcd.html).
+          For Azure Red Hat OpenShift 4 clusters, data isn't encrypted by default, but you do have the option to enable encryption. For more information, see the guide on [encrypting etcd](https://docs.openshift.com/container-platform/4.6/security/encrypting-etcd.html).
           
-          For 3.11 clusters, data is not encrypted on the etcd level. The option to turn encryption on is currently unsupported. OpenShift supports this feature, but engineering efforts are required to make it on the road map. The data is encrypted at the disk level. Refer to [Encrypting Data at Datastore Layer](https://docs.openshift.com/container-platform/3.11/admin_guide/encrypting_data.html) for more information.
+          For 3.11 clusters, data isn't encrypted on the etcd level. The option to turn on encryption is currently unsupported. OpenShift supports this feature, but engineering efforts are required to make it on the road map. The data is encrypted at the disk level. Refer to [Encrypting Data at Datastore Layer](https://docs.openshift.com/container-platform/3.11/admin_guide/encrypting_data.html) for more information.
           
       - question: Can we choose any persistent storage solution, like OCS? 
         answer: |

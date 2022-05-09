@@ -6,6 +6,7 @@ ms.topic: quickstart
 ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
+ms.devlang: csharp
 ms.custom: mode-other
 ---
 

@@ -2,7 +2,7 @@
 title: Network security for Azure Event Hubs 
 description: This article describes how to configure access from private endpoints
 ms.topic: conceptual
-ms.date: 05/04/2021
+ms.date: 04/13/2022
 ---
 
 # Network security for Azure Event Hubs 
@@ -23,6 +23,8 @@ You can use service tags to define network access controls on [network security
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **EventHub** | Azure Event Hubs. | Outbound | Yes | Yes |
 
+> [!NOTE] 
+> Azure Event Hubs service tag contains some of the IP addresses used by Azure Service Bus because of historical reasons. 
 
 ## IP firewall 
 By default, Event Hubs namespaces are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
@@ -41,7 +43,7 @@ Once configured to bound to at least one virtual network subnet service endpoint
 The result is a private and isolated relationship between the workloads bound to the subnet and the respective Event Hubs namespace, in spite of the observable network address of the messaging service endpoint being in a public IP range. There is an exception to this behavior. Enabling a service endpoint, by default, enables the `denyall` rule in the [IP firewall](event-hubs-ip-filtering.md) associated with the virtual network. You can add specific IP addresses in the IP firewall to enable access to the Event Hub public endpoint. 
 
 > [!IMPORTANT]
-> Virtual networks aren't supported in the **basic** and **premium** tiers.
+> This feature isn't supported in the **basic** tier.
 
 ### Advanced security scenarios enabled by VNet integration 
 

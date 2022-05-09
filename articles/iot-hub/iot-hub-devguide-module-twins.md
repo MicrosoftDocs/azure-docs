@@ -1,12 +1,12 @@
 ---
 title: Understand Azure IoT Hub module twins | Microsoft Docs
 description: Developer guide - use module twins to synchronize state and configuration data between IoT Hub and your devices
-author: nehsin
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 09/29/2020
-ms.author: nehsin
+ms.date: 04/27/2022
+ms.author: kgremban
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
 
@@ -71,7 +71,6 @@ The following example shows a module twin JSON document:
     }, 
     "version": 2, 
     "tags": {
-        "$etag": "123",
         "deploymentLocation": {
             "building": "43",
             "floor": "1"
@@ -98,7 +97,7 @@ The following example shows a module twin JSON document:
 }
 ```
 
-In the root object are the module identity properties, and container objects for `tags` and both `reported` and `desired` properties. The `properties` container contains some read-only elements (`$metadata`, `$etag`, and `$version`) described in the [Module twin metadata](iot-hub-devguide-module-twins.md#module-twin-metadata) and [Optimistic concurrency](iot-hub-devguide-device-twins.md#optimistic-concurrency) sections.
+In the root object are the module identity properties, and container objects for `tags` and both `reported` and `desired` properties. The `properties` container contains some read-only elements (`$metadata` and `$version`) described in the [Module twin metadata](iot-hub-devguide-module-twins.md#module-twin-metadata) and [Optimistic concurrency](iot-hub-devguide-device-twins.md#optimistic-concurrency) sections.
 
 ### Reported property example
 
@@ -124,7 +123,7 @@ In the previous example, the `telemetryConfig` module twin desired and reported 
     ...
     ```
 
-2. The module app is notified of the change immediately if connected, or at the first reconnect. The module app then reports the updated configuration (or an error condition using the `status` property). Here is the portion of the reported properties:
+2. The module app is notified of the change immediately if the module is connected. If it's not connected, the module app follows the [module reconnection flow](#module-reconnection-flow) when it connects. The module app then reports the updated configuration (or an error condition using the `status` property). Here is the portion of the reported properties:
 
     ```json
     "reported": {
@@ -140,10 +139,12 @@ In the previous example, the `telemetryConfig` module twin desired and reported 
 
 > [!NOTE]
 > The preceding snippets are examples, optimized for readability, of one way to encode a module configuration and its status. IoT Hub does not impose a specific schema for the module twin desired and reported properties in the module twins.
-> 
-> 
+
+> [!IMPORTANT]
+> IoT Plug and Play defines a schema that uses several additional properties to synchronize changes to desired and reported properties. If your solution uses IoT Plug and Play, you must follow the Plug and Play conventions when updating twin properties. For more information and an example, see [Writable properties in IoT Plug and Play](../iot-develop/concepts-convention.md#writable-properties).
 
 ## Back-end operations
+
 The solution back end operates on the module twin using the following atomic operations, exposed through HTTPS:
 
 * **Retrieve module twin by ID**. This operation returns the module twin document, including tags and desired and reported system properties.
@@ -274,7 +275,7 @@ Tags, desired properties, and reported properties are JSON objects with the foll
 
 ## Module twin size
 
-IoT Hub enforces an 8 KB size limit on the value of `tags`, and a 32 KB size limit each on the value of `properties/desired` and `properties/reported`. These totals are exclusive of read-only elements like `$etag`, `$version`, and `$metadata/$lastUpdated`.
+IoT Hub enforces an 8 KB size limit on the value of `tags`, and a 32 KB size limit each on the value of `properties/desired` and `properties/reported`. These totals are exclusive of read-only elements like `$version` and `$metadata/$lastUpdated`.
 
 Twin size is computed as follows:
 
@@ -345,11 +346,22 @@ This information is kept at every level (not just the leaves of the JSON structu
 ## Optimistic concurrency
 
 Tags, desired, and reported properties all support optimistic concurrency.
-Tags have an ETag, as per [RFC7232](https://tools.ietf.org/html/rfc7232), that represents the tag's JSON representation. You can use ETags in conditional update operations from the solution back end to ensure consistency.
 
-Module twin desired and reported properties do not have ETags, but have a `$version` value that is guaranteed to be incremental. Similarly to an ETag, the version can be used by the updating party to enforce consistency of updates. For example, a module app for a reported property or the solution back end for a desired property.
+Module twins have an ETag (`etag` property), as per [RFC7232](https://tools.ietf.org/html/rfc7232), that represents the twin's JSON representation. You can use the `etag` property in conditional update operations from the solution back end to ensure consistency. This is the only option for ensuring consistency in operations that involve the `tags` container.
 
-Versions are also useful when an observing agent (such as the module app observing the desired properties) must reconcile races between the result of a retrieve operation and an update notification. The section [Device reconnection flow](iot-hub-devguide-device-twins.md#device-reconnection-flow) provides more information. 
+Module twin desired and reported properties also have a `$version` value that is guaranteed to be incremental. Similarly to an ETag, the version can be used by the updating party to enforce consistency of updates. For example, a module app for a reported property or the solution back end for a desired property.
+
+Versions are also useful when an observing agent (such as the module app observing the desired properties) must reconcile races between the result of a retrieve operation and an update notification. The section [Module reconnection flow](#module-reconnection-flow) provides more information.
+
+## Module reconnection flow
+
+IoT Hub does not preserve desired properties update notifications for disconnected modules. It follows that a module that is connecting must retrieve the full desired properties document, in addition to subscribing for update notifications. Given the possibility of races between update notifications and full retrieval, the following flow must be ensured:
+
+1. Module app connects to an IoT hub.
+2. Module app subscribes for desired properties update notifications.
+3. Module app retrieves the full document for desired properties.
+
+The module app can ignore all notifications with `$version` less or equal than the version of the full retrieved document. This approach is possible because IoT Hub guarantees that versions always increment.
 
 ## Next steps
 

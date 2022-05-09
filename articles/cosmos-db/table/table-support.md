@@ -8,6 +8,7 @@ ms.date: 11/03/2021
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
+ms.devlang: cpp, csharp, java, javascript, php, python, ruby
 ---
 
 # Developing with Azure Cosmos DB Table API and Azure Table storage

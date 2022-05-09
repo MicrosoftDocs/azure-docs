@@ -5,7 +5,6 @@ services: ddos-protection
 documentationcenter: na
 author: mumian
 ms.service: ddos-protection
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

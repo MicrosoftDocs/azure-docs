@@ -13,8 +13,6 @@ ms.custom: mode-other
 
 # QuickStart: Add 1:1 video calling to your customized Teams application
 
-[!INCLUDE [SDP Plan B Deprecation Notice](../../includes/plan-b-sdp-deprecation.md)]
-
 [!INCLUDE [Video calling with JavaScript](./includes/custom-teams-endpoint/voice-video-calling-cte-javascript.md)]
 
 ## Clean up resources
