@@ -185,6 +185,8 @@
         href: migration-review-soc-operations.md
     - name: Implement
       items:
+      - name: Migrate detection rules
+        href: migration-detection-rules.md
       - name: Migrate IBM SOAR automation
         href: migration-ibm.md
       - name: Migrate ArcSight

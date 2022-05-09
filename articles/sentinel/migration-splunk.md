@@ -10,6 +10,8 @@ ms.custom: ignite-fall-2021
 
 # Migrate Splunk  
 
+## Migrate ArcSight detection rules  
+
 ## Migrate Splunk automation
 
 ## Export data from Splunk

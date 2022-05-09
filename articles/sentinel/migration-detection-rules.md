@@ -8,10 +8,8 @@ ms.date: 05/03/2022
 ms.custom: ignite-fall-2021
 ---
 
-# Migrate ArcSight
+# Migrate QRadar
 
-## Migrate ArcSight detection rules  
+## Migrate QRadar detection rules
 
-## Migrate ArcSight automation
-
-## Export data from ArcSight
+## Migrate QRadar data
