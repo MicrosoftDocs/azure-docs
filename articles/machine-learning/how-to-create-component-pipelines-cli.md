@@ -157,7 +157,7 @@ The most common used schema of the component YAML is described in below table. S
 
 For the example in *3b_pipeline_with_data/componentA.yml*, componentA has one data input and one data output, which can be connected to other steps in the parent pipeline. All the files under `code` section in component YAML will be uploaded to AzureML when submitting the pipeline job. In this example, files under `./componentA_src` will be uploaded (line 16 in *componentA.yml*). You can see the uploaded source code in Studio UI: double click the ComponentA step and navigate to Snapshot tab, as shown in below screenshot. We can see it's a hello-world script just doing some simple printing, and write current datetime to the `componentA_output` path. The component takes input and output through command line argument, and it's handled in the *hello.py* using `argparse`. 
   
-![componentA](./media/how-to-create-component-pipelines-cli/component-snapshot.png)
+![componentA](./media/how-to-create-component-pipelines-cli/component-snapshot.png) 
 
 
 ### Input and output
