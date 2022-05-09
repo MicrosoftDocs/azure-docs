@@ -215,7 +215,7 @@ On the **Tags** tab, you can specify Resource Manager tags to help organize your
 
 The following image shows a standard configuration of the index tag properties for a new storage account.
 
-:::image type="content" source="media/storage-account-create/create-account-basics-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Tags tab" lightbox="media/storage-account-create/create-account-tags-tab-lrg.png":::
+:::image type="content" source="media/storage-account-create/create-account-tags-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Tags tab" lightbox="media/storage-account-create/create-account-tags-tab-lrg.png":::
 
 ### Review + create tab
 

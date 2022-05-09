@@ -4,6 +4,7 @@ description: This article describes Limitations in Azure Database for MySQL - Fl
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 10/1/2020
 ---
