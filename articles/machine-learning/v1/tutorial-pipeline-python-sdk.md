@@ -16,7 +16,8 @@ ms.custom: devx-track-python, sdkv1
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
-For a tutorial that uses SDK v2 to build a pipeline, see [Tutorial: Use ML pipelines for production ML workflows with Python SDK v2 (preview) in a Jupyter Notebook](../tutorial-pipeline-python-sdk.md).
+> [!NOTE]
+> For a tutorial that uses SDK v2 to build a pipeline, see [Tutorial: Use ML pipelines for production ML workflows with Python SDK v2 (preview) in a Jupyter Notebook](../tutorial-pipeline-python-sdk.md).
 
 In this tutorial, you learn how to build an [Azure Machine Learning pipeline](../concept-ml-pipelines.md) to prepare data and train a machine learning model. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on machine learning instead of infrastructure and automation.  
 
