@@ -84,6 +84,24 @@ NVA Partners may create different resources depending on their appliance deploym
 
 :::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Managed Application resource groups":::
 
+
+### Managed resource group permissions
+
+By default, all managed resource groups have an deny-all Azure Active Directory assignment. These deny-all assignments prevent customers from calling write operations on any resources in the managed resource group, including the Network Virtual Appliance resource.
+
+However, partners may create exceptions and whitelist specific actions that customers are allowed to perform on resources deployed in managed resource groups.
+
+Permissions on resources in managed resource groups are not dynamically updated as new permitted actions are added by partners and require manual intervention.
+
+To refresh permissions on the managed resource groups, customers can leverage the [Refresh Permissions REST API ](/rest/api/managedapplications/applications/refresh-permissions). 
+
+```http-interactive
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Solutions/applications/{applicationName}/refreshPermissions?api-version=2019-07-01
+```
+
+
+
+
 ### <a name="units"></a>NVA Infrastructure Units
 
 When you create an NVA in a Virtual WAN hub, you must choose the number of NVA Infrastructure Units you want to deploy it with. An **NVA Infrastructure Unit** is a unit of aggregate bandwidth capacity for an NVA in a Virtual WAN hub. An **NVA Infrastructure Unit** is similar to a VPN [Scale Unit](pricing-concepts.md#scale-unit) in terms of the way you think about capacity and sizing.
