@@ -383,7 +383,7 @@ Go to **Virtual machines** > **Settings** > **Extensions** and check for any ext
 
 ## VM provisioning state isn't valid (error code 150019)
 
-To enable replication on the VM, its provisioning state must be **Succeeded**. Follow these steps to check the provisioning state:
+To enable replication on the VM, its provisioning state must be **Succeeded**. Perform the following steps to check the provisioning state:
 
 1. In the Azure portal, select the **Resource Explorer** from **All Services**.
 1. Expand the **Subscriptions** list and select your subscription.
@@ -535,7 +535,7 @@ Delete the replica disk identified in the error message and retry the failed pro
 
 ## Enable protection failed as the installer is unable to find the root disk (error code 151137)
 
-This error occurs for Linux machines where the OS disk is encrypted using Azure Disk Encryption (ADE). This is valid issue in Agent version 9.35 only.
+This error occurs for Linux machines where the OS disk is encrypted using Azure Disk Encryption (ADE). This is a valid issue in Agent version 9.35 only.
 
 ### Possible Causes
 
@@ -543,7 +543,7 @@ The installer is unable to find the root disk that hosts the root file-system.
 
 ### Fix the problem
 
-Follow the below steps to fix this issue -
+Perform the following steps to fix this issue.
 
 1. Find the agent bits under the directory _/var/lib/waagent_ on RHEL and CentOS machines using the below command: <br>
 
