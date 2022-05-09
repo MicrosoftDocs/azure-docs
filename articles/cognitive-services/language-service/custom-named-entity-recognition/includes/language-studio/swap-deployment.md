@@ -10,7 +10,7 @@ ms.date: 05/09/2022
 ms.author: aahi
 ---
 
-To swap deployments from within [Langugae Studio](https://aka.ms/laguageStudio)
+To swap deployments from within [Language Studio](https://aka.ms/laguageStudio):
 
 1. In the **Deploy model** page, select the two deployments you want to swap and click on **Swap deployments** from the top menu. 
 
