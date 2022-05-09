@@ -7,7 +7,7 @@ ms.subservice: flexible-server
 ms.custom: seodec18, devx-track-azurecli
 ms.author: sumuth
 author: mksuni
-ms.date: 08/09/2021
+ms.date: 08/09/2021 
 ---
 
 # Azure Pipelines for Azure Database for MySQL Flexible Server
