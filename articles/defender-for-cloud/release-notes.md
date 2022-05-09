@@ -20,7 +20,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in May Include: 
 
-- [Availability of Defender for SQL to protect Amazon Web Services (AWS) and Google Cloud Computing (GCP) environments](https://docs.microsoft.com/azure/defender-for-cloud/quickstart-onboard-gcp?pivots=env-settings) 
+- [Availability of Defender for SQL to protect Amazon Web Services (AWS) and Google Cloud Computing (GCP) environments](quickstart-onboard-gcp.md) 
 
 ### General availability (GA) of Defender for SQL for AWS and GCP environments
 
