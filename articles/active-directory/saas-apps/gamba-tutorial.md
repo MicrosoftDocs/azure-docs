@@ -76,15 +76,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, the user doesn't have to perform any step as the app is already pre-integrated with Azure.   
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **SP** initiated mode then perform the following steps :
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    a. In the **Identifier** text box, type the URL:
-    `https://www.getgamba.com/v3/session/metadata`
-
-    b. In the **Reply URL** text box, type the URL:
-    `https://www.getgamba.com/v3/session/consume`
-
-    c. In the **Sign-on URL** text box, type the URL:
+    In the **Sign-on URL** text box, type the URL:
     `https://www.getgamba.com/n/#/login`
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (PEM)** and select **Download** to download the certificate and save it on your computer.
