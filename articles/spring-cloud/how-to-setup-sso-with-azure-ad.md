@@ -51,3 +51,6 @@ Use "\<authentication-endpoint\>/\<tenant-id\>/v2.0" as issuer-uri of SSO config
 
 2. Add "https://\<external-url\>/login/oauth2/code/sso" to the list of allowed redirect URIs. 
 The external-url is the endpoint of Spring Cloud Gateway or API portal which wants to enable SSO. The endpoint can be the public endpoint or custom domain.
+
+> [!NOTE]
+> After configuring SSO properties, remember to enable SSO for the Spring Cloud Gateway routes by setting `ssoEnabled=true`.

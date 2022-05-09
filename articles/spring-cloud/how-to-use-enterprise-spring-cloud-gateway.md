@@ -99,6 +99,8 @@ See [guide](./how-to-setup-sso-with-azure-ad.md) to setup SSO with Azure AD.
 > Only authorization servers supporting OpenID Connect Discovery protocol are supported. Also, be sure to configure the external authorization server to allow redirects back to the gateway. Refer to your authorization server's documentation and add `https://<gateway-external-url>/login/oauth2/code/sso` to the list of allowed redirect URIs.
 >
 > If you configure the wrong SSO property, such as the wrong password, you should remove the entire SSO property and re-add the correct configuration.
+>
+> After configuring SSO, remember to set `ssoEnabled=true` for the Spring Cloud Gateway routes.
 
 ### Requested resource
 
