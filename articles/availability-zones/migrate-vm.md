@@ -9,7 +9,7 @@ ms.author: anaharris
 ms.reviewer: anaharris
 ms.custom: references_regions
 ---
-
+ 
 # Migrate Virtual Machines and Virtual Machine Scale Sets to availability zone support 
 
 This guide describes how to migrate Virtual Machines (VMs) and Virtual Machine Scale Sets (VMSS) from non-availability zone support to availability support. We'll take you through the different options for migration, including how you can use availability zone support for Disaster Recovery solutions.
