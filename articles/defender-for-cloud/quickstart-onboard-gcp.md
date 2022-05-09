@@ -162,7 +162,8 @@ To have full visibility to Microsoft Defender for Servers security content, ensu
     Learn how to [configure auto-provisioning on your subscription](enable-data-collection.md#configure-auto-provisioning-for-agents-and-extensions-from-microsoft-defender-for-cloud).
 
     > [!NOTE]
-    > Defender for Servers assigns tags to your GCP resources to manage the auto-provisioning process. Changes to the tags will prevent proper auto-provisioning of the extensions.
+    > Defender for Servers assigns tags to your GCP resources to manage the auto-provisioning process. You must have these tags properly assigned to your resources so that Defender for Cloud can manage your resources:
+    **Cloud**, **InstanceName**, **MDFCSecurityConnector**, **MachineId**, **ProjectId**, **ProjectNumber**
 
 **To configure the Servers plan**:
 

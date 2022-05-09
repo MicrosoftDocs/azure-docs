@@ -78,7 +78,8 @@ This screenshot shows AWS accounts displayed in Defender for Cloud's [overview d
         Learn how to [configure auto-provisioning on your subscription](enable-data-collection.md#configure-auto-provisioning-for-agents-and-extensions-from-microsoft-defender-for-cloud).
 
         > [!NOTE]
-        > Defender for Servers assigns tags to your GCP resources to manage the auto-provisioning process. Changes to the tags will prevent proper auto-provisioning of the extensions.
+        > Defender for Servers assigns tags to your AWS resources to manage the auto-provisioning process. You must have these tags properly assigned to your resources so that Defender for Cloud can manage your resources:
+        **AccountId**, **Cloud**, **InstanceId**, **MDFCSecurityConnector**
 
 ## Connect your AWS account
 
