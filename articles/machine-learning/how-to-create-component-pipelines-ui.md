@@ -17,7 +17,7 @@ ms.custom: devplatv2, designer
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-In this article, you'll learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the Azure Machine Learning studio and [Components](concept-component.md). You can [create pipelines without using components](how-to-train-cli.md#build-a-training-pipeline), but components offer better amount of flexibility and reuse. Azure ML Pipelines may be defined in YAML and [run from the CLI](how-to-create-component-pipelines-cli.md), [authored in Python](how-to-create-component-pipeline-python-v2.md), or composed in Azure ML Studio Designer with a drag-and-drop UI. This document focuses on the AzureML studio designer UI.
+In this article, you'll learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the Azure Machine Learning studio and [Components](concept-component.md). You can [create pipelines without using components](how-to-train-cli.md#build-a-training-pipeline), but components offer better amount of flexibility and reuse. Azure ML Pipelines may be defined in YAML and [run from the CLI](how-to-create-component-pipelines-cli.md), [authored in Python](how-to-create-component-pipeline-python.md), or composed in Azure ML Studio Designer with a drag-and-drop UI. This document focuses on the AzureML studio designer UI.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -54,7 +54,7 @@ Here take using CLI for example. If you want to learn more about how to build a 
 
 1. After register component successfully, you can see your component in the studio UI.
 
-![TODO: Screenshot showing registered component in component page](./media/how-to-create-component-pipelines-ui/component-page.png)
+![Screenshot showing registered component in component page](./media/how-to-create-component-pipelines-ui/component-page.png)
 
 ## Create pipeline using registered component
 
@@ -69,19 +69,21 @@ Here take using CLI for example. If you want to learn more about how to build a 
 
 1. In asset library, you can see the components registered from previous section.
 
-    ![TODO: Screenshot showing registered component in asset library](./media/how-to-create-component-pipelines-ui/asset-library.png)
+    ![Screenshot showing registered component in asset library](./media/how-to-create-component-pipelines-ui/asset-library.png)
 
-    Drag the components and drop on the canvas. By default it will use the default version of the component, and you can change to other version in the right pane of component.
+    Drag the components and drop on the canvas. By default it will use the default version of the component, and you can change to a specific version in the right pane of component if your component has multiple versions.
     
-    ![TODO: Screenshot showing changing version of component](./media/how-to-create-component-pipelines-ui/change-component-version.png)
+    ![Screenshot showing changing version of component](./media/how-to-create-component-pipelines-ui/change-component-version.png)
     
-    Connect the upstream component to the downstream component.
+1. Connect the upstream component output ports to the downstream component input ports.
 
-    ![TODO: Screenshot showing drag and drop component](./media/how-to-create-component-pipelines-ui/drag-drop-component.png)
+1. Select one component, you will see a right pane where you can configure the component. 
 
-1. Select one component, you will see a right pane where you can configure the component. For components with primitive type inputs like number, integer, string and boolean, you can change values of such inputs in the component detailed pane.
+    For components with primitive type inputs like number, integer, string and boolean, you can change values of such inputs in the component detailed pane.
 
-    ![TODO: Screenshot showing component parameter](./media/how-to-create-component-pipelines-ui/component-parameter.png)
+    You can also change the output settings and compute target where this component run in the right pane.
+
+    ![Screenshot showing component parameter](./media/how-to-create-component-pipelines-ui/component-parameter.png)
 
 > [!NOTE]
 > Currently registered components and the designer built-in components cannot be used together.
@@ -90,11 +92,17 @@ Here take using CLI for example. If you want to learn more about how to build a 
 
 1. Select submit, and fill in the required information for your pipeline job.
 
-    ![TODO: Screenshot showing submit pipeline](./media/how-to-create-component-pipelines-ui/submit-pipeline.png)
+    ![Screenshot showing submit pipeline](./media/how-to-create-component-pipelines-ui/submit-pipeline.png)
+
+1. After submit succesffully, you'll see a job detail page link in the left page. Select **Job detail** to go to pipeline job detail page for checking status and debugging.
+
+    ![Screenshot showing submission list](./media/how-to-create-component-pipelines-ui/submission-list.png)
+
+    > [!NOTE]
+    > The **Submitted jobs** list only contains pipeline jobs submitted during an active session. A page reload will clear out the content.
 
 ## Next steps
 
-- Learn how to productionize your script to component by following [this article](TODO).
 - Use [these Jupyter notebooks on GitHub](https://github.com/Azure/azureml-examples/tree/pipeline/builder_function_samples/cli/jobs/pipelines-with-components) to explore machine learning pipelines further
 - Learn [how to use CLI v2 to create pipeline using components](how-to-create-component-pipelines-cli.md).
-- TODO: See the SDK reference help for the [TODO: SDK document](/python/api/azureml-pipeline-core/) package and the [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/) package
+- Learn [how to use SDK v2 (preview) to create pipeline using components](how-to-create-component-pipeline-python.md)

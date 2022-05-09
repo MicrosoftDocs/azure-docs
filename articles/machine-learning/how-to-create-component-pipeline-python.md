@@ -20,7 +20,7 @@ ms.custom: devx-track-python, sdkv2
 
 > * [v1](v1/tutorial-pipeline-python-sdk)
 
-> * [v2 (preview)](how-to-create-component-pipeline-python-v2.md)
+> * [v2 (preview)](how-to-create-component-pipeline-python.md)
 
 In this article, you learn how to build an [Azure Machine Learning pipeline](concept-ml-pipelines.md) using Python SDK v2 to complete an image classification task containing three steps: prepare data, train an image classification model, and score the model. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on machine learning instead of infrastructure and automation.  
 
@@ -44,7 +44,7 @@ If you don't have an Azure subscription, create a free account before you begin.
 ## Prerequisites
 
 * Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace.
-* A Python environment in which you've installed Azure Machine Learning Python SDK v2 - [install instructions](TOOD:notebook_link) - check the getting started section. This environment is for defining and controlling your Azure Machine Learning resources and is separate from the environment used at runtime for training.
+* A Python environment in which you've installed Azure Machine Learning Python SDK v2 - [install instructions](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk#getting-started) - check the getting started section. This environment is for defining and controlling your Azure Machine Learning resources and is separate from the environment used at runtime for training.
 * Clone examples repository
 
     To run the training examples, first clone the examples repository and change into the `sdk` directory:
@@ -140,7 +140,7 @@ Following is what a component looks like in the studio UI.
 
 You'll need to modify the runtime environment in which your component runs. 
 
-:::code language="python" source=""~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/prep/prep_dsl_component.py" range="5-10":::
+:::code language="python" source="~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/prep/prep_dsl_component.py" range="5-10":::
 
 
 The above code creates an object of `Environment` class which represents the runtime environment in which the component runs.
@@ -173,7 +173,7 @@ After defining the training function successfully, you can use @dsl.command_comp
 
 The code above define a component with display name `Train Image Classification Keras` using `@dsl.command_component`:
 
-* The `keras_train_component` function defines one input `input_data` where training data comes from, one input `epochs` specifying epochs during training, and one output `output_model` where outputs the model file. The execution logic of this component is from `train` function in `train.py` above.
+* The `keras_train_component` function defines one input `input_data` where training data comes from, one input `epochs` specifying epochs during training, and one output `output_model` where outputs the model file. The default value of `epochs` is 10. The execution logic of this component is from `train()` function in `train.py` above.
 
 #### Specify component run-time environment
 
@@ -242,7 +242,17 @@ Now that you've created and loaded all components and input data to build the pi
 
 The pipeline has a default compute `cpu_compute_target`, which means if you don't specify compute for a specific node, that node will run on the default compute.
 
-The pipeline contains three nodes, prepare_data_node, train_node and score_node. The `input_data` of train_node is from the `training_data` output of the prepare_data_node. The `input_data` of score_node is from the `test_data` output of prepare_data_node, and the `input_model` is from the `output_model` of train_node. Since train_node will train a CNN model, you can specify its compute as the gpu_compute_target, which can improve the training performance.
+The pipeline has a pipeline level input `pipeline_input_data`. You can assign value to pipeline input when you submit a pipeline job.
+
+The pipeline contains three nodes, prepare_data_node, train_node and score_node. 
+
+- The `input_data` of `prepare_data_node` uses the value of `pipeline_input_data`.
+
+- The `input_data` of `train_node` is from the `training_data` output of the prepare_data_node. 
+
+- The `input_data` of score_node is from the `test_data` output of prepare_data_node, and the `input_model` is from the `output_model` of train_node. 
+    
+- Since `train_node` will train a CNN model, you can specify its compute as the gpu_compute_target, which can improve the training performance.
 
 ## Submit your pipeline job
 
@@ -277,7 +287,7 @@ Now you've get a handle to your workspace, you can submit your pipeline job.
 [!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=submit-pipeline)]
 
 
-The code above submit this image classification pipeline job to experiment called `pipeline_samples`. It will auto create the experiment if not exists.
+The code above submit this image classification pipeline job to experiment called `pipeline_samples`. It will auto create the experiment if not exists. The `pipeline_input_data` uses `fashion_ds`. 
 
 The call to `pipeline_job`produces output similar to:
 

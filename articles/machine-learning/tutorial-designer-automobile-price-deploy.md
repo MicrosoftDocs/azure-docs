@@ -43,7 +43,7 @@ To deploy your pipeline, you must first convert the training pipeline into a rea
 
 1. On pipeline job detail page, above the pipeline canvas, select **Create inference pipeline** > **Real-time inference pipeline**.
 
-    ![TODO: screenshot of create inference pipeline in pipeline job detail page](./media/new-pipeline-ui/.png)
+    ![Screenshot of create inference pipeline in pipeline job detail page](./media/tutorial-designer-automobile-price-deploy/create-real-time-inference.png)
 
     Your new pipeline will now look like this:
 
@@ -64,7 +64,11 @@ To deploy your pipeline, you must first convert the training pipeline into a rea
 
     If this is the first run, it may take up to 20 minutes for your pipeline to finish running. The default compute settings have a minimum node size of 0, which means that the designer must allocate resources after being idle. Repeated pipeline runs will take less time since the compute resources are already allocated. Additionally, the designer uses cached results for each component to further improve efficiency.
 
-1. Select **Deploy**.
+1. Go to the real-time inference pipeline job detail by selecting **Job detail** link in the left pane.
+
+1. Select **Deploy** in the job detail page.
+
+    ![Screenshot showing deploying in job detail page](./media/tutorial-designer-automobile-price-deploy/deploy-in-job-detail-page.png)
 
 ## Create an inferencing cluster
 
@@ -98,7 +102,7 @@ After your AKS service has finished provisioning, return to the real-time infere
 
 1. Select the AKS cluster you created.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png" alt-text="Screenshot showing how to set up a new real-time endpoint":::
+    ![Screenshot showing how to set up a new real-time endpoint](./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png)
 
     You can also change **Advanced** setting for your real-time endpoint.
     
@@ -117,7 +121,9 @@ After your AKS service has finished provisioning, return to the real-time infere
 
 1. Select **Deploy**. 
 
-    A success notification above the canvas appears after deployment finishes. It might take a few minutes.
+    A success notification from the notification center appears after deployment finishes. It might take a few minutes.
+
+    ![Screenshot showing how to set up a new real-time endpoint](./media/tutorial-designer-automobile-price-deploy/deploy-notification.png)
 
 > [!TIP]
 > You can also deploy to **Azure Container Instance** (ACI) if you select **Azure Container Instance** for **Compute type** in the real-time endpoint setting box.
@@ -143,32 +149,37 @@ For more information on consuming your web service, see [Consume a model deploye
 
 You can update the online endpoint with new model trained in the designer. On the online endpoint detail page, find your previous training pipeline job and inference pipeline job.
 
-1. You can directly modify your training pipeline to use the new data. 
+1. You can directly find and modify your training pipeline draft in the designer homepage. 
     
     Or you can open the training pipeline job link and then clone it into a new pipeline draft to continue editing.
 
-    ![TODO: Screenshot showing training job link in endpoint detail page](./media/tutorial-designer-automobile-price-deploy/endpoint-train-job-link.png)
+    ![Screenshot showing training job link in endpoint detail page](./media/tutorial-designer-automobile-price-deploy/endpoint-train-job-link.png)
 
-1. After you submit the modified training pipeline, register the output of **Train Model** component as dataset.
-    ![TODO: Screenshot showing register trained model as dataset](./media/tutorial-designer-automobile-price-deploy/register-train-model-output.png)
+1. After you submit the modified training pipeline, go to the job detail page.
 
-1. After the dataset registers successfully, open your inference pipeline draft, or clone the inference pipeline job into a new draft. In the inference pipeline draft, replace the previous trained model shown as **MD-XXXX** node connected to the **Score Model** component with the newly registered dataset.
+1. When the job completes, right click **Train Model** and select **Register data**.
 
-    ![TODO: Screenshot showing how to modify inference pipeline](./media/tutorial-designer-automobile-price-deploy/modify-inference-pipeline.png)
+    ![Register trained model as dataset](./media/how-to-run-batch-predictions-designer/register-train-model-as-dataset.png)
 
-1. After modifying your inference pipeline with the newly trained model, submit it. When the job is completed,  deploy it to the existing online endpoint deployed previously.
+    Input name and select **File** type.
 
-    ![TODO: Screenshot showing how to replace existing real-time endpoint](./media/tutorial-designer-automobile-price-deploy/deploy-to-existing-endpoint.png)
+    ![Register trained model as dataset detail](./media/how-to-run-batch-predictions-designer/register-train-model-as-dataset-2.png)
 
-1. If you need to update the data preprocessing part in your training pipeline, and would like to update that into the inference pipeline, the processing is similar as steps above. You just need to register the transformation output of the transformation component as dataset.
+1. After the dataset registers successfully, open your inference pipeline draft, or clone the previous inference pipeline job into a new draft. In the inference pipeline draft, replace the previous trained model shown as **MD-XXXX** node connected to the **Score Model** component with the newly registered dataset.
 
-    ![Screenshot showing how to register transformation dataset](./media/tutorial-designer-automobile-price-deploy/register-transformation-dataset.png)
+    ![Screenshot showing how to modify inference pipeline](./media/tutorial-designer-automobile-price-deploy/modify-inference-pipeline.png)
+
+1. If you need to update the data preprocessing part in your training pipeline, and would like to update that into the inference pipeline, the processing is similar as steps above. 
+
+    You just need to register the transformation output of the transformation component as dataset.
 
     Then manually replace the **TD-** component in inference pipeline with the registered dataset.
 
     ![Screenshot showing how to replace transformation component](./media/tutorial-designer-automobile-price-deploy/replace-td-module.png)
 
-    Then submit the inference pipeline with the updated model and transformation, and deploy.
+1. After modifying your inference pipeline with the newly trained model or transformation, submit it. When the job is completed, deploy it to the existing online endpoint deployed previously.
+
+    ![Screenshot showing how to replace existing real-time endpoint](./media/tutorial-designer-automobile-price-deploy/deploy-to-existing-endpoint.png)
 
 ## Limitations
 
@@ -187,8 +198,6 @@ Then manually replace the **TD-** component in inference pipeline with the regis
 ![Screenshot showing how to replace transformation component](./media/tutorial-designer-automobile-price-deploy/replace-td-module.png)
 
 Then submit the inference pipeline with the updated model and transformation, and deploy. -->
-
-### Deploy real-time endpoint
 
 Due to datstore access limitation, if your inference pipeline contains **Import Data** or **Export Data** component, they will be auto-removed when deploy to real-time endpoint.
 

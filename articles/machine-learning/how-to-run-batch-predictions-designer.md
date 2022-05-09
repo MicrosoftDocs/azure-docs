@@ -43,21 +43,24 @@ Your training pipeline must be run at least once to be able to create an inferen
 
 1. **Submit** the pipeline.
 
-![TODO: Submit the pipeline](./media/how-to-run-batch-predictions-designer/run-training-pipeline.png)
+![Submit the pipeline](./media/how-to-run-batch-predictions-designer/run-training-pipeline.png)
 
 You will see a submission list on the left of canvas. You can click the job detail link to go to the job detail page, and after the training pipeline job completes, you can create a batch inference pipeline.
 
-![TODO: Submission list](./media/how-to-run-batch-predictions-designer/submission-list.png)
+![Submission list](./media/how-to-run-batch-predictions-designer/submission-list.png)
 
-1. In job detail page, above the canvas, select the dropdown **Create inference pipeline**.
+1. In job detail page, above the canvas, select the dropdown **Create inference pipeline**. Select **Batch inference pipeline**.
 
-1. Select **Batch inference pipeline**.
+    > [!NOTE]
+    > Currently auto-generating inference pipeline only works for training pipeline built purely by the designer built-in components. 
 
-    ![TODO: Create batch inference pipeline](./media/how-to-run-batch-predictions-designer/create-batch-inference.png)
+    ![Create batch inference pipeline](./media/how-to-run-batch-predictions-designer/create-batch-inference.png)
     
-    It will create a batch inference pipeline draft for you.
+    It will create a batch inference pipeline draft for you. The batch inference pipeline draft uses the trained model as **MD-** node and transformation as **TD-** node from the training pipeline job.
 
-    ![TODO: Batch inference pipeline draft](./media/how-to-run-batch-predictions-designer/batch-inference-draft.png)
+    You can also modify this inference pipeline draft to better handle your input data for batch inference.
+
+    ![Batch inference pipeline draft](./media/how-to-run-batch-predictions-designer/batch-inference-draft.png)
 
 
 
@@ -73,12 +76,10 @@ In this section, you create a dataset parameter to specify a different dataset t
    
     Enter a name for the parameter, or accept the default value.
 
-    > [!div class="mx-imgBorder"]
-    > ![TODO: Set dataset as pipeline parameter](./media/how-to-run-batch-predictions-designer/set-dataset-as-pipeline-parameter.png
+    ![Set dataset as pipeline parameter](./media/how-to-run-batch-predictions-designer/create-pipeline-parameter.png)
+
 
 1. Submit the batch inference pipeline and go to job detail page by selecting the job link in the left pane.
-
-    ![TODO: Go to batch inference pipeline job detail page](./media/how-to-run-batch-predictions-designer/batch-inference-job-link.png)
 
 ## Publish your batch inference pipeline
 
@@ -94,7 +95,7 @@ Now you're ready to deploy the inference pipeline. This will deploy the pipeline
 
 1. Select **Publish**.
 
-![TODO Publish a pipeline](./media/how-to-run-batch-predictions-designer/publish-inference-pipeline.png)
+![Publish a pipeline](./media/how-to-run-batch-predictions-designer/publish-inference-pipeline.png)
 
 
 ## Consume an endpoint
@@ -151,21 +152,29 @@ You can also set a new default pipeline in the **Published pipelines** tab of yo
 
 ![Set default pipeline in published pipeline page](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
-## Limitations
+## Update pipeline endpoint
 
-If you make some modifications in your training pipeline, you should re-submit the training pipeline, **Update**  the inference pipeline and run the inference pipeline again.
+If you make some modifications in your training pipeline, you may want to update the newly trained model to the pipelin endpoint.
 
-Note that only models will be updated in the inference pipeline, while data transformation will not be updated.
+1. After your modified training pipeline comleted successfully, go to the job detail page.
 
-To use the updated transformation in inference pipeline, you need to register the transformation output of the transformation component as dataset.
+1. Right click **Train Model** component and select **Register data**
 
-![Screenshot showing how to register transformation dataset](./media/how-to-run-batch-predictions-designer/register-transformation-dataset.png)
+    ![Register trained model as dataset](./media/how-to-run-batch-predictions-designer/register-train-model-as-dataset.png)
 
-Then manually replace the **TD-** component in inference pipeline with the registered dataset.
+    Input name and select **File** type.
 
-![Screenshot showing how to replace transformation component](./media/how-to-run-batch-predictions-designer/replace-td-module-batch-inference-pipeline.png)
+    ![Register trained model as dataset detail](./media/how-to-run-batch-predictions-designer/register-train-model-as-dataset-2.png)
 
-Then you can submit the inference pipeline with the updated model and transformation, and publish.
+1. Find the previous batch inference pipeline draft, or you can just **Clone** the published pipeline into a new draft.
+
+1. Replace the **MD-** node in the inference pipeline draft with the registered data in the step above.
+
+    ![Update inference pipeline](./media/how-to-run-batch-predictions-designer/update-inference-pipeline-draft.png)
+
+1. Updating data transformation node **TD-** is the same as trainde model.
+
+1. Then you can submit the inference pipeline with the updated model and transformation, and publish again.
 
 ## Next steps
 
