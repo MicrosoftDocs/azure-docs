@@ -1,5 +1,5 @@
 ---
-title: NC A100 v4-series (preview)
+title: NC A100 v4-series 
 description: Specifications for the NC A100 v4-series Azure VMs. These VMs include Linux, Windows, Flexible scale sets, and uniform scale sets.```
 author: sherrywangms
 ms.author: sherrywang
@@ -10,12 +10,7 @@ ms.date: 03/01/2022
 
 ---
 
-#  NC A100 v4-series (Preview)
-
-> [!IMPORTANT]
-> The NC A100 v4-series of Azure virtual machines (VMs) is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> To use this preview feature, [sign up for the NC A100 v4 series preview](https://aka.ms/AzureNCA100v4Signup).  
+#  NC A100 v4-series  
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -50,15 +45,11 @@ Key Features:
 These features are not supported:[Live Migration](maintenance-and-updates.md), [Memory Preserving Updates](maintenance-and-updates.md) and [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) . 
 
 
-> [!IMPORTANT]
-> This VM series is currently in preview. These specifications are subject to change.
-> 
-
-| Size | vCPU | Memory: GiB | Temp Storage (with NVMe): GiB | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs/network bandwidth (Mbps) |
-|---|---|---|---|---|---|---|---|---|
-| Standard_NC24ads_A100_v4   | 24  | 220 | 1123  | 1 | 80 | 12 | 30000/1000 | 2/20,000  |
-| Standard_NC48ads_A100_v4   | 48 | 440 | 2246 | 2 | 160 | 24 | 60000/2000 | 4/40,000  | 
-| Standard_NC96ads_A100_v4   | 96 | 880 | 4492 | 4 | 320 | 32 | 120000/4000 | 8/80,000  |
+| Size | vCPU | Memory: GiB | Temp Storage (SSD) : GiB | Temp Storage (NVMe): GiB | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs/network bandwidth (Mbps) |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_NC24ads_A100_v4   | 24  | 220 | 163 | 960    | 1 | 80  | 12 | 30000/1000 | 2/20,000  |
+| Standard_NC48ads_A100_v4   | 48 | 440 | 326 | 2 x 960 | 2 | 160 | 24 | 60000/2000 | 4/40,000  | 
+| Standard_NC96ads_A100_v4   | 96 | 880 | 652 | 4 x 960 | 4 | 320 | 32 | 120000/4000 | 8/80,000  |
 
 1 GPU = one A100 card
 
