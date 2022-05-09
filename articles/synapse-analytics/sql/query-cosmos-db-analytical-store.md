@@ -287,7 +287,7 @@ The result of this query might look like the following table:
 Learn more about analyzing [complex data types in Azure Synapse Link](../how-to-analyze-complex-schema.md) and [nested structures in a serverless SQL pool](query-parquet-nested-types.md).
 
 > [!IMPORTANT]
-> If you see unexpected characters in your text like `MÃƒÂ&copy;lade` instead of `Mélade`, then your database collation isn't set to [UTF-8](/sql/relational-databases/collations/collation-and-unicode-support#utf8) collation.
+> If you see unexpected characters in your text like `MÃƒÂ©lade` instead of `Mélade`, then your database collation isn't set to [UTF-8](/sql/relational-databases/collations/collation-and-unicode-support#utf8) collation.
 > [Change collation of the database](/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) to UTF-8 collation by using a SQL statement like `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8`.
 
 ## Flatten nested arrays
