@@ -32,11 +32,13 @@ By default, a container app is in *single revision mode*. In this mode, only one
 
 Set the revision mode to *multiple revision mode*, to run multiple revisions of your app simultaneously. While in *multiple revision mode*, new revisions are activated alongside current active revisions. 
 
-In *multiple revision mode*, traffic isn't automatically allocated to new revisions for apps with external HTTP ingress.  Configure splitting from your container app's **Revision management** page in the Azure portal, using Azure CLI commands, or in an ARM template. 
+In *multiple revision mode*, traffic isn't automatically allocated to new revisions for apps with external HTTP ingress.  Configure traffic splitting from your container app's **Revision management** page in the Azure portal, using Azure CLI commands, or in an ARM template. 
 
 ## Use cases
 
-Container Apps revisions help you manage the versioning of your container app.  You can use revisions to:
+Container Apps revisions help you manage the versioning of your container app by creating a new revision each time you make a *revision-scope* change to your app.  You can control access to versions of your container app by activating and deactivating revisions and by configuring the external HTTP traffic routed to each active revision.  
+
+You can use revisions to:
 
 - Release a new version of your app.
 - Quickly revert to an earlier version of your app.
