@@ -23,6 +23,7 @@ In this article, you can learn about steps to configure and attach an existing K
 
 1. A running Kubernetes cluster - **We recommend minimum of 4 vCPU cores and 8GB memory, around 2 vCPU cores and 3GB memory will be used by Azure Arc agent and AzureML extension components**.
 1. Connect your Kubernetes cluster to Azure Arc. Follow instructions in [connect existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md).
+   
     a. if you have Azure RedHat OpenShift Service (ARO) cluster or OpenShift Container Platform (OCP) cluster, follow another prerequisite step [here](#prerequisite-for-azure-arc-enabled-kubernetes) before AzureML extension deployment.
 1. If you have an AKS cluster in Azure, register the AKS-ExtensionManager feature flag by using the ```az feature register --namespace "Microsoft.ContainerService" --name "AKS-ExtensionManager``` command. **Azure Arc connection is not required and not recommended**. 
 1. Install or upgrade Azure CLI to version >=2.16.0
@@ -196,7 +197,7 @@ resources:
     nvidia.com/gpu: null
 ```
 
-[!NOTE] 
+> [!NOTE] 
 > - The default instance type purposefully uses little resources.  To ensure all ML workloads
 run with appropriate resources, for example GPU resource, it is highly recommended to create custom instance types.
 > - `defaultinstancetype` will not appear as an InstanceType custom resource in the cluster when running the command ```kubectl get instancetype```, but it will appear in all clients (UI, CLI, SDK).
