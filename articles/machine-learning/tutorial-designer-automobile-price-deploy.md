@@ -123,7 +123,7 @@ After your AKS service has finished provisioning, return to the real-time infere
 
     A success notification from the notification center appears after deployment finishes. It might take a few minutes.
 
-    ![Screenshot showing how to set up a new real-time endpoint](./media/tutorial-designer-automobile-price-deploy/deploy-notification.png)
+    ![Screenshot showing deployment notification](./media/tutorial-designer-automobile-price-deploy/deploy-notification.png)
 
 > [!TIP]
 > You can also deploy to **Azure Container Instance** (ACI) if you select **Azure Container Instance** for **Compute type** in the real-time endpoint setting box.
