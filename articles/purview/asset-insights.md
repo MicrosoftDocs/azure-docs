@@ -74,7 +74,7 @@ In Microsoft Purview, you can register and scan source types. Once the scan is c
 
    :::image type="content" source="./media/asset-insights/file-path.png" alt-text="View file paths":::
 
-8. View the list of files within the folder. Navigate back to Insights using the bread crumbs.
+8. View the list of files within the folder. Navigate back to Data Estate Insights using the bread crumbs.
 
    :::image type="content" source="./media/asset-insights/list-page.png" alt-text="View list of assets":::  
 
