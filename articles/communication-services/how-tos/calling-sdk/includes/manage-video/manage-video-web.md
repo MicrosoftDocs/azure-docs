@@ -171,11 +171,9 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
     /**
      * isReceiving API is currently an @alpha feature. Do not use in production.
      * To use this api please use 'alpha' release of Azure Communication Services Calling Web SDK.
-     * Create a CSS class to style your loading spinner. Take a look at our
-     * video calling quickstart, to see how to create a loading spinner.
      */
     let loadingSpinner = document.createElement('div');
-    // Create a CSS class to style your loading spinner.
+    // See the css example below for styling the loading spinner.
     loadingSpinner.className = 'loading-spinner';
     remoteVideoStream.on('isReceivingChanged', () => {
         try {
@@ -228,6 +226,38 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
     remoteVideoStream.on('sizeChanged', () => {
         console.log(`Remote video stream size changed: new height: ${remoteVideoStream.size.height}, new width: ${remoteVideoStream.size.width}`);
     });
+}
+```
+
+CSS for styling the loading spinner over the remote video stream.
+ ```css
+.remote-video-container {
+    position: relative;
+}
+.loading-spinner {
+    border: 12px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 12px solid #ca5010;
+    width: 100px;
+    height: 100px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translate(-50%, -50%);
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
 }
 ```
 
