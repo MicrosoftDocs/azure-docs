@@ -164,6 +164,8 @@ For more information about regex replace and capture groups, see [The Regular Ex
 > As described in the Azure AD documentation, you can't modify a restricted claim by using a policy. The data source can't be changed, and no transformation is applied when you're generating these claims. The group claim is still a restricted claim, so you need to customize the groups by changing the name. If you select a restricted name for the name of your custom group claim, the claim will be ignored at runtime. 
 >
 > You can also use the regex transform feature as a filter, because any groups that don't match the regex pattern will not be emitted in the resulting claim. 
+> Group transformation using Regex feature can be used to transform only one group at a time currently. If you would need to emit claims based on multiple conditions refer [Emitting claims based on conditions](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-saml-claims-customization#emitting-claims-based-on-conditions)
+
 
 ### Edit the group claim configuration
 
