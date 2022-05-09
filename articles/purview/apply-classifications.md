@@ -100,7 +100,7 @@ Microsoft Purview captures important details like who applied a classification a
 - Applied time - Local timestamp when the classification was applied via scan or manually.
 - Classification type - System or custom.
 
-Users with <i>Data Curator</i> role will see additional details for classifications that were applied automatically via scan. This details will include sample count that the scanner read to classify the data and distinct data count in the sample that the scanner found.
+Users with <i>Data Curator</i> role will see additional details for classifications that were applied automatically via scan. These details will include sample count that the scanner read to classify the data and distinct data count in the sample that the scanner found.
 
 :::image type="content" source="./media/apply-classifications/view-classification-detail.png" alt-text="Screenshot showing how to view classification detail.":::
 
