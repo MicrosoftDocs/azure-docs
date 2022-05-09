@@ -10,7 +10,7 @@ ms.custom: seodec18
 
 # Back up and restore your app in Azure App Service
 
-In [Azure App Service](overview.md), you can easily restore app backups. You can also make one-time custom backups or configure scheduled custom backups. You can restore a backup by overwriting an existing app by restoring to a new app or slot. This article shows you how to restore a backup and make custom backups.
+In [Azure App Service](overview.md), you can easily restore app backups. You can also make on-demand custom backups or configure scheduled custom backups. You can restore a backup by overwriting an existing app by restoring to a new app or slot. This article shows you how to restore a backup and make custom backups.
 
 Backup and restore**Standard**, **Premium**, **Isolated**. For more information about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](manage-scale-up.md).
 
@@ -131,13 +131,13 @@ There are two types of backups in App Service. Automatic backups made for your a
 
 1. Click **Configure**.
 
-Once the storage account and container is configured, you can initiate a manual backup at any time. Manual backups are retained indefinitely.
+    Once the storage account and container is configured, you can initiate an on-demand backup at any time. On-demand backups are retained indefinitely.
 
 1. At the top of the **Backups** page, select **Backup Now**.
 
     :::image type="content" source="./media/manage-backup/manual-backup.png" alt-text="Screenshot that shows how to make an on-demand backup.":::
 
-    The on-demand backup is displayed in the list with a progress indicator. If it fails with an error, you can select the line item to see the error message.
+    The custom backup is displayed in the list with a progress indicator. If it fails with an error, you can select the line item to see the error message.
 
 <a name="automatedbackups"></a>
 
@@ -149,7 +149,7 @@ Once the storage account and container is configured, you can initiate a manual 
 
 <a name="partialbackups"></a>
 
-## Configure Partial Backups
+## Configure partial backups
 
 Sometimes you don't want to back up everything on your app. Here are a few examples:
 
@@ -157,11 +157,7 @@ Sometimes you don't want to back up everything on your app. Here are a few examp
 * Your app has over 10 GB of content (that's the max amount you can back up at a time).
 * You don't want to back up the log files.
 
-Partial backups allow you choose exactly which files you want to back up.
-
-### Exclude files from your backup
-
-Suppose you have an app that contains log files and static images that you've backed up once and aren't going to change. You can exclude those folders and files from being stored in your future backups. To exclude them, create a `_backup.filter` file in the [`%HOME%\site\wwwroot` folder](operating-system-functionality.md#network-drives-unc-shares) of your app. Specify the list of files and folders you want to exclude in this file.
+To exclude folders and files from being stored in your future backups, create a `_backup.filter` file in the [`%HOME%\site\wwwroot` folder](operating-system-functionality.md#network-drives-unc-shares) of your app. Specify the list of files and folders you want to exclude in this file.
 
 > [!TIP]
 > You can access your files by navigating to `https://<app-name>.scm.azurewebsites.net/DebugConsole`. If prompted, sign in to your Azure account.
@@ -230,14 +226,14 @@ For samples, see:
 
 <a name="whatsbackedup"></a>
 
-[Are the backups incremental updates or complete backups?](#are-the-backups-incremental-updates-or-complete-backups)
-[Does Azure Functions support automatic backups?](#does-azure-functions-support-automatic-backups)
-[What's included in an automatic backup?](#whats-included-in-an-automatic-backup)
-[What's included in a custom backup?](#whats-included-in-a-custom-backup)
-[Why is my linked database not backed up?](#why-is-my-linked-database-not-backed-up)
-[What happens if the backup size exceeds the allowable maximum?](#what-happens-if-the-backup-size-exceeds-the-allowable-maximum)
-[Can I use a storage account that has security features enabled?](#can-i-use-a-storage-account-that-has-security-features-enabled)
-[## How do I restore to an app in a different subscription?](#how-do-i-restore-to-an-app-in-a-different-subscription)
+- [Are the backups incremental updates or complete backups?](#are-the-backups-incremental-updates-or-complete-backups)
+- [Does Azure Functions support automatic backups?](#does-azure-functions-support-automatic-backups)
+- [What's included in an automatic backup?](#whats-included-in-an-automatic-backup)
+- [What's included in a custom backup?](#whats-included-in-a-custom-backup)
+- [Why is my linked database not backed up?](#why-is-my-linked-database-not-backed-up)
+- [What happens if the backup size exceeds the allowable maximum?](#what-happens-if-the-backup-size-exceeds-the-allowable-maximum)
+- [Can I use a storage account that has security features enabled?](#can-i-use-a-storage-account-that-has-security-features-enabled)
+- [## How do I restore to an app in a different subscription?](#how-do-i-restore-to-an-app-in-a-different-subscription)
 
 #### Are the backups incremental updates or complete backups?
 
@@ -278,7 +274,7 @@ The following table shows which app configuration is restored when you choose to
 
 #### What's included in a custom backup?
 
-A custom backup (one-time backup or scheduled backup) includes all content and configuration that's included in an [automatic backup](#whats-included-in-an-automatic-backup), plus any linked database, up to the allowable maximum size.
+A custom backup (on-demand backup or scheduled backup) includes all content and configuration that's included in an [automatic backup](#whats-included-in-an-automatic-backup), plus any linked database, up to the allowable maximum size.
 
 #### Why is my linked database not backed up?
 
@@ -290,7 +286,7 @@ Linked databases are backed up only for custom backups, up to the allowable maxi
 
 #### What happens if the backup size exceeds the allowable maximum?
 
-Automatic backups can't be restored if the backup size exceeds the maximum size. Similarly, manual backups fail if the maximum backup size or the maximum database size is exceeded. To reduce your storage size, consider moving files like logs, images, audio, and videos to Azure Storage, for example.
+Automatic backups can't be restored if the backup size exceeds the maximum size. Similarly, custom backups fail if the maximum backup size or the maximum database size is exceeded. To reduce your storage size, consider moving files like logs, images, audio, and videos to Azure Storage, for example.
 
 ## Can I use a storage account that has security features enabled?
 
