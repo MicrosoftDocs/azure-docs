@@ -67,8 +67,6 @@ In the left navigation pane of contoso55, Metrics is an option under Monitoring 
 
 For more information on working with metrics using Azure Monitor, see [Overview of metrics in Microsoft Azure](../azure-monitor/data-platform.md).
 
-<a name="enable-cache-diagnostics"></a>
-
 ## Export cache metrics
 
 By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/essentials/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, you can [designate a storage account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) and specify a **Retention (days)** policy for your cache metrics.
@@ -146,7 +144,7 @@ Each metric includes two versions. One metric measures performance for the entir
 | Used Memory Percentage | The % of total memory that is being used during the specified reporting interval.  This value references the `used_memory` value from the Redis INFO command to calculate the percentage. |
 | Used Memory RSS |The amount of cache memory used in MB during the specified reporting interval, including fragmentation and metadata. This value maps to `used_memory_rss` from the Redis INFO command. |
 
-## Alerts
+## Operations and alerts
 
 You can configure to receive alerts based on metrics and activity logs. Azure Monitor allows you to configure an alert to do the following when it triggers:
 
