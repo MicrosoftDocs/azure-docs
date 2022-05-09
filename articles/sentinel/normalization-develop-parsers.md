@@ -248,7 +248,7 @@ When each source value maps to a target value, define the mapping using the `dat
 
 Notice that lookup is useful and efficient also when the mapping has only two possible values. 
 
-When the mapping conditiond are more complex use the `iff` or `case` functions. The `iff` function enables mapping two values:
+When the mapping conditions are more complex use the `iff` or `case` functions. The `iff` function enables mapping two values:
 
 ```KQL
 | extend EventResult = 
@@ -388,7 +388,7 @@ To make sure that your parser produces valid values, use the ASIM data tester by
   <parser name> | limit <X> | invoke ASimDataTester('<schema>')
   ```
 
-This test is resource intensive and may not work on your entire data set. Set X to the largest number for which the query will not timeout, or set the time range for the query using the time range picker.
+This test is resource intensive and may not work on your entire data set. Set X to the largest number for which the query will not time out, or set the time range for the query using the time range picker.
 
 Handle the results as follows:
 
@@ -446,6 +446,7 @@ Learn more about ASIM parsers:
 - [ASIM parsers overview](normalization-parsers-overview.md)
 - [Use ASIM parsers](normalization-about-parsers.md)
 - [Manage  ASIM parsers](normalization-manage-parsers.md)
+- [The ASIM parsers list](normalization-parsers-list.md)
 
 Learn more about the ASIM in general: 
 
