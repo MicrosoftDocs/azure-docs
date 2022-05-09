@@ -599,7 +599,7 @@
       - name: Store scripts
         displayName: Image builder, images, building, scripts
         href: ./linux/image-builder-user-assigned-identity.md
-      - name: API changelog and features updates
+      - name: What's new in Azure Image Builder
         displayName: Image builder, images, building, api, features, updates, change log
         href: image-builder-api-update-release-notes.md
       - name: Troubleshoot
