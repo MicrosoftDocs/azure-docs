@@ -139,8 +139,8 @@ Use the following steps to create and configure an application using Spring Clou
    ```azurecli
    az spring-cloud gateway update --assign-endpoint
    ```
-
    ---
+
 1. Configure Spring Cloud Gateway for Tanzu properties using the CLI:
 
    ```azurecli
