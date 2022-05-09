@@ -5,15 +5,14 @@ author: shizn
 ms.author: xshi
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 10/29/2021
-ms.custom: ignite-fall-2021
+ms.date: 05/03/2022
 ---
 
 # How to troubleshoot with Service Connector
 
-If you come across an issue, you can refer to the error message to find suggested actions or fixes. This how-to guide shows you the options to troubleshoot Service Connector.
+If you come across an issue, you can refer to the error message to find suggested actions or fixes. This how-to guide shows you several options to troubleshoot Service Connector.
 
-## Error message and suggested actions from Portal
+## Troubleshooting from the Azure portal
 
 | Error message | Suggested Action |
 | --- | --- |
@@ -21,9 +20,9 @@ If you come across an issue, you can refer to the error message to find suggeste
 | Unknown resource type | <ul><li>Check whether the target resource exists.</li><li>Check the correctness of the target resource ID.</li></ul> |
 | Unsupported resource | <ul><li>Check whether the authentication type is supported by the specified source-target connection combination.</li></ul> |
 
-### Error type，Error message and suggested actions using Azure CLI
+### Troubleshooting using the Azure CLI
 
-### InvalidArgumentValueError
+#### InvalidArgumentValueError
 
 
 | Error message | Suggested Action |
@@ -33,21 +32,21 @@ If you come across an issue, you can refer to the error message to find suggeste
 | Connection ID is invalid: `{ConnectionId}` | <ul><li>Check the correctness of the connection ID.</li></ul> |
 
 
-### RequiredArgumentMissingError
+#### RequiredArgumentMissingError
 
 | Error message | Suggested Action |
 | --- | --- |
-| `{Argument}` should not be blank | User should provide argument value for interactive input |
+| `{Argument}` shouldn't be blank | User should provide argument value for interactive input |
 | Required keys missing for parameter `{Parameter}`. All possible keys are: `{Keys}` | Provide value for the auth info parameter, usually in the form of `--param key1=val1 key2=val2`. |
 | Required argument is missing, please provide the arguments: `{Arguments}` | Provide the required argument. | 
 
-### ValidationError
+#### ValidationError
 
 | Error message | Suggested Action |
 | --- | --- |
-| Only one auth info is needed | User can only provide one auth info parameter, check whether auth info is not provided or multiple auth info parameters are provided. |
-| Auth info argument should be provided when updating the connection: `{ConnectionName}` | When updating a secret type connection, auth info parameter should be provided. (This is because user's secret can not be accessed through ARM api) |
-| Either client type or auth info should be specified to update | When updating a connection, either client type or auth info should be provided. |
+| Only one auth info is needed | User can only provide one auth info parameter. Check whether auth info is missing or multiple auth info parameters are provided. |
+| Auth info argument should be provided when updating the connection: `{ConnectionName}` | When you update a secret type connection, auth info parameter should be provided. This error occurs because user's secret cannot be accessed through the ARM API.
+| Either client type or auth info should be specified to update | When you update a connection, either client type or auth info should be provided. |
 | Usage error: {} [KEY=VALUE ...] | Check the available keys and provide values for the auth info parameter, usually in the form of `--param key1=val1 key2=val2`. |
 | Unsupported Key `{Key}` is provided for parameter `{Parameter}`. All possible keys are: `{Keys}` | Check the available keys and provide values for the auth info parameter, usually in the form of `--param key1=val1 key2=val2`. |
 | Provision failed, please create the target resource manually and then create the connection. Error details: `{ErrorTrace}` | <ul><li>Retry.</li><li>Create the target resource manually and then create the connection.</li></ul> |
