@@ -21,9 +21,9 @@ Before you can run the script to connect your machines, you'll need to do the fo
 1. Follow the steps to [create a service principal for onboarding at scale](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale).
 
     * Assign the Azure Connected Machine Onboarding role to your service principal and limit the scope of the role to the target Azure subscription or resource group.
-    * Make a note of the Service Principal Secret; you'll need this value later.
+    * Make a note of the Service Principal Secret and Service Principal Client Id; you'll need these values later.
 
-1. Collect details on the region, resource group, tenant id, and subscription id where the Azure Arc-enabled resource will be projected.
+1. Collect details on the Tenant Id, Subscription Id, Resource Group, and Region where the Azure Arc-enabled resource will be onboarded.
 
 ## Download the Ansible playbook
 
@@ -111,7 +111,7 @@ ansible-playbook arc-server-onboard-playbook.yml
 
 After the playbook has run, the **PLAY RECAP** will indicate if all tasks were completed successfully and surface any nodes where tasks failed.
 
-## Verify the connect with Azure Arc
+## Verify the connection with Azure Arc
 
 After you have successfully installed the agent and configured it to connect to Azure Arc-enabled servers, go to the Azure portal to verify that the servers in your target hosts have successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal). 
 
