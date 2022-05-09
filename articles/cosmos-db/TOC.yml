@@ -30,6 +30,12 @@
           href: global-dist-under-the-hood.md
     - name: Partitioning and horizontal scaling
       href: partitioning-overview.md
+    - name: Hierarchical partition keys
+      items:
+        - name: Hierarchical partition keys overview
+          href: hierarchical-partition-keys.md
+        - name: Hierarchical partition keys FAQ
+          href: hierarchical-partition-keys-faq.yml
     - name: Capacity
       items:
         - name: Request units
