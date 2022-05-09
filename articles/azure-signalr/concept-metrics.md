@@ -29,7 +29,7 @@ Metrics provide the running info of the service. The available metrics are:
 |Outbound Traffic|Bytes|Sum|The outbound traffic of service|No Dimensions|
 |System Errors|Percent|Avg|The percentage of system errors|No Dimensions|
 |User Errors|Percent|Avg|The percentage of user errors|No Dimensions|
-|Server Load|Percent|Max|The percentage of server load|No Dimensions|
+|Server Load|Percent|Max / Avg|The percentage of server load|No Dimensions|
 
 ### Understand Dimensions
 
