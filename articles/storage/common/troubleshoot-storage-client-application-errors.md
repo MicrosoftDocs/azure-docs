@@ -15,6 +15,21 @@ services: storage
 
 Introduction goes here.
 
+### <a name="diagnosing-errors"></a>Diagnosing errors
+
+Users of your application may notify you of errors reported by the client application. Storage Metrics also records counts of different error types from your storage services such as **NetworkError**, **ClientTimeoutError**, or **AuthorizationError**. While Storage Metrics only records counts of different error types, you can obtain more detail about individual requests by examining server-side, client-side, and network logs. Typically, the HTTP status code returned by the storage service will give an indication of why the request failed.
+
+> [!NOTE]
+> Remember that you should expect to see some intermittent errors: for example, errors due to transient network conditions, or application errors.
+
+
+The following resources are useful for understanding storage-related status and error codes:
+
+- [Common REST API Error Codes](/rest/api/storageservices/Common-REST-API-Error-Codes)
+- [Blob Service Error Codes](/rest/api/storageservices/Blob-Service-Error-Codes)
+- [Queue Service Error Codes](/rest/api/storageservices/Queue-Service-Error-Codes)
+- [Table Service Error Codes](/rest/api/storageservices/Table-Service-Error-Codes)
+- [File Service Error Codes](/rest/api/storageservices/File-Service-Error-Codes)
 
 ## <a name="the-client-is-receiving-403-messages"></a>The client is receiving HTTP 403 (Forbidden) messages
 

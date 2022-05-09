@@ -615,6 +615,38 @@ Use these queries to help you monitor your Azure Storage accounts:
     | render piechart
     ```
 
+## <a name="diagnosing-storage-issues"></a>Diagnosing storage issues
+
+There are a number of ways that you might become aware of a problem or issue in your application, including:
+
+- A major failure that causes the application to crash or to stop working.
+
+- Significant changes from baseline values in the metrics you are monitoring as described in the previous section "[Monitoring your storage service]."
+
+- Reports from users of your application that some particular operation didn't complete as expected or that some feature is not working.
+
+- Errors generated within your application that appear in log files or through some other notification method.
+
+Typically, issues related to Azure storage services fall into one of four broad categories:
+
+- Your application has a performance issue, either reported by your users, or revealed by changes in the performance metrics.
+
+- There is a problem with the Azure Storage infrastructure in one or more regions.
+
+- Your application is encountering an error, either reported by your users, or revealed by an increase in one of the error count metrics you monitor.
+
+- During development and test, you may be using the local storage emulator; you may encounter some issues that relate specifically to usage of the storage emulator.
+
+For guidance about how to monitor your account or diagnose issues, see any of these articles:
+
+- [Best practices for monitoring Azure Blob Storage](blob-storage-monitoring-scenarios.md)
+
+- [Troubleshoot performance issues](../common/troubleshoot-storage-performance?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+
+- [Troubleshoot availability issues](../common/troubleshoot-storage-availability?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+
+- [Troubleshoot client application errors](../common/troubleshoot-storage-client-application-errors?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+
 ## Feature support
 
 This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
