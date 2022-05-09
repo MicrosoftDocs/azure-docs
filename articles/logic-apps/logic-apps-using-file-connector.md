@@ -72,7 +72,7 @@ For connector-specific technical information, such as triggers, actions, and lim
 
 1. On the designer, under the search box, select **All**. In the search box, enter **file system**. From the triggers list, select the File System trigger that you want. This example continues with the trigger named **When a file is created**.
 
-   ![Screenshot showing the Azure portal, workflow designer for a Consumption logic app, search box with "file system", and File System trigger selected.](media/logic-apps-using-file-connector/select-file-system-trigger-consumption.png)
+   ![Screenshot showing Azure portal, designer for Consumption logic app, search box with "file system", and File System trigger selected.](media/logic-apps-using-file-connector/select-file-system-trigger-consumption.png)
 
 1. If you're prompted to create your file system server connection, provide the following information as required:
 
@@ -133,7 +133,7 @@ For connector-specific technical information, such as triggers, actions, and lim
 
 1. From the actions list, select the File System action that you want. This example continues with the action named **Create file**.
 
-   ![Screenshot showing the Azure portal, the workflow designer open for a Consumption logic app, the search box with "file system" entered, and a File System action selected.](media/logic-apps-using-file-connector/select-file-system-action-consumption.png)
+   ![Screenshot showing Azure portal, designer for Consumption logic app, search box with "file system", and File System action selected.](media/logic-apps-using-file-connector/select-file-system-action-consumption.png)
 
 1. If you're prompted to create your file system server connection, provide the following information as required:
 
