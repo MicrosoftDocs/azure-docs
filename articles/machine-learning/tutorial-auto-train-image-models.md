@@ -65,6 +65,7 @@ This tutorial is also available in the [azureml-examples repository on GitHub](h
     
     > [!NOTE]
     > Only Python 3.6 and 3.7 are compatible with automated ML support for computer vision tasks. 
+
 ---
 
 ## Compute target setup
