@@ -1,5 +1,5 @@
 ---
-title:Known limitations and issues with Azure Synapse Link for SQL Server 2022 (Preview)
+title: Known limitations and issues with Azure Synapse Link for SQL Server 2022 (Preview)
 description: Learn about known limitations and issues with Azure Synapse Link for SQL Server 2022 (Preview).
 author: jonburchel
 ms.service: synapse-analytics
