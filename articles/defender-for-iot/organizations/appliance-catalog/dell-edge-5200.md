@@ -5,7 +5,7 @@ ms.date: 04/24/2022
 ms.topic: reference
 ---
 
-# Dell Edge 5200
+# Dell Edge 5200 (Rugged)
 
 This article describes the Dell Edge 5200 appliance for OT sensors.
 
@@ -20,7 +20,7 @@ This article describes the Dell Edge 5200 appliance for OT sensors.
 
 |Component |	Technical specifications|
 |:----|:----|
-|Chassis|	Desktop / Wall mount server|
+|Chassis|	Desktop / Wall mount server Rugged MIL-STD-810G|
 |Dimensions|	211 mm (W) x 240 mm (D) x 86 mm (H)|
 |Weight|	4.7 kg|
 |Processor|	Intel® Core™ i7-9700TE|

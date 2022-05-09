@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 author: SimranArora904
 ms.author: siarora
-ms.date: 10/21/2021
+ms.date: 04/08/2022
 ms.topic: how-to
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
 ---
@@ -110,16 +110,18 @@ To determine the current usage for an endpoint, [view the metrics](how-to-monito
 | Number of endpoints per subscription | 50 |
 | Number of deployments per subscription | 200 |
 | Number of deployments per endpoint | 20 |
-| Number of instances per deployment | 20 |
+| Number of instances per deployment | 20 <sup>2</sup> |
 | Max request time out at endpoint level  | 90 seconds |
-| Total requests per second at endpoint level for all deployments  | 500 <sup>2</sup> |
-| Total connections per second at endpoint level for all deployments  | 500 <sup>2</sup> |
-| Total connections active at endpoint level for all deployments  | 500 <sup>2</sup> |
-| Total bandwidth at endpoint level for all deployments  | 5 MBPS <sup>2</sup> |
+| Total requests per second at endpoint level for all deployments  | 500 <sup>3</sup> |
+| Total connections per second at endpoint level for all deployments  | 500 <sup>3</sup> |
+| Total connections active at endpoint level for all deployments  | 500 <sup>3</sup> |
+| Total bandwidth at endpoint level for all deployments  | 5 MBPS <sup>3</sup> |
 
 <sup>1</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names.
 
-<sup>2</sup> If you request a limit increase, be sure to calculate related limit increases you might need. For example, if you request a limit increase for requests per second, you might also want to compute the required connections and bandwidth limits and include these limit increases in the same request.
+<sup>2</sup> We reserve 20% extra compute resources for performing upgrades. For example, if you request 10 instances in a deployment, you must have a quota for 12. Otherwise, you will receive an error.
+
+<sup>3</sup> If you request a limit increase, be sure to calculate related limit increases you might need. For example, if you request a limit increase for requests per second, you might also want to compute the required connections and bandwidth limits and include these limit increases in the same request.
 
 ### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.

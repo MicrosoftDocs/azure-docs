@@ -10,7 +10,7 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 03/14/2022
+ms.date: 05/09/2022
 ms.custom: references_regions
 ---
 
@@ -62,6 +62,7 @@ The information in the rest of this document provides information on what featur
 | ACI behind VNet                                                            | Public Preview       | NO                 | NO          |
 | ACR behind VNet                                                            | GA       | YES                 | YES          |
 | Private IP of AKS cluster                                                  | Public Preview       | NO                 | NO          |
+| Network isolation for managed online endpoints                             | Public Preview       | NO                 | NO          |
 | **Compute** |   | | |
 | [quota management across workspaces](how-to-manage-quotas.md)                                         | GA                   | YES                | YES         |
 | **[Data for machine learning](concept-data.md)** |   | | |
@@ -93,6 +94,7 @@ The information in the rest of this document provides information on what featur
 | [Experimentation UI](how-to-track-monitor-analyze-runs.md)                                                         | Public Preview                   | YES                | YES         |
 | [.NET integration ML.NET 1.0](/dotnet/machine-learning/tutorials/object-detection-model-builder)                                                | GA                   | YES                | YES         |
 | **Inference** |   | | |
+| Managed online endpoints | GA | YES | YES |
 | [Batch inferencing](tutorial-pipeline-batch-scoring-classification.md)                                                          | GA                   | YES                | YES         |
 | [Azure Stack Edge with FPGA](how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server)                                                    | Public Preview       | NO                 | NO          |
 | **Other** |   | | |
@@ -172,6 +174,7 @@ The information in the rest of this document provides information on what featur
 | ACI behind VNet                                                            | Preview   | NO        | N/A        |
 | ACR behind VNet                                                            | GA   | YES       | N/A        |
 | Private IP of AKS cluster                                                  | Preview   | NO        | N/A        |
+| Network isolation for managed online endpoints                             | Preview       | NO                 | N/A          |
 | **Compute** |   | | |
 | quota management across workspaces                                         | GA               | YES       | N/A        |
 | **Data for machine learning** | | | |
@@ -203,6 +206,7 @@ The information in the rest of this document provides information on what featur
 | Experimentation UI                                                         | GA               | YES       | N/A        |
 | .NET integration ML.NET 1.0                                                | GA               | YES       | N/A        |
 | **Inference** |   | | |
+| Managed online endpoints | GA | YES | N/A |
 | Batch inferencing                                                          | GA               | YES       | N/A        |
 | Azure Stack Edge with FPGA                                                    | Deprecating       | Deprecating            | N/A        |
 | **Other** |    | | |

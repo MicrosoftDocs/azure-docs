@@ -19,8 +19,6 @@ ms.reviewer: nibaccam
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/kubernetesOnlineDeployment.schema.json.
 
-
-
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax

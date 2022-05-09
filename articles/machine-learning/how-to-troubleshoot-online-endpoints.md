@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting online endpoints deployment (preview)
+title: Troubleshooting online endpoints deployment
 titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot some common deployment and scoring errors with online endpoints.
 services: machine-learning
@@ -14,11 +14,11 @@ ms.custom: devplatv2, devx-track-azurecli, cliv2
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
 ---
 
-# Troubleshooting online endpoints deployment and scoring (preview)
+# Troubleshooting online endpoints deployment and scoring
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-Learn how to resolve common issues in the deployment and scoring of Azure Machine Learning online endpoints (preview).
+Learn how to resolve common issues in the deployment and scoring of Azure Machine Learning online endpoints.
 
 This document is structured in the way you should approach troubleshooting:
 
@@ -27,8 +27,6 @@ This document is structured in the way you should approach troubleshooting:
 1. Understand [common deployment errors](#common-deployment-errors) that might arise and how to fix them.
 
 The section [HTTP status codes](#http-status-codes) explains how invocation and prediction errors map to HTTP status codes when scoring endpoints with REST requests.
-
-
 
 ## Prerequisites
 
@@ -54,7 +52,7 @@ As a part of local deployment the following steps take place:
 - Docker either builds a new container image or pulls an existing image from the local Docker cache. An existing image is used if there's one that matches the environment part of the specification file.
 - Docker starts a new container with mounted local artifacts such as model and code files.
 
-For more, see [Deploy locally in Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints).
+For more, see [Deploy locally in Deploy and score a machine learning model with a managed online endpoint](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints).
 
 ## Conda installation
  
@@ -303,7 +301,7 @@ When you access online endpoints with REST requests, the returned status codes a
 
 ## Next steps
 
-- [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
-- [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
-- [Online endpoint (preview) YAML reference](reference-yaml-endpoint-online.md)
+- [Deploy and score a machine learning model with a managed online endpoint](how-to-deploy-managed-online-endpoints.md)
+- [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md)
+- [Online endpoint YAML reference](reference-yaml-endpoint-online.md)
 

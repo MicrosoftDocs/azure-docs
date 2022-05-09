@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-author: blackmist
-ms.author: larryfr
+author: dem108
+ms.author: sehan
 ms.reviewer: larryfr
-ms.date: 03/31/2022
+ms.date: 04/26/2022
 ms.custom: how-to, devplatv2
 
 # Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
@@ -18,7 +18,7 @@ ms.custom: how-to, devplatv2
 # Use batch endpoints for batch scoring
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
+
 
 Learn how to use batch endpoints to do batch scoring. Batch endpoints simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. For more information, see [What are Azure Machine Learning endpoints?](concept-endpoints.md).
 

@@ -61,7 +61,7 @@ As mentioned in the Azure Files [migration overview article](storage-files-migra
 
     1. Move a set of files that fits onto the disk
     2. let file sync and cloud tiering engage
-    3. when more free space is created on the volume, proceed with the next batch of files. Alternatively, review the RoboCopy command in the [RoboCopy section](#phase-7-robocopy) of this article for use of the new `/LFSM` switch. Using `/LFSM` can significantly simplify your RoboCopy jobs, but it is not compatible with some other RoboCopy switches you might depend on. Only use the /LFSM switch when the migration destination is local storage. It's not supported when the destination is a remote SMB share.
+    3. when more free space is created on the volume, proceed with the next batch of files. Alternatively, review the RoboCopy command in the [RoboCopy section](#phase-7-robocopy) of this article for use of the new `/LFSM` switch. Using `/LFSM` can significantly simplify your RoboCopy jobs, but it is not compatible with some other RoboCopy switches you might depend on. Only use the `/LFSM` switch when the migration destination is local storage. It's not supported when the destination is a remote SMB share.
     
     You can avoid this batching approach by provisioning the equivalent space on the Windows Server that your files occupy on the NAS appliance. Consider deduplication on NAS / Windows. If you don't want to permanently commit this high amount of storage to your Windows Server, you can reduce the volume size after the migration and before you adjust the cloud tiering policies. That creates a smaller on-premises cache of your Azure file shares.
 
