@@ -81,11 +81,12 @@ These changes include modifications to:
 
 These parameters include:
 
-- [Secret values](manage-secrets.md) - Revisions must be [restarted](revisions.md) before a container recognizes new secret values.
+- [Secret values](manage-secrets.md)  (Revisions must be [restarted](revisions.md) before a container recognizes new secret values.)
 - Revision mode
 - Ingress configuration including:
   - Turning [ingress](ingress.md) on or off
   - [Traffic splitting rules](revisions-manage.md#traffic-splitting)
+  - labels
 - Credentials for private container registries
 - Dapr settings
 
