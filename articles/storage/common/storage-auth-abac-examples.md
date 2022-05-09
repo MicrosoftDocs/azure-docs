@@ -711,7 +711,7 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | Or |
 | Attribute source | Request |
 | Attribute | [Version ID](storage-auth-abac-attributes.md#version-id) |
-| [Exists](../../role-based-access-control/conditions-format.md#exists) | Checked |
+| Exists | [Checked](../../role-based-access-control/conditions-format.md#exists) |
 | Negate this expression | Checked |
 
 ### Example: Delete old blob versions
@@ -786,12 +786,12 @@ Here are the settings to add this condition using the Azure portal.
 | Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob) |
 | Attribute source | Request |
 | Attribute | [Snapshot](storage-auth-abac-attributes.md#snapshot) |
-| [Exists](../../role-based-access-control/conditions-format.md#exists) | Checked |
+| Exists | [Checked](../../role-based-access-control/conditions-format.md#exists) |
 | **Expression 2** |  |
 | Operator | Or |
 | Attribute source | Request |
 | Attribute | [Version ID](storage-auth-abac-attributes.md#version-id) |
-| [Exists](../../role-based-access-control/conditions-format.md#exists) | Checked |
+| Exists | [Checked](../../role-based-access-control/conditions-format.md#exists) |
 | Negate this expression | Checked |
 | **Expression 3** |  |
 | Operator | Or |
