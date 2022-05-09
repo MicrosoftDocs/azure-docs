@@ -36,13 +36,13 @@ The DNS query process when using an Azure DNS Private Resolver is summarized bel
 
 The architecture for Azure DNS Private Resolver is summarized in the following figure. DNS resolution between Azure virtual networks and on-prem networks requires [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) or a [VPN](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
-[ ![Azure Private DNS Resolver architecture](./media/dns-resolver-overview/resolver-architecture.png) ](image-file-expanded.png#lightbox)
+[ ![Azure Private DNS Resolver architecture](./media/dns-resolver-overview/resolver-architecture.png) ](resolver-architecture.png#lightbox)
 
 Figure 1: Azure DNS Private Resolver architecture
 
 For more information about creating a private DNS resolver, see:
-- [Quickstart: Create an Azure DNS Private Resolver using the Azure portal](private-dns-resolver-getstarted-portal.md)
-- [Quickstart: Create an Azure DNS Private Resolver using Azure PowerShell](private-dns-resolver-getstarted-powershell.md)
+- [Quickstart: Create an Azure DNS Private Resolver using the Azure portal](private-dns-resolver-get-started-portal.md)
+- [Quickstart: Create an Azure DNS Private Resolver using Azure PowerShell](private-dns-resolver-get-started-powershell.md)
 
 ## Azure DNS Private Resolver benefits
 
@@ -129,6 +129,6 @@ DNS forwarding rulesets have the following limitations:
 
 ## Next steps
 
-* Learn how to create an Azure DNS Private Resolver by using [Azure PowerShell](./private-dns-resolver-getstarted-powershell.md) or [Azure portal](./private-dns-resolver-getstarted-portal.md).
+* Learn how to create an Azure DNS Private Resolver by using [Azure PowerShell](./private-dns-resolver-get-started-powershell.md) or [Azure portal](./private-dns-resolver-get-started-portal.md).
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
 * [Learn module: Introduction to Azure DNS](/learn/modules/intro-to-azure-dns).
