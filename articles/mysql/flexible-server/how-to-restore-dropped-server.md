@@ -4,6 +4,7 @@ description: This article describes how to restore a deleted server in Azure Dat
 author: adig
 ms.author: adig
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 11/10/2021
 ---
