@@ -113,7 +113,7 @@ Azure Policy has several permissions, known as operations, in two Resource Provi
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Many Built-in roles grant permission to Azure Policy resources. The **Resource Policy Contributor**
+Many built-in roles grant permission to Azure Policy resources. The **Resource Policy Contributor**
 role includes most Azure Policy operations. **Owner** has full rights. Both **Contributor** and
 **Reader** have access to all _read_ Azure Policy operations.
 
@@ -123,14 +123,14 @@ necessary to grant the managed identity on **deployIfNotExists** or **modify** a
 permissions.
 
 > [!NOTE]
-> All Policy objects, including definitions, initatives, and assignments, will be readable to all
-> roles over its scope. For example, a Policy assignment scoped to an Azure subscription will be readable 
+> All Policy objects, including definitions, initiatives, and assignments, will be readable to all
+> roles over its scope. For example, a Policy assignment scoped to an Azure subscription will be readable
 > by all role holders at the subscription scope and below.
 
-If none of the Built-in roles have the permissions required, create a
+If none of the built-in roles have the permissions required, create a
 [custom role](../../role-based-access-control/custom-roles.md).
 
-Azure Policy operations can have a significant impact on your Azure environment. Only the minimum set of 
+Azure Policy operations can have a significant impact on your Azure environment. Only the minimum set of
 permissions necessary to perform a task should be assigned and these permissions should not be granted
 to users who do not need them.
 
@@ -170,7 +170,7 @@ Here are a few pointers and tips to keep in mind:
 
     - Once you've created an initiative assignment, policy definitions added to the initiative also
   become part of that initiative's assignments.
-  
+
   - When an initiative assignment is evaluated, all policies within the initiative are also evaluated.
   If you need to evaluate a policy individually, it's better to not include it in an initiative.
 

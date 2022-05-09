@@ -12,7 +12,7 @@ ms.date: 12/06/2021
 
 Microsoft Purview is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. Create a holistic, up-to-date map of your data landscape with automated data discovery, sensitive data classification, and end-to-end data lineage. Enable data curators to manage and secure your data estate. Empower data consumers to find valuable, trustworthy data.
 
-:::image type="content" source="./media/overview/high-level-overview.png" alt-text="High-level architecture of Microsoft Purview, showing multi-cloud and on premises sources flowing into Microsoft Purview, and Microsoft Purview's apps (Data Catalog, Map, and Insights) allowing data consumers and data curators to view and manage metadata. This metadata is also being ported to external analytics services from Microsoft Purview for more processing." lightbox="./media/overview/high-level-overview-large.png":::
+:::image type="content" source="./media/overview/high-level-overview.png" alt-text="High-level architecture of Microsoft Purview, showing multi-cloud and on premises sources flowing into Microsoft Purview, and Microsoft Purview's apps (Data Catalog, Map, and Data Estate Insights) allowing data consumers and data curators to view and manage metadata. This metadata is also being ported to external analytics services from Microsoft Purview for more processing." lightbox="./media/overview/high-level-overview-large.png":::
 
 >[!TIP]
 > Looking to govern your data in Microsoft 365 by keeping what you need and deleting what you don't? Use [Microsoft Purview Data Lifecycle Management](/microsoft-365/compliance/data-lifecycle-management).
@@ -24,12 +24,12 @@ Microsoft Purview automates data discovery by providing data scanning and classi
 |----------|-----------|
 |[Data Map](#data-map) | Makes your data meaningful by graphing your data assets, and their relationships, across your data estate. The data map used to discover data and manage access to that data. |
 |[Data Catalog](#data-catalog)  | Finds trusted data sources by browsing and searching your data assets. The data catalog aligns your assets with friendly business terms and data classification to identify data sources.      |
-|[Data Insights](#data-insights) | Gives you an overview of your data estate to help you discover what kinds of data you have and where. |
+|[Data Estate Insights](#data-estate-insights) | Gives you an overview of your data estate to help you discover what kinds of data you have and where. |
 
 ## Data Map
 
 Microsoft Purview Data Map provides the foundation for data discovery and effective data governance. Microsoft Purview Data Map is a cloud native PaaS service that captures metadata about enterprise data present in analytics and operation systems on-premises and cloud. Microsoft Purview Data Map is automatically kept up to date with built-in automated scanning and classification system. Business users can configure and use the Microsoft Purview Data Map through an intuitive UI and developers can programmatically interact with the Data Map using open-source Apache Atlas 2.0 APIs.
-Microsoft Purview Data Map powers the Microsoft Purview Data Catalog and Microsoft Purview data insights as unified experiences within the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
+Microsoft Purview Data Map powers the Microsoft Purview Data Catalog and Microsoft Purview Data Estate Insights as unified experiences within the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
 For more information, see our [introduction to Data Map](concept-elastic-data-map.md).
 
@@ -38,10 +38,10 @@ For more information, see our [introduction to Data Map](concept-elastic-data-ma
 With the Microsoft Purview Data Catalog, business and technical users alike can quickly & easily find relevant data using a search experience with filters based on various lenses like glossary terms, classifications, sensitivity labels and more. For subject matter experts, data stewards and officers, the Microsoft Purview Data Catalog provides data curation features like business glossary management and ability to automate tagging of data assets with glossary terms. Data consumers and producers can also visually trace the lineage of data assets starting from the operational systems on-premises, through movement, transformation & enrichment with various data storage & processing systems in the cloud to consumption in an analytics system like Power BI.
 For more information, see our [introduction to search using Data Catalog](how-to-search-catalog.md).
 
-## Data Insights
-With the Microsoft Purview data insights, data officers and security officers can get a bird’s eye view and at a glance understand what data is actively scanned, where sensitive data is and how it moves.
+## Data Estate Insights
+With the Microsoft Purview Data Estate Insights, data officers and security officers can get a bird’s eye view and at a glance understand what data is actively scanned, where sensitive data is and how it moves.
 
-For more information, see our [introduction to Data Insights](concept-insights.md).
+For more information, see our [introduction to Data Estate Insights](concept-insights.md).
 
 ## Discovery challenges for data consumers
 

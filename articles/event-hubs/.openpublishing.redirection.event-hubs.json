@@ -259,26 +259,6 @@
     "source_path": "policy-samples.md",
     "redirect_url": "/azure/event-hubs/policy-reference",
     "redirect_document_id": false
-  },
-  {
-    "source_path": "transport-layer-security-enforce-minimum-version.md",
-    "redirect_url": "/azure/event-hubs/event-hubs-about",
-    "redirect_document_id": false
-  },    
-  {
-    "source_path": "transport-layer-security-audit-minimum-version.md",
-    "redirect_url": "/azure/event-hubs/event-hubs-about",
-    "redirect_document_id": false
-  },
-  {
-    "source_path": "transport-layer-security-configure-client-version.md",
-    "redirect_url": "/azure/event-hubs/event-hubs-about",
-    "redirect_document_id": false
-  },
-  {
-    "source_path": "transport-layer-security-configure-minimum-version.md",
-    "redirect_url": "/azure/event-hubs/event-hubs-about",
-    "redirect_document_id": false
-  }      
+  }
 ]
 }
