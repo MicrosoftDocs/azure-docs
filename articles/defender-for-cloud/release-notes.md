@@ -23,7 +23,7 @@ Updates in May Include:
 - [Availability of Defender for SQL to protect Amazon Web Services (AWS) and Google Cloud Computing (GCP) environments](quickstart-onboard-gcp.md)
 
 
--General availability (GA) of Defender for SQL for AWS and GCP environments
+### General availability (GA) of Defender for SQL for AWS and GCP environments
 
 The database protection capabilities provided by Microsoft Defender for Cloud now include support for your SQL databases hosted in AWS and GCP environments.
 
