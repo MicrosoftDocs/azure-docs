@@ -6,7 +6,7 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
 ms.reviewer: cawa
-ms.date: 05/05/2022
+ms.date: 05/09/2022
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 ---
@@ -20,7 +20,6 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Enable Change Analysis to track changes for Azure resources and for Azure Web App configurations
 > * Troubleshoot a Web App issue using Change Analysis
-> * Troubleshoot a Web App dependencies issue using Change Analysis
 
 ## Pre-requisites
 
