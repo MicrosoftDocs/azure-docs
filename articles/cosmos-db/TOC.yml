@@ -54,6 +54,8 @@
           href: throughput-serverless.md
         - name: Best practices for scaling provisioned throughput
           href: scaling-provisioned-throughput-best-practices.md
+        - name: Burst capacity (preview)
+          href: burst-capacity.md
     - name: Security
       items:
         - name: Security overview
