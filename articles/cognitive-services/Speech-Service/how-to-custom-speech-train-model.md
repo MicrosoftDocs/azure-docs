@@ -24,7 +24,7 @@ You can use a custom model for a limited time after it's trained and [deployed](
 
 ## Train the model
 
-If you plan to train a model with audio data, use a Speech resource in a [region](regions.md#speech-to-text-text-to-speech-and-translation) with dedicated hardware for training.
+If you plan to train a model with audio data, use a Speech resource in a [region](regions.md#speech-to-text-pronunciation-assessment-text-to-speech-and-translation) with dedicated hardware for training.
 
 After you've uploaded [training datasets](./how-to-custom-speech-test-and-train.md), follow these instructions to start training your model:
 
