@@ -232,15 +232,58 @@ Use the following request to retrieve the details of the devices in a job:
 PUT https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006?api-version=1.2-preview
 ```
 
-The following request body requires the `group` of the device group that the job applies to. You can use the [get list of device groups](howto-manage-devices-with-rest-api.md#List-device-groups) REST API to get a list of the device groups in your application and use the required `group` from the response to create a new job.
+The request body requires the `group` of the device group that the job applies to.
 
-You can also [create a new device group](howto-manage-devices-with-rest-api.md#add-a-device-group) and use the value of the `ID` from the device group you created.
+Use the following request to create a new device group.
+
+```http
+PUT https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-version=1.2-preview
+```
+
+When you create a device group, you define a `filter` that selects the devices to add to the group. A `filter` identifies a device template and any properties to match. The following example creates device group that contains all devices associated with the "dtmi:modelDefinition:dtdlv2" template where the `provisioned` property is true
+
+```json
+{
+  "displayName": "Device group 1",
+  "description": "Custom device group.",
+  "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:dtdlv2\" AND $provisioned = true",
+  "organizations": [
+    "seattle"
+  ]
+}
+```
+
+The request body has some required fields:
+
+- `@displayName`: Display name of the device group.
+- `@filter`: Query defining which devices should be in this group.
+- `@etag`: ETag used to prevent conflict in device updates.
+- `description`: Short summary of device group.
+
+The organizations field is only used when an application has an organization hierarchy defined. To learn more about organizations, see [Manage IoT Central organizations](howto-edit-device-template.md)
+
+The response to this request looks like the following example: 
+
+```json
+{
+  "id": "group1",
+  "displayName": "Device group 1",
+  "description": "Custom device group.",
+  "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:dtdlv2\" AND $provisioned = true",
+  "organizations": [
+    "seattle"
+  ]
+}
+```
+
+You can now use the `id` value from the response to create a new job.
+
 
 ```json
 {
   "displayName": "Set target temperature",
   "description": "Set target temperature device property",
-  "group": "833d7a7d-8f99-4e04-9e56-745806bdba6e",
+  "group": "group1",
   "batch": {
     "type": "percentage",
     "value": 25
@@ -268,7 +311,7 @@ The response to this request looks like the following example. The initial job s
   "id": "job-006",
   "displayName": "Set target temperature",
   "description": "Set target temperature device property",
-  "group": "833d7a7d-8f99-4e04-9e56-745806bdba6e",
+  "group": "group1",
   "batch": {
     "type": "percentage",
     "value": 25
