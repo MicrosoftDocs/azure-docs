@@ -45,7 +45,7 @@ To configure the settings on your machines, follow these steps:
     In the **Change update settings** page, by default **Properties** is selected. 
 1. Select from the list of update settings to apply them to the selected machines.
 
-1. In **Update setting(s) to change**, select any option —*Periodic assessment*, *Hotpatch* and *Patch orchestration* to configure and select **Next**. For more information, see[Configure settings on virtual machines](manage-update-settings.md#configure-settings-on-single-vm).
+1. In **Update setting(s) to change**, select any option —*Periodic assessment*, *Hotpatch* and *Patch orchestration* to configure and select **Next**. For more information, see [Configure settings on virtual machines](manage-update-settings.md#configure-settings-on-single-vm).
 
 1. In **Machines**, verify the machines for which you can apply the updates. You can also add or remove machines from the list and select **Next**.
 
