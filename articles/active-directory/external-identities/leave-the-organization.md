@@ -49,7 +49,7 @@ To leave an organization, follow these steps.
 
 1. Under **Other organizations you belong to**, find the organization that you want to leave, and select **Leave organization**.
 
-   ![Screenshot showing Leave organization option in the user interface](media/leave-the-organization/leave-org.png)
+   ![Screenshot showing Leave organization option in the user interface.](media/leave-the-organization/leave-org.png)
 1. When asked to confirm, select **Leave**.
 
 ## Account removal
