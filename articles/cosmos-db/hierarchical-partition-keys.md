@@ -18,15 +18,15 @@ If you use synthetic keys today or have scenarios where partition keys can excee
 
 ## Example use case
 
-Suppose you have a multi-tenant scenario where you store event information for users in each tenant. This event information could include event occurrences including, but not limited to, as login, clickstream, or payment events. 
+Suppose you have a multi-tenant scenario where you store event information for users in each tenant. This event information could include event occurrences including, but not limited to, as sign-in, clickstream, or payment events. 
 
-In a real world scenario, some tenants can grow large with thousands of users, while the many other tenants are smaller with a few users. Partitioning by /TenantId may lead to exceeding Cosmos DB's 20-GB storage limit on a single logical partition, while partitioning by /UserId will make all queries on a tenant cross-partition. Both approaches have significant downsides.
+In a real world scenario, some tenants can grow large with thousands of users, while the many other tenants are smaller with a few users. Partitioning by **/TenantId** may lead to exceeding Cosmos DB's 20-GB storage limit on a single logical partition, while partitioning by **/UserId** will make all queries on a tenant cross-partition. Both approaches have significant downsides.
 
-Using a synthetic partition key that combines TenantId and UserId adds complexity to the application and queries for a tenant will still be cross-partition, unless all users are known and specified in advance.
+Using a synthetic partition key that combines **TenantId** and **UserId** adds complexity to the application. Additionally, the synthetic partition key queries for a tenant will still be cross-partition, unless all users are known and specified in advance.
 
-With hierarchical partition keys, we can partition first on TenantId, and then UserId. We can even partition further down to another level, such as SessionId, as long as the overall depth doesn't exceed three levels. When a physical partition exceeds 50 GB of storage, Cosmos DB will automatically split the physical partition so that roughly half of the data on the will be on one physical partition, and half on the other. Effectively, this means that a single TenantId can exceed 20 GB of data, and it's possible for a TenantId's data to span multiple physical partitions.
+With hierarchical partition keys, we can partition first on **TenantId**, and then **UserId**. We can even partition further down to another level, such as **SessionId**, as long as the overall depth doesn't exceed three levels. When a physical partition exceeds 50 GB of storage, Cosmos DB will automatically split the physical partition so that roughly half of the data on the will be on one physical partition, and half on the other. Effectively, subpartitioning means that a single TenantId can exceed 20 GB of data, and it's possible for a TenantId's data to span multiple physical partitions.
 
-Queries that specify either the TenantId, or both TenantId and UserId will be efficiently routed to only the subset of physical partitions that contain the relevant data. Specifying the full subpartitioned partition key path, or a filter, effectively avoids a full fan-out query. For example, if the container had 1000 physical partitions, but a particular TenantId was only on five of them, the query would only be routed to the much smaller number of relevant physical partitions. 
+Queries that specify either the **TenantId**, or both **TenantId** and **UserId** will be efficiently routed to only the subset of physical partitions that contain the relevant data. Specifying the full or prefix subpartitioned partition key path effectively avoids a full fan-out query. For example, if the container had 1000 physical partitions, but a particular **TenantId** was only on five of them, the query would only be routed to the much smaller number of relevant physical partitions. 
 
 ## Getting started
 
@@ -187,7 +187,7 @@ Mono<CosmosItemResponse<UserSession>> createResponse = container.createItem(item
 
 ### Perform a key/value lookup (point read) of an item
 
-Key/value lookups (point reads) are performed in a manner similar to a non-subpartitioned container. For example, assume we have a hierarchical partition key composed of **TenantId -> UserId -> SessionId**. The unique identifier for the item is a Guid, represented as a string, that serves as a unique document transaction id. To perform a point read on a single item, pass in the ``id`` property of the item and the full value for the partition key including all three components of the path.
+Key/value lookups (point reads) are performed in a manner similar to a non-subpartitioned container. For example, assume we have a hierarchical partition key composed of **TenantId -> UserId -> SessionId**. The unique identifier for the item is a Guid, represented as a string, that serves as a unique document transaction identifier. To perform a point read on a single item, pass in the ``id`` property of the item and the full value for the partition key including all three components of the path.
 
 #### [.NET SDK v3](#tab/net-v3)
 
@@ -239,8 +239,8 @@ For example, assume we have a hierarchical partition key composed of **TenantId 
 | Query | Routing |
 | --- | --- |
 | ``SELECT * FROM c WHERE c.TenantId = 'Microsoft' AND c.UserId = '8411f20f-be3e-416a-a3e7-dcd5a3c1f28b' AND c.SessionId = '0000-11-0000-1111'`` | Routed to the **single logical and physical partition** that contains the data for the specified values of ``TenantId``, ``UserId`` and ``SessionId``. |
-| ``SELECT * FROM c WHERE c.TenantId = 'Microsoft' AND c.UserId = '8411f20f-be3e-416a-a3e7-dcd5a3c1f28b'`` | Routed to only the **targeted subset of logical and physical partition(s)** that contain data for the specified values of ``TenantId`` and ``UserId``. This is a targeted cross-partition query that returns data for a specific user in the tenant. |
-| ``SELECT * FROM c WHERE c.TenantId = 'Microsoft'`` | Routed to only the **targeted subset of logical and physical partition(s)** that contain data for the specified value of ``TenantId``. This is a targeted cross-partition query that returns data for all users in a tenant. |
+| ``SELECT * FROM c WHERE c.TenantId = 'Microsoft' AND c.UserId = '8411f20f-be3e-416a-a3e7-dcd5a3c1f28b'`` | Routed to only the **targeted subset of logical and physical partition(s)** that contain data for the specified values of ``TenantId`` and ``UserId``. This query is a targeted cross-partition query that returns data for a specific user in the tenant. |
+| ``SELECT * FROM c WHERE c.TenantId = 'Microsoft'`` | Routed to only the **targeted subset of logical and physical partition(s)** that contain data for the specified value of ``TenantId``. This query is a targeted cross-partition query that returns data for all users in a tenant. |
 | ``SELECT * FROM c WHERE c.UserId = '8411f20f-be3e-416a-a3e7-dcd5a3c1f28b'`` | Routed to **all physical partitions**, resulting in a fan-out cross-partition query. |
 | ``SELECT * FROM c WHERE c.SessionId = '0000-11-0000-1111'`` | Routed to **all physical partitions**, resulting in a fan-out cross-partition query. |
 
@@ -356,6 +356,22 @@ Configure the ``partitionKey`` object with the following values to create a subp
 
 For example, assume we have a hierarchical partition key composed of **TenantId -> UserId -> SessionId**. The ``partitionKey`` object would be configured to include all three values in the **paths** property, a **kind** value of ``MultiHash``, and a **version** value of ``2`` 
 
+#### [Bicep](#tab/bicep)
+
+```bicep
+partitionKey: {
+  paths: [
+    'TenantId',
+    'UserId',
+    'SessionId'
+  ]
+  kind: 'MultiHash'
+  version: 2
+}
+```
+
+#### [JSON](#tab/arm-json)
+
 ```json
 "partitionKey": {
     "paths": [
@@ -368,25 +384,30 @@ For example, assume we have a hierarchical partition key composed of **TenantId 
 }
 ```
 
+---
+
+For more information about the ``partitionKey`` object, see [ContainerPartitionKey specification](/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases/containers#containerpartitionkey).
+
 ## Using the Azure Cosmos DB emulator
 
-You can test the subpartitioning feature with the [CosmosDB Emulator](/azure/cosmos-db/local-emulator). 
-
-To enable subparitioning on the emulator, start the emulator from the installation directory with the ``/EnablePreview`` flag.
+You can test the subpartitioning feature using the latest version of the local emulator for Azure Cosmos DB. To enable subparitioning on the emulator, start the emulator from the installation directory with the ``/EnablePreview`` flag.
 
 ```powershell
 .\CosmosDB.Emulator.exe /EnablePreview
 ```
 
+For more information, see [Azure Cosmos DB emulator](/azure/cosmos-db/local-emulator). 
+
 ## Limitations and known issues
 
-- Working with containers that use hierarchical partition keys is supported only in the preview versions of the .NET v3 and Java v4 SDK. You must use the supported SDK to create new containers with hierarchical partition keys and to perform CRUD/query operations on the data. 
-    - When issuing queries from the SDK, passing in a partition key in ``QueryRequestOptions`` is not currently supported. You must specify the partition key paths in the query text itself.
-    - Support for Portal, PowerShell, and CLI, and other SDK languages is planned and not yet available. 
-- In the Data Explorer in the portal, you currently are not be able to view the documents in a container with hierarchical partition keys. You can read or edit these documents with the supported .NET v3 or Java v4 SDK version.
-- You can specify up to 3 hierarchical partition keys. 
-- Hierarchial partition keys can currently only be enabled on new containers. The desired partition key paths must be specified upfront at the time of container creation and cannot be changed later. 
-- Hierarchical partition keys is currently supported only for SQL API accounts (API for MongoDB and Cassandra API are not currently supported).
+- Working with containers that use hierarchical partition keys is supported only in the preview versions of the .NET v3 and Java v4 SDKs. You must use a supported SDK to create new containers with hierarchical partition keys and to perform CRUD/query operations on the data. Support for other SDK languages (Python, JavaScript) is planned and not yet available. 
+- Passing in a partition key in ``QueryRequestOptions`` isn't currently supported when issuing queries from the SDK. You must specify the partition key paths in the query text itself.
+- Azure portal support is planned and not yet available.
+- Support for automation platforms (Azure PowerShell, Azure CLI) is planned and not yet available.
+- In the Data Explorer in the portal, you currently can't view documents in a container with hierarchical partition keys. You can read or edit these documents with the supported .NET v3 or Java v4 SDK version\[s\].
+- You can only specify hierarchical partition keys up to three layers in depth. 
+- Hierarchical partition keys can currently only be enabled on new containers. The desired partition key paths must be specified at the time of container creation and can't be changed later. 
+- Hierarchical partition keys are currently supported only for SQL API accounts (API for MongoDB and Cassandra API aren't currently supported).
 
 ## Next steps
 
