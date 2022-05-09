@@ -66,14 +66,13 @@ Once your data source has the **Data Use Management** toggle **Enabled*, it will
 
 Execute the steps in the [data-owner policy authoring tutorial](./how-to-data-owner-policy-authoring-generic.md) to create and then publish a data owner policy similar to one of the examples shown in the images.
 
-Example #1: **SQL Performance Monitor** policy. This policy provides group Contoso Team read access to Storage account marketinglake1:
+**Example #1: SQL Performance Monitor policy**. This policy assigns the AAD principal 'Mateo Gomez' to the *SQL Performance monitoring* role, in the scope of SQL server *relecloud-sql-srv2*. This policy has also been published to that server.
 
-![Screenshot that shows a sample data owner policy giving access to an Azure Storage account](./media/how-to-data-owner-policies-sql/data-owner-policy-example-azure-sql-db-performance-monitor.png)
+![Screenshot that shows a sample data owner policy giving SQL Performance Monitor access to an Azure SQL DB](./media/how-to-data-owner-policies-sql/data-owner-policy-example-azure-sql-db-performance-monitor.png)
 
-Example #2: **Read** policy. This policy provides group Contoso Team read access to Storage account marketinglake1:
+**Example #2: Read policy**. This policy assigns the AAD principal 'Rober Murphy' to the *SQL Data reader* role, in the scope of SQL server *relecloud-sql-srv2*. This policy has also been published to that server.
 
-![Screenshot that shows a sample data owner policy giving access to an Azure Storage account](./media/how-to-data-owner-policies-sql/data-owner-policy-example-azure-sql-db-data-reader.png)
-
+![Screenshot that shows a sample data owner policy giving Data Reader access to an Azure SQL DB](./media/how-to-data-owner-policies-sql/data-owner-policy-example-azure-sql-db-data-reader.png)
 
 
 >[!Important]
@@ -87,24 +86,27 @@ Once the policy is published, it takes a maximum of 4 minutes for the SQL Server
 The AAD Accounts that the SQL policies are applied to should now be able to connect to any database that is on the server to which the policies are published to.
 
 #### Force policy download
-It is possible to force an immediate download of the latest published policies to the current SQL database (per database) running
+It is possible to force an immediate download of the latest published policies to the current SQL database by running the following command. The minimal permission required to run it is membership in ##MS_ServerStateManager##-server role.
+
 ```syntaxsql
-exec sys.sp_external_policy_refresh
+-- Force immediate download of latest published policies
+exec sp_external_policy_refresh reload
 ```  
-The minimal permission required for those is: membership in ##MS_ServerStateManager##-server role.
 
 #### Analyze downloaded policy state from SQL
-The following DMVs can be used to analyze which policies have been downloaded and are assigned to which AAD account currently
+The following DMVs can be used to analyze which policies have been downloaded and are currently assigned to AAD accounts. The minimal permission required to run them is VIEW DATABASE SECURITY STATE - or assigned Action Group *SQL Security Auditor*.
+
 ```syntaxsql
-SELECT * FROM sys.dm_server_external_policy_actions  -- this is just a list of generally supported actions
-SELECT * FROM sys.dm_server_external_policy_roles    -- roles that are part of a policy published to this server
-SELECT * FROM sys.dm_server_external_policy_role_members -- AAD principals assigned to a given role on a given resource scope
-```  
-The minimal permission required for those is: VIEW DATABASE SECURITY STATE - or assigned Action Group *SQL Security Auditor*
 
+-- Lists generally supported actions
+SELECT * FROM sys.dm_server_external_policy_actions
 
->[!IMPORTANT]
-> For the policies to be downloaded, the SQL Server needs to be enabled to receive the policies. This step currently requires MS Engineers to turn this functionality on - on a per-server basis. Make sure the server has been provided to your SQL Security PM contact. In the final state, this switch will be exposed to customers, requiring just the SQL Server owner to enable this.
+-- Lists the roles that are part of a policy published to this server
+SELECT * FROM sys.dm_server_external_policy_roles
+
+-- Lists AAD principals assigned to a given role on a given resource scope
+SELECT * FROM sys.dm_server_external_policy_role_members
+```
 
 ## Additional information
 
