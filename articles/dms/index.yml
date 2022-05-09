@@ -74,6 +74,10 @@ landingContent:
             url: resource-network-topologies.md
           - text: Custom roles for online migrations from SQL Server to SQL Managed Instance
             url: resource-custom-roles-sql-db-managed-instance.md            
+          - text: Custom roles for online migrations from SQL Server to SQL Managed Instance using Azure Data Studio
+            url: resource-custom-roles-sql-db-managed-instance-ads.md            
+          - text: Custom roles for online migrations from SQL Server to VM's using Azure Data Studio
+            url: resource-custom-roles-sql-db-virtual-machine-ads.md            
       - linkListType: video
         links:
           - text: Migrate SQL Server 2008 to SQL Managed Instance

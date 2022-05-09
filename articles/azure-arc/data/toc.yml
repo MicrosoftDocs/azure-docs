@@ -265,10 +265,14 @@ items:
     items:
     - name: arcdata
       href: ./reference/reference-az-arcdata.md
+    - name: arcdata ad-connector
+      href: ./reference/reference-az-arcdata-ad-connector.md
     - name: arcdata dc
       href: ./reference/reference-az-arcdata-dc.md
     - name: arcdata dc config
       href: ./reference/reference-az-arcdata-dc-config.md
+    - name: arccdata dc debug
+      href: ./reference/reference-az-arcdata-dc-debug.md
     - name: arcdata dc endpoint
       href: ./reference/reference-az-arcdata-dc-endpoint.md
     - name: arcdata dc status
@@ -281,12 +285,12 @@ items:
       href: ./reference/reference-az-postgres-arc-server-endpoint.md
     - name: sql mi-arc
       href: ./reference/reference-az-sql-mi-arc.md
-    - name: sql mi-arc endpoint
-      href: ./reference/reference-az-sql-mi-arc-endpoint.md
+    - name: sql instance-failover-group-arc
+      href: ./reference/reference-az-sql-instance-failover-group-arc.md
     - name: sql mi-arc config
       href: ./reference/reference-az-sql-mi-arc-config.md
-    - name: sql mi-arc dag
-      href: ./reference/reference-az-sql-mi-arc-dag.md
+    - name: sql mi-arc endpoint
+      href: ./reference/reference-az-sql-mi-arc-endpoint.md
     - name: sql midb-arc 
       href: ./reference/reference-az-sql-midb-arc.md
 - name: Resources

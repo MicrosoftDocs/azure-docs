@@ -156,7 +156,7 @@ The following example shows a Sensor model with a semantic-type telemetry for Te
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/ISensor.json" highlight="7-18":::
 
 > [!NOTE]
-> Currently, "Property" or "Telemetry" type must be the first element of the array, followed by the semantic type. Otherwise, the field may not be visible in the Azure Digital Twins Explorer.
+> *"Property"* or *"Telemetry"* must be the first element of the `@type` array, followed by the semantic type. Otherwise, the field may not be visible in [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md).
 
 ## Relationships
 

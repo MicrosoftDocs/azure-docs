@@ -1,6 +1,6 @@
 ---
-title: Glossary report on your data using Microsoft Purview Insights
-description: This how-to guide describes how to view and use Microsoft Purview Insights glossary reporting on your data. 
+title: Glossary report on your data using Microsoft Purview Data Estate Insights
+description: This how-to guide describes how to view and use Microsoft Purview Data Estate Insights glossary reporting on your data. 
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
@@ -15,7 +15,7 @@ ms.date: 09/27/2021
 This how-to guide describes how to access, view, and filter Microsoft Purview Glossary insight reports for your data.
 
 > [!IMPORTANT]
-> Microsoft Purview Insights are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Microsoft Purview Data Estate Insights are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 In this how-to guide, you'll learn how to:
 
@@ -25,7 +25,7 @@ In this how-to guide, you'll learn how to:
 
 ## Prerequisites
 
-Before getting started with Microsoft Purview insights, make sure that you've completed the following steps:
+Before getting started with Microsoft Purview Data Estate Insights, make sure that you've completed the following steps:
 
 - Set up your Azure resources and populate the account with data
 
@@ -47,11 +47,11 @@ In Microsoft Purview, you can create glossary terms and attach them to assets. L
 
    :::image type="content" source="./media/glossary-insights/portal-access.png" alt-text="Launch Microsoft Purview from the Azure portal":::
 
-1. On the Microsoft Purview **Home** page, select **Insights** on the left menu.
+1. On the Microsoft Purview **Home** page, select **Data Estate Insights** on the left menu.
 
-   :::image type="content" source="./media/glossary-insights/view-insights.png" alt-text="View your insights in the Azure portal":::
+   :::image type="content" source="./media/glossary-insights/view-insights.png" alt-text="View your data estate insights in the Azure portal":::
 
-1. In the **Insights** area, select **Glossary** to display the Microsoft Purview **Glossary insights** report.
+1. In the **Data Estate Insights** area, select **Glossary** to display the Microsoft Purview **Glossary insights** report.
 
 **Glossary Insights** provides you as a business user, valuable information to maintain a well-defined glossary for your organization.
 

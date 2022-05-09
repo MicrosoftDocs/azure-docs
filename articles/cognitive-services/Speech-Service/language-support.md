@@ -730,7 +730,7 @@ The following neural voices are in public preview.
 | English (United Kingdom) | `en-GB` | Female | `en-GB-BellaNeural` <sup>New</sup> | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-HollieNeural` <sup>New</sup> | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-OliviaNeural` <sup>New</sup> | General |
-| English (United Kingdom) | `en-GB` | Girl | `en-GB-MaisieNeural` <sup>New</sup> | General |
+| English (United Kingdom) | `en-GB` | Female | `en-GB-MaisieNeural` <sup>New</sup> | General, child voice |
 | English (United Kingdom) | `en-GB` | Male | `en-GB-AlfieNeural` <sup>New</sup> | General |
 | English (United Kingdom) | `en-GB` | Male | `en-GB-ElliotNeural` <sup>New</sup> | General |
 | English (United Kingdom) | `en-GB` | Male | `en-GB-EthanNeural` <sup>New</sup> | General |
@@ -743,7 +743,7 @@ The following neural voices are in public preview.
 | French (France) | `fr-FR` | Female | `fr-FR-JacquelineNeural` <sup>New</sup> | General |
 | French (France) | `fr-FR` | Female | `fr-FR-JosephineNeural` <sup>New</sup> | General |
 | French (France) | `fr-FR` | Female | `fr-FR-YvetteNeural` <sup>New</sup> | General |
-| French (France) | `fr-FR` | Girl | `fr-FR-EloiseNeural` <sup>New</sup> | General |
+| French (France) | `fr-FR` | Female | `fr-FR-EloiseNeural` <sup>New</sup> | General, child voice |
 | French (France) | `fr-FR` | Male | `fr-FR-AlainNeural` <sup>New</sup> | General |
 | French (France) | `fr-FR` | Male | `fr-FR-ClaudeNeural` <sup>New</sup> | General |
 | French (France) | `fr-FR` | Male | `fr-FR-JeromeNeural` <sup>New</sup> | General |
@@ -755,7 +755,7 @@ The following neural voices are in public preview.
 | German (Germany) | `de-DE` | Female | `de-DE-LouisaNeural` <sup>New</sup> | General |
 | German (Germany) | `de-DE` | Female | `de-DE-MajaNeural` <sup>New</sup> | General |
 | German (Germany) | `de-DE` | Female | `de-DE-TanjaNeural` <sup>New</sup> | General |
-| German (Germany) | `de-DE` | Girl | `de-DE-GiselaNeural` <sup>New</sup> | General |
+| German (Germany) | `de-DE` | Female | `de-DE-GiselaNeural` <sup>New</sup> | General, child voice |
 | German (Germany) | `de-DE` | Male | `de-DE-BerndNeural` <sup>New</sup> | General |
 | German (Germany) | `de-DE` | Male | `de-DE-ChristophNeural` <sup>New</sup> | General |
 | German (Germany) | `de-DE` | Male | `de-DE-KasperNeural` <sup>New</sup> | General |

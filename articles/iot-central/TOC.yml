@@ -233,8 +233,10 @@
           href: core/howto-manage-iot-central-from-cli.md
         - name: Manage from CSP portal
           href: core/howto-create-and-manage-applications-csp.md
-        - name: Create a private endpoint
+        - name: Create a private endpoint for devices
           href: core/howto-create-private-endpoint.md
+        - name: Export to a secure VNET
+          href: core/howto-connect-secure-vnet.md
 - name: Reference
   items:
   - name: Azure CLI

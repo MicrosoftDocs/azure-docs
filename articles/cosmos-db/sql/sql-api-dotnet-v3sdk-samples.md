@@ -6,7 +6,7 @@ ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 02/23/2022
+ms.date: 05/02/2020
 ms.custom: devx-track-dotnet
 
 ---
@@ -35,7 +35,7 @@ If you're familiar with the previous version of the .NET SDK, you might be used 
 
 ## Prerequisites
 
-- Visual Studio 2019 with the Azure development workflow installed. You can download and use the free [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
+- Latest [!INCLUDE [cosmos-db-visual-studio](../includes/cosmos-db-visual-studio.md)]
 
 - The [Microsoft.Azure.cosmos NuGet package](https://www.nuget.org/packages/Microsoft.Azure.cosmos/).
 

@@ -1047,6 +1047,10 @@ items:
       href: solution-template-bulk-copy-from-files-to-database.md
     - name: Delta copy from database
       href: solution-template-delta-copy-with-control-table.md
+    - name: Detect and mask PII data
+      href: solution-template-pii-detection-and-masking.md
+    - name: Extract data from PDF source
+      href: solution-template-extract-data-from-pdf.md
     - name: Migrate data from Amazon S3 to Azure Storage
       href: solution-template-migration-s3-azure.md
     - name: Move files

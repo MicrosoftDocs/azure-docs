@@ -47,6 +47,8 @@ In this quickstart, you'll create a DDoS protection plan and link it to a virtua
 
 1. Select **Review + create** then **Create**
 
+[!INCLUDE [DDoS-Protection-region-requirement.md](../../includes/DDoS-Protection-region-requirement.md)]
+
 ## Enable DDoS protection for a virtual network
 ### Enable DDoS protection for a new virtual network
 

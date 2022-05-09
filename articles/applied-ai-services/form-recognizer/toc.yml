@@ -79,7 +79,7 @@ items:
       href: containers/form-recognizer-container-install-run.md
     - name: Configure containers
       href: containers/form-recognizer-container-configuration.md
-      displayName: docker, container, run, billing, apikey, logging
+      displayName: docker, container, run, billing, key, logging
     - name: Container image tags
       href: containers/form-recognizer-container-image-tags.md
     - name: Use container instances
