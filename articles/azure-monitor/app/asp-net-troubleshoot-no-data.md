@@ -27,6 +27,8 @@ ms.date: 05/21/2020
 
 * SDK channel keeps telemetry in buffer, and sends them in batches. If the application is shutting down, you might need to explicitly call [Flush()](api-custom-events-metrics.md#flushing-data). Behavior of `Flush()` depends on the actual [channel](telemetry-channels.md#built-in-telemetry-channels) used.
 
+* Per [.NET Core/.NET Framework Console application](worker-service.md#net-corenet-framework-console-application), explicitly calling Flush() followed by sleep is required in Console Apps.
+
 ## Request count collected by Application Insights SDK doesn't match the IIS log count for my application
 
 Internet Information Services (IIS) logs counts of all request reaching IIS and inherently could differ from the total request reaching an application. Due to this, it isn't guaranteed that the request count collected by the SDKs will match the total IIS log count. 
