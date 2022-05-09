@@ -83,16 +83,20 @@ If the same prefix is announced in multiple peering locations, it is sufficient 
 
 **Prefix Registration**
 
-**Step1:** If you are an Operator Connect Partner, you would be able to see the “Register Prefix” tab on the left panel of your peering resource page. 
+1. If you are an Operator Connect Partner, you would be able to see the “Register Prefix” tab on the left panel of your peering resource page. 
+   
     > [!div class="mx-imgBorder"]
     > ![Registered prefixes under a peering enabled for Peering service.](media/registered-prefixes-under-direct-peering.png)
 
-**Step2:** Register prefixes to access the activation keys 
+2. Register prefixes to access the activation keys.
+
     > [!div class="mx-imgBorder"]
     > ![Registered prefixes blade showing a list of prefixes with keys.](media/registered-prefixes-blade.png)
-    >
+
+    > [!div class="mx-imgBorder"] 
     > ![Example of a prefix being registered.](media/registered-prefix-example.png)
-    >
+
+    > [!div class="mx-imgBorder"]
     > ![Registered prefixes blade showing a new prefix added.](media/prefix-after-registration.png)
 
 **Prefix Activation**
@@ -101,23 +105,27 @@ In the previous steps, you registered the prefix and generated the prefix key. T
 
 Below are the steps to activate the prefix.
 
-**Step1:**  Look for “Peering Services” resource 
+1. Look for “Peering Services” resource 
+   
     > [!div class="mx-imgBorder"]
     > ![Search for Peering Service on Azure portal.](media/peering-service-search.png)
-    >
+   
+    > [!div class="mx-imgBorder"]   
     > ![List of existing peering services.](media/peering-service-list.png)
 
-**Step2:** Create a new Peering Service resource
+2. Create a new Peering Service resource
+   
     > [!div class="mx-imgBorder"]
     > ![Create a new peering service.](media/create-peering-service.png)
 
-**Step3:** Provide details on the location, provider and primary and backup interconnect location. If backup location is set to “none”, the traffic will fail over the internet. 
+3. Provide details on the location, provider and primary and backup interconnect location. If backup location is set to “none”, the traffic will fail over the internet. 
 
-If you are an Operator Connect partner, you would be able to see yourself as the provider. 
-The prefix key should be the same as the one obtained in the "Prefix Registration" step. 
+    If you are an Operator Connect partner, you would be able to see yourself as the provider. 
+    The prefix key should be the same as the one obtained in the "Prefix Registration" step. 
+   
     > [!div class="mx-imgBorder"]
     > ![The fields to be filled to create a peering service.](media/peering-service-properties.png)
-    >
+   
     > [!div class="mx-imgBorder"]
     > ![Validation of peering service resource before deployment.](media/peering-service-deployment.png)
 
