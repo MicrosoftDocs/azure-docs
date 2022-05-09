@@ -19,11 +19,12 @@ Backup and restore**Standard**, **Premium**, **Isolated**. For more information 
 There are two types of backups in App Service. Automatic backups made for your app regularly as long as it's in a supported pricing tier. Custom backups requires initial configuration, and can be made on-demand or on a schedule. The following table shows the differences between the two types.
 
 ||Automatic backups | Custom backups |
+|-|-|-|
 | Pricing tiers | **Standard**, **Premium**. | **Standard**, **Premium**, **Isolated**. |
 | Configuration required | No. | Yes. |
 | Backup size | 30 GB. | 10 GB, 4GB of which can be the linked database. |
-| Linked database | Not backed up. | The following linked databases can be backed up: [SQL Database](https://azure.microsoft.com/services/sql-database/), [Azure Database for MySQL](https://azure.microsoft.com/services/mysql), [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql), [MySQL in-app](https://azure.microsoft.com/blog/mysql-in-app-preview-app-service/). |
-| [Storage account]((../storage/index.yml)) required | Yes. | No. |
+| Linked database | Not backed up. | The following linked databases can be backed up: [SQL Database](/azure/azure-sql/database/), [Azure Database for MySQL](../mysql/index.yml), [Azure Database for PostgreSQL](../postgresql/index.yml), [MySQL in-app](https://azure.microsoft.com/blog/mysql-in-app-preview-app-service/). |
+| [Storage account](../storage/index.yml) required | Yes. | No. |
 | Backup frequency | Hourly, not configurable. | Configurable. |
 | Retention | 30 days, not configurable. | 0-30 days or indefinite. |
 | Donwloadable | No. | Yes, as Azure Storage blobs. |
@@ -152,7 +153,7 @@ Once the storage account and container is configured, you can initiate a manual 
 
 Sometimes you don't want to back up everything on your app. Here are a few examples:
 
-* You [set up weekly backups](#configure-automated-backups) of your app that contains static content that never changes, such as old blog posts or images.
+* You [set up weekly backups](#configure-custom-scheduled-backups) of your app that contains static content that never changes, such as old blog posts or images.
 * Your app has over 10 GB of content (that's the max amount you can back up at a time).
 * You don't want to back up the log files.
 
@@ -273,11 +274,11 @@ The following table shows which app configuration is restored when you choose to
 |[Alerts and Metrics](../azure-monitor/alerts/alerts-classic-portal.md)| No |
 |[Backup](manage-backup.md)| No |
 |Associated [deployment slots](deploy-staging-slots.md)| No |
-|Any linked database that [standard backup](manage-backup.md#what-gets-backed-up) supports| No |
+|Any linked database that [custom backup](#whats-included-in-a-custom-backup) supports| No |
 
 #### What's included in a custom backup?
 
-A custom backup (one-time backup or scheduled backup) includes all content and configuration that's included in an automatic backup, plus any linked database, up to the allowable maximum size.
+A custom backup (one-time backup or scheduled backup) includes all content and configuration that's included in an [automatic backup](#whats-included-in-an-automatic-backup), plus any linked database, up to the allowable maximum size.
 
 #### Why is my linked database not backed up?
 
@@ -313,4 +314,4 @@ The following security features in Azure storage are not supported for custom ba
 
 ## Next Steps
 
-[Azure Blob Storage documentation](https://docs.microsoft.com/azure/storage/blobs/)
+[Azure Blob Storage documentation](../storage/blobs/index.yml)
