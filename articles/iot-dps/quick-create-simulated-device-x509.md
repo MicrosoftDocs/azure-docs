@@ -206,7 +206,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 ## Create a self-signed X.509 device certificate
 
-::: zone pivot="programming-language-ansi-c,programming-language-java"
+::: zone pivot="programming-language-java"
 
 In this section, you'll use sample code from the Azure IoT SDK to create a self-signed X.509 certificate. This certificate must be uploaded to your provisioning service, and verified by the service.
 
@@ -221,7 +221,7 @@ To create the X.509 certificate:
 
 ::: zone-end
 
-::: zone pivot="programming-language-python,programming-language-csharp,programming-language-nodejs"
+::: zone pivot="programming-language-ansi-c,programming-language-python,programming-language-csharp,programming-language-nodejs"
 
 In this section, you'll use OpenSSL to create a self-signed X.509 certificate. This certificate must be uploaded to your provisioning service, and verified by the service.
 
@@ -238,33 +238,95 @@ To create the X.509 certificate:
 
 ::: zone pivot="programming-language-ansi-c"
 
-### Clone the Azure IoT C SDK
+1. On Windows, open a Git Bash prompt. On Linux, you can use a regular Bash prompt.
 
-The [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) contains test tooling that can help you create an X.509 certificate chain, upload a root or intermediate certificate from that chain, and do proof-of-possession with the service to verify the certificate.
+1. Create and navigate to a directory where you'd like to create your certificates.
 
-If you've already cloned the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository, skip to the [next section](#create-a-test-certificate).
+1. Run the following command:
 
-1. Open a web browser, and go to the [Release page of the Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/releases/latest).
+    # [Windows](#tab/windows)
 
-2. Copy the tag name for the latest release of the Azure IoT C SDK.
-
-3. Open a command prompt or Git Bash shell. Run the following commands to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. (replace `<release-tag>` with the tag you copied in the previous step).
-
-    ```cmd/sh
-    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
-    cd azure-iot-sdk-c
-    git submodule update --init
+    ```bash
+    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device_key.pem -out ./device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=c-device-01"
     ```
 
-    This operation may take several minutes to complete.
+    > [!IMPORTANT]
+    > The extra forward slash given for the subject name (`//CN=c-device-01`) is only required to escape the string with Git on Windows platforms.
 
-4. The test tooling should now be located in the *azure-iot-sdk-c/tools/CACertificates* of the repository that you cloned.
+    # [Linux](#tab/linux)
 
-### Create a test certificate
+    ```bash
+    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device_key.pem -out ./device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=c-device-01"
+    ```
 
-Follow the steps in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
+    ---
 
-In addition to the tooling in the C SDK, the [Group certificate verification sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample) in the *Microsoft Azure IoT SDK for .NET* shows how to do proof-of-possession in C# with an existing X.509 intermediate or root CA certificate.
+1. When asked to **Enter PEM pass phrase:**, use the pass phrase `1234`.
+
+1. When asked **Verifying - Enter PEM pass phrase:**, use the pass phrase `1234` again.
+
+    A test certificate file (*device_cert.pem*) and private key file (*device_key.pem*) should now be generated in the directory where you ran the `openssl` command.
+
+    The certificate file has its subject common name (CN) set to `c-device-01`. For an X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
+
+1. To view the common name (CN) and other properties of the certificate file, enter the following command:
+
+    # [Windows](#tab/windows)
+
+    ```bash
+    winpty openssl x509 -in ./device_cert.pem -text -noout
+    ```
+
+    # [Linux](#tab/linux)
+
+    ```bash
+    openssl x509 -in ./device_cert.pem -text -noout
+    ```
+
+    ---
+
+    ```output
+    Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            77:3e:1d:e4:7e:c8:40:14:08:c6:09:75:50:9c:1a:35:6e:19:52:e2
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: CN = c-device-01
+        Validity
+            Not Before: May  5 21:41:42 2022 GMT
+            Not After : Jun  4 21:41:42 2022 GMT
+        Subject: CN = c-device-01
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (4096 bit)
+                Modulus:
+                    00:d2:94:37:d6:1b:f7:43:b4:21:c6:08:1a:d6:d7:
+                    e6:40:44:4e:4d:24:41:6c:3e:8c:b2:2c:b0:23:29:
+                    ...
+                    23:6e:58:76:45:18:03:dc:2e:9d:3f:ac:a3:5c:1f:
+                    9f:66:b0:05:d5:1c:fe:69:de:a9:09:13:28:c6:85:
+                    0e:cd:53
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints:
+                CA:FALSE
+            Netscape Comment:
+                OpenSSL Generated Certificate
+            X509v3 Subject Key Identifier:
+                63:C0:B5:93:BF:29:F8:57:F8:F9:26:44:70:6F:9B:A4:C7:E3:75:18
+            X509v3 Authority Key Identifier:
+                keyid:63:C0:B5:93:BF:29:F8:57:F8:F9:26:44:70:6F:9B:A4:C7:E3:75:18
+
+            X509v3 Extended Key Usage:
+                TLS Web Client Authentication
+    Signature Algorithm: sha256WithRSAEncryption
+         82:8a:98:f8:47:00:85:be:21:15:64:b9:22:b0:13:cc:9e:9a:
+         ed:f5:93:b9:4b:57:0f:79:85:9d:89:47:69:95:65:5e:b3:b1:
+         ...
+         cc:b2:20:9a:b7:f2:5e:6b:81:a1:04:93:e9:2b:92:62:e0:1c:
+         ac:d2:49:b9:36:d2:b0:21
+    ```
 
 ::: zone-end
 
@@ -407,7 +469,7 @@ The sample code is set up to use X.509 certificates that are stored within a pas
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device_key.pem -out ./device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=Python-device-01"
+    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device_key.pem -out ./device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=nodejs-device-01"
     ```
 
     > [!IMPORTANT]
@@ -635,8 +697,11 @@ This article demonstrates an individual enrollment for a single device to be pro
 6. In the **Add Enrollment** page, enter the following information.
 
     * **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
-    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *X509testcert.pem* that you created in the previous section.
-    * **IoT Hub Device ID:** Enter *test-docs-cert-device* to give the device an ID.
+    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *device_cert.pem* that you created in the previous section.
+    * Leave **IoT Hub Device ID:** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, *c-device-01*. This common name will also be the name used for the registration ID for the individual enrollment entry.
+    * Optionally, you can provide the following information:
+        * Select an IoT hub linked with your provisioning service.
+        * Update the **Initial device twin state** with the desired initial configuration for the device.
 
     :::image type="content" source="./media/quick-create-simulated-device-x509/device-enrollment.png" alt-text="Add device as individual enrollment with X.509 attestation.":::
 
@@ -709,45 +774,138 @@ This article demonstrates an individual enrollment for a single device to be pro
 
 In this section, we'll update the sample code to send the device's boot sequence to your Device Provisioning Service instance. This boot sequence will cause the device to be recognized and assigned to an IoT hub linked to the Device Provisioning Service instance.
 
+### Configure the provisioning device code
+
+In this section, you update the sample code with your Device Provisioning Service instance information. 
+
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
 
-2. Copy the **_ID Scope_** value.
+1. Copy the **_ID Scope_** value.
 
     :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope.png" alt-text="Copy ID Scope from the portal.":::
 
-3. In Visual Studio's *Solution Explorer* window, navigate to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
+1. Launch Visual Studio and open the new solution file that was created in the `cmake` directory you created in the root of the azure-iot-sdk-c git repository. The solution file is named `azure_iot_sdks.sln`.
 
-4. Find the `id_scope` constant, and replace the value with your **ID Scope** value that you copied earlier.
+1. In Solution Explorer for Visual Studio, navigate to **Provisioning_Samples > prov_dev_client_sample > Source Files** and open *prov_dev_client_sample.c*.
+
+1. Find the `id_scope` constant, and replace the value with your **ID Scope** value that you copied in step 2.
 
     ```c
-    static const char* id_scope = "0ne00002193";
+    static const char* id_scope = "0ne00000A0A";
     ```
 
-5. Find the definition for the `main()` function in the same file. Make sure the `hsm_type` variable is set to `SECURE_DEVICE_TYPE_X509` instead of `SECURE_DEVICE_TYPE_TPM` as shown below.
+1. Find the definition for the `main()` function in the same file. Make sure the `hsm_type` variable is set to `SECURE_DEVICE_TYPE_X509` as shown below.
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;
     //hsm_type = SECURE_DEVICE_TYPE_TPM;
     hsm_type = SECURE_DEVICE_TYPE_X509;
+    //hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**.
+1. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**.
 
-7. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the prompt to rebuild the project, select **Yes** to rebuild the project before running.
+### Configure the custom HSM stub code
 
-    The following output is an example of the provisioning device client sample successfully booting up, and connecting to the provisioning Service instance to get IoT hub information and registering:
+The specifics of interacting with actual secure hardware-based storage vary depending on the hardware. As a result, the certificate and private key used by the simulated device in this quickstart will be hardcoded in the custom Hardware Security Module (HSM) stub code.
+
+To update the custom HSM stub code to simulate the identity of the device with ID `c-device-01`:
+
+1. In Solution Explorer for Visual Studio, navigate to **Provisioning_Samples > custom_hsm_example > Source Files** and open *custom_hsm_example.c*.
+
+1. Update the string value of the `COMMON_NAME` string constant using the common name you used when generating the device certificate, `c-device-01`.
+
+    ```c
+    static const char* const COMMON_NAME = "c-device-01";
+    ```
+
+1. In the same file, you need to update the string value of the `CERTIFICATE` constant string using your certificate chain text you saved in *./certs/new-device-01-full-chain.cert.pem* after generating your certificates.
+
+    The syntax of certificate text must follow the pattern below with no extra spaces or parsing done by Visual Studio.
+
+    ```c
+    // <Device/leaf cert>
+    // <intermediates>
+    // <root>
+    static const char* const CERTIFICATE = "-----BEGIN CERTIFICATE-----\n"
+    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n"
+        ...
+    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n"
+    "-----END CERTIFICATE-----";        
+    ```
+
+    Updating this string value correctly in this step can be very tedious and subject to error. To generate the proper syntax in your Git Bash prompt, copy and paste the following bash shell commands into your Git Bash command prompt, and press **ENTER**. These commands will generate the syntax for the `CERTIFICATE` string constant value.
+
+    ```Bash
+    input="./certs/new-device-01-full-chain.cert.pem"
+    bContinue=true
+    prev=
+    while $bContinue; do
+        if read -r next; then
+          if [ -n "$prev" ]; then	
+            echo "\"$prev\\n\""
+          fi
+          prev=$next  
+        else
+          echo "\"$prev\";"
+          bContinue=false
+        fi	
+    done < "$input"
+    ```
+
+    Copy and paste the output certificate text for the new constant value. 
+
+1. In the same file, the string value of the `PRIVATE_KEY` constant must also be updated with the private key for your device certificate.
+
+    The syntax of the private key text must follow the pattern below with no extra spaces or parsing done by Visual Studio.
+
+    ```c
+    static const char* const PRIVATE_KEY = "-----BEGIN RSA PRIVATE KEY-----\n"
+    "MIIJJwIBAAKCAgEAtjvKQjIhp0EE1PoADL1rfF/W6v4vlAzOSifKSQsaPeebqg8U\n"
+        ...
+    "X7fi9OZ26QpnkS5QjjPTYI/wwn0J9YAwNfKSlNeXTJDfJ+KpjXBcvaLxeBQbQhij\n"
+    "-----END RSA PRIVATE KEY-----";
+    ```
+
+    Updating this string value correctly in this step can also be very tedious and subject to error. To generate the proper syntax in your Git Bash prompt, copy and paste the following bash shell commands, and press **ENTER**. These commands will generate the syntax for the `PRIVATE_KEY` string constant value.
+
+    ```Bash
+    input="./private/new-device-01.key.pem"
+    bContinue=true
+    prev=
+    while $bContinue; do
+        if read -r next; then
+          if [ -n "$prev" ]; then	
+            echo "\"$prev\\n\""
+          fi
+          prev=$next  
+        else
+          echo "\"$prev\";"
+          bContinue=false
+        fi	
+    done < "$input"
+    ```
+
+    Copy and paste the output private key text for the new constant value. 
+
+1. Save *custom_hsm_example.c*.
+
+### Run the sample
+
+1. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. When prompted to rebuild the project, select **Yes** to rebuild the project before running.
+
+    The following output is an example of simulated device `custom-hsm-device-01` successfully booting up, and connecting to the provisioning service. The device was assigned to an IoT hub and registered:
 
     ```cmd
-    Provisioning API Version: 1.2.7
-
-    Registering... Press enter key to interrupt.
-
+    Provisioning API Version: 1.3.9
+    
+    Registering Device
+    
     Provisioning Status: PROV_DEVICE_REG_STATUS_CONNECTED
     Provisioning Status: PROV_DEVICE_REG_STATUS_ASSIGNING
-    Provisioning Status: PROV_DEVICE_REG_STATUS_ASSIGNING
-
-    Registration Information received from service:
-    test-docs-hub.azure-devices.net, deviceId: test-docs-cert-device
+    
+    Registration Information received from service: test-docs-hub.azure-devices.net, deviceId: custom-hsm-device-01
+    Press enter key to exit:
     ```
 
 ::: zone-end
