@@ -11,7 +11,7 @@ ms.author: duau
 
 # Designing for disaster recovery with ExpressRoute private peering
 
-ExpressRoute is designed for high availability to provide carrier grade private network connectivity to Microsoft resources. In other words, there's no single point of failure in the ExpressRoute path within Microsoft network. For design considerations to maximize the availability of an ExpressRoute circuit, see [Designing for high availability with ExpressRoute][HA] and [Well-Architectured Framework][/azure/architecture/framework/services/networking/expressroute/reliability]
+ExpressRoute is designed for high availability to provide carrier grade private network connectivity to Microsoft resources. In other words, there's no single point of failure in the ExpressRoute path within Microsoft network. For design considerations to maximize the availability of an ExpressRoute circuit, see [Designing for high availability with ExpressRoute][HA] and [Well-Architectured Framework](/azure/architecture/framework/services/networking/expressroute/reliability)
 
 However, taking Murphy's popular adage--*if anything can go wrong, it will*--into consideration, in this article let us focus on solutions that go beyond failures that can be addressed using a single ExpressRoute circuit. We'll be looking into network architecture considerations for building robust backend network connectivity for disaster recovery using geo-redundant ExpressRoute circuits.
 
