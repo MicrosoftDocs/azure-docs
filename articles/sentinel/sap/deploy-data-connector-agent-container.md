@@ -258,9 +258,6 @@ If not, then your SAP configuration and authentication secrets can and should be
 
     To view a list of the available containers use the command: `docker ps -a`.
 
-
----
-
 # [Manual Deployment](#tab/deploy-manually)
 
 1. Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download) to the machine on which you want to install the agent.
@@ -300,6 +297,8 @@ If not, then your SAP configuration and authentication secrets can and should be
    sid=<SID>
    docker start sapcon-$sid
    ````
+
+---
 
 ## Next steps
 

@@ -1,79 +1,21 @@
 ---
-title: Provide a virtual network to an Azure Container Apps environment
-description: Learn how to provide a VNET to an Azure Container Apps environment.
+title: Provide an external virtual network to an Azure Container Apps Preview environment
+description: Learn how to provide an external VNET to an Azure Container Apps environment.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  how-to
-ms.date: 2/3/2022
+ms.date: 2/18/2022
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
 
-# Provide a virtual network to an Azure Container Apps (Preview) environment
+# Provide an virtual network to an external Azure Container Apps (Preview) environment
 
-As you create an Azure Container Apps [environment](environment.md), a virtual network (VNET) is created for you, or you can provide your own. Network addresses are assigned from a subnet range you define as the environment is created.
-
-- You control the subnet range used by the Container Apps environment.
-- Once the environment is created, the subnet range is immutable.
-- A single load balancer and single Kubernetes service are associated with each container apps environment.
-- Each [revision pod](revisions.md) is assigned an IP address in the subnet.
-- You can restrict inbound requests to the environment exclusively to the VNET by deploying the environment as internal.
+The following example shows you how to create a Container Apps environment in an existing virtual network.
 
 > [!IMPORTANT]
 > In order to ensure the environment deployment within your custom VNET is successful, configure your VNET with an "allow-all" configuration by default. The full list of traffic dependencies required to configure the VNET as "deny-all" is not yet available. Refer to [Known issues for public](https://github.com/microsoft/azure-container-apps/wiki/Known-Issues-for-public-preview) for additional details.
-
-:::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Azure Container Apps environments use an existing VNET, or you can provide your own.":::
-
-## Restrictions
-
-Subnet address ranges can't overlap with the following reserved ranges:
-
-- 169.254.0.0/16
-- 172.30.0.0/16
-- 172.31.0.0/16
-- 192.0.2.0/24
-
-Additionally, subnets must have a size between /21 and /12.
-
-## Subnet types
-
-As a Container Apps environment is created, you provide resource IDs for two different subnets. Both subnets must be defined in the same container apps.
-
-- **App subnet**: Subnet for user app containers. Subnet that contains IP ranges mapped to applications deployed as containers.
-- **Control plane subnet**: Subnet for [control plane infrastructure](../azure-resource-manager/management/control-plane-and-data-plane.md) components and user app containers.
-
-::: zone pivot="azure-cli"
-
-If the [platformReservedCidr](#networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
-
-::: zone-end
-
-## Accessibility level
-
-You can deploy your Container Apps environment with an internet-accessible endpoint or with an IP address in your VNET. The accessibility level determines the type of load balancer used with your Container Apps instance.
-
-### External
-
-Container Apps environments deployed as external resources are available for public requests. External environments are deployed with a virtual IP on an external, public facing IP address.
-
-### Internal
-
-When set to internal, the environment has no public endpoint. Internal environments are deployed with a virtual IP (VIP) mapped to an internal IP address. The internal endpoint is an Azure internal load balancer (ILB) and IP addresses are issued from the custom VNET's list of private IP addresses.
-
-::: zone pivot="azure-cli"
-
-To create an internal only environment, provide the `--internal-only` parameter to the `az containerapp env create` command.
-
-::: zone-end
-
-## Managed resources
-
-When you deploy an internal or an external environment into your own network, a new resource group prefixed with `MC_` is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform, and shouldn't be modified. The resource group contains Public IP addresses used specifically for outbound connectivity from your environment as well as a load balancer. As the load balancer is created in your subscription, there are additional costs associated with deploying the service to a custom virtual network.
-
-## Example
-
-The following example shows you how to create a Container Apps environment in an existing virtual network.
 
 ::: zone pivot="azure-portal"
 

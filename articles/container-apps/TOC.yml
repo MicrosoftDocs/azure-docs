@@ -42,6 +42,16 @@
       href: application-lifecycle-management.md
     - name: Microservices
       href: microservices.md
+    - name: Networking
+      items: 
+      - name: Architecture overview
+        href: networking.md
+      - name: Deploy with an external environment
+        href: vnet-custom.md
+      - name: Deploy with an internal environment
+        href: vnet-custom-internal.md
+      - name: Firewall integration
+        href: firewall-integration.md
     - name: Observability
       href: observability.md
     - name: Health probes
