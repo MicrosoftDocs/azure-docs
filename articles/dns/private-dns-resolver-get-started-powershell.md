@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create and manage your first p
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 05/04/2022
+ms.date: 05/09/2022
 ms.topic: quickstart
 ms.service: dns
 ms.custom: devx-track-azurepowershell, mode-api
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell, mode-api
 
 # Quickstart: Create an Azure DNS Private Resolver using Azure PowerShell
 
-This article walks you through the steps to create your first private DNS zone and record using Azure PowerShell. If you prefer, you can complete this quickstart using [Azure Portal](private-dns-getstarted-portal.md).
+This article walks you through the steps to create your first private DNS zone and record using Azure PowerShell. If you prefer, you can complete this quickstart using [Azure portal](private-dns-getstarted-portal.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

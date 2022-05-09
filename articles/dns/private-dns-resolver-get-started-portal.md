@@ -4,7 +4,7 @@ description: In this quickstart, you create and test a private DNS resolver in A
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 05/06/2022
+ms.date: 05/09/2022
 ms.topic: quickstart
 ms.service: dns
 ms.custom: mode-ui
@@ -28,7 +28,7 @@ Before you can use Microsoft.Network services with your Azure subscription, you 
 
 1. Select the **Subscription** blade in the Azure portal, and then choose your subscription by clicking on it.
 2. Under **Settings** select on **Resource Providers**.
-3, Select on **Microsoft.Network** and then select on Register.
+3. Select on **Microsoft.Network** and then select on Register.
 
 ## Create a resource group
 
@@ -36,7 +36,7 @@ First, create or choose an existing resource group to host the resources for you
 
 1. Select [Create a resource group](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup), the resource group name, choose a supported region, select **Review + create**, and then select **Create**.
 
-    ![create resource group](./media/dns-resolver-getstarted-portal/fig01.png)
+    ![create resource group](./media/dns-resolver-getstarted-portal/resource-group.png)
 
 ## Create a virtual network
 
@@ -55,7 +55,7 @@ Next, add a virtual network to the resource group that you created, and configur
     - Select **Add** to add this subnet.
 6. Select **Review + create** and then select **Create**.
 
-    ![create virtual network](./media/dns-resolver-getstarted-portal/fig02.png)
+    ![create virtual network](./media/dns-resolver-getstarted-portal/virtual-network.png)
 
 ## Create a DNS resolver inside the virtual network 
 
@@ -69,7 +69,7 @@ Next, add a virtual network to the resource group that you created, and configur
 
     Don't create the DNS resolver yet.
 
-    ![create resolver - basics](./media/dns-resolver-getstarted-portal/fig03.png)
+    ![create resolver - basics](./media/dns-resolver-getstarted-portal/dns-resolver.png)
 
 3. Select the **Inbound Endpoints** tab, select **Add an endpoint**, and then enter a name next to **Endpoint name** (ex: myinboundendpoint).
 4. Next to **Subnet**, select the inbound endpoint subnet you created (ex: snet-inbound, 10.0.0.0/28) and then select **Save**.
@@ -87,15 +87,15 @@ Next, add a virtual network to the resource group that you created, and configur
     - When you're finished adding destination addresses, select **Add**.
 9. Select **Review and Create**, and then select **Create**.
 
-    ![create resolver - ruleset](./media/dns-resolver-getstarted-portal/fig04a.png)
+    ![create resolver - ruleset](./media/dns-resolver-getstarted-portal/resolver-ruleset.png)
 
     This example has only one conditional forwarding rule, but you can create many. Edit the rules to enable or disable them as needed.
 
-    ![create resolver - review](./media/dns-resolver-getstarted-portal/fig04b.png)
+    ![create resolver - review](./media/dns-resolver-getstarted-portal/resolver-review.png)
 
     After selecting **Create**, the new DNS resolver will begin deployment. This process might take a minute or two, and you'll see the status of each component as it is deployed.
 
-    ![create resolver - status](./media/dns-resolver-getstarted-portal/fig05.png)
+    ![create resolver - status](./media/dns-resolver-getstarted-portal/resolver-status.png)
 
 ## Create a second virtual network
 
@@ -111,9 +111,9 @@ Create a second virtual network to simulate an on-prem or other environment. To 
     - Subnet address range: 12.2.0.0/24
 7. Select **Add**, select **Review + create**, and then select **Create**.
 
-    ![second vnet review](./media/dns-resolver-getstarted-portal/fig06.png)
+    ![second vnet review](./media/dns-resolver-getstarted-portal/vnet-review.png)
 
-    ![second vnet create](./media/dns-resolver-getstarted-portal/fig07.png)
+    ![second vnet create](./media/dns-resolver-getstarted-portal/vnet-create.png)
 
 ## Test the private resolver
 

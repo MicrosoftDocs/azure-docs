@@ -36,9 +36,9 @@
   - name: Private DNS resolver
     items:
     - name: Create a private DNS resolver - portal
-      href: private-dns-resolver-getstarted-portal.md
+      href: private-dns-resolver-get-started-portal.md
     - name: Create a private resolver - PowerShell
-      href: private-dns-resolver-getstarted-powershell.md
+      href: private-dns-resolver-get-started-powershell.md
 - name: Tutorials
   items:
   - name: Public DNS

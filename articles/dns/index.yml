@@ -73,9 +73,9 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create an Azure DNS Private Resolver using the Azure portal
-            url: ./private-dns-resolver-getstarted-portal.md
+            url: ./private-dns-resolver-get-started-portal.md
           - text: Create an Azure DNS Private Resolver using Windows PowerShell
-            url: ./private-dns-resolver-getstarted-powershell.md
+            url: ./private-dns-resolver-get-started-powershell.md
 
 # Card
   - title: Use alias records

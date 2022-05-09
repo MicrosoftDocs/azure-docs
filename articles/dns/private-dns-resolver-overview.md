@@ -2,10 +2,11 @@
 title: What is Azure DNS Private Resolver?
 description: In this article, get started with an overview of the Azure DNS Private Resolver service.
 services: dns
+ms.custom: references_regions
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 05/06/2022
+ms.date: 05/09/2022
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
@@ -35,7 +36,7 @@ The DNS query process when using an Azure DNS Private Resolver is summarized bel
 
 The architecture for Azure DNS Private Resolver is summarized in the following figure. DNS resolution between Azure virtual networks and on-prem networks requires [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) or a [VPN](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
-![private DNS resolver architecture](./media/dns-resolver-overview/resolver-architecture.png)
+[ ![Azure Private DNS Resolver architecture](./media/dns-resolver-overview/resolver-architecture.png) ](image-file-expanded.png#lightbox)
 
 Figure 1: Azure DNS Private Resolver architecture
 
@@ -128,6 +129,6 @@ DNS forwarding rulesets have the following limitations:
 
 ## Next steps
 
-* Learn how to create an Azure DNS Private Resolver by using [Azure PowerShell](./private-dns-resolver-getstarted-powershell.md) or [Azure Portal](./private-dns-resolver-getstarted-portal.md).
+* Learn how to create an Azure DNS Private Resolver by using [Azure PowerShell](./private-dns-resolver-getstarted-powershell.md) or [Azure portal](./private-dns-resolver-getstarted-portal.md).
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
 * [Learn module: Introduction to Azure DNS](/learn/modules/intro-to-azure-dns).
