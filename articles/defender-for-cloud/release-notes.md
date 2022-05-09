@@ -20,17 +20,17 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in May Include: 
 
-[Availability of Defender for SQL to protect Amazon Web Services (AWS) and Google Cloud Computing (GCP) environments]((https://docs.microsoft.com/azure/defender-for-cloud/quickstart-onboard-gcp?pivots=env-settings) 
+- [Availability of Defender for SQL to protect Amazon Web Services (AWS) and Google Cloud Computing (GCP) environments](https://docs.microsoft.com/azure/defender-for-cloud/quickstart-onboard-gcp?pivots=env-settings) 
 
--General availability (GA) of Defender for SQL for AWS and GCP environments
+### General availability (GA) of Defender for SQL for AWS and GCP environments
 
 The database protection capabilities provided by Microsoft Defender for Cloud now include support for your SQL databases hosted in AWS and GCP environments.
 
-Using Defender for SQL, enterprises can now protect their entire database estate, whether hosted in Azure, AWS, GCP, or on-premises machines.
+Customers who use Defender for SQL can now protect their entire database estate, whether hosted in Azure, AWS, GCP, or on-premises machines.
 
 Microsoft Defender for SQL now provides a unified cross-environment experience to view security recommendations, security alerts and vulnerability assessment findings encompassing SQL servers and the underlying Windows OS.
 
-Using the multi-cloud onboarding experience, you can enable and enforce databases protection for VMs in AWS and GCP. After enabling either of these plans, all supported resources that exist within your subscription are protected. Future resources created on the same subscription will also be protected.
+Using the multi-cloud onboarding experience, you can enable and enforce databases protection for VMs in AWS and GCP. After enabling either of these plans, all supported resources covered by your subscription are protected. Future resources created within the same subscription will also be protected.
 
 Learn how to protect and connect and [your AWS environment](quickstart-onboard-aws.md) and [your GCP organization](quickstart-onboard-gcp.md) with Microsoft Defender for Cloud.
 
