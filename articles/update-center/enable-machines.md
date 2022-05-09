@@ -4,7 +4,7 @@ description: This article describes how to enable the periodic assessment and sc
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 04/20/2022
+ms.date: 04/21/2022
 ms.topic: conceptual
 ---
 

@@ -2,9 +2,9 @@
 title: Query logs and results from Update management center (preview)
 description: The article provides details on how you can review logs and search results from update management center (preview) in Azure using Azure Resource Graph
 ms.service: update-management-center
-author: SGSneha
-ms.author: v-ssudhir
-ms.date: 08/17/2021
+author: SnehaSudhirG
+ms.author: sudhirsneha
+ms.date: 04/21/2022
 ms.topic: conceptual
 ---
 

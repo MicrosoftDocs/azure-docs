@@ -2,7 +2,7 @@
 title: Quickstart - deploy updates in using update management center in the Azure portal
 description: This quickstart helps you to deploy updates immediately and view results for supported machines in update management center (preview) using the Azure portal.
 ms.service: update-management-center
-ms.date: 03/19/2021
+ms.date: 04/21/2022
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.topic: quickstart
@@ -36,14 +36,16 @@ This quickstart details you how to perform manual assessment and apply updates o
 
 ## Configure settings
 
-For the assessed machines that are reporting updates, you can configure the update deployment to start immediately or you can schedule the updates by defining the maintenance window. To update manually, follow these steps:
+For the assessed machines that are reporting updates, you can configure [hotpatching](updates-maintenance-schedules.md#hotpatching), [patch orchestration](manage-multiple-machines.md#summary-of-machine-status) and [periodic assessment](assessment-options.md#periodic-assessment) either immediately or schedule the updates by defining the maintenance window.
+
+To configure the settings on your machines, follow these steps:
 
 1. In **Update management center (Preview)|Getting started**, in **On-demand assessment and updates**, select **Update settings**.
 
     In the **Change update settings** page, by default **Properties** is selected. 
 1. Select from the list of update settings to apply them to the selected machines.
 
-1. In **Update setting(s) to change**, select any option —*Periodic assessment*, *Hotpatch* and *Patch orchestration* to configure and select **Next**.
+1. In **Update setting(s) to change**, select any option —*Periodic assessment*, *Hotpatch* and *Patch orchestration* to configure and select **Next**. For more information, see [Configure settings on virtual machines](manage-update-settings.md#configure-settings-on-single-vm).
 
 1. In **Machines**, verify the machines for which you can apply the updates. You can also add or remove machines from the list and select **Next**.
 
