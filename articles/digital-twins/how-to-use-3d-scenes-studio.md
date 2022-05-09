@@ -109,7 +109,7 @@ One way to create a new element is to select **New element** from the **Elements
 
 Alternatively, you can select a mesh component directly from the visualization and create a new element that is connected to it already.
 
-:::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-start-mesh.png" alt-text="Screenshot of 3D Scenes Studio in the builder for a scene. The mesh for a tank in the 3D visualization is highlighted and there is an option to Create new element." lightbox="media/how-to-use-3d-scenes-studio/new-element-start-mesh.png":::
+:::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-start-mesh.png" alt-text="Screenshot of 3D Scenes Studio in the builder for a scene. The mesh for a tank is highlighted and there is an option to Create new element." lightbox="media/how-to-use-3d-scenes-studio/new-element-start-mesh.png":::
 
 This will open the **New element** panel where you can fill in element information.
 
