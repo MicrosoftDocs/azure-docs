@@ -9,8 +9,6 @@ ms.date: 11/09/2021
 ---
 # Apply Azure security baselines to machines
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 To reduce a machine's attack surface and avoid known risks, it's important to configure the operating system (OS) as securely as possible.
 
 The Azure Security Benchmark has guidance for OS hardening which has led to security baseline documents for [Windows](../governance/policy/samples/guest-configuration-baseline-windows.md) and [Linux](../governance/policy/samples/guest-configuration-baseline-linux.md).
@@ -34,8 +32,8 @@ Use the security recommendations described in this article to assess the machine
 
 Microsoft Defender for Cloud includes two recommendations that check whether the configuration of Windows and Linux machines in your environment meet the Azure security baseline configurations:
 
-- For **Windows** machines, [Vulnerabilities in security configuration on your Windows machines should be remediated (powered by Guest Configuration)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6) compares the configuration with the [Windows security baseline](../governance/policy/samples/guest-configuration-baseline-windows.md).
-- For **Linux** machines, [Vulnerabilities in security configuration on your Linux machines should be remediated (powered by Guest Configuration)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda) compares the configuration with the [Linux security baseline](../governance/policy/samples/guest-configuration-baseline-linux.md).
+- For **Windows** machines, [Vulnerabilities in security configuration on your Windows machines should be remediated (powered by Guest Configuration)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda) compares the configuration with the [Windows security baseline](../governance/policy/samples/guest-configuration-baseline-windows.md).
+- For **Linux** machines, [Vulnerabilities in security configuration on your Linux machines should be remediated (powered by Guest Configuration)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6) compares the configuration with the [Linux security baseline](../governance/policy/samples/guest-configuration-baseline-linux.md).
 
 These recommendations use the guest configuration feature of Azure Policy to compare the OS configuration of a machine with the baseline defined in the [Azure Security Benchmark](/security/benchmark/azure/overview).
 
@@ -45,8 +43,8 @@ To compare machines with the OS security baselines:
  
 1. From Defender for Cloud's portal pages, open the **Recommendations** page. 
 1. Select the relevant recommendation:
-    - For **Windows** machines, [Vulnerabilities in security configuration on your Windows machines should be remediated (powered by Guest Configuration)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6)
-    - For **Linux** machines, [Vulnerabilities in security configuration on your Linux machines should be remediated (powered by Guest Configuration)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda)
+    - For **Windows** machines, [Vulnerabilities in security configuration on your Windows machines should be remediated (powered by Guest Configuration)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda)
+    - For **Linux** machines, [Vulnerabilities in security configuration on your Linux machines should be remediated (powered by Guest Configuration)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6)
 
     :::image type="content" source="media/apply-security-baseline/recommendations-baseline.png" alt-text="The two recommendations for comparing the OS configuration of machines with the relevant Azure security baseline." lightbox="media/apply-security-baseline/recommendations-baseline.png":::
 
@@ -68,8 +66,14 @@ To compare machines with the OS security baselines:
 
 ## FAQ - Hardening an OS according to the security baseline
 
-- [How do I deploy the prerequisites for the security configuration recommendations?](#how-do-i-deploy-the-prerequisites-for-the-security-configuration-recommendations)
-- [Why is a machine shown as not applicable?](#why-is-a-machine-shown-as-not-applicable)
+- [Apply Azure security baselines to machines](#apply-azure-security-baselines-to-machines)
+  - [Availability](#availability)
+  - [What are the hardening recommendations?](#what-are-the-hardening-recommendations)
+  - [Compare machines in your subscriptions with the OS security baselines](#compare-machines-in-your-subscriptions-with-the-os-security-baselines)
+  - [FAQ - Hardening an OS according to the security baseline](#faq---hardening-an-os-according-to-the-security-baseline)
+    - [How do I deploy the prerequisites for the security configuration recommendations?](#how-do-i-deploy-the-prerequisites-for-the-security-configuration-recommendations)
+    - [Why is a machine shown as not applicable?](#why-is-a-machine-shown-as-not-applicable)
+  - [Next steps](#next-steps)
 
 ### How do I deploy the prerequisites for the security configuration recommendations?
 

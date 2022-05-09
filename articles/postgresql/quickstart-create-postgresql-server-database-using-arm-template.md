@@ -82,7 +82,7 @@ On the **Deploy Azure Database for PostgreSQL with VNet** page:
     * **Sku Size MB**: the storage size, in megabytes, of the Azure Database for PostgreSQL server (default *51200*).
     * **Sku Tier**: the deployment tier, such as *Basic*, *GeneralPurpose* (the default), or *MemoryOptimized*.
     * **Sku Family**: *Gen4* or *Gen5* (the default), which indicates hardware generation for server deployment.
-    * **Postgresql Version**: the version of PostgreSQL server to deploy, such as *9.5*, *9.6*, *10*, or *11* (the default).
+    * **PostgreSQL Version**: the version of PostgreSQL server to deploy, such as *9.5*, *9.6*, *10*, or *11* (the default).
     * **Backup Retention Days**: the desired period for geo-redundant backup retention, in days (default *7*).
     * **Geo Redundant Backup**: *Enabled* or *Disabled* (the default), depending on geo-disaster recovery (Geo-DR) requirements.
     * **Virtual Network Name**: the name of the virtual network (default *azure_postgresql_vnet*).

@@ -55,7 +55,7 @@ Then run installation commands specific for your distribution.
    wget -O /tmp/${CUDA_REPO_PKG} https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
    sudo dpkg -i /tmp/${CUDA_REPO_PKG}
-   sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
+   sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/3bf863cc.pub
    rm -f /tmp/${CUDA_REPO_PKG}
 
    sudo apt-get update
@@ -333,7 +333,7 @@ If the driver is installed, you will see output similar to the following. Note t
  
 
 ### X11 server
-If you need an X11 server for remote connections to an NV or NVv2 VM, [x11vnc](http://www.karlrunge.com/x11vnc/) is recommended because it allows hardware acceleration of graphics. The BusID of the M60 device must be manually added to the X11 configuration file (usually, `etc/X11/xorg.conf`). Add a `"Device"` section similar to the following:
+If you need an X11 server for remote connections to an NV or NVv2 VM, [x11vnc](https://wiki.archlinux.org/title/X11vnc) is recommended because it allows hardware acceleration of graphics. The BusID of the M60 device must be manually added to the X11 configuration file (usually, `etc/X11/xorg.conf`). Add a `"Device"` section similar to the following:
  
 ```
 Section "Device"

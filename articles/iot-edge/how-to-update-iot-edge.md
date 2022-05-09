@@ -85,63 +85,15 @@ Check to see which versions of IoT Edge are available.
 If you want to update to the most recent version of IoT Edge, use the following command which also updates the identity service to the latest version:
 
    ```bash
-   sudo apt-get install aziot-edge
+   sudo apt-get install aziot-edge defender-iot-micro-agent-edge
    ```
+It is recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](../defender-for-iot/device-builders/overview.md).
 <!-- end 1.2 -->
 :::moniker-end
 
 # [Linux on Windows](#tab/linuxonwindows)
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
->[!IMPORTANT]
->If you are updating a device from the public preview version of IoT Edge for Linux on Windows to the generally available version, you need to uninstall and reinstall Azure IoT Edge.
->
->To find out if you're currently using the public preview version, navigate to **Settings** > **Apps** on your Windows device. Find **Azure IoT Edge** in the list of apps and features. If your listed version is 1.0.x, you are running the public preview version. Uninstall the app and then [Install and provision IoT Edge for Linux on Windows](how-to-provision-single-device-linux-on-windows-symmetric.md) again. If your listed version is 1.1.x, you are running the generally available version and can receive updates through Microsoft Update.
-
->[!IMPORTANT]
->If you are updating a Windows Server SKU device previous to 1.1.2110.03111 version of IoT Edge for Linux on Windows to the latest available version, you need to do a manual migration.
->
->Update [1.1.2110.0311](https://github.com/Azure/iotedge-eflow/releases/tag/1.1.2110.03111) introduced a change to the VM technology (HCS to VMMS) used for EFLOW Windows Server deployments. You can execute the VM migration with the following steps:
->
-> 1. Using Microsoft Update, download and install the 1.1.2110.03111 update (same as any other EFLOW update, no need for manual steps as long as EFLOW updates are turned on).
-> 2. Once EFLOW update is finished, open an elevated PowerShell session.
-> 3. Run the migration script:
->
->   ```powershell
->   Migrate-EflowVmFromHcsToVmms
->   ```
->
-> Note: Fresh EFLOW 1.1.2110.0311 msi installations on Windows Server SKUs will result in EFLOW deployments using VMMS technology, so no migration is needed.
-
-<!-- end 1.1 -->
-:::moniker-end
-
-<!-- 1.2 -->
-:::moniker range=">=iotedge-2020-11"
-
->[!IMPORTANT]
->This is a Public Preview version of [Azure IoT Edge for Linux on Windows continuous release (EFLOW CR)](./version-history.md), not intended for production use. A clean install may be required for production use once the final General Availability (GA) release is available.
->
->To find out if you're currently using the continuous release version, navigate to **Settings** > **Apps** on your Windows device. Find **Azure IoT Edge** in the list of apps and features. If your listed version is 1.2.x.y, you are running the continuous release version.
-<!-- end 1.2 -->
-:::moniker-end
-
-
-With IoT Edge for Linux on Windows, IoT Edge runs in a Linux virtual machine hosted on a Windows device. This virtual machine is pre-installed with IoT Edge, and you cannot manually update or change the IoT Edge components. Instead, the virtual machine is managed with Microsoft Update to keep the components up to date automatically.
-
-To find the latest version of Azure IoT Edge for Linux on Windows, see [EFLOW releases](https://aka.ms/AzEFLOW-Releases).
-
-To receive IoT Edge for Linux on Windows updates, the Windows host should be configured to receive updates for other Microsoft products. You can turn this option with the following steps:
-
-1. Open **Settings** on the Windows host.
-
-1. Select **Updates & Security**.
-
-1. Select **Advanced options**.
-
-1. Toggle the *Receive updates for other Microsoft products when you update Windows* button to **On**.
+For information about IoT Edge for Linux on Windows updates, see [EFLOW Updates](./iot-edge-for-linux-on-windows-updates.md).
 
 # [Windows](#tab/windows)
 
@@ -284,11 +236,12 @@ When you're ready, follow these steps to update IoT Edge on your devices:
    sudo apt-get remove iotedge
    ```
 
-1. Install the most recent version of IoT Edge, along with the IoT identity service.
+1. Install the most recent version of IoT Edge, along with the IoT identity service and the Microsoft Defender for IoT micro agent for Edge. 
 
    ```bash
-   sudo apt-get install aziot-edge
+   sudo apt-get install aziot-edge defender-iot-micro-agent-edge
    ```
+It is recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](../defender-for-iot/device-builders/overview.md).
 
 1. Import your old config.yaml file into its new format, and apply the configuration info.
 

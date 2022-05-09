@@ -64,13 +64,29 @@ An Offer is extended by Job Router to a worker to handle a particular job when i
 
 A real-world example is the ringing of an agent in a call center.
 
-### Offer flow
+### Offer acceptance flow
 
 1. When Job Router finds a matching Worker for a Job, it creates an Offer and sends an [OfferIssued Event][offer_issued_event] via [Event Grid][subscribe_events].
-2. The Offer is accepted via the Job Router API.
-3. Job Router sends an [OfferAccepted Event][offer_accepted_event].
+1. The Offer is accepted via the Job Router API.
+1. The job is removed from the queue and assigned to the worker.
+1. Job Router sends an [OfferAccepted Event][offer_accepted_event].
+1. Any existing offers to other workers for this same job will be revoked and an [OfferRevoked Event][offer_revoked_event] will be sent.
 
-    :::image type="content" source="../media/router/acs-router-accept-offer.png" alt-text="Diagram showing Communication Services' Job Router accept offer.":::
+### Offer decline flow
+
+1. When Job Router finds a matching Worker for a Job, it creates an Offer and sends an [OfferIssued Event][offer_issued_event] via [Event Grid][subscribe_events].
+1. The Offer is declined via the Job Router API.
+1. The Offer is removed from the worker, opening up capacity for another Offer for a different job.
+1. Job Router sends an [OfferDeclined Event][offer_declined_event].
+1. Job Router won't reoffer the declined Offer to the worker unless they deregister and re-register.
+
+### Offer expiry flow
+
+1. When Job Router finds a matching Worker for a Job, it creates an Offer and sends an [OfferIssued Event][offer_issued_event] via [Event Grid][subscribe_events].
+1. The Offer is not accepted or declined within the TTL period defined by the Distribution Policy.
+1. Job Router will expire the Offer and an [OfferExpired Event][offer_expired_event] will be sent.
+1. The worker is considered unavailable and will be automatically deregistered.
+1. A [WorkerDeregistered Event][worker_deregistered_event] will be sent.
 
 ## Distribution Policy
 
@@ -87,7 +103,7 @@ The three types of modes are
 
 - **Round Robin**: Workers are ordered by `Id` and the next worker after the previous one that got an offer is picked.
 - **Longest Idle**: The worker that has not been working on a job for the longest.
-- **Best Worker**: The workers that are best able to handle the job are picked first.  The logic to rank Workers can be customized, with an expression or Azure function to compare two workers.
+- **Best Worker**: The workers that are best able to handle the job are picked first.  The logic to rank Workers can be customized, with an expression or Azure function to compare two workers. [See example][worker-scoring]
 
 ## Labels
 
@@ -114,6 +130,7 @@ An exception policy controls the behavior of a Job based on a trigger and execut
 - [How jobs are matched to workers](matching-concepts.md)
 - [Router Rule concepts](router-rule-concepts.md)
 - [Classification concepts](classification-concepts.md)
+- [Distribution modes](distribution-concepts.md)
 - [Exception Policies](exception-policy.md)
 - [Quickstart guide](../../quickstarts/router/get-started-router.md)
 - [Manage queues](../../how-tos/router-sdk/manage-queue.md)
@@ -135,6 +152,11 @@ An exception policy controls the behavior of a Job based on a trigger and execut
 
 [subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md
 [worker_registered_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerregistered
+[worker_deregistered_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerderegistered
 [job_classified_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterjobclassified
 [offer_issued_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferissued
 [offer_accepted_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferaccepted
+[offer_declined_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferdeclined
+[offer_expired_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferexpired
+[offer_revoked_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferrevoked
+[worker-scoring]: ../../how-tos/router-sdk/customize-worker-scoring.md

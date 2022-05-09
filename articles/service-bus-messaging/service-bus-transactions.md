@@ -71,6 +71,8 @@ using (var ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
 }
 ```
 
+To learn more about the `EnableCrossEntityTransactions` property, see the following reference [ServiceBusClientBuilder.enableCrossEntityTransactions Method](/java/api/com.azure.messaging.servicebus.servicebusclientbuilder.enablecrossentitytransactions). 
+
 
 ## Timeout
 A transaction times out after 2 minutes. The transaction timer starts when the first operation in the transaction starts. 

@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  tutorial
-ms.date: 08/05/2021
+ms.date: 03/26/2022
 ms.author: cshoe
 ms.custom: devx-track-js
 ---
@@ -105,7 +105,7 @@ The following steps show how to link your app to Azure Static Web Apps. Once in 
 
 1. Select the **Review + Create** button to verify the details are all correct.
 
-1. Select **Create** to start the creation of the App Service Static Web App and provision a GitHub Action for deployment.
+1. Select **Create** to start the creation of the App Service Static Web App and provision a GitHub Actions for deployment.
 
 1. Once the deployment completes select, **Go to resource**.
 

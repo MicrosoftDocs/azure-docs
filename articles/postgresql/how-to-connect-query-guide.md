@@ -4,8 +4,9 @@ description: Links to quickstarts showing how to connect to your Azure Database 
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: how-to
-ms.author: sumuth
-author: mksuni
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.date: 09/21/2020
 ---
 

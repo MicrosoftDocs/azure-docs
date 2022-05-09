@@ -30,13 +30,16 @@ Keep in mind the following points:
 
 In the [Speech SDK](speech-sdk.md), you specify the region as a parameter (for example, in the Speech SDK for C#, you specify the region as a parameter to `SpeechConfig.FromSubscription`).
 
-### Speech-to-text, text-to-speech, and translation
+### Speech-to-text, pronunciation assessment, text-to-speech, and translation
 
-The Speech service is available in these regions for speech-to-text, text-to-speech, and translation:
+The Speech service is available in these regions for speech-to-text, pronunciation assessment, text-to-speech, and translation:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
 If you plan to train a custom model with audio data, use one of the [regions with dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for faster training. You can use the [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) to copy the fully trained model to another region later.
+
+> [!TIP]
+> For pronunciation assessment feature, the released en-US language is available in all speech-to-text regions, and [preview languages](language-support.md#pronunciation-assessment) are available in one region: West US.
 
 ### Intent recognition
 
@@ -89,12 +92,21 @@ Available regions for speaker recognition are in the following table.
 | Americas     | West Central US  | `westcentralus`  |
 | Americas     | West US  | `westus`  |
 | Americas     | West US 2  | `westus2`  |
+| Americas     | West US 3  | `westus3`  |
 | Asia Pacific  | East Asia   | `eastasia` |
 | Asia Pacific  | Southeast Asia   | `southeastasia` |
 | Asia Pacific  | Central India   | `centralindia` |
+| Asia Pacific  | Japan East   | `japaneast` |
+| Asia Pacific  | Japan West   | `japanwest` |
+| Asia Pacific  | Korea Central   | `koreacentral` |
 | Australia     | Australia East   | `australiaeast` |
+| Canada     | Canada Central   | `canadacentral` |
 | Europe     | North Europe   | `northeurope` |
 | Europe     | West Europe   | `westeurope` |
+| Europe     | France Central   | `francecentral` |
+| Europe     | Germany West Central   | `germanywestcentral` |
+| Europe     | Norway East   | `norwayeast` |
+| Europe     | Switzerland West   | `switzerlandwest` |
 | Europe     | UK South   | `uksouth` |
 
 ### Keyword recognition

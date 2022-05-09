@@ -179,10 +179,10 @@ You should see the device being registered and connected to IoT Hub, and then st
 
 ### Validate
 
-The flow you've set up in this article will result in the device automatically being registered in Azure Digital Twins. Use the following [Azure Digital Twins CLI](/cli/azure/dt/twin#az-dt-twin-show) command to find the twin of the device in the Azure Digital Twins instance you created.
+The flow you've set up in this article will result in the device automatically being registered in Azure Digital Twins. Use the following [Azure Digital Twins CLI](/cli/azure/dt/twin#az-dt-twin-show) command to find the twin of the device in the Azure Digital Twins instance you created. There's a placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance), and a placeholder for the device registration ID.
 
 ```azurecli-interactive
-az dt twin show --dt-name <Digital-Twins-instance-name> --twin-id "<Device-Registration-ID>"
+az dt twin show --dt-name <instance-hostname-or-name> --twin-id "<device-registration-ID>"
 ```
 
 You should see the twin of the device being found in the Azure Digital Twins instance.
@@ -310,10 +310,10 @@ Follow the steps below to delete the device in the Azure portal:
 
 It might take a few minutes to see the changes reflected in Azure Digital Twins.
 
-Use the following [Azure Digital Twins CLI](/cli/azure/dt/twin#az-dt-twin-show) command to verify the twin of the device in the Azure Digital Twins instance was deleted.
+Use the following [Azure Digital Twins CLI](/cli/azure/dt/twin#az-dt-twin-show) command to verify the twin of the device in the Azure Digital Twins instance was deleted. There's a placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance), and a placeholder for the device registration ID.
 
 ```azurecli-interactive
-az dt twin show --dt-name <Digital-Twins-instance-name> --twin-id "<Device-Registration-ID>"
+az dt twin show --dt-name <instance-hostname-or-name> --twin-id "<device-registration-ID>"
 ```
 
 You should see that the twin of the device cannot be found in the Azure Digital Twins instance anymore.

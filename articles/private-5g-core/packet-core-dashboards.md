@@ -16,6 +16,23 @@ The *packet core dashboards* provide a flexible way to monitor key statistics re
 
 The packet core dashboards are powered by *Grafana*, an open-source, metric analytics and visualization suite. For more information, see the [Grafana documentation](https://grafana.com/docs/grafana/v6.1/).
 
+## Access the packet core dashboards
+
+To sign in to the packet core dashboards:
+
+1. In your browser, enter https://*\<LocalMonitoringIP\>*/grafana, where *\<LocalMonitoringIP\>* is the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
+
+    :::image type="content" source="media\packet-core-dashboards\grafana-sign-in.png" alt-text="Screenshot of the Grafana sign in page, with fields for the username and password.":::
+
+1. Sign in using your credentials. 
+
+    If you're accessing the packet core dashboards for the first time after installing the packet core instance, you should fill in the fields with the default username and password. Afterwards, follow the prompts to set up a new password that you will use from the next time you sign in.
+
+      - **Email or username**: *admin*
+      - **Password**: *admin*
+
+Once you're signed in to the packet core dashboards, you can hover over your user icon in the left pane to access the options to sign out or change your password.
+
 ## Use the packet core dashboards
 
 We'll go through the common concepts and operations you'll need to understand before you can use the packet core dashboards. If you need more information on using Grafana, see the [Grafana documentation](https://grafana.com/docs/grafana/v6.1/).
@@ -81,7 +98,7 @@ The packet core dashboards use the following types of panel. For all panels, you
 
     :::image type="content" source="media/packet-core-dashboards/packet-core-table-panel.png" alt-text="Screenshot of a table panel in the packet core dashboards. The table displays information on currently active alerts.":::
 
-## Switching between dashboards
+## Switch between dashboards
 
 You can access the lists of available dashboards and switch between them using the drop-down **dashboard links** on the upper right of each dashboard. Dashboards are grouped by the level of information that they provide.
 
@@ -95,7 +112,7 @@ You can choose to use the search bar to find a dashboard by name or select from 
 
 :::image type="content" source="media/packet-core-dashboards/packet-core-dashboard-picker-drop-down.png" alt-text="Screenshot showing the drop-down menu of the dashboard picker. A search bar is displayed, along with a list of available dashboards.":::
 
-## Adjusting the time range
+## Adjust the time range
 
 The **Time picker** in the top right-hand corner of each packet core dashboard allows you to adjust the time range for which the dashboard will display statistics. You can use the time picker to retrieve diagnostics for historical problems. You can choose a relative time range (such as the last 15 minutes), or an absolute time range (such as statistics for a particular month). You can also use the **Refresh dashboard** icon to configure how regularly the statistics displayed on the dashboard will be updated. For detailed information on using the time range controls, see [Time range controls](https://grafana.com/docs/grafana/v6.1/reference/timerange/) in the Grafana documentation.
 

@@ -191,7 +191,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Andromeda test user
 
-In this section, a user called Britta Simon is created in Andromeda. Andromeda supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Andromeda, a new one is created after authentication. If you need to create a user manually, contact [Andromeda Client support team](https://www.ngcsoftware.com/support/).
+In this section, a user called Britta Simon is created in Andromeda. Andromeda supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Andromeda, a new one is created after authentication. If you need to create a user manually, contact Andromeda Client support team.
 
 ## Test SSO
 

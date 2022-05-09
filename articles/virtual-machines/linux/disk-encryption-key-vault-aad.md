@@ -114,7 +114,7 @@ You can manage your service principals with Azure CLI using the [az ad sp](/cli/
 1. Create a new service principal.
 
      ```azurecli-interactive
-     az ad sp create-for-rbac --name "ServicePrincipalName" --password "My-AAD-client-secret" --role Contributor
+     az ad sp create-for-rbac --name "ServicePrincipalName" --password "My-AAD-client-secret" --role Contributor --scopes /subscriptions/<subscription_id>
      ```
 3.  The appId returned is the Azure AD ClientID used in other commands. It's also the SPN you'll use for az keyvault set-policy. The password is the client secret that you should use later to enable Azure Disk Encryption. Safeguard the Azure AD client secret appropriately.
 

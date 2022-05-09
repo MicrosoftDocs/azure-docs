@@ -29,7 +29,7 @@ When you're using speech-to-text for recognition and transcription in a unique e
 
 ## Get started
 
-To get started with speech-to-text, see the [quickstart](get-started-speech-to-text.md). Speech-to-text is available via the [Speech SDK](speech-sdk.md), the [REST API](rest-speech-to-text.md#pronunciation-assessment-parameters), and the [Speech CLI](spx-overview.md).
+To get started with speech-to-text, see the [quickstart](get-started-speech-to-text.md). Speech-to-text is available via the [Speech SDK](speech-sdk.md), the [REST API](rest-speech-to-text-short.md#pronunciation-assessment-parameters), and the [Speech CLI](spx-overview.md).
 
 ## Sample code
 
@@ -37,7 +37,7 @@ Sample code for the Speech SDK is available on GitHub. These samples cover commo
 
 - [Speech-to-text samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
-- [Pronunciation assessment samples (REST)](rest-speech-to-text.md#pronunciation-assessment-parameters)
+- [Pronunciation assessment samples (REST)](rest-speech-to-text-short.md#pronunciation-assessment-parameters)
 
 ## Customization
 
@@ -57,12 +57,12 @@ The [Speech SDK](speech-sdk.md) provides most of the functionalities that you ne
 
 Use the following list to find the appropriate Speech SDK reference docs:
 
-- <a href="https://aka.ms/csspeech/csharpref">C# SDK </a>
-- <a href="https://aka.ms/csspeech/cppref">C++ SDK </a>
-- <a href="https://aka.ms/csspeech/javaref">Java SDK </a>
-- <a href="https://aka.ms/csspeech/pythonref">Python SDK</a>
-- <a href="https://aka.ms/csspeech/javascriptref">JavaScript SDK</a>
-- <a href="https://aka.ms/csspeech/objectivecref">Objective-C SDK </a>
+- <a href="/dotnet/api/overview/azure/cognitiveservices/client/speechservice">C# SDK </a>
+- <a href="/cpp/cognitive-services/speech/">C++ SDK </a>
+- <a href="/java/api/com.microsoft.cognitiveservices.speech">Java SDK </a>
+- <a href="/python/api/azure-cognitiveservices-speech/">Python SDK</a>
+- <a href="/javascript/api/microsoft-cognitiveservices-speech-sdk/">JavaScript SDK</a>
+- <a href="/objectivec/cognitive-services/speech/">Objective-C SDK </a>
 
 > [!TIP]
 > The Speech service SDK is actively maintained and updated. To track changes, updates, and feature additions, see the [Speech SDK release notes](releasenotes.md).
@@ -72,7 +72,7 @@ Use the following list to find the appropriate Speech SDK reference docs:
 For speech-to-text REST APIs, see the following resources:
 
 - [REST API: Speech-to-text](rest-speech-to-text.md)
-- [REST API: Pronunciation assessment](rest-speech-to-text.md#pronunciation-assessment-parameters)
+- [REST API: Pronunciation assessment](rest-speech-to-text-short.md#pronunciation-assessment-parameters)
 - <a href="https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0">REST API: Batch transcription and customization </a>
 
 ## Next steps

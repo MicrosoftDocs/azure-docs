@@ -172,7 +172,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Machine Learning](../../machine-learning/index.yml) | &#x2705; | &#x2705; |
 | [Managed Applications](../../azure-resource-manager/managed-applications/index.yml) | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** |
-| [Media Services](../../media-services/index.yml) | &#x2705; | &#x2705; |
+| [Media Services](/azure/media-services/) | &#x2705; | &#x2705; |
 | [Microsoft 365 Defender](/microsoft-365/security/defender/) (formerly Microsoft Threat Protection) | &#x2705; | &#x2705; |
 | [Microsoft Azure Attestation](../../attestation/index.yml)| &#x2705; | &#x2705; |
 | [Microsoft Azure Marketplace portal](https://azuremarketplace.microsoft.com/marketplace/)| &#x2705; | &#x2705; |
@@ -211,7 +211,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [SignalR Service](../../azure-signalr/index.yml) | &#x2705; | &#x2705; |
 | [Site Recovery](../../site-recovery/index.yml) | &#x2705; | &#x2705; |
 | [Spring Cloud](../../spring-cloud/index.yml) | &#x2705; | &#x2705; |
-| [SQL Database](../../azure-sql/database/sql-database-paas-overview.md) | &#x2705; | &#x2705; |
+| [SQL Database](/azure/azure-sql/database/sql-database-paas-overview) | &#x2705; | &#x2705; |
 | [SQL Server Registry](/sql/sql-server/end-of-support/sql-server-extended-security-updates) | &#x2705; | &#x2705; |
 | [SQL Server Stretch Database](../../sql-server-stretch-database/index.yml) | &#x2705; | &#x2705; |
 | [Storage: Archive](../../storage/blobs/access-tiers-overview.md) | &#x2705; | &#x2705; |
@@ -227,7 +227,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Synapse Analytics](../../synapse-analytics/index.yml) | &#x2705; | &#x2705; |
 | [Time Series Insights](../../time-series-insights/index.yml) | &#x2705; | &#x2705; |
 | [Traffic Manager](../../traffic-manager/index.yml) | &#x2705; | &#x2705; |
-| [Video Analyzer for Media](../../azure-video-analyzer/video-analyzer-for-media-docs/index.yml) (formerly Video Indexer) | &#x2705; | &#x2705; |
+| [Video Analyzer for Media](../../azure-video-indexer/index.yml) (formerly Video Indexer) | &#x2705; | &#x2705; |
 | [Virtual Machine Scale Sets](../../virtual-machine-scale-sets/index.yml) | &#x2705; | &#x2705; |
 | [Virtual Machines](../../virtual-machines/index.yml) (incl. [Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)) | &#x2705; | &#x2705; |
 | [Virtual Network](../../virtual-network/index.yml) | &#x2705; | &#x2705; |
@@ -272,9 +272,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Active Directory (Free and Basic)](../../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Active Directory (Premium P1 + P2)](../../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure AD access reviews](../../active-directory/governance/access-reviews-overview.md) | | | | | &#x2705; |
 | [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Azure AD Privileged Identity Management](../../active-directory/privileged-identity-management/index.yml) | | | | | &#x2705; |
 | [Azure API for FHIR](../../healthcare-apis/azure-api-for-fhir/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/index.yml) | &#x2705; | &#x2705; | | | |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
@@ -370,7 +368,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Logic Apps](../../logic-apps/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Machine Learning](../../machine-learning/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Managed Applications](../../azure-resource-manager/managed-applications/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Media Services](../../media-services/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Media Services](/azure/media-services/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Microsoft 365 Defender](/microsoft-365/security/defender/) (formerly Microsoft Threat Protection) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Microsoft Azure portal](../../azure-portal/index.yml) | &#x2705; | &#x2705; | &#x2705;| &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
@@ -410,7 +408,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Service Health](../../service-health/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [SignalR Service](../../azure-signalr/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Site Recovery](../../site-recovery/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [SQL Database](../../azure-sql/database/sql-database-paas-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [SQL Database](/azure/azure-sql/database/sql-database-paas-overview) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [SQL Server Stretch Database](../../sql-server-stretch-database/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Storage: Archive](../../storage/blobs/access-tiers-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Storage: Blobs](../../storage/blobs/index.yml) (incl. [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |

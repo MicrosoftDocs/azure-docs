@@ -2,10 +2,9 @@
 title: Use Azure AD Domain Services to authorize access to file data over SMB
 description: Learn how to enable identity-based authentication over Server Message Block (SMB) for Azure Files through Azure Active Directory Domain Services. Your domain-joined Windows virtual machines (VMs) can then access Azure file shares by using Azure AD credentials.
 author: khdownie
-
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2022
+ms.date: 04/08/2022
 ms.author: kendownie
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
@@ -13,12 +12,12 @@ ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
 
 # Enable Azure Active Directory Domain Services authentication on Azure Files
 
-[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: on-premises Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (Azure AD DS).We strongly recommend you to review the [How it works section](./storage-files-active-directory-overview.md#how-it-works) to select the right domain service for authentication. The setup is different depending on the domain service you choose. This article focuses on enabling and configuring Azure AD DS for authentication with Azure file shares.
+[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: on-premises Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (Azure AD DS). We strongly recommend you to review the [How it works section](./storage-files-active-directory-overview.md#how-it-works) to select the right domain service for authentication. The setup is different depending on the domain service you choose. This article focuses on enabling and configuring Azure AD DS for authentication with Azure file shares.
 
 If you are new to Azure file shares, we recommend reading our [planning guide](storage-files-planning.md) before reading the following series of articles.
 
 > [!NOTE]
-> Azure Files supports Kerberos authentication with Azure AD DS with RC4-HMAC and AES-256 encryption.
+> Azure Files supports Kerberos authentication with Azure AD DS with RC4-HMAC and AES-256 encryption. We recommend using AES-256.
 >
 > Azure Files supports authentication for Azure AD DS with full synchronization with Azure AD. If you have enabled scoped synchronization in Azure AD DS which only sync a limited set of identities from Azure AD, authentication and authorization is not supported.
 
@@ -80,11 +79,11 @@ The following diagram illustrates the end-to-end workflow for enabling Azure AD 
 
 ![Diagram showing Azure AD over SMB for Azure Files workflow](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
 
-## (Optional) Use AES 256 encryption
+## Recommended: Use AES-256 encryption
 
-By default, Azure AD DS authentication uses Kerberos RC4 encryption. To use Kerberos AES256 instead, follow these steps:
+By default, Azure AD DS authentication uses Kerberos RC4 encryption. We recommend configuring it to use Kerberos AES-256 encryption instead by following these steps:
 
-As an Azure AD DS user with the required permissions (typically, members of the **AAD DC Administrators** group will have the necessary permissions, open the Azure cloud shell.
+As an Azure AD DS user with the required permissions (typically, members of the **AAD DC Administrators** group will have the necessary permissions), open the Azure cloud shell.
 
 Execute the following commands:
 

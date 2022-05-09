@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/28/2022
+ms.date: 04/01/2022
 ms.author: makromer
 ---
 
@@ -29,7 +29,7 @@ You can copy data from a REST source to any supported sink data store. You also 
 Specifically, this generic REST connector supports:
 
 - Copying data from a REST endpoint by using the **GET** or **POST** methods and copying data to a REST endpoint by using the **POST**, **PUT** or **PATCH** methods.
-- Copying data by using one of the following authentications: **Anonymous**, **Basic**, **AAD service principal**, and **managed identities for Azure resources**.
+- Copying data by using one of the following authentications: **Anonymous**, **Basic**, **AAD service principal**, and **user-assigned managed identity**.
 - **[Pagination](#pagination-support)** in the REST APIs.
 - For REST as source, copying the REST JSON response [as-is](#export-json-response-as-is) or parse it by using [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping). Only response payload in **JSON** is supported.
 
@@ -71,6 +71,9 @@ Use the following steps to create a REST linked service in the Azure portal UI.
 The following sections provide details about properties you can use to define Data Factory entities that are specific to the REST connector.
 
 ## Linked service properties
+
+> [!Important]
+> Due to Azure service security and compliance request, system-assigned managed identity authentication is no longer available in REST connector for both Copy and Mapping data flow. You are recommended to migrate existing linked services that use system-managed identity authentication to user-assigned managed identity authentication or other authentication types. Please make sure the migration to be done by **September 15, 2022**. For more detailed steps about how to create, manage user-assigned managed identities, refer to [this](data-factory-service-identity.md#user-assigned-managed-identity). 
 
 The following properties are supported for the REST linked service:
 
@@ -144,34 +147,6 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
                 "type": "SecureString"
             },
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
-            "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>"
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-### <a name="managed-identity"></a> Use system-assigned managed identity authentication
-
-Set the **authenticationType** property to **ManagedServiceIdentity**. In addition to the generic properties that are described in the preceding section, specify the following properties:
-
-| Property | Description | Required |
-|:--- |:--- |:--- |
-| aadResourceId | Specify the AAD resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
-
-**Example**
-
-```json
-{
-    "name": "RESTLinkedService",
-    "properties": {
-        "type": "RestService",
-        "typeProperties": {
-            "url": "<REST endpoint e.g. https://www.example.com/>",
-            "authenticationType": "ManagedServiceIdentity",
             "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>"
         },
         "connectVia": {

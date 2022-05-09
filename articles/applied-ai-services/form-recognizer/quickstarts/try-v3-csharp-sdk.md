@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 03/16/2022
+ms.date: 03/31/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -142,17 +142,10 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
     * [**Prebuilt model**](#prebuilt-model)
 
-1. [Run your program](#run-your-application).
-
 > [!IMPORTANT]
 >
 > * Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, *see* Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md).
 
-## Run your application
-
-Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
-
-  :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
 <!-- ### [.NET Command-line interface (CLI)](#tab/cli)
 
@@ -288,6 +281,12 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
+**Run your application**
+
+Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
+
+  :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
+
 ### General document model output
 
 Here's a snippet of the expected output:
@@ -398,6 +397,12 @@ for (int i = 0; i < result.Tables.Count; i++)
 }
 
 ```
+
+**Run your application**
+
+Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
+
+  :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
 ### Layout model output
 
@@ -548,6 +553,12 @@ for (int i = 0; i < result.Documents.Count; i++)
 }
 
 ```
+
+**Run your application**
+
+Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
+
+  :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
 ### Prebuilt model output
 

@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: matjazl
-ms.author: cavoeg
+ms.author: mikaelw
 author: modillon
 ms.date: 03/01/2022
 ---

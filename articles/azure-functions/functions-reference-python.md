@@ -362,7 +362,7 @@ First, the function.json file must be updated to include a `route` in the HTTP t
            "get",
            "post"
        ],
-       "route": "/{*route}"
+       "route": "{*route}"
     },
     {
        "type": "http",
@@ -411,7 +411,7 @@ Update the Python code file `init.py`, depending on the interface used by your f
 ```python
 app=fastapi.FastAPI()
 
-@app.get("/hello/{name}")
+@app.get("hello/{name}")
 async def get_name(
   name: str,):
   return {
@@ -426,7 +426,7 @@ def main(req: func.HttpRequest, context: func.Context) -> func.HttpResponse:
 ```python
 app=Flask("Test")
 
-@app.route("/hello/<name>", methods=['GET'])
+@app.route("hello/<name>", methods=['GET'])
 def hello(name: str):
     return f"hello {name}"
 

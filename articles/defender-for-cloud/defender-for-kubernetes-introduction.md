@@ -9,17 +9,15 @@ author: bmansheim
 
 # Introduction to Microsoft Defender for Kubernetes (deprecated)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Defender for Cloud provides real-time threat protection for your Azure Kubernetes Service (AKS) containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers.
 
 Threat protection at the cluster level is provided by the analysis of the Kubernetes audit logs. 
-Host-level threat detection for your Linux AKS nodes is available if you enable [Microsoft Defender for servers](defender-for-servers-introduction.md) and its Log Analytics agent. However, if your cluster is deployed on an Azure Kubernetes Service virtual machine scale set, the Log Analytics agent is not currently supported.
+Host-level threat detection for your Linux AKS nodes is available if you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) and its Log Analytics agent. However, if your cluster is deployed on an Azure Kubernetes Service virtual machine scale set, the Log Analytics agent is not currently supported.
 
 ## Availability
 
 > [!IMPORTANT]
-> Microsoft Defender for Kubernetes has been replaced with [**Microsoft Defender for Containers**](defender-for-servers-introduction.md). If you've already enabled Defender for Kubernetes on a subscription, you can continue to use it. However, you won't get Defender for Containers' improvements and new features.
+> Microsoft Defender for Kubernetes has been replaced with [**Microsoft Defender for Containers**](defender-for-containers-introduction.md). If you've already enabled Defender for Kubernetes on a subscription, you can continue to use it. However, you won't get Defender for Containers' improvements and new features.
 >
 > This plan is no longer available for subscriptions where it isn't already enabled.
 >

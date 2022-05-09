@@ -11,9 +11,9 @@ metadata:
   ms.subservice: fhir
   ms.topic: landing-page 
   ms.collection: collection
-  author: caitlinv39
-  ms.author: cavoeg
-  ms.date: 02/22/2022
+  author: mikaelweave
+  ms.author: mikaelw
+  ms.date: 04/01/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -73,7 +73,7 @@ landingContent:
         links:
           - text: Profile validation
             url: validation-against-profiles.md
-          - text: Patient-everything
+          - text: Patient/$everything
             url: patient-everything.md
           - text: $member-match operation
             url: tutorial-member-match.md

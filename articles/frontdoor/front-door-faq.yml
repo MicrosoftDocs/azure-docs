@@ -96,7 +96,7 @@ sections:
           How do I lock down the access to my backend to only Azure Front Door?
         answer: |
           > [!NOTE]
-          > New SKU Front Door Premium provides a more recommended way to lock down your application via Private Endpoint. [Learn more about Private Endpoint](./standard-premium/concept-private-link.md)
+          > New SKU Front Door Premium provides a more recommended way to lock down your application via Private Endpoint. [Learn more about Private Endpoint](private-link.md)
           
           To lock down your application to accept traffic only from your specific Front Door, you can set up IP ACLs for your backend or restrict the traffic on your backend to the specific value of the header 'X-Azure-FDID' sent by Front Door. These steps are detailed out as below:
           
@@ -193,7 +193,7 @@ sections:
       - question: |
           What are the various timeouts and limits for Azure Front Door?
         answer: |
-          Learn about all the documented [timeouts and limits for Azure Front Door](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-service-limits).
+          Learn about all the documented [timeouts and limits for Azure Front Door](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-classic-limits).
           
       - question: |
           How long does it take for a rule to take effect after being added to the Front Door Rules Engine?
@@ -214,6 +214,20 @@ sections:
 
   - name: TLS configuration
     questions:
+  
+      - question: | 
+          How does Front Door handle ‘domain fronting’ behavior? 
+        answer: |
+          As of April 29, 2022, Microsoft has made a change to the behavior of Azure Front Door Standard/Premium/(classic) and Azure CDN from Microsoft (classic) in alignment with its commitment to stop allowing domain fronting behavior on its platform.  Once blocking domain fronting is enabled, AFD and CDN resources will block any HTTP request that exhibit this behavior.
+          If this behavior is enabled for your resource, requests where Host header in HTTP/HTTPS requests doesn't match the original TLS SNI extension used during the TLS negotiation, will be blocked.
+          
+          If you wish to block domain fronting for any existing Azure Front Door Standard and Premium, Azure Front Door (classic) and Azure CDN Standard from Microsoft (classic) resources or for new Azure Front Door Standard and Premium, Azure Front Door (classic) and Azure CDN Standard from Microsoft (classic) resources, please create a support request and provide your subscription and 
+          resource information. Upon enabling of blocking domain fronting behavior, Azure Front Door and Azure CDN Standard from Microsoft (classic) resources will block any HTTP request that exhibit this behavior.
+         
+          When Front Door blocks a request due to this mismatch: 
+          The client will receive a HTTP “421 Misdirected Request” error code response 
+          Front Door will log the block in its diagnostic logs under the “Error Info” property with the value “SSLMismatchedSNI” 
+ 
       - question: |
           What TLS versions are supported by Azure Front Door?
         answer: |

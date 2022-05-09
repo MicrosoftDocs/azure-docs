@@ -72,8 +72,8 @@ Having already set up [data collection from your CEF sources](connect-common-eve
 
 1. You must run the following command on those machines to disable the synchronization of the agent with the Syslog configuration in Microsoft Sentinel. This ensures that the configuration change you made in the previous step does not get overwritten.
 
-    ```c
-    sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'
+    ```bash
+    sudo -u omsagent python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable
     ```
 
 ## Configure your device's logging settings
@@ -86,7 +86,7 @@ If the instructions on your data connector's page in Microsoft Sentinel indicate
 
 Use the link in the data connector page to deploy your parsers, or follow the instructions from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/ASIM).
 
-For more information, see [Advanced Security Information Model (ASIM) parsers](normalization-about-parsers.md).
+For more information, see [Advanced Security Information Model (ASIM) parsers](normalization-parsers-overview.md).
 
 ## Configure the Log Analytics agent
 

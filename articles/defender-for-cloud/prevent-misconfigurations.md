@@ -7,8 +7,6 @@ ms.date: 11/09/2021
 
 # Prevent misconfigurations with Enforce/Deny recommendations
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Security misconfigurations are a major cause of security incidents. Defender for Cloud can help *prevent* misconfigurations of new resources with regard to specific recommendations. 
 
 This feature can help keep your workloads secure and stabilize your secure score.
@@ -67,7 +65,7 @@ These recommendations can be used with the **enforce** option:
 - Microsoft Defender for Key Vault should be enabled
 - Microsoft Defender for Kubernetes should be enabled
 - Microsoft Defender for Resource Manager should be enabled
-- Microsoft Defender for servers should be enabled
+- Microsoft Defender for Servers should be enabled
 - Microsoft Defender for Azure SQL Database servers should be enabled
 - Microsoft Defender for SQL servers on machines should be enabled
 - Microsoft Defender for SQL should be enabled for unprotected Azure SQL servers

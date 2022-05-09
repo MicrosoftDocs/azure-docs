@@ -42,7 +42,7 @@ In addition, you need the following additional extensions to connect the cluster
 
 ## Access your Kubernetes cluster
 
-After installing the client tools, you need access to a Kubernetes cluster. You can create  Kubernetes cluster with [`az aks create`](/cli/azure/aks#az-aks-create), or you can follow the steps below to create the cluster in the Azure portal.  
+After installing the client tools, you need access to a Kubernetes cluster. You can create a Kubernetes cluster with [`az aks create`](/cli/azure/aks#az-aks-create), or you can follow the steps below to create the cluster in the Azure portal.  
 
 ### Create a cluster
 
@@ -116,7 +116,7 @@ After creating the cluster, connect to the cluster through the Azure CLI.
 
 ### Arc enable the Kubernetes cluster
 
-Now that the cluster is running, connect the cluster to Azure. When you connect a cluster to Azure, you Arc enable it. Arc enabling your cluster allow you to view and manage the cluster, and deploy and manage additional services such as Arc-enabled data services on the cluster directly from Azure portal. 
+Now that the cluster is running, connect the cluster to Azure. When you connect a cluster to Azure, you Arc enable it. Arc enabling your cluster allows you to view and manage the cluster, and deploy and manage additional services such as Arc-enabled data services on the cluster directly from Azure portal. 
 
 Use `az connectedk8s connect` to connect the cluster to Azure: 
 
@@ -138,10 +138,8 @@ After the connect command completes successfully, you can view the shadow object
 The next step is to create the data controller in directly connected mode via the Azure portal. Use the same subscription and resource group that you used to [create a cluster](#create-a-cluster).
 
 1. In the portal, locate the resource group from the previous step.
-1. Select the **Kubernetes - Azure Arc** object name.
-1. Select **Settings** > **Extensions**. Select **Add**.
-1. Select **Azure Arc data controller**.
-1. Click **Create**.
+1. From the search bar in Azure portal, search for *Azure Arc data controllers*, and select **+ Create**.
+1. Select **Azure Arc-enabled Kubernetes cluster (Direct connectivity mode)**. Select **Next: Data controller details**.
 1. Specify a name for the data controller.
 1. Specify a custom location (namespace). 
 
@@ -183,7 +181,7 @@ NAME          STATE
 <namespace>   Ready
 ```
 
-## Create Azure Arc-enabled SQL Managed Instance 
+## Create an Azure Arc-enabled SQL Managed Instance 
 
 1. In the portal, locate the resource group.
 1. In the resource group, select **Create**.

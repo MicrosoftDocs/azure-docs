@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/28/2021
+ms.date: 05/04/2022
 
 ms.author: baselden
 author: BarbaraSelden
@@ -62,7 +62,7 @@ Here are the least privileged roles required for this deployment:
 
 | Azure AD Role| Description |
 | - | -|
-| Global Administrator| To implement combined registration experience. |
+| User Administrator or Global Administrator| To implement combined registration experience. |
 | Authentication Administrator| To implement and manage authentication methods. |
 | User| To configure Authenticator app on device, or to enroll security key device for web or Windows 10 sign-in. |
 
@@ -216,13 +216,13 @@ There are three types of passwordless sign-in deployments available with securit
 
 Enabling Windows 10 sign-in using FIDO2 security keys requires you to enable the credential provider functionality in Windows 10. Choose one of the following:
 
-* [Enable credential provider with Intune](howto-authentication-passwordless-security-key-windows.md)
+* [Enable credential provider with Microsoft Endpoint Manager](howto-authentication-passwordless-security-key-windows.md)
 
-  * We recommend Intune deployment.
+  * We recommend Microsoft Endpoint Manager deployment.
 
 * [Enable credential provider with a provisioning package](howto-authentication-passwordless-security-key-windows.md)
 
-  * If Intune deployment isn't possible, administrators must deploy a package on each machine to enable the credential provider functionality. The package installation can be carried out by one of the following options:
+  * If Microsoft Endpoint Manager deployment isn't possible, administrators must deploy a package on each machine to enable the credential provider functionality. The package installation can be carried out by one of the following options:
     * Group Policy or Configuration Manager
     * Local installation on a Windows 10 machine
 

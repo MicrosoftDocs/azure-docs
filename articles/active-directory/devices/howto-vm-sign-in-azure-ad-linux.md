@@ -56,6 +56,9 @@ It's not supported to use this extension on Azure Kubernetes Service (AKS) clust
 
 If you choose to install and use the CLI locally, you must be running the Azure CLI version 2.22.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
+> [!NOTE]
+> This is functionality is also available for [Azure Arc-enabled servers](../../azure-arc/servers/ssh-arc-overview.md).
+
 ## Requirements for login with Azure AD using openSSH certificate-based authentication
 
 To enable Azure AD login using SSH certificate-based authentication for Linux VMs in Azure, ensure the following network, virtual machine, and client (ssh client) requirements are met.
@@ -365,8 +368,8 @@ For customers who are using previous version of Azure AD login for Linux that wa
    ```azurecli
    az vm extension delete -g MyResourceGroup --vm-name MyVm -n AADLoginForLinux
    ```
-> [!NOTE]
-> The extension uninstall can fail if there are any Azure AD users currently logged in on the VM. Make sure all users are logged off first.
+    > [!NOTE]
+    > The extension uninstall can fail if there are any Azure AD users currently logged in on the VM. Make sure all users are logged off first.
 
 1. Enable system-assigned managed identity on your VM.
 
@@ -448,7 +451,7 @@ Solution 1: Upgrade the Azure CLI client to version 2.21.0 or higher.
 
 After the user has successfully signed in using az login, connection to the VM using `az ssh vm -ip <addres>` or `az ssh vm --name <vm_name> -g <resource_group>` fails with *Connection closed by <ip_address> port 22*.
 
-Cause 1: The user isn’t assigned to the either the Virtual Machine Administrator/User Login Azure RBAC roles within the scope of this VM.
+Cause 1: The user isn’t assigned to either of the Virtual Machine Administrator/User Login Azure RBAC roles within the scope of this VM.
 
 Solution 1: Add the user to the either of the Virtual Machine Administrator/User Login Azure RBAC roles within the scope of this VM.
 
@@ -462,6 +465,14 @@ Solution 2: Perform these actions:
 ### Virtual machine scale set Connection Issues
 
 Virtual machine scale set VM connections may fail if the virtual machine scale set instances are running an old model. Upgrading virtual machine scale set instances to the latest model may resolve issues, especially if an upgrade hasn’t been done since the Azure AD Login extension was installed. Upgrading an instance applies a standard virtual machine scale set configuration to the individual instance.
+
+### AllowGroups / DenyGroups statements in sshd_config cause first login to fail for Azure AD users
+
+Cause 1: If sshd_config contains either AllowGroups or DenyGroups statements, the very first login fails for Azure AD users. If the statement was added after a user already has a successful login, they can log in.
+
+Solution 1: Remove AllowGroups and DenyGroups statements from sshd_config.
+
+Solution 2: Move AllowGroups and DenyGroups to a "match user" section in sshd_config. Make sure the match template excludes Azure AD users.
 
 ## Next steps
 

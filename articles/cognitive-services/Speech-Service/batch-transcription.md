@@ -30,7 +30,7 @@ You can use batch transcription REST APIs to call the following methods:
 |    Gets the transcription identified by the specified ID.                        |    GET       |    speechtotext/v3.0/transcriptions/{id}       |
 |    Gets the result files of the transcription identified by the specified ID.    |    GET       |    speechtotext/v3.0/transcriptions/{id}/files |
 
-You can review and test the detailed API, which is available as a [Swagger document](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
+For more information, see the [Speech-to-text REST API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) reference documentation.
 
 Batch transcription jobs are scheduled on a best-effort basis. You can't estimate when a job will change into the running state, but it should happen within minutes under normal system load. When the job is in the running state, the transcription occurs faster than the audio runtime playback speed.
 
@@ -402,7 +402,7 @@ while (completed < 1)
 }
 ```
 
-For full details about the preceding calls, see our [Swagger document](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0). For the full sample shown here, go to [GitHub](https://aka.ms/csspeech/samples) in the `samples/batch` subdirectory.
+For full details about the preceding calls, see the [Speech-to-text REST API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) reference documentation. For the full sample shown here, go to [GitHub](https://aka.ms/csspeech/samples) in the `samples/batch` subdirectory.
 
 This sample uses an asynchronous setup to post audio and receive transcription status. The `PostTranscriptions` method sends the audio file details, and the `GetTranscriptions` method receives the states. `PostTranscriptions` returns a handle, and `GetTranscriptions` uses it to create a handle to get the transcription status.
 

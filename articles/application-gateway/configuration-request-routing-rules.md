@@ -2,7 +2,7 @@
 title: Azure Application Gateway request routing rules configuration
 description: This article describes how to configure the Azure Application Gateway request routing rules.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020

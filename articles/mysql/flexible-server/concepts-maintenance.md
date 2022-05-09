@@ -4,6 +4,7 @@ description: This article describes the scheduled maintenance feature in Azure D
 author: niklarin
 ms.author: nlarin
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 09/21/2020
 ---

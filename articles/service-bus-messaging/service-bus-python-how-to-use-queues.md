@@ -26,7 +26,7 @@ This article shows you how to use Python to send messages to, and receive messag
 ## Prerequisites
 - An Azure subscription. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue. Note down the **connection string** for your Service Bus namespace and the name of the **queue** you created.
-- Python 2.7 or higher, with the [Python Azure Service Bus](https://pypi.python.org/pypi/azure-servicebus) package installed. For more information, see the [Python Installation Guide](/azure/developer/python/azure-sdk-install). 
+- Python 2.7 or higher, with the [Python Azure Service Bus](https://pypi.python.org/pypi/azure-servicebus) package installed. For more information, see the [Python Installation Guide](/azure/developer/python/sdk/azure-sdk-install). 
 
 ## Send messages to a queue
 

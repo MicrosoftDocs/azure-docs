@@ -1,13 +1,13 @@
 ---
 title: Connect a Go application to Azure Cosmos DB's API for MongoDB
 description: This quickstart demonstrates how to connect an existing Go application to Azure Cosmos DB's API for MongoDB.
-author: rothja
-ms.author: jroth
+author: gahl-levy
+ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: golang
 ms.topic: quickstart
-ms.date: 08/26/2021
+ms.date: 04/26/2022
 ms.custom: mode-api, devx-track-azurecli
 ---
 # Quickstart: Connect a Go application to Azure Cosmos DB's API for MongoDB
@@ -15,9 +15,9 @@ ms.custom: mode-api, devx-track-azurecli
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
+> * [Python](create-mongodb-python.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
-> * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-go.md)
 >  
 
@@ -27,7 +27,7 @@ The sample application is a command-line based `todo` management tool written in
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free). Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription. You can also use the [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) with the connection string `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`.
-- [Go](https://golang.org/) installed on your computer, and a working knowledge of Go.
+- [Go](https://go.dev/) installed on your computer, and a working knowledge of Go.
 - [Git](https://git-scm.com/downloads).
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 

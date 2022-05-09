@@ -7,7 +7,7 @@ ms.reviewer: anbene
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 03/28/2022
 ---
 
 # Create a consulting service offer
@@ -36,6 +36,12 @@ To publish a consulting service offer, you must meet certain eligibility require
     * The offer ID can't be changed after you select **Create**.
 
 1. Enter an **Offer alias**. This is the name used for the offer in Partner Center. It isn't visible in the online stores and is different from the offer name shown to customers.
+
+1. Associate the new offer with a _publisher_. A publisher represents an account for your organization. You may have a need to create the offer under a particular publisher. If you don’t, you can simply accept the publisher account you’re signed in to.
+
+    > [!NOTE]
+    > The selected publisher must be enrolled in the [**Commercial Marketplace program**](marketplace-faq-publisher-guide.yml#how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace-) and cannot be modified after the offer is created.
+
 1. To generate the offer and continue, select **Create**.
 
 ## Configure lead management

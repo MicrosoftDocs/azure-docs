@@ -6,15 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: ssambare
-ms.reviewer: laobri
+ms.reviewer: larryfr
 author: shivanissambare
-ms.date: 12/22/2021
+ms.date: 03/31/2022
 ms.topic: how-to
-ms.custom: how-to, devplatv2, devx-track-azurecli 
+ms.custom: how-to, devplatv2, devx-track-azurecli, cliv2
 ms.devlang: azurecli
 ---
 
 # How to deploy an AutoML model to an online endpoint (preview)
+
+[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
 
 In this article, you'll learn how to deploy an AutoML-trained machine learning model to an online endpoint. Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of developing a machine learning model. For more, see [What is automated machine learning (AutoML)?](concept-automated-ml.md).
 
@@ -75,9 +77,9 @@ To deploy using these files, you can use either the studio or the Azure CLI.
 
 # [Studio](#tab/Studio)
 
-1. Go to the Models page in Azure machine learning studio
+1. Go to the Models page in Azure Machine Learning studio
 
-1. Click on + Register Model option
+1. Select + Register Model option
 
 1. Register the model you downloaded from Automated ML run
 
@@ -100,7 +102,7 @@ To create a deployment from the CLI, you'll need the Azure CLI with the ML v2 ex
 
 If you receive an error message or you don't see `Extensions: ml` in the response, follow the steps at [Install and set up the CLI (v2)](how-to-configure-cli.md).
 
-Login:
+Sign in:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_login":::
 
@@ -138,13 +140,13 @@ You'll need to modify this file to use the files you downloaded from the AutoML 
 
     | Path | Change to |
     | --- | --- |
-    | `model:local_path` | The path to the `model.pkl` file you downloaded. |
-    | `code_configuration:code:local_path` | The directory in which you placed the scoring file. | 
+    | `model:path` | The path to the `model.pkl` file you downloaded. |
+    | `code_configuration:code:path` | The directory in which you placed the scoring file. | 
     | `code_configuration:scoring_script` | The name of the Python scoring file (`scoring_file_<VERSION>.py`). |
     | `environment:conda_file` | A file URL for the downloaded conda environment file (`conda_env_<VERSION>.yml`). |
 
     > [!NOTE]
-    > For a full description of the YAML, see [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md).
+    > For a full description of the YAML, see [Online endpoint (preview) YAML reference](reference-yaml-endpoint-online.md).
 
 1. From the command line, run: 
 
