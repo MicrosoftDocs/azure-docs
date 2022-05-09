@@ -53,7 +53,7 @@ Use the following steps to label your data:
 
 2. From the left side menu, select **Data labeling**. You can find a list of all documents in your storage container.
 
-    :::image type="content" source="../media/tagging-files-view.png" alt-text="A screenshot showing the Language Studio screen for tagging data." lightbox="../media/tagging-files-view.png":::
+    <!--:::image type="content" source="../media/tagging-files-view.png" alt-text="A screenshot showing the Language Studio screen for labeling data." lightbox="../media/tagging-files-view.png":::-->
 
     >[!TIP]
     > You can use the filters in top menu to view the unlabeled files so that you can start labeling them.
@@ -66,7 +66,7 @@ Use the following steps to label your data:
 
 4. In the right side pane, **Add entity type** to your project so you can start labeling your data with them.
 
-    :::image type="content" source="../media/tag-1.png" alt-text="A screenshot showing data labeling." lightbox="../media/tag-1.png":::
+    <!--:::image type="content" source="../media/tag-1.png" alt-text="A screenshot showing complete data labeling." lightbox="../media/tag-1.png":::-->
 
 6. You have two options to label your document:
 

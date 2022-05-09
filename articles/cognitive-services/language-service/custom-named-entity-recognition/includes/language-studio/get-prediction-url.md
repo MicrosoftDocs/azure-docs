@@ -12,13 +12,13 @@ ms.author: aahi
 
 1. After the deployment job is completed successfully, select the deployment you want to use and from the top menu click on **Get prediction URL**.
 
-    :::image type="content" source="../media/get-prediction-url-1.png" alt-text="run-inference" lightbox="../media/get-prediction-url-1.png":::
+    :::image type="content" source="../../media/get-prediction-url-1.png" alt-text="A screenshot showing the button to get a prediction URL" lightbox="../../media/get-prediction-url-1.png":::
 
 2. In the window that appears, under the **Submit** pivot, copy the sample request URL and body into your command line.
 
 3. Replace `<YOUR_DOCUMENT_HERE>` with the actual text you want to extract entities from.
 
-    :::image type="content" source="../media/get-prediction-url-2.png" alt-text="run-inference-2" lightbox="../media/get-prediction-url-2.png":::
+    :::image type="content" source="../../media/get-prediction-url-2.png" alt-text="A screenshot showing the example request." lightbox="../../media/get-prediction-url-2.png":::
 
 4. Submit the `POST` cURL request in your terminal or command prompt. You'll receive a 202 response with the API results if the request was successful.
 
@@ -26,7 +26,7 @@ ms.author: aahi
 
 6. Back to Language Studio; select **Retrieve** pivot from the same window you got the example request you got earlier and copy the sample request into a text editor. 
 
-    :::image type="content" source="../media/get-prediction-url-3.png" alt-text="run-inference-3" lightbox="../media/get-prediction-url-3.png":::
+    :::image type="content" source="../../media/get-prediction-url-3.png" alt-text="A screenshot showing the example retrieval request." lightbox="../../media/get-prediction-url-3.png":::
 
 7. Replace `<JOB-ID>` with the `{JOB-ID}` you extracted from the previous step. 
 
