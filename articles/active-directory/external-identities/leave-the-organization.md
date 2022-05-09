@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/21/2022
+ms.date: 05/09/2022
 
 ms.author: mimart
 author: msmimart
@@ -30,6 +30,11 @@ An Azure Active Directory (Azure AD) B2B collaboration user can decide to leave 
 
 ## Leave an organization
 
+In your My Account portal, on the Organizations page, you can view and manage the organizations you have access to:
+
+- **Home organization**: Your home organization is listed first. This is the organization that owns your work or school account. Because your account is managed by your administrator, you're not allowed to leave your home organization. (If you don't have an assigned home organization, you'll just see a single heading that says Organizations with the list of your associated organizations.).  
+- **Other organizations you belong to**: You'll also see the other organizations that you've signed in to previously using your work or school account. You can leave any of these other organizations at any time. 
+
 To leave an organization, follow these steps.
 
 1. Go to your **My Account** page by doing one of the following:
@@ -38,7 +43,7 @@ To leave an organization, follow these steps.
    > [!NOTE]
    > If you use the email one-time passcode feature when signing in, you'll need to use a My Account URL that includes your tenant name or tenant ID, for example: `https://myaccount.microsoft.com?tenantId=wingtiptoys.onmicrosoft.com` or `https://myaccount.microsoft.com?tenantId=ab123456-cd12-ef12-gh12-ijk123456789`.
 
-2. Under **Organizations**, find the organization that you want to leave, and select **Leave organization**.
+2. Under **Other organizations you belong to**, find the organization that you want to leave, and select **Leave organization**.
 
    ![Screenshot showing Leave organization option in the user interface](media/leave-the-organization/leave-org.png)
 3. When asked to confirm, select **Leave**.
