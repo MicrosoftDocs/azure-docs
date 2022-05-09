@@ -23,12 +23,12 @@ Use this article to learn about the data and service limits when using custom te
 
   |Tier|Description|Limit|
   |--|--|--|
-  |F|Free tier|You are only allowed **One** Language resource **per subscription**.|
-  |S|Paid tier|This pricing tier, you can have unlimited Language resources **per subscription**| 
+  |F|Free tier|You are only allowed one Language resource per subscription.|
+  |S|Paid tier|This pricing tier, you can have unlimited Language resources per subscription| 
 
-* You can only connect **1** storage account per resource. This process is irreversible. If you connect a storage account to your resource, you cannot unlink it later. Learn more about [connecting a storage account](how-to/create-project.md#create-language-resource-and-connect-storage-account)
+* You can only connect 1 storage account per resource. This process is irreversible. If you connect a storage account to your resource, you cannot unlink it later. Learn more about [connecting a storage account](how-to/create-project.md#create-language-resource-and-connect-storage-account)
 
-* You can have up to **500** projects per resource.
+* You can have up to 500 projects per resource.
 
 * Project names have to be unique within the same resource across all custom features.
 
