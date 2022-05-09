@@ -27,7 +27,7 @@ Follow these steps to create an Azure Database for MySQL server with Infrastruct
 
 2. Select **Databases** > **Azure Database for MySQL**. You can also enter **MySQL** in the search box to find the service.
 
-   :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png" alt-text="Azure Database for MySQL option":::
+   :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/2-navigate-to-mysql.png" alt-text="Azure Database for MySQL option":::
 
 3. Provide the basic information of the server. Select **Additional settings** and enabled the **Infrastructure double encryption** checkbox to set the parameter.
 

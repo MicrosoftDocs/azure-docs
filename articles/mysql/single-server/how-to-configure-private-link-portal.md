@@ -131,7 +131,7 @@ In this section, you will create a MySQL server and add a private endpoint to it
 
 2. In **Private Link Center - Overview**, on the option to **Build a private connection to a service**, select **Start**.
 
-    :::image type="content" source="media/concepts-data-access-and-security-private-link/privatelink-overview.png" alt-text="Private Link overview":::
+    :::image type="content" source="media/concepts-data-access-and-security-private-link/private-link-overview.png" alt-text="Private Link overview":::
 
 1. In **Create a private endpoint - Basics**, enter or select this information:
 

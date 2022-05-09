@@ -93,6 +93,8 @@
       href: ../../dms/create-dms-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: DevOps
     items:
+    - name: App Configuration
+      href: ../../azure-app-configuration/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: DevTest Labs
       href: ../../devtest-labs/create-lab-windows-vm-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Integration

@@ -37,7 +37,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 3. Click the server name.
 
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
- :::image type="content" source="./media/connect-php/1_server-overview-name-login.png" alt-text="Azure Database for MySQL server name":::
+ :::image type="content" source="./media/connect-php/1-server-overview-name-login.png" alt-text="Azure Database for MySQL server name":::
 
 ## Connect to the server by using MySQL Workbench 
 To connect to Azure MySQL Server by using the GUI tool MySQL Workbench:
