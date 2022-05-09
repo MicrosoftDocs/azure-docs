@@ -215,4 +215,4 @@ Learn more by reading and exploring the following resources:
 + [CI/CD of machine learning models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)
 + Create clients that [consume a deployed model](how-to-consume-web-service.md)
 + [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
-+ [Azure AI reference architectures and best practices rep](https://github.com/microsoft/AI)
++ [Azure AI reference architectures and best practices repo](https://github.com/microsoft/AI)
