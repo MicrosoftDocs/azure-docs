@@ -97,7 +97,14 @@ You've granted your function app access to the service bus namespace using manag
 
 1. After you create the two settings, select **Save** > **Confirm**.
 
+> [!NOTE]
+> When using [Azure App Configuration](../../articles/azure-app-configuration/quickstart-azure-functions-csharp.md) to provide settings for Managed Identity connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
+> 
+> E.g.  `ServiceBusConnection:fullyQualifiedNamespace`
+
 Now that you've prepared the function app to connect to the service bus namespace using a managed identity, you can add a new function that uses a Service Bus trigger to your local project.
+
+
 
 ## Add a Service Bus triggered function
 
