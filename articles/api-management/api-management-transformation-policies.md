@@ -94,7 +94,7 @@ If the backend returns the following JSON:
 The XML response to the client will be:
 
 ``` xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/", xmlns:v1="http://localdomain.com/core/v1">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://localdomain.com/core/v1">
   <soapenv:Header />
   <soapenv:Body>
     <v1:QueryList queryName="test">
