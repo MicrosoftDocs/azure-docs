@@ -15,7 +15,7 @@ This article shows you how to enable encryption at rest for your Kubernetes data
 * Bring your own keys
 * Provide encryption at rest for secrets stored in etcd
 
-For more details on using the KMS plugin, see [Encrypting Secret Data at Rest](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/).
+For more information on using the KMS plugin, see [Encrypting Secret Data at Rest](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
