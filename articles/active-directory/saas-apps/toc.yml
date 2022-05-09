@@ -215,6 +215,8 @@
         href: attendancemanagementservices-tutorial.md
       - name: AuditBoard
         href: auditboard-tutorial.md
+      - name: Authomize
+        href: authomize-tutorial.md
       - name: Autodesk SSO
         href: autodesk-sso-tutorial.md
       - name: Autotask Endpoint Backup
@@ -818,6 +820,8 @@
         href: field-id-tutorial.md
       - name: Fidelity NetBenefits
         href: fidelitynetbenefits-tutorial.md
+      - name: Fidelity PlanViewer
+        href: fidelity-planviewer-tutorial.md
       - name: Fieldglass
         href: fieldglass-tutorial.md
       - name: Figma
@@ -878,6 +882,8 @@
         href: fortiweb-web-application-firewall-tutorial.md 
       - name: foundU
         href: foundu-tutorial.md
+      - name: Framer
+        href: framer-tutorial.md
       - name: Freedcamp
         href: freedcamp-tutorial.md
       - name: FreshDesk

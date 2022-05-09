@@ -26,7 +26,7 @@ Use device twins to:
 
 * Store device-specific metadata in the cloud. For example, the deployment location of a vending machine.
 
-* Report current state information such as available capabilities and conditions from your device app. For example, a device is connected to your IoT hub over cellular or WiFi.
+* Report current state information such as available capabilities and conditions from your device app. For example, whether a device is connected to your IoT hub over cellular or WiFi.
 
 * Synchronize the state of long-running workflows between device app and back-end app. For example, when the solution back end specifies the new firmware version to install, and the device app reports the various stages of the update process.
 
@@ -362,7 +362,9 @@ This information is kept at every level (not just the leaves of the JSON structu
 
 ## Optimistic concurrency
 
-Tags, desired, and reported properties all support optimistic concurrency.
+Tags, desired properties, and reported properties all support optimistic concurrency. If you need to guarantee order of twin property updates, consider implementing synchronization at the application level by waiting for reported properties callback before sending the next update. 
+
+Tags have an ETag, as per [RFC7232](https://tools.ietf.org/html/rfc7232), that represents the tag's JSON representation. You can use ETags in conditional update operations from the solution back end to ensure consistency.
 
 Device twins have an ETag (`etag` property), as per [RFC7232](https://tools.ietf.org/html/rfc7232), that represents the twin's JSON representation. You can use the `etag` property in conditional update operations from the solution back end to ensure consistency. This is the only option for ensuring consistency in operations that involve the `tags` container.
 
