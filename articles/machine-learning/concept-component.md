@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.custom: 
 
 ---
-# What is an Azure Machine Learning component (preview)?
+# What is an Azure Machine Learning component?
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -25,9 +25,10 @@ A component consists of three parts:
 - Interface: input/output specifications (name, type, description, default value, etc).
 - Command, Code & Environment: command, code and environment required to run the component.
 
-:::image type="content" source="/media/concept-component/component.png" alt-text="Diagram of what a component looks like and how it looks in a pipeline.In addition to screenshots of a component in the CLI, SDK, and portal UI." lightbox = "/media/concept-component/component.png":::
+![component](./media/concept-component/component.png)
 
-## Why should I use a component (preview)?
+
+## Why should I use a component?
 
 It is a good engineering practice to build a machine learning pipeline to split a complete machine learning task into a multi-step workflow. Such that, everyone can work on the specific step independently. In Azure Machine Learning, a component represents one reusable step in a pipeline.  Components are designed to help improve the productivity of pipeline building. Specifically, components offer:  
 
@@ -58,8 +59,11 @@ To learn more about how to build a component, please read:
 
 ## Next steps
 
-- [How to build a component using Azure ML CLI v2](how-to-create-component-pipelines-cli.md)
-- [How to build a component using Azure ML SDK v2](how-to-create-component-pipeline-python-v2.md)
-- [Component reference](/component-reference/component-reference.md)
+
+- [Define component with the Azure ML CLI v2](./how-to-create-component-pipelines-cli.md)
+- [Define component with the Azure ML SDK v2](./how-to-create-component-pipeline-python.md)
+- [Define component with Designer](./how-to-create-component-pipelines-ui.md)
+- [Component CLI v2 YAML reference](/reference-yaml-component-command.md)
 - [What is Azure Machine Learning Pipeline?](concept-ml-pipelines.md)
-- Try out [example Jupyter notebooks showcasing Azure Machine Learning pipelines](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/using-pipelines). [Learn how to run notebooks](samples-notebooks.md) to explore this service.
+- Try out [CLI v2 component example](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines-with-components)
+- Try out [Python SDK v2 component example](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/pipelines)

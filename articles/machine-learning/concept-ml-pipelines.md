@@ -43,7 +43,7 @@ Depending on what a machine learning project already has, the starting point of 
 
 The first approach usually applies to the team that hasn’t used pipeline before and wants to take some advantage of pipeline like MLOps. In this situation, data scientists typically have developed some machine learning models on their local environment using their favorite tools. Machine learning engineers need to take data scientists’ output into production. The work involves cleaning up some unnecessary code from original notebook or python code, changes the training input from local data to parameterized values, split the training code into multiple steps as needed, perform unit test of each step, and finally wraps all steps into a pipeline.
 
-Once the teams get familiar with pipelines and want to do more machine learning projects using pipelines, they will find the first approach is hard to scale. The second approach is setup a few pipeline templates, each try to solve one specific machine learning problem. The template predefines the pipeline structure including how many steps, each step’s inputs and outputs, and their connectivity. To start a new machine learning project, the team first forks one template repo. The team leader then assigns members which step they need to work on. The data scientists and data engineers do their regular work. When they are happy with their result, they structure their code to fit in the pre-defined steps. Once the structured codes are checked-in, the pipeline can be executed or automated. If there is any change, each member only needs to work on their piece of code without touching the rest of the pipeline code. An example of this approach can be found [here]->point to Alain’s repo.
+Once the teams get familiar with pipelines and want to do more machine learning projects using pipelines, they will find the first approach is hard to scale. The second approach is setup a few pipeline templates, each try to solve one specific machine learning problem. The template predefines the pipeline structure including how many steps, each step’s inputs and outputs, and their connectivity. To start a new machine learning project, the team first forks one template repo. The team leader then assigns members which step they need to work on. The data scientists and data engineers do their regular work. When they are happy with their result, they structure their code to fit in the pre-defined steps. Once the structured codes are checked-in, the pipeline can be executed or automated. If there is any change, each member only needs to work on their piece of code without touching the rest of the pipeline code. An example of this approach can be found [here](https://github.com/Azure/mlops-v2)
 
 Once a team has built a collection of machine learnings pipelines and reusable components, they could start to build the machine learning pipeline from cloning previous pipeline or tie existing reusable component together. At this stage, the team’s overall productivity will be improved significantly.  
 
@@ -64,8 +64,10 @@ The Azure cloud provides several types of pipeline, each with a different purpos
 
 Azure Machine Learning pipelines are a powerful facility that begins delivering value in the early development stages. 
 
-+ [Define pipelines with the Azure ML CLI](./how-to-train-cli.md#hello-pipelines)
-+ [Define pipelines with the Azure ML SDK](./how-to-create-machine-learning-pipelines.md)
-+ [Define pipelines with Designer](./tutorial-designer-automobile-price-train-score.md)
-+ See the SDK reference docs for [pipeline core](/python/api/azureml-pipeline-core/) and [pipeline steps](/python/api/azureml-pipeline-steps/).
-+ Try out example Jupyter notebooks showcasing [Azure Machine Learning pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). Learn how to [run notebooks to explore this service](samples-notebooks.md).
++ [Define pipelines with the Azure ML CLI v2](./how-to-create-component-pipelines-cli.md)
++ [Define pipelines with the Azure ML SDK v2](./how-to-create-component-pipeline-python.md)
++ [Define pipelines with Designer](./how-to-create-component-pipelines-ui.md)
++ Try out [CLI v2 pipeline example](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines-with-components)
++ Try out [Python SDK v2 pipeline example](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/pipelines)
+
+
