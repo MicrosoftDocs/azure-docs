@@ -144,7 +144,7 @@ Each metric includes two versions. One metric measures performance for the entir
 | Used Memory Percentage | The % of total memory that is being used during the specified reporting interval.  This value references the `used_memory` value from the Redis INFO command to calculate the percentage. |
 | Used Memory RSS |The amount of cache memory used in MB during the specified reporting interval, including fragmentation and metadata. This value maps to `used_memory_rss` from the Redis INFO command. |
 
-## Operations and alerts
+## Alerts
 
 You can configure to receive alerts based on metrics and activity logs. Azure Monitor allows you to configure an alert to do the following when it triggers:
 
