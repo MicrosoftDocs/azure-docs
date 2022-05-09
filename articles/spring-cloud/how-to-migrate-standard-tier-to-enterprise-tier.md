@@ -141,6 +141,8 @@ Use the following steps to create and configure an application using Spring Clou
    ```
    ---
 
+### Configure Spring Cloud Gateway
+
 1. Configure Spring Cloud Gateway for Tanzu properties using the CLI:
 
    ```azurecli
@@ -192,6 +194,8 @@ Use the following steps to create and configure an application using Spring Clou
    You can view the routes in the portal.
 
    ![Gateway route config](media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png)
+
+## Access application APIs through the gateway endpoint
 
 1. Access the application APIs through the gateway endpoint using the following command:
 
