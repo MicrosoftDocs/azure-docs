@@ -203,8 +203,10 @@
           href: point-to-site-vpn-client-configuration-azure-cert.md
       - name: RADIUS authentication clients
         items:
-        - name: Generate and install VPN client profile config files
+        - name: All clients
           href: point-to-site-vpn-client-configuration-radius.md
+        - name: Username-password authentication clients
+          href: point-to-site-vpn-client-configuration-radius-password.md
       - name: AAD authentication clients
         items:
         - name: Windows client
