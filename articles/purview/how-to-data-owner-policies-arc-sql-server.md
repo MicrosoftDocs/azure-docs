@@ -28,8 +28,9 @@ This how-to guide describes how a data owner can delegate authoring policies in 
 
 ## Security considerations
 - The Server admin can turn off the Microsoft Purview policy enforcement.
-- ARC Admin/Server admin permissions empower the ARC admin or Server admin with the ability to change the ARM path of the given server. Given that mappings in Microsoft Purview use ARM paths, this can lead to wrong policy enforcements. 
+- Arc Admin/Server admin permissions empower the Arc admin or Server admin with the ability to change the ARM path of the given server. Given that mappings in Microsoft Purview use ARM paths, this can lead to wrong policy enforcements. 
 - SQL Admin (DBA) can gain the power of Server admin and can tamper with the cached policies from Microsoft Purview.
+- The recommended configuration is to create a separate App Registration per SQL server instance. This prevents SQL server2 from reading the policies meant for SQL server1, in case a rogue admin in SQL server2 tampers with the ARM path.
 
 ## Configuration
 [!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
@@ -75,7 +76,6 @@ Register each data source with Microsoft Purview to later define access policies
 Once your data source has the **Data Use Management** toggle **Enabled*, it will look like this picture. 
 ![Screenshot shows how to register a data source for policy.](./media/how-to-data-owner-policies-sql/register-data-source-for-policy-arc-sql.png)
 
-
 ## Create and publish a data owner policy
 
 Execute the steps in the [data-owner policy authoring tutorial](./how-to-data-owner-policy-authoring-generic.md) to create and then publish a data owner policy similar to one of the examples shown in the images.
@@ -89,7 +89,6 @@ Execute the steps in the [data-owner policy authoring tutorial](./how-to-data-ow
 **Example #3: Read policy**. This policy assigns the AAD principal 'sg-Finance' to the *SQL Data reader* role, in the scope of SQL server *DESKTOP-xxx*. This policy has also been published to that server.
 
 ![Screenshot shows a sample data owner policy giving Data Reader access to an Azure SQL DB.](./media/how-to-data-owner-policies-sql/data-owner-policy-example-arc-sql-server-data-reader.png)
-
 
 >[!Important]
 > - Publish is a background operation. It can take up to **4 minutes** for the changes to be reflected in the data source.
