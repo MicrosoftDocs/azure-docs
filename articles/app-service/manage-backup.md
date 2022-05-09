@@ -288,14 +288,14 @@ Linked databases are backed up only for custom backups, up to the allowable maxi
 
 Automatic backups can't be restored if the backup size exceeds the maximum size. Similarly, custom backups fail if the maximum backup size or the maximum database size is exceeded. To reduce your storage size, consider moving files like logs, images, audio, and videos to Azure Storage, for example.
 
-## Can I use a storage account that has security features enabled?
+#### Can I use a storage account that has security features enabled?
 
 The following security features in Azure storage aren't supported for custom backups:
 
 * Using a [firewall enabled storage account](../storage/common/storage-network-security.md) as the destination for your backups isn't supported. If a backup is configured, you will encounter backup failures.
 * Using a [private endpoint enabled storage account](../storage/common/storage-private-endpoints.md) for backup and restore isn't supported.
 
-## How do I restore to an app in a different subscription?
+#### How do I restore to an app in a different subscription?
 
 1. Make a custom backup to an Azure Storage container.
 1. [Download the backup ZIP file](../storage/blobs/storage-quickstart-blobs-portal.md) to your local machine.
