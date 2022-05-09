@@ -1,64 +1,73 @@
 ---
-title: Access provisioning by data owner for Azure SQL DB
-description: Step-by-step guide on how to configure access for Azure SQL DB through Microsoft Purview access policies.
+title: Access provisioning by data owner for SQL Server on Arc servers (preview)
+description: Step-by-step guide on how to configure access to Arc-enabled SQL server through Microsoft Purview access policies.
 author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 05/06/2022
+ms.date: 05/09/2022
 ms.custom:
 ---
-# Access provisioning by data owner for Azure SQL DB (preview)
+# Access provisioning by data owner for SQL Server on Arc servers (preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 [Access policies](concept-data-owner-policies.md) allow you to enable access to data sources that have been registered for *Data Use Management* in Microsoft Purview.
 
-This how-to guide describes how a data owner can delegate authoring policies in Microsoft Purview to enable access to Azure SQL DB. The following actions are currently enabled: *SQL Performance Monitoring*, *SQL Security Auditing* and *Read*. *Modify* is not supported at this point. 
+This how-to guide describes how a data owner can delegate authoring policies in Microsoft Purview to enable access to SQL Server on Azure Arc-enabled servers. The following actions are currently enabled: *SQL Performance Monitoring*, *SQL Security Auditing* and *Read*. *Modify* is not supported at this point. 
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
-- Create a new Azure SQL DB or use an existing one in one of the currently available regions for this preview feature. You can [follow this guide to create a new Azure SQL DB](/azure/azure-sql/database/single-database-create-quickstart).
-- The SQL Database servers need to have a managed identity assigned to them.
+- SQL server version 2022 CTP 1.5 or later
+- Complete process to onboard that SQL server with Azure Arc as well as enable Azure AD Authentication [Follow this guide to learn how](https://aka.ms/sql-on-arc-aadauth).
 
-**Enforcement of Microsoft Purview policies is available only in the following regions for Azure SQL DB**
+**Enforcement of policies is available only in the following regions for Microsoft Purview**
 - East US
-- East US2
-- West US
-- West US3
-- West Central US
-- Canada Central
-- West Europe
 - UK South
-- Central India
-- Australia East
 
+## Security considerations
+1. The Server admin can turn off the Microsoft Purview policy enforcement.
+1. ARC Admin/Server admin permissions empower the ARC admin or Server admin with the ability to change the ARM path of the given server. Given that mappings in Microsoft Purview leverage ARM paths, this can lead to wrong policy enforcements. 
+1. SQL Admin (DBA) can gain the power of Server admin and can tamper with the cached policies from Microsoft Purview.
 ## Configuration
 [!INCLUDE Access policies generic configuration]
+### SQL Server on Azure Arc-enabled server configuration
+This section describes the steps to configure the SQL Server on Azure Arc to use Microsoft Purview.
 
-### Azure SQL Database configuration
-Each Azure SQL Database server needs a Managed Identity assigned to it.
-You can use the following PowerShell script:
-```powershell
-Connect-AzAccount
+1. Sign in to Azure Portal with a [special link](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=sqlrbacmain#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/sqlServers) that contains feature flages to list SQL Servers on Azure Arc
 
-$context = Get-AzSubscription -SubscriptionId xxxx-xxxx-xxxx-xxxx
-Set-AzContext $context
+1. Navigate to a SQL Server you want to configure
 
-Set-AzSqlServer -ResourceGroupName "RESOURCEGROUPNAME" -ServerName "SERVERNAME" -AssignIdentity
-```
+1. Navigate to **Azure Active Directory** feature on the left pane
 
-### Register the data sources in Microsoft Purview
-The Azure SQL DB resources need to be registered first with Microsoft Purview to later define access policies. You can follow these guides:
+1. Verify that Azure Active Directory Authentication is configured and scroll down.
+![Image shows **Microsoft Purview data policies** section.](./media/how-to-data-owner-policies-sql/setup-sql-on-arc-for-purview.png)
 
-[Register and scan Azure SQL DB](./register-scan-azure-sql-database.md)
+1. Set **External Policy Based Authorization** to enabled
 
-After you've registered your resources, you'll need to enable *Data Use Management*. Data Use Management can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. Secure practices related to Data Use Management are described in this guide:
+1. Enter **Microsoft Purview Gateway Endpoint** in the format *https://\<purview-account-name\>.purview.azure.com*
+   
+1. Select the **Save** button to save the configuration
 
-[How to enable Data Use Management](./how-to-enable-data-use-management.md)
+### Register data sources in Microsoft Purview
+Register each data source with Microsoft Purview to later define access policies. 
 
-Once your data source has the **Data Use Management** toggle **Enabled*, it will look like this picture. This will enable the access policies to be used with the given SQL server and all its contained databases.
+1. Sign in to Microsoft Purview Studio.
+
+1. Navigate to the **Data map** feature on the left pane, then **Sources** then **Register** then type "Azure Arc" in the search box and select **SQL Server on Azure Arc**. Then select **Continue**
+![Image shows how to select a source for registration.](./media/how-to-data-owner-policies-sql/select-arc-sql-server-for-registration.png)
+
+1. Enter a **Name** for this registration, select an **Azure subscription**, **Server name**, **Server endpoint** and **Select a collection** to put this registration in. 
+
+1. Turn the switch **Data Use Management** to **Enabled**. This enables the access-policies to be used with the given Arc-enabled SQL server. Note: Data Use Management can affect the security of your data, as it delegates to certain Microsoft Purview roles managing access to the data sources. Secure practices related to Data Use Management are described in this guide: [registering a data resource for Data Use Management](./how-to-enable-data-use-management.md)
+
+1. Enter the **Application ID** from the App Registration related to this Arc-enabled SQL server.
+
+1. Select **Register** at the bottom:
+![Image shows how to register a data source for policy.](./media/how-to-data-owner-policies-sql/register-data-source-for-policy-arc-sql.png)
+
+Once your data source has the **Data Use Management** toggle **Enabled*, it will look like this picture. 
 ![Image shows how to register a data source for policy.](./media/how-to-data-owner-policies-sql/register-data-source-for-policy-sql.png)
 
 
@@ -84,7 +93,6 @@ Execute the steps in the [data-owner policy authoring tutorial](./how-to-data-ow
 
 ### Test the policy
 
-Once the policy is published, it takes a maximum of 4 minutes for the SQL Server to download the latest policy state.
 The AAD Accounts that the SQL policies are applied to should now be able to connect to any database that is on the server to which the policies are published to.
 
 #### Force policy download
@@ -114,7 +122,7 @@ SELECT * FROM sys.dm_server_external_policy_role_members
 
 ### Policy action mapping
 
-This section contains a reference of how actions in Microsoft Purview data policies map to specific actions in Azure SQL DB.
+This section contains a reference of how actions in Microsoft Purview data policies map to specific actions in SQL Server on Azure Arc-enabled servers.
 
 | **Microsoft Purview policy action** | **Data source specific actions**     |
 |-------------------------------------|--------------------------------------|
@@ -145,5 +153,5 @@ Check blog, demo and related how-to guides
 * [Concepts for Microsoft Purview data owner policies](./concept-data-owner-policies.md)
 * Blog: [Private Preview: controlling access to Azure SQL at scale with policies in Purview](https://techcommunity.microsoft.com/t5/azure-sql-blog/private-preview-controlling-access-to-azure-sql-at-scale-with/ba-p/2945491)
 * [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md)
-* [Enable Microsoft Purview data owner policies on an Arc-enabled SQL Server](./how-to-data-owner-policies-arc-sql-server.md)
+* [Enable Microsoft Purview data owner policies on an Azure SQL DB](./how-to-data-owner-policies-azure-sql-db.md)
 
