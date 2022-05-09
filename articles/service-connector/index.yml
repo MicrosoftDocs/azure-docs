@@ -32,10 +32,12 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create new service connection in App Service
+          - text: Create a new service connection in App Service
             url: quickstart-portal-app-service-connection.md 
-          - text: Create new service connection in Spring Cloud
+          - text: Create a new service connection in Spring Cloud
             url: quickstart-portal-spring-cloud-connection.md
+          - text: Create a new service connection in Container Apps
+            url: quickstart-portal-container-apps.md
   - title: Common tasks
     linkLists:
       - linkListType: tutorial

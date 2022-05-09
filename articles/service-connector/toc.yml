@@ -20,6 +20,8 @@ items:
       href: quickstart-portal-spring-cloud-connection.md
     - name: CLI
       href: quickstart-cli-spring-cloud-connection.md
+  - name: Service Connector in Container Apps
+    href: quickstart-portal-container-apps.md
 - name: Tutorials
   expanded: true
   items:
