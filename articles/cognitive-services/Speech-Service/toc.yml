@@ -28,6 +28,15 @@ items:
     - name: Speech CLI quickstart
       displayName: cli basics, spx basics, spx help, spx quickstart, spx get started, get started, install
       href: spx-basics.md
+    - name: Configure the datastore
+      displayName: SPX configuration options, speech cli config, speech cli data store, data store, datastore, speech cli datastore, reference
+      href: spx-data-store-configuration.md
+    - name: Configure output options
+      displayName: reference
+      href: spx-output-options.md
+    - name: Run batch operations
+      displayName: spx batch, spx batch operations, speech batch, speech cli speech to text batch, speech cli tex to speech batch
+      href: spx-batch-operations.md
 - name: Speech SDK
   items:
   - name: Speech SDK overview
@@ -168,8 +177,12 @@ items:
       href: keyword-recognition-guidelines.md
 - name: Scenario deep-dives
   items:
-    - name: Captioning with speech to text
-      href: captioning-concepts.md
+    - name: Captioning
+      items:
+      - name: Captioning with speech to text
+        href: captioning-concepts.md
+      - name: Captioning quickstart
+        href: captioning-quickstart.md
     - name: Handle call center scenarios
       items:
       - name: Telephony data
@@ -372,15 +385,6 @@ items:
     - name: Release notes
       href: releasenotes.md
       displayName: reference 
-    - name: CLI reference
-      displayName: SPX, command line
-      items:
-        - name: Speech CLI configuration options
-          displayName: SPX configuration options, speech cli config, speech cli data store, data store, datastore, speech cli datastore, reference
-          href: spx-data-store-configuration.md
-        - name: Speech CLI batch operations
-          displayName: spx batch, spx batch operations, speech batch, speech cli speech to text batch, speech cli tex to speech batch
-          href: spx-batch-operations.md
     - name: SDK reference
       items:
         - name: C++
