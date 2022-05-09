@@ -874,6 +874,8 @@ items:
       items:
       - name: Configure Synapse Link
         href: ./synapse-link/connect-synapse-link-sql-server-2022.md
+      - name: Known limitations and issues
+        href: ./synapse-link/synapse-link-for-sql-2022-known-issues.md
     - name: Dataverse
       items:
       - name: Configure Synapse Link for Dataverse
