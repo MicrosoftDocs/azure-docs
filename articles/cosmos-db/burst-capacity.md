@@ -1,0 +1,67 @@
+---
+title: Burst capacity (preview) in Azure Cosmos DB
+description: Learn more about burst capacity in Azure Cosmos DB
+author: deborahc
+ms.author: dech
+ms.service: cosmos-db
+ms.topic: conceptual
+ms.date: 05/24/2022
+---
+
+# Azure Cosmos DB Burst Capacity (preview)
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+
+Azure Cosmos DB burst capacity (preview) allows you to take advantage of your database or container's idle throughput capacity to handle spikes of traffic. With burst capacity, each physical partition can accumulate up to 5 minutes of idle capacity, which can be consumed at a rate up to 3000 RU/s. This means that requests that would have otherwise been rate limited (429) can now be served with burst capacity while it's available.
+
+Burst capacity applies only to Cosmos accounts using provisioned throughput (manual and autoscale) and doesn't apply to serverless containers. The feature is configured at the Cosmos account level and will automatically apply to all databases and containers in the account that have physical partitions with less than 3000 RU/s of provisioned throughput. Resources that have greater than or equal to 3000 RU/s per physical partition won't benefit from or be able to use burst capacity.
+
+## How burst capacity works
+
+> [!NOTE]
+> This section describes the current implementation of burst capacity and is subject to change in the future. Usage of burst capacity is subject to availability, so if your workload requires consistent throughput beyond what you have provisioned, it's recommended to provision your RU/s accordingly.
+
+Let's take an example of a physical partition that has 100 RU/s of provisioned throughput and is idle for 5 minutes. With burst capacity, it can accumulate a maximum of 100 RU/s * 300 seconds = 30,000 RU of burst capacity. The capacity can be consumed at a maximum rate of 3000 RU/s, so if there's a sudden spike in request volume, the partition can burst up to 3000 RU/s for up 30,000 RU / 3000 RU/s = 10 seconds. Without burst capacity, any requests that consumed beyond the provisioned 100 RU/s would have been rate limited (429).
+
+After the 10 seconds is over, the burst capacity has been used up, so if the workload continues to exceed the provisioned 100 RU/s, requests will be rate limited (429). The maximum amount of burst capacity a physical partition can accumulate at any point in time is equal to 300 seconds * the provisioned RU/s of the container. 
+
+
+## How to enroll in the preview
+To enroll in the preview, file a support ticket in the [Azure portal](https://portal.azure.com/) under the path TBD.
+
+## Frequently asked questions (FAQ)
+### How does burst capacity work with autoscale?
+Autoscale and burst capacity are compatible. Autoscale gives you a guaranteed instant 10x scale range. Burst capacity allows you to take advantage of unused, idle capacity to handle temporary spikes, potentially beyond your autoscale max RU/s. For example, suppose we have an autoscale container with one physical partition that scales between 100 - 1000 RU/s. Without burst capacity, any requests that consume beyond 1000 RU/s would be rate limited. With burst capacity however, the partition can accumulate a maximum of 1000 RU/s of idle capacity each second. This allows the partition to burst at a maximum rate of 3000 RU/s for a limited amount of time. 
+
+The autoscale max RU/s per physical partition must be less than 3000 RU/s for burst capacity to be applicable.
+
+### What resources can use burst capacity?
+When your account is enrolled in the preview, any shared throughput databases or containers with dedicated throughput that have less than 3000 RU/s per physical partition can use burst capacity. The resource can use either manual or autoscale throughput.
+
+### How can I monitor burst capacity?
+In Azure Cosmos DB's built-in [Azure Monitor metrics](monitor-cosmos-db.md#analyzing-metrics), you can filter by the dimension **CapacityType** on the **TotalRequests** and **TotalRequestUnits** metrics. Requests served with burst capacity will have **CapacityType** equal to **Burst**.
+
+### How can I see which resources have less than 3000 RU/s per physical partition?
+You can use the new Azure Monitor metric **PhysicalPartitionThroughput** and split by the dimension **PhysicalPartitionId** to see how many RU/s you have per physical partition.
+
+## Limitations
+
+### SDK requirements
+In the preview, in order to take advantage of burst capacity, your application **must use the latest version of the .NET V3 SDK (version 3.27.0 or later).** When the feature is enabled on your account, only requests sent from this SDK version will be accepted. Other requests will fail. As a result, you should ensure that before enrolling in the preview, your application has been updated to use the right SDK version. If you're using the legacy .NET V2 SDK, follow the guide to [migrate your application to use the Azure Cosmos DB .NET SDK v3](sql/migrate-dotnet-v3.md). Support for other SDKs is planned for the future.
+
+### Unsupported connectors
+- Azure Data Factory
+- Azure Stream Analytics
+- Logic Apps
+- Azure Functions
+- Azure Search
+
+If you enroll in the preview, requests from the connectors will fail. Support for these connectors is planned for the future.
+
+## Next steps
+
+Learn about how to use provisioned throughput with the following articles:
+
+- [Introduction to provisioned throughput in Azure Cosmos DB](set-throughput.md)
+- [Request Units in Azure Cosmos DB](request-units.md)
+- [Choose between provisioned throughput and serverless](throughput-serverless.md)
+- [Best practices for scaling provisioned throughput (RU/s)](scaling-provisioned-throughput-best-practices.md)
