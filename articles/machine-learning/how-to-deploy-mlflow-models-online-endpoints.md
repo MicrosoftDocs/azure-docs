@@ -16,6 +16,8 @@ ms.devlang: azurecli
 
 # Deploy MLflow models to online endpoints (preview)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 [!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
 > * [v1](./v1/how-to-deploy-mlflow-models.md)

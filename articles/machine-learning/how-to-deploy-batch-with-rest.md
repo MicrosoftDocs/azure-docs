@@ -15,6 +15,8 @@ ms.custom: devplatv2
 
 # Deploy models with REST (preview) for batch scoring 
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 Learn how to use the Azure Machine Learning REST API to deploy models for batch scoring (preview).
 
 [!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
