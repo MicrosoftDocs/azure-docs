@@ -35,6 +35,8 @@ The priority field only impacts the order of evaluation of a request routing rul
 
 >[!NOTE]
 >If you wish to use rule priority, you will have to specify rule-priority field values for all the existing request routing rules. Once the rule priority field is in use, any new routing rule that is created would also need to have a rule priority field value as part of its config.
+Starting with API version 2021-08-01 rule priority field would be a mandatory field as part of the request routing rules.
+From this API version, rule priority field values would be auto-populated for existing request routing rules based on current ordering of  as part of the first PUT call. Any future updates to request routing rules would need to have the rule priority field provided as part of the configuration.
 
 ## Wildcard host names in listener
 
