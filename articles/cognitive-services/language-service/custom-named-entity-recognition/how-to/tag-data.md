@@ -15,7 +15,7 @@ ms.custom: language-service-custom-ner, ignite-fall-2021
 
 # Label your data in Language Studio
 
-Before training your model you need to label your documents with the custom entities you want to extract. Data labeling is a crucial step in development lifecycle. In this step you can create the entity types you want to extract from your data and label these entities within your documents. This data will be used in the next step when training your model so that your model can learn from the labeled data. If you already have labeled data, you can directly [import](create-project.md#import-project) it into your project but you need to make sure that your data follows the [accepted data format](../concepts/data-formats.md). See [create project](create-project.md#import-a-custom-named-entity-recognition-project) to learn more about importing labeled data into your project.
+Before training your model you need to label your documents with the custom entities you want to extract. Data labeling is a crucial step in development lifecycle. In this step you can create the entity types you want to extract from your data and label these entities within your documents. This data will be used in the next step when training your model so that your model can learn from the labeled data. If you already have labeled data, you can directly [import](create-project.md#import-project) it into your project but you need to make sure that your data follows the [accepted data format](../concepts/data-formats.md). See [create project](create-project.md#import-project) to learn more about importing labeled data into your project.
 
 Before creating a custom NER model, you need to have labeled data first. If your data isn't labeled already, you can label it in the [Language Studio](https://aka.ms/languageStudio). Labeled data informs the model how to interpret text, and is used for training and evaluation.
 
@@ -24,7 +24,7 @@ Before creating a custom NER model, you need to have labeled data first. If your
 Before you can label your data, you need:
 
 * A successfully [created project](create-project.md) with a configured Azure blob storage account
-* Text data that [has been uploaded](create-project.md#prepare-training-data) to your storage account.
+* Text data that [has been uploaded](design-schema.md#data-preparation) to your storage account.
 
 See the [project development lifecycle](../overview.md#project-development-lifecycle) for more information.
 

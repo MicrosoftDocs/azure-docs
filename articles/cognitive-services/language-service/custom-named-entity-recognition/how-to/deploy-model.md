@@ -20,7 +20,7 @@ Once you are satisfied with how your model performs, it is ready to be deployed,
 ## Prerequisites
 
 * A successfully [created project](create-project.md) with a configured Azure storage account,
-* Text data that has [been uploaded](create-project.md#prepare-training-data) to your storage account.
+* Text data that has [been uploaded](design-schema.md#data-preparation) to your storage account.
 * [Labeled data](tag-data.md) and successfully [trained model](train-model.md)
 * Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
 * (optional) [Made improvements](improve-model.md) to your model if its performance isn't satisfactory. 
@@ -55,7 +55,7 @@ After you are done testing a model assigned to one deployment and you want to as
 
 [!INCLUDE [Swap deployments](../includes/language-studio/swap-deployment.md)]
 
-# [REST APIs](#tab/REST-APIs)
+# [REST APIs](#tab/rest-api)
 
 [!INCLUDE [Swap deployments](../includes/rest-api/swap-deployment.md)]
 
@@ -68,7 +68,7 @@ After you are done testing a model assigned to one deployment and you want to as
 
 [!INCLUDE [Delete deployment](../includes/language-studio/delete-deployment.md)]
 
-# [REST APIs](#tab/REST-APIs)
+# [REST APIs](#tab/rest-api)
 
 [!INCLUDE [Delete deployment](../includes/rest-api/delete-deployment.md)]
 
