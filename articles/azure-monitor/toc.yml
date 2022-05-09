@@ -1027,7 +1027,7 @@ items:
           href: app/profiler-containers.md
       - name: Configure
         items:        
-        - name: Configure Settings
+        - name: Configure Profiler
           href: app/profiler-settings.md
         - name: Configure BYOS (Bring Your Own Storage)
           href: app/profiler-bring-your-own-storage.md
