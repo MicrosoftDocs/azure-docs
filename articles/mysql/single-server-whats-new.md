@@ -19,7 +19,7 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 ## May 2022
 
 Enabled the ability to change the server parameter innodb_ft_server_stopword_table from Portal/CLI.
-Users can now change the value of the innodb_ft_server_stopword_table parameter using the Azure portal and CLI. This parameter helps to configure your own InnoDB FULLTEXT index stopword list for all InnoDB tables. For more information, see [innodb_ft_server_stopword_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_server_stopword_table)
+Users can now change the value of the innodb_ft_server_stopword_table parameter using the Azure portal and CLI. This parameter helps to configure your own InnoDB FULLTEXT index stopword list for all InnoDB tables. For more information, see [innodb_ft_server_stopword_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_server_stopword_table).
 
 ## March 2022
 
