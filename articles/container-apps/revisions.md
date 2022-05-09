@@ -104,7 +104,7 @@ Labels are useful for testing new revisions.  For example, when you want to give
 
 Labels work independently of traffic splitting.  Traffic splitting distributes traffic going to the container app's application URL to revisions based on the percentage of traffic.  While traffic directed to a label's URL is routed to one specific revision.
 
-You can manage labels from your container app's **Revision management** page in the Azure portal and the Azure CLI.
+You can manage labels from your container app's **Revision management** page in the Azure portal.
 
 :::image type="content" source="media/revisions/screen-shot-revision-mgmt-labels.png" alt-text="Screenshot of Container Apps revision management.":::
 
