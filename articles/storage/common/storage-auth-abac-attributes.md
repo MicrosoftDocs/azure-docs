@@ -476,7 +476,7 @@ This section lists the Azure Blob storage attributes you can use in your conditi
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Is hierarchical namespace enabled |
-> | **Description** | Whether hierarchical namespace is enabled on the storage account.<br/>Available only at resource group or above scope. |
+> | **Description** | Whether hierarchical namespace is enabled on the storage account.<br/>Applicable only at resource group scope or above. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts:isHnsEnabled` |
 > | **Attribute source** | Resource |
 > | **Attribute type** | Boolean |

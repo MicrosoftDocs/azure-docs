@@ -804,7 +804,7 @@ Here are the settings to add this condition using the Azure portal.
 
 ### Example: Read only storage accounts with hierarchical namespace enabled
 
-This condition allows a user to only read blobs in storage accounts with [hierarchical namespace](../blobs/data-lake-storage-namespace.md) enabled.
+This condition allows a user to only read blobs in storage accounts with [hierarchical namespace](../blobs/data-lake-storage-namespace.md) enabled. This condition is applicable only at resource group scope or above.
 
 You must add this condition to any role assignments that include the following permission.
 
