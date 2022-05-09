@@ -801,74 +801,7 @@ sections:
           However, there are still cases where even when server-side monitoring is enabled on an application's web server that a 502 or 503 error will not be captured by Application Insights. Many modern web servers do not allow a client to communicate directly, but instead employ solutions like reverse proxies to pass information back and forth between the client and the front-end web servers.
           
           In this scenario, a 502 or 503 response could be returned to a client due to an issue at the reverse proxy layer and would not be captured out-of-box by Application Insights. To help detect issues at this layer you may need to forward logs from your reverse proxy to Log Analytics and create a custom rule to check for 502/503 responses. To learn more about common causes of 502 and 503 errors consult the Azure App Service [troubleshooting article for "502 bad gateway" and "503 service unavailable"](../app-service/troubleshoot-http-502-http-503.md).
-          
-  - name: OpenTelemetry
-    questions:
-      - question: |
-          What is OpenTelemetry?
-        answer: |
-          A new open-source standard for observability. Learn more at [https://opentelemetry.io/](https://opentelemetry.io/).
-          
-      - question: |
-          Why is Microsoft Azure Monitor Application Insights investing in OpenTelemetry?
-        answer: |
-          Microsoft is among the largest contributors to OpenTelemetry.
-          
-          The key value propositions of OpenTelemetry are that it's vendor-neutral and provides consistent APIs/SDKs across languages.
-          
-          Over time, we believe OpenTelemetry will enable Azure Monitor's customers to observe applications written in languages beyond our [supported languages](https://review.docs.microsoft.com/azure/azure-monitor/app/platforms) and expand the number of [instrumentation libraries](https://opentelemetry.io/docs/concepts/components/#instrumentation-libraries) available to customers. In particular, the OpenTelemetry .NET SDK is more performant at scale than its predecessor the Application Insights SDK.
-          
-          Finally, OpenTelemetry aligns with Microsoft's strategy to [embrace open source](https://opensource.microsoft.com/).
-          
-      - question: |
-          What is the status of OpenTelemetry?
-        answer: |
-          A complete observability solution includes all three pillars of observability. The OpenTelemetry community has been committing heavily to [Distributed Tracing](https://medium.com/opentelemetry/opentelemetry-specification-v1-0-0-tracing-edition-72dd08936978) and the specifications as well as supported language implementations have been marked as stable. [Metrics](https://medium.com/opentelemetry/opentelemetry-metrics-roadmap-f4276fd070cf) and [Logs](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/logs/overview.md) are still in progress. Azure Monitor is working on an OpenTelemetry-based supported telemetry solution that includes Distributed Tracing only with plans to add the other pillars as they mature in the OpenTelemetry community.
 
-      - question: |
-          How can I test out OpenTelemetry?
-        answer: |
-          Sign up to join our Azure Monitor Application Insights early adopter community at [https://aka.ms/AzMonOtel](https://aka.ms/AzMonOtel).
-          
-      - question: |
-          How do I determine if OpenTelemetry is right for me?
-        answer: |
-          The OpenTelemetry community uses [stable or experimental](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/versioning-and-stability.md) to signal the maturity of a piece of software. Separately, Azure Monitor uses "Public Preview" and "GA" to signal stability and support commitment.
-          
-          If you are an existing Azure Monitor Application Insights customer, we **don't** recommend that you migrate to OpenTelemetry yet (except for Java applications where we recommend our [OpenTelemetry-based offering](./app/java-in-process-agent.md) for everyone which [GA'd in November 2020](https://azure.microsoft.com/updates/java-agent-application-insights-ga/)).
-          
-          The current Application Insights SDKs for C# ([ASP.NET](app/asp-net.md) and [ASP.NET Core](app/asp-net-core.md)) and [JavaScript (Node.js)](app/nodejs.md) or [OpenCensus Python](app/opencensus-python.md) offer the most feature-rich experience in Application Insights.
-          
-          Scenarios that may sway you toward OpenTelemetry sooner-than-later include sending telemetry to Azure Monitor + another vendor simultaneously, collecting and converging [existing instrumentation protocols](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver), or leveraging features available in the OpenTelemetry-Collector. For example, customers have reported using the [batch processor](https://github.com/open-telemetry/opentelemetry-collector/tree/main/processor/batchprocessor), [tail-based sampler](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/tailsamplingprocessor), and/or [attributes processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/attributesprocessor). While similar features exist in the existing Application Insights SDKs, some customers prefer to host this processing downstream in an agent.
-          
-          You can see our progress toward OpenTelemetry-Based Azure Monitor exporters for [C#](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter), [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter), and [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/) in open-source repositories.
-      
-      - question: |
-          Can I use Preview builds in production environments?
-        answer: |
-          It's not recommended. See [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for more information.
-          
-      - question: |
-          What's the difference between manual and auto-instrumentation?
-        answer: |
-          Manual instrumentation is coding against the OpenTelemetry API and typically consists of installing a language-specific SDK in an application. “Manual” doesn't mean you’ll be required to write complex code to define spans for distributed traces (though it remains an option). A rich and [growing set of instrumentation libraries](https://opentelemetry.io/registry/) maintained by OpenTelemetry contributors will enable you to effortlessly capture telemetry signals across common frameworks and libraries. 
-          
-          Auto-instrumentation is enabling telemetry collection through configuration without touching the application's code. While highly convenient, it tends to be less configurable and it's not available in all languages.
-          
-          OpenTelemetry auto-instrumentation efforts include a Java offering, which Microsoft supports via a distro called [Java 3.X](app/java-in-process-agent.md). [Python](https://github.com/open-telemetry/opentelemetry-python/blob/main/opentelemetry-sdk/src/opentelemetry/sdk/util/instrumentation.py) and [.NET](https://github.com/open-telemetry/opentelemetry-dotnet-instrumentation) have experimental auto-instrumentation efforts, which Microsoft does not currently support. All other OpenTelemetry languages are focused on Manual Instrumentation only.
-          
-      - question: |
-          Can I use the OpenTelemetry-Collector?
-        answer: |
-          Some customers have begun to use the [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md) as an agent alternative even though Microsoft doesn’t officially support an agent-based approach for application monitoring yet. In the meantime, the open source community has contributed an [OpenTelemetry-Collector Azure Monitor Exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/azuremonitorexporter) that some customers are using to send data to Azure Monitor Application Insights.
-          
-          We plan to support an agent-based approach in the future, though the details and timeline aren't available yet. Our objective is to provide a path for any OpenTelemetry supported language to send to Azure Monitor via [OpenTelemetry Protocol (OTLP)](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/README.md). This will enable customers to observe applications written in languages beyond our [supported languages](https://review.docs.microsoft.com/azure/azure-monitor/app/platforms). 
-          
-      - question: |
-          What's the difference between OpenCensus and OpenTelemetry?
-        answer: |
-          [OpenCensus](https://opencensus.io/) is the precursor to [OpenTelemetry](https://opentelemetry.io/). Microsoft helped bring together [OpenTracing](https://opentracing.io/) and OpenCensus to create OpenTelemetry, a single observability standard for the world. Azure Monitor's current [production-recommended Python SDK](app/opencensus-python.md) is based on OpenCensus, but eventually all Azure Monitor's SDKs will be based on OpenTelemetry.
-      
       - question: |
           What versions of ASP.NET and ASP.NET Core are supported by the Application Insights?
         answer: |
@@ -980,6 +913,73 @@ sections:
           }
           ```
           This limitation isn't applicable from version [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) and later.
+
+  - name: OpenTelemetry
+    questions:
+      - question: |
+          What is OpenTelemetry?
+        answer: |
+          A new open-source standard for observability. Learn more at [https://opentelemetry.io/](https://opentelemetry.io/).
+          
+      - question: |
+          Why is Microsoft Azure Monitor Application Insights investing in OpenTelemetry?
+        answer: |
+          Microsoft is among the largest contributors to OpenTelemetry.
+          
+          The key value propositions of OpenTelemetry are that it's vendor-neutral and provides consistent APIs/SDKs across languages.
+          
+          Over time, we believe OpenTelemetry will enable Azure Monitor's customers to observe applications written in languages beyond our [supported languages](https://review.docs.microsoft.com/azure/azure-monitor/app/platforms) and expand the number of [instrumentation libraries](https://opentelemetry.io/docs/concepts/components/#instrumentation-libraries) available to customers. In particular, the OpenTelemetry .NET SDK is more performant at scale than its predecessor the Application Insights SDK.
+          
+          Finally, OpenTelemetry aligns with Microsoft's strategy to [embrace open source](https://opensource.microsoft.com/).
+          
+      - question: |
+          What is the status of OpenTelemetry?
+        answer: |
+          A complete observability solution includes all three pillars of observability. The OpenTelemetry community has been committing heavily to [Distributed Tracing](https://medium.com/opentelemetry/opentelemetry-specification-v1-0-0-tracing-edition-72dd08936978) and the specifications as well as supported language implementations have been marked as stable. [Metrics](https://medium.com/opentelemetry/opentelemetry-metrics-roadmap-f4276fd070cf) and [Logs](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/logs/overview.md) are still in progress. Azure Monitor is working on an OpenTelemetry-based supported telemetry solution that includes Distributed Tracing only with plans to add the other pillars as they mature in the OpenTelemetry community.
+
+      - question: |
+          How can I test out OpenTelemetry?
+        answer: |
+          Sign up to join our Azure Monitor Application Insights early adopter community at [https://aka.ms/AzMonOtel](https://aka.ms/AzMonOtel).
+          
+      - question: |
+          How do I determine if OpenTelemetry is right for me?
+        answer: |
+          The OpenTelemetry community uses [stable or experimental](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/versioning-and-stability.md) to signal the maturity of a piece of software. Separately, Azure Monitor uses "Public Preview" and "GA" to signal stability and support commitment.
+          
+          If you are an existing Azure Monitor Application Insights customer, we **don't** recommend that you migrate to OpenTelemetry yet (except for Java applications where we recommend our [OpenTelemetry-based offering](./app/java-in-process-agent.md) for everyone which [GA'd in November 2020](https://azure.microsoft.com/updates/java-agent-application-insights-ga/)).
+          
+          The current Application Insights SDKs for C# ([ASP.NET](app/asp-net.md) and [ASP.NET Core](app/asp-net-core.md)) and [JavaScript (Node.js)](app/nodejs.md) or [OpenCensus Python](app/opencensus-python.md) offer the most feature-rich experience in Application Insights.
+          
+          Scenarios that may sway you toward OpenTelemetry sooner-than-later include sending telemetry to Azure Monitor + another vendor simultaneously, collecting and converging [existing instrumentation protocols](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver), or leveraging features available in the OpenTelemetry-Collector. For example, customers have reported using the [batch processor](https://github.com/open-telemetry/opentelemetry-collector/tree/main/processor/batchprocessor), [tail-based sampler](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/tailsamplingprocessor), and/or [attributes processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/attributesprocessor). While similar features exist in the existing Application Insights SDKs, some customers prefer to host this processing downstream in an agent.
+          
+          You can see our progress toward OpenTelemetry-Based Azure Monitor exporters for [C#](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter), [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter), and [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/) in open-source repositories.
+      
+      - question: |
+          Can I use Preview builds in production environments?
+        answer: |
+          It's not recommended. See [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for more information.
+          
+      - question: |
+          What's the difference between manual and auto-instrumentation?
+        answer: |
+          Manual instrumentation is coding against the OpenTelemetry API and typically consists of installing a language-specific SDK in an application. “Manual” doesn't mean you’ll be required to write complex code to define spans for distributed traces (though it remains an option). A rich and [growing set of instrumentation libraries](https://opentelemetry.io/registry/) maintained by OpenTelemetry contributors will enable you to effortlessly capture telemetry signals across common frameworks and libraries. 
+          
+          Auto-instrumentation is enabling telemetry collection through configuration without touching the application's code. While highly convenient, it tends to be less configurable and it's not available in all languages.
+          
+          OpenTelemetry auto-instrumentation efforts include a Java offering, which Microsoft supports via a distro called [Java 3.X](app/java-in-process-agent.md). [Python](https://github.com/open-telemetry/opentelemetry-python/blob/main/opentelemetry-sdk/src/opentelemetry/sdk/util/instrumentation.py) and [.NET](https://github.com/open-telemetry/opentelemetry-dotnet-instrumentation) have experimental auto-instrumentation efforts, which Microsoft does not currently support. All other OpenTelemetry languages are focused on Manual Instrumentation only.
+          
+      - question: |
+          Can I use the OpenTelemetry-Collector?
+        answer: |
+          Some customers have begun to use the [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md) as an agent alternative even though Microsoft doesn’t officially support an agent-based approach for application monitoring yet. In the meantime, the open source community has contributed an [OpenTelemetry-Collector Azure Monitor Exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/azuremonitorexporter) that some customers are using to send data to Azure Monitor Application Insights.
+          
+          We plan to support an agent-based approach in the future, though the details and timeline aren't available yet. Our objective is to provide a path for any OpenTelemetry supported language to send to Azure Monitor via [OpenTelemetry Protocol (OTLP)](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/README.md). This will enable customers to observe applications written in languages beyond our [supported languages](https://review.docs.microsoft.com/azure/azure-monitor/app/platforms). 
+          
+      - question: |
+          What's the difference between OpenCensus and OpenTelemetry?
+        answer: |
+          [OpenCensus](https://opencensus.io/) is the precursor to [OpenTelemetry](https://opentelemetry.io/). Microsoft helped bring together [OpenTracing](https://opentracing.io/) and OpenCensus to create OpenTelemetry, a single observability standard for the world. Azure Monitor's current [production-recommended Python SDK](app/opencensus-python.md) is based on OpenCensus, but eventually all Azure Monitor's SDKs will be based on OpenTelemetry.
 
   - name: Container insights
     questions:
