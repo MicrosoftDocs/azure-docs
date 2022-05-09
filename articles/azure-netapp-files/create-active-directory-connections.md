@@ -172,7 +172,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         This is the site name that the domain controller discovery will be limited to. This should match the site name in Active Directory Sites and Services.
         
         > [!IMPORTANT] 
-        > Without an AD Site Name specified, service disruption may occur. Without an AD Site Name specified, the Azure NetApp Files service may attempt to authenticate with a domain controller beyond what your network topology allows and result in a service disruption. See [Understanding Active Directory Site Topology | Microsoft Docs](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) for more information.
+        > Without an AD Site Name specified, service disruption may occur. Without an AD Site Name specified, the Azure NetApp Files service may attempt to authenticate with a domain controller beyond what your network topology allows and result in a service disruption. See [Understanding Active Directory Site Topology | Microsoft Docs](/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) for more information.
 
     * **SMB server (computer account) prefix**  
         This is the naming prefix for the machine account in Active Directory that Azure NetApp Files will use for creation of new accounts.
