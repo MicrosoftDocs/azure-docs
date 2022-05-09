@@ -24,9 +24,9 @@ highlightedContent:
     - title: What's new in Azure AD?
       itemType: whats-new
       url: ./fundamentals/whats-new.md
-    - title: Secure your remote workforce
-      itemType: get-started
-      url: /enterprise-mobility-security/remote-work/
+    - title: Workload identities
+      itemType: concept
+      url: ./develop/workload-identities-overview.md
     - title: Azure AD feature deployment guide
       itemType: concept
       url: ./fundamentals/active-directory-deployment-checklist-p2.md
@@ -92,6 +92,15 @@ conceptualContent:
             - url: /graph/api/resources/azure-ad-overview
               itemType: reference
               text: Identity and access
+            - url: /powershell/microsoftgraph/overview
+              itemType: overview
+              text: Graph PowerShell overview
+            - url: /powershell/microsoftgraph/get-started
+              itemType: get-started
+              text: Graph PowerShell get started
+            - url: /powershell/microsoftgraph/migration-steps
+              itemType: concept
+              text: Migrate to Graph PowerShell
 
 additionalContent:
   # Supports up to 4 subsections
@@ -162,10 +171,6 @@ additionalContent:
         - title: Managed identities
           summary: Create an application identity that can connect to resources using Azure AD authentication.
           url: ./managed-identities-azure-resources/index.yml
-        # Card
-        - title: Workload identities
-          summary: Learn how to create, manage, and secure your identities for software workloads.
-          url: ./develop/workload-identities-overview.md
         # Card
         - title: Domain services
           summary: Move legacy apps to managed domains in the cloud while preserving user accounts, groups, and access.
