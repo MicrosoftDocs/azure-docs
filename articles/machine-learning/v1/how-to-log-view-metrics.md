@@ -187,17 +187,17 @@ This example performs a parameter sweep over alpha values and captures the resul
 
    [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=run)]
 
-    The `show_output` parameter turns on verbose logging, which lets you see details from the training process as well as information about any remote resources or compute targets. Use the following code to turn on verbose logging when you submit the experiment.
+   The `show_output` parameter turns on verbose logging, which lets you see details from the training process as well as information about any remote resources or compute targets. Use the following code to turn on verbose logging when you submit the experiment.
 
-```python
-run = exp.submit(src, show_output=True)
-```
+   ```python
+   run = exp.submit(src, show_output=True)
+   ```
 
-You can also use the same parameter in the `wait_for_completion` function on the resulting run.
+   You can also use the same parameter in the `wait_for_completion` function on the resulting run.
 
-```python
-run.wait_for_completion(show_output=True)
-```
+   ```python
+   run.wait_for_completion(show_output=True)
+   ```
 
 ## Native Python logging
 
