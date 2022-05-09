@@ -1,5 +1,5 @@
 ---
-title: Define policies for governing access to applications in your environment| Microsoft Docs
+title: Define policies for governing access to applications in your environment| - Azure AD
 description: Azure Active Directory Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.  You can define policies for how users should obtain access to your business critical applications integrated with Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 4/22/2022
+ms.date: 5/9/2022
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -20,16 +20,18 @@ ms.collection: M365-identity-device-management
 # Define policies for governing access to applications in your environment
 
 > [!div class="step-by-step"]
-> [« Prepare](identity-governance-applications-prepare.md)
+> [« Govern access for applications in your environment](identity-governance-applications-prepare.md)
 > [Integrate the application with Azure AD »](identity-governance-applications-integrate.md)
  
-Once you have identified one or more business critical applications for which access is to be governed from Azure AD, write down the organization's policies for determining which users should have access, and any other constraints that the system should provide.
+Once you have identified one or more applications for which access is to be governed from Azure AD, write down the organization's policies for determining which users should have access, and any other constraints that the system should provide.
 
 ## Collect application role definitions
 
 Organizations with compliance requirements or risk management plans will have sensitive or business-critical applications.  If this application is an existing application in your environment, you may already have documented the access policies for who 'should have access' to this application.  If not, you may need to consult with various stakeholders, such as compliance and risk management teams, to ensure that the policies being used to automate access decisions are appropriate for your scenario.
 
 1. First, collect the roles and permissions that the application provides, which are to be governed in Azure AD.  Some apps may have only a single role, for example only "User". More complex apps may surface multiple roles to be managed through Azure AD.  These application roles typically make broad constraints on the access a user with that role would have within the app. For example, an application that has an administrator persona might have two roles, "User" and "Administrator".  Other apps may also rely upon group memberships or claims for finer-grained role checks, which can be provided to the application from Azure AD in provisioning or federation protocols.  Finally, there may be roles that the application does not surface in Azure AD - perhaps the application does not permit defining the administrators in Azure AD, instead relying upon its own authorization rules to identify administrators.
+   1. If you are using an application from the Azure AD application gallery that supports provisioning, then Azure AD may automatically update the application manifest automatically, based on the roles in the SaaS application, once provisioning is configured.
+
 
 ## Define the organization's policy for access to the application
 
@@ -50,7 +52,7 @@ In this section, you'll write down the organizational policies you plan to have 
 
 1. Determine if there are separation of duties constraints. For example, you may have an application with two roles - **Western Sales** and **Eastern Sales** - and want to ensure that a user can only have one sales territory at a time.  Include a list of any pairs of roles that are incompatible for your application, such that if a user got one role, they should not be allowed to request the second role.
 
-1. Select the appropriate conditional access policy for access to the application. We recommend that you analyze your apps and group them into applications that have the same resource requirements for the same users. If this is the first critical application you're integrating with Azure AD, you may need to create a new conditional access policy to express constraints such as requirements for Multi-factor Authentication (MFA) or location-based access. See [plan a conditional access deployment](../conditional-access/plan-conditional-access.md) for more considerations on how to define a conditional access policy.
+1. Select the appropriate conditional access policy for access to the application. We recommend that you analyze your apps and group them into applications that have the same resource requirements for the same users. If this is the first  application you're integrating with Azure AD for identity governance, you may need to create a new conditional access policy to express constraints such as requirements for Multi-factor Authentication (MFA) or location-based access. See [plan a conditional access deployment](../conditional-access/plan-conditional-access.md) for more considerations on how to define a conditional access policy.
 
 1. Determine how exceptions to your criteria should be handled.  For example, an application may typically only be available for designated employees, but an auditor or vendor may need temporary access for a specific project. Or, an employee who is traveling may require access from a location that is normally blocked as your organization has no presence in that location.   In these situations, you may wish to also have an entitlement management policy for approval that may have different stages, or a different time limit, or a different approver.  A vendor who is signed in as a guest user in your Azure AD tenant may not have a manager, so instead their access requests could be approved by a sponsor for their organization, or by a resource owner, or a security officer.
 
@@ -61,6 +63,6 @@ As the organizational policy for who should have access is being reviewed by the
 ## Next steps
 
 > [!div class="step-by-step"]
-> [« Prepare](identity-governance-applications-prepare.md)
+> [« Govern access for applications in your environment](identity-governance-applications-prepare.md)
 > [Integrate the application with Azure AD »](identity-governance-applications-integrate.md)
 
