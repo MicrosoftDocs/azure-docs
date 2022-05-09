@@ -1,10 +1,20 @@
-## Discover vulnerabilities in Infrastructure as Code (IaC)
+---
+title: Discover vulnerabilities in Infrastructure as Code
+description: Learn how to use Defender for DevOps to discover vulnerabilities in Infrastructure as Code (IAC)
+ms.date: 05/09/2022
+ms.topic: tutorial
+---
+
+# Discover vulnerabilities in Infrastructure as Code (IaC)
 
 After setting up the Microsoft Security DevOps Extension or Workflow, there is support in the YAML configuration to run several of the tools, or a single tool. For instance, if you are only interested in Infrastructure as Code scanning, this tutorial guides you through setting up only IaC scanning.
 
+## Prerequisites
+
+[Microsoft Security DevOps GitHub action](#MSDO_GHaction) to setup and configure the Microsoft Security DevOps GitHub Action.
 ### Steps: GitHub 
 
-*Prerequisite: see* [Microsoft Security DevOps GitHub action](#MSDO_GHaction) *to setup and configure the Microsoft Security DevOps GitHub Action*
+*Prerequisite: see* *
 
 1.  From the Repository home page, click **.github/workflows folder**
 
