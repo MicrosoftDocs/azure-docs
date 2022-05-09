@@ -20,7 +20,7 @@ Edit the following values in the parameters file:
 |--|--|
 |`name`| Name of your Language resource|
 |`location`| The region in which your resource is hosted. See [region support](../service-limits.md#regional-availability) for more information.|
-|`sku`| The pricing tier of your resource. See [service limits](../service-limits.md#azure-resource-limits) for more information. |
+|`sku`| The pricing tier of your resource. See [service limits](../service-limits.md#language-resource-limits) for more information. |
 |`storageResourceName`| Name of your storage account|
 |`storageLocation`| Region in which your storage account is hosted.|
 |`storageSkuType`| SKU of your [storage account](/rest/api/storagerp/srp_sku_types).|

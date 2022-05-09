@@ -23,7 +23,7 @@ Create a Language resource with following details.
 |Azure resource group| **Your Azure resource group**|
 |Azure resource name| **Your Azure resource name**|
 |Location | The [region](../../service-limits.md#regional-availability) where your Language resource.      |
-|Pricing tier     | The [pricing tier](../../service-limits.md#azure-resource-limits) for your Language resource.        |
+|Pricing tier     | The [pricing tier](../../service-limits.md#language-resource-limits) for your Language resource.        |
 
 > [!IMPORTANT]
 > * Make sure to to enable **Managed Identity** when you create a Language resource. 

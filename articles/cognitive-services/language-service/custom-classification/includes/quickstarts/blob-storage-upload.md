@@ -5,26 +5,50 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 05/04/2022
+ms.date: 05/09/2022
 ms.author: aahi
+ms.custom: ignite-fall-2021
 ---
 
-After you have created an Azure storage account and linked it to your Language resource, you will need to upload the example files to the root directory of your container for this quickstart. These files will later be used to train your model.
 
-1. [Download the sample movie summary data](https://go.microsoft.com/fwlink/?linkid=2175083) for this quickstart from GitHub. Open the .zip file, and extract the folder containing text files within it. 
+After you have created an Azure storage account and connected it to your Language resource, you will need to upload the documents from the sample dataset to the root directory of your container. These documents will later be used to train your model.
+
+# [Multi label classification](#tab/multi-classification)
+
+1. [Download the sample dataset for multi label classification projects](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/language-service/Custom%20text%20classification/Custom%20multi%20classification%20-%20movies%20summary.zip).
+
+2. Open the .zip file, and extract the folder containing the documents. 
+
+The provided sample dataset contains about 200 documents,  each of which is a summary for a movie. Each document belongs to one or more of the following classes: 
+* "Mystery"
+* "Drama"
+* "Thriller"
+* "Comedy"
+* "Action"
+
+# [Single label classification](#tab/single-classification)
+
+1. [Download the sample dataset for single label classification projects](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/language-service/Custom%20text%20classification/Custom%20single%20classification%20-%20WebOfScience.zip). 
+
+2. Open the .zip file, and extract the folder containing the documents. 
+
+The provided sample dataset contains about 210 documents, each of which is an abstract of a scientific paper. Each document is labeled with only one class of the following classes: 
+* "Computer_science"
+* "Electrical_engineering"
+* "Psychology"
+* "Mechanical_engineering"
+* "Civil_engineering"
+* "Medical"
+* "Biochemistry".
+
+---
 
 2. In the [Azure portal](https://portal.azure.com), navigate to the storage account you created, and select it.
 
 3. In your storage account, select **Containers** from the left menu, located below **Data storage**. On the screen that appears, select **+ Container**. Give the container the name *example-data* and leave the default **Public access level**.
 
-    :::image type="content" source="../../../custom-named-entity-recognition/media/storage-screen.png" alt-text="A screenshot showing the main page for a storage account." lightbox="../../../custom-named-entity-recognition/media/storage-screen.png":::
+    :::image type="content" source="../../media/storage-screen.png" alt-text="A screenshot showing the main page for a storage account." lightbox="../../media/storage-screen.png":::
 
+4. After your container has been created, select it. Then click **Upload** button to select the `.txt` and `.json` files you downloaded earlier. 
 
-4. After your container has been created, click on it. Then select the **Upload** button to select the .txt and .json files you downloaded earlier. 
-
-    :::image type="content" source="../../../custom-named-entity-recognition/media/file-upload-screen.png" alt-text="A screenshot showing the button for uploading files to the storage account." lightbox="../../../custom-named-entity-recognition/media/file-upload-screen.png":::
-
-    > [!TIP]
-    > When you select files to upload, a file explorer will open to your computer. To select all the files in the folder, press *ctrl + a*.   
-
-The provided sample dataset contains around 200 movie summaries that belong to one or more of the following classes: "Mystery", "Drama", "Thriller", "Comedy", "Action".
+    :::image type="content" source="../../media/file-upload-screen.png" alt-text="A screenshot showing the button for uploading files to the storage account." lightbox="../../media/file-upload-screen.png":::
