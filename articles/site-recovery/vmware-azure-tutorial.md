@@ -11,7 +11,7 @@ ms.custom: MVC
 
 This article describes how to enable replication for on-premises VMware VMs, for disaster recovery to Azure using the [Azure Site Recovery](site-recovery-overview.md) service - Classic.
 
-For information about disaster recovery in Azure Site Recovery  Preview, see [this article](vmware-azure-set-up-replication-tutorial-preview.md)
+For information about disaster recovery in Azure Site Recovery Preview, see [this article](vmware-azure-set-up-replication-tutorial-preview.md)
 
 This is the third tutorial in a series that shows how to set up disaster recovery to Azure for on-premises VMware VMs. In the previous tutorial, we [prepared the on-premises VMware environment](vmware-azure-tutorial-prepare-on-premises.md) for disaster recovery to Azure.
 
@@ -43,10 +43,10 @@ Complete the previous tutorials:
 ## Select a protection goal
 
 1. In **Recovery Services vaults**, select the vault name. We're using **ContosoVMVault** for this scenario.
-2. In **Getting Started**, select Site Recovery. Then select **Prepare Infrastructure**.
+2. In **Getting Started**, select Site Recovery. Then, select **Prepare Infrastructure**.
 3. In **Protection goal** > **Where are your machines located**, select **On-premises**.
 4. In **Where do you want to replicate your machines**, select **To Azure**.
-5. In **Are your machines virtualized**, select **Yes, with VMware vSphere Hypervisor**. Then select **OK**.
+5. In **Are your machines virtualized**, select **Yes, with VMware vSphere Hypervisor**. Then, select **OK**.
 
 
 
