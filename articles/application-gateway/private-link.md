@@ -60,6 +60,7 @@ Four components are required to implement Private Link with Application Gateway:
 - Private link configuration for Application Gateway does not expose the "Alias" property and must be referenced via resource URI.
 - Private Endpoint creation does not create a \*.privatelink DNS record/zone. All DNS records should be entered in existing zones used for your Application Gateway.
 - Azure Front Door and Application Gateway do not support chaining via Private Link.
+- Source IP address and x-forwarded-for headers will contain the Private link IP addresses
 
 ## Next steps
 
