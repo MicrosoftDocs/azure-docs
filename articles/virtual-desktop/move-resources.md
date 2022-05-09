@@ -3,7 +3,7 @@ title: Move Azure Virtual Desktop resources between regions - Azure
 description: How to move Azure Virtual Desktop resources between regions.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 05/06/2022
+ms.date: 05/09/2022
 ms.author: helohr
 manager: femila
 ---
@@ -69,8 +69,9 @@ To deploy the template:
 
 4. When you're done uploading the template, select **Save**.
 5. In the next menu, select **Review + create**.
-6. Finally, select **Create**.
-7. Wait a few minutes for the template to deploy. Once it's finished, the resources should appear in your resource list.
+6. Under **Instance details**, make sure the **Region** shows the region you changed the location to in [Modify the exported template](#modify-the-exported-template). If not, select the correct region from the drop-down menu.
+7. If everything looks correct, select **Create**.
+8. Wait a few minutes for the template to deploy. Once it's finished, the resources should appear in your resource list.
 
 ## Next steps
 
