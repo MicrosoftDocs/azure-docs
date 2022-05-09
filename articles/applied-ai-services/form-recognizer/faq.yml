@@ -368,7 +368,7 @@ sections:
       - question: |
             How can I move my trained models from one environment (like beta) to another (like production)?
         answer: |
-            The Copy API enables this scenario by allowing you to copy custom models from one Form Recognizer account or into others, which can exist in any supported geographical region. Follow [this document](disaster-recovery.md) for detailed instructions.
+            The Copy API enables this scenario by allowing you to copy custom models from one Form Recognizer account or into others, which can exist in any supported geographical region. Follow [this document](disaster-recovery.md) for detailed instructions. The copy operation is limitied to copying models within the specific cloud environment the model was trained in. FOr instance copying models from the public cloud to the Azure Government clod is not supported.
 
   - name: Storage account
     questions:
