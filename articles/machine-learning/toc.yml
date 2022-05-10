@@ -539,6 +539,9 @@
             - name: Inference image models with ONNX model
               displayName: automl, image, image model, computer vision
               href: how-to-inference-onnx-automl-image-models.md
+            - name: Explain automated ML models
+              displayName: SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml
+              href: how-to-machine-learning-interpretability-automl.md
             - name: Troubleshoot automated ML
               href: how-to-troubleshoot-auto-ml.md
     - name: Deploy models
@@ -658,27 +661,18 @@
         - name: Manage resources VS Code
           displayName: vscode,resources
           href: how-to-manage-resources-vscode.md
-    - name: Responsible AI
+    - name: Implement Responsible AI in Practice
       items:
-        - name: Interpret & explain models
-          displayName: interpretability
-          items: 
-            - name: Interpret ML models
-              displayName: SDK, interpret, explain, explainability, interpretability
-              href: how-to-machine-learning-interpretability-aml.md
-            - name: Explain automated ML models
-              displayName: SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml
-              href: how-to-machine-learning-interpretability-automl.md
-        - name: Responsible AI dashboard
+        - name: Generate Responsible AI dashboard
+          items:
+            - name: Responsible AI dashboard (V2)
+              href: how-to-responsible-ai-dashboard-sdk-cli.md
+            - name: Responsible AI dashboard (UI)
+              href: how-to-responsible-ai-dashboard-ui.md
+        - name: Using the Responsible AI dashboard in studio
           href: how-to-responsible-ai-dashboard.md
-        - name: Responsible AI dashboard (SDK)
-          href: how-to-responsible-ai-dashboard-sdk.md
-        - name: Responsible AI dashboard (UI)
-          href: how-to-responsible-ai-dashboard-ui.md
-        - name: Assess and mitigate model fairness
-          href: how-to-machine-learning-fairness-aml.md
-        - name: how-to-responsible-ai-scorecard.md
-          href: 
+        - name: Responsible AI dashboard scorecard
+          href: how-to-responsible-ai-scorecard.md
 - name: Troubleshoot & debug
   items: 
     - name: VS Code interactive debugging

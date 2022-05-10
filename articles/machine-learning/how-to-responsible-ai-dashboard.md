@@ -150,7 +150,7 @@ Selecting the "Feature list" button opens a side panel, which allows you to retr
 2. **Features:** lists the name of the feature in the dataset.
 3. **Importances**: A guideline for how related the feature may be to the error. Calculated via mutual information score between the feature and the error on the labels. You can use this score to help you decide which features to choose in Error Analysis.
 4. **Check mark**: allows you to add or remove the feature from the tree map.
-5.**Maximum depth**: The maximum depth of the surrogate tree trained on errors.
+5. **Maximum depth**: The maximum depth of the surrogate tree trained on errors.
 6. **Number of leaves**: The number of leaves of the surrogate tree trained on errors.
 7. **Minimum number of samples in one leaf**: The minimum number of data required to create one leaf.
 
