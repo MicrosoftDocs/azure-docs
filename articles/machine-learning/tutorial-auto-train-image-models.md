@@ -294,7 +294,7 @@ The Bandit early termination policy is also used. This policy terminates poor pe
 
 Once the search space and sweep settings are defined, you can then submit the job to train an image model using your training dataset.
 
-# [CLI v2](#tab/CLI-v2-7)
+# [CLI v2](#tab/CLI-v2)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
