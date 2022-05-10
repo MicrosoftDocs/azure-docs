@@ -47,7 +47,7 @@ For more information about partitions, see the following articles:
 For a job to be parallel, partition keys need to be aligned between all inputs, all query logic steps and all outputs. The query logic partitioning is determined by the keys used for joins and aggregations (GROUP BY).
 
 * If an input and an output are partitioned by WarehouseId, and the query groups by ProductId without WarehouseId, then the job is not parallel.
-* If two inputs to be joined are partitioned by different partition key, then the job is not parallel.
+* If two inputs to be joined are partitioned by different partition keys (WarehouseId and ProductId), then the job is not parallel.
 * If two or more independent data flows are contained in a single job, each with its own partition key, then the job is not parallel.
 
 Only when all inputs, outputs and query steps are using the same key will the job be parallel.
