@@ -4,6 +4,7 @@ description: Instructions for how to properly configure Azure Database for MySQL
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: how-to
 ms.devlang: csharp, golang, java, javascript, php, python, ruby
 ms.custom: "devx-track-python, devx-track-csharp"
