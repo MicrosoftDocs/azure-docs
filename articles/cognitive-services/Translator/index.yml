@@ -92,7 +92,7 @@ landingContent:
          - text: Document Translation REST APIs
            url: document-translation/reference/rest-api-guide.md
          - text: Document Translation FAQ
-           url: document-translation/faq.yml
+           url: document-translation/faq.md
       - linkListType: how-to-guide
         links:
           - text: Create SAS tokens

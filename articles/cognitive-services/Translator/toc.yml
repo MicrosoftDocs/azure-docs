@@ -140,7 +140,7 @@ items:
       - name: Cancel translation
         href: document-translation/reference/cancel-translation.md
     - name: FAQ
-      href: document-translation/faq.yml
+      href: document-translation/faq.md
 - name: Custom Translator
   items:
   - name: What is Custom Translator?

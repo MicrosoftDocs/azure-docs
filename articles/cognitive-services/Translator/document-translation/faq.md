@@ -15,11 +15,11 @@ ms.author: lajanuar
 
 <!-- markdownlint-disable MD001 -->
 
-# Document Translation FAQ
+# Frequently asked questions
 
-## Frequently asked questions about Document Translation.
+## Document Translation: FAQ
 
-#### When should I specify the source language of the document in the request?
+#### When should rgw source language be specified in a request?
 
 If the language of the content in the source document is known, its recommended to specify the source language in the request to get a better translation. If the document has content in multiple languages or the language is unknown, then don't specify the source language in the request. Document translation automatically identifies language for each text segment and translates.
 
@@ -31,7 +31,7 @@ While translating text from the source to the target language, the overall lengt
 
 No. The text in an image within a document will not get translated.
 
-#### Does Document Translation translate content from scanned documents?
+#### Can Document Translation translate content from scanned documents?
 
 Yes. Document translation translates content from _scanned PDF_ documents.
 
@@ -39,10 +39,10 @@ Yes. Document translation translates content from _scanned PDF_ documents.
 
 No. If your scanned or text-embedded PDFs are password-locked, you must remove the lock before submission.
 
-### Can files with multiple languages in the same document be processed?
+#### Can multiple languages in the same document be translated?
 
 Yes. Document Translation has extensive [language support](../language-support.md#translation) for printed text languages and supports PDF document translation with multiple languages in the same document.
 
-#### If I'm using managed identities for authentication, do I also include a SAS token URL?
+#### If I'm using managed identities, do I also need a SAS token URL?
 
 No. Don't include SAS token URLS—your requests will fail. Managed identities eliminate the need for you to include shared access signature tokens (SAS) with your HTTP requests.
