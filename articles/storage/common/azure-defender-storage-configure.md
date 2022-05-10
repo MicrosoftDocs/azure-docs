@@ -8,7 +8,7 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 05/09/2022
 ms.author: tamram
 ms.reviewer: ozgun 
 ms.custom: devx-track-azurepowershell
@@ -79,17 +79,15 @@ Use an Azure Resource Manager template to deploy an Azure Storage account with M
 Use an Azure Policy to enable Microsoft Defender for Cloud across storage accounts under a specific subscription or resource group.
 
 1. Launch the Azure **Policy - Definitions** page.
-1. Search for the **Deploy Microsoft Defender for Storage accounts** policy.
+1. Search for the **Azure Defender for Storage should be enabled** policy, then select the policy to view the policy definition page.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="Apply policy to enable Microsoft Defender for Storage accounts":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-defender-policy-definitions.png" alt-text="Locate built-in policy to enable Microsoft Defender for Storage for your storage accounts.":::
 
-1. Select an Azure subscription or resource group.
+1. Select the **Assign** button for the built-in policy, then specify an Azure subscription. You can also optionally specify a  resource group to further scope the policy assignment.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy2.png" alt-text="Select subscription or resource group for scope of policy ":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-defender-policy-assignment.png" alt-text="Select subscription and optionally resource group to scope the policy assignment.":::
 
-1. Assign the policy.
-
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="Assign policy to enable Microsoft Defender for Storage":::
+1. Select **Review + create** to review the policy and then create it.
 
 ### [PowerShell](#tab/azure-powershell)
 
