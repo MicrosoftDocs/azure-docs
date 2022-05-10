@@ -88,7 +88,7 @@ There are two ways you can achieve this:
     | Priority                | 150 (must be lower than any rules that block internet access) | 151 (must be lower than any rules that block internet access) | 152 (must be lower than any rules that block internet access) | 153 (must be lower than any rules that block internet access) |
     | Name                    | AllowAADOutboundAccess                                        | AllowAzOutboundAccess                                         | AllowAzureFrontDoorFirstPartyAccess                           | AllowMCROutboundAccess 
 
-* Configure the firewall on your local network to allow outbound TCP 443 (HTTPS) access to Azure AD, Azure Resource Manager and Microsoft Container Registry and inbound & outbound access to Azure FrontDoor.FirstParty using the downloadable service tag files. The JSON file contains all the public IP address ranges used by Azure AD, Azure Resource Manager, Azure FrontDoor.FirstParty, and Microsoft Container Registry and is updated monthly to reflect any changes. Azure ADs service tag is AzureActiveDirectory and Azure's service tag is AzureResourceManager. Consult with your network administrator and network firewall vendor to learn how to configure your firewall rules.
+* Configure the firewall on your local network to allow outbound TCP 443 (HTTPS) access to Azure AD, Azure Resource Manager, and Microsoft Container Registry, and inbound & outbound access to Azure FrontDoor.FirstParty using the downloadable service tag files. The JSON file contains all the public IP address ranges used by Azure AD, Azure Resource Manager, Azure FrontDoor.FirstParty, and Microsoft Container Registry and is updated monthly to reflect any changes. Azure Active Directory's service tag is AzureActiveDirectory, Azure Resource Manager's service tag is AzureResourceManager, Microsoft Container Registry's service tag is MicrosoftContainerRegistry and Azure Front Door's service tag is FrontDoor.FirstParty. Consult with your network administrator and network firewall vendor to learn how to configure your firewall rules.
 
 ## Create an Azure Arc Private Link Scope
 
@@ -160,7 +160,7 @@ If you opted out of using Azure private DNS zones during private endpoint creati
 ## Configure private links for a Kubernetes cluster when onboarding to Azure Arc
 
 > [!NOTE]
-    > Private links is supported in Azure Arc agents with version greater than or equal to Y. If you are configuring existing Azure Arc enabled Kubernetes clusters with private links, ensure that you upgrade your Arc agents following the [upgrade guidance](/azure/azure-arc/kubernetes/agent-upgrade).
+> Private links is supported in Azure Arc agents with version greater than or equal to Y. If you are configuring existing Azure Arc enabled Kubernetes clusters with private links, ensure that you upgrade your Arc agents following the [upgrade guidance](/azure/azure-arc/kubernetes/agent-upgrade).
 
 When connecting a Kubernetes cluster to Azure Arc for the first time, you can optionally configure private links by connecting the Kubernetes cluster to Azure Arc and enabling private connectivity:
 
@@ -174,27 +174,7 @@ When connecting a Kubernetes cluster to Azure Arc for the first time, you can op
 | --private-link-scope-resource-id | id of the private link scope resource created earlier. For example: /subscriptions//resourceGroups//providers/Microsoft.HybridCompute/privateLinkScopes/ |
 
 > [!NOTE]
-    > Configuring private links for Azure Arc enabled Kubernetes clusters is supported starting from version X of connectedk8s CLI extension. Ensure that you are using connectedk8s CLI extension version greater than or equal to X.
-
-<!--1. Download the [CLI extension whl file](https://github.com/Azure/azure-arc-kubernetes-preview/blob/master/cli-extensions/connectedk8s-1.2.0-py2.py3-none-any.whl) supporting this feature.
-2. Remove any existing CLI extension for connectedk8s:
-
-    ```azurecli
-    az extension remove -n connectedk8s
-    ```
-
-3. Add the new extension that supports private link:
-
-    ```azurecli
-    az extension add --source <path-to-whl-file>
-    ``` 
-
-4. Connect the Kubernetes cluster to Azure Arc and enable private connectivity:
-
-    ```azurecli
-    az connectedk8s connect -g <resource-group-name> -n <connected-cluster-name> -l <location> --enable-private-link true --private-link-scope-resource-id <pls-arm-id>
-    ```
--->
+> Configuring private links for Azure Arc enabled Kubernetes clusters is supported starting from version X of connectedk8s CLI extension. Ensure that you are using connectedk8s CLI extension version greater than or equal to X.
 
 ## Configure an existing Azure Arc-enabled Kubernetes cluster with private links
 
@@ -210,27 +190,7 @@ If you have an existing Azure Arc-enabled Kubernetes cluster, you can enable pri
 | --private-link-scope-resource-id | id of the private link scope resource created earlier. For example: /subscriptions//resourceGroups//providers/Microsoft.HybridCompute/privateLinkScopes/ |
 
 > [!NOTE]
-    > Configuring private links for Azure Arc enabled Kubernetes clusters is supported starting from version X of connectedk8s CLI extension. Ensure that you are using connectedk8s CLI extension version greater than or equal to X.
-
-
-<!--1. Download the [CLI extension whl file](https://github.com/Azure/azure-arc-kubernetes-preview/blob/master/cli-extensions/connectedk8s-1.2.0-py2.py3-none-any.whl) supporting this feature  
-1. Remove any existing CLI extension for connectedk8s:
-
-    ```azurecli
-    az extension remove -n connectedk8s
-    ```
-
-1. Add the new extension that supports private link:
-
-    ``` azurecli
-    az extension add --source <path-to-whl-file>
-    ```
-
-1. Enable private link for the existing Arc-enabled Kubernetes cluster:
-
-    ```azurecli
-    az connectedk8s update -g <resource-group-name>  -n <connected-cluster-name> --enable-private-link true –private-link-scope-resource-id <pls-arm-id>
-    ``` -->
+> Configuring private links for Azure Arc enabled Kubernetes clusters is supported starting from version X of connectedk8s CLI extension. Ensure that you are using connectedk8s CLI extension version greater than or equal to X.
 
 ## Troubleshooting
 
