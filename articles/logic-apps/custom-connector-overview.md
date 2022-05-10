@@ -98,7 +98,7 @@ When you create a class library project to build your connector, you add a NuGet
 * **GetOperations()**
 * **GetService()**
 
-The workflow designer uses these methods to describe the triggers and actions that your connector provides and shows on the designer surface. The **GetService()** method also specifies the connection's input parameters that are required by the designer. Generally, you can add any Azure Functions trigger or action to your own built-in connector. However, custom built-in trigger capabilities are limited to only [Azure Functions specific triggers](../azure-functions/functions-bindings-example.md). If you want to use the Azure Functions binding that's used for the managed Azure connector triggers, you have to provide the connection information and trigger bindings as required by Azure Functions. Your connector has to implement the following methods for the Azure Functions binding:
+The workflow designer uses these methods to query the triggers and actions that your connector provides and shows on the designer surface. The **GetService()** method also specifies the connection's input parameters that are required by the designer. Generally, you can add any Azure Functions trigger or action to your own built-in connector. However, custom built-in trigger capabilities are limited to only [Azure Functions specific triggers](../azure-functions/functions-bindings-example.md). If you want to use the Azure Functions binding that's used for the managed Azure connector triggers, you have to provide the connection information and trigger bindings as required by Azure Functions. Your connector has to implement the following methods for the Azure Functions binding:
 
 * **GetBindingConnectionInformation()**: If you want to use the Azure Functions trigger type, this method provides the required connection parameters information to the Azure Functions trigger binding.
 
@@ -170,7 +170,7 @@ If you're only implementing the trigger, you don't have to implement this method
 ```csharp
 using (var client = new HttpClient())
 {
-   response = client.SendAsync(httpRequestMessage).ConfigureAwait(False).ToJObject();
+   response = client.SendAsync(httpRequestMessage).ConfigureAwait(false).ToJObject();
 }
 return new ServiceOperationResponse(body: response);
 ```

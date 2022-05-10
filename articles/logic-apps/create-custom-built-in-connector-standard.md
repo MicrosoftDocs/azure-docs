@@ -84,20 +84,16 @@ The following sections show how to register your custom built-in connector as an
 
    namespace ServiceProviders.CosmosDb.Extensions
    {
-
       public class CosmosDbServiceProviderStartup : IWebJobsStartup
       {
-
          // Initialize the workflow service.
          public void Configure(IWebJobsBuilder builder)
          {
-
                // Register the extension.
                builder.AddExtension<CosmosDbServiceProvider>)();
 
                // Use dependency injection (DI) for the trigger service operation provider.
                builder.Services.TryAddSingleton<CosmosDbTriggerServiceOperationProvider>();
-
          }
       }
    }
@@ -107,7 +103,7 @@ The following sections show how to register your custom built-in connector as an
 
 ### 2. Register the service provider
 
-Now, register the service provider implementation as an Azure Functions extension. This example uses the built-in [Azure Cosmos DB trigger for Azure Functions](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=in-process%2Cfunctionsv2&pivots=programming-language-csharp) as a new trigger and registers the new Cosmos DB service provider for an existing list of service providers, which is already part of the Azure Logic Apps extension.
+Now, register the service provider implementation as an Azure Functions extension. This example uses the built-in [Azure Cosmos DB trigger for Azure Functions](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=in-process%2Cfunctionsv2&pivots=programming-language-csharp) as a new trigger. This example also registers the new Cosmos DB service provider for an existing list of service providers, which is already part of the Azure Logic Apps extension.
 
 ```csharp
 using Microsoft.Azure.Documents;
@@ -123,22 +119,18 @@ using System.Collections.Generic;
 
 namespace ServiceProviders.CosmosDb.Extensions
 {
-
    [Extension("CosmosDbServiceProvider", configurationSection: "CosmosDbServiceProvider")]
    public class CosmosDbServiceProvider : IExtensionConfigProvider
    {
-
       // Initialize a new instance for the CosmosDbServiceProvider class.
       public CosmosDbServiceProvider(ServiceOperationsProvider serviceOperationsProvider, CosmosDbTriggerServiceOperationProvider operationsProvider)
       {
-
          serviceOperationsProvider.RegisterService(serviceName: CosmosDBServiceOperationProvider.ServiceName, serviceOperationsProviderId: CosmosDBServiceOperationProvider.ServiceId, serviceOperationsProviderInstance: operationsProvider);
       }
 
       // Convert the Cosmos Document array to a generic JObject array.
       public static JObject[] ConvertDocumentToJObject(IReadOnlyList<Document> data)
       {
-
          List<JObject> jobjects = new List<JObject>();
 
          foreach(var doc in data)
@@ -147,18 +139,14 @@ namespace ServiceProviders.CosmosDb.Extensions
          }
 
          return jobjects.ToArray();
-
       }
 
       // In the Initialize method, you can add any custom implementation.
       public void Initialize(ExtensionConfigContext context)
       {
-
          // Convert the Cosmos Document list to a JObject array.
          context.AddConverter<IReadOnlyList<Document>, JObject[]>(ConvertDocumentToJObject);
-
       }
-
    }
 }
 ```
@@ -196,8 +184,8 @@ To add the NuGet reference from the previous section, in the extension bundle na
 
    Alternatively, in your logic app project's directory, run the PowerShell script named [**add-extension.ps1**](https://github.com/Azure/logicapps-connector-extensions/blob/main/src/Common/tools/add-extension.ps1):
 
-   ```powershell
-   powershell -file add-extension.ps1 {Cosmos-DB-output-bin-NuGet-folder-path} CosmosDB
+   ```bash
+   .\add-extension.ps1 {Cosmos-DB-output-bin-NuGet-folder-path} CosmosDB
    ```
 
    If the extension for your custom built-in connector was successfully installed, you get output that looks similar to the following example:

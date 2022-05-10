@@ -20,7 +20,7 @@ This article provides a general overview about built-in connectors in Consumptio
 
 <a name="built-in-operations-lists"></a>
 
-## built-in connectors in Consumption versus Standard
+## Built-in connectors in Consumption versus Standard
 
 | Consumption | Standard |
 |-------------|----------|
