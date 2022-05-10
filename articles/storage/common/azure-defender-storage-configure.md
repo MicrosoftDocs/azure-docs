@@ -87,7 +87,7 @@ Use an Azure Policy to enable Microsoft Defender for Cloud across storage accoun
 
     :::image type="content" source="media/azure-defender-storage-configure/storage-defender-policy-assignment.png" alt-text="Select subscription and optionally resource group to scope the policy assignment.":::
 
-1. Select **Review + create** to review the policy and then create it.
+1. Select **Review + create** to review the policy definition and then create it with the specified scope.
 
 ### [PowerShell](#tab/azure-powershell)
 
