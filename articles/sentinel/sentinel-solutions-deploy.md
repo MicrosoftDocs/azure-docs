@@ -64,6 +64,30 @@ For example, in the following image, the **Cisco Umbrella** solution shows a cat
 
 For more information, see [Microsoft Sentinel content hub catalog](sentinel-solutions-catalog.md) and [Find your Microsoft Sentinel data connector](data-connectors-reference.md).
 
+## Enable content items in a solution
+
+Centrally manage content items for an installed solution deployed by the content hub.
+
+1. In the content hub, select an installed solution where the content source is **Content hub**.
+1. On the solutions details page, select **Manage**.
+
+    :::image type="content" source="media/sentinel-solutions-deploy/content-hub-manage-option.png" alt-text="Screenshot of manage button on details page of the Azure Activity content hub solution.":::
+
+1. The following table describes how you can interact with the different content types for a solution in the content hub. Select the content item to get started.
+
+    |Content type  |Description  |
+    |---------|---------|
+    |Data connectors     | View and complete the data connector configuration steps. After you configure the data connector, the content item status shows as **Connected**.         |
+    |Analytics rule    | View the template in the analytics template gallery. Select **Create rule** and follow the steps to enable the analytics rule . The number of active rules created from the rule template is shown in the **Created content** column for the content item.       |
+    |Hunting queries   |  Select **Run query** from the details page. To customize the query, go to the hunting gallery and create a clone of the read-only hunting query template. The number of cloned queries associated with a hunting query is shown in the **Created content** column for the content item.       |
+    |Workbook     |    Select **View template** to open the workbook and see the visualizations. To create an instance of the workbook template to customize, select **Manage in gallery** > **Save**. View your saved customizable workbook by selecting **1 item** in the  **Created content** column.    |
+    |Parser| Select **Load the function code** to open Azure Log Analytics and run the provided function code. Select **Use in editor** to open Azure Log Analytics with the parser.  |
+    |Playbooks| Not yet supported in this view. |
+
+
+## Delete content items or solutions
+
+
 ## Find the support model for your solution
 
 Each solution lists details about its support model on the solution's details pane, in the **Support** box, where either **Microsoft** or a partner's name is listed. For example:
