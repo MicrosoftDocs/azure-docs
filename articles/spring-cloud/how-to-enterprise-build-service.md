@@ -22,7 +22,7 @@ In Azure Spring Cloud, the existing Standard tier already supports compiling use
 
 Tanzu Build Service in the Enterprise tier is the entry point to containerize user applications from both source code and artifacts. There's a dedicated build agent pool that reserves compute resources for a given number of concurrent build tasks. The build agent pool prevents resource contention with your running apps. You can configure the number of resources given to the build agent pool during or after creating a new service instance of Azure Spring Cloud using the **VMware Tanzu settings**.
 
-:::image type="content" source="media/enterprise/how-to-enterprise-build-service/agent-pool.png" alt-text="Azure portal screenshot showing Azure Spring Cloud Create page with V M ware Tanzu settings highlighted and Allocated Resources dropdown showing." lightbox="media/enterprise/how-to-enterprise-build-service/agent-pool.png":::
+:::image type="content" source="media/enterprise/how-to-enterprise-build-service/agent-pool.png" alt-text="Screenshot of Azure portal showing Azure Spring Cloud Create page with V M ware Tanzu settings highlighted and Allocated Resources dropdown showing." lightbox="media/enterprise/how-to-enterprise-build-service/agent-pool.png":::
 
 The Build Agent Pool scale set sizes available are:
 
@@ -36,7 +36,7 @@ The Build Agent Pool scale set sizes available are:
 
 The following image shows the resources given to the Tanzu Build Service Agent Pool after you've successfully provisioned the service instance. You can also update the configured agent pool size.
 
-:::image type="content" source="media/enterprise/how-to-enterprise-build-service/agent-pool-size.png" alt-text="Azure portal screenshot showing Azure Spring Cloud Build Service page with 'General info' highlighted." lightbox="media/enterprise/how-to-enterprise-build-service/agent-pool-size.png":::
+:::image type="content" source="media/enterprise/how-to-enterprise-build-service/agent-pool-size.png" alt-text="Screenshot of Azure portal showing Azure Spring Cloud Build Service page with 'General info' highlighted." lightbox="media/enterprise/how-to-enterprise-build-service/agent-pool-size.png":::
 
 ## Default Builder and Tanzu Buildpacks
 
@@ -60,7 +60,7 @@ Besides the `default` builder, you can also create custom builders with the prov
 
 All the builders configured in a Spring Cloud Service instance are listed in the **Build Service** section under **VMware Tanzu components**.
 
-:::image type="content" source="media/enterprise/how-to-enterprise-build-service/builder-list.png" alt-text="Azure portal screenshot showing Build Service page with list of configured builders." lightbox="media/enterprise/how-to-enterprise-build-service/builder-list.png":::
+:::image type="content" source="media/enterprise/how-to-enterprise-build-service/builder-list.png" alt-text="Screenshot of Azure portal showing Build Service page with list of configured builders." lightbox="media/enterprise/how-to-enterprise-build-service/builder-list.png":::
 
 Select **Add** to create a new builder. The image below shows the resources you should use to create the customized builder.
 
@@ -68,7 +68,7 @@ Select **Add** to create a new builder. The image below shows the resources you 
 
 You can also edit a custom builder. You can update the buildpacks or the [OS Stack](https://docs.pivotal.io/tanzu-buildpacks/stacks.html), but the builder name is read only.
 
-:::image type="content" source="media/enterprise/how-to-enterprise-build-service/builder-edit.png" alt-text="Azure portal screenshot showing Build Service page with builders list and context menu showing 'Edit Builder' command." lightbox="media/enterprise/how-to-enterprise-build-service/builder-edit.png":::
+:::image type="content" source="media/enterprise/how-to-enterprise-build-service/builder-edit.png" alt-text="Screenshot of Azure portal showing Build Service page with builders list and context menu showing 'Edit Builder' command." lightbox="media/enterprise/how-to-enterprise-build-service/builder-edit.png":::
 
 You can delete any custom builder, but the `default` builder is read only.
 

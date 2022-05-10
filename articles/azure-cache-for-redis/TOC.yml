@@ -182,7 +182,7 @@
     - name: Monitor in Azure portal
       href: cache-how-to-monitor.md
     - name: Set alerts for exceptions
-      href: cache-how-to-monitor.md#operations-and-alerts
+      href: cache-how-to-monitor.md#alerts
     - name: Monitor with diagnostic logs
       href: cache-monitor-diagnostic-settings.md
   - name: Scale

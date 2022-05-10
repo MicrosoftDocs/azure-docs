@@ -30,7 +30,7 @@ Use on-demand provisioning to provision a user into an application in seconds. A
 1. Search for a user by first name, last name, display name, user principal name, or email address.
    > [!NOTE]
    > For Cloud HR provisioning app (Workday/SuccessFactors to AD/Azure AD), the input value is different. 
-   > For Workday scenario, please provide "WID" of the user in Workday. 
+   > For Workday scenario, please provide "WorkerID" or "WID" of the user in Workday. 
    > For SuccessFactors scenario, please provide "personIdExternal" of the user in SuccessFactors. 
  
 1. Select **Provision** at the bottom of the page.
