@@ -64,17 +64,17 @@ conceptualContent:
               text: Describe identity concepts
             - url: /learn/modules/explore-basic-services-identity-types/
               itemType: learn
-              text: Describe the services and identity types of Azure AD
+              text: Describe services and identity types
             - url: /learn/modules/create-users-and-groups-in-azure-active-directory/
               itemType: learn
-              text: Create Azure users and groups in Azure AD
+              text: Create users and groups
             - url: /learn/modules/allow-users-reset-their-password/
               itemType: learn
-              text: Allow users to reset their password with Azure AD self-service password reset
+              text: Allow users to reset their password
             - url: /learn/modules/secure-access-azure-identity-services/
               itemType: learn
-              text: Secure access to your applications by using Azure identity services
-            - url: /learn/browse/?expanded=azure&products=azure-active-directory&resource_type=module
+              text: Secure access to your applications
+            - url: /learn/browse/?expanded=azure&products=azure-active-directory-domain%2Cazure-active-directory-b2c%2Cazure-active-directory&resource_type=module
               itemType: learn
               text: See more >
         # Card
