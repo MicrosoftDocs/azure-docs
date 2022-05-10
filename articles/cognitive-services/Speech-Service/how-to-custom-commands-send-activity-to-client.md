@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: eur
 ms.devlang: csharp
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Send Custom Commands activity to client application

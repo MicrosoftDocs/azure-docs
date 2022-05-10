@@ -134,9 +134,9 @@ Example:
 az arcdata dc update --maintenance-enabled true --k8s-namespace arc --use-k8s
 ```
 
-## Change maintenance window start time 
+## Change maintenance window options 
 
-The update command can be used to change the maintenance start time.
+The update command can be used to change any of the options. In this example, I will update the start time.
 
 ```cli
 az arcdata dc update --maintenance-start <date and time> --k8s-namespace arc --use-k8s

@@ -28,7 +28,7 @@ Private plans let publishers offer private, customized solutions to targeted cus
 Private plans let publishers take advantage of the scale and global availability of a public marketplace, with the flexibility and control needed to negotiate and deliver custom deals and configurations. Enterprises can now buy and sell in ways they expect.
 
 >[!Note]
->Private plans are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program. For details, see [ISV to CSP partner private offers](/azure/marketplace/isv-csp-reseller).
+>Private plans are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program. For details, see [ISV to CSP partner private offers](./isv-csp-reseller.md).
 
 ## Create private plans
 

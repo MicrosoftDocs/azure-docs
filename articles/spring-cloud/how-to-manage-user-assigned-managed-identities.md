@@ -118,8 +118,7 @@ az spring-cloud app identity remove \
 
 For user-assigned managed identity limitations, see [Quotas and service plans for Azure Spring Cloud](./quotas.md).
 
-
 ## Next steps
 
-* [Learn more about managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
-* [How to use managed identities with Java SDK](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
+- [Learn more about managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
+- [How to use managed identities with Java SDK](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)

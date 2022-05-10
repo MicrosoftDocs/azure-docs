@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: In this quickstart, learn how to create a virtual network using the Azure portal.
 author: mbender-ms
 ms.author: mbender
-ms.date: 03/17/2021
+ms.date: 04/13/2022
 ms.topic: quickstart
 ms.service: virtual-network
 ms.workload: infrastructure
@@ -178,35 +178,46 @@ Create two VMs in the virtual network:
 
 ## Communicate between VMs
 
-1. In the bastion connection of **myVM1**, open PowerShell.
+1. In the Bastion connection of **myVM1**, open PowerShell.
 
-2. Enter `ping myvm2`.
+2. Enter `ping myVM2`.
 
-    You'll receive a message similar to this output:
+    You'll get a reply message like this:
 
     ```powershell
-    Pinging myvm2.cs4wv3rxdjgedggsfghkjrxuqf.bx.internal.cloudapp.net [10.1.0.5] with 32 bytes of data:
-    Reply from 10.1.0.5: bytes=32 time=3ms TTL=128
-    Reply from 10.1.0.5: bytes=32 time=1ms TTL=128
-    Reply from 10.1.0.5: bytes=32 time=1ms TTL=128
-    Reply from 10.1.0.5: bytes=32 time=1ms TTL=128
+    PS C:\Users\myVM1> ping myVM2
 
-    Ping statistics for 10.1.0.5:
-        Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
-    Approximate round trip times in milli-seconds:
-        Minimum = 1ms, Maximum = 3ms, Average = 1ms
+    Pinging myVM2.ovvzzdcazhbu5iczfvonhg2zrb.bx.internal.cloudapp.net
+    Request timed out.
+    Request timed out.
+    Request timed out.
+    Request timed out.
+
+    Ping statistics for 10.0.0.5:
+        Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
     ```
 
-3. Close the bastion connection to **myVM1**.
+    The ping fails, because it uses the Internet Control Message Protocol (ICMP). By default, ICMP isn't allowed through your Windows firewall. 
+
+1. To allow **myVM2** to ping **myVM1** in a later step, enter this command:
+
+    ```powershell
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
+    ```
+
+    That command lets ICMP inbound through the Windows firewall.
+
+3. Close the Bastion connection to **myVM1**.
 
 4. Complete the steps in [Connect to myVM1](#connect-to-myvm1), but connect to **myVM2**.
 
-5. Open PowerShell on **myVM2**, enter `ping myvm1`.
 
-    You'll receive something like this message:
+5. Open PowerShell on **myVM2**, enter `ping myVM1`.
+
+    You'll receive a successful reply message like this:
 
     ```powershell
-    Pinging myvm1.cs4wv3rxdjgedggsfghkjrxuqf.bx.internal.cloudapp.net [10.1.0.4] with 32 bytes of data:
+    Pinging myVM1.cs4wv3rxdjgedggsfghkjrxuqf.bx.internal.cloudapp.net [10.1.0.4] with 32 bytes of data:
     Reply from 10.1.0.4: bytes=32 time=1ms TTL=128
     Reply from 10.1.0.4: bytes=32 time=1ms TTL=128
     Reply from 10.1.0.4: bytes=32 time=1ms TTL=128

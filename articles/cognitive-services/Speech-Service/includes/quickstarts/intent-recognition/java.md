@@ -100,7 +100,7 @@ At this point, your code should look like this:
 > [!NOTE]
 > We've added some comments to this version.
 
-:::code language="java" source="~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java" id="code":::
+:::code language="java" source="~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java":::
 
 ## Build and run your app
 

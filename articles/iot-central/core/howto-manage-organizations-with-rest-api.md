@@ -15,13 +15,15 @@ services: iot-central
 The IoT Central REST API lets you develop client applications that integrate with IoT Central applications. You can use the REST API to manage organizations in your IoT Central application.
 
 > [!TIP]
-> The [organizations feature](howto-create-organizations.md) is currently available in [preview API](/rest/api/iotcentral/1.1-previewdataplane/users).
+> The [organizations feature](howto-create-organizations.md) is currently available in [preview API](/rest/api/iotcentral/1.2-previewdataplane/users).
 
 Every IoT Central REST API call requires an authorization header. To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
 To learn more about organizations in IoT Central Application, see [Manage IoT Central organizations](howto-create-organizations.md).
+
+[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
 ## Organizations REST API
 
@@ -38,7 +40,7 @@ The IoT Central REST API lets you:
 The REST API lets you create organizations in your IoT Central application. Use the following request to create an organization in your application:
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/organizations/{organizationId}?api-version=1.1-preview
+PUT https://{subdomain}.{baseDomain}/api/organizations/{organizationId}?api-version=1.2-preview
 ```
 
 * organizationId - Unique ID of the organization
@@ -98,7 +100,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve details of an individual organization from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/organizations/{organizationId}?api-version=1.1-preview
+GET https://{subdomain}.{baseDomain}/api/organizations/{organizationId}?api-version=1.2-preview
 ```
 
 The response to this request looks like the following example:
@@ -116,7 +118,7 @@ The response to this request looks like the following example:
 Use the following request to update details of an organization in your application:
 
 ```http
-PATCH https://{subdomain}.{baseDomain}/api/organizations/{organizationId}?api-version=1.1-preview
+PATCH https://{subdomain}.{baseDomain}/api/organizations/{organizationId}?api-version=1.2-preview
 ```
 
 The following example shows a request body that updates an organization.
@@ -144,7 +146,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve a list of organizations from your application:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/organizations?api-version=1.1-preview
+GET https://{your app subdomain}.azureiotcentral.com/api/organizations?api-version=1.2-preview
 ```
 
 The response to this request looks like the following example.
@@ -185,7 +187,7 @@ The response to this request looks like the following example.
 Use the following request to delete an organization:
 
 ```http
-DELETE https://{your app subdomain}.azureiotcentral.com/api/organizations/{organizationId}?api-version=1.1-preview
+DELETE https://{your app subdomain}.azureiotcentral.com/api/organizations/{organizationId}?api-version=1.2-preview
 ```
 
 ## Next steps

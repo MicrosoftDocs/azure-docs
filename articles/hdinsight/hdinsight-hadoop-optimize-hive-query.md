@@ -4,7 +4,7 @@ description: This article describes how to optimize your Apache Hive queries in 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 10/28/2020
+ms.date: 04/29/2022
 ---
 
 # Optimize Apache Hive queries in Azure HDInsight

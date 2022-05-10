@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
+ms.custom: cogserv-non-critical-speech
 ---
 # Privacy guidelines for voice assistants on Windows
 

@@ -12,7 +12,7 @@ ms.service: storsimple
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/02/2021
+ms.date: 04/15/2022
 ms.author: timlt
 
 ---

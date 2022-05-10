@@ -50,7 +50,13 @@ You can send platform logs to one or more of the destinations in the following t
   - [Tutorial: Stream Azure Active Directory logs to an Azure event hub](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
   - [Tutorial: Archive Azure AD logs to an Azure storage account](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 
+## Pricing model
 
+Processing data to stream logs is charged for [certain services](resource-logs-categories.md#costs) when sent to destinations other than a Log Analytics workspace. There's no direct charge when this data is sent to a Log Analytics workspace, but there is a Log Analytics charge for ingesting the data into a workspace. 
+
+The charge is based on the number of bytes in the exported JSON formatted log data, measured in GB (10^9 bytes).
+
+Pricing is available on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). 
 
 ## Next steps
 

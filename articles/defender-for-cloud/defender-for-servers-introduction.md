@@ -8,8 +8,6 @@ author: bmansheim
 ---
 # Introduction to Microsoft Defender for Servers
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Microsoft Defender for Servers is one of the enhanced security features of Microsoft Defender for Cloud. Use it to add threat detection and advanced defenses to your Windows and Linux machines whether they're running in Azure, AWS, GCP, and on-premises environment.
 
 To protect machines in hybrid and multi-cloud environments, Defender for Cloud uses [Azure Arc](../azure-arc/index.yml). Connect your hybrid and multi-cloud machines as explained in the relevant quickstart:
@@ -51,7 +49,6 @@ The following table describes what's included in each plan at a high level.
 | Flexibility to use Microsoft Defender for Cloud or Microsoft 365 Defender portal | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Integration of Microsoft Defender for Cloud and Microsoft Defender for Endpoint (alerts, software inventory, Vulnerability Assessment) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Log-analytics (500 MB free) | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Security Policy & Regulatory Compliance | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Vulnerability Assessment using Qualys | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Threat detections: OS level, network layer, control plane | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Adaptive application controls | | :::image type="icon" source="./media/icons/yes-icon.png"::: |

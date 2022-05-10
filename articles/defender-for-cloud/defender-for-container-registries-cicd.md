@@ -9,8 +9,6 @@ author: bmansheim
 
 # Identify vulnerable container images in your CI/CD workflows
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This page explains how to scan your Azure Container Registry-based container images with the integrated vulnerability scanner when they're built as part of your GitHub workflows.
 
 To set up the scanner, you'll need to enable **Microsoft Defender for container registries** and the CI/CD integration. When your CI/CD workflows push images to your registries, you can view registry scan results and a summary of CI/CD scan results.

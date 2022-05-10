@@ -33,7 +33,7 @@ By using `containerd` for AKS nodes, pod startup latency improves and node resou
 > [!IMPORTANT]
 > Clusters with Linux node pools created on Kubernetes v1.19 or greater default to `containerd` for its container runtime. Clusters with node pools on a earlier supported Kubernetes versions receive Docker for their container runtime. Linux node pools will be updated to `containerd` once the node pool Kubernetes version is updated to a version that supports `containerd`. You can still use Docker node pools and clusters on older supported versions until those fall off support.
 > 
-> Using `containerd` with Windows Server 2019 node pools is generally available, although the default for node pools created on Kubernetes v1.22 and earlier is still Docker. For more details, see [Add a Windows Server node pool with `containerd`][aks-add-np-containerd].
+> Using `containerd` with Windows Server 2019 node pools is generally available, although the default for node pools created on Kubernetes v1.22 and earlier is still Docker. For more details, see [Add a Windows Server node pool with `containerd`][/learn/aks-add-np-containerd].
 > 
 > It is highly recommended to test your workloads on AKS node pools with `containerd` prior to using clusters with a Kubernetes version that supports `containerd` for your node pools.
 
@@ -59,7 +59,7 @@ Additionally not all VM images support Gen2, on AKS Gen2 VMs will use the new [A
 
 ## Ephemeral OS
 
-By default, Azure automatically replicates the operating system disk for an virtual machine to Azure storage to avoid data loss should the VM need to be relocated to another host. However, since containers aren't designed to have local state persisted, this behavior offers limited value while providing some drawbacks, including slower node provisioning and higher read/write latency.
+By default, Azure automatically replicates the operating system disk for a virtual machine to Azure storage to avoid data loss should the VM need to be relocated to another host. However, since containers aren't designed to have local state persisted, this behavior offers limited value while providing some drawbacks, including slower node provisioning and higher read/write latency.
 
 By contrast, ephemeral OS disks are stored only on the host machine, just like a temporary disk. This provides lower read/write latency, along with faster node scaling and cluster upgrades.
 
