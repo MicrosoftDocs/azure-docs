@@ -86,11 +86,13 @@ Access packages also include one or more *policies*. A policy defines the rules 
 
 ![Access package and policies](./media/entitlement-management-overview/elm-overview-access-package.png)
 
-Within each policy, an administrator or access package manager defines
+You can have policies for users to request access. In these kinds of policies, an administrator or access package manager defines
 
 - Either the already-existing users (typically employees or already-invited guests), or the partner organizations of external users, that are eligible to request access
 - The approval process and the users that can approve or deny access
 - The duration of a user's access assignment, once approved, before the assignment expires
+
+You can also have policies for users to be assigned access, either by an administrator or automatically.
 
 The following diagram shows an example of the different elements in entitlement management. It shows one catalog with two example access packages.
 
