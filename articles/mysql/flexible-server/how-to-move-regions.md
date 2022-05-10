@@ -4,6 +4,7 @@ description: Move an Azure Database for MySQL Flexible server from one Azure reg
 author: aditivgupta
 ms.author: adig
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 04/08/2022

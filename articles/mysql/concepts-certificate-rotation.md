@@ -4,6 +4,7 @@ description: Learn about the upcoming changes of root certificate changes that w
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 04/08/2021
 ---

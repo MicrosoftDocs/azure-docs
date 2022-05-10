@@ -60,6 +60,8 @@
       href: health-probes.md
     - name: Authentication
       href: authentication.md
+    - name: Dapr integration
+      href: dapr-overview.md
 - name: How-to guides
   items:
     - name: Scale an app

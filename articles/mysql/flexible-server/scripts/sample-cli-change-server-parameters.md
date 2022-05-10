@@ -4,6 +4,7 @@ description: This Azure CLI sample script shows how to list and change server pa
 author: shreyaaithal
 ms.author: shaithal
 ms.service: mysql
+ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
