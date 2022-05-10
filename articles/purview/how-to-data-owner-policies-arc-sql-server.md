@@ -1,5 +1,5 @@
 ---
-title: Access provisioning by data owner for SQL Server on Arc servers (preview)
+title: Access provisioning by data owner for SQL Server on Azure Arc-enabled servers (preview)
 description: Step-by-step guide on how to configure access to Arc-enabled SQL server through Microsoft Purview access policies.
 author: inward-eye
 ms.author: vlrodrig
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 05/09/2022
 ms.custom: references_regions
 ---
-# Access provisioning by data owner for SQL Server on Arc servers (preview)
+# Access provisioning by data owner for SQL Server on Azure Arc-enabled servers (preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
@@ -20,7 +20,7 @@ This how-to guide describes how a data owner can delegate authoring policies in 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
 - SQL server version 2022 CTP 1.5 or later
-- Complete process to onboard that SQL server with Azure Arc and enable Azure AD Authentication. [Follow this guide to learn how](https://aka.ms/sql-on-arc-aadauth).
+- Complete process to onboard that SQL server with Azure Arc and enable Azure AD Authentication. [Follow this guide to learn how](https://aka.ms/sql-on-arc-AADauth).
 
 **Enforcement of policies is available only in the following regions for Microsoft Purview**
 - East US
@@ -38,14 +38,14 @@ This how-to guide describes how a data owner can delegate authoring policies in 
 ### SQL Server on Azure Arc-enabled server configuration
 This section describes the steps to configure the SQL Server on Azure Arc to use Microsoft Purview.
 
-1. Sign in to Azure Portal with a [special link](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=sqlrbacmain#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/sqlServers) that contains feature flags to list SQL Servers on Azure Arc
+1. Sign in to Azure portal with a [special link](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=sqlrbacmain#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/sqlServers) that contains feature flags to list SQL Servers on Azure Arc
 
 1. Navigate to a SQL Server you want to configure
 
 1. Navigate to **Azure Active Directory** feature on the left pane
 
 1. Verify that Azure Active Directory Authentication is configured and scroll down.
-![Screenshot shows **Microsoft Purview data policies** section.](./media/how-to-data-owner-policies-sql/setup-sql-on-arc-for-purview.png)
+![Screenshot shows how to configure Microsoft Purview endpoint in Azure AD section.](./media/how-to-data-owner-policies-sql/setup-sql-on-arc-for-purview.png)
 
 1. Set **External Policy Based Authorization** to enabled
 
@@ -73,22 +73,22 @@ Register each data source with Microsoft Purview to later define access policies
 
 1. Select **Register** or **Apply** at the bottom
 
-Once your data source has the **Data Use Management** toggle **Enabled*, it will look like this picture. 
+Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this picture. 
 ![Screenshot shows how to register a data source for policy.](./media/how-to-data-owner-policies-sql/register-data-source-for-policy-arc-sql.png)
 
 ## Create and publish a data owner policy
 
 Execute the steps in the [data-owner policy authoring tutorial](./how-to-data-owner-policy-authoring-generic.md) to create and then publish a data owner policy similar to one of the examples shown in the images.
 
-**Example #1: SQL Performance Monitor policy**. This policy assigns the AAD principal 'Christie Cline' to the *SQL Performance monitoring* role, in the scope of Arc-enabled SQL server *DESKTOP-xxx*. This policy has also been published to that server.
+**Example #1: SQL Performance Monitor policy**. This policy assigns the Azure AD principal 'Christie Cline' to the *SQL Performance monitoring* role, in the scope of Arc-enabled SQL server *DESKTOP-xxx*. This policy has also been published to that server.
 
-![Screenshot shows a sample data owner policy giving SQL Performance Monitor access to an Azure SQL DB.](./media/how-to-data-owner-policies-sql/data-owner-policy-example-arc-sql-server-performance-monitor.png)
+![Screenshot shows a sample data owner policy giving SQL Performance Monitor access to an Azure SQL Database.](./media/how-to-data-owner-policies-sql/data-owner-policy-example-arc-sql-server-performance-monitor.png)
 
 **Example #2: SQL Security Auditor policy**. Similar to example 1, but choose the *SQL Security auditing* action (instead of *SQL Performance monitoring*), when authoring the policy.
 
-**Example #3: Read policy**. This policy assigns the AAD principal 'sg-Finance' to the *SQL Data reader* role, in the scope of SQL server *DESKTOP-xxx*. This policy has also been published to that server.
+**Example #3: Read policy**. This policy assigns the Azure AD principal 'sg-Finance' to the *SQL Data reader* role, in the scope of SQL server *DESKTOP-xxx*. This policy has also been published to that server.
 
-![Screenshot shows a sample data owner policy giving Data Reader access to an Azure SQL DB.](./media/how-to-data-owner-policies-sql/data-owner-policy-example-arc-sql-server-data-reader.png)
+![Screenshot shows a sample data owner policy giving Data Reader access to an Azure SQL Database.](./media/how-to-data-owner-policies-sql/data-owner-policy-example-arc-sql-server-data-reader.png)
 
 >[!Important]
 > - Publish is a background operation. It can take up to **4 minutes** for the changes to be reflected in the data source.
@@ -97,7 +97,7 @@ Execute the steps in the [data-owner policy authoring tutorial](./how-to-data-ow
 
 ### Test the policy
 
-The AAD Accounts that the SQL policies are applied to should now be able to connect to any database that is on the server to which the policies are published to.
+The Azure AD Accounts that the SQL policies are applied to should now be able to connect to any database that is on the server to which the policies are published to.
 
 #### Force policy download
 It is possible to force an immediate download of the latest published policies to the current SQL database by running the following command. The minimal permission required to run it is membership in ##MS_ServerStateManager##-server role.
@@ -108,7 +108,7 @@ exec sp_external_policy_refresh reload
 ```  
 
 #### Analyze downloaded policy state from SQL
-The following DMVs can be used to analyze which policies have been downloaded and are currently assigned to AAD accounts. The minimal permission required to run them is VIEW DATABASE SECURITY STATE - or assigned Action Group *SQL Security Auditor*.
+The following DMVs can be used to analyze which policies have been downloaded and are currently assigned to Azure AD accounts. The minimal permission required to run them is VIEW DATABASE SECURITY STATE - or assigned Action Group *SQL Security Auditor*.
 
 ```syntaxsql
 
@@ -118,7 +118,7 @@ SELECT * FROM sys.dm_server_external_policy_actions
 -- Lists the roles that are part of a policy published to this server
 SELECT * FROM sys.dm_server_external_policy_roles
 
--- Lists AAD principals assigned to a given role on a given resource scope
+-- Lists Azure AD principals assigned to a given role on a given resource scope
 SELECT * FROM sys.dm_server_external_policy_role_members
 ```
 
@@ -155,7 +155,7 @@ This section contains a reference of how actions in Microsoft Purview data polic
 Check blog, demo and related how-to guides
 * [Demo of access policy for Azure Storage](/video/media/8ce7c554-0d48-430f-8f63-edf94946947c/purview-policy-storage-dataowner-scenario_mid.mp4)
 * [Concepts for Microsoft Purview data owner policies](./concept-data-owner-policies.md)
-* Blog: [Private Preview: controlling access to Azure SQL at scale with policies in Purview](https://techcommunity.microsoft.com/t5/azure-sql-blog/private-preview-controlling-access-to-azure-sql-at-scale-with/ba-p/2945491)
+* Blog: [Private preview: controlling access to Azure SQL at scale with policies in Purview](https://techcommunity.microsoft.com/t5/azure-sql-blog/private-preview-controlling-access-to-azure-sql-at-scale-with/ba-p/2945491)
 * [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md)
 * [Enable Microsoft Purview data owner policies on an Azure SQL DB](./how-to-data-owner-policies-azure-sql-db.md)
 

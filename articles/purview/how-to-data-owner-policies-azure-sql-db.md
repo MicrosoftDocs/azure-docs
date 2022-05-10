@@ -65,15 +65,15 @@ Once your data source has the **Data Use Management** toggle *Enabled*, it will 
 
 Execute the steps in the [data-owner policy authoring tutorial](./how-to-data-owner-policy-authoring-generic.md) to create and then publish a data owner policy similar to one of the examples shown in the images.
 
-**Example #1: SQL Performance Monitor policy**. This policy assigns the AAD principal 'Mateo Gomez' to the *SQL Performance monitoring* role, in the scope of SQL server *relecloud-sql-srv2*. This policy has also been published to that server.
+**Example #1: SQL Performance Monitor policy**. This policy assigns the Azure AD principal 'Mateo Gomez' to the *SQL Performance monitoring* role, in the scope of SQL server *relecloud-sql-srv2*. This policy has also been published to that server.
 
-![Screenshot shows a sample data owner policy giving SQL Performance Monitor access to an Azure SQL DB.](./media/how-to-data-owner-policies-sql/data-owner-policy-example-azure-sql-db-performance-monitor.png)
+![Screenshot shows a sample data owner policy giving SQL Performance Monitor access to an Azure SQL Database.](./media/how-to-data-owner-policies-sql/data-owner-policy-example-azure-sql-db-performance-monitor.png)
 
 **Example #2: SQL Security Auditor policy**. Similar to example 1, but choose the *SQL Security auditing* action (instead of *SQL Performance monitoring*), when authoring the policy.
 
-**Example #3: Read policy**. This policy assigns the AAD principal 'Robert Murphy' to the *SQL Data reader* role, in the scope of SQL server *relecloud-sql-srv2*. This policy has also been published to that server.
+**Example #3: Read policy**. This policy assigns the Azure AD principal 'Robert Murphy' to the *SQL Data reader* role, in the scope of SQL server *relecloud-sql-srv2*. This policy has also been published to that server.
 
-![Screenshot shows a sample data owner policy giving Data Reader access to an Azure SQL DB.](./media/how-to-data-owner-policies-sql/data-owner-policy-example-azure-sql-db-data-reader.png)
+![Screenshot shows a sample data owner policy giving Data Reader access to an Azure SQL Database.](./media/how-to-data-owner-policies-sql/data-owner-policy-example-azure-sql-db-data-reader.png)
 
 
 >[!Important]
@@ -84,7 +84,7 @@ Execute the steps in the [data-owner policy authoring tutorial](./how-to-data-ow
 ### Test the policy
 
 Once the policy is published, it takes a maximum of 4 minutes for the SQL Server to download the latest policy state.
-The AAD Accounts that the SQL policies are applied to should now be able to connect to any database that is on the server to which the policies are published to.
+The Azure AD Accounts that the SQL policies are applied to should now be able to connect to any database that is on the server to which the policies are published to.
 
 #### Force policy download
 It is possible to force an immediate download of the latest published policies to the current SQL database by running the following command. The minimal permission required to run it is membership in ##MS_ServerStateManager##-server role.
@@ -95,7 +95,7 @@ exec sp_external_policy_refresh reload
 ```  
 
 #### Analyze downloaded policy state from SQL
-The following DMVs can be used to analyze which policies have been downloaded and are currently assigned to AAD accounts. The minimal permission required to run them is VIEW DATABASE SECURITY STATE - or assigned Action Group *SQL Security Auditor*.
+The following DMVs can be used to analyze which policies have been downloaded and are currently assigned to Azure AD accounts. The minimal permission required to run them is VIEW DATABASE SECURITY STATE - or assigned Action Group *SQL Security Auditor*.
 
 ```syntaxsql
 
@@ -105,7 +105,7 @@ SELECT * FROM sys.dm_server_external_policy_actions
 -- Lists the roles that are part of a policy published to this server
 SELECT * FROM sys.dm_server_external_policy_roles
 
--- Lists AAD principals assigned to a given role on a given resource scope
+-- Lists Azure AD principals assigned to a given role on a given resource scope
 SELECT * FROM sys.dm_server_external_policy_role_members
 ```
 
@@ -142,7 +142,7 @@ This section contains a reference of how actions in Microsoft Purview data polic
 Check blog, demo and related how-to guides
 * [Demo of access policy for Azure Storage](/video/media/8ce7c554-0d48-430f-8f63-edf94946947c/purview-policy-storage-dataowner-scenario_mid.mp4)
 * [Concepts for Microsoft Purview data owner policies](./concept-data-owner-policies.md)
-* Blog: [Private Preview: controlling access to Azure SQL at scale with policies in Purview](https://techcommunity.microsoft.com/t5/azure-sql-blog/private-preview-controlling-access-to-azure-sql-at-scale-with/ba-p/2945491)
+* Blog: [Private preview: controlling access to Azure SQL at scale with policies in Purview](https://techcommunity.microsoft.com/t5/azure-sql-blog/private-preview-controlling-access-to-azure-sql-at-scale-with/ba-p/2945491)
 * [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md)
 * [Enable Microsoft Purview data owner policies on an Arc-enabled SQL Server](./how-to-data-owner-policies-arc-sql-server.md)
 
