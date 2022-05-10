@@ -3,6 +3,7 @@ title: 'Quickstart: Connect to Azure MySQL with GitHub Actions'
 description: Use Azure MySQL from a GitHub Actions workflow
 author: juliakm
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: quickstart
 ms.author: jukullam
 ms.date: 02/14/2022
