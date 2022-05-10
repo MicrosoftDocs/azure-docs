@@ -8,49 +8,41 @@ ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.author: lagayhar
 author: lgayhardt
-ms.date: 10/21/2021
-ms.custom: responsible-ml
+ms.date: 05/06/2022
+ms.custom: responsible-ai
 #Customer intent: As a data scientist, I want to learn about machine learning fairness and how to assess and mitigate unfairness in machine learning models.
 ---
 
-# Machine learning fairness (preview)
+# Why is model fairness important to model debugging? 
 
-Learn about machine learning fairness and how the [Fairlearn](https://fairlearn.github.io/) open-source Python package can help you assess and mitigate unfairness issues in machine learning models.
+Artificial Intelligence (AI) has transformed modern life via previously unthinkable feats, from self-driving cars and machines that can master the ancient boardgame Go to more “everyday” developments, such as customer support chatbots and personalized product recommendations. But, at the same time, these new opportunities have also raised new challenges; among these, most notably, are challenges that have highlighted the potential for AI systems to treat people unfairly. Indeed, the fairness of AI systems is one of the key concerns facing society as AI plays an increasingly significant role in our daily lives.  
 
-## What is machine learning fairness?
+One way to define unfair behavior is by its harm, or impact on people. There are many types of harm that AI systems can give rise to. See this [Microsoft Research webinar](https://www.microsoft.com/en-us/research/video/fairness-related-harms-in-ai-systems-examples-assessment-and-mitigation/) to learn more. 
 
-Artificial intelligence and machine learning systems can display unfair behavior. One way to define unfair behavior is by its harm, or impact on people. There are many types of harm that AI systems can give rise to. See the [NeurIPS 2017 keynote by Kate Crawford](https://www.youtube.com/watch?v=fMym_BKWQzk) to learn more.
+Two common types of AI-caused harm are: 
+- Harm of allocation: An AI system extends or withholds opportunities, resources, or information for certain groups. Examples include hiring, school admissions, and lending where a model might be much better at picking good candidates among a specific group of people than among other groups. 
+- Harm of quality-of-service: An AI system does not work as well for one group of people as it does for another. As an example, a voice recognition system might fail to work as well for women as it does for men. 
 
-Two common types of AI-caused harms are:
+To reduce unfair behavior in AI systems, you must assess and mitigate these harms. 
 
-- Harm of allocation: An AI system extends or withholds opportunities, resources, or information for certain groups. Examples include hiring, school admissions, and lending where a model might be much better at picking good candidates among a specific group of people than among other groups.
+The model overview component of the [Responsible AI dashboard](./concept-responsible-ai-dashboard.md) contributes to the “identify” stage of the model lifecycle workflow by evaluating the performance of your model across different sub-pockets of data. It enables exploring the distribution of your prediction values and the values of your model performance metrics across different pre-built dataset cohorts, while allowing you to run a comparative analysis of model performance across sensitive feature sub-cohorts (e.g., performance across different genders, income levels). 
 
-- Harm of quality-of-service: An AI system doesn’t work as well for one group of people as it does for another. As an example, a voice recognition system might fail to work as well for women as it does for men.
+The capabilities of this component are founded by [Fairlearn](https://fairlearn.org/) capabilities on assessing and mitigating model fairness issues. 
 
-To reduce unfair behavior in AI systems, you have to assess and mitigate these harms.
+  
 
-## Fairness assessment and mitigation with Fairlearn
+**Use model overview and fairness when you need to…**
+- Understand your overall model performance and metrics. 
+- Explore how your model is treating different subgroups represented in your dataset. 
+- Explore your model fairness insights by understanding model performance disparities across sensitive groups (e.g., age, gender). 
 
-Fairlearn is an open-source Python package that allows machine learning systems developers to assess their systems' fairness and mitigate unfairness.
 
->[!NOTE]
-> Fairness is a socio-technical challenge. Many aspects of fairness, such as justice and due process, are not captured in quantitative fairness metrics. Also, many quantitative fairness metrics can't all be satisfied simultaneously. The goal with the Fairlearn open-source package is to enable humans to assess different impact and mitigation strategies. Ultimately, it is up to the human users building artificial intelligence and machine learning models to make trade-offs that are appropriate to their scenario.
+##  How to assess your model fairness? 
 
-The Fairlearn open-source package has two components:
-
-- Assessment Dashboard: A Jupyter notebook widget for assessing how a model's predictions affect different groups. It also enables comparing multiple models by using fairness and performance metrics.
-- Mitigation Algorithms: A set of algorithms to mitigate unfairness in binary classification and regression.
-
-Together, these components enable data scientists and business leaders to navigate any trade-offs between fairness and performance, and to select the mitigation strategy that best fits their needs.
-
-## Assess fairness in machine learning models
-
-In the Fairlearn open-source package, fairness is conceptualized through an approach known as **group fairness**, which asks: Which groups of individuals are at risk for experiencing harms? The relevant groups, also known as subpopulations, are defined through **sensitive features** or sensitive attributes. Sensitive features are passed to an estimator in the Fairlearn open-source package as a vector or a matrix called  `sensitive_features`. The term suggests that the system designer should be sensitive to these features when assessing group fairness. 
-
-Something to be mindful of is whether these features contain privacy implications due to private data. But the word "sensitive" doesn't imply that these features shouldn't be used to make predictions.
+Fairness is conceptualized through an approach known as **group fairness**, which asks: Which groups of individuals are at risk for experiencing harms? The relevant groups, also known as subpopulations, are defined through **sensitive features** or sensitive attributes.  
 
 >[!NOTE]
-> A fairness assessment is not a purely technical exercise.  The Fairlearn open-source package can help you assess the fairness of a model, but it will not perform the assessment for you.  The Fairlearn open-source package helps identify quantitative metrics to assess fairness, but developers must also perform a qualitative analysis to evaluate the fairness of their own models.  The sensitive features noted above is an example of this kind of qualitative analysis.
+> A fairness assessment is not a purely technical exercise. The fairness assessment capabilities of the Responsible AI dashboard can help you assess the fairness of a model, but it will not perform the assessment for you. It helps identify quantitative metrics to assess fairness, but developers must also perform a qualitative analysis to evaluate the fairness of their own models.  
 
 During assessment phase, fairness is quantified through disparity metrics. **Disparity metrics** can evaluate and compare model's behavior across different groups either as ratios or as differences. The Fairlearn open-source package supports two classes of disparity metrics:
 
@@ -67,6 +59,7 @@ During assessment phase, fairness is quantified through disparity metrics. **Dis
 - Disparity in selection rate: This metric contains the difference in selection rate among different subgroups. An example of this is disparity in loan approval rate. Selection rate means the fraction of datapoints in each class classified as 1 (in binary classification) or distribution of prediction values (in regression).
 
 ## Mitigate unfairness in machine learning models
+You can use the [Fairlearn](https://fairlearn.org/) open-source package to mitigate your model fairness issues by selecting a parity constraint and a postprocessing and/or reduction unfairness mitigation algorithm: 
 
 ### Parity constraints
 
@@ -100,6 +93,5 @@ The Fairlearn open-source package provides postprocessing and reduction unfairne
 
 ## Next steps
 
-- Learn how to use the different components by checking out the Fairlearn's [GitHub](https://github.com/fairlearn/fairlearn/), [user guide](https://fairlearn.github.io/main/user_guide/index.html), [examples](https://fairlearn.github.io/main/auto_examples/index.html), and [sample notebooks](https://github.com/fairlearn/fairlearn/tree/master/notebooks).
-- Learn [how to](how-to-machine-learning-fairness-aml.md) enable fairness assessment of machine learning models in Azure Machine Learning.
-- See the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) for additional fairness assessment scenarios in Azure Machine Learning. 
+- See the how-to guide for generating a Responsible AI dashboard with model overview and fairness assessment via [CLIv2 and SDKv2](./how-to-responsible-ai-dashboard-SDK.md) or [studio UI](./how-to-responsible-ai-dashboard.md).
+- See the how-to generate a [Responsible AI scorecard](./how-to-responsible-ai-scorecard.md) based on the insights observed in the Responsible AI dashboard. 
