@@ -36,7 +36,7 @@ A real-world example is an incoming call or chat in the context of a call center
 1. Your application can accept the [Offer](#offer) via the SDK and the Job will be removed from the queue and an [OfferAccepted Event][offer_accepted_event] will be sent that contains an `assignmentId`.
 1. Once the Worker has completed the Job, the SDK can be used to complete and close it, using the `assignmentId`. This will free the Worker up to take on the next Job.
 
-:::image type="content" source="./media/job-lifecycle.svg" alt-text="Job Lifecycle":::
+:::image type="content" source="./media/job-lifecycle.svg" alt-text="Diagram that shows the Job lifecycle":::
 
 ## Worker
 
