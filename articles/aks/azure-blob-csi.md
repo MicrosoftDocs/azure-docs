@@ -1,14 +1,14 @@
 ---
-title: Use Container Storage Interface (CSI) drivers for Azure Blob storage on Azure Kubernetes Service (AKS)
-description: Learn how to use the Container Storage Interface (CSI) drivers for Azure Blob storage (preview) in an Azure Kubernetes Service (AKS) cluster.
+title: Use Container Storage Interface (CSI) driver for Azure Blob storage on Azure Kubernetes Service (AKS)
+description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage (preview) in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
 ms.date: 05/10/2021
-author: magoedte
+author: mgoedtel
 
 ---
 
-# Use Azure Blob storage Container Storage Interface (CSI) drivers (preview)
+# Use Azure Blob storage Container Storage Interface (CSI) driver (preview)
 
 The Azure Blob storage Container Storage Interface (CSI) driver (preview) is a [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure Blob storage.
 
@@ -17,7 +17,7 @@ The CSI is a standard for exposing arbitrary block and file storage systems to c
 To create an AKS cluster with CSI driver support, see [Enable CSI drivers on AKS](csi-storage-drivers.md).
 
 > [!NOTE]
-> *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code versus the new CSI drivers, which are plug-ins.
+> *In-tree driver* refers to the current storage driver that are part of the core Kubernetes code versus the new CSI driver, which is a plug-in.
 
 ## Azure Blob storage CSI driver (preview) new features
 
@@ -27,8 +27,8 @@ In addition to the in-tree driver features, Azure Blob storage CSI driver (previ
 
 ## Next steps
 
-- To learn how to use CSI drivers for Azure disks, see [Use Azure disks with CSI drivers](azure-disk-csi.md).
-- To learn how to use CSI drivers for Azure Files, see [Use Azure Files with CSI drivers](azure-files-csi.md).
+- To learn how to use CSI driver for Azure disks, see [Use Azure disks with CSI driver](azure-disk-csi.md).
+- To learn how to use CSI driver for Azure Files, see [Use Azure Files with CSI driver](azure-files-csi.md).
 - For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
 
 <!-- LINKS - external -->

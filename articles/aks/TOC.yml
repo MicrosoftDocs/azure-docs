@@ -386,10 +386,12 @@
       items:
         - name: Enable CSI Storage Drivers
           href: csi-storage-drivers.md
-        - name: Azure Disk CSI drivers
+        - name: Azure Disk CSI driver
           href: azure-disk-csi.md
-        - name: Azure Files CSI drivers
+        - name: Azure Files CSI driver
           href: azure-files-csi.md
+        - name: Azure Blob storage CSI driver
+          href: azure-blob-csi.md
     - name: Monitoring and logging
       items:
         - name: Monitor AKS

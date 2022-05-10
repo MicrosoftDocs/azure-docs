@@ -1,6 +1,6 @@
 ---
-title: Use Container Storage Interface (CSI) drivers for Azure Disks on Azure Kubernetes Service (AKS)
-description: Learn how to use the Container Storage Interface (CSI) drivers for Azure disks in an Azure Kubernetes Service (AKS) cluster.
+title: Use Container Storage Interface (CSI) driver for Azure Disks on Azure Kubernetes Service (AKS)
+description: Learn how to use the Container Storage Interface (CSI) driver for Azure disks in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
 ms.date: 05/10/2022
@@ -8,12 +8,13 @@ author: palma21
 
 ---
 
-# Use the Azure disk Container Storage Interface (CSI) drivers in Azure Kubernetes Service (AKS)
+# Use the Azure disk Container Storage Interface (CSI) driver in Azure Kubernetes Service (AKS)
+
 The Azure disk Container Storage Interface (CSI) driver is a [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure disks.
 
 The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, AKS can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes without having to touch the core Kubernetes code and wait for its release cycles.
 
-To create an AKS cluster with CSI driver support, see [Enable CSI drivers for Azure disks and Azure Files on AKS](csi-storage-drivers.md).
+To create an AKS cluster with CSI driver support, see [Enable CSI drivers on AKS](csi-storage-drivers.md).
 
 > [!NOTE]
 > *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code versus the new CSI drivers, which are plug-ins.
@@ -23,7 +24,7 @@ To create an AKS cluster with CSI driver support, see [Enable CSI drivers for Az
 In addition to the in-tree driver features, Azure Disk CSI driver supports the following new features:
 
 - Performance improvements during concurrent disk attach and detach
-  - In-tree driver attaches or detaches disks in serial, while CSI driver attaches or detaches disks in batch. There is significant improvement when there are multiple disks attaching to one node.
+  - In-tree drivers attach or detach disks in serial, while CSI drivers attach or detach disks in batch. There is significant improvement when there are multiple disks attaching to one node.
 - ZRS disk support
   - `Premium_ZRS`, `StandardSSD_ZRS` disk types are supported, check more details about [Zone-redundant storage for managed disks](../virtual-machines/disks-redundancy.md)
 - [Snapshot](#volume-snapshots)
@@ -38,8 +39,9 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 ## Dynamically create Azure disk PVs by using the built-in storage classes
 
-A storage class is used to define how a unit of storage is dynamically created with a persistent volume. For more information on Kubernetes storage classes, see [Kubernetes storage classes][kubernetes-storage-classes]. 
-When you use storage CSI drivers on AKS, there are two additional built-in `StorageClasses` that use the Azure disk CSI storage drivers. The additional CSI storage classes are created with the cluster alongside the in-tree default storage classes.
+A storage class is used to define how a unit of storage is dynamically created with a persistent volume. For more information on Kubernetes storage classes, see [Kubernetes storage classes][kubernetes-storage-classes].
+
+When you use the Azure Disk storage CSI driver on AKS, there are two additional built-in `StorageClasses` that use the Azure disk CSI storage driver. The additional CSI storage classes are created with the cluster alongside the in-tree default storage classes.
 
 - `managed-csi`: Uses Azure Standard SSD locally redundant storage (LRS) to create a managed disk.
 - `managed-csi-premium`: Uses Azure Premium LRS to create a managed disk.
@@ -288,7 +290,7 @@ $ kubectl exec -it busybox-azuredisk-0 -- cat c:\mnt\azuredisk\data.txt # on Win
 
 ## Next steps
 
-- To learn how to use CSI drivers for Azure Files, see [Use Azure Files with CSI drivers](azure-files-csi.md).
+- To learn how to use CSI driver for Azure Files, see [Use Azure Files with CSI driver](azure-files-csi.md).
 - For more information about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
 
 <!-- LINKS - external -->
