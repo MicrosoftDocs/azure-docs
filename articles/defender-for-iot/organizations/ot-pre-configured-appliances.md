@@ -13,7 +13,7 @@ Use the links in the tables below to jump to articles with more details about ea
 
 Microsoft has partnered with [Arrow Electronics](https://www.arrow.com/) to provide pre-configured sensors. To purchase a pre-configured sensor, contact Arrow at: [hardware.sales@arrow.com](mailto:hardware.sales@arrow.com).
 
-For more information, see [Purchase sensors or download software for sensors](how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+For more information, see [Purchase sensors or download software for sensors](onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
 
 > [!TIP]
 > Pre-configured physical appliances have been validated for Defender for IoT OT system monitoring, and have the following advantages over installing your own software:
@@ -55,7 +55,7 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Purchase sensors or download software for sensors](onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
 - [Download software for an on-premises management console](how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](how-to-install-software.md)
 

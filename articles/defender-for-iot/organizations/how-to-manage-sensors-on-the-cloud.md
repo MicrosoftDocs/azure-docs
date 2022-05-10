@@ -100,7 +100,7 @@ To define a VLAN for your sensor, enter the VLAN ID and a meaningful name.
 
 This procedure describes how to change sensor settings if your sensor is currently disconnected from Azure, such as during an ongoing security incident.
 
-By default, if you've configured any sensor settings from the Azure portal, all settings that are configurable from both the Azure portal and the sensor are set to read-only on the sensor itself. For example, if you've configured a [VLAN](#vlan-namingtabvlan) from the Azure portal, then [bandwidth cap](#bandwidth-captabbandwidth), [subnet](#subnettabsubnet), and [VLAN](#vlan-namingtabvlan) settings are all set to read-only, and blocked from modifications on the sensor.
+By default, if you've configured any sensor settings from the Azure portal, all settings that are configurable from both the Azure portal and the sensor are set to read-only on the sensor itself. For example, if you've configured a VLAN from the Azure portal, then bandwidth cap, subnet, and VLAN settings are all set to read-only, and blocked from modifications on the sensor.
 
 If you're in a situation where the sensor is disconnected from Azure, and you need to modify one of these settings, you'll first need to gain write access.
 
@@ -131,7 +131,7 @@ You may need to reactivate your sensor because you want to:
 In such cases, do the following:
 
 1. [Delete your existing sensor](#sensor-management-options-from-the-azure-portal).
-1. [Onboard your sensor](#onboard-ot-sensors), registering it again with any new settings.
+1. [Onboard the sensor again](onboard-sensors.md#onboard-ot-sensors), registering it with any new settings.
 1. [Upload your new activation file](how-to-manage-individual-sensors.md#upload-new-activation-files).
 
 ### Reactivate an OT sensor for upgrades to version 22.x from a legacy version
