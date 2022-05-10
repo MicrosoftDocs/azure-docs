@@ -14,7 +14,7 @@ This page explains how to use the built-in vulnerability scanner to scan the con
 When the scanner, powered by Qualys, reports vulnerabilities to Defender for Cloud, Defender for Cloud presents the findings and related information as recommendations. In addition, the findings include related information such as remediation steps, relevant CVEs, CVSS scores, and more. You can view the identified vulnerabilities for one or more subscriptions, or for a specific registry.
 
 > [!TIP]
-> You can also scan container images for vulnerabilities as the images are built in your CI/CD GitHub workflows. Learn more in [Identify vulnerable container images in your CI/CD workflows](defender-for-container-registries-cicd.md).
+> You can also scan container images for vulnerabilities as the images are built in your CI/CD GitHub workflows. Learn more in [Identify vulnerable container images in your CI/CD workflows](defender-for-containers-cicd.md).
 
 There are four triggers for an image scan:
 
@@ -142,7 +142,7 @@ To create a rule:
 1. Define your criteria.
 1. Select **Apply rule**.
 
-    :::image type="content" source="./media/defender-for-container-registries-usage/new-disable-rule-for-registry-finding.png" alt-text="Create a disable rule for VA findings on registry.":::
+    :::image type="content" source="./media/defender-for-containers-usage/new-disable-rule-for-registry-finding.png" alt-text="Create a disable rule for VA findings on registry.":::
 
 1. To view, override, or delete a rule:
     1. Select **Disable rule**.
@@ -168,7 +168,7 @@ If you connect unsupported registries to your Azure subscription, Defender for C
 ### Can I customize the findings from the vulnerability scanner?
 Yes. If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't impact your secure score or generate unwanted noise.
 
-[Learn about creating rules to disable findings from the integrated vulnerability assessment tool](defender-for-container-registries-usage.md#disable-specific-findings).
+[Learn about creating rules to disable findings from the integrated vulnerability assessment tool](defender-for-containers-usage.md#disable-specific-findings).
 
 ### Why is Defender for Cloud alerting me to vulnerabilities about an image that isn’t in my registry?
 Some images may reuse tags from an image that was already scanned. For example, you may reassign the tag “Latest” every time you add an image to a digest. In such cases, the ‘old’ image does still exist in the registry and may still be pulled by its digest. If the image has security findings and is pulled, it'll expose security vulnerabilities.

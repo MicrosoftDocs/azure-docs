@@ -67,7 +67,7 @@ Defender for Containers includes an integrated vulnerability scanner for scannin
 - When you import the image to your Azure Container Registry
 - Continuously in specific situations
 
-Learn more in [Vulnerability assessment](defender-for-container-registries-usage.md).
+Learn more in [Vulnerability assessment](defender-for-containers-usage.md).
 
 :::image type="content" source="./media/defender-for-containers/recommendation-acr-images-with-vulnerabilities.png" alt-text="Sample Microsoft Defender for Cloud recommendation about vulnerabilities discovered in Azure Container Registry (ACR) hosted images." lightbox="./media/defender-for-containers/recommendation-acr-images-with-vulnerabilities.png":::
 
