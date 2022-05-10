@@ -19,7 +19,7 @@ Burst capacity applies only to Azure Cosmos DB accounts using provisioned throug
 ## How burst capacity works
 
 > [!NOTE]
-> The current implementation of burst capacity is subject to change in the future. Usage of burst capacity is subject to availability. If your workload requires consistent throughput beyond what you have provisioned, it's recommended to provision your RU/s accordingly.
+> The current implementation of burst capacity is subject to change in the future. Usage of burst capacity is subject to system resource availability and is not guaranteed. Azure Cosmos DB may also use burst capacity for background maintenance tasks. If your workload requires consistent throughput beyond what you have provisioned, it's recommended to provision your RU/s accordingly without relying on burst capacity.
 
 Let's take an example of a physical partition that has 100 RU/s of provisioned throughput and is idle for 5 minutes. With burst capacity, it can accumulate a maximum of 100 RU/s * 300 seconds = 30,000 RU of burst capacity. The capacity can be consumed at a maximum rate of 3000 RU/s, so if there's a sudden spike in request volume, the partition can burst up to 3000 RU/s for up 30,000 RU / 3000 RU/s = 10 seconds. Without burst capacity, any requests that are consumed beyond the provisioned 100 RU/s would have been rate limited (429).
 
