@@ -113,7 +113,7 @@ If you do not explicitly specify a `validation_data` or `n_cross_validation` par
 
 ### Large data 
 
-Automated ML supports a limited number of algorithms for training on large data that can successfully build models for big data on small virtual machines. Automated ML heuristics depend on properties such as data size, virtual machine memory size, experiment timeout and featurization settings to determine if these large data algorithms should be applied. [Learn more about what models are supported in automated ML](#supported-models). 
+Automated ML supports a limited number of algorithms for training on large data that can successfully build models for big data on small virtual machines. Automated ML heuristics depend on properties such as data size, virtual machine memory size, experiment timeout and featurization settings to determine if these large data algorithms should be applied. [Learn more about what models are supported in automated ML](#supported-algorithms). 
 
 * For regression, [Online Gradient Descent Regressor](/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?preserve-view=true&view=nimbusml-py-latest) and
 [Fast Linear Regressor](/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?preserve-view=true&view=nimbusml-py-latest)
@@ -156,8 +156,8 @@ classification_job = automl.classification(
 # Limits are all optional
 
 classification_job.set_limits(
-    timeout=600,  # timeout_minutes
-    trial_timeout=20,  # trial_timeout_minutes
+    timeout=600,  # timeout
+    trial_timeout=20,  # trial_timeout
     max_trials=max_trials,
     # max_concurrent_trials = 4,
     # max_cores_per_trial: -1,
@@ -272,8 +272,8 @@ There are a few options you can define in the `set_limits()` function to end you
 |Criteria| description
 |----|----
 No&nbsp;criteria | If you do not define any exit parameters the experiment continues until no further progress is made on your primary metric.
-`timeout_minutes`| Defines how long, in minutes, your experiment should continue to run.If not specified, the default job's total timeout is 6 days (8,640 minutes). To specify a timeout less than or equal to 1 hour (60 minutes), make sure your dataset's size is not greater than 10,000,000 (rows times column) or an error results. <br><br> This timeout includes setup, featurization and training runs but does not include the ensembling and model explainability runs at the end of the process since those actions need to happen once all the trials (children jobs) are done. 
-`trial_timeout_minutes` | Maximum time in minutes that each trial (child job) can run for before it terminates. If not specified, a value of 1 month or 43200 minutes is used
+`timeout`| Defines how long, in minutes, your experiment should continue to run.If not specified, the default job's total timeout is 6 days (8,640 minutes). To specify a timeout less than or equal to 1 hour (60 minutes), make sure your dataset's size is not greater than 10,000,000 (rows times column) or an error results. <br><br> This timeout includes setup, featurization and training runs but does not include the ensembling and model explainability runs at the end of the process since those actions need to happen once all the trials (children jobs) are done. 
+`trial_timeout` | Maximum time in minutes that each trial (child job) can run for before it terminates. If not specified, a value of 1 month or 43200 minutes is used
 `enable_early_termination`|Whether to end the job if the score is not improving in the short term
 `max_trials`| The maximum number of trials/runs each with a different combination of algorithm and hyperparameters to try during an AutoML job. If not specified, the default is 1000 trials. If using `enable_early_termination` the number of trials used can be smaller.
 `max_concurrent_trials`| Represents the maximum number of trials (children jobs) that would be executed in parallel. It's a good practice to match this number with the number of nodes your cluster
@@ -306,8 +306,8 @@ Each node in the cluster acts as an individual virtual machine (VM) that can acc
 
 To help manage child runs and when they can be performed, we recommend you create a dedicated cluster per experiment, and match the number of `max_concurrent_iterations` of your experiment to the number of nodes in the cluster. This way, you use all the nodes of the cluster at the same time with the number of concurrent child runs/iterations you want.
 
-Configure  `max_concurrent_iterations` in your `AutoMLConfig` object. If it is not configured, then by default only one concurrent child run/iteration is allowed per experiment.
-In case of compute instance, `max_concurrent_iterations` can be set to be the same as number of cores on the compute instance VM.
+Configure `max_concurrent_iterations` in the .set_limits() setter function. If it is not configured, then by default only one concurrent child run/iteration is allowed per experiment.
+In case of compute instance, `max_concurrent_trials` can be set to be the same as number of cores on the compute instance VM.
 
 ## Explore models and metrics
 
