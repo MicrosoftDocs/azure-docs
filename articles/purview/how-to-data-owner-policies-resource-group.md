@@ -17,22 +17,15 @@ ms.custom:
 
 You can also [register an entire resource group or subscription](register-scan-azure-multiple-sources.md), and create a single policy that will manage access to **all** data sources in that resource group or subscription. That single policy will cover all existing data sources and any data sources that are created afterwards. This article describes how this is done. 
 
-Currently, these data sources support access policies on resource group or subscription:
-- Blob storage
-- Azure Data Lake Storage (ADLS) Gen2
-- Azure SQL Database*
-- SQL Server on Azure Arc-enabled servers*
-
-(*) Only the *SQL Performance monitor* and *Security auditor* roles are supported for these data sources. *Data reader* role is not yet supported.
-
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
 
-Then follow the **Prerequisites** section that is specific to the data source(s) in these guides:
+**Only these data sources are enabled for access policies on resource group or subscription**. Follow the **Prerequisites** section that is specific to the data source(s) in these guides:
 * [Data owner policies on an Azure Storage account](./how-to-data-owner-policies-storage.md#prerequisites)
-* [Data owner policies on an Azure SQL DB](./how-to-data-owner-policies-azure-sql-db.md#prerequisites)
-* [Data owner policies on an Arc-enabled SQL Server](./how-to-data-owner-policies-arc-sql-server.md#prerequisites)
+* [Data owner policies on an Azure SQL DB](./how-to-data-owner-policies-azure-sql-db.md#prerequisites)*
+* [Data owner policies on an Arc-enabled SQL Server](./how-to-data-owner-policies-arc-sql-server.md#prerequisites)*
 
+(*) Only the *SQL Performance monitor* and *Security auditor* roles are supported for these data sources. *Data reader* role is not yet supported.
 
 ## Configuration
 [!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
