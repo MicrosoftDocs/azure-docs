@@ -57,6 +57,7 @@ Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](..
 
 | Metric | Category | Unit | Aggregation Type | Description | Dimensions | Exportable via Diagnostic Settings? | 
 | --- | --- | --- | --- | --- | --- | --- | 
+| [Bits received per second](#gwbits) | Performance | BitsPerSecond | Average | Total bits received on ExpressRoute gateway per second | roleInstance | No |
 | [CPU utilization](#cpu) | Performance | Count | Average | CPU Utilization of the ExpressRoute Gateway | roleInstance | Yes | 
 | [Packets per second](#packets) | Performance | CountPerSecond | Average | Packet count of ExpressRoute Gateway | roleInstance | No | 
 | [Count of routes advertised to peer](#advertisedroutes) | Availability | Count | Maximum | Count Of Routes Advertised To Peer by ExpressRouteGateway | roleInstance | Yes | 
@@ -180,6 +181,7 @@ Aggregation type: *Avg*
 
 When you deploy an ExpressRoute gateway, Azure manages the compute and functions of your gateway. There are six gateway metrics available to you to better understand the performance of your gateway:
 
+* Bits received per second
 * CPU Utilization
 * Packets per seconds
 * Count of routes advertised to peers
@@ -189,7 +191,15 @@ When you deploy an ExpressRoute gateway, Azure manages the compute and functions
 
 It's highly recommended you set alerts for each of these metrics so that you are aware of when your gateway could be seeing performance issues.
 
-### <a name = "cpu"></a>CPU Utilization - Split Instance
+### <a name> = "gwbits"</a>Bits received per second - Split by instance
+
+Aggregation type: *Avg*
+
+This metric captures inbound bandwidth utilization on the ExpressRoute virtual network gateway instances. Only traffic coming into the virtual network from the ExpressRoute circuit will be captured. Set an alert for how frequent the bandwidth utilization exceeds a certain threshold. If you need more bandwidth, increase the size of the ExpressRoute virtual network gateway.
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/inbound-gateway.png" alt-text="Screenshot of inbound bit per second - split metrics.":::
+
+### <a name = "cpu"></a>CPU Utilization - Split by instance
 
 Aggregation type: *Avg*
 
@@ -197,7 +207,7 @@ You can view the CPU utilization of each gateway instance. The CPU utilization m
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/cpu-split.jpg" alt-text="Screenshot of CPU utilization - split metrics.":::
 
-### <a name = "packets"></a>Packets Per Second - Split by Instance
+### <a name = "packets"></a>Packets Per Second - Split by instance
 
 Aggregation type: *Avg*
 
@@ -205,7 +215,7 @@ This metric captures the number of inbound packets traversing the ExpressRoute g
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/pps-split.jpg" alt-text="Screenshot of packets per second - split metrics.":::
 
-### <a name = "advertisedroutes"></a>Count of Routes Advertised to Peer - Split by Instance
+### <a name = "advertisedroutes"></a>Count of Routes Advertised to Peer - Split by instance
 
 Aggregation type: *Count*
 
@@ -213,7 +223,7 @@ This metric is the count for the number of routes the ExpressRoute gateway is ad
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-advertised-to-peer.png" alt-text="Screenshot of count of routes advertised to peer.":::
 
-### <a name = "learnedroutes"></a>Count of Routes Learned from Peer - Split by Instance
+### <a name = "learnedroutes"></a>Count of Routes Learned from Peer - Split by instance
 
 Aggregation type: *Max*
 
@@ -221,7 +231,7 @@ This metric shows the number of routes the ExpressRoute gateway is learning from
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-learned-from-peer.png" alt-text="Screenshot of count of routes learned from peer.":::
 
-### <a name = "frequency"></a>Frequency of Routes change - Split by Instance
+### <a name = "frequency"></a>Frequency of Routes change - Split by instance
 
 Aggregation type: *Sum*
 
