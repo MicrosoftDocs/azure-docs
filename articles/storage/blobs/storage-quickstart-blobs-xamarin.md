@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp, mode-api, kr2b-contr-experiment
 
 # Quickstart: Use Azure Blob Storage client library v12 with Xamarin
 
-This quickstart gets you started using Xamarin with the Azure Blob Storage client library v12. The Xamarin mobile development framework can create apps for iOS, Android, and UWP from one codebase with C# and .NET.
+This quickstart gets you started using Xamarin with the Azure Blob Storage client library v12. The Xamarin mobile development framework creates C# apps for iOS, Android, and UWP from one .NET codebase.
 
 Blob Storage is optimized for storing massive amounts of unstructured data, like text or binary data, that doesn't fit a particular data model or definition. Blob Storage has three types of resources: a storage account, containers in the storage account, and blobs in the containers.
 
@@ -25,7 +25,7 @@ You can use the following .NET classes to interact with Blob Storage resources:
 
 - [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) manipulates Storage resources and blob containers.
 - [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) manipulates Storage containers and their blobs.
-- [BlobClient](/dotnet/api/azure.storage.blobs.blobclient): manipulates Storage blobs.
+- [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) manipulates Storage blobs.
 - [BlobDownloadInfo](/dotnet/api/azure.storage.blobs.models.blobdownloadinfo) represents the properties and content returned from downloading a blob.
 
 In this quickstart, you use Xamarin with the Azure Blob Storage client library v12 to:
@@ -50,7 +50,7 @@ This section walks through preparing a Visual Studio Xamarin project to work wit
 1. In Visual Studio **Solution Explorer**, right-click the solution and select **Manage NuGet Packages for Solution**.
 1. Search for **Azure.Storage.Blobs**, and install the latest stable version into all projects in your solution.
 1. In **Solution Explorer**, from the **BlobQuickstartV12** directory, open the *MainPage.xaml* file for editing.
-1. In the code editor, remove everything between the `<ContentPage></ContentPage>` elements, replace with the following code, and save the file.
+1. In the code editor, replace everything between the `<ContentPage></ContentPage>` elements with the following code:
    
    ```xaml
    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
@@ -67,17 +67,17 @@ This section walks through preparing a Visual Studio Xamarin project to work wit
 
 ## Azure Storage connection
 
-To authorize requests to Azure Storage, add your storage account credentials to your application as a connection string.
+To authorize requests to Azure Storage, you need to add your storage account credentials to your application as a connection string.
 
 [!INCLUDE [storage-quickstart-credentials-xamarin-include](../../../includes/storage-quickstart-credentials-xamarin-include.md)]
 
 ## Code examples
 
-These example code snippets show you how to use the Blob Storage client library for .NET in a Xamarin.Forms app:
+The following example code snippets show you how to use the Blob Storage client library for .NET in a Xamarin.Forms app.
 
 ### Create class level variables
 
-The following code declares several class-level variables that the samples use to communicate with Blob Storage. Add these lines to *MainPage.xaml.cs* immediately after the storage account connection string:
+The following code declares several class-level variables that the samples use to communicate with Blob Storage. Add these lines to *MainPage.xaml.cs*, immediately after the storage account connection string you just added.
 
 ```csharp
 string fileName = $"{Guid.NewGuid()}-temp.txt";
@@ -89,9 +89,9 @@ BlobClient blobClient;
 
 ### Create a container
 
-Decide on a name for the new container. Container names must be lowercase. For more information about naming containers and blobs, see [Name and reference containers, blobs, and metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). The following code appends a GUID value to the container name to ensure that it's unique.
-
 The code creates an instance of the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class, then calls the [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainerasync) method to create the container in your storage account.
+
+The code appends a GUID value to the container name to ensure that it's unique. For more information about naming containers and blobs, see [Name and reference containers, blobs, and metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 Add the following code to the *MainPage.xaml.cs* file:
 
@@ -115,7 +115,7 @@ protected async override void OnAppearing()
 
 The following code snippet:
 
-1. Creates a `MemoryStream` of the `Hello World!` text.
+1. Creates a `MemoryStream` of the text.
 1. Uploads the text to a blob by calling the [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) function of the [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) class. The code passes in both the filename and the `MemoryStream` of text. This method creates the blob if it doesn't already exist, and overwrites it if it does.
 
 Add the following code to the *MainPage.xaml.cs* file:
@@ -136,7 +136,7 @@ async void Upload_Clicked(object sender, EventArgs e)
 
 ### List the blobs in a container
 
-List the blobs in the container by calling the [GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync) method. Since only one blob has been added to the container, the listing operation returns just one blob.
+This code lists the blobs in the container by calling the [GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync) method. You added only one blob to the container, so the listing operation returns just one blob.
 
 Add this code to the *MainPage.xaml.cs* file:
 
@@ -182,7 +182,7 @@ async void Download_Clicked(object sender, EventArgs e)
 
 ### Delete a container
 
-The following code deletes the container to clean up all resources, by using [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync).
+The following code deletes the container and its blobs, by using [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync).
 
 The app first prompts you to confirm the blob and container deletion. You can then verify that the resources were created correctly, before you delete them.
 
@@ -192,7 +192,7 @@ Add this code to the *MainPage.xaml.cs* file:
 async void Delete_Clicked(object sender, EventArgs e)
 {            
     var deleteContainer = await Application.Current.MainPage.DisplayAlert("Delete Container",
-        "You are about to delete the container proceeed?", "OK", "Cancel");
+        "You're about to delete the container. Proceed?", "OK", "Cancel");
 
     if (deleteContainer == false)
         return;
@@ -220,7 +220,7 @@ Hello World!
 Container Deleted
 ```
 
-Before you begin the clean-up process, verify that the output of the blob's contents on screen match the value that was uploaded. After you verify the values, confirm the container deletion to finish the quickstart.
+Before you begin the clean-up process, verify that the output of the blob's contents match the blob that you uploaded. After you verify the values, confirm the container deletion to finish the quickstart.
 
 ## Next steps
 
