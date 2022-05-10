@@ -122,7 +122,7 @@ Activity, orchestrator, and entity function concurrency limits can be configured
 > [!NOTE]
 > Orchestrations and entities are only loaded into memory when they are actively processing events or operations, or if [instance caching](durable-functions-perf-and-scale.md#instance-caching) is enabled. After executing their logic and awaiting (i.e. hitting an `await` (C#) or `yield` (JavaScript, Python) statement in the orchestrator function code), they may be unloaded from memory. Orchestrations and entities that are unloaded from memory don't count towards the `maxConcurrentOrchestratorFunctions` throttle. Even if millions of orchestrations or entities are in the "Running" state, they only count towards the throttle limit when they are loaded into active memory. An orchestration that schedules an activity function similarly doesn't count towards the throttle if the orchestration is waiting for the activity to finish executing.
 
-#### Functions 2.0
+# [Functions 2.0](#tab/v2)
 
 ```json
 {
@@ -135,7 +135,7 @@ Activity, orchestrator, and entity function concurrency limits can be configured
 }
 ```
 
-#### Functions 1.x
+# [Functions 1.x](#tab/v1)
 
 ```json
 {
@@ -180,7 +180,7 @@ The following table shows, for each storage provider, which queues are partition
 
 The `partitionCount` parameter can be specified in the **host.json** file. The following example host.json snippet sets the `durableTask/storageProvider/partitionCount` property (or `durableTask/partitionCount` in Durable Functions 1.x) to `3`.
 
-#### Durable Functions 2.x
+# [Durable Functions 2.x](#tab/v2)
 
 ```json
 {
@@ -194,7 +194,7 @@ The `partitionCount` parameter can be specified in the **host.json** file. The f
 }
 ```
 
-#### Durable Functions 1.x
+# [Durable Functions 1.x](#tab/v1)
 
 ```json
 {
