@@ -31,7 +31,7 @@ To get started using burst capacity, enroll in the preview by filing a support t
 
 ## Example scenario
 
-Suppose we have a workload that keeps track of transactions that take place in retail stores. Because most of our queries are by `StoreId`, we partition by `StoreId`. However, over time, we see that some stores have more activity than others and require more throughput to serve their workloads. We're seeing rate limiting (429) for requests against those StoreIds, and our [overall rate of 429 responses is greater than 1-5%](sql/troubleshoot-request-rate-too-large.md#recommended-solution). Meanwhile, other stores are less active and require less throughput. Let's see how we can redistribute our throughput for better performance.
+Suppose we have a workload that keeps track of transactions that take place in retail stores. Because most of our queries are by `StoreId`, we partition by `StoreId`. However, over time, we see that some stores have more activity than others and require more throughput to serve their workloads. We're seeing rate limiting (429) for requests against those StoreIds, and our [overall rate of 429 responses is greater than 1-5%](troubleshoot-request-rate-too-large.md#recommended-solution). Meanwhile, other stores are less active and require less throughput. Let's see how we can redistribute our throughput for better performance.
 
 ## Step 1: Identify which physical partitions need more throughput
 
@@ -81,7 +81,7 @@ First, let's determine the current RU/s for each physical partition. You can use
 Alternatively, if you haven't changed your throughput per partition before, you can use the formula:
 ``Current RU/s per partition = Total RU/s / Number of physical partitions``
 
-Follow the guidance in the article [Best practices for scaling provisioned throughput (RU/s)](scaling-provisioned-throughput-best-practices.md#step-1-find-the-current-number-of-physical-partitions) to determine the number of physical partitions.
+Follow the guidance in the article [Best practices for scaling provisioned throughput (RU/s)](../scaling-provisioned-throughput-best-practices.md#step-1-find-the-current-number-of-physical-partitions) to determine the number of physical partitions.
 
 ### Determine RU/s for target partition
 
@@ -157,7 +157,7 @@ Find the latest preview version the supported SDK:
 Support for other SDKs is planned for the future.
 
 > [!TIP]
-> You should ensure that your application has been updated to use a compatible SDK version prior to enrolling in the preview. If you're using the legacy .NET V2 SDK, follow the [.NET SDK v3 migration guide](sql/migrate-dotnet-v3.md). 
+> You should ensure that your application has been updated to use a compatible SDK version prior to enrolling in the preview. If you're using the legacy .NET V2 SDK, follow the [.NET SDK v3 migration guide](migrate-dotnet-v3.md). 
 
 ### Unsupported connectors
 

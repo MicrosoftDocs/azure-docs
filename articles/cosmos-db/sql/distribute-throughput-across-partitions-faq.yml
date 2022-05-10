@@ -65,4 +65,4 @@ sections:
               |P1: 4000 RU/s      |  P1: 10,000 RU/s       |   2/3 - ignored because each partition can get 10,000 RU/s     |
               |P2: 1000 RU/s      |  P2: 10,000 RU/s       |       1/6 - ignored because each partition can get 10,000 RU/s  |
 
-          - If you increase your RU/s [beyond what the current partition layout can serve](scaling-provisioned-throughput-best-practices.md), you trigger a split. By design, all physical partitions will default to having the same number of RU/s. After partitions split, the logical partitions that contributed to a hot partition may be on a different physical partition. If necessary, you can redistribute your RU/s on the new layout.
+          - If you increase your RU/s [beyond what the current partition layout can serve](../scaling-provisioned-throughput-best-practices.md), you trigger a split. By design, all physical partitions will default to having the same number of RU/s. After partitions split, the logical partitions that contributed to a hot partition may be on a different physical partition. If necessary, you can redistribute your RU/s on the new layout.
