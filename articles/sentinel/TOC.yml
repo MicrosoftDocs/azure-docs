@@ -189,7 +189,7 @@
       href: migration-qradar.md
       items:
       - name: Migrate detection rules
-        href: migrate-qradar-detection-rules.md
+        href: migration-qradar-detection-rules.md
       - name: Migrate SOAR automation
         href: migration-qradar.md
       - name: Export historical data
