@@ -55,16 +55,16 @@ conceptualContent:
               text: Securing identity with Zero Trust
             - url: /security/zero-trust/develop/identity
               itemType: concept
-              text: Build apps with a Zero Trust approach
+              text: Build apps with Zero Trust
         # Card
         - title: Microsoft Learn
           links:
             - url: /learn/modules/describe-identity-principles-concepts/
               itemType: learn
-              text: Describe identity concepts
+              text: Identity concepts
             - url: /learn/modules/explore-basic-services-identity-types/
               itemType: learn
-              text: Describe services and identity types
+              text: Services and identity types
             - url: /learn/modules/create-users-and-groups-in-azure-active-directory/
               itemType: learn
               text: Create users and groups
