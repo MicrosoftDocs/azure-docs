@@ -469,7 +469,7 @@ Following is a sample JSON string with post-write metrics:
 
 #### Using the Connector with Python
 
-For Spark 3.1, the Connector supports Python natively. Below are code samples that show how to use the Connector with `PySpark (Python)` in various scenarios:
+For Spark 3.1, the Connector supports Python natively. The API is similar to Scala. We use the same [configuration options](#configuration-options). Below are  some code samples that show how to use the Connector with `PySpark (Python)`.
 
 ##### Read using Azure AD based authentication
 
