@@ -121,25 +121,183 @@ Isolated process isn't currently supported.
 ---
 
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
+
+::: zone pivot="programming-language-java,programming-language-powershell"
 
 > [!NOTE]
-> In the current preview, Azure SQL bindings are only supported by [C# class library functions](functions-dotnet-class-library.md). 
+> In the current preview, Azure SQL bindings are only supported by [C# class library functions](functions-dotnet-class-library.md), [JavaScript functions](functions-reference-node.md), and [Python functions](functions-reference-python.md). 
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+
+This section contains the following examples:
+
+* [HTTP trigger, return all rows](#http-trigger-get-multiple-items-javascript)
+* [HTTP trigger, look up ID from query string](#http-trigger-look-up-id-from-query-string-javascript)
+
+The examples refer to a database table:
+
+:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
+
+<a id="http-trigger-get-multiple-items-javascript"></a>
+The following example shows a SQL input binding in a function.json file and a JavaScript function that uses the binding. The function reads rows resulting from a query and returns them in the HTTP response.
+
+Here's the binding data in the function.json file:
+
+```json
+{
+    "name": "todoItems",
+    "type": "sql",
+    "direction": "in",
+    "commandText": "select [Id], [order], [title], [url], [completed] from dbo.ToDo",
+    "commandType": "Text",
+    "connectionStringSetting": "SqlConnectionString"
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+Here's the JavaScript code:
+
+
+```javascript
+module.exports = async function (context, req, todoItems) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    context.res = {
+        // status: 200, /* Defaults to 200 */
+        mimetype: "application/json",
+        body: todoItems
+    };
+}
+```
+
+<a id="http-trigger-look-up-id-from-query-string-javascript"></a>
+The following example shows a SQL input binding in a function.json file and a JavaScript function that uses the binding. The function reads a specific row resulting from a query with a parameter from the query string and returns them in the HTTP response.
+
+Here's the binding data in the function.json file:
+
+```json
+{
+    "name": "todoItem",
+    "type": "sql",
+    "direction": "in",
+    "commandText": "select [Id], [order], [title], [url], [completed] from dbo.ToDo where Id = @Id",
+    "commandType": "Text",
+    "parameters": "@Id = {Query.id}",
+    "connectionStringSetting": "SqlConnectionString"
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+Here's the JavaScript code:
+
+
+```javascript
+module.exports = async function (context, req, todoItem) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    context.res = {
+        // status: 200, /* Defaults to 200 */
+        mimetype: "application/json",
+        body: todoItem
+    };
+}
+```
+
+::: zone-end  
+
+::: zone pivot="programming-language-python"  
+This section contains the following examples:
+
+* [HTTP trigger, return all rows](#http-trigger-get-multiple-items-python)
+* [HTTP trigger, look up ID from query string](#http-trigger-look-up-id-from-query-string-python)
+
+The examples refer to a database table:
+
+:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
+
+<a id="http-trigger-get-multiple-items-python"></a>
+The following example shows a SQL input binding in a function.json file and a Python function that uses the binding. The function reads rows resulting from a query and returns them in the HTTP response.
+
+Here's the binding data in the function.json file:
+
+```json
+{
+    "name": "todoItems",
+    "type": "sql",
+    "direction": "in",
+    "commandText": "select [Id], [order], [title], [url], [completed] from dbo.ToDo",
+    "commandType": "Text",
+    "connectionStringSetting": "SqlConnectionString"
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+Here's the Python code:
+
+
+```python
+import azure.functions as func
+import json
+
+def main(req: func.HttpRequest, todoItems: func.SqlRowList) -> func.HttpResponse:
+    rows = list(map(lambda r: json.loads(r.to_json()), todoItems))
+
+    return func.HttpResponse(
+        json.dumps(rows),
+        status_code=200,
+        mimetype="application/json"
+    ) 
+```
+
+<a id="http-trigger-look-up-id-from-query-string-python"></a>
+The following example shows a SQL input binding in a function.json file and a Python function that uses the binding. The function reads a specific row resulting from a query with a parameter from the query string and returns them in the HTTP response.
+
+Here's the binding data in the function.json file:
+
+```json
+{
+    "name": "todoItem",
+    "type": "sql",
+    "direction": "in",
+    "commandText": "select [Id], [order], [title], [url], [completed] from dbo.ToDo where Id = @Id",
+    "commandType": "Text",
+    "parameters": "@Id = {Query.id}",
+    "connectionStringSetting": "SqlConnectionString"
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+Here's the Python code:
+
+
+```python
+import azure.functions as func
+import json
+
+def main(req: func.HttpRequest, todoItem: func.SqlRowList) -> func.HttpResponse:
+    rows = list(map(lambda r: json.loads(r.to_json()), todoItem))
+
+    return func.HttpResponse(
+        json.dumps(rows),
+        status_code=200,
+        mimetype="application/json"
+    ) 
+```
 
 ::: zone-end
 
 <!---### Use these pivots when we get other non-C# languages added. ###
-::: zone pivot="programming-language-javascript"
-
-::: zone-end  
 ::: zone pivot="programming-language-powershell" 
  
 
 ::: zone-end 
-::: zone pivot="programming-language-python"  
-
-
-::: zone-end
 ::: zone pivot="programming-language-java"
 
 ::: zone-end
@@ -171,23 +329,24 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 | **commandType** | A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
 | **parameters** | Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
 
-::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone-end 
+--> 
+::: zone pivot="programming-language-javascript,programming-language-python"  
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
 
 |function.json property | Description|
 |---------|----------------------|
-|**type** |  Must be set to `table`. This property is set automatically when you create the binding in the Azure portal.|
-|**direction** |  Must be set to `in`. This property is set automatically when you create the binding in the Azure portal. |
-|**name** |  The name of the variable that represents the table or entity in function code. | 
+|**type** |  Must be set to `sql`. |
+|**direction** |  Must be set to `in`. |
+|**name** |  The name of the variable that represents the query results in function code. | 
 | **commandText** | Required. The Transact-SQL query command or name of the stored procedure executed by the binding.  |
 | **connectionStringSetting** | The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This isn't the actual connection string and must instead resolve to an environment variable. | 
 | **commandType** | A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
 | **parameters** | Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
 ::: zone-end  
--->
+
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
