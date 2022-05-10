@@ -225,6 +225,10 @@ The below JSON is returned, and the error message is captured in the `message` p
 ],
 ```
 
+### Troubleshooting Dapr
+
+Troubleshoot Dapr errors via the [common Dapr issues and solutions guide][dapr-troubleshooting].
+
 ## Delete the extension
 
 If you need to delete the extension and remove Dapr from your AKS cluster, you can use the following command: 
@@ -254,3 +258,4 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 [dapr-security]: https://docs.dapr.io/concepts/security-concept/
 [dapr-deployment-annotations]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-overview/#adding-dapr-to-a-kubernetes-deployment
 [dapr-oss-support]: https://docs.dapr.io/operations/support/support-release-policy/
+[dapr-troubleshooting]: https://docs.dapr.io/operations/troubleshooting/common_issues/
