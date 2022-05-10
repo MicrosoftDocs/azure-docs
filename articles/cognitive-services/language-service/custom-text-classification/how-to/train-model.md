@@ -38,7 +38,7 @@ See the [project development lifecycle](../overview.md#project-development-lifec
 Before you start the training process, labeled documents in your project are divided into a training set and a testing set. Each one of them serves a different function.
 The **training set** is used in training the model, this is the set from which the model learns the class/classes assigned to each document. 
 The **testing set** is a blind set that is not introduced to the model during training but only during evaluation. 
-After the model is trained successfully, it is used to make predictions from the documents in the testing set. Based on these predictions, the model's [evaluation metrics](../concepts/evaluation.md) will be calculated. 
+After the model is trained successfully, it is used to make predictions from the documents in the testing set. Based on these predictions, the model's [evaluation metrics](../concepts/evaluation-metrics.md) will be calculated. 
 It is recommended to make sure that all your classes are adequately represented in both the training and testing set.
 
 Custom text classification supports two methods for data splitting:

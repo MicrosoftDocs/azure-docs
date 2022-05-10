@@ -64,4 +64,4 @@ See the [project development lifecycle](../overview.md#project-development-lifec
 
 ## Next steps
 
-As you review your how your model performs, learn about the [evaluation metrics](../concepts/evaluation.md) that are used. Once you know whether your model performance needs to improve, you can begin [improving the model](improve-model.md).
+As you review your how your model performs, learn about the [evaluation metrics](../concepts/evaluation-metrics.md) that are used. Once you know whether your model performance needs to improve, you can begin [improving the model](improve-model.md).

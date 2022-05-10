@@ -61,7 +61,7 @@ See the [data selection and schema design](how-to/design-schema.md) article for 
 
 * View the model [confusion matrix](how-to/view-model-evaluation.md), if you notice that a certain class is frequently classified incorrectly, consider adding more tagged instances for this class. If you notice that two classes are frequently classified as each other, this means the schema is ambiguous, consider merging them both into one class for better performance.
 
-*  [Examine Data distribution](concepts/evaluation.md) If one of the classes has many more tagged instances than the others, your model may be biased towards this class. Add more data to the other classes or remove most of the examples from the dominating class. 
+*  [Examine Data distribution](concepts/evaluation-metrics.md) If one of the classes has many more tagged instances than the others, your model may be biased towards this class. Add more data to the other classes or remove most of the examples from the dominating class. 
 
 * Review the [data selection and schema design](how-to/design-schema.md) article for more information.
 

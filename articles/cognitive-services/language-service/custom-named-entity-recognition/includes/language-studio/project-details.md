@@ -20,5 +20,5 @@ ms.author: aahi
 
 5. You can also retrieve your primary resource key from this page.
 
-    :::image type="content" source="../../../custom-classification/media/project-details.png" alt-text="A screenshot of the project settings page." lightbox="../../../custom-classification/media/project-details.png":::
+    :::image type="content" source="../../../custom-text-classification/media/project-details.png" alt-text="A screenshot of the project settings page." lightbox="../../../custom-text-classification/media/project-details.png":::
 

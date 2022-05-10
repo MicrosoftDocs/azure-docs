@@ -14,7 +14,7 @@ ms.author: aahi
 
 3. In this page you can only view the successfully trained models, F1 score for each model and [model expiration date](../../../concepts/model-lifecycle.md). You can click on the model name for more details about its performance.
 
-4. You can find the [model-level evaluation metrics](../../concepts/evaluation.md#model-level-and-class-level-evaluation-metrics) under **Overview**, and the [class-level evaluation metrics](../../concepts/evaluation.md#interpreting-class-level-evaluation-metrics) under **Class performance metrics**. The confusion matrix for the model is located under **Test set confusion matrix**.
+4. You can find the [model-level evaluation metrics](../../concepts/evaluation-metrics.md#model-level-and-class-level-evaluation-metrics) under **Overview**, and the [class-level evaluation metrics](../../concepts/evaluation-metrics.md#interpreting-class-level-evaluation-metrics) under **Class performance metrics**. The confusion matrix for the model is located under **Test set confusion matrix**.
 
     :::image type="content" source="../../media/model-details-2.png" alt-text="A screenshot of the model performance metrics in Language Studio." lightbox="../../media/model-details-2.png":::
 
