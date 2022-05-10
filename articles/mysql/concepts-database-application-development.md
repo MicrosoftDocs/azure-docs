@@ -4,6 +4,7 @@ description: Introduces design considerations that a developer should follow whe
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 3/18/2020
 ---

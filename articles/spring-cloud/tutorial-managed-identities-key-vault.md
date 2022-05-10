@@ -92,7 +92,7 @@ export SERVICE_IDENTITY=$(az spring-cloud app show --name "springapp" -s "myspri
 
 First, create a user-assigned managed identity in advance with its resource ID set to `$USER_IDENTITY_RESOURCE_ID`.
 
-:::image type="content" source="media/tutorial-managed-identities-key-vault/app-user-managed-identity-key-vault.png" alt-text="Azure portal screenshot showing the Managed Identity Properties screen with 'Principle I D' and 'Client I D' highlighted." lightbox="media/tutorial-managed-identities-key-vault/app-user-managed-identity-key-vault.png":::
+:::image type="content" source="media/tutorial-managed-identities-key-vault/app-user-managed-identity-key-vault.png" alt-text="Screenshot of Azure portal showing the Managed Identity Properties screen with 'Principle I D' and 'Client I D' highlighted." lightbox="media/tutorial-managed-identities-key-vault/app-user-managed-identity-key-vault.png":::
 
 ```azurecli
 export SERVICE_IDENTITY={principal ID of user-assigned managed identity}
