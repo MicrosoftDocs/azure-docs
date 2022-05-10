@@ -108,7 +108,7 @@ The widgets and export report for VM Raw usage are like VM Normalized usage with
 
 You can choose to analyze VM normalized usage, VM raw usage, Metered usage, and Metered usage anomalies from the dropdown picker at the top of the dashboard.
 
-[ ![Screenshot of the dropdown picker on the Usage dashboard.](./media/usage-dashboard/usage-type-picker.png) ](./media/usage-dashboard/usage-type-picker.png#lightbox)
+![Screenshot of the dropdown picker on the Usage dashboard.](./media/usage-dashboard/usage-type-picker.png)(./media/usage-dashboard/usage-type-picker.png#lightbox)
 
 ### Public and private offer
 
