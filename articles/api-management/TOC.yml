@@ -7,6 +7,8 @@
         href: api-management-key-concepts.md
       - name: API Management features availability
         href: api-management-features.md
+      - name: Service limits
+        href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json#api-management-limits
 - name: Quickstarts
   expanded: true
   items:
@@ -136,6 +138,8 @@
                   href: api-management-howto-ip-addresses.md
             - name: Configuration management
               items:
+              - name: Landing zone accelerator
+                href: /azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
               - name: CI/CD using ARM templates
                 href: devops-api-development-templates.md
               - name: Manage using automation
