@@ -12,52 +12,112 @@ ms.custom: mode-other
 
 # QuickStart: Get started with nginx
 
-In this quickstart, you'll use the Azure portal to integrate an instance of nginx with your Azure solutions.
+In this quickstart, you'll use the Azure portal to createan instance of nginx with your Azure solutions.
 
-## Prerequisites
+### Create new Nginx account 
 
-- Subscription owner - The nginx integration with Azure can only be created by users who have _Owner_ access on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before starting the setup.
-- Single sign-on app - The ability to automatically navigate between the Azure portal and nginx Cloud is enabled via single sign-on (SSO). This option is automatically enabled and turned on for all Azure users.
+Set the following values in the Create Nginx resource screen.
 
-## Find offer
+| Property  | Description |
+|---------|---------|
+| Subscription     | From the drop down select your Azure subscription where you have owner access        |
+| Resource group     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see Azure Resource Group overview.          |
+| Nginx account name  | Put the name for the Nginx account you want to create         |
+| Location | Select West Central US. Please note that this is the only Azure region supported by Nginx during preview.          |
+| Plan     |    Specified based on the selected Nginx plan      |
+| Price    |     Pay As You Go     |
 
-Use the Azure portal to find the nginx application.
+Image1 - Image, text, application
 
-1. In a web browser, go to the [Azure portal](https://portal.azure.com/) and sign in.
+Image2 - Shape  Image, application
 
-1. If you've visited the **Marketplace** in a recent session, select the icon from the available options. Otherwise, search for _Marketplace_.
+1. After filling in the proper values, select the button  that says **Next: Networking**. You are taken the **Networking** screen.  This screen allows you to specify the VNET and Subnet that is associated to the Nginx deployment.  
 
-1. Search for _nginx_ and select **nginxsearch (nginx Cloud)** from the available offerings.
+1. Check the checkbox that acknowledges access to you Tenant to ensure VNET and NIC association. 
 
-1. Select **Set up + subscribe**.
+1. Select either Public or Private End points for IP address selection.
 
-## Create resource
+### Add custom tags 
 
-After you've selected the offer for nginx, you're ready to set up the application.
+Image - nginx deployment 
 
-1. On the **Create nginx Resource** basics page, provide the following values.
+You can specify custom tags for the new Nginx resource in Azure by adding custom key value pairs. An example is shown below.
 
-    | Property | Description |
-    | ---- | ---- |
-    | **Subscription** | From the drop-down, select an Azure subscription where you have owner access. |
-    | **Resource group** | Specify whether you want to create a new resource group or use an existing resource group. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/management/overview.md). |
-    | **nginx account name** | Provide the name for the nginx account you want to create |
-    | **Region** | Select the region you want to deploy to. |
-    | **Pricing Plan** | **Pay as you go**. |
-    | **Price** | Specified based on the selected nginx plan. |
+| Property | Description |
+|----------| -------------|
+|Name | Name of the tag corresponding to the Azure Nginx resource |
+| Value | Value of the tag corresponding to the Azure Nginx resource |
 
-   When you've finished, select **Next: Logs and Metrics**.
+Click the **Next: Review+Create** button to navigate to the final step for resource creation. 
 
-1. On **Logs & metrics**, specify which logs to send to nginx.
+### Review + Create Nginx resource
 
-   There are two types of logs that can be emitted from Azure to nginx.
+Image - nginx review and create
 
-   **Subscription logs** provide insights into the operations on each Azure resource in the subscription from the management plane.
+Once you get to the **Review + Create** page, all validations are run. At this point, you can review all the selections made in the Basics, Metrics and Logs, Single sign-on and Tags screens. You can also review the Nginx and Azure marketplace terms and conditions.  
 
-   **Azure resource logs** provide insights into operations that happen within the data plane.
+Once you have reviewed all the information click **Create**. 
 
-1. After the deployment is finished, select **Go to resource** to view the deployed resource.
+Image
 
+Azure now deploys the Nginx resource. 
+
+Image 
+
+Once the process is complete, the **Go to Resource** button appears. Click this button to navigate to the specific Nginx resource.
+
+Image 
+
+The Overview blade, provides basic information on the deployed resources. 
+
+Image
+
+
+## Identity Overview  
+
+## Configure Managed Identity 
+
+Add a new User Assigned Managed Identity  
+
+ 
+
+ 
+
+ 
+
+Image, text, application
+
+Description automatically generated 
+
+ 
+
+ 
+
+## Nginx Configuration 
+
+To upload an existing Nginx Configuration file,  select **Nginx configuration** menu item under the Settings in the left navigation Pane. 
+
+Image, text, application, email
+
+Description automatically generated 
+
+Provide the path of the config file and click the **+** button and for config package 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Image
+
+
+
+Edit the config file within the Editor. 
 ## Next steps
 
 - [Manage the nginx resource](nginx-manage.md)
