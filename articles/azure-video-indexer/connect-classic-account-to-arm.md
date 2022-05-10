@@ -38,7 +38,7 @@ However, this can be resolved by assigning the right role-assignment to these us
 Only the account owner, who performed the connect action, is automatically assigned as the owner on the connected account. When [Azure policies][docs-governance-policy] are enforced, they override the settings on the account.
 
 If users are not added through Azure RBAC to the account after 30 days, they will lose access through API as well as Azure Video Indexer portal.  
-After the transition state ends, users will only be able to generate a valid access token through through ARM, making Azure RBAC the exclusive way to manage role-based access control on the account.
+After the transition state ends, users will only be able to generate a valid access token through ARM, making Azure RBAC the exclusive way to manage role-based access control on the account.
 
 > [!NOTE]
 > If there are invited users you wish to remove access from, do it before connecting the account to ARM. 
@@ -66,7 +66,7 @@ Before the end of the 30 days of transition state, you can remove access from us
 
     ![connect-to-arm](media/connect-classic-account-to-arm/connect-blade.png)
     
-    Here are the description for the resource fields: 
+    Here are the descriptions for the resource fields: 
 
     | Name | Description |
     | ---|---|
