@@ -366,7 +366,7 @@ To use RStudio open source, set up a custom application as follows:
     * `DISABLE_AUTH: true`
     * `ROOT: true`
     * `USERID: 1001`
-    * `GROUPID: 1001`
+    * `GROUPID: 1004`
     * `USER: azureuser`
 1. Add the **Bind mounts** `/home/azureuser: /home/azureuser`.
 1. Select **Add application** to set up RStudio as a custom application on your compute instance.
