@@ -192,7 +192,7 @@ Training data is a required parameter and is passed in using the `training` key 
 
 Target column name is a required parameter and used as target for supervised ML task. It's passed in using the `target_column_name` key in the data section. For example,
 
-:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml":::
+:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml"  id="mltable_settings":::
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
