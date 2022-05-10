@@ -130,10 +130,10 @@ Committed devices are defined during the onboarding process on the Microsoft Def
 First-time users and users upgrading are required to upload the activation file.
 After initial activation, the number of devices detected on the network might exceed the number of committed devices. This event might happen, for example, if you connect more sensors to the management console. If there's a discrepancy between the number of detected devices and the number of committed devices, a warning appears in the management console. If this event occurs, you should upload a new activation file.
 
-#### Pricing page options
+#### Plans and pricing page options
 
-Pricing page lets you onboard new subscriptions to Microsoft Defender for IoT and define committed devices in your network.  
-Additionally, the Pricing page now lets you manage existing subscriptions associated with a sensor and update device commitment.
+Plans and pricing page lets you onboard new subscriptions to Microsoft Defender for IoT and define committed devices in your network.  
+Additionally, the Plans and pricing page now lets you manage existing subscriptions associated with a sensor and update device commitment.
 
 #### View and manage onboarded sensors
 

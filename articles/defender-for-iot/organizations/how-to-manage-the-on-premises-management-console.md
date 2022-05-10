@@ -33,7 +33,7 @@ After initial activation, the number of monitored devices might exceed the numbe
 
 **To upload an activation file:**
 
-1. Go to the Microsoft Defender for IoT **Pricing** page.
+1. Go to the Microsoft Defender for IoT **Plans and pricing** page.
 1. Select the **Download the activation file for the management console** tab. The activation file is downloaded.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="Download the activation file.":::

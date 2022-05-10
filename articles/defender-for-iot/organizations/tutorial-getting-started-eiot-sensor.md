@@ -40,7 +40,7 @@ The following table describes user access permissions to Microsoft Defender for 
 |--|--|--|--|--|
 | View details and access software, activation files, and threat intelligence packages | ✓ | ✓ | ✓ | ✓ |
 | Onboard a sensor |  | ✓ | ✓ | ✓ |
-| Update pricing |  |  | ✓ | ✓ |
+| Update pricing plans |  |  | ✓ | ✓ |
 
 ## Set up a server or Virtual Machine (VM)
 

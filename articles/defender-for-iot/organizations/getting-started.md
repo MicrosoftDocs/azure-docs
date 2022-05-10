@@ -73,7 +73,7 @@ This procedure describes how to add a new Azure subscription to Defender for IoT
 
 **To add your subscription**
 
-1. In the Azure portal, go to **Defender for IoT** > **Pricing**.
+1. In the Azure portal, go to **Defender for IoT** > **Plans and pricing**.
 
 1. Select **Add** to add a new subscription, and then define the following values:
 
@@ -87,9 +87,9 @@ This procedure describes how to add a new Azure subscription to Defender for IoT
 
 1. Select the **I accept the terms** option, and then select **Save**.
 
-Your subscription is shown in the **Pricing** grid. For example:
+Your subscription is shown in the **Plans and pricing** grid. For example:
 
-:::image type="content" source="media/getting-started/pricing.png" alt-text="Screenshot of the Pricing page in Defender for IoT." lightbox="media/getting-started/pricing.png"::::::
+:::image type="content" source="media/getting-started/pricing.png" alt-text="Screenshot of the Plans and pricing page in Defender for IoT." lightbox="media/getting-started/pricing.png"::::::
 
 For more information, see [Manage Defender for IoT subscriptions](how-to-manage-subscriptions.md).
 
