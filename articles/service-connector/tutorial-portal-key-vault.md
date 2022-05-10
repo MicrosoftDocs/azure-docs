@@ -118,9 +118,9 @@ Now you can create a service connection to another target service and directly s
   > [!TIP]
   > Don't have permission to list secrets? Refer to [troubleshooting](/azure/key-vault/general/troubleshooting-access-issues#i-am-not-able-to-list-or-get-secretskeyscertificate-i-am-seeing-something-went-wrong-error).
 
-1. Select a version ID from the Current Version list.
+4. Select a version ID from the Current Version list.
 
-1. Select **Show Secret Value** button and you'll see the actual connection string of this blob storage connection.
+5. Select **Show Secret Value** button and you'll see the actual connection string of this blob storage connection.
 
 ## Clean up resources
 
