@@ -95,11 +95,21 @@ Select the VM application from the list, and then select **Save** at the bottom 
 
 If you have more than one VM application to install, you can set the install order for each VM application back on the **Advanced tab**.
 
+You can also deploy the VM application to currently running VMs. Select the **Extensions + applications** option under **Settings** in the left menu when viewing the VM details in the portal.
+
+Choose **VM applications** and then select **Add application** to add your VM application.
+
+:::image type="content" source="media/vmapps/select-ext-app.png" alt-text="Screenshot showing selecting a VM application to install on an currently running VM.":::
+
+Select the VM application from the list, and then select **Save** at the bottom of the page.
+
+:::image type="content" source="media/vmapps/select-app.png" alt-text="Screenshot showing selecting a VM application to install on the VM.":::
+
 ### [CLI](#tab/cli)
 
 VM applications require [Azure CLI](/cli/azure/install-azure-cli) version 2.30.0 or later.
 
-Crate the VM application definition using [az sig gallery-application create](/cli/azure/sig/gallery-application#az_sig_gallery_application_create). In this example we are creating a VM application definition named *myApp* for Linux-based VMs.
+Create the VM application definition using [az sig gallery-application create](/cli/azure/sig/gallery-application#az_sig_gallery_application_create). In this example we are creating a VM application definition named *myApp* for Linux-based VMs.
 
 ```azurecli-interactive
 az sig gallery-application create \
