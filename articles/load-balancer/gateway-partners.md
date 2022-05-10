@@ -12,9 +12,9 @@ ms.custom:
 
 Azure has a growing ecosystem of partners offering their network appliances for use with this service.
 
-## Appliances
+## Partners
 
-| Vendor | Quote  | Link |
+| Partner | Quote  | Link |
 | ------ | ----- | ---- |
 | **A10 Networks** </br> :::image type="content" source="./media/gateway-partners/a10.png" alt-text="Alt text here."::: | “Protecting enterprise workloads from DDoS attacks has become a must as organizations are migrating to the cloud alongside a rise in complexity, intensity, and frequency of attacks. With Azure Gateway Load Balancer, customers can now inject A10’s Thunder Virtual Appliance, on top of Azure’s DDoS Protection Standard to offer improved L3-7 protection for latency sensitive workloads. Azure Gateway Load Balancer is setting a new precedent by simplifying the injection of L7 DDoS appliances in the path, providing transparent flow (bump in the wire) using an overlay network with low latency, preserving the health of the host as well as the NVAs during the DDoS attacks.” **John Hofdahl - Area Vice President, Cloud Service Provider Team** | [Learn more](https://www.a10networks.com/blog/introducing-l3-7-ddos-protection-for-microsoft-azure-tenants/) |
 | **Check Point** | “Check Point CloudGuard Network Security now integrates with Azure Gateway Load Balancer, providing customers a simplified experience—enabling them to deploy, scale, and manage CloudGuard security gateways with ease. With this collaboration, CloudGuard users can deploy industry-leading advanced threat protection and traffic inspection, automated, everywhere and without any manual routing configuration.” **TJ Gonen - Head of Cloud Product Line at Check Point** | [Learn more](https://blog.checkpoint.com/2021/11/02/check-point-cloudguard-is-a-launch-partner-of-azure-gateway-load-balancer/) |
