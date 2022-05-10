@@ -8,7 +8,7 @@ ms.date: 09/04/2018
 ---
 # Code and test Azure Functions locally
 
-While you're able to develop and test Azure Functions in the [Azure portal], many developers prefer a local development experience. Functions make it easy to use your favorite code editor and development tools to create and test functions on your local computer. Your local functions can connect to live Azure services, and you can debug them on your local computer using the full Functions runtime.
+While you're able to develop and test Azure Functions in the [Azure portal], many developers prefer a local development experience. When you use Functions, using your favorite code editor and development tools to create and test functions on your local computer becomes easier. Your local functions can connect to live Azure services, and you can debug them on your local computer using the full Functions runtime.
 
 This article provides links to specific development environments for your preferred language. It also provides some shared guidance for local development, such as working with the [local.settings.json file](#local-settings-file). 
 
@@ -25,7 +25,7 @@ The way in which you develop functions on your local computer depends on your [l
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
-Each of these local development environments lets you create function app projects and use predefined. Functions templates to create new functions. Each uses the Core Tools so that you can test and debug your functions against the real Functions runtime on your own machine just as you would any other app. You can also publish your function app project from any of these environments to Azure.
+Each of these local development environments lets you create function app projects and use predefined function templates to create new functions. Each uses the Core Tools so that you can test and debug your functions against the real Functions runtime on your own machine just as you would any other app. You can also publish your function app project from any of these environments to Azure.
 
 ## Local settings file
 
