@@ -81,6 +81,7 @@ Here is a list of properties that can be selected for your VM. Enable the proper
 
 - **Requires custom ARM template for deployment**: Enable this property if the images in this plan can only be deployed using a custom ARM template. In general, all the images that are published under a VM offer will follow standard ARM template for deployment. However, there are scenarios that might require customization while deploying VMs (for example, multiple NIC(s) to be configured).
 Below are examples (non-exhaustive) that might require custom templates for deploying the VM:
+
     - VM requires additional network subnets.
     - Additional metadata to be inserted in ARM template.
     - Commands that are prerequisite to the execution of ARM template.
