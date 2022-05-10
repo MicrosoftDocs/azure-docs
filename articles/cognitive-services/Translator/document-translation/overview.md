@@ -40,11 +40,11 @@ This documentation contains the following article types:
 
 ## Document Translation: scanned PDFs
 
-* Uses optical character recognition (OCR) foundational technology to power translation for scanned PDF documents such as agreements, contracts, manuals, and receipts.
+* Optical character recognition (OCR) is the foundational technology used to power translation for scanned PDF documents such as agreements, contracts, manuals, and receipts.
 
-* Includes extensive [language support](../language-support.md#-document-translation-scanned-pdfs) for printed text languages.
+* Document Translation has extensive [language support](../language-support.md#-document-translation-scanned-pdfs) for printed text languages.
 
-* Supports scanned PDFs with multiple languages in the same document.
+* Document Translation supports translation of scanned PDFs with multiple languages in the same document.
 
 ## Document Translation input requirements
 
