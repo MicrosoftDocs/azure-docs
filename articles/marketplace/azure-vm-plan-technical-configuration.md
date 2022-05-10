@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 05/11/2022
+ms.date: 05/10/2022
 ---
 
 # Technical configuration for a virtual machine offer
