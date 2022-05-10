@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 05/05/2022
+ms.date: 05/10/2022
 ---
 
 # Usage dashboard in commercial marketplace analytics
