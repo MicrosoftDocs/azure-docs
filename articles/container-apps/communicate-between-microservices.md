@@ -267,7 +267,7 @@ const api = axios.create({
 
 Notice how the the `baseURL` property get its value from the `API_BASE_URL` environment variable.
 
-Next, you'll query for the API endpoint address to pass to the UI application when you create a the new container app instance.
+Next, you'll query for the API endpoint address to pass to the UI application when you create the new container app instance.
 
 # [Bash](#tab/bash)
 
