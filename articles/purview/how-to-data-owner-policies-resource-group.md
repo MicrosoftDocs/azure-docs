@@ -6,14 +6,14 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 4/15/2022
+ms.date: 05/09/2022
 ms.custom:
 ---
 
 # Resource group and subscription access provisioning by data owner (preview)
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[Policies](concept-data-owner-policies.md) allow you to enable access to data sources that have been registered for *Data Use Management* in Microsoft Purview.
+[Access policies](concept-data-owner-policies.md) allow you to manage access from Microsoft Purview to data sources that have been registered for *Data Use Management*.
 
 You can also [register an entire resource group or subscription](register-scan-azure-multiple-sources.md), and create a single policy that will manage access to **all** data sources in that resource group or subscription. That single policy will cover all existing data sources and any data sources that are created afterwards.
 This article describes how this is done. 
@@ -22,11 +22,13 @@ This article describes how this is done.
 > Currently, these are the available data sources for access policies in Public Preview:
 > - Blob storage
 > - Azure Data Lake Storage (ADLS) Gen2
+> - Azure SQL Database
+> - SQL Server on Azure Arc-enabled servers
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
 
-[!INCLUDE [Azure Storage specific pre-requisites](./includes/access-policies-prerequisites-storage.md)]
+Follow also any prerequisite related to the data sources you'd like to configure.
 
 ## Configuration
 [!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
@@ -54,10 +56,15 @@ Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owne
 :::image type="content" source="./media/how-to-data-owner-policies-resource-group/data-owner-policy-example-resource-group.png" alt-text="Screenshot that shows a sample data owner policy giving access to a resource group.":::
 
 >[!Important]
-> - Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in Storage account(s).
+> - Publish is a background operation. Azure Storage accounts can take up to **2 hours** to reflect the changes.
+
+>[!Warning]
+> **Known Issues**
+> - No implicit connect permission is provided to SQL type data sources (e.g.: Azure SQL DB, SQL server on Azure Arc-enabled servers) when creating a read policy on a resource group or subscription. To support this scenario, provide the connect permission to the AAD principals locally, i.e. directly in the SQL-type data sources.
+
 
 ## Additional information
-- Creating a policy at subscription or resource group level will enable the Subjects to access Azure Storage system containers,  for example, *$logs*. If this is undesired, first scan the data source and then create finer-grained policies for each (that is, at container or subcontainer level).
+- Creating a policy at subscription or resource group level will enable the Subjects to access Azure Storage system containers,  for example, *$logs*. If this is undesired, first scan the data source and then create finer-grained policies for each (that is, at container or sub-container level).
 
 ### Limits
 The limit for Microsoft Purview policies that can be enforced by Storage accounts is 100 MB per subscription, which roughly equates to 5000 policies.
@@ -68,4 +75,4 @@ Check blog, demo and related tutorials:
 * [Concepts for Microsoft Purview data owner policies](./concept-data-owner-policies.md)
 * [Data owner policies on an Azure Storage account](./how-to-data-owner-policies-storage.md)
 * [Blog: resource group-level governance can significantly reduce effort](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-resource-group-level-governance-can/ba-p/3096314)
-* [Video: Demo of data owner access policies for Azure Storage](https://docs.microsoft.com/video/media/8ce7c554-0d48-430f-8f63-edf94946947c/purview-policy-storage-dataowner-scenario_mid.mp4)
+* [Video: Demo of data owner access policies for Azure Storage](/video/media/8ce7c554-0d48-430f-8f63-edf94946947c/purview-policy-storage-dataowner-scenario_mid.mp4)
