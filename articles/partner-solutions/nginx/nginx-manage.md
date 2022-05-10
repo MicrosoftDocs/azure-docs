@@ -8,10 +8,11 @@ author: flang-msft
 ms.author: franlanglois
 ms.date: 05/12/2022
 
-
 ---
 
 # Manage the nginx integration with Azure
+
+Once your Nginx resource is created in the Azure portal, you might need to manage it. Here is list of ways to manage your Nginx resource.
 
 - Identity
 - Certificates
@@ -19,61 +20,76 @@ ms.date: 05/12/2022
 - GitHub integration
 - Delete accounts
 
-## Identity
+## Configure Managed Identity
 
-Image
+Add a new User Assigned Managed Identity.
 
-## Configure Managed Identity 
+1. From the Resource Manager, select you Nginx resource.
 
-Add a new User Assigned Managed Identity  
+1. Select Identity.
 
-    Image 
+    :::image type="content" source="media/nginx-manage/nginx-identity.png" alt-text="screenshot of nginx identity resource in Azure portal.":::
 
-### Nginx Configuration 
+1. To add a user assigned identity
 
-To upload an existing Nginx Configuration file,  select **Nginx configuration** menu item under the Settings in the left navigation Pane. 
+    :::image type="content" source="media/nginx-manage/nginx-user-assigned.png" alt-text="screenshot of user assigned identity":::
 
-Graphical user interface, text, application, email
+### Nginx Configuration
 
-Description automatically generated 
+1. From the Resource Manager, select your Nginx resource.
 
-Provide the path of the config file and click the **+** button and for config package 
+1. Select NGINX configuration on the left.
 
-Image  
+    :::image type="content" source="media/nginx-manage/nginx-configuration.png" alt-text="screenshot resources for nginx configuration settings":::
 
-Edit the config file within the Editor.
+1. To upload an existing Nginx Configuration file,  select **Nginx configuration** menu item under the Settings in the left pane.
 
-## Nginx Certificates 
+    :::image type="content" source="media/nginx-manage/nginx-config-path.png" alt-text="screenshot of config file for uploading":::
 
-You can bring in your certificates and upload it to Azure Key vault and associate it with your deployment. Click on Nginx configurations under the Settings in the left pane. 
+1. Provide the path of the config file and click the **+** button and for config package.
 
-Image 
+    :::image type="content" source="media/nginx-manage/nginx-config-upload.png" alt-text="screenshot of upload confirmation":::
 
-## Nginx Monitoring 
+1. To edit the config file within the Editor,
+
+    :::image type="content" source="media/nginx-manage/nginx-config-editor.png" alt-text="asd":::
+
+## Nginx Certificates
+
+You can bring in your certificates and upload it to Azure Key vault and associate it with your deployment. Click on Nginx configurations under the Settings in the left pane.
+
+:::image type="content" source="media/nginx-manage/nginx-certificates.png" alt-text="screenshot of nginx certificate configuration":::
+
+## Nginx Monitoring
 
 Click the Nginx Monitoring under the Settings in the left navigation pane.
 
-Image 
+:::image type="content" source="media/nginx-manage/nginx-monitoring.png" alt-text="screenshot of nginx monitoring":::
 
-Click **Send metrics to Azure Monitor** to enable metrics and press Save. 
+Click **Send metrics to Azure Monitor** to enable metrics and press Save.
 
-## GitHub Integration 
+:::image type="content" source="media/nginx-manage/nginx-send-to-monitor.png" alt-text="screenshot of nginx sent to monitoring":::
 
-Enable CI/CD deployments via GitHub Actions integrations 
 
-Image 
-<!-- <<Add screenshot for GitHub integration>>  -->
 
 ## Delete Nginx Accounts 
 
-1. Go to Overview in Resource manager on the left of the portal. 
-1. Select **Nginx** resource and select “Delete”. 
-1. Confirm that you want to delete Nginx resource. Select Delete. 
+1. Select your Nginx resource in the Resource Manager.
+1. Go to Overview on the left of the portal.
+1. Select **Nginx** resource and select “Delete”.
+1. Confirm that you want to delete Nginx resource.
+1. Select Delete. 
 
 > [!NOTE]
-> The delete button on the main account is  only activated if all the sub-accounts mapped to the main account are already deleted. Refer to section for deleting sub-accounts here 
+> The delete button on the main account is only activated if all the sub-accounts mapped to the main account are already deleted. Refer to section for deleting sub-accounts here 
 
-Logs are no longer sent to Nginx once the account is deleted and all billing stops for Nginx through Azure Marketplace.
+After the account is deleted, logs are no longer sent to Nginx, and all billing stops for Nginx through Azure Marketplace.
+
+## GitHub Integration
+
+Enable CI/CD deployments via GitHub Actions integrations 
+
+<!-- <<Add screenshot for GitHub integration>>  -->
 
 ## Next steps
 
