@@ -51,7 +51,7 @@ From the `cli/jobs/pipelines-with-components/basics` directory of the [`azureml-
 
 - **component.yml**:  This YAML file defines the component. It packages following information:
   - Metadata: name, display name, version, description, type etc. The metadata helps to describe and manage the component.
-  - Interface: inputs and outputs. For example a model training component will take training data and number of epochs as input, and generate a trained model file as output. Once the interface is defined, different teams can develop and test the component independently.
+  - Interface: inputs and outputs. For example, a model training component will take training data and number of epochs as input, and generate a trained model file as output. Once the interface is defined, different teams can develop and test the component independently.
   - Command, code & environment: the command, code and environment to run the component.    Command is the shell command to execute the component. Code usually refers to a source  code directory. Environment could be an AzureML environment(curated or customer created), docker image or conda environment.  
 
 - **component_src**: This is the source code directory for a specific component. It contains the source code that will be executed in the component. You can use your preferred lanuage(Python, R...). The code must be executed by a shell command. The source code can take a few inputs from shell command line to control how this step is going to be executed. For example, a training step may take training data, learning rate, number of epochs to control the training process. The argument of a shell command is used to pass inputs and outputs to the code. 
@@ -93,7 +93,7 @@ Open the `services.Studio.endpoint` URL you'll see a graph visualization of the 
 
 Let's take a look at the pipeline definition in the *3b_pipeline_with_data/pipeline.yml* file.  
 
-:::code language="yaml" source="~/azureml-examples-skd-preview/cli/jobs/pipelines-with-components/basics/3b_pipeline_with_data/pipeline.yml":::
+:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/pipelines-with-components/basics/3b_pipeline_with_data/pipeline.yml":::
 
 Below table describes the most common used fields of pipeline YAML schema. See [full pipeline YAML schema here](./reference-pipeline-yaml.md).  
 
@@ -101,15 +101,16 @@ Below table describes the most common used fields of pipeline YAML schema. See [
 |------|------|
 |type|**Required**. Job type, must be `pipeline` for pipeline jobs.|
 |name|Name of the pipeline job. Must be unique across all jobs in the workspace. If omitted, Azure ML will autogenerate a GUID for the name.|
-|display_name|Display name of the pipeline job in Studio UI. Editable in Studio UI.  Don't need be unique across all jobs in the workspace.|
+|display_name|Display name of the pipeline job in Studio UI. Editable in Studio UI. Doesn't have to be unique across all jobs in the workspace.|
 |jobs|**Required**. Dictionary of the set of individual jobs to run as steps within the pipeline. These jobs are considered child jobs of the parent pipeline job. In this release, supported job types in pipeline are `command` and `sweep`
 |inputs|Dictionary of inputs to the pipeline job. The key is a name for the input within the context of the job and the value is the input value. These pipeline inputs can be referenced by the inputs of an individual step job in the pipeline using the ${{ parent.inputs.<input_name> }} expression.|
 |outputs|Dictionary of output configurations of the pipeline job. The key is a name for the output within the context of the job and the value is the output configuration. These pipeline outputs can be referenced by the outputs of an individual step job in the pipeline using the ${{ parents.outputs.<output_name> }} expression. |
 
 In the *3b_pipeline_with_data* example, we've created a three step pipeline.
-- The three steps are defined under `jobs`. All three steps type is command job. Each step's definition is in corresponding `component.yml` file. You can see the component YAML files under *3b_pipeline_with_data* directory. We'll explain the componentA.yml in next section. 
-- This pipeline has data dependency, which is common in most real world pipelines. Component_a takes data input from local folder under `./data`(line 17-20). And pass its output to componentB (line 29). Component_a's output can be referenced as `${{parent.jobs.component_a.outputs.component_a_output}}`
-- The `compute` defines the default compute for this pipeline. If a component under `jobs` define a different compute for this component, the system will respect component specific setting.
+
+- The three steps are defined under `jobs`. All three step type is command job. Each step's definition is in corresponding `component.yml` file. You can see the component YAML files under *3b_pipeline_with_data* directory. We'll explain the componentA.yml in next section.
+- This pipeline has data dependency, which is common in most real world pipelines. Component_a takes data input from local folder under `./data`(line 17-20) and passes its output to componentB (line 29). Component_a's output can be referenced as `${{parent.jobs.component_a.outputs.component_a_output}}`.
+- The `compute` defines the default compute for this pipeline. If a component under `jobs` defines a different compute for this component, the system will respect component specific setting.
 
 :::image type="content" source="/media/how-to-create-component-pipelines-cli/pipeline-inputs-and-outputs.png" alt-text="Screenshot of the 3b_pipeline_with_data example. ":::
 
