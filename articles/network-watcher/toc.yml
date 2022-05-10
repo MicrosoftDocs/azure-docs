@@ -58,8 +58,8 @@
     href: network-watcher-packet-capture-overview.md
   - name: Traffic Analytics overview 
     href: traffic-analytics.md
-    - name: Frequently asked questions
-      href: traffic-analytics-faq.yml
+  - name: Frequently asked questions
+    href: traffic-analytics-faq.yml
   - name: Network security group flow logging
     href: network-watcher-nsg-flow-logging-overview.md
   - name: Network security group view
