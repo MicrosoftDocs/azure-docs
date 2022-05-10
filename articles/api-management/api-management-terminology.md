@@ -31,5 +31,6 @@ This article gives definitions for the terms that are specific to Azure API Mana
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
+> 
 > [Create an instance](get-started-create-service-instance.md)
