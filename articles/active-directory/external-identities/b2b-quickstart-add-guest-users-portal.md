@@ -11,21 +11,20 @@ ms.service: active-directory
 ms.subservice: B2B
 ms.custom: it-pro, seo-update-azuread-jan, mode-ui
 ms.collection: M365-identity-device-management
-#Customer intent: As a tenant admin, I want to walk through the B2B  invitation workflow so that I can understand how to add a guest user in the portal, and understand the end user experience.
+#Customer intent: As a tenant admin, I want to walk through the B2B invitation workflow so that I can understand how to add a guest user in the portal, and understand the end user experience.
 ---
 
 # Quickstart: Add guest users to your directory in the Azure portal
 
-With Azure AD [B2B collaboration](what-is-b2b.md), you can invite anyone to collaborate with your organization by using their own work, school, or social account. In this quickstart, you'll learn how to add a new guest user to your Azure AD directory in the Azure portal. You'll also send an invitation and see what the guest user's invitation redemption process looks like. In addition to this quickstart, you can learn more about adding guest users [in the Azure portal](add-users-administrator.md), via [PowerShell](b2b-quickstart-invite-powershell.md), or [in bulk](tutorial-bulk-invite.md).
-
+With Azure AD [B2B collaboration](what-is-b2b.md), you can invite anyone to collaborate with your organization using their own work, school, or social account. In this quickstart, you'll learn how to add a new guest user to your Azure AD directory in the Azure portal. You'll also send an invitation and see what the guest user's invitation redemption process looks like. In addition to this quickstart, you can learn more about adding guest users [in the Azure portal](add-users-administrator.md), via [PowerShell](b2b-quickstart-invite-powershell.md), or [in bulk](tutorial-bulk-invite.md).
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-To complete the scenario in this tutorial, you need:
+To complete the scenario in this quickstart, you need:
 
-- A role that allows you to create users in your tenant directory, like the Global Administrator role or any of the limited administrator directory roles, such as Guest inviter or User administrator.
+- A role that allows you to create users in your tenant directory, such as the Global Administrator role or a limited administrator directory role (for example, Guest inviter or User administrator).
 
 - Access to a valid email address outside of your Azure AD tenant, such as a separate work, school, or social email address. You'll use this email to create the guest account in your tenant directory and access the invitation.
 
@@ -45,17 +44,17 @@ To complete the scenario in this tutorial, you need:
 
     ![Screenshot showing where to select the New guest user option](media/quickstart-add-users-portal/new-guest-user.png)
 
-1. On the **New user** page, select **Invite user** and then add the guest user's information. 
+1. On the **New user** page, select **Invite user** and then add the guest user's information.
 
    - **Name.** The first and last name of the guest user.
    - **Email address (required)**. The email address of the guest user.
    - **Personal message (optional)** Include a personal welcome message to the guest user.
    - **Groups**: You can add the guest user to one or more existing groups, or you can do it later.
-   - **Roles**: If you require Azure AD administrative permissions for the user, you can add them to an Azure AD role. 
+   - **Roles**: If you require Azure AD administrative permissions for the user, you can add them to an Azure AD role.
 
     ![Screenshot showing the new user page](media/quickstart-add-users-portal/invite-user.png)
 
-1. Select **Invite** to automatically send the invitation to the guest user. A notification appears in the upper right with the message **Successfully invited user**. 
+1. Select **Invite** to automatically send the invitation to the guest user. A notification appears in the upper right with the message **Successfully invited user**.
 
 1. After you send the invitation, the user account is automatically added to the directory as a guest.
 
@@ -70,7 +69,6 @@ Now sign in as the guest user to see the invitation.
 1. In your inbox, open the email from "Microsoft Invitations on behalf of Contoso."
 
     ![Screenshot showing the B2B invitation email](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
-
 
 1. In the email body, select **Accept invitation**. A **Review permissions** page opens in the browser.
 
@@ -90,4 +88,5 @@ When no longer needed, delete the test guest user.
 1. Select the test user, and then select **Delete user**.
 
 ## Next steps
-In this tutorial, you created a guest user in the Azure portal, and sent an invitation to share apps. Then you viewed the redemption process from the guest user's perspective and verified that the guest user was able to access their My Apps page. To learn more about adding guest users for collaboration, see [Add Azure Active Directory B2B collaboration users in the Azure portal](add-users-administrator.md).
+
+In this quickstart, you created a guest user in the Azure portal and sent an invitation to share apps. Then you viewed the redemption process from the guest user's perspective and verified that the guest user was able to access their My Apps page. To learn more about adding guest users for collaboration, see [Add Azure Active Directory B2B collaboration users in the Azure portal](add-users-administrator.md).
