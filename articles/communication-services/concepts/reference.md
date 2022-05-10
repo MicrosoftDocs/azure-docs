@@ -7,15 +7,15 @@ manager: chpalm
 services: azure-communication-services
 
 ms.author: rifox
-ms.date: 07/05/2022
+ms.date: 05/09/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 <!-- Please keep this table synced with: https://github.com/Azure/Communication/blob/master/README.md -->
 
-# Reference documentation overview
+## Reference documentation overview
 
-# External Links and Docs
+## External Links and Docs
 For each area, we have external pages to track and review our SDKs. You can consult the table below to find the matching page for your SDK of interest.
 
 | Area                   | JavaScript                                                                  | .NET                                                                         | Python                                                                | Java SE                                                                           | iOS                                                                                                             | Android                                                                                   | Other                                                                           |
@@ -30,7 +30,7 @@ For each area, we have external pages to track and review our SDKs. You can cons
 | Signaling              | [npm](https://www.npmjs.com/package/@azure/communication-signaling)         | -                                                                            |                                                                       | -                                                                                 | -                                                                                                               | -                                                                                         | -                                                                               |
 | SMS                    | [npm](https://www.npmjs.com/package/@azure/communication-sms)               | [NuGet](https://www.nuget.org/packages/Azure.Communication.Sms)              | [PyPi](https://pypi.org/project/azure-communication-sms/)             | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-sms)      | -                                                                                                               | -                                                                                         | -                                                                               |
 
-# Class/Method Documentation
+## Class/Method Documentation
 
 Additionally, the class/reference information for each SDK can be found below:
 - [JavaScript](https://azure.github.io/azure-sdk-for-js/communication.html)
