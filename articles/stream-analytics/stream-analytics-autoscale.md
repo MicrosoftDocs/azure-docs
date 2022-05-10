@@ -31,7 +31,7 @@ Examples of custom autoscale rules include:
 
 ## Autoscale limits
 
-All Stream Analytics jobs can autoscale between 1, 3 and 6 SUs. Autoscaling beyond 6 SUs requires your job to have a parallel or [embarrassingly parallel topology](stream-analytics-parallelization.md#embarrassingly-parallel-jobs.md). Parallel jobs created with less than or equal to 6 streaming units can autoscale to the maximum SU value for that job based on the number of partitions.
+All Stream Analytics jobs can autoscale between 1, 3 and 6 SUs. Autoscaling beyond 6 SUs requires your job to have a parallel or [embarrassingly parallel topology](stream-analytics-parallelization.md#embarrassingly-parallel-jobs). Parallel jobs created with less than or equal to 6 streaming units can autoscale to the maximum SU value for that job based on the number of partitions.
 
 ## Scaling your Stream Analytics job
 

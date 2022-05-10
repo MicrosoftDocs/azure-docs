@@ -206,6 +206,8 @@
       href: capture-event-hub-data-parquet.md
     - name: Filter and ingest Synapse SQL data
       href: filter-ingest-synapse-sql.md
+    - name: Filter and ingest to Data Lake Storage Gen2
+      href: filter-ingest-data-lake-storage-gen2.md
   - name: Authenticate with managed identity
     items:
     - name: Managed Identities Overview
