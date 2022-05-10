@@ -36,7 +36,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/app/azure-monitor-app-hub.yml",
+            "source_path_from_root": "/articles/azure-monitor/azure-monitor-app-hub.yml",
             "redirect_url": "/azure/azure-monitor/index.yml",
             "redirect_document_id": false
         },
