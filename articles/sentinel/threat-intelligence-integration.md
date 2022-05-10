@@ -64,6 +64,10 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 - [Learn more about Sectrio integration](https://sectrio.com/threat-intelligence/)
 - [Step by step process for integrating Sectrio's TI feed into Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/microsoft-sentinel-bring-threat-intelligence-from-sectrio-using/ba-p/2964648)
 
+### SEKOIA.IO
+
+- [Learn about SEKOIA.IO integration with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/bring-threat-intelligence-from-sekoia-io-using-taxii-data/ba-p/3302497)
+
 ## Integrated threat intelligence platform products
 
 To connect to Threat Intelligence Platform (TIP) feeds, follow the instructions to [connect Threat Intelligence platforms to Microsoft Sentinel](connect-threat-intelligence-tip.md). The second part of these instructions calls for you to enter information into your TIP solution. See the links below for more information.
