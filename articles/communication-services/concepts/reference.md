@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ---
 <!-- Please keep this table synced with: https://github.com/Azure/Communication/blob/master/README.md -->
 
-## Reference documentation overview
+# Reference documentation overview
 
 ## External Links and Docs
 For each area, we have external pages to track and review our SDKs. You can consult the table below to find the matching page for your SDK of interest.
