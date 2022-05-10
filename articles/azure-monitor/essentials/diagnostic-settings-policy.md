@@ -18,7 +18,7 @@ There are two built-in policy definitions for each resource type: one to send to
 
 For example, the following image shows the built-in diagnostic setting policy definitions for Azure Data Lake Analytics.
 
-![Partial screenshot from the Azure Policy Definitions page showing two built-in diagnostic setting policy definitions for Data Lake Analytics.](media/diagnostic-settings/builtin-diagnostic-settings.png)
+![Partial screenshot from the Azure Policy Definitions page showing two built-in diagnostic setting policy definitions for Data Lake Analytics.](media/diagnostic-setting-policys/builtin-diagnostic-settings.png)
 
 ## Custom policy definitions
 For resource types that don't have a built-in policy, you need to create a custom policy definition. You could do this manually in the Azure portal by copying an existing built-in policy and then modifying it for your resource type. It's more efficient, though, to create the policy programmatically by using a script in the PowerShell Gallery.
