@@ -18,6 +18,8 @@ For example, a Standard logic app provides both managed connector and built-in o
 
 This article provides a general overview about built-in operations in Consumption logic apps versus Standard logic apps.
 
+<a name="built-in-operations-lists"></a>
+
 ## Built-in operations in Consumption versus Standard
 
 | Consumption | Standard |
@@ -25,12 +27,16 @@ This article provides a general overview about built-in operations in Consumptio
 | Azure API Management<br>Azure App Services <br>Azure Functions <br>Azure Logic Apps <br>Batch <br>Control <br>Data Operations <br>Date Time <br>Flat File <br>HTTP <br>Inline Code <br>Integration Account <br>Liquid <br>Request <br>Schedule <br>Variables <br>XML | Azure Blob <br>Azure Cosmos DB <br>Azure Functions <br>Azure Table Storage <br>Control <br>Data Operations <br>Date Time <br>DB2 <br>Event Hubs <br>Flat File <br>FTP <br>HTTP <br>IBM Host File <br>Inline Code <br>Liquid operations <br>MQ <br>Request <br>Schedule <br>Service Bus <br>SFTP <br>SQL Server <br>Variables <br>Workflow operations <br>XML operations |
 |||
 
+<a name="custom-built-in"></a>
+
 ## Custom built-in connectors
 
 For Standard logic apps, if a built-connector isn't available for your scenario, you can create your own built-in connector. Some built-in operations available for Standard logic apps, such as SQL Server, Service Bus, Blob Storage, and Event Hubs, and Blob Storage, use a [*service provider interface implementation*](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation), which is based on the Azure Functions extensibility model. This implementation provides the capability for you to create custom built-in connectors that anyone can use in Standard logic apps. For more information, review the following documentation:
 
 * [Custom connectors for Standard logic apps](../logic-apps/custom-connector-overview.md#custom-connector-standard)
 * [Create custom built-in connectors for Standard logic apps](../logic-apps/create-custom-built-in-connector-standard.md)
+
+<a name="general-built-in"></a>
 
 ## General built-in operations
 
@@ -130,6 +136,8 @@ You can use the following built-in operations to perform general tasks, for exam
     :::column:::
     :::column-end:::
 :::row-end:::
+
+<a name="service-built-in"></a>
 
 ## Service-based built-in operations
 
@@ -454,6 +462,8 @@ Azure Logic Apps provides the following built-in actions for working with data o
     :::column:::
     :::column-end:::
 :::row-end:::
+
+<a name="integration-account-built-in"></a>
 
 ## Integration account built-in operations
 
