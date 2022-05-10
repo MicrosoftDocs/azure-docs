@@ -37,7 +37,7 @@ To call the API, you need the following information:
 The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
 
 
-## Document Summarization
+## Document summarization
 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
 
