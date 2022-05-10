@@ -20,15 +20,16 @@ ms.custom: devx-track-python, contperf-fy21q1
 > * [v1](v1/how-to-tune-hyperparameters-v1.md)
 > * [v2 (current version)](how-to-tune-hyperparameters.md)
 
-Automate efficient hyperparameter tuning by using Azure Machine Learning SDK v2 and CLI v2 by way of the SweepJob type. 
+Automate efficient hyperparameter tuning using Azure Machine Learning SDK v2 and CLI v2 by way of the SweepJob type. 
 
-1. Define the parameter search space
-1. Specify the objective to optimize  
-1. Specify early termination policy for low-performing runs
-1. Create and assign resources
-1. Launch an experiment with the defined configuration
-1. Visualize the training runs
-1. Select the best configuration for your model
+1. Define the parameter search space for your trial
+2. Specify the sampling algorithm for your sweep job
+3. Specify the objective to optimize
+4. Specify early termination policy for low-performing jobs
+5. Define limits for the sweep job
+6. Launch an experiment with the defined configuration
+7. Visualize the training runs
+8. Select the best configuration for your model
 
 ## What is hyperparameter tuning?
 
@@ -44,8 +45,7 @@ Azure Machine Learning lets you automate hyperparameter tuning and run experimen
 Tune hyperparameters by exploring the range of values defined for each hyperparameter.
 
 Hyperparameters can be discrete or continuous, and has a distribution of values described by a
-[parameter expression](/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions).
--update link above for v2
+[parameter expression](https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-job-sweep#parameter-expressions).
 
 ### Discrete hyperparameters
 
@@ -56,7 +56,7 @@ Discrete hyperparameters are specified as a `choice` among discrete values. `cho
 * any arbitrary `list` object
 
 ```Python
-from azure.ml.sweep import Choice
+from azure.ai.ml.sweep import Choice
 
 command_job_for_sweep = command_job(
     batch_size=Choice(values=[16, 32, 64, 128]),
@@ -66,28 +66,26 @@ command_job_for_sweep = command_job(
 
 In this case, `batch_size` one of the values [16, 32, 64, 128] and `number_of_hidden_layers` takes one of the values [1, 2, 3, 4].
 
-
-
 The following advanced discrete hyperparameters can also be specified using a distribution:
 
-* `quniform(min_value, max_value, q)` - Returns a value like round(uniform(min_value, max_value) / q) * q
-* `qloguniform(min_value, max_value, q)` - Returns a value like round(exp(uniform(min_value, max_value)) / q) * q
-* `qnormal(mu, sigma, q)` - Returns a value like round(normal(mu, sigma) / q) * q
-* `qlognormal(mu, sigma, q)` - Returns a value like round(exp(normal(mu, sigma)) / q) * q
+* `QUniform(min_value, max_value, q)` - Returns a value like round(Uniform(min_value, max_value) / q) * q
+* `QLogUniform(min_value, max_value, q)` - Returns a value like round(exp(Uniform(min_value, max_value)) / q) * q
+* `QNormal(mu, sigma, q)` - Returns a value like round(Normal(mu, sigma) / q) * q
+* `QLogNormal(mu, sigma, q)` - Returns a value like round(exp(Normal(mu, sigma)) / q) * q
 
 ### Continuous hyperparameters 
 
 The Continuous hyperparameters are specified as a distribution over a continuous range of values:
 
-* `uniform(min_value, max_value)` - Returns a value uniformly distributed between min_value and max_value
-* `loguniform(min_value, max_value)` - Returns a value drawn according to exp(uniform(min_value, max_value)) so that the logarithm of the return value is uniformly distributed
-* `normal(mu, sigma)` - Returns a real value that's normally distributed with mean mu and standard deviation sigma
-* `lognormal(mu, sigma)` - Returns a value drawn according to exp(normal(mu, sigma)) so that the logarithm of the return value is normally distributed
+* `Uniform(min_value, max_value)` - Returns a value uniformly distributed between min_value and max_value
+* `LogUniform(min_value, max_value)` - Returns a value drawn according to exp(Uniform(min_value, max_value)) so that the logarithm of the return value is uniformly distributed
+* `Normal(mu, sigma)` - Returns a real value that's normally distributed with mean mu and standard deviation sigma
+* `LogNormal(mu, sigma)` - Returns a value drawn according to exp(Normal(mu, sigma)) so that the logarithm of the return value is normally distributed
 
 An example of a parameter space definition:
 
 ```Python
-from azure.ml.sweep import Normal, Uniform
+from azure.ai.ml.sweep import Normal, Uniform
 
 command_job_for_sweep = command_job(   
     learning_rate=Normal(mu=10, sigma=3)
@@ -109,7 +107,7 @@ For the CLI, you can use the [sweep job YAML schema](/articles/machine-learning/
             max_value: 0.2
 ```
 
-### Sampling the hyperparameter space
+## Sampling the hyperparameter space
 
 Specify the parameter sampling method to use over the hyperparameter space. Azure Machine Learning supports the following methods:
 
@@ -117,14 +115,14 @@ Specify the parameter sampling method to use over the hyperparameter space. Azur
 * Grid sampling
 * Bayesian sampling
 
-#### Random sampling
+### Random sampling
 
-[Random sampling](/python/api/azureml-train-core/azure.ml.sweep.randomparametersampling) supports discrete and continuous hyperparameters. It supports early termination of low-performance runs. Some users do an initial search with random sampling and then refine the search space to improve results.
+[Random sampling](/python/api/azure-ai-ml/azure.ai.ml.sweep.randomparametersampling) supports discrete and continuous hyperparameters. It supports early termination of low-performance runs. Some users do an initial search with random sampling and then refine the search space to improve results.
 
 In random sampling, hyperparameter values are randomly selected from the defined search space. After creating your command job, you can use the sweep parameter to define the sampling algorithm. 
 
 ```Python
-from azure.ml.sweep import Normal, Uniform, RandomParameterSampling
+from azure.ai.ml.sweep import Normal, Uniform, RandomParameterSampling
 
 command_job_for_sweep = command_job(   
     learning_rate=Normal(mu=10, sigma=3)
@@ -138,13 +136,13 @@ sweep_job = command_job_for_sweep.sweep(
     ...
 )
 ```
-
+#### Sobol
 Sobol is a type of random sampling supported by sweep job types. You can use sobol to reproduce your results using seed and cover the search space distribution more evenly. 
 
-To use [sobol], use the RandomParameterSampling class to add the seed and rule as shown in the example below. 
+To use sobol, use the RandomParameterSampling class to add the seed and rule as shown in the example below. 
 
 ```Python
-from azure.ml.sweep import RandomParameterSampling
+from azure.ai.ml.sweep import RandomParameterSampling
 
 sweep_job = command_job_for_sweep.sweep(
     compute="cpu-cluster",
@@ -153,14 +151,14 @@ sweep_job = command_job_for_sweep.sweep(
 )
 ```
 
-#### Grid sampling
+### Grid sampling
 
-[Grid sampling](/python/api/azureml-train-core/azure.ml.sweep.gridparametersampling) supports discrete hyperparameters. Use grid sampling if you can budget to exhaustively search over the search space. Supports early termination of low-performance runs.
+[Grid sampling](/python/api/azure-ai-ml/azure.ai.ml.sweep.gridparametersampling) supports discrete hyperparameters. Use grid sampling if you can budget to exhaustively search over the search space. Supports early termination of low-performance runs.
 
 Grid sampling does a simple grid search over all possible values. Grid sampling can only be used with `choice` hyperparameters. For example, the following space has six samples:
 
 ```Python
-from azure.ml.sweep import Choice
+from azure.ai.ml.sweep import Choice
 
 command_job_for_sweep = command_job(
     batch_size=Choice(values=[16, 32]),
@@ -174,9 +172,9 @@ sweep_job = command_job_for_sweep.sweep(
 )
 ```
 
-#### Bayesian sampling
+### Bayesian sampling
 
-[Bayesian sampling](/python/api/azureml-train-core/azure.ml.sweep.bayesianparametersampling) is based on the Bayesian optimization algorithm. It picks samples based on how previous samples did, so that new samples improve the primary metric.
+[Bayesian sampling](/python/api/azure-ai-ml/azure.ai.ml.sweep.bayesianparametersampling) is based on the Bayesian optimization algorithm. It picks samples based on how previous samples did, so that new samples improve the primary metric.
 
 Bayesian sampling is recommended if you have enough budget to explore the hyperparameter space. For best results, we recommend a maximum number of runs greater than or equal to 20 times the number of hyperparameters being tuned. 
 
@@ -185,7 +183,7 @@ The number of concurrent runs has an impact on the effectiveness of the tuning p
 Bayesian sampling only supports `choice`, `uniform`, and `quniform` distributions over the search space.
 
 ```Python
-from azure.ml.sweep import Uniform, Choice
+from azure.ai.ml.sweep import Uniform, Choice
 
 command_job_for_sweep = command_job(   
     learning_rate=Uniform(min_value=0.05, max_value=0.1)
@@ -202,15 +200,13 @@ sweep_job = command_job_for_sweep.sweep(
 
 ## <a name="specify-objective-to-optimize"></a> Specify the objective of the sweep
 
-Specify the [primary metric](/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal) you want hyperparameter tuning to optimize. Each training run is evaluated for the primary metric. The early termination policy uses the primary metric to identify low-performance runs.
-
-Specify the following attributes for your primary metric:
+Define the objective of your sweep job by specifying the [primary metric](/python/api/azure-ai-ml/azure.ai.ml.sweep.primary_metric) and [goal](/python/api/azure-ai-ml/azure.ai.ml.sweep.goal) you want hyperparameter tuning to optimize. Each training job is evaluated for the primary metric. The early termination policy uses the primary metric to identify low-performance jobs.
 
 * `primary_metric`: The name of the primary metric needs to exactly match the name of the metric logged by the training script
-* `goal`: It can be either `Maximize` or `Minimize` and determines whether the primary metric will be maximized or minimized when evaluating the runs. 
+* `goal`: It can be either `Maximize` or `Minimize` and determines whether the primary metric will be maximized or minimized when evaluating the jobs. 
 
 ```Python
-from azure.ml.sweep import Uniform, Choice
+from azure.ai.ml.sweep import Uniform, Choice
 
 command_job_for_sweep = command_job(   
     learning_rate=Uniform(min_value=0.05, max_value=0.1)
@@ -260,7 +256,7 @@ Azure Machine Learning supports the following early termination policies:
 
 ### Bandit policy
 
-[Bandit policy](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy#definition) is based on slack factor/slack amount and evaluation interval. Bandit ends runs when the primary metric isn't within the specified slack factor/slack amount of the most successful run.
+[Bandit policy](/python/api/azure-ai-ml/azure.ai.ml.sweep.banditpolicy) is based on slack factor/slack amount and evaluation interval. Bandit ends runs when the primary metric isn't within the specified slack factor/slack amount of the most successful run.
 
 > [!NOTE]
 > Bayesian sampling does not support early termination. When using Bayesian sampling, set `early_termination_policy = None`.
@@ -276,7 +272,7 @@ Specify the following configuration parameters:
 
 
 ```Python
-from azure.ml.sweep import BanditPolicy
+from azure.ai.ml.sweep import BanditPolicy
 sweep_job.early_termination = BanditPolicy(slack_factor = 0.1, delay_evaluation = 5, evaluation_interval = 1)
 ```
 
@@ -284,7 +280,7 @@ In this example, the early termination policy is applied at every interval when 
 
 ### Median stopping policy
 
-[Median stopping](/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy) is an early termination policy based on running averages of primary metrics reported by the runs. This policy computes running averages across all training runs and stops runs whose primary metric value is worse than the median of the averages.
+[Median stopping](/python/api/azure-ai-ml/azure.ai.ml.sweep.medianstoppingpolicy) is an early termination policy based on running averages of primary metrics reported by the runs. This policy computes running averages across all training runs and stops runs whose primary metric value is worse than the median of the averages.
 
 This policy takes the following configuration parameters:
 * `evaluation_interval`: the frequency for applying the policy (optional parameter).
@@ -292,7 +288,7 @@ This policy takes the following configuration parameters:
 
 
 ```Python
-from azure.ml.sweep import MedianStoppingPolicy
+from azure.ai.ml.sweep import MedianStoppingPolicy
 sweep_job.early_termination = MedianStoppingPolicy(delay_evaluation = 5, evaluation_interval = 1)
 ```
 
@@ -300,7 +296,7 @@ In this example, the early termination policy is applied at every interval start
 
 ### Truncation selection policy
 
-[Truncation selection](/python/api/azureml-train-core/azureml.train.hyperdrive.truncationselectionpolicy) cancels a percentage of lowest performing runs at each evaluation interval. Runs are compared using the primary metric. 
+[Truncation selection](/python/api/azure-ai-ml/azure.ai.ml.sweep.truncationselectionpolicy) cancels a percentage of lowest performing runs at each evaluation interval. Runs are compared using the primary metric. 
 
 This policy takes the following configuration parameters:
 
@@ -311,7 +307,7 @@ This policy takes the following configuration parameters:
 
 
 ```Python
-from azure.ml.sweep import TruncationSelectionPolicy
+from azure.ai.ml.sweep import TruncationSelectionPolicy
 sweep_job.early_termination = TruncationSelectionPolicy(evaluation_interval=1, truncation_percentage=20, delay_evaluation=5, exclude_finished_jobs=true)
 ```
 
@@ -330,7 +326,7 @@ sweep_job.early_termination = None
 * For a conservative policy that provides savings without terminating promising jobs, consider a Median Stopping Policy with `evaluation_interval` 1 and `delay_evaluation` 5. These are conservative settings, that can provide approximately 25%-35% savings with no loss on primary metric (based on our evaluation data).
 * For more aggressive savings, use Bandit Policy with a smaller allowable slack or Truncation Selection Policy with a larger truncation percentage.
 
-## Create and assign resources
+## Set limits for your sweep job
 
 Control your resource budget by setting limits for your sweep job.
 
