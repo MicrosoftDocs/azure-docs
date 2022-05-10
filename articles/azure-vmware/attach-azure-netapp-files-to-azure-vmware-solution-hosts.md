@@ -2,7 +2,7 @@
 title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts (Preview)
 description: Learn how to create Azure NetApp Files-based NSF datastores for Azure VMware Solution hosts.
 ms.topic: how-to
-ms.date: 05/02/2022
+ms.date: 05/10/2022
 ms.custom: references_regions
 ---
 
@@ -193,7 +193,3 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 - **How are the datastores charged, is there an additional charge?**
 
     Azure NetApp Files NFS volumes that are used as datastores will be billed following the [capacity pool based billing model](/azure/azure-netapp-files/azure-netapp-files-cost-model). Billing will depend on the service level. There's no extra charge for using Azure NetApp Files NFS volumes as datastores. 
-
-- **Is connectivity to Azure NetApp Files datastores over Virtual WAN (vWAN) supported?** 
-
-    No, connectivity to Azure NetApp Files over vWAN is currently not supported. For supported connectivity patterns, refer to [Guidelines for Azure NetApp Files network planning](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies)
