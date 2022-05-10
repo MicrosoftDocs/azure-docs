@@ -199,7 +199,7 @@
         - name: Filter and ingest Synapse SQL data
           href: ../stream-analytics/filter-ingest-synapse-sql.md?toc=%2fazure%2fevent-hubs%2ftoc.json
         - name: Filter and ingest to Data Lake Storage Gen2
-          href: filter-ingest-data-lake-storage-gen2.md?toc=%2fazure%2fevent-hubs%2ftoc.json
+          href: ../stream-analytics/filter-ingest-data-lake-storage-gen2.md?toc=%2fazure%2fevent-hubs%2ftoc.json
     - name: Integrate with Spring framework
       items:
         - name: Create a Spring Cloud Stream Binder app
