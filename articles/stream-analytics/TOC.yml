@@ -138,6 +138,8 @@
       href: repartition.md
     - name: Increase throughput of your job
       href: stream-analytics-scale-jobs.md
+  - name: No code editor
+    href: no-code-stream-processing.md
   - name: IoT Edge
     href: stream-analytics-edge.md
   - name: States of a job
