@@ -85,11 +85,12 @@ The following sections show how to register your custom built-in connector as an
    namespace ServiceProviders.CosmosDb.Extensions
    {
 
-       public class CosmosDbServiceProviderStartup : IWebJobsStartup
-       {
+      public class CosmosDbServiceProviderStartup : IWebJobsStartup
+      {
 
-           public void Configure(IWebJobsBuilder builder)
-           {
+         // Initialize the workflow service.
+         public void Configure(IWebJobsBuilder builder)
+         {
 
                // Register the extension.
                builder.AddExtension<CosmosDbServiceProvider>)();
@@ -97,8 +98,8 @@ The following sections show how to register your custom built-in connector as an
                // Use dependency injection (DI) for the trigger service operation provider.
                builder.Services.TryAddSingleton<CosmosDbTriggerServiceOperationProvider>();
 
-           }
-       }
+         }
+      }
    }
    ```
 
@@ -127,21 +128,14 @@ namespace ServiceProviders.CosmosDb.Extensions
    public class CosmosDbServiceProvider : IExtensionConfigProvider
    {
 
+      // Initialize a new instance for the CosmosDbServiceProvider class.
       public CosmosDbServiceProvider(ServiceOperationsProvider serviceOperationsProvider, CosmosDbTriggerServiceOperationProvider operationsProvider)
       {
 
-         serviceOperationsProvider.RegisterService(ServiceName, ServiceId, operationsProvider);
-
+         serviceOperationsProvider.RegisterService(serviceName: CosmosDBServiceOperationProvider.ServiceName, serviceOperationsProviderId: CosmosDBServiceOperationProvider.ServiceId, serviceOperationsProviderInstance: operationsProvider);
       }
 
-      public void Initialize(ExtensionConfigContext context)
-      {
-
-         // Convert the Cosmos Document list to a JObject array.
-         context.AddConverter<IReadOnlyList<Document>, JObject[]>(ConvertDocumentToJObject);
-
-      }
-
+      // Convert the Cosmos Document array to a generic JObject array.
       public static JObject[] ConvertDocumentToJObject(IReadOnlyList<Document> data)
       {
 
@@ -155,13 +149,23 @@ namespace ServiceProviders.CosmosDb.Extensions
          return jobjects.ToArray();
 
       }
+
+      // In the Initialize method, you can add any custom implementation.
+      public void Initialize(ExtensionConfigContext context)
+      {
+
+         // Convert the Cosmos Document list to a JObject array.
+         context.AddConverter<IReadOnlyList<Document>, JObject[]>(ConvertDocumentToJObject);
+
+      }
+
    }
 }
 ```
 
 ### 3. Add a converter
 
-Azure Logic Apps has a generic way to handle any Azure Functions built-in trigger by using the **JObject** array. However, if you want to convert the read-only list of Azure Cosmos DB documents into a **JObject** array, you can add a converter. When the converter is ready, register the converter as part of **ExtensionConfigContext** as shown earlier, for example:
+Azure Logic Apps has a generic way to handle any Azure Functions built-in trigger by using the **JObject** array. However, if you want to convert the read-only list of Azure Cosmos DB documents into a **JObject** array, you can add a converter. When the converter is ready, register the converter as part of **ExtensionConfigContext** as shown earlier in this example:
 
 ```csharp
 // Convert the Cosmos cocument list to a JObject array.
@@ -254,13 +258,13 @@ To add the NuGet reference from the previous section, in the extension bundle na
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **database name** | Yes | <*Cosmos-DB-database-name*> | The name for the Cosmos DB database to use |
-   | **collection name** | Yes | <*Cosmos-DB-collection-name*> | The name for the Cosmos DB collection where you want to add each new received document. |
+   | **Database name** | Yes | <*Cosmos-DB-database-name*> | The name for the Cosmos DB database to use |
+   | **Collection name** | Yes | <*Cosmos-DB-collection-name*> | The name for the Cosmos DB collection where you want to add each new received document. |
    |||||
 
    ![Screenshot showing the trigger properties pane.](./media/create-custom-built-in-connector-standard/visual-studio-code-built-in-connector-trigger-properties.png)
 
-   For this example, the workflow definition, which is in the **workflow.json** file, has a `triggers` JSON object that appears similar to the following sample:
+   For this example, in code view, the workflow definition, which is in the **workflow.json** file, has a `triggers` JSON object that appears similar to the following sample:
 
    ```json
    {
