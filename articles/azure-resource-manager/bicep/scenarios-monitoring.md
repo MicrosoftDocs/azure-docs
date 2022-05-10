@@ -26,7 +26,11 @@ When creating [Diagnostic settings](https://docs.microsoft.com/en-us/azure/azure
 
 When creating diagnostic settings in Bicep, we need to apply the scope of the diagnostic setting which can be at the Management, Subscription or Resource Group level. [Use the *scope* property on this resource to set the scope for this resource](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/scope-extension-resources).
 
-TODO: Create sample for diagnostic settings in Bicep.
+Take the following example:
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-monitoring/diagnostic-settings.bicep" :::
+
+Here, we create a diagnostic setting for our App Service Plan and send those diagnostics to Log Analytics. We use the `scope` property to define our App Service Plan as the scope for our diagnostic setting and use the `workspaceId` property to send our diagnostics to our Log Analytics workspace. Diagnostic settings differ between resources, so ensure that the diagnostic settings you want to create are applicable for the resource you're using.
 
 ## Alert rules
 
@@ -40,7 +44,11 @@ The following sections demonstrate how you can configure different types of aler
 
 To be notified when alerts have been triggered, we need to create **Action Groups**. An action group is a collection of notification preferences defined by the owner of an Azure subscription and are used to notify users that an alert have been triggered.
 
-To create action groups in Bicep, we can use the type [`Microsoft.Insights/actionGroups`](/azure/templates/microsoft.insights/actiongroups?tabs=bicep).
+To create action groups in Bicep, we can use the type [`Microsoft.Insights/actionGroups`](/azure/templates/microsoft.insights/actiongroups?tabs=bicep). Here is an example:
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-monitoring/action-group.bicep" :::
+
+This example creates an Action Group that will send alerts to an email address, but you could also define Action Groups that send alerts to Event Hubs, Azure Functions, Logic Apps and more.
 
 ### Alert Processing Rules
 
@@ -48,7 +56,9 @@ Alert processing rules (previously referred to as action rules) allow you to app
 
 Each alert processing rule has a scope, which could be a list of one or more specific resources, a specific resource group or your entire Azure subscription. When we define alert processing rules in Bicep, we can pass in a list of ARM IDs in the *scope* property which will the target for the alert processing rule.
 
-TODO: Create Bicep sample for Alert Processing Rule 
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-monitoring/alert-processing-rules.bicep" :::
+
+In this example, we define a  "MonitorService" alert processing rule on Azure Backup Vault, which we apply to our existing action group. This will trigger alerts to that action group.
 
 ### Log Alert rules
 
@@ -64,9 +74,11 @@ Metric alerts notify you when on of your metrics crosses a defined threshold. Yo
 
 Activity log alerts are alerts that are activated when a new activity log event occurs that matches the conditions specified in the alert. 
 
-We can use the *scope* property within the type [`Microsoft.Insights/activityLogAlerts`](/azure/templates/microsoft.insights/activitylogalerts?tabs=bicep) to create activity log alerts on a specific resource or a list of resources using the resource IDs as a prefix
+We can use the `scope` property within the type [`Microsoft.Insights/activityLogAlerts`](/azure/templates/microsoft.insights/activitylogalerts?tabs=bicep) to create activity log alerts on a specific resource or a list of resources using the resource IDs as a prefix.
 
-TODO: Create Sample to show this
+We define our alert rule conditions within the `condition` property and then configure the Alert Group to trigger these alerts to using the `actionGroup` array. Here you can pass a single or multiple Action Groups to send Activity Log Alerts to, depending on your requirements.
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-monitoring/activity-log-alert.bicep" :::
 
 ## Dashboards
 
@@ -82,7 +94,9 @@ In Bicep, we can create Resource Health alerts with the type [`Microsoft.Insight
 
 Resource Health Alerts can be configured to monitor events at either the Subscription, Resource Group and Resource Level.
 
-TODO: Create Bicep Sample for Resource Health Alerts
+Take the following example. Here we create a Resource Health alert reporting on Service Health alerts that we apply at the subscription level (using the `scope` property) that we send to an existing Action Group:
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-monitoring/resource-health-alerts.bicep" :::
 
 ## Smart Detection Alerts
 
@@ -94,9 +108,14 @@ To create a autoscaling setting, we define a resource of type [`Microsoft.Ingsig
 
 To target the resource that we want to apply the autoscaling setting to, we need to provide the target resource identifier of the resource that the setting should be added to.
 
-Within our autoscaling setting, we can define notification settings within our resource that sends emails to defined e-mail lists and administrators and/or webhook notifications that other services can subscribe to that informs subscribers when a autoscaling event has occured.
+In this example, we create a Scale Up condition for our App Service Plan based on the average CPU Percentage over a 10 minute timespan. If our App Service Plan exceeds 70% average CPU consumption over 10 minutes, we scale up our App Service Plan by 1 instance. 
 
-TODO: Create Bicep Sample for Autoscaling.
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-monitoring/resource-health-alerts.bicep" :::
+
+> [!NOTE]
+> When defining autoscaling rules, keep best practices in mind to avoid issues when attempting to autoscale, such as Flapping. For more information, see the following documentation on [best practices for Autoscale](https://docs.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-best-practices)
+
+Within our autoscaling setting, we can define notification settings within our resource that sends emails to defined e-mail lists and administrators and/or webhook notifications that other services can subscribe to that informs subscribers when a autoscaling event has occured.
 
 ## Related resources
 
