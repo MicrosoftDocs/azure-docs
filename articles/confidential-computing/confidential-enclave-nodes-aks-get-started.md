@@ -24,7 +24,7 @@ Features of confidential computing nodes include:
 - Intel SGX DCAP Driver preinstalled on the confidential computing nodes. For more information, see [Frequently asked questions for Azure confidential computing](./confidential-nodes-aks-faq.yml).
 
 > [!NOTE]
-> DCsv2/DCsv3 VMs use specialized hardware that's subject to higher pricing and region availability. For more information, see the [available SKUs and supported regions](virtual-machine-solutions-sgx.md).
+> DCsv2/DCsv3 VMs use specialized hardware that's subject region availability. For more information, see the [available SKUs and supported regions](virtual-machine-solutions-sgx.md).
 
 
 ## Prerequisites
@@ -41,7 +41,7 @@ This quickstart requires:
 
 ## Create an AKS cluster with enclave-aware confidential computing nodes and Intel SGX add-on
 
-Use the following instructions to create an AKS cluster with the Intel SGX add-on enabled, add a node pool to the cluster, and verify what you created with hello world enlave application.
+Use the following instructions to create an AKS cluster with the Intel SGX add-on enabled, add a node pool to the cluster, and verify what you created with hello world enclave application.
 
 ### Create an AKS cluster with a system node pool
 
