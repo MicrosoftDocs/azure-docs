@@ -17,10 +17,10 @@ ms.author: mibudz
 
 |Threat  |Description  |Mitigations  |Reference  |
 |---------|---------|---------|---------|
-|[Broken object level authorization](#broken-object-level-authorization)     |     Attackers can exploit vulnerable API endpoints  by manipulating the ID of an object that is sent within the request. This may lead to unauthorized access to sensitive data.    | * Improve backend API<br/>* Use API Management to enforce authorization to backend and to validate requests        |    [API1:2019 Broken Object Level Authorization](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa1-broken-object-level-authorization.md)     |
+|[Broken object level authorization](#broken-object-level-authorization)     |     Attackers can exploit vulnerable API endpoints by manipulating the ID of an object that is sent within the request. This may lead to unauthorized access to sensitive data.    | * Improve backend API<br/>* Use API Management to enforce authorization to backend         |    [API1:2019 Broken Object Level Authorization](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa1-broken-object-level-authorization.md)     |
 |Row2     |         |         |         |
 |Row3     |         |         |         |
-|[Lack of resources and rate limiting](#lack-of-resources-and-rate-limiting)     |         |         |   [API4:2019 Lack of Resources & Rate Limiting](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa4-lack-of-resources-and-rate-limiting.md)      |
+|[Lack of resources and rate limiting](#lack-of-resources-and-rate-limiting)     |    Attackers can exploit a vulnerable API through concurrent API requests, leading to DDoS, making the API unresponsive or unavailable.     | * Implement throttling, quotas, caching, and other features to maintain performance<br/>* Define and enforce strict API schemas        |   [API4:2019 Lack of Resources & Rate Limiting](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa4-lack-of-resources-and-rate-limiting.md)      |
 |Row5     |         |         |         |
 |Row6     |         |         |         |
 |Row7     |         |         |         |
@@ -39,9 +39,9 @@ Ensure that API objects are protected with the appropriate level of authorizatio
 
 * The best place to implement object level authorization is within the backend API itself. This ensures that the correct authorization decisions are made at the request (or object) level, where applicable, using logic applicable to the domain and API. It's important to consider scenarios where a given request may yield differing levels of detail in the response, depending on the requestor's permissions and authorization. 
 
-* If this issue has been identified as a current vulnerability to an existing API which can't be changed, then API Management could be used as a fallback. A mapping could be created to check object level authorization based on the request context before the request is allowed onto the backend. Similarly, a weak object access identifier could be abstracted through API Management where it is not possible to make the change at the backend.  
+* If this issue has been identified as a current vulnerability to an existing API that can't be changed, then API Management could be used as a fallback. A mapping could be created to check object level authorization based on the request context before the request is allowed onto the backend. Similarly, a weak object access identifier could be abstracted through API Management where it is not possible to make the change at the backend.  
 
-* API Management can validate GraphQL requests through the [validate GraphQL request](https://docs.microsoft.com/azure/api-management/graphql-validation-policies#validate-graphql-request), which can also be used to enforce object-level authorization, using the `authorize` element.  
+* API Management can validate GraphQL requests through the [validate GraphQL request](https://docs.microsoft.com/azure/api-management/graphql-validation-policies#validate-graphql-request) policy, which can also be used to enforce object-level authorization, using the `authorize` element.  
 
 
 ## Broken user authentication
@@ -85,7 +85,7 @@ Mitigate probing for DDoS vulnerabilities and protect against data exfiltration 
 
 * Define a timeout in the [forward-request](api-management-advanced-policies.md#ForwardRequest) policy. 
 
-* Deploy a bot detection product in front of API Mananagement (for example, Azure Application Gateway, Azure Front Door, Azure DDoS Protection Service) for an added layer of protection against DDoS. 
+* Deploy a bot detection service in front of API Management (for example, Azure Application Gateway, Azure Front Door, Azure DDoS Protection) for an added layer of protection against DDoS. 
 
 * When using a WAF with Application Gateway and Azure Front Door, consider using Microsoft_BotManagerRuleSet_1.0. You can select the entire rule set or individual policies as part of the WAF that you can customize. 
 
@@ -102,7 +102,7 @@ Complex access control policies with different hierarchies, groups, and roles, a
 
 ### Recommendations 
  
-* API Management can be used to [filter JWT claims](api-management-access-restriction-policie.mds#ValidateJWT) at different scopes, and this may be the only option where the downstream API can't be changed. Ideally, authorizations is the responsibility of the backend itself, and this is the  best place for it to be implemented.
+* API Management can be used to [filter JWT claims](api-management-access-restriction-policies.mds#ValidateJWT) at different scopes, and this may be the only option where the downstream API can't be changed. Ideally, authorization is the responsibility of the backend itself, and this is the best place for it to be implemented.
 
 * Request filtering (for example, checking and enforcing allowed verbs) is good practice and helps reduce the attack surface area. However, developers need good governance. If the underlying product or API changes, then they need to remember to change the configuration in API Management, too. 
 
@@ -112,7 +112,7 @@ Complex access control policies with different hierarchies, groups, and roles, a
 
 * By default, protect all operations with [subscription keys](api-management-subscriptions.md). 
 
-* Define the [validate-jwt](api-management-access-restriction-policie.mds#ValidateJWT) policy at the level desired (all APIs in the API Management ubstabce, API level, or individual operation level). Consider enforcing token claims at each level.   
+* Define the [validate-jwt](api-management-access-restriction-policie.mds#ValidateJWT) policy at the level desired (all APIs in the API Management instance, API level, or individual operation level). Consider enforcing token claims at each level.   
 
 * Don't define wildcard operations (i.e., "catch-all" APIs with `*` as the path) or use `*` for origin in [CORS policy](api-management-cross-domain-policies.md#CORS). 
 
@@ -175,7 +175,7 @@ Any accessible endpoint accepting user data is potentially vulnerable to an "inj
 
 ## Insufficient logging and monitoring 
 
-Insufficient logging and monitoring, coupled with missing or ineffective integration with incident response, allows attackers to further attack systems, maintain persistence, pivot to more systems to tamper with, abd extract or destroy data. Most breach studies demonstrate the time to detect a breach is over 200 days, typically detected by external parties rather than internal processes or monitoring 
+Insufficient logging and monitoring, coupled with missing or ineffective integration with incident response, allows attackers to further attack systems, maintain persistence, pivot to more systems to tamper with, and extract or destroy data. Most breach studies demonstrate the time to detect a breach is over 200 days, typically detected by external parties rather than internal processes or monitoring 
 
 [More information about this threat](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xaa-insufficient-logging-monitoring.md) 
 
@@ -185,7 +185,7 @@ Insufficient logging and monitoring, coupled with missing or ineffective integra
 
 * Log to Application Insights for debugging purposes. 
 
-* If needed, forward custom events to Event Hub. 
+* If needed, forward custom events to Event Hubs. 
 
 * Set alerts in Azure Monitor and Application Insights (for example, capacity metric or excessive number of requests / bandwidth transfer). 
 
