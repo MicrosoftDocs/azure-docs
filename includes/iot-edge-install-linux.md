@@ -54,15 +54,12 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
 
 Installing can be done with a few commands.  Open a terminal and run the following commands:
 
-* **Stretch**:
+* **Latest**:
 
-   ```bash
-   curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
-   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-
-   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-   ```
+    ```bash
+    curl https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb > ./packages-microsoft-prod.deb
+    sudo apt install ./packages-microsoft-prod.deb
+    ```
 
 ---
 
