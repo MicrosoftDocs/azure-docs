@@ -40,7 +40,7 @@ In this article, you'll learn how to create and run [machine learning pipelines]
 
 To build pipeline using components in UI, you need to register components to your workspace first. You can use CLI or SDK to register components to your workspace, so that you can share and resue the component within the workspace. Registered components support automatic versioning so you can update the component but assure that pipelines that require an older version will continue to work.  
 
-Here take using CLI for example. If you want to learn more about how to build a component, you can refer to [this article](how-to-create-component-pipelines-cli.md).
+In the example below take using CLI for example. If you want to learn more about how to build a component, see [Create and run pipelines using components with  CLI](how-to-create-component-pipelines-cli.md).
 
 1. From the `cli/jobs/pipelines-with-components/basics` directory of the [`azureml-examples` repository](https://github.com/Azure/azureml-examples), navigate to the `1b_e2e_registered_components` subdirectory.
 
@@ -77,7 +77,7 @@ Here take using CLI for example. If you want to learn more about how to build a 
     
 1. Connect the upstream component output ports to the downstream component input ports.
 
-1. Select one component, you will see a right pane where you can configure the component. 
+1. Select one component, you'll see a right pane where you can configure the component. 
 
     For components with primitive type inputs like number, integer, string and boolean, you can change values of such inputs in the component detailed pane.
 
@@ -94,7 +94,7 @@ Here take using CLI for example. If you want to learn more about how to build a 
 
     ![Screenshot showing submit pipeline](./media/how-to-create-component-pipelines-ui/submit-pipeline.png)
 
-1. After submit succesffully, you'll see a job detail page link in the left page. Select **Job detail** to go to pipeline job detail page for checking status and debugging.
+1. After submit successfully, you'll see a job detail page link in the left page. Select **Job detail** to go to pipeline job detail page for checking status and debugging.
 
     ![Screenshot showing submission list](./media/how-to-create-component-pipelines-ui/submission-list.png)
 

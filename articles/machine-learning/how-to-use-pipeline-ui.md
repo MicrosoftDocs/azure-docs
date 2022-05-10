@@ -25,7 +25,7 @@ This article will introduce how to use the studio UI to build and debug machine 
 
 In the designer homepage, you can select "New" to open a blank pipeline draft.
 
-In the asset library left of the canvas, there are **Data assets** and **Components** tabs, which contains components and data registered to the workspace. For what is component and how to create custom component, you can refer to the [component concept article](concept-component.md).
+In the asset library left of the canvas, there are **Data assets** and **Components** tabs, which contain components and data registered to the workspace. For what is component and how to create custom component, you can refer to the [component concept article](concept-component.md).
 
 You can quickly filter **My assets** or **Designer built-in assets**.
 
@@ -58,7 +58,7 @@ If you want to try a few different parameter values for the same pipeline, you c
 > The submission list only contains jobs submitted in the same session.
 > If you refresh current page, it will not preserve the previous submitted job list.
 
-On the pipeline job detail page, you can check the status of the overall job and each node inside, as well as logs of each node.
+On the pipeline job detail page, you can check the status of the overall job and each node inside, and logs of each node.
 
 :::image type="content" source="./media/how-to-use-pipeline-ui/pipeline-job-detail-page.png" alt-text="Screenshot showing pipeline job detail page.":::
 
@@ -70,7 +70,7 @@ In pipeline job detail page, there's an outline left to the canvas, which shows 
 
 :::image type="content" source="./media/how-to-use-pipeline-ui/outline.png" alt-text="Screenshot showing outline locate in canvas.":::
 
-You can filter failed or completed nodes, as well as filter by only components or dataset for further search. The left pane will show the matched nodes with more information including status, duration, and created time.
+You can filter failed or completed nodes, and filter by only components or dataset for further search. The left pane will show the matched nodes with more information including status, duration, and created time.
 
 :::image type="content" source="./media/how-to-use-pipeline-ui/quick-filter.png" alt-text="Screenshot showing quick filter.":::
 

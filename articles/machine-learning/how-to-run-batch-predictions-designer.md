@@ -45,7 +45,7 @@ Your training pipeline must be run at least once to be able to create an inferen
 
 ![Submit the pipeline](./media/how-to-run-batch-predictions-designer/run-training-pipeline.png)
 
-You will see a submission list on the left of canvas. You can click the job detail link to go to the job detail page, and after the training pipeline job completes, you can create a batch inference pipeline.
+You'll see a submission list on the left of canvas. You can select the job detail link to go to the job detail page, and after the training pipeline job completes, you can create a batch inference pipeline.
 
 ![Submission list](./media/how-to-run-batch-predictions-designer/submission-list.png)
 
@@ -102,7 +102,7 @@ Now, you have a published pipeline with a dataset parameter. The pipeline will u
 
 ### Submit a pipeline run 
 
-In this section, you will set up a manual pipeline run and alter the pipeline parameter to score new data. 
+In this section, you'll set up a manual pipeline run and alter the pipeline parameter to score new data. 
 
 1. After the deployment is complete, go to the **Endpoints** section.
 
@@ -132,11 +132,11 @@ In this section, you will set up a manual pipeline run and alter the pipeline pa
 
 You can find information on how to consume pipeline endpoints and published pipeline in the **Endpoints** section.
 
-You can find the REST endpoint of a pipeline endpoint in the run overview panel. By calling the endpoint, you are consuming its default published pipeline.
+You can find the REST endpoint of a pipeline endpoint in the run overview panel. By calling the endpoint, you're consuming its default published pipeline.
 
 You can also consume a published pipeline in the **Published pipelines** page. Select a published pipeline and you can find the REST endpoint of it in the **Published pipeline overview** panel to the right of the graph. 
 
-To make a REST call, you will need an OAuth 2.0 bearer-type authentication header. See the following [tutorial section](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) for more detail on setting up authentication to your workspace and making a parameterized REST call.
+To make a REST call, you'll need an OAuth 2.0 bearer-type authentication header. See the following [tutorial section](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) for more detail on setting up authentication to your workspace and making a parameterized REST call.
 
 ## Versioning endpoints
 
@@ -152,9 +152,9 @@ You can also set a new default pipeline in the **Published pipelines** tab of yo
 
 ## Update pipeline endpoint
 
-If you make some modifications in your training pipeline, you may want to update the newly trained model to the pipelin endpoint.
+If you make some modifications in your training pipeline, you may want to update the newly trained model to the pipeline endpoint.
 
-1. After your modified training pipeline comleted successfully, go to the job detail page.
+1. After your modified training pipeline completes successfully, go to the job detail page.
 
 1. Right click **Train Model** component and select **Register data**
 
@@ -170,11 +170,11 @@ If you make some modifications in your training pipeline, you may want to update
 
     ![Update inference pipeline](./media/how-to-run-batch-predictions-designer/update-inference-pipeline-draft.png)
 
-1. Updating data transformation node **TD-** is the same as trainde model.
+1. Updating data transformation node **TD-** is the same as the trained model.
 
 1. Then you can submit the inference pipeline with the updated model and transformation, and publish again.
 
 ## Next steps
 
 * Follow the [designer tutorial to train and deploy a regression model](tutorial-designer-automobile-price-train-score.md).
-* For how to publish and run a published pipeline using SDK, see the [How to deploy pipelines](how-to-deploy-pipelines.md) article .
+* For how to publish and run a published pipeline using SDK, see the [How to deploy pipelines](how-to-deploy-pipelines.md) article.

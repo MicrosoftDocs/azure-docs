@@ -5,8 +5,8 @@ description: Create and run machine learning pipelines using the Azure Machine L
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: lagayhar
-author: lgayhardt
+author: xiaoharper
+ms.author: zhanxia
 ms.date:  05/10/2022
 ms.topic: how-to
 ms.custom: devplatv2, devx-track-azurecli 
@@ -141,7 +141,7 @@ The most common used schema of the component YAML is described in below table. S
 |outputs|Dictionary of component outputs. The key is a name for the output within the context of the component and the value is the component output definition. Outputs can be referenced in the command using the ${{ outputs.<output_name> }} expression.|
 |is_deterministic|Whether to reuse previous job's result if the component inputs not change. Default value is `true`, also known as resue by default. The common scenario to set it as `false` is to force reload data from a cloud storage or URL.|
 
-For the example in *3b_pipeline_with_data/componentA.yml*, componentA has one data input and one data output, which can be connected to other steps in the parent pipeline. All the files under `code` section in component YAML will be uploaded to AzureML when submitting the pipeline job. In this example, files under `./componentA_src` will be uploaded (line 16 in *componentA.yml*). You can see the uploaded source code in Studio UI: double click the ComponentA step and navigate to Snapshot tab, as shown in below screenshot. We can see it's a hello-world script just doing some simple printing, and write current datetime to the `componentA_output` path. The component takes input and output through command line argument, and it's handled in the *hello.py* using `argparse`.
+For the example in *3b_pipeline_with_data/componentA.yml*, componentA has one data input and one data output, which can be connected to other steps in the parent pipeline. All the files under `code` section in component YAML will be uploaded to AzureML when submitting the pipeline job. In this example, files under `./componentA_src` will be uploaded (line 16 in *componentA.yml*). You can see the uploaded source code in Studio UI: double select the ComponentA step and navigate to Snapshot tab, as shown in below screenshot. We can see it's a hello-world script just doing some simple printing, and write current datetime to the `componentA_output` path. The component takes input and output through command line argument, and it's handled in the *hello.py* using `argparse`.
   
 :::image type="content" source="/media/how-to-create-component-pipelines-cli/component-snapshot.png" alt-text="Screenshot of 3b_pipeline_with_data example componentA. ":::
 

@@ -16,7 +16,7 @@ ms.custom: devx-track-python, sdkv2, cliv2
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-In this article, you will learn how to do hyperparameter tuning in Azure Machine Learning pipeline.
+In this article, you'll learn how to do hyperparameter tuning in Azure Machine Learning pipeline.
 
 ## Prerequisite
 
@@ -39,7 +39,7 @@ Assume you already have a command component defined in `train.yaml`. A two step 
 
 :::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/pipelines-with-components/pipeline_with_hyperparameter_sweep/pipeline.yml" highlight="7-48":::
 
-The `sweep_step` is the step for hyperparameter tuning. Step type needs to be `sweep`.  And `trial` refers to the command component defined in `train.yaml`. From the `search sapce` field we can see three hyparmeters(`c_value`, `kernel`, and `coef`) are added to the search space. After submitting this pipeline job, Azure Machine Learning will run the trial component multiple times to sweep over hypermaters based on the search space and terminate policy you defined in `sweep_step`. Check [sweep job YAML schema](reference-yaml-job-sweep.md) for full schema of sweep job.
+The `sweep_step` is the step for hyperparameter tuning. Step type needs to be `sweep`.  And `trial` refers to the command component defined in `train.yaml`. From the `search sapce` field we can see three hyparmeters(`c_value`, `kernel`, and `coef`) are added to the search space. After you submit this pipeline job, Azure Machine Learning will run the trial component multiple times to sweep over hypermaters based on the search space and terminate policy you defined in `sweep_step`. Check [sweep job YAML schema](reference-yaml-job-sweep.md) for full schema of sweep job.
 
 Below is the trial component (`train.yml`) definition. The hyperparamters added to search space need to be inputs for the component.
 
@@ -65,7 +65,7 @@ Below code snipe shows how to enable sweep for `train_model`.
 
 ## Check pipeline job with sweep step in Studio
 
-After submitting a pipeline job, the SDK or CLI widget will give you a web URL link to Studio UI. The link will guide you to the pipeline graph view by default.
+After you submit a pipeline job, the SDK or CLI widget will give you a web URL link to Studio UI. The link will guide you to the pipeline graph view by default.
 
 To check details of the sweep step, double click the sweep step and navigate to the **child run** tab in the panel on the right.
 
