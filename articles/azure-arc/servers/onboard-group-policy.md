@@ -24,7 +24,7 @@ The Group Policy to onboard Azure Arc-enabled servers requires a remote share wi
 
 1. Download the latest version of the [Windows agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center and save it to the remote share. 
 
-## Generate an onboarding script and configuration file from Azure Portal
+## Generate an onboarding script and configuration file from Azure portal
 
 Before you can run the script to connect your machines, you'll need to do the following:
 
