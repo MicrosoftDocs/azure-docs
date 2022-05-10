@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emerb19
 ms.author: emerb
-ms.date: 04/06/2022
+ms.date: 04/28/2022
 ---
 
 # ISV to customer private offers
@@ -43,14 +43,14 @@ Creating a private offer for a customer has these prerequisites:
 
 ## Supported offer types
 
-Private Offers can be created for all transactable marketplace offer types: SaaS, Azure Virtual Machines, and Azure Applications.
+Private offers can be created for all transactable marketplace offer types: SaaS, Azure Virtual Machines, and Azure Applications.
 
 > [!NOTE]
 > Discounts are applied on all custom meter dimensions your offer may use. They are only applied on the software charges set by you, not on the associated Azure infrastructure hardware charges.
 
 ## Private offers dashboard
 
-Create and manage private offers from the **Private Offers** dashboard in Partner Center's left-nav menu. This dashboard has two tabs:
+Create and manage private offers from the **Private offers** dashboard in Partner Center's left-nav menu. This dashboard has two tabs:
 
 - **Customers** – Create a private offer for a customer in Azure Marketplace. This opens the Customers private offer dashboard, which lets you:
 
@@ -70,9 +70,9 @@ Create and manage private offers from the **Private Offers** dashboard in Partne
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 2. Select the **Marketplace offers** workspace.
-3. Select **Private Offers** from the left-nav menu.
+3. Select **Private offers** from the left-nav menu.
 4. Select the **Customers** tab.
-5. Select **+ New Private Offer**.
+5. Select **+ New private offer**.
 6. Enter a private offer name. This is a descriptive name for use within Partner Center and will be visible to your customer in the Azure portal.
 
 ### Offer setup
@@ -104,6 +104,7 @@ Use this page to define private offer terms, notification contacts, and pricing 
     - Choose to provide a custom price or discount at either an offer level (all current and future plans under that offer will have a discount associated to it) or at a plan level (only the plan you selected will have a private price associated with it).
     - Choose up to 10 offers/plans and select **Add**.
     - Enter the discount percentage or configure the absolute price for each item in the pricing table.
+    - Absolute pricing lets you input a specific price for the private offer. You can only customize the price based on the same pricing model, billing term, and dimensions of the public offer. You can't change to a new pricing model or billing term or add dimensions.
 
         > [!NOTE]
         > Only public offers/plans that are transactable in Microsoft Azure Marketplace appear in the selection menu.
@@ -121,7 +122,7 @@ When you're ready, select **Submit**. You'll be returned to the dashboard where 
 
 You can clone an existing offer and update its customer information to send it to different customers so you don't have to start from scratch. Or, update the offer/plan pricing to send additional discounts to the same customer.
 
-1. Select **Private Offers** from the left-nav menu.
+1. Select **Private offers** from the left-nav menu.
 2. Select the **Customers** tab.
 3. Check the box of the private offer to clone.
 4. Select **Clone**.
@@ -136,7 +137,7 @@ Withdrawing a private offer means your customer will no longer be able to access
 
 To withdraw a private offer:
 
-1. Select **Private Offers** from the left-nav menu.
+1. Select **Private offers** from the left-nav menu.
 2. Select the **Customers** tab.
 3. Check the box of the private offer to withdraw.
 4. Select **Withdraw**.
@@ -149,7 +150,7 @@ Once you withdraw a private offer, your customer will no longer be able to acces
 
 To delete a private offer in **Draft** status:
 
-1. Select **Private Offers** from the left-nav menu.
+1. Select **Private offers** from the left-nav menu.
 2. Select the **Customers** tab.
 3. Check the box of the private offer to delete.
 4. Select **Delete**.
@@ -161,7 +162,7 @@ This action will permanently delete your private offer. You can only delete priv
 
 To view the status of a private offer:
 
-1. Select **Private Offers** from the left-nav menu.
+1. Select **Private offers** from the left-nav menu.
 2. Select the **Customer** tab.
 3. Check the **Status** column.
 
@@ -180,4 +181,13 @@ The payout amount and agency fee that Microsoft charges is based on the private 
 
 ## Next steps
 
+**Further reading**
+
 - [Frequently Asked Questions](isv-customer-faq.yml) about configuring ISV to customer private offers
+
+**Video tutorials (YouTube)**
+
+- [Private Offer Overview of ISV to Customer Offers](https://www.youtube.com/watch?v=SNfEMKNmstY)
+- [ISV to Customer Private Offer Creation](https://www.youtube.com/watch?v=WPSM2_v4JuE)
+- [ISV to Customer Private Offer Acceptance](https://www.youtube.com/watch?v=HWpLOOtfWZs)
+- [ISV to Customer Private Offer Purchase Experience](https://www.youtube.com/watch?v=mPX7gqdHqBk)

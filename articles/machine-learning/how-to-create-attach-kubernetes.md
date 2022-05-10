@@ -14,6 +14,8 @@ ms.date: 04/21/2022
 ---
 
 # Create and attach an Azure Kubernetes Service cluster
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 Azure Machine Learning can deploy trained machine learning models to Azure Kubernetes Service. However, you must first either __create__ an Azure Kubernetes Service (AKS) cluster from your Azure ML workspace, or __attach__ an existing AKS cluster. This article provides information on both creating and attaching a cluster.
 
@@ -227,7 +229,7 @@ If you already have AKS cluster in your Azure subscription, you can use it with 
 For more information on creating an AKS cluster using the Azure CLI or portal, see the following articles:
 
 * [Create an AKS cluster (CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2faks%2fTOC.json#az-aks-create)
-* [Create an AKS cluster (portal)](../aks/kubernetes-walkthrough-portal.md)
+* [Create an AKS cluster (portal)](../aks/learn/quick-kubernetes-deploy-portal.md)
 * [Create an AKS cluster (ARM Template on Azure Quickstart templates)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aks-azml-targetcompute)
 
 The following example demonstrates how to attach an existing AKS cluster to your workspace:
@@ -407,7 +409,7 @@ aks_target.wait_for_completion(show_output = True)
 To detach a cluster from your workspace, use one of the following methods:
 
 > [!WARNING]
-> Using the Azure Machine Learning studio, SDK, or the Azure CLI extension for machine learning to detach an AKS cluster **does not delete the AKS cluster**. To delete the cluster, see [Use the Azure CLI with AKS](../aks/kubernetes-walkthrough.md#delete-the-cluster).
+> Using the Azure Machine Learning studio, SDK, or the Azure CLI extension for machine learning to detach an AKS cluster **does not delete the AKS cluster**. To delete the cluster, see [Use the Azure CLI with AKS](../aks/learn/quick-kubernetes-deploy-cli.md#delete-the-cluster).
 
 # [Python](#tab/python)
 

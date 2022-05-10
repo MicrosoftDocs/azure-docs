@@ -97,7 +97,7 @@ For more information, see the [Azure IoT extension for Azure CLI release page](h
 ## Azure AD access from the Azure portal
 
 >[!NOTE]
->Azure AD access from the Azure portal us currently not available during preview.
+>Azure AD access from the Azure portal is currently not available during preview.
 
 ## Next steps
 

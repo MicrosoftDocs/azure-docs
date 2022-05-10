@@ -29,7 +29,7 @@ Azure Machine Learning provides several ways to train your models, from code-fir
 
 + **Azure CLI**: The machine learning CLI provides commands for common tasks with Azure Machine Learning, and is often used for **scripting and automating tasks**. For example, once you've created a training script or pipeline, you might use the Azure CLI to start a training run on a schedule or when the data files used for training are updated. For training models, it provides commands that submit training jobs. It can submit jobs using run configurations or pipelines.
 
-Each of these training methods can use different types of compute resources for training. Collectively, these resources are referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.
+Each of these training methods can use different types of compute resources for training. Collectively, these resources are referred to as [__compute targets__](v1/concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.
 
 ## Python SDK
 
@@ -45,7 +45,7 @@ A generic training job with Azure Machine Learning can be defined using the [Scr
 
 You may start with a run configuration for your local computer, and then switch to one for a cloud-based compute target as needed. When changing the compute target, you only change the run configuration you use. A run also logs information about the training job, such as the inputs, outputs, and logs.
 
-* [What is a run configuration?](concept-azure-machine-learning-architecture.md#run-configurations)
+* [What is a run configuration?](v1/concept-azure-machine-learning-architecture.md#run-configurations)
 * [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md)
 * [Examples: Jupyter Notebook and Python examples of training models](https://github.com/Azure/azureml-examples)
 * [How to: Configure a training run](how-to-set-up-training-targets.md)

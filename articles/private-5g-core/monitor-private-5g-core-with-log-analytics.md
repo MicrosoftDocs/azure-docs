@@ -102,10 +102,13 @@ Log Analytics dashboards can visualize all of your saved log queries, giving you
 
 You can find information on how to create a Log Analytics dashboard in [Create and share dashboards of Log Analytics data](../azure-monitor/visualize/tutorial-logs-dashboards.md).
 
+You can also follow the steps in [Create an overview Log Analytics dashboard using an ARM template](create-overview-dashboard.md) to create an example overview dashboard. This dashboard includes charts to monitor important Key Performance Indicators (KPIs) for your private mobile network's operation, including throughput and the number of connected devices.
+
 ## Estimate costs
 
 Log Analytics will ingest an average of 1.4 GB of data a day for each log streamed to it by a single packet core instance. [Monitor usage and estimated costs in Azure Monitor](../azure-monitor/usage-estimated-costs.md) provides information on how to estimate the cost of using Log Analytics to monitor Azure Private 5G Core.
 
 ## Next steps
 - [Enable Log Analytics for Azure Private 5G Core](enable-log-analytics-for-private-5g-core.md)
+- [Create an overview Log Analytics dashboard using an ARM template](create-overview-dashboard.md)
 - [Learn more about Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-overview.md)
