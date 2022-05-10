@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/21/2022
+ms.date: 05/10/2022
 ms.author: tamram
 ms.subservice: common
 ms.custom: references_regions
@@ -225,7 +225,7 @@ The following table shows which redundancy options are supported by each Azure S
 
 | LRS | ZRS | GRS | RA-GRS | GZRS | RA-GZRS |
 |---|---|---|---|---|---|
-| Blob storage <br/>Queue storage <br/>Table storage <br/>Azure Files<sup>1,</sup><sup>2</sup> <br/>Azure managed disks | Blob storage <br/>Queue storage <br/>Table storage <br/>Azure Files<sup>1,</sup><sup>2</sup> <br/>Azure managed disks<sup>3</sup> | Blob storage <br/>Queue storage <br/>Table storage <br/>Azure Files<sup>1</sup> | Blob storage <br/>Queue storage <br/>Table storage <br/> | Blob storage <br/>Queue storage <br/>Table storage <br/>Azure Files<sup>1</sup> | Blob storage <br/>Queue storage <br/>Table storage <br/> |
+| Blob storage (including Data Lake Storage)<br/>Queue storage <br/>Table storage <br/>Azure Files<sup>1,</sup><sup>2</sup> <br/>Azure managed disks<br/> Page blobs | Blob storage (including Data Lake Storage)<br/>Queue storage <br/>Table storage <br/>Azure Files<sup>1,</sup><sup>2</sup> <br/>Azure managed disks<sup>3</sup> | Blob storage (including Data Lake Storage)<br/>Queue storage <br/>Table storage <br/>Azure Files<sup>1</sup> | Blob storage (including Data Lake Storage)<br/>Queue storage <br/>Table storage <br/> | Blob storage (including Data Lake Storage)<br/>Queue storage <br/>Table storage <br/>Azure Files<sup>1</sup> | Blob storage (including Data Lake Storage)<br/>Queue storage <br/>Table storage <br/> |
 
 <sup>1</sup> Standard file shares are supported on LRS and ZRS. Standard file shares are supported on GRS and GZRS as long as they are less than or equal to five TiB in size.<br/>
 <sup>2</sup> Premium file shares are supported on LRS and ZRS.<br/>
@@ -237,7 +237,7 @@ The following table shows which redundancy options are supported for each type o
 
 | Storage account types | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
-| **Recommended** | Standard general-purpose v2 (`StorageV2`)<sup>1</sup><br/><br/> Premium block blobs (`BlockBlobStorage`)<sup>1</sup><br/><br/> Premium file shares (`FileStorage`) | Standard general-purpose v2 (`StorageV2`)<sup>1</sup><br/><br/> Premium block blobs (`BlockBlobStorage`)<sup>1</sup><br/><br/> Premium file shares (`FileStorage`) | Standard general-purpose v2 (`StorageV2`)<sup>1</sup> | Standard general-purpose v2 (`StorageV2`)<sup>1</sup> |
+| **Recommended** | Standard general-purpose v2 (`StorageV2`)<sup>1</sup><br/><br/> Premium block blobs (`BlockBlobStorage`)<sup>1</sup><br/><br/> Premium file shares (`FileStorage`) <br/><br/> Premium page blobs (`StorageV2`) | Standard general-purpose v2 (`StorageV2`)<sup>1</sup><br/><br/> Premium block blobs (`BlockBlobStorage`)<sup>1</sup><br/><br/> Premium file shares (`FileStorage`) | Standard general-purpose v2 (`StorageV2`)<sup>1</sup> | Standard general-purpose v2 (`StorageV2`)<sup>1</sup> |
 | **Legacy** | Standard general-purpose v1 (`Storage`)<br/><br/> Legacy blob (`BlobStorage`) | N/A | Standard general-purpose v1 (`Storage`)<br/><br/> Legacy blob (`BlobStorage`) | N/A |
 
 <sup>1</sup> Accounts of this type with a hierarchical namespace enabled also support the specified redundancy option.
