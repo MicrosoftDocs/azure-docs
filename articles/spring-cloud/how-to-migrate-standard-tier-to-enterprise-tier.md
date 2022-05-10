@@ -126,7 +126,7 @@ Use the following steps to create and configure an application using Spring Clou
 
 1. Assign a public endpoint to the gateway to access it.
 
-   # [Azure [portal](#tab/azure-portal)
+   # [Azure portal](#tab/azure-portal)
 
    1. Select the **Spring Cloud Gateway** section, then select **Overview** to view the running state and resources given to Spring Cloud Gateway and its operator.
 
