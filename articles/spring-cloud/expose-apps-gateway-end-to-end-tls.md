@@ -108,11 +108,11 @@ After you've finished updating the policy JSON (see [Update Certificate Policy](
 
 ```azurecli
 KV_NAME='name-of-key-vault'
-CERT_NAME_IN_KV='name-of-certificate-in-key-vault'
+CERT_NAME_IN_KEY_VAULT='name-of-certificate-in-key-vault'
 
 az keyvault certificate create \
     --vault-name $KV_NAME \
-    --name $CERT_NAME_IN_KV \
+    --name $CERT_NAME_IN_KEY_VAULT \
     --policy "$KV_CERT_POLICY"
 ```
 
@@ -125,31 +125,31 @@ Traffic will enter the application deployed on Azure Spring Apps using the publi
 ```azurecli
 KV_NAME='name-of-key-vault'
 KV_RG='resource-group-name-of-key-vault'
-CERT_NAME_IN_ASC='name-of-certificate-in-Azure-Spring-Apps'
-CERT_NAME_IN_KV='name-of-certificate-with-intermediaries-in-key-vault'
+CERT_NAME_IN_AZURE_SPRING_APPS='name-of-certificate-in-Azure-Spring-Apps'
+CERT_NAME_IN_KEY_VAULT='name-of-certificate-with-intermediaries-in-key-vault'
 DOMAIN_NAME=myapp.mydomain.com
 
-# provide permissions to ASC to read the certificate from Key Vault:
+# provide permissions to Azure Spring Apps to read the certificate from Key Vault:
 VAULTURI=$(az keyvault show -n $KV_NAME -g $KV_RG --query properties.vaultUri -o tsv)
 
 # get the object id for the Azure Spring Apps Domain-Management Service Principal:
-ASCDM_OID=$(az ad sp show --id 03b39d0f-4213-4864-a245-b1476ec03169 --query objectId --output tsv)
+ASADM_OID=$(az ad sp show --id 03b39d0f-4213-4864-a245-b1476ec03169 --query objectId --output tsv)
 
 # allow this Service Principal to read and list certificates and secrets from Key Vault:
-az keyvault set-policy -g $KV_RG -n $KV_NAME  --object-id $ASCDM_OID --certificate-permissions get list --secret-permissions get list
+az keyvault set-policy -g $KV_RG -n $KV_NAME  --object-id $ASADM_OID --certificate-permissions get list --secret-permissions get list
 
 # add custom domain name and configure TLS using the certificate:
 az spring certificate add \
     --resource-group $RESOURCE_GROUP \
     --service $SPRING_CLOUD_NAME \
-    --name $CERT_NAME_IN_ASC \
-    --vault-certificate-name $CERT_NAME_IN_KV \
+    --name $CERT_NAME_IN_AZURE_SPRING_APPS \
+    --vault-certificate-name $CERT_NAME_IN_KEY_VAULT \
     --vault-uri $VAULTURI
 az spring app custom-domain bind \
     --resource-group $RESOURCE_GROUP \
     --service $SPRING_CLOUD_NAME \
     --domain-name $DOMAIN_NAME \
-    --certificate $CERT_NAME_IN_ASC \
+    --certificate $CERT_NAME_IN_AZURE_SPRING_APPS \
     --app $APPNAME
 ```
 ## Create network resources
@@ -209,7 +209,7 @@ Create an application gateway using `az network application-gateway create` and 
 ```azurecli
 APPGW_NAME='name-for-application-gateway'
 
-KEYVAULT_SECRET_ID_FOR_CERT=$(az keyvault certificate show --name $CERT_NAME_IN_KV --vault-name $KV_NAME --query sid --output tsv)
+KEYVAULT_SECRET_ID_FOR_CERT=$(az keyvault certificate show --name $CERT_NAME_IN_KEY_VAULT --vault-name $KV_NAME --query sid --output tsv)
 
 az network application-gateway create \
     --name $APPGW_NAME \
@@ -255,7 +255,7 @@ To allowlist the certificate, first fetch the public portion of it from Key Vaul
 ```azurecli
 az keyvault certificate download \
     --vault-name $KV_NAME \
-    --name $CERT_NAME_IN_KV \
+    --name $CERT_NAME_IN_KEY_VAULT \
     --file ./selfsignedcert.crt \
     --encoding DER
 ```
