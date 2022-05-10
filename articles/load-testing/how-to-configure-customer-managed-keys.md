@@ -6,7 +6,7 @@ services: load-testing
 ms.service: load-testing
 ms.author: ninallam
 author: ninallam
-ms.date: 04/07/2022
+ms.date: 05/10/2022
 ms.topic: how-to
 ---
 
