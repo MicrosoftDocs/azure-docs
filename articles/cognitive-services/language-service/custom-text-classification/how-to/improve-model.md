@@ -26,7 +26,7 @@ To optionally improve a model, you'll need to have:
 * Text data that has [been uploaded](create-project.md#prepare-training-data) to your storage account.
 * [Tagged data](tag-data.md) to successfully [train a model](train-model.md).
 * Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
-* Familiarized yourself with the [evaluation metrics](../concepts/evaluation.md).
+* Familiarized yourself with the [evaluation metrics](../concepts/evaluation-metrics.md).
 
 See the [project development lifecycle](../overview.md#project-development-lifecycle) for more information.
 
