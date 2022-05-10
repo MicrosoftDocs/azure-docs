@@ -4,6 +4,7 @@ description: This article provides an Azure PowerShell example to generate a con
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.custom: mvc, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 8/5/2020

@@ -6,6 +6,7 @@ ms.topic: sample
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure Database for MySQL

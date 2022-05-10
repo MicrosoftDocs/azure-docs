@@ -4,6 +4,7 @@ description: This article describes how you can enable auto grow storage for Azu
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: how-to
 ms.date: 3/18/2020
 ---

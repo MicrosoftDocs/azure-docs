@@ -4,6 +4,7 @@ description: Prepay for Azure Database for MySQL compute resources with reserved
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 10/06/2021
 ---

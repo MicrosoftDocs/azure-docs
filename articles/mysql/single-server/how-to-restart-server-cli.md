@@ -4,6 +4,7 @@ description: This article describes how you can restart an Azure Database for My
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: how-to
 ms.date: 3/18/2020 
 ms.custom: devx-track-azurecli

@@ -4,6 +4,7 @@ description: This quickstart describes how to use the Azure CLI to create an Azu
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/15/2020

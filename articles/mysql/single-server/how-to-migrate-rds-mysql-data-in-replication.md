@@ -4,6 +4,7 @@ description: This article describes how to migrate Amazon RDS for MySQL to Azure
 author: SudheeshGH
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: how-to
 ms.date: 09/24/2021
 ---

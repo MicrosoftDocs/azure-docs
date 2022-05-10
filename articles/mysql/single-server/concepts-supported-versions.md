@@ -4,6 +4,7 @@ description: Learn which versions of the MySQL server are supported in the Azure
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.custom: 
 ms.date: 11/4/2021

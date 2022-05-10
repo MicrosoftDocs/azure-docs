@@ -4,6 +4,7 @@ description: Learn about using Infrastructure double encryption to add a second 
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 6/30/2020
 ---

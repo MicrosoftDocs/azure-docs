@@ -4,6 +4,7 @@ description: Learn how Private link works for Azure Database for MySQL.
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 03/10/2020
 ---

@@ -4,6 +4,7 @@ description: Quickstart guide to create Azure Database for MySQL server using Az
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020

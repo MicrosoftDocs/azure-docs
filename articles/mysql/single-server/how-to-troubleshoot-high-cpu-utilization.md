@@ -4,6 +4,7 @@ description: Learn how to troubleshoot high CPU utilization in Azure Database fo
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: troubleshooting
 ms.date: 4/27/2022
 ---

@@ -4,6 +4,7 @@ description: Describes the policy around MySQL major and minor versions in Azure
 author: sr-msft
 ms.author: srranga
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.custom: fasttrack-edit
 ms.date: 11/03/2020

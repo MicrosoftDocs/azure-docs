@@ -2,6 +2,7 @@
 title: "Select the right tools for migration to Azure Database for MySQL"
 description: "This topic provides a decision table which helps customers in picking the right tools for migrating into Azure Database for MySQL"
 ms.service: mysql
+ms.subservice: single-server
 author: shriram-muthukrishnan
 ms.author: shriramm
 ms.reviewer: maghan

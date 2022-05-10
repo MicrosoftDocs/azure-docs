@@ -4,6 +4,7 @@ description: Learn how to configure private link for Azure Database for MySQL fr
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 01/09/2020

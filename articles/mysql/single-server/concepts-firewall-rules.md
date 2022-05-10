@@ -4,6 +4,7 @@ description: Learn about using firewall rules to enable connections to your Azur
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 07/17/2020
 ---

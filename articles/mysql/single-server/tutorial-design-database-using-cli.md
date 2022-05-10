@@ -4,6 +4,7 @@ description: This tutorial explains how to create and manage Azure Database for 
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/02/2019
