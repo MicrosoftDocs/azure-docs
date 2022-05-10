@@ -74,5 +74,5 @@ Depending on the permissions they require, some applications might require an ad
 Preauthorization allows a resource app owner to grant permissions without requiring callers to see a consent prompt. This way, an application that has been preauthorized won’t ask users to consent to permissions. Resource owners can perform preauthorization by making calls to Microsoft graph or by running scripts.
 
 ## Next steps
-- [User and admin consent overview](consent-and-permissions-overview.md)
+- [User and admin consent overview](../manage-apps/consent-and-permissions-overview.md)
 - [Scopes and permissions](v2-permissions-and-consent.md)

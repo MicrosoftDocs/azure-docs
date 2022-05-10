@@ -34,7 +34,7 @@
       displayName: Access control
       items:
         - name: Permissions and consent overview
-        - href: permissions-consent-overview.md
+          href: permissions-consent-overview.md
         - name: "Authorization options: ACLs, RBAC, ABAC"
           href: authorization-basics.md
         - name: RBAC for app developers
