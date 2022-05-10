@@ -138,7 +138,7 @@ The workflow file must be stored in the **.github/workflows** folder at the root
 1. Replace the content of the yml file with the following:
   # [Service principal](#tab/userlevel)
 
-    ```yml
+  ```yml
     on: [push]
     name: Azure ARM
     jobs:
@@ -165,7 +165,7 @@ The workflow file must be stored in the **.github/workflows** folder at the root
 
           # output containerName variable from template
         - run: echo ${{ steps.deploy.outputs.containerName }}
-    ```
+  ```
 
     > [!NOTE]
     > You can specify a JSON format parameters file instead in the ARM Deploy action (example: `.azuredeploy.parameters.json`).
@@ -175,7 +175,8 @@ The workflow file must be stored in the **.github/workflows** folder at the root
     - **name**: The name of the workflow.
     - **on**: The name of the GitHub events that triggers the workflow. The workflow is trigger when there is a push event on the main branch, which modifies at least one of the two files specified. The two files are the workflow file and the template file.
   # [OpenID Connect](#tab/openid)
-    ```yml
+ 
+  ```yml
     on: [push]
     name: Azure ARM
     jobs:
@@ -204,7 +205,7 @@ The workflow file must be stored in the **.github/workflows** folder at the root
 
           # output containerName variable from template
         - run: echo ${{ steps.deploy.outputs.containerName }}
-    ```
+  ```
 
     > [!NOTE]
     > You can specify a JSON format parameters file instead in the ARM Deploy action (example: `.azuredeploy.parameters.json`).
