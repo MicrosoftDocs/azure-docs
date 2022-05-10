@@ -84,19 +84,36 @@ Requirements for loading data into an MLTable:
 
 Training data must be accessible from the remote compute. Automated ML v2 (Python SDK and CLI/YAML) accepts MLTable data assets (v2), although for backwards compatibility it also supports v1 Tabular Datasets from v1 (a registered Tabular Dataset) through the same input dataset properties. However the recommendation is to use MLTable available in v2.
 
-The following shows how to provide your training data from your local directory and it'll be automatically uploaded into the cloud (default Workspace Datastore) or by providing a MLTable already registered and uploaded into the cloud.
+The following YAML code is the definition of a MLTable that could be placed in a local folder or a remote folder in the cloud, along with the data file (.CSV or Parquet file).
+
+```
+# MLTable definition file
+
+paths:
+  - file: ./bank_marketing_train_data.csv
+transformations:
+  - read_delimited:
+        delimiter: ','
+        encoding: 'ascii'
+```
+
+Therefore, the MLTable folder would have the MLTable deinifition file plus the data file (the bank_marketing_train_data.csv file in this case).
+
+The following shows two ways of creating an MLTable.
+- A. Providing your training data and MLTable definition file from your local folder and it'll be automatically uploaded into the cloud (default Workspace Datastore)
+- B. Providing a MLTable already registered and uploaded into the cloud.
 
 ```Python
 from azure.ml.constants import AssetTypes
 from azure.ml import automl
 from azure.ml.entities import JobInput
 
-# Create MLTable for training data from your local directory
+# A. Create MLTable for training data from your local directory
 my_training_data_input = JobInput(
     type=AssetTypes.MLTABLE, path="./data/training-mltable-folder"
 )
 
-# Remote MLTable definition
+# B. Remote MLTable definition
 my_training_data_input  = JobInput(type=AssetTypes.MLTABLE, path="azureml://datastores/workspaceblobstore/paths/Classification/Train")
 ```
 
@@ -171,31 +188,33 @@ classification_job.set_training(
 )
 ```
 
-### Select your task type
+### Select your machine learning task type (ML problem)
 
 Before you can submit your automated ML job, you need to determine the kind of machine learning problem you are solving. This problem determines which function your automated ML job uses and what model algorithms it applies.
 
-Automated ML supports classification, regression, forecasting, computer vision, and natural language processing tasks. Learn more about [task types](concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting-computer-vision--nlp).
+Automated ML supports tabular data based tasks (classification, regression, forecasting), computer vision tasks (such as Image Classification and Object Detection), and natural language processing tasks (such as Text classification and Entity Recognition tasks). Learn more about [task types](concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting-computer-vision--nlp).
 
 
 ### Supported algorithms
 
 Automated machine learning tries different models and algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm. 
 
-The task method determine the list of algorithms, or models, to apply. Use the `allowed_models` or `blocked_models` parameters in the `set_training()` to further modify iterations with the available models to include or exclude. 
- 
-* Classification (Tabular data)
-* Regression (Tabular data)
-* Time Series Forecasting (Tabular data)
-* Image Classification (Multi-class) (New)
-* Image Classification (Multi-label) (New)
-* Image Object Detection (New)
-* Image Instance Segmentation (New)
-* NLP Text Classification (Multi-class) (New)
-* NLP Text Classification (Multi-label) (New)
-* NLP Text Named Entity Recognition (NER) (New)
+The task method determines the list of algorithms/models, to apply. Use the `allowed_algorithms` or `blocked_algorithms` parameters in the `set_training()` setter function to further modify iterations with the available models to include or exclude. 
 
-Follow [this link](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/automl-standalone-jobs) for example material of each task type.
+In the following list of links you can explore the supported algorithms per machine learning task listed below.
+ 
+* [Classification Algorithms (Tabular Data)](https://review.docs.microsoft.com/en-us/python/api/azure-ml/azure.ml.automl.classificationmodels?view=azure-ml-py&branch=sdk-cli-v2-preview-master)
+* [Regression Algorithms  (Tabular Data)](https://review.docs.microsoft.com/en-us/python/api/azure-ml/azure.ml.automl.regressionmodels?view=azure-ml-py&branch=sdk-cli-v2-preview-master)
+* [Time Series Forecasting Algorithms (Tabular Data)](https://review.docs.microsoft.com/en-us/python/api/azure-ml/azure.ml.automl.forecastingmodels?view=azure-ml-py&branch=sdk-cli-v2-preview-master)
+* [Image Classification Multi-class Algorithms](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models#supported-model-algorithms)
+* [Image Classification Multi-label Algorithms](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models#supported-model-algorithms)
+* [Image Object Detection Algorithms](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models#supported-model-algorithms)
+* [Image Instance Segmentation Algorithms](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models#supported-model-algorithms)
+* [NLP Text Classification Multi-class Algorithms](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-nlp-models#language-settings)
+* [NLP Text Classification Multi-label Algorithms](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-nlp-models#language-settings)
+* [NLP Text Named Entity Recognition (NER) Algorithms](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-nlp-models#language-settings)
+
+Follow [this link](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/automl-standalone-jobs) for example notebooks of each task type.
 
 ### Primary metric
 
@@ -205,7 +224,9 @@ Choosing a primary metric for automated ML to optimize depends on many factors. 
 
 Learn about the specific definitions of these metrics in [Understand automated machine learning results](how-to-understand-automated-ml.md).
 
-#### Metrics for classification scenarios 
+#### Metrics for classification multi-class scenarios 
+
+These metrics apply for all classification scenarios, including tabular data, images/computer-vision and NLP-Text.
 
 Threshold-dependent metrics, like `accuracy`, `recall_score_weighted`, `norm_macro_recall`, and `precision_score_weighted` may not optimize as well for datasets that are small, have very large class skew (class imbalance), or when the expected metric value is very close to 0.0 or 1.0. In those cases, `AUC_weighted` can be a better choice for the primary metric. After automated ML completes, you can choose the winning model based on the metric best suited to your business needs.
 
@@ -216,6 +237,18 @@ Threshold-dependent metrics, like `accuracy`, `recall_score_weighted`, `norm_mac
 | `average_precision_score_weighted` | Sentiment analysis |
 | `norm_macro_recall` | Churn prediction |
 | `precision_score_weighted` |  |
+
+You can also see the *enums* to use in Python in this reference page for [ClassificationPrimaryMetrics Enum](https://review.docs.microsoft.com/en-us/python/api/azure-ml/azure.ml.automl.classificationprimarymetrics?view=azure-ml-py&branch=sdk-cli-v2-preview-master)
+
+#### Metrics for classification multi-label scenarios 
+
+- For Text classification multi-label currently 'Accuracy' is the only primary metric supported.
+
+- For Image classification multi-label, the primary metrics supported are defined in the [ClassificationMultilabelPrimaryMetrics Enum](https://review.docs.microsoft.com/en-us/python/api/azure-ml/azure.ml.automl.classificationmultilabelprimarymetrics?view=azure-ml-py&branch=sdk-cli-v2-preview-master)
+
+#### Metrics for NLP Text NER (Named Entity Recognition) scenarios 
+
+- For NLP Text NER (Named Entity Recognition) currently 'Accuracy' is the only primary metric supported.
 
 #### Metrics for regression scenarios
 
@@ -237,7 +270,9 @@ However, currently no primary metrics for regression addresses relative differen
 | `r2_score` | Airline delay, Salary estimation, Bug resolution time |
 | `normalized_mean_absolute_error` |  |
 
-#### Metrics for time series forecasting scenarios
+You can also see the *enums* to use in Python in this reference page for [RegressionPrimaryMetrics Enum](https://review.docs.microsoft.com/en-us/python/api/azure-ml/azure.ml.automl.regressionprimarymetrics?view=azure-ml-py&branch=sdk-cli-v2-preview-master)
+
+#### Metrics for Time Series Forecasting scenarios
 
 The recommendations are similar to those noted for regression scenarios. 
 
@@ -247,21 +282,51 @@ The recommendations are similar to those noted for regression scenarios.
 | `r2_score` | Price prediction (forecasting), Inventory optimization, Demand forecasting |
 | `normalized_mean_absolute_error` | |
 
+You can also see the *enums* to use in Python in this reference page for [ForecastingPrimaryMetrics Enum](https://review.docs.microsoft.com/en-us/python/api/azure-ml/azure.ml.automl.forecastingprimarymetrics?view=azure-ml-py&branch=sdk-cli-v2-preview-master)
+
+#### Metrics for Image Object Detection scenarios 
+
+- For Image Object Detection, the primary metrics supported are defined in the [ObjectDetectionPrimaryMetrics Enum](https://review.docs.microsoft.com/en-us/python/api/azure-ml/azure.ml.automl.objectdetectionprimarymetrics?view=azure-ml-py&branch=sdk-cli-v2-preview-master)
+
+#### Metrics for Image Instance Segmentation scenarios 
+
+- For Image Instance Segmentation scenarios, the primary metrics supported are defined in the [InstanceSegmentationPrimaryMetrics Enum](https://review.docs.microsoft.com/en-us/python/api/azure-ml/azure.ml.automl.instancesegmentationprimarymetrics?view=azure-ml-py&branch=sdk-cli-v2-preview-master)
+
 ### Data featurization
 
-In every automated ML experiment, your data is automatically scaled and normalized to help *certain* algorithms that are sensitive to features that are on different scales. This scaling and normalization is referred to as featurization. 
-See [Featurization in AutoML](how-to-configure-auto-features.md#) for more detail and code examples. 
+In every automated ML experiment, your data is automatically transformed to numbers and vectors of numbers plus (i.e. converting text to numeric) also scaled and normalized to help *certain* algorithms that are sensitive to features that are on different scales. This data transformation, scaling and normalization is referred to as featurization. 
 
 > [!NOTE]
 > Automated machine learning featurization steps (feature normalization, handling missing data, converting text to numeric, etc.) become part of the underlying model. When using the model for predictions, the same featurization steps applied during training are applied to your input data automatically.
 
-When configuring your automated ML jobs, you can enable/disable the setting `featurization`. The following table shows the accepted settings for featurization. 
+When configuring your automated ML jobs, you can enable/disable the `featurization` settings by using the `.set_featurization()` setter function. 
+
+The following table shows the accepted settings for featurization. 
 
 |Featurization Configuration | Description |
 | ------------- | ------------- |
-|`"featurization": 'auto'`| Indicates that as part of preprocessing, [data guardrails and featurization steps](how-to-configure-auto-features.md#featurization) are performed automatically. **Default setting**.|
-|`"featurization": 'off'`| Indicates featurization step shouldn't be done automatically.|
-|`"featurization":`&nbsp;`'FeaturizationConfig'`| Indicates customized featurization step should be used. [Learn how to customize featurization](how-to-configure-auto-features.md#customize-featurization).|
+|`"mode": 'auto'`| Indicates that as part of preprocessing, [data guardrails and featurization steps](how-to-configure-auto-features.md#featurization) are performed automatically. **Default setting**.|
+|`"mode": 'off'`| Indicates featurization step shouldn't be done automatically.|
+|`"mode":`&nbsp;`'custom'`| Indicates customized featurization step should be used.|
+
+The following code shows how custom featurization can be provided in this case for a regression job.
+
+```python
+from azure.ai.ml.automl import ColumnTransformer
+
+transformer_params = {
+    "imputer": [
+        ColumnTransformer(fields=["CACH"], parameters={"strategy": "most_frequent"}),
+        ColumnTransformer(fields=["PRP"], parameters={"strategy": "most_frequent"}),
+    ],
+}
+regression_job.set_featurization(
+    mode="custom",
+    transformer_params=transformer_params,
+    blocked_transformers=["LabelEncoding"],
+    column_name_and_types={"CHMIN": "Categorical"},
+)
+```
 
 <a name="exit"></a> 
 
@@ -317,7 +382,7 @@ Automated ML offers options for you to monitor and evaluate your training result
 
 * To get a featurization summary and understand what features were added to a particular model, see [Featurization transparency](how-to-configure-auto-features.md#featurization-transparency). 
 
-You can view the hyperparameters, the scaling and normalization techniques, and algorithm applied to a specific automated ML run with the [custom code solution, `print_model()`](how-to-configure-auto-features.md#scaling-and-normalization). 
+From Azure Machine Learning UI at the model's page you can also view the hyperparameters used when training a particular a particular model and also view and customize the internal model's training code used. 
 
 ## Register and deploy models
 
