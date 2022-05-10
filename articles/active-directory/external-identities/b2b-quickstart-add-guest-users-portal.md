@@ -1,11 +1,11 @@
 ---
-title: 'Quickstart: Add guest users in the Azure portal - Azure AD'
+title: 'Quickstart: Add a guest user and send an invitation - Azure AD'
 description: Use this quickstart to learn how Azure AD admins can add B2B guest users in the Azure portal and walk through the B2B invitation workflow.
 services: active-directory
 author: msmimart
 ms.author: mimart
 manager: celestedg
-ms.date: 05/09/2022
+ms.date: 05/10/2022
 ms.topic: quickstart
 ms.service: active-directory
 ms.subservice: B2B
@@ -14,7 +14,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a tenant admin, I want to walk through the B2B invitation workflow so that I can understand how to add a guest user in the portal, and understand the end user experience.
 ---
 
-# Quickstart: Add guest users to your directory in the Azure portal
+# Quickstart: Add a guest user and send an invitation
 
 With Azure AD [B2B collaboration](what-is-b2b.md), you can invite anyone to collaborate with your organization using their own work, school, or social account. In this quickstart, you'll learn how to add a new guest user to your Azure AD directory in the Azure portal. You'll also send an invitation and see what the guest user's invitation redemption process looks like. In addition to this quickstart, you can learn more about adding guest users [in the Azure portal](add-users-administrator.md), via [PowerShell](b2b-quickstart-invite-powershell.md), or [in bulk](tutorial-bulk-invite.md).
 
