@@ -1,5 +1,5 @@
 ---
-title: Use the Responsible AI dashboard in studio (preview)
+title: How to use the Responsible AI dashboard in studio (preview)
 titleSuffix: Azure Machine Learning
 description: 
 services: machine-learning
@@ -12,7 +12,7 @@ ms.date: 05/24/2022
 ms.custom: responsible-ml
 ---
 
-# Use the Responsible AI dashboard in studio (preview)
+# How to use the Responsible AI dashboard in studio (preview)
 
 
 ## Where to find your Responsible AI dashboard
