@@ -197,11 +197,3 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 - **Is connectivity to Azure NetApp Files datastores over Virtual WAN (vWAN) supported?** 
 
     No, connectivity to Azure NetApp Files over vWAN is currently not supported. For supported connectivity patterns, refer to [Guidelines for Azure NetApp Files network planning](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies)
-
-- **What regions are currently supported by Azure VMware Solutions?**
-
-    To check the regions Azure VMware Solutions supports, go to [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
-
-- **Is connectivity to Azure NetApp Files datastores over VWAN supported?**
-
-     No, connectivity to Azure NetApp Files connectivity over VWAN is currently not supported. For supported connectivity patterns, refer to [Guidelines for Azure NetApp Files network planning](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies#).
