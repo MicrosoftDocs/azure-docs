@@ -26,7 +26,7 @@ All articles in this section document the use of the first version of Azure Mach
 
 ## SDK v1
 
-The Azure SDK examples in all articles in this section require the `azureml-core`, or Python SDK v1 for Azure Machine Learning. The Python SDK v2 is now available in preview.
+The Azure SDK examples in articles in this section require the `azureml-core`, or Python SDK v1 for Azure Machine Learning. The Python SDK v2 is now available in preview.
 
 The v1 and v2 Python SDK packages are incompatible, and v2 style of coding will not work for articles in this directory. However, machine learning workspaces and all underlying resources can be interacted with from either, meaning one user can create a workspace with the SDK v1 and another can submit jobs to the same workspace with the SDK v2.
 
@@ -41,7 +41,7 @@ Based on the results of `pip show` you can determine which version of SDK you ha
 
 ## CLI v1
 
-The Azure CLI commands in all articles in this section __require__ the `azure-cli-ml`, or v1, extension for Azure Machine Learning. The enhanced v2 CLI using the `ml` extension is now available and recommended. 
+The Azure CLI commands in articles in this section __require__ the `azure-cli-ml`, or v1, extension for Azure Machine Learning. The enhanced v2 CLI using the `ml` extension is now available and recommended. 
 
 The extensions are incompatible, so v2 CLI commands will not work for articles in this directory. However, machine learning workspaces and all underlying resources can be interacted with from either, meaning one user can create a workspace with the v1 CLI and another can submit jobs to the same workspace with the v2 CLI.
 
