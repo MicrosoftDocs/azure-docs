@@ -14,9 +14,7 @@ ms.author: eur
 
 # Test recognition quality of a Custom Speech model
 
-Custom Speech lets you qualitatively inspect the recognition quality of a model in the [Speech Studio](https://aka.ms/speechstudio/customspeech). You can play back uploaded audio and determine if the provided recognition result is correct. This tool helps you inspect quality of Microsoft's baseline speech-to-text model, inspect a trained custom model, or compare transcription by two models.
-
-This article describes how to qualitatively inspect the quality of Microsoft's baseline speech-to-text model or custom models that you've trained. 
+You can inspect the recognition quality of a Custom Speech model in the [Speech Studio](https://aka.ms/speechstudio/customspeech). You can play back uploaded audio and determine if the provided recognition result is correct. After a test has been successfully created, you can see how a model transcribed the audio dataset, or compare results from two models side by side.
 
 > [!TIP]
 > You can also use the [online transcription editor](how-to-custom-speech-transcription-editor.md) to create and refine labeled audio datasets.
@@ -39,7 +37,7 @@ Follow these instructions to create a test:
 
 [!INCLUDE [service-pricing-advisory](includes/service-pricing-advisory.md)]
 
-After a test has been successfully created, you can see how a model transcribes the audio dataset you specified, or compare results from two models side by side.
+
 
 ## Side-by-side model comparisons
 
