@@ -39,7 +39,7 @@ If you __don't__ want to use the v2 API, Azure Machine Learning will provide a *
 ## Scenarios and Required Actions
 
 >[!WARNING]
->This parameter is not implemented yet. It will be implemented on May 26th, 2022.
+>This parameter is not implemented yet. It will be implemented the week of May 15th, 2022.
 
 We provide a new workspace level parameter called v1_legacy_mode. By default, if you create a workspace and configure a private endpoint during workspace creation, this parameter will be enabled. The following are the scenarios that are impacted by this behavior:
 
@@ -56,7 +56,7 @@ __If you want to use the v2 API with your private endpoint enabled workspace__, 
 ## How to update v1_legacy_mode parameter
 
 >[!WARNING]
->This parameter is not implemented yet. It will be implemented on May 26th, 2022.
+>This parameter is not implemented yet. It will be implemented the week of May 15th, 2022.
 
 To update v1_legacy_mode, use the following steps:
 
