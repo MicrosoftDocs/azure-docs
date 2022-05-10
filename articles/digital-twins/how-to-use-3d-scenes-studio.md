@@ -64,7 +64,7 @@ In this section, you'll create an environment in *3D Scenes Studio* and customiz
 
 The 3D representation of an environment in 3D Scenes Studio is called a *scene*. A scene consists of a 3D file and a configuration file that's created for you automatically.
 
-To create a scene, start with a segmented 3D file in *.GLTF* or *.GLB* format. You can download and view a sample 3D file using this link: [Download KawasakiAndSite4.glb](https://cardboardresources.blob.core.windows.net/cardboard-mock-files/OutdoorTanks.gltf). 
+To create a scene, start with a segmented 3D file in *.GLTF* or *.GLB* format. You can download and view a sample 3D file using this link: [Download RobotArms.glb](https://cardboardresources.blob.core.windows.net/public/RobotArms.glb). 
 
 >[!TIP]
 >3D Scenes Studio supports animation. If you use a 3D model file that contains animations, they will play in the scene.
