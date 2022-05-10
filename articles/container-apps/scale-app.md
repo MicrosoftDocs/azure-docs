@@ -20,7 +20,7 @@ There are two scale properties that apply to all rules in your container app:
 
 | Scale property | Description | Default value | Min value | Max value |
 |---|---|---|---|---|
-| `minReplicas` | Minimum number of replicas running for your container app. | 0 | 1 | 10 |
+| `minReplicas` | Minimum number of replicas running for your container app. | 0 | 0 | 10 |
 | `maxReplicas` | Maximum number of replicas running for your container app. | n/a | 1 | 10 |
 
 - If your container app scales to zero, then you aren't billed.
@@ -30,8 +30,7 @@ There are two scale properties that apply to all rules in your container app:
 - Changes to scaling rules are a [revision-scope](./revisions.md#revision-scope-changes) change.
 - When using non-HTTP event scale rules, setting the `activeRevisionMode` to `single` is recommended.
 
-> [!IMPORTANT]
-> Replica quantities are a target amount, not a guarantee. Even if you set `maxReplicas` to `1`, there is no assurance of thread safety.
+
 
 ## Scale triggers
 
