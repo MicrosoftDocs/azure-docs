@@ -34,7 +34,7 @@ To complete the scenario in this quickstart, you need:
 
 1. Under **Azure services**, select **Azure Active Directory** (or use the search box to find and select **Azure Active Directory**).
 
-    ![Screenshot showing where to select the Azure Active Directory service](media/quickstart-add-users-portal/azure-active-directory-service.png)
+    ![Screenshot showing where to select the Azure Active Directory service.](media/quickstart-add-users-portal/azure-active-directory-service.png)
 
 1. Under **Manage**, select **Users**.
 
@@ -42,7 +42,7 @@ To complete the scenario in this quickstart, you need:
 
 1. Select **New guest user**.
 
-    ![Screenshot showing where to select the New guest user option](media/quickstart-add-users-portal/new-guest-user.png)
+    ![Screenshot showing where to select the New guest user option.](media/quickstart-add-users-portal/new-guest-user.png)
 
 1. On the **New user** page, select **Invite user** and then add the guest user's information.
 
@@ -52,13 +52,13 @@ To complete the scenario in this quickstart, you need:
    - **Groups**: You can add the guest user to one or more existing groups, or you can do it later.
    - **Roles**: If you require Azure AD administrative permissions for the user, you can add them to an Azure AD role.
 
-    ![Screenshot showing the new user page](media/quickstart-add-users-portal/invite-user.png)
+    ![Screenshot showing the new user page.](media/quickstart-add-users-portal/invite-user.png)
 
 1. Select **Invite** to automatically send the invitation to the guest user. A notification appears in the upper right with the message **Successfully invited user**.
 
 1. After you send the invitation, the user account is automatically added to the directory as a guest.
 
-    ![Screenshot showing the new guest user in the directory](media/quickstart-add-users-portal/new-guest-user-directory.png)
+    ![Screenshot showing the new guest user in the directory.](media/quickstart-add-users-portal/new-guest-user-directory.png)
 
 ## Accept the invitation
 
@@ -72,7 +72,7 @@ Now sign in as the guest user to see the invitation.
 
 1. In the email body, select **Accept invitation**. A **Review permissions** page opens in the browser.
 
-    ![Screenshot showing the Review permissions page](media/quickstart-add-users-portal/consent-screen.png)
+    ![Screenshot showing the Review permissions page.](media/quickstart-add-users-portal/consent-screen.png)
 
 1. Select **Accept**.
 
