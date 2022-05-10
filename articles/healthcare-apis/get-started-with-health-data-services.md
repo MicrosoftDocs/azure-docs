@@ -5,7 +5,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 05/09/2022
+ms.date: 05/10/2022
 ms.author: ranku
 ---
 
@@ -42,17 +42,35 @@ To be guided through these steps, see [Deploy Azure Health Data Services workspa
 
 [![Screenshot of the Azure Health Data Services workspace.](media/health-data-services-workspace.png)](media/health-data-services-workspace.png#lightbox)
 
-After you've created a workspace, you can deploy a FHIR service, DICOM service, and MedTech service.
+### About user access and permissions
+
+Azure Health Data Services is a collection of secured managed services using Azure Active Directory (Azure AD). For the Azure Health Data Services to access Azure resources, such as storage accounts and event hubs, you must enable the system managed identity, and grant proper permissions to the managed identity. Client applications are registered in the Azure AD and can be used to access the Azure Health Data Services. User data access controls are done in the applications or services that implement business logic.
+
+Authenticated users and client applications of the Azure Health Data Services must be granted with proper [application roles](./../healthcare-apis/authentication-authorization.md#application-roles). After being granted with proper application roles, the [authenticated users and client applications](./../healthcare-apis/authentication-authorization.md#authorization) can access Azure Health Data Services by obtaining a valid [access token](./../healthcare-apis/authentication-authorization.md#access-token) issued by Azure AD, and perform specific operations defined by the application roles. For more information, see [Authentication and Authorization for Azure Health Data Services](authentication-authorization.md).
+
+Furthermore, to access Azure Health Data Services, you [register a client application](register-application.md) in the Azure AD. It's with these steps that you can find the [application (client) ID](./../healthcare-apis/register-application.md#application-id-client-id), and you can configure the [authentication setting](./../healthcare-apis/register-application.md#authentication-setting-confidential-vs-public) to allow public client flows or to a confidential client application.
+
+As a requirement for the DICOM service (optional for the FHIR service), you configure the user access [API permissions](./../healthcare-apis/register-application#api-permissions) or role assignments for Azure Health Data Services that's managed through [Azure role-based access control (Azure RBAC)](configure-azure-rbac.md).  
 
 ## FHIR service
 
 FHIR service in Azure Health Data Services enables rapid exchange of data through FHIR APIs that's backed by a managed Platform-as-a Service (PaaS) offering in the cloud. It makes it easier for anyone working with health data to ingest, manage, and persist Protected Health Information (PHI) in the cloud.  
 
-FHIR service is secured by Azure Active Directory (Azure AD) that can't be disabled. To access the service API, you must create a client application that's also referred to as a service principal in Azure AD and grant it with the right permissions. For more information about registering a client application, granting access permissions, and assigning roles to the FHIR service, see [Get started with the FHIR service](./../healthcare-apis/fhir/get-started-with-fhir.md).
+The FHIR service is secured by Azure AD that can't be disabled. To access the service API, you must create a client application that's also referred to as a service principal in Azure AD and grant it with the right permissions. You can create or register a client application from the [Azure portal](register-application.md), or using PowerShell and Azure CLI scripts. This client application can be used for one or more FHIR service instances. It can also be used for other services in Azure Health Data Services.
+
+You can also do the following:
+- Grant access permissions
+- Perform create, read (search), update, and delete (CRUD) transactions against the FHIR service in your applications
+- Obtain an access token for the FHIR service 
+- Access the FHIR service using tools such as cURL, Postman, and REST Client
+- Load data directly using the POST or PUT method against the FHIR service 
+- Export ($export) data to Azure Storage
+- Convert data: convert [HL7 v2](https://docs.microsoft.com/en-us/azure/healthcare-apis/data-transformation/convert-data) and other format data to FHIR
+- Create Power BI dashboard reports with FHIR data 
+
+For more information about, see [Get started with the FHIR service](./../healthcare-apis/fhir/get-started-with-fhir.md).
 
 ## DICOM service
-
-DICOM (Digital Imaging and Communications in Medicine) is the international standard to transmit, store, retrieve, print, process, and display medical imaging information, and is the primary medical imaging standard accepted across healthcare.
 
 DICOM service is a managed service within Azure Health Data Services that ingests and persists DICOM objects at multiple thousands of images per second. It facilitates communication and transmission of imaging data with any DICOMweb™ enabled systems or applications via DICOMweb Standard APIs like [Store (STOW-RS)](./../healthcare-apis/dicom/dicom-services-conformance-statement.md#store-stow-rs), [Search (QIDO-RS)](./../healthcare-apis/dicom/dicom-services-conformance-statement.md#search-qido-rs), [Retrieve (WADO-RS)](./../healthcare-apis/dicom/dicom-services-conformance-statement.md#retrieve-wado-rs). 
 
