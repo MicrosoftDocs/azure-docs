@@ -81,11 +81,11 @@ Use an Azure Policy to enable Microsoft Defender for Cloud across storage accoun
 1. Launch the Azure **Policy - Definitions** page.
 1. Search for the **Azure Defender for Storage should be enabled** policy, then select the policy to view the policy definition page.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-defender-policy-definitions.png" alt-text="Locate built-in policy to enable Microsoft Defender for Storage for your storage accounts.":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-defender-policy-definitions.png" alt-text="Locate built-in policy to enable Microsoft Defender for Storage for your storage accounts." lightbox="media/azure-defender-storage-configure/storage-defender-policy-definitions.png":::
 
 1. Select the **Assign** button for the built-in policy, then specify an Azure subscription. You can also optionally specify a  resource group to further scope the policy assignment.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-defender-policy-assignment.png" alt-text="Select subscription and optionally resource group to scope the policy assignment.":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-defender-policy-assignment.png" alt-text="Select subscription and optionally resource group to scope the policy assignment." lightbox="media/azure-defender-storage-configure/storage-defender-policy-assignment.png":::
 
 1. Select **Review + create** to review the policy definition and then create it with the specified scope.
 

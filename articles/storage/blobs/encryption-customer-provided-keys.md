@@ -65,7 +65,7 @@ The following Blob storage operations support sending customer-provided encrypti
 
 ## Rotate customer-provided keys
 
-To rotate an encryption key that was used to encrypt a blob, download the blob and then re-upload it with the new encryption key.
+To rotate an encryption key that was used to encrypt a blob, download the blob and then reupload it with the new encryption key.
 
 > [!IMPORTANT]
 > The Azure portal cannot be used to read from or write to a container or blob that is encrypted with a key provided on the request.
