@@ -27,10 +27,79 @@ This quickstart shows you how to provision and prepare an Azure Database for Pos
 
 ## Provision Services
 
+To add persistence to the application, you must create an Azure Cache for Redis instance and a Azure Database for PostgreSQL Flexible Server. This guide provides instructions to [Provision Services using the Azure CLI](#provision-services-using-the-azure-cli) or to [Provision Services with an Arm Template](#provision-services-with-arm-template).
 
-### Provision Services Using Azure CLI
+### Provision Services Using the Azure CLI
+
+The following steps describe how to provision an Azure Cache for Redis instance and a Azure Database for PostgreSQL Flexible Server using the Azure CLI. To provision these resources using an ARM Template, continue on to [Provision Services with ARM Template](#provision-services-with-arm-template).
+
+1. Create an instance of Azure Cache for Redis using the following command:
+
+    ```azurecli
+    az redis create \
+      --resource-group <resource-group> \
+      --name <cache-server-name> \
+      --location ${REGION} \
+      --sku Basic \
+      --vm-size c0
+    ```
+
+1. Create an Azure Database for PostgreSQL Flexible Server instance using the following command:
+
+    ```azurecli
+    az postgres flexible-server create \
+        --resource-group <resource-group> \
+        --name <postgres-server-name> \
+        --location <location> \
+        --admin-user <postgres-username> \
+        --admin-password <postgres-password> \
+        --yes
+    ```
+
+1. Allow connections from other Azure Services to the newly created Flexible Server using the following command:
+
+    ```azurecli
+    az postgres flexible-server firewall-rule create \
+        --rule-name allAzureIPs \
+        --name <postgres-server-name> \
+        --resource-group <resource-group> \
+        --start-ip-address 0.0.0.0 \
+        --end-ip-address 0.0.0.0
+    ```
+
+1. Enable the `uuid-ossp` extension for the newly created Flexible Server using the following command:
+
+    ```azurecli
+    az postgres flexible-server parameter set \
+        --resource-group <resource-group> \
+        --name azure.extensions \
+        --value uuid-ossp \
+        --server-name <postgres-server-name> \
+    ```
+
+1. Create a database for the Order Service application using the following command:
+
+    ```azurecli
+    az postgres flexible-server db create \
+        --resource-group <resource-group> \
+        --server-name <postgres-server-name> \
+        --database-name acmefit_order
+    ```
+
+1. Create a database for the Catalog Service application using the following command:
+
+    ```azurecli
+    az postgres flexible-server db create \
+        --resource-group <resource-group> \
+        --server-name <postgres-server-name> \
+        --database-name acmefit_catalog
+    ```
 
 ### Provision Services with ARM Template
+
+The following instructions describe how to provision an Azure Cache for Redis instance and a Azure Database for PostgreSQL Flexible Server using an Azure Resource Manager template (ARM template). Continue  on to [Create Service Connectors](#create-service-connectors) if these resource have already been provisioned using the Azure CLI.
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 The template used in this quickstart can be found in the [ACME Fitness Store GitHub Repository](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/azure/templates/azuredeploy.json).
 
@@ -66,7 +135,7 @@ The following steps show how to bind applications running in Azure Spring Cloud 
         --deployment default \
         --server <postgres-server-name> \
         --database acmefit_order \
-        --secret name=<postgres-username> secret=<postgres_password> \
+        --secret name=<postgres-username> secret=<postgres-password> \
         --client-type dotnet
     ```
 
@@ -82,7 +151,7 @@ The following steps show how to bind applications running in Azure Spring Cloud 
         --deployment default \
         --server <postgres-server-name> \
         --database acmefit_catalog \
-        --secret name=<postgres-username> secret=<postgres_password> \
+        --secret name=<postgres-username> secret=<postgres-password> \
         --client-type springboot
     ```
 
@@ -142,6 +211,18 @@ The following steps show how to bind applications running in Azure Spring Cloud 
         --name cart-service \
         --service <spring-cloud-service> \
         --env "CART_PORT=8080" 
+    ```
+
+## Access the Application
+
+Retrieve the URL for Spring Cloud Gateway and explore the updated application. The output from the following command can be used to explore the application:
+
+    ```azurecli
+    GATEWAY_URL=$(az spring-cloud gateway show \
+        --resource-group <resource-group> \
+        --service <spring-cloud-service> | jq -r '.properties.url')
+
+    echo "https://${GATEWAY_URL}"
     ```
 
 ## Clean up resources
