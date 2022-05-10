@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 01/01/2022
+ms.date: 05/10/2022
 ms.custom: contperf-fy21q4
 ---
 
 # About connectors in Azure Logic Apps
 
-When you build workflows using Azure Logic Apps, you can use *connectors* to help you quickly and easily access data, events, and resources in other apps, services, systems, protocols, and platforms - often without writing any code. A connector provides prebuilt operations that you can use as steps in your workflows. Azure Logic Apps provides hundreds of connectors that you can use. If no connector is available for the resource that you want to access, you can use the generic HTTP operation to communicate with the service, or you can [create a custom connector](#custom-apis-and-connectors).
+When you build workflows using Azure Logic Apps, you can use *connectors* to help you quickly and easily access data, events, and resources in other apps, services, systems, protocols, and platforms - often without writing any code. A connector provides prebuilt operations that you can use as steps in your workflows. Azure Logic Apps provides hundreds of connectors that you can use. If no connector is available for the resource that you want to access, you can use the generic HTTP operation to communicate with the service, or you can [create a custom connector](#custom-connectors-and-apis).
 
 This overview provides a high-level introduction to connectors and how they generally work. For information about the more popular and commonly used connectors in Azure Logic Apps, review the following documentation:
 
@@ -30,6 +30,7 @@ Technically, a connector is a proxy or a wrapper around an API that the underlyi
 A *trigger* specifies the event that starts the workflow and is always the first step in any workflow. Each trigger also follows a specific firing pattern that controls how the trigger monitors and responds to events. Usually, a trigger follows the *polling* pattern or *push* pattern, but sometimes, a trigger is available in both versions.
 
 - *Polling triggers* regularly check a specific service or system on a specified schedule to check for new data or a specific event. If new data is available, or the specific event happens, these triggers create and run a new instance of your workflow. This new instance can then use the data that's passed as input.
+
 - *Push triggers* listen for new data or for an event to happen, without polling. When new data is available, or when the event happens, these triggers create and run a new instance of your workflow. This new instance can then use the data that's passed as input.
 
 For example, you might want to build a workflow that does something when a file is uploaded to your FTP server. As the first step in your workflow, you can use the FTP trigger named **When a file is added or modified**, which follows the polling pattern. You can then specify a schedule to regularly check for upload events.
@@ -43,11 +44,12 @@ An *action* is an operation that follows the trigger and performs some kind of t
 ## Connector categories
 
 In Azure Logic Apps, most triggers and actions are available in either a *built-in* version or *managed connector* version. A few triggers and actions are available in both versions. The versions available depend on whether you create a *Consumption* logic app that runs in multi-tenant Azure Logic Apps, or a *Standard* logic app that runs in single-tenant Azure Logic Apps.
-For more information, review [Resource types and host environment differences](../logic-apps/logic-apps-overview.md#resource-environment-differences).
 
 * [Built-in connectors](built-in.md) run natively on the Azure Logic Apps runtime.
 
 * [Managed connectors](managed.md) are deployed, hosted, and managed by Microsoft. These connectors provide triggers and actions for cloud services, on-premises systems, or both.
+
+For more information about logic app types, review [Resource types and host environment differences](../logic-apps/logic-apps-overview.md#resource-environment-differences).
 
 <a name="connection-configuration"></a>
 
@@ -131,9 +133,20 @@ To make sure that your workflow runs at your specified start time and doesn't mi
 
 * Consider using a [**Sliding Window** trigger](connectors-native-sliding-window.md) instead of a **Recurrence** trigger to avoid missed recurrences.
 
-## Custom APIs and connectors
+## Custom connectors and APIs
 
-To call APIs that run custom code or aren't available as connectors, you can extend the Logic Apps platform by [creating custom API Apps](../logic-apps/logic-apps-create-api-app.md). You can also [create custom connectors](../logic-apps/custom-connector-overview.md) for any REST or SOAP-based APIs, which make those APIs available to any logic app in your Azure subscription. To make custom API Apps or connectors public for anyone to use in Azure, you can [submit connectors for Microsoft certification](/connectors/custom-connectors/submit-certification).
+In Consumption logic apps, you can call APIs that run custom code or aren't available as connectors in the following ways:
+
+* [Create custom API Apps](../logic-apps/logic-apps-create-api-app.md)
+
+* [Create custom connectors](../logic-apps/custom-connector-overview.md) for any REST or SOAP-based APIs.
+
+  Custom connectors make these APIs available to any Consumption logic app in your Azure subscription. To make custom API Apps or connectors public for anyone to use in Azure, you can [submit connectors for Microsoft certification](/connectors/custom-connectors/submit-certification).
+
+In Standard logic apps, you can create natively-running custom built-in connectors that are available to any Standard logic app. For more information, review the following documentation:
+
+* [Custom connectors for Standard logic apps](../logic-apps/custom-connector-overview.md#custom-connector-standard)
+* [Create custom built-in connectors for Standard logic apps](../logic-apps/create-custom-built-in-connector-standard.md)
 
 ## ISE and connectors
 

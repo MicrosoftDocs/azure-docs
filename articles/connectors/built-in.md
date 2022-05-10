@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 05/10/2022
 ---
 
 # Built-in connectors in Azure Logic Apps
