@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 # Reference documentation overview
 
-## External Links and Docs
+## External links and docs
 For each area, we have external pages to track and review our SDKs. You can consult the table below to find the matching page for your SDK of interest.
 
 | Area                   | JavaScript                                                                  | .NET                                                                         | Python                                                                | Java SE                                                                           | iOS                                                                                                             | Android                                                                                   | Other                                                                           |
