@@ -400,7 +400,7 @@ Starting from version 3.2.11, you can change this behavior to capture them as su
 
 ## LoggingLevel
 
-By default, LoggingLevel is no longer captured as part of the Log's custom dimension.
+By default, LoggingLevel is no longer captured as part of the Traces' custom dimension.
 
 Starting from version 3.3.0-BETA, you can change this behavior to capture LoggingLevel if you prefer even though SeverityLevel is available:
 
