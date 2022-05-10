@@ -2,6 +2,7 @@
 title: 'Tutorial: Deploy Spring Boot Application on AKS cluster with MySQL Flexible Server within a VNet'
 description: Learn how to quickly build and deploy a Spring Boot Application on AKS with Azure Database for MySQL - Flexible Server, with secure connectivity within a VNet.
 ms.service: mysql
+ms.subservice: flexible-server
 author: shreyaaithal
 ms.author: shaithal
 ms.topic: tutorial

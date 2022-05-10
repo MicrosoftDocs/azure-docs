@@ -4,6 +4,7 @@ description: Learn how to set TLS configuration using Azure portal for your Azur
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: how-to
 ms.date: 06/02/2020
 ---
