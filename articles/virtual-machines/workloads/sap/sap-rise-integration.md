@@ -28,7 +28,7 @@ RISE with SAP S/4HANA Cloud, private edition and SAP Enterprise Cloud Services a
 
 ## Virtual network peering with SAP RISE/ECS
 
-A vnet peering is the most performant way to connect securely and privately two standalone vnets, utilizing the Microsoft private backbone network. The peered networks appear as one for connectivity purposes, allowing applications to talk to each other. Applications running in different vnets, subscriptions, Azure tenants or regions are enabled to communicate directly. Like network traffic on a single vnet, vnet peering traffic remains on Microsoft’s private network and does not traverse the internet.
+A vnet peering is the most performant way to connect securely and privately two standalone vnets, utilizing the Microsoft private backbone network. The peered networks appear as one for connectivity purposes, allowing applications to talk to each other. Applications running in different vnets, subscriptions, Azure tenants or regions are enabled to communicate directly. Like network traffic on a single vnet, vnet peering traffic remains on Microsoft’s private network and doesn't traverse the internet.
 
 For SAP RISE/ECS deployments, virtual peering is the preferred way to establish connectivity with customer’s existing Azure environment. Both the SAP vnet and customer vnet(s) are protected with network security groups (NSG), enabling communication on SAP and database ports through the vnet peering. Communication between the peered vnets is secured through these NSGs, limiting communication to customer’s  SAP environment. For details and a list of open ports, contact your SAP representative.
 
@@ -86,7 +86,7 @@ Design description and specifics:
 
   - Custom DNS configuration for SAP-owned VNets
 
-  - 2 VMs in the RISE/STE/ECS Azure vnet hosting DNS servers
+  - Two VMs in the RISE/STE/ECS Azure vnet hosting DNS servers
 
   - Customers must provide and delegate to SAP a subdomain/zone (for example, \*ecs.contoso.com) which will be used to assign names and create forward and reverse DNS entries for the virtual machines that run SAP managed environment. SAP DNS servers are holding a master DNS role for the delegated zone
 
@@ -98,7 +98,7 @@ Design description and specifics:
 
 Alternatively, DNS zone transfer from SAP DNS servers could be performed to a customer’s DNS servers located in Azure Hub VNet (diagram above). This is applicable for the designs when customers operate custom DNS solution (e.g. [AD DS](/windows-server/identity/ad-ds/active-directory-domain-services) or BIND servers) within their Hub VNet.
 
-**Important to note**, that both Azure provided DNS and Azure private zones **do not** support DNS zone transfer capability, hence, cannot be used to accept DNS replication from SAP RISE/STE/ECS DNS servers. Additionally, external DNS service providers are typically not supported by SAP RISE/ECS.
+**Important to note**, that both Azure provided DNS and Azure private zones **do not** support DNS zone transfer capability, hence, can't be used to accept DNS replication from SAP RISE/STE/ECS DNS servers. Additionally, external DNS service providers are typically not supported by SAP RISE/ECS.
 
 To further read about the usage of Azure DNS for SAP, outside the usage with SAP RISE/ECS see details in following [blog post](https://www.linkedin.com/posts/k-popov_sap-on-azure-dns-integration-whitepaper-activity-6841398577495977984-ui9V/).
 
@@ -106,7 +106,7 @@ To further read about the usage of Azure DNS for SAP, outside the usage with SAP
 
 SAP workloads communicating with external applications or inbound connections from a company’s user base (for example, SAP Fiori) could require a network path to the Internet, depending on customer’s requirements. Within SAP RISE/ECS managed workloads, work with your SAP representative to explore needs for such https/RFC/other communication paths. Network communication to/from the Internet is by default not enabled for SAP RISE/ECS customers and default networking is utilizing private IP ranges only. Internet connectivity requires planning with SAP, to optimally protect customer’s SAP landscape.
 
-Should you enable Internet bound or incoming traffic with your SAP representatives, the network communication is protected through various Azure technologies such as NSGs, ASGs, Application Gateway with Web Application Firewall (WAF), proxy servers and others. These services are entirely managed through SAP within the SAP RISE/ECS vnet and subscription. The network path SAP RISE/ECS to and from Internet remains typically within the SAP RISE/ECS vnet only and does not transit into/from customer’s own vnet(s).
+Should you enable Internet bound or incoming traffic with your SAP representatives, the network communication is protected through various Azure technologies such as NSGs, ASGs, Application Gateway with Web Application Firewall (WAF), proxy servers and others. These services are entirely managed through SAP within the SAP RISE/ECS vnet and subscription. The network path SAP RISE/ECS to and from Internet remains typically within the SAP RISE/ECS vnet only and doesn't transit into/from customer’s own vnet(s).
 
 :::image type="complex" source="./media/sap-rise-integration/sap-rise-internet.png" alt-text="Diagram of Internet outbound/inbound connections with SAP RISE/ECS.":::
    This diagram shows a typical SAP customer's hub and spoke virtual networks. Cross-tenant virtual network peering connects SAP RISE vnet to customer's hub vnet. On-premise connectivity is provided from customer's hub. SAP Cloud Connector VM from SAP RISE vnet connects through Internet to SAP BTP. Another SAP Cloud Connector VM connects through Internet to SAP BTP, with internet inbound and outbound connectivity facilitated by customer's hub vnet.
@@ -139,13 +139,13 @@ With the information about available interfaces to the SAP RISE/ECS landscape, s
 
 Integrating your SAP system with Azure cloud native services such as Azure Data Factory or Azure Synapse would use these communication channels to the SAP RISE/ECS managed environment. 
 
-The following high-level architecture shows possible integration scenario with Azure data services such as [Data Factory](/azure/data-factory) or [Synapse Analytics](/azure/synapse-analytics). For these Azure services either a self-hosted integration runtime (self-hosted IR or IR) or Azure integration runtime (Azure IR) can be used. The use of either integration runtimes depend on the [chosen data connector](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats), most SAP connectors are only available for the self-hosted IR. [SAP ECC connector](/azure/data-factory/connector-sap-ecc?tabs=data-factory) is capable of being using through both Azure IR and self-hosted IR. The choice of IR governs the network path taken. SAP .NET connector is used for [SAP table connector](/azure/data-factory/connector-sap-ecc?tabs=data-factory), [SAP BW](/azure/data-factory/connector-sap-business-warehouse?tabs=data-factory) and [SAP OpenHub](/azure/data-factory/connector-sap-business-warehouse-open-hub) connectors alike. All these connectors use SAP function modules (FM) on the SAP system, executed through RFC connections. Last if direct database access has been agreed with SAP, along with users and connection path opened, ODBC/JDBC connector for [SAP HANA](/azure/data-factory/connector-sap-hana?tabs=data-factory) can be used from the self-hosted IR as well.
+The following high-level architecture shows possible integration scenario with Azure data services such as [Data Factory](/azure/data-factory) or [Synapse Analytics](/azure/synapse-analytics). For these Azure services either a self-hosted integration runtime (self-hosted IR or IR) or Azure integration runtime (Azure IR) can be used. The use of either integration runtime depends on the [chosen data connector](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats), most SAP connectors are only available for the self-hosted IR. [SAP ECC connector](/azure/data-factory/connector-sap-ecc?tabs=data-factory) is capable of being using through both Azure IR and self-hosted IR. The choice of IR governs the network path taken. SAP .NET connector is used for [SAP table connector](/azure/data-factory/connector-sap-ecc?tabs=data-factory), [SAP BW](/azure/data-factory/connector-sap-business-warehouse?tabs=data-factory) and [SAP OpenHub](/azure/data-factory/connector-sap-business-warehouse-open-hub) connectors alike. All these connectors use SAP function modules (FM) on the SAP system, executed through RFC connections. Last if direct database access has been agreed with SAP, along with users and connection path opened, ODBC/JDBC connector for [SAP HANA](/azure/data-factory/connector-sap-hana?tabs=data-factory) can be used from the self-hosted IR as well.
 
 [![SAP RISE/ECS accessed by Azure ADF or Synapse](./media/sap-rise-integration/sap-rise-adf-synapse.png)](./media/sap-rise-integration/sap-rise-adf-synapse.png#lightbox)
 
 For data connectors using the Azure IR, this IR accesses your SAP environment through a public IP address. SAP RISE/ECS provides this endpoint through an application gateway for use and the communication and data movement is through https. 
 
-Data connectors through the self-hosted integration runtime communicate with the SAP system within SAP RISE/ECS subscription and vnet through the established vnet peering and private network address only. The established network security group rules limit which application can communicate with the SAP system. 
+Data connectors within the self-hosted integration runtime communicate with the SAP system within SAP RISE/ECS subscription and vnet through the established vnet peering and private network address only. The established network security group rules limit which application can communicate with the SAP system. 
 
 The customer is responsible for deployment and operation of the self-hosted integration runtime within their subscription and vnet. The communication between Azure PaaS services such as Data Factory or Synapse Analytics and self-hosted integration runtime is within the customer’s subscription. SAP RISE/ECS exposes the communication ports for these applications to use but has no knowledge or support about any details of the connected application or service. 
 
@@ -155,13 +155,13 @@ The customer is responsible for deployment and operation of the self-hosted inte
 To learn the overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction on each SAP connector, comparison and guidance.
 
 ## On-premise data gateway
-Further Azure Services such as [Logic Apps](/azure/logic-apps/logic-apps-using-sap-connector), [Power Apps](/connectors/saperp/) or [Power BI](/power-bi/connect-data/desktop-sap-bw-connector) communicate and exchange data with SAP systems through an on-premise data gateway. The on-premise data gateway is a virtual machine, running in Azure or on-premise, providing secure data transfer between these Azure Services and your SAP systems. 
+Further Azure Services such as [Logic Apps](/azure/logic-apps/logic-apps-using-sap-connector), [Power Apps](/connectors/saperp/) or [Power BI](/power-bi/connect-data/desktop-sap-bw-connector) communicate and exchange data with SAP systems through an on-premise data gateway. The on-premise data gateway is a virtual machine, running in Azure or on-premise. It provides secure data transfer between these Azure Services and your SAP systems. 
 
 With SAP RISE, the on-premise data gateway can connect to Azure Services running in customer’s Azure subscription. This VM running the data gateway is deployed and operated by the customer. With below high-level architecture as overview, similar method can be used for either service. 
 
 [![SAP RISE/ECS accessed from Azure on-premise data gateway and connected Azure services](./media/sap-rise-integration/sap-rise-on-prem-data-gateway.png)](./media/sap-rise-integration/sap-rise-on-prem-data-gateway.png#lightbox)
 
-The SAP RISE environment here provides access to the SAP ports for RFC and https described earlier, accessed by the private network address through the vnet peering or VPN site-to-site connection. The on-premise data gateway VM running in customer’s Azure subscription uses the [SAP .NET connector](https://support.sap.com/en/product/connectors/msnet.html) to run RFC, BAPI or IDoc calls through the RFC connection. Additionally, depending on service and way the communication is setup, a way to connect to public IP of the SAP systems REST API through https, exposed through SAP RISE/ECS managed application gateway, might be required. This high level architecture shows the possible integration scenario, options such as using Logic Apps single tenant and [private endpoints](/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint) to secure the communication and other can be seen as extension and are not described here in. 
+The SAP RISE environment here provides access to the SAP ports for RFC and https described earlier. The communication ports are accessed by the private network address through the vnet peering or VPN site-to-site connection. The on-premise data gateway VM running in customer’s Azure subscription uses the [SAP .NET connector](https://support.sap.com/en/product/connectors/msnet.html) to run RFC, BAPI or IDoc calls through the RFC connection. Additionally, depending on service and way the communication is setup, a way to connect to public IP of the SAP systems REST API through https might be required. The https connection to a public IP can be exposed through SAP RISE/ECS managed application gateway. This high level architecture shows the possible integration scenario. Alternatives to it such as using Logic Apps single tenant and [private endpoints](/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint) to secure the communication and other can be seen as extension and are not described here in. 
 
 SAP RISE/ECS exposes the communication ports for these applications to use but has no knowledge about any details of the connected application or service running in a customer’s subscription. 
 
@@ -175,7 +175,7 @@ SAP RISE/ECS exposes the communication ports for these applications to use but h
 > [!Note]
 > SAP RISE/ECS is a fully managed service for your SAP landscape and thus Azure Monitoring for SAP nor Azure Monitor for infrastructure is not intended to be utilized for such managed environment.
 
-SAP RISE/ECS does not support any integration with Azure Monitoring for SAP. SAP RISE/ECS’s own monitoring and reporting is provided to the customer as defined by your service description with SAP. 
+SAP RISE/ECS doesn't support any integration with Azure Monitoring for SAP. SAP RISE/ECS’s own monitoring and reporting is provided to the customer as defined by your service description with SAP. 
 
 ## Next steps
 Check out the documentation:
