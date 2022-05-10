@@ -1,6 +1,6 @@
 ---
-title: Diagnostic settings in Azure Monitor
-description:Use Azure Policy to create diagnostic settings in Azure Monitor to be created at scale as each Azure resource is created.
+title: Create diagnostic settings at scale using Azure Policy
+description: Use Azure Policy to create diagnostic settings in Azure Monitor to be created at scale as each Azure resource is created.
 author: rboucher
 ms.author: robb
 services: azure-monitor
