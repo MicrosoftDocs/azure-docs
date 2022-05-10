@@ -1,5 +1,5 @@
 ---
-title: Azure Container Registry Technical Support Policies
+title: Azure Container Registry technical support policies
 description: Learn about Azure Container Registry (ACR) technical support policies
 ms.topic: article
 ms.date: 02/18/2022
@@ -50,7 +50,7 @@ This article provides details about Azure Container Registry (ACR) support polic
 * Microsoft/ACR can’t make any changes if there's a detection of base image vulnerability in the security center (Microsoft Defender for Cloud). Customers can reach out for guidance
 * Microsoft/ACR can’t make any changes with Dockerfile. Customers have to identify and review it from their end.  
 
-| ACR Support                  | Link                                                                       |
+| ACR support                  | Link                                                                       |
 | ---------------------------- | -------------------------------------------------------------------------- |
 | Create a support ticket      | https://aka.ms/acr/support/create-ticket                                   |
 | Service updates and releases | [ACR Blog](https://azure.microsoft.com/blog/tag/azure-container-registry/) |
