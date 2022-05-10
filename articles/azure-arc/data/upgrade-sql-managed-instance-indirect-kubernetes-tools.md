@@ -40,8 +40,6 @@ During a SQL Managed Instance General Purpose upgrade, the containers in the pod
 
 ### Business Critical 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-business-critical-upgrade.md)]
-
 ### Upgrade
 
 Use a kubectl command to view the existing spec in yaml. 

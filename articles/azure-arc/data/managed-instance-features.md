@@ -26,9 +26,9 @@ Azure Arc-enabled SQL Managed Instance share a common code base with the latest 
 |Feature|Azure Arc-enabled SQL Managed Instance|
 |-------------|----------------|
 |Always On failover cluster instance<sup>1</sup>| Not Applicable. Similar capabilities available.|
-|Always On availability groups<sup>2</sup>|Business critical service tier. In preview.|
+|Always On availability groups<sup>2</sup>|Business Critical service tier.|
 |Basic availability groups <sup>2</sup>|Not Applicable. Similar capabilities available.|
-|Minimum replica commit availability group <sup>2</sup>|Business critical service tier. In preview.|
+|Minimum replica commit availability group <sup>2</sup>|Business Critical service tier. 
 |Clusterless availability group|Yes|
 |Backup database | Yes - `COPY_ONLY` See [BACKUP - (Transact-SQL)](/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current&preserve-view=true)|
 |Backup compression|Yes|
