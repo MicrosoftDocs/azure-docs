@@ -22,7 +22,7 @@ Azure Spring Apps enables log streaming in Azure CLI to get real-time applicatio
 
 ## Prerequisites
 
-* [Azure CLI](/cli/azure/install-azure-cli) with the Azure Spring Apps extension, minimum version 4.0.0. You can install the extension by using the following command: `az extension add --name spring`
+* [Azure CLI](/cli/azure/install-azure-cli) with the Azure Spring Apps extension, minimum version 1.0.0. You can install the extension by using the following command: `az extension add --name spring`
 * An instance of **Azure Spring Apps** with a running application. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
 
 ## Use CLI to tail logs

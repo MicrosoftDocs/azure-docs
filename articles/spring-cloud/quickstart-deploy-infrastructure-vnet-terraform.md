@@ -116,11 +116,11 @@ To apply the configuration, follow these steps:
    ```
 
    * The name of the resource group you'll deploy to.
-   * A name of your choice for the Spring deployment.
+   * A name of your choice for the Spring app deployment.
    * The name of the virtual network resource group where you'll deploy your resources.
    * The name of the spoke virtual network (for example, *vnet-spoke*).
    * The name of the subnet to be used by the Azure Spring Apps service (for example, *snet-app*).
-   * The name of the subnet to be used by the Spring Cloud runtime service (for example, *snet-runtime*).
+   * The name of the subnet to be used by the Spring runtime service (for example, *snet-runtime*).
    * The name of the Azure Log Analytics workspace.
    * The CIDR ranges from your virtual network to be used by Azure Spring Apps (for example, *XX.X.X.X/16,XX.X.X.X/16,XX.X.X.X/16*).
    * The key/value pairs to be applied as tags on all resources that support tags. For more information, see [Use tags to organize your Azure resources and management hierarchy](../azure-resource-manager/management/tag-resources.md).
