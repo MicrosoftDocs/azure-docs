@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 05/05/2022
+ms.date: 05/24/2022
 ms.author: lajanuar
 ---
 # Translator language support
@@ -25,21 +25,26 @@ ms.author: lajanuar
 
 ## Translation
 
-|Language | Language code | Cloud – Text Translation and Document Translation(embedded text)| Cloud - Document Translation (scanned PDF)Containers – Text Translation|Custom Translator|Auto Language Detection|Dictionary
+> [!NOTE]
+> Language code `pt` will default to `pt-br`, Portuguese (Brazil).
+>
+> ☼ Indicates the languages is not available for scanned PDF document translation.
+
+|Language | Language code | Cloud – Text Translation and Document Translation | Containers – Text Translation|Custom Translator|Auto Language Detection|Dictionary
 |:-|:-:|:-:|:-:|:-:|:-:|:-:|
-| Afrikaans | `af` |✔|✔|✔|✔|✔|
+| Afrikaans  | `af` |✔|✔|✔|✔|✔|
 | Albanian | `sq` |✔|✔||✔||
-| Amharic | `am` |✔|✔||||
+| Amharic ☼ | `am` |✔|✔||||
 | Arabic | `ar` |✔|✔|✔|✔|✔|
-| Armenian | `hy` |✔|✔||✔||
-| Assamese | `as` |✔|✔|✔|||
-| Azerbaijani | `az` |✔|✔||||
-| Bangla | `bn` |✔|✔|✔||✔|
-| Bashkir | `ba` |✔|||||
-| 🆕Basque | `eu` |✔|||||
+| Armenian ☼ | `hy` |✔|✔||✔||
+| Assamese ☼ | `as` |✔|✔|✔|||
+| Azerbaijani (Latin) | `az` |✔|✔||||
+| Bangla ☼ | `bn` |✔|✔|✔||✔|
+| Bashkir ☼ | `ba` |✔|||||
+| Basque | `eu` |✔|||||
 | Bosnian (Latin) | `bs` |✔|✔|✔||✔|
 | Bulgarian | `bg` |✔|✔|✔|✔|✔|
-| Cantonese (Traditional) | `yue` |✔|✔||||
+| Cantonese (Traditional) ☼ | `yue` |✔|✔||||
 | Catalan | `ca` |✔|✔|✔|✔|✔|
 | Chinese (Literary) | `lzh` |✔|||||
 | Chinese Simplified | `zh-Hans` |✔|✔|✔|✔|✔|
@@ -48,150 +53,96 @@ ms.author: lajanuar
 | Czech | `cs` |✔|✔|✔|✔|✔|
 | Danish | `da` |✔|✔|✔|✔|✔|
 | Dari | `prs` |✔|✔||||
-| Divehi | `dv` |✔|||✔||
+| Divehi ☼ | `dv` |✔|||✔||
 | Dutch | `nl` |✔|✔|✔|✔|✔|
 | English | `en` |✔|✔|✔|✔|✔|
 | Estonian | `et` |✔|✔|✔|✔||
-| 🆕Faroese | `fo` |✔|||||
+| Faroese | `fo` |✔|||||
 | Fijian | `fj` |✔|✔|✔|||
 | Filipino | `fil` |✔|✔|✔|||
 | Finnish | `fi` |✔|✔|✔|✔|✔|
 | French | `fr` |✔|✔|✔|✔|✔|
 | French (Canada) | `fr-ca` |✔|✔||||
-| 🆕Galician | `gl` |✔|||||
-| Georgian | `ka` |✔|||✔||
+| Galician | `gl` |✔|||||
+| Georgian ☼ | `ka` |✔|||✔||
 | German | `de` |✔|✔|✔|✔|✔|
-| Greek | `el` |✔|✔|✔|✔|✔|
-| Gujarati | `gu` |✔|✔|✔|✔||
+| Greek ☼ | `el` |✔|✔|✔|✔|✔|
+| Gujarati ☼ | `gu` |✔|✔|✔|✔||
 | Haitian Creole | `ht` |✔|✔||✔|✔|
-| Hebrew | `he` |✔|✔|✔|✔|✔|
+| Hebrew ☼ | `he` |✔|✔|✔|✔|✔|
 | Hindi | `hi` |✔|✔|✔|✔|✔|
-| Hmong Daw | `mww` |✔|✔|||✔|
+| Hmong Daw (Latin) | `mww` |✔|✔|||✔|
 | Hungarian | `hu` |✔|✔|✔|✔|✔|
 | Icelandic | `is` |✔|✔|✔|✔|✔|
 | Indonesian | `id` |✔|✔|✔|✔|✔|
-| Inuinnaqtun | `ikt` |✔|||||
-| Inuktitut | `iu` |✔|✔|✔|✔||
+| Inuinnaqtun ☼ | `ikt` |✔|||||
+| Inuktitut ☼ | `iu` |✔|✔|✔|✔||
 | Inuktitut (Latin) | `iu-Latn` |✔|||||
 | Irish | `ga` |✔|✔|✔|✔||
 | Italian | `it` |✔|✔|✔|✔|✔|
 | Japanese | `ja` |✔|✔|✔|✔|✔|
-| Kannada | `kn` |✔|✔|✔|||
+| Kannada ☼ | `kn` |✔|✔|✔|||
 | Kazakh | `kk` |✔|✔||||
-| Khmer | `km` |✔|✔||✔||
+| Khmer ☼ | `km` |✔|✔||✔||
 | Klingon | `tlh-Latn` |✔| ||✔|✔|
-| Klingon (plqaD) | `tlh-Piqd` |✔| ||✔||
+| Klingon (plqaD) ☼ | `tlh-Piqd` |✔| ||✔||
 | Korean | `ko` |✔|✔|✔|✔|✔|
-| Kurdish (Central) | `ku` |✔|✔||✔||
-| Kurdish (Northern) | `kmr` |✔|✔||||
-| Kyrgyz | `ky` |✔|||||
-| Lao | `lo` |✔|✔||✔||
-| Latvian | `lv` |✔|✔|✔|✔|✔|
+| Kurdish (Central)  | `ku` |✔|✔||✔||
+| Kurdish (Northern) ☼ | `kmr` |✔|✔||||
+| Kyrgyz (Cyrillic) | `ky` |✔|||||
+| Lao ☼ | `lo` |✔|✔||✔||
+| Latvian ☼| `lv` |✔|✔|✔|✔|✔|
 | Lithuanian | `lt` |✔|✔|✔|✔|✔|
-| Macedonian | `mk` |✔|||✔||
-| Malagasy | `mg` |✔|✔|✔|||
-| Malay | `ms` |✔|✔|✔|✔|✔|
-| Malayalam | `ml` |✔|✔|✔|||
+| Macedonian ☼ | `mk` |✔|||✔||
+| Malagasy ☼ | `mg` |✔|✔|✔|||
+| Malay (Latin) | `ms` |✔|✔|✔|✔|✔|
+| Malayalam ☼ | `ml` |✔|✔|✔|||
 | Maltese | `mt` |✔|✔|✔|✔|✔|
 | Maori | `mi` |✔|✔|✔|||
 | Marathi | `mr` |✔|✔|✔|||
-| Mongolian (Cyrillic) | `mn-Cyrl` |✔|||||
-| Mongolian (Traditional) | `mn-Mong` |✔|||✔||
-| Myanmar | `my` |✔|✔||✔||
+| Mongolian (Cyrillic) ☼| `mn-Cyrl` |✔|||||
+| Mongolian (Traditional) ☼ | `mn-Mong` |✔|||✔||
+| Myanmar ☼ | `my` |✔|✔||✔||
 | Nepali | `ne` |✔|✔||||
 | Norwegian | `nb` |✔|✔|✔|✔|✔|
-| Odia | `or` |✔|✔|✔|||
+| Odia ☼ | `or` |✔|✔|✔|||
 | Pashto | `ps` |✔|✔||✔||
 | Persian | `fa` |✔|✔|✔|✔|✔|
 | Polish | `pl` |✔|✔|✔|✔|✔|
 | Portuguese (Brazil) | `pt` |✔|✔|✔|✔|✔|
 | Portuguese (Portugal) | `pt-pt` |✔|✔||||
 | Punjabi | `pa` |✔|✔|✔|||
-| Queretaro Otomi | `otq` |✔|✔||||
+| Queretaro Otomi ☼ | `otq` |✔|✔||||
 | Romanian | `ro` |✔|✔|✔|✔|✔|
 | Russian | `ru` |✔|✔|✔|✔|✔|
-| Samoan | `sm` |✔| |✔|||
+| Samoan (Latin) | `sm` |✔| |✔|||
 | Serbian (Cyrillic) | `sr-Cyrl` |✔|✔||✔||
 | Serbian (Latin) | `sr-Latn` |✔|✔|✔|✔|✔|
 | Slovak | `sk` |✔|✔|✔|✔|✔|
 | Slovenian | `sl` |✔|✔|✔|✔|✔|
-| 🆕Somali | `so` |✔|||✔||
+| Somali (Arabic) | `so` |✔|||✔||
 | Spanish | `es` |✔|✔|✔|✔|✔|
-| Swahili | `sw` |✔|✔|✔|✔|✔|
+| Swahili (Latin) | `sw` |✔|✔|✔|✔|✔|
 | Swedish | `sv` |✔|✔|✔|✔|✔|
-| Tahitian | `ty` |✔| |✔|✔||
-| Tamil | `ta` |✔|✔|✔||✔|
-| Tatar | `tt` |✔|||||
-| Telugu | `te` |✔|✔|✔|||
-| Thai | `th` |✔| |✔|✔|✔|
-| Tibetan | `bo` |✔||||
-| Tigrinya | `ti` |✔|✔||||
+| Tahitian ☼ | `ty` |✔| |✔|✔||
+| Tamil ☼ | `ta` |✔|✔|✔||✔|
+| Tatar (Latin) | `tt` |✔|||||
+| Telugu ☼ | `te` |✔|✔|✔|||
+| Thai ☼ | `th` |✔| |✔|✔|✔|
+| Tibetan ☼ | `bo` |✔||||
+| Tigrinya ☼ | `ti` |✔|✔||||
 | Tongan | `to` |✔|✔|✔|||
 | Turkish | `tr` |✔|✔|✔|✔|✔|
-| Turkmen | `tk` |✔||||
+| Turkmen (Latin) | `tk` |✔||||
 | Ukrainian | `uk` |✔|✔|✔|✔|✔|
 | Upper Sorbian | `hsb` |✔|||||
 | Urdu | `ur` |✔|✔|✔|✔|✔|
-| Uyghur | `ug` |✔||||
+| Uyghur (Arabic) | `ug` |✔||||
 | Uzbek (Latin | `uz` |✔|||✔||
-| Vietnamese | `vi` |✔|✔|✔|✔|✔|
+| Vietnamese ☼ | `vi` |✔|✔|✔|✔|✔|
 | Welsh | `cy` |✔|✔|✔|✔|✔|
 | Yucatec Maya | `yua` |✔|✔||✔||
-| 🆕Zulu | `zu` |✔|||||
-
-> [!NOTE]
-> Language code `pt` will default to `pt-br`, Portuguese (Brazil).
-
-## 🆕 Document Translation: scanned PDFs
-
-In addition to those listed above, Document Translation supports the following languages for scanned PDF:
-
-### Print text
-
-|Language| Code (optional) |Language| Code (optional) |
-|:-----|:----:|:-----|:----:|
-|Angika (Devanagari)| `anp` | Kashubian  |  `csb` |
-|Asturian|   `ast` | Kazakh (Cyrillic) |  `kk-cyrl` |
-|Awadhi-Hindi (Devanagari) | `awa` |Kazakh (Latin)  |  `kk-latn` |
-|Bagheli  |  `bfy` | Lakota  |  `lkt` |
-| Belarusian (Cyrillic) | `be`, `be-cyrl` |Latin  |  `la` |
-|Belarusian (Latin) |  `be`, `be-latn`|Lule Sami |   `smj` |
-|Bhojpuri-Hindi (Devanagari) | `bho` | Luxembourgish |  `lb` |
-|Bislama |   `bi` |Mahasu Pahari (Devanagari) | `bfz`|
-| Bodo (Devanagari) | `brx` | Malto (Devanagari)  |  `kmj`|
-| Brajbha | `bra` |Manx  |  `gv` |
-| Bundeli  |  `bns` |Montenegrin (Cyrillic) |  `cnr-cyrl` |
-| Buryat (Cyrillic) | `bua` |Montenegrin (Latin)  |  `cnr-latn` |
-| Cebuano |`ceb` |Neapolitan  |  `nap` |
-| Chamling |`rab` | Niuean |   `niu` |
-| Chamorro |    `ch`|Nogay  |  `nog` |
-| Chhattisgarhi (Devanagari) | `hne`|Occitan |   `oc` |
-| Cornish |   `kw` | Ossetic  |  `os` |
-| Corsican |   `co` |Ripuarian |   `ksh` |
-| Crimean Tatar (Latin) |   `crh` | Romansh   | `rm` |
-| Dhimal (Devanagari) |   `dhi`| Sadri (Devanagari) |  `sck` |
-| Dogri (Devanagari)  |  `doi`| Sanskrit (Devanagari) |  `sa` |
-| Erzya (Cyrillic)  |  `myv`|Santali(Devanagari)   | `sat` |
-| Frisian - Western |  `fy`|Scots  |  `sco` |
-| Friulian  |  `fur`|Scottish Gaelic |  `gd`|
-| Gagauz (Latin) | `gag` |Sherpa (Devanagari)  |  `xsr` |
-| Gilbertese  |  `gil`| Sirmauri (Devanagari) |  `srx` |
-| Gondi (Devanagari) | `gon` | Sorbian - Lower |  `dsb` |
-| Greenlandic |   `kl` |Sorbian - Upper  |  `hsb` |
-| Gurung (Devanagari) | `gvr` |  Sami - Northern (Latin)  |  `sme` |
-| Halbi (Devanagari)  |  `hlb` |Sami - Skolt | `sms` |
-| Hani  | `hni` |  Sami - Southern | `sma` |
-| Haryanvi  |  `bgc` |Tajik (Cyrillic) | `tg` |
-| Hawaiian  |  `haw` |Tetum  |  `tet` |
-| Ho (Devanagari) | `hoc` |Thangmi | `thf` |
-| Jaunsari (Devanagari) | `jns` |Tuvan   | `tyv` |
-| Javanese  |  `jv` |Uzbek (Cyrillic) | `uz-cyrl`|
-| Kabuverdianu  |  `kea` |Uzbek (Latin)  |  `uz`|
-| Kachin (Latin) |   `kac` |Volapük  |  `vo` |
-| Kangri (Devanagari) |   `xnr`| Walser  |  `wae` |
-| Karachay-Balkar  | `krc` |Zhuang  |  `za` |
-| Kara-Kalpak (Cyrillic) | `kaa-cyrl`|
-| Kara-Kalpak (Latin)  | `kaa` |
+| Zulu | `zu` |✔|||||
 
 ## Transliteration
 

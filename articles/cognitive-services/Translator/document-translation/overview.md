@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview
-ms.date: 05/25/2021
+ms.date: 05/24/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -27,7 +27,6 @@ This documentation contains the following article types:
 | ---------| -------------|
 | **Translate large files**| Translate whole documents asynchronously.|
 |**Translate numerous files**|Translate multiple files across all supported languages and dialects while preserving document structure and data format.|
-|**Translate 🆕[scanned](#document-translation-scanned-pdfs) and text-embedded pdf documents** |Translate printed text in scanned PDF documents. |
 |**Preserve source file presentation**| Translate files while preserving the original layout and format.|
 |**Apply custom translation**| Translate documents using general and [custom translation](../customization.md#custom-translator) models.|
 |**Apply custom glossaries**|Translate documents using custom glossaries.|
@@ -36,33 +35,7 @@ This documentation contains the following article types:
 
 > [!NOTE]
 > When translating documents with content in multiple languages, the feature is intended for complete sentences in a single language. If sentences are composed of more than one language, the content may not all translate into the target language.
->
-
-## Document Translation: scanned PDFs
-
-* Optical character recognition (OCR) is the foundational technology used to power translation for scanned PDF documents such as agreements, contracts, manuals, and receipts.
-
-* Document Translation has extensive [language support](../language-support.md#-document-translation-scanned-pdfs) for printed text languages.
-
-* Document Translation supports translation of scanned PDFs with multiple languages in the same document.
-
-## Document Translation input requirements
-
-* Scanned PDF documents: For best results, provide one high-quality scan per document.
-
-* Scanned or text-embedded PDF dimensions: ≤ 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
-
-* If your scanned or text-embedded PDFs are password-locked, you must remove the lock before submission.
-
-* Source language identification isn't required. Document Translation can automatically detect the language of the source text. However, if the language of the content in the source document is known, it's recommended that the source language is specified in the request to get a better translation. You can provide the source language code if you want to force the service to apply a specific language model.
-
-* Document size: ≤ 40 mb
-
-* Total number of **files** (not pages) per single request: ≤ 1000.
-
-* Total content size in a single request: ≤ 250 mb.
-
-* Number of target languages in a batch request: ≤ 10.
+> For more information on input requirements, *see* [content limits](get-started-with-document-translation.md#content-limits)
 
 ## Document Translation development options
 
@@ -85,8 +58,7 @@ The following document file types are supported by Document Translation:
 
 | File type| File extension|Description|
 |---|---|--|
-|🆕 Adobe PDF| Scanned content portable document format.|
-|Adobe PDF|pdf|Text-embedded portable document format.|
+|Adobe PDF|pdf|Portable document file format.|
 |Comma-Separated Values |csv| A comma-delimited raw-data file used by spreadsheet programs.|
 |HTML|html, htm|Hyper Text Markup Language.|
 |Localization Interchange File Format|xlf. , xliff| A parallel document format, export of Translation Memory systems. The languages used are defined inside the file.|

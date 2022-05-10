@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview
-ms.date: 05/05/2022
+ms.date: 05/24/2022
 ms.author: lajanuar
 
 ---
@@ -23,11 +23,9 @@ Translator service supports language translation for more than 100 languages. If
 
 ## May 2022
 
-### [Document Translation support for scanned PDF documents](document-translation/overview.md#document-translation-scanned-pdfs)
+### [Document Translation support for scanned PDF documents](https://aka.ms/blog_ScannedPdfTranslation)
 
-* Optical character recognition (OCR) teams with Document Translation to power scanned PDF document translation.
-
-* OCR identifies [printed text](language-support.md#-document-translation-scanned-pdfs) in scanned PDF documents. The text content, identified by OCR, is then processed and translated by the Document Translation API.
+* Document Translator uses optical character recognition (OCR) technology to extract and translate text in scanned PDF document while retaining original layout.
 
 ## April 2022
 
