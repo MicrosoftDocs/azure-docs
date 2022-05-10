@@ -47,7 +47,7 @@ The following screenshot shows a finished Stream Analytics job. It highlights al
 
 :::image type="content" source="./media/no-code-stream-processing/created-stream-analytics-job.png" alt-text="Screenshot showing the authoring interface sections." lightbox="./media/no-code-stream-processing/created-stream-analytics-job.png" :::
 
-1. **Ribbon** - On the ribbon, sections follow the order of a *classic/ analytics process: Event Hubs as input (also known as data source), transformations (streaming ETL operations), outputs, a button to save your progress and a button to start the job.
+1. **Ribbon** - On the ribbon, sections follow the order of a classic/ analytics process: Event Hubs as input (also known as data source), transformations (streaming ETL operations), outputs, a button to save your progress and a button to start the job.
 2. **Diagram view** - A graphical representation of your Stream Analytics job, from input to operations to outputs.
 3. **Side pane** -  Depending on which component you selected in the diagram view, you'll have settings to modify input, transformation, or output.
 4. **Tabs for data preview, authoring errors, and runtime errors** - For each card shown, the data preview will show you results for that step (live for inputs and on-demand for transformations and outputs). This section also summarizes any authoring errors or warnings that you might have in your job when it's being developed. Selecting each error or warning will select that transform.
