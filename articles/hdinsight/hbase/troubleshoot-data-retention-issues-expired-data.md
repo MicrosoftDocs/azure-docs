@@ -27,6 +27,7 @@ To prepare to follow the steps and commands below, open two ssh connections to H
 Follow the steps below to understand where is the issue. Start by checking if the behavior occurs for a specific table or for all the tables. If you're unsure whether the issue impacts all the tables or a specific table, just consider as example a specific table name for the start. 
 
 1. Check first that TTL has been configured for ColumnFamily for the target tables. Run the command below in the ssh session where you launched HBase shell and observe example and output below. One column family has TTL set to 50 seconds, the other ColumnFamily has no value configured for TTL, thus it appears as "FOREVER" (data in this column family isn't configured to expire).
+   
    ```
    describe 'table_name'
    ```
@@ -40,21 +41,20 @@ Follow the steps below to understand where is the issue. Start by checking if th
    ```
 ### Check the number and size of StoreFiles per table per region to observe if any changes are visible after the compaction operation
 
-1.  Before moving to next step, from ssh session with bash shell, run the following command to check the current number of StoreFiles and size for each StoreFile currently showing up for the ColumnFamily for which the TTL has been configured. Note first the table and ColumnFamily for which you'll be doing the check, then run the following command in ssh session (bash).
-
+1. Before moving to next step, from ssh session with bash shell, run the following command to check the current number of StoreFiles and size for each StoreFile currently showing up for the ColumnFamily for which the TTL has been configured. Note first the table and ColumnFamily for which you'll be doing the check, then run the following command in ssh session (bash).
+   
    ```
    hdfs dfs -ls -R /hbase/data/default/table_name/ | grep "column_family_name"
    ```
-
-1.  Likely, there will be more results shown in the output, one result for each region ID that is part of the table and between 0 and more results for StoreFiles present under each region name, for the selected ColumnFamily. To count the overall number of rows in the result output above, run the following command.
+1. Likely, there will be more results shown in the output, one result for each region ID that is part of the table and between 0 and more results for StoreFiles present under each region name, for the selected ColumnFamily. To count the overall number of rows in the result output above, run the following command.
+   
    ```
    hdfs dfs -ls -R /hbase/data/default/table_name/ | grep "column_family_name" | wc -l
    ```
 
 ### Check the number and size of StoreFiles per table per region after flush
 	
-1.  Based on the TTL configured for each ColumnFamily and how much data is written in the table for the target ColumnFamily, part of the data may still exist in MemStore and isn't written as StoreFile to storage. Thus, to make sure that the data is written to storage as StoreFile, before the maximum configured MemStore size is reached, you can run the following command in HBase shell to write data from MemStore to StoreFile immediately. 
-
+1. Based on the TTL configured for each ColumnFamily and how much data is written in the table for the target ColumnFamily, part of the data may still exist in MemStore and isn't written as StoreFile to storage. Thus, to make sure that the data is written to storage as StoreFile, before the maximum configured MemStore size is reached, you can run the following command in HBase shell to write data from MemStore to StoreFile immediately. 
    ```
    flush 'table_name'
    ```
@@ -74,25 +74,22 @@ Follow the steps below to understand where is the issue. Start by checking if th
        Also, there's another situation when minor compaction may not remove cells with TTL expired. There's a property named MIN_VERSIONS and it defaults to 0 only (see in the above output from describe 'table_name' the property MIN_VERSIONS=>'0'). If this property is set to 0, the minor compaction will remove the cells with TTL expired. If this value is greater than 0, minor compaction may not remove the cells with TTL expired even if it touches the corresponding file as part of compaction. This property configures the min number of versions of a cell to keep, even if those versions have TTL expired.
 
 1. To make sure expired data is also deleted from storage, we need to run a major compaction operation. The major compaction operation, when completed, will leave behind a single StoreFile per region. In HBase shell, run the command to execute a major compaction operation on the table:
-
    ```
    major_compact 'table_name'
    ```
 
 1. Depending on the table size, major compaction operation can take some time. Use the command below in HBase shell to monitor progress. If the compaction is still running when you execute the command below, you'll see the output "MAJOR", but if the compaction is completed, you will see the output "NONE".
-
    ```
    compaction_state 'table_name'
    ```
 
 1. When the compaction status appears as "NONE" in hbase shell, if you switch quickly to bash and run command
-
    ```
    hdfs dfs -ls -R /hbase/data/default/table_name/ | grep "column_family_name"
    ```
-You will notice that an extra StoreFile has been created in addition to previous ones per region per ColumnFamily and after several moments only the last created StoreFile is kept per region per column family.
+1. You will notice that an extra StoreFile has been created in addition to previous ones per region per ColumnFamily and after several moments only the last created StoreFile is kept per region per column family.
 
-1. For the example region above, once the extra moments elapse, we can notice that one single StoreFile remained and the size occupied by this file on the storage is reduced as major compaction occurred and at this point any expired data that has not been deleted before(by another major compaction), will be deleted after running current major compaction operation.
+For the example region above, once the extra moments elapse, we can notice that one single StoreFile remained and the size occupied by this file on the storage is reduced as major compaction occurred and at this point any expired data that has not been deleted before(by another major compaction), will be deleted after running current major compaction operation.
 
 > [!NOTE]
 > For this troubleshooting exercise we triggered the major compaction manually. But in practice, doing that manually for many tables might be time consuming. By default, major compaction is disabled on HDInsight cluster. The main reason for keeping major compaction disabled by default is because the performance of the table operations is impacted when a major compaction is in progress. However, you can enable major compaction by configuring the value for the property hbase.hregion.majorcompaction in ms or can use a cron tab job or another external system to schedule compaction at a time convenient for you, with lower workload.
