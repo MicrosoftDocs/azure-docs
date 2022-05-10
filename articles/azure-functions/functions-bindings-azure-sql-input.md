@@ -3,8 +3,9 @@ title: Azure SQL input binding for Functions
 description: Learn to use the Azure SQL input binding in Azure Functions.
 author: dzsquared
 ms.topic: reference
-ms.date: 5/3/2022
+ms.date: 5/24/2022
 ms.author: drskwier
+author: dzsquared
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -15,7 +16,7 @@ When a function runs, the Azure SQL input binding retrieves data from a database
 
 For information on setup and configuration details, see the [overview](./functions-bindings-azure-sql.md).
 
-## Example
+## Examples
 
 ::: zone pivot="programming-language-csharp"
 
@@ -23,8 +24,9 @@ For information on setup and configuration details, see the [overview](./functio
 
 This section contains the following examples:
 
-* [HTTP trigger, look up ID from query string](#http-trigger-look-up-id-from-query-string-c)
-* [HTTP trigger, get multiple docs from route data](#http-trigger-get-multiple-items-from-route-data-c)
+* [HTTP trigger, get row by Id from query string](#http-trigger-look-up-id-from-query-string-c)
+* [HTTP trigger, get multiple rows from route data](#http-trigger-get-multiple-items-from-route-data-c)
+* [HTTP trigger, delete rows](http-trigger-delete-one-or-multiple-rows-c)
 
 The examples refer to a `ToDoItem` class and a corresponding database table:
 
@@ -32,8 +34,8 @@ The examples refer to a `ToDoItem` class and a corresponding database table:
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
 
-
 <a id="http-trigger-look-up-id-from-query-string-c"></a>
+### HTTP trigger, get row by Id from query string
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single record. The function is triggered by an HTTP request that uses a query string to specify the ID. That ID is used to retrieve a `ToDoItem` record with the specified query.
 
@@ -70,6 +72,7 @@ namespace AzureSQLSamples
 ```
 
 <a id="http-trigger-get-multiple-items-from-route-data-c"></a>
+### HTTP trigger, get multiple rows from route parameter
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves documents returned by the query. The function is triggered by an HTTP request that uses route data to specify the value of a query parameter. That parameter is used to filter the `ToDoItem` records in the specified query.
 
@@ -101,6 +104,7 @@ namespace AzureSQLSamples
 ```
 
 <a id="http-trigger-delete-one-or-multiple-rows-c"></a>
+### HTTP trigger, delete rows
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that executes a stored procedure with input from the HTTP request query parameter.
 
@@ -134,14 +138,16 @@ Isolated process isn't currently supported.
 
 This section contains the following examples:
 
-* [HTTP trigger, return all rows](#http-trigger-get-multiple-items-javascript)
-* [HTTP trigger, look up ID from query string](#http-trigger-look-up-id-from-query-string-javascript)
+* [HTTP trigger, get multiple rows](#http-trigger-get-multiple-items-javascript)
+* [HTTP trigger, get row by Id from query string](#http-trigger-look-up-id-from-query-string-javascript)
 
 The examples refer to a database table:
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
 
 <a id="http-trigger-get-multiple-items-javascript"></a>
+### HTTP trigger, get multiple rows
+
 The following example shows a SQL input binding in a function.json file and a JavaScript function that uses the binding. The function reads rows resulting from a query and returns them in the HTTP response.
 
 Here's the binding data in the function.json file:
@@ -175,6 +181,8 @@ module.exports = async function (context, req, todoItems) {
 ```
 
 <a id="http-trigger-look-up-id-from-query-string-javascript"></a>
+### HTTP trigger, get row by Id from query string
+
 The following example shows a SQL input binding in a function.json file and a JavaScript function that uses the binding. The function reads a specific row resulting from a query with a parameter from the query string and returns them in the HTTP response.
 
 Here's the binding data in the function.json file:
@@ -213,14 +221,16 @@ module.exports = async function (context, req, todoItem) {
 ::: zone pivot="programming-language-python"  
 This section contains the following examples:
 
-* [HTTP trigger, return all rows](#http-trigger-get-multiple-items-python)
-* [HTTP trigger, look up ID from query string](#http-trigger-look-up-id-from-query-string-python)
+* [HTTP trigger, get multiple rows](#http-trigger-get-multiple-items-python)
+* [HTTP trigger, get row by Id from query string](#http-trigger-look-up-id-from-query-string-python)
 
 The examples refer to a database table:
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
 
 <a id="http-trigger-get-multiple-items-python"></a>
+### HTTP trigger, get multiple rows
+
 The following example shows a SQL input binding in a function.json file and a Python function that uses the binding. The function reads rows resulting from a query and returns them in the HTTP response.
 
 Here's the binding data in the function.json file:
@@ -256,6 +266,8 @@ def main(req: func.HttpRequest, todoItems: func.SqlRowList) -> func.HttpResponse
 ```
 
 <a id="http-trigger-look-up-id-from-query-string-python"></a>
+### HTTP trigger, get row by Id from query string
+
 The following example shows a SQL input binding in a function.json file and a Python function that uses the binding. The function reads a specific row resulting from a query with a parameter from the query string and returns them in the HTTP response.
 
 Here's the binding data in the function.json file:
