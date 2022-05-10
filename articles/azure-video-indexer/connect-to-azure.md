@@ -39,7 +39,7 @@ The article also covers [Linking an Azure Video Indexer account to Azure Governm
 
     This user should be an Azure AD user with a work or school account. Don't use a personal account, such as outlook.com, live.com, or hotmail.com.
 
-    :::image type="content" alt-text="Choose a user in your Azure AD domain." source="./media/create-account/all-aad-users.png":::
+    :::image type="content" alt-text="Screenshot that shows how to choose a user in your Azure A D domain." source="./media/create-account/all-aad-users.png":::
 
 ### Additional prerequisites for automatic flow
 
@@ -49,7 +49,7 @@ The article also covers [Linking an Azure Video Indexer account to Azure Governm
 
     This user should be a member in your Azure subscription with either an **Owner** role, or both **Contributor** and **User Access Administrator** roles. A user can be added twice, with two roles. Once with Contributor and once with user Access Administrator. For more information, see [View the access a user has to Azure resources](../role-based-access-control/check-access.md).
 
-    :::image type="content" alt-text="Access control" source="./media/create-account/access-control-iam.png":::
+    :::image type="content" alt-text="Screenshot that shows the access control settings." source="./media/create-account/access-control-iam.png":::
 
 ### Additional prerequisites for manual flow
 
@@ -59,7 +59,7 @@ The article also covers [Linking an Azure Video Indexer account to Azure Governm
 
     Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Registered" state, click **Register**. It takes a couple of minutes to register.
 
-    :::image type="content" alt-text="Select an EventGrid subscription." source="./media/create-account/event-grid.png":::
+    :::image type="content" alt-text="Screenshot that shows how to select an event grid subscription." source="./media/create-account/event-grid.png":::
 
 ## Connect to Azure manually (advanced option)
 
@@ -74,11 +74,11 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
 
      Make sure the Media Services account was created with the classic APIs.
 
-    :::image type="content" alt-text="Use classic API." source="./media/create-account/enable-classic-api.png":::
+    :::image type="content" alt-text="Screenshot that shows how to use the classic API." source="./media/create-account/enable-classic-api.png":::
 
     When creating a storage account for your Media Services account, select **StorageV2** for account kind and **Geo-redundant** (GRS) for replication fields.
 
-    :::image type="content" alt-text="Specify a storage account." source="./media/create-account/create-new-ams-account.png":::
+    :::image type="content" alt-text="Screenshot that shows how to specify a storage account." source="./media/create-account/create-new-ams-account.png":::
 
     > [!NOTE]
     > Make sure to write down the Media Services resource and account names. You'll need them for the steps in the next section.
@@ -87,7 +87,7 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
 
     In the new Media Services account, select **Streaming endpoints**. Then select the streaming endpoint and press start.
 
-    :::image type="content" alt-text="Specify streaming endpoints." source="./media/create-account/create-ams-account-se.png":::
+    :::image type="content" alt-text="Screenshot that shows how to specify streaming endpoints." source="./media/create-account/create-ams-account-se.png":::
 4. For Azure Video Indexer to authenticate with Media Services API, an AD app needs to be created. The following steps guide you through the Azure AD authentication process described in [Get started with Azure AD authentication by using the Azure portal](/azure/azure/media-services/previous/media-services-portal-get-started-with-aad):
 
     1. In the new Media Services account, select **API access**.
@@ -133,7 +133,7 @@ To import your data, follow the steps:
    * If the account ID isn't showing, you can copy and paste the account ID from Azure portal or the account list, on the side blade in the Azure Video Indexer Portal.
  5. Click **Import content**
 
-    :::image type="content" alt-text="Import your data." source="./media/create-account/import-to-arm-account.png":::
+    :::image type="content" alt-text="Screenshot that shows how to import your data." source="./media/create-account/import-to-arm-account.png":::
 
 All media and content model customizations will be copied from the *trial* account into the new ARM-Based account.
 
