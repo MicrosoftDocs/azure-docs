@@ -1,5 +1,5 @@
 ---
-title: Integrate your applications for identity governance - Azure AD 
+title: Integrate your applications for identity governance and establishing a baseline of reviewed access - Azure AD 
 description: Azure Active Directory Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.  You can integrate your existing business critical third party on-premises and cloud-based applications with Azure AD for identity governance scenarios.
 services: active-directory
 documentationcenter: ''
@@ -17,11 +17,11 @@ ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ---
 
-# Integrating applications with Azure AD
+# Integrating applications with Azure AD and establishing a baseline of reviewed access
 
 > [!div class="step-by-step"]
-> [« Define policies for governing access to an application](identity-governance-applications-define.md)
-> [Deploy policies for governing access to an application »](identity-governance-applications-deploy.md)
+> [« Define organizational policies for governing access to an application](identity-governance-applications-define.md)
+> [Deploy organizational policies for governing access to an application »](identity-governance-applications-deploy.md)
 
 
 Once you have established the policies for who should have access to your application, then you can [connect your application to Azure AD](../manage-apps/what-is-application-management.md) and then deploy the policies for governing access to them.
@@ -96,8 +96,10 @@ However, if the application already existed in your environment, then it is poss
 1. If the application was not integrated for provisioning, then once the review is complete, you may need to manually update the application's internal database or directory to remove those users who were denied.
 1. Once the review has been completed and the application access updated, or if no users have access, then continue in the next steps to deploy conditional access and entitlement management policies for the application.
 
+Now that you have a baseline that ensures existing access has been reviewed, then you can deploy the organization's policies for ongoing access and any new access requests.
+
 ## Next steps
 
 > [!div class="step-by-step"]
-> [« Define policies for governing access to an application](identity-governance-applications-define.md)
-> [Deploy policies for governing access to an application »](identity-governance-applications-deploy.md)
+> [« Define organizational policies for governing access to an application](identity-governance-applications-define.md)
+> [Deploy organizational policies for governing access to an application »](identity-governance-applications-deploy.md)
