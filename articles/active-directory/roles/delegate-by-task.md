@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 12/01/2021
+ms.date: 04/26/2022
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -318,7 +318,7 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > | Create named locations | [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator) | [Security Administrator](../roles/permissions-reference.md#security-administrator) |
 > | Create policies | [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator) | [Security Administrator](../roles/permissions-reference.md#security-administrator) |
 > | Create terms of use | [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator) | [Security Administrator](../roles/permissions-reference.md#security-administrator) |
-> | Create VPN connectivity certificate | [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator) | [Security Administrator](../roles/permissions-reference.md#security-administrator) |
+> | Create VPN connectivity certificate | [Global Administrator](../roles/permissions-reference.md#global-administrator) | &nbsp; |
 > | Delete classic policy | [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator) | [Security Administrator](../roles/permissions-reference.md#security-administrator) |
 > | Delete terms of use | [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator) | [Security Administrator](../roles/permissions-reference.md#security-administrator) |
 > | Delete VPN connectivity certificate | [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator) | [Security Administrator](../roles/permissions-reference.md#security-administrator) |

@@ -190,6 +190,10 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Configure HCX network extension
+            url: configure-hcx-network-extension.md
+          - text: Configure HCX network extension high availability
+            url: configure-hcx-network-extension-high-availability.md
           - text: Configure vRealize Operations
             url: vrealize-operations-for-azure-vmware-solution.md
           - text: Deploy VMware Horizon

@@ -4,6 +4,7 @@ description: Move an Azure Database for MySQL server from one Azure region to an
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020

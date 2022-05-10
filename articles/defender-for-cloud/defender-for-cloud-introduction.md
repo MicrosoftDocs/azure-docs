@@ -9,8 +9,6 @@ ms.date: 03/31/2022
 ---
 # What is Microsoft Defender for Cloud?
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Defender for Cloud is a tool for security posture management and threat protection. It strengthens the security posture of your cloud resources, and with its integrated Microsoft Defender plans, Defender for Cloud protects workloads running in Azure, hybrid, and other cloud platforms.
 
 Defender for Cloud provides the tools needed to harden your resources, track your security posture, protect against cyber attacks, and streamline security management. Because it's natively integrated, deployment of Defender for Cloud is easy, providing you with simple auto provisioning to secure your resources by default.
@@ -97,7 +95,7 @@ Review the findings from these vulnerability scanners and respond to them all fr
 Learn more on the following pages:
 
 - [Defender for Cloud's integrated Qualys scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md)
-- [Identify vulnerabilities in images in Azure container registries](defender-for-container-registries-usage.md#identify-vulnerabilities-in-images-in-other-container-registries)
+- [Identify vulnerabilities in images in Azure container registries](defender-for-containers-usage.md#identify-vulnerabilities-in-images-in-other-container-registries)
 
 ## Optimize and improve security by configuring recommended controls
 
