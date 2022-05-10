@@ -33,7 +33,7 @@ These VMs are ideal for real-world Applied AI workloads, such as:
 
 To get started with NC A100 v4 VMs, refer to [HPC Workload Configuration and Optimization](./workloads/hpc/configure.md) for steps including driver and network configuration.
 
-Due to increased GPU memory I/O footprint, the NC A100 v4 requires the use of [Generation 2 VMs](./generation-2.md) and marketplace images. The [Azure HPC images](./workloads/hpc/configure.md) are strongly recommended. Azure HPC Ubuntu 18.04, 20.04 and Azure HPC CentOS 7.9 images are supported. Windows Service 2019 and Windows Service 2022 images are supported.
+Due to increased GPU memory I/O footprint, the NC A100 v4 requires the use of [Generation 2 VMs](./generation-2.md) and marketplace images. The [Azure HPC images](./workloads/hpc/configure.md) are strongly recommended. Azure HPC Ubuntu 18.04, 20.04 and Azure HPC CentOS 7.9, CentOS 8.4, RHEL 7.9 and RHEL 8.4 images are supported. Windows Service 2019 and Windows Service 2022 images are supported.
  
 Key Features:    
 - [Premium Storage](premium-storage-performance.md)             
