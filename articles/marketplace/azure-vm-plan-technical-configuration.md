@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 04/27/2022
+ms.date: 05/11/2022
 ---
 
 # Technical configuration for a virtual machine offer
@@ -23,7 +23,7 @@ Some common reasons for reusing the technical configuration settings from anothe
 - Your solution behaves differently based on the plan the user chooses to deploy. For example, the software is the same, but features vary by plan.
 
 > [!NOTE]
-> If you would like to use a public plan to create a private plan with a different price, consider creating a private offer instead of reusing the technical configuration. Learn more about the difference between private plans and private offers. Learn more about how to create a private offer.
+> If you would like to use a public plan to create a private plan with a different price, consider creating a private offer instead of reusing the technical configuration. Learn more about [the difference between private plans and private offers](/azure/marketplace/isv-customer-faq). Learn more about [how to create a private offer](/azure/marketplace/isv-customer).
 
 Leverage [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md) (IMDS) to identify which plan your solution is deployed within to validate license or enabling of appropriate features.
 
@@ -63,11 +63,11 @@ Here is a list of properties that can be selected for your VM. Enable the proper
 
 - **Is a network virtual appliance**: A network virtual appliance is a product that performs one or more network functions, such as a Load Balancer, VPN Gateway, Firewall or Application Gateway. Learn more about [network virtual appliances](https://go.microsoft.com/fwlink/?linkid=2155373).
 
-- **Supports NVMe** - Enable this property if the images in this plan support NVMe disk interface. The NVMe interface offers higher and consistent IOPS and bandwidth relative to legacy SCSI interface. Learn more about [NVMe disk interface](https://aka.ms/nvme).
+- **Supports NVMe** - Enable this property if the images in this plan support NVMe disk interface. The NVMe interface offers higher and consistent IOPS and bandwidth relative to legacy SCSI interface.
 
 - **Supports cloud-init configuration**: Enable this property if the images in this plan support cloud-init post deployment scripts. Learn more about [cloud-init configuration](/azure/virtual-machines/linux/using-cloud-init).
 
-- **Supports hibernation** – The images in this plan support hibernation/resume. Learn more about [hibernation/resume](/azure/virtual-machines/).
+- **Supports hibernation** – The images in this plan support hibernation/resume.
 
 - **Remote desktop/SSH not supported**: Enable this property if any of the following conditions are true:
 
@@ -81,9 +81,9 @@ Here is a list of properties that can be selected for your VM. Enable the proper
 
 - **Requires custom ARM template for deployment**: Enable this property if the images in this plan can only be deployed using a custom ARM template. In general, all the images that are published under a VM offer will follow standard ARM template for deployment. However, there are scenarios that might require customization while deploying VMs (for example, multiple NIC(s) to be configured).
 Below are examples (non-exhaustive) that might require custom templates for deploying the VM:
-        - VM requires additional network subnets.
-        - Additional metadata to be inserted in ARM template.
-        - Commands that are prerequisite to the execution of ARM template.
+    - VM requires additional network subnets.
+    - Additional metadata to be inserted in ARM template.
+    - Commands that are prerequisite to the execution of ARM template.
 
 ## Image types
 
