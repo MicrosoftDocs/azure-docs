@@ -25,7 +25,7 @@ Translator service supports language translation for more than 100 languages. If
 
 ### [Document Translation support for scanned PDF documents](https://aka.ms/blog_ScannedPdfTranslation)
 
-* Document Translator uses optical character recognition (OCR) technology to extract and translate text in scanned PDF document while retaining original layout.
+* Document Translator uses optical character recognition (OCR) technology to extract and translate text in scanned PDF document while retaining the original layout.
 
 ## April 2022
 
