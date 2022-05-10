@@ -59,7 +59,7 @@ There are several common ways to inspect the contents of a task hub:
 
 For some of the storage providers, it is also possible to inspect the taskhub by going directly to the underlying storage:
 
-1. If using the Azure Storage provider, the instance store is represented by an [Instance Table]((durable-functions-perf-and-scale.md#history-table)) and a [History Table](durable-functions-perf-and-scale.md#history-table) that can be inspected using tools such as Azure Storage Explorer.
+1. If using the Azure Storage provider, the instance store is represented by an [Instance Table]((durable-functions-azure-storage-provider.md#instance-table)) and a [History Table](durable-functions-azure-storage-provider.md#history-table) that can be inspected using tools such as Azure Storage Explorer.
 2. If using the MSSQL storage provider, SQL queries and tools can be used to inspect the task hub contents inside the database.
 
 ## Representation in storage
@@ -70,22 +70,34 @@ Each storage provider uses a different internal organization to represent task h
 
 For this storage provider, a task hub consists of the following components:
 
+* Two Azure Tables that represent the instance store.
 * One Azure Queue that stores the tasks.
 * One or more Azure Queues that store the messages.
-* Two Azure Tables that represent the instance store.
-* Some extra blob containers for lease blobs and/or large messages.
+* Three extra blob containers for storing large messages and blob leases.
 
 For example, for a taskhub named `x` with `PartitionCount = 4`, the queues and tables are named as follows:
 
 ![Diagram showing Azure Storage provider storage storage organization for 4 control queues.](./media/durable-functions-task-hubs/azure-storage.png)
 
+For more information how task hubs are represented by the Azure Storage provider, see the [Azure Storage provider](durable-functions-azure-storage-provider.md) documentation.
+
 ### Netherite storage provider
 
-Netherite partitions the two queues and the instance store into a number of partitions; the currently supported range is 1 - 32. The state of each partition is stored in Azure Storage page blobs.
+Netherite partitions all of the taskhub state into a specified number of partitions.
+In storage, the following resources are used:
+
+* One blob container that contains all the blobs, grouped by partition.
+* One Azure Table that contains published metrics about the partitions.
+* An EventHubs namespace for delivering messages between partitions.
+
+For example, a taskhub named `x` with `PartitionCount = 32` is represented in storage as follows:
 
 ![Diagram showing Netherite storage organization for 32 partitions.](./media/durable-functions-task-hubs/netherite-storage.png)
 
-Netherite uses an event-sourcing mechanism, based on a log and checkpoints, to represent the current state of a partition. It is not possible to read this format from storage directly, so the function app has to be running when querying the instance store.
+> [!NOTE]
+> All of the task hub state is stored inside the `x-storage` blob container. The `DurableTaskPartitions` table and the EventHubs namespace contain redundant data: if their contents are lost, they can be automatically recovered. Therefore it is not necessary to configure the EventHubs namespace to retain messages past the default expiration time.
+
+Netherite uses an event-sourcing mechanism, based on a log and checkpoints, to represent the current state of a partition. Both block blobs and page blobs are used. It is not possible to read this format from storage directly, so the function app has to be running when querying the instance store.
 
 For more details on task hubs for the Netherite storage provider, see [Task Hub information for the Netherite storage provider](https://microsoft.github.io/durabletask-netherite/#/storage).
 
