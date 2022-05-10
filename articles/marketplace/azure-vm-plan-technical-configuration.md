@@ -83,7 +83,9 @@ Here is a list of properties that can be selected for your VM. Enable the proper
 Below are examples (non-exhaustive) that might require custom templates for deploying the VM:
 
   - VM requires additional network subnets.
+
   - Additional metadata to be inserted in ARM template.
+  
   - Commands that are prerequisite to the execution of ARM template.
 
 ## Image types
