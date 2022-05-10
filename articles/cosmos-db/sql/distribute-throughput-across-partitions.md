@@ -129,11 +129,21 @@ $SourcePhysicalPartitionObjects += New-AzCosmosDBSqlPhysicalPartitionThroughputO
 $TargetPhysicalPartitionObjects =  @()
 $TargetPhysicalPartitionObjects += New-AzCosmosDBSqlPhysicalPartitionThroughputObject -Id 1 -Throughput 4000
 
+// SQL API
 Update-AzCosmosDBSqlContainerPerPartitionThroughput `
     -ResourceGroupName "<resource-group-name>" `
     -AccountName "<cosmos-account-name>" `
     -DatabaseName "<cosmos-database-name>" `
-    -ContainerName "<cosmos-container-name>" `
+    -Name "<cosmos-container-name>" `
+    -SourcePhysicalPartitionThroughputObject $SourcePhysicalPartitionObjects `
+    -TargetPhysicalPartitionThroughputObject $TargetPhysicalPartitionObjects
+
+// API for MongoDB
+Update-AzCosmosDBMongoCollectionPerPartitionThroughput `
+    -ResourceGroupName "<resource-group-name>" `
+    -AccountName "<cosmos-account-name>" `
+    -DatabaseName "<cosmos-database-name>" `
+    -Name "<cosmos-collection-name>" `
     -SourcePhysicalPartitionThroughputObject $SourcePhysicalPartitionObjects `
     -TargetPhysicalPartitionThroughputObject $TargetPhysicalPartitionObjects
 ```
@@ -152,7 +162,7 @@ After the changes, assuming your overall workload hasn't changed, you'll likely 
 
 ### SDK requirements
 
-Throughput redistribution across partitions is supported only in the latest preview version of the .NET v3 SDK. When the feature is enabled on your account, you must only use the supported SDK. Requests sent from other SDKs or earlier versions won't be accepted.
+Throughput redistribution across partitions is supported only in the latest preview version of the .NET v3 SDK. When the feature is enabled on your account, you must only use the supported SDK. Requests sent from other SDKs or earlier versions won't be accepted. There are no driver or SDK requirements to use this feature for non SQL API accounts.
 
 Find the latest preview version the supported SDK:
 

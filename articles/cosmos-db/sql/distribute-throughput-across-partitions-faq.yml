@@ -47,7 +47,7 @@ sections:
               |P1: 4000 RU/s      |  P1: 1000 RU/s       |   2/3      |
               |P2: 1000 RU/s      |  P2: 500 RU/s       |       1/6  |
 
-          - If you increase your RU/s without triggering a split - that is, you scale to a total RU/s <= current partition count * 10,000 RU/s - each physical partition will have RU/s >= `MIN(current throughput fraction * new RU/s, 10,000 RU/s)`
+          - If you increase your RU/s without triggering a split - that is, you scale to a total RU/s <= current partition count * 10,000 RU/s - each physical partition will have RU/s = `MIN(current throughput fraction * new RU/s, 10,000 RU/s)`. If the resulting sum of all RU/s across all partitions is less than the total new RU/s of the resource, it is recommended to reset your RU/s to an even distribution and redistribute to ensure that all available RU/s are allocated to a partition. To check if this applies to your resource, in Azure Monitor metrics, compare the value of the **ProvisionedThroughput** (when using manual throughput) or **AutoscaleMaxThroughput** (when using autoscale) metric to the value of the **PhysicalPartitionThroughput** metric. If the value of **PhysicalPartitionThroughput** is less than the respective **ProvisionedThroughput** or **AutoscaleMaxThroughput**, then reset your RU/s to an even distribution before redistributing, or lower your resource's throughput to the value of **PhysicalPartitionThroughput**. 
 
               For example, suppose you have a collection with 6000 RU/s and 3 physical partitions. You scale it up to 12,000 RU/s:
 
@@ -56,13 +56,5 @@ sections:
               |P0: 1000 RU/s     | P0: 2000 RU/s        |  1/6       |
               |P1: 4000 RU/s      |  P1: 8000 RU/s       |   2/3      |
               |P2: 1000 RU/s      |  P2: 2000 RU/s       |       1/6  |
-
-              If you scaled it up to 30,000 RU/s:
-
-              |Before scale-up (6000 RU/s)  |After scale up (30,000 RU/s)  |Fraction of total RU/s  |
-              |---------|---------|---------|
-              |P0: 1000 RU/s     | P0: 10,000 RU/s        |  1/6 - ignored because each partition can get 10,000 RU/s       |
-              |P1: 4000 RU/s      |  P1: 10,000 RU/s       |   2/3 - ignored because each partition can get 10,000 RU/s     |
-              |P2: 1000 RU/s      |  P2: 10,000 RU/s       |       1/6 - ignored because each partition can get 10,000 RU/s  |
 
           - If you increase your RU/s [beyond what the current partition layout can serve](../scaling-provisioned-throughput-best-practices.md), you trigger a split. By design, all physical partitions will default to having the same number of RU/s. After partitions split, the logical partitions that contributed to a hot partition may be on a different physical partition. If necessary, you can redistribute your RU/s on the new layout.

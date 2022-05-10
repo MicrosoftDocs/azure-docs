@@ -23,7 +23,7 @@ Burst capacity applies only to Cosmos accounts using provisioned throughput (man
 
 Let's take an example of a physical partition that has 100 RU/s of provisioned throughput and is idle for 5 minutes. With burst capacity, it can accumulate a maximum of 100 RU/s * 300 seconds = 30,000 RU of burst capacity. The capacity can be consumed at a maximum rate of 3000 RU/s, so if there's a sudden spike in request volume, the partition can burst up to 3000 RU/s for up 30,000 RU / 3000 RU/s = 10 seconds. Without burst capacity, any requests that are consumed beyond the provisioned 100 RU/s would have been rate limited (429).
 
-After the 10 seconds is over, the burst capacity has been used up. If the workload continues to exceed the provisioned 100 RU/s, any requests that are consumed beyond the provisioned 100 RU/s would now be rate limited (429). The maximum amount of burst capacity a physical partition can accumulate at any point in time is equal to 300 seconds * the provisioned RU/s of the container. 
+After the 10 seconds is over, the burst capacity has been used up. If the workload continues to exceed the provisioned 100 RU/s, any requests that are consumed beyond the provisioned 100 RU/s would now be rate limited (429). The maximum amount of burst capacity a physical partition can accumulate at any point in time is equal to 300 seconds * the provisioned RU/s of the physical partition. 
 
 ## Getting started
 
@@ -31,15 +31,15 @@ To get started using burst capacity, enroll in the preview by filing a support t
 
 ## Limitations
 
-### SDK requirements
+### SDK requirements (SQL API only)
 
-Burst capacity is supported only in the latest preview version of the .NET v3 SDK. When the feature is enabled on your account, you must only use the supported SDK. Requests sent from other SDKs or earlier versions won't be accepted.
+Burst capacity is supported only in the latest preview version of the .NET v3 SDK. When the feature is enabled on your account, you must only use the supported SDK. Requests sent from other SDKs or earlier versions won't be accepted. There are no driver or SDK requirements to use burst capacity with other APIs.
 
 Find the latest preview version the supported SDK:
 
 | SDK | Supported versions | Package manager link |
 | --- | --- | --- |
-| **.NET SDK v3** | *>= 3.17.0-preview* | <https://www.nuget.org/packages/Microsoft.Azure.Cosmos/> |
+| **.NET SDK v3** | *>= 3.27.0* | <https://www.nuget.org/packages/Microsoft.Azure.Cosmos/> |
 
 Support for other SDKs is planned for the future.
 

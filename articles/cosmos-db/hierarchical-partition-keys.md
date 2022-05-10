@@ -95,7 +95,7 @@ Mono<CosmosContainerResponse> container = database.createContainerIfNotExists(co
 
 ### Add an item to a container 
 
-There are two options to add a new item with subpartitioning enabled.
+There are two options to add a new item to a container with hierarchical partition keys enabled.
 
 #### Automatic extraction
 
