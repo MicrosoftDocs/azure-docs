@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 05/09/2022
+ms.date: 05/10/2022
 ms.custom: references_regions
 ---
 # Access provisioning by data owner for SQL Server on Azure Arc-enabled servers (preview)
@@ -76,9 +76,12 @@ Register each data source with Microsoft Purview to later define access policies
 Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this picture. 
 ![Screenshot shows how to register a data source for policy.](./media/how-to-data-owner-policies-sql/register-data-source-for-policy-arc-sql.png)
 
+[!Note]
+> Scan is not yet available for the SQL Server on Azure Arc-enabled server.
+
 ## Create and publish a data owner policy
 
-Execute the steps in the [data-owner policy authoring tutorial](./how-to-data-owner-policy-authoring-generic.md) to create and then publish a data owner policy similar to one of the examples shown in the images.
+Execute the steps in the **Create a new policy** and **Publish a policy** sections of the [data-owner policy authoring tutorial](./how-to-data-owner-policy-authoring-generic.md#create-a-new-policy). The result will be a data owner policy similar to one of the examples shown in the images.
 
 **Example #1: SQL Performance Monitor policy**. This policy assigns the Azure AD principal 'Christie Cline' to the *SQL Performance monitoring* role, in the scope of Arc-enabled SQL server *DESKTOP-xxx*. This policy has also been published to that server.
 
@@ -89,6 +92,10 @@ Execute the steps in the [data-owner policy authoring tutorial](./how-to-data-ow
 **Example #3: Read policy**. This policy assigns the Azure AD principal 'sg-Finance' to the *SQL Data reader* role, in the scope of SQL server *DESKTOP-xxx*. This policy has also been published to that server.
 
 ![Screenshot shows a sample data owner policy giving Data Reader access to an Azure SQL Database.](./media/how-to-data-owner-policies-sql/data-owner-policy-example-arc-sql-server-data-reader.png)
+
+[!Note]
+> Since scan is not yet available for this data source, data reader policies can only be created at server level, i.e. use the **Data sources box** instead of the Asset box w 
+
 
 >[!Important]
 > - Publish is a background operation. It can take up to **4 minutes** for the changes to be reflected in the data source.
