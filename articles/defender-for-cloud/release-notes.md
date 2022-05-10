@@ -20,7 +20,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in May Include: 
 
-- [Availability of Defender for SQL to protect Amazon Web Services (AWS) and Google Cloud Computing (GCP) environment](#General-availability-(GA)-of-Defender-for-SQL-for-AWS-and-GCP-environments)
+- [Availability of Defender for SQL to protect Amazon Web Services (AWS) and Google Cloud Computing (GCP) environment](#general-availability-ga-of-defender-for-sql-for-aws-and-gcp-environments)
 
 
 ### General availability (GA) of Defender for SQL for AWS and GCP environments
