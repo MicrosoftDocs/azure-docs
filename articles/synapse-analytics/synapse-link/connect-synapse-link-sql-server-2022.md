@@ -83,7 +83,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
      :::image type="content" source="../media/connect-synapse-link-sql-server-2022/set-up-integration-runtime.png" alt-text="Download, install and register the integration runtime.":::
 
-   * Select **Close**, and go to monitoring page to make sure your self-hosted integration runtime is running by clicking **refresh** to get the latest status of integration runtime.
+   * Select **Close**, and go to monitoring page to make sure your self-hosted integration runtime is running by selecting **refresh** to get the latest status of integration runtime.
 
      :::image type="content" source="../media/connect-synapse-link-sql-server-2022/integration-runtime-status.png" alt-text="Get the status of integration runtime.":::
 
@@ -158,9 +158,9 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
    * Configure your landing zone. Select your **linked service** connecting to your landing zone.
 
-   * Input your ADLS gen2 **container name or container/folder name** as landing zone folder path for staging the data. The container is required to be created first.
+   * Input your ADLS Gen2 **container name or container/folder name** as landing zone folder path for staging the data. The container is required to be created first.
 
-   * Input your ADLS gen2 SAS token. SAS token is required for SQL change feed to get access on landing zone. If your ADLS gen2 doesn't have SAS token, you can create one by clicking **+Generate token**.
+   * Input your ADLS Gen2 shared access signature (SAS) token. SAS token is required for SQL change feed to get access on landing zone. If your ADLS Gen2 doesn't have SAS token, you can create one by selecting **+Generate token**.
 
    * Select **OK**.
 
@@ -170,7 +170,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
    > [!NOTE]
    > * Consider heap table for structure type when your data contains varchar(max), nvarchar(max), and varbinary(max).
-   > * Make sure the schema in your Synapse SQL pool has already been created before you start the link connection. Azure Synapse link will help you to create tables automatically under your schema in Synapse SQL Pool.
+   > * Make sure the schema in your Synapse SQL pool has already been created before you start the link connection. Azure Synapse Link will help you to create tables automatically under your schema in Azure Synapse SQL Pool.
 
 1. Select **Publish all** to save the new link connection to the service.
 
@@ -215,7 +215,7 @@ You can add/remove tables on Synapse Studio as following:
 
 1. Select the **Link connection** you want to edit and open it.  
 
-1. Select **+New** table to add tables on Synapse Studio or click the trash can icon to the right of a table to remove an existing table. You can add or remove tables when the link connection is running.
+1. Select **+New** table to add tables on Synapse Studio or select the trash can icon to the right of a table to remove an existing table. You can add or remove tables when the link connection is running.
 
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/link-connection-add-remove-tables.png" alt-text="Link connection add table.":::
 
@@ -224,7 +224,7 @@ You can add/remove tables on Synapse Studio as following:
    
 ## Stop the Azure Synapse Link connection
 
-You can stop the Azure Synapse link connection on Synapse Studio as following:
+You can stop the Azure Synapse Link connection on Synapse Studio as following:
 
 1. Open the **Integrate Hub** of your Synapse workspace.
 

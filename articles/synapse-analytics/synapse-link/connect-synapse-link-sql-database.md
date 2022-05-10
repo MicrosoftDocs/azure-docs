@@ -20,7 +20,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 ## Prerequisites
 
-* [Create a new Synapse workspace](https://ms.portal.azure.com/#create/Microsoft.Synapse) to get Synapse link for Azure SQL Database. Ensure to check "Disable Managed virtual network" and "Allow connections from all IP address" when creating Synapse workspace.
+* [Create a new Synapse workspace](https://ms.portal.azure.com/#create/Microsoft.Synapse) to get Azure Synapse Link for Azure SQL Database. Ensure to check "Disable Managed virtual network" and "Allow connections from all IP address" when creating Synapse workspace.
 
 * For DTU-based provisioning, make sure your Azure SQL Database service is at least Standard tier with a minimum of 100 DTUs. Free, Basic, or Standard tiers with fewer than 100 DTUs provisioned are not supported.
 
@@ -153,7 +153,7 @@ You can add/remove tables on Synapse Studio as following:
 
 1. Select the **Link connection** you want to edit and open it.  
 
-1. Select **+New** table to add tables on Synapse Studio or click the trash can icon to the right or a table to remove an existing table. You can add or remove tables when the link connection is running.
+1. Select **+New** table to add tables on Synapse Studio or select the trash can icon to the right or a table to remove an existing table. You can add or remove tables when the link connection is running.
 
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/link-connection-add-remove-tables.png" alt-text="Screenshot of link connection to add table.":::
 
