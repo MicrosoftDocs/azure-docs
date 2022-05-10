@@ -35,21 +35,27 @@ To get started with NC A100 v4 VMs, refer to [HPC Workload Configuration and Opt
 
 Due to increased GPU memory I/O footprint, the NC A100 v4 requires the use of [Generation 2 VMs](./generation-2.md) and marketplace images. The [Azure HPC images](./workloads/hpc/configure.md) are strongly recommended. Azure HPC Ubuntu 18.04, 20.04 and Azure HPC CentOS 7.9, CentOS 8.4, RHEL 7.9 and RHEL 8.5 images are supported. Windows Service 2019 and Windows Service 2022 images are supported.
  
-Key Features:    
-- [Premium Storage](premium-storage-performance.md)             
-- [Premium Storage caching](premium-storage-performance.md)                       
-- [VM Generation 2](generation-2.md)   
-- [Ephemeral OS Disks](ephemeral-os-disks.md)  
-- NVIDIA NVLink Interconnect  
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Ultra Disks](disks-types.md#ultra-disks): Not Supported <br>
+[Live Migration](maintenance-and-updates.md): Not Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
+[VM Generation Support](generation-2.md): Generation 2<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
+InfiniBand: Not Supported<br>
+Nvidia NVLink Interconnect: Supported<br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
+<br>
 
 These features are not supported:[Live Migration](maintenance-and-updates.md), [Memory Preserving Updates](maintenance-and-updates.md) and [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) . 
 
 
-| Size | vCPU | Memory: GiB | Temp Storage (SSD) : GiB | Temp Storage (NVMe): GiB | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs/network bandwidth (Mbps) |
-|---|---|---|---|---|---|---|---|---|---|
-| Standard_NC24ads_A100_v4   | 24  | 220 | 163 | 960    | 1 | 80  | 12 | 30000/1000 | 2/20,000  |
-| Standard_NC48ads_A100_v4   | 48 | 440 | 326 | 2 x 960 | 2 | 160 | 24 | 60000/2000 | 4/40,000  | 
-| Standard_NC96ads_A100_v4   | 96 | 880 | 652 | 4 x 960 | 4 | 320 | 32 | 120000/4000 | 8/80,000  |
+| Size | vCPU | Memory: GiB | Temp Storage (with NVMe) : GiB  | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs/network bandwidth (Mbps) |
+|---|---|---|---|---|---|---|---|---|
+| Standard_NC24ads_A100_v4   | 24  | 220 | 1123 | 1 | 80  | 12 | 30000/1000 | 2/20,000  |
+| Standard_NC48ads_A100_v4   | 48 | 440 | 2246  | 2 | 160 | 24 | 60000/2000 | 4/40,000  | 
+| Standard_NC96ads_A100_v4   | 96 | 880 | 4492 | 4 | 320 | 32 | 120000/4000 | 8/80,000  |
 
 1 GPU = one A100 card
 
