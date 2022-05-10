@@ -68,21 +68,35 @@ You can also do the following:
 - Convert data: convert [HL7 v2](./../healthcare-apis/fhir/convert-data.md) and other format data to FHIR
 - Create Power BI dashboard reports with FHIR data 
 
-For more information about, see [Get started with FHIR service](./../healthcare-apis/fhir/get-started-with-fhir.md).
+For more information, see [Get started with FHIR service](./../healthcare-apis/fhir/get-started-with-fhir.md).
 
 ## DICOM service
 
 DICOM service is a managed service within Azure Health Data Services that ingests and persists DICOM objects at multiple thousands of images per second. It facilitates communication and transmission of imaging data with any DICOMweb™ enabled systems or applications via DICOMweb Standard APIs like [Store (STOW-RS)](./../healthcare-apis/dicom/dicom-services-conformance-statement.md#store-stow-rs), [Search (QIDO-RS)](./../healthcare-apis/dicom/dicom-services-conformance-statement.md#search-qido-rs), [Retrieve (WADO-RS)](./../healthcare-apis/dicom/dicom-services-conformance-statement.md#retrieve-wado-rs). 
 
-DICOM service is secured by Azure AD that can't be disabled. To access the service API, you must create a client application that's also referred to as a service principal in Azure AD and grant it with the right permissions. For more information about registering a client application, granting access permissions, assigning roles, and obtaining an access token for the DICOM service, see [Get started with the DICOM service](./../healthcare-apis/dicom/get-started-with-dicom.md).
+DICOM service is secured by Azure AD that can't be disabled. To access the service API, you must create a client application that's also referred to as a service principal in Azure AD and grant it with the right permissions. You can create or register a client application from the [Azure portal](register-application.md), or using PowerShell and Azure CLI scripts. This client application can be used for one or more DICOM service instances. It can also be used for other services in Azure Health Data Services.
+
+You can also do the following:
+- Grant access permissions or assign roles from the [Azure portal](./../healthcare-apis/configure-azure-rbac.md), or using PowerShell and Azure CLI scripts.
+- Perform create, read (search), update, and delete (CRUD) transactions against the DICOM service in your applications or by using tools such as Postman, REST Client, cURL, and Python
+- Obtain an Azure AD access token using PowerShell, Azure CLI, REST CLI, or .NET SDK
+- Access the DICOM service using tools such as .NET C#, cURL, Python, Postman, and REST Client
+
+For more information, see [Get started with the DICOM service](./../healthcare-apis/dicom/get-started-with-dicom.md).
 
 ## MedTech service
 
-MedTech service is an optional service of the Azure Health Data Services designed to ingest health data from multiple and disparate Internet of Medical Things (IoMT) devices and persisting the health data in a FHIR service.
-
 MedTech service transforms device data into FHIR-based observation resources and then persists the transformed messages into Azure Health Data Services FHIR service. This allows for a unified approach to health data access, standardization, and trend capture enabling the discovery of operational and clinical insights, connecting new device applications, and enabling new research projects. 
 
-MedTech service works with the Azure Event Hub and the FHIR service. You can create a new FHIR service or use an existing one in the same or different workspace. Similarly, you can create a new Event Hub or use an existing one. You assign roles to allow the MedTech service to access Event Hub and FHIR service. Additionally, you can send data to the Event Hub, which is associated with the MedTech service. For more information about assigning roles to allow the MedTech service to access Event Hub and the FHIR service, see [Get started with the MedTech service](./../healthcare-apis/iot/get-started-with-iot.md).
+To ensure that your MedTech service works properly, it must have granted access permissions to the Azure Event Hub and FHIR service. The Azure Event Hubs Data Receiver role allows the MedTech service that's being assigned this role to receive data from this Event Hub. For more information about application roles, see [Authentication & Authorization for Azure Health Data Services](./../healthcare-apis/authentication-authorization.md)
+
+You can also do the following:
+- Create a new FHIR service or use an existing one in the same or different workspace 
+- Create a new Event Hub or use an existing one 
+- Assign roles to allow the MedTech service to access [Event Hub](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-medtech-service-access) and [FHIR service](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md#accessing-the-medtech-service-from-the-fhir-service)
+- Send data to the Event Hub, which is associated with the MedTech service 
+
+For more information, see [Get started with the MedTech service](./../healthcare-apis/iot/get-started-with-iot.md).
 
 ## Authentication and authorization
 
