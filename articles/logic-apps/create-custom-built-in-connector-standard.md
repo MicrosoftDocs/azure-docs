@@ -43,7 +43,7 @@ This example creates a sample custom built-in Cosmos DB connector that has only 
 
 | Operation | Operation details | Description |
 |-----------|-------------------|-------------|
-| Trigger | Receive document | This trigger operation runs when an insert or update operation happens in the specified Cosmos DB database and collection. |
+| Trigger | When a document is received | This trigger operation runs when an insert operation happens in the specified Cosmos DB database and collection. |
 | Action | None | This connector doesn't define any action operations. |
 ||||
 
@@ -260,11 +260,65 @@ To add the NuGet reference from the previous section, in the extension bundle na
 
    ![Screenshot showing the trigger properties pane.](./media/create-custom-built-in-connector-standard/visual-studio-code-built-in-connector-trigger-properties.png)
 
+   For this example, the workflow definition, which is in the **workflow.json** file, has a `triggers` JSON object that appears similar to the following sample:
+
+   ```json
+   {
+      "definition": {
+         "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+         "actions": {},
+         "contentVersion": "1.0.0.0",
+         "outputs": {},
+         "triggers": {
+            "When_a_document_is_received": {
+               "inputs":{
+                  "parameters": {
+                     "collectionName": "States",
+                     "databaseName": "SampleCosmosDB"
+                  },
+                  "serviceProviderConfiguration": {
+                     "connectionName": "cosmosDb",
+                     "operationId": "whenADocumentIsReceived",
+                     "serviceProviderId": "/serviceProviders/CosmosDb"
+                  },
+                  "splitOn": "@triggerOutputs()?['body']",
+                  "type": "ServiceProvider"
+               }
+            }
+         }
+      },
+      "kind": "Stateful"
+   }
+   ```
+
+   The connection definition, which is in the **connections.json** file, has a `serviceProviderConnections` JSON object that appears similar to the following sample:
+
+   ```json
+   {
+      "serviceProviderConnections": {
+         "cosmosDb": {
+            "parameterValues": {
+               "connectionString": "@appsetting('cosmosDb_connectionString')"
+            },
+            "serviceProvider": {
+               "id": "/serviceProviders/CosmosDb"
+            },
+            "displayName": "myCosmosDbConnection"
+         }
+      },
+      "managedApiConnections": {}
+   }
+   ```
+
 1. In Visual Studio Code, on the **Run** menu, select **Start Debugging**. (Press F5)
 
 1. To trigger your workflow, in the Azure portal, open your Azure Cosmos DB account. On the account menu, select **Data Explorer**. Browse to the database and collection that you specified in the trigger. Add an item to the collection.
 
    ![Screenshot showing the Azure portal, Cosmos DB account, and Data Explorer open to the specified database and collection.](./media/create-custom-built-in-connector-standard/cosmos-db-account-test-add-item.png)
+
+## View workflow definition with service provider
+
+
 
 ## Next steps
 
