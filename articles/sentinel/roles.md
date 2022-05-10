@@ -46,9 +46,9 @@ Users with particular job requirements may need to be assigned additional roles 
 
 - **Giving Microsoft Sentinel permissions to run playbooks**
 
-    Microsoft Sentinel uses a special service account to run playbooks manually or to call them from automation rules. The use of this account (as opposed to your user account) increases the security level of the service.
+    Microsoft Sentinel uses a special service account to run incident-trigger playbooks manually or to call them from automation rules. The use of this account (as opposed to your user account) increases the security level of the service.
 
-    In order for an automation rule to run a playbook, this account must be granted explicit permissions to the resource group where the playbook resides. At that point, any automation rule will be able to run any playbook in that resource group.
+    In order for an automation rule to run a playbook, this account must be granted explicit permissions to the resource group where the playbook resides. At that point, any automation rule will be able to run any playbook in that resource group. To grant these permissions to this service account, your account must have **Owner** permissions on the resource groups containing the playbooks.
 
 - **Connecting data sources to Microsoft Sentinel**
 
