@@ -60,7 +60,7 @@ When Azure Manged Domain is provisioned to send mail, it has default Mail From a
     :::image type="content" source="./media/email-provisioned-domains.png" alt-text="Click Azure Managed Domain link  in provisioned Domains":::
 4. The navigation lands in Azure Managed Domain Overview page where you will able to see Mailfrom and From attributes.
  
-   :::image type="content" source="./media/email-provisioned-domains-overview.png" alt-text="Navigate to Azure Managed Domain Overview":::
+   :::image type="content" source="./media/email-provisioned-domains-overview.png" alt-text="Provisioned Domain Overview":::
 
 5. Click on edit link on MailFrom 
 
