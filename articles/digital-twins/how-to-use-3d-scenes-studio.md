@@ -34,9 +34,9 @@ You should also configure CORS for your storage account, so that 3D Scenes Studi
 1. Return to the storage account's page in the portal.
 1. Scroll down in the left menu to **Resource sharing (CORS)** and select it.
 1. On the **Resource sharing (CORS)** page for your storage account, fill in an entry with the following details:
-    1. **Allowed origins** - Enter *https://adtexplorer-tsi-local.azurewebsites.net,https://localhost:8443,https://explorer.digitaltwins.azure.net,https://dev.explorer.azuredigitaltwins-test.net*
-    1. **Allowed methods** - Select the checkboxes for *GET*, *POST*, *OPTIONS*, and *PUT*.
-    1. **Allowed headers** - Enter *Authorization,x-ms-version,x-ms-blob-type*
+    1. **Allowed origins** - Enter *https://explorer.digitaltwins.azure.net*. You can add additional origins if you want, or use * to allow general access.
+    1. **Allowed methods** - Select the checkboxes for *GET*, *POST*, *OPTIONS*, and *PUT*. You can add additional methods if you want.
+    1. **Allowed headers** - Enter *Authorization,x-ms-version,x-ms-blob-type*. You can add additional headers if you want.
 1. Select **Save**.
 
     :::image type="content"  source="media/how-to-use-3d-scenes-studio/cors.png" alt-text="Screenshot of the Azure portal where the CORS entry is being created and saved." lightbox="media/how-to-use-3d-scenes-studio/cors.png":::
@@ -64,7 +64,10 @@ In this section, you'll create an environment in *3D Scenes Studio* and customiz
 
 The 3D representation of an environment in 3D Scenes Studio is called a *scene*. A scene consists of a 3D file and a configuration file that's created for you automatically.
 
-To create a scene, start with a segmented 3D file in *.GLTF* or *.GLB* format. You can download and view a sample 3D file using this link: [Download OutdoorTanks.gltf](https://cardboardresources.blob.core.windows.net/cardboard-mock-files/OutdoorTanks.gltf). 
+To create a scene, start with a segmented 3D file in *.GLTF* or *.GLB* format. You can download and view a sample 3D file using this link: [Download KawasakiAndSite4.glb](https://cardboardresources.blob.core.windows.net/cardboard-mock-files/OutdoorTanks.gltf). 
+
+>[!TIP]
+>3D Scenes Studio supports animation. If you use a 3D model file that contains animations, they will play in the scene.
 
 You can use 3D Scenes Studio with a 3D file that's already present in your storage container, or you can upload the file directly to 3D Scenes Studio, which will add it to the container automatically. Here are the steps to use a 3D file to create a new scene.
 
@@ -236,8 +239,11 @@ Here are the types of widget that you can create:
 * **Gauge**: For representing numerical data points visually
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-gauge.png" alt-text="Screenshot of creating a new gauge-type widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-gauge.png":::
 
-* **Link**: For including externally-referenced content via a linked URL
+* **Link**: For including externally referenced content via a linked URL
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-link.png" alt-text="Screenshot of creating a new link-type widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-link.png":::
+
+* **Value**: For directly displaying twin property values
+    :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value.png" alt-text="Screenshot of creating a new value-type widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value.png":::
 
 ## Manage layers 
 
