@@ -15,7 +15,7 @@ This article shows you how to enable encryption at rest for your Kubernetes data
 * Bring your own keys
 * Provide encryption at rest for secrets stored in etcd
 
-For more details on using the KMS plugin, see [Encrypting Secret Data at Rest](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/).
+For more information on using the KMS plugin, see [Encrypting Secret Data at Rest](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -62,11 +62,12 @@ az provider register --namespace Microsoft.ContainerService
 The following limitations apply when you integrate KMS etcd encryption with AKS:
 
 * Disabling of the KMS etcd encryption feature.
-* Changing of key Id, including key name and key version.
+* Changing of key ID, including key name and key version.
 * Deletion of the key, Key Vault, or the associated identity.
-* KMS etcd encryption does not work with System-Assigned Managed Identity. The keyvault access-policy is required to be set before the feature is enabled. In addition, System-Assigned Managed Identity is not available until cluster creation, thus there is a cycle dependency.
+* KMS etcd encryption doesn't work with System-Assigned Managed Identity. The keyvault access-policy is required to be set before the feature is enabled. In addition, System-Assigned Managed Identity isn't available until cluster creation, thus there's a cycle dependency.
 * Using Azure Key Vault with PrivateLink enabled.
 * Using more than 2000 secrets in a cluster.
+* Managed HSM Support
 * Bring your own (BYO) Azure Key Vault from another tenant.
 
 
@@ -106,23 +107,23 @@ Use `az identity create` to create a User-assigned managed identity.
 az identity create --name MyIdentity --resource-group MyResourceGroup
 ```
 
-Use `az identity show` to get Identity Object Id.
+Use `az identity show` to get Identity Object ID.
 
 ```azurecli
 IDENTITY_OBJECT_ID=$(az identity show --name MyIdentity --resource-group MyResourceGroup --query 'principalId' -o tsv)
 echo $IDENTITY_OBJECT_ID
 ```
 
-The above example stores the value of the Identity Object Id in *IDENTITY_OBJECT_ID*.
+The above example stores the value of the Identity Object ID in *IDENTITY_OBJECT_ID*.
 
-Use `az identity show` to get Identity Resource Id.
+Use `az identity show` to get Identity Resource ID.
 
 ```azurecli
 IDENTITY_RESOURCE_ID=$(az identity show --name MyIdentity --resource-group MyResourceGroup --query 'id' -o tsv)
 echo $IDENTITY_RESOURCE_ID
 ```
 
-The above example stores the value of the Identity Resource Id in *IDENTITY_RESOURCE_ID*.
+The above example stores the value of the Identity Resource ID in *IDENTITY_RESOURCE_ID*.
 
 ## Assign permissions (decrypt and encrypt) to access key vault
 
@@ -148,7 +149,7 @@ Use [az aks update][az-aks-update] with the `--enable-azure-keyvault-kms` and `-
 az aks update --name myAKSCluster --resource-group MyResourceGroup --enable-azure-keyvault-kms --azure-keyvault-kms-key-id $KEY_ID
 ```
 
-Use below command to update all secrets. Otherwise, the old secrets are not encrypted. 
+Use below command to update all secrets. Otherwise, the old secrets aren't encrypted. 
 
 ```azurecli-interactive
 kubectl get secrets --all-namespaces -o json | kubectl replace -f -
