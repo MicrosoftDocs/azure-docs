@@ -13,11 +13,13 @@ ms.author: aahi
 ms.custom: language-service-summarization, ignite-fall-2021
 ---
 
-# Text summarization language support
+# Summarization feature language support
 
-Use this article to learn which natural languages are supported by text summarization feature. 
+Use this article to learn which natural languages are supported by document summarization and conversation summarization. 
 
-## Languages supported by text summarization 
+# [Document summarization](#tab/document-summarization)
+
+## Languages supported by document summarization 
 
 Text summarization supports the following languages:
 
@@ -33,6 +35,18 @@ Text summarization supports the following languages:
 | Spanish               | `es`          | 2021-08-01                      |                    |
 | Portuguese (Brazil)   | `pt-BR`       | 2021-08-01                      |                    |
 | Portuguese (Portugal) | `pt-PT`       | 2021-08-01                      | `pt` also accepted |
+
+# [Conversation summarization](#tab/conversation-summarization)
+
+## Languages supported by conversation summarization 
+
+Conversation summarization supports the following languages:
+
+| Language              | Language code |  Starting with model version |     Notes          |
+|:----------------------|:-------------:|:-------------------------------:|:------------------:|
+| English               | `en`          | `2022-05-15`                      |                    |
+
+---
 
 ## Next steps
 
