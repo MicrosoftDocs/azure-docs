@@ -4,6 +4,7 @@ description: This article describes how to configure zone redundant high availab
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli
 ms.date: 05/24/2022
