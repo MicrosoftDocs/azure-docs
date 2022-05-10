@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) drivers for Azure Files on Azure Ku
 description: Learn how to use the Container Storage Interface (CSI) drivers for Azure Files in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 04/01/2021
+ms.date: 05/10/2021
 author: palma21
 
 ---
@@ -20,10 +20,12 @@ To create an AKS cluster with CSI driver support, see [Enable CSI drivers for Az
 > *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code versus the new CSI drivers, which are plug-ins.
 
 ## Azure File CSI driver new features
-Besides original in-tree driver features, Azure File CSI driver already provides following new features:
+
+In addition to the in-tree driver features, Azure Files CSI driver supports the following new features:
+
 - NFS 4.1
 - Private endpoint
-- support creating large mount of file shares in parallel 
+- Create multiple concurrent file shares
 
 ## Use a persistent volume with Azure Files
 

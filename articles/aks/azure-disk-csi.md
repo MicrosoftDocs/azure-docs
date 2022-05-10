@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) drivers for Azure Disks on Azure Ku
 description: Learn how to use the Container Storage Interface (CSI) drivers for Azure disks in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 04/06/2022
+ms.date: 05/10/2022
 author: palma21
 
 ---
@@ -19,9 +19,11 @@ To create an AKS cluster with CSI driver support, see [Enable CSI drivers for Az
 > *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code versus the new CSI drivers, which are plug-ins.
 
 ## Azure Disk CSI driver new features
-Besides original in-tree driver features, Azure Disk CSI driver already provides following new features:
-- performance improvement when attach or detach disks in parallel
-  - in-tree driver attaches or detaches disks in serial while CSI driver would attach or detach disks in batch, there would be significant improvement when there are multiple disks attaching to one node.
+
+In addition to the in-tree driver features, Azure Disk CSI driver supports the following new features:
+
+- Performance improvements during concurrent disk attach and detach
+  - In-tree driver attaches or detaches disks in serial, while CSI driver attaches or detaches disks in batch. There is significant improvement when there are multiple disks attaching to one node.
 - ZRS disk support
   - `Premium_ZRS`, `StandardSSD_ZRS` disk types are supported, check more details about [Zone-redundant storage for managed disks](../virtual-machines/disks-redundancy.md)
 - [Snapshot](#volume-snapshots)
