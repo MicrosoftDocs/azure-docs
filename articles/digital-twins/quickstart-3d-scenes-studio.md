@@ -102,7 +102,7 @@ Next, create a new storage account and a container in the storage account. 3D Sc
 
 1. You will see a summary page on the **Review + create** tab showing the details you've entered. Confirm and create the storage account by selecting **Create**.
 1. After deployment completes, use the **Go to resource** button to navigate to the storage account in the portal.
-    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/deployment-complete-storage.png" alt-text="Screenshot of the deployment page for the storage account in the Azure portal. The page indicates that deployment is complete." lightbox="media/quickstart-azure-digital-twins-explorer/deployment-complete-storage.png":::
+    :::image type="content" source="media/quickstart-3d-scenes-studio/deployment-complete-storage.png" alt-text="Screenshot of the deployment page for the storage account in the Azure portal. The page indicates that deployment is complete." lightbox="media/quickstart-3d-scenes-studio/deployment-complete-storage.png":::
 
 1. Select **Access Control (IAM)** from the storage account's left menu, **+ Add**, and **Add role assignment**.
     :::image type="content" source="media/quickstart-3d-scenes-studio/add-storage-role-1.png" alt-text="Screenshot of the IAM tab for the storage account in the Azure portal." lightbox="media/quickstart-3d-scenes-studio/add-storage-role-1.png":::
