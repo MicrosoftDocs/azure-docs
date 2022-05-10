@@ -37,7 +37,7 @@ This article describes how you can use the no code editor to easily create a Str
 1. Select the Azure Data Lake Gen2 table to send your filtered data:
     1. Select the **subscription**, **storage account name**, and **container** from the drop-down menu.
     1. After the **subscription** is selected, the **authentication method** and **storage account key** should be automatically filled in. Select **Connect**.  
-    For more information about the fields and to see examples of path pattern, see [Blob storage and Azure Data Lake Gen2 output from Azure Stream Analytics](blob-storage-azure-data-lake-gen2-output.md).
+    For more information about the fields and to see examples of path pattern, see [Blob storage and Azure Data Lake Gen2 output from Azure Stream Analytics](blob-storage-azure-data-lake-gen2-output.md).  
         :::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/data-lake-configuration.png" alt-text="Screenshot showing the Azure Data Lake Gen2 blob container connection configuration settings." lightbox="./media/filter-ingest-data-lake-storage-gen2/data-lake-configuration.png" :::
 1. Optionally, select **Get static preview/Refresh static preview** to see the data preview that will be ingested from Azure Data Lake Storage Gen2.  
 :::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/data-lake-static-preview.png" alt-text="Screenshot showing the data preview and Refresh static preview option." lightbox="./media/filter-ingest-data-lake-storage-gen2/data-lake-static-preview.png" :::
