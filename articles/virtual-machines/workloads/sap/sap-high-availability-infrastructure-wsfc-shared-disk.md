@@ -204,7 +204,7 @@ The steps mentioned in the document remain same for both deployment type. But if
 > [!Note]
 > [Azure proximity placement group](../../windows/proximity-placement-groups.md) is not required for Azure shared disk. But for SAP deployment with PPG, follow below guidelines:
 > - If you are using PPG for SAP system deployed in a region then all virtual machines sharing a disk must be part of the same PPG.
-> -  If you are using PPG for SAP system deployed across zones like described in the document [Proximity placement groups with zonal deployments](sap-proximity-placement-scenarios#proximity-placement-groups-with-zonal-deployments), you can attach Premium_ZRS storage to virtual machines sharing a disk.
+> -  If you are using PPG for SAP system deployed across zones like described in the document [Proximity placement groups with zonal deployments](sap-proximity-placement-scenarios.md#proximity-placement-groups-with-zonal-deployments), you can attach Premium_ZRS storage to virtual machines sharing a disk.
 
 ## <a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Create Azure internal load balancer
 
