@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Get started with Azure Digital Twins Explorer
 titleSuffix: Azure Digital Twins
-description: Learn how to use the Azure Digital Twins Explorer by following this demo, where you'll be using models to instantiate twins and interacting with the twin graph.
+description: Learn how to use Azure Digital Twins Explorer by following this demo, where you'll use models to instantiate twins and interact with the twin graph.
 author: baanders
 ms.author: baanders
 ms.date: 02/25/2022
