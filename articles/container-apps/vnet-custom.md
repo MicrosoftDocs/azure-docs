@@ -78,10 +78,10 @@ $VNET_NAME="my-custom-vnet"
 
 ---
 
-Now create an instance of the virtual network to associate with the Container Apps environment. The virtual network must have two subnets available for the container apps instance.
+Now create an instance of the virtual network to associate with the Container Apps environment. The virtual network must have and single subnet available for the container apps instance.
 
 > [!NOTE]
-> You can use an existing virtual network, but two empty subnets are required to use with Container Apps.
+> You can use an existing virtual network, but an empty subnet is required to use with Container Apps.
 
 # [Bash](#tab/bash)
 
@@ -97,16 +97,8 @@ az network vnet create \
 az network vnet subnet create \
   --resource-group $RESOURCE_GROUP \
   --vnet-name $VNET_NAME \
-  --name control-plane \
+  --name infrastructure \
   --address-prefixes 10.0.0.0/23
-```
-
-```azurecli
-az network vnet subnet create \
-  --resource-group $RESOURCE_GROUP \
-  --vnet-name $VNET_NAME \
-  --name applications \
-  --address-prefixes 10.0.8.0/23
 ```
 
 # [PowerShell](#tab/powershell)
@@ -123,16 +115,8 @@ az network vnet create `
 az network vnet subnet create `
   --resource-group $RESOURCE_GROUP `
   --vnet-name $VNET_NAME `
-  --name control-plane `
-  --address-prefixes 10.0.0.0/21
-```
-
-```powershell
-az network vnet subnet create `
-  --resource-group $RESOURCE_GROUP `
-  --vnet-name $VNET_NAME `
-  --name applications `
-  --address-prefixes 10.0.8.0/21
+  --name infrastructure `
+  --address-prefixes 10.0.0.0/23
 ```
 
 ---

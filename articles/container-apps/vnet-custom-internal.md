@@ -97,16 +97,8 @@ az network vnet create \
 az network vnet subnet create \
   --resource-group $RESOURCE_GROUP \
   --vnet-name $VNET_NAME \
-  --name control-plane \
+  --name infrastructure \
   --address-prefixes 10.0.0.0/23
-```
-
-```azurecli
-az network vnet subnet create \
-  --resource-group $RESOURCE_GROUP \
-  --vnet-name $VNET_NAME \
-  --name applications \
-  --address-prefixes 10.0.8.0/23
 ```
 
 # [PowerShell](#tab/powershell)
@@ -123,16 +115,8 @@ az network vnet create `
 az network vnet subnet create `
   --resource-group $RESOURCE_GROUP `
   --vnet-name $VNET_NAME `
-  --name control-plane `
-  --address-prefixes 10.0.0.0/21
-```
-
-```powershell
-az network vnet subnet create `
-  --resource-group $RESOURCE_GROUP `
-  --vnet-name $VNET_NAME `
-  --name applications `
-  --address-prefixes 10.0.8.0/21
+  --name infrastructure `
+  --address-prefixes 10.0.0.0/23
 ```
 
 ---
