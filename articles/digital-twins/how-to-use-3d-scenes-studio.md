@@ -239,7 +239,7 @@ Here are the types of widget that you can create:
 * **Gauge**: For representing numerical data points visually
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-gauge.png" alt-text="Screenshot of creating a new gauge-type widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-gauge.png":::
 
-* **Link**: For including externally-referenced content via a linked URL
+* **Link**: For including externally referenced content via a linked URL
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-link.png" alt-text="Screenshot of creating a new link-type widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-link.png":::
 
 * **Value**: For directly displaying twin property values
