@@ -31,7 +31,7 @@ In Speech Studio, the following Speech service features are available as project
 
 * **Real-time speech-to-text**: Quickly test speech-to-text by dragging audio files here without having to use any code. This is a demo tool for seeing how speech-to-text works on your audio samples. To explore the full functionality, see [What is speech-to-text?](speech-to-text.md).
 
-* **Custom Speech**: Create speech recognition models that are tailored to specific vocabulary sets and styles of speaking. In contrast to the base speech recognition model, Custom Speech models become part of your unique competitive advantage because they're not publicly accessible. To get started with uploading sample audio to create a Custom Speech model, see [Training and testing datasets](how-to-custom-speech-test-and-train.md).
+* **Custom Speech**: Create speech recognition models that are tailored to specific vocabulary sets and styles of speaking. In contrast to the base speech recognition model, Custom Speech models become part of your unique competitive advantage because they're not publicly accessible. To get started with uploading sample audio to create a Custom Speech model, see [Upload training and testing datasets](how-to-custom-speech-upload-data.md).
 
 * **Pronunciation assessment**: Evaluate speech pronunciation and give speakers feedback on the accuracy and fluency of spoken audio. Speech Studio provides a sandbox for testing this feature quickly, without code. To use the feature with the Speech SDK in your applications, see the [Pronunciation assessment](how-to-pronunciation-assessment.md) article.
 

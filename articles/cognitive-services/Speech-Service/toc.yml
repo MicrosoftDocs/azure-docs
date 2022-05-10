@@ -70,7 +70,7 @@ items:
           items:
           - name: Choose a model
             href: how-to-custom-speech-choose-model.md
-          - name: Upload testing and training datasets
+          - name: Upload training and testing datasets
             href: how-to-custom-speech-upload-data.md
           - name: Test recognition quality
             href: how-to-custom-speech-inspect-data.md
