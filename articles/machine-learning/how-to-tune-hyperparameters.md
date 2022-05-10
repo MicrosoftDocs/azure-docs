@@ -96,7 +96,7 @@ command_job_for_sweep = command_job(
 This code defines a search space with two parameters - `learning_rate` and `keep_probability`. `learning_rate` has a normal distribution with mean value 10 and a standard deviation of 3. `keep_probability` has a uniform distribution with a minimum value of 0.05 and a maximum value of 0.1.
 
 For the CLI, you can use the [sweep job YAML schema](/articles/machine-learning/reference-yaml-job-sweep)., to define the search space in your YAML:
-```Python
+```YAML
     search_space:
         conv_size:
             type: choice
@@ -464,6 +464,16 @@ Once all of the hyperparameter tuning jobs have completed, retrieve your best tr
 ml_client.jobs.download(returned_sweep_job.name, output_name="model")
 ```
 
+You can use the CLI to download all default and named outputs of the best trial job and logs of the sweep job.
+```
+az ml job download --name <sweep-job> --all
+```
+
+Optionally, to solely download the best trial output
+```
+az ml job download --name <sweep-job> --output-name model
+```   
+    
 ## References
 
 - [Hyperparameter tuning example](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/single-step/lightgbm/iris/src/main.py)
