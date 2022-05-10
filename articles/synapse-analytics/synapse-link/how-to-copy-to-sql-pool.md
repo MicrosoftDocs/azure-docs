@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.subservice: synapse-link
 ms.date: 08/10/2020
 ms.author: rosouz
-ms.reviewer: sngun
+ms.reviewer: sngun, wiassaf, sidandrews
 ms.custom: cosmos-db, mode-other
 ---
 
@@ -45,7 +45,7 @@ In that example, we use an HTAP container called **RetailSales**. It's part of a
 * weekStarting: long (nullable = true)
 * _etag: string (nullable = true)
 
-We'll aggregate the sales (*quantity*, *revenue* (price x quantity) by *productCode* and *weekStarting* for reporting purposes. Finally, we'll export that data into a dedicated SQL pool table called **dbo.productsales**.
+We'll aggregate the sales (*quantity*, *revenue* (price x quantity) by *productCode* and *weekStarting* for reporting purposes. Finally, we'll export that data into a dedicated SQL pool table called `dbo.productsales`.
 
 ## Configure a Spark Notebook
 Create a Spark notebook with Scala as Spark (Scala) as the main language. We use the notebook's default setting for the session.

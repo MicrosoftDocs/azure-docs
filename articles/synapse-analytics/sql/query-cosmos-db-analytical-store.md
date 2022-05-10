@@ -6,9 +6,9 @@ author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 03/02/2021
+ms.date: 05/10/2022
 ms.author: jovanpop
-ms.reviewer: sngun
+ms.reviewer: sidandrews, wiassaf
 ms.custom: cosmos-db
 ---
 
@@ -18,7 +18,7 @@ A serverless SQL pool allows you to analyze data in your Azure Cosmos DB contain
 
 For querying Azure Cosmos DB, the full [SELECT](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) surface area is supported through the [OPENROWSET](develop-openrowset.md) function, which includes the majority of [SQL functions and operators](overview-features.md). You can also store results of the query that reads data from Azure Cosmos DB along with data in Azure Blob Storage or Azure Data Lake Storage by using [create external table as select](develop-tables-cetas.md#cetas-in-serverless-sql-pool) (CETAS). You can't currently store serverless SQL pool query results to Azure Cosmos DB by using CETAS.
 
-In this article, you'll learn how to write a query with a serverless SQL pool that will query data from Azure Cosmos DB containers that are enabled with Azure Synapse Link. You can then learn more about building serverless SQL pool views over Azure Cosmos DB containers and connecting them to Power BI models in [this tutorial](./tutorial-data-analyst.md). This tutorial uses a container with an [Azure Cosmos DB well-defined schema](../../cosmos-db/analytical-store-introduction.md#schema-representation). You can also checkout the learn module on how to [Query Azure Cosmos DB with SQL Serverless for Azure Synapse Analytics](/learn/modules/query-azure-cosmos-db-with-sql-serverless-for-azure-synapse-analytics/)
+In this article, you'll learn how to write a query with a serverless SQL pool that will query data from Azure Cosmos DB containers that are enabled with Azure Synapse Link. You can then learn more about building serverless SQL pool views over Azure Cosmos DB containers and connecting them to Power BI models in [this tutorial](./tutorial-data-analyst.md). This tutorial uses a container with an [Azure Cosmos DB well-defined schema](../../cosmos-db/analytical-store-introduction.md#schema-representation). You can also check out the learn module on how to [Query Azure Cosmos DB with SQL Serverless for Azure Synapse Analytics](/learn/modules/query-azure-cosmos-db-with-sql-serverless-for-azure-synapse-analytics/)
 
 ## Prerequisites
 
@@ -223,7 +223,7 @@ For more information about the SQL types that should be used for Azure Cosmos DB
 
 ## Create view
 
-Creating views in the master or default databases is not recommended or supported. So you need to create a user database for your views.
+Creating views in the `master` or default databases is not recommended or supported. So you need to create a user database for your views.
 
 Once you identify the schema, you can prepare a view on top of your Azure Cosmos DB data. You should place your Azure Cosmos DB account key in a separate credential and reference this credential from `OPENROWSET` function. Do not keep your account key in the view definition.
 
@@ -241,7 +241,7 @@ FROM OPENROWSET(
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 
-Do not use `OPENROWSET` without explicitly defined schema because it might impact your performance. Make sure that you use the smallest possible sizes for your columns (for example VARCHAR(100) instead of default VARCHAR(8000)). You should use some UTF-8 collation as default database collation or set it as explicit column collation to avoid [UTF-8 conversion issue](../troubleshoot/reading-utf8-text.md). Collation `Latin1_General_100_BIN2_UTF8` provides best performance when yu filter data using some string columns.
+Do not use `OPENROWSET` without explicitly defined schema because it might impact your performance. Make sure that you use the smallest possible sizes for your columns (for example VARCHAR(100) instead of default VARCHAR(8000)). You should use some UTF-8 collation as default database collation or set it as explicit column collation to avoid [UTF-8 conversion issue](../troubleshoot/reading-utf8-text.md). Collation `Latin1_General_100_BIN2_UTF8` provides best performance when you filter data using some string columns.
 
 ## Query nested objects
 
@@ -287,7 +287,7 @@ The result of this query might look like the following table:
 Learn more about analyzing [complex data types in Azure Synapse Link](../how-to-analyze-complex-schema.md) and [nested structures in a serverless SQL pool](query-parquet-nested-types.md).
 
 > [!IMPORTANT]
-> If you see unexpected characters in your text like `MÃƒÂ©lade` instead of `Mélade`, then your database collation isn't set to [UTF-8](/sql/relational-databases/collations/collation-and-unicode-support#utf8) collation.
+> If you see unexpected characters in your text like `MÃƒÂ&copy;lade` instead of `Mélade`, then your database collation isn't set to [UTF-8](/sql/relational-databases/collations/collation-and-unicode-support#utf8) collation.
 > [Change collation of the database](/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) to UTF-8 collation by using a SQL statement like `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8`.
 
 ## Flatten nested arrays
@@ -448,4 +448,4 @@ For more information, see the following articles:
 - [Create and use views in a serverless SQL pool](create-use-views.md)
 - [Tutorial on building serverless SQL pool views over Azure Cosmos DB and connecting them to Power BI models via DirectQuery](./tutorial-data-analyst.md)
 - Visit the [Azure Synapse link for Cosmos DB self-help page](resources-self-help-sql-on-demand.md#cosmos-db) if you are getting some errors or experiencing performance issues.
-- Checkout the learn module on how to [Query Azure Cosmos DB with SQL Serverless for Azure Synapse Analytics](/learn/modules/query-azure-cosmos-db-with-sql-serverless-for-azure-synapse-analytics/).
+- Visit the learn module on how to [Query Azure Cosmos DB with SQL Serverless for Azure Synapse Analytics](/learn/modules/query-azure-cosmos-db-with-sql-serverless-for-azure-synapse-analytics/).
