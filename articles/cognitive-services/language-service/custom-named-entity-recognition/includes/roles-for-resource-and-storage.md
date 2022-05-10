@@ -14,7 +14,7 @@ ms.author: aahi
 
 Use the following steps to set the required roles for your Language resource and storage account.
 
-:::image type="content" source="../../custom-classification/media/add-roles.gif" alt-text="An animated image showing how to set roles in the Azure portal." lightbox="../../custom-classification/media/add-roles.gif":::
+:::image type="content" source="../../custom-text-classification/media/add-roles.gif" alt-text="An animated image showing how to set roles in the Azure portal." lightbox="../../custom-text-classification/media/add-roles.gif":::
 
 ### Roles for your Azure Language resource
 
