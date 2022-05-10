@@ -876,10 +876,10 @@ items:
       items:
       - name: Migrate from Data Lake Storage Gen1
         items:
-        - name: Migrate from Gen1
-          href: data-lake-storage-migrate-gen1-to-gen2.md
         - name: Migrate by using Azure portal
           href: data-lake-storage-migrate-gen1-to-gen2-azure-portal.md
+        - name: Migration guidelines and patterns
+          href: data-lake-storage-migrate-gen1-to-gen2.md          
       - name: Migrate HDFS stores
         items:
         - name: Migrate an HDFS store offline
