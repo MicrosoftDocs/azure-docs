@@ -24,12 +24,12 @@ highlightedContent:
     - title: What's new in Azure AD?
       itemType: whats-new
       url: ./fundamentals/whats-new.md
-    - title: Workload identities
-      itemType: concept
-      url: ./develop/workload-identities-overview.md
     - title: Azure AD feature deployment guide
       itemType: concept
       url: ./fundamentals/active-directory-deployment-checklist-p2.md
+    - title: Workload identities
+      itemType: concept
+      url: ./develop/workload-identities-overview.md
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -55,7 +55,7 @@ conceptualContent:
               text: Securing identity with Zero Trust
             - url: /security/zero-trust/develop/identity
               itemType: concept
-              text: Build apps with a Zero Trust approach to identity
+              text: Build apps with a Zero Trust approach
         # Card
         - title: Microsoft Learn
           links:
@@ -73,7 +73,7 @@ conceptualContent:
               text: Allow users to reset their password
             - url: /learn/modules/secure-access-azure-identity-services/
               itemType: learn
-              text: Secure access to your applications
+              text: Secure access to your apps
             - url: /learn/browse/?expanded=azure&products=azure-active-directory-domain%2Cazure-active-directory-b2c%2Cazure-active-directory&resource_type=module
               itemType: learn
               text: See more >
