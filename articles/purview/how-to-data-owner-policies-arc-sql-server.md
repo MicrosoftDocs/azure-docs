@@ -76,7 +76,7 @@ Register each data source with Microsoft Purview to later define access policies
 Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this picture. 
 ![Screenshot shows how to register a data source for policy.](./media/how-to-data-owner-policies-sql/register-data-source-for-policy-arc-sql.png)
 
-[!Note]
+> [!Note]
 > Scan is not yet available for the SQL Server on Azure Arc-enabled server.
 
 ## Create and publish a data owner policy
@@ -93,18 +93,18 @@ Execute the steps in the **Create a new policy** and **Publish a policy** sectio
 
 ![Screenshot shows a sample data owner policy giving Data Reader access to an Azure SQL Database.](./media/how-to-data-owner-policies-sql/data-owner-policy-example-arc-sql-server-data-reader.png)
 
-[!Note]
-> Since scan is not yet available for this data source, data reader policies can only be created at server level, i.e. use the **Data sources box** instead of the Asset box w 
+> [!Note]
+> Given that scan is not yet available for this data source, data reader policies can only be created at server level, i.e. use the **Data sources** box instead of the Asset box when authoring the **data resources** part of the policy.
 
 
 >[!Important]
-> - Publish is a background operation. It can take up to **4 minutes** for the changes to be reflected in the data source.
+> - Publish is a background operation. It can take up to **4 minutes** for the changes to be reflected in this data source.
 > - There is no need to publish a policy again for it to take effect if the data resource continues to be the same.
 > - Changing a policy does not require a new publish operation. The changes will be picked up with the next pull
 
 ### Test the policy
 
-The Azure AD Accounts that the SQL policies are applied to should now be able to connect to any database that is on the server to which the policies are published to.
+The Azure AD Accounts referenced in the access policies should now be able to connect to any database in the server to which the policies are published.
 
 #### Force policy download
 It is possible to force an immediate download of the latest published policies to the current SQL database by running the following command. The minimal permission required to run it is membership in ##MS_ServerStateManager##-server role.

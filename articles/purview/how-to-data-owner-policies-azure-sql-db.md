@@ -77,14 +77,13 @@ Execute the steps in the **Create a new policy** and **Publish a policy** sectio
 
 
 >[!Important]
-> - Publish is a background operation. It can take up to **4 minutes** for the changes to be reflected in the data source.
+> - Publish is a background operation. It can take up to **4 minutes** for the changes to be reflected in this data source.
 > - There is no need to publish a policy again for it to take effect if the data resource continues to be the same.
 > - Changing a policy does not require a new publish operation. The changes will be picked up with the next pull
 
 ### Test the policy
 
-Once the policy is published, it takes a maximum of 4 minutes for the SQL Server to download the latest policy state.
-The Azure AD Accounts that the SQL policies are applied to should now be able to connect to any database that is on the server to which the policies are published to.
+The Azure AD Accounts referenced in the access policies should now be able to connect to any database in the server to which the policies are published.
 
 #### Force policy download
 It is possible to force an immediate download of the latest published policies to the current SQL database by running the following command. The minimal permission required to run it is membership in ##MS_ServerStateManager##-server role.

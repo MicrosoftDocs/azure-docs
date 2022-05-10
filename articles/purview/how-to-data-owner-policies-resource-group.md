@@ -22,7 +22,7 @@ You can also [register an entire resource group or subscription](register-scan-a
 
 **Only these data sources are enabled for access policies on resource group or subscription**. Follow the **Prerequisites** section that is specific to the data source(s) in these guides:
 * [Data owner policies on an Azure Storage account](./how-to-data-owner-policies-storage.md#prerequisites)
-* [Data owner policies on an Azure SQL DB](./how-to-data-owner-policies-azure-sql-db.md#prerequisites)*
+* [Data owner policies on an Azure SQL Database](./how-to-data-owner-policies-azure-sql-db.md#prerequisites)*
 * [Data owner policies on an Arc-enabled SQL Server](./how-to-data-owner-policies-arc-sql-server.md#prerequisites)*
 
 (*) Only the *SQL Performance monitor* and *Security auditor* roles are supported for these data sources. *Data reader* role is not yet supported.
@@ -48,12 +48,12 @@ In the end, your resource will have the  **Data Use Management** toggle **Enable
 ![Screenshot shows how to register a resource group or subscription for policy by toggling the enable tab in the resource editor.](./media/how-to-data-owner-policies-resource-group/register-resource-group-for-policy.png)
 
 ## Create and publish a data owner policy
-Execute the steps in the **Create a new policy** and **Publish a policy** sections of the [data-owner policy authoring tutorial](./how-to-data-owner-policy-authoring-generic.md#create-a-new-policy). The result will be a data owner policy similar to one of the example shown in the image: a policy that provides security group *sg-Finance* *modify* access to resource group *finance-rg*. Use the Data source box in the Policy user experience.
+Execute the steps in the **Create a new policy** and **Publish a policy** sections of the [data-owner policy authoring tutorial](./how-to-data-owner-policy-authoring-generic.md#create-a-new-policy). The result will be a data owner policy similar to the example shown in the image: a policy that provides security group *sg-Finance* *modify* access to resource group *finance-rg*. Use the Data source box in the Policy user experience.
 
 ![Screenshot shows a sample data owner policy giving access to a resource group.](./media/how-to-data-owner-policies-resource-group/data-owner-policy-example-resource-group.png)
 
 >[!Important]
-> - Publish is a background operation. Azure Storage accounts can take up to **2 hours** to reflect the changes.
+> - Publish is a background operation. For example, Azure Storage accounts can take up to **2 hours** to reflect the changes.
 
 >[!Warning]
 > **Known Issues**
