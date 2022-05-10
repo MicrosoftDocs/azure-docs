@@ -197,7 +197,7 @@ Next, you'll define an *element* in the 3D visualization and link it to a twin i
 
 The element will now show up in the list of elements for the scene.
 
-## Create behaviors
+## Create a behavior
 
 Next, you'll create a *behavior* for the element. These behaviors allow you to customize the element's data visuals and the associated business logic. Then, you can explore these data visuals to understand the state of the physical environment.
 
@@ -219,7 +219,7 @@ Next, you'll create a *behavior* for the element. These behaviors allow you to c
 
     1. The **Property** dropdown list contains names of all the properties on the twin that's linked to the *Arm1* element. Select *LinkedTwin.FailedPickupsLastHr*.
  
-    1. In this sample scenario, you want to flag that an arm that misses three or more pickups in an hour requires maintenance, and an arm that misses one or two pickups may require maintenance in the future. Set two value ranges so that values *1-3* appear in orange, and *3-Infinity* appear in red (the min range value is inclusive and the max value is exclusive).
+    1. In this sample scenario, you want to flag that an arm that misses three or more pickups in an hour requires maintenance, and an arm that misses one or two pickups may require maintenance in the future. Set two value ranges so that values *1-3* appear in one color, and values *3-Infinity* appear in another (the min range value is inclusive, and the max value is exclusive).
 
     :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-status.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio, showing the Status options." lightbox="media/quickstart-3d-scenes-studio/new-behavior-status.png":::
 
@@ -227,23 +227,36 @@ Next, you'll create a *behavior* for the element. These behaviors allow you to c
 
     1. For the **Trigger expression**, enter *LinkedTwin.PickupFailedAlert*. `PickupFailedAlert` is a property on the linked twin that is set to True when a pickup was failed. Using it as the trigger expression means this alert will appear whenever the property value is True.
  
-    1. Set the **Badge color** to red. For **Notification text**, enter *${LinkedTwin.PickupFailedBoxID} was missed, please track down this box and remediate.* This will use the linked twin's property `PickupFailedBoxID` to display a message about which box the arm failed to pick up.
+    1. Set the **Badge color**. For **Notification text**, enter *${LinkedTwin.PickupFailedBoxID} was missed, please track down this box and remediate.* This will use the linked twin's property `PickupFailedBoxID` to display a message about which box the arm failed to pick up.
 
     :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-alerts.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio, showing the Alerts options." lightbox="media/quickstart-3d-scenes-studio/new-behavior-alerts.png":::
 
-1. Switch to the **Widgets** tab. Widgets are data-driven visuals that provide additional context and data, to help you understand the scenario that the behavior represents. Here, you'll add a visual widget with a link to a live camera stream of the arm.
+1. Switch to the **Widgets** tab. Widgets are data-driven visuals that provide additional context and data, to help you understand the scenario that the behavior represents. Here, you'll add two visual widgets to display property information for the arm element.
 
-    1. Select **Add widget**.
+    1. First, create a widget to display a gauge of the arm's hydraulic pressure value.
+        1. Select **Add widget**.
+        
+            :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-widgets.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio, showing the Widgets options." lightbox="media/quickstart-3d-scenes-studio/new-behavior-widgets.png":::
 
-        :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-widgets.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio, showing the Widgets options." lightbox="media/quickstart-3d-scenes-studio/new-behavior-widgets.png":::
+            From the **Widget library**, select the  **Gauge** widget and then **Add widget**.
 
-        From the **Widget library**, select the **Link** widget and then **Add widget**.
+        1. In the **New widget** options, add a **Label** of *Hydraulic Pressure*, a **Unit of measure** of *m/s*, and **Select a property** of *LinkedTwin.HydraulicPressure*.
+        
+            Set three value ranges so that values *0-40* appear one color, *40-80* appear in a second color, and *80-Infinity* appear in a third color (remember that the min range value is inclusive, and the max value is exclusive).
+    
+        1. Select **Create widget**.
+        
+        :::image type="content" source="media/quickstart-3d-scenes-studio/new-widget-gauge.png" alt-text="Screenshot of the New widget options in 3D Scenes Studio for the gauge widget." lightbox="media/quickstart-3d-scenes-studio/new-widget-gauge.png":::
+        
+    1. Next, create a widget with a link to a live camera stream of the arm. 
 
-    1. In the **New widget** options, enter a **Label** of *Live arm camera*. For the **URL**, enter the example URL *contoso.aws.armstreams.com/${$dtid}*.
+        1. Select **Add widget**. From the **Widget library**, select the **Link** widget and then **Add widget**.
 
-    1. Select **Create widget**.
-
-    :::image type="content" source="media/quickstart-3d-scenes-studio/new-widget-link.png" alt-text="Screenshot of the New widget options in 3D Scenes Studio for a link widget." lightbox="media/quickstart-3d-scenes-studio/new-widget-link.png":::
+        1. In the **New widget** options, enter a **Label** of *Live arm camera*. For the **URL**, enter the example URL *contoso.aws.armstreams.com/${$dtid}*.
+    
+        1. Select **Create widget**.
+    
+        :::image type="content" source="media/quickstart-3d-scenes-studio/new-widget-link.png" alt-text="Screenshot of the New widget options in 3D Scenes Studio for a link widget." lightbox="media/quickstart-3d-scenes-studio/new-widget-link.png":::
 
 1. The behavior options are now complete. Save the behavior by selecting **Create behavior**.
 
@@ -251,7 +264,7 @@ Next, you'll create a *behavior* for the element. These behaviors allow you to c
 
 The *Packing Line Efficiency* behavior will now show up in the list of behaviors for the scene.
 
-## View completed scene
+## View scene
 
 So far, you've been working with 3D Scenes Studio in **Build** mode. Now, switch the mode to **View**. 
 
@@ -259,7 +272,27 @@ So far, you've been working with 3D Scenes Studio in **Build** mode. Now, switch
 
 From the list of **Elements**, select the **Arm1** element that you created. The visualization will zoom in to show the visual element and display the behaviors you set up for it.
 
-:::image type="content" source="media/quickstart-3d-scenes-studio/factory-scene-view-2.png" alt-text="Screenshot of the factory scene in 3D Scenes Studio, showing the viewer for the pasteurization machine." lightbox="media/quickstart-3d-scenes-studio/factory-scene-view-2.png":::
+:::image type="content" source="media/quickstart-3d-scenes-studio/factory-scene-view-element.png" alt-text="Screenshot of the factory scene in 3D Scenes Studio, showing the viewer for the pasteurization machine." lightbox="media/quickstart-3d-scenes-studio/factory-scene-view-element.png":::
+
+## Apply behavior to additional elements
+
+Sometimes, an environment might contain multiple similar elements, which should all display similarly in the visualization (like the six different robot arms in this example). Now that you've created a behavior for one arm and confirmed what it looks like in the viewer, this section will show you how to quickly add the behavior to other arms so that they all display the same type of information in the viewer.
+
+1. Return to **Build** mode. Like you did in [Create a scene element](#create-a-scene-element), select a different arm in the visualization, and select **Create new element**. 
+    :::image type="content" source="media/quickstart-3d-scenes-studio/new-arm-element-2.png" alt-text="Screenshot of the factory scene in 3D Scenes Studio. A different arm is highlighted with an option to create a new element." lightbox="media/quickstart-3d-scenes-studio/new-arm-element-2.png":::
+
+1. Select a **Linked twin** for the new element, then switch to the **Behaviors** tab.
+    :::image type="content" source="media/quickstart-3d-scenes-studio/new-element-details-2.png" alt-text="Screenshot of the New element options for Arm2 in 3D Scenes Studio." lightbox="media/quickstart-3d-scenes-studio/new-element-details-2.png":::
+
+1. Select **Add behavior**. Choose the **Packing Line Efficiency** behavior that you created in this quickstart. Then, select **Create element** to finish creating the new arm element.
+    :::image type="content" source="media/quickstart-3d-scenes-studio/new-element-behaviors.png" alt-text="Screenshot of the New element behavior options for Arm2 in 3D Scenes Studio." lightbox="media/quickstart-3d-scenes-studio/new-element-behaviors.png":::
+
+Switch to the **View** tab to see the behavior working on the new arm element. All the information you selected when [creating the behavior](#create-a-behavior) is now available for both of the arm elements in the scene.
+
+:::image type="content" source="media/quickstart-3d-scenes-studio/factory-scene-view-element.png" alt-text="Screenshot of the factory scene in 3D Scenes Studio, showing the viewer for the pasteurization machine." lightbox="media/quickstart-3d-scenes-studio/factory-scene-view-element.png":::
+
+>[!TIP]
+>If you'd like, you can repeat the steps in this section to create elements for the remaining four arms, and apply the behavior to all of them to make the visualization complete.
 
 ## Review and contextualize learnings
 
