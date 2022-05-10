@@ -45,7 +45,7 @@ On Consumption logic apps only, you can set up permissions so that only specific
 
   For example, suppose you have to work with a logic app that you didn't create and authenticate connections used by that logic app's workflow. Your Azure subscription requires Contributor permissions for the resource group that contains that logic app resource. If you create a logic app resource, you automatically have Contributor access.
 
-To prevent others from changing or deleting your logic app, you can use [Azure Resource Lock](../azure-resource-manager/management/lock-resources.md). This capability prevents others from changing or deleting production resources. For more information about connection security, review [Connection configuration in Azure Logic Apps](../connectors/apis-list.md#connection-configuration) and [Connection security and encryption](../connectors/apis-list.md#connection-security-encyrption).
+To prevent others from changing or deleting your logic app, you can use [Azure Resource Lock](../azure-resource-manager/management/lock-resources.md). This capability prevents others from changing or deleting production resources. For more information about connection security, review [Connection configuration in Azure Logic Apps](../connectors/apis-list.md#connection-configuration) and [Connection security and encryption](../connectors/apis-list.md#connection-security-encryption).
 
 <a name="secure-run-history"></a>
 
