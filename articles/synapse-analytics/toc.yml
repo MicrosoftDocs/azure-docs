@@ -872,10 +872,6 @@ items:
       href: quickstart-data-flow.md
     - name: Transform data using Apache Spark job definition
       href: quickstart-transform-data-using-spark-job-definition.md
-  - name: Tutorials
-    items:
-        - name: Move an existing Azure integration runtime to a managed virtual network
-          href: ../data-factory/tutorial-managed-virtual-network-migrate.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
   - name: Concepts
     items:
     - name: Pipeline and activity
