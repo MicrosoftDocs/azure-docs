@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 05/10/2022
 ---
 
-# Integrate Azure NetApp Files with Azure VMware Solution
+# Attach Azure NetApp Files to Azure VMware Solution VMs
 
 [Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) is an Azure service for migration and running the most demanding enterprise file-workloads in the cloud: databases, SAP, and high-performance computing applications, with no code changes. In this article, you'll set up, test, and verify the Azure NetApp Files volume as a file share for Azure VMware Solution workloads using the Network File System (NFS) protocol. The guest operating system runs inside virtual machines (VMs) accessing Azure NetApp Files volumes. 
 
