@@ -16,10 +16,11 @@ A Stream Analytics job definition includes at least one streaming input, a query
 Partitioning lets you divide data into subsets based on a [partition key](../event-hubs/event-hubs-scalability.md#partitions). If your input (for example Event Hubs) is partitioned by a key, it is highly recommended to specify this partition key when adding input to your Stream Analytics job. Scaling a Stream Analytics job takes advantage of partitions in the input and output. A Stream Analytics job can consume and write different partitions in parallel, which increases throughput. 
 
 ### Inputs
-All Azure Stream Analytics input can take advantage of partitioning:
--	EventHub (need to set the partition key explicitly with PARTITION BY keyword if using compatibility level 1.1 or below)
--	IoT Hub  (need to set the partition key explicitly with PARTITION BY keyword if using compatibility level 1.1 or below)
--	Blob storage
+
+All Azure Stream Analytics streaming inputs can take advantage of partitioning: Event Hub, IoT Hub, Blob storage.
+
+> [!NOTE] 
+> For compatibility level 1.2 and above, the partition key is to be set as an **input property**, with no need for the PARTITION BY keyword in the query. For compatibility level 1.1 and below, the partition key instead needs to be defined with the PARTITION BY keyword **in the query**.
 
 ### Outputs
 
@@ -40,6 +41,16 @@ For more information about partitions, see the following articles:
 
 * [Event Hubs features overview](../event-hubs/event-hubs-features.md#partitions)
 * [Data partitioning](/azure/architecture/best-practices/data-partitioning)
+
+### Query
+
+For a job to be parallel, partition keys need to be aligned between all inputs, all query logic steps and all outputs. The query logic partitioning is determined by the keys used for joins and aggregations (GROUP BY).
+
+* If an input and an output are partitioned by WarehouseId, and the query groups by ProductId without WarehouseId, then the job is not parallel.
+* If two inputs to be joined are partitioned by different partition key, then the job is not parallel.
+* If two or more independent data flows are contained in a single job, each with its own partition key, then the job is not parallel.
+
+Only when all inputs, outputs and query steps are using the same key will the job be parallel.
 
 
 ## Embarrassingly parallel jobs
@@ -111,13 +122,13 @@ In the previous section, we showed some embarrassingly parallel scenarios. In th
 * Input: Event hub with 8 partitions
 * Output: Event hub with 32 partitions
 
-If the input partition count doesn't match the output partition count, the topology isn't embarrassingly parallel irrespective of the query. However we can still get some level or parallelization.
+If the input partition count doesn't match the output partition count, the topology isn't embarrassingly parallel irrespective of the query. However we can still get some level of parallelization.
 
 ### Query using non-partitioned output
 * Input: Event hub with 8 partitions
 * Output: Power BI
 
-Power BI output doesn't currently support partitioning. Therefore, this scenario is not embarrassingly parallel.
+Power BI output doesn't currently support partitioning. Therefore, this scenario is not parallel.
 
 ### Multi-step query with different PARTITION BY values
 * Input: Event hub with 8 partitions
@@ -138,10 +149,10 @@ Query:
     GROUP BY TumblingWindow(minute, 3), TollBoothId
 ```
 
-As you can see, the second step uses **TollBoothId** as the partitioning key. This step is not the same as the first step, and it therefore requires us to do a shuffle. 
+As you can see, the second step uses **TollBoothId** as the partitioning key. This step is not the same as the first step, and it therefore requires us to do a shuffle. This job is not parallel.
 
 ### Multi-step query with different PARTITION BY values
-* Input: Event hub with 8 partitions
+* Input: Event hub with 8 partitions ("Partition key column" not set, default to "PartitionId")
 * Output: Event hub with 8 partitions ("Partition key column" must be set to use "TollBoothId")
 * Compatibility level - 1.2 or above
 
@@ -159,7 +170,7 @@ Query:
     GROUP BY TumblingWindow(minute, 3), TollBoothId
 ```
 
-Compatibility level 1.2 or above enables parallel query execution by default. For example, query from the previous section will be partitioned as long as "TollBoothId" column is set as input Partition Key. PARTITION BY PartitionId clause is not required.
+Compatibility level 1.2 or above enables parallel query execution by default. But here the keys are not aligned. If we knew the input event hub to be partitioned by "TollBoothId", we could set it up in the input config and get a parallel job. In any case, the PARTITION BY clause is not required.
 
 ## Calculate the maximum streaming units of a job
 The total number of streaming units that can be used by a Stream Analytics job depends on the number of steps in the query defined for the job and the number of partitions for each step.
