@@ -5,7 +5,6 @@ author: dzsquared
 ms.topic: reference
 ms.date: 5/24/2022
 ms.author: drskwier
-author: dzsquared
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---

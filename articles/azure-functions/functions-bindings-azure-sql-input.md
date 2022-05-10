@@ -5,7 +5,6 @@ author: dzsquared
 ms.topic: reference
 ms.date: 5/24/2022
 ms.author: drskwier
-author: dzsquared
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -17,6 +16,7 @@ When a function runs, the Azure SQL input binding retrieves data from a database
 For information on setup and configuration details, see the [overview](./functions-bindings-azure-sql.md).
 
 ## Examples
+<a id="example"></a>
 
 ::: zone pivot="programming-language-csharp"
 
@@ -26,7 +26,7 @@ This section contains the following examples:
 
 * [HTTP trigger, get row by Id from query string](#http-trigger-look-up-id-from-query-string-c)
 * [HTTP trigger, get multiple rows from route data](#http-trigger-get-multiple-items-from-route-data-c)
-* [HTTP trigger, delete rows](http-trigger-delete-one-or-multiple-rows-c)
+* [HTTP trigger, delete rows](#http-trigger-delete-one-or-multiple-rows-c)
 
 The examples refer to a `ToDoItem` class and a corresponding database table:
 
@@ -140,6 +140,7 @@ This section contains the following examples:
 
 * [HTTP trigger, get multiple rows](#http-trigger-get-multiple-items-javascript)
 * [HTTP trigger, get row by Id from query string](#http-trigger-look-up-id-from-query-string-javascript)
+* [HTTP trigger, delete rows](#http-trigger-delete-one-or-multiple-rows-javascript)
 
 The examples refer to a database table:
 
@@ -148,7 +149,7 @@ The examples refer to a database table:
 <a id="http-trigger-get-multiple-items-javascript"></a>
 ### HTTP trigger, get multiple rows
 
-The following example shows a SQL input binding in a function.json file and a JavaScript function that uses the binding. The function reads rows resulting from a query and returns them in the HTTP response.
+The following example shows a SQL input binding in a function.json file and a JavaScript function that reads rows resulting from a query and returns them in the HTTP response.
 
 Here's the binding data in the function.json file:
 
@@ -183,7 +184,7 @@ module.exports = async function (context, req, todoItems) {
 <a id="http-trigger-look-up-id-from-query-string-javascript"></a>
 ### HTTP trigger, get row by Id from query string
 
-The following example shows a SQL input binding in a function.json file and a JavaScript function that uses the binding. The function reads a specific row resulting from a query with a parameter from the query string and returns them in the HTTP response.
+The following example shows a SQL input binding in a function.json file and a JavaScript function that reads a specific row resulting from a query with a parameter from the query string and returns them in the HTTP response.
 
 Here's the binding data in the function.json file:
 
@@ -216,6 +217,45 @@ module.exports = async function (context, req, todoItem) {
 }
 ```
 
+<a id="http-trigger-delete-one-or-multiple-rows-javascript"></a>
+### HTTP trigger, delete rows
+
+The following example shows a SQL input binding in a function.json file and a JavaScript function that executes a stored procedure with input from the HTTP request query parameter.
+
+The stored procedure `dbo.DeleteToDo` must be created on the SQL database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+
+:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="11-25":::
+
+
+```json
+{
+    "name": "todoItems",
+    "type": "sql",
+    "direction": "in",
+    "commandText": "DeleteToDo",
+    "commandType": "StoredProcedure",
+    "parameters": "@Id = {Query.id}",
+    "connectionStringSetting": "SqlConnectionString"
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+Here's the JavaScript code:
+
+
+```javascript
+module.exports = async function (context, req, todoItems) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    context.res = {
+        // status: 200, /* Defaults to 200 */
+        mimetype: "application/json",
+        body: todoItems
+    };
+}
+```
+
 ::: zone-end  
 
 ::: zone pivot="programming-language-python"  
@@ -223,6 +263,7 @@ This section contains the following examples:
 
 * [HTTP trigger, get multiple rows](#http-trigger-get-multiple-items-python)
 * [HTTP trigger, get row by Id from query string](#http-trigger-look-up-id-from-query-string-python)
+* [HTTP trigger, delete rows](#http-trigger-delete-one-or-multiple-rows-python)
 
 The examples refer to a database table:
 
@@ -231,7 +272,7 @@ The examples refer to a database table:
 <a id="http-trigger-get-multiple-items-python"></a>
 ### HTTP trigger, get multiple rows
 
-The following example shows a SQL input binding in a function.json file and a Python function that uses the binding. The function reads rows resulting from a query and returns them in the HTTP response.
+The following example shows a SQL input binding in a function.json file and a Python function that reads rows resulting from a query and returns them in the HTTP response.
 
 Here's the binding data in the function.json file:
 
@@ -268,7 +309,7 @@ def main(req: func.HttpRequest, todoItems: func.SqlRowList) -> func.HttpResponse
 <a id="http-trigger-look-up-id-from-query-string-python"></a>
 ### HTTP trigger, get row by Id from query string
 
-The following example shows a SQL input binding in a function.json file and a Python function that uses the binding. The function reads a specific row resulting from a query with a parameter from the query string and returns them in the HTTP response.
+The following example shows a SQL input binding in a function.json file and a Python function that reads a specific row resulting from a query with a parameter from the query string and returns them in the HTTP response.
 
 Here's the binding data in the function.json file:
 
@@ -295,6 +336,48 @@ import json
 
 def main(req: func.HttpRequest, todoItem: func.SqlRowList) -> func.HttpResponse:
     rows = list(map(lambda r: json.loads(r.to_json()), todoItem))
+
+    return func.HttpResponse(
+        json.dumps(rows),
+        status_code=200,
+        mimetype="application/json"
+    ) 
+```
+
+
+<a id="http-trigger-delete-one-or-multiple-rows-python"></a>
+### HTTP trigger, delete rows
+
+The following example shows a SQL input binding in a function.json file and a Python function that executes a stored procedure with input from the HTTP request query parameter.
+
+The stored procedure `dbo.DeleteToDo` must be created on the SQL database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+
+:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="11-25":::
+
+
+```json
+{
+    "name": "todoItems",
+    "type": "sql",
+    "direction": "in",
+    "commandText": "DeleteToDo",
+    "commandType": "StoredProcedure",
+    "parameters": "@Id = {Query.id}",
+    "connectionStringSetting": "SqlConnectionString"
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+Here's the Python code:
+
+
+```python
+import azure.functions as func
+import json
+
+def main(req: func.HttpRequest, todoItems: func.SqlRowList) -> func.HttpResponse:
+    rows = list(map(lambda r: json.loads(r.to_json()), todoItems))
 
     return func.HttpResponse(
         json.dumps(rows),
