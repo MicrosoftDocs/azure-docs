@@ -93,4 +93,4 @@ Using the above example, the API might return the following summarized sentences
 
 ## See also
 
-* [Document Summarization overview](../overview.md)
+* [Document summarization overview](../overview.md)
