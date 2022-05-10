@@ -85,7 +85,7 @@ If you would like to query data2.csv in this example, the following permissions 
 
 ![Screenshot showing manage access UI.](./media/resources-self-help-sql-on-demand/manage-access.png)
 
-* Choose at least “read” permission, type in the users UPN or Object ID, for example user@contoso.com and click Add
+* Choose at least "read" permission, type in the users UPN or Object ID, for example user@contoso.com and click Add
 
 * Grant read permission for this user.
 ![Screenshot showing grant read permissions UI](./media/resources-self-help-sql-on-demand/grant-permission.png)
@@ -107,7 +107,7 @@ The easiest way is to resolve this issue is grant yourself `Storage Blob DataCon
  
 #### Content of Dataverse table cannot be listed
 
-If you are using the Synapse link for Dataverse to read the linked DataVerse tables, you need to use Azure AD account to access the linked data using the serverless SQL pool.
+If you are using the Synapse link for Dataverse to read the linked DataVerse tables, you need to use Azure AD account to access the linked data using the serverless SQL pool. For more information, see [Azure Synapse Link for Dataverse with Azure Data Lake](/powerapps/maker/data-platform/azure-synapse-link-data-lake).
 If you try to use a SQL login to read an external table that is referencing the DataVerse table, you will get the following error:
 
 ```
@@ -187,10 +187,10 @@ Apply the best practices before you file a support ticket.
 ### Query fails with error while handling an external file (max error count reached)
 
 If your query fails with the error message 'error handling external file: Max errors count reached', it means that there is a mismatch of a specified column type and the data that needs to be loaded. 
-To get more information about the error and which rows and columns to look at, change the parser version from ‘2.0’ to ‘1.0’. 
+To get more information about the error and which rows and columns to look at, change the parser version from '2.0' to '1.0'. 
 
 **Example**
-If you would like to query the file ‘names.csv’ with this query 1, Azure Synapse SQL serverless will return with such error. 
+If you would like to query the file 'names.csv' with this query 1, Azure Synapse SQL serverless will return with such error. 
 
 names.csv
 ```csv
@@ -223,13 +223,13 @@ FROM
 ```
 causes:
 
-`Error handling external file: ‘Max error count reached’. File/External table name: [filepath].`
+`Error handling external file: 'Max error count reached'. File/External table name: [filepath].`
 
 As soon as parser version is changed from version 2.0 to version 1.0, the error messages help to identify the problem. The new error message is now instead: 
 
 `Bulk load data conversion error (truncation) for row 1, column 2 (Text) in data file [filepath]`
 
-Truncation tells us that our column type is too small to fit our data. The longest first name in this ‘names.csv’ file has seven characters. Therefore, the according data type to be used should be at least VARCHAR(7). 
+Truncation tells us that our column type is too small to fit our data. The longest first name in this 'names.csv' file has seven characters. Therefore, the according data type to be used should be at least VARCHAR(7). 
 The error is caused by this line of code: 
 
 ```sql 
@@ -273,7 +273,7 @@ To resolve this problem, inspect the file and the data types you chose. Also che
 Read more on field terminators, row delimiters and escape quoting characters [here](query-single-csv-file.md). 
 
 **Example** 
-If you would like to query the file ‘names.csv’: 
+If you would like to query the file 'names.csv': 
 
 names.csv
 ```csv
@@ -310,7 +310,7 @@ Azure Synapse SQL serverless will return the error:
 `Bulk load data conversion error (type mismatch or invalid character for the specified codepage) for row 6, column 1 (ID) in data file [filepath]`
 
 It is necessary to browse the data and make an informed decision to handle this problem. 
-To look at the data that causes this problem, the data type needs to be changed first. Instead of querying column “ID” with the data type “SMALLINT”, VARCHAR(100) is now used to analyze this issue. 
+To look at the data that causes this problem, the data type needs to be changed first. Instead of querying column "ID" with the data type "SMALLINT", VARCHAR(100) is now used to analyze this issue. 
 Using this slightly changed Query 2, the data can now be processed to return the list of names. 
 
 Query 2: 
@@ -355,7 +355,7 @@ If your query does not fail but you find that your resultset is not as expected,
 To resolve this problem, it is needed to have another look at the data and change those settings. As shown next, debugging this query is easy like in the upcoming example. 
 
 **Example**
-If you would like to query the file ‘names.csv’ with the query in 'Query 1', Azure Synapse SQL serverless will return with result that looks odd. 
+If you would like to query the file 'names.csv' with the query in 'Query 1', Azure Synapse SQL serverless will return with result that looks odd. 
 
 names.csv
 ```csv
@@ -394,7 +394,7 @@ FROM
 | 4,David       | NULL | 
 | 5,Eva         | NULL | 
 
-There seems to be no value in our column “firstname”. Instead, all values ended up being in column “ID”. Those values are separated by comma. 
+There seems to be no value in our column "firstname". Instead, all values ended up being in column "ID". Those values are separated by comma. 
 The problem was caused by this line of code as it is necessary to choose the comma instead of the semicolon symbol as field terminator:
 
 ```sql
@@ -612,7 +612,7 @@ When the file format is Parquet, the query won't recover automatically. It needs
 
 ### Synapse Link for Dataverse
 
-This error can occur when reading data from Synapse Link for Dataverse, when Synapse Link is syncing data to the lake and the data is being queried at the same time. The product group has a goal to improve this behavior.
+This error can occur when reading data from Synapse Link for Dataverse, when Synapse Link is syncing data to the lake and the data is being queried at the same time. The product group has a goal to improve this behavior. 
 
 
 ### [0x800700A1](#tab/x800700A1)
@@ -866,18 +866,18 @@ If you are using Synapse Studio, try using some desktop client such as SQL Serve
 #### Query is slow when executed using application 
 
 Check the following issues if you are experiencing the slow query execution:
--	Make sure that the client applications are collocated with the serverless SQL pool endpoint. Executing a query across the region can cause additional latency and slow streaming of result set.
--	Make sure that you don’t have networking issues that can cause the slow streaming of result set 
--	Make sure that the client application has enough resources (for example, not using 100% CPU). 
--	Make sure that the storage account or Cosmos DB analytical storage is placed in the same region as your serverless SQL endpoint.
+-    Make sure that the client applications are collocated with the serverless SQL pool endpoint. Executing a query across the region can cause additional latency and slow streaming of result set.
+-    Make sure that you don't have networking issues that can cause the slow streaming of result set 
+-    Make sure that the client application has enough resources (for example, not using 100% CPU). 
+-    Make sure that the storage account or Cosmos DB analytical storage is placed in the same region as your serverless SQL endpoint.
 
 See the best practices for [collocating the resources](best-practices-serverless-sql-pool.md#client-applications-and-network-connections).
 
 ### High variations in query durations
 
 If you are executing the same query and observing variations in the query durations, there might be several reasons that can cause this behavior:  
-- Check is this a first execution of a query. The first execution of a query collects the statistics required to create a plan. The statistics are collected by scanning the underlying files and might increase the query duration. In the Synapse studio, you will see the “global statistics creation” queries in the SQL request list, that are executed before your query.
-- Statistics might expire after some time, so periodically you might observe an impact on performance because the serverless pool must scan and rebuild the statistics. You might notice additional “global statistics creation” queries in the SQL request list, that are executed before your query.
+- Check is this a first execution of a query. The first execution of a query collects the statistics required to create a plan. The statistics are collected by scanning the underlying files and might increase the query duration. In the Synapse studio, you will see the "global statistics creation" queries in the SQL request list, that are executed before your query.
+- Statistics might expire after some time, so periodically you might observe an impact on performance because the serverless pool must scan and rebuild the statistics. You might notice additional "global statistics creation" queries in the SQL request list, that are executed before your query.
 - Check is there some workload that is running on the same endpoint when you executed the query with the longer duration. The serverless SQL endpoint will equally allocate the resources to all queries that are executed in parallel, and the query might be delayed.
 
 ## Connections

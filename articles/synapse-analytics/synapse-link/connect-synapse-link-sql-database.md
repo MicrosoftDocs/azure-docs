@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
-ms.date: 04/24/2022
+ms.date: 05/09/2022
 ms.author: sngun
-ms.reviewer: sngun
+ms.reviewer: sngun, wiassaf
 ---
 
 # Get started with Azure Synapse Link for Azure SQL Database (Preview)
 
-This article provides a step-by-step guide for getting started with Azure Synapse Link for Azure SQL Database.
+This article provides a step-by-step guide for getting started with Azure Synapse Link for Azure SQL Database. For more information, see [Synapse Link for Azure SQL Database (Preview)](sql-database-synapse-link.md). 
 
 > [!IMPORTANT]
 > Azure Synapse Link for Azure SQL Database is currently in PREVIEW.
@@ -20,7 +20,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 ## Prerequisites
 
-* [Create a new Synapse workspace](https://ms.portal.azure.com/#create/Microsoft.Synapse) to get Azure Synapse Link for Azure SQL Database. Ensure to check “Disable Managed virtual network” and “Allow connections from all IP address” when creating Synapse workspace.
+* [Create a new Synapse workspace](https://ms.portal.azure.com/#create/Microsoft.Synapse) to get Azure Synapse Link for Azure SQL Database. Ensure to check "Disable Managed virtual network" and "Allow connections from all IP address" when creating Synapse workspace.
 
 * For DTU-based provisioning, make sure your Azure SQL Database service is at least Standard tier with a minimum of 100 DTUs. Free, Basic, or Standard tiers with fewer than 100 DTUs provisioned are not supported.
 
@@ -81,7 +81,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 1. Enter the information for your source Azure SQL Database.
 
    * Select the subscription, server, and database corresponding to your Azure SQL Database.
-   * If you wish to connect your Synapse workspace to the source DB using the workspace’s managed identity, set **Authentication type** to **Managed Identity**.
+   * If you wish to connect your Synapse workspace to the source DB using the workspace's managed identity, set **Authentication type** to **Managed Identity**.
    * If you wish to use SQL authentication instead and know the username/password to use, select **SQL Authentication** instead.
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/studio-new-linked-service.png" alt-text="Enter the server, database details to create a new linked service.":::
@@ -119,7 +119,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 1. Select **Start** and wait a few minutes for the data to be replicated.
 
    > [!NOTE]
-   > When being started, a link connection will start from a full initial load from your source database followed by incremental change feeds via the change feed feature in Azure SQL database.
+   > When being started, a link connection will start from a full initial load from your source database followed by incremental change feeds via the change feed feature in Azure SQL database. For more information, see [Azure Synapse Link for SQL change feed](/sql/sql-server/synapse-link/synapse-link-sql-server-change-feed).
 
 ## Monitor the status of the Azure Synapse Link connection
 
@@ -153,7 +153,7 @@ You can add/remove tables on Synapse Studio as following:
 
 1. Select the **Link connection** you want to edit and open it.  
 
-1. Select **+New** table to add tables on Synapse Studio or click the trash can icon to the right or a table to remove an existing table. You can add or remove tables when the link connection is running.
+1. Select **+New** table to add tables on Synapse Studio or select the trash can icon to the right or a table to remove an existing table. You can add or remove tables when the link connection is running.
 
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/link-connection-add-remove-tables.png" alt-text="Screenshot of link connection to add table.":::
 
@@ -175,9 +175,11 @@ You can stop the Azure Synapse Link connection on Synapse Studio as following:
    > [!NOTE]
    > If you restart a link connection after stopping it, it will start from a full initial load from your source database followed by incremental change feeds.
 
+
 ## Next steps
 
 If you are using a different type of database, see how to:
 
-* [Configure Synapse Link for Azure Cosmos DB](../../cosmos-db/configure-synapse-link.md?context=/azure/synapse-analytics/context/context)
-* [Configure Synapse Link for Dataverse](/powerapps/maker/data-platform/azure-synapse-link-synapse?context=/azure/synapse-analytics/context/context)
+* [Configure Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/configure-synapse-link.md?context=/azure/synapse-analytics/context/context)
+* [Configure Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/azure-synapse-link-synapse?context=/azure/synapse-analytics/context/context)
+* [Get started with Azure Synapse Link for SQL Server 2022](connect-synapse-link-sql-server-2022.md)

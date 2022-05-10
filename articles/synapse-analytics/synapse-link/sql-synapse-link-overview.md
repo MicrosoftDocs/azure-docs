@@ -1,6 +1,6 @@
 ---
-title: What is Synapse Link for SQL? (Preview)
-description: Learn about Synapse Link for SQL, the benefit it offers and price
+title: What is Azure Synapse Link for SQL? (Preview)
+description: Learn about Azure Synapse Link for SQL, the benefit it offers and price
 services: synapse-analytics 
 author: SnehaGunda
 ms.service: synapse-analytics 
@@ -11,17 +11,17 @@ ms.author: sngun
 ms.reviewer: sngun
 ---
 
-# What is Synapse Link for SQL? (Preview)
+# What is Azure Synapse Link for SQL? (Preview)
 
 Azure Synapse Link for SQL enables near real time analytics over operational data in Azure SQL Database or SQL Server 2022. With a seamless integration between operational stores including Azure SQL Database and SQL Server 2022 and Azure Synapse Analytics, Azure Synapse Link for SQL enables you to run analytics, business intelligence and machine learning scenarios on your operational data with minimum impact on source databases with a new change feed technology.
 
 > [!IMPORTANT]
-> Synapse Link for Azure SQL Database is currently in PREVIEW.
+> Azure Synapse Link for Azure SQL is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The following image shows the Azure Synapse Link integration with Azure SQL DB, SQL Server 2022 and Azure Synapse Analytics:
+The following image shows the Azure Synapse Link integration with Azure SQL DB, SQL Server 2022, and Azure Synapse Analytics:
 
-:::image type="content" source="../media/sql-synapse-link-overview/synapse-link-sql-architecture.png" alt-text="Synapse Link for SQL architecture image.":::
+:::image type="content" source="../media/sql-synapse-link-overview/synapse-link-sql-architecture.png" alt-text="Diagram of the Azure Synapse Link for SQL architecture.":::
 
 ## Benefit
 
@@ -38,7 +38,7 @@ You can now get rich insights by analyzing operational data in Azure SQL DB or S
 
 ## Next steps
 
-* [Synapse Link for Azure SQL Database (Preview)](sql-database-synapse-link.md).
-* [Synapse Link for SQL Server 2022 (Preview)](sql-server-2022-synapse-link.md).
-* How to [Configure Synapse Link for SQL Server 2022 (Preview)](connect-synapse-link-sql-server-2022.md).
-* How to [Configure Synapse Link for Azure SQL Database (Preview)](connect-synapse-link-sql-database.md).
+* [Azure Synapse Link for Azure SQL Database (Preview)](sql-database-synapse-link.md).
+* [Azure Synapse Link for SQL Server 2022 (Preview)](sql-server-2022-synapse-link.md).
+* How to [Configure Azure Synapse Link for SQL Server 2022 (Preview)](connect-synapse-link-sql-server-2022.md).
+* How to [Configure Azure Synapse Link for Azure SQL Database (Preview)](connect-synapse-link-sql-database.md).
