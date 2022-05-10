@@ -1,26 +1,43 @@
 ---
 title: Azure Database for PostgreSQL - Flexible Server Release notes
 description: Release notes of Azure Database for PostgreSQL - Flexible Server.
-author: sr-msft
 ms.author: srranga
+author: sr-msft
 ms.custom: references_regions
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 11/18/2021
-
+ms.date: 04/14/2022
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant for Flexible Server - PostgreSQL.
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+## Release: April 2022
+
+* Support for [latest PostgreSQL minors](./concepts-supported-versions.md) 13.6, 12.10 and 11.15 with new server creates<sup>$</sup>.
+* Support for updating Private DNS Zone for [Azure Database for PostgreSQL - Flexible Server private networking](./concepts-networking.md) for existing servers<sup>$</sup>.
+
+<sup>**$**</sup> New servers get these features automatically. In your existing servers, these features are enabled during your server's future maintenance window.
+
+## Release: February 2022
+
+* Support for [latest PostgreSQL minors](./concepts-supported-versions.md) 13.5, 12.9 and 11.14 with new server creates<sup>$</sup>.
+* Support for [US Gov regions](overview.md#azure-regions) - Arizona and Virginia
+* Support for [extensions](concepts-extensions.md) TimescaleDB, orafce, and pg_repack with new servers<sup>$</sup> 
+* Extensions need to be [allow-listed](concepts-extensions.md#how-to-use-postgresql-extensions) before they can be installed.
+* Support for zone redundant high availability for new server creates in [regions](overview.md#azure-regions) Central India, Korea Central, East Asia, and West US 3.
+* Several bug fixes, stability, security, and performance improvements<sup>$</sup>.
+
+<sup>**$**</sup> New servers get these features automatically. In your existing servers, these features are enabled during your server's future maintenance window.
 
 ## Release: November 2021
 
+* Azure Database for PostgreSQL is [**Generally Available**](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/azure-database-for-postgresql-flexible-server-is-now-ga/ba-p/2987030)!!
 * Support for [latest PostgreSQL minors](./concepts-supported-versions.md) 13.4, 12.8 and 11.13 with new server creates<sup>$</sup>.
 * Support for [Geo-redundant backup and restore](concepts-backup-restore.md) feature in preview in selected paired regions - East US 2, Central US, North Europe, West Europe, Japan East, and Japan West.
+*  Support for [new regions](overview.md#azure-regions) North Central US, Sweden Central, and West US 3. 
 *  Support for [Azure Stream Analytics (ASA) connector in Preview](https://techcommunity.microsoft.com/t5/analytics-on-azure/stream-analytics-updates-ignite-fall-2021-new-outputs-new/ba-p/2919170) to ingest high throughput streaming data to existing table.
 *  Several bug fixes, stability, and performance improvements<sup>$</sup>.
 
@@ -78,7 +95,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * Support for new [regions](./overview.md#azure-regions) including Australia East, Canada Central, and France Central.
 * Support for [built-in PgBouncer](./concepts-pgbouncer.md) connection pooler. 
 <!--- * Support for [pglogical](https://github.com/2ndQuadrant/pglogical) extension version 2.3.2. -->
-* [Intelligent performance](concepts-query-store.md) in public preview.
+* [Intelligent performance](concepts-query-store.md) .
 * Several bug fixes, stability and performance improvements.
 
 ## Release: October 2020 - March 2021
@@ -95,8 +112,14 @@ For any questions or suggestions you might have on Azure Database for PostgreSQL
 In addition, consider the following points of contact as appropriate:
 
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
+- To fix an issue with your account, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
 - To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
+
+## Frequently Asked Questions
+
+ Will Flexible Server replace Single Server or Will Single Server be retired soon?
+
+We continue to support Single Server and encourage you to adopt Flexible Server which has richer capabilities such as zone resilient HA, predictable performance, maximum control, custom maintenance window, cost optimization controls and simplified developer experience suitable for your enterprise workloads. If we decide to retire any service, feature, API or SKU, you will receive advance notice including a migration or transition path. Learn more about Microsoft Lifecycle policies [here](/lifecycle/faq/general-lifecycle).
   
 
 ## Next steps

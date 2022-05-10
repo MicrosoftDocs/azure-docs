@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Video Analyzer - Azure
+title: Troubleshoot 
 description: This article covers troubleshooting steps for Azure Video Analyzer edge module.
 ms.topic: troubleshooting
 ms.date: 11/04/2021
@@ -12,6 +12,8 @@ ms.custom: ignite-fall-2021
 Alternatively, check out [troubleshoot in the service](../cloud/troubleshoot.md).
 
 ---
+
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
 
 This article covers troubleshooting steps for the Azure Video Analyzer edge module.
 
@@ -84,7 +86,7 @@ Keep in mind the following:
 
 The container logs for your IoT Edge module should contain diagnostics information to help debug your issues you encounter while analyzing live video. You may be able to [check container logs for issues](../../../iot-edge/troubleshoot.md#check-container-logs-for-issues) and self-diagnose the issue.
 
-If you've run all the preceding checks and are still encountering issues, gather logs from the IoT Edge device [with the `support bundle` command](../../../iot-edge/troubleshoot.md#gather-debug-information-with-support-bundle-command) for further analysis by the Azure team. You can [contact us](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) for support and to submit the collected logs.
+If you've run all the preceding checks and are still encountering issues, gather logs from the IoT Edge device [with the `support bundle` command](../../../iot-edge/troubleshoot.md#gather-debug-information-with-support-bundle-command) for further analysis by the Azure team. You can [contact us](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) for support and to submit the collected logs.
 
 ## Common error resolutions
 

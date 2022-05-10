@@ -7,15 +7,27 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 11/03/2021
 ms.author: tisande
+ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ---
 
 # How to register and use stored procedures, triggers, and user-defined functions in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-The SQL API in Azure Cosmos DB supports registering and invoking stored procedures, triggers, and user-defined functions (UDFs) written in JavaScript. You can use the SQL API [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), [Node.js](sql-api-sdk-node.md), or [Python](sql-api-sdk-python.md) SDKs to register and invoke the stored procedures. Once you have defined one or more stored procedures, triggers, and user-defined functions, you can load and view them in the [Azure portal](https://portal.azure.com/) by using Data Explorer.
+The SQL API in Azure Cosmos DB supports registering and invoking stored procedures, triggers, and user-defined functions (UDFs) written in JavaScript. Once you've defined one or more stored procedures, triggers, and user-defined functions, you can load and view them in the [Azure portal](https://portal.azure.com/) by using Data Explorer.
 
-## <a id="stored-procedures"></a>How to run stored procedures
+SQL API SDKs are available for a wide variety of platforms and programming languages. If you haven't worked 
+
+You can use the SQL API SDK across multiple platforms including [.NET v2 (legacy)](sql-api-sdk-dotnet.md), [.NET v3](sql-api-sdk-dotnet-standard.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), or [Python](sql-api-sdk-python.md) SDKs to perform these tasks. If you haven't worked with one of these SDKs before, see the *"Quickstart"* article for the appropriate SDK:
+
+| SDK | Getting started |
+| :--- | :--- |
+| .NET v3 | [Quickstart: Build a .NET console app to manage Azure Cosmos DB SQL API resources](create-sql-api-dotnet.md) |
+| Java | [Quickstart: Build a Java app to manage Azure Cosmos DB SQL API data](create-sql-api-java.md)
+| JavaScript | [Quickstart: Use Node.js to connect and query data from Azure Cosmos DB SQL API account](create-sql-api-nodejs.md) |
+| Python | [Quickstart: Build a Python application using an Azure Cosmos DB SQL API account](create-sql-api-python.md) |
+
+## How to run stored procedures
 
 Stored procedures are written using JavaScript. They can create, update, read, query, and delete items within an Azure Cosmos container. For more information on how to write stored procedures in Azure Cosmos DB, see [How to write stored procedures in Azure Cosmos DB](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures) article.
 
@@ -24,9 +36,9 @@ The following examples show how to register and call a stored procedure by using
 > [!NOTE]
 > For partitioned containers, when executing a stored procedure, a partition key value must be provided in the request options. Stored procedures are always scoped to a partition key. Items that have a different partition key value will not be visible to the stored procedure. This also applied to triggers as well.
 
-### Stored procedures - .NET SDK V2
+### [.NET SDK v2](#tab/dotnet-sdk-v2)
 
-The following example shows how to register a stored procedure by using the .NET SDK V2:
+The following example shows how to register a stored procedure by using the .NET SDK v2:
 
 ```csharp
 string storedProcedureId = "spCreateToDoItems";
@@ -40,7 +52,7 @@ var response = await client.CreateStoredProcedureAsync(containerUri, newStoredPr
 StoredProcedure createdStoredProcedure = response.Resource;
 ```
 
-The following code shows how to call a stored procedure by using the .NET SDK V2:
+The following code shows how to call a stored procedure by using the .NET SDK v2:
 
 ```csharp
 dynamic[] newItems = new dynamic[]
@@ -64,9 +76,9 @@ RequestOptions options = new RequestOptions { PartitionKey = new PartitionKey("P
 var result = await client.ExecuteStoredProcedureAsync<string>(uri, options, new[] { newItems });
 ```
 
-### Stored procedures - .NET SDK V3
+### [.NET SDK v3](#tab/dotnet-sdk-v3)
 
-The following example shows how to register a stored procedure by using the .NET SDK V3:
+The following example shows how to register a stored procedure by using the .NET SDK v3:
 
 ```csharp
 string storedProcedureId = "spCreateToDoItems";
@@ -77,7 +89,7 @@ StoredProcedureResponse storedProcedureResponse = await client.GetContainer("myD
 });
 ```
 
-The following code shows how to call a stored procedure by using the .NET SDK V3:
+The following code shows how to call a stored procedure by using the .NET SDK v3:
 
 ```csharp
 dynamic[] newItems = new dynamic[]
@@ -99,7 +111,7 @@ dynamic[] newItems = new dynamic[]
 var result = await client.GetContainer("database", "container").Scripts.ExecuteStoredProcedureAsync<string>("spCreateToDoItem", new PartitionKey("Personal"), new[] { newItems });
 ```
 
-### Stored procedures - Java SDK
+### [Java SDK](#tab/java-sdk)
 
 The following example shows how to register a stored procedure by using the Java SDK:
 
@@ -164,7 +176,7 @@ asyncClient.executeStoredProcedure(sprocLink, requestOptions, storedProcedureArg
 successfulCompletionLatch.await();
 ```
 
-### Stored procedures - JavaScript SDK
+### [JavaScript SDK](#tab/javascript-sdk)
 
 The following example shows how to register a stored procedure by using the JavaScript SDK
 
@@ -191,7 +203,7 @@ const sprocId = "spCreateToDoItems";
 const {resource: result} = await container.scripts.storedProcedure(sprocId).execute(newItem, {partitionKey: newItem[0].category});
 ```
 
-### Stored procedures - Python SDK
+### [Python SDK](#tab/python-sdk)
 
 The following example shows how to register a stored procedure by using the Python SDK:
 
@@ -235,18 +247,20 @@ new_item =   {
 result = container.scripts.execute_stored_procedure(sproc=created_sproc,params=[[new_item]], partition_key=new_id) 
 ```
 
-## <a id="pre-triggers"></a>How to run pre-triggers
+---
+
+## How to run pre-triggers
 
 The following examples show how to register and call a pre-trigger by using the Azure Cosmos DB SDKs. Refer to the [Pre-trigger example](how-to-write-stored-procedures-triggers-udfs.md#pre-triggers) as the source for this pre-trigger is saved as `trgPreValidateToDoItemTimestamp.js`.
 
-When executing, pre-triggers are passed in the RequestOptions object by specifying `PreTriggerInclude` and then passing the name of the trigger in a List object.
+Pre-triggers are passed in the RequestOptions object, when executing an operation, by specifying `PreTriggerInclude` and then passing the name of the trigger in a List object.
 
 > [!NOTE]
 > Even though the name of the trigger is passed as a List, you can still execute only one trigger per operation.
 
-### Pre-triggers - .NET SDK V2
+### [.NET SDK v2](#tab/dotnet-sdk-v2)
 
-The following code shows how to register a pre-trigger using the .NET SDK V2:
+The following code shows how to register a pre-trigger using the .NET SDK v2:
 
 ```csharp
 string triggerId = "trgPreValidateToDoItemTimestamp";
@@ -261,7 +275,7 @@ Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myConta
 await client.CreateTriggerAsync(containerUri, trigger);
 ```
 
-The following code shows how to call a pre-trigger using the .NET SDK V2:
+The following code shows how to call a pre-trigger using the .NET SDK v2:
 
 ```csharp
 dynamic newItem = new
@@ -277,9 +291,9 @@ RequestOptions requestOptions = new RequestOptions { PreTriggerInclude = new Lis
 await client.CreateDocumentAsync(containerUri, newItem, requestOptions);
 ```
 
-### Pre-triggers - .NET SDK V3
+### [.NET SDK v3](#tab/dotnet-sdk-v3)
 
-The following code shows how to register a pre-trigger using the .NET SDK V3:
+The following code shows how to register a pre-trigger using the .NET SDK v3:
 
 ```csharp
 await client.GetContainer("database", "container").Scripts.CreateTriggerAsync(new TriggerProperties
@@ -291,7 +305,7 @@ await client.GetContainer("database", "container").Scripts.CreateTriggerAsync(ne
 });
 ```
 
-The following code shows how to call a pre-trigger using the .NET SDK V3:
+The following code shows how to call a pre-trigger using the .NET SDK v3:
 
 ```csharp
 dynamic newItem = new
@@ -305,7 +319,7 @@ dynamic newItem = new
 await client.GetContainer("database", "container").CreateItemAsync(newItem, null, new ItemRequestOptions { PreTriggers = new List<string> { "trgPreValidateToDoItemTimestamp" } });
 ```
 
-### Pre-triggers - Java SDK
+### [Java SDK](#tab/java-sdk)
 
 The following code shows how to register a pre-trigger using the Java SDK:
 
@@ -338,7 +352,7 @@ requestOptions.setPreTriggerInclude(Arrays.asList("trgPreValidateToDoItemTimesta
 asyncClient.createDocument(containerLink, item, requestOptions, false).toBlocking();
 ```
 
-### Pre-triggers - JavaScript SDK
+### [JavaScript SDK](#tab/javascript-sdk)
 
 The following code shows how to register a pre-trigger using the JavaScript SDK:
 
@@ -366,7 +380,7 @@ await container.items.create({
 }, {preTriggerInclude: [triggerId]});
 ```
 
-### Pre-triggers - Python SDK
+### [Python SDK](#tab/python-sdk)
 
 The following code shows how to register a pre-trigger using the Python SDK:
 
@@ -402,13 +416,15 @@ item = {'category': 'Personal', 'name': 'Groceries',
 container.create_item(item, {'pre_trigger_include': 'trgPreValidateToDoItemTimestamp'})
 ```
 
-## <a id="post-triggers"></a>How to run post-triggers
+---
+
+## How to run post-triggers
 
 The following examples show how to register a post-trigger by using the Azure Cosmos DB SDKs. Refer to the [Post-trigger example](how-to-write-stored-procedures-triggers-udfs.md#post-triggers) as the source for this post-trigger is saved as `trgPostUpdateMetadata.js`.
 
-### Post-triggers - .NET SDK V2
+### [.NET SDK v2](#tab/dotnet-sdk-v2)
 
-The following code shows how to register a post-trigger using the .NET SDK V2:
+The following code shows how to register a post-trigger using the .NET SDK v2:
 
 ```csharp
 string triggerId = "trgPostUpdateMetadata";
@@ -423,7 +439,7 @@ Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myConta
 await client.CreateTriggerAsync(containerUri, trigger);
 ```
 
-The following code shows how to call a post-trigger using the .NET SDK V2:
+The following code shows how to call a post-trigger using the .NET SDK v2:
 
 ```csharp
 var newItem = { 
@@ -437,9 +453,9 @@ Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myConta
 await client.createDocumentAsync(containerUri, newItem, options);
 ```
 
-### Post-triggers - .NET SDK V3
+### [.NET SDK v3](#tab/dotnet-sdk-v3)
 
-The following code shows how to register a post-trigger using the .NET SDK V3:
+The following code shows how to register a post-trigger using the .NET SDK v3:
 
 ```csharp
 await client.GetContainer("database", "container").Scripts.CreateTriggerAsync(new TriggerProperties
@@ -451,7 +467,7 @@ await client.GetContainer("database", "container").Scripts.CreateTriggerAsync(ne
 });
 ```
 
-The following code shows how to call a post-trigger using the .NET SDK V3:
+The following code shows how to call a post-trigger using the .NET SDK v3:
 
 ```csharp
 var newItem = { 
@@ -463,7 +479,7 @@ var newItem = {
 await client.GetContainer("database", "container").CreateItemAsync(newItem, null, new ItemRequestOptions { PostTriggers = new List<string> { "trgPostUpdateMetadata" } });
 ```
 
-### Post-triggers - Java SDK
+### [Java SDK](#tab/java-sdk)
 
 The following code shows how to register a post-trigger using the Java SDK:
 
@@ -494,7 +510,7 @@ requestOptions.setPostTriggerInclude(Arrays.asList("trgPostUpdateMetadata"));
 asyncClient.createDocument(containerLink, item, requestOptions, false).toBlocking();
 ```
 
-### Post-triggers - JavaScript SDK
+### [JavaScript SDK](#tab/javascript-sdk)
 
 The following code shows how to register a post-trigger using the JavaScript SDK:
 
@@ -522,7 +538,7 @@ const triggerId = "trgPostUpdateMetadata";
 await container.items.create(item, {postTriggerInclude: [triggerId]});
 ```
 
-### Post-triggers - Python SDK
+### [Python SDK](#tab/python-sdk)
 
 The following code shows how to register a post-trigger using the Python SDK:
 
@@ -558,13 +574,15 @@ item = {'category': 'Personal', 'name': 'Groceries',
 container.create_item(item, {'post_trigger_include': 'trgPreValidateToDoItemTimestamp'})
 ```
 
-## <a id="udfs"></a>How to work with user-defined functions
+---
+
+## How to work with user-defined functions
 
 The following examples show how to register a user-defined function by using the Azure Cosmos DB SDKs. Refer to this [User-defined function example](how-to-write-stored-procedures-triggers-udfs.md#udfs) as the source for this post-trigger is saved as `udfTax.js`.
 
-### User-defined functions - .NET SDK V2
+### [.NET SDK v2](#tab/dotnet-sdk-v2)
 
-The following code shows how to register a user-defined function using the .NET SDK V2:
+The following code shows how to register a user-defined function using the .NET SDK v2:
 
 ```csharp
 string udfId = "Tax";
@@ -579,7 +597,7 @@ await client.CreateUserDefinedFunctionAsync(containerUri, udfTax);
 
 ```
 
-The following code shows how to call a user-defined function using the .NET SDK V2:
+The following code shows how to call a user-defined function using the .NET SDK v2:
 
 ```csharp
 Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
@@ -591,9 +609,9 @@ foreach (var result in results)
 }
 ```
 
-### User-defined functions - .NET SDK V3
+### [.NET SDK v3](#tab/dotnet-sdk-v3)
 
-The following code shows how to register a user-defined function using the .NET SDK V3:
+The following code shows how to register a user-defined function using the .NET SDK v3:
 
 ```csharp
 await client.GetContainer("database", "container").Scripts.CreateUserDefinedFunctionAsync(new UserDefinedFunctionProperties
@@ -603,7 +621,7 @@ await client.GetContainer("database", "container").Scripts.CreateUserDefinedFunc
 });
 ```
 
-The following code shows how to call a user-defined function using the .NET SDK V3:
+The following code shows how to call a user-defined function using the .NET SDK v3:
 
 ```csharp
 var iterator = client.GetContainer("database", "container").GetItemQueryIterator<dynamic>("SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000");
@@ -617,7 +635,7 @@ while (iterator.HasMoreResults)
 }
 ```
 
-### User-defined functions - Java SDK
+### [Java SDK](#tab/java-sdk)
 
 The following code shows how to register a user-defined function using the Java SDK:
 
@@ -655,7 +673,7 @@ queryObservable.subscribe(
 completionLatch.await();
 ```
 
-### User-defined functions - JavaScript SDK
+### [JavaScript SDK](#tab/javascript-sdk)
 
 The following code shows how to register a user-defined function using the JavaScript SDK:
 
@@ -675,7 +693,7 @@ const sql = "SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000";
 const {result} = await container.items.query(sql).toArray();
 ```
 
-### User-defined functions - Python SDK
+### [Python SDK](#tab/python-sdk)
 
 The following code shows how to register a user-defined function using the Python SDK:
 
@@ -706,6 +724,8 @@ results = list(container.query_items(
     'query': 'SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000'))
 ```
 
+---
+
 ## Next steps
 
 Learn more concepts and how-to write or use stored procedures, triggers, and user-defined functions in Azure Cosmos DB:
@@ -713,4 +733,4 @@ Learn more concepts and how-to write or use stored procedures, triggers, and use
 - [Working with Azure Cosmos DB stored procedures, triggers, and user-defined functions in Azure Cosmos DB](stored-procedures-triggers-udfs.md)
 - [Working with JavaScript language integrated query API in Azure Cosmos DB](javascript-query-api.md)
 - [How to write stored procedures, triggers, and user-defined functions in Azure Cosmos DB](how-to-write-stored-procedures-triggers-udfs.md)
-- [How to write stored procedures and triggers using Javascript Query API in Azure Cosmos DB](how-to-write-javascript-query-api.md)
+- [How to write stored procedures and triggers using JavaScript Query API in Azure Cosmos DB](how-to-write-javascript-query-api.md)

@@ -6,12 +6,12 @@ summary: Microsoft Defender for Cloud provides unified security management and a
 metadata:
   title: Microsoft Defender for Cloud documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Get started with Defender for Cloud, learn how to secure your workloads, limit risks, and detect and respond to attacks with our quickstarts & tutorials. # Required; article description that is displayed in search results. < 160 chars.
-  services: security-center
-  ms.service: defender-for-cloud #Required; service per approved list. service slug assigned to your service by ACOM.
+  services: defender-for-cloud
+  author: elkrieger
+  ms.author: elkrieger
+  manager: raynew
   ms.topic: landing-page # Required
   ms.collection: collection
-  author: memildin #Required; your GitHub user alias, with correct capitalization.
-  ms.author: memildin #Required; microsoft alias of author; optional team alias.
   ms.date: 10/21/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -30,6 +30,8 @@ landingContent:
             url: security-center-os-coverage.md
           - text: How do I get started with Defender for Cloud?
             url: get-started.md
+          - text: What are security policies, initiatives, and recommendations?
+            url: security-policy-concept.md
 
  
   # Card
@@ -39,14 +41,12 @@ landingContent:
         links:
           - text: Release notes for Defender for Cloud
             url: release-notes.md
-          - text: Apply Azure security baselines to machines
-            url: apply-security-baseline.md
-          - text: Use the integrated workbooks reports
-            url: custom-dashboards-azure-workbooks.md
-          - text: Protect hybrid and multi-cloud Kubernetes clusters
-            url: defender-for-kubernetes-azure-arc.md
-          - text: Microsoft Defender for open-source relational databases
-            url: defender-for-databases-introduction.md
+          - text: Important upcoming changes
+            url: upcoming-changes.md
+          - text: Connect AWS accounts with environment settings
+            url: quickstart-onboard-aws.md
+          - text: Threat and vulnerability management vulnerability assessment
+            url: deploy-vulnerability-assessment-tvm.md
  
   # Card
   - title: Get started
@@ -57,12 +57,12 @@ landingContent:
             url: get-started.md
           - text: Enable enhanced security features
             url: enable-enhanced-security.md
+          - text: Connect hybrid and multi-cloud machines
+            url: quickstart-onboard-machines.md
           - text: Configure auto provisioning
             url: enable-data-collection.md
           - text: Set up email notifications
             url: configure-email-notifications.md
-          - text: Connect non-Azure machines
-            url: quickstart-onboard-machines.md
 
   # Card
   - title: Improve your secure score

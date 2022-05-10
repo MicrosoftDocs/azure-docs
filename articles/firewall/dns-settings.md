@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 11/08/2021
+ms.date: 01/28/2022
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -16,7 +16,7 @@ You can configure a custom DNS server and enable DNS proxy for Azure Firewall. C
 
 ## DNS servers
 
-A DNS server maintains and resolves domain names to IP addresses. By default, Azure Firewall uses Azure DNS for name resolution. The **DNS server** setting lets you configure your own DNS servers for Azure Firewall name resolution. You can configure a single server or multiple servers. If you configure multiple DNS servers, the server used is chosen randomly.
+A DNS server maintains and resolves domain names to IP addresses. By default, Azure Firewall uses Azure DNS for name resolution. The **DNS server** setting lets you configure your own DNS servers for Azure Firewall name resolution. You can configure a single server or multiple servers. If you configure multiple DNS servers, the server used is chosen randomly. You can configure a maximum of 15 DNS servers in **Custom DNS**. 
 
 > [!NOTE]
 > For instances of Azure Firewall that are managed by using Azure Firewall Manager, the DNS settings are configured in the associated Azure Firewall policy.
@@ -76,11 +76,9 @@ When Azure Firewall is a DNS proxy, two caching function types are possible:
 
 The DNS proxy stores all resolved IP addresses from FQDNs in network rules. As a best practice, use  FQDNs that resolve to one IP address.
 
-If there is a  failed connection, DNS proxy does not perform retries or failovers to other DNS servers, including Azure DNS.
-
 ### Policy inheritance
 
- Policy DNS settings applied to a standalone firewall overrides the standalone firewall’s DNS settings. A child policy inherits all parent policy DNS settings, but it can override the parent policy.
+ Policy DNS settings applied to a standalone firewall override the standalone firewall’s DNS settings. A child policy inherits all parent policy DNS settings, but it can override the parent policy.
 
 For example, to use FQDNs in network rule, DNS proxy should be enabled. But if a parent policy does **not** have DNS proxy enabled, the child policy won't support FQDNs in network rules unless you locally override this setting.
 
@@ -166,6 +164,15 @@ $azFw.DNSEnableProxy = $true
 
 $azFw | Set-AzFirewall
 ```
+### High availability failover
+
+DNS proxy has a failover mechanism that stops using a detected unhealthy server and uses another DNS server that is available.
+
+If all DNS servers are unavailable, there's no fallback to another DNS server.
+
+### Health checks
+
+DNS proxy performs five-second health check loops for as long as the upstream servers report as unhealthy. The health checks are a recursive DNS query to the root name server. Once an upstream server is considered healthy, the firewall stops health checks until the next error. When a healthy proxy returns an error, the firewall selects another DNS server in the list. 
 
 ## Next steps
 

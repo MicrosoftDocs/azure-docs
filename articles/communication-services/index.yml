@@ -67,6 +67,10 @@ landingContent:
             url: concepts/call-flows.md
   - title: UI Library
     linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Get started with UI Library
+            url: quickstarts/ui-library/get-started-composites.md
       - linkListType: concept
         links:
           - text: UI Library overview
@@ -78,21 +82,23 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Get a telephone number
-            url: quickstarts/telephony-sms/get-phone-number.md
+            url: quickstarts/telephony/get-phone-number.md
           - text: Send an SMS message
-            url: quickstarts/telephony-sms/send.md
+            url: quickstarts/sms/send.md
           - text: Handle SMS events
-            url: quickstarts/telephony-sms/handle-sms-events.md
+            url: quickstarts/sms/handle-sms-events.md
+          - text: Add PSTN calling
+            url: quickstarts/telephony/pstn-call.md
       - linkListType: concept
         links:
           - text: SMS concepts
-            url: concepts/telephony-sms/concepts.md
+            url: concepts/sms/concepts.md
           - text: SMS SDK overview
-            url: concepts/telephony-sms/sdk-features.md
+            url: concepts/sms/sdk-features.md
           - text: Calling overview
             url: concepts/voice-video-calling/calling-sdk-features.md
           - text: Phone number types
-            url: concepts/telephony-sms/plan-solution.md
+            url: concepts/telephony/plan-solution.md
       - linkListType: learn
         links:
           - text: Send an SMS using C#

@@ -1,10 +1,8 @@
 ---
 title: Integrate Forescout with Microsoft Defender for IoT
 description: In this tutorial, you will learn how to integrate Microsoft Defender for IoT with Forescout.
-author: ElazarK
-ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 11/09/2021
+ms.date: 02/08/2022
 ms.custom: template-tutorial
 ---
 
@@ -62,17 +60,15 @@ To ensure communication from Defender for IoT to Forescout, you must generate an
 
 1. Sign in to the Defender for IoT sensor that will be queried by Forescout.
 
-1. Select **System Settings** > **Access Tokens** from the **General** section.
+1. Select **System Settings** > **Integrations** > **Access Tokens**.
 
-1. Select **Generate new token**.
+1. Select **Generate token**.
 
-    :::image type="content" source="media/tutorial-forescout/generate-access-tokens-screen.png" alt-text="Screenshot of the access token generation screen.":::
-
-1. Enter a token description in the **New access token** dialog box.
+1. Enter a token description in the **Description** field.
 
    :::image type="content" source="media/tutorial-forescout/new-forescout-token.png" alt-text="New access token":::
 
-1. Select **Next**. The token is then displayed in the dialog box.
+1. Select **Generate**. The token is then displayed in the dialog box.
 
    > [!NOTE]
    > Record the token in a safe place. You will need it when you configure the Forescout Platform.
@@ -192,7 +188,7 @@ You can create custom policies in Forescout using Defender for IoT conditional p
 
 1. In the Properties Tree, expand the CyberX Platform folder. The Defender for IoT following properties are available.
 
-:::image type="content" source="media/tutorial-forescout/forescout-property-tree.png" alt-text="Properties":::
+    :::image type="content" source="media/tutorial-forescout/forescout-property-tree.png" alt-text="Properties":::
 
 ## Clean up resources
 

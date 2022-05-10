@@ -2,8 +2,6 @@
 title: Enable Snapshot Debugger for .NET and .NET Core apps in Azure Functions | Microsoft Docs
 description: Enable Snapshot Debugger for .NET and .NET Core apps in Azure Functions
 ms.topic: conceptual
-author: cweining
-ms.author: cweining
 ms.date: 12/18/2020
 ---
 
@@ -144,7 +142,7 @@ Below is an example of the `host.json` updated with the US Government Cloud agen
 
 Below are the supported overrides of the Snapshot Debugger agent endpoint:
 
-|Property    | US Government Cloud | China Cloud |   
+|Property    | US Government Cloud | China Cloud |
 |---------------|---------------------|-------------|
 |AgentEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
 

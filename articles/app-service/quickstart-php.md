@@ -3,7 +3,9 @@ title: 'Quickstart: Create a PHP web app'
 description: Deploy your first PHP Hello World to Azure App Service in minutes. You deploy using Git, which is one of many ways to deploy to App Service.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
-ms.date: 05/02/2021
+ms.date: 03/10/2022
+ms.devlang: php
+ms.custom: mode-other, devdivchpfy22
 zone_pivot_groups: app-service-platform-windows-linux
 ---
 
@@ -34,7 +36,7 @@ To complete this quickstart:
 
 ## Download the sample locally
 
-1. In a terminal window, run the following commands. This will clone the sample application to your local machine, and navigate to the directory containing the sample code. 
+1. In a terminal window, run the following commands. It will clone the sample application to your local machine, and navigate to the directory containing the sample code.
 
     ```bash
     git clone https://github.com/Azure-Samples/php-docs-hello-world
@@ -82,12 +84,12 @@ To complete this quickstart:
 
 ## Create a web app
 
-1. In the Cloud Shell, create a web app in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp#az_webapp_create) command. 
+1. In the Cloud Shell, create a web app in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp#az-webapp-create) command.
 
-    In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PHP|7.4`. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp#az_webapp_list_runtimes). 
+    In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PHP|7.4`. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp#az-webapp-list-runtimes).
 
     ```azurecli-interactive
-    az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime 'PHP|7.4' --deployment-local-git
+    az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime 'PHP:8.0' --deployment-local-git
     ```
     
     When the web app has been created, the Azure CLI shows output similar to the following example:
@@ -119,11 +121,11 @@ To complete this quickstart:
     http://<app-name>.azurewebsites.net
     ```
 
-    Here is what your new web app should look like:
+    Here's what your new web app should look like:
 
     ![Empty web app page](media/quickstart-php/app-service-web-service-created.png)
 
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
+[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)]
 
   <pre>
   Counting objects: 2, done.
@@ -197,7 +199,7 @@ The PHP sample code is running in an Azure App Service web app.
 
     ![App Service page in Azure portal](media/quickstart-php/php-docs-hello-world-app-service-detail.png)
 
-    The web app menu provides different options for configuring your app. 
+    The web app menu provides different options for configuring your app.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

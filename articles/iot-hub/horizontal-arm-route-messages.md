@@ -1,13 +1,13 @@
 ---
 title: Use ARM template to publish Azure IoT Hub, storage account, route messages
 description: Use ARM template to publish Azure IoT Hub, storage account, route messages
-author: eross-msft
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: quickstart
 ms.date: 08/24/2020
-ms.author: lizross
-ms.custom: mvc, subject-armqs
+ms.author: kgremban
+ms.custom: mvc, subject-armqs, mode-arm
 ---
 
 # Quickstart: Deploy an Azure IoT Hub and a storage account using an ARM template

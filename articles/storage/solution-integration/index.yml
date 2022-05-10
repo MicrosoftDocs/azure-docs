@@ -42,6 +42,8 @@ landingContent:
             url: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
           - text: DobiProtect getting started guide
             url: .\validated-partners\backup-archive-disaster-recovery\datadobi\datadobi-solution-guide.md
+          - text: Tiger Bridge archiving with CDP and DR
+            url: .\validated-partners\backup-archive-disaster-recovery\tiger-bridge-cdp-guide.md
    # Card
   - title: Container solution partners
     linkLists:
@@ -58,6 +60,8 @@ landingContent:
             url: .\validated-partners\data-management\partner-overview.md
           - text: Migration tools comparison
             url: ./validated-partners/data-management/migration-tools-comparison.md
+          - text: Azure File Migration Program Solutions
+            url: ./validated-partners/data-management/azure-file-migration-program-solutions.md
       - linkListType: get-started
         links:
           - text: DobiMigrate getting started guide
@@ -77,4 +81,6 @@ landingContent:
             url: .\validated-partners\primary-secondary-storage\partner-overview.md
           - text: ISV file services
             url: .\validated-partners\primary-secondary-storage\isv-file-services.md
+          - text: Tiger Bridge getting started guide
+            url: ./validated-partners/primary-secondary-storage/tiger-bridge-deployment-guide.md
       

@@ -1,23 +1,13 @@
 ---
 title: File Integrity Monitoring in Microsoft Defender for Cloud
 description: Learn how to compare baselines with File Integrity Monitoring in Microsoft Defender for Cloud.
-services: security-center
-documentationcenter: na
-author: memildin
-manager: rkarlin
-ms.assetid: c8a2a589-b737-46c1-b508-7ea52e301e8f
-ms.service: defender-for-cloud
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.author: benmansheim
+author: bmansheim
 ms.date: 11/09/2021
-ms.author: memildin
 ---
 
 # Compare baselines using File Integrity Monitoring (FIM)
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 File Integrity Monitoring (FIM) informs you when changes occur to sensitive areas in your resources, so you can investigate and address unauthorized activity. FIM monitors Windows files, Windows registries, and Linux files.
 
@@ -44,7 +34,7 @@ FIM baselines start by identifying characteristics of a known-good state for the
 
 
 |Policy Name                 | Registry Setting|
-|---------------------------------------|-------------|
+|----------------------------|-----------------|
 |Domain controller: Refuse machine account password changes| MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\RefusePasswordChange|
 |Domain member: Digitally encrypt or sign secure channel data (always)|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\RequireSignOrSeal|
 |Domain member: Digitally encrypt secure channel data (when possible)|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\SealSecureChannel|
@@ -61,7 +51,7 @@ FIM baselines start by identifying characteristics of a known-good state for the
 
 To configure FIM to monitor registry baselines:
 
-1. In the **Add Windows Registry for Change Tracking** window, in the **Windows Registry Key** text box, enter the following registry key:
+- In the **Add Windows Registry for Change Tracking** window, in the **Windows Registry Key** text box, enter the following registry key:
 
     ```
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
@@ -83,36 +73,27 @@ In the example in the following figure,
 File Integrity Monitoring data resides within the Azure Log Analytics / ConfigurationChange table set.  
 
  1. Set a time range to retrieve a summary of changes by resource.
-In the following example, we are retrieving all changes in the last fourteen days in the categories of registry and files:
 
-    <code>
+    In the following example, we are retrieving all changes in the last fourteen days in the categories of registry and files:
 
-    > ConfigurationChange
-
-    > | where TimeGenerated > ago(14d)
-
-    > | where ConfigChangeType in ('Registry', 'Files')
-
-    > | summarize count() by Computer, ConfigChangeType
-
-    </code>
+    ```
+    ConfigurationChange
+    | where TimeGenerated > ago(14d)
+    | where ConfigChangeType in ('Registry', 'Files')
+    | summarize count() by Computer, ConfigChangeType
+    ```
 
 1. To view details of the registry changes:
 
     1. Remove **Files** from the **where** clause, 
     1. Remove the summarization line and replace it with an ordering clause:
 
-    <code>
-
-    > ConfigurationChange
-
-    > | where TimeGenerated > ago(14d)
-
-    > | where ConfigChangeType in ('Registry')
-
-    > | order by Computer, RegistryKey
-
-    </code>
+    ```
+    ConfigurationChange
+    | where TimeGenerated > ago(14d)
+    | where ConfigChangeType in ('Registry')
+    | order by Computer, RegistryKey
+    ```
 
 Reports can be exported to CSV for archival and/or channeled to a Power BI report.  
 

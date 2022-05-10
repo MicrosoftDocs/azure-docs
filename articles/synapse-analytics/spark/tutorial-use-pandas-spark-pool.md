@@ -1,11 +1,10 @@
 ---
 title: 'Tutorial: Use Pandas to read/write ADLS data in serverless Apache Spark pool in Synapse Analytics'
 description: Tutorial for how to use Pandas in a PySpark notebook to read/write ADLS data in a serverless Apache Spark pool.
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
-ms.reviewer: jrasnick, garye
+ms.reviewer: sngun, garye
 ms.date: 11/02/2021
 author: AjAgr
 ms.author: ajagarw

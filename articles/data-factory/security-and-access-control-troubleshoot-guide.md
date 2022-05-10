@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 09/09/2021
+ms.date: 02/07/2022
 ms.author: lle
 ---
 
@@ -18,7 +18,7 @@ ms.author: lle
 This article explores common troubleshooting methods for security and access control in Azure Data Factory and Synapse Analytics pipelines.
 
 ## Common errors and messages
-
+ 
 ### Connectivity issue in the copy activity of the cloud datastore
 
 #### Symptoms
@@ -61,7 +61,7 @@ If none of the preceding methods works, contact Microsoft for help.
 
 #### Symptoms
 
-After you disable public network access for the service, the self-hosted integration runtime throws the following error: “The Authentication key is invalid or empty.”
+After you disable public network access for the service, the self-hosted integration runtime throws following errors: `The Authentication key is invalid or empty.` or `Cannot connect to the data factory. Please check whether the factory has enabled public network access or the machine is hosted in a approved private endpoint Virtual Network.`
 
 #### Cause
 

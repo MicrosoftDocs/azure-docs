@@ -13,6 +13,10 @@ You can also use copy loop with [properties](copy-properties.md), [variables](co
 
 If you need to specify whether a resource is deployed at all, see [condition element](conditional-resource-deployment.md).
 
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [loops](../bicep/loops.md).
+
 ## Syntax
 
 Add the `copy` element to the resources section of your template to deploy multiple instances of the resource. The `copy` element has the following general format:
@@ -56,7 +60,7 @@ The following example creates the number of storage accounts specified in the `s
   "parameters": {
     "storageCount": {
       "type": "int",
-      "defaultValue": 2
+      "defaultValue": 3
     }
   },
   "resources": [

@@ -35,7 +35,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 
 * The current version of [Visual Studio IDE](https://visualstudio.microsoft.com/vs/). <!-- or [.NET Core](https://dotnet.microsoft.com/download). -->
 
-* A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
     > [!TIP]
     > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
@@ -78,7 +78,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 
 ## Build your application
 
-To interact with the Form Recognizer service, you'll need to create an instance of the `FormRecognizerClient` class. To do so, you'll create an `AzureKeyCredential` with your apiKey and a `FormRecognizerClient`  instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
+To interact with the Form Recognizer service, you'll need to create an instance of the `FormRecognizerClient` class. To do so, you'll create an `AzureKeyCredential` with your key and a `FormRecognizerClient`  instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
 
 1. Open the **Program.cs** file.
 
@@ -92,12 +92,12 @@ using Azure.AI.FormRecognizer.Models;
 using System.Threading.Tasks;
 ```
 
-1. Set your  `endpoint` and `apiKey`  environment variables and create your `AzureKeyCredential` and `FormRecognizerClient` instance:
+1. Set your  `endpoint` and `key`  environment variables and create your `AzureKeyCredential` and `FormRecognizerClient` instance:
 
 ```csharp
 private static readonly string endpoint = "your-form-recognizer-endpoint";
-private static readonly string apiKey = "your-api-key";
-private static readonly AzureKeyCredential credential = new AzureKeyCredential(apiKey);
+private static readonly string key = "your-api-key";
+private static readonly AzureKeyCredential credential = new AzureKeyCredential(key);
 ```
 
 1. Delete the line, `Console.Writeline("Hello World!");` , and add one of the **Try It** code samples to the **Main** method in the **Program.cs** file:
@@ -140,7 +140,7 @@ Task.WaitAll(recognizeContent);
 
 private static FormRecognizerClient AuthenticateClient()
             {
-                var credential = new AzureKeyCredential(apiKey);
+                var credential = new AzureKeyCredential(key);
                 var client = new FormRecognizerClient(new Uri(endpoint), credential);
                 return client;
             }
@@ -211,7 +211,7 @@ FormRecognizerClient recognizerClient = AuthenticateClient();
 
 ```csharp
    private static FormRecognizerClient AuthenticateClient() {
-     var credential = new AzureKeyCredential(apiKey);
+     var credential = new AzureKeyCredential(key);
      var client = new FormRecognizerClient(new Uri(endpoint), credential);
      return client;
    }

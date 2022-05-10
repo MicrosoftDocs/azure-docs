@@ -128,6 +128,7 @@ You can find SOAR integrations and their components in the following places:
 | **Azure Data Explorer** | [Managed Logic Apps connector](/connectors/kusto/) | Microsoft | Query and investigate |
 | **Azure Log Analytics Data Collector** | [Managed Logic Apps connector](/connectors/azureloganalyticsdatacollector/) | Microsoft<br><br>Community | Query and investigate |
 | **Microsoft Defender for Endpoint** | [Managed Logic Apps connector](/connectors/wdatp/)<br><br>Playbooks | Microsoft<br><br>Community | Endpoints enrichment, <br>isolate endpoints |
+| **Microsoft Defender for IoT** | Playbooks | Microsoft | Orchestration and notification |
 | **Microsoft Teams** | [Managed Logic Apps connector](/connectors/teams/)<br><br>Playbooks | Microsoft<br><br>Community | Notifications, <br>Collaboration, <br>create human-involved responses |
 |
 

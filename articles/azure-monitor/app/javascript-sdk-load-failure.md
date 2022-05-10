@@ -2,9 +2,8 @@
 title: Troubleshooting SDK load failure for JavaScript web applications - Azure Application Insights 
 description: How to troubleshoot SDK load failure for JavaScript web applications
 ms.topic: conceptual
-author: MSNev
-ms.author: newylie
 ms.date: 06/05/2020
+ms.devlang: javascript
 ms.custom: devx-track-js
 ---
 
@@ -28,7 +27,7 @@ The stack details include the basic information with the URLs being used by the 
 | Name                      | Description                                                                                                  |
 |---------------------------|--------------------------------------------------------------------------------------------------------------|
 | &lt;CDN&nbsp;Endpoint&gt; | The URL that was used (and failed) to download the SDK.                                                      |
-| &lt;Help&nbsp;Link&gt;    | A URL that links to troubleshooting documentation (this page).                                              |
+| &lt;Help&nbsp;Link&gt;    | A URL that links to troubleshooting documentation (this page).                                               |
 | &lt;Host&nbsp;URL&gt;     | The complete URL of the page that the end user was using.                                                    |
 | &lt;Endpoint&nbsp;URL&gt; | The URL that was used to report the exception, this value may be helpful in identifying whether the hosting page was accessed from the public internet or a private cloud.
 
@@ -44,7 +43,7 @@ The most common reasons for this exception to occur:
 The following sections will describe how to troubleshoot each potential root cause of this error.
 
 > [!NOTE]
-> Several of the troubleshooting steps assume that your application has direct control of the Snippet &lt;script /&gt; tag and it's configuration that are returned as part of the hosting HTML page. If you don't then those identified steps will not apply for your scenario.
+> Several of the troubleshooting steps assume that your application has direct control of the Snippet &lt;script /&gt; tag and its configuration that is returned as part of the hosting HTML page. If you don't then those identified steps will not apply for your scenario.
 
 ## Intermittent network connectivity failure
 
@@ -63,20 +62,9 @@ To minimize intermittent network connectivity failure, we have implemented Cache
  
 ## Application Insights CDN outage
 
-You can confirm if there is an Application Insights CDN outage by attempting to access the CDN endpoint directly from the browser (for example, https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js or https://js.monitor.azure.com/scripts/b/ai.2.min.js) from a different location than your end users' probably from your own development machine (assuming that your organization has not blocked this domain).
+You can confirm if there is an Application Insights CDN outage by attempting to access the CDN endpoint directly from the browser (for example, https://js.monitor.azure.com/scripts/b/ai.2.min.js) from a different location than your end users' probably from your own development machine (assuming that your organization has not blocked this domain).
 
-If you confirm there is an outage, you can [create a new support ticket](https://azure.microsoft.com/support/create-ticket/) or try changing the URL used to download the SDK.
-
-### Change the CDN endpoint
-  
-As the snippet and its configuration are returned by your application as part of each generated page, you can change the snippet `src` configuration to use a different URL for the SDK. By using this approach, you could bypass the CDN blocked issue as the new URL should not be blocked.
-
-Current Application Insights JavaScript SDK CDN endpoints
-- `https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js`
-- `https://js.monitor.azure.com/scripts/b/ai.2.min.js`
-
-> [!NOTE]
-> The `https://js.monitor.azure.com/` endpoint is an alias that allows us to switch between CDN providers within approximately 5 minutes, without the need for you to change any config. This is to enable us to fix detected CDN related issues more rapidly if a CDN provider is having regional or global issues without requiring everyone to adjust their settings.
+If you confirm there is an outage, you can [create a new support ticket](https://azure.microsoft.com/support/create-ticket/).
 
 ## SDK failed to initialize after loading the script
 
@@ -101,10 +89,14 @@ If there are exceptions being reported in the SDK script (for example ai.2.min.j
 
 To check for faulty configuration, change the configuration passed into the snippet (if not already) so that it only includes your instrumentation key as a string value.
 
-> src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",<br />
-> cfg:{<br />
-> instrumentationKey: "INSTRUMENTATION_KEY"<br />
-> }});<br />
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
+```js
+src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
+cfg: {
+    instrumentationKey: "INSTRUMENTATION_KEY"
+}});
+```
 
 If when using this minimal configuration you are still seeing a JavaScript exception in the SDK script, [create a new support ticket](https://azure.microsoft.com/support/create-ticket/) as this will require the faulty build to be rolled back as it's probably an issue with a newly deployed version.
 
@@ -116,24 +108,28 @@ If your configuration was previously deployed and working but just started repor
 
 Assuming there are no exceptions being thrown the next step is to enabling console debugging by adding the `loggingLevelConsole` setting to the configuration, this will send all initialization errors and warnings to the browsers console (normally available via the developer tools (F12)). Any reported errors should be self-explanatory and if you need further assistance [file an issue on GitHub](https://github.com/Microsoft/ApplicationInsights-JS/issues).
 
-> cfg:{<br />
-> instrumentationKey: "INSTRUMENTATION_KEY",<br />
-> loggingLevelConsole: 2<br />
-> }});<br />
+```js
+cfg: {
+    instrumentationKey: "INSTRUMENTATION_KEY",
+    loggingLevelConsole: 2
+}});
+```
 
 > [!NOTE]
 > During initialization the SDK performs some basic checks for known major dependencies. If these are not provided by the current runtime it will report the failures out as warning messages to the console, but only if the `loggingLevelConsole` is greater than zero.
 
-If it still fails to initialize, try enabling the ```enableDebug``` configuration setting. This will cause all internal errors to be thrown as an exception (which will cause telemetry to be lost). As this is a developer only setting it will probably get noisy with exceptions getting thrown as part of some internal checks, so you will need to review each exception to determine which issue is causing the SDK to fail. Use the non-minified version of the script (note the extension below it's ".js" and not ".min.js") otherwise the exceptions will be unreadable.
+If it still fails to initialize, try enabling the ```enableDebug``` configuration setting. This will cause all internal errors to be thrown as an exception (which will cause telemetry to be lost). As this is a developer only setting it will probably get noisy with exceptions getting thrown as part of some internal checks, so you will need to review each exception to determine which issue is causing the SDK to fail. Use the non-minified version of the script (note the extension below is ".js" and not ".min.js") otherwise the exceptions will be unreadable.
 
 > [!WARNING]
 > This is a developer only setting and should NEVER be enabled in a full production environment as you will lose telemetry.
 
-> src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",<br />
-> cfg:{<br />
-> instrumentationKey: "INSTRUMENTATION_KEY",<br />
-> enableDebug: true<br />
-> }});<br />
+```js
+src: "https://js.monitor.azure.com/scripts/b/ai.2.js",
+cfg:{
+    instrumentationKey: "INSTRUMENTATION_KEY",
+    enableDebug: true
+}});
+```
 
 If this still does not provide any insights, you should [file an issue on GitHub](https://github.com/Microsoft/ApplicationInsights-JS/issues) with the details and an example site if you have one. Include the browser version, operating system, and JS framework details to help identify the issue.
 
@@ -151,8 +147,6 @@ Check if the CDN endpoint has been identified as unsafe.
 Depending on the frequency that the application, firewall, or environment update their local copies of these lists, it may take a considerable amount of time and/or require manual intervention by end users or corporate IT departments to force an update or explicitly allow the CDN endpoints to resolve the issue.
 
 If the CDN endpoint is identified as unsafe, [create a support ticket](https://azure.microsoft.com/support/create-ticket/) to ensure that the issue is resolved as soon as possible.
-
-To *potentially* bypass this issue more rapidly, you can [change the SDK CDN endpoint](#change-the-cdn-endpoint).
 
 ### Application Insights JavaScript CDN is blocked (by end user - blocked by browser; installed blocker; personal firewall)
 

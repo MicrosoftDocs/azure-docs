@@ -7,8 +7,8 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
-ms.date: 11/02/2021
+ms.topic: how-to
+ms.date: 04/05/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
 ---
@@ -34,9 +34,9 @@ See the [application development lifecycle](../overview.md#application-developme
 After you have reviewed your [model's evaluation](view-model-evaluation.md), you'll have formed an idea on what's wrong with your model's prediction. 
 
 > [!NOTE]
-> This guide focuses on data from the [validation set](train-model.md#data-split) that was created during training.
+> This guide focuses on data from the [validation set](train-model.md) that was created during training.
 
-### Review validation set
+### Review test set
 
 Using Language Studio, you can review how your model performs against how you expected it to perform. You can review predicted and tagged classes for each model you have trained.
 
@@ -46,7 +46,7 @@ Using Language Studio, you can review how your model performs against how you ex
 
 2. Select **Improve model** from the left side menu.
 
-3. Select **Review validation set**.
+3. Select **Review test set**.
 
 4. Choose your trained model from **Model** drop-down menu.
 

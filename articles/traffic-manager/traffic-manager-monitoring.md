@@ -4,7 +4,6 @@ description: This article can help you understand how Traffic Manager uses endpo
 services: traffic-manager
 author: asudbring
 ms.service: traffic-manager
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -38,7 +37,7 @@ To configure endpoint monitoring, you must specify the following settings on you
 
 ## How endpoint monitoring works
 
-When the monitoring protocol is set as HTTP or HTTPS, the Traffic Manager probing agent makes a GET request to the endpoint using the protocol, port, and relative path given. An endpoint is considered healthy if probing agent receives a 200-OK response, or any of the responses configured in the **Expected status code \*ranges**. If the response is a different value or no response get received within the timeout period, the Traffic Manager probing agent reattempts according to the Tolerated Number of Failures setting. No reattempts are done if this setting is 0. The endpoint is marked unhealthy if the number of consecutive failures is higher than the Tolerated Number of Failures setting.
+When the monitoring protocol is set as HTTP or HTTPS, the Traffic Manager probing agent makes a GET request to the endpoint using the protocol, port, and relative path given. An endpoint is considered healthy if probing agent receives a 200-OK response, or any of the responses configured in the **Expected status code ranges**. If the response is a different value or no response get received within the timeout period, the Traffic Manager probing agent reattempts according to the Tolerated Number of Failures setting. No reattempts are done if this setting is 0. The endpoint is marked unhealthy if the number of consecutive failures is higher than the Tolerated Number of Failures setting.
 
 When the monitoring protocol is TCP, the Traffic Manager probing agent creates a TCP connection request using the port specified. If the endpoint responds to the request with a response to establish the connection, that health check is marked as a success. The Traffic Manager probing agent resets the TCP connection. In cases where the response is a different value or no response get received within the timeout period, the Traffic Manager probing agent reattempts according to the Tolerated Number of Failures setting. No reattempts are made if this setting is 0. If the number of consecutive failures is higher than the Tolerated Number of Failures setting, then that endpoint is marked unhealthy.
 
@@ -180,9 +179,9 @@ For more information about troubleshooting failed health checks, see [Troublesho
 
 * [Can I use a profile with IPv4 / IPv6 addressed endpoints in a nested profile?](./traffic-manager-faqs.md#can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile)
 
-* [I stopped an web application endpoint in my Traffic Manager profile but I'm not receiving any traffic even after I restarted it. How can I fix this?](./traffic-manager-faqs.md#i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this)
+* [I stopped a web application endpoint in my Traffic Manager profile but I'm not receiving any traffic even after I restarted it. How can I fix this?](./traffic-manager-faqs.md#i-stopped-a-web-application-endpoint-in-my-traffic-manager-profile-but-im-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this)
 
-* [Can I use Traffic Manager even if my application doesn't have support for HTTP or HTTPS?](./traffic-manager-faqs.md#can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https)
+* [Can I use Traffic Manager even if my application doesn't have support for HTTP or HTTPS?](./traffic-manager-faqs.md#can-i-use-traffic-manager-even-if-my-application-doesnt-have-support-for-http-or-https)
 
 * [What specific responses are required from the endpoint when using TCP monitoring?](./traffic-manager-faqs.md#what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring)
 

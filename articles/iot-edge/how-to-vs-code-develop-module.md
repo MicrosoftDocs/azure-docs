@@ -3,9 +3,9 @@ title: Develop and debug modules for Azure IoT Edge | Microsoft Docs
 description: Use Visual Studio Code to develop, build, and debug a module for Azure IoT Edge using C#, Python, Node.js, Java, or C
 services: iot-edge
 keywords: 
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 08/24/2021
 ms.topic: conceptual
 ms.service: iot-edge
@@ -24,9 +24,6 @@ If you aren't familiar with the debugging capabilities of Visual Studio Code, re
 
 This article provides instructions for developing and debugging modules in multiple languages for multiple architectures. Currently, Visual Studio Code provides support for modules written in C#, C, Python, Node.js, and Java. The supported device architectures are X64 and ARM32. For more information about supported operating systems, languages, and architectures, see [Language and architecture support](module-development.md#language-and-architecture-support).
 
->[!NOTE]
->Develop and debugging support for Linux ARM64 devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Develop and debug ARM64 IoT Edge modules in Visual Studio Code (preview)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
-
 ## Prerequisites
 
 You can use a computer or a virtual machine running Windows, macOS, or Linux as your development machine. On Windows computers you can develop either Windows or Linux modules. To develop Windows modules, use a Windows computer running version 1809/build 17763 or newer. To develop Linux modules, use a Windows computer that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
@@ -43,7 +40,7 @@ Install [Visual Studio Code](https://code.visualstudio.com/) first and then add 
 
 You'll also need to install some additional, language-specific tools to develop your module:
 
-- C#, including Azure Functions: [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1)
+- C#, including Azure Functions: [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/3.1)
 
 - Python: [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/stable/installing/#installation) for installing Python packages (typically included with your Python installation).
 
@@ -68,7 +65,7 @@ Unless you're developing your module in C, you also need the Python-based [Azure
 
 > [!NOTE]
 >
-> If you have multiple Python including pre-installed python 2.7 (for example, on Ubuntu or macOS), make sure you are using the correct `pip` or `pip3` to install **iotedgehubdev**
+> If you have multiple Python including pre-installed Python 2.7 (for example, on Ubuntu or macOS), make sure you are using the correct `pip` or `pip3` to install **iotedgehubdev**
 
 To test your module on a device, you'll need an active IoT hub with at least one IoT Edge device. To use your computer as an IoT Edge device, follow the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows](quickstart.md). If you are running IoT Edge daemon on your development machine, you might need to stop EdgeHub and EdgeAgent before you move to next step.
 
@@ -295,18 +292,20 @@ When debugging modules using this method, your modules are running on top of the
      For example, if you want to debug the `receive_message_handler` function, you would insert that line of code as shown below:
 
     ```python
-    def receive_message_handler(message):
+
+    async def receive_message_handler(message):
+        # NOTE: This function only handles messages sent to "input1".
+        # Messages sent to other inputs, or to the default, will be discarded
+
         ptvsd.break_into_debugger()
-        global RECEIVED_MESSAGES
-        RECEIVED_MESSAGES += 1
+
         if message.input_name == "input1":
-            print("Message received on input1")
-            print( "    Data: <<{}>>".format(message.data) )
-            print( "    Properties: {}".format(message.custom_properties))
-            print( "    Total calls received: {}".format(RECEIVED_MESSAGES))
-            print("Forwarding message to output1")
-            client.send_message_to_output(message, "output1")
-            print("Message successfully forwarded")
+            print("the data in the message received on input1 was ")
+            print(message.data)
+            print("custom properties are")
+            print(message.custom_properties)
+            print("forwarding mesage to output1")
+            await client.send_message_to_output(message, "output1")
 
       ```
 

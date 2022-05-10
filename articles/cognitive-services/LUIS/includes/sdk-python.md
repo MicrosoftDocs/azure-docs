@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 05/17/2021
+ms.date: 03/07/2022
 ms.topic: include
 ms.custom: include file, cog-serv-seo-aug-2020
 
@@ -24,7 +24,7 @@ Use the Language Understanding (LUIS) client libraries for Python to:
 
 * The current version of [Python 3.x](https://www.python.org/).
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, [create a Language Understanding authoring resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
+* Once you have your Azure subscription, [create a Language Understanding authoring resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
     * You will need the key and endpoint from the resource you [create](../luis-how-to-azure-subscription.md) to connect your application to Language Understanding authoring. You'll paste your key and endpoint into the code below later in the quickstart. You can use the free pricing tier (`F0`) to try the service.
 
 ## Setting up
@@ -45,7 +45,7 @@ Use the Language Understanding (LUIS) client libraries for Python to:
 
 ### Install the client library with Pip
 
-Within the application directory, install the Language Understanding (LUIS) client library for python with the following command:
+Within the application directory, install the Language Understanding (LUIS) client library for Python with the following command:
 
 ```console
 pip install azure-cognitiveservices-language-luis
@@ -83,9 +83,9 @@ Once the client is created, use this client to access functionality including:
 
 ## Add the dependencies
 
-Add the client libraries to the python file.
+Add the client libraries to the Python file.
 
-[!code-python[Add python libraries to code file](~/cognitive-services-quickstart-code/python/LUIS/sdk-3x/authoring_and_predict.py?name=Dependencies)]
+[!code-python[Add Python libraries to code file](~/cognitive-services-quickstart-code/python/LUIS/sdk-3x/authoring_and_predict.py?name=Dependencies)]
 
 
 ## Add boilerplate code
@@ -106,12 +106,14 @@ Add the client libraries to the python file.
 
 Create two sets of variables: the first set you change, the second set leave as they appear in the code sample. 
 
+[!INCLUDE [Remember to remove credentials when you're done](app-secrets.md)]
+
 1. Create variables to hold your authoring key and resource names.
 
     [!code-python[Variables you need to change](~/cognitive-services-quickstart-code/python/LUIS/sdk-3x/authoring_and_predict.py?name=VariablesYouChange)]
 
 1. Create variables to hold your endpoints, app name, version, and intent name.
-
+    
     [!code-python[Variables you don't need to change](~/cognitive-services-quickstart-code/python/LUIS/sdk-3x/authoring_and_predict.py?name=VariablesYouDontNeedToChangeChange)]
 
 ## Authenticate the client

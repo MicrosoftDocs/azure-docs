@@ -30,40 +30,24 @@ The code following snippet provides code for **non-interactive** authentication,
 ```xml
 <dependencies>
     <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-client-authentication</artifactId>
-        <version>1.6.12</version>
+      <groupId>com.azure.resourcemanager</groupId>
+      <artifactId>azure-resourcemanager-datalakeanalytics</artifactId>
+      <version>1.0.0-beta.1</version>
     </dependency>
     <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-client-runtime</artifactId>
-        <version>1.6.12</version>
+      <groupId>com.azure.resourcemanager</groupId>
+      <artifactId>azure-resourcemanager-datalakestore</artifactId>
+      <version>1.0.0-beta.1</version>
     </dependency>
     <dependency>
-        <groupId>com.microsoft.rest</groupId>
-        <artifactId>client-runtime</artifactId>
-        <version>1.6.12</version>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-storage-file-datalake</artifactId>
+      <version>12.7.2</version>
     </dependency>
     <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-mgmt-datalake-store</artifactId>
-        <version>1.22.0</version>
-    </dependency>
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-mgmt-datalake-analytics</artifactId>
-        <version>1.22.0</version>
-    </dependency>
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-data-lake-store-sdk</artifactId>
-        <version>2.3.6</version>
-        <exclusions>
-            <exclusion>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-core</artifactId>
-            </exclusion>
-        </exclusions>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-identity</artifactId>
+      <version>1.4.1</version>
     </dependency>
 </dependencies>
 ```
@@ -73,121 +57,122 @@ Go to **File > Settings > Build > Execution > Deployment**. Select **Build Tools
 Open `Main.java` and replace the existing code block with the following code:
 
 ```java
-import com.microsoft.azure.CloudException;
-import com.microsoft.azure.credentials.ApplicationTokenCredentials;
-import com.microsoft.azure.datalake.store.*;
-import com.microsoft.azure.datalake.store.oauth2.*;
-import com.microsoft.azure.management.datalake.analytics.implementation.*;
-import com.microsoft.azure.management.datalake.store.*;
-import com.microsoft.azure.management.datalake.store.implementation.*;
-import com.microsoft.azure.management.datalake.store.models.*;
-import com.microsoft.azure.management.datalake.analytics.*;
-import com.microsoft.azure.management.datalake.analytics.models.*;
-import com.microsoft.rest.credentials.ServiceClientCredentials;
+import com.azure.core.credential.TokenCredential;
+import com.azure.core.management.AzureEnvironment;
+import com.azure.core.management.profile.AzureProfile;
+import com.azure.identity.ClientSecretCredential;
+import com.azure.identity.ClientSecretCredentialBuilder;
+import com.azure.resourcemanager.datalakeanalytics.DataLakeAnalyticsManager;
+import com.azure.resourcemanager.datalakeanalytics.models.DataLakeAnalyticsAccount;
+import com.azure.resourcemanager.datalakestore.DataLakeStoreManager;
+import com.azure.resourcemanager.datalakestore.models.DataLakeStoreAccount;
+import com.azure.storage.file.datalake.DataLakeFileClient;
+import com.azure.storage.file.datalake.DataLakeFileSystemClient;
+import com.azure.storage.file.datalake.DataLakeServiceClient;
+import com.azure.storage.file.datalake.DataLakeServiceClientBuilder;
+import com.azure.storage.file.datalake.models.PathAccessControl;
+import com.azure.storage.file.datalake.models.PathPermissions;
 
-import java.io.*;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
+import java.io.ByteArrayInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Collections;
 import java.util.UUID;
-import java.util.List;
 
 public class Main {
-    private static String _adlsAccountName;
-    private static String _adlaAccountName;
-    private static String _resourceGroupName;
-    private static String _location;
+    private static String adlsAccountName;
+    private static String adlaAccountName;
+    private static String resourceGroupName;
+    private static String location;
 
-    private static String _tenantId;
-    private static String _subscriptionId;
-    private static String _clientId;
-    private static String _clientSecret;
+    private static String tenantId;
+    private static String subscriptionId;
+    private static String clientId;
+    private static String clientSecret;
+    private static String fileSystemName;
+    private static String localFolderPath;
 
-    private static DataLakeStoreAccountManagementClient _adlsClient;
-    private static ADLStoreClient _adlsStoreClient;
-    private static DataLakeAnalyticsAccountManagementClient _adlaClient;
-    private static DataLakeAnalyticsJobManagementClient _adlaJobClient;
+    private static DataLakeAnalyticsManager analyticsManager;
+    private static DataLakeStoreManager storeManager;
+    private static DataLakeStoreAccount storeAccount;
+    private static DataLakeAnalyticsAccount analyticsAccount;
+    private static DataLakeServiceClient serviceClient;
+    private static DataLakeFileSystemClient fileSystemClient;
+    private static DataLakeFileClient fileClient;
 
     public static void main(String[] args) throws Exception {
-        _adlsAccountName = "<DATA-LAKE-STORE-NAME>";
-        _adlaAccountName = "<DATA-LAKE-ANALYTICS-NAME>";
-        _resourceGroupName = "<RESOURCE-GROUP-NAME>";
-        _location = "East US 2";
+        adlsAccountName = "<DATA-LAKE-STORE-NAME>";
+        adlaAccountName = "<DATA-LAKE-ANALYTICS-NAME>";
+        resourceGroupName = "<RESOURCE-GROUP-NAME>";
+        location = "East US 2";
 
-        _tenantId = "<TENANT-ID>";
-        _subscriptionId =  "<SUBSCRIPTION-ID>";
-        _clientId = "<CLIENT-ID>";
+        tenantId = "<TENANT-ID>";
+        subscriptionId = "<SUBSCRIPTION-ID>";
+        clientId = "<CLIENT-ID>";
+        clientSecret = "<CLIENT-SECRET>";
+        fileSystemName = "<DATALAKE-FILE-SYSTEM-NAME>";
 
-        _clientSecret = "<CLIENT-SECRET>";
-
-        String localFolderPath = "C:\\local_path\\";
+        localFolderPath = "C:\\local_path\\";
 
         // ----------------------------------------
         // Authenticate
         // ----------------------------------------
-        ApplicationTokenCredentials creds = new ApplicationTokenCredentials(_clientId, _tenantId, _clientSecret, null);
-        SetupClients(creds);
+        AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
+        ClientSecretCredential creds = new ClientSecretCredentialBuilder()
+                .clientId(clientId).tenantId(tenantId).clientSecret(clientSecret)
+                .authorityHost("https://login.microsoftonline.com/" + tenantId + "/oauth2/token")
+                .build();
+        setupClients(creds, profile);
 
         // ----------------------------------------
         // List Data Lake Store and Analytics accounts that this app can access
         // ----------------------------------------
-        System.out.println(String.format("All ADL Store accounts that this app can access in subscription %s:", _subscriptionId));
-        List<DataLakeStoreAccountBasic> adlsListResult = _adlsClient.accounts().list();
-        for (DataLakeStoreAccountBasic acct : adlsListResult) {
-            System.out.println(acct.name());
-        }
+        System.out.println(String.format("All ADL Store accounts that this app can access in subscription %s:", subscriptionId));
+        storeManager.accounts().list().forEach(acct -> System.out.println(acct.name()));
 
-        System.out.println(String.format("All ADL Analytics accounts that this app can access in subscription %s:", _subscriptionId));
-        List<DataLakeAnalyticsAccountBasic> adlaListResult = _adlaClient.accounts().list();
-        for (DataLakeAnalyticsAccountBasic acct : adlaListResult) {
-            System.out.println(acct.name());
-        }
-        WaitForNewline("Accounts displayed.", "Creating files.");
+        System.out.println(String.format("All ADL Analytics accounts that this app can access in subscription %s:", subscriptionId));
+        analyticsManager.accounts().list().forEach(acct -> System.out.println(acct.name()));
+        waitForNewline("Accounts displayed.", "Creating files.");
 
         // ----------------------------------------
         // Create a file in Data Lake Store: input1.csv
         // ----------------------------------------
-        CreateFile("/input1.csv", "123,abc", true);
-        WaitForNewline("File created.", "Submitting a job.");
+        createFile("input1.csv", "123,abc", true);
+        waitForNewline("File created.", "Submitting a job.");
 
         // ----------------------------------------
         // Submit a job to Data Lake Analytics
         // ----------------------------------------
         String script = "@input = EXTRACT Row1 string, Row2 string FROM \"/input1.csv\" USING Extractors.Csv(); OUTPUT @input TO @\"/output1.csv\" USING Outputters.Csv();";
-        UUID jobId = SubmitJobByScript(script, "testJob");
-        WaitForNewline("Job submitted.", "Getting job status.");
-
-        // ----------------------------------------
-        // Wait for job completion and output job status
-        // ----------------------------------------
-        System.out.println(String.format("Job status: %s", GetJobStatus(jobId)));
-        System.out.println("Waiting for job completion.");
-        WaitForJob(jobId);
-        System.out.println(String.format("Job status: %s", GetJobStatus(jobId)));
-        WaitForNewline("Job completed.", "Downloading job output.");
+        UUID jobId = submitJobByScript(script, "testJob", creds);
+        waitForNewline("Job submitted.", "Getting job status.");
 
         // ----------------------------------------
         // Download job output from Data Lake Store
         // ----------------------------------------
-        DownloadFile("/output1.csv", localFolderPath + "output1.csv");
-        WaitForNewline("Job output downloaded.", "Deleting file.");
+        downloadFile("output1.csv", localFolderPath + "output1.csv");
+        waitForNewline("Job output downloaded.", "Deleting file.");
 
-        DeleteFile("/output1.csv");
-        WaitForNewline("File deleted.", "Done.");
+        deleteFile("output1.csv");
+        waitForNewline("File deleted.", "Done.");
     }
 
-    public static void SetupClients(ServiceClientCredentials creds) {
-        _adlsClient = new DataLakeStoreAccountManagementClientImpl(creds);
-        _adlaClient = new DataLakeAnalyticsAccountManagementClientImpl(creds);
-        _adlaJobClient = new DataLakeAnalyticsJobManagementClientImpl(creds);
-        _adlsClient.withSubscriptionId(_subscriptionId);
-        _adlaClient.withSubscriptionId(_subscriptionId);
+    public static void setupClients(TokenCredential creds, AzureProfile profile) {
 
-        String authEndpoint = "https://login.microsoftonline.com/" + _tenantId + "/oauth2/token";
-        AccessTokenProvider provider = new ClientCredsTokenProvider(authEndpoint, _clientId, _clientSecret);
-        _adlsStoreClient = ADLStoreClient.createClient(_adlsAccountName + ".azuredatalakestore.net", provider);
+        analyticsManager = DataLakeAnalyticsManager.authenticate(creds, profile);
+
+        storeManager = DataLakeStoreManager.authenticate(creds, profile);
+
+        createAccounts();
+
+        serviceClient = new DataLakeServiceClientBuilder().endpoint(storeAccount.endpoint()).credential(creds).buildClient();
+
+        fileSystemClient = serviceClient.createFileSystem(fileSystemName);
+
     }
 
-    public static void WaitForNewline(String reason, String nextAction) {
+    public static void waitForNewline(String reason, String nextAction) {
         if (nextAction == null)
             nextAction = "";
 
@@ -203,111 +188,58 @@ public class Main {
     }
 
     // Create accounts
-    public static void CreateAccounts() throws InterruptedException, CloudException, IOException {
+    public static void createAccounts() {
         // Create ADLS account
-        CreateDataLakeStoreAccountParameters adlsParameters = new CreateDataLakeStoreAccountParameters();
-        adlsParameters.withLocation(_location);
+        storeAccount = storeManager.accounts().define(adlsAccountName)
+                .withRegion(location)
+                .withExistingResourceGroup(resourceGroupName)
+                .create();
 
-        _adlsClient.accounts().create(_resourceGroupName, _adlsAccountName, adlsParameters);
-
-        // Create ADLA account
-        AddDataLakeStoreWithAccountParameters adlsInfo = new AddDataLakeStoreWithAccountParameters();
-        adlsInfo.withName(_adlsAccountName);
-
-        List<AddDataLakeStoreWithAccountParameters> adlsInfoList = new ArrayList<>();
-        adlsInfoList.add(adlsInfo);
-
-        CreateDataLakeAnalyticsAccountParameters adlaParameters = new CreateDataLakeAnalyticsAccountParameters();
-        adlaParameters.withLocation(_location);
-        adlaParameters.withDefaultDataLakeStoreAccount(_adlsAccountName);
-        adlaParameters.withDataLakeStoreAccounts(adlsInfoList);
-
-        _adlaClient.accounts().create(_resourceGroupName, _adlaAccountName, adlaParameters);
+        analyticsAccount = analyticsManager.accounts().define(adlaAccountName)
+                .withRegion(location).withExistingResourceGroup(resourceGroupName)
+                .withDefaultDataLakeStoreAccount(adlsAccountName)
+                .withDataLakeStoreAccounts(Collections.EMPTY_LIST)
+                .create();
     }
 
     // Create a file
-    public static void CreateFile(String path, String contents, boolean force) throws IOException, CloudException {
+    public static void createFile(String path, String contents, boolean force) {
         byte[] bytesContents = contents.getBytes();
 
-        ADLFileOutputStream stream = _adlsStoreClient.createFile(path, IfExists.OVERWRITE, "777", force);
-        stream.write(bytesContents);
-        stream.close();
+        DataLakeFileClient fileClient = fileSystemClient.createFile(path,force);
+        PathAccessControl accessControl = fileClient.getAccessControl();
+        fileClient.setPermissions(PathPermissions.parseOctal("744"), accessControl.getGroup(), accessControl.getOwner());
+        fileClient.upload(new ByteArrayInputStream(bytesContents), bytesContents.length);
     }
 
     // Delete a file
-    public static void DeleteFile(String filePath) throws IOException, CloudException {
-        _adlsStoreClient.delete(filePath);
+    public static void deleteFile(String filePath) {
+        fileSystemClient.getFileClient(filePath).delete();
     }
 
     // Download a file
-    private static void DownloadFile(String srcPath, String destPath) throws IOException, CloudException {
-        ADLFileInputStream stream = _adlsStoreClient.getReadStream(srcPath);
+    private static void downloadFile(String srcPath, String destPath) throws IOException {
 
-        PrintWriter pWriter = new PrintWriter(destPath, Charset.defaultCharset().name());
-
-        String fileContents = "";
-        if (stream != null) {
-            Writer writer = new StringWriter();
-
-            char[] buffer = new char[1024];
-            try {
-                Reader reader = new BufferedReader(
-                        new InputStreamReader(stream, "UTF-8"));
-                int n;
-                while ((n = reader.read(buffer)) != -1) {
-                    writer.write(buffer, 0, n);
-                }
-            } finally {
-                stream.close();
-            }
-            fileContents = writer.toString();
-        }
-
-        pWriter.println(fileContents);
-        pWriter.close();
+        fileClient = fileSystemClient.getFileClient(srcPath);
+        OutputStream outputStream = new FileOutputStream(destPath);
+        fileClient.read(outputStream);
+        outputStream.close();
     }
 
-    // Submit a U-SQL job
-    private static UUID SubmitJobByScript(String script, String jobName) throws IOException, CloudException {
-        UUID jobId = java.util.UUID.randomUUID();
-        CreateJobProperties properties = new CreateUSqlJobProperties();
-        properties.withScript(script);
-        CreateJobParameters parameters = new CreateJobParameters();
-        parameters.withName(jobName);
-        parameters.withType(JobType.USQL);
-        parameters.withProperties(properties);
-
-        JobInformation jobInfo = _adlaJobClient.jobs().create(_adlaAccountName, jobId, parameters);
-
-        return jobInfo.jobId();
-    }
-
-    // Wait for job completion
-    private static JobResult WaitForJob(UUID jobId) throws IOException, CloudException {
-        JobInformation jobInfo = _adlaJobClient.jobs().get(_adlaAccountName, jobId);
-        while (jobInfo.state() != JobState.ENDED) {
-            jobInfo = _adlaJobClient.jobs().get(_adlaAccountName, jobId);
-        }
-        return jobInfo.result();
-    }
-
-    // Retrieve job status
-    private static String GetJobStatus(UUID jobId) throws IOException, CloudException {
-        JobInformation jobInfo = _adlaJobClient.jobs().get(_adlaAccountName, jobId);
-        return jobInfo.state().toString();
-    }
 }
 ```
 
 Provide the values for parameters called out in the code snippet:
+* `adlsAccountName`
+* `adlaAccountName`
+* `resourceGroupName`
+* `location`
+* `tenantId`
+* `subscriptionId`
+* `clientId`
+* `clientSecret`
+* `fileSystemName`
 * `localFolderPath`
-* `_adlaAccountName`
-* `_adlsAccountName`
-* `_resourceGroupName`
-* `_tenantId`
-* `_subId`
-* `_clientId`
-* `_clientSecret`
 
 ## Next steps
 

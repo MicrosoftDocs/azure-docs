@@ -1,10 +1,11 @@
 ---
 title: Optimize autovacuum - Azure Database for PostgreSQL - Single Server
 description: This article describes how you can optimize autovacuum on an Azure Database for PostgreSQL - Single Server
-author: dianaputnam
-ms.author: dianas
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: how-to
+ms.author: dianas
+author: dianaputnam
 ms.date: 07/09/2020
 ---
 
@@ -37,7 +38,15 @@ If you don't vacuum from time to time, the dead tuples that accumulate can resul
 The following sample query is designed to identify the number of dead and live tuples in a table named XYZ:
 
 ```sql
-SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables WHERE relname = 'XYZ' order by n_dead_tup DESC;
+SELECT relname,
+       n_dead_tup,
+       n_live_tup,
+       (n_dead_tup / n_live_tup) AS DeadTuplesRatio,
+       last_vacuum,
+       last_autovacuum
+FROM pg_catalog.pg_stat_all_tables
+WHERE relname = 'XYZ'
+ORDER BY n_dead_tup DESC;
 ```
 
 ## Autovacuum configurations

@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: mingshen-ms 
 ms.author: mingshen
 ms.reviewer: dannyevers 
-ms.date: 04/30/2021
+ms.date: 12/03/2021
 ---
 
 # ISV app license management
 
 Applies to the following offer type:
 
-- Dynamics 365 for Customer Engagement & Power Apps
+- Dynamics 365 apps on Dataverse and Power Apps
 
 _ISV app license management_ enables independent software vendors (ISVs) who build solutions using Dynamics 365 suite of products to manage and enforce licenses for their solutions using systems provided by Microsoft. By adopting this approach you can:
 
@@ -41,7 +41,7 @@ This table illustrates the high-level process to manage ISV app licenses:
 
 | Step | Details |
 | ------------ | ------------- |
-| Step 1: Create offer | The ISV creates an offer in Partner Center and chooses to manage licenses for this offer through Microsoft. This includes defining one or more licensing plans for the offer. For more information, see [Create a Dynamics 365 for Customer Engagement & Power Apps offer on Microsoft AppSource](dynamics-365-customer-engage-offer-setup.md). |
+| Step 1: Create offer | The ISV creates an offer in Partner Center and chooses to manage licenses for this offer through Microsoft. This includes defining one or more licensing plans for the offer. For more information, see [Create a Dynamics 365 apps on Dataverse and Power Apps offer on Microsoft AppSource](dynamics-365-customer-engage-offer-setup.md). |
 | Step 2: Update package | The ISV creates a solution package for the offer that includes license plan information as metadata, and uploads it to Partner Center for publication to Microsoft AppSource. To learn more, see [Adding license metadata to your solution](/powerapps/developer/data-platform/appendix-add-license-information-to-your-solution). |
 | Step 3: Purchase licenses | Customers discover the ISV’s offer in AppSource or directly on the ISV’s website. Customers purchase licenses for the plans they want directly from the ISV (these offers are not purchasable through AppSource at this time). |
 | Step 4: Register deal | The ISV registers the purchase with Microsoft in Partner Center. As part of [deal registration](/partner-center/csp-commercial-marketplace-licensing#register-isv-connect-deal-in-deal-registration), the ISV will specify the type and quantity of each licensing plan purchased by the customer. |
@@ -73,7 +73,7 @@ Here’s how it works:
 - All AppSource users see the **Get it now** button on the offer listing page along with the **Contact me** button and will be permitted to download and install your offer.
 - If you do not select this option, then AppSource checks that the user’s tenant has at least one license for your solution before showing the **Get it now** button. If there is no license in the user’s tenant then only the **Contact Me** button is shown.
 
-For details about configuring an offer, see [How to create a Dynamics 365 for Customer Engagement & Power App offer](dynamics-365-customer-engage-offer-setup.md).
+For details about configuring an offer, see [How to create a Dynamics 365 apps on Dataverse and Power Apps](dynamics-365-customer-engage-offer-setup.md).
 
 ## Offer listing page on AppSource
 
@@ -86,4 +86,4 @@ After your offer is published, the options you chose will drive which buttons ap
 ## Next steps
 
 - [Plan a Dynamics 365 offer](marketplace-dynamics-365.md)
-- [How to create a Dynamics 365 for Customer Engagement & Power App offer](dynamics-365-customer-engage-offer-setup.md)
+- [How to create a Dynamics 365 apps on Dataverse and Power Apps offer](dynamics-365-customer-engage-offer-setup.md)

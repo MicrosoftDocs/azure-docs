@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: helohr
 manager: femila
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 # Set up Azure Virtual Desktop for Azure Stack HCI (preview)
 
@@ -79,7 +79,7 @@ To create a profile container using a file share:
 
 ### Download supported OS images from Azure Marketplace
 
-You can run any OS images that both Azure Virtual Desktop and Azure Stack HCI support on your deployment. To learn which OSes Azure Virtual Desktop supports, see [Supported VM OS images](overview.md#supported-virtual-machine-os-images).
+You can run any OS images that both Azure Virtual Desktop and Azure Stack HCI support on your deployment. To learn which OSes Azure Virtual Desktop supports, see [Supported VM OS images](prerequisites.md#operating-systems-and-licenses).
 
 You have two options to download an image:
 
@@ -90,15 +90,15 @@ Downloading a Windows VHD without deploying a VM has several extra steps. To dow
 
 ### Requirements to download a VHD without a VM
 
-Before you begin, make sure you're connected to Azure and are running [Azure Cloud Shell](../cloud-shell/quickstart.md) in either a command prompt or in the bash environment. You can also run CLI reference commands on the Azure command-line interface (CLI).
+Before you begin, make sure you're connected to Azure and are running [Azure Cloud Shell](../cloud-shell/quickstart.md) in either a command prompt or in the bash environment. You can also run CLI reference commands via the Azure CLI.
 
-If you're using a local installation, run the [az login](/cli/azure/reference-index#az_login) command to sign into Azure.
+If you're using a local installation, run the [az login](/cli/azure/reference-index#az-login) command to sign into Azure.
 
 After that, follow any other prompts you see to finish signing in. For additional sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 
 If this is your first time using Azure CLI, install any required extensions by following the instructions in [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-Finally, run the [az version](/cli/azure/reference-index?#az_version) command to make sure your client is up to date. If it's out of date, run the [az upgrade](/cli/azure/reference-index?#az_upgrade) command to upgrade to the latest version.
+Finally, run the [az version](/cli/azure/reference-index?#az-version) command to make sure your client is up to date. If it's out of date, run the [az upgrade](/cli/azure/reference-index?#az-upgrade) command to upgrade to the latest version.
 
 ### Search Azure Marketplace for Azure Virtual Desktop images
 
@@ -106,25 +106,25 @@ You can find the image you're looking for by using the **Search** function in Az
 
 If you're looking for Windows 10 multi-session, you can run a search with this criteria:
 
-```azure
+```azurecli
 az vm image list --all --publisher "microsoftwindowsdesktop" --offer "windows-10" --sku "21h1-evd-g2"
 ```
 
 This command should return the following URN:
 
-```azure
+```output
 MicrosoftWindowsDesktop:Windows-10:21h1-evd-g2:latest
 ```
 
 If you're looking for Windows Server 2019 datacenter, you can run the following criteria in your Azure CLI:
 
-```azure
+```azurecli
 az vm image list --all --publisher "microsoftwindowsserver" --offer "WindowsServer" --sku "2019-Datacenter-gen2"
 ```
 
 This command should return the following URN:
 
-```azure
+```output
 MicrosoftWindowsServer:windowsserver-gen2preview:2019-datacenter-gen2:latest
 ```
 
@@ -139,7 +139,7 @@ To create an Azure managed disk:
 
 1. Run the following commands in an Azure command-line prompt to set the parameters of your managed disk. Make sure to replace the items in brackets with the values relevant to your scenario.
 
-```azure
+```console
 $urn = <URN of the Marketplace image> #Example: “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”
 $diskName = <disk name> #Name for new disk to be created
 $diskRG = <resource group> #Resource group that contains the new disk
@@ -147,7 +147,7 @@ $diskRG = <resource group> #Resource group that contains the new disk
 
 2. Run these commands to create the disk and generate a Serial Attached SCSI (SAS) access URL.
 
-```azure
+```azurecli
 az disk create -g $diskRG -n $diskName --image-reference $urn
 $sas = az disk grant-access --duration-in-seconds 36000 --access-level Read --name $diskName --resource-group $diskRG
 $diskAccessSAS = ($sas | ConvertFrom-Json)[0].accessSas
@@ -166,7 +166,7 @@ To export the VHD:
 >[!NOTE]
 >If you're running azcopy, you may need to skip the md5check by running this command:
 >
-> ```azure
+> ```azurecli
 > azcopy copy “$sas" "destination_path_on_cluster" --check-md5 NoCheck
 > ```
 
@@ -176,7 +176,7 @@ When you're done with your VHD, you'll need to free up space by deleting the man
 
 To delete the managed disk you created, run these commands:
 
-```azure
+```azurecli
 az disk revoke-access --name $diskName --resource-group $diskRG 
 az disk delete --name $diskName --resource-group $diskRG --yes
 ```

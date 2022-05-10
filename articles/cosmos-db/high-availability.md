@@ -1,87 +1,116 @@
 ---
 title: High availability in Azure Cosmos DB 
-description: This article describes how Azure Cosmos DB provides high availability
+description: This article describes how to build a highly available solution using Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/07/2021
+ms.date: 02/24/2022
 ms.author: mjbrown
 ms.reviewer: sngun
 
 ---
 
-# How does Azure Cosmos DB provide high availability
+# Achieve high availability with Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB provides high availability in two primary ways. First, Azure Cosmos DB replicates data across regions configured within a Cosmos account. Second, Azure Cosmos DB maintains 4 replicas of data within a region.
+To build a solution with high-availability, you have to evaluate the reliability characteristics of all its components. Cosmos DB is designed to provide multiple features and configuration options to achieve high availability for all solutions' availability needs.
 
-Azure Cosmos DB is a globally distributed database service and is a foundational service available in [all regions where Azure is available](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all). You can associate any number of Azure regions with your Azure Cosmos account and your data is automatically and transparently replicated. You can add or remove a region to your Azure Cosmos account at any time. Cosmos DB is available in all five distinct Azure cloud environments available to customers:
+We'll use the terms **RTO** (Recovery Time Objective), to indicate the time between the beginning of an outage impacting Cosmos DB and the recovery to full availability, and **RPO** (Recovery Point Objective), to indicate the time between the last write correctly restored and the time of the beginning of the outage affecting Cosmos DB.
 
-* **Azure public** cloud, which is available globally.
+> [!NOTE]
+> Expected and maximum RPOs and RTOs depend on the kind of outage that Cosmos DB is experiencing. For instance, an outage of a single node will have different expected RTO and RPO than a whole region outage.
 
-* **Azure China 21Vianet** is available through a unique partnership between Microsoft and 21Vianet, one of the country’s largest internet providers in China.
+This article details the events that can affect Cosmos DB availability and the corresponding Cosmos DB configuration options to achieve the availability characteristics required by your solution.
 
-* **Azure Germany** provides services under a data trustee model, which ensures that customer data remains in Germany under the control of T-Systems International GmbH, a subsidiary of Deutsche Telekom, acting as the German data trustee.
+## Replica maintenance
+Cosmos DB is a managed multi-tenant service that manages all details of individual compute nodes transparently. Users don't have to worry about any kind of patching and planned maintenance. Cosmos DB guarantees SLAs for availability and P99 latency through all automatic maintenance operations performed by the system.
 
-* **Azure Government** is available in four regions in the United States to US government agencies and their partners.
+Refer to the [SLAs section](#slas) for the guaranteed availability SLAs.
 
-* **Azure Government for Department of Defense (DoD)** is available in two regions in the United States to the US Department of Defense.
+## Replica outages
+Replica outages refer to outages of individual nodes in a Cosmos DB cluster deployed in an Azure region.
+Cosmos DB automatically mitigates replica outages by guaranteeing at least three replicas of your data in each Azure region for your account within a four replica quorum.
+This results in RTO = 0 and RPO = 0, for individual node outages, with no application changes or configurations required.
 
-Within a region, Azure Cosmos DB maintains four copies of your data as replicas within physical partitions as shown in the following image:
+In many Azure regions, it's possible to distribute your Cosmos DB cluster across **availability zones**, which results increased SLAs, as availability zones are physically separate and provide distinct power source, network, and cooling. See [Availability Zones](/azure/architecture/reliability/architect).
+When a Cosmos DB account is deployed using availability zones, Cosmos DB provides RTO = 0 and RPO = 0 even in a zone outage.
 
-:::image type="content" source="./media/high-availability/cosmosdb-data-redundancy.png" alt-text="Physical partitioning" border="false":::
+When users deploy in a single Azure region, with no extra user input, Cosmos DB is resilient to node outages. Enabling redundancy across availability zones makes Cosmos DB resilient to zone outages at the cost of increased charges. Both SLAs and price are reported in the [SLAs section](#slas).
 
-* The data within Azure Cosmos containers is [horizontally partitioned](partitioning-overview.md).
+Zone redundancy can only be configured when adding a new region to an Azure Cosmos account. For existing regions, zone redundancy can be enabled by removing the region then adding it back with the zone redundancy enabled. For a single region account, this requires adding a region to temporarily fail over to, then removing and adding the desired region with zone redundancy enabled.
 
-* A partition-set is a collection of multiple replica-sets. Within each region, every partition is protected by a replica-set with all writes replicated and durably committed by a majority of replicas. Replicas are distributed across as many as 10-20 fault domains.
+By default, a Cosmos DB account doesn't use multiple availability zones. You can enable deployment across multiple availability zones in the following ways:
 
-* Each partition across all the regions is replicated. Each region contains all the data partitions of an Azure Cosmos container and can serve reads as well as serve writes when multi-region writes is enabled.  
+* [Azure portal](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 
 If your Azure Cosmos account is distributed across *N* Azure regions, there will be *N* x 4 copies of all your data. For a more detailed overview of data distribution, see [Global data distribution under the hood](global-dist-under-the-hood.md). Having an Azure Cosmos account in more than 2 regions improves the availability of your application and provides low latency across the associated regions.
 
-## SLAs for availability
+* [Azure CLI](sql/manage-with-cli.md#add-or-remove-regions)
 
-Azure Cosmos DB provides comprehensive SLAs that encompass throughput, latency at the 99th percentile, consistency, and high availability. The table below shows the guarantees for high availability provided by Azure Cosmos DB for single and multi-region accounts. For higher write availability, configure your Azure Cosmos account to have multiple write regions.
+* [Azure Resource Manager templates](./manage-with-templates.md)
 
-|Operation type  | Single-region |Multi-region (single-region writes)|Multi-region (multi-region writes) |
-|---------|---------|---------|-------|
-|Writes   | 99.99   |99.99   |99.999|
-|Reads    | 99.99   |99.999  |99.999|
+Refer to [Global distribution with Azure Cosmos DB- under the hood](./global-dist-under-the-hood.md) for more information on how Cosmos DB replicates data in each region.
 
-> [!NOTE]
-> In practice, the actual write availability for bounded staleness, session, consistent prefix and eventual consistency models is significantly higher than the published SLAs. The actual read availability for all consistency levels is significantly higher than the published SLAs.
+## Region outages
+Region outages refer to outages that affect all Cosmos DB nodes in an Azure region, across all availability zones.
+In the rare cases of region outages, Cosmos DB can be configured to support various outcomes of durability and availability.
 
-## High availability with Azure Cosmos DB in the event of regional outages
+### Durability
+When a Cosmos DB account is deployed in a single region, generally no data loss occurs and data access is restored after Cosmos DB services recovers in the affected region. Data loss may occur only with an unrecoverable disaster in the Cosmos DB region.
 
-For the rare cases of regional outage, Azure Cosmos DB makes sure your database is always highly available. The following details capture Azure Cosmos DB behavior during an outage, depending on your Azure Cosmos account configuration:
+To protect against complete data loss that may result from catastrophic disasters in a region, Azure Cosmos DB provides 2 different backup modes:
 
-* With Azure Cosmos DB, before a write operation is acknowledged to the client, the data is durably committed by a quorum of replicas within the region that accepts the write operations. For more details, see [Consistency levels and throughput](./consistency-levels.md#consistency-levels-and-throughput)
+- [Continuous backups](./continuous-backup-restore-introduction.md) ensure the backup is taken in each region every 100 seconds and provide the ability to restore your data to any desired point in time with second granularity. In each region, the backup is dependent on the data committed in that region.
+- [Periodic backups](./configure-periodic-backup-restore.md) take full backups of all partitions from all containers under your account, with no synchronization across partitions. The minimum backup interval is 1 hour.
 
-* Multi-region accounts configured with multiple-write regions will be highly available for both writes and reads. Regional failovers are detected and handled in the Azure Cosmos DB client. They are also instantaneous and don't require any changes from the application.
+When a Cosmos DB account is deployed in multiple regions, data durability depends on the consistency level configured on the account. The following table details, for all consistency levels, the RPO of Cosmos DB account deployed in at least 2 regions.
 
-* Single-region accounts may lose availability following a regional outage. It's always recommended to set up **at least two regions** (preferably, at least two write regions) with your Azure Cosmos account to ensure high availability at all times.
+|**Consistency level**|**RPO in case of region outage**|
+|---------|---------|
+|Session, Consistent Prefix, Eventual|< 15 minutes|
+|Bounded Staleness|*K* & *T*|
+|Strong|0|
+
+*K* = The number of *"K"* versions (i.e., updates) of an item.
+
+*T* = The time interval *"T"* since the last update.
+
+For multi-region accounts, the minimum value of *K* and *T* is 100,000 write operations or 300 seconds. This defines the minimum RPO for data when using Bounded Staleness.
+
+Refer to [Consistency levels](./consistency-levels.md) for more information on the differences between consistency levels.
+
+### Availability
+If your solution requires continuous availability during region outages, Cosmos DB can be configured to replicate your data across multiple regions and to transparently fail over to available regions when required. 
+
+Single-region accounts may lose availability following a regional outage. To ensure high availability at all times it's recommended to set up your Azure Cosmos DB account with **a single write region and at least a second (read) region** and enable **Service-Managed failover**.
+
+Service-managed failover allows Cosmos DB to fail over the write region of multi-region account, in order to preserve availability at the cost of data loss as per [durability section](#durability). Regional failovers are detected and handled in the Azure Cosmos DB client. They don't require any changes from the application.
+Refer to [How to manage an Azure Cosmos DB account](./how-to-manage-database-account.md) for the instructions on how to enable multiple read regions and service-managed failover.
 
 > [!IMPORTANT]
-> When using SQL APIs, it is necessary to configure the Cosmos DB SDK to use all the specified read regions to take advantage of the increased availability. Refer to [this article](troubleshoot-sdk-availability.md) for more information.
+> It is strongly recommended that you configure the Azure Cosmos accounts used for production workloads to **enable service-managed failover**. This enables Cosmos DB to failover the account databases to available regions automatically. In the absence of this configuration, the account will experience loss of write availability for all the duration of the write region outage, as manual failover will not succeed due to lack of region connectivity.
 
-### Multi-region accounts with a single-write region (write region outage)
+### Multiple write regions
+Azure Cosmos DB can be configured to accept writes in multiple regions. This is useful to reduce write latency in geographically distributed applications. When a Cosmos DB account is configured for multiple write regions, strong consistency isn't supported and write conflicts may arise. Refer to [Conflict types and resolution policies when using multiple write regions](./conflict-resolution-policies.md) for more information on how to resolve conflicts in multiple write region configurations.
 
-* During a write region outage, the Azure Cosmos account will automatically promote a secondary region to be the new primary write region when **enable automatic failover** is configured on the Azure Cosmos account. When enabled, the failover will occur to another region in the order of region priority you've specified.
+Given the internal Azure Cosmos DB architecture, using multiple write regions doesn't guarantee write availability during a region outage. The best configuration to achieve high availability during a region outage is single write region with service-managed failover.
 
-* Note that manual failover should not be triggered and will not succeed in presence of an outage of the source or destination region. This is because of a consistency check required by the failover procedure which requires connectivity between the regions.
+#### Conflict-resolution region
 
-* When the previously impacted region is back online, any write data that was not replicated when the region failed, is made available through the [conflicts feed](how-to-manage-conflicts.md#read-from-conflict-feed). Applications can read the conflicts feed, resolve the conflicts based on the application-specific logic, and write the updated data back to the Azure Cosmos container as appropriate.
+When a Cosmos DB account is configured with multi-region writes, one of the regions will act as an arbiter in case of write conflicts. When such conflicts happen, they're routed to this region for consistent resolution.
 
-* Once the previously impacted write region recovers, it becomes automatically available as a read region. You can switch back to the recovered region as the write region. You can switch the regions by using [PowerShell, Azure CLI or Azure portal](how-to-manage-database-account.md#manual-failover). There is **no data or availability loss** before, during or after you switch the write region and your application continues to be highly available.
+### What to expect during a region outage
+Client of single-region accounts will experience loss of read and write availability until service is restored.
 
-> [!IMPORTANT]
-> It is strongly recommended that you configure the Azure Cosmos accounts used for production workloads to **enable automatic failover**. This enables Cosmos DB to failover the account databases to available regions automatically. In the absence of this configuration, the account will experience loss of write availability for all the duration of the write region outage, as manual failover will not succeed due to lack of region connectivity.
+Multi-region accounts will experience different behaviors depending on the following table.
 
-### Multi-region accounts with a single-write region (read region outage)
+| Configuration | Outage | Availability impact | Durability impact| What to do |
+| -- | -- | -- | -- | -- |
+| Single write region  | Read region outage | All clients will automatically redirect reads to other regions. No read or write availability loss for all configurations, except 2 regions with strong consistency which loses write availability until the service is restored or, if **service-managed failover** is enabled, the region is marked as failed and a failover occurs. | No data loss. | During the outage, ensure that there are enough provisioned RUs in the remaining regions to support read traffic. <p/> When the outage is over, re-adjust provisioned RUs as appropriate. |
+| Single write region | Write region outage | Clients will redirect reads to other regions. <p/> **Without service-managed failover**, clients will experience write availability loss, until write availability is restored automatically when the outage ends. <p/> **With service-managed failover** clients will experience write availability loss until the services manages a failover to a new write region selected according to your preferences. | If strong consistency level isn't selected, some data may not have been replicated to the remaining active regions. This depends on the consistency level selected as described in [this section](consistency-levels.md#rto). If the affected region suffers permanent data loss, unreplicated data may be lost. | During the outage, ensure that there are enough provisioned RUs in the remaining regions to support read traffic. <p/> Do *not* trigger a manual failover during the outage, as it will not succeed. <p/> When the outage is over, re-adjust provisioned RUs as appropriate. Accounts using SQL APIs may also recover the non-replicated data in the failed region from your [conflicts feed](how-to-manage-conflicts.md#read-from-conflict-feed). |
+| Multiple write regions | Any regional outage | Possibility of temporary write availability loss, analogously to single write region with service-managed failover. The failover of the [conflict-resolution region](#conflict-resolution-region) may also cause a loss of write availability if a high number of conflicting writes happen at the time of the outage. | Recently updated data in the failed region may be unavailable in the remaining active regions, depending on the selected [consistency level](consistency-levels.md). If the affected region suffers permanent data loss, unreplicated data may be lost. | During the outage, ensure that there are enough provisioned RUs in the remaining regions to support additional traffic. <p/> When the outage is over, you may re-adjust provisioned RUs as appropriate. If possible, Cosmos DB will automatically recover non-replicated data in the failed region using the configured conflict resolution method for SQL API accounts, and Last Write Wins for accounts using other APIs. |
 
-* During a read region outage, Azure Cosmos accounts using any consistency level or strong consistency with three or more read regions will remain highly available for reads and writes.
-
-* Azure Cosmos accounts using strong consistency with three regions (one write, two read) will maintain write availability during a read region outage. For accounts with two regions and automatic failover enabled, the account will stop accepting writes until the region is marked as failed and automatic failover occurs.
+### Additional information on read region outages
 
 * The impacted region is automatically disconnected and will be marked offline. The [Azure Cosmos DB SDKs](sql-api-sdk-dotnet.md) will redirect read calls to the next available region in the preferred region list.
 
@@ -91,18 +120,19 @@ For the rare cases of regional outage, Azure Cosmos DB makes sure your database 
 
 * Subsequent reads are redirected to the recovered region without requiring any changes to your application code. During both failover and rejoining of a previously failed region, read consistency guarantees continue to be honored by Azure Cosmos DB.
 
-* Even in a rare and unfortunate event when the Azure region is permanently irrecoverable, there is no data loss if your multi-region Azure Cosmos account is configured with *Strong* consistency. In the event of a permanently irrecoverable write region, a multi-region Azure Cosmos account configured with bounded-staleness consistency, the potential data loss window is restricted to the staleness window (*K* or *T*) where K=100,000 updates or T=5 minutes, which ever happens first. For session, consistent-prefix and eventual consistency levels, the potential data loss window is restricted to a maximum of 15 minutes. For more information on RTO and RPO targets for Azure Cosmos DB, see [Consistency levels and data durability](./consistency-levels.md#rto)
+* Even in a rare and unfortunate event when the Azure region is permanently irrecoverable, there's no data loss if your multi-region Azure Cosmos account is configured with *Strong* consistency. In the rare event of a permanently irrecoverable write region, a multi-region Azure Cosmos account has the durability characteristics specified in the [Durability](#durability) section.
 
-## Availability Zone support
+### Additional information on write region outages
 
-In addition to cross region resiliency, Azure Cosmos DB also supports **zone redundancy** in supported regions when selecting a region to associate with your Azure Cosmos account.
+* During a write region outage, the Azure Cosmos account will automatically promote a secondary region to be the new primary write region when **automatic (service-managed) failover** is configured on the Azure Cosmos account. The failover will occur to another region in the order of region priority you've specified.
 
-With Availability Zone (AZ) support, Azure Cosmos DB will ensure replicas are placed across multiple zones within a given region to provide high availability and resiliency to zonal failures. Availability Zones provide a 99.995% availability SLA with no changes to latency. In the event of a single zone failure, zone redundancy provides full data durability with RPO=0 and availability with RTO=0. Zone redundancy is a supplemental capability to regional replication. Zone redundancy alone cannot be relied upon to achieve regional resiliency.
+* Note that manual failover shouldn't be triggered and will not succeed in presence of an outage of the source or destination region. This is because of a consistency check required by the failover procedure which requires connectivity between the regions.
 
-Zone redundancy can only be configured when adding a new region to an Azure Cosmos account. For existing regions, zone redundancy can be enabled by removing the region then adding it back with the zone redundancy enabled. For a single region account, this requires adding one additional region to temporarily failover to, then removing and adding the desired region with zone redundancy enabled.
+* When the previously impacted region is back online, any write data that wasn't replicated when the region failed, is made available through the [conflicts feed](how-to-manage-conflicts.md#read-from-conflict-feed). Applications can read the conflicts feed, resolve the conflicts based on the application-specific logic, and write the updated data back to the Azure Cosmos container as appropriate.
 
-When configuring multi-region writes for your Azure Cosmos account, you can opt into zone redundancy at no extra cost. Otherwise, please see the table below regarding pricing for zone redundancy support. For a list of regions where availability zones is available, see the [Availability zones](../availability-zones/az-region.md).
+* Once the previously impacted write region recovers, it becomes automatically available as a read region. You can switch back to the recovered region as the write region. You can switch the regions by using [PowerShell, Azure CLI or Azure portal](how-to-manage-database-account.md#manual-failover). There is **no data or availability loss** before, during or after you switch the write region and your application continues to be highly available.
 
+## SLAs
 The following table summarizes the high availability capability of various account configurations:
 
 |KPI|Single-region without AZs|Single-region with AZs|Multi-region, single-region writes without AZs|Multi-region, single-region writes with AZs|Multi-region, multi-region writes with or without AZs|
@@ -119,30 +149,23 @@ The following table summarizes the high availability capability of various accou
 
 ***2*** 1.25 rate only applied to those regions in which AZ is enabled.
 
-Availability Zones can be enabled via:
-
-* [Azure portal](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-
-* [Azure PowerShell](manage-with-powershell.md#create-account)
-
-* [Azure CLI](sql/manage-with-cli.md#add-or-remove-regions)
-
-* [Azure Resource Manager templates](./manage-with-templates.md)
+> [!IMPORTANT]
+> Given the internal Azure Cosmos DB architecture, using multiple write regions does not guarantee write availability during a region outage. The best configuration to achieve high availability in case of region outage is single write region with service-managed failover.
 
 ## Building highly available applications
 
 * Review the expected [behavior of the Azure Cosmos SDKs](troubleshoot-sdk-availability.md) during these events and which are the configurations that affect it.
 
-* To ensure high write and read availability, configure your Azure Cosmos account to span at least two regions with multiple-write regions. This configuration will provide the highest availability, lowest latency, and best scalability for both reads and writes backed by SLAs. To learn more, see how to [configure your Azure Cosmos account with multiple write-regions](tutorial-global-distribution-sql-api.md).
+* To ensure high write and read availability, configure your Azure Cosmos account to span at least two regions and three, if using strong consistency. Remember that the best configuration to achieve high availability for a region outage is single write region with service-managed failover. To learn more, see [Tutorial: Set up Azure Cosmos DB global distribution using the SQL API](tutorial-global-distribution-sql-api.md).
 
-* For multi-region Azure Cosmos accounts that are configured with a single-write region, [enable automatic-failover by using Azure CLI or Azure portal](how-to-manage-database-account.md#automatic-failover). After you enable automatic failover, whenever there is a regional disaster, Cosmos DB will automatically failover your account.  
+* For multi-region Azure Cosmos accounts that are configured with a single-write region, [enable service-managed failover by using Azure CLI or Azure portal](how-to-manage-database-account.md#automatic-failover). After you enable service-managed failover, whenever there's a regional disaster, Cosmos DB will fail over your account without any user inputs.
 
-* Even if your Azure Cosmos account is highly available, your application may not be correctly designed to remain highly available. To test the end-to-end high availability of your application, as a part of your application testing or disaster recovery (DR) drills, temporarily disable automatic-failover for the account, invoke the [manual failover by using PowerShell, Azure CLI or Azure portal](how-to-manage-database-account.md#manual-failover), then monitor your application's failover. Once complete, you can fail back over to the primary region and restore automatic-failover for the account.
+* Even if your Azure Cosmos account is highly available, your application may not be correctly designed to remain highly available. To test the end-to-end high availability of your application, as a part of your application testing or disaster recovery (DR) drills, temporarily disable service-managed failover for the account, invoke the [manual failover by using PowerShell, Azure CLI or Azure portal](how-to-manage-database-account.md#manual-failover), then monitor your application's failover. Once complete, you can fail back over to the primary region and restore service-managed failover for the account.
 
 > [!IMPORTANT]
 > Do not invoke manual failover during a Cosmos DB outage on either the source or destination regions, as it requires regions connectivity to maintain data consistency and it will not succeed.
 
-* Within a globally distributed database environment, there is a direct relationship between the consistency level and data durability in the presence of a region-wide outage. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after a disruptive event. The time required for an application to fully recover is known as recovery time objective (RTO). You also need to understand the maximum period of recent data updates the application can tolerate losing when recovering after a disruptive event. The time period of updates that you might afford to lose is known as recovery point objective (RPO). To see the RPO and RTO for Azure Cosmos DB, see [Consistency levels and data durability](./consistency-levels.md#rto)
+* Within a globally distributed database environment, there's a direct relationship between the consistency level and data durability in the presence of a region-wide outage. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after a disruptive event. The time required for an application to fully recover is known as recovery time objective (RTO). You also need to understand the maximum period of recent data updates the application can tolerate losing when recovering after a disruptive event. The time period of updates that you might afford to lose is known as recovery point objective (RPO). To see the RPO and RTO for Azure Cosmos DB, see [Consistency levels and data durability](./consistency-levels.md#rto)
 
 ## What to expect during a Cosmos DB region outage
 
@@ -150,11 +173,11 @@ For single-region accounts, clients will experience loss of read and write avail
 
 Multi-region accounts will experience different behaviors depending on the following table.
 
-| Write regions | Automatic failover | What to expect | What to do |
+| Write regions | Service-Managed failover | What to expect | What to do |
 | -- | -- | -- | -- |
-| Single write region | Not enabled | In case of outage in a read region when not using strong consistency, all clients will redirect to other regions. No read or write availability loss. No data loss. When using strong consistency, read region outage can impact write availability if fewer than two read regions remaining.<p/> In case of an outage in the write region, clients will experience write availability loss. If strong consistency level is not selected, some data may not have been replicated to the remaining active regions. This depends on the consistency level selected as described in [this section](consistency-levels.md#rto). If the affected region suffers permanent data loss, unreplicated data may be lost. <p/> Cosmos DB will restore write availability automatically when the outage ends. | During the outage, ensure that there are enough provisioned RUs in the remaining regions to support read traffic. <p/> Do *not* trigger a manual failover during the outage, as it will not succeed. <p/> When the outage is over, re-adjust provisioned RUs as appropriate. |
-| Single write region | Enabled | In case of outage in a read region when not using strong consistency, all clients will redirect to other regions. No read or write availability loss. No data loss. When using strong consistency, read region outage can impact write availability if fewer than two read regions remaining.<p/> In case of an outage in the write region, clients will experience write availability loss until Cosmos DB automatically elects a new region as the new write region according to your preferences. If strong consistency level is not selected, some data may not have been replicated to the remaining active regions. This depends on the consistency level selected as described in [this section](consistency-levels.md#rto). If the affected region suffers permanent data loss, unreplicated data may be lost. | During the outage, ensure that there are enough provisioned RUs in the remaining regions to support read traffic. <p/> Do *not* trigger a manual failover during the outage, as it will not succeed. <p/> When the outage is over, you may move the write region back to the original region, and re-adjust provisioned RUs as appropriate. Accounts using SQL APIs may also recover the non-replicated data in the failed region from your [conflicts feed](how-to-manage-conflicts.md#read-from-conflict-feed). |
-| Multiple write regions | Not applicable | No read or write availability loss. <p/> Recently updated data in the failed region may be unavailable in the remaining active regions. Eventual, consistent prefix, and session consistency levels guarantee a staleness of <15mins. Bounded staleness guarantees less than K updates or T seconds, depending on the configuration. If the affected region suffers permanent data loss, unreplicated data may be lost. | During the outage, ensure that there are enough provisioned RUs in the remaining regions to support additional traffic. <p/> When the outage is over, you may re-adjust provisioned RUs as appropriate. If possible, Cosmos DB will automatically recover non-replicated data in the failed region using the configured conflict resolution method for SQL API accounts, and Last Write Wins for accounts using other APIs. |
+| Single write region | Not enabled | In case of outage in a read region when not using strong consistency, all clients will redirect to other regions. No read or write availability loss. No data loss. When using strong consistency, read region outage can impact write availability if fewer than two read regions remaining.<p/> In case of an outage in the write region, clients will experience write availability loss. If strong consistency level isn't selected, some data may not have been replicated to the remaining active regions. This depends on the consistency level selected as described in [this section](consistency-levels.md#rto). If the affected region suffers permanent data loss, unreplicated data may be lost. <p/> Cosmos DB will restore write availability automatically when the outage ends. | During the outage, ensure that there are enough provisioned RUs in the remaining regions to support read traffic. <p/> Do *not* trigger a manual failover during the outage, as it will not succeed. <p/> When the outage is over, re-adjust provisioned RUs as appropriate. |
+| Single write region | Enabled | In case of outage in a read region when not using strong consistency, all clients will redirect to other regions. No read or write availability loss. No data loss. When using strong consistency, read region outage can impact write availability if fewer than two read regions remaining.<p/> In case of an outage in the write region, clients will experience write availability loss until Cosmos DB automatically elects a new region as the new write region according to your preferences. If strong consistency level isn't selected, some data may not have been replicated to the remaining active regions. This depends on the consistency level selected as described in [this section](consistency-levels.md#rto). If the affected region suffers permanent data loss, unreplicated data may be lost. | During the outage, ensure that there are enough provisioned RUs in the remaining regions to support read traffic. <p/> Do *not* trigger a manual failover during the outage, as it will not succeed. <p/> When the outage is over, you may move the write region back to the original region, and re-adjust provisioned RUs as appropriate. Accounts using SQL APIs may also recover the non-replicated data in the failed region from your [conflicts feed](how-to-manage-conflicts.md#read-from-conflict-feed). |
+| Multiple write regions | Not applicable | Recently updated data in the failed region may be unavailable in the remaining active regions. Eventual, consistent prefix, and session consistency levels guarantee a staleness of <15mins. Bounded staleness guarantees less than K updates or T seconds, depending on the configuration. If the affected region suffers permanent data loss, unreplicated data may be lost. | During the outage, ensure that there are enough provisioned RUs in the remaining regions to support additional traffic. <p/> When the outage is over, you may re-adjust provisioned RUs as appropriate. If possible, Cosmos DB will automatically recover non-replicated data in the failed region using the configured conflict resolution method for SQL API accounts, and Last Write Wins for accounts using other APIs. |
 
 ## Next steps
 

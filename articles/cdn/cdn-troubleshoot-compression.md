@@ -11,7 +11,6 @@ ms.assetid: a6624e65-1a77-4486-b473-8d720ce28f8b
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
@@ -26,7 +25,7 @@ If you need more help at any point in this article, you can contact the Azure ex
 Compression for your endpoint is enabled, but files are being returned uncompressed.
 
 > [!TIP]
-> To check whether your files are being returned compressed, you need to use a tool like [Fiddler](https://www.telerik.com/fiddler) or your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).  Check the HTTP response headers returned with your cached CDN content.  If there is a header named `Content-Encoding` with a value of **gzip**, **bzip2**, or **deflate**, your content is compressed.
+> To check whether your files are being returned compressed, you need to use a tool like [Fiddler](https://www.telerik.com/fiddler) or your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).  Check the HTTP response headers returned with your cached CDN content.  If there is a header named `Content-Encoding` with a value of **gzip**, **bzip2**, **brotli**, or **deflate**, your content is compressed.
 > 
 > ![Content-Encoding header](./media/cdn-troubleshoot-compression/cdn-content-header.png)
 > 
@@ -50,7 +49,7 @@ There are several possible causes, including:
 First, we should do a quick sanity check on the request.  You can use your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) to view the requests being made.
 
 * Verify the request is being sent to your endpoint URL, `<endpointname>.azureedge.net`, and not your origin.
-* Verify the request contains an **Accept-Encoding** header, and the value for that header contains **gzip**, **deflate**, or **bzip2**.
+* Verify the request contains an **Accept-Encoding** header, and the value for that header contains **gzip**, **deflate**, **brotli**, or **bzip2**.
 
 > [!NOTE]
 > **Azure CDN from Akamai** profiles only support **gzip** encoding.

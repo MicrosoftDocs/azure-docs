@@ -11,7 +11,7 @@ As your organization matures, you may need to define and assign [policies](../..
 
 ### Microsoft Learn
 
-To learn more about deployment scopes, and for hands-on guidance, see [Deploy resources to subscriptions, management groups, and tenants by using Bicep](/learn/modules/deploy-resources-scopes-bicep/) on **Microsoft Learn**.
+If you would rather learn about deployment scopes through step-by-step guidance, see [Deploy resources to subscriptions, management groups, and tenants by using Bicep](/learn/modules/deploy-resources-scopes-bicep/) on **Microsoft Learn**.
 
 ## Supported resources
 
@@ -81,7 +81,7 @@ The commands for tenant deployments are different than the commands for resource
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az deployment tenant create](/cli/azure/deployment/tenant#az_deployment_tenant_create):
+For Azure CLI, use [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
 ```azurecli-interactive
 az deployment tenant create \

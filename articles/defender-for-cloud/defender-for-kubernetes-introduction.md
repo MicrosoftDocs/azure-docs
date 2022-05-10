@@ -1,89 +1,73 @@
 ---
 title: Microsoft Defender for Kubernetes - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for Kubernetes.
-author: memildin
-ms.author: memildin
-ms.date: 11/09/2021
+ms.date: 03/10/2022
 ms.topic: overview
-ms.service: defender-for-cloud
-manager: rkarlin
-
+ms.author: benmansheim
+author: bmansheim
 ---
 
-# Introduction to Microsoft Defender for Kubernetes
+# Introduction to Microsoft Defender for Kubernetes (deprecated)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+Defender for Cloud provides real-time threat protection for your Azure Kubernetes Service (AKS) containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers.
 
-Microsoft Defender for Kubernetes is the enhanced security plan providing protections for your Kubernetes clusters wherever they're running.
-
-Defender for Cloud can defend clusters in:
-
-- **Azure Kubernetes Service (AKS)** - Microsoft's managed service for developing, deploying, and managing containerized applications
-
-- **On-premises and multi-cloud environments** - Using an [extension for Azure Arc-enabled Kubernetes](defender-for-kubernetes-azure-arc.md)
-
-Microsoft Defender for Cloud and AKS form a cloud-native Kubernetes security offering with environment hardening, workload protection, and run-time protection as outlined in [Container security in Defender for Cloud](container-security.md).
-
-Host-level threat detection for your Linux AKS nodes is available if you enable [Microsoft Defender for servers](defender-for-servers-introduction.md) and its Log Analytics agent. However, if your cluster is deployed on an Azure Kubernetes Service virtual machine scale set, the Log Analytics agent is not currently supported.
-
-
+Threat protection at the cluster level is provided by the analysis of the Kubernetes audit logs. 
+Host-level threat detection for your Linux AKS nodes is available if you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) and its Log Analytics agent. However, if your cluster is deployed on an Azure Kubernetes Service virtual machine scale set, the Log Analytics agent is not currently supported.
 
 ## Availability
+
+> [!IMPORTANT]
+> Microsoft Defender for Kubernetes has been replaced with [**Microsoft Defender for Containers**](defender-for-containers-introduction.md). If you've already enabled Defender for Kubernetes on a subscription, you can continue to use it. However, you won't get Defender for Containers' improvements and new features.
+>
+> This plan is no longer available for subscriptions where it isn't already enabled.
+>
+> To upgrade to Microsoft Defender for Containers, open the Defender plans page in the portal and enable the new plan:
+>
+> :::image type="content" source="media/defender-for-containers/enable-defender-for-containers.png" alt-text="Enable Microsoft Defender for Containers from the Defender plans page.":::
+>
+> Learn more about this change in [the release note](release-notes.md#microsoft-defender-for-containers-plan-released-for-general-availability-ga).
+
 
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|**Microsoft Defender for Kubernetes** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/security-center/)|
+|Pricing:|**Microsoft Defender for Kubernetes** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).|
 |Required roles and permissions:|**Security admin** can dismiss alerts.<br>**Security reader** can view findings.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)|
-|||
+
 
 ## What are the benefits of Microsoft Defender for Kubernetes?
 
-Microsoft Defender for Kubernetes provides **cluster-level threat protection** by monitoring your clusters' logs.
+Our global team of security researchers constantly monitor the threat landscape. As container-specific alerts and vulnerabilities are discovered, these researchers add them to our threat intelligence feeds and Defender for Cloud alerts you to any that are relevant for your environment.
 
-Examples of security events that Microsoft Defender for Kubernetes monitors include exposed Kubernetes dashboards, creation of high privileged roles, and the creation of sensitive mounts. For a full list of the cluster level alerts, see the [reference table of alerts](alerts-reference.md#alerts-k8scluster).
+In addition, Microsoft Defender for Kubernetes provides **cluster-level threat protection** by monitoring your clusters' logs. This means that security alerts are only triggered for actions and deployments that occur *after* you've enabled Defender for Kubernetes on your subscription.
 
-> [!TIP]
-> You can simulate container alerts by following the instructions in [this blog post](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-demonstrate-the-new-containers-features-in-azure-security/ba-p/1011270).
+Examples of security events that Microsoft Defender for Kubernetes monitors include:
 
-Also, our global team of security researchers constantly monitor the threat landscape. They add container-specific alerts and vulnerabilities as they're discovered.
+- Exposed Kubernetes dashboards
+- Creation of high privileged roles
+- Creation of sensitive mounts.
 
->[!NOTE]
-> Defender for Cloud generates security alerts for actions and deployments that occur after you've enabled the Defender for Kubernetes plan on your subscription.
+For a full list of the cluster level alerts, see alerts with "K8S.NODE_" prefix in the alert type in the [reference table of alerts](alerts-reference.md#alerts-k8scluster).
 
 ## FAQ - Microsoft Defender for Kubernetes
 
-- [Can I still get cluster protections without the Log Analytics agent?](#can-i-still-get-cluster-protections-without-the-log-analytics-agent)
-- [Does AKS allow me to install custom VM extensions on my AKS nodes?](#does-aks-allow-me-to-install-custom-vm-extensions-on-my-aks-nodes)
-- [If my cluster is already running an Azure Monitor for containers agent, do I need the Log Analytics agent too?](#if-my-cluster-is-already-running-an-azure-monitor-for-containers-agent-do-i-need-the-log-analytics-agent-too)
-- [Does Microsoft Defender for Kubernetes support AKS with virtual machine scale set nodes?](#does-microsoft-defender-for-kubernetes-support-aks-with-virtual-machine-scale-set-nodes)
+- [What happens to subscriptions with Microsoft Defender for Kubernetes or Microsoft Defender for Containers enabled?](#what-happens-to-subscriptions-with-microsoft-defender-for-kubernetes-or-microsoft-defender-for-containers-enabled)
+- [Is Defender for Containers a mandatory upgrade?](#is-defender-for-containers-a-mandatory-upgrade)
+- [Does the new plan reflect a price increase?](#does-the-new-plan-reflect-a-price-increase)
 
-### Can I still get cluster protections without the Log Analytics agent?
+### What happens to subscriptions with Microsoft Defender for Kubernetes or Microsoft Defender for Containers enabled?
 
-**Microsoft Defender for Kubernetes** plan provides protections at the cluster level. If you also deploy the Log Analytics agent of **Microsoft Defender for servers**, you'll get the threat protection for your nodes that's provided with that plan. Learn more in [Introduction to Microsoft Defender for servers](defender-for-servers-introduction.md).
+Subscriptions that already have one of these plans enabled can continue to benefit from it.
 
-We recommend deploying both, for the most complete protection possible.
+If you haven't enabled them yet, or create a new subscription, these plans can no longer be enabled.
 
-If you choose not to install the agent on your hosts, you'll only receive a subset of the threat protection benefits and security alerts. You'll still receive alerts related to network analysis and communications with malicious servers.
+### Is Defender for Containers a mandatory upgrade?
 
-### Does AKS allow me to install custom VM extensions on my AKS nodes?
+No. Subscriptions that have either Microsoft Defender for Kubernetes or Microsoft Defender for Containers Registries enabled doesn't need to be upgraded to the new Microsoft Defender for Containers plan. However, they won't benefit from the new and improved capabilities and they’ll have an upgrade icon shown alongside them in the Azure portal. 
 
-For Defender for Cloud to monitor your AKS nodes, they must be running the Log Analytics agent.
-
-AKS is a managed service and since the Log analytics agent is a Microsoft-managed extension, it is also supported on AKS clusters. However, if your cluster is deployed on an Azure Kubernetes Service virtual machine scale set, the Log Analytics agent is not currently supported.
-
-### If my cluster is already running an Azure Monitor for containers agent, do I need the Log Analytics agent too?
-
-For Defender for Cloud to monitor your nodes, they must be running the Log Analytics agent.
-
-If your clusters are already running the Azure Monitor for containers agent, you can install the Log Analytics agent too and the two agents can work alongside one another without any problems.
-
-[Learn more about the Azure Monitor for containers agent](../azure-monitor/containers/container-insights-manage-agent.md).
-
-### Does Microsoft Defender for Kubernetes support AKS with virtual machine scale set nodes?
-
-If your cluster is deployed on an Azure Kubernetes Service virtual machine scale set, the Log Analytics agent is not currently supported.
+### Does the new plan reflect a price increase?
+No. There’s no direct price increase. The new comprehensive Container security plan  combines Kubernetes protection and container registry image scanning, and removes the previous dependency on the (paid) Defender for Servers plan. 
 
 ## Next steps
 

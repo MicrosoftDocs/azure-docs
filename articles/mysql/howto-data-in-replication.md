@@ -4,6 +4,7 @@ description: This article describes how to set up Data-in Replication for Azure 
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: how-to
 ms.date: 04/08/2021
 ---
@@ -28,6 +29,7 @@ Review the [limitations and requirements](concepts-data-in-replication.md#limita
 
    > [!IMPORTANT]
    > The Azure Database for MySQL server must be created in the General Purpose or Memory Optimized pricing tiers as data-in replication is only supported in these tiers.
+   > GTID is supported on versions 5.7 and 8.0 and only on servers that support storage up to 16 TB (General purpose storage v2).
 
 2. Create the same user accounts and corresponding privileges.
 
@@ -340,6 +342,9 @@ call mysql. az_replication_skip_gtid_transaction(‘<transaction_gtid>’)
 ```
 
 The procedure can skip the transaction for the given GTID. If the GTID format is not right or the GTID transaction has already been executed, the procedure will fail to execute. The GTID for a transaction can be determined by parsing the binary log to check the transaction events. MySQL provides a utility [mysqlbinlog](https://dev.mysql.com/doc/refman/5.7/en/mysqlbinlog.html) to parse binary logs and display their contents in text format, which can be used to identify GTID of the transaction.
+
+>[!Important]
+>This procedure can be only used to skip one transaction, and can't be used to skip gtid set or set gtid_purged.
 
 To skip the next transaction after the current replication position, use the following command to identify the GTID of next transaction as shown below.
 

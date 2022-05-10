@@ -4,7 +4,7 @@ description: How to create membership rules to automatically populate groups, an
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
@@ -103,6 +103,7 @@ The following are the user properties that you can use to create a single expres
 | mailNickName |Any string value (mail alias of the user) |(user.mailNickName -eq "value") |
 | mobile |Any string value or *null* |(user.mobile -eq "value") |
 | objectId |GUID of the user object |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
+| onPremisesDistinguishedName (preview)| Any string value or *null* |(user.onPremisesDistinguishedName -eq "value") |
 | onPremisesSecurityIdentifier | On-premises security identifier (SID) for users who were synchronized from on-premises to the cloud. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Any string value or *null* |(user.physicalDeliveryOfficeName -eq "value") |
@@ -361,7 +362,7 @@ An example of a rule that uses a custom extension property is:
 user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
 ```
 
-The custom property name can be found in the directory by querying a user's property using Graph Explorer and searching for the property name. Also, you can now select **Get custom extension properties** link in the dynamic user group rule builder to enter a unique app ID and receive the full list of custom extension properties to use when creating a dynamic membership rule. This list can also be refreshed to get any new custom extension properties for that app. 
+The custom property name can be found in the directory by querying a user's property using Graph Explorer and searching for the property name. Also, you can now select **Get custom extension properties** link in the dynamic user group rule builder to enter a unique app ID and receive the full list of custom extension properties to use when creating a dynamic membership rule. This list can also be refreshed to get any new custom extension properties for that app. Extension attributes and custom extension properties must be from applications in your tenant.  
 
 For more information, see [Use the attributes in dynamic groups](../hybrid/how-to-connect-sync-feature-directory-extensions.md#use-the-attributes-in-dynamic-groups) in the article [Azure AD Connect sync: Directory extensions](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
 
@@ -375,7 +376,7 @@ You can also create a rule that selects device objects for membership in a group
 > [!NOTE]
 > systemlabels is a read-only attribute that cannot be set with Intune.
 >
-> For Windows 10, the correct format of the deviceOSVersion attribute is as follows: (device.deviceOSVersion -eq "10.0.17763"). The formatting can be validated with the Get-MsolDevice PowerShell cmdlet.
+> For Windows 10, the correct format of the deviceOSVersion attribute is as follows: (device.deviceOSVersion -startsWith "10.0.1"). The formatting can be validated with the Get-MsolDevice PowerShell cmdlet.
 
 The following device attributes can be used.
 
@@ -384,7 +385,7 @@ The following device attributes can be used.
  accountEnabled | true false | (device.accountEnabled -eq true)
  displayName | any string value |(device.displayName -eq "Rob iPhone")
  deviceOSType | any string value | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -contains "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")<br>(device.deviceOSType -eq "Windows")
- deviceOSVersion | any string value | (device.deviceOSVersion -eq "9.1")<br>(device.deviceOSVersion -eq "10.0.17763.0")
+ deviceOSVersion | any string value | (device.deviceOSVersion -eq "9.1")<br>(device.deviceOSVersion -startsWith "10.0.1")
  deviceCategory | a valid device category name | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | any string value | (device.deviceManufacturer -eq "Samsung")
  deviceModel | any string value | (device.deviceModel -eq "iPad Air")

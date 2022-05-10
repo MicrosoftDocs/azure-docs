@@ -11,9 +11,8 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 09/08/2021
+ms.date: 02/05/2022
 ms.author: phjensen
 ---
 
@@ -27,7 +26,7 @@ This article provides a guide for installation of the Azure Application Consiste
 ## Introduction
 
 The downloadable self-installer is designed to make the snapshot tools easy to set up and run with non-root user privileges (for example, azacsnap). The installer will set up the user and put the snapshot tools into the users `$HOME/bin` subdirectory (default = `/home/azacsnap/bin`).
-The self-installer tries to determine the correct settings and paths for all the files based on the configuration of the user performing the installation (for example, root). If the pre-requisite steps (enable communication with storage and SAP HANA) were run as root, then the installation will copy the private key and `hdbuserstore` to the backup user’s location. However, it is possible for the steps that enable communication with the storage back-end and SAP HANA to be manually done by a knowledgeable administrator after the installation.
+The self-installer tries to determine the correct settings and paths for all the files based on the configuration of the user performing the installation (for example, root). If the pre-requisite steps (enable communication with storage and SAP HANA) were run as root, then the installation will copy the private key and `hdbuserstore` to the backup user’s location. The steps to enable communication with the storage back-end and SAP HANA can be manually done by a knowledgeable administrator after the installation.
 
 ## Prerequisites for installation
 
@@ -39,11 +38,11 @@ tools.
 1. **Time Synchronization is set up**. The customer will need to provide an NTP compatible time
     server, and configure the OS accordingly.
 1. **HANA is installed** : See HANA installation instructions in [SAP NetWeaver Installation on HANA database](/archive/blogs/saponsqlserver/sap-netweaver-installation-on-hana-database).
-1. **[Enable communication with storage](#enable-communication-with-storage)** (refer separate section for more details): Select the storage back-end you are using for your deployment.
+1. **[Enable communication with storage](#enable-communication-with-storage)** (for more information, see separate section): Select the storage back-end you're using for your deployment.
 
    # [Azure NetApp Files](#tab/azure-netapp-files)
     
-   1. **For Azure NetApp Files (refer separate section for details)**: Customer must generate the service principal authentication file.
+   1. **For Azure NetApp Files (for more information, see separate section)**: Customer must generate the service principal authentication file.
       
       > [!IMPORTANT]
       > When validating communication with Azure NetApp Files, communication might fail or time-out. Check to ensure firewall rules are not blocking outbound traffic from the system running AzAcSnap to the following addresses and TCP/IP ports:
@@ -52,9 +51,9 @@ tools.
       
    # [Azure Large Instance (Bare Metal)](#tab/azure-large-instance)
       
-   1. **For Azure Large Instance (refer separate section for details)**: Customer must set up SSH with a
-      private/public key pair, and provide the public key for each node where the snapshot tools are
-      planned to be executed to Microsoft Operations for setup on the storage back-end.
+   1. **For Azure Large Instance (for more information, see separate section)**: Set up SSH with a
+      private/public key pair.  Provide the public key for each node, where the snapshot tools are
+      planned to be executed, to Microsoft Operations for setup on the storage back-end.
 
       Test this by using SSH to connect to one of the nodes (for example, `ssh -l <Storage UserName> <Storage IP Address>`).
       Type `exit` to logout of the storage prompt.
@@ -63,15 +62,16 @@ tools.
       
       ---
 
-1. **[Enable communication with storage](#enable-communication-with-storage)** (refer separate section for more details): Select the storage back-end you are using for your deployment.
+1. **[Enable communication with storage](#enable-communication-with-storage)** (for more information, see separate section): Select the storage back-end you're using for your deployment.
 
-1. **[Enable communication with database](#enable-communication-with-database)** (refer separate section for more details): 
+1. **[Enable communication with database](#enable-communication-with-database)** (for more information, see separate section): 
    
    # [SAP HANA](#tab/sap-hana)
    
-   Customer must set up an appropriate SAP HANA user with the required privileges to perform the snapshot.
+   Set up an appropriate SAP HANA user with the required privileges to perform the snapshot.
 
-   1. This setting can be tested from the command line as follows using the text in `grey`
+   1. This setting can be tested from the command line as follows using these examples:
+
       1. HANAv1
 
             `hdbsql -n <HANA IP address> -i <HANA instance> -U <HANA user> "\s"`
@@ -80,14 +80,15 @@ tools.
 
             `hdbsql -n <HANA IP address> -i <HANA instance> -d SYSTEMDB -U <HANA user> "\s"`
 
-      - The examples above are for non-SSL communication to SAP HANA.
+      > [!NOTE]
+      > These examples are for non-SSL communication to SAP HANA.
       
    ---
 
 
 ## Enable communication with storage
 
-This section explains how to enable communication with storage. Ensure the storage back-end you are using is correctly selected.
+This section explains how to enable communication with storage. Ensure the storage back-end you're using is correctly selected.
 
 # [Azure NetApp Files (with Virtual Machine)](#tab/azure-netapp-files)
 
@@ -100,16 +101,16 @@ Create RBAC Service Principal
     az account show
     ```
 
-1. If the subscription is not correct, use
+1. If the subscription isn't correct, use the following command:
 
     ```azurecli-interactive
     az account set -s <subscription name or id>
     ```
 
-1. Create a service principal using Azure CLI per the following example
+1. Create a service principal using Azure CLI per the following example:
 
     ```azurecli-interactive
-    az ad sp create-for-rbac --role Contributor --sdk-auth
+    az ad sp create-for-rbac --name "AzAcSnap" --role Contributor --scopes /subscriptions/{subscription-id} --sdk-auth
     ```
 
     1. This should generate an output like the following example:
@@ -135,6 +136,9 @@ Create RBAC Service Principal
 
 1. Cut and Paste the output content into a file called `azureauth.json` stored on the same system as the `azacsnap`
    command and secure the file with appropriate system permissions.
+   
+   > [!WARNING]
+   > Make sure the format of the JSON file is exactly as described above.  Especially with the URLs enclosed in double quotes (").
 
 # [Azure Large Instance (Bare Metal)](#tab/azure-large-instance)
 
@@ -187,7 +191,7 @@ example steps are to provide guidance on setup of SSH for this communication.
 
 1. Send the public key to Microsoft Operations
 
-    Send the output of the `cat /root/.ssh/id_rsa.pub` command (example below) to Microsoft Operations
+    Send the output of the `cat /root/.ssh/id_rsa.pub` command to Microsoft Operations
     to enable the snapshot tools to communicate with the storage subsystem.
 
     ```bash
@@ -207,7 +211,7 @@ example steps are to provide guidance on setup of SSH for this communication.
 
 ## Enable communication with database
 
-This section explains how to enable communication with storage. Ensure the storage back-end you are using is correctly selected.
+This section explains how to enable communication with storage. Ensure the storage back-end you're using is correctly selected.
 
 # [SAP HANA](#tab/sap-hana)
 
@@ -218,7 +222,7 @@ HANA v2 user and the `hdbuserstore` for communication to the SAP HANA database.
 The following example commands set up a user (AZACSNAP) in the SYSTEMDB on SAP HANA 2.
 database, change the IP address, usernames, and passwords as appropriate:
 
-1. Connect to the SYSTEMDB to create the user
+1. Connect to the SYSTEMDB to create the user.
 
     ```bash
     hdbsql -n <IP_address_of_host>:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD>
@@ -233,7 +237,7 @@ database, change the IP address, usernames, and passwords as appropriate:
     hdbsql SYSTEMDB=>
     ```
 
-1. Create the user
+1. Create the user.
 
     This example creates the AZACSNAP user in the SYSTEMDB.
 
@@ -241,16 +245,24 @@ database, change the IP address, usernames, and passwords as appropriate:
     hdbsql SYSTEMDB=> CREATE USER AZACSNAP PASSWORD <AZACSNAP_PASSWORD_CHANGE_ME> NO FORCE_FIRST_PASSWORD_CHANGE;
     ```
 
-1. Grant the user permissions
+1. Grant the user permissions.
 
     This example sets the permission for the AZACSNAP user to allow for performing a database
     consistent storage snapshot.
+    
+    1. For SAP HANA releases up to version 2.0 SPS 03:
 
-    ```sql
-    hdbsql SYSTEMDB=> GRANT BACKUP ADMIN, CATALOG READ, MONITORING TO AZACSNAP;
-    ```
+       ```sql
+       hdbsql SYSTEMDB=> GRANT BACKUP ADMIN, CATALOG READ TO AZACSNAP;
+       ```
 
-1. *OPTIONAL* - Prevent user's password from expiring
+    1. For SAP HANA releases from version 2.0 SPS 04, SAP added new fine-grained privileges:
+
+       ```sql
+       hdbsql SYSTEMDB=> GRANT BACKUP ADMIN, DATABASE BACKUP ADMIN, CATALOG READ TO AZACSNAP;
+       ```
+
+1. *OPTIONAL* - Prevent user's password from expiring.
 
     > [!NOTE]
     > Check with corporate policy before making this change.
@@ -261,14 +273,14 @@ database, change the IP address, usernames, and passwords as appropriate:
    hdbsql SYSTEMDB=> ALTER USER AZACSNAP DISABLE PASSWORD LIFETIME;
    ```
 
-1. Set up the SAP HANA Secure User Store (change the password)
-    This example uses the `hdbuserstore` command from the Linux shell to set up the SAP HANA Secure User store.
+1. Set up the SAP HANA Secure User Store (change the password).
+    This example uses the `hdbuserstore` command from the Linux shell to set up the SAP HANA Secure User Store.
 
     ```bash
     hdbuserstore Set AZACSNAP <IP_address_of_host>:30013 AZACSNAP <AZACSNAP_PASSWORD_CHANGE_ME>
     ```
 
-1. Check the SAP HANA Secure User Store
+1. Check the SAP HANA Secure User Store.
     To check if the secure user store is set up correctly, use the `hdbuserstore` command to list the
     output similar to the following example. More details on using `hdbuserstore` are available
     on the SAP website.
@@ -297,11 +309,11 @@ The following are always used when using the `azacsnap --ssl` option:
 - `-e` - Enables TLS encryptionTLS/SSL encryption. The server chooses the highest available.
 - `-ssltrustcert` - Specifies whether to validate the server's certificate.
 - `-sslhostnameincert "*"` - Specifies the host name used to verify server’s identity. By
-    specifying `"*"` as the host name, then the server's host name is not validated.
+    specifying `"*"` as the host name, then the server's host name isn't validated.
 
-SSL communication also requires Key Store and Trust Store files.  While it is possible for
+SSL communication also requires Key Store and Trust Store files.  While it's possible for
 these files to be stored in default locations on a Linux installation, to ensure the
-correct key material is being used for the various SAP HANA systems (that is, in the cases where
+correct key material is being used for the various SAP HANA systems (for the cases where
 different key-store and trust-store files are used for each SAP HANA system) `azacsnap`
 expects the key-store and trust-store files to be stored in the `securityPath` location
 as specified in the `azacsnap` configuration file.
@@ -328,7 +340,7 @@ to the command line.
 
 #### Trust Store files
 
-- If using multiple SIDs with the same key material create hard-links into the securityPath
+- If using multiple SIDs with the same key material, create hard-links into the securityPath
     location as defined in the `azacsnap` config file.  Ensure these values exist for every SID
     using SSL.
   - For openssl:
@@ -377,9 +389,8 @@ into the users `$HOME/bin` subdirectory (default = `/home/azacsnap/bin`).
 The self-installer tries to determine the correct settings and paths for all the files based on the
 configuration of the user performing the installation (for example, root). If the previous setup steps (Enable
 communication with storage and SAP HANA) were run as root, then the installation will copy the
-private key and the `hdbuserstore` to the backup user's location. However, it is possible for the steps
-which enable communication with the storage back-end and SAP HANA to be manually done by a
-knowledgeable administrator after the installation.
+private key and the `hdbuserstore` to the backup user's location. The steps to enable communication with the storage back-end
+and SAP HANA can be manually done by a knowledgeable administrator after the installation.
 
 > [!NOTE]
 > For earlier SAP HANA on Azure Large Instance installations, the directory of pre-installed
@@ -434,12 +445,10 @@ installer is run with only the -I option, it will do the following steps:
 1. Search filesystem for directories to add to azacsnap's `$LD_LIBRARY_PATH`. Many commands
     require a library path to be set in order to execute correctly, this configures it for the
     installed user.
-1. Copy the SSH keys for back-end storage for azacsnap from the "root" user (the user running
-    the install). This assumes the "root" user has already configured connectivity to the storage
-    - see section "[Enable communication with storage](#enable-communication-with-storage)".
-1. Copy the SAP HANA connection secure user store for the target user, azacsnap. This
-    assumes the "root" user has already configured the secure user store – see section "Enable
-    communication with SAP HANA".
+1. Copy the SSH keys for back-end storage for azacsnap from the "root" user (the user running the install). This assumes the "root" user has 
+    already configured connectivity to the storage (for more information, see section [Enable communication with storage](#enable-communication-with-storage)).
+3. Copy the SAP HANA connection secure user store for the target user, azacsnap. This
+    assumes the "root" user has already configured the secure user store (for more information, see section "Enable communication with SAP HANA").
 1. The snapshot tools are extracted into `/home/azacsnap/bin/`.
 1. The commands in `/home/azacsnap/bin/` have their permissions set (ownership and executable bit, etc.).
 
@@ -501,7 +510,7 @@ userdel -f -r azacsnap
 
 ### Manual installation of the snapshot tools
 
-In some cases, it is necessary to install the tools manually, but the recommendation is to use the
+In some cases, it's necessary to install the tools manually, but the recommendation is to use the
 installer's default option to ease this process.
 
 Each line starting with a `#` character demonstrates the example commands following the character
@@ -655,7 +664,7 @@ The following output shows the steps to complete after running the installer wit
 1. Run your first snapshot backup
     1. `azacsnap -c backup –-volume data--prefix=hana_test --retention=1`
 
-Step 2 will be necessary if "[Enable communication with database](#enable-communication-with-database)" was not done before the
+Step 2 will be necessary if "[Enable communication with database](#enable-communication-with-database)" wasn't done before the
 installation.
 
 > [!NOTE]
@@ -669,9 +678,9 @@ This section explains how to configure the data base.
 
 ### SAP HANA Configuration
 
-There are some recommended changes to be applied to SAP HANA to ensure protection of the log backups and catalog. By default, the `basepath_logbackup` and `basepath_catalogbackup` will output their files to the `$(DIR_INSTANCE)/backup/log` directory, and it is unlikely this path is on a volume which `azacsnap` is configured to snapshot these files will not be protected with storage snapshots.
+There are some recommended changes to be applied to SAP HANA to ensure protection of the log backups and catalog. By default, the `basepath_logbackup` and `basepath_catalogbackup` will output their files to the `$(DIR_INSTANCE)/backup/log` directory, and it's unlikely this path is on a volume which `azacsnap` is configured to snapshot these files won't be protected with storage snapshots.
 
-The following `hdbsql` command examples are intended to demonstrate setting the log and catalog paths to locations which are on storage volumes that can be snapshot by `azacsnap`. Be sure to check the values on the command line match the local SAP HANA configuration.
+The following `hdbsql` command examples demonstrate setting the log and catalog paths to locations, which are on storage volumes that can be snapshot by `azacsnap`. Be sure to check the values on the command line match the local SAP HANA configuration.
 
 ### Configure log backup location
 
@@ -715,9 +724,8 @@ hdbsql -jaxC -n <HANA_ip_address>:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD
 
 ### Check log and catalog backup locations
 
-After making the changes above, confirm that the settings are correct with the following command.
-In this example, the settings that have been set following the guidance above will display as
-SYSTEM settings.
+After making the changes to the log and catalog backup locations, confirm the settings are correct with the following command.
+In this example, the settings that have been set following the example will display as SYSTEM settings.
 
 > This query also returns the DEFAULT settings for comparison.
 
@@ -740,8 +748,8 @@ global.ini,SYSTEM,,,persistence,basepath_logvolumes,/hana/log/H80
 ### Configure log backup timeout
 
 The default setting for SAP HANA to perform a log backup is 900 seconds (15 minutes). It's
-recommended to reduce this value to 300 seconds (that is, 5 minutes).  Then it is possible to run regular
-backups (for example, every 10 minutes) by adding the log_backups volume into the OTHER volume section of the
+recommended to reduce this value to 300 seconds (for example, 5 minutes).  Then it's possible to run regular
+backups of these files (for example, every 10 minutes).  This is done by adding the log_backups volumes to the OTHER volume section of the
 configuration file.
 
 ```bash

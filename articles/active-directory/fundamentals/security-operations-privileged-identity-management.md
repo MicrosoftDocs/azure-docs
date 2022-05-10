@@ -3,7 +3,7 @@ title: Azure Active Directory security operations for Privileged Identity Manage
 description: Guidance to establish baselines and use Azure Active Directory Privileged Identity Management (PIM) to monitor and alert on potential issues with accounts that are governed by PIM.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
@@ -65,6 +65,8 @@ In the Azure portal you can view the Azure AD Audit logs and download them as co
 
 * [**Microsoft Defender for Cloud Apps**](/cloud-app-security/what-is-cloud-app-security) – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance. 
 
+* **[Securing workload identities with Identity Protection Preview](..//identity-protection/concept-workload-identity-risk.md)** - Used to detect risk on workload identities across sign-in behavior and offline indicators of compromise.
+
 The rest of this article provides recommendations for setting a baseline to monitor and alert on, organized using a tier model. Links to pre-built solutions are listed following the table. You can also build alerts using the preceding tools. The content is organized into the following topic areas of PIM:
 
 * Baselines
@@ -88,7 +90,6 @@ The following are recommended baseline settings:
 | Azure AD roles assignment| High| <li>Require justification for activation.<li>Require approval to activate.<li>Set two-level approver process.<li>On activation, require Azure Active Directory Multi-Factor Authentication (MFA).<li>Set maximum elevation duration to 8 hrs.| <li>Privileged Role Administration<li>Global Administrator| A privileged role administrator can customize PIM in their Azure AD organization, including changing the experience for users activating an eligible role assignment. |
 | Azure Resource Role Configuration| High| <li>Require justification for activation.<li>Require approval to activate.<li>Set two-level approver process.<li>On activation, require Azure MFA.<li>Set maximum elevation duration to 8 hrs.| <li>Owner<li>Resource Administrator<li>User Access <li>Administrator<li>Global Administrator<li>Security Administrator| Investigate immediately if not a planned change. This setting could enable an attacker access to Azure subscriptions in your environment. |
 
-
 ## Azure AD roles assignment
 
 A privileged role administrator can customize PIM in their Azure AD organization. This includes changing the experience for a user who is activating an eligible role assignment as follows:
@@ -100,10 +101,10 @@ A privileged role administrator can customize PIM in their Azure AD organization
 | What to monitor| Risk level| Where| Filter/sub-filter| Notes |
 | - |- |- |- |- |
 | Alert on Add changes to privileged account permissions| High| Azure AD Audit logs| Category = Role Management<br>-and-<br>Activity Type – Add eligible member (permanent) <br>-and-<br>Activity Type – Add eligible member (eligible) <br>-and-<br>Status = Success/failure<br>-and-<br>Modified properties = Role.DisplayName| Monitor and always alert for any changes to privileged role administrator and global administrator. <li>This can be an indication an attacker is trying to gain privilege to modify role assignment settings<li> If you don’t have a defined threshold, alert on 4 in 60 minutes for users and 2 in 60 minutes for privileged accounts. |
-| Alert on bulk deletion changes to privileged account permissions| High| Azure AD Audit logs| Category = Role Management<br>-and-<br>Activity Type – Remove eligible member (permanent) <br>-and-<br>Activity Type – Remove eligible member (eligible) <br>-and-<br>Status = Success/failure<br>-and-<br>Modified properties = Role.DisplayName| Investigate immediately if not a planned change. This setting could enable an attacker access to Azure subscriptions in your environment. |
+| Alert on bulk deletion changes to privileged account permissions| High| Azure AD Audit logs| Category = Role Management<br>-and-<br>Activity Type – Remove eligible member (permanent) <br>-and-<br>Activity Type – Remove eligible member (eligible) <br>-and-<br>Status = Success/failure<br>-and-<br>Modified properties = Role.DisplayName| Investigate immediately if not a planned change. This setting could enable an attacker access to Azure subscriptions in your environment.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/BulkChangestoPrivilegedAccountPermissions.yaml) |
 | Changes to PIM settings| High| Azure AD Audit Log| Service = PIM<br>-and-<br>Category = Role Management<br>-and-<br>Activity Type = Update role setting in PIM<br>-and-<br>Status Reason = MFA on activation disabled (example)| Monitor and always alert for any changes to Privileged Role Administrator and Global Administrator. <li>This can be an indication an attacker already gained access able to modify to modify role assignment settings<li>One of these actions could reduce the security of the PIM elevation and make it easier for attackers to acquire a privileged account. |
 | Approvals and deny elevation| High| Azure AD Audit Log| Service = Access Review<br>-and-<br>Category = UserManagement<br>-and-<br>Activity Type = Request Approved/Denied<br>-and-<br>Initiated actor = UPN| All elevations should be monitored. Log all elevations as this could give a clear indication of timeline for an attack. |
-| Alert setting changes to disabled.| High| Azure AD Audit logs| Service =PIM<br>-and-<br>Category = Role Management<br>-and-<br>Activity Type = Disable PIM Alert<br>-and-<br>Status = Success /Failure| Always alert. <li>Helps detect bad actor removing alerts associated with Azure MFA requirements to activate privileged access.<li>Helps detect suspicious or unsafe activity. |
+| Alert setting changes to disabled.| High| Azure AD Audit logs| Service =PIM<br>-and-<br>Category = Role Management<br>-and-<br>Activity Type = Disable PIM Alert<br>-and-<br>Status = Success /Failure| Always alert. <li>Helps detect bad actor removing alerts associated with Azure MFA requirements to activate privileged access.<li>Helps detect suspicious or unsafe activity.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/SecurityAlert/DetectPIMAlertDisablingActivity.yaml) |
 
 
 For more information on identifying role setting changes in the Azure AD Audit log, see [View audit history for Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-use-audit-log.md). 

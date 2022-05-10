@@ -17,8 +17,10 @@ This article describes how to prepare to deploy a data controller for Azure Arc-
 
 At a high level, the prerequisites for creating Azure Arc data controller in **direct** connectivity mode include:
 
-1. Have access to your Kubernetes cluster. If you do not have a Kubernetes cluster, you can create a test/demonstration cluster on Azure Kubernetes Service (AKS). Follow the instructions under [Create AKS cluster for Azure Arc-enabled data services](create-aks-cluster-data-controller.md).
-1. Connect Kubernetes cluster to Azure using Azure Arc-enabled Kubernetes
+1. Have access to your Kubernetes cluster. If you do not have a Kubernetes cluster, you can create a test/demonstration cluster on Azure Kubernetes Service (AKS). 
+1. Connect Kubernetes cluster to Azure using Azure Arc-enabled Kubernetes.
+
+Follow the instructions at [Quickstart: Deploy Azure Arc-enabled data services - directly connected mode - Azure portal](create-complete-managed-instance-directly-connected.md) 
 
 ## Connect Kubernetes cluster to Azure using Azure Arc-enabled Kubernetes
 

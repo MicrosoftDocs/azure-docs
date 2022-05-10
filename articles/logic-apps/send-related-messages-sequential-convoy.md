@@ -1,10 +1,10 @@
 ---
 title: Send correlated messages in-order by using a sequential convoy
-description: Send related messages in order by using the sequential convoy pattern in Azure Logic Apps with Azure Service Bus
+description: Send related messages in order by using the sequential convoy pattern in Azure Logic Apps with Azure Service Bus.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: apseth, divswa, logicappspm
-ms.topic: conceptual
+ms.reviewer: apseth, divswa, azla
+ms.topic: how-to
 ms.date: 05/29/2020
 ---
 

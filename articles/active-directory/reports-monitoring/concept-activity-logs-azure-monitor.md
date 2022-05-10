@@ -9,14 +9,13 @@ editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/09/2020
+ms.date: 03/11/2022
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
 ---
@@ -41,9 +40,7 @@ You can route Azure AD audit logs and sign-in logs to your Azure Storage account
 * **Audit logs**: The [audit logs activity report](concept-audit-logs.md) gives you access to information about changes applied to your tenant, such as users and group management, or updates applied to your tenant’s resources.
 * **Sign-in logs**: With the [sign-in activity report](concept-sign-ins.md), you can determine who performed the tasks that are reported in the audit logs.
 
-> [!NOTE]
-> B2C-related audit and sign-in activity logs are not supported at this time.
->
+
 
 ## Prerequisites
 
@@ -123,7 +120,7 @@ The following table contains estimated costs per month for a basic Event Hub in 
 
 
 
-To review costs related to managing the Azure Monitor logs, see [Manage cost by controlling data volume and retention in Azure Monitor logs](../../azure-monitor/logs/manage-cost-storage.md).
+To review costs related to managing the Azure Monitor logs, see [Azure Monitor Logs pricing details](../../azure-monitor/logs/cost-logs.md).
 
 ## Frequently asked questions
 

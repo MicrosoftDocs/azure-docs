@@ -12,7 +12,7 @@ In this article, we'll show what you can do in the [Azure portal](https://portal
 ## Register the resource provider
 An Azure resource provider for BareMetal instances lets you see the instances in the Azure portal. By default, the Azure subscription you use for BareMetal instance deployments registers the *BareMetalInfrastructure* resource provider. If you don't see your deployed BareMetal instances, register the resource provider with your subscription. 
 
-You can register the BareMetal instance resource provider by using the Azure portal or Azure command-line interface (CLI).
+You can register the BareMetal instance resource provider via the Azure portal or the Azure CLI.
 
 ### [Portal](#tab/azure-portal)
  
@@ -39,13 +39,13 @@ To begin using Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Sign in to the Azure subscription you use for the BareMetal instance deployment through the Azure CLI. Register the `BareMetalInfrastructure` resource provider with the [az provider register](/cli/azure/provider#az_provider_register) command:
+Sign in to the Azure subscription you use for the BareMetal instance deployment through the Azure CLI. Register the `BareMetalInfrastructure` resource provider with the [az provider register](/cli/azure/provider#az-provider-register) command:
 
 ```azurecli
 az provider register --namespace Microsoft.BareMetalInfrastructure
 ```
 
-You can use the [az provider list](/cli/azure/provider#az_provider_list) command to see all available providers.
+You can use the [az provider list](/cli/azure/provider#az-provider-list) command to see all available providers.
 
 ---
 
@@ -77,7 +77,7 @@ During the deployment of your BareMetal instances, a new [Azure resource group](
 
 ### [Azure CLI](#tab/azure-cli)
 
-To see all your BareMetal instances, run the [az baremetalinstance list](/cli/azure/baremetalinstance#az_baremetalinstance_list) command for your resource group:
+To see all your BareMetal instances, run the [az baremetalinstance list](/cli/azure/baremetalinstance#az-baremetalinstance-list) command for your resource group:
 
 ```azurecli
 az baremetalinstance list --resource-group DSM05A-T550 –output table
@@ -121,7 +121,7 @@ Also on the right side, you'll find the [Azure proximity placement group's](../v
 
 ### [Azure CLI](#tab/azure-cli)
 
-To see details of a BareMetal instance, run the [az baremetalinstance show](/cli/azure/baremetalinstance#az_baremetalinstance_show) command:
+To see details of a BareMetal instance, run the [az baremetalinstance show](/cli/azure/baremetalinstance#az-baremetalinstance-show) command:
 
 ```azurecli
 az baremetalinstance show --resource-group DSM05A-T550 --instance-name orcllabdsm01
@@ -153,7 +153,7 @@ Deleting tags also works the same way as for VMs. Both applying and deleting a t
 
 Assigning tags to BareMetal instances works the same as assigning tags for virtual machines. As with VMs, the tags exist in the Azure metadata. Tags have the same restrictions for BareMetal instances as for VMs.
 
-To add tags to a BareMetal instance, run the [az baremetalinstance update](/cli/azure/baremetalinstance#az_baremetalinstance_update) command:
+To add tags to a BareMetal instance, run the [az baremetalinstance update](/cli/azure/baremetalinstance#az-baremetalinstance-update) command:
 
 ```azurecli
 az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --set tags.Dept=Finance tags.Status=Normal
@@ -198,7 +198,7 @@ When you restart a BareMetal instance, you'll experience a delay. During this de
 
 ### [Azure CLI](#tab/azure-cli)
 
-To restart a BareMetal instance, use the [az baremetalinstance restart](/cli/azure/baremetalinstance#az_baremetalinstance_restart) command:
+To restart a BareMetal instance, use the [az baremetalinstance restart](/cli/azure/baremetalinstance#az-baremetalinstance-restart) command:
 
 ```azurecli
 az baremetalinstance restart --resource-group DSM05a-T550 --instance-name orcllabdsm01

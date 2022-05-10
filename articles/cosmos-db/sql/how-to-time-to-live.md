@@ -1,13 +1,14 @@
 ---
 title: Configure and manage Time to Live in Azure Cosmos DB
 description: Learn how to configure and manage time to live on a container and an item in Azure Cosmos DB
-author: anfeldma-ms
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/11/2020
-ms.author: anfeldma
-ms.custom: devx-track-js, devx-track-csharp
+ms.date: 12/09/2021
+ms.author: jroth
+ms.devlang: csharp
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
 ---
 
 # Configure time to live in Azure Cosmos DB
@@ -27,18 +28,21 @@ Use the following steps to enable time to live on a container with no expiration
 
 3. Open the **Data Explorer** pane.
 
-4. Select an existing container, expand it and modify the following values:
+4. Select an existing container, expand the **Settings** tab and modify the following values:
 
-   * Open the **Scale & Settings** window.
    * Under **Setting** find, **Time to Live**.
-   * Select **On (no default)** or select **On** and set a TTL value
+   * Based on your requirement, you can:
+     * Turn **off** this setting
+     * Set it to **On (no default)** or
+     * Turn **On** with a TTL value specified in seconds.
+
    * Click **Save** to save the changes.
 
    :::image type="content" source="./media/how-to-time-to-live/how-to-time-to-live-portal.png" alt-text="Configure Time to live in Azure portal":::
 
 * When DefaultTimeToLive is null then your Time to Live is Off
 * When DefaultTimeToLive is -1 then your Time to Live setting is On (No default)
-* When DefaultTimeToLive has any other Int value (except 0) your Time to Live setting is On
+* When DefaultTimeToLive has any other Int value (except 0) your Time to Live setting is On. The server will automatically delete items based on the configured value.
 
 ## Enable time to live on a container using Azure CLI or PowerShell
 
@@ -195,7 +199,7 @@ async function createcontainerWithTTL(db: Database, containerDefinition: Contain
 
 In addition to setting a default time to live on a container, you can set a time to live for an item. Setting time to live at the item level will override the default TTL of the item in that container.
 
-* To set the TTL on an item, you need to provide a non-zero positive number, which indicates the period, in seconds, to expire the item after the last modified timestamp of the item `_ts`.
+* To set the TTL on an item, you need to provide a non-zero positive number, which indicates the period, in seconds, to expire the item after the last modified timestamp of the item `_ts`. You can provide a `-1` as well when the item should not expire.
 
 * If the item doesn't have a TTL field, then by default, the TTL set to the container will apply to the item.
 

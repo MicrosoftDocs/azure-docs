@@ -4,6 +4,7 @@ description: This article describes how to restore a deleted server in Azure Dat
 author: adig
 ms.author: adig
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 11/10/2021
 ---
@@ -21,7 +22,7 @@ To restore a deleted Azure Database for MySQL Flexible server, you need the foll
 
 ## Steps to restore
 
-1. Go to the [Activity Log](https://ms.portal.azure.com/#blade/Microsoft_Azure_ActivityLog/ActivityLogBlade) from Monitor blade in Azure portal. 
+1. Go to the [Activity Log](https://portal.azure.com/#blade/Microsoft_Azure_ActivityLog/ActivityLogBlade) from Monitor blade in Azure portal. 
 
 2. In Activity Log, click on **Add filter** as shown and set following filters for the 
 
@@ -65,5 +66,7 @@ To restore a deleted Azure Database for MySQL Flexible server, you need the foll
    - **Operation** =  Update MySQL Server Create
 
 ## Next steps
-- If you are trying to restore a server within five days, and still receive an error after accurately following the steps discussed earlier, open a support incident for assistance. If you are trying to restore a deleted server after five days, an error is expected since the backup file cannot be found. Do not open a support ticket in this scenario. The support team cannot provide any assistance if the backup is deleted from the system. 
+
+- If you are trying to restore a server within five days, and still receive an error after accurately following the steps discussed earlier, open a support incident for assistance. If you are trying to restore a deleted server after five days, an error is expected since the backup file cannot be found. Do not open a support ticket in this scenario. The support team cannot provide any assistance if the backup is deleted from the system.
+- If you are trying to restore a dropped server whose consequent resource group has been deleted/dropped as well, re-create the resource group with the same name before trying to restore the dropped server.
 - To prevent accidental deletion of servers, we highly recommend using [Resource Locks](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/preventing-the-disaster-of-accidental-deletion-for-your-mysql/ba-p/825222).

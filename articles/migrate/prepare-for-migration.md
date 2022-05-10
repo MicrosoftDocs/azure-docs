@@ -23,14 +23,13 @@ In this article, you:
 > * Prepare machines so you can connect to the Azure VMs after migration.
 
 
-
 ## Verify migration limitations
 
 The table summarizes discovery, assessment, and migration limits for Azure Migrate. We recommend that you assess machines before migration, but you don't have to.
 
 **Scenario** | **Project** | **Discovery/Assessment** | **Migration**
 --- | --- | --- | ---
-**VMware VMs** | Discover and assess up to 35,000 VMs in a single Azure Migrate project. | Discover up to 10,000 VMware VMs with a single [Azure Migrate appliance](common-questions-appliance.md) for VMware. | **Agentless migration**: you can simultaneously replicate a maximum of 500 VMs from each vCenter Server. **Agent-based migration**: you can [scale out](./agent-based-migration-architecture.md#performance-and-scaling) the [replication appliance](migrate-replication-appliance.md) to replicate large numbers of VMs.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
+**VMware VMs** | Discover and assess up to 35,000 VMs in a single Azure Migrate project. | Discover up to 10,000 VMware VMs with a single [Azure Migrate appliance](common-questions-appliance.md) for VMware. <br> The appliance supports adding multiple vCenter Servers. You can add up to 10 vCenter Servers per appliance. | **Agentless migration**: you can simultaneously replicate a maximum of 500 VMs across multiple vCenter Servers (discovered from one appliance) using a scale-out appliance.<br> **Agent-based migration**: you can [scale out](./agent-based-migration-architecture.md#performance-and-scaling) the [replication appliance](migrate-replication-appliance.md) to replicate large numbers of VMs.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
 **Hyper-V VMs** | Discover and assess up to 35,000 VMs in a single Azure Migrate project. | Discover up to 5,000 Hyper-V VMs with a single Azure Migrate appliance | An appliance isn't used for Hyper-V migration. Instead, the Hyper-V Replication Provider runs on each Hyper-V host.<br/><br/> Replication capacity is influenced by performance factors such as VM churn, and upload bandwidth for replication data.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
 **Physical machines** | Discover and assess up to 35,000 machines in a single Azure Migrate project. | Discover up to 250 physical servers with a single Azure Migrate appliance for physical servers. | You can [scale out](./agent-based-migration-architecture.md#performance-and-scaling) the [replication appliance](migrate-replication-appliance.md) to replicate large numbers of servers.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
 
@@ -110,10 +109,10 @@ Azure Migrate completes these actions automatically for these versions
 
 - Red Hat Enterprise Linux  8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x (Azure Linux VM agent is also installed automatically during migration)
 - Cent OS 8.x, 7.7, 7.6, 7.5, 7.4, 6.x (Azure Linux VM agent is also installed automatically during migration)
-- SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12
+- SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11 SP4, 11 SP3
 - Ubuntu 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS (Azure Linux VM agent is also installed automatically during migration)
-- Debian 9, 8, 7
-- Oracle Linux 6, 7.7, 7.7-CI
+- Debian 10, 9, 8, 7
+- Oracle Linux 8, 7.7-CI, 7.7, 6
 
 For other versions, prepare machines as summarized in the table.  
 
@@ -147,7 +146,7 @@ The following table summarizes the steps performed automatically for the operati
 
 Learn more about steps for [running a Linux VM on Azure](../virtual-machines/linux/create-upload-generic.md), and get instructions for some of the popular Linux distributions.
 
-Review the list of [required packages](../virtual-machines/extensions/agent-linux.md#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for  RHEL 8.x/7.x/6.x, CentOS 8.x/7.x/6.x, Ubuntu 14.04/16.04/18.04/19.04/19.10/20.04, SUSE 15 SP0/15 SP1/12, Debian 9/8/7, and Oracle 7 when using the agentless method of VMware migration.
+Review the list of [required packages](../virtual-machines/extensions/agent-linux.md#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for  RHEL 8.x/7.x/6.x, CentOS 8.x/7.x/6.x, Ubuntu 14.04/16.04/18.04/19.04/19.10/20.04, SUSE 15 SP0/15 SP1/12/11 SP4/11 SP3, Debian 9/8/7, and Oracle 7 when using the agentless method of VMware migration.
 
 ## Check Azure VM requirements
 

@@ -1,10 +1,12 @@
 ---
 title: Data encryption with customer-managed key - Azure Database for PostgreSQL - Single server
 description: Azure Database for PostgreSQL Single server data encryption with a customer-managed key enables you to Bring Your Own Key (BYOK) for data protection at rest. It also allows organizations to implement separation of duties in the management of keys and data.
-author: mksuni
-ms.author: sumuth
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: conceptual
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.date: 01/13/2020
 ---
 
@@ -23,10 +25,12 @@ Key Vault is a cloud-based, external key management system. It's highly availabl
 
 Data encryption with customer-managed keys for Azure Database for PostgreSQL Single server provides the following benefits:
 
-* Data-access is fully controlled by you by the ability to remove the key and making the database inaccessible 
-*    Full control over the key-lifecycle, including rotation of the key to align with corporate policies
-*    Central management and organization of keys in Azure Key Vault
-*    Ability to implement separation of duties between security officers, and DBA and system administrators
+* Data-access is fully controlled by you by the ability to remove the key and making the database inaccessible.
+*    Full control over the key-lifecycle, including rotation of the key to align with corporate policies.
+*    Central management and organization of keys in Azure Key Vault.
+*    Enabling encryption does not have any additional performance impact with or without customers managed key (CMK) as PostgreSQL relies on Azure storage layer for data encryption in both the scenarios ,the only difference is when CMK is used **Azure Storage Encryption Key**  which performs actual data encryption is encrypted using CMK.
+*    Ability to implement separation of duties between security officers, and DBA and system administrators.
+
 
 ## Terminology and description
 
@@ -65,7 +69,7 @@ The following are requirements for configuring the customer-managed key:
 * The customer-managed key to be used for encrypting the DEK can be only asymmetric, RSA 2048.
 * The key activation date (if set) must be a date and time in the past. The expiration date (if set) must be a future date and time.
 * The key must be in the *Enabled* state.
-* If you're [importing an existing key](/rest/api/keyvault/ImportKey/ImportKey) into the key vault, make sure to provide it in the supported file formats (`.pfx`, `.byok`, `.backup`).
+* If you're [importing an existing key](/rest/api/keyvault/keys/import-key/import-key) into the key vault, make sure to provide it in the supported file formats (`.pfx`, `.byok`, `.backup`).
 
 ## Recommendations
 
@@ -92,7 +96,7 @@ When you configure data encryption with a customer-managed key in Key Vault, con
 * If we create a read replica for your Azure Database for PostgreSQL Single server, which has data encryption enabled, the replica server will be in *Inaccessible* state. You can fix the server state through [Azure portal](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) or [CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
 * If you delete the KeyVault, the Azure Database for PostgreSQL Single server will be unable to access the key and will move to *Inaccessible* state. Recover the [Key Vault](../key-vault/general/key-vault-recovery.md) and revalidate the data encryption to make the server *Available*.
 * If we delete the key from the KeyVault, the Azure Database for PostgreSQL Single server will be unable to access the key and will move to *Inaccessible* state. Recover the [Key](../key-vault/general/key-vault-recovery.md) and revalidate the data encryption to make the server *Available*.
-* If the key stored in the Azure KeyVault expires, the key will become invalid and the Azure Database for PostgreSQL Single server will transition into *Inaccessible* state. Extend the key expiry date using [CLI](/cli/azure/keyvault/key#az_keyvault_key_set_attributes) and then revalidate the data encryption to make the server *Available*.
+* If the key stored in the Azure KeyVault expires, the key will become invalid and the Azure Database for PostgreSQL Single server will transition into *Inaccessible* state. Extend the key expiry date using [CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) and then revalidate the data encryption to make the server *Available*.
 
 ### Accidental key access revocation from Key Vault
 

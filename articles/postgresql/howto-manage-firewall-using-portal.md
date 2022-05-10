@@ -1,12 +1,14 @@
 ---
 title: Manage firewall rules - Azure portal - Azure Database for PostgreSQL - Single Server
 description: Create and manage firewall rules for Azure Database for PostgreSQL - Single Server using the Azure portal
-author: niklarin
-ms.author: nlarin
 ms.service: postgresql
+ms.subservice: single-server
+ms.author: nlarin
 ms.topic: how-to
+author: niklarin
 ms.date: 5/6/2019
 ---
+
 # Create and manage firewall rules for Azure Database for PostgreSQL - Single Server using the Azure portal
 Server-level firewall rules can be used to manage access to an Azure Database for PostgreSQL Server from a specified IP address or range of IP addresses.
 
@@ -21,7 +23,7 @@ To step through this how-to guide, you need:
 
    :::image type="content" source="./media/howto-manage-firewall-using-portal/1-connection-security.png" alt-text="Azure portal - click Connection Security":::
 
-2. Click **Add My IP** on the toolbar. This automatically creates a firewall rule with the public IP address of your computer, as perceived by the Azure system.
+2. Click **Add client IP** on the toolbar. This automatically creates a firewall rule with the public IP address of your computer, as perceived by the Azure system.
 
    :::image type="content" source="./media/howto-manage-firewall-using-portal/2-add-my-ip.png" alt-text="Azure portal - click Add My IP":::
 

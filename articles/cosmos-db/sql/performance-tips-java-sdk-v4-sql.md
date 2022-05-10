@@ -1,13 +1,13 @@
 ---
 title: Performance tips for Azure Cosmos DB Java SDK v4
 description: Learn client configuration options to improve Azure Cosmos database performance for Java SDK v4
-author: anfeldma-ms
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
-ms.date: 08/26/2021
-ms.author: anfeldma
+ms.date: 04/22/2022
+ms.author: jroth
 ms.custom: devx-track-java, contperf-fy21q2
 ---
 
@@ -32,11 +32,8 @@ So if you're asking "How can I improve my database performance?" consider the fo
 ## Networking
 
 * **Connection mode: Use Direct mode**
-<a id="direct-connection"></a>
-    
+
 Java SDK default connection mode is direct. You can configure the connection mode in the client builder using the *directMode()* or *gatewayMode()* methods, as shown below. To configure either mode with default settings, call either method without arguments. Otherwise, pass a configuration settings class instance as the argument (*DirectConnectionConfig* for *directMode()*,  *GatewayConnectionConfig* for *gatewayMode()*.). To learn more about different connectivity options, see the [connectivity modes](sql-sdk-connection-modes.md) article.
-    
-### <a id="override-default-consistency-javav4"></a> Java V4 SDK
 
 # [Async](#tab/api-async)
 
@@ -53,8 +50,6 @@ Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
 --- 
 
 The *directMode()* method has an additional override, for the following reason. Control plane operations such as database and container CRUD *always* utilize Gateway mode; when the user has configured Direct mode for data plane operations, control plane operations use default Gateway mode settings. This suits most users. However, users who want Direct mode for data plane operations as well as tunability of control plane Gateway mode parameters can use the following *directMode()* override:
-
-### <a id="override-default-consistency-javav4"></a> Java V4 SDK
 
 # [Async](#tab/api-async)
 
@@ -96,13 +91,11 @@ Please see the [Windows](../../virtual-network/create-vm-accelerated-networking-
 
 The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. See the [Azure Cosmos DB SDK](sql-api-sdk-async-java.md) pages to determine the most recent SDK and review improvements.
 
-* **Use a singleton Azure Cosmos DB client for the lifetime of your application**
+* <a id="max-connection"></a> **Use a singleton Azure Cosmos DB client for the lifetime of your application**
 
 Each Azure Cosmos DB client instance is thread-safe and performs efficient connection management and address caching. To allow efficient connection management and better performance by the Azure Cosmos DB client, it is recommended to use a single instance of the Azure Cosmos DB client per AppDomain for the lifetime of the application.
 
-<a id="max-connection"></a>
-
-* **Use the lowest consistency level required for your application**
+* <a id="override-default-consistency-javav4"></a> **Use the lowest consistency level required for your application**
 
 When you create a *CosmosClient*, the default consistency used if not explicitly set is *Session*. If *Session* consistency is not required by your application logic set the *Consistency* to *Eventual*. Note: it is recommended to use at least *Session* consistency in applications employing the Azure Cosmos DB Change Feed processor.
 
@@ -123,8 +116,6 @@ Geographic collocation can give you higher and more consistent throughput when u
 Some users may also be unfamiliar with [Project Reactor](https://projectreactor.io/), the Reactive Streams framework used to implement Azure Cosmos DB Java SDK v4 Async API. If this is a concern, we recommend you read our introductory [Reactor Pattern Guide](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-pattern-guide.md) and then take a look at this [Introduction to Reactive Programming](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro) in order to familiarize yourself. If you have already used Azure Cosmos DB with an Async interface, and the SDK you used was Azure Cosmos DB Async Java SDK v2, then you may be familiar with [ReactiveX](http://reactivex.io/)/[RxJava](https://github.com/ReactiveX/RxJava) but be unsure what has changed in Project Reactor. In that case, please take a look at our [Reactor vs. RxJava Guide](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) to become familiarized.
 
 The following code snippets show how to initialize your Azure Cosmos DB client for Async API or Sync API operation, respectively:
-
-### <a id="override-default-consistency-javav4"></a> Java V4 SDK
 
 # [Async](#tab/api-async)
 
@@ -147,6 +138,7 @@ By default, Direct mode Cosmos DB requests are made over TCP when using Azure Co
 In Azure Cosmos DB Java SDK v4, Direct mode is the best choice to improve database performance with most workloads. 
 
 * ***Overview of Direct mode***
+<a id="direct-connection"></a>
 
 :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Illustration of the Direct mode architecture" border="false":::
 
@@ -168,22 +160,6 @@ As a first step, use the following recommended configuration settings below. The
 | idleEndpointTimeout        | "PT1H"    |
 | maxRequestsPerConnection   | "30"      |
 
-* **Tuning parallel queries for partitioned collections**
-
-Azure Cosmos DB Java SDK v4 supports parallel queries, which enable you to query a partitioned collection in parallel. For more information, see [code samples](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples) related to working with Azure Cosmos DB Java SDK v4. Parallel queries are designed to improve query latency and throughput over their serial counterpart.
-
-* ***Tuning setMaxDegreeOfParallelism\:***
-    
-Parallel queries work by querying multiple partitions in parallel. However, data from an individual partitioned collection is fetched serially with respect to the query. So, use setMaxDegreeOfParallelism to set the number of partitions that has the maximum chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can use setMaxDegreeOfParallelism to set a high number, and the system chooses the minimum (number of partitions, user provided input) as the maximum degree of parallelism.
-
-It is important to note that parallel queries produce the best benefits if the data is evenly distributed across all partitions with respect to the query. If the partitioned collection is partitioned such a way that all or a majority of the data returned by a query is concentrated in a few partitions (one partition in worst case), then the performance of the query would be bottlenecked by those partitions.
-
-* ***Tuning setMaxBufferedItemCount\:***
-    
-Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. setMaxBufferedItemCount limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching.
-
-Pre-fetching works the same way irrespective of the MaxDegreeOfParallelism, and there is a single buffer for the data from all partitions.
-
 * **Scale out your client-workload**
 
 If you are testing at high throughput levels, the client application may become the bottleneck due to the machine capping out on CPU or network utilization. If you reach this point, you can continue to push the Azure Cosmos DB account further by scaling out your client applications across multiple servers.
@@ -192,32 +168,18 @@ A good rule of thumb is not to exceed >50% CPU utilization on any given server, 
 
 <a id="tune-page-size"></a>
 
-* **Tune the page size for queries/read feeds for better performance**
-
-When performing a bulk read of documents by using read feed functionality (for example, *readItems*) or when issuing a SQL query (*queryItems*), the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first.
-
-Suppose that your application issues a query to Azure Cosmos DB, and suppose that your application requires the full set of query results in order to complete its task. To reduce the number of network round trips required to retrieve all applicable results, you can increase the page size by adjusting the [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) request header field. 
-
-* For single-partition queries, adjusting the [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) field value to -1 (no limit on page size) maximizes latency by minimizing the number of query response pages: either the full result set will return in a single page, or if the query takes longer than the timeout interval, then the full result set will be returned in the minimum number of pages possible. This saves on multiples of the request round-trip time.
-    
-* For cross-partition queries, setting the [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) field to -1 and removing the page size limit risks overwhelming the SDK with unmanageable page sizes. In the cross-partition case we recommend raising the page size limit up to some large but finite value, perhaps 1000, to reduce latency. 
-    
-In some applications, you may not require the full set of query results. In cases where you need to display only a few results, for example, if your user interface or application API returns only 10 results at a time, you can also decrease the page size to 10 to reduce the throughput consumed for reads and queries.
-
-You may also set the preferred page size argument of the *byPage* method, rather than modifying the REST header field directly. Keep in mind that [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) or the preferred page size argument of *byPage* are only setting an upper limit on page size, not an absolute requirement; so for a variety of reason you may see Azure Cosmos DB return pages which are smaller than your preferred page size. 
-
 * **Use Appropriate Scheduler (Avoid stealing Event loop IO Netty threads)**
 
 The asynchronous functionality of Azure Cosmos DB Java SDK is based on [netty](https://netty.io/) non-blocking IO. The SDK uses a fixed number of IO netty event loop threads (as many CPU cores your machine has) for executing IO operations. The Flux returned by API emits the result on one of the shared IO event loop netty threads. So it is important to not block the shared IO event loop netty threads. Doing CPU intensive work or blocking operation on the IO event loop netty thread may cause deadlock or significantly reduce SDK throughput.
 
 For example the following code executes a cpu intensive work on the event loop IO netty thread:
-### <a id="java4-noscheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+<a id="java4-noscheduler"></a>
 
 [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceNeedsSchedulerAsync)]
 
 After result is received if you want to do CPU intensive work on the result you should avoid doing so on event loop IO netty thread. You can instead provide your own Scheduler to provide your own thread for running your work, as shown below (requires `import reactor.core.scheduler.Schedulers`).
 
-### <a id="java4-scheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+<a id="java4-scheduler"></a>
 
 [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceAddSchedulerAsync)]
 
@@ -232,7 +194,7 @@ For a variety of reasons, you may want or need to add logging in a thread which 
 
 * ***Configure an async logger***
 
-The latency of a synchronous logger necessarily factors into the overall latency calculation of your request-generating thread. An async logger such as [log4j2](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flogging.apache.org%2Flog4j%2Flog4j-2.3%2Fmanual%2Fasync.html&data=02%7C01%7CCosmosDBPerformanceInternal%40service.microsoft.com%7C36fd15dea8384bfe9b6b08d7c0cf2113%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637189868158267433&sdata=%2B9xfJ%2BWE%2F0CyKRPu9AmXkUrT3d3uNA9GdmwvalV3EOg%3D&reserved=0) is recommended to decouple logging overhead from your high-performance application threads.
+The latency of a synchronous logger necessarily factors into the overall latency calculation of your request-generating thread. An async logger such as [log4j2](https://logging.apache.org/log4j/log4j-2.3/manual/async.html) is recommended to decouple logging overhead from your high-performance application threads.
 
 * ***Disable netty's logging***
 
@@ -300,13 +262,15 @@ Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
 
 The latter is supported but will add latency to your application; the SDK must parse the item and extract the partition key.
 
-## Indexing policy
+## Query operations
+
+For query operations see the [performance tips for queries](performance-tips-query-sdk.md?pivots=programming-language-java).
+
+## <a id="java4-indexing"></a><a id="indexing-policy"></a> Indexing policy
  
 * **Exclude unused paths from indexing for faster writes**
 
 Azure Cosmos DB’s indexing policy allows you to specify which document paths to include or exclude from indexing by leveraging Indexing Paths (setIncludedPaths and setExcludedPaths). The use of indexing paths can offer improved write performance and lower index storage for scenarios in which the query patterns are known beforehand, as indexing costs are directly correlated to the number of unique paths indexed. For example, the following code shows how to include and exclude entire sections of the documents (also known as a subtree) from indexing using the "*" wildcard.
-
-### <a id="java4-indexing"></a>Java SDK V4 (Maven com.azure::azure-cosmos)
 
 [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=MigrateIndexingAsync)]
 

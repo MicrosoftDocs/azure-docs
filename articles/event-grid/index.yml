@@ -8,12 +8,12 @@ metadata:
   description: Learn how to use Azure Event Grid to react to relevant events across both Azure and non-Azure services in near-real time fashion. # Required; article description that is displayed in search results. < 160 chars.
   services: event-grid
   ms.service: event-grid #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.subservice: 
+  ms.subservice:
   ms.topic: landing-page # Required
   ms.collection: collection
   author: spelluru #Required; your GitHub user alias, with correct capitalization.
   ms.author: spelluru #Required; microsoft alias of author; optional team alias.
-  ms.date: 07/22/2021 #Required; mm/dd/yyyy format.
+  ms.date: 01/11/2022 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -36,66 +36,9 @@ landingContent:
           - text: Event handlers
             url: event-handlers.md
           - text: Event filters
-            url: event-filtering.md                        
- 
-  # Card
-  - title: Advanced concepts
-    linkLists:
-      - linkListType: concept      
-        links:
-          - text: Security and authentication
-            url: security-authentication.md    
-          - text: Delivery and retry
-            url: delivery-and-retry.md            
-          - text: Event domains
-            url: event-domains.md
-          - text: Geo disaster recovery
-            url: geo-disaster-recovery.md    
-      - linkListType: architecture
-        links:
-          - text: Reference architecture for queues and events
-            url: /azure/architecture/reference-architectures/enterprise-integration/queues-events
-
-  # Card
-  - title: Customizations
-    linkLists:
-      - linkListType: quickstart      
-        links:
-          - text: Route custom events to web endpoint
-            url: custom-event-quickstart-portal.md
-      - linkListType: how-to-guide
-        links:
-          - text: Create a custom topic
-            url: scripts/event-grid-cli-create-custom-topic.md
-          - text: Subscribe to a custom topic
-            url: scripts/event-grid-cli-subscribe-custom-topic.md
-          - text: Post to a custom topic
-            url: post-to-custom-topic.md
-          - text: Map custom fields to Event Grid schema
-            url: input-mappings.md            
-
-  # Card
-  - title: Event Grid on Kubernetes
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Event Grid on Kubernetes?
-            url: ./kubernetes/overview.md    
-          - text: Features
-            url: ./kubernetes/features.md    
-          - text: concepts
-            url: ./kubernetes/concepts.md
-      - linkListType: quickstart      
-        links:
-          - text: Route cloud events to Webhooks          
-            url: ./kubernetes/create-topic-subscription.md
-      - linkListType: how-to-guide
-        links:
-          - text: Install Event Grid extension
-            url: ./kubernetes/install-k8s-extension.md
-
-  # Card
-  - title: Scenarios
+            url: event-filtering.md
+ # Card
+  - title: Quickstarts
     linkLists:
       - linkListType: quickstart
         links:
@@ -111,6 +54,9 @@ landingContent:
             url: custom-event-quickstart-portal.md
           - text: Send events from a private container registry
             url: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
+  # Card
+  - title: Tutorials
+    linkLists:
       - linkListType: tutorial
         links:
           - text: Email when VM changes
@@ -126,6 +72,76 @@ landingContent:
           - text: Stream data from Event Hubs
             url: event-grid-event-hubs-integration.md
           - text: Route Media Services events
-            url: ..//media-services/latest/monitoring/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json
+            url: /azure/media-services/latest/monitoring/job-state-events-cli-how-to
           - text: Route to Hybrid Connections
             url: custom-event-to-hybrid-connection.md
+  # Card
+  - title: Learn modules
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Explore Azure Event Grid
+            url: /learn/modules/azure-event-grid/
+          - text: React to state changes in your Azure services by using Event Grid
+            url: /learn/modules/react-to-state-changes-using-event-grid/
+          - text: Choose a messaging model in Azure to loosely connect your services
+            url: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+          - text: Trigger an Azure Event Grid workflow from an IoT device
+            url: /learn/modules/trigger-azure-event-grid-workflow-iot-device/
+
+  # Card
+  - title: Advanced concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Security and authentication
+            url: security-authentication.md
+          - text: Delivery and retry
+            url: delivery-and-retry.md
+          - text: Event domains
+            url: event-domains.md
+          - text: Geo disaster recovery
+            url: geo-disaster-recovery.md
+      - linkListType: architecture
+        links:
+          - text: Reference architecture for queues and events
+            url: /azure/architecture/reference-architectures/enterprise-integration/queues-events
+
+  # Card
+  - title: Customizations
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Route custom events to web endpoint
+            url: custom-event-quickstart-portal.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create a custom topic
+            url: scripts/event-grid-cli-create-custom-topic.md
+          - text: Subscribe to a custom topic
+            url: scripts/event-grid-cli-subscribe-custom-topic.md
+          - text: Post to a custom topic
+            url: post-to-custom-topic.md
+          - text: Map custom fields to Event Grid schema
+            url: input-mappings.md
+
+  # Card
+  - title: Event Grid on Kubernetes
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Event Grid on Kubernetes?
+            url: ./kubernetes/overview.md
+          - text: Features
+            url: ./kubernetes/features.md
+          - text: concepts
+            url: ./kubernetes/concepts.md
+      - linkListType: quickstart
+        links:
+          - text: Route cloud events to Webhooks
+            url: ./kubernetes/create-topic-subscription.md
+      - linkListType: how-to-guide
+        links:
+          - text: Install Event Grid extension
+            url: ./kubernetes/install-k8s-extension.md
+

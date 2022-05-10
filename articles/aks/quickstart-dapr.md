@@ -6,7 +6,7 @@ ms.author: nickoman
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 11/01/2021
-ms.custom: template-quickstart
+ms.custom: template-quickstart, mode-other
 ---
 
 # Quickstart: Deploy an application using the Dapr cluster extension (preview) for Azure Kubernetes Service (AKS)
@@ -219,9 +219,9 @@ After successfully deploying this sample application:
 <!-- INTERNAL -->
 [cluster-extensions]: ./cluster-extensions.md
 [dapr-overview]: ./dapr.md
-[az-group-delete]: /cli/azure/group#az_group_delete
+[az-group-delete]: /cli/azure/group#az-group-delete
 
 <!-- EXTERNAL -->
 [hello-world-gh]: https://github.com/dapr/quickstarts/tree/v1.4.0/hello-kubernetes
-[azure-portal-cache]: https://ms.portal.azure.com/#create/Microsoft.Cache
+[azure-portal-cache]: https://portal.azure.com/#create/Microsoft.Cache
 [dapr-component-secrets]: https://docs.dapr.io/operations/components/component-secrets/

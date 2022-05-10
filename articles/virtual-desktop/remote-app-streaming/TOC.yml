@@ -126,8 +126,6 @@
             href: ../app-attach-msixmgr.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Configure automatic updates
       href: ../configure-automatic-updates.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-    - name: Use Azure Advisor
-      href: ../azure-advisor.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Resolve recommendations
       href: ../azure-advisor-recommendations.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Use Azure Monitor for Azure Virtual Desktop
@@ -238,7 +236,7 @@
     href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
   - name: Virtual machine sizing guidance
     href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
-  - name: Azure command-line interface (CLI)
+  - name: Azure CLI
     href: /cli/azure/
   - name: Azure example scenarios
     href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop

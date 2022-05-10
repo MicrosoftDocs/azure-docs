@@ -3,21 +3,21 @@ title: Security features that protect hybrid backups
 description: Learn how to use security features in Azure Backup to make backups more secure
 ms.reviewer: utraghuv
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 03/08/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
 ---
 # Security features to help protect hybrid backups that use Azure Backup
 
-Concerns about security issues, like malware, ransomware, and intrusion, are increasing. These security issues can be costly, in terms of both money and data. To guard against such attacks, Azure Backup now provides security features to help protect hybrid backups. This article covers how to enable and use these features, by using an Azure Recovery Services agent and Azure Backup Server. These features include:
+Concerns about security issues, like malware, ransomware, and intrusion, are increasing. These security issues can be costly, in terms of both money and data. To guard against such attacks, Azure Backup now provides security features to help protect hybrid backups. This article covers how to enable and leverage these features to protect on-premises workloads using **Microsoft Azure Backup Server (MABS)**, **Data Protection Manager (DPM)**, and **Microsoft Azure Recovery Services (MARS) agent**. These features include:
 
 - **Prevention**. An additional layer of authentication is added whenever a critical operation like changing a passphrase is performed. This validation is to ensure that such operations can be performed only by users who have valid Azure credentials.
 - **Alerting**. An email notification is sent to the subscription admin whenever a critical operation like deleting backup data is performed. This email ensures that the user is notified quickly about such actions.
 - **Recovery**. Deleted backup data is retained for an additional 14 days from the date of the deletion. This ensures recoverability of the data within a given time period, so there's no data loss even if an attack happens. Also, a greater number of minimum recovery points are maintained to guard against corrupt data.
 
 > [!NOTE]
-> These features are available only for Recovery Services vault. All the newly created Recovery Services vaults have these features enabled by default. For existing Recovery Services vaults, users enable these features by using the steps mentioned in the following section. After the features are enabled, they apply to all the Recovery Services agent computers, Azure Backup Server instances, and Data Protection Manager servers registered with the vault.
+> Enable Multi-user authorization (MUA) on your recovery services vault to add an additional layer of protection to the critical operation of disabling security features. [Learn more](multi-user-authorization.md).
 
 ## Minimum version requirements
 
@@ -48,10 +48,8 @@ If you're creating a Recovery Services vault, you can use all the security featu
     ![Screenshot of Recovery Services vault properties](./media/backup-azure-security-feature/security-settings-update.png)
 
     The update link opens the **Security Settings** pane, which provides a summary of the features and lets you enable them.
-5. From the drop-down list **Have you configured Azure AD Multi-Factor Authentication?**, select a value to confirm if you've enabled [Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md). If it's enabled, you're asked to authenticate from another device (for example, a mobile phone) while signing in to the Azure portal.
 
-   When you perform critical operations in Backup, you have to enter a security PIN, available on the Azure portal. Enabling Azure AD Multi-Factor Authentication adds a layer of security. Only authorized users with valid Azure credentials, and authenticated from a second device, can access the Azure portal.
-6. To save security settings, select **Enable** and select **Save**.
+5. **Enable** the security features and select **Save**.
 
     ![Screenshot of security settings](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 

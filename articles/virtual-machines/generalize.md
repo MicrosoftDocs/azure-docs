@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/16/2021
+ms.date: 03/24/2022
 ms.author: cynthn
 ms.custom: portal
 
@@ -16,7 +16,7 @@ ms.custom: portal
 
 Generalizing a VM is not necessary for creating an image in an [Azure Compute Gallery](shared-image-galleries.md#generalized-and-specialized-images) unless you specifically want to create a generalized image. Generalizing is required when creating a managed image outside of a gallery.
 
-Generalizing removes machine specific information so the image can be used to create multiple VMs. Once the VM has been generalized, you need to let the platform know that the VM has been generalized so that the boot sequence can be set correctly. Once a VM is generalized, it should not be restarted.
+Generalizing removes machine specific information so the image can be used to create multiple VMs. Once the VM has been generalized, you need to let the platform know so that the boot sequence can be set correctly. 
 
 
 ## Linux
@@ -34,6 +34,14 @@ First you'll deprovision the VM by using the Azure VM agent to delete machine-sp
 3. Enter **y** to continue. You can add the `-force` parameter to avoid this confirmation step.
 4. After the command completes, enter **exit** to close the SSH client.  The VM will still be running at this point.
 
+
+Deallocate the VM that you deprovisioned with `az vm deallocate` so that it can be generalized.
+
+```azurecli-interactive
+az vm deallocate \
+   --resource-group myResourceGroup \
+   --name myVM
+```
 
 Then the VM needs to be marked as generalized on the platform. 
 
@@ -56,6 +64,7 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 >
 > If you plan to run Sysprep before uploading your virtual hard disk (VHD) to Azure for the first time, make sure you have [prepared your VM](./windows/prepare-for-upload-vhd-image.md).  
 > 
+> We do not support custom answer file in the sysprep step, hence you should not use the "/unattend:_answerfile_" switch with your sysprep command.
 > 
 
 To generalize your Windows VM, follow these steps:

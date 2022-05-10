@@ -41,10 +41,10 @@ landingContent:
             url: plan-azure-arc-data-services.md
           - text: Install client tools
             url: install-client-tools.md
-          - text: Complete prerequisites
-            url: create-data-controller-direct-prerequisites.md
-          - text: Create data controller
-            url: create-data-controller-direct-azure-portal.md
+          - text: Create - Directly connected
+            url: create-complete-managed-instance-directly-connected.md
+          - text: Create - Indirectly connected
+            url: create-complete-managed-instance-indirectly-connected.md
   # Card (optional)
   # Card (optional)
   - title: Azure Arc-enabled SQL Managed Instance

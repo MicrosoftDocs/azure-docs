@@ -65,6 +65,8 @@ From the Azure portal, you can view the Azure AD Audit logs and download as comm
 
 * **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)** – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance. 
 
+* **[Securing workload identities with Identity Protection Preview](..//identity-protection/concept-workload-identity-risk.md)** - Used to detect risk on workload identities across sign-in behavior and offline indicators of compromise.
+
 Much of what you'll monitor and alert on are the effects of your Conditional Access policies. You can use the [Conditional Access insights and reporting workbook](../conditional-access/howto-conditional-access-insights-reporting.md) to examine the effects of one or more Conditional Access policies on your sign-ins, and the results of policies including device state. This workbook enables you to view an impact summary, and identify the impact over a specific time period. You can also use the workbook to investigate the sign-ins of a specific user. 
 
  The rest of this article describes what we recommend you monitor and alert on, and is organized by the type of threat. Where there are specific pre-built solutions we link to them or provide samples following the table. Otherwise, you can build alerts using the preceding tools. 
@@ -75,7 +77,7 @@ Azure AD registered and Azure AD joined devices possess primary refresh tokens (
 
  | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 | - |- |- |- |- |
-| Device registration or join completed without MFA| Medium| Sign-in logs| Activity: successful authentication to Device Registration Service. <br>And<br>No MFA required| Alert when: <br>Any device registered or joined without MFA |
+| Device registration or join completed without MFA| Medium| Sign-in logs| Activity: successful authentication to Device Registration Service. <br>And<br>No MFA required| Alert when: <br>Any device registered or joined without MFA<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/SigninLogs/SuspiciousSignintoPrivilegedAccount.yaml) |
 | Changes to the Device Registration MFA toggle in Azure AD| High| Audit log| Activity: Set device registration policies| Look for: <br>The toggle being set to off. There isn't audit log entry. Schedule periodic checks. |
 | Changes to Conditional Access policies requiring domain joined or compliant device.| High| Audit log| Changes to CA policies<br>| Alert when: <br><li> Change to any policy requiring domain joined or compliant.<li>Changes to trusted locations.<li> Accounts or devices added to MFA policy exceptions. |
 
@@ -102,7 +104,7 @@ It might not be possible to block access to all cloud and software-as-a-service 
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 | - |- |- |- |- |
-| Sign-ins by non-compliant devices| High| Sign-in logs| DeviceDetail.isCompliant ==false| If requiring sign-in from compliant devices, alert when:<br><li> any sign in by non-compliant devices.<li> any access without MFA or a trusted location.<p>If working toward requiring devices, monitor for suspicious sign-ins. |
+| Sign-ins by non-compliant devices| High| Sign-in logs| DeviceDetail.isCompliant ==false| If requiring sign-in from compliant devices, alert when:<br><li> any sign in by non-compliant devices.<li> any access without MFA or a trusted location.<p>If working toward requiring devices, monitor for suspicious sign-ins.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/SigninLogs/SuspiciousSignintoPrivilegedAccount.yaml) |
 | Sign-ins by unknown devices| Low| Sign-in logs| <li>DeviceDetail is empty<li>Single factor authentication<li>From a non-trusted location| Look for: <br><li>any access from out of compliance devices.<li>any access without MFA or trusted location |
 
 

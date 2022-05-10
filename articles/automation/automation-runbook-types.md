@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/28/2021
+ms.date: 11/17/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -102,20 +102,23 @@ The following are current known issues with PowerShell runbooks:
 -  *PSCredential* runbook parameter type is not supported in PowerShell 7 runtime version.
 -  PowerShell 7.x does not support workflows. See [this](/powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.1#powershell-workflow&preserve-view=true) for more details.
 -  PowerShell 7.x currently does not support signed runbooks.
+-  Source control integration doesn't support PowerShell 7.1. Also, PowerShell 7.1 runbooks in source control gets created in Automation account as Runtime 5.1.
 
 ### Known Issues - 7.1 (preview)
 
--  Executing child scripts using `.\child-runbook.ps1` is not supported in this preview. 
+- Executing child scripts using `.\child-runbook.ps1` is not supported in this preview. 
   **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from *Az.Automation* module) to start another runbook from parent runbook.
--  Runbook properties defining logging preference is not supported in PowerShell 7 runtime.  
+- Runbook properties defining logging preference is not supported in PowerShell 7 runtime.  
   **Workaround**: Explicitly set the preference at the start of the runbook as below -
+  ```
+      $VerbosePreference = "Continue"
 
-      `$VerbosePreference = "Continue"`
-
-      `$ProgressPreference = "Continue"`
-
--   Avoid importing `Az.Accounts` module to version 2.4.0 version for PowerShell 7 runtime as there can be an unexpected behavior using this version in Azure Automation. 
--    You might encounter formatting problems with error output streams for the job running in PowerShell 7 runtime.
+      $ProgressPreference = "Continue"
+  ```
+- Avoid importing `Az.Accounts` module to version 2.4.0 version for PowerShell 7 runtime as there can be an unexpected behavior using this version in Azure Automation. 
+- You might encounter formatting problems with error output streams for the job running in PowerShell 7 runtime.
+- When you import a PowerShell 7.1 module that’s dependent on other modules, you may find that the import button is gray even when PowerShell 7.1 version of the dependent module is installed. For example, Az.Compute version 4.20.0, has a dependency on Az.Accounts being >= 2.6.0. This issue occurs when an equivalent dependent module in PowerShell 5.1 doesn't meet the version requirements. For example, 5.1 version of Az.Accounts was < 2.6.0.
+- When you start PowerShell 7 runbook using the webhook, it auto-converts the webhook input parameter to an invalid JSON.
 
 ## PowerShell Workflow runbooks
 
@@ -163,6 +166,7 @@ Python 3 runbooks are supported in the following Azure global infrastructures:
 * To use third-party libraries, you must [import the packages](python-packages.md) into the Automation account.
 * Using **Start-AutomationRunbook** cmdlet in PowerShell/PowerShell Workflow to start a Python 3 runbook (preview) doesn't work. You can use **Start-AzAutomationRunbook** cmdlet from Az.Automation module or **Start-AzureRmAutomationRunbook** cmdlet from AzureRm.Automation module to work around this limitation.  
 * Azure Automation doesn't support **sys.stderr**.
+* The Python **automationassets** package is not available on pypi.org, so it's not available for import onto a Windows machine.
 
 ### Multiple Python versions
 

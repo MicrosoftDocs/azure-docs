@@ -7,9 +7,10 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: sample
+ms.topic: how-to
 ms.date: 09/09/2019
-ms.custom: "seodec18, devx-track-csharp"
+ms.devlang: csharp
+ms.custom: [seodec18, devx-track-csharp, non-critical]
 ---
 
 # Analyze videos in near real time

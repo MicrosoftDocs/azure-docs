@@ -1,12 +1,12 @@
 ---
 title: Create and provision an IoT Edge device on Windows using symmetric keys - Azure IoT Edge | Microsoft Docs
 description: Create and provision a single Windows IoT Edge device in IoT Hub using manual provisioning with symmetric keys
-author: kgremban
+author: PatAltimore
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 10/28/2021
-ms.author: kgremban
+ms.author: patricka
 monikerRange: "iotedge-2018-06"
 ---
 
@@ -51,7 +51,7 @@ This article covers registering your IoT Edge device and installing IoT Edge on 
 <!-- Device registration prerequisites H3 and content -->
 [!INCLUDE [iot-edge-prerequisites-register-device.md](../../includes/iot-edge-prerequisites-register-device.md)]
 
-### IoT Edge installation
+### Device requirements
 
 A Windows device.
 

@@ -3,18 +3,18 @@ title: How to enable self-service application assignment
 titleSuffix: Azure AD
 description: Enable self-service application access to allow users to find their own applications from their My Apps portal
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/23/2021
-ms.author: davidmu
+ms.author: jomondi
 ms.collection: M365-identity-device-management
-ms.reviewer: phsignor
+ms.reviewer: ergreenl
 
-#customer intent: As an admin I want to enable self-service application access so that users can self-discover applications from their My Apps portal.
+#customer intent: As an admin, I want to enable self-service application access so that users can self-discover applications from their My Apps portal.
 ---
 
 # Enable self-service application assignment

@@ -3,7 +3,7 @@ title: Soft delete for virtual machines
 description: Learn how soft delete for virtual machines makes backups more secure.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.custom: references_regions , devx-track-azurepowershell
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 # Soft delete for virtual machines
 
@@ -23,7 +23,7 @@ Soft delete is currently supported in the West Central US, East Asia, Canada Cen
 
    ![Screenshot of Azure portal Backup Items](./media/backup-azure-security-feature-cloud/backup-stopped.png)
 
-2. In the following window, you'll be given a choice to delete or retain the backup data. If you choose **Delete backup data** and then **Stop backup**, the VM backup won't be permanently deleted. Rather, the backup data will be retained for 14 days in the soft deleted state. If **Delete backup data** is chosen, a delete email alert is sent to the configured email ID informing the user that 14 days remain of extended retention for backup data. Also, an email alert is sent on the 12th day informing that there are two more days left to resurrect the deleted data. The deletion is deferred until the 15th day, when permanent deletion will occur and a final email alert is sent informing about the permanent deletion of the data.
+2. In the following window, you'll be given a choice to delete or retain the backup data. If you choose **Retain backup data** and then **Stop backup**, the VM backup won't be permanently deleted. Rather, this stops all scheduled backup jobs and retains backup data. In this scenario, retention range set in the policy does not apply to the backup data. It continues the pricing as is until you remove the data manually. If **Delete backup data** is chosen, a delete email alert is sent to the configured email ID informing the user that 14 days remain of extended retention for backup data. Also, an email alert is sent on the 12th day informing that there are two more days left to resurrect the deleted data. The deletion is deferred until the 15th day, when permanent deletion will occur and a final email alert is sent informing about the permanent deletion of the data.
 
    ![Screenshot of Azure portal, Stop Backup screen](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
 

@@ -3,11 +3,11 @@ title: Back-end health and diagnostic logs
 titleSuffix: Azure Application Gateway
 description: Learn how to enable and manage access logs and performance logs for Azure Application Gateway
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/18/2021
-ms.author: victorh 
+ms.date: 02/25/2022
+ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -111,11 +111,12 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 
 1. Note your storage account's resource ID, where the log data is stored. This value is of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Storage/storageAccounts/\<storage account name\>. You can use any storage account in your subscription. You can use the Azure portal to find this information.
 
-    ![Portal: resource ID for storage account](./media/application-gateway-diagnostics/diagnostics1.png)
+   :::image type="content" source="media/application-gateway-diagnostics/diagnostics2.png" alt-text="Screenshot of storage account endpoints" lightbox="media/application-gateway-diagnostics/diagnostics2.png":::
 
 2. Note your application gateway's resource ID for which logging is enabled. This value is of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/applicationGateways/\<application gateway name\>. You can use the portal to find this information.
 
-    ![Portal: resource ID for application gateway](./media/application-gateway-diagnostics/diagnostics2.png)
+   :::image type="content" source="media/application-gateway-diagnostics/diagnostics1.png" alt-text="Screenshot of app gateway properties" lightbox="media/application-gateway-diagnostics/diagnostics1.png":::
+
 
 3. Enable diagnostic logging by using the following PowerShell cmdlet:
 
@@ -212,7 +213,11 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |httpVersion     | HTTP version of the request.        |
 |receivedBytes     | Size of packet received, in bytes.        |
 |sentBytes| Size of packet sent, in bytes.|
-|timeTaken| Length of time (in **seconds**) that it takes for a request to be processed and its response to be sent. This is calculated as the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
+|clientResponseTime| Length of time (in **seconds**) that it takes for the first byte of a client request to be processed and the first byte sent in the response to the client. |
+|timeTaken| Length of time (in **seconds**) that it takes for the first byte of a client request to be processed and its last-byte sent in the response to the client. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
+|WAFEvaluationTime| Length of time (in **seconds**) that it takes for the request to be processed by the WAF. |
+|WAFMode| Value can be either Detection or Prevention |
+|transactionId| Unique identifier to correlate the request received from the client |
 |sslEnabled| Whether communication to the back-end pools used TLS. Valid values are on and off.|
 |sslCipher| Cipher suite being used for TLS communication (if TLS is enabled).|
 |sslProtocol| SSL/TLS protocol being used (if TLS is enabled).|
@@ -246,7 +251,10 @@ The access log is generated only if you've enabled it on each Application Gatewa
         "httpVersion": "HTTP\/1.1",
         "receivedBytes": 184,
         "sentBytes": 466,
+        "clientResponseTime": 0,
         "timeTaken": 0.034,
+        "WAFEvaluationTime": "0.000",
+        "WAFMode": "Detection",
         "transactionId": "592d1649f75a8d480a3c4dc6a975309d",
         "sslEnabled": "on",
         "sslCipher": "ECDHE-RSA-AES256-GCM-SHA384",

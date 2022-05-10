@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use the Azure Communication Se
 author: chpalm
 ms.author: rifox
 ms.date: 03/10/2021
-ms.topic: quickstart
+ms.topic: include
 ms.service: azure-communication-services
 ---
 

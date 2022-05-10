@@ -2,7 +2,7 @@
 title: Nodes and pools in Azure Batch
 description: Learn about compute nodes and pools and how they are used in an Azure Batch workflow from a development standpoint.
 ms.topic: conceptual
-ms.date: 03/11/2021
+ms.date: 12/13/2021
 
 ---
 # Nodes and pools in Azure Batch
@@ -37,16 +37,29 @@ A pool can be used only by the Batch account in which it was created. A Batch ac
 
 The pool can be created manually, or [automatically by the Batch service](#autopools) when you specify the work to be done. When you create a pool, you can specify the following attributes:
 
-- [Node operating system and version](#operating-system-and-version)
-- [Node type and target number of nodes](#node-type-and-target)
-- [Node size](#node-size)
-- [Automatic scaling policy](#automatic-scaling-policy)
-- [Task scheduling policy](#task-scheduling-policy)
-- [Communication status](#communication-status)
-- [Start tasks](#start-tasks)
-- [Application packages](#application-packages)
-- [Virtual network (VNet) and firewall configuration](#virtual-network-vnet-and-firewall-configuration)
-- [Lifetime](#pool-and-compute-node-lifetime)
+- [Nodes and pools in Azure Batch](#nodes-and-pools-in-azure-batch)
+  - [Nodes](#nodes)
+  - [Pools](#pools)
+  - [Operating system and version](#operating-system-and-version)
+  - [Configurations](#configurations)
+    - [Virtual Machine Configuration](#virtual-machine-configuration)
+    - [Cloud Services Configuration](#cloud-services-configuration)
+    - [Node Agent SKUs](#node-agent-skus)
+    - [Custom images for Virtual Machine pools](#custom-images-for-virtual-machine-pools)
+    - [Container support in Virtual Machine pools](#container-support-in-virtual-machine-pools)
+  - [Node type and target](#node-type-and-target)
+  - [Node size](#node-size)
+  - [Automatic scaling policy](#automatic-scaling-policy)
+  - [Task scheduling policy](#task-scheduling-policy)
+  - [Communication status](#communication-status)
+  - [Start tasks](#start-tasks)
+  - [Application packages](#application-packages)
+  - [Virtual network (VNet) and firewall configuration](#virtual-network-vnet-and-firewall-configuration)
+    - [VNet requirements](#vnet-requirements)
+  - [Pool and compute node lifetime](#pool-and-compute-node-lifetime)
+  - [Autopools](#autopools)
+  - [Security with certificates](#security-with-certificates)
+  - [Next steps](#next-steps)
 
 > [!IMPORTANT]
 > Batch accounts have a default quota that limits the number of cores in a Batch account. The number of cores corresponds to the number of compute nodes. You can find the default quotas and instructions on how to [increase a quota](batch-quota-limit.md#increase-a-quota) in [Quotas and limits for the Azure Batch service](batch-quota-limit.md). If your pool is not achieving its target number of nodes, the core quota might be the reason.
@@ -99,16 +112,16 @@ For more information, see [Run Docker container applications on Azure Batch](bat
 
 When you create a pool, you can specify which types of nodes you want and the target number for each. The two types of nodes are:
 
-- **Dedicated nodes.** Dedicated compute nodes are reserved for your workloads. They are more expensive than low-priority nodes, but they are guaranteed to never be preempted.
-- **Low-priority nodes.** Low-priority nodes take advantage of surplus capacity in Azure to run your Batch workloads. Low-priority nodes are less expensive per hour than dedicated nodes, and enable workloads requiring significant compute power. For more information, see [Use low-priority VMs with Batch](batch-low-pri-vms.md).
+- **Dedicated nodes.** Dedicated compute nodes are reserved for your workloads. They are more expensive than Spot nodes, but they are guaranteed to never be preempted.
+- **Spot nodes.** Spot nodes take advantage of surplus capacity in Azure to run your Batch workloads. Spot nodes are less expensive per hour than dedicated nodes, and enable workloads requiring significant compute power. For more information, see [Use Spot VMs with Batch](batch-spot-vms.md).
 
-Low-priority nodes may be preempted when Azure has insufficient surplus capacity. If a node is preempted while running tasks, the tasks are requeued and run again once a compute node becomes available again. Low-priority nodes are a good option for workloads where the job completion time is flexible and the work is distributed across many nodes. Before you decide to use low-priority nodes for your scenario, make sure that any work lost due to preemption will be minimal and easy to recreate.
+Spot nodes may be preempted when Azure has insufficient surplus capacity. If a node is preempted while running tasks, the tasks are requeued and run again once a compute node becomes available again. Spot nodes are a good option for workloads where the job completion time is flexible and the work is distributed across many nodes. Before you decide to use Spot nodes for your scenario, make sure that any work lost due to preemption will be minimal and easy to recreate.
 
-You can have both low-priority and dedicated compute nodes in the same pool. Each type of node has its own target setting, for which you can specify the desired number of nodes.
+You can have both Spot and dedicated compute nodes in the same pool. Each type of node has its own target setting, for which you can specify the desired number of nodes.
 
 The number of compute nodes is referred to as a *target* because, in some situations, your pool might not reach the desired number of nodes. For example, a pool might not achieve the target if it reaches the [core quota](batch-quota-limit.md) for your Batch account first. Or, the pool might not achieve the target if you have applied an automatic scaling formula to the pool that limits the maximum number of nodes.
 
-For pricing information for both low-priority and dedicated nodes, see [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/).
+For pricing information for both Spot and dedicated nodes, see [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/).
 
 ## Node size
 

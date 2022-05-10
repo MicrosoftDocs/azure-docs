@@ -4,21 +4,19 @@ description: Tutorial showing how to set multiline secrets from Azure Key Vault 
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
-
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli, devx-track-azurepowershell, mode-other
 ms.date: 03/17/2021
 ms.author: mbaldwin
-
-#Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
+#Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Store a multi-line secret in Azure Key Vault
 
 The [Azure CLI quickstart](quick-create-cli.md) and [Azure PowerShell quickstart](quick-create-powershell.md) demonstrate how to store a single-line secret.   You can also use Key Vault to store a multi-line secret, such as a JSON file or RSA private key.
 
-Multi-line secrets cannot be passed to the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set) command or the Azure PowerShell [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet through the commandline. Instead, you must first store the multi-line secret as a text file. 
+Multi-line secrets cannot be passed to the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) command or the Azure PowerShell [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet through the commandline. Instead, you must first store the multi-line secret as a text file. 
 
 For example, you could create a text file called "secretfile.txt" containing the following lines:
 
@@ -28,7 +26,7 @@ multi-line
 secret
 ```
 
-You can then pass this file to the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set) command using the `--file` parameter.
+You can then pass this file to the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) command using the `--file` parameter.
 
 ```azurecli-interactive
 az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "MultilineSecret" --file "secretfile.txt"
@@ -47,7 +45,7 @@ Lastly, you store the secret using the [Set-AzKeyVaultSecret](/powershell/module
 $secret = Set-AzKeyVaultSecret -VaultName "<your-unique-keyvault-name>" -Name "MultilineSecret" -SecretValue $SecureSecret
 ```
 
-In either case, you can then view the stored secret using the Azure CLI [az keyvault secret show](/cli/azure/keyvault/secret#az_keyvault_secret_show) command or the Azure PowerShell [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret) cmdlet.
+In either case, you can then view the stored secret using the Azure CLI [az keyvault secret show](/cli/azure/keyvault/secret#az-keyvault-secret-show) command or the Azure PowerShell [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret) cmdlet.
 
 ```azurecli-interactive
 az keyvault secret show --name "MultilineSecret" --vault-name "<your-unique-keyvault-name>" --query "value"

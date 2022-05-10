@@ -2,8 +2,8 @@
 title: How to create and select Kubernetes instance types (preview)
 description: Create and select Azure Arc-enabled Kubernetes cluster instance types for training and inferencing workloads in Azure Machine Learning.
 titleSuffix: Azure Machine Learning
-author: luisquintanilla
-ms.author: luquinta
+author: ssalgadodev
+ms.author: ssalgado
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/21/2021
@@ -88,10 +88,10 @@ items:
         limits:
           cpu: "100m"
           nvidia.com/gpu: 0
-          memory: "10Mi"
+          memory: "1Gi"
         requests:
           cpu: "100m"
-          memory: "1Gi"
+          memory: "10Mi"
 
   - metadata:
       name: defaultinstancetype

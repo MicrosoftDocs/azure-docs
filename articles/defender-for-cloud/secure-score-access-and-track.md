@@ -1,16 +1,10 @@
 ---
 title: Tracking your secure score in Microsoft Defender for Cloud
 description: Learn about the multiple ways to access and track your secure score in Microsoft Defender for Cloud.
-author: memildin
-ms.author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: how-to
 ms.date: 11/09/2021
 ---
 # Access and track your secure score
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 You can find your overall secure score, as well as your score per subscription, through the Azure portal or programmatically as described in the following sections:
 

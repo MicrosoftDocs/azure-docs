@@ -3,6 +3,7 @@ title: Application Insights logging with .NET
 description: Learn how to use Application Insights with the ILogger interface in .NET.
 ms.topic: conceptual
 ms.date: 05/20/2021
+ms.devlang: csharp
 ---
 
 # Application Insights logging with .NET
@@ -29,13 +30,13 @@ Depending on the Application Insights logging package that you use, there will b
 
 To add Application Insights telemetry to ASP.NET Core applications, use the `Microsoft.ApplicationInsights.AspNetCore` NuGet package. You can configure this through [Visual Studio as a connected service](/visualstudio/azure/azure-app-insights-add-connected-service), or manually.
 
-By default, ASP.NET Core applications have an Application Insights logging provider registered when they're configured through the [code](./asp-net-core.md) or [codeless](./azure-web-apps-net-core.md#enable-agent-based-monitoring) approach. The registered provider is configured to automatically capture log events with a severity of <xref:Microsoft.Extensions.Logging.LogLevel.Warning?displayProperty=nameWithType> or greater. You can customize severity and categories. For more information, see [Logging level](#logging-level).
+By default, ASP.NET Core applications have an Application Insights logging provider registered when they're configured through the [code](./asp-net-core.md) or [codeless](./azure-web-apps-net-core.md#enable-auto-instrumentation-monitoring) approach. The registered provider is configured to automatically capture log events with a severity of <xref:Microsoft.Extensions.Logging.LogLevel.Warning?displayProperty=nameWithType> or greater. You can customize severity and categories. For more information, see [Logging level](#logging-level).
 
 1. Ensure that the NuGet package is installed:
 
    ```xml
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.17.0" />
+        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.19.0" />
     </ItemGroup>
    ```
 
@@ -149,7 +150,7 @@ namespace WebApplication
                     // or when you need to capture logs during application startup, such as
                     // in Program.cs or Startup.cs itself.
                     builder.AddApplicationInsights(
-                        context.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"]);
+                        context.Configuration["APPINSIGHTS_INSTRUMENTATIONKEY"]);
 
                     // Capture all log-level entries from Program
                     builder.AddFilter<ApplicationInsightsLoggerProvider>(
@@ -163,12 +164,10 @@ namespace WebApplication
 }
 ```
 
-In the preceding code, `ApplicationInsightsLoggerProvider` is configured with your `"APPLICATIONINSIGHTS_CONNECTION_STRING"` connection string. Filters are applied, setting the log level to <xref:Microsoft.Extensions.Logging.LogLevel.Trace?displayProperty=nameWithType>.
+In the preceding code, `ApplicationInsightsLoggerProvider` is configured with your `"APPINSIGHTS_INSTRUMENTATIONKEY"` instrumentation key. Filters are applied, setting the log level to <xref:Microsoft.Extensions.Logging.LogLevel.Trace?displayProperty=nameWithType>.
 
-> [!IMPORTANT]
-> We recommend [connection strings](./sdk-connection-string.md?tabs=net) over instrumentation keys. New Azure regions *require* the use of connection strings instead of instrumentation keys. 
->
-> A connection string identifies the resource that you want to associate with your telemetry data. It also allows you to modify the endpoints that your resource will use as a destination for your telemetry. You'll need to copy the connection string and add it to your application's code or to an environment variable.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 #### Example Startup.cs
 
@@ -497,7 +496,7 @@ public class MyController : ApiController
 ```
 
 > [!NOTE]
-> If you use the `Microsoft.ApplicationInsights.AspNetCore` package to enable Application Insights, modify this code to get `TelemetryClient` directly in the constructor. For an example, see [this FAQ](./asp-net-core.md#frequently-asked-questions).
+> If you use the `Microsoft.ApplicationInsights.AspNetCore` package to enable Application Insights, modify this code to get `TelemetryClient` directly in the constructor. For an example, see [this FAQ](../faq.yml).
 
 ### What Application Insights telemetry type is produced from ILogger logs? Where can I see ILogger logs in Application Insights?
 
@@ -515,6 +514,10 @@ builder.AddApplicationInsights(
 ### I don't have the SDK installed, and I use the Azure Web Apps extension to enable Application Insights for my ASP.NET Core applications. How do I use the new provider? 
 
 The Application Insights extension in Azure Web Apps uses the new provider. You can modify the filtering rules in the *appsettings.json* file for your application.
+
+### I can't see some of the logs from my application in the workspace. 
+
+This may happen because of adaptive sampling. Adaptive sampling is enabled by default in all the latest versions of the Application Insights ASP.NET and ASP.NET Core Software Development Kits (SDKs). See the [Sampling in Application Insights](./sampling.md) for more details. 
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Back up multiple SQL Server VMs from the vault
 description: In this article, learn how to back up SQL Server databases on Azure virtual machines with Azure Backup from the Recovery Services vault
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 04/28/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -51,7 +51,10 @@ The following table lists the various alternatives you can use for establishing 
 | Allow access to service FQDNs/IPs | No additional costs   <br><br>  Works with all network security appliances and firewalls | A broad set of IPs or FQDNs may be required to be accessed   |
 | Use an HTTP proxy                 | Single point of internet access to VMs                       | Additional costs to run a VM with the proxy software         |
 
-More details around using these options are shared below:
+The following sections provide more details around using these options.
+
+>[!Note]
+>You can use the [Azure Backup connectivity test scripts](https://github.com/Azure/Azure-Workload-Backup-Troubleshooting-Scripts/releases/download/v1.0.0/AzureBackupConnectivityTestScriptsForWindows.zip) to self-diagnose the network connectivity issues on Windows environment.
 
 #### Private endpoints
 
@@ -89,6 +92,10 @@ You can also use the following FQDNs to allow access to the required services fr
 | Azure  Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` | 443
 | Azure  AD      | Allow  access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) | As applicable
 
+#### Allow connectivity for servers behind internal load balancers
+
+When using an internal load balancer, you need to allow the outbound connectivity from virtual machines behind the internal load balancer to perform backups. To do so, you can use a combination of internal and external standard load balancers to create an outbound connectivity. [Learn more](../load-balancer/egress-only.md) about the configuration to create an _egress only_ setup for VMs in the backend pool of the internal load balancer.
+
 #### Use an HTTP proxy server to route traffic
 
 When you back up a SQL Server database on an Azure VM, the backup extension on the VM uses the HTTPS APIs to send management commands to Azure Backup and data to Azure Storage. The backup extension also uses Azure AD for authentication. Route the backup extension traffic for these three services through the HTTP proxy. Use the list of IPs and FQDNs mentioned above for allowing access to the required services. Authenticated proxy servers aren't supported.
@@ -110,7 +117,7 @@ When you back up a SQL Server database on an Azure VM, the backup extension on t
 
 - Multiple databases on the same SQL instance with casing difference aren't supported.
 
--	Changing the casing of a SQL database isn't supported after configuring protection.
+-	Changing the casing of an SQL database isn't supported after configuring protection.
 
 >[!NOTE]
 >The **Configure Protection** operation for databases with special characters, such as '+' or '&', in their name isn't supported. You can change the database name or enable **Auto Protection**, which can successfully protect these databases.
@@ -144,7 +151,7 @@ How to discover databases running on a VM:
 1. Azure Backup discovers all SQL Server databases on the VM. During discovery, the following elements occur in the background:
 
     * Azure Backup registers the VM with the vault for workload backup. All databases on the registered VM can be backed up to this vault only.
-    * Azure Backup installs the AzureBackupWindowsWorkload extension on the VM. No agent is installed on a SQL database.
+    * Azure Backup installs the AzureBackupWindowsWorkload extension on the VM. No agent is installed on an SQL database.
     * Azure Backup creates the service account NT Service\AzureWLBackupPluginSvc on the VM.
       * All backup and restore operations use the service account.
       * NT Service\AzureWLBackupPluginSvc requires SQL sysadmin permissions. All SQL Server VMs created in the Marketplace come with the SqlIaaSExtension installed. The AzureBackupWindowsWorkload extension uses the SQLIaaSExtension to automatically get the required permissions.
@@ -259,9 +266,11 @@ To create a backup policy:
 
 You can enable auto-protection to automatically back up all existing and future databases to a standalone SQL Server instance or to an Always On availability group.
 
-* There's no limit on the number of databases you can select for auto-protection at a time. Discovery typically runs every eight hours. However, you can discover and protect new databases immediately if you manually run a discovery by selecting the **Rediscover DBs** option.
+* There's no limit on the number of databases you can select for auto-protection at a time. Discovery typically runs every eight hours. The auto-protection of a newly discovered database will be triggered within 32 hours. However, you can discover and protect new databases immediately if you manually run a discovery by selecting the **Rediscover DBs** option.
+* If the auto-protection operation on the newly discovered database fails, it'll be retried three times. If all three retries fail, the database won't be protected.
 * You can't selectively protect or exclude databases from protection in an instance at the time you enable auto-protection.
 * If your instance already includes some protected databases, they'll remain protected under their respective policies even after you turn on auto-protection. All unprotected databases added later will have only a single policy that you define at the time of enabling auto-protection, listed under **Configure Backup**. However, you can change the policy associated with an auto-protected database later.  
+* If the **Configure Protection** operation for the newly discovered database fails, it won't raise an alert. However, a failed backup job could be found on the **Backup jobs** page.
 
 To enable auto-protection:
 

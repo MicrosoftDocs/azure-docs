@@ -13,11 +13,11 @@ ms.custom: "include file"
 > [!NOTE]
 > The `az webapp up` command does the following actions:
 >
->- Create a default [resource group](/cli/azure/group#az_group_create).
+>- Create a default [resource group](/cli/azure/group#az-group-create).
 >
->- Create a default [App Service plan](/cli/azure/appservice/plan#az_appservice_plan_create).
+>- Create a default [App Service plan](/cli/azure/appservice/plan#az-appservice-plan-create).
 >
->- [Create an app](/cli/azure/webapp#az_webapp_create) with the specified name.
+>- [Create an app](/cli/azure/webapp#az-webapp-create) with the specified name.
 >
 >- [Zip deploy](../articles/app-service/deploy-zip.md#deploy-a-zip-package) all files from the current working directory, [with build automation enabled](../articles/app-service/deploy-zip.md#enable-build-automation-for-zip-deploy).
 >

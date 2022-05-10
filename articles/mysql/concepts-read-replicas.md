@@ -4,6 +4,7 @@ description: 'Learn about read replicas in Azure Database for MySQL: choosing re
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 06/17/2021
 ms.custom: references_regions
@@ -37,9 +38,7 @@ The read replica feature uses MySQL asynchronous replication. The feature isn't 
 
 You can create a read replica in a different region from your source server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
-You can have a source server in any [Azure Database for MySQL region](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  A source server can have a replica in its paired region or the universal replica regions. The following picture shows which replica regions are available depending on your source region.
-
-[:::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="Read replica regions":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
+You can have a source server in any [Azure Database for MySQL region](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  A source server can have a replica in its [paired region](./../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) or the universal replica regions. The following picture shows which replica regions are available depending on your source region.
 
 ### Universal replica regions
 
@@ -64,6 +63,7 @@ You can create a read replica in any of the following regions, regardless of whe
 | North Central US | :heavy_check_mark: | 
 | South Central US | :heavy_check_mark: | 
 | Southeast Asia | :heavy_check_mark: | 
+| Switzerland North | :heavy_check_mark: |
 | UK South | :heavy_check_mark: | 
 | UK West | :heavy_check_mark: | 
 | West Central US | :heavy_check_mark: | 
@@ -81,7 +81,7 @@ You can create a read replica in any of the following regions, regardless of whe
 
 ### Paired regions
 
-In addition to the universal replica regions, you can create a read replica in the Azure paired region of your source server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article](../best-practices-availability-paired-regions.md).
+In addition to the universal replica regions, you can create a read replica in the Azure paired region of your source server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article](../availability-zones/cross-region-replication-azure.md).
 
 If you're using cross-region replicas for disaster recovery planning, we recommend you create the replica in the paired region instead of one of the other regions. Paired regions avoid simultaneous updates and prioritize physical isolation and data residency.  
 
@@ -158,7 +158,7 @@ After your application is successfully processing reads and writes, you've compl
 
 ## Global transaction identifier (GTID)
 
-Global transaction identifier (GTID) is a unique identifier created with each committed transaction on a source server and is OFF by default in Azure Database for MySQL. GTID is supported on versions 5.7 and 8.0 and only on servers that support storage up to 16 TB. To learn more about GTID and how it's used in replication, refer to MySQL's [replication with GTID](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html) documentation.
+Global transaction identifier (GTID) is a unique identifier created with each committed transaction on a source server and is OFF by default in Azure Database for MySQL. GTID is supported on versions 5.7 and 8.0 and only on servers that support storage up to 16 TB(General purpose storage v2). To learn more about GTID and how it's used in replication, refer to MySQL's [replication with GTID](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html) documentation.
 
 MySQL supports two types of transactions: GTID transactions (identified with GTID) and anonymous transactions (don't have a GTID allocated)
 

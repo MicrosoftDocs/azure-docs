@@ -1,10 +1,12 @@
 ---
 title: App development best practices - Azure Database for PostgreSQL
 description: Learn about best practices for building an app by using Azure Database for PostgreSQL.
-author: mksuni
-ms.author: sumuth
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: conceptual
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.date: 12/10/2020
 ---
 
@@ -29,7 +31,7 @@ For security, you must always connect to your PostgreSQL server over SSL and con
 For read-heavy workloads tuning server parameters, `tmp_table_size` and `max_heap_table_size` can help optimize for better performance. To calculate the values required for these variables, look at the total per-connection memory values and the base memory. The sum of per-connection memory parameters, excluding `tmp_table_size`, combined with the base memory accounts for total memory of the server.
 
 ### Use environment variables for connection information
-Do not save your database credentials in your application code. Depending on the front end application follow the guidance to setup environment variables.For App service use, see[how to configure app settings](../app-service/configure-common.md#configure-app-settings) and for Azure Kuberentes service , see [how to use Kubernetes secrets](https://kubernetes.io/docs/concepts/configuration/secret/).
+Do not save your database credentials in your application code. Depending on the front end application follow the guidance to setup environment variables. For App service use, see [how to configure app settings](../app-service/configure-common.md#configure-app-settings) and for Azure Kuberentes service, see [how to use Kubernetes secrets](https://kubernetes.io/docs/concepts/configuration/secret/).
 
 ## Performance and resiliency
 Here are a few tools and practices that you can use to help debug performance issues with your application.

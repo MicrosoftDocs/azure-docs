@@ -1,14 +1,15 @@
 ---
 title: Use Azure Cosmos DB change feed to visualize real-time data analytics
 description: This article describes how change feed can be used by a retail company to understand user patterns, perform real-time data analysis and visualization
-author: SnehaGunda
+author: timsander1
+ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
-ms.date: 05/28/2019
-ms.author: sngun
-ms.custom: devx-track-java
+ms.reviewer: wiassaf
+ms.date: 03/24/2022
+ms.custom: devx-track-java, cosmos-db-video
 ---
 
 # Use Azure Cosmos DB change feed to visualize real-time data analytics
@@ -18,9 +19,8 @@ The Azure Cosmos DB change feed is a mechanism to get a continuous and increment
 
 This article describes how change feed can be used by an e-commerce company to understand user patterns, perform real-time data analysis and visualization. You will analyze events such as a user viewing an item, adding an item to their cart, or purchasing an item. When one of these events occurs, a new record is created, and the change feed logs that record. Change feed then triggers a series of steps resulting in visualization of metrics that analyze the company performance and activity. Sample metrics that you can visualize include revenue, unique site visitors, most popular items, and average price of the items that are viewed versus added to a cart versus purchased. These sample metrics can help an e-commerce company evaluate its site popularity, develop its advertising and pricing strategies, and make decisions regarding what inventory to invest in.
 
-Interested in watching a video about the solution before getting started, see the following video:
-
-> [!VIDEO https://www.youtube.com/embed/AYOiMkvxlzo]
+>
+> [!VIDEO https://aka.ms/docs.ecomm-change-feed]
 >
 
 ## Solution components
@@ -43,9 +43,9 @@ The following diagram represents the data flow and components involved in the so
 
 3. **Change Feed:** The change feed will listen for changes to the Azure Cosmos container. Each time a new document is added into the collection (that is when an event occurs such a user viewing an item, adding an item to their cart, or purchasing an item), the change feed will trigger an [Azure Function](../../azure-functions/functions-overview.md).  
 
-4. **Azure Function:** The Azure Function processes the new data and sends it to an [Azure Event Hub](../../event-hubs/event-hubs-about.md).  
+4. **Azure Function:** The Azure Function processes the new data and sends it to [Azure Event Hubs](../../event-hubs/event-hubs-about.md).  
 
-5. **Event Hub:** The Azure Event Hub stores these events and sends them to [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) to perform further analysis.  
+5. **Azure event hub:** The event hub stores these events and sends them to [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) to perform further analysis.  
 
 6. **Azure Stream Analytics:** Azure Stream Analytics defines queries to process the events and perform real-time data analysis. This data is then sent to [Microsoft Power BI](/power-bi/desktop-what-is-desktop).  
 
@@ -67,7 +67,7 @@ The following diagram represents the data flow and components involved in the so
 
 ## Create Azure resources 
 
-Create the Azure resources - Azure Cosmos DB, Storage account, Event Hub, Stream Analytics required by the solution. You will deploy these resources through an Azure Resource Manager template. Use the following steps to deploy these resources: 
+Create the Azure resources: Azure Cosmos DB, storage account, event hub, and Stream Analytics required by the solution. You will deploy these resources through an Azure Resource Manager template. Use the following steps to deploy these resources: 
 
 1. Set the Windows PowerShell execution policy to **Unrestricted**. To do so, open **Windows PowerShell as an Administrator** and run the following commands:
 
@@ -78,7 +78,7 @@ Create the Azure resources - Azure Cosmos DB, Storage account, Event Hub, Stream
 
 2. From the GitHub repository you downloaded in the previous step, navigate to the **Azure Resource Manager** folder, and open the file called **parameters.json** file.  
 
-3. Provide values for cosmosdbaccount_name, eventhubnamespace_name, storageaccount_name, parameters as indicated in **parameters.json** file. You'll need to use the names that you give to each of your resources later.  
+3. Provide values for `cosmosdbaccount_name`, `eventhubnamespace_name`, `storageaccount_name`, parameters as indicated in **parameters.json** file. You'll need to use the names that you give to each of your resources later.  
 
 4. From **Windows PowerShell**, navigate to the **Azure Resource Manager** folder and run the following command:
 
@@ -91,7 +91,7 @@ Create the Azure resources - Azure Cosmos DB, Storage account, Event Hub, Stream
 
 You will now create a collection to hold e-commerce site events. When a user views an item, adds an item to their cart, or purchases an item, the collection will receive a record that includes the action ("viewed", "added", or "purchased"), the name of the item involved, the price of the item involved, and the ID number of the user cart involved.
 
-1. Go to [Azure portal](https://portal.azure.com/) and find the **Azure Cosmos DB Account** that’s created by the template deployment.  
+1. Go to [Azure portal](https://portal.azure.com/) and find the **Azure Cosmos DB Account** that's been created by the template deployment.  
 
 2. From the **Data Explorer** pane, select **New Collection** and fill the form with the following details:  
 
@@ -115,7 +115,7 @@ You will now create a collection to hold e-commerce site events. When a user vie
 
 ### Get the Azure Cosmos DB connection string
 
-1. Go to [Azure portal](https://portal.azure.com/) and find the **Azure Cosmos DB Account** that’s created by the template deployment.  
+1. Go to [Azure portal](https://portal.azure.com/) and find the **Azure Cosmos DB Account** that's created by the template deployment.  
 
 2. Navigate to the **Keys** pane, copy the PRIMARY CONNECTION STRING and copy it to a notepad or another document that you will have access to throughout the lab. You should label it **Cosmos DB Connection String**. You'll need to copy the string into your code later, so take a note and remember where you are storing it.
 
@@ -131,9 +131,9 @@ Azure Storage Accounts allow users to store data. In this lab, you will use a st
 
 ### Get the event hub namespace connection string
 
-An Azure Event Hub receives the event data, stores, processes, and forwards the data. In this lab, the Azure Event Hub will receive a document every time a new event occurs (i.e. an item is viewed by a user, added to a user's cart, or purchased by a user) and then will forward that document to Azure Stream Analytics.
+An Azure event hub receives the event data, stores, processes, and forwards the data. In this lab, the event hub will receive a document every time a new event occurs (whenever an item is viewed by a user, added to a user's cart, or purchased by a user) and then will forward that document to Azure Stream Analytics.
 
-1. Return to your resource group and open the **Event Hub Namespace** that you created and named in the prelab.  
+1. Return to your resource group and open the **Event Hubs Namespace** that you created and named in the prelab.  
 
 2. Select **Shared access policies** from the menu on the left-hand side.  
 
@@ -141,7 +141,7 @@ An Azure Event Hub receives the event data, stores, processes, and forwards the 
 
 ## Set up Azure Function to read the change feed
 
-When a new document is created, or a current document is modified in a Cosmos container, the change feed automatically adds that modified document to its history of collection changes. You will now build and run an Azure Function that processes the change feed. When a document is created or modified in the collection you created, the Azure Function will be triggered by the change feed. Then the Azure Function will send the modified document to the Event Hub.
+When a new document is created, or a current document is modified in a Cosmos container, the change feed automatically adds that modified document to its history of collection changes. You will now build and run an Azure Function that processes the change feed. When a document is created or modified in the collection you created, the Azure Function will be triggered by the change feed. Then the Azure Function will send the modified document to the event hub.
 
 1. Return to the repository that you cloned on your device.  
 
@@ -159,7 +159,7 @@ When a new document is created, or a current document is modified in a Cosmos co
 
 ## Insert data into Azure Cosmos DB 
 
-To see how change feed processes new actions on an e-commerce site, have to simulate data that represents users viewing items from the product catalog, adding those items to their carts, and purchasing the items in their carts. This data is arbitrary and for the purpose of replicating what data on an Ecommerce site would look like.
+To see how change feed processes new actions on an e-commerce site, have to simulate data that represents users viewing items from the product catalog, adding those items to their carts, and purchasing the items in their carts. This data is arbitrary and used for replicating what data on an e-commerce site would look like.
 
 1. Navigate back to the repository in File Explorer, and right-click **ChangeFeedFunction.sln** to open it again in a new Visual Studio window.  
 
@@ -181,7 +181,7 @@ To see how change feed processes new actions on an e-commerce site, have to simu
 
 ## Set up a stream analytics job
 
-Azure Stream Analytics is a fully managed cloud service for real-time processing of streaming data. In this lab, you will use stream analytics to process new events from the Event Hub (i.e. when an item is viewed, added to a cart, or purchased), incorporate those events into real-time data analysis, and send them into Power BI for visualization.
+Azure Stream Analytics is a fully managed cloud service for real-time processing of streaming data. In this lab, you will use stream analytics to process new events from the event hub (when an item is viewed, added to a cart, or purchased), incorporate those events into real-time data analysis, and send them into Power BI for visualization.
 
 1. From the [Azure portal](https://portal.azure.com/), navigate to your resource group, then to **streamjob1** (the stream analytics job that you created in the prelab).  
 
@@ -196,7 +196,7 @@ Azure Stream Analytics is a fully managed cloud service for real-time processing
    * In the **Input** alias field, enter **input**.  
    * Select the option for **Select Event Hub from your subscriptions**.  
    * Set the **Subscription** field to your subscription.  
-   * In the **Event Hub namespace** field, enter the name of your Event Hub Namespace that you created during the prelab.  
+   * In the **Event Hubs namespace** field, enter the name of your event hub namespace that you created during the prelab.  
    * In the **Event Hub name** field, select the option for **Use existing** and choose **event-hub1** from the drop-down menu.  
    * Leave **Event Hub policy** name field set to its default value.  
    * Leave **Event serialization format** as **JSON**.  
@@ -232,7 +232,7 @@ Azure Stream Analytics is a fully managed cloud service for real-time processing
    ```
 10. Then select **Save** in the upper left-hand corner.  
 
-11.	Now return to **streamjob1** and select the **Start** button at the top of the page. Azure Stream Analytics can take a few minutes to start up, but eventually you will see it change from "Starting" to "Running".
+11.    Now return to **streamjob1** and select the **Start** button at the top of the page. Azure Stream Analytics can take a few minutes to start up, but eventually you will see it change from "Starting" to "Running".
 
 ## Connect to Power BI
 
@@ -298,11 +298,11 @@ Power BI is a suite of business analytics tools to analyze data and share insigh
     GROUP BY TumblingWindow(second, 5)
    ```
    
-   The TOP 5 query calculates the top 5 items, ranked by the number of times that they have been purchased. This metric can help e-commerce companies evaluate which items are most popular and can influence the company's advertising, pricing, and inventory decisions.
+   The TOP 5 query calculates the top five items, ranked by the number of times that they have been purchased. This metric can help e-commerce companies evaluate which items are most popular and can influence the company's advertising, pricing, and inventory decisions.
 
    The REVENUE query calculates revenue by summing up the prices of all items purchased each minute. This metric can help e-commerce companies evaluate its financial performance and also understand what times of day contribute to most revenue. This can impact the overall company strategy, marketing in particular.
 
-   The UNIQUE VISITORS query calculates how many unique visitors are on the site every 5 seconds by detecting unique cart ID's. This metric can help e-commerce companies evaluate their site activity and strategize how to acquire more customers.
+   The UNIQUE VISITORS query calculates how many unique visitors are on the site every five seconds by detecting unique cart ID's. This metric can help e-commerce companies evaluate their site activity and strategize how to acquire more customers.
 
 8. You can now add tiles for these datasets as well.
 
@@ -316,7 +316,7 @@ Power BI is a suite of business analytics tools to analyze data and share insigh
 
 ## Optional: Visualize with an E-commerce site
 
-You will now observe how you can use your new data analysis tool to connect with a real e-commerce site. In order to build the e-commerce site, use an Azure Cosmos database to store the list of product categories (Women's, Men's, Unisex), the product catalog, and a list of the most popular items.
+You will now observe how you can use your new data analysis tool to connect with a real e-commerce site. In order to build the e-commerce site, use an Azure Cosmos database to store the list of product categories, the product catalog, and a list of the most popular items.
 
 1. Navigate back to the [Azure portal](https://portal.azure.com/), then to your **Cosmos DB account**, then to **Data Explorer**.  
 
@@ -380,11 +380,11 @@ You will now observe how you can use your new data analysis tool to connect with
 
 8. Navigate to and open the **Checkout folder** within **EcommerceWebApp.sln.** Then open the **Web.config** file within that folder.  
 
-9. Within the `<appSettings>` block, add the **URI** and **PRIMARY KEY** that you saved earlier where indicated. Then add in your **database name** and **collection name** as indicated. (These names should be **changefeedlabdatabase** and **changefeedlabcollection** unless you chose to name yours differently.)  
+9. Within the `<appSettings>` block, add the **URI** and **PRIMARY KEY** that you saved earlier, where indicated. Then, add in your **database name** and **collection name** as indicated. (These names should be **changefeedlabdatabase** and **changefeedlabcollection** unless you chose to name yours differently.)  
 
-10.	Press **Start** at the top of the page to run the program.  
+10.    Press **Start** at the top of the page to run the program.  
 
-11.	Now you can play around on the e-commerce site. When you view an item, add an item to your cart, change the quantity of an item in your cart, or purchase an item, these events will be passed through the Cosmos DB change feed to Event Hub, ASA, and then Power BI. We recommend continuing to run DataGenerator to generate significant web traffic data and provide a realistic set of "Hot Products" on the e-commerce site.
+11.    Now you can play around on the e-commerce site. When you view an item, add an item to your cart, change the quantity of an item in your cart, or purchase an item, these events will be passed through the Cosmos DB change feed to event hub, Stream Analytics, and then Power BI. We recommend continuing to run DataGenerator to generate significant web traffic data and provide a realistic set of "Hot Products" on the e-commerce site.
 
 ## Delete the resources
 

@@ -11,14 +11,17 @@ ms.reviewer: larryfr
 ms.author: nilsp
 author: NilsPohlmann
 ms.date: 07/31/2020
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python, devx-track-azurecli, cliv1
 ---
 
 # Define machine learning pipelines in YAML
 
-Learn how to define your machine learning pipelines in [YAML](https://yaml.org/). When using the machine learning extension for the Azure CLI, many of the pipeline-related commands expect a YAML file that defines the pipeline.
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
-The following table lists what is and is not currently supported when defining a pipeline in YAML:
+
+Learn how to define your machine learning pipelines in [YAML](https://yaml.org/). When using the machine learning extension for the [Azure CLI **v1**](reference-azure-machine-learning-cli.md)., many of the pipeline-related commands expect a YAML file that defines the pipeline.
+
+The following table lists what is and is not currently supported when defining a pipeline in YAML for use with CLI v1:
 
 | Step type | Supported? |
 | ----- | :-----: |

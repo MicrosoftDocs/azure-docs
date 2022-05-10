@@ -13,6 +13,12 @@ ms.custom: ignite-fall-2021
 
 Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra data centers. This article defines the management operations and features provided by the service. It also explains the separation of responsibilities between the Azure support team and customers when maintaining standalone and [hybrid](configure-hybrid-cluster.md) clusters.
 
+## Compaction
+
+* The system currently does not perform a major compaction. 
+* Repair (see [Maintenance](#maintenance)) performs a Merkle tree compaction, which is a special kind of compaction.
+* Depending on the compaction strategy on the keyspace, Cassandra automatically compacts when the keyspace reaches a specific size. We recommend that you carefully select a compaction strategy for your workload, and don't do any manual compactions outside the strategy.
+
 ## Patching
 
 * Operating System-level patches are done automatically at approximately 2-week cadence.
@@ -32,20 +38,32 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
   * Actively monitoring each node's membership in the Cassandra ring.
   * Actively monitoring virtual machines to identify and fix problems with Azure, Virtual Machines, storage, Linux, and the support software.
 
-* You are responsible for any CPU, disk, and network usage problems, which may arise due to your Cassandra usage. Some examples of such issues include:
+## Support
 
-  * Inefficient query operations.
-  * Throughput that exceeds capacity.
-  * Ingesting data that exceeds storage capacity.
-  * Incorrect keyspace configuration settings.
-  * Poor data model or partition key strategy.
+Azure Managed Instance for Apache Cassandra provides an [SLA](https://azure.microsoft.com/support/legal/sla/managed-instance-apache-cassandra/v1_0/) for the availability of data centers in a managed cluster. If you encounter any issues with using the service, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal. 
+
+>[!IMPORTANT]
+> We will attempt to investigate and diagnose any issues reported via support case, and resolve or mitigate where possible. However, you are ultimately responsible for any Apache Cassandra configuration level usage which causes CPU, disk, or network problems.
+>
+> Examples of such issues include:
+>
+>  * Inefficient query operations.
+>  * Throughput that exceeds capacity.
+>  * Ingesting data that exceeds storage capacity.
+>  * Incorrect keyspace configuration settings.
+>  * Poor data model or partition key strategy. 
+>
+> In the event that we investigate a support case and discover that the root cause of the issue is at the Apache Cassandra configuration level (and not any underlying platform level aspects we maintain), the case may be closed. Where possible, we will also provide recommendations and guidance on remediation. We therefore recommend you [enable metrics](visualize-prometheus-grafana.md) and/or become familiar with our [Azure monitor integration](monitor-clusters.md ) in order to prevent common application/configuration level issues in Apache Cassandra, such as the above. 
+
+>[!WARNING]
+> Azure Managed Instance for Apache Cassandra also let's you run `nodetool` and `sstable` commands for routine DBA administration - see article [here](dba-commands.md). Some of these commands can destabilize the cassandra cluster and should only be run carefully and after being tested in non-production environments. Where possible, a `--dry-run` option should be deployed first. Microsoft cannot offer any SLA or support on issues with running commands which alter the default database configuration and/or tables.
 
 ## Backup and restore
 
-Snapshot backups are enabled by default, and taken every 4 hours. Backups are stored in an internal Azure blob storage account, and are retained for up to 2 days (48 hours). This is no cost for backups. To restore from a backup, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
+Snapshot backups are enabled by default and taken every 4 hours with [Medusa](https://github.com/thelastpickle/cassandra-medusa). Backups are stored in an internal Azure Blob Storage account and are retained for up to 2 days (48 hours). There is no cost for backups. To restore from a backup, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
 
 > [!WARNING]
-> Backups are restored to new clusters only. Backups are intended for accidental deletion scenarios, and are not geo-redundant. They are therefore not recommended for use as a disaster recovery (DR) strategy in case of a total regional outage. To safeguard against region-wide outages, we recommend a multi-region deployment. Take a look at our quick start for multi-region deployments [here](create-multi-region-cluster.md). 
+> Backups can be restored to the same VNet/subnet as your existing cluster, but they cannot be restored to the *same cluster*. Backups can only be restored to **new clusters**. Backups are intended for accidental deletion scenarios, and are not geo-redundant. They are therefore not recommended for use as a disaster recovery (DR) strategy in case of a total regional outage. To safeguard against region-wide outages, we recommend a multi-region deployment. Take a look at our [quickstart for multi-region deployments](create-multi-region-cluster.md). 
 
 ## Security
 
@@ -57,6 +75,8 @@ Azure Managed Instance for Apache Cassandra provides many built-in explicit secu
 * Active vulnerability scanning.
 * Active virus scanning.
 * Secure coding practices.
+
+For more information on security features, see our article [here](security.md).
 
 ## Hybrid support
 

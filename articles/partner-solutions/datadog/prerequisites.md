@@ -1,11 +1,8 @@
 ---
 title: Prerequisites for Datadog on Azure - Azure partner solutions
 description: This article describes how to configure your Azure environment to create an instance of Datadog.
-ms.service: partner-services
 ms.topic: conceptual
 ms.date: 05/28/2021
-author: tfitzmac
-ms.author: tomfitz
 ---
 
 # Configure environment before Datadog deployment
@@ -27,7 +24,7 @@ Use the following steps to set up the enterprise application:
 1. Select **New Application**.
 1. In **Add from the gallery**, search for *Datadog*. Select the search result then select **Add**.
 
-   :::image type="content" source="media/prerequisites/datadog-azure-ad-app-gallery.png" alt-text="Datadog application in the AAD enterprise gallery." border="true":::
+   :::image type="content" source="media/prerequisites/datadog-azure-ad-app-gallery.png" alt-text="Datadog application in the Azure A D enterprise gallery." border="true":::
 
 1. Once the app is created, go to properties from the side panel. Set **User assignment required?** to **No**, and select **Save**.
 

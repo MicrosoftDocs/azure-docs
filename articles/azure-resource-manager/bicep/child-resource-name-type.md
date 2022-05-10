@@ -17,7 +17,7 @@ This article show different ways you can declare a child resource.
 
 ### Microsoft Learn
 
-To learn more about child resources, and for hands-on guidance, see [Deploy child and extension resources by using Bicep](/learn/modules/child-extension-bicep-templates) on **Microsoft Learn**.
+If you would rather learn about about child resources through step-by-step guidance, see [Deploy child and extension resources by using Bicep](/learn/modules/child-extension-bicep-templates) on **Microsoft Learn**.
 
 ## Name and type pattern
 

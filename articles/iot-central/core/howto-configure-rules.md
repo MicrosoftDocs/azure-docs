@@ -3,7 +3,7 @@ title: Configure rules and actions in Azure IoT Central | Microsoft Docs
 description: This how-to article shows you, as a builder, how to configure telemetry-based rules and actions in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/06/2021
+ms.date: 12/27/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -27,7 +27,7 @@ Conditions are what rules trigger on. You can add multiple conditions to a rule 
 
 In the following screenshot, the conditions check when the temperature is greater than 70&deg; F and the humidity is less than 10. When any of these statements are true, the rule evaluates to true and triggers an action.
 
-:::image type="content" source="media/howto-configure-rules/conditions.png" alt-text="Screenshot shows a refrigerator monitor with conditions specified for temperature and humidity.":::
+:::image type="content" source="media/howto-configure-rules/conditions.png" alt-text="Screenshot shows a refrigerator monitor with conditions specified for temperature and humidity." lightbox="media/howto-configure-rules/conditions.png":::
 
 > [!NOTE]
 > Currently only Telemetry Conditions are supported.  
@@ -212,7 +212,7 @@ The following table summarizes the information sent to the supported action type
 | Email       | Standard IoT Central email template |
 | SMS         | Azure IoT Central alert: ${applicationName} - "${ruleName}" triggered on "${deviceName}" at ${triggerDate} ${triggerTime} |
 | Voice       | Azure I.O.T Central alert: rule "${ruleName}" triggered on device "${deviceName}" at ${triggerDate} ${triggerTime}, in application ${applicationName} |
-| Webhook     | { "schemaId" : "AzureIoTCentralRuleWebhook", "data": {[regular webhook payload](howto-create-webhooks.md#payload)}} |
+| Webhook     | { "schemaId" : "AzureIoTCentralRuleWebhook", "data": {[regular webhook payload](howto-configure-rules.md#payload)}} |
 
 The following text is an example SMS message from an action group:
 

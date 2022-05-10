@@ -1,11 +1,12 @@
 ---
 title: How to request quota increase for Azure Cosmos DB resources
 description: Learn how to request a quota increase for Azure Cosmos DB resources. You will also learn how to enable a subscription to access a region.
-author: SnehaGunda
-ms.author: sngun
+author: kanshiG
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/17/2020
+ms.date: 04/27/2022
 ---
 
 # How to request quota increase for Azure Cosmos DB resources
@@ -33,23 +34,9 @@ To request a quota increase, you must create a new support request with your wor
 
 1. Fill the following details in this form:
 
-   * **Description**: Provide a short description of your request such as your workload, why the default values aren’t sufficient. Based on the resource type for which you want quota increase, it’s mandatory for you to provide the following details within the **Description** field:
+   * **Description**: Provide a short description of your request such as your workload, why the default values aren’t sufficient along with any error messages you are observing.
 
-     **Regions requests** If your request corresponds to adding a region to the allowed list, make sure to provide the following values:
-
-        * Region name
-        * Subscription ID
-
-     **Throughput limit requests** If your request corresponds to increasing the quota for the throughput, make sure to provide the following values:
-
-        * Database name
-        * Subscription ID
-        * New throughput limit
-
-     **Database account limit requests** If your request corresponds to increasing the quota for the number of database accounts in a subscription, make sure to provide the following values:
-
-       * Subscription ID
-       * New database account limit
+   * **Quota specific fields** provide the requested information for your specific quota request.
 
    * **File upload**: Upload the diagnostic files or any other files that you think are relevant to the support request. To learn more on the file upload guidance, see the [Azure support](../../azure-portal/supportability/how-to-manage-azure-support-request.md#upload-files) article.
 

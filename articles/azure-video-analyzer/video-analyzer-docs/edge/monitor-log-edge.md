@@ -1,5 +1,5 @@
 ---
-title: Monitoring and logging - Azure
+title: Monitoring and logging
 description: This article provides an overview of monitoring and logging in Azure Video Analyzer.
 ms.topic: how-to
 ms.date: 11/04/2021
@@ -11,6 +11,8 @@ ms.custom: ignite-fall-2021
 Alternatively, check out [monitor and log in the service](../cloud/monitor-log-cloud.md).
 
 ---
+
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
 
 In this article, you'll learn how to receive events for remote monitoring from the Azure Video Analyzer IoT Edge module. 
 
@@ -321,8 +323,8 @@ Using [Prometheus endpoint](https://prometheus.io/docs/practices/naming/) along 
 
 [![Diagram that shows the metrics collection using Log Analytics.](./media/telemetry-schema/log-analytics.svg)](./media/telemetry-schema/log-analytics.svg#lightbox)
 
-1. Learn how to [collect metrics](https://github.com/Azure/iotedge/tree/master/edge-modules/MetricsCollector)
-1. Use Docker CLI commands to build the [Docker file](https://github.com/Azure/iotedge/tree/master/edge-modules/MetricsCollector/docker/linux) and publish the image to your Azure container registry.
+1. Learn how to [collect metrics](https://github.com/Azure/iotedge/blob/main/test/modules/TestMetricsCollector/Program.cs)
+1. Use Docker CLI commands to build the [Docker file](https://github.com/Azure/iotedge/blob/main/mqtt/docker/linux/amd64/Dockerfile) and publish the image to your Azure container registry.
    
    For more information about using the Docker CLI to push to a container registry, see [Push and pull Docker images](../../../container-registry/container-registry-get-started-docker-cli.md). For other information about Azure Container Registry, see the [documentation](../../../container-registry/index.yml).
 1. After the push to Azure Container Registry is complete, the following is inserted into the deployment manifest:

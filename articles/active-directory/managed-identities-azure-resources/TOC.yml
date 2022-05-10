@@ -125,6 +125,8 @@
       href: how-to-assign-app-role-managed-identity-cli.md
   - name: View managed identity activity
     href: how-to-view-managed-identity-activity.md
+  - name: Move a managed identity to a new region
+    href: how-to-managed-identity-regional-move.md
 
 - name: Reference
   items:
@@ -137,7 +139,7 @@
   - name: Python
     href: /python/api/overview/azure/identity-readme
   - name: Go
-    href: https://golang.org/doc/
+    href: https://go.dev/doc/
 - name: Resources
   items:
   - name: Frequently asked questions
@@ -145,7 +147,9 @@
   - name: Known issues
     href: known-issues.md
   - name: Azure services that support managed identities for Azure resources
-    href: services-support-managed-identities.md
+    href: managed-identities-status.md
+  - name: Azure services that support Azure Active Directory authentication
+    href: services-azure-active-directory-support.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-managed-identity
   - name: Azure AD Developers forum

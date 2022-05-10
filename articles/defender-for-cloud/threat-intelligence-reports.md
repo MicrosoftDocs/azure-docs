@@ -1,16 +1,10 @@
 ---
 title: Microsoft Defender for Cloud threat intelligence report | Microsoft Docs
 description: This page helps you to use Microsoft Defender for Cloud threat intelligence reports during an investigation to find more information about security alerts
-author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: how-to
 ms.date: 11/09/2021
-ms.author: memildin
 ---
 # Microsoft Defender for Cloud threat intelligence report
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This page explains how Microsoft Defender for Cloud's threat intelligence reports can help you learn more about a threat that triggered a security alert.
 

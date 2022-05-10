@@ -1,16 +1,10 @@
 ---
 title: Microsoft Defender for Cloud's security recommendations for MFA
 description: Learn how to enforce multi-factor authentication for your Azure subscriptions using Microsoft Defender for Cloud
-author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 11/09/2021
-ms.author: memildin
 ---
 # Manage multi-factor authentication (MFA) enforcement on your subscriptions
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 If you're only using passwords to authenticate your users, you're leaving an attack vector open. Users often use weak passwords or reuse them for multiple services. With [MFA](https://www.microsoft.com/security/business/identity/mfa) enabled, your accounts are more secure, and users can still authenticate to almost any application with single sign-on (SSO).
 

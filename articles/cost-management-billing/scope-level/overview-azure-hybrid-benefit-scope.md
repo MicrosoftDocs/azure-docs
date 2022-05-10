@@ -4,7 +4,7 @@ description: Azure Hybrid Benefit is a licensing benefit that lets you bring you
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 11/11/2021
+ms.date: 12/03/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: ahb
@@ -15,9 +15,23 @@ ms.reviewer: chrisrin
 
 Azure Hybrid Benefit is a licensing benefit that helps you to significantly reduce the costs of running your workloads in the cloud. It works by letting you use your on-premises Software Assurance or subscription-enabled Windows Server and SQL Server licenses on Azure. For more information, see [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-You can centrally manage your Azure Hybrid Benefit for SQL Server across the scope of an entire Azure subscription or overall billing account. At a high level, here's how it works:
+You can centrally manage your Azure Hybrid Benefit for SQL Server across the scope of an entire Azure subscription or overall billing account. 
 
-1. First, confirm that all your SQL Server VMs are visible to you and Azure by enabling automatic registration of the self-installed SQL server images with the IaaS extension. For more information, see [Register multiple SQL VMs in Azure with the SQL IaaS Agent extension](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md).
+To use centrally manage licenses, you must have a specific role assigned to you, depending on your Azure agreement type:
+
+- Enterprise Agreement
+    - Enterprise Administrator  
+        If you're not an Enterprise admin, you must be assigned that role by your organization (with full access). For more information about how to become a member of the role, see [Add another enterprise administrator](../manage/ea-portal-administration.md#create-another-enterprise-administrator).
+- Microsoft Customer Agreement
+    - Billing account owner
+    - Billing account contributor
+    - Billing profile owner
+    - Billing profile contributor  
+        If you don't have one of the roles above, your organization must assign one to you. For more information about how to become a member of the roles, see [Manage billing roles](../manage/understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+
+At a high level, here's how it works:
+
+1. First, confirm that all your SQL Server VMs are visible to you and Azure by enabling automatic registration of the self-installed SQL server images with the IaaS extension. For more information, see [Register multiple SQL VMs in Azure with the SQL IaaS Agent extension](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk).
 1. Under **Cost Management + Billing** in the Azure portal, you (the billing administrator) choose the scope and the number of qualifying licenses that you want to assign to cover the resources in the scope.  
     :::image type="content" source="./media/overview-azure-hybrid-benefit-scope/set-scope-assign-licenses.png" alt-text="Screenshot showing setting a scope and assigning licenses." lightbox="./media/overview-azure-hybrid-benefit-scope/set-scope-assign-licenses.png" :::
 
@@ -27,7 +41,7 @@ In the previous example, detected usage for 108 normalized core licenses is need
 - Any usage above the number of assigned licenses is billed at normal, pay-as-you-go prices.
 - When you choose to manage the benefit by assigning licenses at a scope level, you can't manage individual resources in the scope any longer.
 
-The original resource-level way to enable Azure Hybrid Benefit is still available for SQL Server and is currently the only option for Windows Server. It involves a DevOps role selecting the benefit for each individual resource (like a SQL Database or Windows Server VM) when creating or managing it. Doing so results in the hourly cost of that resource being discounted. For more information, see [Azure Hybrid Benefit for Windows Server](../../azure-sql/azure-hybrid-benefit.md).
+The original resource-level way to enable Azure Hybrid Benefit is still available for SQL Server and is currently the only option for Windows Server. It involves a DevOps role selecting the benefit for each individual resource (like a SQL Database or Windows Server VM) when creating or managing it. Doing so results in the hourly cost of that resource being discounted. For more information, see [Azure Hybrid Benefit for Windows Server](/azure/azure-sql/azure-hybrid-benefit).
 
 Enabling centralized management of Azure Hybrid Benefit of for SQL Server at a subscription or account scope level is currently in preview. It's available to enterprise customers and to customers that buy directly from Azure.com with a Microsoft Customer Agreement. We hope to extend the capability to Windows Server and more customers.
 

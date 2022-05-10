@@ -14,9 +14,9 @@ ms.custom: ignite-fall-2021
 
 Azure confidential computing offers confidential containers. There are multiple [options you can choose for confidential containers](choose-confidential-containers-offerings.md). Secured and isolated environments with attestation, improve the overall security of your container deployments. 
 
-A hardware-based Trusted Execution Environment (TEE) provides strong assurances. A TEE provides hardware and software measurements from trusted computing base (TCB) components. Confidential containers offerings on Azure allow verification of these measurements and validate if the container apps run in a verifiable execution environment.
+A hardware-based Trusted Execution Environment (TEE) provides strong assurances. A TEE provides hardware and software measurements from trusted computing base (TCB) components. Confidential containers offerings on Azure allow verification of these measurements and validate if the container applications run in a verifiable execution environment.
 
-Confidential containers support custom applications developed with any programming languages. You can also run Docker container apps off the shelf.
+Confidential containers support custom applications developed with any programming languages. You can also run Docker containers off the shelf.
 
 :::image type="content" source="./media/confidential-containers/sgx-confidential-container.png" alt-text="Diagram of confidential container protection boundary in Kubernetes, showing no access for admins.":::
 
@@ -37,7 +37,7 @@ You can enable confidential containers in Azure Partners and Open Source Softwar
 
 ### Fortanix
 
-[Fortanix](https://www.fortanix.com/) has portal and Command Line Interface (CLI) experiences to convert their containerized applications to SGX-capable confidential containers. You don't need to modify or recompile the application. Fortanix provides the flexibility to run and manage a broad set of applications. You can use existing applications, new enclave-native applications, and pre-packaged applications. Start with Fortanix's [Enclave Manager](https://em.fortanix.com/) UI or [REST APIs](https://www.fortanix.com/api/em/). Create confidential containers using the Fortanix's [quickstart guide for AKS](https://support.fortanix.com/hc/en-us/articles/360049658291-Fortanix-Confidential-Container-on-Azure-Kubernetes-Service).
+[Fortanix](https://www.fortanix.com/) has portal and Command Line Interface (CLI) experiences to convert their containerized applications to SGX-capable confidential containers. You don't need to modify or recompile the application. Fortanix provides the flexibility to run and manage a broad set of applications. You can use existing applications, new enclave-native applications, and pre-packaged applications. Start with Fortanix's [Enclave Manager](https://em.fortanix.com/) UI or [REST APIs](https://www.fortanix.com/api/em/). Create confidential containers using the Fortanix's [quickstart guide for AKS](https://hubs.li/Q017JnNt0).
 
 ![Diagram of Fortanix deployment process, showing steps to move applications to confidential containers and deploy.](./media/confidential-containers/fortanix-confidential-containers-flow.png)
 
@@ -84,12 +84,10 @@ This framework extends the confidentiality, integrity, and verifiability propert
 
 Marblerun supports confidential containers created with Graphene, Occlum, and EGo, with [examples for each SDK](https://docs.edgeless.systems/marblerun/#/examples?id=examples). The framework runs on Kubernetes alongside your existing cloud-native tooling. There's a CLI and helm charts. Marblerun also supports confidential computing nodes on AKS. Follow Marblerun's [guide to deploy Marblerun on AKS](https://docs.edgeless.systems/marblerun/#/deployment/cloud?id=cloud-deployment).
 
-## Confidential Containers demo
+## Confidential Containers reference architectures
 
-For a sample application, see the [healthcare demo with confidential containers](https://github.com/Azure-Samples/confidential-container-samples/blob/main/confidential-healthcare-scone-confinf-onnx/README.md). 
-
-> [!VIDEO https://www.youtube.com/embed/PiYCQmOh0EI]
-
+- [Confidential data messaging for healthcare reference architecture and sample with Intel SGX confidential containers](https://github.com/Azure-Samples/confidential-container-samples/blob/main/confidential-healthcare-scone-confinf-onnx/README.md). 
+- [Confidential big-data processing with Apache Spark on AKS with Intel SGX confidential containers](/azure/architecture/example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql). 
 
 ## Get in touch
 

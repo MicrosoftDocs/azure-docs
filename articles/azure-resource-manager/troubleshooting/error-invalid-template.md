@@ -2,12 +2,12 @@
 title: Invalid template errors
 description: Describes how to resolve invalid template errors when deploying Bicep files or Azure Resource Manager templates (ARM templates).
 ms.topic: troubleshooting
-ms.date: 11/15/2021
+ms.date: 12/20/2021
 ---
 
 # Resolve errors for invalid template
 
-This article describes how to resolve invalid template errors for Bicep files and Azure Resource Manager templates (ARM templates).
+This article describes how to resolve invalid template errors for Bicep files and Azure Resource Manager templates (ARM templates). The error occurs for several reasons, like a syntax error, invalid parameter value, or circular dependency.
 
 ## Symptom
 
@@ -77,7 +77,7 @@ Check the template for the parameter's allowed values, and use an allowed value 
 
 <a id="too-many-resource-groups"></a>
 
-## Solution 4 - Too many target resource groups
+## Solution 4 - too many target resource groups
 
 You may see this error in earlier deployments because you were limited to five target resource groups in a single deployment. In May 2020, that limit was increased to 800 resource groups. For more information, see how to deploy to multiple resource groups for [Bicep](../bicep/deploy-to-resource-group.md#deploy-to-multiple-resource-groups) or [ARM templates](../templates/deploy-to-resource-group.md#deploy-to-multiple-resource-groups).
 
@@ -87,7 +87,7 @@ You may see this error in earlier deployments because you were limited to five t
 
 You receive this error when resources depend on each other in a way that prevents the deployment from starting. A combination of interdependencies makes two or more resource wait for other resources that are also waiting. For example, resource1 depends on resource3, resource2 depends on resource1, and resource3 depends on resource2. You can usually solve this problem by removing unnecessary dependencies.
 
-Bicep creates an implicit dependency when one resource uses the symbolic name of another resource. An explicit dependency using `dependsOn` usually isn't necessary. For more information, see Bicep [dependencies](../bicep/resource-declaration.md#dependencies).
+Bicep creates an implicit dependency when one resource uses the symbolic name of another resource. An explicit dependency using `dependsOn` usually isn't necessary. For more information, see Bicep [dependencies](../bicep/resource-dependencies.md).
 
 To solve a circular dependency:
 

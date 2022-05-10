@@ -5,9 +5,9 @@ keywords: sys.external_streams, SQL Edge
 services: sql-edge
 ms.service: sql-edge
 ms.topic: reference
-author: SQLSourabh
-ms.author: sourabha
-ms.reviewer: sstein
+author: rothja
+ms.author: jroth
+ms.reviewer: jroth
 ms.date: 05/19/2019
 ---
 

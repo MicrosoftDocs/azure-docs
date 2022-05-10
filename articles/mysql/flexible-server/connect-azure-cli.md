@@ -4,7 +4,8 @@ description: This quickstart provides several ways to connect with Azure CLI wit
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
-ms.custom: mvc, devx-track-azurecli
+ms.subservice: flexible-server
+ms.custom: mvc, devx-track-azurecli, mode-api
 ms.topic: quickstart
 ms.date: 03/01/2021
 ---
@@ -32,7 +33,7 @@ The first thing we'll create is a managed MySQL server. In [Azure Cloud Shell](h
 az mysql flexible-server create --public-access <your-ip-address>
 ```
 
-You can provide additional arguments for this command to customize it. See all arguments for [az mysql flexible-server create](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_create).
+You can provide additional arguments for this command to customize it. See all arguments for [az mysql flexible-server create](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-create).
 
 ## Create a database
 Run the following command to create a database, **newdatabase** if you have not already created one.
@@ -175,4 +176,3 @@ Closed the connection to mysqldemoserver.
 > [!div class="nextstepaction"]
 * [Connect to Azure Database for MySQL - Flexible Server with encrypted connections](how-to-connect-tls-ssl.md)
 * [Manage the server](./how-to-manage-server-cli.md)
-

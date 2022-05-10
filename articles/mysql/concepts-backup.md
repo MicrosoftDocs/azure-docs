@@ -4,6 +4,7 @@ description: Learn about automatic backups and restoring your Azure Database for
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.custom: references_regions
@@ -59,7 +60,7 @@ Long-term retention of backups beyond 35 days is currently not natively supporte
 
 ### Backup redundancy options
 
-Azure Database for MySQL provides the flexibility to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a [paired data center](../best-practices-availability-paired-regions.md). This geo-redundancy provides better protection and ability to restore your server in a different region in the event of a disaster. The Basic tier only offers locally redundant backup storage.
+Azure Database for MySQL provides the flexibility to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a [paired data center](../availability-zones/cross-region-replication-azure.md). This geo-redundancy provides better protection and ability to restore your server in a different region in the event of a disaster. The Basic tier only offers locally redundant backup storage.
 
 > [!NOTE]
 >For the following regions - Central India, France Central, UAE North, South Africa North; General purpose storage v2 storage is in Public Preview. If you create a source server in General purpose storage v2 (Supporting up to 16-TB storage) in the above mentioned regions then enabling Geo-Redundant Backup is not supported. 

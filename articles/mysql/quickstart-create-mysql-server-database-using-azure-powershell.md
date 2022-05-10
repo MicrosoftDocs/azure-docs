@@ -4,10 +4,11 @@ description: This quickstart describes how to use PowerShell to create an Azure 
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 04/28/2020
-ms.custom: mvc, devx-track-azurepowershell
+ms.custom: mvc, devx-track-azurepowershell, mode-api
 ---
 
 # Quickstart: Create an Azure Database for MySQL server using PowerShell

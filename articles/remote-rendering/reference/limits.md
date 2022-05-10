@@ -16,6 +16,7 @@ A number of features have size, count, or other limitations.
 The following limitations apply to the frontend API (C++ and C#):
 * Total [RemoteRenderingClient](/dotnet/api/microsoft.azure.remoterendering.remoterenderingclient) instances per process: 16.
 * Total [RenderingSession](/dotnet/api/microsoft.azure.remoterendering.renderingsession) instances per [RemoteRenderingClient](/dotnet/api/microsoft.azure.remoterendering.remoterenderingclient): 16.
+* There can only be a single session per process that is connected to the server.
 
 ## Objects
 
@@ -27,6 +28,7 @@ The following limitations apply to the frontend API (C++ and C#):
 * **Animation:** Animations are limited to animating individual transforms of [game objects](../concepts/entities.md). Skeletal animations with skinning or vertex animations are not supported. Animation tracks from the source asset file are not preserved. Instead, object transform animations have to be driven by client code.
 * **Custom shaders:** Authoring of custom shaders is not supported. Only built-in [Color materials](../overview/features/color-materials.md) or [PBR materials](../overview/features/pbr-materials.md) can be used.
 * **Maximum number of distinct materials** in an asset: 65,535. For more information about automatic material count reduction, see the [material de-duplication](../how-tos/conversion/configure-model-conversion.md#material-de-duplication) chapter.
+* **Maximum number of distinct textures**: There is no hard limit on the number of distinct textures. The only constraint is overall GPU memory and the number of distinct materials.
 * **Maximum dimension of a single texture**: 16,384 x 16,384. Larger textures cannot be used by the renderer. The conversion process can sometimes reduce larger textures in size, but in general it will fail to process textures larger than this limit.
 
 ### Overall number of polygons

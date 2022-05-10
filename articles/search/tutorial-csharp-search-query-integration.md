@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 04/23/2021
 ms.custom: devx-track-csharp
-ms.devlang: dotnet
+ms.devlang: csharp
 ---
 
 # 4 - .NET Search integration cheat sheet

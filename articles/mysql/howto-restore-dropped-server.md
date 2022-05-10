@@ -4,6 +4,7 @@ description: This article describes how to restore a deleted server in Azure Dat
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: how-to
 ms.date: 10/09/2020
 ---
@@ -21,7 +22,7 @@ To restore a deleted Azure Database for MySQL server, you need following:
 
 ## Steps to restore
 
-1. Go to the [Activity Log](https://ms.portal.azure.com/#blade/Microsoft_Azure_ActivityLog/ActivityLogBlade) from Monitor blade in Azure portal. 
+1. Go to the [Activity Log](https://portal.azure.com/#blade/Microsoft_Azure_ActivityLog/ActivityLogBlade) from Monitor blade in Azure portal. 
 
 2. In Activity Log, click on **Add filter** as shown and set following filters for the 
 

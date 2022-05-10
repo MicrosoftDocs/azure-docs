@@ -12,7 +12,7 @@ ms.date: 3/12/2021
 Azure Active Directory (Azure AD) pod-managed identities use Kubernetes primitives to associate [managed identities for Azure resources][az-managed-identities] and identities in Azure AD with pods. Administrators create identities and bindings as Kubernetes primitives that allow pods to access Azure resources that rely on Azure AD as an identity provider.
 
 > [!NOTE]
-> The feature described in this document, pod-managed identities (preview), will be replaced with pod-managed identities V2 (preview).
+> The feature described in this document, pod-managed identities (preview), will be replaced with [Azure AD Workload Identity](https://github.com/Azure/AKS/issues/1480) .
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -56,7 +56,7 @@ Azure AD pod identity supports two modes of operation:
 * **Standard Mode**: In this mode, the following two components are deployed to the AKS cluster: 
   * [Managed Identity Controller (MIC)](https://azure.github.io/aad-pod-identity/docs/concepts/mic/): An MIC is a Kubernetes controller that watches for changes to pods, [AzureIdentity](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentity/) and [AzureIdentityBinding](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentitybinding/) through the Kubernetes API Server. When it detects a relevant change, the MIC adds or deletes [AzureAssignedIdentity](https://azure.github.io/aad-pod-identity/docs/concepts/azureassignedidentity/) as needed. Specifically, when a pod is scheduled, the MIC assigns the managed identity on Azure to the underlying virtual machine scale set used by the node pool during the creation phase. When all pods using the identity are deleted, it removes the identity from the virtual machine scale set of the node pool, unless the same managed identity is used by other pods. The MIC takes similar actions when AzureIdentity or AzureIdentityBinding are created or deleted.
   * [Node Managed Identity (NMI)](https://azure.github.io/aad-pod-identity/docs/concepts/nmi/): NMI is a pod that runs as a DaemonSet on each node in the AKS cluster. NMI intercepts security token requests to the [Azure Instance Metadata Service](../virtual-machines/linux/instance-metadata-service.md?tabs=linux) on each node, redirect them to itself and validates if the pod has access to the identity it's requesting a token for and fetch the token from the Azure AD tenant on behalf of the application.
-* **Managed Mode**: This mode offers only NMI. The identity needs to be manually assigned and managed by the user. For more information, see [Pod identity in managed mode](https://azure.github.io/aad-pod-identity/docs/configure/pod_identity_in_managed_mode/).
+* **Managed Mode**: This mode offers only NMI. When installed via the AKS cluster add-on, Azure manages creation of Kubernetes primitives (AzureIdentity and AzureIdentityBinding) and identity assignment in response to CLI commands by the user. Otherwise, if installed via Helm chart, the identity needs to be manually assigned and managed by the user. For more information, see [Pod identity in managed mode](https://azure.github.io/aad-pod-identity/docs/configure/pod_identity_in_managed_mode/).
 
 When you install the Azure AD pod identity via Helm chart or YAML manifest as shown in the [Installation Guide](https://azure.github.io/aad-pod-identity/docs/getting-started/installation/), you can choose between the `standard` and `managed` mode. If you instead decide to install the Azure AD pod identity using the AKS cluster add-on as shown in this article, the setup will use the `managed` mode.
 
@@ -92,7 +92,7 @@ az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity
 ## Using Kubenet network plugin with Azure Active Directory pod-managed identities 
 
 > [!IMPORTANT]
-> Running aad-pod-identity in a cluster with Kubenet is not a recommended configuration because of the security implication. Please follow the mitigation steps and configure policies before enabling aad-pod-identity in a cluster with Kubenet.
+> Running aad-pod-identity in a cluster with Kubenet is not a recommended configuration due to security concerns. Default Kubenet configuration fails to prevent ARP spoofing, which could be utilized by a pod to act as another pod and gain access to an identity it's not intended to have. Please follow the mitigation steps and configure policies before enabling aad-pod-identity in a cluster with Kubenet.
 
 ### Mitigation
 
@@ -146,7 +146,7 @@ az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enabl
 > [!IMPORTANT]
 > You must have the relevant permissions (for example, Owner) on your subscription to create the identity.
 
-Create an identity using [az identity create][az-identity-create] and set the *IDENTITY_CLIENT_ID* and *IDENTITY_RESOURCE_ID* variables.
+Create an identity which will be used by the demo pod with [az identity create][az-identity-create] and set the *IDENTITY_CLIENT_ID* and *IDENTITY_RESOURCE_ID* variables.
 
 ```azurecli-interactive
 az group create --name myIdentityResourceGroup --location eastus
@@ -158,6 +158,8 @@ export IDENTITY_RESOURCE_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n
 ```
 
 ## Assign permissions for the managed identity
+
+The managed identity that will be assigned to the pod needs to be granted permissions that align with the actions it will be taking.
 
 To run the demo, the *IDENTITY_CLIENT_ID* managed identity must have Virtual Machine Contributor permissions in the resource group that contains the virtual machine scale set of your AKS cluster.
 
@@ -183,12 +185,21 @@ az aks pod-identity add --resource-group myResourceGroup --cluster-name myAKSClu
 > [!NOTE]
 > When you assign the pod identity by using `pod-identity add`, the Azure CLI attempts to grant the Managed Identity Operator role over the pod identity (*IDENTITY_RESOURCE_ID*) to the cluster identity.
 
+Azure will create an AzureIdentity resource in your cluster representing the identity in Azure, and an AzureIdentityBinding resource which connects the AzureIdentity to a selector. You can view these resources with
+
+```azurecli-interactive
+kubectl get azureidentity -n $POD_IDENTITY_NAMESPACE
+kubectl get azureidentitybinding -n $POD_IDENTITY_NAMESPACE
+```
+
 ## Run a sample application
 
-For a pod to use an Azure AD pod-managed identity, the pod needs an *aadpodidbinding* label with a value that matches a selector from a *AzureIdentityBinding*. To run a sample application using an Azure AD pod-managed identity, create a `demo.yaml` file with the following contents. Replace *POD_IDENTITY_NAME*, *IDENTITY_CLIENT_ID*, and *IDENTITY_RESOURCE_GROUP* with the values from the previous steps. Replace *SUBSCRIPTION_ID* with your subscription ID.
+For a pod to use AAD pod-managed identity, the pod needs an *aadpodidbinding* label with a value that matches a selector from a *AzureIdentityBinding*. By default, the selector will match the name of the pod identity, but it can also be set using the `--binding-selector` option when calling `az aks pod-identity add`.
+
+To run a sample application using AAD pod-managed identity, create a `demo.yaml` file with the following contents. Replace *POD_IDENTITY_NAME*, *IDENTITY_CLIENT_ID*, and *IDENTITY_RESOURCE_GROUP* with the values from the previous steps. Replace *SUBSCRIPTION_ID* with your subscription ID.
 
 > [!NOTE]
-> In the previous steps, you created the *POD_IDENTITY_NAME*, *IDENTITY_CLIENT_ID*, and *IDENTITY_RESOURCE_GROUP* variables. You can use a command such as `echo` to display the value you set for variables, for example `echo $IDENTITY_NAME`.
+> In the previous steps, you created the *POD_IDENTITY_NAME*, *IDENTITY_CLIENT_ID*, and *IDENTITY_RESOURCE_GROUP* variables. You can use a command such as `echo` to display the value you set for variables, for example `echo $POD_IDENTITY_NAME`.
 
 ```yml
 apiVersion: v1

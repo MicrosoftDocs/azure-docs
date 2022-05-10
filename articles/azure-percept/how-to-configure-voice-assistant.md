@@ -1,8 +1,8 @@
 ---
 title: Configure your Azure Percept voice assistant application
 description: Configure your voice assistant application using Azure IoT Hub
-author: NabilaBabar
-ms.author: amiyouss
+author: nkhuyent
+ms.author: nbabar
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021

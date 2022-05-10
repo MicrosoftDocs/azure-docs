@@ -115,7 +115,7 @@ The following steps describe specific actions required for the **Microsoft Senti
     |**Keys keywords**     |  Enter comma-separated lists of values you want to use with your decoy honeytoken names.  For example, `key,prod,dev`.  Values must be alphanumeric only.   |
     |**Secrets**     |   Enter comma-separated lists of values you want to use with your decoy honeytoken secrets.  For example, `secret,secretProd,secretDev`. Values must be alphanumeric only.    |
     |**Additional HoneyToken Probability**     |  Enter a value between `0` and `1`, such as `0.6`. This value defines the probability of more than one honeytoken being added to the Key Vault.       |
-    |     |         |
+
 
 1. Select  **Next: Review + create** to finish installing your solution.
 
@@ -314,6 +314,11 @@ You can always share the direct link to the workbook. Alternately, this procedur
 An audit recommendation, with a link to the **SOCHTManagement** workbook, is added to all key vaults in the selected scope. You may have modified the name of this workbook [when installing the solution](#install-the-solution).
 
 For more information, see the [Microsoft Defender for Cloud documentation](/azure/security-center/security-center-recommendations).
+
+## Watch our end-to-end demo video
+
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWPOxX]
 
 ## Next steps
 

@@ -11,6 +11,7 @@ ms.subservice: computer-vision
 ms.topic: tutorial 
 ms.date: 07/06/2021
 ms.author: pafarley
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 #Customer intent: As a developer of an image-intensive web app, I want to be able to automatically generate captions and search keywords for each of my images.
 ---

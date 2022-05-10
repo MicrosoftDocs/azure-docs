@@ -1,17 +1,11 @@
 ---
 title: Understanding security policies, initiatives, and recommendations in Microsoft Defender for Cloud
 description: Learn about security policies, initiatives, and recommendations in Microsoft Defender for Cloud.
-author: memildin
-ms.author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 11/09/2021
 ---
 
 # What are security policies, initiatives, and recommendations?
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Microsoft Defender for Cloud applies security initiatives to your subscriptions. These initiatives contain one or more security policies. Each of those policies results in a security recommendation for improving your security posture. This page explains each of these ideas in detail.
 

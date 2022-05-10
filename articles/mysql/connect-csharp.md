@@ -1,10 +1,11 @@
 ---
 title: 'Quickstart: Connect using C# - Azure Database for MySQL'
-description: This quickstart provides a C# (.NET) code sample you can use to connect and query data from Azure Database for MySQL.
+description: "This quickstart provides a C# (.NET) code sample you can use to connect and query data from Azure Database for MySQL."
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.custom: "mvc, devx-track-csharp"
+ms.subservice: single-server
+ms.custom: mvc, devx-track-csharp, mode-other
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 10/18/2020

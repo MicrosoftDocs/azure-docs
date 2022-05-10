@@ -4,6 +4,7 @@ description: Create and manage Azure Database for MySQL firewall rules using the
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: how-to
 ms.date: 3/18/2020
 ---

@@ -1,15 +1,13 @@
 ---
 title: 'Tutorial: Get started analyze data with a serverless SQL pool' 
 description: In this tutorial, you'll learn how to analyze data with a serverless SQL pool using data located in Spark databases.
-services: synapse-analytics
 author: saveenr
 ms.author: saveenr
-manager: julieMSFT
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 04/15/2021
+ms.date: 02/02/2022
 ---
 
 # Analyze data with a serverless SQL pool
@@ -55,51 +53,60 @@ However, as you continue data exploration, you might want to create some utility
 
 1. Use the `master` database to create a separate database for custom database objects. Custom database objects, cannot be created in the `master` database.
 
-    ```sql
-    CREATE DATABASE DataExplorationDB 
-                    COLLATE Latin1_General_100_BIN2_UTF8
-    ```
+   ```sql
+   CREATE DATABASE DataExplorationDB 
+                   COLLATE Latin1_General_100_BIN2_UTF8
+   ```
 
    > [!IMPORTANT]
    > Use a collation with `_UTF8` suffix to ensure that UTF-8 text is properly converted to `VARCHAR` columns. `Latin1_General_100_BIN2_UTF8` provides 
    > the best performance in the queries that read data from Parquet files and cosmos Db containers.
 
-2. Switch to `DataExplorationDB` where you can create utility objects such as credentials and data sources.
+1. Switch from master to `DataExplorationDB` using the following command. You can also use the UI control **use database** to switch your current database:
 
-    ```sql
-    CREATE EXTERNAL DATA SOURCE ContosoLake
-    WITH ( LOCATION = 'https://contosolake.dfs.core.windows.net')
-    ```
+   ```sql
+   USE DataExplorationDB
+   ```
+
+1. From the 'DataExplorationDB', create utility objects such as credentials and data sources.
+
+   ```sql
+   CREATE EXTERNAL DATA SOURCE ContosoLake
+   WITH ( LOCATION = 'https://contosolake.dfs.core.windows.net')
+   ```
 
    > [!NOTE]
    > An external data source can be created without a credential. If a credential does not exist, the caller's identity will be used to access the external data source.
 
-3. Optionally, use the 'master' database to create a login for a user in `DataExplorationDB` that will access external data:
+1. Optionally, use the newly created 'DataExplorationDB' database to create a login for a user in DataExplorationDB that will access external data:
 
-    ```sql
-    CREATE LOGIN data_explorer WITH PASSWORD = 'My Very Strong Password 1234!';
-    ```
+   ```sql
+   CREATE LOGIN data_explorer WITH PASSWORD = 'My Very Strong Password 1234!';
+   ```
 
-    Then create a database user in `DataExplorationDB` for the login and grant the `ADMINISTER DATABASE BULK OPERATIONS` permission.
-    ```sql
-    CREATE USER data_explorer FOR LOGIN data_explorer;
-    GO
-    GRANT ADMINISTER DATABASE BULK OPERATIONS TO data_explorer;
-    GO
-    ```
+   Next create a database user in 'DataExplorationDB' for the above login and grant the `ADMINISTER DATABASE BULK OPERATIONS` permission.
 
-4. Explore the content of the file using the relative path and the data source:
+   ```sql
+   CREATE USER data_explorer FOR LOGIN data_explorer;
+   GO
+   GRANT ADMINISTER DATABASE BULK OPERATIONS TO data_explorer;
+   GO
+   ```
 
-    ```sql
-    SELECT
-        TOP 100 *
-    FROM
-        OPENROWSET(
-                BULK '/users/NYCTripSmall.parquet',
-                DATA_SOURCE = 'ContosoLake',
-                FORMAT='PARQUET'
-        ) AS [result]
-    ```
+1. Explore the content of the file using the relative path and the data source:
+
+   ```sql
+   SELECT
+       TOP 100 *
+   FROM
+       OPENROWSET(
+               BULK '/users/NYCTripSmall.parquet',
+               DATA_SOURCE = 'ContosoLake',
+               FORMAT='PARQUET'
+       ) AS [result]
+   ```
+
+1. **Publish** your changes to the workspace.
 
 Data exploration database is just a simple placeholder where you can store your utility objects. Synapse SQL pool enables you to do much more and create a Logical Data Warehouse - a relational layer built on top of Azure data sources. Learn more about building Logical Data Warehouse in this [tutorial](sql/tutorial-data-analyst.md).
 

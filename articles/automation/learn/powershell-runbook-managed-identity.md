@@ -3,7 +3,7 @@ title: Create PowerShell runbook using managed identity in Azure Automation
 description: In this tutorial, you learn how to use managed identities with a PowerShell runbook in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/28/2021
+ms.date: 11/24/2021
 ms.topic: tutorial 
 #Customer intent: As a developer, I want PowerShell runbooks to execute code using a manged identity.
 ---
@@ -97,9 +97,13 @@ Create a runbook that will allow execution by either managed identity. The runbo
 1. Under **Process Automation**, select **Runbooks**.
 
 1. Select **Create a runbook**.
+
     1. Name the runbook `miTesting`.
-    1. From the **Runbook type** drop-down menu, select **PowerShell**.
-    1. Select **Create**.
+    1. From the **Runbook type** drop-down, select **PowerShell**. 
+    1. From the **Runtime version** drop-down, select either **7.1 (preview)** or **5.1**.
+    1. Enter an applicable **Description**.
+    
+1. Click **Create** to create the runbook.
 
 1. In the runbook editor, paste the following code:
 

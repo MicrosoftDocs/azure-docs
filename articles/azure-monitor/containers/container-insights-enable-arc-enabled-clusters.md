@@ -18,6 +18,11 @@ description: "Collect metrics and logs of Azure Arc-enabled Kubernetes clusters 
 - `Docker`, `Moby`, and CRI compatible container runtimes such `CRI-O` and `containerd`.
 - Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
 
+>[!NOTE]
+>If you are migrating from Container Insights on Azure Red Hat OpenShift v4.x, please also ensure that you have [disabled monitoring](./container-insights-optout-openshift-v4.md) before proceeding with configuring Container Insights on Azure Arc enabled Kubernetes to prevent any installation issues.
+>
+
+
 ## Prerequisites
 
 - You've met the pre-requisites listed under the [generic cluster extensions documentation](../../azure-arc/kubernetes/extensions.md#prerequisites).
@@ -43,6 +48,8 @@ description: "Collect metrics and logs of Azure Arc-enabled Kubernetes clusters 
     | `dc.services.visualstudio.com` | 443 |
     
 
+- If you are using an Arc enabled cluster on AKS, and previously installed [monitoring for AKS](./container-insights-enable-existing-clusters.md), please ensure that you have [disabled monitoring](./container-insights-optout.md) before proceeding to avoid issues during the extension install
+
 - If you had previously deployed Azure Monitor Container Insights on this cluster using script without cluster extensions, follow the instructions listed [here](container-insights-optout-hybrid.md) to delete this Helm chart. You can then continue to creating a cluster extension instance for Azure Monitor Container Insights.
 
 
@@ -64,7 +71,7 @@ Run the following commands to locate the full Azure Resource Manager identifier 
 
 3. The following example displays the list of workspaces in your subscriptions in the default JSON format.
 
-    ```
+    ```azurecli
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
@@ -162,10 +169,10 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
     ```
 
 ## Verify extension installation status
-Once you have successfully created the Azure Monitor extension for your Azure Arc-enabled Kubernetes cluster, you can additionally check the status of installation using the Azure Portal or CLI. Successful installations should show the status as 'Installed'. If your status is showing 'Failed' or remains in the 'Pending' state for long periods of time, proceed to the Troubleshooting section below.
+Once you have successfully created the Azure Monitor extension for your Azure Arc-enabled Kubernetes cluster, you can additionally check the status of installation using the Azure portal or CLI. Successful installations should show the status as 'Installed'. If your status is showing 'Failed' or remains in the 'Pending' state for long periods of time, proceed to the Troubleshooting section below.
 
-### Azure Portal
-1. In the Azure Portal, select the Azure Arc-enabled Kubernetes cluster with the extension installing
+### Azure portal
+1. In the Azure portal, select the Azure Arc-enabled Kubernetes cluster with the extension installing
 2. Select the 'Extensions' item under the 'Settings' section of the resource blade
 3. You should see an extension with the name 'azuremonitor-containers' listed, with the listed status in the 'Install status' column
 ### Azure CLI
@@ -178,7 +185,7 @@ az k8s-extension show --name azuremonitor-containers --cluster-name <cluster-nam
 
 The following command only deletes the extension instance, but doesn't delete the Log Analytics workspace. The data within the Log Analytics resource is left intact.
 
-```bash
+```azurecli
 az k8s-extension delete --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <resource-group>
 ```
 

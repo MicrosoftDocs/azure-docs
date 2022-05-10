@@ -21,7 +21,6 @@ Some more complex solutions may require creating a chain of trust to establish s
 ## Limitations and other details
 
 The following scenarios are **not** supported:
-- Monitoring addon
 - Different proxy configurations per node pool
 - Updating proxy settings post cluster creation
 - User/Password authentication
@@ -89,7 +88,7 @@ The schema for the config file looks like this:
 `httpProxy`: A proxy URL to use for creating HTTP connections outside the cluster. The URL scheme must be `http`.
 `httpsProxy`: A proxy URL to use for creating HTTPS connections outside the cluster. If this is not specified, then `httpProxy` is used for both HTTP and HTTPS connections.
 `noProxy`: A list of destination domain names, domains, IP addresses or other network CIDRs to exclude proxying.
-`trustedCa`: A string containing the `base64 encoded` alternative CA certificate content. For now we only support `PEM` format. Another thing to note is that, for compatibility with Go-based components that are part of the k8s system, the certificate MUST support `Subject Alternative Names(SANs)` instead of the deprecated Common Name certs.
+`trustedCa`: A string containing the `base64 encoded` alternative CA certificate content. For now we only support `PEM` format. Another thing to note is that, for compatibility with Go-based components that are part of the Kubernetes system, the certificate MUST support `Subject Alternative Names(SANs)` instead of the deprecated Common Name certs.
 
 Example input:
 Note the CA cert should be the base64 encoded string of the PEM format cert content.
@@ -143,6 +142,19 @@ For example, assuming a new file has been created with the base64 encoded string
 ```azurecli
 az aks update -n $clusterName -g $resourceGroup --http-proxy-config aks-proxy-config-2.json
 ```
+
+## Monitoring add-on configuration
+
+When using the HTTP proxy with the Monitoring add-on, the following configurations are supported:
+
+  - Outbound proxy without authentication
+  - Outbound proxy with username & password authentication
+  - Outbound proxy with trusted cert for Log Analytics endpoint
+
+The following configurations are not supported:
+
+  - The Custom Metrics and Recommended Alerts features are not supported when using proxy with trusted cert
+  - Outbound proxy is not supported with Azure Monitor Private Link Scope (AMPLS)
 
 ## Next steps
 - For more on the network requirements of AKS clusters, see [control egress traffic for cluster nodes in AKS][aks-egress].

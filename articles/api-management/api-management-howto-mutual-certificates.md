@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell
 
 API Management allows you to secure access to the backend service of an API using client certificates. This guide shows how to manage certificates in an Azure API Management service instance using the Azure portal. It also explains how to configure an API to use a certificate to access a backend service.
 
-You can also manage API Management certificates using the [API Management REST API](/rest/api/apimanagement/2021-01-01-preview/certificate).
+You can also manage API Management certificates using the [API Management REST API](/rest/api/apimanagement/current-ga/certificate).
 
 ## Certificate options
 
@@ -47,7 +47,7 @@ Using key vault certificates is recommended because it helps improve API Managem
 1. Assign a [key vault access policy](../key-vault/general/assign-access-policy-portal.md) to the managed identity with permissions to get and list certificates from the vault. To add the policy:
     1. In the portal, navigate to your key vault.
     1. Select **Settings > Access policies > + Add Access Policy**.
-    1. Select **Certificate permissions**, then select **Get** and **List**.
+    1. Select **Secret permissions**, then select **Get** and **List**.
     1. In **Select principal**, select the resource name of your managed identity. If you're using a system-assigned identity, the principal is the name of your API Management instance.
 1. Create or import a certificate to the key vault. See [Quickstart: Set and retrieve a certificate from Azure Key Vault using the Azure portal](../key-vault/certificates/quick-create-portal.md).
 

@@ -1,8 +1,8 @@
 ---
 title: Deploy container group to Azure virtual network
-description: Learn how to deploy a container group to a new or existing Azure virtual network by using the Azure command-line interface.
+description: Learn how to deploy a container group to a new or existing Azure virtual network via the Azure CLI.
 ms.topic: article
-ms.date: 07/02/2020
+ms.date: 11/11/2021
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 
@@ -17,8 +17,9 @@ For networking scenarios and limitations, see [Virtual network scenarios and res
 > [!IMPORTANT]
 > Container group deployment to a virtual network is generally available for Linux containers, in most regions where Azure Container Instances is available. For details, see [Regions and resource availability][container-regions]. 
 
-Examples in this article are formatted for the Bash shell. If you prefer another shell such as PowerShell or Command Prompt, adjust the line continuation characters accordingly.
+[!INCLUDE [network profile callout](./includes/network-profile/network-profile-callout.md)]
 
+Examples in this article are formatted for the Bash shell. If you prefer another shell such as PowerShell or Command Prompt, adjust the line continuation characters accordingly.
 
 ## Deploy to new virtual network
 
@@ -118,26 +119,14 @@ For example, when using a YAML file, you can deploy to a virtual network with a 
 * `ipAddress`: The private IP address settings for the container group.
   * `ports`: The ports to open, if any.
   * `protocol`: The protocol (TCP or UDP) for the opened port.
-* `networkProfile`: Network settings for the virtual network and subnet.
-  * `id`: The full Resource Manager resource ID of the `networkProfile`.
+* `subnetIds`: The resource IDs of the subnets to be deployed to
+  * `id`: The resource ID of the subnet
+  * `name`: The name of the subnet
 
-To get the ID of the network profile, run the [az network profile list][az-network-profile-list] command, specifying the name of the resource group that contains your virtual network and delegated subnet.
+This YAML creates a container group named *appcontaineryaml* in your virtual network.
 
-``` azurecli
-az network profile list --resource-group myResourceGroup \
-  --query [0].id --output tsv
-```
-
-Sample output:
-
-```console
-/subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-aci-subnet
-```
-
-Once you have the network profile ID, copy the following YAML into a new file named *vnet-deploy-aci.yaml*. Under `networkProfile`, replace the `id` value with ID you just retrieved, then save the file. This YAML creates a container group named *appcontaineryaml* in your virtual network.
-
-```yaml
-apiVersion: '2019-12-01'
+```YAML
+apiVersion: '2021-07-01'
 location: westus
 name: appcontaineryaml
 properties:
@@ -157,10 +146,11 @@ properties:
     ports:
     - protocol: tcp
       port: '80'
-  networkProfile:
-    id: /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-subnet
   osType: Linux
   restartPolicy: Always
+  subnetIds:
+    - id: <subnet-id>
+      name: default
 tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```

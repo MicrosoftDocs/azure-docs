@@ -17,6 +17,18 @@ ms.custom: devx-track-azurepowershell, synapse
 
 The If Condition activity provides the same functionality that an if statement provides in programming languages. It executes a set of activities when the condition evaluates to `true` and another set of activities when the condition evaluates to `false`. 
 
+## Create an If Condition activity with UI
+
+To use an If Condition activity in a pipeline, complete the following steps:
+
+1. Search for _If_ in the pipeline Activities pane, and drag an If Condition activity to the pipeline canvas.
+1. Select the new If Condition activity on the canvas if it is not already selected, and its  **Activities** tab, to edit its details.
+
+   :::image type="content" source="media/control-flow-if-condition-activity/if-condition-activity.png" alt-text="Shows the UI for an If Condition activity.":::
+
+1. Enter an expression that returns a boolean true or false value. This can be any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
+1. Select the Edit Activities buttons on the Activities tab for the If Condition, or directly from the If Condition on the pipeline canvas, to add activities that will be executed when the expression evaluates to `true` or `false`.
+
 ## Syntax
 
 ```json

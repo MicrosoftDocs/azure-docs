@@ -4,11 +4,10 @@ metadata:
   description: Answers to commonly asked questions about transitioning offers from Cloud Partner Portal to Partner Center.
   ms.service: marketplace
   ms.subservice: partnercenter-marketplace-publisher
-  ms.topic: article
+  ms.topic: faq
   author: keferna
   ms.author: keferna
-  ms.date: 09/27/2021
-    
+  ms.date: 12/03/2021
 title: Cloud Partner Portal migration FAQ
 summary: |
   The Cloud Partner Portal has transitioned to Partner Center. Partner Center offers a streamlined, integrated experience for publishing new offers to [Microsoft AppSource](https://appsource.microsoft.com/) or [Azure Marketplace](https://azuremarketplace.microsoft.com/) and for managing existing offers that were migrated from the Cloud Partner Portal. All the functions of the Cloud Partner Portal are available in Partner Center. This article addresses commonly asked questions about transitioning from the Cloud Partner Portal to Partner Center.
@@ -71,15 +70,15 @@ sections:
           | SaaS | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Plan a SaaS offer for the commercial marketplace](plan-saas-offer.md). |
           | Virtual Machine | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Plan a virtual machine offer](marketplace-virtual-machines.md). |
           | Azure application | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create an Azure application offer](azure-app-offer-setup.md). |
-          | Dynamics 365 Business Central | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Dynamics 365 for Business Central offer](dynamics-365-business-central-offer-setup.md). |
-          | Dynamics 365 for Customer Engagement & Power Apps | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Dynamics 365 for Customer Engagement & Power Apps offer](dynamics-365-customer-engage-offer-setup.md). |
-          | Dynamics 365 for Operations | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Dynamics 365 for Operations offer](./dynamics-365-operations-offer-setup.md). |
+          | Dynamics 365 Business Central | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Dynamics 365 Business Central offer](dynamics-365-business-central-offer-setup.md). |
+          | Dynamics 365 apps on Dataverse and Power Apps | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Dynamics 365 apps on Dataverse and Power Apps offer](dynamics-365-customer-engage-offer-setup.md). |
+          | Dynamics 365 Operations Apps | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Dynamics 365 Operations Apps offer](./dynamics-365-operations-offer-setup.md). |
           | Power BI App | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Power BI app offer](./power-bi-app-offer-setup.md). |
           | IoT Edge module | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create an IoT Edge module offer](iot-edge-offer-setup.md). |
           | Container | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create an Azure container offer](./azure-container-offer-setup.md). |
           | Consulting Service | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a consulting service offer](./create-consulting-service-offer.md). |
           | Managed Service | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Plan a Managed Service offer for the Microsoft commercial marketplace](./plan-managed-service-offer.md). |
-          | Dynamics Nav Managed Service | No | Microsoft has evolved Dynamics NAV Managed Service into [Dynamics 365 Business Central](/dynamics365/business-central/), so we de-listed Dynamics NAV Managed Service live offers from AppSource. These offers are no longer discoverable by customers and haven't been moved to Partner Center. To make your offers available in AppSource, adapt them to Dynamics 365 Business Central offers and submit them in [Partner Center](https://partner.microsoft.com/dashboard/marketplace-offers/overview). Learn more at [Create a Dynamics 365 for Business Central offer](dynamics-365-business-central-offer-setup.md). |
+          | Dynamics Nav Managed Service | No | Microsoft has evolved Dynamics NAV Managed Service into [Dynamics 365 Business Central](/dynamics365/business-central/), so we de-listed Dynamics NAV Managed Service live offers from AppSource. These offers are no longer discoverable by customers and haven't been moved to Partner Center. To make your offers available in AppSource, adapt them to Dynamics 365 Business Central offers and submit them in [Partner Center](https://partner.microsoft.com/dashboard/marketplace-offers/overview). Learn more at [Create a Dynamics 365 Business Central offer](dynamics-365-business-central-offer-setup.md). |
           | Cortana Intelligence | No | Microsoft has evolved the product road map for Cortana Intelligence, so we de-listed Cortana Intelligence live offers from AppSource. These offers are no longer discoverable by customers and haven't been moved to Partner Center. To make your offers available in the commercial marketplace, adapt your offers to Software as a Service (SaaS) offers and submit them in [Partner Center](https://partner.microsoft.com/). Learn more at [How to plan a SaaS offer for the commercial marketplace](./plan-saas-offer.md). |
           
       - question: |

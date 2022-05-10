@@ -13,7 +13,7 @@ metadata:
    ms.date: 08/12/2021
    author: kenwith
    ms.author: kenwith
-   manager: karenh444
+   manager: karenhoran
 
 landingContent:
   - title: Provision users and groups to a cloud app
@@ -22,6 +22,8 @@ landingContent:
         links:
           - text: What is application provisioning?
             url: user-provisioning.md
+          - text: What is HR-driven provisioning?
+            url: what-is-hr-driven-provisioning.md  
           - text: How provisioning works
             url: how-provisioning-works.md
       - linkListType: tutorial

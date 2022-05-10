@@ -1,18 +1,16 @@
-﻿---
+---
 title: Quickstart - Set & retrieve a secret from Key Vault using PowerShell
 description: In this quickstart, learn how to create, retrieve, and delete secrets from an Azure Key Vault using Azure PowerShell.
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
-
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurepowershell
+ms.custom: mvc, devx-track-azurepowershell, mode-api
 ms.date: 01/27/2021
 ms.author: mbaldwin
-#Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
-
+#Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 
 # Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell
@@ -31,7 +29,7 @@ Connect-AzAccount
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group](../../../includes/key-vault-powershell-rg-creation.md)]
+[!INCLUDE [Create a resource group](../../../includes/powershell-rg-create.md)]
 
 ## Create a key vault
 

@@ -6,7 +6,8 @@ ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/19/2021
+ms.date: 04/07/2022
+ms.devlang: csharp
 ---
 
 # Migrate your application to use the Azure Cosmos DB .NET SDK v3
@@ -16,7 +17,7 @@ ms.date: 10/19/2021
 > To learn about the Azure Cosmos DB .NET SDK v3, see the [Release notes](sql-api-sdk-dotnet-standard.md), the [.NET GitHub repository](https://github.com/Azure/azure-cosmos-dotnet-v3), .NET SDK v3 [Performance Tips](performance-tips-dotnet-sdk-v3-sql.md), and the [Troubleshooting guide](troubleshoot-dot-net-sdk.md).
 >
 
-This article highlights some of the considerations of upgrading your existing .NET application to the newer Azure Cosmos DB .NET SDK v3 for Core (SQL) API. Azure Cosmos DB .NET SDK v3 corresponds to the Microsoft.Azure.Cosmos namespace. You can use the information provided in this doc if you are migrating your application from any of the following Azure Cosmos DB .NET SDKs:
+This article highlights some of the considerations of upgrading your existing .NET application to the newer Azure Cosmos DB .NET SDK v3 for Core (SQL) API. Azure Cosmos DB .NET SDK v3 corresponds to the Microsoft.Azure.Cosmos namespace. You can use the information provided in this doc if you're migrating your application from any of the following Azure Cosmos DB .NET SDKs:
 
 * Azure Cosmos DB .NET Framework SDK v2 for SQL API
 * Azure Cosmos DB .NET Core SDK v2 for SQL API
@@ -49,7 +50,7 @@ Most of the networking, retry logic, and lower levels of the SDK remain largely 
 
 ## Why migrate to the .NET v3 SDK
 
-In addition to the numerous usability and performance improvements, new feature investments made in the latest SDK will not be back ported to older versions.
+In addition to the numerous usability and performance improvements, new feature investments made in the latest SDK won't be back ported to older versions.
 The v2 SDK is currently in maintenance mode. For the best development experience, we recommend always starting with the latest supported version of SDK.
 
 ## Major name changes from v2 SDK to v3 SDK
@@ -75,6 +76,7 @@ The following are some of the main class name changes:
 |`Microsoft.Azure.Documents.Client.FeedOptions`|`Microsoft.Azure.Cosmos.QueryRequestOptions`|
 |`Microsoft.Azure.Documents.Client.StoredProcedure`|`Microsoft.Azure.Cosmos.StoredProcedureProperties`|
 |`Microsoft.Azure.Documents.Client.Trigger`|`Microsoft.Azure.Cosmos.TriggerProperties`|
+|`Microsoft.Azure.Documents.SqlQuerySpec`|`Microsoft.Azure.Cosmos.QueryDefinition`|
 
 ### Classes replaced on .NET v3 SDK
 
@@ -87,6 +89,8 @@ The following classes have been replaced on the 3.0 SDK:
 * `Microsoft.Azure.Documents.Resource`
 
 The Microsoft.Azure.Documents.UriFactory class has been replaced by the fluent design. The fluent design builds URLs internally and allows a single `Container` object to be passed around instead of a `DocumentClient`, `DatabaseName`, and `DocumentCollection`.
+
+Because the .NET v3 SDK allows users to configure a custom serialization engine, there's no direct replacement for the `Document` type. When using Newtonsoft.Json (default serialization engine), `JObject` can be used to achieve the same functionality. When using a different serialization engine, you can use its base json document type (for example, `JsonDocument` for System.Text.Json). The recommendation is to use a C# type that reflects the schema of your items instead of relying on generic types.
 
 ### Changes to item ID generation
 
@@ -109,7 +113,7 @@ The `FeedOptions` class in SDK v2 has now been renamed to `QueryRequestOptions` 
 
 `FeedOptions.EnableCrossPartitionQuery` has been removed and the default behavior in SDK 3.0 is that cross-partition queries will be executed without the need to enable the property specifically.
 
-`FeedOptions.PopulateQueryMetrics` is enabled by default with the results being present in the diagnostics property of the response.
+`FeedOptions.PopulateQueryMetrics` is enabled by default with the results being present in the `FeedResponse.Diagnostics` property of the response.
 
 `FeedOptions.RequestContinuation` has now been promoted to the query methods themselves.
 
@@ -142,10 +146,10 @@ CosmosClient client = cosmosClientBuilder.Build();
 
 ### Exceptions
 
-Where the v2 SDK used `DocumentClientException` to signal errors during operations, the v3 SDK uses `CosmosClientException`, which exposes the `StatusCode`, `Diagnostics`, and other response-related information. All the complete information is serialized when `ToString()` is used:
+Where the v2 SDK used `DocumentClientException` to signal errors during operations, the v3 SDK uses `CosmosException`, which exposes the `StatusCode`, `Diagnostics`, and other response-related information. All the complete information is serialized when `ToString()` is used:
 
 ```csharp
-catch (CosmosClientException ex)
+catch (CosmosException ex)
 {
     HttpStatusCode statusCode = ex.StatusCode;
     CosmosDiagnostics diagnostics = ex.Diagnostics;
@@ -156,7 +160,7 @@ catch (CosmosClientException ex)
 
 ### Diagnostics
 
-Where the v2 SDK had Direct-only diagnostics available through the `ResponseDiagnosticsString` property, the v3 SDK uses `Diagnostics` available in all responses and exceptions, which are richer and not restricted to Direct mode. They include not only the time spent on the SDK for the operation, but also the regions the operation contacted:
+Where the v2 SDK had Direct-only diagnostics available through the `RequestDiagnosticsString` property, the v3 SDK uses `Diagnostics` available in all responses and exceptions, which are richer and not restricted to Direct mode. They include not only the time spent on the SDK for the operation, but also the regions the operation contacted:
 
 ```csharp
 try
@@ -192,6 +196,8 @@ Some settings in `ConnectionPolicy` have been renamed or replaced:
 |`EnableEndpointRediscovery`|`LimitToEndpoint` - The value is now inverted, if `EnableEndpointRediscovery` was being set to `true`, `LimitToEndpoint` should be set to `false`. Before using this setting, you need to understand [how it affects the client](troubleshoot-sdk-availability.md).|
 |`ConnectionProtocol`|Removed. Protocol is tied to the Mode, either it's Gateway (HTTPS) or Direct (TCP). Direct mode with HTTPS protocol is no longer supported on V3 SDK and the recommendation is to use TCP protocol. |
 |`MediaRequestTimeout`|Removed. Attachments are no longer supported.|
+|`SetCurrentLocation`|`CosmosClientOptions.ApplicationRegion` can be used to achieve the same effect.|
+|`PreferredLocations`|`CosmosClientOptions.ApplicationPreferredRegions` can be used to achieve the same effect.|
 
 ### Indexing policy
 
@@ -221,6 +227,21 @@ For use cases where `OpenAsync()` was being used to warm up the v2 SDK client, `
 The v3 SDK has built-in support for the Change Feed Processor APIs, allowing you use the same SDK for building your application and change feed processor implementation. Previously, you had to use a separate change feed processor library.
 
 For more information, see [how to migrate from the change feed processor library to the Azure Cosmos DB .NET v3 SDK](how-to-migrate-from-change-feed-library.md)
+
+### Change feed queries
+
+Executing change feed queries on the v3 SDK is considered to be using the [change feed pull model](change-feed-pull-model.md). Follow this table to migrate configuration:
+
+| .NET v2 SDK | .NET v3 SDK |
+|-------------|-------------|
+|`ChangeFeedOptions.PartitionKeyRangeId`|`FeedRange` - In order to achieve parallelism reading the change feed [FeedRanges](change-feed-pull-model.md#using-feedrange-for-parallelization) can be used. It's no longer a required parameter, you can [read the Change Feed for an entire container](change-feed-pull-model.md#consuming-an-entire-containers-changes) easily now.|
+|`ChangeFeedOptions.PartitionKey`|`FeedRange.FromPartitionKey` - A FeedRange representing the desired Partition Key can be used to [read the Change Feed for that Partition Key value](change-feed-pull-model.md#consuming-a-partition-keys-changes).|
+|`ChangeFeedOptions.RequestContinuation`|`ChangeFeedStartFrom.Continuation` - The change feed iterator can be stopped and resumed at any time by [saving the continuation and using it when creating a new iterator](change-feed-pull-model.md#saving-continuation-tokens).|
+|`ChangeFeedOptions.StartTime`|`ChangeFeedStartFrom.Time` |
+|`ChangeFeedOptions.StartFromBeginning` |`ChangeFeedStartFrom.Beginning` |
+|`ChangeFeedOptions.MaxItemCount`|`ChangeFeedRequestOptions.PageSizeHint` - The change feed iterator can be stopped and resumed at any time by [saving the continuation and using it when creating a new iterator](change-feed-pull-model.md#saving-continuation-tokens).|
+|`IDocumentQuery.HasMoreResults` |`response.StatusCode == HttpStatusCode.NotModified` - The change feed is conceptually infinite, so there could always be more results. When a response contains the `HttpStatusCode.NotModified` status code, it means there are no new changes to read at this time. You can use that to stop and [save the continuation](change-feed-pull-model.md#saving-continuation-tokens) or to temporarily sleep or wait and then call `ReadNextAsync` again to test for new changes. |
+|Split handling|It's no longer required for users to handle split exceptions when reading the change feed, splits will be handled transparently without the need of user interaction.|
 
 ### Using the bulk executor library directly from the V3 SDK
 
@@ -629,6 +650,11 @@ private static async Task ReadAllItems(DocumentClient client)
 ---
 
 ### Query items
+#### Changes to SqlQuerySpec (QueryDefinition in v3.0 SDK)
+
+The `SqlQuerySpec` class in SDK v2 has now been renamed to `QueryDefinition` in the SDK v3.
+
+`SqlParameterCollection` and `SqlParameter` has been removed. Parameters are now added to the `QueryDefinition` with a builder model using `QueryDefinition.WithParameter`. Users can access the parameters with `QueryDefinition.GetQueryParameters`
 
 # [.NET SDK v3](#tab/dotnet-v3)
 
@@ -706,6 +732,65 @@ private static async Task DeleteItemAsync(DocumentClient client)
     ResourceResponse<Document> response = await client.DeleteDocumentAsync(
         UriFactory.CreateDocumentUri(DatabaseName, ContainerName, "SalesOrder3"),
         new RequestOptions { PartitionKey = new PartitionKey("Account1") });
+}
+```
+---
+
+### Change feed query
+
+# [.NET SDK v3](#tab/dotnet-v3)
+
+```csharp
+private static async Task QueryChangeFeedAsync(Container container)
+{
+    FeedIterator<SalesOrder> iterator = container.GetChangeFeedIterator<SalesOrder>(ChangeFeedStartFrom.Beginning(), ChangeFeedMode.Incremental);
+
+    string continuation = null;
+    while (iterator.HasMoreResults)
+    {
+        FeedResponse<SalesOrder> response = await iteratorForTheEntireContainer.ReadNextAsync();
+    
+        if (response.StatusCode == HttpStatusCode.NotModified)
+        {
+            // No new changes
+            continuation = response.ContinuationToken;
+            break;
+        }
+        else 
+        {
+            // Process the documents in response
+        }
+    }
+}
+```
+
+# [.NET SDK v2](#tab/dotnet-v2)
+
+```csharp
+private static async Task QueryChangeFeedAsync(DocumentClient client, string partitionKeyRangeId)
+{
+    ChangeFeedOptions options = new ChangeFeedOptions
+    {
+        PartitionKeyRangeId = partitionKeyRangeId,
+        StartFromBeginning = true,
+    };
+
+    using(var query = client.CreateDocumentChangeFeedQuery(
+        UriFactory.CreateDocumentCollectionUri(DatabaseName, ContainerName), options))
+    {
+        do
+        {
+            var response = await query.ExecuteNextAsync<Document>();
+            if (response.Count > 0)
+            {
+                var docs = new List<Document>();
+                docs.AddRange(response);
+                // Process the documents.
+                // Save response.ResponseContinuation if needed
+            }
+        }
+        while (query.HasMoreResults);
+    }
 }
 ```
 ---

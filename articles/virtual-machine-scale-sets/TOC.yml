@@ -63,8 +63,6 @@
     items:
     - name: Create a virtual machine scale set
       href: ./scripts/cli-sample-create-simple-scale-set.md
-    - name: Create and manage virtual machine scale set
-      href: ./scripts/cli-sample-manage-scale-set.md
     - name: Create a scale set from a custom VM image
       href: ./scripts/cli-sample-create-scale-set-from-custom-image.md
     - name: Install applications to a scale set
@@ -264,13 +262,13 @@
       href: virtual-machine-scale-sets-design-overview.md
     - name: Understand instance IDs
       href: virtual-machine-scale-sets-instance-ids.md
-  - name: Shared Image Galleries
+  - name: Azure Compute Gallery
     items:
     - name: Overview
-      displayName: Shared Image Gallery, SIG, sig, gallery, image
+      displayName: Shared Image Gallery, SIG, sig, gallery, image, Azure Compute Gallery
       href: ../virtual-machines/shared-image-galleries.md
     - name: Create a gallery
-      displayName: Shared Image Gallery, SIG, sig, gallery, image
+      displayName: Shared Image Gallery, SIG, sig, gallery, image, Azure Compute Gallery
       href: ../virtual-machines/create-gallery.md
     - name: Share a gallery
       href: ../virtual-machines/share-gallery.md
@@ -281,18 +279,10 @@
       href: ../virtual-machines/capture-image-portal.md
     - name: Create a scale-set
       items:
-      - name: PowerShell
-        items:
-        - name: Specialized
-          href: instance-specialized-image-version-powershell.md
-        - name: Generalized
-          href: instance-generalized-image-version-powershell.md
-      - name: CLI
-        items:
-        - name: Specialized
-          href: instance-specialized-image-version-cli.md
-        - name: Generalized
-          href: instance-generalized-image-version-cli.md
+      - name: Specialized
+        href: instance-specialized-image-version.md
+      - name: Generalized
+        href: instance-generalized-image-version.md
     - name: Update image resources
       href: ../virtual-machines/update-image-resources.md
     - name: Troubleshoot shared images
@@ -439,7 +429,7 @@
     href: /azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools
   - name: Microsoft Q&A
     href: /answers/topics/azure-virtual-machines.html
-  - name: Azure Quickstart templates
+  - name: Azure Quickstart Templates
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/#Linux

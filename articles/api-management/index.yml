@@ -95,5 +95,5 @@ landingContent:
           - text: Host gateway on Azure Arc
             url: how-to-deploy-self-hosted-gateway-azure-arc.md
           - text: Host gateway on Kubernetes
-            url: how-to-deploy-self-hosted-gateway-kubernetes.md
+            url: how-to-deploy-self-hosted-gateway-kubernetes-helm.md
   

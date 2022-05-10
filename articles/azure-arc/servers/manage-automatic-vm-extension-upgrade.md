@@ -2,7 +2,7 @@
 title: Automatic Extension Upgrade (preview) for Azure Arc-enabled servers
 description: Learn how to enable the Automatic Extension Upgrade (preview) for your Azure Arc-enabled servers.
 ms.topic: conceptual
-ms.date: 11/06/2021
+ms.date: 12/09/2021
 ---
 
 # Automatic Extension Upgrade (preview) for Azure Arc-enabled servers
@@ -16,7 +16,7 @@ Automatic Extension Upgrade (preview) is available for Azure Arc-enabled servers
 - Supported in all public cloud regions.
 
 > [!NOTE]
-> In this release, only the Azure CLI is supported to configure Automatic Extension Upgrade.
+> In this release, it is only possible to configure Automatic Extension Upgrade with the Azure CLI and Azure PowerShell module.
 
 ## How does Automatic Extension Upgrade work?
 
@@ -53,7 +53,7 @@ Automatic Extension Upgrade (preview) supports the following extensions (and mor
 
 To enable Automatic Extension Upgrade (preview) for an extension, you must ensure the property `enable-auto-upgrade` is set to `true` and added to every extension definition individually.
 
-Use the [az connectedmachine extension](/cli/azure/connectedmachine/extension) cmdlet with the `--name`, `--machine-name`, `--enable-auto-upgrade`, and `--resource-group` parameters.
+Use the [az connectedmachine extension update](/cli/azure/connectedmachine/extension) command with the `--name`, `--machine-name`, `--enable-auto-upgrade`, and `--resource-group` parameters.
 
 ```azurecli
 az connectedmachine extension update \
@@ -69,6 +69,19 @@ To check the status of Automatic Extension Upgrade (preview) for all extensions 
 az connectedmachine extension list --resource-group resourceGroupName --machine-name machineName --query "[].{Name:name, AutoUpgrade:properties.enableAutoUpgrade}" --output table
 ```
 
+To enable Automatic Extension Upgrade (preview) for an extension using Azure PowerShell, use the [Update-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/update-azconnectedmachineextension) cmdlet with the `-Name`, `-MachineName`, `-ResourceGroup`, and `-EnableAutomaticUpgrade` parameters.
+
+```azurepowershell
+Update-AzConnectedMachineExtension -ResourceGroup resourceGroupName -MachineName machineName -Name DependencyAgentLinux -EnableAutomaticUpgrade
+```
+
+To check the status of Automatic Extension Upgrade (preview) for all extensions on an Arc-enabled server, run the following command:
+
+```azurepowershell
+Get-AzConnectedMachineExtension -ResourceGroup resourceGroupName -MachineName machineName | Format-Table Name, EnableAutomaticUpgrade
+```
+
+
 ## Extension upgrades with multiple extensions
 
 A machine managed by Arc-enabled servers can have multiple extensions with automatic extension upgrade enabled. The same machine can also have other extensions without automatic extension upgrade enabled.
@@ -81,7 +94,7 @@ To disable Automatic Extension Upgrade (preview) for an extension, you must ensu
 
 ### Using the Azure CLI
 
-Use the [az connectedmachine extension ](/cli/azure/connectedmachine/extension) cmdlet with the `--name`, `--machine-name`, `--enable-auto-upgrade`, and `--resource-group` parameters.
+Use the [az connectedmachine extension update](/cli/azure/connectedmachine/extension) command with the `--name`, `--machine-name`, `--enable-auto-upgrade`, and `--resource-group` parameters.
 
 ```azurecli
 az connectedmachine extension update \
@@ -89,6 +102,14 @@ az connectedmachine extension update \
     --machine-name machineName \
     --name DependencyAgentLinux \
     --enable-auto-upgrade false
+```
+
+### Using Azure PowerShell
+
+Use the [Update-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/update-azconnectedmachineextension) cmdlet with the `-Name`, `-MachineName`, `-ResourceGroup`, and `-EnableAutomaticUpgrade` parameters.
+
+```azurepowershell
+Update-AzConnectedMachineExtension -ResourceGroup resourceGroupName -MachineName machineName -Name DependencyAgentLinux -EnableAutomaticUpgrade:$false
 ```
 
 ## Next steps

@@ -191,7 +191,7 @@ Each update the version number is incremented at the last digit.
 
 The major / minor version can be used to indicate the scope of the changes to the LUIS app functionality:
 
-* Major Version: A significant change, such as support for a new [Intent](./luis-concept-intent.md) or [Entity](./luis-concept-entity-types.md)
+* Major Version: A significant change, such as support for a new [Intent](./luis-concept-intent.md) or [Entity](concepts/entities.md)
 * Minor Version: A backwards-compatible minor change, such as after significant new training
 * Build: No functionality change, just a different build.
 

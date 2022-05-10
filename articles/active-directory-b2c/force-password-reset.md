@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 01/24/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -18,8 +18,6 @@ zone_pivot_groups: b2c-policy-type
 # Set up a force password reset flow in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
-
-::: zone pivot="b2c-user-flow"
 
 ## Overview
 
@@ -31,13 +29,6 @@ When an administrator resets a user's password via the Azure portal, the value o
 
 The password reset flow is applicable to local accounts in Azure AD B2C that use an [email address](sign-in-options.md#email-sign-in) or [username](sign-in-options.md#username-sign-in) with a password for sign-in.
 
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-This feature is currently only available for User Flows. For setup steps, choose **User Flow** above. For custom policies, use the force password reset first logon [GitHub sample](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset-first-logon) with prerequisites below.
-
-::: zone-end
 
 ## Prerequisites
 
@@ -74,6 +65,36 @@ To enable the **Forced password reset** setting in a sign-up or sign-in user flo
 1. Select **Run user flow**.
 1. Sign in with the user account for which you reset the password.
 1. You now must change the password for the user. Change the password and select **Continue**. The token is returned to `https://jwt.ms` and should be displayed to you.
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+## Configure your custom policy
+
+Get the example of the force password reset policy on [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset). In each file, replace the string `yourtenant` with the name of your Azure AD B2C tenant. For example, if the name of your B2C tenant is *contosob2c*, all instances of `yourtenant.onmicrosoft.com` become `contosob2c.onmicrosoft.com`.
+
+## Upload and test the policy
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. Select **Identity Experience Framework**.
+1. In **Custom Policies**, select **Upload Policy**.
+1. Select the *TrustFrameworkExtensionsCustomForcePasswordReset.xml* file.
+1. Select **Upload**.
+1. Repeat steps 6 through 8 for the relying party file *TrustFrameworkExtensionsCustomForcePasswordReset.xml*.
+
+## Run the policy
+
+1. Open the policy that you uploaded *B2C_1A_TrustFrameworkExtensions_custom_ForcePasswordReset*.
+1. For **Application**, select the application that you registered earlier. To see the token, the **Reply URL** should show `https://jwt.ms`.
+1. Select **Run now**. 
+1. Sign in with the user account for which you reset the password.
+1. You now must change the password for the user. Change the password and select **Continue**. The token is returned to `https://jwt.ms` and should be displayed to you.
+
+::: zone-end
 
 ## Force password reset on next login
 
@@ -122,8 +143,6 @@ Once a password expiration policy has been set, you must also configure force pa
 ### Password expiry duration
 
 The password expiry duration default value is **90** days. The value is configurable by using the [Set-MsolPasswordPolicy](/powershell/module/msonline/set-msolpasswordpolicy) cmdlet from the Azure Active Directory Module for Windows PowerShell. This command updates the tenant, so that all users' passwords expire after number of days you configure.
-
-::: zone-end
 
 ## Next steps
 

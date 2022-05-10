@@ -3,9 +3,9 @@ title: Create and manage resources VS Code extension (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to create and manage Azure Machine Learning resources using the Azure Machine Learning Visual Studio Code extension.
 services: machine-learning
-author: luisquintanilla
-ms.author: luquinta
-ms.reviewer: luquinta
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
@@ -32,7 +32,7 @@ The quickest way to create resources is using the extension's toolbar.
 1. Select **+** in the activity bar.
 1. Choose your resource from the dropdown list.
 1. Configure the specification file. The information required depends on the type of resource you want to create.
-1. Right-click the specification file and select **Azure ML: Create Resource**.
+1. Right-click the specification file and select **Azure ML: Execute YAML**.
 
 Alternatively, you can create a resource by using the command palette:
 
@@ -50,7 +50,7 @@ To version a resource:
 
 1. Use the existing specification file that created the resource or follow the create resources process to create a new specification file.
 1. Increment the version number in the template.
-1. Right-click the specification file and select **Azure ML: Create Resource**.
+1. Right-click the specification file and select **Azure ML: Execute YAML**.
 
 As long as the name of the updated resource is the same as the previous version, Azure Machine Learning picks up the changes and creates a new version.
 
@@ -62,7 +62,7 @@ For more information, see [workspaces](concept-workspace.md).
 
 1. In the Azure Machine Learning view, right-click your subscription node and select **Create Workspace**.
 1. A specification file appears. Configure the specification file.
-1. Right-click the specification file and select **Azure ML: Create Resource**.
+1. Right-click the specification file and select **Azure ML: Execute YAML**.
 
 Alternatively, use the `> Azure ML: Create Workspace` command in the command palette.
 
@@ -94,7 +94,7 @@ For more information, see [datastores](concept-data.md#datastores).
 1. Right-click the **Datastores** node and select **Create Datastore**.
 1. Choose the datastore type.
 1. A specification file appears. Configure the specification file.
-1. Right-click the specification file and select **Azure ML: Create Resource**.
+1. Right-click the specification file and select **Azure ML: Execute YAML**.
 
 Alternatively, use the `> Azure ML: Create Datastore` command in the command palette.
 
@@ -124,7 +124,7 @@ For more information, see [datasets](concept-data.md#datasets)
 1. Expand the workspace node you want to create the dataset under.
 1. Right-click the **Datasets** node and select **Create Dataset**.
 1. A specification file appears. Configure the specification file.
-1. Right-click the specification file and select **Azure ML: Create Resource**.
+1. Right-click the specification file and select **Azure ML: Execute YAML**.
 
 Alternatively, use the `> Azure ML: Create Dataset` command in the command palette.
 
@@ -150,7 +150,7 @@ For more information, see [environments](concept-environments.md).
 1. Expand the workspace node you want to create the datastore under.
 1. Right-click the **Environments** node and select **Create Environment**.
 1. A specification file appears. Configure the specification file.
-1. Right-click the specification file and select **Azure ML: Create Resource**.
+1. Right-click the specification file and select **Azure ML: Execute YAML**.
 
 Alternatively, use the `> Azure ML: Create Environment` command in the command palette.
 
@@ -180,7 +180,7 @@ Using the resource nodes in the Azure Machine Learning view:
 1. Right-click the **Experiments** node in your workspace and select **Create Job**.
 1. Choose your job type.
 1. A specification file appears. Configure the specification file.
-1. Right-click the specification file and select **Azure ML: Create Resource**.
+1. Right-click the specification file and select **Azure ML: Execute YAML**.
 
 Alternatively, use the `> Azure ML: Create Job` command in the command palette.
 
@@ -229,7 +229,7 @@ For more information, see [compute instances](concept-compute-instance.md).
 1. Expand the **Compute** node.
 1. Right-click the **Compute instances** node in your workspace and select **Create Compute**.
 1. A specification file appears. Configure the specification file.
-1. Right-click the specification file and select **Azure ML: Create Resource**.
+1. Right-click the specification file and select **Azure ML: Execute YAML**.
 
 Alternatively, use the `> Azure ML: Create Compute` command in the command palette.
 
@@ -275,7 +275,7 @@ For more information, see [training compute targets](concept-compute-target.md#t
 1. Expand the **Compute** node.
 1. Right-click the **Compute clusters** node in your workspace and select **Create Compute**.
 1. A specification file appears. Configure the specification file.
-1. Right-click the specification file and select **Azure ML: Create Resource**.
+1. Right-click the specification file and select **Azure ML: Execute YAML**.
 
 Alternatively, use the `> Azure ML: Create Compute` command in the command palette.
 
@@ -346,7 +346,7 @@ For more information, see [models](concept-azure-machine-learning-architecture.m
 1. Expand your workspace node.
 1. Right-click the **Models** node in your workspace and select **Create Model**.
 1. A specification file appears. Configure the specification file.
-1. Right-click the specification file and select **Azure ML: Create Resource**.
+1. Right-click the specification file and select **Azure ML: Execute YAML**.
 
 Alternatively, use the `> Azure ML: Create Model` command in the command palette.
 
@@ -386,7 +386,7 @@ For more information, see [endpoints](concept-azure-machine-learning-architectur
 1. Right-click the **Models** node in your workspace and select **Create Endpoint**.
 1. Choose your endpoint type.
 1. A specification file appears. Configure the specification file.
-1. Right-click the specification file and select **Azure ML: Create Resource**.
+1. Right-click the specification file and select **Azure ML: Execute YAML**.
 
 Alternatively, use the `> Azure ML: Create Endpoint` command in the command palette.
 

@@ -709,3 +709,4 @@ Here are the settings to add this condition using the Azure portal.
 - [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (preview)](storage-auth-abac-portal.md)
 - [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](storage-auth-abac-attributes.md)
 - [Azure role assignment condition format and syntax (preview)](../../role-based-access-control/conditions-format.md)
+- [Troubleshoot Azure role assignment conditions (preview)](../../role-based-access-control/conditions-troubleshoot.md)

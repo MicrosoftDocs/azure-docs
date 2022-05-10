@@ -1,3 +1,4 @@
+items:
 - name: Azure Firewall documentation
   href: index.yml
 - name: Overview
@@ -35,6 +36,10 @@
       href: features.md
     - name: Azure Firewall Premium features
       href: premium-features.md
+    - name: Azure Firewall preview features
+      href: firewall-preview.md
+    - name: IDPS signature rule categories
+      href: idps-signature-categories.md
     - name: Azure Firewall Premium in the portal
       href: premium-portal.md
     - name: Azure Firewall Premium certificates
@@ -73,6 +78,8 @@
       href: /security/benchmark/azure/baselines/firewall-security-baseline?toc=/azure/firewall/toc.json
     - name: FTP support
       href: ftp-support.md
+    - name: Performance
+      href: firewall-performance.md
 - name: How-to guides
   items:
     - name: Deploy and configure - classic
@@ -101,7 +108,7 @@
       href: snat-private-range.md
     - name: Create IP Groups
       href: create-ip-group.md
-    - name: Protect Windows Virtual Desktop
+    - name: Protect Azure Virtual Desktop
       href: protect-azure-virtual-desktop.md
     - name: Protect Azure Kubernetes Service (AKS)
       href: protect-azure-kubernetes-service.md
@@ -122,6 +129,8 @@
       href: /azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
     - name: Scale Outbound SNAT Ports
       href: integrate-with-nat-gateway.md
+    - name: Add or modify rules using PowerShell
+      href: deploy-rules-powershell.md
 - name: Reference
   items:
   - name: Azure CLI

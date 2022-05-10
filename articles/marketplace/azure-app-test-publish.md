@@ -1,8 +1,8 @@
 ---
 title: Test and publish an Azure application offer 
 description: Submit your Azure application offer to preview, preview your offer, test, and publish it to Azure Marketplace. 
-author: aarathin
-ms.author: aarathin
+author: macerru
+ms.author: macerr
 ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -15,8 +15,6 @@ ms.date: 09/27/2021
 This article explains how to use Partner Center to submit your Azure Application offer for publishing, preview your offer, test it, and then publish it live to the commercial marketplace. You must have already created an offer that you want to publish.
 
 ## Submit the offer for publishing
-
-#### [Workspaces view](#tab/workspaces-view)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
@@ -33,21 +31,6 @@ This article explains how to use Partner Center to submit your Azure Application
 1. If any of the pages have a status other than **Complete**, select the page name, correct the issue, save the page, and then select **Review and publish** again to return to this page.
 1. After all the pages are complete, in the **Notes for certification** box, provide testing instructions to the certification team to ensure that your app is tested correctly. Provide any supplementary notes helpful for understanding your app.
 1. To start the publishing process for your offer, select **Publish**. The **Offer overview** page appears and shows the offer's **Publish status**.
-
-#### [Current view](#tab/current-view)
-
-1. Sign in to the commercial marketplace in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
-1. On the **Overview** page, select the offer you want to publish.
-1. In the upper-right corner of the portal, select **Review and publish**.
-1. Make sure that the **Status** column for each page says **Complete**. The three possible statuses are as follows:
-    - **Not started** – The page is incomplete.
-    - **Incomplete** – The page is missing required information or has errors that need to be fixed. You'll need to go back to the page and update it.
-    - **Complete** – The page is complete. All required data has been provided and there are no errors.
-1. If any of the pages have a status other than **Complete**, select the page name, correct the issue, save the page, and then select **Review and publish** again to return to this page.
-1. After all the pages are complete, in the **Notes for certification** box, provide testing instructions to the certification team to ensure that your app is tested correctly. Provide any supplementary notes helpful for understanding your app.
-1. To start the publishing process for your offer, select **Publish**. The **Offer overview** page appears and shows the offer's **Publish status**.
-
----
 
 Your offer's publish status will change as it moves through the publication process. For detailed information on this process, see [Validation and publishing steps](review-publish-offer.md#validation-and-publishing-steps).
 

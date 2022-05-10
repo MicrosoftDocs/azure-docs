@@ -25,6 +25,9 @@
       href: tutorial-net-virtual-machine.md
     - name: Use Azure Key Vault with a virtual machine in Python
       href: tutorial-python-virtual-machine.md
+    - name: Use Azure Key Vault with a virtual machine in JavaScript
+      href: tutorial-javascript-virtual-machine.md 
+      displayName: az keyvault create, az keyvault secret set, az vm create, az vm identity assign, az keyvault set-policy
   - name: Azure App Service
     items:
     - name: Use Azure Key Vault with a Web App in .NET
@@ -181,7 +184,7 @@
   - name: Node.js
     href: /javascript/api/overview/azure/key-vault-index
   - name: Python
-    href: /python/api/overview/azure/key-vault-index
+    href: /python/api/overview/azure/keyvault-keys-readme
   - name: REST
     href: /rest/api/keyvault
   - name: Resource Manager template

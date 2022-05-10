@@ -32,7 +32,11 @@ You can also try asking your question on Stack Overflow, which has a large commu
 
 The [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/azure-communication-services/bd-p/AzureCommunicationServices) is another place you can ask product or technical questions. The Azure Communication Services team regularly posts [blogs](https://techcommunity.microsoft.com/t5/azure-communication-services/bg-p/AzureCommunicationServicesBlog) and hosts "Ask Me Anything" events on this forum.
 
-## Provide feedback
+## Provide feedback through Azure Feedback
+
+You can post and upvote ideas, feature requests, and feedback others in the community have shared via our [Azure Feedback channel](https://feedback.azure.com/d365community/forum/81ff6d2b-0c25-ec11-b6e6-000d3a4f0858).
+
+## Provide feedback through the Azure portal
 
 To provide feedback on specific functionalities Azure Communication Services provide on Azure portal, submit your feedback via buttons or links that have this icon :::image type="content" source="./media/give-feedback-icon.png" alt-text="Image of Give Feedback Icon.":::. 
 

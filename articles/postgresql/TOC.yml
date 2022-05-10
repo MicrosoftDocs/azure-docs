@@ -58,6 +58,9 @@
         displayName: create single server up command
       - name: Azure PowerShell
         href: quickstart-create-postgresql-server-database-using-azure-powershell.md
+      - name: Bicep
+        href: quickstart-create-postgresql-server-database-using-bicep.md
+        displayName: ARM, Resource Manager, Template
       - name: ARM template
         href: quickstart-create-postgresql-server-database-using-arm-template.md
         displayName: deploy azure resource manager template
@@ -114,13 +117,6 @@
     - name: Monitor and tune
       href: tutorial-monitor-and-tune.md
       displayName: monitor, alerts, configure
-  - name: Samples
-    items:
-    - name: Azure CLI
-      href: sample-scripts-azure-cli.md
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ./policy-reference.md
   - name: Concepts
     items:
     - name: Servers
@@ -409,7 +405,7 @@
         href: howto-migrate-using-dump-and-restore.md
       - name: Upgrade/Migrate data with pg_dump and psql
         href: howto-migrate-using-export-and-import.md
-- name: Flexible Server (Preview)
+- name: Flexible Server 
   expanded: true
   items:
   - name: Flexible Server documentation
@@ -612,175 +608,206 @@
   - name: Overview
     items:
     - name: What is Hyperscale (Citus)?
-      href: hyperscale-overview.md
+      href: hyperscale/overview.md
     - name: Product updates
-      href: hyperscale-product-updates.md
+      href: hyperscale/product-updates.md
   - name: Quickstart
     items:
     - name: Create server group
-      items:
-      - name: Basic tier
-        href: quickstart-create-hyperscale-basic-tier.md
-      - name: Standard tier
-        href: quickstart-create-hyperscale-portal.md
-        displayName: portal, create hyperscale
+      href: hyperscale/quickstart-create-portal.md
+    - name: Connect
+      href: hyperscale/quickstart-connect-psql.md
+    - name: Model and load data
+      href: hyperscale/quickstart-distribute-tables.md
+    - name: Run queries
+      href: hyperscale/quickstart-run-queries.md
   - name: Tutorials
     items:
-      - name: Create a server group
-        href: tutorial-hyperscale-server-group.md
       - name: Model and load data
         items:
         - name: Shard data on worker nodes
-          href: tutorial-hyperscale-shard.md
+          href: hyperscale/tutorial-shard.md
         - name: Design a multi-tenant database
-          href: tutorial-design-database-hyperscale-multi-tenant.md
+          href: hyperscale/tutorial-design-database-multi-tenant.md
           displayName: hyperscale, tutorial, multi-tenant
         - name: Design a real-time dashboard
-          href: tutorial-design-database-hyperscale-realtime.md
+          href: hyperscale/tutorial-design-database-realtime.md
           displayName: hyperscale, tutorial, real-time
       - name: Administer
         items:
-        - name: Private access
-          href: tutorial-hyperscale-private-access.md
+        - name: Set up private access
+          href: hyperscale/tutorial-private-access.md
           displayName: hyperscale, tutorial, private
   - name: Concepts
     items:
-    - name: Basic tier
-      href: concepts-hyperscale-tiers.md
+    - name: Server group
+      href: hyperscale/concepts-server-group.md
     - name: Distributed data
       items:
       - name: Nodes and tables
-        href: concepts-hyperscale-nodes.md
+        href: hyperscale/concepts-nodes.md
         displayName: nodes, tables
-      - name: Determine application type
-        href: concepts-hyperscale-app-type.md
-      - name: Choose a distribution column
-        href: concepts-hyperscale-choose-distribution-column.md
       - name: Table colocation
-        href: concepts-hyperscale-colocation.md
-    - name: Data access and security
+        href: hyperscale/concepts-colocation.md
+    - name: Security and data access
       items:
       - name: Overview
-        href: concepts-hyperscale-security-overview.md
+        href: hyperscale/concepts-security-overview.md
       - name: Public access
-        href: concepts-hyperscale-firewall-rules.md
+        href: hyperscale/concepts-firewall-rules.md
         displayName: firewall, rules, hyperscale
       - name: Private access
-        href: concepts-hyperscale-private-access.md
+        href: hyperscale/concepts-private-access.md
         displayName: private, link, hyperscale
-      - name: Configure SSL
-        href: concepts-hyperscale-ssl-connection-security.md
-        displayName: hyperscale, ssl
       - name: Security baseline
         href: /security/benchmark/azure/baselines/postgresql-hyperscale-security-baseline?toc=/azure/postgresql/TOC.json?toc=/azure/postgresql/TOC.json
     - name: Scheduled maintenance
-      href: concepts-hyperscale-maintenance.md
+      href: hyperscale/concepts-maintenance.md
     - name: Business continuity
       items:
       - name: Backup and restore
-        href: concepts-hyperscale-backup.md
+        href: hyperscale/concepts-backup.md
         displayName: backup, restore, outage, hyperscale
       - name: High availability
-        href: concepts-hyperscale-high-availability.md
+        href: hyperscale/concepts-high-availability.md
     - name: Replication
-      href: concepts-hyperscale-read-replicas.md
+      href: hyperscale/concepts-read-replicas.md
     - name: Connection pooling
-      href: concepts-hyperscale-connection-pool.md
+      href: hyperscale/concepts-connection-pool.md
     - name: Monitor and tune
       items:
-      - name: Monitor and tune
-        href: concepts-hyperscale-monitoring.md
+      - name: Monitoring
+        href: hyperscale/concepts-monitoring.md
       - name: Audit logs
-        href: concepts-hyperscale-audit.md
+        href: hyperscale/concepts-audit.md
     - name: Columnar storage
-      href: concepts-hyperscale-columnar.md
-    - name: Configuration options
-      href: concepts-hyperscale-configuration-options.md
-    - name: Limits and limitations
-      href: concepts-hyperscale-limits.md
-    - name: Prepay for reserved capacity
-      href: concepts-hyperscale-reserved-pricing.md
-    - name: PostgreSQL versions
-      href: concepts-hyperscale-versions.md
-    - name: PostgreSQL extensions
-      href: concepts-hyperscale-extensions.md
+      href: hyperscale/concepts-columnar.md
   - name: How-to guides
     items:
+    - name: Build scalable apps
+      items:
+      - name: Overview
+        href: hyperscale/howto-build-scalable-apps-overview.md
+      - name: Fundamental concepts
+        href: hyperscale/howto-build-scalable-apps-concepts.md
+      - name: Classify workload
+        href: hyperscale/howto-build-scalable-apps-classify.md
+      - name: Model multi-tenant apps
+        href: hyperscale/howto-build-scalable-apps-model-multi-tenant.md
+      - name: Model real-time apps
+        href: hyperscale/howto-build-scalable-apps-model-real-time.md
+      - name: Model high-throughput apps
+        href: hyperscale/howto-build-scalable-apps-model-high-throughput.md
     - name: Server group size
       items:
       - name: Pick initial size
-        href: howto-hyperscale-scale-initial.md
+        href: hyperscale/howto-scale-initial.md
       - name: Scale server group
-        href: howto-hyperscale-scale-grow.md
+        href: hyperscale/howto-scale-grow.md
       - name: Rebalance shards
-        href: howto-hyperscale-scale-rebalance.md
-    - name: Data access and security
+        href: hyperscale/howto-scale-rebalance.md
+      - name: Change compute quotas
+        href: hyperscale/howto-compute-quota.md
+    - name: Security and data access
       items:
-      - name: Public access
-        items:
-        - name: Azure portal
-          href: howto-hyperscale-manage-firewall-using-portal.md
-          displayName: firewall rule, hyperscale
-      - name: Private access
-        items:
-        - name: Azure portal
-          href: howto-hyperscale-private-access.md
-          displayName: network, private link
+      - name: Manage public access
+        href: hyperscale/howto-manage-firewall-using-portal.md
+        displayName: firewall rule, hyperscale
+      - name: Manage private access
+        href: hyperscale/howto-private-access.md
+        displayName: network, private link
+      - name: Configure SSL
+        href: hyperscale/howto-ssl-connection-security.md
+        displayName: hyperscale, ssl
     - name: Create users
-      href: howto-hyperscale-create-users.md
+      href: hyperscale/howto-create-users.md
     - name: Distributed data
       items:
+      - name: Determine application type
+        href: hyperscale/howto-app-type.md
       - name: Determine table size
-        href: howto-hyperscale-table-size.md
+        href: hyperscale/howto-table-size.md
+      - name: Choose a distribution column
+        href: hyperscale/howto-choose-distribution-column.md
       - name: Distribute and modify tables
-        href: howto-hyperscale-modify-distributed-tables.md
-    - name: High availability
-      href: howto-hyperscale-high-availability.md
-    - name: Replication
-      items:
-      - name: Azure portal
-        href: howto-hyperscale-read-replicas-portal.md
-        displayName: replication, read replica
-    - name: Scheduled maintenance
-      items:
-      - name: Azure portal
-        href: howto-hyperscale-maintenance.md
+        href: hyperscale/howto-modify-distributed-tables.md
+    - name: Configure high availability
+      href: hyperscale/howto-high-availability.md
+    - name: Manage read replicas
+      href: hyperscale/howto-read-replicas-portal.md
+      displayName: replication, read replica
+    - name: Schedule maintenance
+      href: hyperscale/howto-maintenance.md
     - name: Restart server group
-      href: howto-hyperscale-restart.md
+      href: hyperscale/howto-restart.md
     - name: Monitor
       items:
       - name: View metrics
-        href: howto-hyperscale-monitoring.md
+        href: hyperscale/howto-monitoring.md
       - name: Create alerts on metrics
-        href: howto-hyperscale-alert-on-metric.md
+        href: hyperscale/howto-alert-on-metric.md
         dispalyName: alerts on hyperscale
       - name: Access database logs
-        href: howto-hyperscale-logging.md
+        href: hyperscale/howto-logging.md
         displayName: log, hyperscale
     - name: Restore server group
-      items:
-      - name: Azure portal
-        href: howto-hyperscale-restore-portal.md
-    - name: Major version upgrades
-      href: howto-hyperscale-upgrade.md
+      href: hyperscale/howto-restore-portal.md
+    - name: Upgrade server group
+      href: hyperscale/howto-upgrade.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot connection errors
-        href: howto-hyperscale-troubleshoot-common-connection-issues.md
+        href: hyperscale/howto-troubleshoot-common-connection-issues.md
         displayName: connection errors, hyperscale
       - name: Troubleshoot read-only access
-        href: howto-hyperscale-troubleshoot-read-only.md
+        href: hyperscale/howto-troubleshoot-read-only.md
         displayName: read-only, hyperscale
       - name: Useful diagnostic queries
-        href: howto-hyperscale-useful-diagnostic-queries.md
-  - name: API Reference
+        href: hyperscale/howto-useful-diagnostic-queries.md
+  - name: Reference
     items:
-      - name: SQL API functions
-        href: reference-hyperscale-functions.md
-      - name: Server parameters
-        href: reference-hyperscale-parameters.md
-      - name: System tables
-        href: reference-hyperscale-metadata.md
+      - name: PostgreSQL versions
+        href: hyperscale/reference-versions.md
+      - name: PostgreSQL extensions
+        href: hyperscale/reference-extensions.md
+      - name: Hyperscale (Citus) SQL API
+        items:
+        - name: Overview
+          href: hyperscale/reference-overview.md
+        - name: SQL functions
+          href: hyperscale/reference-functions.md
+        - name: Server parameters
+          href: hyperscale/reference-parameters.md
+        - name: System tables
+          href: hyperscale/reference-metadata.md
+      - name: Limits and limitations
+        href: hyperscale/reference-limits.md
+  - name: Resources
+    items:
+      - name: Pricing
+        href: hyperscale/resources-pricing.md
+      - name: Regional availability
+        href: hyperscale/resources-regions.md
+      - name: Compute and storage
+        href: hyperscale/resources-compute.md
+- name: Samples
+  items:
+  - name: Azure CLI samples
+    items:
+      - name: Samples overview 
+        href: sample-scripts-azure-cli.md
+      - name: Create a server and firewall rule
+        href: ./scripts/sample-create-server-and-firewall-rule.md
+      - name: Create server with vNet rule
+        href: ./scripts/sample-create-server-with-vnet-rule.md
+      - name: Scale a server
+        href: ./scripts/sample-scale-server-up-or-down.md
+      - name: Change server configurations
+        href: ./scripts/sample-change-server-configuration.md
+      - name: Restore a server
+        href: ./scripts/sample-point-in-time-restore.md
+      - name: Manipulate with server logs
+        href: ./scripts/sample-server-logs.md
 - name: Reference
   items:
    - name: Azure CLI

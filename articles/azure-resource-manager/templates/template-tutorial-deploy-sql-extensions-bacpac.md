@@ -1,11 +1,9 @@
 ---
 title: Import SQL BACPAC files with templates
 description: Learn how to use Azure SQL Database extensions to import SQL BACPAC files with Azure Resource Manager templates (ARM templates).
-author: mumian
-ms.date: 09/30/2021
+ms.date: 02/28/2022
 ms.topic: tutorial
-ms.author: jgao
-ms.custom: devx-track-azurepowershell
+
 #Customer intent: As a database administrator I want use ARM templates so that I can import a SQL BACPAC file.
 ---
 
@@ -13,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 
 Learn how to use Azure SQL Database extensions to import a [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) file with Azure Resource Manager templates (ARM templates). Deployment artifacts are any files, in addition to the main template files, that are needed to complete a deployment. The BACPAC file is an artifact.
 
-In this tutorial, you create a template to deploy a [logical SQL server](../../azure-sql/database/logical-servers.md) and a single database and import a BACPAC file. For information about how to deploy Azure virtual machine extensions by using ARM templates, see [Tutorial: Deploy virtual machine extensions with ARM templates](./template-tutorial-deploy-vm-extensions.md).
+In this tutorial, you create a template to deploy a [logical SQL server](/azure/azure-sql/database/logical-servers) and a single database and import a BACPAC file. For information about how to deploy Azure virtual machine extensions by using ARM templates, see [Tutorial: Deploy virtual machine extensions with ARM templates](./template-tutorial-deploy-vm-extensions.md).
 
 This tutorial covers the following tasks:
 
@@ -44,7 +42,7 @@ To complete this article, you need:
 
 ## Prepare a BACPAC file
 
-A BACPAC file is shared in [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). To create your own, see [Export a database from Azure SQL Database to a BACPAC file](../../azure-sql/database/database-export.md). If you choose to publish the file to your own location, you must update the template later in the tutorial.
+A BACPAC file is shared in [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). To create your own, see [Export a database from Azure SQL Database to a BACPAC file](/azure/azure-sql/database/database-export). If you choose to publish the file to your own location, you must update the template later in the tutorial.
 
 The BACPAC file must be stored in an Azure Storage account before it can be imported with an ARM template. The following PowerShell script prepares the BACPAC file with these steps:
 
@@ -89,9 +87,11 @@ The BACPAC file must be stored in an Azure Storage account before it can be impo
                              -Blob $bacpacFileName `
                              -Context $storageAccount.Context
 
-    Write-Host "The storage account key is $storageAccountKey"
-    Write-Host "The BACPAC file URL is https://$storageAccountName.blob.core.windows.net/$containerName/$bacpacFileName"
-    Write-Host "The project name and location are $projectName and $location"
+    Write-Host "The project name:        $projectName`
+    	The location:            $location`
+    	The storage account key: $storageAccountKey`
+    	The BACPAC file URL:     https://$storageAccountName.blob.core.windows.net/$containerName/$bacpacFileName`
+    	"
     Write-Host "Press [ENTER] to continue ..."
     ```
 
@@ -138,7 +138,7 @@ The template used in this tutorial is stored in [GitHub](https://raw.githubuserc
         }
     ```
 
-    Add a comma after the `adminPassword` property's closing curly brace (`}`). To format the JSON file from Visual Studio Code, select Shift+Alt+F.
+    Add a comma after the `adminPassword` property's closing curly brace (`}`). To format the JSON file from Visual Studio Code, select **Shift+Alt+F**.
 
 1. Add two resources to the template.
 
@@ -222,7 +222,6 @@ Use the project name and location that were used when you prepared the BACPAC fi
 
     ```azurepowershell
     $projectName = Read-Host -Prompt "Enter the same project name that is used earlier"
-    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $adminUsername = Read-Host -Prompt "Enter the SQL admin username"
     $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
     $storageAccountKey = Read-Host -Prompt "Enter the storage account key"
@@ -242,7 +241,7 @@ Use the project name and location that were used when you prepared the BACPAC fi
 
 ## Verify the deployment
 
-To access the server from your client computer, you need to add a firewall rule. Your client's IP address and the IP address that's used to connect to the server might be different because of network address translation (NAT). For more information, see [Create and manage IP firewall rules](../../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules).
+To access the server from your client computer, you need to add a firewall rule. Your client's IP address and the IP address that's used to connect to the server might be different because of network address translation (NAT). For more information, see [Create and manage IP firewall rules](/azure/azure-sql/database/firewall-configure#create-and-manage-ip-firewall-rules).
 
 For example, when you sign in to **Query editor** a message is displayed that the IP address isn't allowed. The address is different from your client's IP address because of NAT. Select the message's link to add a firewall rule for the IP address. When you're finished, you can delete the IP address from the server's **Firewalls and virtual networks** settings.
 

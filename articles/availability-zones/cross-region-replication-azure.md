@@ -1,16 +1,16 @@
 ---
 title: Cross-region replication in Azure
 description: Learn about Cross-region replication in Azure.
-author: prsandhu
+author: awysza
 ms.service: azure
 ms.topic: conceptual
-ms.date: 10/21/2021
+ms.date: 3/01/2022
 ms.author: rarco
 ms.reviewer: cynthn
 ms.custom: references_regions
 ---
 
-# Cross-region replication in Azure: Business continuity and disaster recovery
+# Cross-region replication in Azure: Business continuity and disaster recovery 
 
 Many organizations require both high availability provided by availability zones that are also supported with protection from large-scale phenomena and regional disasters. As discussed in the resiliency [overview](overview.md) for regions and availability zones, Azure regions are designed to offer protection against local disasters with availability zones. But they can also provide protection from regional or large geography disasters with disaster recovery by making use of another region that uses *cross-region replication*.
 
@@ -39,6 +39,12 @@ Architecting cross-regional replication for your services and data can be decide
 - **Physical isolation**: Azure strives to ensure a minimum distance of 300 miles (483 kilometers) between datacenters in enabled regions, although it isn't possible across all geographies. Datacenter separation reduces the likelihood that natural disaster, civil unrest, power outages, or physical network outages can affect multiple regions. Isolation is subject to the constraints within a geography, such as geography size, power or network infrastructure availability, and regulations.
 - **Data residency**: Regions reside within the same geography as their enabled set (except for Brazil South and Singapore) to meet data residency requirements for tax and law enforcement jurisdiction purposes. 
 
+Although it is not possible to create your own regional pairings, you can nevertheless create your own disaster recovery solution by building your services in any number of regions and then using Azure services to pair them. For example, you can use Azure services such as [AzCopy](../storage/common/storage-use-azcopy-v10.md) to schedule data backups to an Azure Storage account in a different region. Using [Azure DNS and Azure Traffic Manager](../networking/disaster-recovery-dns-traffic-manager.md), you can design a resilient architecture for your applications that will survive the loss of the primary region.
+
+Azure controls planned maintenance and recovery prioritization for regional pairs. Some Azure services rely upon regional pairs by default, such as Azure [redundant storage](../storage/common/storage-redundancy.md).
+
+You are not limited to using services within your regional pairs. Although an Azure service can rely upon a specific regional pair, you can host your other services in any region that satisfies your business needs. For example, an Azure GRS storage solution can pair data in Canada Central with a peer in Canada East while using Azure Compute resources located in East US.
+
 ## Azure cross-region replication pairings for all geographies
 
 Regions are paired for cross-region replication based on proximity and other factors.
@@ -55,6 +61,7 @@ Regions are paired for cross-region replication based on proximity and other fac
 | Canada |Canada Central |Canada East |
 | China |China North |China East|
 | China |China North 2 |China East 2|
+| China |China North 3 |China East 3\* |
 | Europe |North Europe (Ireland) |West Europe (Netherlands) |
 | France |France Central|France South\*|
 | Germany |Germany West Central |Germany North\* |
@@ -69,6 +76,7 @@ Regions are paired for cross-region replication based on proximity and other fac
 | North America |West US 3 |East US |
 | Norway | Norway East | Norway West\* |
 | South Africa | South Africa North |South Africa West\* |
+| Sweden | Sweden Central |Sweden South\* |
 | Switzerland | Switzerland North |Switzerland West\* |
 | UK |UK West |UK South |
 | United Arab Emirates | UAE North | UAE Central\* |

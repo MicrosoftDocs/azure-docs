@@ -4,7 +4,7 @@ description: Learn how to resolve common problems in IT Service Management Conne
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
-ms.date: 04/12/2020
+ms.date: 2/23/2022
 
 ---
 # Troubleshoot problems in IT Service Management Connector
@@ -74,7 +74,7 @@ The following sections identify common symptoms, possible causes, and resolution
 
 ### Work items are not created
 
-**Cause**: There can be several reasons for this symptom:
+**Cause**: There can be several reasons for this:
 
 * Code was modified on the ServiceNow side.
 * Permissions are misconfigured.
@@ -92,7 +92,7 @@ The following sections identify common symptoms, possible causes, and resolution
 
 ### Sync connection 
 
-**Cause**: There can be several reasons for this symptom:
+**Cause**: There can be several reasons for this:
 
 * Templates are not shown as a part of the action definition dropdown and an error message is shown: "Can't retrieve the template configuration, see the connector logs for more information."
 * Values are not shown in the dropdowns of the default fields as a part of the action definition and an error message is shown: "No values found for the following fields: \<field names\>."
@@ -101,3 +101,14 @@ The following sections identify common symptoms, possible causes, and resolution
 **Resolution**: 
 * [Sync the connector](itsmc-resync-servicenow.md).
 * Check the [dashboard](itsmc-dashboard.md) and review the errors in the section for connector status. Then review the [common errors and their resolutions](itsmc-dashboard-errors.md)
+
+### Configuration Item is blank in incidents received from ServiceNow
+**Cause**: There can be several reasons for this:
+* Only Log alerts supports the configuration item but the alert is another type of alert
+* To contain the configuration item, the search results must include the **Computer** or **Resource** column 
+* The values in the configuration item field do not match an entry in the CMDB
+
+**Resolution**: 
+* Check whether it is log alert - if not configuration item not supported
+* Check whether search results have column Computer or Resource -if not it should be added to the query
+* Check whether values in the columns Computer/Resource are identical to the values in CMDB- if not a new entry should be added to the CMDB

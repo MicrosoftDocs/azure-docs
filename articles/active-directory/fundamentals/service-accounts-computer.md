@@ -3,7 +3,7 @@ title: Secure computer accounts | Azure Active Directory
 description: A guide to helping secure on-premises computer accounts.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals

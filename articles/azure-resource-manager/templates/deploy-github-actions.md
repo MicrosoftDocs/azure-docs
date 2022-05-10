@@ -2,7 +2,7 @@
 title: Deploy Resource Manager templates by using GitHub Actions
 description: Describes how to deploy Azure Resource Manager templates (ARM templates) by using GitHub Actions.
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 02/07/2022
 ms.custom: github-actions-azure
 ---
 
@@ -16,8 +16,8 @@ Use the [Deploy Azure Resource Manager Template Action](https://github.com/marke
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A GitHub account. If you don't have one, sign up for [free](https://github.com/join).
-    - A GitHub repository to store your Resource Manager templates and your workflow files. To create one, see [Creating a new repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
 
+  - A GitHub repository to store your Resource Manager templates and your workflow files. To create one, see [Creating a new repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
 
 ## Workflow file overview
 
@@ -32,8 +32,7 @@ The file has two sections:
 
 ## Generate deployment credentials
 
-
-You can create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 Create a resource group if you do not already have one.
 
@@ -61,8 +60,6 @@ In the example above, replace the placeholders with your subscription ID and res
 
 > [!IMPORTANT]
 > It is always a good practice to grant minimum access. The scope in the previous example is limited to the resource group.
-
-
 
 ## Configure the GitHub secrets
 
@@ -126,6 +123,7 @@ The workflow file must be stored in the **.github/workflows** folder at the root
           # output containerName variable from template
         - run: echo ${{ steps.deploy.outputs.containerName }}
     ```
+
     > [!NOTE]
     > You can specify a JSON format parameters file instead in the ARM Deploy action (example: `.azuredeploy.parameters.json`).
 
@@ -147,6 +145,7 @@ Because the workflow is configured to be triggered by either the workflow file o
 1. Select **Run ARM deploy** from the menu to verify the deployment.
 
 ## Clean up resources
+
 When your resource group and repository are no longer needed, clean up the resources you deployed by deleting the resource group and your GitHub repository.
 
 ## Next steps

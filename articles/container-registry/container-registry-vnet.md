@@ -59,7 +59,7 @@ az network vnet list \
 
 Output:
 
-```console
+```output
 [
   {
     "Name": "myDockerVMVNET",
@@ -91,7 +91,7 @@ az network vnet subnet show \
 
 Output:
 
-```
+```output
 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
 ```
 
@@ -117,7 +117,7 @@ az acr network-rule add \
 
 After waiting a few minutes for the configuration to update, verify that the VM can access the container registry. Make an SSH connection to your VM, and run the [az acr login][az-acr-login] command to login to your registry. 
 
-```bash
+```azurecli
 az acr login --name mycontainerregistry
 ```
 
@@ -131,7 +131,7 @@ Docker successfully pulls the image to the VM.
 
 This example demonstrates that you can access the private container registry through the network access rule. However, the registry can't be accessed from a login host that doesn't have a network access rule configured. If you attempt to login from another host using the `az acr login` command or `docker login` command, output is similar to the following:
 
-```Console
+```output
 Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ failed with status: 403 Forbidden
 ```
 

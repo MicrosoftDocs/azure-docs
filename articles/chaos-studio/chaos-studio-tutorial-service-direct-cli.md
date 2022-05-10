@@ -6,12 +6,13 @@ ms.author: johnkem
 ms.service: chaos-studio
 ms.topic: how-to
 ms.date: 11/10/2021
-ms.custom: template-how-to, ignite-fall-2021
+ms.custom: template-how-to, ignite-fall-2021, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Create a chaos experiment that uses a service-direct fault with the Azure CLI
 
-You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this guide, you will cause a multi-read, single-write Azure Comos DB failover using a chaos experiment and Azure Chaos Studio. Running this experiment can help you defend against data loss when a failover event occurs.
+You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this guide, you will cause a multi-read, single-write Azure Cosmos DB failover using a chaos experiment and Azure Chaos Studio. Running this experiment can help you defend against data loss when a failover event occurs.
 
 These same steps can be used to set up and run an experiment for any service-direct fault. A **service-direct** fault runs directly against an Azure resource without any need for instrumentation, unlike agent-based faults, which require installation of the chaos agent.
 
@@ -45,7 +46,7 @@ Chaos Studio cannot inject faults against a resource unless that resource has be
     For example, if onboarding a virtual machine as a service-direct target:
 
     ```azurecli-interactive
-    az rest --method put --url "https://management.azure.com/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/microsoft-virtualMachine?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
+    az rest --method put --url "https://management.azure.com/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachine?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
     ```
 
 2. Create the capabilities on the target by replacing `$RESOURCE_ID` with the resource ID of the resource you are onboarding, `$TARGET_TYPE` with the [target type you are onboarding](chaos-studio-fault-providers.md) and `$CAPABILITY` with the [name of the fault capability you are enabling](chaos-studio-fault-library.md).
@@ -57,7 +58,7 @@ Chaos Studio cannot inject faults against a resource unless that resource has be
     For example, if enabling the Virtual Machine shut down capability:
 
     ```azurecli-interactive
-    az rest --method put --url "https://management.azure.com/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/microsoft-virtualMachine/capabilities/shutdown-1.0?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
+    az rest --method put --url "https://management.azure.com/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachine/capabilities/shutdown-1.0?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
     ```
 
 You have now successfully onboarded your Azure Cosmos DB account to Chaos Studio.

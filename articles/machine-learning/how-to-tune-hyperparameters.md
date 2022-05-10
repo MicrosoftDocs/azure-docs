@@ -213,6 +213,7 @@ Specify the following configuration parameters:
 * `delay_evaluation`: (optional) delays the first policy evaluation for a specified number of intervals
 
 
+
 ```Python
 from azureml.train.hyperdrive import BanditPolicy
 early_termination_policy = BanditPolicy(slack_factor = 0.1, evaluation_interval=1, delay_evaluation=5)
@@ -245,14 +246,15 @@ This policy takes the following configuration parameters:
 * `truncation_percentage`: the percentage of lowest performing runs to terminate at each evaluation interval. An integer value between 1 and 99.
 * `evaluation_interval`: (optional) the frequency for applying the policy
 * `delay_evaluation`: (optional) delays the first policy evaluation for a specified number of intervals
+* `exclude_finished_jobs`: specifies whether to exclude finished jobs when applying the policy
 
 
 ```Python
 from azureml.train.hyperdrive import TruncationSelectionPolicy
-early_termination_policy = TruncationSelectionPolicy(evaluation_interval=1, truncation_percentage=20, delay_evaluation=5)
+early_termination_policy = TruncationSelectionPolicy(evaluation_interval=1, truncation_percentage=20, delay_evaluation=5, exclude_finished_jobs=true)
 ```
 
-In this example, the early termination policy is applied at every interval starting at evaluation interval 5. A run terminates at interval 5 if its performance at interval 5 is in the lowest 20% of performance of all runs at interval 5.
+In this example, the early termination policy is applied at every interval starting at evaluation interval 5. A run terminates at interval 5 if its performance at interval 5 is in the lowest 20% of performance of all runs at interval 5 and will exclude finished jobs when applying the policy.
 
 ### No termination policy (default)
 

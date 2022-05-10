@@ -23,7 +23,7 @@ Each VM in a scale set gets an instance ID that uniquely identifies it. This ins
 
 REST API: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}/reimage?api-version={apiVersion}` (for more information, see the [REST API documentation](/rest/api/compute/virtualmachinescalesetvms/reimage))
 
-Powershell: `Set-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (for more information, see the [Powershell documentation](/powershell/module/az.compute/set-azvmssvm))
+PowerShell: `Set-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (for more information, see the [PowerShell documentation](/powershell/module/az.compute/set-azvmssvm))
 
 CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (for more information, see the [CLI documentation](/cli/azure/vmss)).
 
@@ -31,7 +31,7 @@ You can get the list of instance IDs by listing all instances in a scale set:
 
 REST API: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines?api-version={apiVersion}` (for more information, see the [REST API documentation](/rest/api/compute/virtualmachinescalesetvms/list))
 
-Powershell: `Get-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (for more information, see the [Powershell documentation](/powershell/module/az.compute/get-azvmssvm))
+PowerShell: `Get-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (for more information, see the [PowerShell documentation](/powershell/module/az.compute/get-azvmssvm))
 
 CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (for more information, see the [CLI documentation](/cli/azure/vmss)).
 

@@ -5,7 +5,7 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 02/18/2022
 ms.author: mjbrown
 ms.custom: seodec18, devx-track-azurepowershell
 ---
@@ -48,7 +48,7 @@ The following sections demonstrate how to manage the Azure Cosmos account, inclu
 
 ### <a id="create-account"></a> Create an Azure Cosmos account
 
-This command creates an Azure Cosmos DB database account with [multiple regions][distribute-data-globally], [automatic failover](../how-to-manage-database-account.md#automatic-failover) and bounded-staleness [consistency policy](../consistency-levels.md).
+This command creates an Azure Cosmos DB database account with [multiple regions][distribute-data-globally], [service-managed failover](../how-to-manage-database-account.md#automatic-failover) and bounded-staleness [consistency policy](../consistency-levels.md).
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -177,7 +177,7 @@ $accountName = "mycosmosaccount"
 $enableAutomaticFailover = $false
 $enableMultiMaster = $true
 
-# First disable automatic failover - cannot have both automatic
+# First disable service-managed failover - cannot have both service-managed
 # failover and multi-region writes on an account
 Update-AzCosmosDBAccount `
     -ResourceGroupName $resourceGroupName `
@@ -266,7 +266,7 @@ New-AzCosmosDBAccountKey `
     -KeyKind $keyKind
 ```
 
-### <a id="enable-automatic-failover"></a> Enable automatic failover
+### <a id="enable-automatic-failover"></a> Enable service-managed failover
 
 The following command sets a Cosmos DB account to fail over automatically to its secondary region should the primary region become unavailable.
 
@@ -283,7 +283,7 @@ Update-AzCosmosDBAccount `
     -Name $accountName `
     -EnableMultipleWriteLocations:$enableMultiMaster
 
-# Now enable automatic failover
+# Now enable service-managed failover
 Update-AzCosmosDBAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $accountName `
@@ -292,9 +292,9 @@ Update-AzCosmosDBAccount `
 
 ### <a id="modify-failover-priority"></a> Modify Failover Priority
 
-For accounts configured with Automatic Failover, you can change the order in which Cosmos will promote secondary replicas to primary should the primary become unavailable.
+For accounts configured with Service-Managed Failover, you can change the order in which Cosmos will promote secondary replicas to primary should the primary become unavailable.
 
-For the example below, assume the current failover priority is `West US 2 = 0`, `East US 2 = 1`, `South Central US = 2`. The command will change this to `West US 2 = 0`, `South Central US = 1`, `East US 2 = 2`.
+For the example below, assume the current failover priority is `West US = 0`, `East US = 1`, `South Central US = 2`. The command will change this to `West US = 0`, `South Central US = 1`, `East US = 2`.
 
 > [!CAUTION]
 > Changing the location for `failoverPriority=0` will trigger a manual failover for an Azure Cosmos account. Any other priority changes will not trigger a failover.
@@ -302,7 +302,7 @@ For the example below, assume the current failover priority is `West US 2 = 0`, 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
-$locations = @("West US 2", "South Central US", "East US 2") # Regions ordered by UPDATED failover priority
+$locations = @("West US", "South Central US", "East US") # Regions ordered by UPDATED failover priority
 
 Update-AzCosmosDBAccountFailoverPriority `
     -ResourceGroupName $resourceGroupName `
@@ -314,7 +314,7 @@ Update-AzCosmosDBAccountFailoverPriority `
 
 For accounts configured with Manual Failover, you can fail over and promote any secondary replica to primary by modifying to `failoverPriority=0`. This operation can be used to initiate a disaster recovery drill to test disaster recovery planning.
 
-For the example below, assume the account has a current failover priority of `West US 2 = 0` and `East US 2 = 1` and flip the regions.
+For the example below, assume the account has a current failover priority of `West US = 0` and `East US = 1` and flip the regions.
 
 > [!CAUTION]
 > Changing `locationName` for `failoverPriority=0` will trigger a manual failover for an Azure Cosmos account. Any other priority change will not trigger a failover.
@@ -325,7 +325,7 @@ For the example below, assume the account has a current failover priority of `We
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
-$locations = @("East US 2", "West US 2") # Regions ordered by UPDATED failover priority
+$locations = @("East US", "West US") # Regions ordered by UPDATED failover priority
 
 Update-AzCosmosDBAccountFailoverPriority `
     -ResourceGroupName $resourceGroupName `

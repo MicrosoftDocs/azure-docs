@@ -136,4 +136,4 @@ The following table lists which attributes you can use in your condition express
 
 - [Example Azure role assignment conditions (preview)](storage-auth-abac-examples.md)
 - [Azure role assignment condition format and syntax (preview)](../../role-based-access-control/conditions-format.md)
-- [What is Azure attribute-based access control (Azure ABAC)? (preview)](../../role-based-access-control/conditions-overview.md)
+- [Troubleshoot Azure role assignment conditions (preview)](../../role-based-access-control/conditions-troubleshoot.md)

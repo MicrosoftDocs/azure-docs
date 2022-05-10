@@ -1,19 +1,14 @@
 ---
 title: Microsoft Defender for Key Vault - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for Key Vault.
-author: memildin
-ms.author: memildin
 ms.date: 11/09/2021
 ms.topic: overview
-ms.service: defender-for-cloud
+ms.author: benmansheim
+author: bmansheim
 ms.custom: references_regions
-manager: rkarlin
-
 ---
 
 # Introduction to Microsoft Defender for Key Vault
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure Key Vault is a cloud service that safeguards encryption keys and secrets like certificates, connection strings, and passwords. 
 
@@ -24,9 +19,9 @@ Enable **Microsoft Defender for Key Vault** for Azure-native, advanced threat pr
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|**Microsoft Defender for Key Vault** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/security-center/)|
+|Pricing:|**Microsoft Defender for Key Vault** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
-|||
+
 
 ## What are the benefits of Microsoft Defender for Key Vault?
 

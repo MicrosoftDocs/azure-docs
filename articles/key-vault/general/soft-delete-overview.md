@@ -6,16 +6,16 @@ ms.subservice: general
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 03/31/2021
+ms.date: 01/25/2022
 ---
 
 # Azure Key Vault soft-delete overview
 
 > [!IMPORTANT]
-> You must enable soft-delete on your key vaults immediately. The ability to opt out of soft-delete will be deprecated soon. See full details [here](soft-delete-change.md)
+> You must enable soft-delete on your key vaults immediately. The ability to opt out of soft-delete is deprecated and will be removed in February 2025. See full details [here](soft-delete-change.md)
 
 > [!IMPORTANT]
-> Soft-deleted vault triggers delete settings for integrated with Key Vault services i.e. Azure RBAC roles assignments, Event Grid subscriptions. After recovery of soft-deleted Key Vault settings for integrated services will need to be manually recreated. 
+> When a Key Vault is soft-deleted, services that are integrated with the Key Vault will be deleted. For example: Azure RBAC roles assignments and Event Grid subscriptions. Recovering a soft-deleted Key Vault will not restore these services. They will need to be recreated.
 
 Key Vault's soft-delete feature allows recovery of the deleted vaults and deleted key vault objects (for example, keys, secrets, certificates), known as soft-delete. Specifically, we address the following scenarios:  This safeguard offer the following protections:
 
@@ -47,7 +47,7 @@ You cannot reuse the name of a key vault that has been soft-deleted until the re
 
 ### Purge protection
 
-Purge protection is an optional Key Vault behavior and is **not enabled by default**. Purge protection can only be enabled once soft-delete is enabled.  It can be turned on via [CLI](./key-vault-recovery.md?tabs=azure-cli) or [PowerShell](./key-vault-recovery.md?tabs=azure-powershell).
+Purge protection is an optional Key Vault behavior and is **not enabled by default**. Purge protection can only be enabled once soft-delete is enabled.  It can be turned on via [CLI](./key-vault-recovery.md?tabs=azure-cli) or [PowerShell](./key-vault-recovery.md?tabs=azure-powershell). Purge protection is recommended when using keys for encryption to prevent data loss. Most Azure services that integrate with Azure Key Vault, such as Storage, require purge protection to prevent data loss.
 
 When purge protection is on, a vault or an object in the deleted state cannot be purged until the retention period has passed. Soft-deleted vaults and objects can still be recovered, ensuring that the retention policy will be followed.
 

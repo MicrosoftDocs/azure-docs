@@ -54,7 +54,7 @@ and Arc-enabled servers, review the following details.
 Before you can use the guest configuration feature of Azure Policy, you must
 register the `Microsoft.GuestConfiguration` resource provider. If assignment of
 a guest configuration policy is done through the portal, or if the subscription
-is enrolled in Azure Security Center, the resource provider is registered
+is enrolled in Microsoft Defender for Cloud, the resource provider is registered
 automatically. You can manually register through the
 [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal),
 [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell),
@@ -107,8 +107,8 @@ these tools automatically.
 
 |Operating system|Validation tool|Notes|
 |-|-|-|
-|Windows|[PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v3| Side-loaded to a folder only used by Azure Policy. Won't conflict with Windows PowerShell DSC. PowerShell Core isn't added to system path.|
-|Linux|[PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v3| Side-loaded to a folder only used by Azure Policy. PowerShell Core isn't added to system path.|
+|Windows|[PowerShell Desired State Configuration](/powershell/dsc/overview) v3| Side-loaded to a folder only used by Azure Policy. Won't conflict with Windows PowerShell DSC. PowerShell Core isn't added to system path.|
+|Linux|[PowerShell Desired State Configuration](/powershell/dsc/overview) v3| Side-loaded to a folder only used by Azure Policy. PowerShell Core isn't added to system path.|
 |Linux|[Chef InSpec](https://www.chef.io/inspec/) | Installs Chef InSpec version 2.2.61 in default location and added to system path. Dependencies for the InSpec package including Ruby and Python are installed as well. |
 
 ### Validation frequency
@@ -142,7 +142,7 @@ The ".x" text is symbolic to represent new minor versions of Linux distributions
 |Amazon|Linux|2|
 |Canonical|Ubuntu Server|14.04 - 20.x|
 |Credativ|Debian|8 - 10.x|
-|Microsoft|Windows Server|2012 - 2019|
+|Microsoft|Windows Server|2012 - 2022|
 |Microsoft|Windows Client|Windows 10|
 |Oracle|Oracle-Linux|7.x-8.x|
 |OpenLogic|CentOS|7.3 -8.x|
@@ -218,6 +218,9 @@ initiative that manage identity creation. The IF conditions in the policy
 definitions ensure the correct behavior based on the current state of the
 machine resource in Azure.
 
+> [!IMPORTANT]
+> These definitions create a System-Assigned managed identity on the target resources, in addition to existing User-Assigned Identities (if any). For existing applications unless they specify the User-Assigned identity in the request, the machine will default to using System-Assigned Identity instead. [Learn More](../../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)
+
 If the machine doesn't currently have any managed identities, the effective
 policy is:
 [Add system-assigned managed identity to enable guest configuration assignments on virtual machines with no identities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
@@ -231,7 +234,7 @@ policy is:
 Customers designing a highly available solution should consider the redundancy planning requirements for
 [virtual machines](../../../virtual-machines/availability.md) because guest assignments are extensions of
 machine resources in Azure. When guest assignment resources are provisioned in to an Azure region that is
-[paired](../../../best-practices-availability-paired-regions.md), as long as at least one region in the pair
+[paired](../../../availability-zones/cross-region-replication-azure.md), as long as at least one region in the pair
 is available, then guest assignment reports are available. If the Azure region isn't paired and
 it becomes unavailable, then it isn't possible to access reports for a guest assignment until
 the region is restored.
@@ -252,8 +255,8 @@ for the same definitions using the same parameter values as machines in the prim
 ## Data residency
 
 Guest configuration stores/processes customer data. By default, customer data is replicated to the
-[paired region.](../../../best-practices-availability-paired-regions.md)
-For single resident region all customer data is stored and processed in the region.
+[paired region.](../../../availability-zones/cross-region-replication-azure.md)
+For the regions: Singapore, Brazil South, and East Asia all customer data is stored and processed in the region.
 
 ## Troubleshooting guest configuration
 

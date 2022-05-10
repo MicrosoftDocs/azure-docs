@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 11/09/2021
+ms.date: 02/08/2022
 ---
 
 # Network traffic flow when using a secured workspace
@@ -61,7 +61,7 @@ This article assumes the following configuration:
 >
 > * __Your storage__: The Azure Storage Account(s) in your Azure subscription are used to store your data and artifacts such as models, training data, training logs, and Python scripts. For example, the _default_ storage account for your workspace is in your subscription. The Azure Machine Learning compute instance and compute clusters access __file__ and __blob__ data in this storage over ports 445 (SMB) and 443 (HTTPS).
 > 
->    When using a compute instance or compute cluster, your storage account is mounted as a file share using the SMB protocol. This is how the compute instance/cluster accesses your data.
+>    When using a __compute instance__ or __compute cluster__, your storage account is mounted as a __file share__ using the SMB protocol. The compute instance and cluster use this file share to store the data, models, Jupyter notebooks, datasets, etc. The compute instance and cluster use the private endpoint when accessing the storage account.
 >
 > * __Microsoft storage__: The Azure Machine Learning compute instance and compute clusters rely on Azure Batch, and access storage located in a Microsoft subscription. This storage is used only for the management of the compute instance/cluster. None of your data is stored here. The compute instance and compute cluster access the __blob__, __table__, and __queue__ data in this storage, using port 443 (HTTPS).
 >
@@ -92,14 +92,14 @@ The following features of Azure Machine Learning studio use _data profiling_:
 * AutoML: View a data preview/profile and choose a target column.
 * Labeling
 
-Data profiling depends on the Azure Machine Learning managed service being able to access the default Azure Storage Account for your workspace. The managed service _does not exist in your VNet_, so cannot directly access the storage account in the VNet. Instead, the workspace uses a service principal to access storage.
+Data profiling depends on the Azure Machine Learning managed service being able to access the default Azure Storage Account for your workspace. The managed service _doesn't exist in your VNet_, so can’t directly access the storage account in the VNet. Instead, the workspace uses a service principal to access storage.
 
 > [!TIP]
 > You can provide a service principal when creating the workspace. If you do not, one is created for you and will have the same name as your workspace.
 
 To allow access to the storage account, configure the storage account to allow a __resource instance__ for your workspace or select the __Allow Azure services on the trusted services list to access this storage account__. This setting allows the managed service to access storage through the Azure data center network. 
 
-Next, add the service principal for the workspace to the __Reader__ role to the private endpoint of the storage account. This role is used to verify the workspace and storage subnet information. If they are the same, access is allowed. Finally, the service principal also requires __Blob data contributor__ access to the storage account.
+Next, add the service principal for the workspace to the __Reader__ role to the private endpoint of the storage account. This role is used to verify the workspace and storage subnet information. If they're the same, access is allowed. Finally, the service principal also requires __Blob data contributor__ access to the storage account.
 
 For more information, see the Azure Storage Account section of [How to secure a workspace in a virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
 
@@ -107,7 +107,7 @@ For more information, see the Azure Storage Account section of [How to secure a 
 
 ## Scenario: Use compute instance and compute cluster
 
-Azure Machine Learning compute instance and compute cluster are managed services hosted by Microsoft. They are built on top of the Azure Batch service. While they exist in a Microsoft managed environment, they are also injected into your VNet.
+Azure Machine Learning compute instance and compute cluster are managed services hosted by Microsoft. They're built on top of the Azure Batch service. While they exist in a Microsoft managed environment, they're also injected into your VNet.
 
 When you create a compute instance or compute cluster, the following resources are also created in your VNet:
 
@@ -140,9 +140,9 @@ If your model requires extra inbound or outbound connectivity, such as to an ext
 
 ## Scenario: Use Docker images managed by Azure ML
 
-Azure Machine Learning provides Docker images that can be used to train models or perform inference. If you don't specify your own images, the ones provided by Azure Machine Learning are used. These images are hosted on the Microsoft Container Registry (MCR). They are also hosted on a geo-replicated Azure Container Registry named `viennaglobal.azurecr.io`.
+Azure Machine Learning provides Docker images that can be used to train models or perform inference. If you don't specify your own images, the ones provided by Azure Machine Learning are used. These images are hosted on the Microsoft Container Registry (MCR). They're also hosted on a geo-replicated Azure Container Registry named `viennaglobal.azurecr.io`.
 
-If you provide your own docker images, such as on an Azure Container Registry that you provide, you do not need the outbound communication with MCR or `viennaglobal.azurecr.io`.
+If you provide your own docker images, such as on an Azure Container Registry that you provide, you don't need the outbound communication with MCR or `viennaglobal.azurecr.io`.
 
 > [!TIP]
 > If your Azure Container Registry is secured in the VNet, it cannot be used by Azure Machine Learning to build Docker images. Instead, you must designate an Azure Machine Learning compute cluster to build images. For more information, see [How to secure a workspace in a virtual network](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).

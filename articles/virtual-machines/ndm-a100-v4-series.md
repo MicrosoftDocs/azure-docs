@@ -35,10 +35,11 @@ These instances provide excellent performance for many AI, ML, and analytics too
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
 InfiniBand: Supported, GPUDirect RDMA, 8 x 200 Gigabit HDR<br>
 Nvidia NVLink Interconnect: Supported<br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 <br>
 The NDm A100 v4 series supports the following kernel versions: <br>
 CentOS 7.9 HPC: 3.10.0-1160.24.1.el7.x86_64 <br>
@@ -48,7 +49,7 @@ Ubuntu 20.04: 5.4.0-1046-azure <br>
 
 | Size | vCPU | Memory: GiB | Temp Storage (SSD): GiB | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max network bandwidth | Max NICs |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_ND96amsr_v4 | 96 | 1900 | 6400 | 8 A100 80 GB GPUs (NVLink 3.0) | 80 | 32 | 80,000 / 800 | 24,000 Mbps | 8 |
+| Standard_ND96amsr_A100_v4 | 96 | 1900 | 6400 | 8 A100 80 GB GPUs (NVLink 3.0) | 80 | 32 | 80,000 / 800 | 24,000 Mbps | 8 |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

@@ -14,6 +14,8 @@ ms.custom: seodec18
 
 # Best practices for choosing a Time Series ID
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 This article summarizes the importance of the Time Series ID for your Azure Time Series Insights Gen2 environment, and best practices for choosing one.
 
 ## Choose a Time Series ID
@@ -28,7 +30,7 @@ Watch the environment provisioning tutorial for a detailed explanation of the Ti
 > [!IMPORTANT]
 > Time Series IDs are:
 >
-> * A *case-sensitive* property: letter and character casings are used in searches, comparisons, updates, and when partitioning.
+> * A *case-sensitive string* property: letter and character casings are used in searches, comparisons, updates, and when partitioning.
 > * An *immutable* property: once created it cannot be changed.
 
 > [!TIP]

@@ -3,11 +3,10 @@ title: Requirements for Azure Import/Export service | Microsoft Docs
 description: Understand the software and hardware requirements for Azure Import/Export service.
 author: alkohli
 services: storage
-ms.service: storage
+ms.service: azure-import-export
 ms.topic: conceptual
-ms.date: 04/28/2021
+ms.date: 03/14/2022
 ms.author: alkohli
-ms.subservice: common
 ---
 # Azure Import/Export system requirements
 
@@ -72,7 +71,9 @@ The following list of disks is supported for use with the Import/Export service.
 |Disk type  |Size  |Supported |
 |---------|---------|---------|
 |SSD    |   2.5"      |SATA III          |
-|HDD     |  2.5"<br>3.5"       |SATA II, SATA III         |
+|HDD<sup>*</sup>     |  2.5"<br>3.5"       |SATA II, SATA III         |
+
+<sup>*</sup>An HDD must have 512-byte sectors; 4096-byte (4K) sectors are not supported.
 
 The following disk types are not supported:
 

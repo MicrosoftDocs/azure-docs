@@ -4,6 +4,7 @@ description: Learn about business continuity (point-in-time restore, data center
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 7/7/2020
 ---
@@ -52,7 +53,7 @@ One option is to wait for your server to come back online when the data center o
 
 ## Geo-restore
 
-The geo-restore feature restores the server using geo-redundant backups. The backups are hosted in your server's [paired region](../best-practices-availability-paired-regions.md). These backups are accessible even when the region your server is hosted in is offline. You can restore from these backups to any other region and bring your server back online. Learn more about geo-restore from the [backup and restore concepts article](concepts-backup.md).
+The geo-restore feature restores the server using geo-redundant backups. The backups are hosted in your server's [paired region](../availability-zones/cross-region-replication-azure.md). These backups are accessible even when the region your server is hosted in is offline. You can restore from these backups to any other region and bring your server back online. Learn more about geo-restore from the [backup and restore concepts article](concepts-backup.md).
 
 > [!IMPORTANT]
 > Geo-restore is only possible if you provisioned the server with geo-redundant backup storage. If you wish to switch from locally redundant to geo-redundant backups for an existing server, you must take a dump using mysqldump of your existing server and restore it to a newly created server configured with geo-redundant backups.

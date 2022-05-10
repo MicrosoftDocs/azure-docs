@@ -132,7 +132,7 @@ see [Tag support for Azure resources](../../../azure-resource-manager/management
 
 ### Resource Provider modes
 
-The following Resource Provider mode is fully supported:
+The following Resource Provider modes are fully supported:
 
 - `Microsoft.Kubernetes.Data` for managing your Kubernetes clusters on or off Azure. Definitions
   using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. This mode supports
@@ -142,21 +142,20 @@ The following Resource Provider mode is fully supported:
   GateKeeper v3
   [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates). Use
   of the [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect is _deprecated_.
-
-The following Resource Provider modes are currently supported as a **preview**:
-
-- `Microsoft.ContainerService.Data` for managing admission controller rules on
-  [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Definitions using this Resource
-  Provider mode **must** use the [EnforceRegoPolicy](./effects.md#enforceregopolicy) effect. This
-  mode is _deprecated_.
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
   [Azure Key Vault](../../../key-vault/general/overview.md). For more information on these policy
   definitions, see
   [Integrate Azure Key Vault with Azure Policy](../../../key-vault/general/azure-policy.md).
 
+The following Resource Provider mode is currently supported as a **preview**:
+
+- `Microsoft.ContainerService.Data` for managing admission controller rules on
+  [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Definitions using this Resource
+  Provider mode **must** use the [EnforceRegoPolicy](./effects.md#enforceregopolicy) effect. This
+  mode is _deprecated_.
+
 > [!NOTE]
-> Resource Provider modes only support built-in policy definitions and don't support
-> [exemptions](./exemption-structure.md) if not explicitly stated.
+>Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the component-level.
 
 ## Metadata
 
@@ -182,6 +181,7 @@ _common_ properties used by Azure Policy and in built-ins. Each `metadata` prope
 > `version` property or in another property as a **boolean**. For more information about the way
 > Azure Policy versions built-ins, see
 > [Built-in versioning](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
+> To learn more about what it means for a policy to be _deprecated_ or in _preview_, see [Preview and deprecated policies](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md#preview-and-deprecated-policies).
 
 ## Parameters
 
@@ -604,9 +604,6 @@ The following properties are used with **field count**:
   **count.where** condition expression. A numeric
   [condition](../concepts/definition-structure.md#conditions) should be used.
 
-**Field count** expressions can enumerate the same field array up to three times in a single
-**policyRule** definition.
-
 For more details on how to work with array properties in Azure Policy, including detailed
 explanation on how the **field count** expression is evaluated, see
 [Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
@@ -647,11 +644,6 @@ The following properties are used with **value count**:
 - **\<condition\>** (required): The value is compared to the number of items that met the
   `count.where` condition expression. A numeric
   [condition](../concepts/definition-structure.md#conditions) should be used.
-
-The following limits are enforced:
-- Up to 10 **value count** expressions can be used in a single **policyRule** definition.
-- Each **value count** expression can perform up to 100 iterations. This number includes the number
-  of iterations performed by any parent **value count** expressions.
 
 #### The current function
 
@@ -959,13 +951,24 @@ functions](../../../azure-resource-manager/templates/template-functions.md) are 
 within a policy rule, except the following functions and user-defined functions:
 
 - copyIndex()
+- dateTimeAdd()
 - deployment()
+- environment()
+- extensionResourceId()
+- listAccountSas()
+- listKeys()
+- listSecrets()
 - list*
+- managementGroup()
 - newGuid()
 - pickZones()
 - providers()
 - reference()
 - resourceId()
+- subscriptionResourceId()
+- tenantResourceId()
+- tenant()
+- utcNow(format)
 - variables()
 
 > [!NOTE]
@@ -1048,6 +1051,48 @@ resource name to start with the resource group name.
     }
 }
 ```
+
+### Policy rule limits
+
+#### Limits enforced during authoring
+
+Limits to the structure of policy rules are enforced during the authoring or assignment of a policy.
+Attempts to create or assign policy definitions that exceed these limits will fail.
+
+| Limit | Value | Additional details |
+|:---|:---|:---|
+| Condition expressions in the **if** condition | 4096 | |
+| Condition expressions in the **then** block | 128 | Applies to the **existenceCondition** of **AuditIfNotExists** and **DeployIfNotExists** policies |
+| Policy functions per policy rule | 2048 | |
+| Policy function number of parameters | 128 | Example: `[function('parameter1', 'parameter2', ...)]` |
+| Nested policy functions depth | 64 | Example: `[function(nested1(nested2(...)))]` |
+| Policy functions expression string length | 81920 | Example: the length of `"[function(....)]"` |
+| **Field count** expressions per array | 5 | |
+| **Value count** expressions per policy rule | 10 | |
+| **Value count** expression iteration count | 100 | For nested **Value count** expressions, this also includes the iteration count of the parent expression |
+
+#### Limits enforced during evaluation
+
+Limits to the size of objects that are processed by policy functions during policy evaluation. These limits can't always be enforced during authoring since they depend on the evaluated content. For example:
+
+```json
+{
+    "field": "name",
+    "equals": "[concat(field('stringPropertyA'), field('stringPropertyB'))]"
+}
+```
+
+The length of the string created by the `concat()` function depends of the value of properties in the evaluated resource.
+
+| Limit | Value | Example |
+|:---|:---|:---|
+| Length of string returned by a function | 131072 | `[concat(field('longString1'), field('longString2'))]`|
+| Depth of complex objects provided as a parameter to, or returned by a function | 128 | `[union(field('largeObject1'), field('largeObject2'))]` |
+| Number of nodes of complex objects provided as a parameter to, or returned by a function | 32768 | `[concat(field('largeArray1'), field('largeArray2'))]` |
+
+> [!WARNING]
+> Policy that exceed the above limits during evaluation will effectively become a **deny** policy and can block incoming requests.
+> When writing policies with complex functions, be mindful of these limits and test your policies against resources that have the potential to exceed them.
 
 ## Aliases
 

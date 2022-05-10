@@ -1,10 +1,12 @@
 ---
 title: Certificate rotation for Azure Database for PostgreSQL Single server
 description: Learn about the upcoming changes of root certificate changes that will affect Azure Database for PostgreSQL Single server
-author: mksuni
-ms.author: sumuth
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: conceptual
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.date: 09/02/2020
 ---
 

@@ -1,18 +1,17 @@
 ---
-title: Get started with Azure Video Analyzer live pipelines - Azure portal
+title: Get started with live pipelines using the portal
 description: This quickstart walks you through the steps to capture and record video from an RTSP camera using live pipelines in Azure Video Analyzer service.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
-ms.date: 11/04/2021
-ms.custom: ignite-fall-2021
+ms.date: 12/07/2021
+ms.custom: ignite-fall-2021, mode-ui
 ---
 
 # Quickstart: Get started with Video Analyzer live pipelines in the Azure portal
 
-![cloud icon](media/env-icon/cloud.png)  
-Alternatively, check out [get started with Video Analyzer on the edge using portal](../edge/get-started-detect-motion-emit-events-portal.md).
+[!INCLUDE [header](includes/cloud-env.md)]
 
----
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
 
 This quickstart walks you through the steps to capture and record video from a Real Time Streaming Protocol (RTSP) camera using live pipelines in Azure Video Analyzer service.
 You will create a Video Analyzer account and its accompanying resources by using the Azure portal. You will deploy an RTSP camera simulator, if you don’t have access to an actual RTSP camera (that can be made accessible over the internet). You’ll then deploy the relevant Video Analyzer resources to record video to your Video Analyzer account.
@@ -95,6 +94,7 @@ The next step is to create the required Azure resources (Video Analyzer account,
 
 ### Deploy a live pipeline
 
+### [Azure portal](#tab/portal)
 Once the Video Analyzer account is created, you can go ahead with next steps to create a live pipeline topology and a live pipeline.
 1. Go to Video Analyzer account and locate the **Live** menu item at the bottom left, select it. 
 1. In the Topologies plane, select the **Create topology** option from the top to create a live topology. Follow the portal wizard steps to create a live pipeline topology
@@ -122,7 +122,7 @@ Once the Video Analyzer account is created, you can go ahead with next steps t
     - Select **Create** and you will see a pipeline is created in the pipeline grid on the portal.
     - Select the live pipeline created in the grid, select **Activate** option available towards the right of the pane to activate the live pipeline. This will start your live pipeline and start recording the video
 1. Now you would be able to see the video resource under Video Analyzer account-> **Videos** pane in the portal. Its status will indicate **Recording** as pipeline is active and recording the live video stream.
-1. After a few seconds, select the video and you will be able to see the [low latency stream](../playback-recordings-how-to.md).
+1. After a few seconds, select the video and you will be able to see the [low latency stream](../viewing-videos-how-to.md).
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/camera-1800s-mkv.png" alt-text="Diagram of the recorded video captured by live pipeline on the cloud.":::
@@ -133,9 +133,61 @@ Once the Video Analyzer account is created, you can go ahead with next steps t
 1. To deactivate the pipeline recording go to your Video Analyzer account, on the left panel select **Live**-> **Pipelines**-> select the pipeline to be deactivated then select **Deactivate** in pipeline grid, it will stop the recording. 
 1. You can also continue to delete the pipeline & topology if they are not needed.
 
-## Clean up resources
+**Clean up resources**
 
 If you want to try other quickstarts or tutorials, keep the resources that you created. Otherwise, go to the Azure portal, go to your resource groups, select the resource group where you ran this quickstart and delete all the resources.
+
+### [C# SampleCode](#tab/SampleCode)
+In this tab, learn how to deploy live pipeline using using Video Analyzer’s [C# SDK sample code](https://github.com/Azure-Samples/video-analyzer-csharp).
+
+### Prerequisites
+- Retrieve your Azure Active Directory [Tenant ID](../../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
+  - Register an application with Microsoft identity platform to get app registration [Client ID](../../../active-directory/develop/quickstart-register-app.md#register-an-application) and [Client secret](../../../active-directory/develop/quickstart-register-app.md#add-a-client-secret).
+- [Visual Studio Code](https://code.visualstudio.com/) on your development machine with following extensions:
+    * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
+- [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1) on your development machine.
+
+### Get the sample code
+- Clone the Video Analyzer [C# samples repository](https://github.com/Azure-Samples/video-analyzer-csharp).  
+- Open your local clone of this git repository in Visual Studio Code.
+-	src\cloud-video-processing\capture-from-rtsp-camera folder contains C# console app for capturing and recording live video from an RTSP capable camera accessible over the internet. 
+- Navigate to `src\video-export\Program.cs`. Provide values for the following variables & save the changes.
+
+| Variable       | Description                                |
+|----------------------|--------------------------------------------|
+| SubscriptionId | Provide Azure subscription ID    |
+| ResourceGroup | Provide resource group name |
+| AccountName | Provide Video Analyzer account name |
+| TenantId | Provide tenant ID |
+| ClientId | Provide app registration client ID |
+| Secret | Provide app registration client secret |
+| AuthenticationEndpoint | Provide authentication end point (example: https://login.microsoftonline.com) |
+| ArmEndPoint | Provide ARM end point (example: https://management.azure.com) |
+| TokenAudience | Provide token audience (example: https://management.core.windows.net) |
+| PublicCameraSourceRTSPURL | Provide RTSP source url. For RTSP camera simulator, use rtsp://[VMpublicIP]:554/media/camera-1800s.mkv  |
+| PublicCameraSourceRTSPUserName | Provide RTSP source username |
+| PublicCameraSourceRTSPPassword | Provide RTSP source password |
+| PublicCameraVideoName | Provide unique video name to capture live video from this RTSP source|
+
+### Run the sample program
+
+- Start a debugging session in VS code. If this project is not set as default, you can set it as default project to run on hitting F5 by modifying the files in .vscode folder: 
+  -	launch.json - Update the "program" and "cwd" to launch PublicCameraPipelineSampleCode.
+  -	tasks.json - Update "args" to point to PublicCameraPipelineSampleCode.csproj.
+-	Alternatively, go to TERMINAL window in the Visual Studio Code, navigate using cd 'path' to src\cloud-video-processing\ingest-from-rtsp-camera. Type commands **dotnet build** and **dotnet run** to compile and run the program respectively.
+-	You will start seeing some messages printed in the TERMINAL window regarding creation of the topologies and pipelines. If console app runs successfully, a live pipeline is created and activated. Code walkthrough is available [here](https://github.com/Azure-Samples/video-analyzer-csharp/tree/main/src/cloud-video-processing/capture-from-rtsp-camera)
+-	Now you could go to Azure portal to play the recorded video under Video Analyzer account-> Videos pane. Its status will indicate Recording as pipeline is active and recording the live video stream.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/camera-1800s-mkv.png" alt-text="Diagram of the recorded video captured by live pipeline on the cloud.":::
+-	Console Terminal window pauses after this step so that you can examine the program's output in the TERMINAL window, see the recorded video in portal and will wait for user input to proceed.
+
+> [!NOTE]
+> If you are using an RTSP camera simulator, it’s not possible to accurately determine end-to-end latency. Further, after the RTSP camera simulator reaches the end of the MKV file, it will stop. The live pipeline will attempt to reconnect and after a while, the simulator will restart the stream from the beginning of the file. If you let this live pipeline run for many hours, you will see gaps in the video recording whenever the simulator stops and restarts.
+
+- **Clean up resources**
+In the terminal window, pressing enter will deactivate the pipeline, delete the pipeline and delete the topology deployed earlier. Program calls CleanUpResourcesAsync() method to cleanup the deployed resources.
+
+---
 
 ## Next steps
 

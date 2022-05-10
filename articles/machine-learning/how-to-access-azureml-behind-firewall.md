@@ -9,8 +9,9 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 11/05/2021
-ms.custom: devx-track-python, ignite-fall-2021
+ms.date: 03/04/2022
+ms.custom: devx-track-python, ignite-fall-2021, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Configure inbound and outbound network traffic
@@ -74,15 +75,15 @@ These rule collections are described in more detail in [What are some Azure Fire
     | AzureResourceManager | TCP | 443 |
     | Storage.region       | TCP | 443 |
     | AzureFrontDoor.FrontEnd</br>* Not needed in Azure China. | TCP | 443 | 
-    | ContainerRegistry.region  | TCP | 443 |
+    | AzureContainerRegistry.region  | TCP | 443 |
     | MicrosoftContainerRegistry.region | TCP | 443 |
-    | Keyvault.region | TCP | 443 |
+    | AzureKeyVault.region | TCP | 443 |
 
     > [!TIP]
-    > * ContainerRegistry.region is only needed for custom Docker images. Including small modifications (such as additional packages) to base images provided by Microsoft.
+    > * AzureContainerRegistry.region is only needed for custom Docker images. Including small modifications (such as additional packages) to base images provided by Microsoft.
     > * MicrosoftContainerRegistry.region is only needed if you plan on using the _default Docker images provided by Microsoft_, and _enabling user-managed dependencies_.
-    > * Keyvault.region is only needed if your workspace was created with the [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) flag enabled.
-    > * For entries that contain `region`, replace with the Azure region that you're using. For example, `ContainerRegistry.westus`.
+    > * AzureKeyVault.region is only needed if your workspace was created with the [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) flag enabled.
+    > * For entries that contain `region`, replace with the Azure region that you're using. For example, `AzureContainerRegistry.westus`.
 
 1. Add __Application rules__ for the following hosts:
 
@@ -124,6 +125,69 @@ When using Azure Kubernetes Service with Azure Machine Learning, the following t
 The guidance in this section is generic, as each firewall has its own terminology and specific configurations. If you have questions, check the documentation for the firewall you are using.
 
 If not configured correctly, the firewall can cause problems using your workspace. There are various host names that are used both by the Azure Machine Learning workspace. The following sections list hosts that are required for Azure Machine Learning.
+
+### Dependencies API
+
+You can also use the Azure Machine Learning REST API to get a list of hosts and ports that you must allow __outbound__ traffic to. To use this API, use the following steps:
+
+1. Get an authentication token. The following command demonstrates using the [Azure CLI](/cli/azure/install-azure-cli) to get an authentication token and subscription ID:
+
+    ```azurecli-interactive
+    TOKEN=$(az account get-access-token --query accessToken -o tsv)
+    SUBSCRIPTION=$(az account show --query id -o tsv)
+    ```
+
+2. Call the API. In the following command, replace the following values:
+    * Replace `<region>` with the Azure region your workspace is in. For example, `westus2`.
+    * Replace `<resource-group>` with the resource group that contains your workspace.
+    * Replace `<workspace-name>` with the name of your workspace.
+
+    ```azurecli-interactive
+    az rest --method GET \
+        --url "https://<region>.api.azureml.ms/rp/workspaces/subscriptions/$SUBSCRIPTION/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>/outboundNetworkDependenciesEndpoints?api-version=2018-03-01-preview" \
+        --header Authorization="Bearer $TOKEN"
+    ```
+
+The result of the API call is a JSON document. The following snippet is an excerpt of this document:
+
+```json
+{
+  "value": [
+    {
+      "properties": {
+        "category": "Azure Active Directory",
+        "endpoints": [
+          {
+            "domainName": "login.microsoftonline.com",
+            "endpointDetails": [
+              {
+                "port": 80
+              },
+              {
+                "port": 443
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "properties": {
+        "category": "Azure portal",
+        "endpoints": [
+          {
+            "domainName": "management.azure.com",
+            "endpointDetails": [
+              {
+                "port": 443
+              }
+            ]
+          }
+        ]
+      }
+    },
+...
+```
 
 ### Microsoft hosts
 
@@ -174,6 +238,8 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | ----- | ----- | ----- | ----- |
 | Azure Machine Learning studio | ml.azure.com | TCP | 443 |
 | API |\*.azureml.ms | TCP | 443 |
+| API | \*.azureml.net | TCP | 443 |
+| Model management | \*.modelmanagement.azureml.net | TCP | 443 |
 | Integrated notebook | \*.notebooks.azure.net | TCP | 443 |
 | Integrated notebook | \<storage\>.file.core.windows.net | TCP | 443, 445 |
 | Integrated notebook | \<storage\>.dfs.core.windows.net | TCP | 443 |
@@ -187,6 +253,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | ----- | ----- | ----- | ----- |
 | Azure Machine Learning studio | ml.azure.us | TCP | 443 |
 | API | \*.ml.azure.us | TCP | 443 |
+| Model management | \*.modelmanagement.azureml.us | TCP | 443 |
 | Integrated notebook | \*.notebooks.usgovcloudapi.net | TCP | 443 |
 | Integrated notebook | \<storage\>.file.core.usgovcloudapi.net | TCP | 443, 445 |
 | Integrated notebook | \<storage\>.dfs.core.usgovcloudapi.net | TCP | 443 |
@@ -200,6 +267,8 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | ----- | ----- | ----- | ----- |
 | Azure Machine Learning studio | studio.ml.azure.cn | TCP | 443 |
 | API | \*.ml.azure.cn | TCP | 443 |
+| API | \*.azureml.cn | TCP | 443 |
+| Model management | \*.modelmanagement.ml.azure.cn | TCP | 443 |
 | Integrated notebook | \*.notebooks.chinacloudapi.cn | TCP | 443 |
 | Integrated notebook | \<storage\>.file.core.chinacloudapi.cn | TCP | 443, 445 |
 | Integrated notebook | \<storage\>.dfs.core.chinacloudapi.cn | TCP | 443 |
@@ -215,6 +284,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 > * The host for __Azure Key Vault__ is only needed if your workspace was created with the [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) flag enabled.
 > * Ports 8787 and 18881 for __compute instance__ are only needed when your Azure Machine workspace has a private endpoint.
 > * In the following table, replace `<storage>` with the name of the default storage account for your Azure Machine Learning workspace.
+> * Websocket communication must be allowed to the compute instance. If you block websocket traffic, Jupyter notebooks won't work correctly.
 
 # [Azure public](#tab/public)
 
@@ -264,7 +334,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 
 | **Required for** | **Hosts** | **Protocol** | **Ports** |
 | ----- | ----- | ----- | ----- |
-| Microsoft Container Registry | mcr.microsoft.com | TCP | 443 |
+| Microsoft Container Registry | mcr.microsoft.com</br>\*.data.mcr.microsoft.com | TCP | 443 |
 | Azure Machine Learning pre-built images | viennaglobal.azurecr.io | TCP | 443 |
 
 > [!TIP]
@@ -276,13 +346,17 @@ Also, use the information in the [inbound configuration](#inbound-configuration)
 
 For information on restricting access to models deployed to AKS, see [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 
-**Support diagnostics**
+**Monitoring, metrics, and diagnostics**
 
-For Microsoft Support to be able to diagnose any problems you run into with your workspace, you must allow outbound traffic to the following hosts:
+To support logging of metrics and other monitoring information to Azure Monitor and Application Insights, allow outbound traffic to the following hosts:
+
+> [!NOTE]
+> The information logged to these hosts is also used by Microsoft Support to be able to diagnose any problems you run into with your workspace.
 
 * **dc.applicationinsights.azure.com**
 * **dc.applicationinsights.microsoft.com**
 * **dc.services.visualstudio.com**
+* ***.in.applicationinsights.azure.com**
 
 For a list of IP addresses for these hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
 
@@ -312,52 +386,21 @@ The hosts in this section are used to install R packages, and are required durin
 | ---- | ---- |
 | **cloud.r-project.org** | Used when installing CRAN packages. |
 
-### Azure Kubernetes Services
-
-When using Azure Kubernetes Service with Azure Machine Learning, the following traffic must be allowed:
-
-* General inbound/outbound requirements for AKS as described in the [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md) article.
-* __Outbound__ to mcr.microsoft.com.
-* When deploying a model to an AKS cluster, use the guidance in the [Deploy ML models to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity) article.
-
 ### Azure Arc enabled Kubernetes <a id="arc-kubernetes"></a>
 
-Azure Arc enabled Kubernetes clusters depend on Azure Arc connections. Make sure to meet [Azure Arc network requirements](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli#meet-network-requirements).
+Clusters running behind an outbound proxy server or firewall need additional network configurations. Fulfill [Azure Arc network requirements](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli#meet-network-requirements) needed by Azure Arc agents. Besides that, the following outbound URLs are required for Azure Machine Learning,
 
-The hosts in this section are used to deploy the Azure Machine Learning extension to Kubernetes clusters and submit training and inferencing workloads to the clusters.
+| Outbound Endpoint| Port | Description|Training |Inference |
+|--|--|--|--|--|
+| *.kusto.windows.net,<br> *.table.core.windows.net, <br>*.queue.core.windows.net | https:443 | Required to upload system logs to Kusto. |**&check;**|**&check;**|
+| *.azurecr.io | https:443 | Azure container registry, required to pull docker images used for machine learning workloads.|**&check;**|**&check;**|
+| *.blob.core.windows.net | https:443 | Azure blob storage, required to fetch machine learning project scripts,data or models, and upload job logs/outputs.|**&check;**|**&check;**|
+| *.workspace.\<region\>.api.azureml.ms ,<br>  \<region\>.experiments.azureml.net, <br> \<region\>.api.azureml.ms | https:443 | Azure mahince learning service API.|**&check;**|**&check;**|
+| pypi.org | https:443 | Python package index, to install pip packages used for training job environment initialization.|**&check;**|N/A|
+| archive.ubuntu.com, <br> security.ubuntu.com,<br> ppa.launchpad.net | http:80 | Required to download the necessary security patches. |**&check;**|N/A|
 
-**Azure Machine Learning extension deployment**
-
-Enable outbound access to the following endpoints when deploying the Azure Machine Learning extension to the cluster.
-
-| Destination Endpoint| Port | Use |
-|--|--|--|
-|  *.data.mcr.microsoft.com| https:443 | Required for MCR storage backed by the Azure content delivery network (CDN). |
-| quay.io, *.quay.io | https:443 | Quay.io registry, required to pull container images for AML extension components |
-| gcr.io| https:443 | Google cloud repository, required to pull container images for AML extension components |
-| storage.googleapis.com | https:443 | Google cloud storage, gcr images are hosted on |
-| registry-1.docker.io, production.cloudflare.docker.com  | https:443 | Docker hub registry, required to pull container images for AML extension components |
-| auth.docker.io| https:443 | Docker repository authentication, required to access docker hub registry |
-| *.kusto.windows.net, *.table.core.windows.net, *.queue.core.windows.net | https:443 | Required to upload and analyze system logs in Kusto |
-
-**Training workloads only**
-
-Enable outbound access to the following endpoints to submit training workloads to the cluster.
-
-| Destination Endpoint| Port | Use |
-|--|--|--|
-| pypi.org | https:443 | Python package index, to install pip packages used to initialize the job environment |
-| archive.ubuntu.com, security.ubuntu.com, ppa.launchpad.net | http:80 | This address lets the init container download the required security patches and updates |
-
-**Training and inferencing workloads**
-
-In addition to the endpoints for training workloads, enable outbound access for the following endpoints to submit training and inferencing workloads.
-
-| Destination Endpoint| Port | Use |
-|--|--|--|
-| *.azurecr.io | https:443 | Azure container registry, required to pull container images to host training or inference jobs|
-| *.blob.core.windows.net | https:443 | Azure blob storage, required to fetch machine learning project scripts, container images and job logs/metrics |
-| *.workspace.\<region\>.api.azureml.ms ,  \<region\>.experiments.azureml.net,  \<region\>.api.azureml.ms | https:443 | Azure machine learning service api, required to communicate with AML |
+> [!NOTE]
+> `<region>` is the lowcase full spelling of Azure Region, for example, eastus, southeastasia.
 
 ### Visual Studio Code hosts
 

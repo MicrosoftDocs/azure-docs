@@ -1,13 +1,13 @@
 ---
 title: Azure Confidential virtual machine options on AMD processors (preview)
 description: Azure Confidential Computing offers multiple options for confidential virtual machines that run on AMD processors backed by SEV-SNP technology.
-author: edendcohen
+author: mamccrea
+ms.author: mamccrea
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/15/2021
-ms.author: edcohen
 ---
 
 # Azure Confidential VM options on AMD (preview)
@@ -34,7 +34,7 @@ You can create confidential VMs that run on AMD processors in the following size
 
 ## Azure CLI commands
 
-You can use the [Azure Command-Line Interface (Azure CLI)](/cli/azure/install-azure-cli) with your confidential VMs.
+You can use the [Azure CLI](/cli/azure/install-azure-cli) with your confidential VMs.
 
 To see a list of confidential VM sizes, run the following command. Replace `<vm-series>` with the series you want to use. For example, `DCASv5`, `ECASv5`, `DCADSv5`, or `ECADSv5`. The output shows information about available regions and availability zones.
 

@@ -34,7 +34,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 
   * Your Python installation should include [pip](https://pip.pypa.io/en/stable/). You can check if you have pip installed by running `pip --version` on the command line. Get pip by installing the latest version of Python.
 
-* A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
     > [!TIP]
     > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
@@ -66,7 +66,7 @@ from azure.core.credentials import AzureKeyCredential
 
 ```python
 endpoint = "YOUR_FORM_RECOGNIZER_ENDPOINT"
-key = "YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY"
+key = "YOUR_FORM_RECOGNIZER_KEY"
 ```
 
 At this point, your Python application should contain the following lines of code:
@@ -78,7 +78,7 @@ from azure.ai.formrecognizer import DocumentAnalysisClient
 from azure.core.credentials import AzureKeyCredential
 
 endpoint = "YOUR_FORM_RECOGNIZER_ENDPOINT"
-key = "YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY"
+key = "YOUR_FORM_RECOGNIZER_KEY"
 ```
 
 ### Select a code sample to copy and paste into your application:

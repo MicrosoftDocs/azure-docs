@@ -1,8 +1,8 @@
 ---
 title: Connect to Azure Percept DK over SSH
 description: Learn how to SSH into your Azure Percept DK with PuTTY
-author: MrHamlet
-ms.author: amiyouss
+author: nkhuyent
+ms.author: davej
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/18/2021
@@ -55,7 +55,8 @@ If your Windows computer does not include OpenSSH, we recommend using [PuTTY](ht
 1. Congratulations! You have successfully installed the PuTTY SSH client.
 
 ## Initiate the SSH connection
-
+   >[!NOTE]
+   > You may receive a warning message from your SSH client that says your cached/stored key does not match. This can happen after flashing your device or when the IP/hostname has changed and is now provisioned to a new target.  Follow your SSH client’s instructions for how to remedy this.
 1. Power on your Azure Percept DK.
 
 1. If your dev kit is already connected to a network over Ethernet or Wi-Fi, skip to the next step. Otherwise, connect your host computer directly to the dev kit’s Wi-Fi access point. Like connecting to any other Wi-Fi network, open the network and internet settings on your computer, select the following network, and enter the network password when prompted:

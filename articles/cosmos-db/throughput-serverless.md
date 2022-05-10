@@ -5,7 +5,9 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 03/24/2022
+ms.reviewer: wiassaf
+ms.custom: cosmos-db-video
 ---
 
 # How to choose between provisioned throughput and serverless
@@ -13,7 +15,8 @@ ms.date: 05/25/2021
 
 Azure Cosmos DB is available in two different capacity modes: [provisioned throughput](set-throughput.md) and [serverless](serverless.md). You can perform the exact same database operations in both modes, but the way you get billed for these operations is radically different. The following video explains the core differences between these modes and how they fit different types of workloads:
 
-> [!VIDEO https://www.youtube.com/embed/CgYQo6uHyt0]
+>
+> [!VIDEO https://aka.ms/docs.throughput-offers]
 
 ## Detailed comparison
 
@@ -40,7 +43,7 @@ In some situations, it may be unclear whether provisioned throughput or serverle
 - In provisioned throughput mode, you would provision a container with 500 RU/s for a monthly cost of: $0.008 * 5 * 730 = **$29.20**
 - In serverless mode, you would pay for the consumed RUs: $0.25 * 250 = **$62.50**
 
-(these examples are not accounting for the storage cost, which is the same between the two modes)
+(These examples are not accounting for the storage cost, which is the same between the two modes.)
 
 > [!NOTE]
 > The costs shown in the previous example are for demonstration purposes only. See the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for the latest pricing information.

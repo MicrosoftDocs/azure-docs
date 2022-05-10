@@ -1,8 +1,9 @@
 ---
 title: Azure Marketplace offer for Red Hat JBoss EAP on Azure Red Hat Enterprise Linux Virtual Machine (VM) and virtual machine scale sets
 description: How to deploy Red Hat JBoss EAP on Azure Red Hat Enterprise Linux (RHEL) VM and virtual machine scale sets using Azure Marketplace offer.
-author: theresa-nguyen
-ms.author: bicnguy
+author: m-reza-rahman
+ms.author: rezar
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jboss-eap, devx-track-javaee-jboss-eap-vms
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: redhat
@@ -26,7 +27,7 @@ The JBoss EAP on Azure Marketplace offer is a joint solution by Red Hat and Micr
 
 * RHEL options - Choose between Pay-As-You-Go (PAYG) or Bring-Your-Own-Subscription (BYOS). With BYOS, you need to activate your [Red Hat Cloud Access](https://access.redhat.com/) [RHEL Gold Image](https://azure.microsoft.com/updates/red-hat-enterprise-linux-gold-images-now-available-on-azure/) before deploying the Marketplace  offer with solutions template. Follow [these instructions](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index) to enable RHEL Gold images for use on Microsoft Azure.
 
-* Azure Command-Line Interface (CLI).
+* The Azure CLI.
 
 ## Azure Marketplace offer subscription options
 
@@ -61,7 +62,7 @@ To use RHEL as BYOS VMs/virtual machine scale sets, you're required to have a va
     4. Activate Red Hat Gold Images for your Azure Subscription. For more information, read the chapter on [Enabling and maintaining subscriptions for Cloud Access](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/understanding-gold-images_cloud-access#using-gold-images-on-azure_cloud-access#using-gold-images-on-azure_cloud-access) for more details. 
     5. Wait for Red Hat Gold Images to be available in your Azure subscription. These Gold Images are typically available within 3 hours of submission or less as Azure Private offers.
 
-3. Accept the Azure Marketplace Terms and Conditions (T&C) for RHEL BYOS Images. To accept, run the [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) commands, as given below. For more information, see the [RHEL BYOS Gold Images in Azure](./byos.md) documentation for more details. It's important that you're running the latest Azure CLI version.
+3. Accept the Azure Marketplace Terms and Conditions (T&C) for RHEL BYOS Images. To accept, run the [Azure CLI](/cli/azure/install-azure-cli) commands, as given below. For more information, see the [RHEL BYOS Gold Images in Azure](./byos.md) documentation for more details. It's important that you're running the latest version of the Azure CLI.
     1. Launch an Azure CLI session and authenticate with your Azure account. Refer to [Signing in with Azure CLI](/cli/azure/authenticate-azure-cli) for assistance. Make sure you're running the latest Azure CLI version before moving on.
     2. Verify the RHEL BYOS plans are available in your subscription by running the following CLI command. If you don't get any results here, refer to step #2. Ensure that your Azure subscription is activated with entitlement for JBoss EAP on RHEL BYOS plans.
 
@@ -148,8 +149,8 @@ These offer plans create all the Azure compute resources to run JBoss EAP setup 
 
 ### 5. Use an External Load Balancer (ELB) to access your RHEL VM/virtual machine scale sets
 
-1. [Create a Load Balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md?tabs=option-1-create-load-balancer-standard#create-load-balancer-resources) to access the ports of the RHEL VM. Provide the required details to deploy the external Load Balancer and leave other configurations as default. Leave the SKU as Basic for the ELB configuration.
-2. Add Load Balancer rules - once the Load balancer has been created successfully, [create Load Balancer resources](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md?tabs=option-1-create-load-balancer-standard#create-load-balancer-resources), then add Load Balancer rules to access ports 8080 and 9990 of the RHEL VM.
+1. [Create a Load Balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md#create-load-balancer) to access the ports of the RHEL VM. Provide the required details to deploy the external Load Balancer and leave other configurations as default. Leave the SKU as Basic for the ELB configuration.
+2. Add Load Balancer rules - once the Load balancer has been created successfully, [create Load Balancer resources](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md#create-load-balancer), then add Load Balancer rules to access ports 8080 and 9990 of the RHEL VM.
 3. Add the RHEL VM to the backend pool of the Load Balancer - click on *Backend pools* under settings section and then select the backend pool you created in the step above. Select the VM corresponding to the option *Associated to* and then add the RHEL VM.
 4. To obtain the Public IP of the Load Balancer - go to the Load Balancer overview page and copy the Public IP of the Load Balancer.
 5. To view the JBoss EAP on Azure web page - open a web browser then go to *http://<PUBLIC_IP_LoadBalancer>:8080/* and you should see the default EAP welcome page.
@@ -208,7 +209,7 @@ Refer to [Using the Azure Custom Script Extension Version 2 with Linux VMs](../.
 
 ## Resource links and support
 
-For any support-related questions, issues or customization requirements, contact [Red Hat Support](https://access.redhat.com/support) or [Microsoft Azure Support](https://ms.portal.azure.com/?quickstart=true#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+For any support-related questions, issues or customization requirements, contact [Red Hat Support](https://access.redhat.com/support) or [Microsoft Azure Support](https://portal.azure.com/?quickstart=true#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 * Learn more about [JBoss EAP](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/)
 * [JBoss EAP on Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)

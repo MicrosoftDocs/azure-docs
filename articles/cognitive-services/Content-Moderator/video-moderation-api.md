@@ -11,6 +11,7 @@ ms.subservice: content-moderator
 ms.topic: how-to
 ms.date: 10/27/2021
 ms.author: pafarley
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 
 #Customer intent: As a C# developer of content management software, I want to analyze video content for offensive or inappropriate material so that I can categorize and handle it accordingly.
@@ -20,18 +21,18 @@ ms.custom: devx-track-csharp
 
 This article provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to scan video content for adult or racy content.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin. 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 - Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/)
 
 ## Set up Azure resources
 
-The Content Moderator's video moderation capability is available as a free public preview **media processor** in Azure Media Services (AMS). Azure Media Services is a specialized Azure service for storing and streaming video content. 
+The Content Moderator's video moderation capability is available as a free public preview **media processor** in Azure Media Services (AMS). Azure Media Services is a specialized Azure service for storing and streaming video content.
 
 ### Create an Azure Media Services account
 
-Follow the instructions in [Create an Azure Media Services account](../../media-services/previous/media-services-portal-create-account.md) to subscribe to AMS and create an associated Azure storage account. In that storage account, create a new Blob storage container.
+Follow the instructions in [Create an Azure Media Services account](/azure/media-services/previous/media-services-portal-create-account) to subscribe to AMS and create an associated Azure storage account. In that storage account, create a new Blob storage container.
 
 ### Create an Azure Active Directory application
 
@@ -41,7 +42,7 @@ In the **Azure AD app** section, select **Create New** and name your new Azure A
 
 Select your app registration and click the **Manage application** button below it. Note the value in the **Application ID** field; you will need this later. Select **Settings** > **Keys**, and enter a description for a new key (such as "VideoModKey"). Click **Save**, and then notice the new key value. Copy this string and save it somewhere secure.
 
-For a more thorough walkthrough of the above process, See [Get started with Azure AD authentication](../../media-services/previous/media-services-portal-get-started-with-aad.md).
+For a more thorough walkthrough of the above process, See [Get started with Azure AD authentication](/azure/media-services/previous/media-services-portal-get-started-with-aad).
 
 Once you've done this, you can use the video moderation media processor in two different ways.
 
@@ -53,7 +54,7 @@ The Azure Media Services Explorer is a user-friendly frontend for AMS. Use it to
 
 ## Create the Visual Studio project
 
-1. In Visual Studio, create a new **Console app (.NET Framework)** project and name it **VideoModeration**. 
+1. In Visual Studio, create a new **Console app (.NET Framework)** project and name it **VideoModeration**.
 1. If there are other projects in your solution, select this one as the single startup project.
 1. Get the required NuGet packages. Right-click on your project in the Solution Explorer and select **Manage NuGet Packages**; then find and install the following packages:
     - windowsazure.mediaservices
@@ -89,7 +90,7 @@ Add the following static fields to the **Program** class in _Program.cs_. These 
 private static CloudMediaContext _context = null;
 private static CloudStorageAccount _StorageAccount = null;
 
-// Azure Media Services (AMS) associated Storage Account, Key, and the Container that has 
+// Azure Media Services (AMS) associated Storage Account, Key, and the Container that has
 // a list of Blobs to be processed.
 static string STORAGE_NAME = "YOUR AMS ASSOCIATED BLOB STORAGE NAME";
 static string STORAGE_KEY = "YOUR AMS ASSOCIATED BLOB STORAGE KEY";
@@ -97,12 +98,12 @@ static string STORAGE_CONTAINER_NAME = "YOUR BLOB CONTAINER FOR VIDEO FILES";
 
 private static StorageCredentials _StorageCredentials = null;
 
-// Azure Media Services authentication. 
+// Azure Media Services authentication.
 private const string AZURE_AD_TENANT_NAME = "microsoft.onmicrosoft.com";
 private const string CLIENT_ID = "YOUR CLIENT ID";
 private const string CLIENT_SECRET = "YOUR CLIENT SECRET";
 
-// REST API endpoint, for example "https://accountname.restv2.westcentralus.media.azure.net/API".      
+// REST API endpoint, for example "https://accountname.restv2.westcentralus.media.azure.net/API".
 private const string REST_API_ENDPOINT = "YOUR API ENDPOINT";
 
 // Content Moderator Media Processor Nam
@@ -184,7 +185,7 @@ Add the following method to the **Program** class. You use the Storage Context, 
 // Creates a storage context from the AMS associated storage name and key
 static void CreateStorageContext()
 {
-    // Get a reference to the storage account associated with a Media Services account. 
+    // Get a reference to the storage account associated with a Media Services account.
     if (_StorageCredentials == null)
     {
         _StorageCredentials = new StorageCredentials(STORAGE_NAME, STORAGE_KEY);
@@ -243,7 +244,7 @@ static IEnumerable<IListBlobItem> GetBlobsList()
     CloudBlobClient CloudBlobClient = _StorageAccount.CreateCloudBlobClient();
     CloudBlobContainer MediaBlobContainer = CloudBlobClient.GetContainerReference(STORAGE_CONTAINER_NAME);
 
-    // Get the reference to the list of Blobs 
+    // Get the reference to the list of Blobs
     var blobList = MediaBlobContainer.ListBlobs();
     return blobList;
 }
@@ -300,8 +301,8 @@ static void RunContentModeratorJob(IAsset asset)
     CancellationToken.None);
     progressJobTask.Wait();
 
-    // If job state is Error, the event handling 
-    // method for job progress should log errors.  Here we check 
+    // If job state is Error, the event handling
+    // method for job progress should log errors.  Here we check
     // for error state and exit if needed.
     if (job.State == JobState.Error)
     {
@@ -366,7 +367,7 @@ After the Content Moderation job is completed, analyze the JSON response. It con
 - **Shots** as "**fragments**"
 - **Key frames** as "**events**" with a **reviewRecommended" (= true or false)"** flag based on **Adult** and **Racy** scores
 - **start**, **duration**, **totalDuration**, and **timestamp** are in "ticks". Divide by **timescale** to get the number in seconds.
- 
+
 > [!NOTE]
 > - `adultScore` represents the potential presence and prediction score of content that may be considered sexually explicit or adult in certain situations.
 > - `racyScore` represents the potential presence and prediction score of content that may be considered sexually suggestive or mature in certain situations.
@@ -426,7 +427,5 @@ After the Content Moderation job is completed, analyze the JSON response. It con
 ```
 
 ## Next steps
-
-Learn how to generate [video reviews](video-reviews-quickstart-dotnet.md) from your moderation output.
 
 [Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET.

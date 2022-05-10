@@ -4,7 +4,8 @@ description: Learn how to use Java and JDBC with an Azure Database for MySQL dat
 author: jdubois
 ms.author: judubois
 ms.service: mysql
-ms.custom: mvc, devcenter, devx-track-azurecli
+ms.subservice: single-server
+ms.custom: mvc, devcenter, devx-track-azurecli, mode-api
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020

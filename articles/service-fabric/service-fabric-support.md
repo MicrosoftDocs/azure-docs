@@ -25,7 +25,7 @@ For a full list of self help troubleshooting content, see [Service Fabric troubl
     <img alt='Azure support' src='./media/logos/azure-logo.png'>
 </div>
 
-To report issues related to your Service Fabric cluster running on Azure, open a support ticket [on the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+To report issues related to your Service Fabric cluster running on Azure, open a support ticket [on the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 or [Microsoft support portal](https://support.microsoft.com/oas/default.aspx?prid=16146).
 
 Learn more about:
@@ -49,7 +49,6 @@ To report issues related to Service Fabric clusters running on-premises or on ot
 
 Learn more about:
 
-- [Professional Support from Microsoft for on-premises](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 - [Microsoft premier support](https://support.microsoft.com/en-us/premier).
 
 ## Post a question to Microsoft Q&A

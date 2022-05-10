@@ -1,5 +1,5 @@
 ---
-title: Customer managed keys - Azure Video Analyzer
+title: Customer managed keys
 description: You can use a customer managed key (that is, bring your own key) with Azure Video Analyzer.
 author: anilmur
 ms.service: azure-video-analyzer
@@ -8,6 +8,8 @@ ms.date: 11/04/2021
 ---
 
 # Customer managed keys with Azure Video Analyzer
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
 Bring Your Own Key (BYOK) is an Azure wide initiative to help customers move their workloads to the cloud. Customer managed keys allow customers to adhere to industry compliance regulations and improves tenant isolation of a service. Giving customers control of encryption keys is a way to minimize unnecessary access and control and build confidence in Microsoft services.
 

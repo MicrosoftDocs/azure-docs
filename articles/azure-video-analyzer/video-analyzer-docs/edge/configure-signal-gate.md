@@ -1,5 +1,5 @@
 ---
-title: Configuring a signal gate for event-based video recording - Azure
+title: Configuring a signal gate for event-based video recording 
 description: This article provides guidance about how to configure a signal gate in a pipeline.
 ms.topic: how-to
 ms.date: 11/04/2021
@@ -9,6 +9,8 @@ ms.custom: ignite-fall-2021
 # Configuring a signal gate for event-based video recording
 
 [!INCLUDE [header](includes/edge-env.md)]
+
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
 
 Within a pipeline, a [signal gate processor node](../pipeline.md#signal-gate-processor) allows you to forward media from one node to another when the gate is triggered by an event. When it's triggered, the gate opens and lets media flow through for a specified duration. In the absence of events to trigger the gate, the gate closes, and media stops flowing. You can use the signal gate processor for event-based video recording.
 

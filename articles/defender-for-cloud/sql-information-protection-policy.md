@@ -1,25 +1,12 @@
 ---
 title: SQL information protection policy in Microsoft Defender for Cloud
 description: Learn how to customize information protection policies in Microsoft Defender for Cloud.
-services: security-center
-documentationcenter: na
-author: memildin
-manager: rkarlin
-ms.assetid: 2ebf2bc7-232a-45c4-a06a-b3d32aaf2500
-ms.service: defender-for-cloud
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
-ms.author: memildin
-
 ---
 # SQL information protection policy in Microsoft Defender for Cloud
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-SQL information protection's [data discovery and classification mechanism](../azure-sql/database/data-discovery-and-classification-overview.md) provides advanced capabilities for discovering, classifying, labeling, and reporting the sensitive data in your databases. It's built into [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md), [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md), and [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
+SQL information protection's [data discovery and classification mechanism](/azure/azure-sql/database/data-discovery-and-classification-overview) provides advanced capabilities for discovering, classifying, labeling, and reporting the sensitive data in your databases. It's built into [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview), and [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
 
 The classification mechanism is based on the following two elements:
 
@@ -144,7 +131,7 @@ Learn more in [Grant and request tenant-wide visibility](tenant-wide-permissions
 
 ## Next steps
  
-In this article, you learned about defining an information protection policy in Microsoft Defender for Cloud. To learn more about using SQL Information Protection to classify and protect sensitive data in your SQL databases, see [Azure SQL Database Data Discovery and Classification](../azure-sql/database/data-discovery-and-classification-overview.md).
+In this article, you learned about defining an information protection policy in Microsoft Defender for Cloud. To learn more about using SQL Information Protection to classify and protect sensitive data in your SQL databases, see [Azure SQL Database Data Discovery and Classification](/azure/azure-sql/database/data-discovery-and-classification-overview).
 
 For more information on security policies and data security in Defender for Cloud, see the following articles:
  

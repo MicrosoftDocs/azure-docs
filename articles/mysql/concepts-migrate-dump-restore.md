@@ -4,6 +4,7 @@ description: This article explains two common ways to back up and restore databa
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 10/30/2020
 ---
@@ -55,8 +56,8 @@ To optimize performance, take notice of these considerations when dumping large 
 -	Use the `disable-keys` option in mysqldump when dumping data, to disable foreign key constraints before load. Disabling foreign key checks provides performance gains. Enable the constraints and verify the data after the load to ensure referential integrity.
 -	Use partitioned tables when appropriate.
 -	Load data in parallel. Avoid too much parallelism that would cause you to hit a resource limit, and monitor resources using the metrics available in the Azure portal.
--	Use the `defer-table-indexes` option in mysqlpump when dumping databases, so that index creation happens after tables data is loaded.
--   Use the `skip-definer` option in mysqlpump to omit definer and SQL SECURITY clauses from the create statements for views and stored procedures.  When you reload the dump file, it creates objects that use the default DEFINER and SQL SECURITY values.
+-	Use the `defer-table-indexes` option in mysqldump when dumping databases, so that index creation happens after tables data is loaded.
+-   Use the `skip-definer` option in mysqldump to omit definer and SQL SECURITY clauses from the create statements for views and stored procedures.  When you reload the dump file, it creates objects that use the default DEFINER and SQL SECURITY values.
 -   Copy the backup files to an Azure blob/store and perform the restore from there, which should be a lot faster than performing the restore across the Internet.
 
 ## Create a database on the target Azure Database for MySQL server

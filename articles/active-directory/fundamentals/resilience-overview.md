@@ -3,7 +3,7 @@ title: Building resilient identity and access management with Azure Active Direc
 description: A guide for architects, IT administrators, and developers on building resilience to disruption of their identity systems.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 
 ms.service: active-directory
 ms.workload: identity

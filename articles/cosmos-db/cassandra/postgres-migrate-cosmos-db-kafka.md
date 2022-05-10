@@ -1,12 +1,12 @@
 ---
 title: Migrate data from PostgreSQL to Azure Cosmos DB Cassandra API account using Apache Kafka
 description: Learn how to use Kafka Connect to synchronize data from PostgreSQL to Azure Cosmos DB Cassandra API in real time.
-author: abhirockzz
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
-ms.date: 01/05/2021
-ms.author: abhishgu
+ms.date: 04/02/2022
+ms.author: jroth
 ms.reviewer: abhishgu
 ---
 
@@ -37,7 +37,7 @@ Data in PostgreSQL table will be pushed to Apache Kafka using the [Debezium Post
 ## Prerequisites
 
 * [Provision an Azure Cosmos DB Cassandra API account](manage-data-dotnet.md#create-a-database-account)
-* [Use cqlsh or hosted shell for validation](cassandra-support.md#hosted-cql-shell-preview)
+* [Use cqlsh for validation](cassandra-support.md#cql-shell)
 * JDK 8 or above
 * [Docker](https://www.docker.com/) (optional)
 
@@ -257,7 +257,7 @@ You can continue to insert more data into PostgreSQL and confirm that the record
 
 * [Integrate Apache Kafka and Azure Cosmos DB Cassandra API using Kafka Connect](kafka-connect.md)
 * [Integrate Apache Kafka Connect on Azure Event Hubs (Preview) with Debezium for Change Data Capture](../../event-hubs/event-hubs-kafka-connect-debezium.md)
-* [Migrate data from Oracle to Azure Cosmos DB Cassandra API using Blitzz](oracle-migrate-cosmos-db-blitzz.md)
+* [Migrate data from Oracle to Azure Cosmos DB Cassandra API using Arcion](oracle-migrate-cosmos-db-arcion.md)
 * [Provision throughput on containers and databases](../set-throughput.md) 
 * [Partition key best practices](../partitioning-overview.md#choose-partitionkey)
 * [Estimate RU/s using the Azure Cosmos DB capacity planner](../estimate-ru-with-capacity-planner.md) articles

@@ -10,6 +10,8 @@
     href: create-virtual-network-manager-portal.md
   - name: Create Virtual Network Manager - PowerShell
     href: create-virtual-network-manager-powershell.md
+  - name: Create Virtual Network Manager - CLI
+    href: create-virtual-network-manager-cli.md
   expanded: true
 - name: Tutorials
   items:

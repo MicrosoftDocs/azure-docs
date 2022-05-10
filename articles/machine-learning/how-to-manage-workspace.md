@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sgilley
 author: sdgilley
-ms.date: 04/22/2021
+ms.date: 03/08/2022
 ms.topic: how-to
 ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4
 
@@ -28,7 +28,11 @@ As your needs change or requirements for automation increase you can also manage
 
 [!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
-By default, creating a workspace also creates an Azure Container Registry (ACR).  Since ACR does not currently support unicode characters in resource group names, use a resource group that does not contain these characters.
+* By default, creating a workspace also creates an Azure Container Registry (ACR).  Since ACR does not currently support unicode characters in resource group names, use a resource group that does not contain these characters.
+
+* Azure Machine Learning does not support hierarchical namespace (Azure Data Lake Storage Gen2 feature) for the workspace's default storage account.
+
+[!INCLUDE [application-insight](../../includes/machine-learning-application-insight.md)]
 
 ## Create a workspace
 
@@ -194,24 +198,18 @@ To limit the data that Microsoft collects on your workspace, select __High busin
 
 #### Use your own key
 
-You can provide your own key for data encryption. Doing so creates the Azure Cosmos DB instance that stores metadata in your Azure subscription.
+You can provide your own key for data encryption. Doing so creates the Azure Cosmos DB instance that stores metadata in your Azure subscription. For more information, see [Customer-managed keys](concept-customer-managed keys.md).
 
-[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 Use the following steps to provide your own key:
 
 > [!IMPORTANT]	
 > Before following these steps, you must first perform the following actions:	
 >
-> 1. Authorize the __Machine Learning App__ (in Identity and Access Management) with contributor permissions on your subscription.	
-> 1. Follow the steps in [Configure customer-managed keys](../cosmos-db/how-to-setup-cmk.md) to:
->     * Register the Azure Cosmos DB provider
->     * Create and configure an Azure Key Vault
->     * Generate a key
->	
->     You do not need to manually create the Azure Cosmos DB instance, one will be created for you during workspace creation. This Azure Cosmos DB instance will be created in a separate resource group using a name based on this pattern: `<your-workspace-resource-name>_<GUID>`.	
->	
-> You cannot change this setting after workspace creation. If you delete the Azure Cosmos DB used by your workspace, you must also delete the workspace that is using it.
+> Follow the steps in [Configure customer-managed keys](how-to-setup-customer-managed-keys.md) to:
+> * Register the Azure Cosmos DB provider
+> * Create and configure an Azure Key Vault
+> * Generate a key
 
 # [Python](#tab/python)
 
@@ -328,6 +326,52 @@ The Workspace.list(..) method does not return the full workspace object. It incl
 
 ---
 
+## Search for assets across a workspace (preview)
+
+With the public preview search capability, you can search for machine learning assets such as jobs, models, components, environments, and datasets across all workspaces, resource groups, and subscriptions in your organization through a unified global view.
+
+### Free text search
+
+Type search text into the global search bar on the top of portal and hit enter to trigger a 'contains' search.
+A contains search scans across all metadata fields for the given asset and sorts results relevance.
+
+You can use the asset quick links to navigate to search results for jobs, models, components, environments, and datasets that you created.
+
+Also,  you can change the scope of applicable subscriptions and workspaces via the 'Change' link in the search bar drop down.
+
+:::image type="content" source="./media/how-to-manage-workspace/search-bar.png" alt-text="Search-bar list":::
+
+### Structured search
+
+Select any number of filters to create more specific search queries. The following filters are supported:
+
+* Job:
+* Model:
+* Component:
+* Tags:
+* SubmittedBy:
+* Environment:
+* Dataset:
+
+If an asset filter (job, model, component, environment, dataset) is present, results are scoped to those tabs. Other filters apply to all assets unless an asset filter is also present in the query. Similarly, free text search can be provided alongside filters, but are scoped to the tabs chosen by asset filters, if present.
+
+> [!TIP]
+> * Filters search for exact matches of text. Use free text queries for a contains search.
+> * Quotations are required around values that include spaces or other special characters.  
+> * If duplicate filters are provided, only the first will be recognized in search results.
+> * Input text of any language is supported but filter strings must match the provided options (ex. submittedBy:).
+> * The tags filter can accept multiple key:value pairs separated by a comma (ex. tags:"key1:value1, key2:value2").
+
+### View search results
+
+You can view your search results in the individual **Jobs**, **Models**, **Components**, **Environments**, and **Datasets** tabs. Select an asset to open its **Details** page in the context of the relevant workspace. Results from workspaces you don't have permissions to view are not displayed.
+
+:::image type="content" source="./media/how-to-manage-workspace/results.png" alt-text="Results displayed after search":::
+
+If you've used this feature in a previous update, a search result error may occur. Reselect your preferred workspaces in the Directory + Subscription + Workspace tab.
+
+> [!IMPORTANT]	
+> Search results may be unexpected for multiword terms in other languages (ex. Chinese characters). 	
 
 ## Delete a workspace
 
@@ -370,6 +414,7 @@ In the [Azure portal](https://portal.azure.com/), select **Delete**  at the top 
 * **Azure portal**: 
   * If you go directly to your workspace from a share link from the SDK or the Azure portal, you can't view the standard **Overview** page that has subscription information in the extension. In this scenario, you also can't switch to another workspace. To view another workspace, go directly to [Azure Machine Learning studio](https://ml.azure.com) and search for the workspace name.
   * All assets (Datasets, Experiments, Computes, and so on) are available only in [Azure Machine Learning studio](https://ml.azure.com). They're *not* available from the Azure portal.
+  * Attempting to export a template for a workspace from the Azure portal may return an error similar to the following text: `Could not get resource of the type <type>. Resources of this type will not be exported.` As a workaround, use one of the templates provided at [https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices) as the basis for your template.
 
 ### Workspace diagnostics
 
@@ -378,11 +423,7 @@ In the [Azure portal](https://portal.azure.com/), select **Delete**  at the top 
 ### Resource provider errors
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
-
-### Moving the workspace
-
-> [!WARNING]
-> Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors.
+ 
 
 ### Deleting the Azure Container Registry
 
@@ -397,8 +438,10 @@ Examples of creating a workspace:
 
 ## Next steps
 
-Once you have a workspace, learn how to [Train and deploy a model](tutorial-train-models-with-aml.md).
+Once you have a workspace, learn how to [Train and deploy a model](tutorial-train-deploy-notebook.md).
 
 To learn more about planning a workspace for your organization's requirements, see [Organize and set up Azure Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization).
 
 To check for problems with your workspace, see [How to use workspace diagnostics](how-to-workspace-diagnostic-api.md).
+
+If you need to move a workspace to another Azure subscription, see [How to move a workspace](how-to-move-workspace.md).

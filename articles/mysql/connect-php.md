@@ -4,7 +4,8 @@ description: This quickstart provides several PHP code samples you can use to co
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.custom: mvc
+ms.subservice: single-server
+ms.custom: mvc, mode-other
 ms.topic: quickstart
 ms.date: 10/28/2020
 ---

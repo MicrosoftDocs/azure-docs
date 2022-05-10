@@ -1,28 +1,30 @@
 ---
 title: Reference table for all Microsoft Defender for Cloud recommendations 
 description: This article lists Microsoft Defender for Cloud's security recommendations that help you harden and protect your resources.
-author: memildin
+author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: reference
-ms.date: 09/05/2021
-ms.author: memildin
+ms.date: 03/13/2022
+ms.author: elkrieger
 ms.custom: generated
 ---
 # Security recommendations - a reference guide
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article lists the recommendations you might see in Microsoft Defender for Cloud. The recommendations
 shown in your environment depend on the resources you're protecting and your customized
 configuration.
 
-Defender for Cloud's recommendations are based on the [Azure Security Benchmark](../security/benchmarks/introduction.md). Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on 
+Defender for Cloud's recommendations are based on the [Azure Security Benchmark](../security/benchmarks/introduction.md). 
+Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security 
+and compliance best practices based on common compliance frameworks. This widely respected benchmark 
+builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) 
+and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on 
 cloud-centric security.
 
 To learn about how to respond to these recommendations, see
-[Remediate recommendations in Microsoft Defender for Cloud](implement-security-recommendations.md).
+[Remediate recommendations in Defender for Cloud](implement-security-recommendations.md).
 
-Your secure score is based on the number of Defender for Cloud recommendations you've completed. To
+Your secure score is based on the number of security recommendations you've completed. To
 decide which recommendations to resolve first, look at the severity of each one and its potential
 impact on your secure score.
 
@@ -72,7 +74,7 @@ impact on your secure score.
 |Install Azure Security Center for IoT security module to get more visibility into your IoT devices|Install Azure Security Center for IoT security module to get more visibility into your IoT devices.|Low|
 |Your machines should be restarted to apply system updates|Restart your machines to apply the system updates and secure the machine from vulnerabilities. (Related policy: System updates should be installed on your machines)|Medium|
 |Monitoring agent should be installed on your machines|This action installs a monitoring agent on the selected virtual machines. Select a workspace for the agent to report to. (No related policy)|High|
-||||
+
 
 ## Next steps
 

@@ -31,7 +31,7 @@ As part of your plan for an issuance solution, you must design a solution that e
 
 ### Microsoft VC issuance solution architecture
 
-![Components of an issuance solution](media/plan-issuance-solution/plan-issuance-solution-architecture.png)
+![Components of an issuance solution](media/plan-issuance-solution/plan-for-issuance-solution-architecture.png)
 
 
 ### Azure Active Directory tenant
@@ -42,7 +42,7 @@ Each tenant has a single instance of the Azure AD Verifiable Credentials service
 
 ### Microsoft Azure services
 
-![Components of an issuance solution, focusing on Azure services](media/plan-issuance-solution/plan-issuance-solution-azure-services.png)
+![Components of an issuance solution, focusing on Azure services](media/plan-issuance-solution/plan-for-issuance-solution-azure-services.png)
 
 The **Azure Key Vault** service stores your issuer keys, which are generated when you initiate the Azure AD Verifiable Credentials issuance service. The keys and metadata are used to execute credential management operations and provide message security.
 
@@ -60,7 +60,7 @@ Each issuer has a single key set used for signing, updating, and recovery. This 
 
 ### Azure AD Verifiable Credentials service
 
-![Microsoft Azure AD Verifiable Credentials service](media/plan-issuance-solution/plan-issuance-azure-active-directory-verifiable-credential-services.png)
+![Microsoft Azure AD Verifiable Credentials service](media/plan-issuance-solution/plan-for-issuance-solution-azure-active-directory-verifiable-credentials-vc-services.png)
 
 The Azure AD Verifiable Credentials service enables you to issue and revoke VCs based on your configuration. The service:
 
@@ -70,21 +70,23 @@ The Azure AD Verifiable Credentials service enables you to issue and revoke VCs 
 
 * Stores the configuration metadata used by the issuance service and Microsoft Authenticator.
 
+* Provides REST APIs interface for issuer and verifier web front ends
+
 ### ION
 
-![ION](media/plan-issuance-solution/plan-issuance-solution-ion.png)
+![ION](media/plan-issuance-solution/plan-for-issuance-solution-ion.png)
 
 Microsoft uses the [Identity Overlay Network (ION)](https://identity.foundation/ion/), [a Sidetree-based network](https://identity.foundation/sidetree/spec/) that uses Bitcoin’s blockchain for decentralized identifier (DID) implementation. The DID document of the issuer is stored in ION and is used to perform cryptographic signature checks by parties to the transaction.
 
 ### Microsoft Authenticator application
 
-![Microsoft Authenticator application](media/plan-issuance-solution/plan-issuance-solution-authenticator.png)
+![Microsoft Authenticator application](media/plan-issuance-solution/plan-for-issuance-solution-authenticator.png)
 
 Microsoft Authenticator is the mobile application that orchestrates the interactions between the user, the Azure AD Verifiable Credentials service, and dependencies that are described in the contract used to issue VCs. It acts as a digital wallet in which the holder of the VC stores the VC, including the private key of the subject of the VC. Authenticator is also the mechanism used to present VCs for verification.
 
 ### Issuance business logic 
 
-![Issuance business logic](media/plan-issuance-solution/plan-issuance-solution-business-logic.png)
+![Issuance business logic](media/plan-issuance-solution/plan-for-issuance-solution-business-logic.png)
 
 Your issuance solution includes a web front end where users request a VC, an identity store and or other attribute store to obtain values for claims about the subject, and other backend services. 
 
@@ -98,7 +100,7 @@ These services provide supporting roles that don't necessarily need to integrate
 
 * **Additional middle-tier services** that contain business rules for lookups, validating, billing, and any other runtime checks and workflows needed to issue credentials.
 
-For more information on setting up your web front end, see the tutorial [Configure you Azure AD to issue verifiable credentials](../verifiable-credentials/enable-your-tenant-verifiable-credentials.md). 
+For more information on setting up your web front end, see the tutorial [Configure your Azure AD to issue verifiable credentials](../verifiable-credentials/enable-your-tenant-verifiable-credentials.md). 
 
 ## Credential Design Considerations
 
@@ -128,11 +130,11 @@ This kind of credential is a good fit for identity onboarding scenarios of new e
 
  
 
-![Identity verification use case](media/plan-issuance-solution/plan-issuance-solution-identity-verification-use-cases.png)
+![Identity verification use case](media/plan-issuance-solution/plan-for-issuance-solution-identity-verification-use-case.png)
 
 **Proof of employment/membership**: a credential is issued to prove a relationship between the user and an institution. This kind of credential is a good fit to access loosely coupled business-to-business applications, such as retailers offering discounts to employees or students. One main value of VCs is their portability: Once issued, the user can use the VC in many scenarios. 
 
-![Proof of employment use case](media/plan-issuance-solution/plan-issuance-solution-employment-proof-use-cases.png)
+![Proof of employment use case](media/plan-issuance-solution/plan-for-issuance-solution-employment-proof-use-case.png)
 
 For more use cases, see [Verifiable Credentials Use Cases (w3.org)](https://www.w3.org/TR/vc-use-cases/).
 

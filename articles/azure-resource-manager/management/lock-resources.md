@@ -2,7 +2,7 @@
 title: Lock resources to prevent changes
 description: Prevent users from updating or deleting Azure resources by applying a lock for all users and roles.
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 04/13/2022
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -20,6 +20,10 @@ Unlike role-based access control, you use management locks to apply a restrictio
 ## Lock inheritance
 
 When you apply a lock at a parent scope, all resources within that scope inherit the same lock. Even resources you add later inherit the lock from the parent. The most restrictive lock in the inheritance takes precedence.
+
+If you have a **Delete** lock on a resource and attempt to delete its resource group, the whole delete operation is blocked. Even if the resource group or other resources in the resource group aren't locked, the deletion doesn't happen. You never have a partial deletion.
+
+When you [cancel an Azure subscription](../../cost-management-billing/manage/cancel-azure-subscription.md#what-happens-after-subscription-cancellation), the resources are initially deactivated but not deleted. A resource lock doesn't block canceling the subscription. After a waiting period, the resources are permanently deleted. The resource lock doesn't prevent the permanent deletion of the resources.
 
 ## Understand scope of locks
 
@@ -50,17 +54,21 @@ Applying locks can lead to unexpected results because some operations that don't
 
 - A read-only lock on a **resource group** that contains a **virtual machine** prevents all users from starting or restarting the virtual machine. These operations require a POST request.
 
+- A read-only lock on a **resource group** that contains an **automation account** prevents all runbooks from starting. These operations require a POST request.
+
 - A cannot-delete lock on a **resource group** prevents Azure Resource Manager from [automatically deleting deployments](../templates/deployment-history-deletions.md) in the history. If you reach 800 deployments in the history, your deployments will fail.
 
 - A cannot-delete lock on the **resource group** created by **Azure Backup Service** causes backups to fail. The service supports a maximum of 18 restore points. When locked, the backup service can't clean up restore points. For more information, see [Frequently asked questions-Back up Azure VMs](../../backup/backup-azure-vm-backup-faq.yml).
 
 - A cannot-delete lock on a **resource group** prevents **Azure Machine Learning** from autoscaling [Azure Machine Learning compute clusters](../../machine-learning/concept-compute-target.md#azure-machine-learning-compute-managed) to remove unused nodes.
 
+- A read-only lock on a **Log Analytics workspace** prevents **User and Entity Behavior Analytics (UEBA)** from being enabled.
+
 - A read-only lock on a **subscription** prevents **Azure Advisor** from working correctly. Advisor is unable to store the results of its queries.
 
 - A read-only lock on an **Application Gateway** prevents you from getting the backend health of the application gateway. That [operation uses POST](/rest/api/application-gateway/application-gateways/backend-health), which is blocked by the read-only lock.
 
-- A read-only lock on a **AKS cluster** prevents all users from accessing any cluster resources from the **Kubernetes Resources** section of AKS cluster left-side blade on the Azure portal. These operations require a POST request for authentication.
+- A read-only lock on a **AKS cluster** prevents all users from accessing any cluster resources from the **Kubernetes Resources** section of AKS cluster on the left of the Azure portal. These operations require a POST request for authentication.
 
 ## Who can create or delete locks
 
@@ -386,7 +394,7 @@ Remove-AzResourceLock -LockId $lockId
 
 ### Azure CLI
 
-You lock deployed resources with Azure CLI by using the [az lock create](/cli/azure/lock#az_lock_create) command.
+You lock deployed resources with Azure CLI by using the [az lock create](/cli/azure/lock#az-lock-create) command.
 
 To lock a resource, provide the name of the resource, its resource type, and its resource group name.
 
@@ -400,7 +408,7 @@ To lock a resource group, provide the name of the resource group.
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-To get information about a lock, use [az lock list](/cli/azure/lock#az_lock_list). To get all the locks in your subscription, use:
+To get information about a lock, use [az lock list](/cli/azure/lock#az-lock-list). To get all the locks in your subscription, use:
 
 ```azurecli
 az lock list

@@ -1,27 +1,27 @@
 ---
-title: 'How to view, edit, and delete assets'
+title: How to view, edit, and delete assets
 description: This how to guide describes how you can view and edit asset details. 
-author: viseshag
-ms.author: viseshag
+author: djpmsft
+ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 02/24/2022
 ---
-# View, edit and delete assets in Purview catalog
+# View, edit and delete assets in Microsoft Purview catalog
 
-This article discusses how to you can view your assets and their relevant details. It also describes how you can edit and delete assets from your catalog.
+This article discusses how you can view your assets and their relevant details. It also describes how you can edit and delete assets from your catalog.
 
 ## Prerequisites
 
 - Set up your data sources and scan the assets into your catalog.
-- *Or* Use the Purview Atlas APIs to ingest assets into the catalog. 
+- *Or* Use the Microsoft Purview Atlas APIs to ingest assets into the catalog. 
 
 ## Viewing asset details
 
-You can discover your assets in Purview by either:
-- [Browsing the Azure Purview Data catalog](how-to-browse-catalog.md)
-- [Searching the Azure Purview Data Catalog](how-to-search-catalog.md)
+You can discover your assets in the Microsoft Purview data catalog by either:
+- [Browsing the data catalog](how-to-browse-catalog.md)
+- [Searching the data catalog](how-to-search-catalog.md)
 
 Once you find the asset you are looking for, you can view all of its details, edit, or delete them as described in following sections.
 
@@ -29,12 +29,12 @@ Once you find the asset you are looking for, you can view all of its details, ed
 
 :::image type="content" source="media/catalog-asset-details/asset-tabs.png" alt-text="Asset details tabs":::
 
-- **Overview** - The overview tab covers an asset's basic details like description, classification, hierarchy, and glossary terms.
-- **Properties** - The properties tab covers both basic and advanced properties regarding an asset.
+- **Overview** - An asset's basic details like description, classification, hierarchy, and glossary terms.
+- **Properties** - The technical metadata and relationships discovered in the data source. 
 - **Schema** - The schema of the asset including column names, data types, column level classifications, terms, and descriptions are represented in the schema tab.
 - **Lineage** - This tab contains lineage graph details for assets where it is available.
 - **Contacts** - Every asset can have an assigned owner and expert that can be viewed and managed from the contacts tab.
-- **Related** - This tab lets you navigate to assets that are related to the current asset you are viewing. 
+- **Related** - This tab lets you navigate through the technical hierarchy of assets that are related to the current asset you are viewing.
 
 ## Asset overview
 The overview section of the asset details gives you a summarized view of an asset. The sections that follow explains the different parts of the overview page.
@@ -81,10 +81,10 @@ If you edit an asset by adding a description, asset level classification, glossa
 
 If you make some column level updates, like adding a description, column level classification, or glossary term, then subsequent scans will also update the asset schema (new columns and classifications will be detected by the scanner in subsequent scan runs). 
 
-Even on edited assets, after a scan Azure Purview will reflect the truth of the source system. For example: if you edit a column and it's deleted from the source, it will be deleted from your asset in Purview. 
+Even on edited assets, after a scan Microsoft Purview will reflect the truth of the source system. For example: if you edit a column and it's deleted from the source, it will be deleted from your asset in Microsoft Purview. 
 
 >[!NOTE]
-> If you update the **name or data type of a column** in an Azure Purview asset, later scans **will not** update the asset schema. New columns and classifications **will not** be detected.
+> If you update the **name or data type of a column** in a Microsoft Purview asset, later scans **will not** update the asset schema. New columns and classifications **will not** be detected.
 
 ## Deleting assets
 
@@ -92,14 +92,14 @@ You can delete an asset by selecting the delete icon under the name of the asset
 
 ### Delete behavior explained
 
-Any asset you delete using the delete button is permanently deleted in Azure Purview. However, if you run a **full scan** on the source from which the asset was ingested into the catalog, then the asset is reingested and you can discover it using the Purview catalog.
+Any asset you delete using the delete button is permanently deleted in Microsoft Purview. However, if you run a **full scan** on the source from which the asset was ingested into the catalog, then the asset is reingested and you can discover it using the Microsoft Purview catalog.
 
-If you have a scheduled scan (weekly or monthly) on the source, the **deleted asset will not get re-ingested** into the catalog unless the asset is modified by an end user since the previous run of the scan.   For example, if a SQL table was deleted from Purview, but after the table was deleted a user added a new column to the table in SQL, at the next scan the asset will be rescanned and ingested into the catalog.
+If you have a scheduled scan (weekly or monthly) on the source, the **deleted asset will not get re-ingested** into the catalog unless the asset is modified by an end user since the previous run of the scan.   For example, if a SQL table was deleted from Microsoft Purview, but after the table was deleted a user added a new column to the table in SQL, at the next scan the asset will be rescanned and ingested into the catalog.
 
-If you delete an asset, only that asset is deleted. Purview does not currently support cascaded deletes. For example, if you delete a storage account asset in your catalog - the containers, folders and files within them are not deleted. 
+If you delete an asset, only that asset is deleted. Microsoft Purview does not currently support cascaded deletes. For example, if you delete a storage account asset in your catalog - the containers, folders and files within them are not deleted. 
 
 
 ## Next steps
 
-- [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
-- [Search the Azure Purview Data Catalog](how-to-search-catalog.md)
+- [Browse the Microsoft Purview Data catalog](how-to-browse-catalog.md)
+- [Search the Microsoft Purview Data Catalog](how-to-search-catalog.md)

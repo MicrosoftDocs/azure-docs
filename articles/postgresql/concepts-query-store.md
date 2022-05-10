@@ -1,10 +1,11 @@
 ---
 title: Query Store - Azure Database for PostgreSQL - Single Server
 description: This article describes the Query Store feature in Azure Database for PostgreSQL - Single Server.
-author: sunilagarwal
-ms.author: sunila
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: conceptual
+ms.author: sunila
+author: sunilagarwal
 ms.date: 07/01/2020
 ---
 
@@ -109,7 +110,7 @@ View and manage Query Store using the following views and functions. Anyone in t
 Queries are normalized by looking at their structure after removing literals and constants. If two queries are identical except for literal values, they will have the same hash.
 
 ### query_store.qs_view
-This view returns all the data in Query Store. There is one row for each distinct database ID, user ID, and query ID. 
+This view returns query text data in Query Store. There is one row for each distinct query_text. The data isn't available via the Intelligent Performance section in the portal, APIs, or the CLI - but It can be found by connecting to azure_sys and querying 'query_store.query_texts_view'.
 
 |**Name**	|**Type** |	**References**	| **Description**|
 |---|---|---|---|
@@ -150,7 +151,7 @@ This view returns query text data in Query Store. There is one row for each dist
 | query_sql_text | Varchar(10000) | Text of a representative statement. Different queries with the same structure are clustered together; this text is the text for the first of the queries in the cluster. |
 
 ### query_store.pgms_wait_sampling_view
-This view returns wait events data in Query Store. There is one row for each distinct database ID, user ID, query ID, and event.
+This view returns query text data in Query Store. There is one row for each distinct query_text. The data isn't available via the Intelligent Performance section in the portal, APIs, or the CLI - but It can be found by connecting to azure_sys and querying 'query_store.query_texts_view'.
 
 | **Name** | **Type** | **References** | **Description** |
 |--|--|--|--|

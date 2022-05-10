@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Supportability matrix for the SAP Automation Framework
 
-The [SAP deployment automation framework on Azure](automation-deployment-framework.md) supports deployment of all the supported SAP on Azure topologies,
+The [SAP deployment automation framework on Azure](automation-deployment-framework.md) supports deployment of all the supported SAP on Azure topologies.
 
 ## Supported operating systems
 
@@ -21,8 +21,16 @@ The deployer virtual machine of the control plane must be deployed on Linux as t
 
 ### SAP Application
 
-The automation framework supports deployment of the SAP on Azure infrastructure both on Linux or Windows virtual machines. 
+The automation framework supports deployment of the SAP on Azure infrastructure both on Linux or Windows virtual machines on x86-64 or x64 hardware.   
 
+The following operating systems and distributions are supported by the framework:
+
+- Windows server 64bit for the x86-64 platform
+- SUSE linux 64bit for the x86-64 platform (12.x and 15.x)
+- Red Hat Linux 64bit for the x86-64 platform (7.x and 8.x)
+- Oracle Linux 64bit for the x86-64 platform
+
+The following distributions have been tested with the framework (Red Hat 7.9, Red Hat 8.2, SUSE 12 SP5, and SUSE 15 SP2)
 ## Supported topologies
 
 By default, the automation framework deploys with database and application tiers. The application tier is split into three more tiers: application, central services, and web dispatchers. 

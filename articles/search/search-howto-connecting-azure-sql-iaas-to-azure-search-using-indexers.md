@@ -14,7 +14,7 @@ ms.date: 03/19/2021
 
 # Indexer connections to SQL Server on an Azure virtual machine
 
-When configuring an [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq) to extract content from a database on an Azure virtual machine, additional steps are required for secure connections. 
+When configuring an [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) to extract content from a database on an Azure virtual machine, additional steps are required for secure connections. 
 
 A connection from Azure Cognitive Search to SQL Server on a virtual machine is a public internet connection. In order for secure connections to succeed, complete the following steps:
 
@@ -40,7 +40,7 @@ Azure Cognitive Search requires an encrypted channel for all indexer requests ov
 
      The `[MSSQL13.MSSQLSERVER]` part varies based on version and instance name. 
 
-   + Set the value of the **Certificate** key to the **thumbprint** of the TLS/SSL certificate you imported to the VM.
+   + Set the value of the **Certificate** key to the **thumbprint** (without spaces) of the TLS/SSL certificate you imported to the VM.
 
      There are several ways to get the thumbprint, some better than others. If you copy it from the **Certificates** snap-in in MMC, you will probably pick up an invisible leading character [as described in this support article](https://support.microsoft.com/kb/2023869/), which results in an error when you attempt a connection. Several workarounds exist for correcting this problem. The easiest is to backspace over and then retype the first character of the thumbprint to remove the leading character in the key value field in regedit. Alternatively, you can use a different tool to copy the thumbprint.
 
@@ -54,7 +54,7 @@ Azure Cognitive Search requires an encrypted channel for all indexer requests ov
 
 After you set up the encrypted connection required by Azure Cognitive Search, there are additional configuration steps intrinsic to SQL Server on Azure VMs. If you haven't done so already, the next step is to finish configuration using either one of these articles:
 
-+ For a **Resource Manager** VM, see [Connect to a SQL Server Virtual Machine on Azure using Resource Manager](../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md). 
++ For a **Resource Manager** VM, see [Connect to a SQL Server Virtual Machine on Azure using Resource Manager](/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql). 
 
 + For a **Classic** VM, see [Connect to a SQL Server Virtual Machine on Azure Classic](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect).
 

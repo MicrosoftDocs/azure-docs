@@ -6,11 +6,10 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli, mode-api
 ms.date: 01/27/2021
 ms.author: mbaldwin
-
-#Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
+#Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Quickstart: Set and retrieve a certificate from Azure Key Vault using Azure CLI
 
@@ -24,7 +23,7 @@ In this quickstart, you create a key vault in Azure Key Vault with Azure CLI. Az
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group](../../../includes/key-vault-cli-rg-creation.md)]
+[!INCLUDE [Create a resource group](../../../includes/cli-rg-create.md)]
 
 ## Create a key vault
 
@@ -53,7 +52,7 @@ Now, you have created a Key Vault, stored a certificate, and retrieved it.
 
 ## Clean up resources
 
-[!INCLUDE [Create a key vault](../../../includes/key-vault-cli-delete-resources.md)]
+[!INCLUDE [Create a key vault](../../../includes/cli-rg-delete.md)]
 
 ## Next steps
 

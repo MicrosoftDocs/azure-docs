@@ -1,13 +1,13 @@
 ---
 title: ASP.NET Core MVC web app tutorial using Azure Cosmos DB
 description:  ASP.NET Core MVC tutorial to create an MVC web application using Azure Cosmos DB. You'll store JSON and access data from a todo app hosted on Azure App Service - ASP NET Core MVC tutorial step by step.
-author: SnehaGunda
+author: StefArroyo
+ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 08/26/2021
-ms.author: sngun
+ms.date: 05/02/2020
 ms.custom: devx-track-dotnet
 ---
 
@@ -38,7 +38,7 @@ This tutorial covers:
 > [!TIP]
 > This tutorial assumes that you have prior experience using ASP.NET Core MVC and Azure App Service. If you are new to ASP.NET Core or the [prerequisite tools](#prerequisites), we recommend you to download the complete sample project from [GitHub][GitHub], add the required NuGet packages, and run it. Once you build the project, you can review this article to gain insight on the code in the context of the project.
 
-## <a name="prerequisites"></a>Prerequisites
+## Prerequisites
 
 Before following the instructions in this article, make sure that you have the following resources:
 
@@ -46,13 +46,13 @@ Before following the instructions in this article, make sure that you have the f
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../includes/cosmos-db-emulator-docdb-api.md)]
 
-* Visual Studio 2019. [!INCLUDE [cosmos-db-emulator-vs](../includes/cosmos-db-emulator-vs.md)]  
+* Latest [!INCLUDE [cosmos-db-visual-studio](../includes/cosmos-db-visual-studio.md)]
 
 All the screenshots in this article are from Microsoft Visual Studio Community 2019. If you use a different version, your screens and options may not match entirely. The solution should work if you meet the prerequisites.
 
-## <a name="create-an-azure-cosmos-account"></a>Step 1: Create an Azure Cosmos account
+## Step 1: Create an Azure Cosmos account
 
-Let's start by creating an Azure Cosmos account. If you already have an Azure Cosmos DB SQL API account or if you're using the Azure Cosmos DB Emulator, skip to [Step 2: Create a new ASP.NET MVC application](#create-a-new-mvc-application).
+Let's start by creating an Azure Cosmos account. If you already have an Azure Cosmos DB SQL API account or if you're using the Azure Cosmos DB Emulator, skip to [Step 2: Create a new ASP.NET MVC application](#step-2-create-a-new-aspnet-core-mvc-application).
 
 [!INCLUDE [create-dbaccount](../includes/cosmos-db-create-dbaccount.md)]
 
@@ -60,7 +60,7 @@ Let's start by creating an Azure Cosmos account. If you already have an Azure Co
 
 In the next section, you create a new ASP.NET Core MVC application.
 
-## <a name="create-a-new-mvc-application"></a>Step 2: Create a new ASP.NET Core MVC application
+## Step 2: Create a new ASP.NET Core MVC application
 
 1. Open Visual Studio and select **Create a new project**.
 
@@ -76,7 +76,7 @@ In the next section, you create a new ASP.NET Core MVC application.
 
 1. Select **Debug** > **Start Debugging** or F5 to run your ASP.NET application locally.
 
-## <a name="add-nuget-packages"></a>Step 3: Add Azure Cosmos DB NuGet package to the project
+## Step 3: Add Azure Cosmos DB NuGet package to the project
 
 Now that we have most of the ASP.NET Core MVC framework code that we need for this solution, let's add the NuGet packages required to connect to Azure Cosmos DB.
 
@@ -94,11 +94,11 @@ Now that we have most of the ASP.NET Core MVC framework code that we need for th
    Install-Package Microsoft.Azure.Cosmos
    ```
   
-## <a name="set-up-the-mvc-application"></a>Step 4: Set up the ASP.NET Core MVC application
+## Step 4: Set up the ASP.NET Core MVC application
 
 Now let's add the models, the views, and the controllers to this MVC application.
 
-### <a name="add-a-model"></a> Add a model
+###  Add a model
 
 1. In **Solution Explorer**, right-click the **Models** folder, select **Add** > **Class**.
 
@@ -110,17 +110,17 @@ Now let's add the models, the views, and the controllers to this MVC application
 
 Azure Cosmos DB uses JSON to move and store data. You can use the `JsonProperty` attribute to control how JSON serializes and deserializes objects. The `Item` class demonstrates the `JsonProperty` attribute. This code controls the format of the property name that goes into JSON. It also renames the .NET property `Completed`.
 
-### <a name="add-views"></a>Add views
+### Add views
 
 Next, let's add the following views.
 
 * A create item view
 * A delete item view
-* A view to get an item details
+* A view to get an item detail
 * An edit item view
 * A view to list all the items
 
-#### <a name="AddNewIndexView"></a>Create item view
+#### Create item view
 
 1. In **Solution Explorer**, right-click the **Views** folder and select **Add** > **New Folder**. Name the folder *Item*.
 
@@ -140,7 +140,7 @@ Next, let's add the following views.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Create.cshtml":::
 
-#### <a name="AddEditIndexView"></a>Delete item view
+#### Delete item view
 
 1. From the **Solution Explorer**, right-click the **Item** folder again, select **Add** > **View**.
 
@@ -156,7 +156,7 @@ Next, let's add the following views.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Delete.cshtml":::
 
-#### <a name="AddItemIndexView"></a>Add a view to get an item details
+#### Add a view to get item details
 
 1. In **Solution Explorer**, right-click the **Item** folder again, select **Add** > **View**.
 
@@ -171,7 +171,7 @@ Next, let's add the following views.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Details.cshtml":::
 
-#### <a name="AddEditIndexView"></a>Add an edit item view
+#### Add an edit item view
 
 1. From the **Solution Explorer**, right-click the **Item** folder again, select **Add** > **View**.
 
@@ -187,7 +187,7 @@ Next, let's add the following views.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Edit.cshtml":::
 
-#### <a name="AddEditIndexView"></a>Add a view to list all the items
+#### Add a view to list all the items
 
 And finally, add a view to get all the items with the following steps:
 
@@ -207,7 +207,7 @@ And finally, add a view to get all the items with the following steps:
 
 Once you complete these steps, close all the *cshtml* documents in Visual Studio.
 
-### <a name="initialize-services"></a>Declare and initialize services
+### Declare and initialize services
 
 First, we'll add a class that contains the logic to connect to and use Azure Cosmos DB. For this tutorial, we'll encapsulate this logic into a class called `CosmosDbService` and an interface called `ICosmosDbService`. This service does the CRUD operations. It also does read feed operations such as listing incomplete items, creating, editing, and deleting the items.
 
@@ -251,7 +251,7 @@ First, we'll add a class that contains the logic to connect to and use Azure Cos
 
    :::code language="json" source="~/samples-cosmosdb-dotnet-core-web-app/src/appsettings.json":::
 
-### <a name="add-a-controller"></a>Add a controller
+### Add a controller
 
 1. In **Solution Explorer**, right-click the **Controllers** folder, select **Add** > **Controller**.
 
@@ -269,7 +269,7 @@ The **ValidateAntiForgeryToken** attribute is used here to help protect this app
 
 We also use the **Bind** attribute on the method parameter to help protect against over-posting attacks. For more information, see [Tutorial: Implement CRUD Functionality with the Entity Framework in ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
 
-## <a name="run-the-application"></a>Step 5: Run the application locally
+## Step 5: Run the application locally
 
 To test the application on your local computer, use the following steps:
 
@@ -293,7 +293,7 @@ To test the application on your local computer, use the following steps:
 
 1. Once you've tested the app, select Ctrl+F5 to stop debugging the app. You're ready to deploy!
 
-## <a name="deploy-the-application-to-azure"></a>Step 6: Deploy the application
+## Step 6: Deploy the application
 
 Now that you have the complete application working correctly with Azure Cosmos DB we're going to deploy this web app to Azure App Service.  
 

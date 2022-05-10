@@ -3,7 +3,7 @@ title: 'What is Azure AD Connect and Connect Health. | Microsoft Docs'
 description: Learn about the tools used to synchronize and monitor your on-premises environment with Azure AD.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
@@ -33,6 +33,8 @@ Azure AD Connect provides the following features:
 ## What is Azure AD Connect Health?
 
 Azure Active Directory (Azure AD) Connect Health provides robust monitoring of your on-premises identity infrastructure. It enables you to maintain a reliable connection to Microsoft 365 and Microsoft Online Services.  This reliability is achieved by providing monitoring capabilities for your key identity components. Also, it makes the key data points about these components easily accessible.
+
+
 
 The information is presented in the [Azure AD Connect Health portal](https://aka.ms/aadconnecthealth). Use the Azure AD Connect Health portal to view alerts, performance monitoring, usage analytics, and other information. Azure AD Connect Health enables the single lens of health for your key identity components in one place.
 

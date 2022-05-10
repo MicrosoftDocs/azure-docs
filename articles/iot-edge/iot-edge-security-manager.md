@@ -3,8 +3,8 @@ title: Azure IoT Edge security manager/module runtime - Azure IoT Edge
 description: Manages the IoT Edge device security stance and the integrity of security services.
 services: iot-edge
 keywords: security, secure element, enclave, TEE, IoT Edge
-author: kgremban
-ms.author: kgremban
+author: PatAltimore
+ms.author: patricka
 ms.reviewer: eustacea
 ms.date: 09/17/2021
 ms.topic: conceptual
@@ -263,12 +263,7 @@ The IoT Edge security manager aims to identify and isolate the components that d
 
 Learn how to harden the Azure IoT security manager with the Trusted Platform Module (TPM) using software or virtual TPMs:  
 
-Create and provision an [IoT Edge device with a virtual TPM on a Linux virtual machine](how-to-provision-devices-at-scale-linux-tpm.md).
-
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-Create and provision an [IoT Edge device with a simulated TPM on Windows](how-to-provision-devices-at-scale-windows-tpm.md).
-:::moniker-end
+Create and provision an IoT Edge device with a virtual TPM on [Linux](how-to-provision-devices-at-scale-linux-tpm.md) or [Linux on Windows](how-to-provision-devices-at-scale-linux-on-windows-tpm.md).
 
 ## Next steps
 
