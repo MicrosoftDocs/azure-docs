@@ -14,6 +14,8 @@ ms.custom: how-to, devx-track-python, sdkv1
 
 # MLflow and Azure Machine Learning (v1)
 
+[!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
+
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you are using:"]
 > * [v1](concept-mlflow-v1.md)
 > * [v2 (current version)](../concept-mlflow.md)
