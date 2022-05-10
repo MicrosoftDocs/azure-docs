@@ -104,9 +104,9 @@ If you're following along with the example in the [AzureML Examples repo](https:
 By using command_component() function as a decorator, you can easily define the component's interface, metadata and code to execute from a python function. Each decorated Python function will be transformed into a single static specification (YAML) that the pipeline service can process.
 
 
-:::code language="python" source="~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/prep/prep_dsl_component.py":::
+:::code language="python" source="~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/prep/prep_component.py":::
 
-The code above define a component with display name `Prep Data` using `@dsl.command_component` decorator:
+The code above define a component with display name `Prep Data` using `@command_component` decorator:
 
 * `name` is the unique identifier of the component.
 * `version` is the current version of the component. A component can have multiple versions.
@@ -157,9 +157,9 @@ The `train.py` file contains a normal python function, which performs the traini
 
 After defining the training function successfully, you can use @command_component in Azure Machine Learning SDK v2 to wrap your function as a component which can be used in AML pipelines.
 
-:::code language="python" source="~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/train/train_dsl_component.py":::
+:::code language="python" source="~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/train/train_component.py":::
 
-The code above define a component with display name `Train Image Classification Keras` using `@dsl.command_component`:
+The code above define a component with display name `Train Image Classification Keras` using ``@command_componen`:
 
 * The `keras_train_component` function defines one input `input_data` where training data comes from, one input `epochs` specifying epochs during training, and one output `output_model` where outputs the model file. The default value of `epochs` is 10. The execution logic of this component is from `train()` function in `train.py` above.
 
