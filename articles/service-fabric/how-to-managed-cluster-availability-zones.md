@@ -76,6 +76,11 @@ Requirements:
    ```http
    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/getazresiliencystatus?api-version=2022-02-01-preview
    ```
+   Or you can use the Az Module as follows:
+   ```
+   Select-AzSubscription -SubscriptionId {subscriptionId}
+   Invoke-AzResourceAction -ResourceId /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName} -Action getazresiliencystatus -ApiVersion 2022-02-01-preview
+   ```
    This should provide with response similar to:
    ```json
    {
