@@ -29,6 +29,8 @@
     href: azure-portal-add-remove-sort-favorites.md
   - name: View and filter resource information
     href: manage-filter-resource-views.md
+  - name: Find subscription and tenant IDs
+    href: get-subscription-tenant-id.md
   - name: Create Azure dashboards
     items:
     - name: Create an Azure dashboard
@@ -80,6 +82,8 @@
     href: azure-portal-dashboards-structure.md
   - name: Azure CLI
     href: /cli/azure/portal
+  - name: Azure PowerShell
+    href: /powershell/module/az.portal
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

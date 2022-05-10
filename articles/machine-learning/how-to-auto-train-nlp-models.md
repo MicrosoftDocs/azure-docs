@@ -142,7 +142,7 @@ Before training, automated ML applies data validation checks on the input data t
 
 Task | Data validation check
 ---|---
-All tasks | At least 50 training samples are required 
+All tasks | - Both training and validation sets must be provided <br> - At least 50 training samples are required 
 Multi-class and Multi-label | The training data and validation data must have <br> - The same set of columns <br>- The same order of columns from left to right <br>- The same data type for columns with the same name <br>- At least two unique labels <br>  - Unique column names within each dataset (For example, the training set can't have multiple columns named **Age**)
 Multi-class only | None
 Multi-label only | - The label column format must be in [accepted format](#multi-label) <br> - At least one sample should have 0 or 2+ labels, otherwise it should be a `multiclass` task <br> - All labels should be in `str` or `int` format, with no overlapping. You should not have both label `1` and label `'1'`

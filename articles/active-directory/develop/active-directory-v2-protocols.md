@@ -46,7 +46,7 @@ Three types of bearer tokens are used by the Microsoft identity platform as *sec
 
 * [ID tokens](id-tokens.md) - ID tokens are issued by the authorization server to the client application. Clients use ID tokens when signing in users and to get basic information about them.
 
-* **Refresh tokens** - The client uses a refresh token, or *RT*, to request new access and ID tokens from the authorization server. Your code should treat refresh tokens and their string content as opaque because they're intended for use only by authorization server.
+* [Refresh tokens](refresh-tokens.md) - The client uses a refresh token, or *RT*, to request new access and ID tokens from the authorization server. Your code should treat refresh tokens and their string content as opaque because they're intended for use only by authorization server.
 
 ## App registration
 

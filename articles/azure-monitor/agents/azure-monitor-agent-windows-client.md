@@ -83,7 +83,7 @@ Then, proceed with the instructions below to create and associate them to a Moni
 #### 1. Assign ‘Monitored Object Contributor’ role to the operator
 
 This step grants the ability to create and link a monitored object to a user.  
-**Permissions required:** Since MO is a tenant level resource, the scope of the permission would be higher than a subscription scope. Therefore, an Azure tenant admin may be needed to perform this step. [Follow these steps to elevate Azure AD Tenant Admin as Azure Tenant Admin](/azure/role-based-access-control/elevate-access-global-admin). It will give the Azure AD admin 'owner' permissions at the root scope.
+**Permissions required:** Since MO is a tenant level resource, the scope of the permission would be higher than a subscription scope. Therefore, an Azure tenant admin may be needed to perform this step. [Follow these steps to elevate Azure AD Tenant Admin as Azure Tenant Admin](../../role-based-access-control/elevate-access-global-admin.md). It will give the Azure AD admin 'owner' permissions at the root scope.
 
 **Request URI**
 ```HTTP

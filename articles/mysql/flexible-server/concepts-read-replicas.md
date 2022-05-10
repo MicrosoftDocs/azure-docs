@@ -4,6 +4,7 @@ description: 'Learn about read replicas in Azure Database for MySQL Flexible Ser
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 06/17/2021
 ---

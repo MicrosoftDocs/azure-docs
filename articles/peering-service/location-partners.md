@@ -39,7 +39,7 @@ The table in this article provides information on the Peering Service connectivi
 | [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) |Africa|
 | [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus.html) |Europe|
 | [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html) |Africa|
-| [MainOne](https://www.mainone.net/connectivity-services/microsoft-azure-peering-service/) |Africa|
+| [MainOne](https://www.mainone.net/connectivity-services/) |Africa|
 | [BICS](https://www.bics.com/services/capacity-solutions/cloud-connect/microsoft-azure-cloud-connect/) |Europe|
 | [Telstra International](https://www.telstra.com.sg/en/products/global-networks/global-internet/global-internet-direct) |Asia |
 | [Atman](https://www.atman.pl/en/atman-internet-maps/) |Europe|

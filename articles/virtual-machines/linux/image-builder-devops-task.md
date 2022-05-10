@@ -48,7 +48,7 @@ There are two Azure VM Image Builder (AIB) DevOps Tasks:
     New-AzStorageAccount -ResourceGroupName $strResourceGroup -Name $storageAccName -Location $location -SkuName Standard_LRS
     ```
 
-    ```bash
+    ```azurecli
     # Az CLI
     location=westus
     scriptStorageAcc=aibstordot$(date +'%s')

@@ -5,6 +5,7 @@ author: savjani
 ms.author: pariks
 ms.custom: devx-track-java
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: sample
 ms.date: 02/28/2018
 ---
