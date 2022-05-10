@@ -197,7 +197,7 @@ The **usage details** table displays a numbered list of the top 500 usage record
 
 Click on the ellipsis (three dots '...') to copy the widget image, download the aggregated widget data as a .csv file, or download the image as a pdf for sharing purposes.
 
-[![Illustrates the Usage details page.](./media/usage-dashboard/usage-details.png)]
+![Illustrates the Usage details page.](./media/usage-dashboard/usage-details.png)
 
 _**Table 1: Dictionary of data terms**_
 
