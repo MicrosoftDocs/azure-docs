@@ -15,6 +15,8 @@ ms.custom: deploy, cliv1, sdkv1
 
 # Profile your model to determine resource utilization
 
+[!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
+
 This article shows how to profile a machine learning to model to determine how much CPU and memory you will need to allocate for the model when deploying it as a web service.
 
 > [!IMPORTANT]

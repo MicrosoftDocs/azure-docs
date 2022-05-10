@@ -10,7 +10,7 @@
     - name: What is Azure Machine Learning studio?
       displayName: AML, studio, designer
       href: overview-what-is-machine-learning-studio.md
-    - name: Key concepts
+    - name: How it works
       displayName: concepts, definitions, glossary
       href: concept-azure-machine-learning-v2.md
     - name: Migrate from ML Studio (classic)
@@ -205,6 +205,10 @@
           href: concept-optimize-data-processing.md
         - name: Studio network data access
           href: concept-network-data-access.md
+    - name: Collect data
+      items:
+        - name: Sourcing human data responsibly
+          href: concept-sourcing-human-data.md
     - name: Security
       items: 
         - name: Enterprise security overview
@@ -436,55 +440,57 @@
         - name: Train with the job creation UI
           href: how-to-train-with-ui.md
         - name: Train with the Python SDK
-          items: 
-            - name: Train with SDK v2 (preview)
-              href: how-to-train-sdk.md
-            - name: Configure & submit training run
-              displayName: run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
-              href: how-to-set-up-training-targets.md
-            - name: Tune hyperparameters
-              displayName: parameter, hyperparameter, hyperdrive
-              href: how-to-tune-hyperparameters.md
-            - name: Distributed GPU guide
-              displayName: MPI, Horovod, DeepSpeed, PyTorch, Hugging Face Transformers, TensorFlow, InfiniBand
-              href: how-to-train-distributed-gpu.md
-            - name: Scikit-learn
-              href: how-to-train-scikit-learn.md
-            - name: TensorFlow
-              href: how-to-train-tensorflow.md
-            - name: Keras
-              href: how-to-train-keras.md
-            - name: PyTorch
-              href: how-to-train-pytorch.md
-            - name: Train with custom Docker image
-              href: how-to-train-with-custom-image.md
-            - name: Migrate from Estimators to ScriptRunConfig
-              href: how-to-migrate-from-estimators-to-scriptrunconfig.md
-            - name: Reinforcement learning
-              href: how-to-use-reinforcement-learning.md
-            - name: Train experiments with MLflow Projects
-              displayName: log, monitor, metrics, model registry, register
-              href: how-to-train-mlflow-projects.md
-            - name: Track & monitor training
-              items: 
-                - name: Track, monitor, and analyze runs
-                  displayName: cancel, fail, status, child run
-                  href: how-to-track-monitor-analyze-runs.md
-                - name: Track experiments with MLflow and CLI (v2)
-                  displayName: log, monitor, metrics, model registry, register
-                  href: how-to-use-mlflow-cli-runs.md
-                - name: Track Azure Databricks runs with MLflow
-                  displayName: log, monitor, deploy, metrics, databricks
-                  href: how-to-use-mlflow-azure-databricks.md
-                - name: Log & view metrics and log files
-                  displayName: troubleshoot, log, files, tracing, metrics
-                  href: how-to-log-view-metrics.md
-                - name: Visualize runs with TensorBoard
-                  displayName: log, monitor, metrics
-                  href: how-to-monitor-tensorboard.md
-            - name: Use Key Vault when training
-              displayName: secrets keyvault
-              href: how-to-use-secrets-in-runs.md
+          items:
+          - name: Train with SDK v2 (preview)
+            href: how-to-train-sdk.md
+          - name: Configure & submit training run
+            displayName: run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
+            href: how-to-set-up-training-targets.md
+          - name: Tune hyperparameters
+            displayName: parameter, hyperparameter, hyperdrive
+            href: how-to-tune-hyperparameters.md
+          - name: Distributed GPU guide
+            displayName: MPI, Horovod, DeepSpeed, PyTorch, Hugging Face Transformers, TensorFlow, InfiniBand
+            href: how-to-train-distributed-gpu.md
+          - name: Scikit-learn
+            href: how-to-train-scikit-learn.md
+          - name: TensorFlow
+            href: how-to-train-tensorflow.md
+          - name: Keras
+            href: how-to-train-keras.md
+          - name: PyTorch
+            href: how-to-train-pytorch.md
+          - name: Train with custom Docker image
+            href: how-to-train-with-custom-image.md
+          - name: Migrate from Estimators to ScriptRunConfig
+            href: how-to-migrate-from-estimators-to-scriptrunconfig.md
+          - name: Reinforcement learning
+            href: how-to-use-reinforcement-learning.md
+          - name: Train experiments with MLflow Projects
+            displayName: log, monitor, metrics, model registry, register
+            href: how-to-train-mlflow-projects.md
+          - name: Track & monitor training
+            items:
+              - name: Track, monitor, and analyze runs
+                displayName: cancel, fail, status, child run
+                href: how-to-track-monitor-analyze-runs.md
+              - name: Track experiments with MLflow and CLI (v2)
+                displayName: log, monitor, metrics, model registry, register
+                href: how-to-use-mlflow-cli-runs.md
+              - name: Track Azure Databricks runs with MLflow
+                displayName: log, monitor, deploy, metrics, databricks
+                href: how-to-use-mlflow-azure-databricks.md
+              - name: Log & view metrics and log files
+                displayName: troubleshoot, log, files, tracing, metrics
+                href: how-to-log-view-metrics.md
+              - name: Visualize runs with TensorBoard
+                displayName: log, monitor, metrics
+                href: how-to-monitor-tensorboard.md
+              - name: Migrate from SDK v1 logging to SDK v2
+                href: reference-migrate-sdk-v1-mlflow-tracking.md
+          - name: Use Key Vault when training
+            displayName: secrets keyvault
+            href: how-to-use-secrets-in-runs.md
         - name: Train with the CLI v2
           href: how-to-train-cli.md
         - name: Train with the REST API
