@@ -5,7 +5,7 @@ author: greenie-msft
 ms.author: nigreenf
 ms.service: container-service
 ms.topic: article
-ms.date: 05/09/2022
+ms.date: 05/10/2022
 ms.custom: devx-track-azurecli, ignite-fall-2021
 ---
 
@@ -34,7 +34,13 @@ Once Dapr is installed on your AKS cluster, you can begin to develop using the D
 
 ## Supported Dapr versions
 
-The Dapr extension uses [a] rolling support window similar to AKS, but instead of N-2, the extension supports Dapr version N-1. For more, see the [Kubernetes version support policy][k8s-version-support-policy].
+The Dapr extension support varies depending on how you manage the runtime. 
+
+**Self-managed**
+For self-managed runtime, the Dapr extension will follow the [Dapr OSS support policy][dapr-oss-support] (which is N-1), and requires manual upgrade to remain in the support window.
+
+**Auto-upgrade**
+Opting into auto-upgrades provides a rolling support window for Dapr version N-1. 
 
 ## Prerequisites 
 
@@ -246,3 +252,4 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 [sample-application]: https://github.com/dapr/quickstarts/tree/master/hello-kubernetes#step-2---create-and-configure-a-state-store
 [dapr-security]: https://docs.dapr.io/concepts/security-concept/
 [dapr-deployment-annotations]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-overview/#adding-dapr-to-a-kubernetes-deployment
+[dapr-oss-support]: https://docs.dapr.io/operations/support/support-release-policy/
