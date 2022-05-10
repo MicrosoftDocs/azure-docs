@@ -32,7 +32,6 @@ contains the operation's location that should be used to query status.
 | publisherId  |  Publisher identifier, for example, `contoso`         |   String          |
 | offerId      |  Offer identifier                                     |   String          |
 | api-version  |  Current version of API                               |    Date           |
-|  |  |  |
 
 ## Header
 ------
@@ -41,7 +40,6 @@ contains the operation's location that should be used to query status.
 |  ---------             |  ----------        |
 |  Content-Type          |  application/json  |
 |  Authorization         |  Bearer YOUR TOKEN |
-|  |  |
 
 ## Body example
 ------------
@@ -61,7 +59,6 @@ contains the operation's location that should be used to query status.
 |  **Name**                |  **Description**                                               |
 |  --------                |  ---------------                                               |
 |  notification-emails     | Comma separated list of email Ids to be notified of the progress of the  publishing operation. |
-|  |  |
 
 ### Response
 
@@ -78,7 +75,6 @@ contains the operation's location that should be used to query status.
 |  **Name**             |    **Value**                       |
 |  ---------            |    ----------                      |
 | Location    | The relative path to retrieve this operation's status. |
-|  |  |
 
 ### Response status codes
 
@@ -89,4 +85,3 @@ contains the operation's location that should be used to query status.
 |  400      | Bad/Malformed request. The error response body could provide more information.  |
 |  403      | Access Forbidden. The client does not have access to the namespace specified in the request. |
 |  404      | Not found. The specified entity does not exist. |
-|  |  |
