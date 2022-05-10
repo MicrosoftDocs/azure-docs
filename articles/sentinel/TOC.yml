@@ -185,8 +185,7 @@
         href: migration-splunk.md
       - name: Export historical data
         href: migration-splunk-historical-data.md
-    - name: Migrate QRadar
-      href: migration-qradar.md
+    - name: Migrate QRadar      
       items:
       - name: Migrate detection rules
         href: migration-qradar-detection-rules.md
@@ -194,22 +193,22 @@
         href: migration-qradar.md
       - name: Export historical data
         href: migration-qradar-historical-data.md
-    - name: Migrate historical data
+    - name: Ingest historical data
       items:
       - name: Identify historical data 
         href: migration-identify-historical-data.md
-      - name: Migrate historical data
+      - name: Select data ingestion tool
         href: migration-historical-data.md
+      - name: Ingest data
+      href: migration-export-ingest.md
     - name: Convert dashboards to workbooks
       items: 
       - name: Review dashboards
         href: migration-review-dashboards.md
       - name: Convert dashboards
         href: migration-convert-dashboards.md
-    - name: Azure workbook tasks
-      href: migration-workbook-tasks.md    
-    - name: Export and ingest data
-      href: migration-export-ingest.md
+    - name: Perform Azure workbook tasks
+      href: migration-workbook-tasks.md  
     - name: Migrate SOC operations
       items:
       - name: Overview
