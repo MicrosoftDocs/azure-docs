@@ -35,11 +35,11 @@ To upload your data:
 
 ### Upload data by using Speech-to-text REST API v3.0
 
-You can use [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) to automate any operations related to your custom models. In particular, you can use the REST API to upload a dataset.
+You can use [Speech-to-text REST API v3.0](rest-speech-to-text.md) to automate any operations related to your custom models. In particular, you can use the REST API to upload a dataset.
 
 To create and upload a dataset, use a [Create Dataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) request.
 
-A dataset that you create by using the Speech-to-text REST API v3.0 will *not* be connected to any of the Speech Studio projects, unless you specify a special parameter in the request body (see the code block later in this section). Connection with a Speech Studio project is *not* required for any model customization operations, if you perform them by using the REST API.
+A dataset that you create by using the Speech-to-text REST API v3.0 won't be connected to any of the Speech Studio projects, unless you specify a special parameter in the request body (see the code block later in this section). Connection with a Speech Studio project isn't required for any model customization operations, if you perform them by using the REST API.
 
 When you log on to Speech Studio, its user interface will notify you when any unconnected object is found (like datasets uploaded through the REST API without any project reference). The interface will also offer to connect such objects to an existing project. 
 

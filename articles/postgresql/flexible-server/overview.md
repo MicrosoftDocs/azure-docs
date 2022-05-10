@@ -1,12 +1,12 @@
 ---
 title: Azure Database for PostgreSQL - Flexible Server
 description: Provides an overview of Azure Database for PostgreSQL - Flexible Server.
-author: sunilagarwal
 ms.author: sunila
+author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 03/14/2022
+ms.date: 05/4/2022
 ms.custom: "mvc, references_regions"
 ---
 
@@ -95,7 +95,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | Australia Southeast | :heavy_check_mark: | :x: | :x: |
 | Brazil South | :heavy_check_mark: (v3 only) | :x: | :x: |
 | Canada Central | :heavy_check_mark: | :heavy_check_mark: | :x: | 
-| Central India | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
+| Central India | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: |
 | Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | East Asia | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
 | East US | :heavy_check_mark: | :heavy_check_mark: | :x: |
@@ -111,6 +111,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | Norway East | :heavy_check_mark: | :x: | :x: |
 | South Africa North | :heavy_check_mark: | :x: | :x: |
 | South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| South India | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Southeast Asia | :heavy_check_mark: | :x: $  | :x: |
 | Sweden Central | :heavy_check_mark: | :x: | :x: |
 | Switzerland North | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
@@ -121,7 +122,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | UK West | :heavy_check_mark: | :x: | :x: |
 | West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | West US | :heavy_check_mark: | :x: | :x: |
-| West US 2 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| West US 2 | :heavy_check_mark: | :x: $ | :x: |
 | West US 3 | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
 
 $ New Zone-redundant high availability deployments are temporarily blocked in these regions. Already provisioned HA servers are fully supported. 

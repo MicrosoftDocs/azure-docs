@@ -39,6 +39,9 @@
     href: search-get-started-powershell.md
   - name: Python
     href: search-get-started-python.md
+  - name: Bicep
+    displayName: ARM, Resource Manager, Template
+    href: search-get-started-bicep.md
   - name: ARM template
     displayName: Resource Manager 
     href: search-get-started-arm.md
@@ -333,6 +336,8 @@
         href: search-howto-managed-identities-cosmos-db.md
       - name: SQL Database
         href: search-howto-managed-identities-sql.md
+      - name: SQL Managed Instance
+        href: search-index-azure-sql-managed-instance-with-managed-identity.md
     - name: Troubleshooting guidance
       href: search-indexer-troubleshooting.md
     - name: Troubleshoot indexer errors and warnings
@@ -514,13 +519,13 @@
     - name: Search API
       href: /javascript/api/overview/azure/search-documents-readme
     - name: Management API
-      href: /javascript/api/overview/azure/search/management
+      href: /javascript/api/@azure/arm-search/
   - name: Python
     items:
     - name: Search API
       href: /python/api/overview/azure/search-documents-readme
     - name: Management API
-      href: /python/api/overview/azure/search/management
+      href: /python/api/azure-mgmt-search/
   - name: Resource management
     items:
     - name: Azure CLI

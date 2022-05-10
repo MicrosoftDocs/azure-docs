@@ -1,8 +1,9 @@
 ---
-author: memildin
+author: bmansheim
+ms.author: benmansheim
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 01/24/2022
+ms.date: 04/28/2022
 
 ---
 ## Enable the plan
@@ -16,16 +17,14 @@ ms.date: 01/24/2022
     >
     > :::image type="content" source="../media/release-notes/defender-plans-deprecated-indicator.png" alt-text="Defender for container registries and Defender for Kubernetes plans showing 'Deprecated' and upgrade information.":::
 
-1. By default, the plan is configured to automatically defend any supported Kubernetes cluster that is attached to this subscription. To optionally modify the configuration, select *configure** from the configuration column.
-
-    :::image type="content" source="../media/defender-for-containers/defender-for-containers-provisioning-configuration.gif" alt-text="Viewing the configuration for Defender for Containers.":::
+1. By default, when enabling the plan through the Azure Portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to auto provision (automatically install) required components to provide the protections offered by plan.
 
     You can also modify this configuration from the [Auto provisioning page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/dataCollection) on the **Microsoft Defender for Containers components (preview)** row:
 
     :::image type="content" source="../media/defender-for-containers/auto-provisioning-defender-for-containers.png" alt-text="Screenshot of the auto provisioning options for Microsoft Defender for Containers." lightbox="../media/defender-for-containers/auto-provisioning-defender-for-containers.png":::
 
     > [!NOTE]
-    > If you choose to **disable the plan** at any time after enabling if through the portal as shown above, you'll need to manually disable auto provisioning of the Defender for Containers components. This will not remove the components from machines on which they've already been deployed.
+    > If you choose to **disable the plan** at any time after enabling it through the portal as shown above, you'll need to manually remove Defender for Containers components deployed on your clusters.
 
 1. If you disable the auto provisioning of any component, you can easily deploy the component to one or more clusters using the appropriate recommendation:
 
@@ -135,7 +134,7 @@ To use the REST API to deploy the Defender extension, you'll need a Log Analytic
     | Subscription ID | Path | True     | String | Your Azure Arc-enabled Kubernetes resource's subscription ID                     |
     |Resource Group   | Path | True     | String | Name of the resource group containing your Azure Arc-enabled Kubernetes resource |
     | Cluster Name    | Path | True     | String | Name of your Azure Arc-enabled Kubernetes resource                               |
-    |                 |      |          |        |                                                                                  |
+
 
 
     For **Authentication**, your header must have a Bearer token (as with other Azure APIs). To get a bearer token, run the following command:

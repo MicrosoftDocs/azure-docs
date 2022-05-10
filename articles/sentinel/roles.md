@@ -28,7 +28,7 @@ Use Azure RBAC to create and assign roles within your security operations team t
 
 - [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) can, in addition to the above, create and edit workbooks, analytics rules, and other Microsoft Sentinel resources.
 
-- [Microsoft Sentinel Automation Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) allows Microsoft Sentinel to add playbooks to automation rules. It is not meant for user accounts.
+- [Microsoft Sentinel Automation Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-automation-contributor) allows Microsoft Sentinel to add playbooks to automation rules. It is not meant for user accounts.
 
 > [!NOTE]
 >

@@ -13,6 +13,9 @@
     href: quickstart-create-logic-apps-with-visual-studio.md
   - name: Create logic apps - Visual Studio Code
     href: quickstart-create-logic-apps-visual-studio-code.md
+  - name: Create logic apps - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: quickstart-create-deploy-bicep.md
   - name: Create logic apps - ARM template
     displayName: Resource Manager
     href: quickstart-create-deploy-azure-resource-manager-template.md
@@ -411,6 +414,8 @@
         href: create-monitoring-tracking-queries.md
   - name: Business continuity and disaster recovery
     items:
+    - name: Set up zone redundant logic apps
+      href: set-up-zone-redundancy-availability-zones.md
     - name: Replicate Azure resources for business continuity and disaster recovery
       href: create-replication-tasks-azure-resources.md
     - name: Build a B2B business continuity and disaster recovery plan

@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 04/07/2022
 
 ms.author: BaSelden
 author: BarbaraSelden
@@ -64,7 +64,7 @@ If you are already using Conditional Access to determine when users are prompted
 As users are migrated to cloud authentication, they will start using Azure AD MFA as defined by your existing Conditional Access policies. 
 They won’t be redirected to AD FS and MFA Server anymore.
 
-If your federated domain(s) have SupportsMFA set to false, you are likely enforcing MFA on AD FS using claims rules. 
+If your federated domain(s) have the **federatedIdpMfaBehavior** set to `enforceMfaByFederatedIdp` or **SupportsMfa** flag set to `$True` (the **federatedIdpMfaBehavior** overrides **SupportsMfa** when both are set), you are likely enforcing MFA on AD FS using claims rules. 
 In this case, you will need to analyze your claims rules on the Azure AD relying party trust and create Conditional Access policies that support the same security goals.
 
 If you need to configure Conditional Access policies, you need to do so before enabling staged rollout. 

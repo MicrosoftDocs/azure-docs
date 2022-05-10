@@ -68,7 +68,6 @@ The following table describes the scenarios that are currently supported for Azu
 |North Europe|Available|Available
 |Japan East|Available|Available
 |Korea Central|Available|Available
-|East Asia|Available|Available
 |Southeast Asia|Available|Available
 |Australia East|Available|Available
 

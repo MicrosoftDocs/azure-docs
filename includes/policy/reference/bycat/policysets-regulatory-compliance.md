@@ -1,8 +1,8 @@
 ---
-author: timwarner-msft
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/08/2022
+ms.date: 04/19/2022
+author: timwarner-msft
 ms.author: timwarner
 ms.custom: generated
 ---
@@ -13,6 +13,7 @@ ms.custom: generated
 |[\[Preview\]: Motion Picture Association of America (MPAA)](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/Media_audit.json) |This initiative includes audit and virtual machine extension deployment policies that address a subset of Motion Picture Association of America (MPAA) security and guidelines controls. Additional policies will be added in upcoming releases. |36 |4.0.2-preview |
 |[\[Preview\]: RMIT Malaysia](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/RMIT_Malaysia.json) |This initiative includes policies that address a subset of RMIT requirements. Additional policies will be added in upcoming releases. For more information, visit aka.ms/rmit-initiative. |230 |4.1.0-preview |
 |[\[Preview\]: SWIFT CSP-CSCF v2020](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/SWIFTv2020_audit.json) |This initiative includes audit and virtual machine extension deployment policies that address a subset of SWIFT CSP-CSCF v2020 controls. Additional policies will be added in upcoming releases. For more information, visit [https://aka.ms/swift-blueprint](../../../../articles/governance/blueprints/samples/swift-2020/index.md). |61 |3.1.0-preview |
+|[SWIFT CSP-CSCF v2021](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/SWIFT_CSCF_v2021.json) |This initiative includes policies that address a subset of SWIFT Customer Security Controls Framework v2021 controls. Additional policies will be added in upcoming releases. |164 |1.0.0-preview |
 |[Canada Federal PBMM](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CanadaFederalPBMM_audit.json) |This initiative includes policies that address a subset of Canada Federal PBMM controls. Additional policies will be added in upcoming releases. For more information, visit [https://aka.ms/canadafederalpbmm-blueprint](../../../../articles/governance/blueprints/samples/canada-federal-pbmm.md). |59 |5.1.0 |
 |[CIS Microsoft Azure Foundations Benchmark v1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0.json) |This initiative includes policies that address a subset of CIS Microsoft Azure Foundations Benchmark recommendations. Additional policies will be added in upcoming releases. For more information, visit [https://aka.ms/cisazure110-initiative](../../../../articles/governance/policy/samples/cis-azure-1-1-0.md). |94 |14.0.0 |
 |[CIS Microsoft Azure Foundations Benchmark v1.3.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_3_0.json) |This initiative includes policies that address a subset of CIS Microsoft Azure Foundations Benchmark recommendations. Additional policies will be added in upcoming releases. For more information, visit [https://aka.ms/cisazure130-initiative](../../../../articles/governance/policy/samples/cis-azure-1-3-0.md). |99 |6.0.0 |

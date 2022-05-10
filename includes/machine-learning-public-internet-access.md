@@ -29,7 +29,7 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 > [!TIP]
 > If you need the IP addresses instead of service tags, use one of the following options:
 > * Download a list from [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519).
-> * Use the Azure CLI [az network list-service-tags](/cli/azure/network#az_network_list_service_tags) command.
+> * Use the Azure CLI [az network list-service-tags](/cli/azure/network#az-network-list-service-tags) command.
 > * Use the Azure PowerShell [Get-AzNetworkServiceTag](/powershell/module/az.network/get-aznetworkservicetag) command.
 > 
 > The IP addresses may change periodically.

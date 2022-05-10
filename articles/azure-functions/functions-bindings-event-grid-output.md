@@ -119,7 +119,7 @@ public static async Task Run(
 
 The following example shows how the custom type is used in both the trigger and an Event Grid output binding:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="12-23":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="4-49":::
 
 # [C# Script](#tab/csharp-script)
 

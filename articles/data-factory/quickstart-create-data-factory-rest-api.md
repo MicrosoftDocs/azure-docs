@@ -166,7 +166,7 @@ $body = @"
     }
 }
 "@
-$response = Invoke-RestMethod -Method PUT -Uri $request -Header $authHeader -Body $body
+$response =  Invoke-AzRestMethod  -Path ${path}  -Method PUT -Payload $body
 $response.content
 ```
 

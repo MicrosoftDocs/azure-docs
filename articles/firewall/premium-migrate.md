@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 02/22/2022
+ms.date: 03/30/2022
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -39,7 +39,7 @@ The firewall throughput might be lower than 30 Gbps when you’ve one or more si
 
 ## Downtime
 
-Migrate your firewall during a planned maintenance time, as there will be some downtime during the migration.
+Migrate your firewall during a planned maintenance time, as there will be some downtime when you [Migrate Azure Firewall from Standard to Premium using stop/start](#migrate-azure-firewall-using-stopstart).
 
 ## Migrate Classic rules to Standard policy
 
@@ -67,7 +67,9 @@ Usage example:
 `Transform-Policy -PolicyId /subscriptions/XXXXX-XXXXXX-XXXXX/resourceGroups/some-resource-group/providers/Microsoft.Network/firewallPolicies/policy-name`
 
 > [!IMPORTANT]
-> The script doesn't migrate Threat Intelligence settings. You'll need to note those settings before proceeding and migrate them manually.
+> The script doesn't migrate Threat Intelligence and SNAT private ranges settings. You'll need to note those settings before proceeding and migrate them manually. Otherwise, you might encounter inconsistent traffic filtering with your new upgraded firewall.
+
+This script requires the latest Azure PowerShell. Run `Get-Module -ListAvailable Az` to see which versions are installed. If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
 ```azurepowershell
 <#

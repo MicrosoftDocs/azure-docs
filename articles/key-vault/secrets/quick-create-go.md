@@ -21,7 +21,7 @@ Get started with the [azsecrets](https://pkg.go.dev/github.com/Azure/azure-sdk-f
 ## Prerequisites
 
 - An Azure subscription. If you don't already have a subscription, you can [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Go version 1.16 or later](https://golang.org/dl/), installed. 
+- [Go version 1.16 or later](https://go.dev/dl/), installed. 
 - [The Azure CLI](/cli/azure/install-azure-cli), installed.
 
 ## Setup

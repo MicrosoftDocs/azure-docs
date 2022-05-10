@@ -9,7 +9,7 @@ ms.date: 07/30/2021
 
 # Tutorial: Configure networking for your VMware private cloud in Azure
 
-An Azure VMware Solution private cloud requires an Azure Virtual Network. Because Azure VMware Solution doesn't support your on-premises vCenter, you'll need to do additional steps to integrate with your on-premises environment. Setting up an ExpressRoute circuit and a virtual network gateway is also required.
+An Azure VMware Solution private cloud requires an Azure Virtual Network. Because Azure VMware Solution doesn't support your on-premises vCenter Server, you'll need to do additional steps to integrate with your on-premises environment. Setting up an ExpressRoute circuit and a virtual network gateway is also required.
 
 [!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)]
 
@@ -34,6 +34,14 @@ You can use the **Azure vNet connect** feature to use an existing vNet or create
 >[!NOTE]
 >Address space in the vNet cannot overlap with the Azure VMware Solution private cloud CIDR.
 
+### Prerequisites
+
+Before selecting an existing vNet, there are specific requirements that must be met.
+
+1. vNet must contain a gateway subnet.
+1. In the same region as Azure VMware Solution private cloud.
+1. In the same resource group as Azure VMware Solution private cloud.
+1. vNet must contain an address space that doesn't overlap with Azure VMware Solution.
 
 ### Select an existing vNet
 
@@ -148,7 +156,7 @@ In this tutorial, you learned how to:
 > * Connect your ExpressRoute circuit to the gateway
 
 
-Continue to the next tutorial to learn how to create the NSX-T network segments used for VMs in vCenter.
+Continue to the next tutorial to learn how to create the NSX-T network segments used for VMs in vCenter Server.
 
 > [!div class="nextstepaction"]
 > [Create an NSX-T network segment](./tutorial-nsx-t-network-segment.md)

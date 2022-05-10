@@ -48,7 +48,7 @@ New-AzRoleAssignment -RoleDefinitionName Reader `
 
 ```
 
-To query the Azure Monitor API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach, using the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to obtain the authentication token.
+To query the Azure Monitor API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach, using the [Microsoft Authentication Library (MSAL)](../../active-directory/develop/msal-overview.md) to obtain the authentication token.
 
 ```powershell
 $ClientID           = "{client_id}"

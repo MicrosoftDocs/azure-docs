@@ -1,17 +1,20 @@
 ---
 title: Overview - Azure Database for MySQL - Flexible Server
 description: Learn about the Azure Database for MySQL Flexible server, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
+ms.service: mysql
+ms.subservice: flexible-server
+ms.topic: overview
 author: savjani
 ms.author: pariks
-ms.service: mysql
 ms.custom: mvc, references_regions
-ms.topic: overview
-ms.date: 08/10/2021
+ms.date: 03/23/2022
 ---
+
 # Azure Database for MySQL - Flexible Server
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
+<iframe src="https://aka.ms/docs/player?id=492c7a41-5f0a-4482-828b-72be1b38e691" width="640" height="370"></iframe>
 
 Azure Database for MySQL powered by the MySQL community edition is available in two deployment modes:
 
@@ -47,7 +50,7 @@ You can take advantage of this offer to develop and deploy applications that use
 
 ## High availability within and across availability zones
 
-Azure Database for MySQL Flexible Server allows configuring high availability with automatic failover. The high availability solution is designed to ensure that committed data is never lost due to failures, and improve overall uptime for your application. When high availability is configured, flexible server automatically provisions and manages a standby replica. You are billed for the provisioned compute and storage for both the primary and secondary replica. There are two high availability-architectural models: 
+Azure Database for MySQL Flexible Server allows configuring high availability with automatic failover. The high availability solution is designed to ensure that committed data is never lost due to failures, and improve overall uptime for your application. When high availability is configured, flexible server automatically provisions and manages a standby replica. You're billed for the provisioned compute and storage for both the primary and secondary replica. There are two high availability-architectural models: 
 
 - **Zone Redundant High Availability (HA):** This option is preferred for complete isolation and redundancy of infrastructure across multiple availability zones. It provides highest level of availability, but it requires you to configure application redundancy across zones. Zone redundant HA is preferred when you want to achieve highest level of availability against any infrastructure failure in the availability zone and where latency across the availability zone is acceptable. Zone redundant HA is available in [subset of Azure regions](overview.md#azure-regions) where the region supports multiple Availability Zones and Zone redundant Premium file shares are available. 
 
@@ -175,8 +178,8 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 | China North 2 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | East Asia (Hong Kong) | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | East US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| East US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| France Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| East US 2 | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| France Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Japan West | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
@@ -187,15 +190,15 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 | Norway East | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | South Africa North | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Switzerland North | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | UAE North | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| UK South | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | UK West | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | West Central US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | West US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| West US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| West US 2 | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | West US 3 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 
 ## Contacts

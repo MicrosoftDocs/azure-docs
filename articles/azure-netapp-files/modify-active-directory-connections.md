@@ -1,16 +1,9 @@
 ---
 title: Modify an Active Directory Connection for Azure NetApp Files | Microsoft Docs
 description: This article shows you how to modify Active Directory connections for Azure NetApp Files.
-services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 03/15/2022
 ms.author: anfdocs
@@ -46,12 +39,12 @@ Once you have [created an Active Directory connection](create-active-directory-c
 | Username | Username of the Active Directory domain administrator | Yes | None* | Credential change to contact DC |
 | Password | Password of the Active Directory domain administrator | Yes | None* | Credential change to contact DC |
 | Kerberos Realm: AD Server Name | The name of the Active Directory machine. This option is only used when creating a Kerberos volume. | Yes | None* | |
-| Kerberos Realm: KDC IP | Specifies the IP address of the Kerberos Distribution Center (KDC) server. KDC in Azure NetApp Files is an Active Directory server | Yes | None | A new KDC IP address will be used | None* |
+| Kerberos Realm: KDC IP | Specifies the IP address of the Kerberos Distribution Center (KDC) server. KDC in Azure NetApp Files is an Active Directory server | Yes | None | A new KDC IP address will be used |
 | Region | The region where the Active Directory credentials are associated | No | None | N/A |
 | User DN | User domain name, which overrides the base DN for user lookups Nested userDN can be specified in `OU=subdirectory, OU=directory, DC=domain, DC=com` format.​ | Yes | None* | User search scope gets limited to User DN instead of base DN. |
 | Group DN | Group domain name. groupDN overrides the base DN for group lookups. Nested groupDN can be specified in `OU=subdirectory, OU=directory, DC=domain, DC=com` format.​ | Yes | None* | Group search scope gets limited to Group DN instead of base DN. |
 | Group Membership Filter | The custom LDAP search filter to be used when looking up group membership from LDAP server.​  `groupMembershipFilter` can be specified with the `(gidNumber=*)` format. | Yes | None* | Group membership filter will be used while querying group membership of a user from LDAP server. |
-| Security Privilege Users | You can grant security privilege (`SeSecurityPrivilege`) to users that require elevated privilege to access the Azure NetApp Files volumes. The specified user accounts will be allowed to perform certain actions on Azure NetApp Files SMB shares that require security privilege not assigned by default to domain users. See [Create and manage Active Directory connections](create-active-directory-connections.md#create-an-active-directory-connection) for more information. | Yes | Using this feature is optional and supported only for SQL Server. The domain account used for installing SQL Server must already exist before you add it to the Security privilege users field. When you add the SQL Server installer's account to Security privilege users, the Azure NetApp Files service might validate the account by contacting the domain controller. The command might fail if it cannot contact the domain controller. For more information about `SeSecurityPrivilege` and SQL Server, see [SQL Server installation fails if the Setup account doesn't have certain user rights](/troubleshoot/sql/install/installation-fails-if-remove-user-right.md).* | Allows non-administrator accounts to use SQL severs on top of ANF volumes.  |
+| Security Privilege Users | You can grant security privilege (`SeSecurityPrivilege`) to users that require elevated privilege to access the Azure NetApp Files volumes. The specified user accounts will be allowed to perform certain actions on Azure NetApp Files SMB shares that require security privilege not assigned by default to domain users. See [Create and manage Active Directory connections](create-active-directory-connections.md#create-an-active-directory-connection) for more information. | Yes | Using this feature is optional and supported only for SQL Server. The domain account used for installing SQL Server must already exist before you add it to the Security privilege users field. When you add the SQL Server installer's account to Security privilege users, the Azure NetApp Files service might validate the account by contacting the domain controller. The command might fail if it cannot contact the domain controller. For more information about `SeSecurityPrivilege` and SQL Server, see [SQL Server installation fails if the Setup account doesn't have certain user rights](/troubleshoot/sql/install/installation-fails-if-remove-user-right).* | Allows non-administrator accounts to use SQL severs on top of ANF volumes.  |
 
 **\*There is no impact on a modified entry only if the modifications are entered correctly. If you enter data incorrectly, users and applications will lose access.**
 

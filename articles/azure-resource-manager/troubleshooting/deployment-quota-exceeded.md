@@ -28,7 +28,7 @@ During deployment, you receive an error that states the current deployment will 
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az deployment group delete](/cli/azure/deployment/group#az_deployment_group_delete) command to delete deployments from the history.
+Use the [az deployment group delete](/cli/azure/deployment/group#az-deployment-group-delete) command to delete deployments from the history.
 
 ```azurecli-interactive
 az deployment group delete --resource-group exampleGroup --name deploymentName

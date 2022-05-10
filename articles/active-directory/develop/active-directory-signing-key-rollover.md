@@ -286,10 +286,93 @@ Follow the steps below to verify that the key rollover logic is working.
 ### <a name="other"></a>Web applications / APIs protecting resources using any other libraries or manually implementing any of the supported protocols
 If you are using some other library or manually implemented any of the supported protocols, you'll need to review the library or your implementation to ensure that the key is being retrieved from either the OpenID Connect discovery document or the federation metadata document. One way to check for this is to do a search in your code or the library's code for any calls out to either the OpenID discovery document or the federation metadata document.
 
-If they key is being stored somewhere or hardcoded in your application, you can manually retrieve the key and update it accordingly by performing a manual rollover as per the instructions at the end of this guidance document. **It is strongly encouraged that you enhance your application to support automatic rollover** using any of the approaches outline in this article to avoid future disruptions and overhead if the Microsoft identity platform increases its rollover cadence or has an emergency out-of-band rollover.
+If the key is being stored somewhere or hardcoded in your application, you can manually retrieve the key and update it accordingly by performing a manual rollover as per the instructions at the end of this guidance document. **It is strongly encouraged that you enhance your application to support automatic rollover** using any of the approaches outline in this article to avoid future disruptions and overhead if the Microsoft identity platform increases its rollover cadence or has an emergency out-of-band rollover.
 
 ## How to test your application to determine if it will be affected
-You can validate whether your application supports automatic key rollover by downloading the scripts and following the instructions in [this GitHub repository.](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)
+
+You can validate whether your application supports automatic key rollover by using the following PowerShell scripts.
+
+To check and update signing keys with PowerShell, you'll need the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell Module.
+
+1. Install the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell Module:
+
+    ```powershell
+    Install-Module -Name MSIdentityTools
+    ```
+
+1. Sign in by using the Connect-MgGraph command with an admin account to consent to the required scopes:
+
+   ```powershell
+    Connect-MgGraph -Scope "Application.ReadWrite.All"
+   ```
+
+1. Get the list of available signing key thumbprints:
+
+    ```powershell
+    Get-MsIdSigningKeyThumbprint
+    ```
+
+1. Pick any of the key thumbprints and configure Azure Active Directory to use that key with your application (get the app ID from the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)):
+
+    ```powershell
+    Update-MsIdApplicationSigningKeyThumbprint -ApplicationId <ApplicationId> -KeyThumbprint <Thumbprint>
+    ```
+
+1. Test the web application by signing in to get a new token. The key update change is instantaneous, but make sure you use a new browser session (using, for example, Internet Explorer's "InPrivate," Chrome's "Incognito," or Firefox's "Private" mode) to ensure you are issued a new token.
+
+1. For each of the returned signing key thumbprints, run the `Update-MsIdApplicationSigningKeyThumbprint` cmdlet and test your web application sign-in process.
+
+1. If the web application signs you in properly, it supports automatic rollover. If it doesn't, modify your application to support manual rollover. Check out [Establishing a manual rollover process](#how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover) for more information.
+
+1. Run the following script to revert to normal behavior:
+
+    ```powershell
+    Update-MsIdApplicationSigningKeyThumbprint -ApplicationId <ApplicationId> -Default
+    ```
 
 ## How to perform a manual rollover if your application does not support automatic rollover
-If your application does **not** support automatic rollover, you will need to establish a process that periodically monitors Microsoft identity platform's signing keys and performs a manual rollover accordingly. [This GitHub repository](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) contains scripts and instructions on how to do this.
+If your application doesn't support automatic rollover, you need to establish a process that periodically monitors Microsoft identity platform's signing keys and performs a manual rollover accordingly.
+
+To check and update signing keys with PowerShell, you'll need the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell Module.
+
+1. Install the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell Module:
+
+    ```powershell
+    Install-Module -Name MSIdentityTools
+    ```
+
+1. Get the latest signing key (get the tenant ID from the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)):
+
+    ```powershell
+    Get-MsIdSigningKeyThumbprint -Tenant <tenandId> -Latest
+    ```
+
+1. Compare this key against the key your application is currently hardcoded or configured to use.
+
+1. If the latest key is different from the key your application is using, download the latest signing key:
+
+    ```powershell
+    Get-MsIdSigningKeyThumbprint -Latest -DownloadPath <DownloadFolderPath>
+    ```
+
+1. Update your application's code or configuration to use the new key.
+
+1. Configure Azure Active Directory to use that latest key with your application (get the app ID from the [portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)):
+
+    ```powershell
+    Get-MsIdSigningKeyThumbprint -Latest | Update-MsIdApplicationSigningKeyThumbprint -ApplicationId <ApplicationId>
+    ```
+
+1. Test the web application by signing in to get a new token. The key update change is instantaneous, but make sure you use a new browser session (using, for example, Internet Explorer's "InPrivate," Chrome's "Incognito," or Firefox's "Private" mode) to ensure you are issued a new token.
+
+1. If you experience any issues, revert to the previous key you were using and contact Azure support:
+
+    ```powershell
+    Update-MsIdApplicationSigningKeyThumbprint -ApplicationId <ApplicationId> -KeyThumbprint <PreviousKeyThumbprint>
+    ```
+
+1. After you update your application to support manual rollover, revert to normal behavior:
+
+    ```powershell
+    Update-MsIdApplicationSigningKeyThumbprint -ApplicationId <ApplicationId> -Default
+    ```

@@ -11,6 +11,7 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/16/2021
 ms.custom: devx-track-csharp
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 
 # Upgrade to Azure Search .NET SDK version 3

@@ -400,7 +400,7 @@ void MultiLingualTranslation()
             {
                 cout << "CANCELED: ErrorCode=" << (int)e.ErrorCode << std::endl;
                 cout << "CANCELED: ErrorDetails=" << e.ErrorDetails << std::endl;
-                cout << "CANCELED: Did you update the subscription info?" << std::endl;
+                cout << "CANCELED: Did you set the speech resource key and region values?" << std::endl;
 
                 recognitionEnd.set_value();
             }

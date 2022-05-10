@@ -70,13 +70,13 @@ You will need the **API Key** for your Google Firebase Cloud Messaging (FCM) pro
 
 ### Set up push notifications for Google FCM
 
-1. Use the [az notification-hub credential gcm update](/cli/azure/notification-hub/credential/gcm#az_notification_hub_credential_gcm_update) command to add your Google API key to your notification hub.
+1. Use the [az notification-hub credential gcm update](/cli/azure/notification-hub/credential/gcm#az-notification-hub-credential-gcm-update) command to add your Google API key to your notification hub.
 
    ```azurecli
    az notification-hub credential gcm update --resource-group spnhubrg --namespace-name spnhubns    --notification-hub-name spfcmtutorial1nhub --google-api-key myKey
    ```
 
-2. The Android App needs a connection string to connect with the notification hub.  Use the [az notification-hub authorization-rule list](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization_rule_list) command to list the available access policies.  Use the [az notification-hub authorization-rule list-keys](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization_rule_list_keys) command to get the access policy connection strings.  Specify the **primaryConnectionString** or **secondaryConnectionString** in the `--query` parameter to get the primary connection string directly.
+2. The Android App needs a connection string to connect with the notification hub.  Use the [az notification-hub authorization-rule list](/cli/azure/notification-hub/authorization-rule#az-notification-hub-authorization-rule-list) command to list the available access policies.  Use the [az notification-hub authorization-rule list-keys](/cli/azure/notification-hub/authorization-rule#az-notification-hub-authorization-rule-list-keys) command to get the access policy connection strings.  Specify the **primaryConnectionString** or **secondaryConnectionString** in the `--query` parameter to get the primary connection string directly.
 
    ```azurecli
    #list access policies for a notification hub
@@ -89,7 +89,7 @@ You will need the **API Key** for your Google Firebase Cloud Messaging (FCM) pro
    az notification-hub authorization-rule list-keys --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --name myAccessPolicyName --query primaryConnectionString
    ```
 
-3. Use the [az notification-hub test-send](/cli/azure/notification-hub#az_notification_hub_test_send) command to test sending messages to the Android App.
+3. Use the [az notification-hub test-send](/cli/azure/notification-hub#az-notification-hub-test-send) command to test sending messages to the Android App.
 
    ```azurecli
    #test with message body

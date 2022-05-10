@@ -114,20 +114,16 @@ You can use the following built-in operations to perform general tasks, for exam
         [**FTP**][ftp-doc]<br>(*Standard logic app only*)
         \
         \
-        Connect to FTP servers you can access from the internet so that you can work with your files and folders.
+        Connect to FTP or FTPS servers you can access from the internet so that you can work with your files and folders.
     :::column-end:::
     :::column:::
-        [![STFP-SSH icon][sftp-ssh-icon]][sftp-ssh-doc]
+        [![SFTP-SSH icon][sftp-ssh-icon]][sftp-ssh-doc]
         \
         \
-        [**STFP-SSH**][sftp-ssh-doc]<br>(*Standard logic app only*)
+        [**SFTP-SSH**][sftp-ssh-doc]<br>(*Standard logic app only*)
         \
         \
         Connect to SFTP servers that you can access from the internet by using SSH so that you can work with your files and folders.
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-    :::column:::
     :::column-end:::
 :::row-end:::
 
@@ -164,7 +160,7 @@ Connectors for some services provide both built-in operations and managed connec
         [**Azure Blob**][azure-blob-storage-doc]<br>(*Standard logic app only*)
         \
         \
-        Connect to your Azure Storage account so that you can create and manage blob content.
+        Connect to your Azure Blob Storage account so you can create and manage blob content.
     :::column-end:::
     :::column:::
         [![Azure Cosmos DB icon][azure-cosmos-db-icon]][azure-cosmos-db-doc]
@@ -231,8 +227,6 @@ Connectors for some services provide both built-in operations and managed connec
         \
         Connect to IBM DB2 in the cloud or on-premises. Update a row, get a table, and more.
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         ![IBM Host File icon][ibm-host-file-icon]
         \
@@ -259,8 +253,6 @@ Connectors for some services provide both built-in operations and managed connec
         \
         \
         Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries.
-    :::column-end:::
-    :::column:::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -593,7 +585,7 @@ For more information, review the following documentation:
 [condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "Evaluate a condition and run different actions based on whether the condition is true or false"
 [data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "Perform data operations such as filtering arrays or creating CSV and HTML tables"
 [for-each-doc]: ../logic-apps/logic-apps-control-flow-loops.md#foreach-loop "Perform the same actions on every item in an array"
-[ftp-doc]: ./connectors-create-api-ftp.md "Connect to an FTP / FTPS server for FTP tasks, like uploading, getting, deleting files, and more"
+[ftp-doc]: ./connectors-create-api-ftp.md "Connect to an FTP or FTPS server for FTP tasks, like uploading, getting, deleting files, and more"
 [http-doc]: ./connectors-native-http.md "Call HTTP or HTTPS endpoints from your logic apps"
 [http-request-doc]: ./connectors-native-reqres.md "Receive HTTP requests in your logic apps"
 [http-response-doc]: ./connectors-native-reqres.md "Respond to HTTP requests from your logic apps"

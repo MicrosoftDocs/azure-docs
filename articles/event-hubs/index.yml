@@ -199,4 +199,6 @@ landingContent:
           - text: Use private endpoints
             url: private-link-service.md            
           - text: Configure customer-managed keys for encrypting data at rest
-            url: configure-customer-managed-key.md            
+            url: configure-customer-managed-key.md     
+          - text: Enforce minimum required TLS version
+            url: transport-layer-security-enforce-minimum-version.md    

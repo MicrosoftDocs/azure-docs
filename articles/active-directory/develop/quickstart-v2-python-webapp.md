@@ -3,7 +3,7 @@ title: "Quickstart: Add sign-in with Microsoft to a Python web app | Azure"
 titleSuffix: Microsoft identity platform
 description: In this quickstart, learn how a Python web app can sign in users, get an access token from the Microsoft identity platform, and call the Microsoft Graph API.
 services: active-directory
-author: abhidnya13
+author: CelesteDG
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -11,7 +11,7 @@ ms.topic: portal
 ms.workload: identity
 ms.date: 11/22/2021
 ROBOTS: NOINDEX
-ms.author: abpati
+ms.author: celested
 ms.custom: aaddev, devx-track-python, "scenarios:getting-started", "languages:Python", mode-api
 ---
 

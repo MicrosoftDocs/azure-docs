@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 01/19/2022
+ms.date: 03/18/2022
 ms.author: danlep
 ---
 
@@ -41,7 +41,7 @@ The self-hosted gateway is a containerized, functionally equivalent version of t
 
 The following functionality found in the managed gateways is **not available** in the self-hosted gateways:
 
-- Azure Monitor logs
+- Sending resource logs (diagnostic logs) to Azure Monitor. However, you can [send metrics](how-to-configure-cloud-metrics-logs.md) to Azure Monitor, or [configure and persist logs locally](how-to-configure-local-metrics-logs.md) where the self-hosted gateway is deployed.
 - Upstream (backend side) TLS version and cipher management
 - Validation of server and client certificates using [CA root certificates](api-management-howto-ca-certificates.md) uploaded to API Management service. You can configure [custom certificate authorities](api-management-howto-ca-certificates.md#create-custom-ca-for-self-hosted-gateway) for your self-hosted gateways and [client certificate validation](api-management-access-restriction-policies.md#validate-client-certificate) policies to enforce them.
 - Integration with [Service Fabric](../service-fabric/service-fabric-api-management-overview.md)
@@ -90,7 +90,7 @@ Self-hosted gateways require outbound TCP/IP connectivity to Azure on port 443. 
 
 -   Reporting its status by sending heartbeat messages every minute
 -   Regularly checking for (every 10 seconds) and applying configuration updates whenever they are available
--   Sending request logs and metrics to Azure Monitor, if configured to do so
+-   Sending metrics to Azure Monitor, if configured to do so
 -   Sending events to Application Insights, if set to do so
 
 ### FQDN dependencies
@@ -159,3 +159,4 @@ When connectivity is restored, each self-hosted gateway affected by the outage w
 -   [Deploy self-hosted gateway to Docker](how-to-deploy-self-hosted-gateway-docker.md)
 -   [Deploy self-hosted gateway to Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)
 -   [Deploy self-hosted gateway to Azure Arc-enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md)
+-   Learn about [observability capabilities](observability.md) in API Management

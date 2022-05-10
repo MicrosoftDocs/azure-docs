@@ -45,11 +45,11 @@ Otherwise, check with your IT administrator to verify that this maintenance isn'
 
 ## Check your firewall settings
 
-The dedicated SQL pool (formerly SQL DW) database communicates over port 1433.  If you're trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. In that case, you can't connect to your [logical server](../../azure-sql/database/logical-servers.md) unless your IT department opens port 1433. Additional information on firewall configurations can be found [here](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
+The dedicated SQL pool (formerly SQL DW) database communicates over port 1433.  If you're trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. In that case, you can't connect to your [logical server](/azure/azure-sql/database/logical-servers) unless your IT department opens port 1433. Additional information on firewall configurations can be found [here](/azure/azure-sql/database/firewall-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
 
 ## Check your VNet/Service Endpoint settings
 
-If you're receiving Errors 40914 and 40615, see [error description and resolution here](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
+If you're receiving Errors 40914 and 40615, see [error description and resolution here](/azure/azure-sql/database/vnet-service-endpoint-rule-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
 
 ## Check for the latest drivers
 
@@ -104,7 +104,7 @@ Check to see if you're experiencing heavy load on the server with a high number 
 
 ## Common error messages
 
-Errors 40914 and 40615, see the [error description and resolution here](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
+Errors 40914 and 40615, see the [error description and resolution here](/azure/azure-sql/database/vnet-service-endpoint-rule-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
 
 ## Still having connectivity issues?
 

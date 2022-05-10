@@ -5,13 +5,13 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: article
-ms.date: 03/22/2021
+ms.date: 05/09/2022
 ms.author: duau
 ---
 
 # Designing for disaster recovery with ExpressRoute private peering
 
-ExpressRoute is designed for high availability to provide carrier grade private network connectivity to Microsoft resources. In other words, there's no single point of failure in the ExpressRoute path within Microsoft network. For design considerations to maximize the availability of an ExpressRoute circuit, see [Designing for high availability with ExpressRoute][HA].
+ExpressRoute is designed for high availability to provide carrier grade private network connectivity to Microsoft resources. In other words, there's no single point of failure in the ExpressRoute path within Microsoft network. For design considerations to maximize the availability of an ExpressRoute circuit, see [Designing for high availability with ExpressRoute][HA] and [Well-Architectured Framework](/azure/architecture/framework/services/networking/expressroute/reliability)
 
 However, taking Murphy's popular adage--*if anything can go wrong, it will*--into consideration, in this article let us focus on solutions that go beyond failures that can be addressed using a single ExpressRoute circuit. We'll be looking into network architecture considerations for building robust backend network connectivity for disaster recovery using geo-redundant ExpressRoute circuits.
 
@@ -134,6 +134,10 @@ The Scenario 2 is illustrated in the following diagram. In the diagram, green li
 The solution is illustrated in the following diagram. As illustrated, you can architect the scenario either using more specific route (Option 1) or AS-path prepend (Option 2) to influence VNet path selection. To influence on-premises network route selection for Azure bound traffic, you need configure the interconnection between the on-premises location as less preferable. How you configure the interconnection link as preferable depends on the routing protocol used within the on-premises network. You can use local preference with iBGP or metric with IGP (OSPF or IS-IS).
 
 [![10]][10]
+
+> [!IMPORTANT]
+> When one or multiple ExpressRoute circuits are connected to multiple virtual networks, virtual network to virtual network traffic can route via ExpressRoute. However, this is not recommended. To enable virtual network to virtual network connectivity, [configure virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering).
+> 
 
 
 ## Next steps
