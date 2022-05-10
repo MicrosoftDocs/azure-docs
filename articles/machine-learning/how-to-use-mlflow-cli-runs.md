@@ -48,17 +48,18 @@ See [MLflow and Azure Machine Learning](concept-mlflow.md) for all supported MLf
     * See which [access permissions you need to perform your MLflow operations with your workspace](how-to-assign-roles.md#mlflow-operations).
 
 * Install and [set up CLI (v2)](how-to-configure-cli.md#prerequisites) and make sure you install the ml extension.
+* Install and set up SDK(v2) for Python
 
 ## Track runs from your local machine
 
-MLflow Tracking with Azure Machine Learning lets you store the logged metrics and artifacts runs that were executed on your local machine into your Azure Machine Learning workspace. 
+MLflow Tracking with Azure Machine Learning lets you store the logged metrics and artifacts runs that were executed on your local machine into your Azure Machine Learning workspace.
 
 ### Set up tracking environment
 
 To track a local run, you need to point your local machine to the Azure Machine Learning MLflow Tracking URI. 
 
 >[!IMPORTANT]
-> Make sure you are logged in to your Azure account, otherwise the tracking URI returns an empty string.
+> Make sure you are logged in to your Azure account on your local machine, otherwise the tracking URI returns an empty string. If you are using any Azure ML compute the tracking environment and experiment name is already configured..
 
 # [MLflow SDK](#tab/mlflow)
 
@@ -67,26 +68,23 @@ To track a local run, you need to point your local machine to the Azure Machine 
 The following code uses `mlflow` and your Azure Machine Learning workspace details to construct the unique MLFLow tracking URI associated with your workspace. Then the method [`set_tracking_uri()`](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.set_tracking_uri) points the MLflow tracking URI to that URI.
 
 ```Python
+from azure.ai.ml import MLClient
+from azure.identity import DefaultAzureCredential
 import mlflow
 
-## Construct AzureML MLFLOW TRACKING URI
-def get_azureml_mlflow_tracking_uri(region, subscription_id, resource_group, workspace):
-    return "azureml://{}.api.azureml.ms/mlflow/v1.0/subscriptions/{}/resourceGroups/{}/providers/Microsoft.MachineLearningServices/workspaces/{}".format(region, subscription_id, resource_group, workspace)
+#Enter details of your AML workspace
+subscription_id = '<SUBSCRIPTION_ID>'
+resource_group = '<RESOURCE_GROUP>'
+workspace = '<AML_WORKSPACE_NAME>'
 
-region='<REGION>' ## example: westus
-subscription_id = '<SUBSCRIPTION_ID>' ## example: 11111111-1111-1111-1111-111111111111
-resource_group = '<RESOURCE_GROUP>' ## example: myresourcegroup
-workspace = '<AML_WORKSPACE_NAME>' ## example: myworkspacename
+#get a handle to the workspace
+ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
 
-MLFLOW_TRACKING_URI = get_azureml_mlflow_tracking_uri(region, subscription_id, resource_group, workspace)
+tracking_uri = ml_client.workspaces.get(name="chpirill-canary").mlflow_tracking_uri
 
-## Set the MLFLOW TRACKING URI
-mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
+mlflow.set_tracking_uri(tracking_uri)
 
-## Make sure the MLflow URI looks something like this: 
-## azureml://<REGION>.api.azureml.ms/mlflow/v1.0/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<AML_WORKSPACE_NAME>
-
-print("MLFlow Tracking URI:", MLFLOW_TRACKING_URI)
+print(tracking_uri)
 ```
 
 # [Terminal](#tab/terminal)
@@ -266,7 +264,7 @@ To register and view a model from a run, use the following steps:
     ![MLmodel-schema](./media/how-to-use-mlflow-cli-runs/mlmodel-view.png)
 
 
-## Example notebooks
+## Example files
 
 [Use MLflow and CLI (v2)](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/basics/hello-mlflow.yml)
 
