@@ -1180,6 +1180,8 @@ items:
       href: change/change-analysis-visualizations.md
     - name: Azure PowerShell
       href: change/change-analysis-powershell.md
+    - name: Track web outages
+      href: change/change-analysis-outages.md
     - name: Custom filters
       href: change/change-analysis-custom-filters.md
     - name: Troubleshoot
