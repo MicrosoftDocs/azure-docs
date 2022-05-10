@@ -9,7 +9,7 @@ ms.topic: how-to
 
 This article describes how to update Defender for IoT software versions on OT sensor and on-premises management console appliances.
 
-You can purchase preconfigured appliances for your sensors and on-premises management consoles, or install software on your own hardware machines. In either case, you'll need to update software versions to leverage new features for OT sensors and on-premises management consoles.
+You can purchase preconfigured appliances for your sensors and on-premises management consoles, or install software on your own hardware machines. In either case, you'll need to update software versions to use new features for OT sensors and on-premises management consoles.
 
 For more information, see [Which appliances do I need?](ot-appliance-sizing.md), [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md), and [What's new in Microsoft Defender for IoT?](release-notes.md).
 
@@ -19,7 +19,7 @@ For more information, see [Which appliances do I need?](ot-appliance-sizing.md),
 
 ## Verify network requirements
 
-- Make sure that your sensors can reach the Azure data center address ranges and set up any additional resources required for the connectivity method your organization is using.
+- Make sure that your sensors can reach the Azure data center address ranges and set up any extra resources required for the connectivity method your organization is using.
 
     For more information, see [OT sensor cloud connection methods](architecture-connections.md) and [Connect your OT sensors to the cloud](connect-sensors.md).
 
@@ -56,7 +56,7 @@ In such cases, make sure to update your on-premises management consoles *before*
 
 ## Download a new activation file
 
-This procedure is relevant only if you are updating sensors from software versions earlier than 22.1.x. Such updates require a new activation file for each sensor, which you'll use to [activate the sensor](#apply-your-activation-file) before you [update the software](#update-your-sensors).
+This procedure is relevant only if you're updating sensors from software versions earlier than 22.1.x. Such updates require a new activation file for each sensor, which you'll use to [activate the sensor](#apply-your-activation-file) before you [update the software](#update-your-sensors).
 
 **To prepare your sensor for update**:
 
@@ -161,7 +161,7 @@ The sensor update process won't succeed if you don't update the on-premises mana
 
 1. Updates start running on each sensor selected for automatic updates. Monitor the update status for each sensor from the **Site Management** page.
 
-If updates fail, you can re-attempt the update, or open a support ticket for assistance.
+If updates fail, you can reattempt the update, or open a support ticket for assistance.
 
 ---
 
