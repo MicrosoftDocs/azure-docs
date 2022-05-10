@@ -129,7 +129,13 @@ $SourcePhysicalPartitionObjects += New-AzCosmosDBSqlPhysicalPartitionThroughputO
 $TargetPhysicalPartitionObjects =  @()
 $TargetPhysicalPartitionObjects += New-AzCosmosDBSqlPhysicalPartitionThroughputObject -Id 1 -Throughput 4000
 
-Update-AzCosmosDBSqlContainerPerPartitionThroughput -ResourceGroupName cosmos-resource-group -AccountName cosmos-account-demo -DatabaseName DemoDatabaseName -ContainerName DemoContainerName -SourcePhysicalPartitionThroughputObject $SourcePhysicalPartitionObjects -TargetPhysicalPartitionThroughputObject $TargetPhysicalPartitionObjects
+Update-AzCosmosDBSqlContainerPerPartitionThroughput `
+    -ResourceGroupName "<resource-group-name>" `
+    -AccountName "<cosmos-account-name>" `
+    -DatabaseName "<cosmos-database-name>" `
+    -ContainerName "<cosmos-container-name>" `
+    -SourcePhysicalPartitionThroughputObject $SourcePhysicalPartitionObjects `
+    -TargetPhysicalPartitionThroughputObject $TargetPhysicalPartitionObjects
 ```
 
 After you've completed the redistribution, you can verify the change by viewing the  **PhysicalPartitionThroughput** metric in Azure Monitor. Split by the dimension **PhysicalPartitionId** to see how many RU/s you have per physical partition.
