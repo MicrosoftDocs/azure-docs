@@ -12,14 +12,14 @@ ms.date: 05/09/2022
 # Merge partitions in Azure Cosmos DB (preview)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Azure Cosmos DB partition merge (preview) allows you to reduce the number of physical partitions used for your container. With merge, containers that are fragmented in throughput (have very low RU/s per partition) or storage (have low storage per partition) can have their physical partitions reworked. If a container's throughput has been scaled up and needs to be scaled back down, merge can help resolve throughput fragmentation issues. For the same amount of provisioned RU/s, having fewer physical partitions means each physical partition gets more of the overall RU/s, which reduces the chance of rate limiting (429) If a large quantity of data is removed from a container, merge can help clear out unused or empty partitions, effectively resolving storage fragmentation problems.
+Merging partitions in Azure Cosmos DB (preview) allows you to reduce the number of physical partitions used for your container. With merge, containers that are fragmented in throughput (have low RU/s per partition) or storage (have low storage per partition) can have their physical partitions reworked. If a container's throughput has been scaled up and needs to be scaled back down, merge can help resolve throughput fragmentation issues. For the same amount of provisioned RU/s, having fewer physical partitions means each physical partition gets more of the overall RU/s. Minimizing partitions reduces the chance of rate limiting if a large quantity of data is removed from a container. Merge can help clear out unused or empty partitions, effectively resolving storage fragmentation problems.
 
 ## Getting started
 
 To get started using merge, enroll in the preview by filing a support ticket in the [Azure portal](https://portal.azure.com). 
 
 ### Merging physical partitions
-When the parameter `IsDryRun` is set to true, Azure Cosmos DB will run a simulation and return the expected result of the merge, but will not run the merge itself. When set to false, the merge will execute against the resource. 
+When the parameter `IsDryRun` is set to true, Azure Cosmos DB will run a simulation and return the expected result of the merge, but won't run the merge itself. When set to false, the merge will execute against the resource. 
 > [!TIP]
 > Before running a merge, it's recommended to set your provisioned RU/s (either manual RU/s or autoscale max RU/s) as close as possible to your desired steady state RU/s post-merge, to help ensure the system calculates an efficient partition layout.
 
@@ -79,7 +79,7 @@ az cosmosdb mongodb collection merge \
 
 ### SDK requirements (SQL API only)
 
-Accounts with the merge feature enabled are supported only in the latest preview version of the .NET v3 SDK. When the feature is enabled on your account (regardless of whether you run the merge), you must only use the supported SDK using the account. Requests sent from other SDKs or earlier versions won't be accepted. As long as you are using the supported SDK, your application can continue to run while a merge is ongoing. 
+Accounts with the merge feature enabled are supported only in the latest preview version of the .NET v3 SDK. When the feature is enabled on your account (regardless of whether you run the merge), you must only use the supported SDK using the account. Requests sent from other SDKs or earlier versions won't be accepted. As long as you're using the supported SDK, your application can continue to run while a merge is ongoing. 
 
 Find the latest preview version the supported SDK:
 
