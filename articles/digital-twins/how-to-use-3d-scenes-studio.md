@@ -249,6 +249,9 @@ Here are the types of widget that you can create:
 
 You can create *layers* in your scene to help organize your [behaviors](#add-behaviors). Layers act like tags on the behaviors, enabling you to define which behaviors need to be seen together, thus creating custom views of your scene for different roles or tasks.
 
+>[!IMPORTANT]
+>If there are no layers in a scene, all of the behaviors will show up in the scene viewer. If there's at least one layer present in the scene, then only behaviors that are **part of a layer** will show up in the viewer.
+
 One way to create layers is to use the **Scene layers** button in the **Build** view for a scene.
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/layers-start-button.png" alt-text="Screenshot of 3D Scenes Studio builder for a scene. The Scene layers button is highlighted." lightbox="media/how-to-use-3d-scenes-studio/layers-start-button.png":::
