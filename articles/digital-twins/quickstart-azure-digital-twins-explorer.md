@@ -273,13 +273,13 @@ In this quickstart, you made the temperature update manually. It's common in Azu
 
 ## Clean up resources
 
-To clean up after this quickstart, choose which resources you want to remove based on what you want to do next.
+To clean up after this quickstart, choose which Azure Digital Twins resources you want to remove, based on what you want to do next.
 
 * If you plan to continue through the Azure Digital Twins quickstarts and tutorials, you can reuse the instance in this quickstart for those articles, and you don't need to remove it.
 
 [!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
  
-* If you don't need your Azure Digital Twins instance anymore, you can delete it using the Azure portal.
+* If you don't need your Azure Digital Twins instance anymore, you can delete it using the [Azure portal](https://portal.azure.com).
     
     Navigate back to the instance's **Overview** page in the portal. (If you've already closed that tab, you can find the instance again by searching for its name in the Azure portal search bar and selecting it from the search results.)
 
