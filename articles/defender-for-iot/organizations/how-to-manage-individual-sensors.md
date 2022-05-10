@@ -350,8 +350,12 @@ This procedure describes how to upgrade your sensor, including downloading your 
 
 This procedure describes how to download the new sensor software version and then run the update directly from the Azure portal.
 
-> [!TIP]
-> Depending on your organization's needs, you might want to separate the software download and installation. For example, have the update downloaded overnight and then wait for an administrator to run the installation during a planned maintenance window.
+> [!IMPORTANT]
+> If you're using an on-premises management console to manage your sensors, make sure to update your on-premises management console software *before* you update your sensor software.
+>
+> On-premises management software is backwards compatible, and can connect to sensors with earlier versions installed, but not later versions. If you update your sensor software before updating your on-premises management console, the updated sensor will be disconnected from the on-premises management console.
+>
+> For more information, see [Update the on-premises management console software version](how-to-manage-the-on-premises-management-console.md#update-the-software-version).
 >
 
 **To update your sensor from the Azure portal**:
@@ -365,6 +369,10 @@ This procedure describes how to download the new sensor software version and the
     When you're ready, select **Download package**. The software download to your sensor machine is started, and you can see the progress in the **Sensor version** column. Hover over the status bar to see details about your upgrade versions.
 
 1. When the **Sensor version** column reads *Ready to update*, select **Update (Preview)** in the toolbar > **Update sensor**.
+
+    > [!TIP]
+    > Depending on your organization's needs, you might want to separate the software download and installation. For example, have the update downloaded overnight and then wait for an administrator to run the installation during a planned maintenance window.
+    >
 
 1. In the **Update sensor** pane that appears on the right, check to verify your update details. When you're ready, select **Update now** > **Confirm update**. In the grid, the **Sensor version** value changes to *Installing* until the update is complete, when the value switches to the new sensor version number instead.
 
