@@ -128,7 +128,7 @@ Gets the `Microsoft.Azure.Functions.Worker.Http.HttpResponseData` instance if th
 
 ##### GetInvocationResult
 
-Gets an instance of `Microsoft.Azure.Functions.Worker.InvocationResult`  which represents the invocation result of the current function invocation. You can use the `Value` property to get or set the value as needed.
+Gets an instance of `Microsoft.Azure.Functions.Worker.InvocationResult` which represents the invocation result of the current function invocation. You can use the `Value` property to get or set the value as needed.
 
 ##### GetOutputBindings
 
