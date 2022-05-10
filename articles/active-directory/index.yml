@@ -59,12 +59,24 @@ conceptualContent:
         # Card
         - title: Microsoft Learn
           links:
-            - url: /learn/modules/intro-to-azure-ad/
+            - url: /learn/modules/describe-identity-principles-concepts/
               itemType: learn
-              text: Secure your identities by using Azure AD
-            - url: /learn/paths/manage-identity-and-access/
+              text: Describe identity concepts
+            - url: /learn/modules/explore-basic-services-identity-types/
               itemType: learn
-              text: Manage identity and access in Azure AD
+              text: Describe the services and identity types of Azure AD
+            - url: /learn/modules/create-users-and-groups-in-azure-active-directory/
+              itemType: learn
+              text: Create Azure users and groups in Azure AD
+            - url: /learn/modules/allow-users-reset-their-password/
+              itemType: learn
+              text: Allow users to reset their password with Azure AD self-service password reset
+            - url: /learn/modules/secure-access-azure-identity-services/
+              itemType: learn
+              text: Secure access to your applications by using Azure identity services
+            - url: /learn/browse/?expanded=azure&products=azure-active-directory&resource_type=module
+              itemType: learn
+              text: See more >
         # Card
         - title: Architecture Center
           links:
