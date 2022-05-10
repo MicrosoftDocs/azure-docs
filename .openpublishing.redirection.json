@@ -43036,52 +43036,52 @@
     {
       "source_path_from_root": "/articles/cognitive-services/laguage-service/text-summarization/how-to/call-api.md",
       "redirect_url": "/articles/cognitive-services/laguage-service/document-summarization/how-to/call-api",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/laguage-service/text-summarization/includes/quickstarts/csharp-sdk.md",
       "redirect_url": "/articles/cognitive-services/laguage-service/document-summarization/includes/quickstarts/csharp-sdk",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/laguage-service/text-summarization/includes/quickstarts/java-sdk.md",
       "redirect_url": "/articles/cognitive-services/laguage-service/document-summarization/includes/quickstarts/java-sdk",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/laguage-service/text-summarization/includes/quickstarts/nodejs-sdk.md",
       "redirect_url": "/articles/cognitive-services/laguage-service/document-summarization/includes/quickstarts/nodejs-sdk",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/laguage-service/text-summarization/includes/quickstarts/python-sdk.md",
       "redirect_url": "/articles/cognitive-services/laguage-service/document-summarization/includes/quickstarts/python-sdk",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/laguage-service/text-summarization/includes/quickstarts/rest-api.md",
       "redirect_url": "/articles/cognitive-services/laguage-service/document-summarization/includes/quickstarts/rest-api",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/laguage-service/text-summarization/tutorials/use-kubernetes-service.md",
       "redirect_url": "/articles/cognitive-services/laguage-service/document-summarization/tutorials/use-kubernetes-service",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/laguage-service/text-summarization/language-support.md",
       "redirect_url": "/articles/cognitive-services/laguage-service/document-summarization/language-support",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/laguage-service/text-summarization/overview.md",
       "redirect_url": "/articles/cognitive-services/laguage-service/document-summarization/overview",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/laguage-service/text-summarization/quickstart.md",
       "redirect_url": "/articles/cognitive-services/laguage-service/document-summarization/quickstart",
-      "redirect_document_id": false
+      "redirect_document_id": true
     }
   ]
 }
