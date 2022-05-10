@@ -235,7 +235,13 @@ No, AKS is a managed service, and manipulation of the IaaS resources isn't suppo
 
 ## Learn More
 
+If you would like to learn more from the product manager about Microsoft Defender for Containers, check out [Microsoft Defender for Containers](episode-three.md).
 
+You can also check out the following blogs:
+
+- [How to demonstrate the new containers features in Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/how-to-demonstrate-the-new-containers-features-in-microsoft/ba-p/3281172)
+- [Introducing Microsoft Defender for Containers](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/introducing-microsoft-defender-for-containers/ba-p/2952317)
+- 
 ## Next steps
 
 In this overview, you learned about the core elements of container security in Microsoft Defender for Cloud. To enable the plan, see:
