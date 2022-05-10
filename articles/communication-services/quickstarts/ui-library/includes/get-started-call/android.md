@@ -390,7 +390,7 @@ To change the primary color of composite, create a new theme style in `src/main/
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-import com.azure.android.communication.ui.configuration.ThemeConfiguration
+import ccom.azure.android.communication.ui.calling.models.ThemeConfiguration
 
 val callComposite: CallComposite =
         CallCompositeBuilder()
@@ -401,7 +401,7 @@ val callComposite: CallComposite =
 #### [Java](#tab/java)
 
 ```java
-import com.azure.android.communication.ui.configuration.ThemeConfiguration;
+import com.azure.android.communication.ui.calling.models.ThemeConfiguration;
 
 CallComposite callComposite = 
     new CallCompositeBuilder()
@@ -417,24 +417,24 @@ To change the language of composite, create a `LocalizationConfiguration` with `
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-import com.azure.android.communication.ui.configuration.LocalizationConfiguration
+import com.azure.android.communication.ui.calling.models.LocalizationConfiguration
 
 // LanguageCode.values() provides list of supported languages
 val callComposite: CallComposite =
             CallCompositeBuilder().localization(
-                LocalizationConfiguration("en")
+                LocalizationConfiguration(Locale("en"))
             ).build()
 ```
 
 #### [Java](#tab/java)
 
 ```java
-import com.azure.android.communication.ui.configuration.LocalizationConfiguration;
+import com.azure.android.communication.ui.calling.models.LocalizationConfiguration;
 
 // LanguageCode.values() provides list of supported languages
 CallComposite callComposite = 
     new CallCompositeBuilder()
-        .localization(new LocalizationConfiguration("en"))
+        .localization(new LocalizationConfiguration(new Locale("en")))
         .build();
 ```
 
