@@ -87,7 +87,7 @@ The following diagram shows the network functions supported by a packet core ins
 
 Each packet core instance is connected to the local RAN network to provide coverage for cellular wireless devices. You can choose to limit these devices to local connectivity. Alternatively, you can provide multiple routes to the cloud, internet, or other enterprise data centers running IoT and automation applications.
 
-## Support for 5GC features
+## Feature support
 
 ### Supported 5G network functions
 
@@ -100,16 +100,23 @@ Each packet core instance is connected to the local RAN network to provide cover
 - Unified Data Repository (UDR)
 - Network Repository Function (NRF)
 
-### Supported 5G procedures
+### Supported 4G network functions
 
-For information on Azure Private 5G Core's support for standards-based 5G procedures, see [Statement of compliance - Azure Private 5G Core](statement-of-compliance.md).
+- Mobile Management Entity (MME)
+
+<!-- need to confirm how we present interworking functions -->
+
+### Supported 5G and 4G procedures
+
+For information on Azure Private 5G Core's support for standards-based 5G and 4G procedures, see [Statement of compliance - Azure Private 5G Core](statement-of-compliance.md).
 
 ### User equipment (UE) authentication and security context management
 
 Azure Private 5G Core supports the following authentication methods:
 
-- Authentication using Subscription Permanent Identifiers (SUPI) and 5G Globally Unique Temporary Identities (5G-GUTI).
-- 5G Authentication and Key Agreement (5G-AKA) for mutual authentication between UEs and the network.
+- Authentication using Subscription Permanent Identifiers (SUPI) and Globally Unique Temporary Identities (GUTI).
+- 5G Authentication and Key Agreement (5G-AKA) for mutual authentication between 5G UEs and the network.
+- Evolved Packet System based Authentication and Key Agreement (EPS-AKA) for mutual authentication between 4G UEs and the network.
 
 The packet core instance performs ciphering and integrity protection of 5G non-access stratum (NAS). During UE registration, the UE includes its security capabilities for 5G NAS with 128-bit keys.
 

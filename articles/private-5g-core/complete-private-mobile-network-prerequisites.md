@@ -20,6 +20,10 @@ Contact your trials engineer and ask them to register your Azure subscription fo
 
 Once your trials engineer has confirmed your access, register the Mobile Network resource provider (Microsoft.MobileNetwork) for your subscription, as described in [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
+## Choose the core technology type (5G or 4G)
+
+Choose whether the private mobile network should provide coverage for 5G devices or 4G devices. If you have multiple sites in the same private mobile network, all of these sites must support the same technology type.
+
 ## Allocate subnets and IP addresses
 
 Azure Private 5G Core requires a management network, access network, and data network. These networks can all be part of the same, larger network, or they can be separate. The approach you use depends on your traffic separation requirements.
@@ -39,15 +43,15 @@ For each of these networks, allocate a subnet and then identify the listed IP ad
 - Network address in CIDR notation. 
 - Default gateway. 
 - One IP address for port 5 on the Azure Stack Edge Pro device. 
-- One IP address for the packet core instance's N2 signaling interface. 
-- One IP address for the packet core instance's N3 interface.
+- One IP address for the control plane interface. For 5G, this interface is the N2 interface, whereas for 4G, it is the S1-MME interface.
+- One IP address for the user plane interface. For 5G, this interface is the N3 interface, whereas for 4G, it is the S1-U interface. 
 
 ### Data network
 
 - Network address in CIDR notation.
 - Default gateway.
 - One IP address for port 6 on the Azure Stack Edge Pro device.
-- One IP address for the packet core instance's N6 interface.
+- One IP address for the user plane interface on the data network. For 5G, this interface is the N6 interface, whereas for 4G, it is the SGi interface.
 
 ## Allocate user equipment (UE) IP address pools
 

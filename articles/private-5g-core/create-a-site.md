@@ -41,22 +41,26 @@ In this step, you'll create the **Mobile Network Site** resource representing th
 
     :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/create-site-packet-core-tab.png" alt-text="Screenshot of the Azure portal showing the Packet core configuration tab for a site resource.":::
 
+<!-- This screenshot needs updating for 4G -->
+
 1. In the **Packet core** section, set the fields as follows:
 
-    - Set **Technology type** to *5G*.
+    - Set **Technology type** to the technology type you chose in [Identify the technology type (5G or 4G)](collect-required-information-for-a-site.md#identify-the-technology-type-5g-or-4g).
     - Leave the **Version** field blank unless you've been instructed to do otherwise by your support representative.
     - Set **Custom location** to the custom location you collected in [Collect custom location information](collect-required-information-for-a-site.md#collect-custom-location-information).
 
 1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to fill out the fields in the **Access network** section. Note the following:
 
-    - Use the same value for both the **N2 subnet** and **N3 subnet** fields.
-    - Use the same value for both the **N2 gateway** and **N3 gateway** fields.
+    - Use the same value for both the **Control plane access interface subnet** and **User plane access interface subnet** fields.
+    - Use the same value for both the **Control plane access interface gateway** and **User plane access interface gateway** fields.
 
 1. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields in the **Attached data networks** section. Note that you can only connect the packet core instance to a single data network.
 1. Select **Review + create**.
 1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
 
     :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/create-site-validation.png" alt-text="Screenshot of the Azure portal showing successful validation of configuration values for a site resource.":::
+
+    <!-- This screenshot needs updating for 4G -->
 
     If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged with red dots. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 

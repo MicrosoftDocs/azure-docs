@@ -58,18 +58,18 @@ Four Azure resources are defined in the template.
     | **Existing Data Network Name** | Enter the name of the data network to which your private mobile network connects. |
     | **Site Name** | Enter a name for your site. |
     | **Control Plane Access Interface Name** | Enter the name of the interface that corresponds to port 5 on your Azure Stack Edge Pro device. |
-    | **Control Plane Access Ip Address** | Enter the IP address for the packet core instance's N2 signaling interface. |
-    | **Data Plane Access Interface Name** | Enter the name of the interface that corresponds to port 5 on your Azure Stack Edge Pro device. |
-    | **Data Plane Access Interface Ip Address** | Enter the IP address for the packet core instance's N3 interface. |
+    | **Control Plane Access Ip Address** | Enter the IP address for the control plane interface on the access network. |
+    | **User Plane Access Interface Name** | Enter the name of the interface that corresponds to port 5 on your Azure Stack Edge Pro device. |
+    | **User Plane Access Interface Ip Address** | Enter the IP address for the user plane interface on the access network. |
     | **Access Subnet** | Enter the network address of the access subnet in Classless Inter-Domain Routing (CIDR) notation. |
     | **Access Gateway** | Enter the access subnet default gateway. |
     | **User Plane Data Interface Name** | Enter the name of the interface that corresponds to port 6 on your Azure Stack Edge Pro device. |
-    | **User Plane Data Interface Ip Address** | Enter the IP address for the packet core instance's N6 interface. |
+    | **User Plane Data Interface Ip Address** | Enter the IP address for the user plane interface on the data network. |
     | **User Plane Data Interface Subnet** | Enter the network address of the data subnet in CIDR notation. |
     | **User Plane Data Interface Gateway** | Enter the data subnet default gateway. |
     |**User Equipment Address Pool Prefix**  | Enter the network address of the subnet from which dynamic IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support dynamic IP address allocation. |
     |**User Equipment Static Address Pool Prefix**  | Enter the network address of the subnet from which static IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support static IP address allocation. |
-    | **Core Network Technology** | Leave this field unchanged. |
+    | **Core Network Technology** | Enter `5GC` for 5G, or `EPC` for 4G. |
     | **Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network. |
     | **Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. |
 
