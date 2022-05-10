@@ -17,7 +17,7 @@ ms.custom: language-service-custom-ner
 # Query deployment to extract entities
 
 After the deployment is added successfully, you can query the deployment to extract entities from your text based on the model you assigned to the deployment.
-You can query the deployment programmatically [Prediction API](https://aka.ms/ct-runtime-swagger) or through the [Client libraries (Azure SDK)](#get-task-results). 
+You can query the deployment programmatically using the [Prediction API](https://aka.ms/ct-runtime-swagger) or through the [Client libraries (Azure SDK)](#get-task-results). 
 
 ## Test deployed model
 

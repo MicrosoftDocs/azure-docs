@@ -18,7 +18,7 @@ ms.author: aahi
 
 ## Prerequisites
 
-Before you can use auto tagging, you must have a [trained model](train-model.md).
+Before you can use autotagging, you must have a [trained model](train-model.md).
 
 
 ## Trigger an autotagging job
@@ -26,7 +26,7 @@ Before you can use auto tagging, you must have a [trained model](train-model.md)
 When you trigger an autotagging job, there's a monthly limit of 5,000 text records per month, per resource. This means the same limit will apply on all projects within the same resource.
 
 > [!TIP]
-> A text record is calculated as the ceiling of (Number of characters in a file / 1,000).For example, if a file has 8921 characters, the number of text records is: 
+> A text record is calculated as the ceiling of (Number of characters in a file / 1,000). For example, if a file has 8921 characters, the number of text records is: 
 >
 > `ceil(8921/1000) = ceil(8.921)`, which is 9 text records.
 
@@ -38,7 +38,7 @@ When you trigger an autotagging job, there's a monthly limit of 5,000 text recor
 
 3.	Choose a trained model. It's recommended to check the model performance before using it for autotagging.
 
-    :::image type="content" source="../media/chosse-model.png" alt-text="A screenshot showing how to choose trained model for autotagging." lightbox="../media/chosse-model.png":::
+    :::image type="content" source="../media/choose-model.png" alt-text="A screenshot showing how to choose trained model for autotagging." lightbox="../media/choose-model.png":::
 
 
 4.	Choose the entities you want to be included in the autotagging job. By default, all entities are selected. You can see the total tags, precision and recall of each entity. It's recommended to include entities that perform well to ensure the quality of the automatically tagged entities. 
@@ -63,7 +63,7 @@ You should see the model used, number of files included in the autotag job, numb
 
 When the autotag job is complete, you can see the output files in the **Tag data** page of Language Studio. Select **Review files with autotags** to view the files with the **Auto tagged** filter applied.
 
-:::image type="content" source="../media/open-autotag-files.png" alt-text="A screenshot showing autotagged files." lightbox="../media/open-autotag-files.png":::
+:::image type="content" source="../media/open-autotag-files.png" alt-text="A screenshot showing the autotagged files, and an autotagged job ID." lightbox="../media/open-autotag-files.png":::
 
 Entities that have been automatically tagged will appear with a dotted line. These entities will have two selectors (a checkmark and an "X") that will let you accept or reject the automatic tag.
 
@@ -71,7 +71,7 @@ Once an entity is accepted, the dotted line will change to solid line, and this 
 
 Alternatively, you can accept or reject all automatically tagged entities within the file, using **Accept all** or **Reject all** in the top right corner of the screen. 
 
-After you accept or rejecting the tagged entities, select **Save tags** to apply the changes.
+After you accept or reject the tagged entities, select **Save tags** to apply the changes.
 
 > [!NOTE]
 > * We recommend validating automatically tagged entities before accepting them. 

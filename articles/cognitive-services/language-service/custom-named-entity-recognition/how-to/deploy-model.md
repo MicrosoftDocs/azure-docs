@@ -13,13 +13,13 @@ ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
 ---
 
-# Deploy a model and extract entities from text using the runtime API.
+# Deploy a model and extract entities from text using the runtime API
 
-Once you are satisfied with how your model performs, it is ready to be deployed, and use it to recognize entities in text. Deploying a model makes it available for use through the [prediction API](https://aka.ms/ct-runtime-swagger).
+Once you are satisfied with how your model performs, it is ready to be deployed and used to recognize entities in text. Deploying a model makes it available for use through the [prediction API](https://aka.ms/ct-runtime-swagger).
 
 ## Prerequisites
 
-* A successfully [created project](create-project.md) with a configured Azure storage account,
+* A successfully [created project](create-project.md) with a configured Azure storage account.
 * Text data that has [been uploaded](design-schema.md#data-preparation) to your storage account.
 * [Labeled data](tag-data.md) and successfully [trained model](train-model.md)
 * Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
@@ -29,7 +29,7 @@ See [project development lifecycle](../overview.md#project-development-lifecycle
 
 ## Deploy model
 
-After you've reviewed your model's performance and decided it can be used in your environment, you need to assign it to a deployment. Assigning the model to a deployment makes it available for use through the [prediction API](https://aka.ms/ct-runtime-swagger). It is recommended to create a deployment named *production* to which you assign the best model you have built so far and use it in your system. You can create another deployment called *staging* to which you can assign the model you're currently working on to be able to test it. You can have a maximum on 10 deployments in your project. 
+After you've reviewed your model's performance and decided it can be used in your environment, you need to assign it to a deployment. Assigning the model to a deployment makes it available for use through the [prediction API](https://aka.ms/ct-runtime-swagger). It is recommended to create a deployment named *production* to which you assign the best model you have built so far and use it in your system. You can create another deployment called *staging* to which you can assign the model you're currently working on to be able to test it. You can have a maximum of 10 deployments in your project. 
 
 # [Language Studio](#tab/language-studio)
 
@@ -73,3 +73,7 @@ After you are done testing a model assigned to one deployment and you want to as
 [!INCLUDE [Delete deployment](../includes/rest-api/delete-deployment.md)]
 
 ---
+
+## Next steps
+
+After you have a deployment, you can use it to [extract entities](call-api.md) from text.

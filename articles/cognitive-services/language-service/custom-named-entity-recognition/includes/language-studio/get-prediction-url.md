@@ -12,7 +12,7 @@ ms.author: aahi
 
 1. After the deployment job is completed successfully, select the deployment you want to use and from the top menu click on **Get prediction URL**.
 
-    :::image type="content" source="../../media/get-prediction-url-1.png" alt-text="A screenshot showing the button to get a prediction URL" lightbox="../../media/get-prediction-url-1.png":::
+    :::image type="content" source="../../media/get-prediction-url-1.png" alt-text="A screenshot showing the button to get a prediction URL." lightbox="../../media/get-prediction-url-1.png":::
 
 2. In the window that appears, under the **Submit** pivot, copy the sample request URL and body into your command line.
 

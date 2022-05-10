@@ -85,7 +85,7 @@ Replace the placeholders in the following request with your `{SECONDARY-ENDPOINT
 [!INCLUDE [train model](./includes/rest-api/train-model.md)]
 
 
-### Get Training Status
+### Get training status
 
 Replace the placeholders in the following request with your `{SECONDARY-ENDPOINT}` and `{SECONDARY-RESOURCE-KEY}` that you obtained in the first step.
 
@@ -118,7 +118,7 @@ In case you revert to using your secondary resource you will observe slight incr
 
 ## Check if your projects are out of sync
 
-Maintaining the freshness of both projects is an important part of process. You need to frequently check if any updates were made to your primary project so that you move them over to your secondary project. This way if your primary region fail and you move into the secondary region you should expect similar model performance since it already contains the latest updates. Setting the frequency of checking if your projects are in sync is an important choice, we recommend that you do this check daily in order to guarantee the freshness of data in your secondary model.
+Maintaining the freshness of both projects is an important part of the process. You need to frequently check if any updates were made to your primary project so that you move them over to your secondary project. This way if your primary region fails and you move into the secondary region you should expect similar model performance since it already contains the latest updates. Setting the frequency of checking if your projects are in sync is an important choice. We recommend that you do this check daily in order to guarantee the freshness of data in your secondary model.
 
 ### Get project details
 
@@ -128,7 +128,7 @@ Repeat the following step twice, one for your primary project and another for yo
   [!INCLUDE [get project details](./includes/rest-api/get-project-details.md)]
 
 
-Repeat the same steps for your replicated project using `{SECONDARY-ENDPOINT}` and `{SECONDARY-RESOURCE-KEY}`. Compare the returned `lastModifiedDateTime` from both project. If your primary project was modified sooner than your secondary one, you need to repeat the steps of [exporting](#export-your-primary-project-assets), [importing](#import-to-a-new-project), [training](#train-your-model) and [deploying](#deploy-your-model).
+Repeat the same steps for your replicated project using `{SECONDARY-ENDPOINT}` and `{SECONDARY-RESOURCE-KEY}`. Compare the returned `lastModifiedDateTime` from both projects. If your primary project was modified sooner than your secondary one, you need to repeat the steps of [exporting](#export-your-primary-project-assets), [importing](#import-to-a-new-project), [training](#train-your-model) and [deploying](#deploy-your-model).
 
 
 ## Next steps

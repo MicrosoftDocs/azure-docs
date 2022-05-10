@@ -69,16 +69,16 @@ Use the following steps to label your data:
     <!--:::image type="content" source="../media/tag-1.png" alt-text="A screenshot showing complete data labeling." lightbox="../media/tag-1.png":::-->
 
 6. You have two options to label your document:
-
-|Option |Description  |
-|---------|---------|
-|Label using a brush     | Select the brush icon next to an entity type in the right pane, then highlight the text in the document you want to annotate with this entity type.           |
-|Label using a menu    | Highlight the word you want to label as an entity, and a menu will appear. Select the entity type you want to assign for this entity.        |
-
-The below screenshot shows labeling using a brush.
-
-:::image type="content" source="../media/tag-options.png" alt-text="A screenshot showing the tagging options offered in Custom NER." lightbox="../media/tag-options.png":::
-
+    
+    |Option |Description  |
+    |---------|---------|
+    |Label using a brush     | Select the brush icon next to an entity type in the right pane, then highlight the text in the document you want to annotate with this entity type.           |
+    |Label using a menu    | Highlight the word you want to label as an entity, and a menu will appear. Select the entity type you want to assign for this entity.        |
+    
+    The below screenshot shows labeling using a brush.
+    
+    :::image type="content" source="../media/tag-options.png" alt-text="A screenshot showing the tagging options offered in Custom NER." lightbox="../media/tag-options.png":::
+    
 6. In the right side pane under the **Labels** pivot you can find all the entity types in your project and the count of labeled instances per each.
 
 6. In the bottom section of the right side pane you can add the current file you are viewing to the training set or the testing set. By default all the documents are added to your training set. Learn more about [training and testing sets](train-model.md#data-splitting) and how they are used for model training and evaluation.
@@ -103,6 +103,6 @@ To remove a label
 
 To delete an entity, select the delete icon next to the entity you want to remove. Deleting an entity will remove all its labeled instances from your dataset.
 
-## Next Steps
+## Next steps
 
 After you've labeled your data, you can begin [training a model](train-model.md) that will learn based on your data.

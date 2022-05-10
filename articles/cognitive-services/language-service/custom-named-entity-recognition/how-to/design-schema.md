@@ -31,7 +31,7 @@ The schema defines the entity types/categories that you need your model to extra
 
     **Ambiguity** happens when entity types you select are similar to each other. The more ambiguous your schema the more tagged data you will need to differentiate between different entity types.
 
-    For example, if you are extracting data from a legal contract, to extract "Name of first party" and "Name of second party" you will need to add more examples to overcome ambiguity since the names of both parties look similar. Avoiding ambiguity as it saves time, effort, and yields better results.
+    For example, if you are extracting data from a legal contract, to extract "Name of first party" and "Name of second party" you will need to add more examples to overcome ambiguity since the names of both parties look similar. Avoid ambiguity as it saves time, effort, and yields better results.
 
 * Avoid complex entities. Complex entities can be difficult to pick out precisely from text, consider breaking it down into multiple entities.
 

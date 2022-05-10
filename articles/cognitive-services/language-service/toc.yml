@@ -156,7 +156,7 @@ items:
       href: custom-named-entity-recognition/how-to/improve-model.md
     - name: Deploy a model 
       href: custom-named-entity-recognition/how-to/deploy-model.md
-    - name: extract entities from text
+    - name: Extract entities from text
       href: custom-named-entity-recognition/how-to/call-api.md
     - name: Back up and recover your models
       href: custom-named-entity-recognition/fail-over.md

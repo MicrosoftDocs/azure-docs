@@ -36,7 +36,7 @@ Use the following header to authenticate your request.
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
 |`Content-Type` | application/json |
 
-### Request Body
+### Request body
 
 ```json
 {

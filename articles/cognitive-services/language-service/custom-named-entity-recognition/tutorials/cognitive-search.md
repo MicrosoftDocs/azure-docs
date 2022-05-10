@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [Uploading sample data for custom NER](../includes/quickstarts/blob-storage-upload.md)]
 
-# [Language studio](#tab/Language-studio)
+# [Language Studio](#tab/Language-studio)
 
 ## Create a custom named entity recognition project
 
@@ -51,7 +51,7 @@ Typically after you create a project, you go ahead and start [tagging the docume
 
 ## Deploy your model
 
-Generally after training a model you would review it's [evaluation details](../how-to/view-model-evaluation.md) and [make improvements](../how-to/improve-model.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in the Language studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
+Generally after training a model you would review its [evaluation details](../how-to/view-model-evaluation.md) and [make improvements](../how-to/improve-model.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in Language Studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
 
 [!INCLUDE [Deploy a model using Language Studio](../includes/language-studio/deploy-model.md)]
 
@@ -71,7 +71,7 @@ Use the tags file you downloaded from the [sample data](https://github.com/Azure
 
 [!INCLUDE [Import a project using the REST API](../includes/rest-api/import-project.md)]
 
-### Get import job Status
+### Get import job status
 
  [!INCLUDE [get import project status](../includes/rest-api/get-import-status.md)]
 
@@ -93,7 +93,7 @@ Training could take sometime between 10 and 30 minutes for this sample dataset. 
 
 ## Deploy your model
 
-Generally after training a model you would review it's [evaluation details](../how-to/view-model-evaluation.md) and [make improvements](../how-to/improve-model.md) if necessary. In this tutorial, you will just deploy your model, and make it available for you to try in the Language studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
+Generally after training a model you would review its [evaluation details](../how-to/view-model-evaluation.md) and [make improvements](../how-to/improve-model.md) if necessary. In this tutorial, you will just deploy your model, and make it available for you to try in Language Studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
 
 ### Start deployment job
 
