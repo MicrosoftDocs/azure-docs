@@ -25,7 +25,7 @@ You can also [register an entire resource group or subscription](register-scan-a
 * [Data owner policies on an Azure SQL Database](./how-to-data-owner-policies-azure-sql-db.md#prerequisites)*
 * [Data owner policies on an Arc-enabled SQL Server](./how-to-data-owner-policies-arc-sql-server.md#prerequisites)*
 
-(*) Only the *SQL Performance monitor* and *Security auditor* roles are supported for these data sources. The *Data reader* role isn't currently supported.
+(*) Only the *SQL Performance monitoring* and *Security auditing* actions are fully supported for SQL-type data sources. The *Read* action needs a workaround described later in this guide. The *Modify* action is not currently supported for SQL-type data sources.
 
 ## Configuration
 [!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
@@ -57,7 +57,7 @@ Execute the steps in the **Create a new policy** and **Publish a policy** sectio
 
 >[!Warning]
 > **Known Issues**
-> - No implicit connect permission is provided to SQL type data sources (e.g.: Azure SQL DB, SQL server on Azure Arc-enabled servers) when creating a read policy on a resource group or subscription. To support this scenario, provide the connect permission to the AAD principals locally, i.e. directly in the SQL-type data sources.
+> - No implicit connect permission is provided to SQL type data sources (e.g.: Azure SQL DB, SQL server on Azure Arc-enabled servers) when creating a policy with *Read* action on a resource group or subscription. To support this scenario, provide the connect permission to the Azure AD principals locally, i.e. directly in the SQL-type data sources.
 
 ## Additional information
 - Creating a policy at subscription or resource group level will enable the Subjects to access Azure Storage system containers,  for example, *$logs*. If this is undesired, first scan the data source and then create finer-grained policies for each (that is, at container or sub-container level).
