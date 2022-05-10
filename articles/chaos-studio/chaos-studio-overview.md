@@ -26,7 +26,7 @@ The following video provides more background about Azure Chaos Studio:
 
 You can use chaos engineering for various resilience validation scenarios that span the service development and operations lifecycle. There are two types of scenarios:
 
-- *Shift right* scenarios need a production or pre-production environment. Usually, you do shift right scenarios with real customer traffic or simulated load.
+- *Shift right* scenarios use a production or pre-production environment. Usually, you do shift right scenarios with real customer traffic or simulated load.
 - *Shift left* scenarios can use a development or shared test environment. You can do shift left scenarios without any real customer traffic.
 
 You can use Chaos Studio for the following common chaos engineering scenarios:
@@ -46,7 +46,7 @@ For many of these scenarios, you first build resilience using ad-hoc chaos exper
 
 ## How Chaos Studio works
 
-With Chaos Studio, you can orchestrate safe, controlleld fault injection on your Azure resources. Chaos experiments are the core of Chaos Studio. A chaos experiment describes the faults to run and the resources to run against. You can organize faults to run in parallel or sequence, depending on your needs.
+With Chaos Studio, you can orchestrate safe, controlled fault injection on your Azure resources. Chaos experiments are the core of Chaos Studio. A chaos experiment describes the faults to run and the resources to run against. You can organize faults to run in parallel or sequence, depending on your needs.
 
 Chaos Studio supports two types of faults:
 
