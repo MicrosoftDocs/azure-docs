@@ -3,7 +3,7 @@ title: Migrate public client applications to MSAL.NET
 titleSuffix: Microsoft identity platform
 description: Learn how to migrate a public client application from Azure Active Directory Authentication Library for .NET to Microsoft Authentication Library for .NET.
 services: active-directory
-author: sahmalik
+author: CelesteDG
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 08/31/2021
-ms.author: sahmalik
+ms.author: celested
 ms.reviewer: saeeda, shermanouko, jmprieur
 ms.custom: "devx-track-csharp, aaddev, has-adal-ref"
 #Customer intent: As an application developer, I want to migrate my public client app from ADAL.NET to MSAL.NET.
