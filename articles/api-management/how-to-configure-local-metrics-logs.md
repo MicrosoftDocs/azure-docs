@@ -160,16 +160,16 @@ Now that both StatsD and Prometheus have been deployed, we can update the config
 Here is a sample configuration:
 
 ```yaml
-    apiVersion: v1
-    kind: ConfigMap
-    metadata:
-        name: contoso-gateway-environment
-    data:
-        config.service.endpoint: "<self-hosted-gateway-management-endpoint>"
-        telemetry.metrics.local: "statsd"
-        telemetry.metrics.local.statsd.endpoint: "10.0.41.179:8125"
-        telemetry.metrics.local.statsd.sampling: "1"
-        telemetry.metrics.local.statsd.tag-format: "dogStatsD"
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: contoso-gateway-environment
+data:
+    config.service.endpoint: "<self-hosted-gateway-management-endpoint>"
+    telemetry.metrics.local: "statsd"
+    telemetry.metrics.local.statsd.endpoint: "10.0.41.179:8125"
+    telemetry.metrics.local.statsd.sampling: "1"
+    telemetry.metrics.local.statsd.tag-format: "dogStatsD"
 ```
 
 Update the YAML file of the self-hosted gateway deployment with the above configurations and apply the changes using the below command:
