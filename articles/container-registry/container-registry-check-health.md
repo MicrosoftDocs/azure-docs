@@ -81,7 +81,7 @@ Fetch access token for registry 'myregistry.azurecr.io' : OK
 
 ## Check if registry is configured with quarantine 
 
-Once you enable a container registry for quarantine, every image you publish to this repository is a quarantine image. The attempts to access or pull quarantine images will fail with an error. For more information, See [pull the quarantine image](https://github.com/Azure/acr/tree/main/docs/preview/quarantine#pull-the-quarantined-image).
+Once you enable a container registry for quarantine, every image you publish to this repository is a quarantine image. Any attempts to access or pull quarantine images will fail with an error. For more information, See [pull the quarantine image](https://github.com/Azure/acr/tree/main/docs/preview/quarantine#pull-the-quarantined-image).
 
 ## Next steps
 
