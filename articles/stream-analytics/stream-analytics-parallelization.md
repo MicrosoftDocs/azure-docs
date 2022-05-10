@@ -3,7 +3,7 @@ title: Use query parallelization and scale in Azure Stream Analytics
 description: This article describes how to scale Stream Analytics jobs by configuring input partitions, tuning the query definition, and setting job streaming units.
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/10/2022
 ---
 # Leverage query parallelization in Azure Stream Analytics
 This article shows you how to take advantage of parallelization in Azure Stream Analytics. You learn how to scale Stream Analytics jobs by configuring input partitions and tuning the analytics query definition.
@@ -261,7 +261,7 @@ The following observations use a Stream Analytics job with stateless (passthroug
 | 5K     |    6    |  6 TU   |
 | 10K    |    12   |  10 TU  |
 
-The [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-eventhubs) solution scales linearly in terms of streaming units (SU) and throughput, making it the most efficient and performant way to analyze and stream data out of Stream Analytics. Jobs can be scaled up to 192 SU, which roughly translates to processing up to 200 MB/s, or 19 trillion events per day.
+The [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-eventhubs) solution scales linearly in terms of streaming units (SU) and throughput, making it the most efficient and performant way to analyze and stream data out of Stream Analytics. Jobs can be scaled up to 396 SU, which roughly translates to processing up to 400 MB/s, or 38 trillion events per day.
 
 #### Azure SQL
 |Ingestion Rate (events per second) | Streaming Units | Output Resources  |
