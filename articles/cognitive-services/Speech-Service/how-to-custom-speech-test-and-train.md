@@ -46,7 +46,7 @@ If you will train a custom model with audio data, choose a Speech resource [regi
 
 A model that's trained on a subset of scenarios can perform well in only those scenarios. Carefully choose data that represents the full scope of scenarios that you need your custom model to recognize. The following table shows datasets to consider for some speech recognition scenarios:
 
-| Scenario | Plain text data and <br> structured text data | Audio + human-labeled transcripts | New words with pronunciation |
+| Scenario | Plain text data and structured text data | Audio + human-labeled transcripts | New words with pronunciation |
 |--- |--- |--- |--- |
 | Call center | Marketing documents, website, product reviews related to call center activity | Call center calls transcribed by humans | Terms that have ambiguous pronunciations (see the *Xbox* example in the preceding section) |
 | Voice assistant | Lists of sentences that use various combinations of commands and entities | Recorded voices speaking commands into device, transcribed into text | Names (movies, songs, products) that have unique pronunciations |
