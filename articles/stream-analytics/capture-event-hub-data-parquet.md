@@ -36,8 +36,7 @@ Use the following steps to configure a Stream Analytics job to capture data in A
     1. Select the subscription, storage account name and container from the drop-down menu. 
     1. Once the subscription is selected, the authentication method and storage account key should be automatically filled in.  
     1. For streaming blobs, the directory path pattern is expected to be a dynamic value. It's required for the date to be a part of the file path for the blob – referenced as `{date}`. To learn about custom path patterns, see to [Azure Stream Analytics custom blob output partitioning](stream-analytics-custom-path-patterns-blob-storage-output.md).  
-        :::image type="content" source="./media/capture-event-hub-data-parquet/blob-configuration-1.png" alt-text="First screenshot showing the Blob window where you edit a blob's connection configuration." lightbox="./media/capture-event-hub-data-parquet/blob-configuration-1.png" :::  
-        :::image type="content" source="./media/capture-event-hub-data-parquet/blob-configuration-2.png" alt-text="Second screenshot showing the Blob window where you edit a blob's connection configuration." lightbox="./media/capture-event-hub-data-parquet/blob-configuration-1.png" :::  
+        :::image type="content" source="./media/capture-event-hub-data-parquet/blob-configuration.png" alt-text="First screenshot showing the Blob window where you edit a blob's connection configuration." lightbox="./media/capture-event-hub-data-parquet/blob-configuration.png" :::  
     1. Select **Connect**
 1. When the connection is established, you will see fields that are present in the output data.
 1. Select **Save** to save your configuration.
