@@ -17,22 +17,26 @@ metadata:
 landingContent:
   - title: About IoT Edge development
     linkLists:
-      - linkListType: concept
+      - linkListType: overview
         links:
           - text: What is Azure IoT Edge?
             url: about-iot-edge.md
           - text: What is Azure IoT Edge for Linux on Windows (EFLOW)?
             url: iot-edge-for-linux-on-windows.md
+      - linkListType: concept
+        links:
           - text: Understand the Azure IoT Edge runtime and its architecture
             url: iot-edge-runtime.md
-          - text: IoT Edge open-source repository
-            url: https://github.com/Azure/iotedge
           - text: Azure IoT Edge supported systems
             url: support.md
       - linkListType: how-to-guide
         links:
           - text: How an IoT Edge device can be used as a gateway
             url: iot-edge-as-gateway.md
+      - linkListType: reference
+        links:
+          - text: IoT Edge open-source repository
+            url: https://github.com/Azure/iotedge
   - title: Getting started using Linux devices
     linkLists:
       - linkListType: quickstart
