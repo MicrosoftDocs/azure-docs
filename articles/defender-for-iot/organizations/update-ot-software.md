@@ -1,7 +1,7 @@
 ---
 title: Update OT system software
 description: Learn how to update (upgrade) Defender for IoT software on OT sensors and on-premises management servers.
-ms.date: 05/02/2022
+ms.date: 05/10/2022
 ms.topic: how-to
 ---
 
@@ -43,7 +43,7 @@ In such cases, make sure to update your on-premises management consoles *before*
 
 1. Scroll down to the **On-premises management console** section, and select **Download** for the software update. Save your `management-secured-patcher-<version>.tar` file locally. For example:
 
-    :::image type="content" source="media/update-ot-software/on-prem-download.png" alt-text="Screenshot of the Download option for the on-premises management console.":::
+    :::image type="content" source="media/update-ot-software/on-premises-download.png" alt-text="Screenshot of the Download option for the on-premises management console." lightbox="media/update-ot-software/on-premises-download.png":::
 
 1. On your on-premises management console, select **System Settings** > **Version Update**.
 
@@ -113,19 +113,19 @@ You can update software on your sensors individually, directly from each sensor 
 
 1. From the **Sensors** section, select **Download** for the sensor update, and save your `<legacy/upstream>-sensor-secured-patcher-<version number>.tar` file locally. For example:
 
-   :::image type="content" source="media/how-to-manage-individual-sensors/updates-page.png" alt-text="Screenshot of the Updates page of Defender for IoT.":::
+   :::image type="content" source="media/how-to-manage-individual-sensors/updates-page.png" alt-text="Screenshot of the Updates page of Defender for IoT." lightbox="media/how-to-manage-individual-sensors/updates-page.png":::
 
 1. On your sensor console, select **System Settings** > **Sensor management** > **Software Update**.
 
 1. On the **Software Update** pane on the right, select **Upload file**, and then navigate to and select your downloaded `legacy-sensor-secured-patcher-<Version number>.tar` file.
 
-    :::image type="content" source="media/how-to-manage-individual-sensors/upgrade-pane-v2.png" alt-text="Screenshot of the update pane.":::
+    :::image type="content" source="media/how-to-manage-individual-sensors/upgrade-pane-v2.png" alt-text="Screenshot of the Software Update pane on the sensor." lightbox="media/how-to-manage-individual-sensors/upgrade-pane-v2.png":::
 
     The update process starts, and may take about 30 minutes. During your upgrade, the system is rebooted twice.
 
     Sign in when prompted, and then return to the **System Settings** > **Sensor management** > **Software Update** pane to confirm that the new version is listed.
 
-    :::image type="content" source="media/how-to-manage-individual-sensors/defender-for-iot-version.png" alt-text="Screenshot of the upgrade version that appears after you sign in.":::
+    :::image type="content" source="media/how-to-manage-individual-sensors/defender-for-iot-version.png" alt-text="Screenshot of the upgrade version that appears after you sign in." lightbox="media/how-to-manage-individual-sensors/defender-for-iot-version.png":::
 
 # [From an on-premises management console](#tab/onprem)
 
@@ -141,7 +141,7 @@ The sensor update process won't succeed if you don't update the on-premises mana
 
 1. On the Azure portal, go to **Defender for IoT** > **Updates**. Under **Sensors**, select **Download** and save the file.
 
-   :::image type="content" source="media/how-to-manage-individual-sensors/updates-page.png" alt-text="Screenshot of the Updates page of Defender for IoT.":::
+   :::image type="content" source="media/how-to-manage-individual-sensors/updates-page.png" alt-text="Screenshot of the Updates page of Defender for IoT." lightbox="media/how-to-manage-individual-sensors/updates-page.png":::
 
 1. On your on-premises management console, select **System Settings**, and identify the sensors that you want to update.
 
