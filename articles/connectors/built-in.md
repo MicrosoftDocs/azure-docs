@@ -1,6 +1,6 @@
 ---
-title: Built-in triggers and actions
-description: Use built-in triggers and actions to create automated workflows that integrate apps, data, services, and systems, to control workflows, and to manage data using Azure Logic Apps.
+title: Built-in connectors
+description: Use built-in connectors that run natively to create automated workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/09/2022
 ---
 
-# Built-in triggers and actions in Azure Logic Apps
+# Built-in connectors in Azure Logic Apps
 
-Built-in triggers and actions provide ways for you to control your workflow's schedule and structure, run your own code, manage or manipulate data, and complete other tasks in your workflows. Different from managed connectors, some built-in operations aren't tied to a specific service, system, or protocol. For example, you can start almost any workflow on a schedule by using the Recurrence trigger. Or, you can have your workflow wait until called by using the Request trigger. All built-in operations run natively on the Azure Logic Apps runtime. Some don't require that you create a connection before you use them.
+Built-in connectors provide ways for you to control your workflow's schedule and structure, run your own code, manage or manipulate data, and complete other tasks in your workflows. Different from managed connectors, some built-in connectors aren't tied to a specific service, system, or protocol. For example, you can start almost any workflow on a schedule by using the Recurrence trigger. Or, you can have your workflow wait until called by using the Request trigger. All built-in connectors run natively on the Azure Logic Apps runtime. Some don't require that you create a connection before you use them.
 
-For a smaller number of services, systems and protocols, Azure Logic Apps provides a built-in version alongside the managed version. The number and range of built-in operations vary based on whether you create a Consumption logic app that runs in multi-tenant Azure Logic Apps, or a Standard logic app that runs in single-tenant Azure Logic Apps. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. In a few cases, some built-in operations are available only in one logic app type and not the other.
+For a smaller number of services, systems and protocols, Azure Logic Apps provides a built-in version alongside the managed version. The number and range of built-in connectors vary based on whether you create a Consumption logic app that runs in multi-tenant Azure Logic Apps, or a Standard logic app that runs in single-tenant Azure Logic Apps. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. In a few cases, some built-in connectors are available only in one logic app type and not the other.
 
-For example, a Standard logic app provides both managed connector and built-in operations for Azure Blob, Azure Cosmos DB, Azure Event Hubs, Azure Service Bus, DB2, FTP, MQ, SFTP, and SQL Server, while a Consumption logic app doesn't have the built-in versions. A Consumption logic app provides built-in operations for Azure API Management, Azure App Services, and Batch, while a Standard logic app doesn't have these built-in operations. For more information, review the following documentation: [Managed connectors in Azure Logic Apps](managed.md) and [Single-tenant versus multi-tenant and integration service environment (ISE)](../logic-apps/single-tenant-overview-compare.md).
+For example, a Standard logic app provides both managed connectors and built-in connectors for Azure Blob, Azure Cosmos DB, Azure Event Hubs, Azure Service Bus, DB2, FTP, MQ, SFTP, and SQL Server, while a Consumption logic app doesn't have the built-in versions. A Consumption logic app provides built-in connectors for Azure API Management, Azure App Services, and Batch, while a Standard logic app doesn't have these built-in connectors. For more information, review the following documentation: [Managed connectors in Azure Logic Apps](managed.md) and [Single-tenant versus multi-tenant and integration service environment (ISE)](../logic-apps/single-tenant-overview-compare.md).
 
-This article provides a general overview about built-in operations in Consumption logic apps versus Standard logic apps.
+This article provides a general overview about built-in connectors in Consumption logic apps versus Standard logic apps.
 
 <a name="built-in-operations-lists"></a>
 
-## Built-in operations in Consumption versus Standard
+## built-in connectors in Consumption versus Standard
 
 | Consumption | Standard |
 |-------------|----------|
@@ -31,16 +31,16 @@ This article provides a general overview about built-in operations in Consumptio
 
 ## Custom built-in connectors
 
-For Standard logic apps, if a built-connector isn't available for your scenario, you can create your own built-in connector. Some built-in operations available for Standard logic apps, such as SQL Server, Service Bus, Blob Storage, and Event Hubs, and Blob Storage, use a [*service provider interface implementation*](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation), which is based on the Azure Functions extensibility model. This implementation provides the capability for you to create custom built-in connectors that anyone can use in Standard logic apps. For more information, review the following documentation:
+For Standard logic apps, if a built-connector isn't available for your scenario, you can create your own built-in connector. Some built-in connectors available for Standard logic apps, such as SQL Server, Service Bus, Blob Storage, and Event Hubs, and Blob Storage, use a [*service provider interface implementation*](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation), which is based on the Azure Functions extensibility model. This implementation provides the capability for you to create custom built-in connectors that anyone can use in Standard logic apps. For more information, review the following documentation:
 
 * [Custom connectors for Standard logic apps](../logic-apps/custom-connector-overview.md#custom-connector-standard)
 * [Create custom built-in connectors for Standard logic apps](../logic-apps/create-custom-built-in-connector-standard.md)
 
 <a name="general-built-in"></a>
 
-## General built-in operations
+## General built-in connectors
 
-You can use the following built-in operations to perform general tasks, for example:
+You can use the following built-in connectors to perform general tasks, for example:
 
 * Run workflows using custom and advanced schedules. For more information about scheduling, review the [Recurrence behavior in the connector overview for Azure Logic Apps](apis-list.md#recurrence-behavior).
 
@@ -139,9 +139,9 @@ You can use the following built-in operations to perform general tasks, for exam
 
 <a name="service-built-in"></a>
 
-## Service-based built-in operations
+## Service-based built-in connectors
 
-Connectors for some services provide both built-in operations and managed connector operations, which might differ across these versions.
+Connectors for some services provide both built-in connectors and managed connectors, which might differ across these versions.
 
 :::row:::
     :::column:::
@@ -465,7 +465,7 @@ Azure Logic Apps provides the following built-in actions for working with data o
 
 <a name="integration-account-built-in"></a>
 
-## Integration account built-in operations
+## Integration account built-in connectors
 
 Integration account operations specifically support business-to-business (B2B) communication scenarios in Azure Logic Apps. After you create an integration account and define your B2B artifacts, such as trading partners, agreements, maps, and schemas, you can use integration account built-in actions to encode and decode messages, transform content, and more.
 

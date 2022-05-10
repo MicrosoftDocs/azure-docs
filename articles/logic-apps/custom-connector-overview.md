@@ -22,8 +22,8 @@ Sometimes though, you might want to call REST APIs that aren't available as preb
 This article provides an overview about custom connectors for [Consumption logic app workflows and Standard logic app workflows](logic-apps-overview.md). Each logic app type is powered by a different Azure Logic Apps runtime, respectively hosted in multi-tenant Azure and single-tenant Azure. For more information about connectors in Azure Logic Apps, review the following documentation:
 
 * [About connectors in Azure Logic Apps](../connectors/apis-list.md)
-* [Built-in connector operations in Azure Logic Apps](../connectors/built-in.md)
-* [Managed connector operations in Azure Logic Apps](../connectors/managed.md)
+* [Built-in connectors in Azure Logic Apps](../connectors/built-in.md)
+* [Managed connectors in Azure Logic Apps](../connectors/managed.md)
 * [Connector overview](/connectors/connectors)
 * [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
 
@@ -45,9 +45,9 @@ In [multi-tenant Azure Logic Apps](logic-apps-overview.md), you can create [cust
 
 ## Standard logic apps
 
-In [single-tenant Azure Logic Apps](logic-apps-overview.md), the redesigned Azure Logic Apps runtime powers Standard logic app workflows. This runtime differs from the multi-tenant Azure Logic Apps runtime that powers Consumption logic app workflows. The single-tenant runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md), which provides a key capability for you to create and use your own built-in connectors in Standard workflows.
+In [single-tenant Azure Logic Apps](logic-apps-overview.md), the redesigned Azure Logic Apps runtime powers Standard logic app workflows. This runtime differs from the multi-tenant Azure Logic Apps runtime that powers Consumption logic app workflows. The single-tenant runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md), which provides a key capability for you to create and use your own [built-in connectors](../connectors/built-in.md) in Standard workflows.
 
-In a Standard logic app resource, a connection definition file contains the required configuration for the connections created by connectors. When single-tenant Azure Logic Apps officially released, new built-in connectors included Azure Blob Storage, Azure Event Hubs, Azure Service Bus, and SQL Server. Over time, this list of built-in connectors continues to grow. However, if you need to use connectors that aren't available in Standard logic app workflows, you can [create your own built-in connectors with the Azure Functions extensibility framework](create-custom-built-in-connector-standard.md) that's used by the built-in connectors available for Standard workflows.
+In a Standard logic app resource, a connection definition file contains the required configuration for the connections created by connectors. When single-tenant Azure Logic Apps officially released, new built-in connector operations included Azure Blob Storage, Azure Event Hubs, Azure Service Bus, and SQL Server. Over time, this list of built-in connectors continues to grow. However, if you need to use connectors that aren't available in Standard logic app workflows, you can [create your own built-in connectors with the Azure Functions extensibility framework](create-custom-built-in-connector-standard.md) that's used by the built-in connectors available for Standard workflows.
 
 The following sections provide more information about how the extensibility model works for built-in connectors.
 
