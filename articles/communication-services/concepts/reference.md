@@ -30,7 +30,7 @@ For each area, we have external pages to track and review our SDKs. You can cons
 | Signaling              | [npm](https://www.npmjs.com/package/@azure/communication-signaling)         | -                                                                            |                                                                       | -                                                                                 | -                                                                                                               | -                                                                                         | -                                                                               |
 | SMS                    | [npm](https://www.npmjs.com/package/@azure/communication-sms)               | [NuGet](https://www.nuget.org/packages/Azure.Communication.Sms)              | [PyPi](https://pypi.org/project/azure-communication-sms/)             | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-sms)      | -                                                                                                               | -                                                                                         | -                                                                               |
 
-## Class/Method Documentation
+## Class/method documentation
 
 Additionally, the class/reference information for each SDK can be found below:
 - [JavaScript](https://azure.github.io/azure-sdk-for-js/communication.html)
