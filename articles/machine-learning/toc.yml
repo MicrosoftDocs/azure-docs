@@ -498,17 +498,6 @@
         - name: Manage environments with the CLI (v2)
           displayName: environment
           href: how-to-manage-environments-v2.md
-        - name: Interpret & explain models
-          displayName: interpretability
-          items: 
-            - name: Interpret ML models
-              displayName: SDK, interpret, explain, explainability, interpretability
-              href: how-to-machine-learning-interpretability-aml.md
-            - name: Explain automated ML models
-              displayName: SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml
-              href: how-to-machine-learning-interpretability-automl.md
-        - name: Assess and mitigate model fairness
-          href: how-to-machine-learning-fairness-aml.md
         - name: Automated machine learning
           displayName: automl, auto ml
           items: 
@@ -669,6 +658,27 @@
         - name: Manage resources VS Code
           displayName: vscode,resources
           href: how-to-manage-resources-vscode.md
+    - name: Responsible AI
+      items:
+        - name: Interpret & explain models
+          displayName: interpretability
+          items: 
+            - name: Interpret ML models
+              displayName: SDK, interpret, explain, explainability, interpretability
+              href: how-to-machine-learning-interpretability-aml.md
+            - name: Explain automated ML models
+              displayName: SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml
+              href: how-to-machine-learning-interpretability-automl.md
+        - name: Responsible AI dashboard
+          href: how-to-responsible-ai-dashboard.md
+        - name: Responsible AI dashboard (SDK)
+          href: how-to-responsible-ai-dashboard-sdk.md
+        - name: Responsible AI dashboard (UI)
+          href: how-to-responsible-ai-dashboard-ui.md
+        - name: Assess and mitigate model fairness
+          href: how-to-machine-learning-fairness-aml.md
+        - name: how-to-responsible-ai-scorecard.md
+          href: 
 - name: Troubleshoot & debug
   items: 
     - name: VS Code interactive debugging
