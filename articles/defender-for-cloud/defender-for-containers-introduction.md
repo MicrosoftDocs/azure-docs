@@ -233,6 +233,9 @@ No. Only Azure Kubernetes Service (AKS) clusters that use virtual machine scale 
 ### Do I need to install the Log Analytics VM extension on my AKS nodes for security protection?
 No, AKS is a managed service, and manipulation of the IaaS resources isn't supported. The Log Analytics VM extension is not needed and may result in additional charges.
 
+## Learn More
+
+
 ## Next steps
 
 In this overview, you learned about the core elements of container security in Microsoft Defender for Cloud. To enable the plan, see:
