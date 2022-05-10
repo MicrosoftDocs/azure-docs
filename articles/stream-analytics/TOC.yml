@@ -204,6 +204,8 @@
       href: no-code-materialize-cosmosdb.md
     - name: Capture Event Hub data in Parquet format
       href: capture-event-hub-data-parquet.md
+    - name: Filter and ingest Synapse SQL data
+      href: filter-ingest-synapse-sql.md
   - name: Authenticate with managed identity
     items:
     - name: Managed Identities Overview
