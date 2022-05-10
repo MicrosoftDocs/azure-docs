@@ -4,6 +4,7 @@ description: This article describes the Performance Recommendation feature in Az
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 6/3/2020
 ---
