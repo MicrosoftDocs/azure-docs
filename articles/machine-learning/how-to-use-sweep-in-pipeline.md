@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/24/2022
+ms.date: 05/10/2022
 ms.custom: devx-track-python, sdkv2, cliv2
 ---
 
@@ -40,13 +40,11 @@ Assume you already have a command component defined in `train.yaml`. A two step 
 
 :::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/pipelines-with-components/pipeline_with_hyperparameter_sweep/pipeline.yml" highlight="7-48":::
 
-
 The `sweep_step` is the step for hyperparameter tuning. Step type needs to be `sweep`.  And `trial` refers to the command component defined in `train.yaml`. From the `search sapce` field we can see three hyparmeters(`c_value`, `kernel`, and `coef`) are added to the search space. After submitting this pipeline job, Azure Machine Learning will run the trial component multiple times to sweep over hypermaters based on the search space and terminate policy you defined in `sweep_step`. Check [sweep job YAML schema](reference-yaml-job-sweep.md) for full schema of sweep job.
 
 Below is the trial component (`train.yml`) definition. The hyperparamters added to search space need to be inputs for the component.
 
 :::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/pipelines-with-components/pipeline_with_hyperparameter_sweep/train.yml" highlight="60":::
-
 
 You can see the source code of trial component in `./train-scr` folder(line 60). This is the code that will be executed in every trial of the sweep job. Make sure in your training script, you log the metric with exactly the same name as `primary_metric` value in pipeline YAML. In this example, we use `mlflow.autolog()`. We suggest using mlflow to track your ML experiments. See more about mlflow [here](./how-to-use-mlflow-cli-runs.md)  
 
@@ -64,10 +62,7 @@ Below code snipe shows how to enable sweep for `train_model`.
 
 [!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/1c_pipeline_with_hyperparameter_sweep/pipeline_with_hyperparameter_sweep.ipynb?name=enable-sweep)]
 
-
- We first load `train_component_func` defined in `train.yml` file. When creating `train_model`, we add `c_value`, `kernel` and `coef0` into search space(line 15-17). Line 30-35 defines the primary metric, sampling algorithm etc. 
-
-
+ We first load `train_component_func` defined in `train.yml` file. When creating `train_model`, we add `c_value`, `kernel` and `coef0` into search space(line 15-17). Line 30-35 defines the primary metric, sampling algorithm etc.
 
 ## Check pipeline job with sweep step in Studio
 
@@ -75,20 +70,20 @@ After submitting a pipeline job, the SDK or CLI widget will give you a web URL l
 
 To check details of the sweep step, double click the sweep step and navigate to the **child run** tab in the panel on the right.
 
-![pipeline-view](./media/how-to-use-sweep-in-pipeline-v2/pipeline-view.png)
+:::image type="content" source="./media/how-to-use-sweep-in-pipeline-v2/pipeline-view.png" alt-text="Screenshot of the pipeline with child run and the train_model node highlighted.":::
 
 This will link you to the sweep job page as seen in the below screenshot. Navigate to **child run** tab, here you can see the metrics of all child runs and list of all child runs.
 
-![sweep-job](./media/how-to-use-sweep-in-pipeline-v2/sweep-job.png)
+:::image type="content" source="./media/how-to-use-sweep-in-pipeline-v2/sweep-job.png" alt-text="Screenshot of the job page on the child runs tab.":::
 
-If a child runs failed, click the name of that child run to enter detail page of that specific child run(looks like below screenshot). The useful debug information is under **Outputs + Logs**.
+If a child runs failed, select the name of that child run to enter detail page of that specific child run(looks like below screenshot). The useful debug information is under **Outputs + Logs**.
 
-![child-run](./media/how-to-use-sweep-in-pipeline-v2/childrun.png)
+:::image type="content" source="./media/how-to-use-sweep-in-pipeline-v2/child-run.png" alt-text="Screenshot of the output + logs tab of a child run.":::
 
 ## Sample notebooks
-- [Build pipeline with sweep node](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/pipelines/1c_pipeline_with_hyperparameter_sweep/pipeline_with_hyperparameter_sweep.ipynb)
-- [Run hyperparameter sweep on a command job](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb) 
 
+- [Build pipeline with sweep node](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/pipelines/1c_pipeline_with_hyperparameter_sweep/pipeline_with_hyperparameter_sweep.ipynb)
+- [Run hyperparameter sweep on a command job](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb)
 
 ## Next steps
 

@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.topic: conceptual
 ms.author: lagayhar
 author: lgayhardt
-ms.date: 05/24/2022
+ms.date: 05/10/2022
 ms.custom: devx-track-python
 ---
 
@@ -17,7 +17,6 @@ ms.custom: devx-track-python
 [!INCLUDE [dev v1](../../includes/machine-learning-dev-v1.md)]
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
-
 
 An Azure Machine Learning pipeline is an independently executable workflow of a complete machine learning task. An Azure Machine Learning pipeline helps to standardize the best practices of producing a machine learning model, enables the team to execute at scale, and improve the model building efficiency.
 

@@ -8,19 +8,13 @@ ms.subservice: mlops
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
-ms.date: 05/24/2022
+ms.date: 05/10/2022
 ms.custom: devx-track-python, sdkv2
 ---
 
 # Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2 (Preview)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
-
-> * [v1](v1/tutorial-pipeline-python-sdk)
-
-> * [v2 (preview)](how-to-create-component-pipeline-python.md)
 
 In this article, you learn how to build an [Azure Machine Learning pipeline](concept-ml-pipelines.md) using Python SDK v2 to complete an image classification task containing three steps: prepare data, train an image classification model, and score the model. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on machine learning instead of infrastructure and automation.  
 
@@ -260,7 +254,7 @@ We'll use `DefaultAzureCredential` to get access to workspace. `DefaultAzureCred
 
 `DefaultAzureCredential` should be capable of handling most Azure SDK authentication scenarios.
 
-Reference for more available credentials if it doesn't work for you: [configure credential example](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb), [azure-identity reference doc](/python/api/azure-identity/azure.identity?view=azure-python).
+Reference for more available credentials if it doesn't work for you: [configure credential example](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb), [azure-identity reference doc](/python/api/azure-identity/azure.identity?view=azure-python&preserve-view=true ).
 
 
 [!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=credential)]

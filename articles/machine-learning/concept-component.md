@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: lagayhar
-ms.date:  05/24/2022
+ms.date:  05/10/2022
 ms.topic: conceptual
 ms.custom: 
 
@@ -25,8 +25,7 @@ A component consists of three parts:
 - Interface: input/output specifications (name, type, description, default value, etc).
 - Command, Code & Environment: command, code and environment required to run the component.
 
-![component](./media/concept-component/component.png)
-
+:::image type="content" source="/media/concept-component/component.png" alt-text="Diagram of what a component looks like and how it looks in a pipeline.In addition to screenshots of a component in the CLI, SDK, and portal UI." lightbox = "/media/concept-component/component.png":::
 
 ## Why should I use a component?
 
@@ -50,7 +49,7 @@ Once the steps in the workflow are defined, the next thing is to specify how eac
 
 Now, it is time to develop the code of executing a step. You can use your preferred languages (python, R, ...). The code must be able to be executed by a shell command. During the development, you may want to add a few inputs to control how this step is going to be executed. For example, for a training step, you may like to add learning rate, number of epochs as the inputs to control the training. These additional inputs plus the inputs and outputs required to connect with other steps are the interface of the component. The argument of a shell command is used to pass inputs and outputs to the code. The environment to execute the command and the code needs to be specified. The environment could be a curated AzureML environment, a docker image or a conda environment.
 
-Finally, you can package everything including code, cmd, environment, input, outputs, metadata together into a component. Then connects these components together to build pipelines for your machine learning workflow. One component can be used in multiple pipelines. 
+Finally, you can package everything including code, cmd, environment, input, outputs, metadata together into a component. Then connects these components together to build pipelines for your machine learning workflow. One component can be used in multiple pipelines.
 
 To learn more about how to build a component, please read:
 
@@ -58,7 +57,6 @@ To learn more about how to build a component, please read:
 - How to [build a component using Azure ML SDK v2](how-to-create-component-pipeline-python.md)
 
 ## Next steps
-
 
 - [Define component with the Azure ML CLI v2](./how-to-create-component-pipelines-cli.md)
 - [Define component with the Azure ML SDK v2](./how-to-create-component-pipeline-python.md)
