@@ -60,8 +60,8 @@ resource "azurerm_spring_cloud_service" "sc" {
   location            = var.location
 
   network {
-    app_subnet_id                   = "/subscriptions/${var.subscription}/resourceGroups/${var.azurespringcloudvnetrg}/providers/Microsoft.Network/virtualNetworks/${var.vnet_spoke_name}/subnets/${var.app_subnet_id}"
-    service_runtime_subnet_id       = "/subscriptions/${var.subscription}/resourceGroups/${var.azurespringcloudvnetrg}/providers/Microsoft.Network/virtualNetworks/${var.vnet_spoke_name}/subnets/${var.service_runtime_subnet_id}"
+    app_subnet_id                   = "/subscriptions/${var.subscription}/resourceGroups/${var.azurespringappsvnetrg}/providers/Microsoft.Network/virtualNetworks/${var.vnet_spoke_name}/subnets/${var.app_subnet_id}"
+    service_runtime_subnet_id       = "/subscriptions/${var.subscription}/resourceGroups/${var.azurespringappsvnetrg}/providers/Microsoft.Network/virtualNetworks/${var.vnet_spoke_name}/subnets/${var.service_runtime_subnet_id}"
     cidr_ranges                     = var.sc_cidr
   }
 
@@ -78,7 +78,7 @@ resource "azurerm_spring_cloud_service" "sc" {
 resource "azurerm_monitor_diagnostic_setting" "sc_diag" {
   name                        = "monitoring"
   target_resource_id          = azurerm_spring_cloud_service.sc.id
-  log_analytics_workspace_id = "/subscriptions/${var.subscription}/resourceGroups/${var.azurespringcloudvnetrg}/providers/Microsoft.OperationalInsights/workspaces/${var.sc_law_id}"
+  log_analytics_workspace_id = "/subscriptions/${var.subscription}/resourceGroups/${var.azurespringappsvnetrg}/providers/Microsoft.OperationalInsights/workspaces/${var.sc_law_id}"
 
   log {
     category = "ApplicationConsole"
