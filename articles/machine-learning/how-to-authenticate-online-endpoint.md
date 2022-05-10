@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.author: seramasu
 ms.reviewer: larryfr
 author: rsethur
-ms.date: 05/02/2022
+ms.date: 05/10/2022
 ms.topic: how-to
 ms.custom: how-to, devplatv2, cliv2
 ---
@@ -23,7 +23,7 @@ You can set the authentication type when you create an online endpoint. Set the 
 
 When deploying using CLI v2, set this value in the [online endpoint YAML file](reference-yaml-endpoint-online.md). For more information, see [How to deploy an online endpoint](how-to-deploy-managed-online-endpoints.md).
 
-When deploying using the Python SDK v2 (preview), use the [OnlineEndpoint](/python/api/azure-ml/azure.ml.entities.onlineendpoint) class.
+When deploying using the Python SDK v2 (preview), use the [OnlineEndpoint](/python/api/azure-ai-ml/azure.ai.ml.entities.onlineendpoint) class.
 
 ## Get the key or token
 

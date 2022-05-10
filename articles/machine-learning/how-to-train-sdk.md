@@ -8,7 +8,7 @@ ms.author: balapv
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 04/25/2022
+ms.date: 05/10/2022
 ms.topic: how-to
 ms.custom: sdkv2
 ---
@@ -88,11 +88,11 @@ Let us tackle these steps below
 
 ### 1. Connect to the workspace
 
-To connect to the workspace, you need identifier parameters - a subscription, resource group and workspace name. You'll use these details in the `MLClient` from `azure.ml` to get a handle to the required Azure Machine Learning workspace. To authenticate, you use the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python). Check this [example](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
+To connect to the workspace, you need identifier parameters - a subscription, resource group and workspace name. You'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. To authenticate, you use the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python). Check this [example](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
 
 ```python
 #import required libraries
-from azure.ml import MLClient
+from azure.ai.ml import MLClient
 from azure.identity import DefaultAzureCredential
 
 #Enter details of your AML workspace
@@ -112,7 +112,7 @@ You'll create a compute called `cpu-cluster` for your job, with this code:
 [!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/configuration.ipynb?name=create-cpu-compute)]
 
 ```python
-from azure.ml.entities import AmlCompute
+from azure.ai.ml.entities import AmlCompute
 
 # specify aml compute name.
 cpu_compute_target = 'cpu-cluster'
@@ -146,7 +146,7 @@ To run this script, you'll use a `command`. The command will be run by submittin
 [!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=create-command)]
 
 ```python
-from azure.ml import command, Input
+from azure.ai.ml import command, Input
 #define the command
 command_job=command(
     code='./src',
@@ -171,7 +171,7 @@ In the above, you configured:
 - `command` -  command that needs to be run
 - `inputs` - dictionary of inputs using name value pairs to the command. The key is a name for the input within the context of the job and the value is the input value. Inputs are referenced in the `command` using the `${{inputs.<input_name>}}` expression. To use files or folders as inputs, you can use the `Input` class.
 
-For more details, refer to the reference documentation [here](/python/api/azure-ml/azure.ml?view=azure-ml-py&branch=sdk-cli-v2-preview-master#azure-ml-command)
+For more details, refer to the [reference documentation](/python/api/azure-ai-ml/azure.ai.ml#azure-ai-ml-command).
 
 ## Improve the model using hyperparameter sweep
 
@@ -237,15 +237,15 @@ Azure Machine Learning supports PyTorch, TensorFlow, and MPI-based distributed t
 
 ```python
 # Distribute using PyTorch
-from azure.ml import PyTorchDistribution
+from azure.ai.ml import PyTorchDistribution
 command_job.distribution = PyTorchDistribution(process_count_per_instance=4)
 
 # Distribute using TensorFlow
-from azure.ml import TensorFlowDistribution
+from azure.ai.ml import TensorFlowDistribution
 command_job.distribution = TensorFlowDistribution(parameter_server_count=1, worker_count=2)
 
 # Distribute using MPI
-from azure.ml import MpiDistribution
+from azure.ai.ml import MpiDistribution
 job.distribution = MpiDistribution(process_count_per_instance=3)
 ```
 
