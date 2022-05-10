@@ -31,7 +31,7 @@ In this tutorial, you will learn how to:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Visual Studio Code](https://code.visualstudio.com/) installed.
- 
+    - [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to deploy and configure the Function App.
 
 ## Create the storage account and container
 The first step is to create the storage account that will hold the uploaded blob data, which in this scenario will be images that contain text. A storage account offers several different services, but this tutorial utilizes Blob Storage and Table Storage.
@@ -179,77 +179,44 @@ git clone https://github.com/Azure-Samples/msdocs-storage-bind-function-service.
 cd msdocs-storage-bind-function-service/javascript
 ```
 
-The sample project code accomplishes the following tasks:
+The sample project accomplishes the following tasks:
 
 - Retrieves environment variables to connect to the storage account and Computer Vision service
 - Accepts the uploaded file as a blob parameter
 - Analyzes the blob using the Computer Vision service
 - Sends the analyzed image text to a new table row using output bindings
 
-Once you have downloaded and opened the project, there are a few essential concepts to understand in the `./ProcessImageUpload/index.js ` file shown below. The Azure function utilizes Trigger and Output bindings, which are applied using the `function.json` which sits in the same folder as the function. 
+Once you have downloaded and opened the project, there are a few essential concepts to understand:
 
-The `Table` attribute uses two parameters.  The first parameter specifies the name of the table to write the parsed image text value returned by the function. The second `Connection` parameter pulls a Table Storage connection string from the environment variables so that our Azure function has access to it. 
+|Concept|Purpose|
+|--|--|
+|Function|The Azure Function is defined by both the function code and the bindings. The function code is in [./ProcessImageUpload/index.js](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/blob/main/javascript/ProcessImageUpload/index.js). |
+|Triggers and bindings|The triggers and bindings indicate that data is expected into or out of the function and which service is going to send or receive that data. The trigger and binding for this function is in [./ProcessImageUpload/function.json](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/blob/main/javascript/ProcessImageUpload/function.json).|
 
-The `BlobTrigger` attribute is used to bind our function to the upload event in Blob Storage, and supplies that uploaded blob to the `Run` function.  The blob trigger has two parameters of its own - one for the name of the blob container to monitor for uploads, and one for the connection string of our storage account again.
+### Triggers and bindings
+The following [function.json](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/blob/main/javascript/ProcessImageUpload/function.json) file defines the triggers and bindings for this function:
 
+:::code language="JSON" source="~/msdocs-storage-bind-function-service/javascript/ProcessImageUpload/function.json" :::
 
-```csharp
-// Azure Function name and output Binding to Table Storage
-[FunctionName("ProcessImageUpload")]
-[return: Table("ImageText", Connection = "StorageConnection")]
-// Trigger binding runs when an image is uploaded to the blob container below
-public async Task<ImageContent> Run([BlobTrigger("imageanalysis/{name}", 
-        Connection = "StorageConnection")]Stream myBlob, string name, ILogger log)
-{
-    // Get connection configurations
-    string subscriptionKey = Environment.GetEnvironmentVariable("ComputerVisionKey");
-    string endpoint = Environment.GetEnvironmentVariable("ComputerVisionEndpoint");
-    string imgUrl = $"https://{ Environment.GetEnvironmentVariable("StorageAccountName")}
-                        .blob.core.windows.net/imageanalysis/{name}";
+* **Data In** - The **BlobTrigger** (`"type": "blobTrigger"`) is used to bind the function to the upload event in Blob Storage. The trigger has two required parameters:
+    * `name`: The name of the blob **container** to monitor for uploads. 
+    * `connection`: The **connection string** of the storage account.
 
-    ComputerVisionClient client = new ComputerVisionClient(
-        new ApiKeyServiceClientCredentials(subscriptionKey)) { Endpoint = endpoint };
+* **Data Out** - The **TableBinding** (`"type": "table"`) is used to bind the outbound data to a Storage table.  
+    * `tableName`: The name of the table to write the parsed image text value returned by the function. 
+    * `connection`: The Table Storage connection string from the environment variable so that the Azure function has access to it. 
 
-    // Get the analyzed image contents
-    var textContext = await AnalyzeImageContent(client, imgUrl);
+:::code language="javascript" source="source="~/msdocs-storage-bind-function-service/javascript/ProcessImageUpload/index.js" range="36-60":::
 
-    return new ImageContent { 
-        PartitionKey = "Images",
-        RowKey = Guid.NewGuid().ToString(), Text = textContext 
-    };
-}
+This code also retrieves essential configuration values from environment variables, such as the storage account connection string and Computer Vision key. These environment variables are added to the Azure Function environment after it's deployed.
 
-public class ImageContent
-{
-    public string PartitionKey { get; set; }
-    public string RowKey { get; set; }
-    public string Text { get; set; }
-}
-```
-
-This code also retrieves essential configuration values from environment variables, such as the storage account connection string and Computer Vision key. We'll add these environment variables to our Azure Function environment after it's deployed.
-
-The `ProcessImage` function also utilizes a second method called `AnalyzeImage`, seen below.  This code uses the URL Endpoint and Key of our Computer Vision account to make a request to that server to process our image.  The request will return all of the text discovered in the image, which will then be written to Table Storage using the output binding on the `Run` method.
-
-```csharp
-static async Task<string> ReadFileUrl(ComputerVisionClient client, string urlFile)
-{
-    // Analyze the file using Computer Vision Client
-    var textHeaders = await client.ReadAsync(urlFile);
-    string operationLocation = textHeaders.OperationLocation;
-    Thread.Sleep(2000);
-    
-    // Complete code omitted for brevity, view in sample project
-    
-    return text.ToString();
-}
-```
+The default function also utilizes a second method called `AnalyzeImage`. This code uses the URL Endpoint and Key of the Computer Vision account to make a request to that server to process the image.  The request returns all of the text discovered in the image. This text is written to Table Storage, using the outbound binding.
 
 ### Running locally
 
-If you'd like to run the project locally, you can populate the environment variables using the local.settings.json file. Inside of this file, fill in the placeholder values with the values you saved earlier when creating the Azure resources.
+To run the project locally, enter the environment variables in the `./local.settings.json` file. Fill in the placeholder values with the values you saved earlier when creating the Azure resources.
 
-Although the Azure Function code will run locally, it will still connect to the live services out on Azure, rather than using any local emulators.
+Although the Azure Function code runs locally, it connects to the cloud-based services for Storage, rather than using any local emulators.
 
 ```javascript
 {
@@ -267,11 +234,15 @@ Although the Azure Function code will run locally, it will still connect to the 
 
 ## Deploy the code to Azure Functions
 
-You are now ready to deploy our application to Azure by using Visual Studio.  You can also create the Azure Functions app in Azure at the same time as part of the deployment process.
+You are now ready to deploy the application to Azure using a Visual Studio Code extension.  You can also create the Azure Functions app in Azure at the same time as part of the deployment process.
 
-1) To begin, right select the **ProcessImage** project node and select **Publish**.
-
-2) On the **Publish** dialog screen, select Azure and choose **Next**.
+1. In Visual Studio Code, select <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd> to open the **Azure** sidebar.
+1. In the **Functions** section, find and expand the subscription's App Service resource.
+1. Right-click the app and select **Deploy to Web App**.
+1. Select the `javascript` folder.
+1. When you're asked if you want to deploy, select **Deploy**.
+1. Select the **output window** option when it appears.
+1. Notice that the deployment status appears with date/time stamps and actions.
 
 :::image type="content" source="./media/blob-upload-storage-function/visual-studio-publish-target.png" alt-text="A screenshot showing how to select Azure as the deployment target." :::
  
