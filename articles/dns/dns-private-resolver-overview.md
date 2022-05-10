@@ -6,7 +6,7 @@ ms.custom: references_regions
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 05/09/2022
+ms.date: 05/10/2022
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
@@ -41,8 +41,8 @@ The architecture for Azure DNS Private Resolver is summarized in the following f
 Figure 1: Azure DNS Private Resolver architecture
 
 For more information about creating a private DNS resolver, see:
-- [Quickstart: Create an Azure DNS Private Resolver using the Azure portal](private-dns-resolver-get-started-portal.md)
-- [Quickstart: Create an Azure DNS Private Resolver using Azure PowerShell](private-dns-resolver-get-started-powershell.md)
+- [Quickstart: Create an Azure DNS Private Resolver using the Azure portal](dns-private-resolver-get-started-portal.md)
+- [Quickstart: Create an Azure DNS Private Resolver using Azure PowerShell](dns-private-resolver-get-started-powershell.md)
 
 ## Azure DNS Private Resolver benefits
 
@@ -129,6 +129,6 @@ DNS forwarding rulesets have the following limitations:
 
 ## Next steps
 
-* Learn how to create an Azure DNS Private Resolver by using [Azure PowerShell](./private-dns-resolver-get-started-powershell.md) or [Azure portal](./private-dns-resolver-get-started-portal.md).
+* Learn how to create an Azure DNS Private Resolver by using [Azure PowerShell](./dns-private-resolver-get-started-powershell.md) or [Azure portal](./dns-private-resolver-get-started-portal.md).
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
 * [Learn module: Introduction to Azure DNS](/learn/modules/intro-to-azure-dns).

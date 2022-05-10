@@ -7,7 +7,7 @@
   - name: What is Azure Private DNS?
     href: private-dns-overview.md
   - name: What is Azure DNS Private Resolver?
-    href: private-dns-resolver-overview.md
+    href: dns-private-resolver-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -36,9 +36,9 @@
   - name: Private DNS resolver
     items:
     - name: Create a private DNS resolver - portal
-      href: private-dns-resolver-get-started-portal.md
+      href: dns-private-resolver-get-started-portal.md
     - name: Create a private resolver - PowerShell
-      href: private-dns-resolver-get-started-powershell.md
+      href: dns-private-resolver-get-started-powershell.md
 - name: Tutorials
   items:
   - name: Public DNS

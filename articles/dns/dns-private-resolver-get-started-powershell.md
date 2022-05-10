@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create and manage your first p
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 05/09/2022
+ms.date: 05/10/2022
 ms.topic: quickstart
 ms.service: dns
 ms.custom: devx-track-azurepowershell, mode-api
@@ -17,7 +17,7 @@ This article walks you through the steps to create your first private DNS zone a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Azure DNS Private Resolver is a new service currently in public preview. Azure DNS Private Resolver enables you to query Azure DNS private zones from an on-prem environment and vice versa without deploying VM based DNS servers. For more information, including benefits, capabilities, and regional availability, see [What is Azure DNS Private Resolver](private-dns-resolver-overview.md).
+Azure DNS Private Resolver is a new service currently in public preview. Azure DNS Private Resolver enables you to query Azure DNS private zones from an on-prem environment and vice versa without deploying VM based DNS servers. For more information, including benefits, capabilities, and regional availability, see [What is Azure DNS Private Resolver](dns-private-resolver-overview.md).
 
 ## Prerequisites
 
@@ -69,7 +69,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 
 ## Create a DNS resolver instance
 
-Create a resource group to host the resources. The resource group must be in a [supported region](private-dns-resolver-overview.md). In this example, the location is westcentralus.
+Create a resource group to host the resources. The resource group must be in a [supported region](dns-private-resolver-overview.md). In this example, the location is westcentralus.
 
 ```Azure PowerShell
 New-AzResourceGroup -Name myresourcegroup -Location westcentralus
@@ -260,4 +260,4 @@ Remove-AzDnsResolver -Name mydnsresolver -ResourceGroupName myresourcegroup
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [What is Azure DNS Private Resolver?](private-dns-resolver-overview.md)
+> [What is Azure DNS Private Resolver?](dns-private-resolver-overview.md)
