@@ -187,7 +187,7 @@ Fix any [condition format or syntax](conditions-format.md) issues. Alternatively
 
 **Cause**
 
-If you use PowerShell and you copy a condition from a document, it might include special characters that cause the following error. Some editors (such as Microsoft Word) add control characters when formatting text that does not appear.
+If you use PowerShell and copy a condition from a document, it might include special characters that cause the following error. Some editors (such as Microsoft Word) add control characters when formatting text that does not appear.
 
 `The given role assignment condition is invalid.`
 
