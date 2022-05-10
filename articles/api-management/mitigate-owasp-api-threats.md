@@ -21,7 +21,7 @@ ms.author: mibudz
 |Row2     |         |         |         |
 |Row3     |         |         |         |
 |[Lack of resources and rate limiting](#lack-of-resources-and-rate-limiting)     |    Attackers can exploit a vulnerable API through concurrent API requests, leading to DDoS, making the API unresponsive or unavailable.     | * Implement throttling, quotas, caching, and other features to maintain performance<br/>* Define and enforce strict API schemas        |   [API4:2019 Lack of Resources & Rate Limiting](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa4-lack-of-resources-and-rate-limiting.md)      |
-|Row5     |         |         |         |
+|[Broken function level authorization](#broken-function-level-authorization)     |  Attackers send legitimate API calls to APIs endpoint that they should not have access to.        |  * Filter API requests or JWT claims<br/>* Secure API endpoints using networks, subscription keys, JWT tokens, and other features.     |   [API5:2019 Broken Function Level Authorization](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa5-broken-function-level-authorization.md)       |
 |Row6     |         |         |         |
 |Row7     |         |         |         |
 |[Injection](#injection)     |  Attackers can feed the API with malicious data through whatever injection vectors are available       |  * Configure WAF<br/>* Validate requests      | [API8:2019 Injection](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa8-injection.md)        |
