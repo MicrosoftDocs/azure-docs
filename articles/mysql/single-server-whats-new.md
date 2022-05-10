@@ -3,6 +3,7 @@ title: What's new in Azure Database for MySQL Single Server
 description: Learn about recent updates to Azure Database for MySQL - Single server, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
 author: hjtoland3
 ms.service: mysql
+ms.subservice: single-server
 ms.author: jtoland
 ms.custom: mvc
 ms.topic: conceptual
@@ -15,6 +16,11 @@ ms.date: 06/17/2021
 Azure Database for MySQL is a relational database service in the Microsoft cloud. The service is based on the [MySQL Community Edition](https://www.mysql.com/products/community/) (available under the GPLv2 license) database engine and supports versions 5.6(retired), 5.7, and 8.0. [Azure Database for MySQL - Single Server](./overview.md#azure-database-for-mysql---single-server) is a deployment mode that provides a fully managed database service with minimal requirements for customizations of database. The Single Server platform is designed to handle most database management functions such as patching, backups, high availability, and security, all with minimal user configuration and control.
 
 This article summarizes new releases and features in Azure Database for MySQL - Single Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
+
+## May 2022
+
+Enabled the ability to change the server parameter innodb_ft_server_stopword_table from Portal/CLI.
+Users can now change the value of the innodb_ft_server_stopword_table parameter using the Azure portal and CLI. This parameter helps to configure your own InnoDB FULLTEXT index stopword list for all InnoDB tables. For more information, see [innodb_ft_server_stopword_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_server_stopword_table).
 
 ## March 2022
 
