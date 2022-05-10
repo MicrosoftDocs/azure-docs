@@ -253,7 +253,7 @@ items:
               href: deploy-active-directory-sql-managed-instance-cli.md
             - name: Connect SQL Managed Instance
               href: connect-active-directory-sql-managed-instance.md
-        - name: Transparent Data Encrytpion
+        - name: Transparent Data Encryption
           items:
             - name: Turn on TDE Manually
               href: tde-manual-how-to.md
