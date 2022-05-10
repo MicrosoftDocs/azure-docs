@@ -348,7 +348,7 @@
           - name: JavaScript
             href: /javascript/api/overview/azure/apimanagement
           - name: Java
-            href: java/api/overview/azure/apimanagement
+            href: /java/api/overview/azure/apimanagement
           - name: Python
             href: https://pypi.org/project/azure-mgmt-apimanagement
           - name: Go
