@@ -6,7 +6,7 @@ For important details on what this service does, how it works, and frequently as
 
 ### On-premises prerequisites
 
- - A target directory, such as Active Directory Lightweight Services (AD LDS), in which users can be created, updated, and deleted. This directory instance should not be one which is also used to provision users into Azure AD because it may create a loop with Azure AD Connect.
+ - A target directory, such as Active Directory Lightweight Services (AD LDS), in which users can be created, updated, and deleted. This directory instance should not be a directory that is also used to provision users into Azure AD, because having both scenarios may create a loop with Azure AD Connect.
  - A computer with at least 3 GB of RAM, to host a provisioning agent. The computer should have Windows Server 2016 or a later version of Windows Server, with connectivity to the target directory, and with outbound connectivity to login.microsoftonline.com, [other Microsoft Online Services](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide) and [Azure](/azure/azure-portal/azure-portal-safelist-urls?tabs=public-cloud) domains. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy.
  - The .NET Framework 4.7.2 needs to be installed.
  - Optional:  Although it is not required, it is recommended to download [Microsoft Edge for Windows Server](https://www.microsoft.com/en-us/edge?r=1) and use it in-place of Internet Explorer.
@@ -30,7 +30,7 @@ The Connector relies upon various techniques to detect and identify the LDAP ser
 * Oracle (previously Sun ONE) Directory Server Enterprise Edition
 * RadiantOne Virtual Directory Server (VDS)
 
-For more information see the [Generic LDAP Connector reference](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap).
+For more information, see the [Generic LDAP Connector reference](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap).
 
 ### Cloud requirements
 
