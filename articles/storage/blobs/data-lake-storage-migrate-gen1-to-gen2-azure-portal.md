@@ -26,7 +26,7 @@ To migrate to Gen2, we recommend the following approach.
 
 :heavy_check_mark: Step 1: Assess readiness
 
-   - [General assessment](data-lake-storage-migrate-gen1-to-gen2#recommended-approach)
+   - [General assessment](data-lake-storage-migrate-gen1-to-gen2.md#recommended-approach)
    - [Move Azure Data Lake Analytics applications](#move-azure-data-lake-analytics-applications) (if any)
    - [Verify RBAC role assignments](#verify-rbac-role-assignments)
 
