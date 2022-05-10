@@ -33,9 +33,9 @@
       href: private-dns-getstarted-cli.md
     - name: Create a private zone - PowerShell
       href: private-dns-getstarted-powershell.md
-  - name: Private DNS resolver
+  - name: Private resolver
     items:
-    - name: Create a private DNS resolver - portal
+    - name: Create a private resolver - portal
       href: dns-private-resolver-get-started-portal.md
     - name: Create a private resolver - PowerShell
       href: dns-private-resolver-get-started-powershell.md
