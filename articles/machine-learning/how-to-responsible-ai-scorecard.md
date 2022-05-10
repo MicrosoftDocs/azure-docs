@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic:  how-to
-ms.author: lagayhar
-author: lgayhardt
+ms.author: mesameki
+author: mesameki
 ms.date: 05/24/2022
 ms.custom: responsible-ml
 ---
