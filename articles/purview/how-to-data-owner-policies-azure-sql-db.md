@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 05/09/2022
+ms.date: 05/10/2022
 ms.custom: references_regions
 ---
 # Access provisioning by data owner for Azure SQL DB (preview)
@@ -63,7 +63,7 @@ Once your data source has the **Data Use Management** toggle *Enabled*, it will 
 
 ## Create and publish a data owner policy
 
-Execute the steps in the **Create a new policy** and **Publish a policy** sections of the [data-owner policy authoring tutorial](./how-to-data-owner-policy-authoring-generic.md#create-a-new-policy). This will  create and then publish a data owner policy similar to one of the examples shown in the images.
+Execute the steps in the **Create a new policy** and **Publish a policy** sections of the [data-owner policy authoring tutorial](./how-to-data-owner-policy-authoring-generic.md#create-a-new-policy). The result will be a data owner policy similar to one of the examples shown in the images.
 
 **Example #1: SQL Performance Monitor policy**. This policy assigns the Azure AD principal 'Mateo Gomez' to the *SQL Performance monitoring* role, in the scope of SQL server *relecloud-sql-srv2*. This policy has also been published to that server.
 

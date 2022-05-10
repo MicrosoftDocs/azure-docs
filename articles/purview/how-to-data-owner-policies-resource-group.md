@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 05/09/2022
+ms.date: 05/10/2022
 ms.custom:
 ---
 
@@ -52,12 +52,12 @@ To ensure you securely enable Data Use Management, and follow best practices, fo
 
 In the end, your resource will have the  **Data Use Management** toggle **Enabled**, as shown in the picture:
 
-:::image type="content" source="./media/how-to-data-owner-policies-resource-group/register-resource-group-for-policy.png" alt-text="Screenshot that shows how to register a resource group or subscription for policy by toggling the enable tab in the resource editor.":::
+![Screenshot shows how to register a resource group or subscription for policy by toggling the enable tab in the resource editor.](./media/how-to-data-owner-policies-resource-group/register-resource-group-for-policy.png)
 
 ## Create and publish a data owner policy
 Execute the steps in the **Create a new policy** and **Publish a policy** sections of the [data-owner policy authoring tutorial](./how-to-data-owner-policy-authoring-generic.md#create-a-new-policy). The result will be a data owner policy similar to one of the example shown in the image: a policy that provides security group *sg-Finance* *modify* access to resource group *finance-rg*. Use the Data source box in the Policy user experience.
 
-:::image type="content" source="./media/how-to-data-owner-policies-resource-group/data-owner-policy-example-resource-group.png" alt-text="Screenshot that shows a sample data owner policy giving access to a resource group.":::
+![Screenshot shows a sample data owner policy giving access to a resource group.](./media/how-to-data-owner-policies-resource-group/data-owner-policy-example-resource-group.png)
 
 >[!Important]
 > - Publish is a background operation. Azure Storage accounts can take up to **2 hours** to reflect the changes.
