@@ -75,16 +75,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| **Identifier** |
 	|---------|
 	| `https://<tenant_domain_name>.eu.uniflowonline.com` |
+	| `https://<tenant_domain_name>.uk.uniflowonline.com` |
 	| `https://<tenant_domain_name>.us.uniflowonline.com` |
 	| `https://<tenant_domain_name>.sg.uniflowonline.com` |
 	| `https://<tenant_domain_name>.jp.uniflowonline.com` |
 	| `https://<tenant_domain_name>.au.uniflowonline.com` |
+	
 
 	b. In the **Sign on URL** text box, type a URL using one of the following patterns:
 
 	| **Sign on URL** |
 	|---------|
 	| `https://<tenant_domain_name>.eu.uniflowonline.com` |
+	| `https://<tenant_domain_name>.uk.uniflowonline.com` |
 	| `https://<tenant_domain_name>.us.uniflowonline.com` |
 	| `https://<tenant_domain_name>.sg.uniflowonline.com` |
 	| `https://<tenant_domain_name>.jp.uniflowonline.com` |

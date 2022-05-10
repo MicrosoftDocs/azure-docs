@@ -1445,7 +1445,7 @@ Jump to a resource provider namespace:
 > | networkintentpolicies | Yes | Yes | No |
 > | networkinterfaces | Yes | Yes | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move NICs. |
 > | networkprofiles | No | No | No |
-> | networksecuritygroups | Yes | Yes | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move network security groups (NGSs). |
+> | networksecuritygroups | Yes | Yes | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move network security groups (NSGs). |
 > | networkwatchers | No | No | No |
 > | networkwatchers / connectionmonitors | Yes | No | No |
 > | networkwatchers / flowlogs | Yes | No | No |
