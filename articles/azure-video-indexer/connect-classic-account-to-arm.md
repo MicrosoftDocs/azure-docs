@@ -54,17 +54,17 @@ Before the end of the 30 days of transition state, you can remove access from us
 1. Select the Azure Video Indexer classic account you wish to connect to ARM (classic accounts will be tagged with a *classic tag*).
 1. Click **Settings**.
 
-    :::image type="content" alt-text="Azure Video Indexer portal settings" source="./media/connect-classic-account-to-arm/classic-account-settings.png":::
+    :::image type="content" alt-text="Azure Video Indexer portal settings." source="./media/connect-classic-account-to-arm/classic-account-settings.png":::
 1. Click **Connect to an ARM-based account**.
 
-    :::image type="content" alt-text="Connect to an ARM-based account" source="./media/connect-classic-account-to-arm/connect-classic-to-arm.png":::
+    :::image type="content" alt-text="Connect to an ARM-based account." source="./media/connect-classic-account-to-arm/connect-classic-to-arm.png":::
 1. Sign to Azure portal.
 1. The Azure Video Indexer create blade will open.
 1. In the **Create Azure Video Indexer account** section enter required values.
 
     If you followed the steps the fields should be auto-populated, make sure to validate the eligible values.
 
-    :::image type="content" alt-text="Create Azure Video Indexer account" source="./media/connect-classic-account-to-arm/connect-blade.png":::
+    :::image type="content" alt-text="Create Azure Video Indexer account." source="./media/connect-classic-account-to-arm/connect-blade.png":::
     
     Here are the descriptions for the resource fields: 
 
