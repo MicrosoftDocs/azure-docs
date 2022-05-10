@@ -20,14 +20,14 @@ Azure Private 5G Core Preview private mobile networks include one or more *sites
 - Collect all of the information in [Collect the required information for a site](collect-required-information-for-a-site.md).
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
-## Create the Mobile Network Site resource
+## Create the mobile network site resource
 
-In this step, you'll create the **Mobile Network Site** resource representing the physical enterprise location of your Azure Stack Edge device, which will host the packet core instance.
+In this step, you'll create the mobile network site resource representing the physical enterprise location of your Azure Stack Edge device, which will host the packet core instance.
 
 1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
 1. Search for and select the **Mobile Network** resource representing the private mobile network to which you want to add a site.
 
-    :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
+    :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a mobile network resource.":::
 
 1. On the **Get started** tab, select **Create sites**.
 
@@ -45,9 +45,8 @@ In this step, you'll create the **Mobile Network Site** resource representing th
 
 1. In the **Packet core** section, set the fields as follows:
 
-    - Set **Technology type** to the technology type you chose in [Identify the technology type (5G or 4G)](collect-required-information-for-a-site.md#identify-the-technology-type-5g-or-4g).
+    - Use the information you collected in [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) to fill out the **Technology type** and **Custom location** fields.
     - Leave the **Version** field blank unless you've been instructed to do otherwise by your support representative.
-    - Set **Custom location** to the custom location you collected in [Collect custom location information](collect-required-information-for-a-site.md#collect-custom-location-information).
 
 1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to fill out the fields in the **Access network** section. Note the following:
 

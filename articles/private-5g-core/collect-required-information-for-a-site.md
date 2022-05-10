@@ -32,12 +32,16 @@ Collect all the values in the following table for the mobile network site resour
    |The region in which you’re creating the mobile network site resource. We recommend that you use the East US region.                         |**Instance details: Region**|
    |The mobile network resource representing the private mobile network to which you’re adding the site. |**Instance details: Mobile network**|
 
-## Collect custom location information
+## Collect packet core configuration values
 
-Identify the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. You commissioned the AKS-HCI cluster as part of the steps in [Order and set up your Azure Stack Edge Pro device(s)](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices).
+Collect all the values in the following table for the packet core instance that will run in the site.
 
-- If you're going to create your site using the Azure portal, collect the name of the custom location.
-- If you're going to create your site using an ARM template, collect the full resource ID of the custom location. 
+   |Value  |Field name in Azure portal  |
+   |---------|---------|
+   |The core technology type the packet core instance should support (5G or 4G). If you have multiple sites in the same private mobile network, all of these sites must support the same technology type.|**Technology type**|
+   |The custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. You commissioned the AKS-HCI cluster as part of the steps in [Order and set up your Azure Stack Edge Pro device(s)](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices).</br></br>If you're going to create your site using the Azure portal, collect the name of the custom location.</br></br>If you're going to create your site using an ARM template, collect the full resource ID of the custom location.|**Custom location**|
+
+
 
 ## Collect access network values
 
