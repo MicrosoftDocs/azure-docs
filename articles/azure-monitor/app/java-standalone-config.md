@@ -316,6 +316,22 @@ These are the valid `level` values that you can specify in the `applicationinsig
 > If an exception object is passed to the logger, then the log message (and exception object details)
 > will show up in the Azure portal under the `exceptions` table instead of the `traces` table.
 
+### LoggingLevel
+
+Starting from version 3.3.0-BETA, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is aleady captured in the `SeverityLevel` field. 
+
+If needed, you can re-enable the previous behavior:
+
+```json
+{
+  "preview": {
+    "captureLoggingLevelAsCustomDimension": true
+  }
+}
+```
+
+We will remove this configuration option in 4.0.0.
+
 ## Auto-collected Micrometer metrics (including Spring Boot Actuator metrics)
 
 If your application uses [Micrometer](https://micrometer.io),
@@ -397,22 +413,6 @@ Starting from version 3.2.11, you can change this behavior to capture them as su
   }
 }
 ```
-
-## LoggingLevel
-
-By default, LoggingLevel is no longer captured as part of the Traces' custom dimension.
-
-Starting from version 3.3.0-BETA, you can change this behavior to capture LoggingLevel if you prefer even though SeverityLevel is available:
-
-```json
-{
-  "preview": {
-    "captureLoggingLevelAsCustomDimension": true
-  }
-}
-```
-
-We will remove this configuration option in 4.0.0.
 
 ## Suppressing specific auto-collected telemetry
 
