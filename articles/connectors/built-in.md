@@ -125,6 +125,10 @@ You can use the following built-in operations to perform general tasks, for exam
         \
         Connect to SFTP servers that you can access from the internet by using SSH so that you can work with your files and folders.
     :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
 :::row-end:::
 
 ## Service-based built-in operations
@@ -227,6 +231,8 @@ Connectors for some services provide both built-in operations and managed connec
         \
         Connect to IBM DB2 in the cloud or on-premises. Update a row, get a table, and more.
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         ![IBM Host File icon][ibm-host-file-icon]
         \
@@ -253,6 +259,8 @@ Connectors for some services provide both built-in operations and managed connec
         \
         \
         Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries.
+    :::column-end:::
+    :::column:::
     :::column-end:::
     :::column:::
     :::column-end:::
