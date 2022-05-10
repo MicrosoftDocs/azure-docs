@@ -20,35 +20,14 @@ If you have problems performing any operations on Azure Compute Gallery (formerl
 
 ## Creating or modifying a gallery ##
 
-**Message**: *Gallery name is invalid. Allowed characters are English alphanumeric characters, with underscores, and periods allowed in the middle, up to 80 characters total. All other special characters, including dashes, are disallowed.*  
-**Cause**: The name for the gallery does not meet the naming requirements.  
-**Workaround**: Choose a name that meets the following conditions: 
-- Has an 80-character limit
-- Contains only English letters, numbers, underscores, and periods
-- Starts and ends with English letters or numbers
-
-**Message**: *The provided resource name \<galleryName\> has these invalid trailing characters: \<character\>. The name can not end with characters: \<character\>*  
-**Cause**: The name for the gallery ends with a period or underscore.  
-**Workaround**: Choose a name for the gallery that meets the following conditions: 
-- Has an 80-character limit
-- Contains only English letters, numbers, underscores, and periods
-- Starts and ends with English letters or numbers
-
-**Message**: *The provided location \<region\> is not available for resource type 'Microsoft.Compute/galleries'. List of available regions for the resource type is …*  
-**Cause**: The region specified for the gallery is incorrect or requires an access request.  
-**Workaround**: Check that the region name is correct. If the region name is correct, submit [an access request](/troubleshoot/azure/general/region-access-request-process) for the region.
-
-**Message**: *Can not delete resource before nested resources are deleted.*  
-**Cause**: You've tried to delete a gallery that contains at least one existing image definition. A gallery must be empty before it can be deleted.  
-**Workaround**: Delete all image definitions inside the gallery and then proceed to delete the gallery. If the image definition contains image versions, you must delete the image versions before you delete the image definitions.
-
-**Message**: *The gallery name \<galleryName\> is not unique within the subscription \<subscriptionID\>. Please pick another gallery name.*  
-**Cause**: You have an existing gallery with the same name and have tried to create another gallery with the same name.  
-**Workaround**: Choose a different name for the gallery.
-
-**Message**: *The resource \<galleryName\> already exists in location \<region\_1\> in resource group \<resourceGroup\>. A resource with the same name cannot be created in location \<region\_2\>. Please select a new resource name.*  
-**Cause**: You have an existing gallery with the same name and have tried to create another gallery with the same name.  
-**Workaround**: Choose a different name for the gallery.
+| Error Message | Cause | Mitigation |
+| :-------------| :-----| :----------|
+| Gallery name is invalid. Allowed characters are English alphanumeric characters, with underscores, and periods allowed in the middle, up to 80 characters total. All other special characters, including dashes, are disallowed. | The name for the gallery does not meet the naming requirements | Choose a name that meets the following conditions: - <ol><li> Has an 80-character limit</li><li>Contains only English letters, numbers, underscores, and periods</li><li>Starts and ends with English letters or numbers</ol> |
+| The provided resource name \<galleryName\> has these invalid trailing characters: \<character\>. The name can not end with characters: \<character\> | The name for the gallery ends with a period or underscore | Choose a name for the gallery that meets the following conditions: - <ol><li> Has an 80-character limit</li><li>Contains only English letters, numbers, underscores, and periods</li><li>Starts and ends with English letters or numbers</ol> |
+| The provided location \<region\> is not available for resource type 'Microsoft.Compute/galleries'. List of available regions for the resource type is … | The region specified for the gallery is incorrect or requires an access request | Check that the region name is correct. If the region name is correct, submit [an access request](/troubleshoot/azure/general/region-access-request-process) for the region|
+| Can not delete resource before nested resources are deleted | You've tried to delete a gallery that contains at least one existing image definition. A gallery must be empty before it can be deleted | Delete all image definitions inside the gallery and then proceed to delete the gallery. If the image definition contains image versions, you must delete the image versions before you delete the image definitions |
+| The gallery name \<galleryName\> is not unique within the subscription \<subscriptionID\>. Please pick another gallery name | You have an existing gallery with the same name and have tried to create another gallery with the same name | Choose a different name for the gallery |
+| The resource \<galleryName\> already exists in location \<region\_1\> in resource group \<resourceGroup\>. A resource with the same name cannot be created in location \<region\_2\>. Please select a new resource name | You have an existing gallery with the same name and have tried to create another gallery with the same name | Choose a different name for the gallery
 
 ## Creating or modifying image definitions ##
 
