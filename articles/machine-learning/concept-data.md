@@ -50,10 +50,6 @@ Azure Blob Container| ✓ | ✓|
 Azure File Share| ✓ | |
 Azure Data Lake Gen1 | ✓ | ✓|
 Azure Data Lake Gen2| ✓ | ✓|
-Azure SQL Database | ✓ | ✓|
-Azure Database for PostgreSQL | ✓ | |
-Databricks File System| ✓ | |
-Azure Database for MySQL | ✓ | |
 
 
 ## Work with data
