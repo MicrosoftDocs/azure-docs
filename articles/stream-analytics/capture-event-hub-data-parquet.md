@@ -40,7 +40,6 @@ Use the following steps to configure a Stream Analytics job to capture data in A
         :::image type="content" source="./media/capture-event-hub-data-parquet/blob-configuration-2.png" alt-text="Second screenshot showing the Blob window where you edit a blob's connection configuration." lightbox="./media/capture-event-hub-data-parquet/blob-configuration-1.png" :::  
     1. Select **Connect**
 1. When the connection is established, you will see fields that are present in the output data.
-        :::image type="content" source="./media/capture-event-hub-data-parquet/blob-connection-fields.png" alt-text="Screenshot showing example blob connection fields." lightbox="./media/capture-event-hub-data-parquet/blob-connection-fields.png" :::
 1. Select **Save** to save your configuration.
 1. Select **Start** to start the streaming flow to capture data. Then in the Start Stream Analytics job window:
     1. Choose the output start time.
