@@ -31,7 +31,7 @@ If you prefer to submit training jobs with the Azure Machine learning CLI v2 ext
 
 ## Prerequisites
 
-For this article you need, 
+For this article you need: 
 * An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 * The Azure Machine Learning Python SDK v2 (preview) installed.
