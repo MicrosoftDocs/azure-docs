@@ -6,9 +6,9 @@ author: SnehaGunda
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: synapse-link
-ms.date: 04/18/2022
+ms.date: 05/09/2022
 ms.author: sngun
-ms.reviewer: sngun
+ms.reviewer: sngun, wiassaf
 ---
 
 # Azure Synapse Link for SQL Server 2022 (Preview)
@@ -23,7 +23,7 @@ This article helps you to understand the functions of Azure Synapse link for SQL
 
 A link connection identifies a mapping relationship between an SQL Server 2022 and an Azure Synapse dedicated SQL pool. You can create, manage, monitor and delete link connections in your Synapse workspace. When creating a link connection, you can select both source database and destination Synapse SQL pool so that the operational data from your source database will be automatically replicated to the specified destination Synapse SQL pool. You can also add or remove one or more tables from your source database to be replicated.
 
-You can start or stop a link connection. When being started, a link connection will start from a full initial load from your source database followed by incremental change feeds via change feed feature in SQL Server 2022. When you stop a link connection, the updates made to the operational data won't be synchronized to your Synapse SQL pool.
+You can start or stop a link connection. When being started, a link connection will start from a full initial load from your source database followed by incremental change feeds via change feed feature in SQL Server 2022. When you stop a link connection, the updates made to the operational data won't be synchronized to your Synapse SQL pool. For more information, see [Azure Synapse Link for SQL change feed](/sql/sql-server/synapse-link/synapse-link-sql-server-change-feed).
 
 You need to select compute core counts for each link connection to replicate your data. The core counts represent the compute power and it impacts your data replication latency and cost.
 
@@ -54,9 +54,48 @@ For each table, you'll see the following status:
 * **Failed:** the data on source table can't be replicated to destination. If you want to retry after fixing the error, remove the table from link connection and add it back.
 * **Suspended:** replication is suspended for this table due to an error. It will be resumed after the error is resolved. 
 
+For more information, see [Manage Synapse Link for SQL change feed](/sql/sql-server/synapse-link/synapse-link-sql-server-change-feed-manage).
+
 ## Transactional consistency across tables
 
 You can enable transactional consistency across table for each link connection. However, it limits overall replication throughput.
+
+## Known limitations
+
+The following is the list of known limitations for Synapse Link for SQL Server 2022.
+
+* Users must create new Synapse workspace to get Synapse link for SQL Server 2022.
+* Azure Synapse Link for SQL Server 2022 cannot be used in virtual network environment. Users need to check "Disable Managed virtual network" for Synapse workspace.
+* Users need to manually create schema in destination Synapse SQL pool in advance if your expected schema is not available in Synapse SQL pool. The destination database schema object will not be automatically created in data replication. If your schema is dbo, you can skip this step.
+* When creating SQL Server linked service, please choose SQL Auth, Windows Auth or Azure AD auth.
+* Synapse Link for SQL Server 2022 can work with SQL Server on Linux. But HA scenarios with Linux Pacemaker are not supported. Shelf hosted IR cannot be installed on Linux environment 
+* Synapse Link for SQL Server 2022 CANNOT be enabled for source tables in SQL Server 2022 in following conditions:
+  * Source tables do not have primary keys.
+  * The PK columns in source tables contain the unsupported data types including real, float, hierarchyid, sql_variant and timestamp.  
+  * Source table row size exceeds the limit of 7500 bytes. SQL Server supports row-overflow storage, which enables variable length columns to be pushed off-row. Only a 24-byte root is stored in the main record for variable length columns pushed out of row.
+
+* When SQL Server 2022 database owner does not have a mapped login, Synapse link for SQL Server 2022 will run into error when enabling a link connection. User can set database owner to sa to fix this.
+* The computed columns and the column containing unsupported data types by Synapse SQL Pool including image, text, xml, timestamp, sql_variant, UDT, geometry, geography in source tables in SQL Server 2022 will be skipped, and not to replicate to the Synapse SQL Pool.
+* Maximum 5000 tables can be added to a single link connection.
+* When source columns with type datetime2(7) and time(7) are replicated using Synapse Link, the target columns will have last digit truncated.
+* The following DDL operations are not allowed on source tables in SQL Server 2022 which are enabled for Synapse Link for SQL Server 2022.
+  * Switch partition, add/drop/alter column, alter PK, drop/truncate table, rename table is not allowed if the tables have been added into a running link connection of Synapse Link for SQL Server 2022.
+  * All other DDL operations are allowed, but those DDL operations will not be replicated to the Synapse SQL Pool.
+* If DDL + DML is executed in an explicit transaction (between Begin Transaction and End Transaction statements), replication for corresponding tables will fail within the link connection.
+   > [!NOTE]
+   > If a table is critical for transactional consistency at the link connection level, please review the state of the Synapse Link table in the Monitoring tab.
+* Synapse Link for SQL Server 2022 cannot be enabled if any of the following features are in use for the source tables in SQL Server 2022:
+  * Transactional Replication
+  * Change Data Capture
+  * Temporal history table.
+  * Always encrypted.
+* System tables in SQL Server 2022 will not be replicated.
+* Security configuration of SQL Server 2022 will NOT be reflected to Synapse SQL Pool. 
+* Enabling Azure Synapse Link will create a new schema on SQL Server 2022 as 'changefeed', please do not use this schema name for your workload.
+* If the SAS key of landing zone expires and gets rotated during Snapshot, new key will not get picked up. Snapshot will fail and restart automatically with the new key.
+* Sub core SLOs on the source databases in SQL Server 2022 are not supported.
+* Source tables with non-default collations: UTF8, Japanese cannot be replicated to Synapse. Here is the [supported collations in Synapse SQL Pool](../sql/reference-collation-types.md).
+
 
 ## Next steps
 

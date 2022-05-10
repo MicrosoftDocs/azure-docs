@@ -6,9 +6,9 @@ author: SnehaGunda
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: synapse-link
-ms.date: 04/18/2022
+ms.date: 05/09/2022
 ms.author: sngun
-ms.reviewer: sngun
+ms.reviewer: sngun, wiassaf
 ---
 
 # Synapse Link for Azure SQL Database (Preview)
@@ -47,6 +47,55 @@ For each table, you'll see the following status:
 ## Transactional consistency across tables
 
 You can enable transactional consistency across tables for each link connection. However, it limits overall replication throughput.
+
+## <a name="known-issues"></a>Known limitations
+
+The following is the list of known limitations for Synapse Link for Azure SQL Database.
+
+* Users must create new Synapse workspace to get Synapse link for SQL DB. 
+
+* Synapse link for SQL DB is not supported on Free, Basic or Standard tier (S0,S1,S2) in Azure SQL database. Users need to use Azure SQL databases tiers above Standard 3.
+
+* Synapse link for SQL DB cannot be used in virtual network environment. Users need to check "Allow Azure Service and resources to access to this server" on Azure SQL database and check "Disable Managed virtual network" and "Allow connections from all IP address" for Synapse workspace.
+
+* Users need to manually create schema in destination Synapse SQL pool in advance if your expected schema is not available in Synapse SQL pool. The destination database schema object will not be automatically created in data replication. If your schema is dbo, you can skip this step.
+
+* Service principal and user-assigned managed identity are not supported for authenticating to source Azure SQL DB, so when creating Azure SQL DB linked service, please choose SQL auth or service assigned managed Identity (SAMI).
+
+* Synapse Link for Azure SQL DB CANNOT be enabled for source tables in Azure SQL DB in following conditions:
+
+  * Source tables do not have primary keys.
+  * The PK columns in source tables contain the unsupported data types including real, float, hierarchyid, sql_variant and timestamp.  
+  * Source table row size exceeds the limit of 7500 bytes. SQL Server supports row-overflow storage, which enables variable length columns to be pushed off-row. Only a 24-byte root is stored in the main record for variable length columns pushed out of row.
+
+* When SQL DB owner does not have a mapped login, Synapse link for SQL DB will run into error when enabling a link connection. User can set database owner to sa to fix this.
+
+* The computed columns and the column containing unsupported data types by Synapse SQL Pool including image, text, xml, timestamp, sql_variant, UDT, geometry, geography in source tables in Azure SQL DB will be skipped, and not to replicate to the Synapse SQL Pool.
+
+* Maximum 5000 tables can be added to a single link connection.
+
+* When source columns with type datetime2(7) and time(7) are replicated using Synapse Link, the target columns will have last digit truncated.
+
+* The following DDL operations are not allowed on source tables in Azure SQL DB which are enabled for Synapse Link for Azure SQL DB.
+
+  * Switch partition, add/drop/alter column, alter PK, drop/truncate table, rename table are not allowed if the tables have been added into a running link connection of Synapse Link for Azure SQL DB. 
+  * All other DDL operations are allowed, but those DDL operations will not be replicated to the Synapse SQL Pool.
+
+* If DDL + DML is executed in an explicit transaction (between Begin Transaction and End Transaction statements), replication for corresponding tables will fail within the link connection.
+
+  > [!NOTE]
+  > If a table is critical for transactional consistency at the link connection level, please review the state of the Synapse Link table in the Monitoring tab.
+
+* Synapse Link for SQL DB cannot be enabled if any of the following features are in use for the source tables in Azure SQL database:
+
+  * Change Data Capture
+  * Temporal history table
+  * Always encrypted
+    
+* System tables in SQL database will not be replicated.
+* Security configuration of Azure SQL database will NOT be reflected to Synapse SQL Pool. 
+* Enabling Azure Synpase Link will create a new schema on the Azure SQL DB as 'changefeed', please do not use this schema name for your workload.
+* Source tables with non-default collations: UTF8, Japanese cannot be replicated to Synapse. Here is the [supported collations in Synapse SQL Pool](../sql/reference-collation-types.md).
 
 ## Next steps
 
