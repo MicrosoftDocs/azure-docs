@@ -4,6 +4,7 @@ description: This sample CLI script scales Azure Database for MySQL server to a 
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
