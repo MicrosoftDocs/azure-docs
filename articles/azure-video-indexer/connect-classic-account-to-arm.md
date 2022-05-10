@@ -62,9 +62,11 @@ Before the end of the 30 days of transition state, you can remove access from us
 1. The Azure Video Indexer create blade will open.
 1. In the **Create Azure Video Indexer account** section enter required values.
 
-    * If you followed the steps the fields should be auto-populated, make sure to validate the eligible values.
+    If you followed the steps the fields should be auto-populated, make sure to validate the eligible values.
 
     ![connect-to-arm](media/connect-classic-account-to-arm/connect-blade.png)
+    
+    Here are the description for the resource fields: 
 
     | Name | Description |
     | ---|---|
