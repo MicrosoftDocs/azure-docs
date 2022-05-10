@@ -41,11 +41,8 @@ The following list presents the set of features which are currently available in
 
 
 ## API Throttling and Timeouts
-The following timeouts apply to the Communication Services Email client libraries:
 
-| Action           | Timeout in seconds |
-| -------------- | ---------- |
-
+Your Azure account has a set of limitation on the number of email messages that you can send. For all the developers email sending is limited to 10 mails per minute, 25 mails in an hour and 100 mails in day. This will help developers to start building the application and gradullay increase the sending volume as soon as the application is ready to go live. Please submit a support request to increase your sending limit.
 
 ## Next steps
 
