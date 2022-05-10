@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: container-apps
 ms.topic: tutorial
-ms.date: 5/04/2022
+ms.date: 5/10/2022
 ---
 
 # Disaster recovery guidance for Azure Container Apps
@@ -17,9 +17,9 @@ Availability zones are unique physical locations within an Azure region. Each zo
 
 In the unlikely event of a full region outage, you have the option of using one of two strategies:
 
-- **Manual recovery**: Wait for the region to recover, and then manually redeploy all environments and apps.
+- **Manual recovery**: Manually deploy to a new region, or wait for the region to recover, and then manually redeploy all environments and apps.
 
-- **Resilient recovery**: First, deploy your container apps in advance to multiple regions. Next, use Azure Front Door or Azure Traffic Manager to handle incoming requests, pointing traffic to your primary region. Then, should an outage occur, you can redirect traffic away from the affected region.
+- **Resilient recovery**: First, deploy your container apps in advance to multiple regions. Next, use Azure Front Door or Azure Traffic Manager to handle incoming requests, pointing traffic to your primary region. Then, should an outage occur, you can redirect traffic away from the affected region. See [Cross-region replication in Azure](/azure/availability-zones/cross-region-replication-azure) for more information.
 
 > [!NOTE]
 > Regardless of which strategy you choose, make sure your deployment configuration files are in source control so you can easily redeploy if necessary.
