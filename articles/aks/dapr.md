@@ -40,7 +40,7 @@ The Dapr extension support varies depending on how you manage the runtime.
 For self-managed runtime, the Dapr extension will follow the [Dapr OSS support policy][dapr-oss-support] (which is N-1), and requires manual upgrade to remain in the support window.
 
 **Auto-upgrade**
-Opting into auto-upgrades provides a rolling support window for Dapr version N-1. 
+Enabling auto-upgrade keeps your Dapr extension updated to the latest minor version. 
 
 ## Prerequisites 
 
