@@ -58,7 +58,7 @@ The script [Create-AzDiagPolicy](https://www.powershellgallery.com/packages/Crea
    az policy definition create --name 'deploy-diag-setting-sql-database--workspace' --display-name 'Deploy Diagnostic Settings for SQL Server database to Log Analytics workspace'  --rules 'Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.rules.json' --params 'Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.parameters.json' --subscription 'AzureMonitor_Docs' --mode All
    ```
 
-### Initiative
+## Initiative
 Rather than create an assignment for each policy definition, a common strategy is to create an initiative that includes the policy definitions to create diagnostic settings for each Azure service. Create an assignment between the initiative and a management group, subscription, or resource group, depending on how you manage your environment. This strategy offers the following benefits:
 
 - Create a single assignment for the initiative instead of multiple assignments for each resource type. Use the same initiative for multiple monitoring groups, subscriptions, or resource groups.
@@ -71,7 +71,7 @@ For details on creating an initiative, see [Create and assign an initiative defi
 
 ![Screenshot that shows settings for initiative definition.](media/diagnostic-settings-policy/initiative-definition.png)
 
-### Assignment 
+## Assignment 
 Assign the initiative to an Azure management group, subscription, or resource group, depending on the scope of your resources to monitor. A [management group](../../governance/management-groups/overview.md) is useful for scoping policy, especially if your organization has multiple subscriptions.
 
 ![Screenshot of the settings for the Basics tab in the Assign initiative section of the Diagnostic settings to Log Analytics workspace in the Azure portal.](media/diagnostic-settings-policy/initiative-assignment.png)
@@ -80,7 +80,7 @@ By using initiative parameters, you can specify the workspace or any other detai
 
 ![Screenshot that shows initiative parameters on the Parameters tab.](media/diagnostic-settings-policy/initiative-parameters.png)
 
-### Remediation
+## Remediation
 The initiative will apply to each virtual machine as it's created. A [remediation task](../../governance/policy/how-to/remediate-resources.md) deploys the policy definitions in the initiative to existing resources, so you can create diagnostic settings for any resources that were already created.
 
 When you create the assignment by using the Azure portal, you have the option of creating a remediation task at the same time. See [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md) for details on the remediation.
