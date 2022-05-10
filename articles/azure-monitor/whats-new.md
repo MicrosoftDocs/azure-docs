@@ -2,112 +2,12 @@
 title: "What's new in Azure Monitor documentation"
 description: "What's new in Azure Monitor documentation"
 ms.topic: conceptual
-ms.date: 05/03/2022
+ms.date: 04/04/2022
 ---
 
 # What's new in Azure Monitor documentation
 
 This article lists significant changes to Azure Monitor documentation.
-
-## April, 2022
-
-### General
-
-**New articles**
-
-- [Monitoring Azure Monitor data reference](azure-monitor-monitoring-reference.md)
-
-**Updated articles**
-
-- [Azure Monitor best practices - Analyze and visualize data](best-practices-analysis.md)
-
-### Agents
-
-**New articles**
-
-- [Azure Monitor agent extension versions](agents/azure-monitor-agent-extension-versions.md)
-- [Azure Monitor agent on Windows client devices (Preview)](agents/azure-monitor-agent-windows-client.md)
-- [Collect text and IIS logs with Azure Monitor agent (preview)](agents/data-collection-text-log.md)
-
-
-**Updated articles**
-
-- [Azure Monitor agent overview](agents/azure-monitor-agent-overview.md)
-- [Collect text and IIS logs with Azure Monitor agent (preview)](agents/data-collection-text-log.md)
-- [Overview of Azure Monitor agents](agents/agents-overview.md)
-
-### Alerts
-
-**Updated articles**
-
-- [Alerts on activity log](alerts/activity-log-alerts.md)
-- [Configure Azure to connect ITSM tools using Secure Webhook](alerts/itsm-connector-secure-webhook-connections-azure-configuration.md)
-- [Connect Azure to ITSM tools by using IT Service Management Solution](alerts/itsmc-definition.md)
-- [Connect Azure to ITSM tools by using Secure Webhook](alerts/it-service-management-connector-secure-webhook-connections.md)
-- [Create a metric alert with a Resource Manager template](alerts/alerts-metric-create-templates.md)
-- [Create, view, and manage log alerts using Azure Monitor](alerts/alerts-log.md)
-- [IT Service Management (ITSM) Integration](alerts/itsmc-overview.md)
-- [Log alerts in Azure Monitor](alerts/alerts-unified-log.md)
-- [Manage alert instances with unified alerts](alerts/alerts-managing-alert-instances.md)
-- [Troubleshoot problems in IT Service Management Connector](alerts/itsmc-troubleshoot-overview.md)
-
-### Application Insights
-
-**New articles**
-
-- [PageView telemetry: Application Insights data model](app/data-model-pageview-telemetry.md)
-- [Profile live Azure containers with Application Insights](app/profiler-containers.md)
-
-**Updated articles**
-
-- [Angular plugin for Application Insights JavaScript SDK](app/javascript-angular-plugin.md)
-- [Application Insights for web pages](app/javascript.md)
-- [Configure Application Insights Profiler](app/profiler-settings.md)
-- [Connection strings](app/sdk-connection-string.md)
-- [Live Metrics Stream: Monitor & Diagnose with 1-second latency](app/live-stream.md)
-- [Monitor your Node.js services and apps with Application Insights](app/nodejs.md)
-- [Profile production applications in Azure with Application Insights](app/profiler-overview.md)
-- [React Native plugin for Application Insights JavaScript SDK](app/javascript-react-native-plugin.md)
-- [React plugin for Application Insights JavaScript SDK](app/javascript-react-plugin.md)
-- [Tips for updating your JVM args - Azure Monitor Application Insights for Java](app/java-standalone-arguments.md)
-- [Troubleshooting no data - Application Insights for .NET/.NET Core](app/asp-net-troubleshoot-no-data.md)
-
-### Autoscale
-
-**Updated articles**
-
-- [Get started with Autoscale in Azure](autoscale/autoscale-get-started.md)
-
-### Essentials
-
-**Updated articles**
-
-- [Supported categories for Azure Monitor resource logs](essentials/resource-logs-categories.md)
-- [Supported metrics with Azure Monitor](essentials/metrics-supported.md)
-
-### Insights
-
-**Updated articles**
-
-- [Monitor Surface Hubs with Azure Monitor to track their health](insights/surface-hubs.md)
-
-### Logs
-
-**New articles**
-
-- [Collect and ingest data from a file using Data Collection Rules (DCR) (Preview)](logs/data-ingestion-from-file.md)
-
-**Updated articles**
-
-- [Azure Monitor Logs pricing details](logs/cost-logs.md)
-- [Log Analytics workspace data export in Azure Monitor](logs/logs-data-export.md)
-- [Tutorial: Send custom logs to Azure Monitor Logs using Resource Manager templates (preview)](logs/tutorial-custom-logs-api.md)
-
-### Visualizations
-
-**Updated articles**
-
-- [Monitor your Azure services in Grafana](visualize/grafana-plugin.md)
 
 ## March, 2022
 ### Agents
@@ -547,7 +447,7 @@ This article lists significant changes to Azure Monitor documentation.
 
 - [Enable VM insights by using Azure Policy](vm/vminsights-enable-policy.md)
 
-### Visualizations
+## Visualizations
 
 **Updated articles**
 
