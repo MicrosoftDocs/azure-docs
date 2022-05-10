@@ -41,24 +41,24 @@ For this article you need:
     * Use the followings commands to install Azure ML Python SDK v2:
        * Uninstall previous preview version:
        ```Python
-       pip uninstall azure-ml
+       pip uninstall azure-ai-ml
        ```
        * Install the Azure ML Python SDK v2:
        ```Python
-       pip install azure-ml
+       pip install azure-ai-ml
        ```
 
     [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
 
 ## Setup your workspace 
 
-To connect to a workspace, you need to provide a subscription, resource group and workspace name. These details are used in the MLClient from `azure.ml` to get a handle to the required Azure Machine Learning workspace. 
+To connect to a workspace, you need to provide a subscription, resource group and workspace name. These details are used in the MLClient from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. 
 
 In the following example, the default Azure authentication is used along with the default workspace configuration or from any `config.json` file you might have copied into the folders structure. If no `config.json` is found, then you need to manually introduce the subscription_id, resource_group and workspace when creating MLClient.
 
 ```Python
 from azure.identity import DefaultAzureCredential
-from azure.ml import MLClient
+from azure.ai.ml import MLClient
 
 credential = DefaultAzureCredential()
 ml_client = None
@@ -104,9 +104,9 @@ The following shows two ways of creating an MLTable.
 - B. Providing a MLTable already registered and uploaded into the cloud.
 
 ```Python
-from azure.ml.constants import AssetTypes
-from azure.ml import automl
-from azure.ml.entities import JobInput
+from azure.ai.ml.constants import AssetTypes
+from azure.ai.ml import automl
+from azure.ai.ml.entities import JobInput
 
 # A. Create MLTable for training data from your local directory
 my_training_data_input = JobInput(
