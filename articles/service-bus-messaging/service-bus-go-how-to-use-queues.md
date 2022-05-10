@@ -76,7 +76,7 @@ The `GetClient` function returns a new `azservicebus.Client` object that's creat
 
 For local development, the `DefaultAzureCredential` used the access token from Azure CLI, which can be created by running the `az login` command to authenticate to Azure. 
 
-[!NOTE]
+> [!NOTE]
 > To authenticate with a connection string use the [NewClientFromConnectionString](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/messaging/azservicebus#NewClientFromConnectionString) function.
 
 ## Send messages to a queue
