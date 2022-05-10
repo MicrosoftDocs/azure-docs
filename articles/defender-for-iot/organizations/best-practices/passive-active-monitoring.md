@@ -5,9 +5,9 @@ ms.date: 05/10/2022
 ms.topic: conceptual
 ---
 
-# Active and passive monitoring in Defender for IoT
+# Active and passive OT monitoring in Defender for IoT
 
-This article describes how Microsoft Defender for IoT supports both passive monitoring, as the default network monitoring method, and active monitoring, which provides additional insights into your network assets and data.
+This article describes how Microsoft Defender for IoT supports both passive monitoring, as the default OT network monitoring method, and active monitoring, which provides additional insights into your network assets and data.
 
 ## Passive monitoring with Defender for IoT
 
