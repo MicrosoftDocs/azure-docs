@@ -96,16 +96,19 @@ To define a VLAN for your sensor, enter the VLAN ID and a meaningful name.
 
 ---
 
-### In case of Internet outage
+### For disconnected sensors
 
-When a sensor setting is configured from the Azure portal, some settings on the sensor itself are blocked from modifications. However, if you're experiencing an Internet outage, you may need to unblock those settings in order to modify them from the sensor.
+This procedure describes how to change sensor settings if your sensor is currently disconnected from Azure, such as during an ongoing security incident.
 
-> [!IMPORTANT]
-> As soon as your sensor's connection to the Azure portal is resumed, any settings you configured from the sensor are overwritten by the settings defined in the Azure portal.
->
-> If you modify settings on the sensor during an internet outage, make sure to change the scope of the relevant setting in the Azure portal so that it no longer includes the affected sensor. Do this before you reconnect the sensor to the internet so that the Azure setting doesn't overwrite your changes.
+By default, if you've configured any sensor settings from the Azure portal, all settings that are configurable from both the Azure portal and the sensor are set to read-only on the sensor itself. For example, if you've configured a [VLAN](#vlan-namingtabvlan) from the Azure portal, then [bandwidth cap](#bandwidth-captabbandwidth), [subnet](#subnettabsubnet), and [VLAN](#vlan-namingtabvlan) settings are all set to read-only, and blocked from modifications on the sensor.
 
-**To unblock local sensor configurations**:
+If you're in a situation where the sensor is disconnected from Azure, and you need to modify one of these settings, you'll first need to gain write access.
+
+**To gain write access to blocked sensor settings**:
+
+1. In Defender for IoT on the Azure portal, update the scope of the setting so that it no longer includes the affected sensor. Settings defined on the Azure portal always overwrite settings defined on the sensor, so you'll want to make sure that your sensor changes won't be lost when it's reconnected to Azure.
+
+    For more information, see [Define and view OT sensor settings](#define-and-view-ot-sensor-settings-public-preview).
 
 1. On the sensor console, go to **Settings > Advanced configurations** and select **Azure Remote Config**.
 
@@ -113,9 +116,7 @@ When a sensor setting is configured from the Azure portal, some settings on the 
 
     :::image type="content" source="media/how-to-manage-individual-sensors/remote-config-sensor.png" alt-text="Screenshot of the Azure Remote Config option.":::
 
-1. Before reconnecting your sensor to the Internet, in Defender for IoT, navigate to any setting you've applied to your sensor from the Azure cloud.
-
-    Remove the setting from your sensor before reconnecting your sensor to the Internet to prevent your local settings from being overwritten.
+Continue by updating the relevant setting on the sensor as needed.
 
 ## Reactivate a sensor
 
