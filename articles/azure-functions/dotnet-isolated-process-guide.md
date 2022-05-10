@@ -112,7 +112,33 @@ The [ConfigureFunctionsWorkerDefaults] extension method has an overload that let
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/CustomMiddleware/Program.cs" id="docsnippet_middleware_register" :::
 
-For a more complete example of using custom middleware in your function app, see the [custom middleware reference sample](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/CustomMiddleware).
+ The `UseWhen` extension method can be used to register a middleware which gets executed conditionally. A predicate which returns a boolean value needs to be passed to this method and the middleware will be participating in the invocation processing pipeline if the return value of the predicate is true.
+
+#### Useful extension methods when working with middleware
+
+The below extension methods on [FunctionContext] comes in handy when working with a middleware in the isolated model.
+
+##### GetHttpRequestDataAsync
+
+Gets the `Microsoft.Azure.Functions.Worker.Http.HttpRequestData` instance if the invocation is for an http trigger. This method returns an instance of `ValueTask<HttpRequestData?>` This will be helpful if you want to read the request headers, cookies etc.
+
+##### GetHttpResponseData
+
+Gets the `Microsoft.Azure.Functions.Worker.Http.HttpResponseData` instance if the invocation is for an http trigger.
+
+##### GetInvocationResult
+
+Gets an instance of `Microsoft.Azure.Functions.Worker.InvocationResult`  which represents the invocation result of the current function invocation. You can use the `Value` property to get or set the value as needed.
+
+##### GetOutputBindings
+
+Gets the output binding entries for the current function invocation. Each entry in the result of this method is of type `OutputBindingData`. You can use the `Value` property to get or set the value as needed.
+
+##### BindInputAsync
+
+Binds an input binding item for the requested `Microsoft.Azure.Functions.Worker.BindingMetadata` instance. For example, if you have a function with a `BlobInput` input binding and you prefer to get/update the value of that in your middleware, you may use this method.
+ 
+For a more complete example of using custom middlewares in your function app, see the [custom middleware reference sample](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/CustomMiddleware).
 
 ## Execution context
 
