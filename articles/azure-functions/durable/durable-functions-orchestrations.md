@@ -299,6 +299,10 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 The feature is not currently supported in PowerShell.
 
+# [Java](#tab/java)
+
+The feature is not currently supported in Java.
+
 ---
 
 In addition to supporting basic request/response patterns, the method supports automatic handling of common async HTTP 202 polling patterns, and also supports authentication with external services using [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md).
@@ -436,6 +440,37 @@ param($location)
 "Hello $($location.City), $($location.State)!"
 # ...
 ```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("GetWeatherOrchestrator")
+public String getWeatherOrchestrator(
+    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
+        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
+            var location = new Location();
+            location.city = "Seattle";
+            location.state = "WA";
+            String weather = ctx.callActivity("GetWeather", location, String.class).get();
+            return weather;
+        });
+}
+
+@FunctionName("GetWeather")
+public String getWeather(@DurableActivityTrigger(name = "location") Location location) {
+    if (location.city.equals("Seattle") && location.state.equals("WA")) {
+        return "Cloudy";
+    } else {
+        return "Unknown";
+    }
+}
+
+class Location {
+    public String city;
+    public String state;
+}
+```
+
 ---
 
 ## Next steps

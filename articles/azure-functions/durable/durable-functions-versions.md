@@ -76,6 +76,7 @@ To update the extension bundle version in your project, open host.json and updat
         "version": "[4.*, 5.0.0)"
     }
 }
+```
 
 #### .NET
 
@@ -103,7 +104,7 @@ In version 1.x, if a task hub name wasn't specified in host.json, it was default
 
 #### Public interface changes (.NET only)
 
-In version 1.x, the various _context_ objects supported by Durable Functions have abstract base classes intended for use in unit testing. As part of Durable Functions 2.x, these abstract base classes are replaced with interfaces.
+In version 1.x, the various *context* objects supported by Durable Functions have abstract base classes intended for use in unit testing. As part of Durable Functions 2.x, these abstract base classes are replaced with interfaces.
 
 The following table represents the main changes:
 
