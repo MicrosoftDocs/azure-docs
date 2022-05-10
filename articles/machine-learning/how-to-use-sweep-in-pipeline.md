@@ -20,19 +20,18 @@ In this article, you will learn how to do hyperparameter tuning in Azure Machine
 
 ## Prerequisite
 
-1. Understand what is hyperparameter tuning, and how to do hyperparameter tuning in Azure Machine Learning use SweepJob [following this article](how-to-tune-hyperparameters.md) 
+1. Understand what is [hyperparameter tuning](how-to-tune-hyperparameters.md) and how to do hyperparameter tuning in Azure Machine Learning use SweepJob.
 2. Understand what is a [Azure Machine Learning pipeline](concept-ml-pipelines.md)
-3. Build a command component that takes hyperparameter as input. 
+3. Build a command component that takes hyperparameter as input.
 
 ## How to do hyperparameter tuning in Azure Machine Learning pipeline
 
 This section explains how to do hyperparameter tuning in Azure Machine Learning pipeline using CLI v2 and Python SDK. Both approaches share the same prerequisite: you already have a command component created and the command component takes hyperparameters as inputs. If you don't have a command component yet. Follow below links to create a command component first.
+
 - [AzureML CLI v2](how-to-create-component-pipelines-cli.md)
 - [AzureML Python SDK v2](how-to-create-component-pipeline-python.md)
 
 ### CLI v2
-
-[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
 
 The example used in this article can be found in [azureml-example repo](https://github.com/Azure/azureml-examples). Navigate to *azureml-examples/cli/jobs/pipelines-with-components/pipeline_with_hyperparameter_sweep* to check the example.
 
@@ -70,15 +69,15 @@ After submitting a pipeline job, the SDK or CLI widget will give you a web URL l
 
 To check details of the sweep step, double click the sweep step and navigate to the **child run** tab in the panel on the right.
 
-:::image type="content" source="./media/how-to-use-sweep-in-pipeline-v2/pipeline-view.png" alt-text="Screenshot of the pipeline with child run and the train_model node highlighted.":::
+:::image type="content" source="./media/how-to-use-sweep-in-pipeline/pipeline-view.png" alt-text="Screenshot of the pipeline with child run and the train_model node highlighted.":::
 
 This will link you to the sweep job page as seen in the below screenshot. Navigate to **child run** tab, here you can see the metrics of all child runs and list of all child runs.
 
-:::image type="content" source="./media/how-to-use-sweep-in-pipeline-v2/sweep-job.png" alt-text="Screenshot of the job page on the child runs tab.":::
+:::image type="content" source="./media/how-to-use-sweep-in-pipeline/sweep-job.png" alt-text="Screenshot of the job page on the child runs tab.":::
 
 If a child runs failed, select the name of that child run to enter detail page of that specific child run(looks like below screenshot). The useful debug information is under **Outputs + Logs**.
 
-:::image type="content" source="./media/how-to-use-sweep-in-pipeline-v2/child-run.png" alt-text="Screenshot of the output + logs tab of a child run.":::
+:::image type="content" source="./media/how-to-use-sweep-in-pipeline/child-run.png" alt-text="Screenshot of the output + logs tab of a child run.":::
 
 ## Sample notebooks
 
