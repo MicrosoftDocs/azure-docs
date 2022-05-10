@@ -64,6 +64,9 @@
     - name: Auto-train a natural language processing model
       displayName: nlp, auto ML, automl, SDK
       href: how-to-auto-train-nlp-models-v1.md
+    - name: Prepare data for computer vision with AutoML
+      displayName: nlp, auto ML, automl, SDK
+      href: how-to-prepare-datasets-for-automl-images-v1.md
   - name: Deploy models
     items:
     - name: Where and how to deploy
