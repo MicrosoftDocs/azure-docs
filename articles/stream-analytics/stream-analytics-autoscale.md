@@ -31,7 +31,7 @@ Examples of custom autoscale rules include:
 
 ## Autoscale limits
 
-All Stream Analytics jobs can autoscale between 1, 3 and 6 SUs. Autoscaling beyond 6 SUs requires your job to have a parallel or [embarrassingly parallel topology](stream-analytics-parallelization#embarrassingly-parallel-jobs.md). Parallel jobs created with less than or equal to 6 streaming units can autoscale to the maximum SU value for that job based on the number of partitions.
+All Stream Analytics jobs can autoscale between 1, 3 and 6 SUs. Autoscaling beyond 6 SUs requires your job to have a parallel or [embarrassingly parallel topology](stream-analytics-parallelization.md#embarrassingly-parallel-jobs.md). Parallel jobs created with less than or equal to 6 streaming units can autoscale to the maximum SU value for that job based on the number of partitions.
 
 ## Scaling your Stream Analytics job
 
@@ -132,10 +132,10 @@ The previous section shows you how to add a default condition for the autoscale 
     1. If you select **Specify start/end dates**, select the **Timezone**, **Start date and time**, and **End date and time** for the condition to be in effect.
     2. If you select **Repeat specific days**, select the days of the week, timezone, start time, and end time when the condition should apply.
 
-To learn more about how autoscale settings work, especially how it picks a profile or condition and evaluates multiple rules, see [Understand Autoscale settings](autoscale-understanding-settings.md).
+To learn more about how autoscale settings work, especially how it picks a profile or condition and evaluates multiple rules, see [Understand Autoscale settings](../azure-monitor/autoscale/autoscale-understanding-settings.md).
 
 ## Next steps
 
 - [Understand and adjust Streaming Units](stream-analytics-streaming-unit-consumption.md).
-- [Create parallelizable queries in Azure Stream Analytics](stream-analytics/stream-analytics-parallelization.md)
+- [Create parallelizable queries in Azure Stream Analytics](stream-analytics-parallelization.md)
 - [Scale Azure Stream Analytics jobs to increase throughput](stream-analytics-scale-jobs.md)
