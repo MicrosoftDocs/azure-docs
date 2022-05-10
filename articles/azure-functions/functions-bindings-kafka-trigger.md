@@ -27,21 +27,11 @@ An [isolated process class library](dotnet-isolated-process-guide.md) compiled C
 
 ---
 
-Kafka messages can be serialized to multiple formats. Currently, the following formats are supported: 
+Kafka messages can be serialized to multiple formats. A complete set of samples  
 
 # [JSON](#tab/string/in-process)
 
-```csharp
-public static void StringTopic(
-    [KafkaTrigger("BrokerList", "myTopic", ConsumerGroup = "myGroupId")] KafkaEventData<string>[] kafkaEvents,
-    ILogger logger)
-{
-    foreach (var kafkaEvent in kafkaEvents)
-    {
-      logger.LogInformation(kafkaEvent.Value);
-    }
-}
-```
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/RawTypeTriggers.cs" range="14-20":::
 
 # [Avro](#tab/avro/in-process)
 
@@ -200,10 +190,27 @@ Isolated process only supported string (JSON) payloads.
 
 ---
 
+
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
 
+The following function.json defines the trigger for the specific provider:
 
+# [Confluent](#tab/confluent)
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTrigger/function.confluent.json" :::
+
+# [Event Hubs](#tab/event-hub)
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTrigger/function.eventhub.json" :::
+
+---
+
+The following code is run when the function is triggered:
+
+:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTrigger/index.js" :::
+
+For a complete set of working JavaScript examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/javascript/). 
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell" 

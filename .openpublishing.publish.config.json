@@ -252,7 +252,7 @@
     {
       "path_to_root": "azure-functions-kafka-extension",
       "url": "https://github.com/Azure/azure-functions-kafka-extension",
-      "branch": "e2e-test-main",
+      "branch": "dev",
       "branch_mapping": {}
     },
     {
