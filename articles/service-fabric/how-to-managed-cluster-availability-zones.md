@@ -69,7 +69,7 @@ Requirements:
 * Three [availability zones in the region](/availability-zones/az-overview.md#azure-regions-with-availability-zones).
 
 >[!NOTE]
->Migration to a zone resilient configuration can cause a brief loss of external connectivity through the load balancer, but will not effect cluster health. This occurs when a new Public IP needs to be created in order to make the networking resilient to Zone failures. Please  test and plan the migration accordingly.
+>Migration to a zone resilient configuration can cause a brief loss of external connectivity through the load balancer, but will not effect cluster health. This occurs when a new Public IP needs to be created in order to make the networking resilient to Zone failures. Please plan the migration accordingly.
 
 1) Start with determining if there will be a new IP required and what resources need to be migrated to become zone resilient. To get the current Availability Zone resiliency state for the resources of the managed cluster use the following  API call:
 
@@ -107,7 +107,7 @@ Requirements:
 
    If the Public IP resource is not zone resilient, migration of the cluster will cause a brief loss of external connectivity. This is due to the migration setting up new Public IP and updating the cluster FQDN to the new IP. If the Public IP resource is zone resilient, migration will not modify the Public IP resource or FQDN and there will be no external connectivity impact.
    
-2) Initiate migration of the underlying storage account created for managed cluster for LRS to ZRS using [live migration](../storage/common/redundancy-migration.md#request-a-live-migration-to-zrs-gzrs-or-ra-gzrs). The resource group of storage account that needs to be migrated would be of the form "SFC_ClusterId"(ex SFC_9240df2f-71ab-4733-a641-53a8464d992d) under the same subscription as the managed cluster resource.
+2) Initiate migration of the underlying storage account created for managed cluster from LRS to ZRS using [live migration](../storage/common/redundancy-migration.md#request-a-live-migration-to-zrs-gzrs-or-ra-gzrs). The resource group of storage account that needs to be migrated would be of the form "SFC_ClusterId"(ex SFC_9240df2f-71ab-4733-a641-53a8464d992d) under the same subscription as the managed cluster resource.
 
 3) Add a new primary node type which spans across availability zones
 
