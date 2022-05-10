@@ -52,10 +52,10 @@ The following is the list of known limitations for Azure Synapse Link for SQL Se
 * Prior to breaking an Availability Group, disable any running links. Otherwise both databases will attempt to write their changes to the landing zone.
 * When using asynchronous replicas, transactions need to be written to all replicas prior to them being published to Azure Synapse Link.
 * Azure Synapse Link is not supported on databases with database mirroring enabled.
-* Restoring a Azure Synapse Link-enabled database from on-premises to Azure SQL Managed Instance is not supported.
+* Restoring an Azure Synapse Link-enabled database from on-premises to Azure SQL Managed Instance is not supported.
 * Source tables with non-default collations: UTF8, Japanese cannot be replicated to Synapse. Here is the [supported collations in Synapse SQL Pool](../sql/reference-collation-types.md).
 
-## Known Issues
+## Known issues
 ### Deleteing an Azure Synapse Analytics workspace with a running link could cause log on source database to fill
 * Issue - When you delete an Azure Synapse Analytics workspace, it is possible that running links might not be stopped.  This will cause the source database to think that the link is still operational, and could lead to the log filling and not being truncated.
 * Resolution - There are two possible resolutions to this situation:
