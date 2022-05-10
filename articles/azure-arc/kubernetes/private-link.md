@@ -45,15 +45,13 @@ Consider these current limitations when planning your Private Link setup.
 * Other Azure services that you will use, for example Azure Monitor, requires their own private endpoints in your virtual network.
 
     > [!NOTE]
-    > The [Cluster Connect](conceptual-cluster-connect.md) (and hence the [Custom location](custom-locations.md)) features are not supported on Azure Arc-enabled Kubernetes clusters with private connectivity enabled. This is planned and will be added later. Network connectivity using private links for Azure Arc services like Azure Arc-enabled data services and Azure Arc-enabled App services that use these features are also not supported yet. Refer to the section below for a list of [cluster extensions or Azure Arc services that support network connectivity through private links](#cluster-extensions-that-support-network-connectivity-through-private-links).
-
-* The [cluster Connect feature](conceptual-cluster-connect.md) (and hence the [Custom location feature](custom-locations.md)) is not supported yet for Kubernetes clusters with private connectivity enabled.
+    > The [Cluster Connect](conceptual-cluster-connect.md) (and hence the [Custom location](custom-locations.md)) feature is not supported on Azure Arc-enabled Kubernetes clusters with private connectivity enabled. This is planned and will be added later. Network connectivity using private links for Azure Arc services like Azure Arc-enabled data services and Azure Arc-enabled App services that use these features are also not supported yet. Refer to the section below for a list of [cluster extensions or Azure Arc services that support network connectivity through private links](#cluster-extensions-that-support-network-connectivity-through-private-links).
 
 ## Cluster extensions that support network connectivity through private links
 
-On Azure Arc-enabled Kubernetes clusters configured with private links, the following extensions support end to end connectivity through private links. Refer to the guidance linked to each cluster extension for additional configuration steps and details on support for private links.
+On Azure Arc-enabled Kubernetes clusters configured with private links, the following extensions support end-to-end connectivity through private links. Refer to the guidance linked to each cluster extension for additional configuration steps and details on support for private links.
 
-* [Azure GitOps](conceptual-gitops-flux2#gitops-with-private-link)
+* [Azure GitOps](conceptual-gitops-flux2)
 * [Azure Monitor](/azure/azure-monitor/logs/private-link-security)
 
 ## Planning your Private Link setup
@@ -88,7 +86,7 @@ There are two ways you can achieve this:
     | Priority                | 150 (must be lower than any rules that block internet access) | 151 (must be lower than any rules that block internet access) | 152 (must be lower than any rules that block internet access) | 153 (must be lower than any rules that block internet access) |
     | Name                    | AllowAADOutboundAccess                                        | AllowAzOutboundAccess                                         | AllowAzureFrontDoorFirstPartyAccess                           | AllowMCROutboundAccess 
 
-* Configure the firewall on your local network to allow outbound TCP 443 (HTTPS) access to Azure AD, Azure Resource Manager, and Microsoft Container Registry, and inbound & outbound access to Azure FrontDoor.FirstParty using the downloadable service tag files. The JSON file contains all the public IP address ranges used by Azure AD, Azure Resource Manager, Azure FrontDoor.FirstParty, and Microsoft Container Registry and is updated monthly to reflect any changes. Azure Active Directory's service tag is AzureActiveDirectory, Azure Resource Manager's service tag is AzureResourceManager, Microsoft Container Registry's service tag is MicrosoftContainerRegistry and Azure Front Door's service tag is FrontDoor.FirstParty. Consult with your network administrator and network firewall vendor to learn how to configure your firewall rules.
+* Configure the firewall on your local network to allow outbound TCP 443 (HTTPS) access to Azure AD, Azure Resource Manager, and Microsoft Container Registry, and inbound & outbound access to Azure FrontDoor.FirstParty using the downloadable service tag files. The JSON file contains all the public IP address ranges used by Azure AD, Azure Resource Manager, Azure FrontDoor.FirstParty, and Microsoft Container Registry and is updated monthly to reflect any changes. Azure Active Directory's service tag is AzureActiveDirectory, Azure Resource Manager's service tag is AzureResourceManager, Microsoft Container Registry's service tag is MicrosoftContainerRegistry, and Azure Front Door's service tag is FrontDoor.FirstParty. Consult with your network administrator and network firewall vendor to learn how to configure your firewall rules.
 
 ## Create an Azure Arc Private Link Scope
 
@@ -123,17 +121,21 @@ The Private Endpoint on your virtual network allows it to reach Azure Arc-enable
    1. From the **Resource** drop-down, choose the Azure Arc Private Link Scope that you created earlier.
    1. Select **Next: Configuration**.
 1. On the **Configuration** page, perform the following:
-   1. Choose the virtual network and subnet from which you want to connect to Azure Arc-enabled Kubernetes clusters.
-   1. For **Integrate with private DNS zone**, select **Yes**. A new Private DNS Zone will be created. The actual DNS zones may be different from what is shown in the screenshot below.
+    1. Choose the virtual network and subnet from which you want to connect to Azure Arc-enabled Kubernetes clusters.
+    1. For **Integrate with private DNS zone**, select **Yes**. A new Private DNS Zone will be created. The actual DNS zones may be different from what is shown in the screenshot below.
+    
+        :::image type="content" source="media/private-link/create-private-endpoint-2.png" alt-text="Screenshot of the Configuration step to create a private endpoint in the Azure portal.":::
 
+        > [!NOTE]
+        > If you choose **No** and prefer to manage DNS records manually, first complete setting up your Private Link, including this private endpoint and the Private Scope configuration. Next, configure your DNS according to the instructions in [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns). Make sure not to create empty records as preparation for your Private Link setup. The DNS records you create can override existing settings and impact your connectivity with Arc-enabled Kubernetes clusters.
+    1. Select **Review + create**.
+    1. Let validation pass.
+    1. Select **Create**.
+    
     :::image type="content" source="media/private-link/create-private-endpoint-2.png" alt-text="Screenshot of the Configuration step to create a private endpoint in the Azure portal.":::
 
     > [!NOTE]
     > If you choose **No** and prefer to manage DNS records manually, first complete setting up your Private Link, including this private endpoint and the Private Scope configuration. Next, configure your DNS according to the instructions in [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns). Make sure not to create empty records as preparation for your Private Link setup. The DNS records you create can override existing settings and impact your connectivity with Arc-enabled Kubernetes clusters.
-
-    1. Select **Review + create**.
-    1. Let validation pass.
-    1. Select **Create**.
 
 ## Configure on-premises DNS forwarding
 
@@ -152,8 +154,7 @@ If you opted out of using Azure private DNS zones during private endpoint creati
 1. Go to the Azure portal.
 1. Navigate to the private endpoint resource associated with your virtual network and Azure Arc Private Link Scope.
 1. From the left-hand pane, select **DNS configuration** to see a list of the DNS records and corresponding IP addresses you’ll need to set up on your DNS server. The FQDNs and IP addresses will change based on the region you selected for your private endpoint and the available IP addresses in your subnet.
-
-  :::image type="content" source="media/private-link/update-dns-configuration.png" alt-text="Screenshot showing manual DNS server configuration in the Azure portal.":::
+      :::image type="content" source="media/private-link/update-dns-configuration.png" alt-text="Screenshot showing manual DNS server configuration in the Azure portal.":::
 
 1. Follow the guidance from your DNS server vendor to add the necessary DNS zones and A records to match the table in the portal. Ensure that you select a DNS server that is appropriately scoped for your network. Every Kubernetes cluster that uses this DNS server now resolves the private endpoint IP addresses and must be associated with the Azure Arc Private Link Scope, or the connection will be refused.
 
@@ -164,9 +165,9 @@ If you opted out of using Azure private DNS zones during private endpoint creati
 
 When connecting a Kubernetes cluster to Azure Arc for the first time, you can optionally configure private links by connecting the Kubernetes cluster to Azure Arc and enabling private connectivity:
 
-    ```azurecli
-    az connectedk8s connect -g <resource-group-name> -n <connected-cluster-name> -l <location> --enable-private-link true --private-link-scope-resource-id <pls-arm-id>
-    ```
+```azurecli
+az connectedk8s connect -g <resource-group-name> -n <connected-cluster-name> -l <location> --enable-private-link true --private-link-scope-resource-id <pls-arm-id>
+```
 
 | Parameter name | Description |
 | -------------- | ----------- |
@@ -180,9 +181,9 @@ When connecting a Kubernetes cluster to Azure Arc for the first time, you can op
 
 If you have an existing Azure Arc-enabled Kubernetes cluster, you can enable private link for it by running the following command:
 
-    ```azurecli
-    az connectedk8s update -g <resource-group-name>  -n <connected-cluster-name> --enable-private-link true –private-link-scope-resource-id <pls-arm-id>
-    ```
+ ```azurecli
+ az connectedk8s update -g <resource-group-name>  -n <connected-cluster-name> --enable-private-link true –private-link-scope-resource-id <pls-arm-id>
+ ```
 
 | Parameter name | Description |
 | -------------- | ----------- |
