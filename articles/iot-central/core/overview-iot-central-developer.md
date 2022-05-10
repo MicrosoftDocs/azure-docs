@@ -7,7 +7,8 @@ ms.date: 03/02/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.custom: [mvc, device-developer]
+ms.custom: [mvc, device-developer, iot-central-frontdoor]
+
 
 # This article applies to device developers.
 ---

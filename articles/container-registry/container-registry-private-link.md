@@ -318,11 +318,25 @@ For many scenarios, disable registry access from public networks. This configura
 
 ### Disable public access - CLI
 
+
+> [!NOTE]
+>If the public access is disabled, the `az acr build` commands will no longer work.
+
 To disable public access using the Azure CLI, run [az acr update][az-acr-update] and set `--public-network-enabled` to `false`. 
 
 ```azurecli
 az acr update --name $REGISTRY_NAME --public-network-enabled false
 ```
+
+## Execute the `az acr build` with private endpoint and private registry
+
+Consider the following options to execute the `az acr build` successfully.
+> [!NOTE]
+> Once you disable public network [access here](/azure/container-registry/container-registry-private-link#disable-public-access), then `az acr build` commands will no longer work.
+
+1. Assign a [dedicated agent pool.](/azure/container-registry/tasks-agent-pools#Virtual-network-support) 
+2. If agent pool is not available in the region, add the regional [Azure Container Registry Service Tag IPv4](/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api) to the [firewall access rules.](/azure/container-registry/container-registry-firewall-access-rules#allow-access-by-ip-address-range)
+3. Create an ACR task with a managed identity, and enable trusted services to [access network restricted ACR.](/azure/container-registry/allow-access-trusted-services#example-acr-tasks)
 
 ## Validate private link connection
 
