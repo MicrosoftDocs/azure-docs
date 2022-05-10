@@ -1,6 +1,6 @@
 ---
-title: Connectors overview for Azure Logic Apps
-description: Learn about connectors in Azure Logic Apps and how they build automated integration workflows using Azure Logic Apps.
+title: Overview about connectors in Azure Logic Apps
+description: Learn about connectors to create automated integration workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla

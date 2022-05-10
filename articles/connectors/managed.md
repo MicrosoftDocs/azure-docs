@@ -1,6 +1,6 @@
 ---
-title: Managed connector operations
-description: Use Microsoft-managed triggers and actions to create automated workflows that integrate other apps, data, services, and systems using Azure Logic Apps.
+title: Overview about managed connectors in Azure Logic Apps
+description: Learn about Microsoft-managed connectors to create automated integration workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla

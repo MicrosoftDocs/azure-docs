@@ -1,6 +1,6 @@
 ---
-title: Built-in connectors
-description: Use built-in connectors that run natively to create automated workflows in Azure Logic Apps.
+title: Overview about built-in connectors in Azure Logic Apps
+description: Learn about built-in connectors that run natively to create automated integration workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
