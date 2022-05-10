@@ -291,10 +291,8 @@ items:
           href: logs/restore.md
       - name: Design
         items:
-        - name: Design a workspace deployment
+        - name: Design a workspace architecture
           href: logs/workspace-design.md
-        - name: Design for service providers
-          href: logs/workspace-design-service-providers.md
         - name: Dedicated clusters
           href: logs/logs-dedicated-clusters.md
         - name: Availability zones

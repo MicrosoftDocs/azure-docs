@@ -125,7 +125,7 @@ For example, you might grant access to only specific tables collected by Sentine
 
 
 ## Working with multiple workspaces
-Your design should use the fewest number of workspaces that you can use to match your particular requirements. This reduces the complexity of managing multiple workspaces and in querying data from them. There are no performance limitations from the amount of data in your workspace, and multiple services and data sources can send data to the same workspace.
+Your design should use the fewest number of workspaces that will match your particular requirements. This reduces the complexity of managing multiple workspaces and in querying data from them. There are no performance limitations from the amount of data in your workspace, and multiple services and data sources can send data to the same workspace.
 
 Since many designs will include multiple workspaces, Azure Monitor and Microsoft Sentinel include features to assist you in analyzing this data across workspaces. For details, see the following:
 

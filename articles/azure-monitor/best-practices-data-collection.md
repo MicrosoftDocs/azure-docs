@@ -17,9 +17,9 @@ This article is part of the scenario [Recommendations for configuring Azure Moni
 ## Design Log Analytics workspace architecture
 You require at least one Log Analytics workspace to enable [Azure Monitor Logs](logs/data-platform-logs.md), which is required for collecting such data as logs from Azure resources, collecting data from the guest operating system of Azure virtual machines, and for most Azure Monitor insights. Other services such as Microsoft Sentinel and Microsoft Defender for Cloud also use a Log Analytics workspace and can share the same one that you use for Azure Monitor. 
 
-There is no cost for creating a Log Analytics workspace, but there is a potential charge once you configure data to be collected into it. See [Azure Monitor Logs pricing details](logs/cost-logs.md) for details.  
+There is no cost for creating a Log Analytics workspace, but there is a potential charge once you configure data to be collected into it. See [Azure Monitor Logs pricing details](logs/cost-logs.md) for details on how log data is charged.  
 
-See [Create a Log Analytics workspace in the Azure portal](logs/quick-create-workspace.md) to create an initial Log Analytics workspace. See [Manage access to log data and workspaces in Azure Monitor](logs/manage-access.md) to configure access. You can use scalable methods such as Resource Manager templates to configure workspaces though,  this is often not required since most environments will require a minimal number.
+See [Create a Log Analytics workspace in the Azure portal](logs/quick-create-workspace.md) to create an initial Log Analytics workspace and [Manage access to Log Analytics workspaces](logs/manage-access.md) to configure access. You can use scalable methods such as Resource Manager templates to configure workspaces, though this is often not required since most environments will require a minimal number.
 
 Start with a single workspace to support initial monitoring, but see  [Design a Log Analytics workspace configuration](logs/workspace-design.md) for guidance on when to use multiple workspaces and how to locate and configure them.
 
