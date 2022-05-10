@@ -7,6 +7,7 @@ ms.date: 12/27/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
+ms.custom: [iot-central-frontdoor]
 
 ---
 
@@ -144,7 +145,7 @@ Using the REST API:
 You can use the REST API to list and delete API tokens in an application.
 
 > [!TIP]
-> The [preview API](/rest/api/iotcentral/1.1-previewdataplane/api-tokens) includes support for the new [organizations feature](howto-create-organizations.md).
+> The [preview API](/rest/api/iotcentral/1.2-previewdataplane/api-tokens) includes support for the new [organizations feature](howto-create-organizations.md).
 
 ## Use a bearer token
 

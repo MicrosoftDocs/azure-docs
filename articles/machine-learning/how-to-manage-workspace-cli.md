@@ -357,7 +357,7 @@ az ml workspace create -g <resource-group-name> --file cmk.yml
 > Authorize the __Machine Learning App__ (in Identity and Access Management) with contributor permissions on your subscription to manage the data encryption additional resources.
 
 > [!NOTE]
-> Azure Cosmos DB is __not__ used to store information such as model performance, information logged by experiments, or information logged from your model deployments. For more information on monitoring these items, see the [Monitoring and logging](concept-azure-machine-learning-architecture.md) section of the architecture and concepts article.
+> Azure Cosmos DB is __not__ used to store information such as model performance, information logged by experiments, or information logged from your model deployments. For more information on monitoring these items, see the [Monitoring and logging](v1/concept-azure-machine-learning-architecture.md) section of the architecture and concepts article.
 
 > [!IMPORTANT]
 > Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.

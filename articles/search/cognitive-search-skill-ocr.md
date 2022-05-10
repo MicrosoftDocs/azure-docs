@@ -7,11 +7,13 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 08/12/2021
+ms.date: 04/27/2022
 ---
 # OCR cognitive skill
 
-The **Optical character recognition (OCR)** skill recognizes printed and handwritten text in image files. This skill uses the machine learning models provided by [Computer Vision](../cognitive-services/computer-vision/overview.md) API [v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) in Cognitive Services. The **OCR** skill maps to the following functionality:
+The **Optical character recognition (OCR)** skill recognizes printed and handwritten text in image files. This article is the reference documentation for the OCR skill. See [Extract text from images](cognitive-search-concept-image-scenarios.md) for usage instructions.
+
+An OCR skill uses the machine learning models provided by [Computer Vision](../cognitive-services/computer-vision/overview.md) API [v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) in Cognitive Services. The **OCR** skill maps to the following functionality:
 
 + For English, Spanish, German, French, Italian, Portuguese, and Dutch, the new ["Read"](../cognitive-services/computer-vision/overview-ocr.md#read-api) API is used.
 + For all other languages, the [legacy OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f20d) API is used.
@@ -27,7 +29,7 @@ The **OCR** skill extracts text from image files. Supported file formats include
 
 > [!NOTE]
 > This skill is bound to Cognitive Services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
-> 
+>
 > In addition, image extraction is [billable by Azure Cognitive Search](https://azure.microsoft.com/pricing/details/search/).
 >
 
@@ -49,13 +51,12 @@ Previously, there was a parameter called "textExtractionAlgorithm" for specifyin
 |---------------|------------------------------------------------------|
 | `image`         | Complex Type. Currently only works with "/document/normalized_images" field, produced by the Azure Blob indexer when ```imageAction``` is set to a value other than ```none```. See the [sample](#sample-output) for more information.|
 
-
 ## Skill outputs
+
 | Output name      | Description                   |
 |---------------|-------------------------------|
 | `text`             | Plain text extracted from the image.   |
 | `layoutText`    | Complex type that describes the extracted text and the location where the text was found.|
-
 
 ## Sample definition
 
@@ -88,6 +89,7 @@ Previously, there was a parameter called "textExtractionAlgorithm" for specifyin
   ]
 }
 ```
+
 <a name="sample-output"></a>
 
 ## Sample text and layoutText output
@@ -135,6 +137,7 @@ A common use case for Text Merger is the ability to merge the textual representa
 The following example skillset creates a *merged_text* field. This field contains the textual content of your document and the OCRed text from each of the images embedded in that document.
 
 #### Request Body Syntax
+
 ```json
 {
   "description": "Extract text from images and merge with content text to produce merged_text",
@@ -188,6 +191,7 @@ The following example skillset creates a *merged_text* field. This field contain
   ]
 }
 ```
+
 The above skillset example assumes that a normalized-images field exists. To generate this field, set the *imageAction* configuration in your indexer definition to *generateNormalizedImages* as shown below:
 
 ```json
@@ -208,4 +212,5 @@ The above skillset example assumes that a normalized-images field exists. To gen
 + [Built-in skills](cognitive-search-predefined-skills.md)
 + [TextMerger skill](cognitive-search-skill-textmerger.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
++ [Extract text and information from images](cognitive-search-concept-image-scenarios.md)
 + [Create Indexer (REST)](/rest/api/searchservice/create-indexer)

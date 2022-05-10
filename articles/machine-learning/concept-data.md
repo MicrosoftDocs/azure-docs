@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.reviewer: nibaccam
-author: nibaccam
-ms.author: nibaccam
-ms.date: 04/15/2022
+author: blackmist
+ms.author: larryfr
+ms.date: 10/21/2021
 ms.custom: devx-track-python, data4ml
 
 # Customer intent: As an experienced Python developer, I need to securely access my data in my Azure storage solutions and use it to accomplish my machine learning tasks.

@@ -11,17 +11,6 @@ ms.author: eur
 
 [!INCLUDE [Introduction](intro.md)]
 
-## Prerequisites
-
-[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
-
-### Install the Speech SDK
-
-Before you can do anything, you need to install the Speech SDK. Depending on your platform, use the following instructions:
-
-* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-java&tabs=jre" target="_blank">Java Runtime </a>
-* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-java&tabs=android" target="_blank">Android </a>
-
 ## Create a speech configuration
 
 To call the Speech service by using the Speech SDK, you need to create a [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) instance. This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. 

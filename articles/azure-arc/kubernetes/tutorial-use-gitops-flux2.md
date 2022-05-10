@@ -18,10 +18,9 @@ This tutorial describes how to use GitOps in a Kubernetes cluster. Before you di
 General availability of Azure Arc-enabled Kubernetes includes GitOps with Flux v1. The public preview of GitOps with Flux v2, documented here, is available in both AKS and Azure Arc-enabled Kubernetes. Eventually Azure will stop supporting GitOps with Flux v1, so begin using Flux v2 as soon as possible.
 
 >[!IMPORTANT]
->GitOps with Flux v2 is in public preview. In preparation for general availability, features are still being added to the preview. One recently-released feature, multi-tenancy, could affect some users.  To understand how to work with multi-tenancy, [please review these details](#multi-tenancy).
+>GitOps with Flux v2 is in preview. In preparation for general availability, features are still being added to the preview. One recently-released feature, multi-tenancy, could affect some users.  To understand how to work with multi-tenancy, [please review these details](#multi-tenancy).
 >
 >The `microsoft.flux` extension released major version 1.0.0. This includes the multi-tenancy feature. If you have existing GitOps Flux v2 configurations that use a previous version of the `microsoft.flux` extension you can upgrade to the latest extension manually using the Azure CLI: "az k8s-extension create -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux --extension-type microsoft.flux -t <CLUSTER_TYPE>" (use "-t connectedClusters" for Arc clusters and "-t managedClusters" for AKS clusters).
-
 
 ## Prerequisites
 
@@ -127,6 +126,9 @@ False          whl             k8s-extension          C:\Users\somename\.azure\c
 ## Apply a Flux configuration by using the Azure CLI
 
 Use the `k8s-configuration` Azure CLI extension (or the Azure portal) to enable GitOps in an AKS or Arc-enabled Kubernetes cluster. For a demonstration, use the public [gitops-flux2-kustomize-helm-mt](https://github.com/Azure/gitops-flux2-kustomize-helm-mt) repository. 
+
+>[!IMPORTANT]
+>The demonstration repo is designed to simplify your use of this tutorial and illustrate some key principles. To keep up to date, the repo can get breaking changes occasionally from version upgrades. These changes won't affect your new application of this tutorial, only previous tutorial applications that have not been deleted. To learn how to handle these changes please see the [breaking change disclaimer](https://github.com/Azure/gitops-flux2-kustomize-helm-mt#breaking-change-disclaimer-%EF%B8%8F).
 
 In the following example:
 

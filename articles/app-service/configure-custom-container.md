@@ -495,6 +495,13 @@ The following lists show supported and unsupported Docker Compose configuration 
 - secrets (ignored)
 - ports other than 80 and 8080 (ignored)
 
+#### Syntax Limitations
+
+- the "version x.x" always needs to be the first yaml statement in the file
+- the ports section must use quoted numbers
+- the image > volume section must be quoted and cannot have a permissions definitions
+- the volumes section must not have an empty curly brace after the volume name
+
 > [!NOTE]
 > Any other options not explicitly called out are ignored in Public Preview.
 
