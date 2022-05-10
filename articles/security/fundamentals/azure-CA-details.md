@@ -10,7 +10,7 @@ ms.date: 04/28/2022
 ms.author: sarahlipsey
 author: shlipsey3
 manager: rachelkarlin
-ms.reviewer: person
+ms.reviewer: quentinb
 ---
 
 # Azure Certificate Authority details
