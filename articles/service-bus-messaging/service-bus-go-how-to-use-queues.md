@@ -46,24 +46,7 @@ To begin, create a new Go module.
     
     go get github.com/Azure/azure-sdk-for-go/sdk/messaging/azservicebus
     ```
-1. Next, create a new file named `main.go` with the following code:
-  
-     ```go
-    package main
-
-    import (
-      "context"
-      "fmt"
-      "os"
-
-      "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-      "github.com/Azure/azure-sdk-for-go/sdk/messaging/azservicebus"
-    )
-
-    func main() {
-
-    }
-    ```
+1. Create a new file named `main.go`.
 
 ## Authenticate and create a client
 
