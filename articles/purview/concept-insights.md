@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 05/08/2022
 ---
 
-# Understand Microsoft Purview Data Estate Insights application
+# Understand the Microsoft Purview Data Estate Insights App
 
 This article provides an overview of the Data Estate Insights application in Microsoft Purview.
 
@@ -42,7 +42,7 @@ View data asset trend by asset count and data size, as we record these metadata 
 
 For more information, see [Asset insights](asset-insights.md)
 
-## Curation
+## Curation and Governance
 This area focuses on giving a summary of how curated your assets are and different groupings of curation. Currently we focus on showcasing assets with Glossary, Classification and Sensitivity Labels.
 
 ### Glossary
@@ -75,5 +75,5 @@ For more information, see [Sensitivity label insights about your data in Microso
 
 ## Next steps
 
-Learn how to get permissions to Data Estate Insights App
-Learn about pricing and billing
+- Learn how to get permissions to Data Estate Insights App
+- Learn about pricing and billing
