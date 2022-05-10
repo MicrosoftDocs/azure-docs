@@ -42745,6 +42745,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/aks/spark-job.md",
+      "redirect_url": "/azure/aks/integrations#open-source-and-third-party-integrations",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-dps/quick-create-device-symmetric-key-csharp.md",
       "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
       "redirect_document_id": false
