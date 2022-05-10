@@ -132,7 +132,7 @@ To create demo certificates on a Linux device, you need to clone the generation 
 
 ## Create root CA certificate
 
-**Why?** Run this script to generate a root CA that is required for each step in this article.
+Run this script to generate a root CA that is required for each step in this article.
 
 The root CA certificate is used to make all the other demo certificates for testing an IoT Edge scenario.
 You can keep using the same root CA certificate to make demo certificates for multiple IoT Edge or downstream devices.
@@ -175,7 +175,7 @@ This certificate is required before you can create more certificates for your Io
 
 ## Create identity certificate for the IoT Edge device
 
-**Why?** IoT Edge device identity certificates are used to provision IoT Edge devices if you choose to use X.509 certificate authentication. If you use **symmetric key** for authenticating to IoT Hub or DPS, these certificates aren't needed, and you can skip this section.
+IoT Edge device identity certificates are used to provision IoT Edge devices if you choose to use X.509 certificate authentication. If you use **symmetric key** for authenticating to IoT Hub or DPS, these certificates aren't needed, and you can skip this section.
 
 These certificates work whether you use manual provisioning or automatic provisioning through the Azure IoT Hub Device Provisioning Service (DPS). 
 
@@ -195,11 +195,11 @@ Device identity certificates go in the **Provisioning** section of the config fi
 
 1. The new device identity command creates several certificate and key files:
 
-| Type | File | Description |
-|---|---|---|
-| Device identity certificate | `certs\iot-edge-device-identity-<device-id>.cert.pem` | Signed by the intermediate certificate generated earlier. Contains just the identity certificate. Specify in `config.toml` for DPS individual enrollment or IoT Hub provisioning.  |
-| Full chain certificate | `certs\iot-edge-device-identity-<device-id>-full-chain.cert.pem` | Contains the full certificate chain including the intermediate certificate. Specify in `config.toml` for IoT Edge to present to DPS for group enrollment provisioning. |
-| Private key | `private\iot-edge-device-identity-<device-id>.key.pem` | Private key associated with the device identity certificate. Should be specified in `config.toml` as long as you're using some sort of certificate authentication (thumbprint or CA) for either DPS or IoT Hub. |
+    | Type | File | Description |
+    |---|---|---|
+    | Device identity certificate | `certs\iot-edge-device-identity-<device-id>.cert.pem` | Signed by the intermediate certificate generated earlier. Contains just the identity certificate. Specify in `config.toml` for DPS individual enrollment or IoT Hub provisioning.  |
+    | Full chain certificate | `certs\iot-edge-device-identity-<device-id>-full-chain.cert.pem` | Contains the full certificate chain including the intermediate certificate. Specify in `config.toml` for IoT Edge to present to DPS for group enrollment provisioning. |
+    | Private key | `private\iot-edge-device-identity-<device-id>.key.pem` | Private key associated with the device identity certificate. Should be specified in `config.toml` as long as you're using some sort of certificate authentication (thumbprint or CA) for either DPS or IoT Hub. |
 
 # [Linux](#tab/linux)
 
@@ -215,20 +215,20 @@ Device identity certificates go in the **Provisioning** section of the config fi
 
 1. The script creates several certificate and key files, including three that you use when creating an individual enrollment in DPS and installing the IoT Edge runtime:
 
-| Type | File | Description |
-|---|---|---|
-| Device identity certificate | `certs/iot-edge-device-identity-<device-id>.cert.pem` | Signed by the intermediate certificate generated earlier. Contains just the identity certificate. Specify in `config.toml` for DPS individual enrollment or IoT Hub provisioning.  |
-| Full chain certificate | `certs/iot-edge-device-identity-<device-id>-full-chain.cert.pem` | Contains the full certificate chain including the intermediate certificate. Specify in `config.toml` for IoT Edge to present to DPS for group enrollment provisioning. |
-| Private key | `private/iot-edge-device-identity-<device-id>.key.pem` | Private key associated with the device identity certificate. Should be specified in `config.toml` as long as you're using some sort of certificate authentication (thumbprint or CA) for either DPS or IoT Hub. |
+    | Type | File | Description |
+    |---|---|---|
+    | Device identity certificate | `certs/iot-edge-device-identity-<device-id>.cert.pem` | Signed by the intermediate certificate generated earlier. Contains just the identity certificate. Specify in `config.toml` for DPS individual enrollment or IoT Hub provisioning.  |
+    | Full chain certificate | `certs/iot-edge-device-identity-<device-id>-full-chain.cert.pem` | Contains the full certificate chain including the intermediate certificate. Specify in `config.toml` for IoT Edge to present to DPS for group enrollment provisioning. |
+    | Private key | `private/iot-edge-device-identity-<device-id>.key.pem` | Private key associated with the device identity certificate. Should be specified in `config.toml` as long as you're using some sort of certificate authentication (thumbprint or CA) for either DPS or IoT Hub. |
 
 ---
 
 <!--1.1-->
 :::moniker range="iotedge-2018-06"
 
-## Create *device CA* certificates
+## Create device CA certificates
 
-**Why?** Required for **gateway scenarios** because the device CA certificate is how the IoT Edge device verifies its identity to downstream devices. You can skip this section if you're not connecting any downstream devices to IoT Edge.
+These certificates are required for **gateway scenarios** because the device CA certificate is how the IoT Edge device verifies its identity to downstream devices. You can skip this section if you're not connecting any downstream devices to IoT Edge.
 
 The **device CA** certificate is also responsible for creating certificates for modules running on the device, but IoT Edge runtime can create temporary certificate if device CA isn't configured. Device CA certificates go in the **Certificate** section of the `config.yaml` file on the IoT Edge device. To learn more, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md). 
 
@@ -237,9 +237,9 @@ The **device CA** certificate is also responsible for creating certificates for 
 <!--1.2-->
 :::moniker range=">=iotedge-2020-11"
 
-## Create *edge CA* certificates
+## Create edge CA certificates
 
-**Why?** Required for **gateway scenarios** because the edge CA certificate is how the IoT Edge device verifies its identity to downstream devices. You can skip this section if you're not connecting any downstream devices to IoT Edge.
+These certificates are required for **gateway scenarios** because the edge CA certificate is how the IoT Edge device verifies its identity to downstream devices. You can skip this section if you're not connecting any downstream devices to IoT Edge.
 
 The **edge CA** certificate is also responsible for creating certificates for modules running on the device, but IoT Edge runtime can create temporary certificates if edge CA isn't configured. Edge CA certificates go in the **Edge CA** section of the `config.toml` file on the IoT Edge device. To learn more, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md). 
 
@@ -280,7 +280,7 @@ The **edge CA** certificate is also responsible for creating certificates for mo
 
 ## Create downstream device certificates
 
-**Why?** Required for setting up a downstream IoT device for a gateway scenario and want to use X.509 authentication, generate demo certificates for the downstream device. If you want to use symmetric key authentication, you don't need to create certificates for the downstream device and can skip this section.
+These certificates are required for setting up a downstream IoT device for a gateway scenario and want to use X.509 authentication with IoT Hub or DPS. If you want to use symmetric key authentication, you don't need to create certificates for the downstream device and can skip this section.
 
 There are two ways to authenticate an IoT device using X.509 certificates: using self-signed certs or using certificate authority (CA) signed certs.
 - For X.509 self-signed authentication, sometimes referred to as *thumbprint* authentication, you need to create new certificates to place on your IoT device. These certificates have a thumbprint in them that you share with IoT Hub for authentication.
