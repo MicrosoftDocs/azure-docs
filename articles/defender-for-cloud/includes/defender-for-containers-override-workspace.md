@@ -2,13 +2,25 @@
 author: ElazarK
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 05/08/2022
+ms.date: 05/10/2022
 ms.author: elkrieger
 ---
 
-## Override the default workspace
+## Learn about the default workspace
 
-Once the Defender profile has been deployed, a default workspace will be automatically assigned. You can override the default workspace through Azure Policy.
+The Log Analytics workspace is used as a data pipeline to send data from the Defender profile/extension to Defender for Cloud without retaining any data in the Log Analytics workspace itself. As a result, users will not be billed in this use case.
+
+When you enable the plan through the Azure Portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to auto provision (automatically install) required components to provide the protections offered by plan, including the assignment of a default workspace. You can [override the default workspace](/azure/defender-for-cloud/defender-for-containers-enable?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks) through Azure Policy.
+
+The Defender profile/extension uses a default Log Analytics workspace. If you do not already have a default Log Analytics workspace, Defender for Cloud will creates a new resource group and default workspace when the Defender for Containers plan is enabled. The default workspace is created based on your [region](../faq-data-collection-agents.yml), and connects the Defender profile/extension to that workspace.
+
+The naming convention for the default Log Analytics workspace and resource group is:
+- **Workspace**: DefaultWorkspace-\[subscription-ID]-\[geo]
+- **Resource Group**: DefaultResourceGroup-\[geo]
+
+### Override the default workspace
+
+Once the Defender profile/extension has been deployed, a default workspace will be automatically assigned. You can override the default workspace through Azure Policy.
 
 **To override the default workspace**:
 
