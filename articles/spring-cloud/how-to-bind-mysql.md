@@ -26,7 +26,7 @@ With Azure Spring Apps, you can bind select Azure services to your applications 
 * An Azure Database for MySQL account
 * Azure CLI
 
-If you don't have a deployed Azure Spring Apps instance, follow the instructions in [Quickstart: Launch an application in Azure Spring Apps by using the Azure portal](./quickstart.md) to deploy your first Spring Cloud app.
+If you don't have a deployed Azure Spring Apps instance, follow the instructions in [Quickstart: Launch an application in Azure Spring Apps by using the Azure portal](./quickstart.md) to deploy your first Spring app.
 
 ## Prepare your Java project
 

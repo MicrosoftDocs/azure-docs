@@ -1,6 +1,6 @@
 ---
 title: Azure Spring Apps geo-disaster recovery | Microsoft Docs
-description: Learn how to protect your Spring Cloud application from regional outages
+description: Learn how to protect your Spring application from regional outages
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
@@ -24,7 +24,7 @@ This article explains some strategies you can use to protect your applications i
 
 Applications in Azure Spring Apps run in a specific region. Azure operates in multiple geographies around the world. An Azure geography is a defined area of the world that contains at least one Azure Region. An Azure region is an area within a geography, containing one or more data centers. Each Azure region is paired with another region within the same geography, together making a regional pair. Azure serializes platform updates (planned maintenance) across regional pairs, ensuring that only one region in each pair is updated at a time. In the event of an outage affecting multiple regions, at least one region in each pair will be prioritized for recovery.
 
-Ensuring high availability and protection from disasters requires that you deploy your Spring Cloud applications to multiple regions. Azure provides a list of [paired regions](../availability-zones/cross-region-replication-azure.md) so that you can plan your Spring app deployments to regional pairs. We recommend that you consider three key factors when designing your architecture: region availability, Azure paired regions, and service availability.
+Ensuring high availability and protection from disasters requires that you deploy your Spring applications to multiple regions. Azure provides a list of [paired regions](../availability-zones/cross-region-replication-azure.md) so that you can plan your Spring app deployments to regional pairs. We recommend that you consider three key factors when designing your architecture: region availability, Azure paired regions, and service availability.
 
 * Region availability: Choose a geographic area close to your users to minimize network lag and transmission time.
 * Azure paired regions: Choose paired regions within your chosen geographic area to ensure coordinated platform updates and prioritized recovery efforts if needed.

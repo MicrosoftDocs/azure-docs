@@ -1,5 +1,5 @@
 ---
-title: "How to - Launch your Spring Cloud application from source code"
+title: How to Deploy Spring Boot applications from Azure CLI
 description: In this quickstart, learn how to launch your application in Azure Spring Apps directly from your source code
 author: karlerickson
 ms.service: spring-cloud
