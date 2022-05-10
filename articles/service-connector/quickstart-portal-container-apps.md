@@ -14,7 +14,7 @@ ms.date: 05/23/2022
 Get started with Service Connector by using the Azure portal to create a new service connection in Azure Container Apps.
 
 > [!IMPORTANT]
-> This feature is currently in public preview.
+> This feature in Container Apps is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
