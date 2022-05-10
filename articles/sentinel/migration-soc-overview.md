@@ -8,4 +8,8 @@ ms.date: 05/03/2022
 ms.custom: ignite-fall-2021
 ---
 
-# Migrate SOC analyst processes
+# Migrate SOC operations
+
+## Migration challenges
+
+## Migration best practices
