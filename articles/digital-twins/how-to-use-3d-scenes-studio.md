@@ -64,7 +64,7 @@ In this section, you'll create an environment in *3D Scenes Studio* and customiz
 
 The 3D representation of an environment in 3D Scenes Studio is called a *scene*. A scene consists of a 3D file and a configuration file that's created for you automatically.
 
-To create a scene, start with a segmented 3D file in *.GLTF* or *.GLB* format. You can download and view a sample 3D file using this link: [Download KawasakiAndSite4.glb](https://cardboardresources.blob.core.windows.net/cardboard-mock-files/OutdoorTanks.gltf). 
+To create a scene, start with a segmented 3D file in *.GLTF* or *.GLB* format. You can download and view a sample 3D file using this link: [Download RobotArms.glb](https://cardboardresources.blob.core.windows.net/public/RobotArms.glb). 
 
 >[!TIP]
 >3D Scenes Studio supports animation. If you use a 3D model file that contains animations, they will play in the scene.
@@ -248,6 +248,9 @@ Here are the types of widget that you can create:
 ## Manage layers 
 
 You can create *layers* in your scene to help organize your [behaviors](#add-behaviors). Layers act like tags on the behaviors, enabling you to define which behaviors need to be seen together, thus creating custom views of your scene for different roles or tasks.
+
+>[!IMPORTANT]
+>If there are no layers in a scene, all of the behaviors will show up in the scene viewer. If there's at least one layer present in the scene, then only behaviors that are **part of a layer** will show up in the viewer.
 
 One way to create layers is to use the **Scene layers** button in the **Build** view for a scene.
 

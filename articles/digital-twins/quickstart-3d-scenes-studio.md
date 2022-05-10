@@ -31,7 +31,7 @@ The scene will look like this:
 
 You'll need an Azure subscription to complete this quickstart. If you don't have one already, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
-You'll also need to download a sample 3D file to use for the scene in this quickstart. [Select this link to download the sample model file](https://cardboardresources.blob.core.windows.net/cardboard-mock-files/OutdoorTanks.gltf).
+You'll also need to download a sample 3D file to use for the scene in this quickstart. [Select this link to download RobotArms.glb](https://cardboardresources.blob.core.windows.net/public/RobotArms.glb).
 
 ## Set up Azure Digital Twins and sample data
 
@@ -164,16 +164,16 @@ Now that all your resources are set up, you can use them to create an environmen
 
 ### Add a new 3D scene
 
-In this section you'll create a new 3D scene, using the 3D model file you downloaded earlier in [Prerequisites](#prerequisites). A *scene* consists of a 3D model file, and a configuration file that's created for you automatically.
+In this section you'll create a new 3D scene, using the *RobotArms.glb* 3D model file you downloaded earlier in [Prerequisites](#prerequisites). A *scene* consists of a 3D model file, and a configuration file that's created for you automatically.
 
 This sample scene contains a visualization of the distribution center and its arms. You'll connect this visualization to the sample twins you created in the [Generate sample models and twins](#generate-sample-models-and-twins) step, and customize the data-driven view in later steps.
 
 1. Select the **Add 3D scene** button to start creating a new scene. Enter a **Name** for your scene, and select **Upload file** under **3D file asset**.
 
     :::image type="content" source="media/quickstart-3d-scenes-studio/add-scene-upload-file.png" alt-text="Screenshot of 3D Scenes Studio highlighting the Add 3D scene button and Upload file option." lightbox="media/quickstart-3d-scenes-studio/add-scene-upload-file.png":::
-1. Browse for the sample model file on your computer and open it. Select **Create**.
+1. Browse for the *RobotArms.glb* file on your computer and open it. Select **Create**.
 
-    :::image type="content" source="media/quickstart-3d-scenes-studio/add-scene-create.png" alt-text="Screenshot of creating a new scene in 3D Scenes Studio. The Kawaski And Site file has been uploaded and the Create button is highlighted." lightbox="media/quickstart-3d-scenes-studio/add-scene-create.png":::
+    :::image type="content" source="media/quickstart-3d-scenes-studio/add-scene-create.png" alt-text="Screenshot of creating a new scene in 3D Scenes Studio. The robot arms file has been uploaded and the Create button is highlighted." lightbox="media/quickstart-3d-scenes-studio/add-scene-create.png":::
     
     Once the file is uploaded, you'll see it listed back on the main screen of 3D Scenes Studio.
 1. Select the scene to open and view it. The scene will open in **Build** mode.
