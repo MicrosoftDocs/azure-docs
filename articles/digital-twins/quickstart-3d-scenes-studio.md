@@ -125,7 +125,7 @@ Next, configure CORS for your storage account. This will be necessary for 3D Sce
     1. **Allowed headers** - Enter *Authorization,x-ms-version,x-ms-blob-type*
 1. Select **Save**.
 
-    :::image type="content"  source="media/how-to-use-3d-scenes-studio/cors.png" alt-text="Screenshot of the Azure portal where the CORS entry is being created and saved." lightbox="media/how-to-use-3d-scenes-studio/cors.png":::
+    :::image type="content"  source="media/how-to-use-3d-scenes-studio/cors.png" alt-text="Screenshot of the Azure portal where the C O R S entry is being created and saved." lightbox="media/how-to-use-3d-scenes-studio/cors.png":::
 
 ### Create the container
 
