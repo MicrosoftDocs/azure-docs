@@ -13,10 +13,6 @@ ms.author: pafarley
 
 Get started with facial recognition using the Face REST API. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
 
-Use the Face REST API to:
-
-* [Detect and analyze faces](#detect-and-analyze-faces)
-
 > [!NOTE]
 > This quickstart uses cURL commands to call the REST API. You can also call the REST API using a programming language. See the GitHub samples for examples in [C#](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Face/rest), [Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Face/rest), [Java](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/java/Face/rest), [JavaScript](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Face/rest), and [Go](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/go/Face/rest).
 
@@ -32,8 +28,9 @@ Use the Face REST API to:
 
 ## Identify faces
 
-
-
+1. detect faces
+1. add to persons
+1. 
 
 ## Clean up resources
 

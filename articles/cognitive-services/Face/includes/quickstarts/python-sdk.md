@@ -49,16 +49,14 @@ Get started with facial recognition using the Face client library for Python. Fo
     > [!IMPORTANT]
     > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
-1. Run the application
-
-    Run your face recognition app from the application directory with the `python` command.
+1. Run your face recognition app from the application directory with the `python` command.
 
     ```console
     python quickstart-file.py
     ```
 
-> [!TIP]
-> The Face API runs on a set of pre-built models that are static by nature (the model's performance will not regress or improve as the service is run). The results that the model produces might change if Microsoft updates the model's backend without migrating to an entirely new model version. To take advantage of a newer version of a model, you can retrain your **PersonGroup**, specifying the newer model as a parameter with the same enrollment images.
+    > [!TIP]
+    > The Face API runs on a set of pre-built models that are static by nature (the model's performance will not regress or improve as the service is run). The results that the model produces might change if Microsoft updates the model's backend without migrating to an entirely new model version. To take advantage of a newer version of a model, you can retrain your **PersonGroup**, specifying the newer model as a parameter with the same enrollment images.
 
 ## Clean up resources
 

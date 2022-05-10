@@ -42,9 +42,7 @@ Get started with facial recognition using the Face client library for JavaScript
     npm init
     ```
 
-    ### Install the client library 
-
-    Install the `ms-rest-azure` and `azure-cognitiveservices-face` NPM packages:
+1. Install the `ms-rest-azure` and `azure-cognitiveservices-face` NPM packages:
 
     ```console
     npm install @azure/cognitiveservices-face @azure/ms-rest-js uuid
@@ -65,9 +63,7 @@ Get started with facial recognition using the Face client library for JavaScript
     > [!IMPORTANT]
     > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
-1. Run the application
-
-    Run the application with the `node` command on your quickstart file.
+1. Run the application with the `node` command on your quickstart file.
 
     ```console
     node index.js
