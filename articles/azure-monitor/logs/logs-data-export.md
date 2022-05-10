@@ -35,12 +35,12 @@ Log Analytics workspace data export continuously exports data that is sent to yo
 ## Limitations
 
 - All tables will be supported in export, but currently limited to those specified in the [supported tables](#supported-tables) section.
-- The legacy custom log won’t be supported in export. The next generation of custom log available in preview early 2022 can be exported.
+- Legacy custom log using the [HTTP Data Collector API](./data-collector-api.md) won’t be supported in export, while data for [DCR based custom logs](./custom-logs-overview.md) can be exported. 
 - You can define up to 10 enabled rules in your workspace. More rules are allowed when disabled. 
 - Destinations must be in the same region as the Log Analytics workspace.
 - Storage Account must be unique across rules in workspace.
 - Tables names can be no longer than 60 characters when exporting to Storage Account and 47 characters to Event Hubs. Tables with longer names will not be exported.
-- Data export isn't supported in Government regions currently
+- Data export isn't supported in China currently.
 
 ## Data completeness
 Data export is optimized for moving large data volume to your destinations, and in certain retry conditions, can include a fraction of duplicated records. The export operation could fail when ingress limits are reached, see details under [Create or update data export rule](#create-or-update-data-export-rule). In such case, a retry continues for up to 30 minutes, and if destination is unavailable yet, data will be discarded until destination becomes available.

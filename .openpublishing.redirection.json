@@ -944,6 +944,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-configure-endpoint-manager.md",
+      "redirect_url": "/azure/frontdoor/how-to-configure-endpoints",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md",
       "redirect_url": "/aspnet/core/security/authorization/secure-data",
       "redirect_document_id": false
@@ -6312,6 +6317,16 @@
       "source_path_from_root": "/articles/azure-app-configuration/quickstart-azure-function-csharp.md",
       "redirect_url": "/azure/azure-app-configuration/quickstart-azure-functions-csharp",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-arc/data/deploy-byok-active-directory-connector.md",
+      "redirect_url": "/azure/azure-arc/data/deploy-customer-managed-keytab-active-directory-connector",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-arc/data/reference/reference-az-sql-mi-arc-dag.md",
+      "redirect_url": "/azure/azure-arc/data/reference/reference-az-sql-instance-failover-group-arc",
+      "redirect_document_id":true
     },
     {
       "source_path_from_root": "/articles/azure-arc/data/retrieve-the-username-password-for-data-controller.md",
@@ -23829,6 +23844,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/sentinel/sap-deploy-solution.md",
+      "redirect_url": "/azure/sentinel/sap/deployment-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/sap-solution-detailed-requirements.md",
+      "redirect_url": "/azure/sentinel/sap/prerequisites-for-deploying-sap-continuous-threat-monitoring",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/sap-solution-security-content.md",
+      "redirect_url": "/azure/sentinel/sap/sap-solution-security-content",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/sap-solution-deploy-alternate.md",
+      "redirect_url": "/azure/sentinel/sap/sap-solution-deploy-alternate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/sap-solution-deploy-snc.md",
+      "redirect_url": "/azure/sentinel/sap/configure-snc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/sap-solution-log-reference.md",
+      "redirect_url": "/azure/sentinel/sap/sap-solution-log-reference",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/service-bus/index.md",
       "redirect_url": "/azure/service-bus-messaging/index",
       "redirect_document_id": false
@@ -24211,26 +24256,6 @@
     {
       "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md",
       "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sql-database/index.md",
-      "redirect_url": "/azure/azure-sql/database/index",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sql-database/sql-database-managed-instance-create-manage.md",
-      "redirect_url": "/azure/azure-sql/managed-instance/instance-create-quickstart",
-      "redirect_document_id": false
-    },          
-    {
-      "source_path_from_root": "/articles/sql-database/sql-database-single-database.md",
-      "redirect_url": "/azure/azure-sql/database/sql-database-paas-overview",
-      "redirect_document_id": false
-    },  
-    {
-      "source_path_from_root": "/articles/sql-database/sql-database-managed-instance.md",
-      "redirect_url": "/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview",
       "redirect_document_id": false
     },
     {
