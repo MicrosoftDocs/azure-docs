@@ -251,7 +251,7 @@ This metric shows the number of virtual machines that are using the ExpressRoute
 
 Aggregation type: *Avg*
 
-This metric shows the bandwidth usage for a specific connection to an ExpressRoute circuit.
+This metric shows the bits per second for ingress and egress to Azure through the ExpressRoute gateway. You can split this metric further to see specific connections to the ExpressRoute circuit.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erconnections.jpg" alt-text="Screenshot of gateway connection bandwidth usage metric.":::
 
