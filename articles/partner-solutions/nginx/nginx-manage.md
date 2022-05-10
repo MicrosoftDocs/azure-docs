@@ -81,13 +81,13 @@ Click **Send metrics to Azure Monitor** to enable metrics and press Save.
 1. Select Delete. 
 
 > [!NOTE]
-> The delete button on the main account is only activated if all the sub-accounts mapped to the main account are already deleted. Refer to section for deleting sub-accounts here 
+> The delete button on the main account is only activated if all the sub-accounts mapped to the main account are already deleted. Refer to section for deleting sub-accounts here.
 
 After the account is deleted, logs are no longer sent to Nginx, and all billing stops for Nginx through Azure Marketplace.
 
 ## GitHub Integration
 
-Enable CI/CD deployments via GitHub Actions integrations 
+Enable CI/CD deployments via GitHub Actions integrations
 
 <!-- <<Add screenshot for GitHub integration>>  -->
 
