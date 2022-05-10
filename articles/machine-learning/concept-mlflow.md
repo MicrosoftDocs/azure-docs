@@ -50,6 +50,6 @@ Learn more at [Train ML models with MLflow projects and Azure Machine Learning (
 
 ## Next steps
 * [Track ML models with MLflow and Azure Machine Learning CLI v2](how-to-use-mlflow-cli-runs.md)
-* Convert your custom model to MLflow model format for no code deployments
+* [Convert your custom model to MLflow model format for no code deployments](how-to-convert-custom-model-to-mlflow.md)
 * [Deploy MLflow models to an online endpoint](how-to-deploy-mlflow-models-online-endpoints.md)
 
