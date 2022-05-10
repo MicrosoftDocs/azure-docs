@@ -326,7 +326,7 @@ Configure and prepare your OS by doing the following steps:
     yum install nfs-utils
     </code></pre>
 
-3. **[A]** Prepare the OS for running SAP HANA on Azure NetApp with NFS, as described in [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346). Create configuration file */etc/sysctl.d/netapp-hana.conf* for the NetApp configuration settings.  
+3. **[A]** Prepare the OS for running SAP HANA on Azure NetApp with NFS, as described in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346). Create configuration file */etc/sysctl.d/netapp-hana.conf* for the NetApp configuration settings.  
 
     <pre><code>
     vi /etc/sysctl.d/netapp-hana.conf
@@ -359,7 +359,7 @@ Configure and prepare your OS by doing the following steps:
 > [!TIP]
 > Avoid setting net.ipv4.ip_local_port_range and net.ipv4.ip_local_reserved_ports explicitly in the sysctl configuration files to allow SAP Host Agent to manage the port ranges. For more details see SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
 
-5. **[A]** Adjust the sunrpc settings, as recommended in the [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346).  
+5. **[A]** Adjust the sunrpc settings, as recommended in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346).  
 
     <pre><code>
     vi /etc/modprobe.d/sunrpc.conf
