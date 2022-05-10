@@ -37,7 +37,7 @@ After you've uploaded [training datasets](./how-to-custom-speech-test-and-train.
     > Take note of the **Expiration for adaptation** date. This is the last date that you can use the baseline model for training. For more information, see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md).
 
 1. On the **Choose data** page, select one or more datasets that you want to use for training. If there aren't any datasets available, cancel the setup, and then go to the **Speech datasets** menu to [upload datasets](how-to-custom-speech-upload-data.md).
-1. Enter a **Name** and **Description**, and then select **Next**.
+1. Enter a name and description for your custom model, and then select **Next**.
 1. Optionally, check the **Add test in the next step** box. If you skip this step, you can run the same tests later. For more information, see [Test recognition quality](how-to-custom-speech-inspect-data.md) and [Test model accuracy](how-to-custom-speech-evaluate-data.md).
 1. Select **Save and close** to kick off the build for your custom model.
 

@@ -30,7 +30,7 @@ To create a custom endpoint, follow these steps:
 
 1. Select **Deploy model** to start the new endpoint wizard.
 
-1. On the **New endpoint** page, enter a **Name** and **Description** for your custom endpoint. 
+1. On the **New endpoint** page, enter a name and description for your custom endpoint. 
 
 1. Select the custom model that you want to associate with the endpoint. 
 

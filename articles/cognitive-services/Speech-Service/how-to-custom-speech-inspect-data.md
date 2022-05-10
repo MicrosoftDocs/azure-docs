@@ -26,13 +26,13 @@ Follow these instructions to create a test:
 1. Navigate to **Speech Studio** > **Custom Speech** and select your project name from the list.
 1. Select **Test models** > **Create new test**.
 1. Select **Inspect quality (Audio-only data)** > **Next**. 
-1. Choose an audio dataset that you'd like to use for testing, then select **Next**. If there aren't any datasets available, cancel the setup, and then go to the **Speech datasets** menu to [upload datasets](how-to-custom-speech-upload-data.md).
+1. Choose an audio dataset that you'd like to use for testing, and then select **Next**. If there aren't any datasets available, cancel the setup, and then go to the **Speech datasets** menu to [upload datasets](how-to-custom-speech-upload-data.md).
 
     :::image type="content" source="media/custom-speech/custom-speech-choose-test-data.png" alt-text="Review your keyword":::
 
 1. Choose one or two models to evaluate and compare accuracy.
-1. Enter the test name and description, then select **Next**.
-1. Review your settings, then select **Save and close**.
+1. Enter the test name and description, and then select **Next**.
+1. Review your settings, and then select **Save and close**.
 
 After a test has been successfully created, you can see how a model transcribes the audio dataset you specified, or compare results from two models side by side.
 
