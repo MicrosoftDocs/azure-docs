@@ -23,7 +23,7 @@ Before you can run the script to connect your machines, you'll need to do the fo
     * Assign the Azure Connected Machine Onboarding role to your service principal and limit the scope of the role to the target Azure subscription or resource group.
     * Make a note of the Service Principal Secret and Service Principal Client ID; you'll need these values later.
 
-1. Collect details on the Tenant Id, Subscription Id, Resource Group, and Region where the Azure Arc-enabled resource will be onboarded.
+1. Collect details on the Tenant ID, Subscription ID, Resource Group, and Region where the Azure Arc-enabled resource will be onboarded.
 
 ## Download the Ansible playbook
 
