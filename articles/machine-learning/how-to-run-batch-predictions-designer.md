@@ -62,8 +62,6 @@ You will see a submission list on the left of canvas. You can click the job deta
 
     ![Batch inference pipeline draft](./media/how-to-run-batch-predictions-designer/batch-inference-draft.png)
 
-
-
 ### Add a pipeline parameter
 
 To create predictions on new data, you can either manually connect a different dataset in this pipeline draft view or create a parameter for your dataset. Parameters let you change the behavior of the batch inferencing process at runtime.
