@@ -66,7 +66,7 @@ Access to a given Azure Machine Learning workspace via Private Link is done by c
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.cert.api.azureml.ms```
 - ```<compute instance name>.<region the workspace was created in>.instances.azureml.ms```
 - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.notebooks.azure.net```
-- ```*.<per-workspace globally-unique identifier>.inference.<region the workspace was created in>.api.azureml.ms```
+- ```*.<per-workspace globally-unique identifier>.inference.<region the workspace was created in>.api.azureml.ms``` - Used by managed online endpoints
 
 **Azure China 21Vianet regions**:
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.cn```
