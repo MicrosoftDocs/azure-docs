@@ -10,6 +10,7 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/28/2021
 ms.author: aahi
+ms.custom: non-critical
 ---
 
 # Migrate to the Read v3.x OCR containers
