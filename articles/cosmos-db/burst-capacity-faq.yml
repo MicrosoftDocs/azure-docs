@@ -9,7 +9,7 @@ metadata:
   ms.reviewer: dech
   ms.date: 05/09/2022
   
-title: Frequently asked questions on hierarchical partition keys in Azure Cosmos DB (preview)
+title: Frequently asked questions on burst capacity in Azure Cosmos DB (preview)
 summary: |
   [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
   
@@ -31,7 +31,7 @@ sections:
       - question: |
           How can I monitor burst capacity?
         answer: |
-          [Azure Monitor metrics](monitor-cosmos-db.md#analyzing-metrics), built-in to Azure Cosmos DB, can filter by the dimension **CapacityType** on the **TotalRequests** and **TotalRequestUnits** metrics. Requests served with burst capacity will have **CapacityType** equal to **Burst**.
+          [Azure Monitor metrics](monitor-cosmos-db.md#analyzing-metrics), built-in to Azure Cosmos DB, can filter by the dimension **CapacityType** on the **TotalRequests** and **TotalRequestUnits** metrics. Requests served with burst capacity will have **CapacityType** equal to **BurstCapacity**.
       - question: |
           How can I see which resources have less than 3000 RU/s per physical partition?
         answer: |

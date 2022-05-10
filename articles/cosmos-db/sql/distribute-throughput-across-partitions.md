@@ -27,7 +27,7 @@ If you aren't seeing 429 responses and your end to end latency is acceptable, th
 
 ## Getting started
 
-To get started using burst capacity, enroll in the preview by filing a support ticket in the [Azure portal](https://portal.azure.com). 
+To get started using distributed throughput across partitions, enroll in the preview by filing a support ticket in the [Azure portal](https://portal.azure.com). 
 
 ## Example scenario
 
