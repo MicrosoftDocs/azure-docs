@@ -87,8 +87,6 @@ If you have already labeled data, you can use it to get started with the service
 
 ## Get project details
 
-<!-- Add one line description  -->
-
 ### [Language Studio](#tab/studio)
 
 [!INCLUDE [Language Studio project details](../includes/language-studio/project-details.md)]
