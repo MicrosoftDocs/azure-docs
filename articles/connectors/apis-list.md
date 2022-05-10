@@ -49,23 +49,23 @@ In Azure Logic Apps, most triggers and actions are available in either a *built-
 
 * [Managed connectors](managed.md) are deployed, hosted, and managed by Microsoft. These connectors provide triggers and actions for cloud services, on-premises systems, or both.
 
+  In a *Standard* logic app, all managed connectors are organized as **Azure** connectors. However, in a *Consumption* logic app, managed connectors are organized as **Standard** or **Enterprise**, based on pricing level.
+
 For more information about logic app types, review [Resource types and host environment differences](../logic-apps/logic-apps-overview.md#resource-environment-differences).
 
 <a name="connection-configuration"></a>
 
 ## Connection configuration
 
-To create or manage logic app resources and connections, you need certain permissions, which are provided through roles using [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). You can assign built-in or customized roles to members who have access to your Azure subscription. Azure Logic Apps has these specific roles:
+In Consumption logic apps, before you can create or manage logic apps and their connections, you need specific permissions. For more information about these permissions, review [Secure operations - Secure access and data in Azure Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md#secure-operations).
 
-* [Logic App Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor): Lets you manage logic apps, but you can't change access to them.
+Before you can use a connector's triggers or actions in your workflow, many connectors require that you first create a *connection* to the target service or system. To create a connection from within a logic app workflow, you have to authenticate your identity with account credentials and sometimes other connection information. For example, before your workflow can access and work with your Office 365 Outlook email account, you must authorize a connection to that account. For some built-in connectors and managed connectors, you can [set up and use a managed identity for authentication](../logic-apps/create-managed-service-identity.md#triggers-actions-managed-identity), rather than provide your credentials.
 
-* [Logic App Operator](../role-based-access-control/built-in-roles.md#logic-app-operator): Lets you read, enable, and disable logic apps, but you can't edit or update them.
+Although you create connections from within a workflow, connections are separate Azure resources with their own resource definitions. To review these connection resource definitions, follow these steps based on whether you have a Consumption or Standard logic app:
 
-* [Contributor](../role-based-access-control/built-in-roles.md#contributor): Grants full access to manage all resources, but doesn't allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.
+* Consumption: [Download your logic app from Azure into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md). This method is the easiest way to create a valid, parameterized logic app template that's mostly ready for deployment.
 
-  For example, suppose you have to work with a logic app that you didn't create and authenticate connections used by that logic app's workflow. Your Azure subscription requires Contributor permissions for the resource group that contains that logic app resource. If you create a logic app resource, you automatically have Contributor access.
-
-Before you can use a connector's triggers or actions in your workflow, most connectors require that you first create a *connection* to the target service or system. To create a connection from within a logic app workflow, you have to authenticate your identity with account credentials and sometimes other connection information. For example, before your workflow can access and work with your Office 365 Outlook email account, you must authorize a connection to that account. For some built-in connectors and managed connectors, you can [set up and use a managed identity for authentication](../logic-apps/create-managed-service-identity.md#triggers-actions-managed-identity), rather than provide your credentials.
+* Standard: [View your logic app in Visual Studio Code](../logic-apps/create-single-tenant-workflows-visual-studio-code.md#manage-deployed-apps-vs-code). The **connections.json** file contains the required configuration for the connections created by connectors.
 
 <a name="connection-security-encryption"></a>
 
@@ -74,8 +74,6 @@ Before you can use a connector's triggers or actions in your workflow, most conn
 Connection configuration details, such as server address, username, and password, credentials, and secrets are [encrypted and stored in the secured Azure environment](../security/fundamentals/encryption-overview.md). This information can be used only in logic app resources and by clients who have permissions for the connection resource, which is enforced using linked access checks. Connections that use Azure Active Directory Open Authentication (Azure AD OAuth), such as Office 365, Salesforce, and GitHub, require that you sign in, but Azure Logic Apps stores only access and refresh tokens as secrets, not sign-in credentials.
 
 Established connections can access the target service or system for as long as that service or system allows. For services that use Azure AD OAuth connections, such as Office 365 and Dynamics, Azure Logic Apps refreshes access tokens indefinitely. Other services might have limits on how long Logic Apps can use a token without refreshing. Some actions, such as changing your password, invalidate all access tokens.
-
-Although you create connections from within a workflow, connections are separate Azure resources with their own resource definitions. To review these connection resource definitions, [download your logic app from Azure into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md). This method is the easiest way to create a valid, parameterized logic app template that's mostly ready for deployment.
 
 > [!TIP]
 > If your organization doesn't permit you to access specific resources through connectors in Azure Logic Apps, you can [block the capability to create such connections](../logic-apps/block-connections-connectors.md) using [Azure Policy](../governance/policy/overview.md).
@@ -143,9 +141,10 @@ In Consumption logic apps, you can call APIs that run custom code or aren't avai
 
   Custom connectors make these APIs available to any Consumption logic app in your Azure subscription. To make custom API Apps or connectors public for anyone to use in Azure, you can [submit connectors for Microsoft certification](/connectors/custom-connectors/submit-certification).
 
-In Standard logic apps, you can create natively running custom built-in connectors that are available to any Standard logic app. For more information, review the following documentation:
+In Standard logic apps, you can create natively running custom [built-in connectors](../connectors/built-in.md) that are available to any Standard logic app. For more information, review the following documentation:
 
 * [Custom connectors for Standard logic apps](../logic-apps/custom-connector-overview.md#custom-connector-standard)
+
 * [Create custom built-in connectors for Standard logic apps](../logic-apps/create-custom-built-in-connector-standard.md)
 
 ## ISE and connectors
