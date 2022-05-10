@@ -24,9 +24,7 @@ ms.date: 01/18/2022
 > [!IMPORTANT]
 > This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this article, you learn how to train computer vision models on image data with automated ML with the, 
-[Azure Machine Learning CLI extension (v2)]()
-[Azure Machine Learning Python SDK v2 (preview)](/python/api/overview/azure/ml/).
+In this article, you learn how to train computer vision models on image data with automated ML with the Azure Machine Learning CLI extension v2 or the Azure Machine Learning Python SDK v2 (preview).
 
 Automated ML supports model training for computer vision tasks like image classification, object detection, and instance segmentation. Authoring AutoML models for computer vision tasks is currently supported via the Azure Machine Learning Python SDK. The resulting experimentation runs, models, and outputs are accessible from the Azure Machine Learning studio UI. [Learn more about automated ml for computer vision tasks on image data](concept-automated-ml.md).
 
@@ -45,8 +43,16 @@ Automated ML supports model training for computer vision tasks like image classi
     To install the SDK you can either,  
     * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. For more information, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
 
-    * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
-    
+    * Use the following commands to install Azure ML Python SDK v2:
+       * Uninstall previous preview version:
+       ```python
+       pip uninstall azure-ml
+       ```
+       * Install the Azure ML Python SDK v2:
+       ```python
+       pip install azure-ml
+       ```
+  
     > [!NOTE]
     > Only Python 3.6 and 3.7 are compatible with automated ML support for computer vision tasks. 
 
@@ -192,7 +198,15 @@ Training data is a required parameter and is passed in using the `training` key 
 
 Target column name is a required parameter and used as target for supervised ML task. It's passed in using the `target_column_name` key in the data section. For example,
 
-:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml"  id="mltable_settings":::
+```yaml
+target_column_name: label
+training_data:
+  path: data/training-mltable-folder
+  type: mltable
+validation_data:
+  path: data/validation-mltable-folder
+  type: mltable
+```
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
@@ -224,7 +238,9 @@ The compute target is passed in using the `compute` parameter. For example:
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml" id="compute_settings":::
+```yaml
+compute: azureml:gpu-cluster
+```
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
@@ -277,7 +293,7 @@ Before doing a large sweep to search for the optimal models and hyperparameters,
 
 If you wish to use the default hyperparameter values for a given algorithm (say yolov5), you can specify it using model_name key in image_model section. For example,
 
-```yml
+```yaml
 image_model:
     model_name: "yolov5"
 ```
@@ -302,13 +318,15 @@ The primary metric used for model optimization and hyperparameter tuning depends
     
 ### Experiment budget
 
-You can optionally specify the maximum time budget for your AutoML Vision training job using the `timeout_minutes` parameter in the `set_limits()` function - the amount of time in minutes before the experiment terminates. If none specified, default experiment timeout is seven days (maximum 60 days). For example,
+You can optionally specify the maximum time budget for your AutoML Vision training job using the `timeout` parameter in the `limits` - the amount of time in minutes before the experiment terminates. If none specified, default experiment timeout is seven days (maximum 60 days). For example,
 # [CLI v2](#tab/CLI-v2)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml" id="limit_settings":::
-
+```yaml
+limits:
+  timeout: 60
+```
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
@@ -372,8 +390,18 @@ You can configure all the sweep related parameters as shown in the example below
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml" id="sweep_settings":::
-
+```yaml
+sweep:
+  limits:
+    max_trials: 10
+    max_concurrent_trials: 2
+  sampling_algorithm: random
+  early_termination:
+    type: bandit
+    evaluation_interval: 2
+    slack_factor: 0.2
+    delay_evaluation: 6
+```
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
@@ -390,7 +418,11 @@ You can pass fixed settings or parameters that don't change during the parameter
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml" id="fixed_settings":::
+```yaml
+image_model:
+  early_stopping: True
+  evaluation_frequency: 1
+```
 
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
@@ -413,7 +445,7 @@ You can pass the run ID that you want to load the checkpoint from.
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-```azurecli
+```yaml
 image_model:
   checkpoint_run_id : "target_checkpoint_run_id"
 ```
@@ -425,7 +457,21 @@ To find the run ID from the desired model, you can use the following code.
 
 ```python
 # find a run id to get a model checkpoint from
-target_checkpoint_run = automl_job.get_best_child()
+import mlflow
+
+# Obtain the tracking URL from MLClient
+MLFLOW_TRACKING_URI = ml_client.workspaces.get(
+    name=ml_client.workspace_name
+).mlflow_tracking_uri
+mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
+
+from mlflow.tracking.client import MlflowClient
+
+mlflow_client = MlflowClient()
+mlflow_parent_run = mlflow_client.get_run(automl_job.name)
+
+# Fetch the id of the best automl child run.
+target_checkpoint_run_id = mlflow_parent_run.data.tags["automl_best_child_run_id"]
 ```
 
 To pass a checkpoint via the run ID, you need to use the `checkpoint_run_id` parameter in `set_image_model` function.
@@ -441,7 +487,7 @@ image_object_detection_job = automl.image_object_detection(
     tags={"my_custom_tag": "My custom value"},
 )
 
-image_object_detection_job.set_image_model(checkpoint_run_id=target_checkpoint_run.id)
+image_object_detection_job.set_image_model(checkpoint_run_id=target_checkpoint_run_id)
 
 automl_image_job_incremental = ml_client.jobs.create_or_update(
     image_object_detection_job
@@ -497,12 +543,12 @@ You can configure the model deployment endpoint name and the inferencing cluster
 ## Code examples
 # [CLI v2](#tab/CLI-v2)
 
-Review detailed code examples and use cases in the [azureml-examples repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/april-sdk-preview/cli/jobs/automl-standalone-jobs). 
+Review detailed code examples and use cases in the [azureml-examples repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/automl-standalone-jobs). 
 
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
-Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/april-sdk-preview/sdk/jobs/automl-standalone-jobs). 
+Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/automl-standalone-jobs). 
 
 ---
 ## Next steps
