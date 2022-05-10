@@ -45,7 +45,7 @@ Instead of manually reviewing significantly long text files to audit and
 
 Using custom NER typically involves several different steps. 
 
-:::image type="content" source="../custom-classification/media/development-lifecycle.png" alt-text="The development lifecycle" lightbox="../custom-classification/media/development-lifecycle.png":::
+:::image type="content" source="media/development-lifecycle.png" alt-text="The development lifecycle" lightbox="media/development-lifecycle.png":::
 
 1. **Define your schema**: Know your data and identify the [entities](glossary.md#entity) you want extracted. Avoid ambiguity.
 

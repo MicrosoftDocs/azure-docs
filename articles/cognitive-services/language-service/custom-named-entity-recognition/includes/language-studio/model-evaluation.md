@@ -17,11 +17,11 @@ ms.author: aahi
 
 4. You can find the *model-level evaluation metrics* under **Overview**, and the *class-level evaluation metrics* under **Class performance metrics**. See [Evaluation metrics](../../concepts/evaluation-metrics.md#model-level-and-entity-level-evaluation-metrics) for more information.
 
-    :::image type="content" source="../../media/model-details.png" alt-text="A screenshot of the model performance metrics in Language Studio" lightbox="../../media/model-details.png":::
+    :::image type="content" source="../../media/model-details.png" alt-text="A screenshot of the model performance metrics in Language Studio." lightbox="../../media/model-details.png":::
 
 5. The [confusion matrix](../../concepts/evaluation-metrics.md#confusion-matrix) for the model is located under **Test set confusion matrix**.
 
-    :::image type="content" source="../../media/model-details.png" alt-text="A screenshot of the model performance metrics in Language Studio" lightbox="../../media/model-details.png":::
+    :::image type="content" source="../../media/model-details.png" alt-text="A screenshot of the model performance metrics in Language Studio." lightbox="../../media/model-details.png":::
     
 > [!NOTE]
 > Entities that are neither tagged nor predicted in the test set will not be part of the displayed results.
