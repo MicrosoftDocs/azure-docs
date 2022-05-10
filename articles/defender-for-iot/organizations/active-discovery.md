@@ -40,6 +40,9 @@ Active discovery scans are supported for the following protocols:
 |**Switch discovery scans**     |  - SNMPv1<br>- SNMPv2<br>- SNMPv3<br>- HTTP       |
 |**PLC discovery and enrichment scans**     | - S7 (Siemens) <br>- CIP (Rockwell)        |
 
+> [!NOTE]
+> Support for WMI and DNS lookup is supported from the sensor's system settings. For more information, see [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md).
+
 ## Plan your active discovery scans
 
 > [!IMPORTANT]
@@ -58,7 +61,7 @@ When planning an active discovery scan:
 
 - **Identify active discovery scan owners**, which are personnel who can supervise the active scans and stop the scanning process if needed.
 
-## Configure network access
+## Prerequisite: Configure network access
 
 Before you can configure active scans, you must also configure your network to allow the sensor's management port IP address access to the OT network where your devices reside.
 
