@@ -277,6 +277,8 @@ items:
       href: how-to-share-data.md
     - name: Receive shared data
       href: how-to-receive-share.md
+    - name: Data share FAQ
+      href: how-to-data-share-faq.md
   - name: Insights
     items:
     - name: View asset insights
