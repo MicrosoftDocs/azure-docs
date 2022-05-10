@@ -698,7 +698,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **Data sources:**                | Windows Security logs                                              |
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-| **Entities:**                    | <br><br> |
+| **Entities:**                    |                                                                    |
 
 
 ### Suspicious volume of logins to user account
@@ -711,7 +711,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **Data sources:**                | Windows Security logs                                              |
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-| **Entities:**                    | <br><br> |
+| **Entities:**                    |                                                                    |
 
 
 ### Suspicious volume of logins to user account by logon types
@@ -737,7 +737,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **Data sources:**                | Windows Security logs                                              |
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-| **Entities:**                    | <br><br> |
+| **Entities:**                    |                                                                    |
 
 
 ### Unusual external firewall alarm detected
@@ -753,17 +753,17 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **Entities:**                    | **Type:** IP<br><br>**Field:** IP                                  |
 
 
-### Unusual mass downgrade  AIP label
+### Unusual mass downgrade AIP label
 
 **Description:** This algorithm is to detect unusual high volume of downgrade label activity in Azure Information Protection (AIP) logs. It considers "AIP" workload records for a given number of days and determines the sequence of activity performed on documents along with the label applied to classify unusual volume of downgrade activity.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                |                                    |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **Data sources:**                | Azure Information Protection logs                                  |
+| **MITRE ATT&CK tactics:**        | Collection                                                         |
+| **MITRE ATT&CK techniques:**     | T1530 - Data from Cloud Storage Object<br>T1213 - Data from Information Repositories<br>T1005 - Data from Local System<br>T1039 - Data from Network Shared Drive<br>T1114 - Email Collection |
+| **Entities:**                    |                                                                    |
 
 
 ### Unusual network communication on commonly used ports
@@ -774,9 +774,9 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
 | **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CheckPoint, Fortinet)             |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **MITRE ATT&CK tactics:**        | Command and Control<br>Exfiltration                                |
+| **MITRE ATT&CK techniques:**     | **Command and Control:**<br>T1071 - Application Layer Protocol<br><br>**Exfiltration:**<br>T1030 - Data Transfer Size Limits                                  |
+| **Entities:**                    | **Type:** IP<br><br>**Fields:** Address, Location                  |
 
 
 ### Unusual network volume anomaly
@@ -786,10 +786,10 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CheckPoint, Fortinet)             |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CEF, CheckPoint, Fortinet)        |
+| **MITRE ATT&CK tactics:**        | Exfiltration                                                       |
+| **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits                                  |
+| **Entities:**                    | **Type:** IP<br><br>**Field:** IP                                  |
 
 
 ### Unusual web traffic detected with IP in URL path
@@ -800,13 +800,13 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
 | **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CheckPoint, Fortinet)             |
-| **MITRE ATT&CK tactics:**        |                                    |
-| **MITRE ATT&CK techniques:**     |                                    |
-| **Entities:**                    | <br><br> |
+| **MITRE ATT&CK tactics:**        | Command and Control<br>Initial Access                              |
+| **MITRE ATT&CK techniques:**     | **Command and Control:**<br>T1071 - Application Layer Protocol<br><br>**Initial Access:**<br>T1189 - Drive-by Compromise                                      |
+| **Entities:**                    | **Type:** Network Connection, IP<br><br>**Field:** SourceIP, IP, DestinationIP, DestinationPort, Protocol |
 
 
 ## Next steps
 
-Now you've learned more about advanced multistage attack detection, you might be interested in the following quickstart to learn how to get visibility into your data and potential threats: [Get started with Microsoft Sentinel](get-visibility.md).
+Now you've learned more about machine learning-based anomaly detection, you might be interested in the following quickstart to learn how to get visibility into your data and potential threats: [Get started with Microsoft Sentinel](get-visibility.md).
 
 If you're ready to investigate the incidents that are created for you, see the following tutorial: [Investigate incidents with Microsoft Sentinel](investigate-cases.md).
