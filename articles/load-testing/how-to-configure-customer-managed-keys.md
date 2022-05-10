@@ -163,7 +163,7 @@ To configure customer-managed keys for a new Azure Load Testing resource, follow
 
 # [PowerShell](#tab/powershell)
 
-You can deploy an ARM template using Powershell to automate the creation of your Azure resources. You can create any resource of type `Microsoft.LoadTestService/loadtests` with customer managed key enabled for encryption by adding the following properties:
+You can deploy an ARM template using PowerShell to automate the creation of your Azure resources. You can create any resource of type `Microsoft.LoadTestService/loadtests` with customer managed key enabled for encryption by adding the following properties:
 
 ```json
 "encryption": {
