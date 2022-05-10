@@ -57,7 +57,6 @@ void CastRay(ApiHandle<RenderingSession> session)
     RayCast rayCast;
     rayCast.StartPos = {0, 0, 0};
     rayCast.EndPos = {0, 0, 10};
-    rayCast.MaxHits = 10;
 
     // only return the closest hit
     rayCast.HitCollection = HitCollectionPolicy::ClosestHit;
