@@ -80,8 +80,8 @@ You can give instant feedback about the report/dashboard with a screenshot.
 
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Usage** page graphs by selecting a month range based on the past 3, 6, or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range is six months.
 
-[ ![The screen shot illustrates the Month filters on the Usage dashboard.](./media/usage-dashboard/dashboard-month-range.png) ]
-[ ![The screen shot illustrates the selection of the time range.](./media/usage-dashboard/dashboard-month-range-select.png) ]
+![The screen shot illustrates the Month filters on the Usage dashboard.](./media/usage-dashboard/dashboard-month-range.png)
+![The screen shot illustrates the selection of the time range.](./media/usage-dashboard/dashboard-month-range-select.png)
 
 ### Usage page dashboard filters
 
