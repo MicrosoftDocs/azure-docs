@@ -69,7 +69,7 @@ Requirements:
 * Three [availability zones in the region](/availability-zones/az-overview.md#azure-regions-with-availability-zones).
 
 >[!NOTE]
->Migration to a zone resilient configuration can cause a brief loss of external connectivity through the load balancer, but will not effect cluster health. This occurs when a new Public IP needs to be created in order to make the networking resilient to Zone failures. Please plan the migration accordingly.
+>Migration to a zone resilient configuration can cause a brief loss of external connectivity through the load balancer, but will not effect cluster health. This occurs when a new Public IP needs to be created in order to make the networking resilient to Zone failures. Please  test and plan the migration accordingly.
 
 1) Start with determining if there will be a new IP required and what resources need to be migrated to become zone resilient. To get the current Availability Zone resiliency state for the resources of the managed cluster use the following  API call:
 
@@ -101,8 +101,10 @@ Requirements:
    ```
 
    If the Public IP resource is not zone resilient, migration of the cluster will cause a brief loss of external connectivity. This is due to the migration setting up new Public IP and updating the cluster FQDN to the new IP. If the Public IP resource is zone resilient, migration will not modify the Public IP resource or FQDN and there will be no external connectivity impact.
+   
+2) Initiate migration of the underlying storage account created for managed cluster for LRS to ZRS using [live migration](../storage/common/redundancy-migration.md#request-a-live-migration-to-zrs-gzrs-or-ra-gzrs). The resource group of storage account that needs to be migrated would be of the form "SFC_ClusterId"(ex SFC_9240df2f-71ab-4733-a641-53a8464d992d) under the same subscription as the managed cluster resource.
 
-2) Add a new primary node type which spans across availability zones
+3) Add a new primary node type which spans across availability zones
 
    This step will trigger the resource provider to perform the migration of the primary node type and Public IP along with a cluster FQDN DNS update, if needed, to become zone resilient. Use the above API to understand implication of this step.
 
@@ -126,7 +128,7 @@ Requirements:
 }
 ```
 
-3) Add secondary node type which spans across availability zones
+4) Add secondary node type which spans across availability zones
    This step will add a secondary node type which spans across availability zones similar to the primary node type. Once created, customers need to migrate existing services from the old node types to the new ones by [using placement properties](./service-fabric-cluster-resource-manager-cluster-description.md).
 
 * Use apiVersion 2022-02-01-preview or higher.
@@ -150,11 +152,11 @@ Requirements:
    }
    ```
 
-4) Start removing older non az spanning node types from the cluster
+5) Start removing older non az spanning node types from the cluster
 
    Once all your services are not present on your non zone spanned node types, you must remove the old node types. Start by [removing the old node types from the cluster](./how-to-managed-cluster-modify-node-type.md) using Portal or cmdlet. As a last step, remove any old node types from your template.
 
-5) Mark the cluster resilient to zone failures
+6) Mark the cluster resilient to zone failures
 
    This step helps in future deployments, since it ensures all future deployments of node types span across availability zones and thus cluster remains tolerant to AZ failures. Set `zonalResiliency: true` in the cluster ARM template and do a deployment to mark cluster as zone resilient and ensure all new node type deployments span across availability zones. 
 
@@ -167,7 +169,7 @@ Requirements:
    ```
    You can also see the updated status in portal under Overview -> Properties similar to `Zonal resiliency True`, once complete.
 
-6) Validate all the resources are zone resilient
+7) Validate all the resources are zone resilient
 
    To validate the Availability Zone resiliency state for the resources of the managed cluster use the following GET API call:
 
