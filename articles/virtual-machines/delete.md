@@ -281,7 +281,7 @@ When you go to delete an existing VM, you will find an option to apply force del
 
 ### [CLI](#tab/cli3)
 
-Use the `--force-deletion` parameter for [az vm delete](/cli/azure/vm?view=azure-cli-latest#az-vm-delete). 
+Use the `--force-deletion` parameter for [az vm delete](/cli/azure/vm?view=azure-cli-latest#az-vm-delete&preserve-view=true). 
 
 ```azurecli-interactive
 az vm delete \
@@ -323,7 +323,7 @@ When you go to delete an existing virtual machine scale set, you will find an op
 
 ### [CLI](#tab/cli4)
 
-Use the `--force-deletion` parameter for [az vmss delete](/cli/azure/vmss?view=azure-cli-latest#az-vmss-delete). 
+Use the `--force-deletion` parameter for [az vmss delete](/cli/azure/vmss?view=azure-cli-latest#az-vmss-delete&preserve-view=true). 
 
 ```azurecli-interactive
 az vmss delete \
