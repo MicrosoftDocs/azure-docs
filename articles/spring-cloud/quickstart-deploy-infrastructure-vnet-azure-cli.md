@@ -177,7 +177,7 @@ To deploy the Azure Spring Apps cluster using the Azure CLI script, follow these
    * The name of the virtual network resource group where you'll deploy your resources.
    * The name of the spoke virtual network (for example, *vnet-spoke*).
    * The name of the subnet to be used by the Azure Spring Apps service (for example, *snet-app*).
-   * The name of the subnet to be used by the Spring Cloud runtime service (for example, *snet-runtime*).
+   * The name of the subnet to be used by the Spring runtime service (for example, *snet-runtime*).
    * The name of the resource group for the Azure Log Analytics workspace to be used for storing diagnostic logs.
    * The name of the Azure Log Analytics workspace (for example, *la-cb5sqq6574o2a*).
    * The CIDR ranges from your virtual network to be used by Azure Spring Apps (for example, *XX.X.X.X/16,XX.X.X.X/16,XX.X.X.X/16*).

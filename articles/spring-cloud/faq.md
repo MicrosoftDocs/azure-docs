@@ -33,7 +33,7 @@ Security and privacy are among the top priorities for Azure and Azure Spring App
 
 * The service instances in Azure Spring Apps are isolated from each other.
 * Azure Spring Apps provides complete TLS/SSL and certificate management.
-* Critical security patches for OpenJDK and Spring Cloud runtimes are applied to Azure Spring Apps as soon as possible.
+* Critical security patches for OpenJDK and Spring runtimes are applied to Azure Spring Apps as soon as possible.
 
 ### How does Azure Spring Apps host my applications?
 
