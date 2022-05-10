@@ -120,12 +120,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 To configure single sign-on on **Workgrid** side, you need to add the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to your Workgrid console in the Security section.
 
-   ![Screenshot of the Workgrid U I with the Security section called out.](media/workgrid-tutorial/securitysection.png)
+   ![Screenshot of the Workgrid U I with the Security section called out.](media/workgrid-tutorial/security-section.png)
 
    > [!NOTE]
    > You will need to use the full schema URI for the Email, Name and Family Name claims when mapping the attributes in Workgrid:
   
-   ![Screenshot of the Workgrid U I with the Security section attribute fields.](media/workgrid-tutorial/attributemappings.png)
+   ![Screenshot of the Workgrid U I with the Security section attribute fields.](media/workgrid-tutorial/attribute-mappings.png)
 
 
 ### Create Workgrid test user
