@@ -50,7 +50,7 @@ Authenticated users and client applications of the Azure Health Data Services mu
 
 Furthermore, to access Azure Health Data Services, you [register a client application](register-application.md) in the Azure AD. It's with these steps that you can find the [application (client) ID](./../healthcare-apis/register-application.md#application-id-client-id), and you can configure the [authentication setting](./../healthcare-apis/register-application.md#authentication-setting-confidential-vs-public) to allow public client flows or to a confidential client application.
 
-As a requirement for the DICOM service (optional for the FHIR service), you configure the user access [API permissions](./../healthcare-apis/register-application#api-permissions) or role assignments for Azure Health Data Services that's managed through [Azure role-based access control (Azure RBAC)](configure-azure-rbac.md).  
+As a requirement for the DICOM service (optional for the FHIR service), you configure the user access [API permissions](./../healthcare-apis/register-application#api-permissions.md) or role assignments for Azure Health Data Services that's managed through [Azure role-based access control (Azure RBAC)](configure-azure-rbac.md).  
 
 ## FHIR service
 
@@ -65,10 +65,10 @@ You can also do the following:
 - Access the FHIR service using tools such as cURL, Postman, and REST Client
 - Load data directly using the POST or PUT method against the FHIR service 
 - Export ($export) data to Azure Storage
-- Convert data: convert [HL7 v2](https://docs.microsoft.com/en-us/azure/healthcare-apis/data-transformation/convert-data) and other format data to FHIR
+- Convert data: convert [HL7 v2](./../healthcare-apis/fhir/convert-data.md) and other format data to FHIR
 - Create Power BI dashboard reports with FHIR data 
 
-For more information about, see [Get started with the FHIR service](./../healthcare-apis/fhir/get-started-with-fhir.md).
+For more information about, see [Get started with FHIR service](./../healthcare-apis/fhir/get-started-with-fhir.md).
 
 ## DICOM service
 
