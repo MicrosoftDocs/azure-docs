@@ -16,7 +16,7 @@ ms.reviewer: davidmu
 
 # Understand how users are assigned to apps
 
-This article help you to understand how users get assigned to an application in your tenant.
+This article helps you to understand how users get assigned to an application in your tenant.
 
 ## How do users get assigned an application in Azure AD?
 
