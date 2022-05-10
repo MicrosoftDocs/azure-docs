@@ -1,42 +1,74 @@
-# Working with Models in Azure Machine Learning CLI 2.0
+---
+title: MLflow and Azure Machine Learning
+titleSuffix: Azure Machine Learning
+description: Learn about how Azure Machine Learning uses MLflow to log metrics and artifacts from ML models, and deploy your ML models to an endpoint.
+services: machine-learning
+author: abeomor
+ms.author: osomorog
+ms.service: machine-learning
+ms.subservice: mlops
+ms.date: 04/15/2022
+ms.topic: conceptual
+ms.custom: devx-track-python, cli-v2, sdk-v2
+---
 
-## Model creation using YAML
-This repository contains example `YAML` files for creating 'models` using Azure Machine learning CLI 2.0. This directory includes:
+# Work with Models in Azure Machine Learning
 
-- Sample `YAML` files for creating a `model` asset by uploading local file.
-- Sample `YAML` files for creating a MLflow `model` asset by uploading local folder.
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-To create a model using any of the sample `YAML` files provided in this directory, execute following command:
+Azure Machine Learning allows you to work with different types of models. In this article, you'll learn about using Azure Machine Learning to work with different model types (Custom, MLflow and Triton), how to register a model from different locations and how to use the SDK, UI and CLI to manage your models. 
 
-```cli
+> [!TIP]
+> If you have model assets created using the SDK/CLI v1, you can still use those with SDK/CLI v2. For more information, see the [Consuming V1 Model Assets in V2](#consuming-v1-model-assets-in-v2) section.
+
+
+## Prerequisites
+
+* An Azure subscription - If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
+* An Azure Machine Learning workspace.
+* The Azure Machine Learning SDK v2 for Python
+* The Azure Machine Learning CLI v2
+
+
+## Creating a model in the model registry
+
+[Model registration](concept-model-management-and-deployment.md) allows you to store and version your models in the Azure cloud, in your workspace. The model registry makes it easy to organize and keep track of your trained models.
+
+The code snippets in this section cover the following scenarios:
+
+* Registering model as an asset in Azure Machine Learning using CLI
+* Registering model as an asset in Azure Machine Learning using SDK
+* Registering model as an asset in Azure Machine Learning using UI
+
+These snippets use `custom' and `mlfow`.
+
+- `custom` is a type that refers to a model file. For example.
+- `mlflow` is a type that refers to a model trained with [mlflow](how-to-use-mlflow-cli-runs.md). MLflow trained model are in a folder that contains the `MLmodel file`, `model file`, `conda dependecies` and the `requirements.txt`. 
+
+### Registering model as an asset in Azure Machine Learning using CLI
+
+Use the tabs below to select where your model is located.
+
+# [Local model](#tab/use-local)
+
+```YAML
+$schema: https://azuremlschemas.azureedge.net/latest/model.schema.json
+name: local-file-example
+path: mlflow-model/model.pkl
+description: Model created from local file.
+```
+
+```bash
 az ml model create -f <file-name>.yml
 ```
 
-## Model creation without YAML
+For a complete example, see the [model YAML](https://github.com/Azure/azureml-examples/tree/main/cli/assets/model).
 
-A model can be created by from local file(s) or from a cloud path. 
 
-### From local path
-**1. Registering a local model** 
-```cli
-az ml model create --name my-model --version 1 --path ./mlflow-model/model.pkl
-```
+# [Datastore](#tab/use-datastore)
 
-**1. Registering a local MLFLow model** 
-
-For MLFlow model local path has to reference [a folder that contain `MLModel` file](https://mlflow.org/docs/latest/models.html#storage-format)
-```cli
-az ml model create --name my-model --version 1 --path ./mlflow-model --type mlflow_model
-```
-
-### From cloud path
 A model can created from a cloud path using any one of the following supported URI foramts.
 
-```cli
-az ml model create --name <model-name> --version <model-version> --path <azureml datastore reference URI/mlflow run URI/azureml job URI>
-```
-
-**1. Using the azureml datastore reference URI**
 
 ```cli
 az ml model create --name my-model --version 1 --path azureml://datastores/myblobstore/paths/models/cifar10/cifar.pt
@@ -44,9 +76,11 @@ az ml model create --name my-model --version 1 --path azureml://datastores/myblo
 
 The examples use shorthand `azureml` scheme for pointing to a path on the `datastore` using syntax `azureml://datastores/${{datastore-name}}/paths/${{path_on_datastore}}`. 
 
+For a complete example, see the [CLI Reference](??).
 
-**2. Using the mlflow run URI format**
+# [Job Output](#tab/use-job-output)
 
+## Using the mlflow run URI format
 This option is optimized for mlflow users who are likely already familiar with the mlflow run URI format. This option allows mlflow users to create a model from artifacts in the default artifact location (where all mlflow-logged models and artifacts will be located). This establishes a lineage between a registered model and the run the model came from.
 
 Format:
@@ -59,25 +93,7 @@ Example:
 az ml model create --name my-model --version 1 --path runs:/$RUN_ID/model/ --type mlflow_model
 ```
 
-```
-> az ml model show -n my-model -v 1
-{
-  "creation_context": {
-    ...
-  },
-  "description": "",
-  "flavors": {},
-  "id": "azureml:/subscriptions/<sub>/resourceGroups/<rg>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/models/my-model/versions/1",
-  "model_format": "mlflow",
-  "model_uri": "runs:/$RUN_ID/model/",
-  "name": "my-model",
-  "version": "1",
-  "job_name": "$RUN_ID"
-}
-```
-
-**3. Using the azureml job URI format**
-
+## Using the azureml job URI format
 We will also have an azureml job reference URI format to allow users to register a model from artifacts in any of the job's outputs. This format is aligned with the existing azureml datastore reference URI format, and also supports referencing artifacts from named outputs of the job (not just the default artifact location). This also enables establishing a lineage between a registered model and the job it was trained from if the user did not directly register their model within the training script using mlflow.
 
 Format:
@@ -98,20 +114,133 @@ Saving model from a named output:
 az ml model create --name my-model --version 1 --path azureml://jobs/$RUN_ID/outputs/trained-model
 ```
 
+For a complete example, see the [CLI Reference](https://docs.microsoft.com/en-us/cli/azure/ml/model?view=azure-cli-latest).
+
+---
+
+### Registering model as an asset in Azure Machine Learning using SDK
+
+Use the tabs below to select where your model is located.
+
+# [Local model](#tab/use-local)
+
+```python
+from azure.ml.entities import Model
+from azure.ml._constants import ModelType
+
+file_model = Model(
+    path="mlflow-model/model.pkl",
+    type=ModelType.CUSTOM,
+    name="local-file-example",
+    description="Model created from local file."
+)
+ml_client.models.create_or_update(file_model)
 ```
-> az ml model show -n my-model -v 1
-{
-  "creation_context": {
-    ...
-  },
-  "description": "",
-  "flavors": {},
-  "id": "azureml:/subscriptions/<sub>/resourceGroups/<rg>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/models/my-model/versions/1",
-  "type": "custom_model",
-  "path": "azureml://jobs/$RUN_ID/outputs/trained-model",
-  "name": "my-model",
-  "version": "1",
-  "job_name": "$RUN_ID"
-}
+
+
+# [Datastore](#tab/use-datastore)
+
+A model can created from a cloud path using any one of the following supported URI foramts.
+
+```python
+from azure.ml.entities import Model
+from azure.ml._constants import ModelType
+
+cloud_model = Model(
+    path= "azureml://datastores/workspaceblobstore/paths/model.pkl"
+    name="cloud-path-example",
+    type=ModelType.CUSTOM,
+    description="Model created from cloud path."
+)
+ml_client.models.create_or_update(cloud_model)
 ```
-To learn more about Azure Machine Learning CLI 2.0, [follow this link](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-configure-cli).
+
+# [Job Output](#tab/use-job-output)
+
+## Using the mlflow run URI format
+This option is optimized for mlflow users who are likely already familiar with the mlflow run URI format. This option allows mlflow users to create a model from artifacts in the default artifact location (where all mlflow-logged models and artifacts will be located). This establishes a lineage between a registered model and the run the model came from.
+
+Format:
+`runs:/<run-id>/<path-to-model-relative-to-the-root-of-the-artifact-location>`
+
+Example:
+`runs:/$RUN_ID/model/`
+
+```python
+from azure.ml.entities import Model
+from azure.ml._constants import ModelType
+
+run_model = Model(
+    path="runs:/$RUN_ID/model/"
+    name="run-model-example",
+    description="Model created from run.",
+    type=ModelType.MLFLOW
+)
+
+ml_client.models.create_or_update(run_model) 
+```
+
+## Using the azureml job URI format
+We will also have an azureml job reference URI format to allow users to register a model from artifacts in any of the job's outputs. This format is aligned with the existing azureml datastore reference URI format, and also supports referencing artifacts from named outputs of the job (not just the default artifact location). This also enables establishing a lineage between a registered model and the job it was trained from if the user did not directly register their model within the training script using mlflow.
+
+Format:
+`azureml://jobs/<job-name>/outputs/<output-name>/paths/<path-to-model-relative-to-the-named-output-location>`
+
+Examples:
+- Defaut artifact location: `azureml://jobs/$RUN_ID/outputs/artifacts/paths/model/`
+    * this is equivalent to `runs:/$RUN_ID/model/` from the #2 mlflow run URI format
+    * **note: "artifacts"** is the reserved key word we use to refer to the output that represents the **default artifact location**
+- From a named output dir: `azureml://jobs/$RUN_ID/outputs/trained-model`
+- From a specific file or folder path within the named output dir:
+    * `azureml://jobs/$RUN_ID/outputs/trained-model/paths/cifar.pt`
+    * `azureml://jobs/$RUN_ID/outputs/checkpoints/paths/model/`
+
+Saving model from a named output:
+
+```python
+from azure.ml.entities import Model
+from azure.ml._constants import ModelType
+
+run_model = Model(
+    path="azureml://jobs/$RUN_ID/outputs/artifacts/paths/model/"
+    name="run-model-example",
+    description="Model created from run.",
+    type=ModelType.CUSTOM
+)
+
+ml_client.models.create_or_update(run_model) 
+```
+
+For a complete example, see the [model notebook](https://github.com/Azure/azureml-examples/tree/march-sdk-preview/sdk/assets/model).
+
+---
+
+### Registering model as an asset in Azure Machine Learning using UI\Use the tabs below to select where your model is located.
+
+# [Local model](#tab/use-local)
+
+// Screenshot
+
+# [Datastore](#tab/use-datastore)
+
+// Screenshot
+
+# [Job Output](#tab/use-job-output)
+
+// Screenshot
+
+---
+
+## Consuming V1 model assets in V2
+
+> [!NOTE]
+> Full backward compatibility is provided, all model registered with the V1 SDK will be assign the type of `custom`. 
+
+
+```
+
+## Next steps
+
+* [Install and set up Python SDK v2 (preview)](https://aka.ms/sdk-v2-install)
+* [No-code deployment for Mlflow models](how-to-deploy-mlflow-models-online-endpoints.md)
+* Learn more about [MLflow and Azure Machine Learning](concept-mlflow.md)
