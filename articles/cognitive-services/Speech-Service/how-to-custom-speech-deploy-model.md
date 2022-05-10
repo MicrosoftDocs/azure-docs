@@ -57,7 +57,7 @@ To use a new model and redeploy the custom endpoint:
 
 1. Sign in to the [Speech Studio](https://speech.microsoft.com/customspeech). 
 1. Select **Custom Speech** > Your project name > **Deploy models**.
-1. Select the link by endpoint name, and then select **Change model**.
+1. Select the link to an endpoint by name, and then select **Change model**.
 1. Select the new model that you want the endpoint to use.
 1. Select **Done** to save and redeploy the endpoint.
 
