@@ -121,7 +121,7 @@ az network vnet subnet create `
 
 ---
 
-With the VNET established, you can now query for the VNET, control plane, and app subnet IDs.
+With the VNET established, you can now query for the VNET and infrastructure subnet ID.
 
 # [Bash](#tab/bash)
 
@@ -130,11 +130,7 @@ VNET_RESOURCE_ID=`az network vnet show --resource-group ${RESOURCE_GROUP} --name
 ```
 
 ```bash
-CONTROL_PLANE_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name control-plane --query "id" -o tsv | tr -d '[:space:]'`
-```
-
-```bash
-APP_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name ${VNET_NAME} --name applications --query "id" -o tsv | tr -d '[:space:]'`
+INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name infrastructure --query "id" -o tsv | tr -d '[:space:]'`
 ```
 
 # [PowerShell](#tab/powershell)
@@ -144,16 +140,12 @@ $VNET_RESOURCE_ID=(az network vnet show --resource-group $RESOURCE_GROUP --name 
 ```
 
 ```powershell
-$CONTROL_PLANE_SUBNET=(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name control-plane --query "id" -o tsv)
-```
-
-```powershell
-$APP_SUBNET=(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name applications --query "id" -o tsv)
+$INFRASTRUCTURE_SUBNET=(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name infrastructure --query "id" -o tsv)
 ```
 
 ---
 
-Finally, create the Container Apps environment with the internal VNET and subnets.
+Finally, create the Container Apps environment with the VNET and subnet.
 
 # [Bash](#tab/bash)
 
@@ -164,8 +156,7 @@ az containerapp env create \
   --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
   --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET \
   --location "$LOCATION" \
-  --app-subnet-resource-id $APP_SUBNET \
-  --controlplane-subnet-resource-id $CONTROL_PLANE_SUBNET \
+  --infrastructure-subnet-resource-id $INFRASTRUCTURE_SUBNET \
   --internal-only
 ```
 
@@ -178,8 +169,7 @@ az containerapp env create `
   --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
   --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET `
   --location "$LOCATION" `
-  --app-subnet-resource-id $APP_SUBNET `
-  --controlplane-subnet-resource-id $CONTROL_PLANE_SUBNET `
+   --infrastructure-subnet-resource-id $INFRASTRUCTURE_SUBNET `
   --internal-only
 ```
 
@@ -197,11 +187,10 @@ The following table describes the parameters used in for `containerapp env creat
 | `logs-workspace-id` | The ID of the Log Analytics workspace. |
 | `logs-workspace-key` | The Log Analytics client secret.  |
 | `location` | The Azure location where the environment is to deploy.  |
-| `app-subnet-resource-id` | The resource ID of a subnet where containers are injected into the container app. This subnet must be in the same VNET as the subnet defined in `--control-plane-subnet-resource-id`. |
-| `controlplane-subnet-resource-id` | The resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in `--app-subnet-resource-id`. |
+| `infrastructure-subnet-resource-id` | Resource ID of a subnet for infrastructure components and user application containers. |
 | `internal-only` | Optional parameter that scopes the environment to IP addresses only available the custom VNET. |
 
-With your environment created with your custom-virtual network, you can create container apps into the environment using the `az containerapp create` command.
+With your environment created in your custom virtual network, you can deploy container apps into the environment using the `az containerapp create` command.
 
 ### Optional configuration
 
