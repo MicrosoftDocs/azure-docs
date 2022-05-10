@@ -1,5 +1,5 @@
 ---
-title: Azure Storage provider - Azure
+title: Azure Storage provider for Durable Functions
 description: Learn about the characteristics of the Durable Functions Azure Storage provider.
 author: cgillum
 ms.topic: conceptual
