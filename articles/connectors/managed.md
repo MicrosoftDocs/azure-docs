@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 05/16/2021
+ms.date: 05/09/2022
 ---
 
 # Managed connectors in Azure Logic Apps
@@ -14,9 +14,9 @@ Managed connectors provide ways for you to access other services and systems whe
 
 For a smaller number of services, systems and protocols, Azure Logic Apps provides a built-in version alongside the managed version. The number and range of built-in operations vary based on whether you create a Consumption logic app that runs in multi-tenant Azure Logic Apps, or a Standard logic app that runs in single-tenant Azure Logic Apps. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. In a few cases, some built-in operations are available only in one logic app type, and not the other.
 
-For example, a Standard logic app provides both managed connector and built-in operations for Azure Blob, Azure Cosmos DB, Azure Event Hubs, Azure Service Bus, DB2, FTP, MQ, SFTP, and SQL Server, while a Consumption logic app doesn't have the built-in versions. A Consumption logic app provides built-in operations for Azure API Management, Azure App Services, and Batch, while a Standard logic app doesn't have these operations. For more information, review the following documentation: [Built-in triggers and actions in Azure Logic Apps](built-in.md) and  [Single-tenant versus multi-tenant and integration service environment (ISE)](../logic-apps/single-tenant-overview-compare.md).
+For example, a Standard logic app provides both managed connector and built-in operations for Azure Blob, Azure Cosmos DB, Azure Event Hubs, Azure Service Bus, DB2, FTP, MQ, SFTP, and SQL Server, while a Consumption logic app doesn't have the built-in versions. A Consumption logic app provides built-in operations for Azure API Management, Azure App Services, and Batch, while a Standard logic app doesn't have these built-in operations. For more information, review the following documentation: [Built-in triggers and actions in Azure Logic Apps](built-in.md) and  [Single-tenant versus multi-tenant and integration service environment (ISE)](../logic-apps/single-tenant-overview-compare.md).
 
-This article provides an overview about managed connectors and how they're organized in Consumption logic apps versus Standard logic apps with examples. For technical reference information about each managed connector in Azure Logic Apps, review [Connectors reference for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
+This article provides a general overview about managed connectors and how they're organized in Consumption logic apps versus Standard logic apps with examples. For technical reference information about each managed connector in Azure Logic Apps, review [Connectors reference for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 ## Managed connector categories
 
@@ -38,7 +38,7 @@ Some managed connectors also belong to the following informal groups:
 
 ## Standard-level connectors
 
-For a *Consumption* logic app, this section lists only *some* of the popular Standard-level connectors:
+For a *Consumption* logic app, this section lists only *some* of the popular Standard-level connectors. In a *Standard* logic app, all managed connectors are organized as **Azure** connectors.
 
 :::row:::
     :::column:::
@@ -159,7 +159,7 @@ For a *Consumption* logic app, this section lists only *some* of the popular Sta
 
 ## Enterprise-level connectors
 
-For a *Consumption* logic app, this section lists connectors that can access enterprise systems for an additional cost:
+For a *Consumption* logic app, this section lists connectors that can access enterprise systems for an additional cost. In a *Standard* logic app, all managed connectors are organized as **Azure** connectors.
 
 :::row:::
     :::column:::
