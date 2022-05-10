@@ -155,8 +155,8 @@ Here is an example of the security context for the self-hosted gateway:
 securityContext:
   allowPrivilegeEscalation: false
   runAsNonRoot: true
-  runAsUser: 1000
-  runAsGroup: 2000
+  runAsUser: 1001       # This is a built-in user, but you can use any user ie 1000 as well
+  runAsGroup: 2000      # This is just an example
   privileged: false
   capabilities:
     drop:
