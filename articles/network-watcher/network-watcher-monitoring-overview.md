@@ -79,7 +79,7 @@ There are [limits](../azure-resource-manager/management/azure-subscription-servi
 
 The information is helpful when planning future resource deployments.
 
-## Logs
+## Network Monitoring Logs
 
 ### Analyze traffic to or from a network security group
 

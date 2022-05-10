@@ -26,6 +26,18 @@
     href: diagnose-communication-problem-between-networks.md
   - name: Log VM network traffic
     href: network-watcher-nsg-flow-logging-portal.md
+  - name: Configure NSG flow logs
+    items:
+    - name: Azure PowerShell
+      href: network-watcher-nsg-flow-logging-powershell.md
+    - name: Azure CLI
+      href: network-watcher-nsg-flow-logging-cli.md
+    - name: REST
+      href: network-watcher-nsg-flow-logging-rest.md
+    - name: Azure Resource Manager
+      href: network-watcher-nsg-flow-logging-azure-resource-manager.md
+    - name: Built-in Policy
+      href: nsg-flow-logs-policy-portal.md
 - name: Concepts
   items:
   - name: Connection Monitor
@@ -44,6 +56,10 @@
     href: network-watcher-troubleshoot-overview.md
   - name: Variable packet capture
     href: network-watcher-packet-capture-overview.md
+  - name: Traffic Analytics overview 
+    href: traffic-analytics.md
+    - name: Frequently asked questions
+      href: traffic-analytics-faq.yml
   - name: Network security group flow logging
     href: network-watcher-nsg-flow-logging-overview.md
   - name: Network security group view
@@ -120,38 +136,22 @@
           href: network-watcher-intrusion-detection-open-source-tools.md
         - name: Visualize network traffic patterns using open source tools
           href: network-watcher-using-open-source-tools.md
-  - name: Work with network security groups
+  - name: Flow Log Traffic Monitoring
     items:
-    - name: Configure NSG flow logs
-      items:
-      - name: Azure PowerShell
-        href: network-watcher-nsg-flow-logging-powershell.md
-      - name: Azure CLI
-        href: network-watcher-nsg-flow-logging-cli.md
-      - name: REST
-        href: network-watcher-nsg-flow-logging-rest.md
-      - name: Azure Resource Manager
-        href: network-watcher-nsg-flow-logging-azure-resource-manager.md
-      - name: Built-in Policy
-        href: nsg-flow-logs-policy-portal.md
+    - name: Read NSG flow logs
+      href: network-watcher-read-nsg-flow-logs.md
     - name: Delete NSG flow log storage blobs
       href: network-watcher-delete-nsg-flow-log-blobs.md
+    - name: Use traffic analytics
+      items:
+      - name: Built-in Policy
+        href: traffic-analytics-policy-portal.md
+      - name: Schema and Data Aggregation
+        href: traffic-analytics-schema.md
+      - name: Schema update (August 2019)
+        href: traffic-analytics-schema-update.md
     - name: Analyze NSG flow logs
       items:
-      - name: Read NSG flow logs
-        href: network-watcher-read-nsg-flow-logs.md
-      - name: Use traffic analytics
-        items:
-        - name: Traffic Analytics overview 
-          href: traffic-analytics.md
-        - name: Frequently asked questions
-          href: traffic-analytics-faq.yml
-        - name: Built-in Policy
-          href: traffic-analytics-policy-portal.md
-        - name: Schema and Data Aggregation
-          href: traffic-analytics-schema.md
-        - name: Schema update (August 2019)
-          href: traffic-analytics-schema-update.md
       - name: Use Power BI
         href: network-watcher-visualize-nsg-flow-logs-power-bi.md
       - name: Use Elastic Stack
