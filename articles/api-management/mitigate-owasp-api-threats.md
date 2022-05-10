@@ -69,7 +69,7 @@ Mitigate probing for DDoS vulnerabilities and protect against data exfiltration 
 
 * Use throttling (short-term) and quota limit (long-term) [policies](api-management-access-restriction-policies.md) to control the number of API calls or bandwidth.  
 
-* Define strict request object definitions and their properties in the API definition (OpenAPI). For example, define the maximum values for paging integers, maxLength and regex for strings. Enforce those schemas with the [validate-content](validation-policies.md#validate-content) or [validate-parameters]([validate-content](validation-policies.md#validate-parameters) policy. 
+* Define strict request object definitions and their properties in the API definition (OpenAPI). For example, define the maximum values for paging integers, maxLength and regex for strings. Enforce those schemas with the [validate-content](validation-policies.md#validate-content) or [validate-parameters](validation-policies.md#validate-parameters) policy. 
 
 * Enforce `max-size` of the request with the [validate-content](validation-policies.md#validate-content) policy. 
 
