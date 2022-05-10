@@ -398,6 +398,22 @@ Starting from version 3.2.11, you can change this behavior to capture them as su
 }
 ```
 
+## LoggingLevel
+
+By default, LoggingLevel is no longer captured as part of the Log's custom dimension.
+
+Starting from version 3.3.0-BETA, you can change this behavior to capture LoggingLevel if you prefer even though SeverityLevel is available:
+
+```json
+{
+  "preview": {
+    "captureLoggingLevelAsCustomDimension": true
+  }
+}
+```
+
+We will remove this configuration option in 4.0.0.
+
 ## Suppressing specific auto-collected telemetry
 
 Starting from version 3.0.3, specific auto-collected telemetry can be suppressed using these configuration options:
