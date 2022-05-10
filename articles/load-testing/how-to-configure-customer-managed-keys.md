@@ -48,7 +48,7 @@ You have to set the **Soft Delete** and **Purge Protection** properties on your 
 
 To learn how to create a key vault with the Azure portal, see [Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal). When you create the key vault, select **Enable purge protection**, as shown in the following image.
 
-:::image type="content" source="media/how-to-configure-customer-managed-keys/purge-protection-on-akv.png" alt-text="Screenshot that shows how to enable purge protection on a new key vault.":::
+:::image type="content" source="media/how-to-configure-customer-managed-keys/purge-protection-on-azure-key-vault.png" alt-text="Screenshot that shows how to enable purge protection on a new key vault.":::
 
 To enable purge protection on an existing key vault, follow these steps:
 
@@ -123,13 +123,13 @@ The user-assigned managed identity that you will use to configure customer-manag
 
 1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select **Access Policies** from the left menu:
 
-    :::image type="content" source="media/how-to-configure-customer-managed-keys/access-policies-akv.png" alt-text="Screenshot that shows access policies option in Azure Key Vault.":::
+    :::image type="content" source="media/how-to-configure-customer-managed-keys/access-policies-azure-key-vault.png" alt-text="Screenshot that shows access policies option in Azure Key Vault.":::
 
 1. Select **+ Add Access Policy**.
 
 1. Under the **Key permissions** drop-down menu, select **Get**, **Unwrap Key**, and **Wrap Key** permissions:
 
-    :::image type="content" source="media/how-to-configure-customer-managed-keys/akv-permissions.png" alt-text="Screenshot that shows Azure Key Vault permissions.":::
+    :::image type="content" source="media/how-to-configure-customer-managed-keys/azure-key-vault-permissions.png" alt-text="Screenshot that shows Azure Key Vault permissions.":::
 
 1. Under **Select principal**, select **None selected**.
 
@@ -159,7 +159,7 @@ To configure customer-managed keys for a new Azure Load Testing resource, follow
 
 1. Select **Review + create** to validate and create the new resource.
 
-:::image type="content" source="media/how-to-configure-customer-managed-keys/encryption-new-alt-resource.png" alt-text="Screenshot that shows how to enable customer managed key encryption while creating an Azure Load Testing resource.":::
+:::image type="content" source="media/how-to-configure-customer-managed-keys/encryption-new-azure-load-testing-resource.png" alt-text="Screenshot that shows how to enable customer managed key encryption while creating an Azure Load Testing resource.":::
 
 # [PowerShell](#tab/powershell)
 
@@ -275,7 +275,7 @@ You can change the managed identity for customer-managed keys for an existing Az
 
 1. Save your changes.
 
-:::image type="content" source="media/how-to-configure-customer-managed-keys/change-identity-existing-alt-resource.png" alt-text="Screenshot that shows how to change the managed identity for customer managed keys on an existing Azure Load Testing resource.":::
+:::image type="content" source="media/how-to-configure-customer-managed-keys/change-identity-existing-azure-load-testing-resource.png" alt-text="Screenshot that shows how to change the managed identity for customer managed keys on an existing Azure Load Testing resource.":::
 
 > [!NOTE]
 > The selected managed identity should have access granted on the Azure Key Vault.
