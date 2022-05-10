@@ -113,14 +113,14 @@ To ensure that an individual worker does not overcommit, it may be necessary to 
 > [!NOTE]
 > The concurrency throttles only apply locally, to limit what is currently being processed **per worker**. Thus, these throttles do not limit the total throughput of the system.
 
-Paradoxically, throttling the per-worker concurrency an actually *increase* the total throughput of the system! If each worker takes less work, then the scale controller adds more workers to keep up with the queues, which then increases the total throughput.
+Paradoxically, throttling the per-worker concurrency can actually *increase* the total throughput of the system! If each worker takes less work, then the scale controller adds more workers to keep up with the queues, which then increases the total throughput.
 
 ### Configuration of throttles
 
 Activity, orchestrator, and entity function concurrency limits can be configured in the **host.json** file. The relevant settings are `durableTask/maxConcurrentActivityFunctions` for activity functions and `durableTask/maxConcurrentOrchestratorFunctions` for both orchestrator and entity functions. These settings control the maximum number of orchestrator, entity, or activity functions that are loaded into memory on a single worker.
 
 > [!NOTE]
-> Orchestrations and entities are only loaded into memory when they are actively processing events or operations, or if [session caching](durable-functions-perf-and-scale.md#session-caching) is enabled. After executing their logic and awaiting (i.e. hitting an `await` (C#) or `yield` (JavaScript, Python) statement in the orchestrator function code), they may be unloaded from memory. Orchestrations and entities that are unloaded from memory don't count towards the `maxConcurrentOrchestratorFunctions` throttle. Even if millions of orchestrations or entities are in the "Running" state, they only count towards the throttle limit when they are loaded into active memory. An orchestration that schedules an activity function similarly doesn't count towards the throttle if the orchestration is waiting for the activity to finish executing.
+> Orchestrations and entities are only loaded into memory when they are actively processing events or operations, or if [instance caching](durable-functions-perf-and-scale.md#instance-caching) is enabled. After executing their logic and awaiting (i.e. hitting an `await` (C#) or `yield` (JavaScript, Python) statement in the orchestrator function code), they may be unloaded from memory. Orchestrations and entities that are unloaded from memory don't count towards the `maxConcurrentOrchestratorFunctions` throttle. Even if millions of orchestrations or entities are in the "Running" state, they only count towards the throttle limit when they are loaded into active memory. An orchestration that schedules an activity function similarly doesn't count towards the throttle if the orchestration is waiting for the activity to finish executing.
 
 #### Functions 2.0
 

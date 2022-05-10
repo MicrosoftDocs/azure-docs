@@ -1,6 +1,6 @@
 ---
 title: Azure Storage provider - Azure
-description: Learn about the unique scaling characteristics of the Durable Functions extension for Azure Functions.
+description: Learn about the characteristics of the Durable Functions Azure Storage provider.
 author: cgillum
 ms.topic: conceptual
 ms.date: 05/13/2021
@@ -36,7 +36,7 @@ The **History** table is an Azure Storage table that contains the history events
 When an orchestration instance needs to run, the corresponding rows of the History table are loaded into memory using a range query within a single table partition. These *history events* are then replayed into the orchestrator function code to get it back into its previously checkpointed state. The use of execution history to rebuild state in this way is influenced by the [Event Sourcing pattern](/azure/architecture/patterns/event-sourcing).
 
 > [!TIP]
-> Orchestration data stored in the History table includes output payloads from activity and sub-orchestrator functions. Payloads from external events are also stored in the History table. Because the full history is loaded into memory every time an orchestrator needs to execute, a large enough history can result in significant memory pressure on a given VM. The length and size of the orchestration history can be reduced by splitting large orchestrations into multiple sub-orchestrations or by reducing the size of outputs returned by the activity and sub-orchestrator functions it calls. Alternatively, you can reduce memory usage by lowering per-VM [concurrency throttles](#concurrency-throttles) to limit how many orchestrations are loaded into memory concurrently.
+> Orchestration data stored in the History table includes output payloads from activity and sub-orchestrator functions. Payloads from external events are also stored in the History table. Because the full history is loaded into memory every time an orchestrator needs to execute, a large enough history can result in significant memory pressure on a given VM. The length and size of the orchestration history can be reduced by splitting large orchestrations into multiple sub-orchestrations or by reducing the size of outputs returned by the activity and sub-orchestrator functions it calls. Alternatively, you can reduce memory usage by lowering per-VM [concurrency throttles](durable-functions-perf-and-scale.md#concurrency-throttles) to limit how many orchestrations are loaded into memory concurrently.
 
 ### Instances table
 

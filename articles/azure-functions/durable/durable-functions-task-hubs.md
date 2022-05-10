@@ -59,7 +59,7 @@ There are several common ways to inspect the contents of a task hub:
 
 For some of the storage providers, it is also possible to inspect the taskhub by going directly to the underlying storage:
 
-1. If using the Azure Storage provider, the instance store is represented by an [Instance Table]((durable-functions-azure-storage-provider.md#instance-table)) and a [History Table](durable-functions-azure-storage-provider.md#history-table) that can be inspected using tools such as Azure Storage Explorer.
+1. If using the Azure Storage provider, the instance store is represented by an [Instance Table](durable-functions-azure-storage-provider.md#instance-table) and a [History Table](durable-functions-azure-storage-provider.md#history-table) that can be inspected using tools such as Azure Storage Explorer.
 2. If using the MSSQL storage provider, SQL queries and tools can be used to inspect the task hub contents inside the database.
 
 ## Representation in storage
