@@ -143,7 +143,7 @@ There's a threshold of 5 for the Anomaly Score to block traffic. So, a single *C
 
 ### Configuration
 
-You can configure and deploy all WAF policies using the Azure portal, REST APIs, Azure Resource Manager templates, and Azure PowerShell. You can also configure and manage Azure WAF policies at scale using Firewall Manager integration (preview). For more information, see <Link #1 article>.
+You can configure and deploy all WAF policies using the Azure portal, REST APIs, Azure Resource Manager templates, and Azure PowerShell. You can also configure and manage Azure WAF policies at scale using Firewall Manager integration (preview). For more information, see [Use Azure Firewall Manager to manage Web Application Firewall policies (preview)](../shared/manage-policies.md).
 
 ### WAF monitoring
 
