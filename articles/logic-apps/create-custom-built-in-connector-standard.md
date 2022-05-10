@@ -316,10 +316,6 @@ To add the NuGet reference from the previous section, in the extension bundle na
 
    ![Screenshot showing the Azure portal, Cosmos DB account, and Data Explorer open to the specified database and collection.](./media/create-custom-built-in-connector-standard/cosmos-db-account-test-add-item.png)
 
-## View workflow definition with service provider
-
-
-
 ## Next steps
 
 * [Source for sample custom built-in Cosmos DB connector - Azure Logic Apps Connector Extensions](https://github.com/Azure/logicapps-connector-extensions/tree/CosmosDB/src/CosmosDB)
