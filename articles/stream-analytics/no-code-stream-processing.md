@@ -41,11 +41,11 @@ A Stream Analytics job is built on three main components: _streaming inputs_, _t
 
 To use the no code editor to easily create a Stream Analytics job, open an Event Hubs instance. Select Process Data and then select any template.
 
-:::image type="content" source="./media/no-code-stream-processing/new-stream-analytics-job.png" alt-text="ALTTEXT" lightbox="./media/no-code-stream-processing/new-stream-analytics-job.png" :::
+:::image type="content" source="./media/no-code-stream-processing/new-stream-analytics-job.png" alt-text="Screenshot showing navigation to create a new Stream Analytics job." lightbox="./media/no-code-stream-processing/new-stream-analytics-job.png" :::
 
 The following screenshot shows a finished Stream Analytics job. It highlights all the sections available to you while you author.
 
-:::image type="content" source="./media/no-code-stream-processing/created-stream-analytics-job.png" alt-text="ALTTEXT" lightbox="./media/no-code-stream-processing/created-stream-analytics-job.png" :::
+:::image type="content" source="./media/no-code-stream-processing/created-stream-analytics-job.png" alt-text="Screenshot showing the authoring interface sections." lightbox="./media/no-code-stream-processing/created-stream-analytics-job.png" :::
 
 1. **Ribbon** - On the ribbon, sections follow the order of a *classic/ analytics process: Event Hubs as input (also known as data source), transformations (streaming ETL operations), outputs, a button to save your progress and a button to start the job.
 2. **Diagram view** - A graphical representation of your Stream Analytics job, from input to operations to outputs.
@@ -62,7 +62,7 @@ After you set up your Event Hubs credentials and select **Connect**, you can add
 
 You can always edit the field names, or remove or change the data type, by selecting the three dot symbol next to each field. You can also expand, select, and edit any nested fields from the incoming messages, as shown in the following image.
 
-:::image type="content" source="./media/no-code-stream-processing/event-hub-schema.png" alt-text="ALTTEXT" lightbox="./media/no-code-stream-processing/event-hub-schema.png" :::
+:::image type="content" source="./media/no-code-stream-processing/event-hub-schema.png" alt-text="Screenshot showing Event Hub fields" lightbox="./media/no-code-stream-processing/event-hub-schema.png" :::
 
 The available data types are:
 
@@ -82,7 +82,7 @@ To add a streaming data transformation to your dataflow, select the transformati
 
 Use the **Filter** transformation to filter events based on the value of a field in the input. Depending on the data type (number or text), the transformation will keep the values that match the selected condition.
 
-:::image type="content" source="./media/no-code-stream-processing/filter-transformation.png" alt-text="ALTTEXT" lightbox="./media/no-code-stream-processing/filter-transformation.png" :::
+:::image type="content" source="./media/no-code-stream-processing/filter-transformation.png" alt-text="Screenshot showing the Filter event fields view." lightbox="./media/no-code-stream-processing/filter-transformation.png" :::
 
 > [!NOTE]
 > Inside every card, you'll see information about what else is needed for the transformation to be ready. For example, when you're adding a new card, you'll see a `Set-up required` message. If you're missing a node connector, you'll see either an *Error* or a *Warning* message.
@@ -91,7 +91,7 @@ Use the **Filter** transformation to filter events based on the value of a field
 
 The **Manage fields** transformation allows you to add, remove, or rename fields coming in from an input or another transformation. The settings on the side pane give you the option of adding a new one by selecting **Add field** or adding all fields at once.
 
-:::image type="content" source="./media/no-code-stream-processing/manage-field-transformation.png" alt-text="ALTTEXT" lightbox="./media/no-code-stream-processing/manage-field-transformation.png" :::
+:::image type="content" source="./media/no-code-stream-processing/manage-field-transformation.png" alt-text="Screenshot showing the Manage fields view." lightbox="./media/no-code-stream-processing/manage-field-transformation.png" :::
 
 > [!TIP]
 > After you configure a card, the diagram view gives you a glimpse of the settings within the card itself. For example, in the **Manage fields** area of the preceding image, you can see the first three fields being managed and the new names assigned to them. Each card has information relevant to it.
@@ -102,7 +102,7 @@ You can use the **Aggregate** transformation to calculate an aggregation (**Sum*
 
 To add an aggregation, select the transformation symbol. Then connect an input, select the aggregation, add any filter or slice dimensions, and select the period of time over which the aggregation will be calculated. In this example, we're calculating the sum of the toll value by the state where the vehicle is from over the last 10 seconds.
 
-:::image type="content" source="./media/no-code-stream-processing/aggregate-transformation.png" alt-text="ALTTEXT" lightbox="./media/no-code-stream-processing/aggregate-transformation.png" :::
+:::image type="content" source="./media/no-code-stream-processing/aggregate-transformation.png" alt-text="Screenshot showing the Aggregate view." lightbox="./media/no-code-stream-processing/aggregate-transformation.png" :::
 
 To add another aggregation to the same transformation, select **Add aggregate function**. Keep in mind that the filter or slice will apply to all aggregations in the transformation.
 
@@ -121,7 +121,7 @@ Finally, select over what period you want the join to be calculated. In this exa
 
 By default, all fields from both tables are included. Prefixes left (first node) and right (second node) in the output help you differentiate the source.
 
-:::image type="content" source="./media/no-code-stream-processing/join-transformation.png" alt-text="ALTTEXT" lightbox="./media/no-code-stream-processing/join-transformation.png" :::
+:::image type="content" source="./media/no-code-stream-processing/join-transformation.png" alt-text="Screenshot showing the Join view." lightbox="./media/no-code-stream-processing/join-transformation.png" :::
 
 ### Group by
 
@@ -147,7 +147,7 @@ To configure the transformation:
 
 To add another aggregation to the same transformation, select **Add aggregate function**. Keep in mind that the **Group by** field and the windowing function will apply to all aggregations in the transformation.
 
-:::image type="content" source="./media/no-code-stream-processing/group-by-transformation.png" alt-text="ALTTEXT" lightbox="./media/no-code-stream-processing/group-by-transformation.png" :::
+:::image type="content" source="./media/no-code-stream-processing/group-by-transformation.png" alt-text="Screenshot showing the Group by view." lightbox="./media/no-code-stream-processing/group-by-transformation.png" :::
 
 A time stamp for the end of the time window is provided as part of the transformation output for reference. For more information about time windows supported by Stream Analytics jobs, see [Windowing functions (Azure Stream Analytics)](/stream-analytics-query/windowing-azure-stream-analytics).
 
@@ -159,13 +159,13 @@ Use the **Union** transformation to connect two or more inputs to add events wit
 
 Expand array is to create a new row for each value within an array.
 
-:::image type="content" source="./media/no-code-stream-processing/expand-transformation.png" alt-text="ALTTEXT" lightbox="./media/no-code-stream-processing/expand-transformation.png" :::
+:::image type="content" source="./media/no-code-stream-processing/expand-transformation.png" alt-text="Screenshot showing the Expand view." lightbox="./media/no-code-stream-processing/expand-transformation.png" :::
 
 ## Streaming outputs
 
 The no-code drag-and-drop experience currently supports three outputs to store your processed real time data.
 
-:::image type="content" source="./media/no-code-stream-processing/outputs.png" alt-text="ALTTEXT" lightbox="./media/no-code-stream-processing/outputs.png" :::
+:::image type="content" source="./media/no-code-stream-processing/outputs.png" alt-text="Screenshot showing Streaming output options." lightbox="./media/no-code-stream-processing/outputs.png" :::
 
 ### Azure Data Lake Storage Gen2
 
@@ -204,17 +204,17 @@ As shown in the following screenshot, if you want to see or drill down into some
 
 You can also see the details of a specific record, a _cell_ in the table, by selecting it and then selecting **Show/Hide details** (2). The screenshot shows the detailed view of a nested object in a record.
 
-:::image type="content" source="./media/no-code-stream-processing/data-preview.png" alt-text="ALTTEXT" lightbox="./media/no-code-stream-processing/data-preview.png" :::
+:::image type="content" source="./media/no-code-stream-processing/data-preview.png" alt-text="Screenshot showing the Data Preview tab where you can pause the streaming preview and show/hide details." lightbox="./media/no-code-stream-processing/data-preview.png" :::
 
 ### Static preview for transformations and outputs
 
 After you add and set up any steps in the diagram view, you can test their behavior by selecting **Get static preview**.
 
-:::image type="content" source="./media/no-code-stream-processing/get-static-preview.png" alt-text="ALTTEXT" lightbox="./media/no-code-stream-processing/get-static-preview.png" :::
+:::image type="content" source="./media/no-code-stream-processing/get-static-preview.png" alt-text="Screenshot showing the Get static preview option." lightbox="./media/no-code-stream-processing/get-static-preview.png" :::
 
 After you do, the Stream Analytics job evaluates all transformations and outputs to make sure they're configured correctly. Stream Analytics then displays the results in the static data preview, as shown in the following image.
 
-:::image type="content" source="./media/no-code-stream-processing/refresh-static-preview.png" alt-text="ALTTEXT" lightbox="./media/no-code-stream-processing/refresh-static-preview.png" :::
+:::image type="content" source="./media/no-code-stream-processing/refresh-static-preview.png" alt-text="Screenshot showing the Data Preview tab where you can refresh the static preview." lightbox="./media/no-code-stream-processing/refresh-static-preview.png" :::
 
 You can refresh the preview by selecting **Refresh static preview** (1). When you refresh the preview, the Stream Analytics job takes new data from the input and evaluates all transformations. Then it outputs again with any updates that you might have performed. The **Show/Hide details** option is also available (2).
 
@@ -222,7 +222,7 @@ You can refresh the preview by selecting **Refresh static preview** (1). When yo
 
 If you have any authoring errors or warnings, the **Authoring errors** tab (1) will list them, as shown in the following screenshot. The list includes details of the error or warning, the type of card (input, transformation, or output), the error level, and a description of the error or warning (2). When you select any of the errors or warnings, the respective card is selected and the configuration side pane opens for you to make the needed changes.
 
-:::image type="content" source="./media/no-code-stream-processing/authoring-errors.png" alt-text="ALTTEXT" lightbox="./media/no-code-stream-processing/authoring-errors.png" :::
+:::image type="content" source="./media/no-code-stream-processing/authoring-errors.png" alt-text="Screenshot showing the Authoring errors tab that shows a list of example errors." lightbox="./media/no-code-stream-processing/authoring-errors.png" :::
 
 ### Runtime errors
 
@@ -230,32 +230,32 @@ If you have any authoring errors or warnings, the **Authoring errors** tab (1) w
 
 This tab offers the option to filter by timespan and to download the list of errors and refresh it if needed (2).
 
-:::image type="content" source="./media/no-code-stream-processing/runtime-errors.png" alt-text="ALTTEXT" lightbox="./media/no-code-stream-processing/runtime-errors.png" :::
+:::image type="content" source="./media/no-code-stream-processing/runtime-errors.png" alt-text="Screenshot showing the Runtime errors tab where you can select a timespan to filter error events." lightbox="./media/no-code-stream-processing/runtime-errors.png" :::
 
 ## Start a Stream Analytics job
 
 Once you have configured Event Hubs, operations and Streaming outputs for the job, you Save and Start the job.
 
-:::image type="content" source="./media/no-code-stream-processing/no-code-save-start.png" alt-text="ALTTEXT" lightbox="./media/no-code-stream-processing/no-code-save-start.png" :::
+:::image type="content" source="./media/no-code-stream-processing/no-code-save-start.png" alt-text="Screenshot showing the Save and Start options." lightbox="./media/no-code-stream-processing/no-code-save-start.png" :::
 
 - Output start time - When you start a job, you select a time for the job to start creating output.
     - Now - Makes the starting point of the output event stream the same as when the job is started.
     - Custom - You can choose the starting point of the output.
-    - When last stopped - This option is available when the job was previously started but was stopped manually or failed. When choosing this option, the last output time will be used to restart the job, so no data is lost.
+    - When last stopped - This option is available when the job was previously started but was stopped manually or failed. When you choose this option, the last output time will be used to restart the job, so no data is lost.
 - Streaming units - Streaming Units represent the amount of compute and memory assigned to the job while running. If you're unsure how many SUs to choose, we recommend that you start with three and adjust as needed.
-- Output data error handling – Output data error handling policies apply only to data conversion errors that occur when the output event produced by a Stream Analytics job does not conform to the schema of the target sink. You can configure the policy by choosing either **Retry** or **Drop**. For more information, see [Azure Stream Analytics output error policy](stream-analytics-output-error-policy.md).
+- Output data error handling – Output data error handling policies only apply when the output event produced by a Stream Analytics job doesn't conform to the schema of the target sink. You can configure the policy by choosing either **Retry** or **Drop**. For more information, see [Azure Stream Analytics output error policy](stream-analytics-output-error-policy.md).
 - Start – Starts the Stream Analytics job.
 
-:::image type="content" source="./media/no-code-stream-processing/start-job.png" alt-text="ALTTEXT" lightbox="./media/no-code-stream-processing/start-job.png" :::
+:::image type="content" source="./media/no-code-stream-processing/start-job.png" alt-text="Screenshot showing the Start Stream Analytics job window where you review the job configuration and start the job." lightbox="./media/no-code-stream-processing/start-job.png" :::
 
-## Stream Analytics Jobs list
+## Stream Analytics jobs list
 
 You can see the list of all Stream Analytics jobs created by no-code drag and drop under **Process data** > **Stream Analytics jobs**.
 
-:::image type="content" source="./media/no-code-stream-processing/jobs-list.png" alt-text="ALTTEXT" lightbox="./media/no-code-stream-processing/jobs-list.png" :::
+:::image type="content" source="./media/no-code-stream-processing/jobs-list.png" alt-text="Screenshot showing the Stream Analytics job list where you review job status." lightbox="./media/no-code-stream-processing/jobs-list.png" :::
 
 - Filter – You can filter the list by job name.
-- Refresh – The list does not auto-refresh currently. Use the option to refresh the list and see the latest status.
+- Refresh – The list doesn't auto-refresh currently. Use the option to refresh the list and see the latest status.
 - Job name – The name you provided in the first step of job creation. You can't edit it. Select the job name to open the job in the no-code drag and drop experience where you can Stop the job, edit it, and Start it again.
 - Status – The status of the job. Select Refresh on top of the list to see the latest status.
 - Streaming units – The number of Streaming units selected when you started the job.
