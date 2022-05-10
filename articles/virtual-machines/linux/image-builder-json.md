@@ -29,7 +29,7 @@ This is the basic template format:
     },
     "identity": {},			 
     "properties": {
-      "buildTimeoutInMinutes": <minutes>, 
+      "stagingResourceGroup": "/subscriptions/<subscriptionID>/resourceGroups/<stagingResourceGroupName>",
       "vmProfile": {
         "vmSize": "<vmSize>",
         "proxyVmSize": "<vmSize>",
@@ -46,6 +46,7 @@ This is the basic template format:
       },
       "source": {}, 
       "customize": {}, 
+      "validate": {},
       "distribute": {} 
     } 
   } 
@@ -190,6 +191,35 @@ The Image Builder Build VM User Assigned Identity:
 * Doesn't support cross tenant scenarios (identity created in one tenant while the image template is created in another tenant)
 
 To learn more, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) and [How to use managed identities for Azure resources on an Azure VM for sign-in](../../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md).
+
+## Properties: stagingResourceGroup
+The `stagingResourceGroup` field contains information about the staging resource group that the Image Builder service will create for use during the image build process. The `stagingResourceGroup` is an optional field for anyone who wants more control over the resource group created by Image Builder during the image build process. You can create your own resource group and specify it in the `stagingResourceGroup` section or have Image Builder create one on your behalf.
+
+> [!NOTE]
+> Any staging resource group specified for use by the Image Builder service must be empty (no resources inside), in the same region as the image template and have either "Contributor" or "Owner" RBAC assigned to it.
+
+### Template Creation Scenarios
+
+#### The stagingResourceGroup field is left empty
+If the `stagingResourceGroup` field is not specified or specified with an empty string, the Image Builder service will create a staging resource group with the default name convention "IT_***". The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `ImageTemplateRGName`. Also, the staging resource group will have the default RBAC applied to it, which is "Contributor".
+
+#### The stagingResourceGroup field is specified with a resource group that exists
+If the `stagingResourceGroup` field is specified with a resource group that does exist, then the Image Builder service will check to make sure the resource group is empty (no resources inside), in the same region as the image template and has either "Contributor" or "Owner" RBAC assigned to it. If any of the aforementioned requirements are not met an error will be thrown. The staging resource group will have the following tags added to it: `usedBy`, `imageTemplateName`, `ImageTemplateRGName`. Preexisting tags are not deleted.
+
+#### The stagingResourceGroup field is specified with a resource group that DOES NOT exist
+If the `stagingResourceGroup` field is specified with a resource group that does not exist, then the Image Builder service will create a staging resource group with the name provided in the `stagingResourceGroup` field. Of course, there will be an error if the given name does not meet Azure naming requirements for resource groups. The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `ImageTemplateRGName`. Also, the staging resource group will have the default RBAC applied to it, which is "Contributor".
+
+### Template Deletion
+Any staging resource group created by the Image Builder service will be deleted after the image build process is completed. This includes staging resource groups that were specified in the `stagingResourceGroup` field, but did not exist prior to the image build. 
+
+If Image Builder did not create the staging resource group, but it did create resources inside of it, those resources will be deleted after the image build process as long as the Image Builder service has the appropriate permissions or role required to delete resources. 
+
+```json			 
+    "properties": {
+      "stagingResourceGroup": "/subscriptions/<subscriptionID>/resourceGroups/<stagingResourceGroupName>"
+    }
+```![image](https://user-images.githubusercontent.com/12863757/167726394-7d1fce4f-f4b1-4c35-a3ac-b26970cf9eee.png)
+
 
 ## Properties: source
 
@@ -554,6 +584,40 @@ To override the commands, use the PowerShell or Shell script provisioners to cre
 * Linux: /tmp/DeprovisioningScript.sh
 
 Image Builder will read these commands, these are written out to the AIB logs, `customization.log`. See [troubleshooting](image-builder-troubleshoot.md#customization-log) on how to collect logs.
+
+## Properties: validate
+You can use the validate property to validate pre-existing images (platform images, Azure Compute Gallery image versions, and managed images).
+
+Azure Image Builder supports a 'Validation-only' mode that can be set using the `sourceValidationOnly` field. If the `sourceValidationOnly` field is set to true, the image specified in the `source` section will directly be validated. No separate build will be run to generate and then validate a customized image.
+
+The `inVMValidations` field takes a list of validation customizers that will be performed on the image. Azure Image Builder supports both PowerShell and Shell validator customizers. Please keep in mind that exactly one 'scriptUri' and 'inline' customizer can be specified in the `inVMValidations` field.
+
+The `continueDistributeOnFailure` field is responsible for whether the output image(s) will be distributed after validation. If validation fails and this field is set to false, the output image(s) will not be distributed (this is the default behavior). If validation fails and this field is set to true, the output image(s) will still be distributed. Please use this option with caution as it may result in failed images being distributed for use. In either case (true or false), the end to end image run will be reported as a failed in the case of a validation failure. This field has no effect on whether validation succeeds or not.
+        
+```json
+
+{
+   "properties": {
+        "validate": {
+          "properties": {
+            "continueDistributeOnFailure": {
+              "type": "boolean",
+              "default": false,
+            "sourceValidationOnly": {
+              "type": "boolean",
+              "default": false,
+            "inVMValidations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ImageTemplateInVMValidator"
+              },
+            }
+          }
+        },
+    }
+}
+
+```
  
 ## Properties: distribute
 
