@@ -54,7 +54,7 @@ The following are unsupported:
 - System databases: The [mysql system database](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) is read-only and used to support various PaaS functionality. You cannot make changes to the `mysql` system database.
 - `SELECT ... INTO OUTFILE`: Not supported in the service.
 - `LOAD_FILE(file_name)`: Not supported in the service.
-- [BACKUP_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_backup-admin) privilige: Granting BACKUP_ADMIN privilige is not supported for taking backups using any [utility tools](https://docs.microsoft.com/en-us/azure/mysql/how-to-decide-on-right-migration-tools).
+- [BACKUP_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_backup-admin) privilige: Granting BACKUP_ADMIN privilige is not supported for taking backups using any [utility tools](./how-to-decide-on-right-migration-tools.md).
 
 ### Supported
 - `LOAD DATA INFILE` is supported, but the `[LOCAL]` parameter must be specified and directed to a UNC path (Azure storage mounted through SMB). Additionally, if you are using MySQL client version >= 8.0 you need to include `-–local-infile=1` parameter in your connection string.
