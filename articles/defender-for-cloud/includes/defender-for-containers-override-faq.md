@@ -27,4 +27,4 @@ To recover your default workspace, you need to remove the Defender profile/exten
 
 ### Where is the default Log Analytics workspace located?
 
-Depending on your region the default Log Analytics workspace located will be located in various locations. To check your region see [Where is the default Log Analytics workspace created?](faq-data-collection-agents.yml)
+Depending on your region the default Log Analytics workspace located will be located in various locations. To check your region see [Where is the default Log Analytics workspace created?](../faq-data-collection-agents.yml)
