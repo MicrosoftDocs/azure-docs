@@ -1,6 +1,6 @@
 ---
-title: Known limitations and issues with Azure Synapse Link for SQL Server 2022 (Preview)
-description: Learn about known limitations and issues with Azure Synapse Link for SQL Server 2022 (Preview).
+title: Known limitations and issues with Azure Synapse Link for SQL (Preview)
+description: Learn about known limitations and issues with Azure Synapse Link for SQL (Preview).
 author: jonburchel
 ms.service: synapse-analytics
 ms.topic: troubleshooting
@@ -10,57 +10,88 @@ ms.author: jburchel
 ms.reviewer: jburchel
 ---
 
-# Known limitations and issues with Azure Synapse Link for SQL Server 2022
+# Known limitations and issues with Azure Synapse Link for SQL
 
-This article lists the known limitations and issues with Azure Synapse Link for SQL Server 2022
+This article lists the known limitations and issues with Azure Synapse Link for SQL.
 
 ## Known limitations
 
-The following is the list of known limitations for Azure Synapse Link for SQL Server 2022.
+This is the list of known limitations for Azure Synapse Link for SQL.
 
-* Users must create new Synapse workspace to get Azure Synapse Link for SQL Server 2022.
-* Azure Synapse link for SQL Server 2022 cannot be used in virtual network environment. Users need to check “Disable Managed virtual network” for Synapse workspace.
-* Users need to manually create schema in destination Synapse SQL pool in advance if your expected schema is not available in Synapse SQL pool. The destination database schema object will not be automatically created in data replication. If your schema is dbo, you can skip this step.
-* When creating SQL Server linked service, please choose SQL Auth, Windows Auth or Azure AD auth.
-* Azure Synapse Link for SQL Server 2022 can work with SQL Server on Linux. But HA scenarios with Linux Pacemaker are not supported. Shelf hosted IR cannot be installed on Linux environment 
-* Azure Synapse Link for SQL Server 2022 CANNOT be enabled for source tables in SQL Server 2022 in following conditions:
-  * Source tables do not have primary keys.
-  * The PK columns in source tables contain the unsupported data types including real, float, hierarchyid, sql_variant and timestamp.  
-  * Source table row size exceeds the limit of 7500 bytes. SQL Server supports row-overflow storage, which enables variable length columns to be pushed off-row. Only a 24-byte root is stored in the main record for variable length columns pushed out of row.
-* Tables enabled for Synapse Link can have a maximum of 1020 columns.
-* While a database can have multiple links enabled, a table can only belong to one link.
-
-* When SQL Server 2022 database owner does not have a mapped login, Azure Synapse Link for SQL Server 2022 will run into error when enabling a link connection. User can set database owner to sa to fix this.
-* The computed columns and the column containing unsupported data types by Synapse SQL Pool including image, text, xml, timestamp, sql_variant, UDT, geometry, geography in source tables in SQL Server 2022 will be skipped, and not to replicate to the Synapse SQL Pool.
-* Maximum 5000 tables can be added to a single link connection.
-* When source columns with type datetime2(7) and time(7) are replicated using Azure Synapse Link, the target columns will have last digit truncated.
-* The following DDL operations are not allowed on source tables in SQL Server 2022 which are enabled for Azure Synapse Link for SQL Server 2022.
-  * Switch partition, add/drop/alter column, alter PK, drop/truncate table, rename table is not allowed if the tables have been added into a running link connection of Azure Synapse Link for SQL Server 2022.
-  * All other DDL operations are allowed, but those DDL operations will not be replicated to the Synapse SQL Pool.
-* If DDL + DML is executed in an explicit transaction (between Begin Transaction and End Transaction statements), replication for corresponding tables will fail within the link connection.
-   > [!NOTE]
-   > If a table is critical for transactional consistency at the link connection level, please review the state of the Azure Synapse Link table in the Monitoring tab.
-* Azure Synapse Link for SQL Server 2022 cannot be enabled if any of the following features are in use for the source tables in SQL Server 2022:
-  * Transactional Replication (Publisher/Distributor)
+### Azure SQL DB and SQL Server 2022
+* Users must use an Azure Synapse Analytics workspace created on or after May 24, 2022, to get access to Azure Synapse Link for SQL functionality.
+* Running Azure Synapse Analytics in a managed virtual network isn't supported. Users need to check "Disable Managed virtual network" and "Allow connections from all IP addresses" when creating their workspace.
+* If you are using a schema other than `dbo`, that schema must be manually created in the target dedicated SQL pool before it can be used.
+* Source tables must have primary keys.
+* The following data types aren't supported for primary keys in the source tables:
+  * real
+  * float
+  * hierarchyid
+  * sql_variant
+  * timestamp
+* Source table row size can't exceed 7,500 bytes. For tables where variable-length columns are stored off-row, a 24-byte pointer is stored in the main record.
+* Tables enabled for Azure Synapse Link for SQL can have a maximum of 1,020 columns (not 1,024).
+* While a database can have multiple links enabled, a given table can't belong to multiple links.
+* When a database owner doesn't have a mapped login, Azure Synapse link for SQL will run into an error when enabling a link connection.  User can set database owner to a valid user with the `ALTER AUTHORIZATION` command to fix this issue.
+* If the source table contains computed columns or columns with data types that aren't supported by Azure Synapse Analytics dedicated SQL pools, these columns won't be replicated to Azure Synapse Analytics.  Unsupported columns include:
+  * image
+  * text
+  * xml
+  * timestamp
+  * sql_variant
+  * UDT
+  * geometry
+  * geography
+* A maximum of 5,000 tables can be added to a single link connection.
+* When a source column is of type datetime2(7) or time(7), the last digit will be truncated when data is replicated to Azure Synapse Analytics.
+* The following table DDL operations aren't allowed on source tables when they are enabled for Azure Synapse Link for SQL.  All other DDL operations are allowed, but they won't be replicated to Azure Synapse Analytics.
+  * Switch Partition
+  * Add/Drop/Alter Column
+  * Alter Primary Key
+  * Drop/Truncate Table
+  * Rename Table
+* If DDL + DML is executed in an explicit transaction (between `BEGIN TRANSACTION` and `END TRANSACTION` statements), replication for corresponding tables will fail within the link connection.
+  > [!NOTE]
+  > If a table is critical for transactional consistency at the link connection level, please review the state of the Azure Synapse Link table in the Monitoring tab.
+* Azure Synapse Link for SQL can't be enabled if any of the following features are in use for the source table:
   * Change Data Capture
-  * Temporal history table.
-  * Always encrypted.
-* System tables in SQL Server 2022 will not be replicated.
-* Security configuration of SQL Server 2022 will NOT be reflected to Synapse SQL Pool. 
-* Enabling Synpase Link will create a new schema on SQL Server 2022 as 'changefeed', please do not use this schema name for your workload.
-* If the SAS key of landing zone expires and gets rotated during Snapshot, new key will not get picked up. Snapshot will fail and restart automatically with the new key.
+  * Temporal history table
+  * Always encrypted
+  * In-Memory OLTP
+  * Column Store Index
+  * Graph
+* System tables can't be replicated.
+* The security configuration from the source database will **NOT** be reflected in the target dedicated SQL pool.
+* Enabling Azure Synapse Link for SQL will create a new schema called `changefeed`. Don't use this schema, as it is reserved for system use.
+* Source tables with non-default collations: UTF8, Japanese can't be replicated to Synapse. Here's the [supported collations in Synapse SQL Pool](../sql/reference-collation-types.md).
+
+### Azure SQL DB Only
+* Azure Synapse Link for SQL isn't supported on Free, Basic or Standard tier with fewer than 100 DTUs.
+* Azure Synapse Link for SQL isn't supported on Managed Instances.
+* Users need to check "Allow Azure services and resources to access this server" in the firewall settings of their source database server.
+* Service principal and user-assigned managed identity aren't supported for authenticating to source Azure SQL DB, so when creating Azure SQL DB linked Service, choose SQL authentication or service assigned managed Identity (SAMI).
+* Azure Synapse Link can't be enabled on the secondary database once a GeoDR failover has happened if the secondary database has a different name from the primary database.
+* If you enabled Azure Synapse Link for SQL on your database as an AAD user, Point-in-time restore (PITR) will fail. PITR will only work when you enable Azure Synapse Link for SQL on your database as a SQL user.
+* If you create a database as an AAD user and enable Azure Synapse Link for SQL, a SQL authentication user (for example, even sysadmin role) won't be able to disable/make changes to Azure Synapse Link for SQL artifacts.  However, another AAD user will be able to enable/disable Azure Synapse Link for SQL on the same database. Similarly, if you create a database as an SQL authentication user, enabling/disabling Azure Synapse Link for SQL as an AAD user won't work.
+* When enabling Azure Synapse Link for SQL on your Azure SQL Database, you should ensure that aggressive log truncation is disabled.
+
+### SQL Server 2022 Only
+* When creating SQL Server linked service, choose SQL Authentication, Windows Authentication or Azure AD Authentication.
+* Azure Synapse Link for SQL works with SQL Server on Linux, but HA scenarios with Linux Pacemaker aren't supported. Shelf hosted IR cannot be installed on Linux environment.
+* Azure Synapse Link for SQL can't be enabled on databases that are transactional replication publishers or distributors.
+* If the SAS key of landing zone expires and gets rotated during the snapshot process, the new key won't get picked up. The snapshot will fail and restart automatically with the new key.
 * Prior to breaking an Availability Group, disable any running links. Otherwise both databases will attempt to write their changes to the landing zone.
-* When using asynchronous replicas, transactions need to be written to all replicas prior to them being published to Azure Synapse Link.
-* Azure Synapse Link is not supported on databases with database mirroring enabled.
-* Restoring an Azure Synapse Link-enabled database from on-premises to Azure SQL Managed Instance is not supported.
-* Source tables with non-default collations: UTF8, Japanese cannot be replicated to Synapse. Here is the [supported collations in Synapse SQL Pool](../sql/reference-collation-types.md).
+* When using asynchronous replicas, transactions need to be written to all replicas prior to them being published to Azure Synapse Link for SQL.
+* Azure Synapse Link for SQL isn't supported on databases with database mirroring enabled.
+* Restoring an Azure Synapse Link for SQL-enabled database from on-premises to Azure SQL Managed Instance isn't supported.
 
 ## Known issues
-### Deleteing an Azure Synapse Analytics workspace with a running link could cause log on source database to fill
-* Issue - When you delete an Azure Synapse Analytics workspace, it is possible that running links might not be stopped.  This will cause the source database to think that the link is still operational, and could lead to the log filling and not being truncated.
+### Deleting an Azure Synapse Analytics workspace with a running link could cause log on source database to fill
+* Applies To - Azure SQL Database and SQL Server 2022
+* Issue - When you delete an Azure Synapse Analytics workspace it is possible that running links might not be stopped, which will cause the source database to think that the link is still operational and could lead to the log filling and not being truncated.
 * Resolution - There are two possible resolutions to this situation:
 1. Stop any running links prior to deleting the Azure Synapse Analytics workspace.
-1. Manually clean up the link definition in the source database.  To do this:
+1. Manually clean up the link definition in the source database.
     1. Find the table_group_id for the link(s) that need to be stopped using the following query:
         ```sql
         SELECT table_group_id, workspace_id, synapse_workgroup_name
@@ -74,7 +105,12 @@ The following is the list of known limitations for Azure Synapse Link for SQL Se
     1. Optionally, if you are disabling all of the table groups for a given database, you can also disable change feed on the database with the following command:
         ```sql
         EXEC sys.sp_change_feed_disable_db
- 
+
+### User may receive error indicating invalid primary key column data type even when primary key is of a supported type
+* Applies To - Azure SQL Database
+* Issue - If your source database contains a table with a primary key that is an unsupported data type (real, float, hierarchyid, sql_variant, and timestamp), it could cause a table with a supported primary key data type to not be enabled for Azure Synapse Link for SQL.
+* Resolution - Change the data type of all primary key columns to a supported data type.
+
 ## Next steps
 
 If you are using a different type of database, see how to:
