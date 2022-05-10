@@ -76,7 +76,7 @@ A full list of supported alerts is available in the [reference table of all Defe
 ::: zone-end
 
 ::: zone pivot="defender-for-container-aks,defender-for-container-arc"
-[!INCLUDE [Override the default workspace](./includes/defender-for-containers-override-workspace.md)]
+[!INCLUDE [Assign a custom workspace](./includes/defender-for-containers-assign-workspace.md)]
 ::: zone-end
 
 ::: zone pivot="defender-for-container-aks"

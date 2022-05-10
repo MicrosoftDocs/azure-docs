@@ -6,11 +6,9 @@ ms.date: 05/10/2022
 ms.author: elkrieger
 ---
 
-## Learn about the default workspace
+## Default Log Analytics workspace
 
-The Log Analytics workspace is used as a data pipeline to send data from the Defender profile/extension to Defender for Cloud without retaining any data in the Log Analytics workspace itself. As a result, users will not be billed in this use case.
-
-When you enable the plan through the Azure Portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to auto provision (automatically install) required components to provide the protections offered by plan, including the assignment of a default workspace. You can [override the default workspace](#override-the-default-workspace) through Azure Policy.
+The Log Analytics workspace is used by the Defender profile/extension as a data pipeline to send data from the cluster to Defender for Cloud without retaining any data in the Log Analytics workspace itself. As a result, users will not be billed in this use case.
 
 The Defender profile/extension uses a default Log Analytics workspace. If you do not already have a default Log Analytics workspace, Defender for Cloud will creates a new resource group and default workspace when the Defender for Containers plan is enabled. The default workspace is created based on your [region](../faq-data-collection-agents.yml), and connects the Defender profile/extension to that workspace.
 
@@ -18,11 +16,11 @@ The naming convention for the default Log Analytics workspace and resource group
 - **Workspace**: DefaultWorkspace-\[subscription-ID]-\[geo]
 - **Resource Group**: DefaultResourceGroup-\[geo]
 
-### Override the default workspace
+### Assign a custom workspace
 
-Once the Defender profile/extension has been deployed, a default workspace will be automatically assigned. You can override the default workspace through Azure Policy.
+Once the Defender profile/extension has been deployed, a default workspace will be automatically assigned. You can assign a custom workspace through Azure Policy.
 
-**To override the default workspace**:
+**To assign custom workspace**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
