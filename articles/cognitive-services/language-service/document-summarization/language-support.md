@@ -34,6 +34,18 @@ Document summarization supports the following languages:
 | Portuguese (Brazil)   | `pt-BR`       | 2021-08-01                      |                    |
 | Portuguese (Portugal) | `pt-PT`       | 2021-08-01                      | `pt` also accepted |
 
+# [Conversation summarization](#tab/conversation-summarization)
+
+## Languages supported by conversation summarization 
+
+Conversation summarization supports the following languages:
+
+| Language              | Language code |  Starting with model version |     Notes          |
+|:----------------------|:-------------:|:-------------------------------:|:------------------:|
+| English               | `en`          | `2022-05-15`                      |                    |
+
+---
+
 ## Next steps
 
 [Document summarization overview](overview.md)

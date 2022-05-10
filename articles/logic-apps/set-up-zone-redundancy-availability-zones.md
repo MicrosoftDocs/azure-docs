@@ -30,8 +30,12 @@ During preview, the following considerations apply:
 
 * The following list includes the Azure regions where you can currently enable availability zones with the list expanding as available:  
 
+  * Australia East
   * Brazil South
   * Canada Central
+  * Central US
+  * East US
+  * East US 2
   * France Central
   * Japan East
   * South Central US

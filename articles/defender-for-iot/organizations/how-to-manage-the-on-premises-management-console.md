@@ -70,8 +70,7 @@ If the upload fails, contact your security or IT administrator, or review the in
 
 1. Select **Save**.
 
-For more information about first-time certificate upload see,
-[First-time sign-in and activation checklist](how-to-activate-and-set-up-your-sensor.md#first-time-sign-in-and-activation-checklist)
+For more information about first-time certificate upload, see [First-time sign-in and activation checklist](how-to-activate-and-set-up-your-sensor.md#first-time-sign-in-and-activation-checklist).
 
 ## Define backup and restore settings
 
@@ -227,7 +226,7 @@ If you are working with an on-premises management console and managed sensors, *
 
 1. Select **Download** and save the file.
 
-1. Log into on-premises management console and select **System Settings** from the side menu.
+1. Sign into the on-premises management console and select **System Settings** from the side menu.
 
 1. On the **Version Update** pane, select **Update**.
 

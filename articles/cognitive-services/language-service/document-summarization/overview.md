@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 04/27/2022
+ms.date: 05/06/2022
 ms.author: aahi
 ms.custom: language-service-summarization, ignite-fall-2021
 ---
@@ -21,10 +21,6 @@ This documentation contains the following article types:
 
 * [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
-
-## Summarization options
-
-# [Document summarization](#tab/document-summarization)
 
 Text summarization is a broad topic, consisting of several approaches to represent relevant information in text. The document summarization feature described in this documentation enables you to use extractive text summarization to produce a summary of a document. It extracts sentences that collectively represent the most important or relevant information within the original content. This feature is designed to shorten content that could be considered too long to read. For example, it can condense articles, papers, or documents to key sentences.
 
@@ -46,6 +42,11 @@ Document summarization supports the following features:
 * **Positional information**: The start position and length of extracted sentences.
 
 # [Conversation summarization](#tab/conversation-summarization)
+
+This documentation contains the following article types:
+
+* [**Quickstarts**](../conversation-summarization/quickstart.md) are getting-started instructions to guide you through making requests to the service.
+* [**How-to guides**](../conversation-summarization/how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
 
 Conversation summarization is a broad topic, consisting of several approaches to represent relevant information in text. The conversation summarization feature described in this documentation enables you to use abstractive text summarization to produce a summary of issues and resolutions in transcripts of web chats and service call transcripts between customer-service agents, and your customers. 
 
