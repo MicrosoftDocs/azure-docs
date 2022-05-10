@@ -191,7 +191,7 @@ When you deploy an ExpressRoute gateway, Azure manages the compute and functions
 
 It's highly recommended you set alerts for each of these metrics so that you are aware of when your gateway could be seeing performance issues.
 
-### <a name> = "gwbits"</a>Bits received per second - Split by instance
+### <a name = "gwbits"></a>Bits received per second - Split by instance
 
 Aggregation type: *Avg*
 
