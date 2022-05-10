@@ -42,7 +42,7 @@ To be guided through these steps, see [Deploy Azure Health Data Services workspa
 
 [![Screenshot of the Azure Health Data Services workspace.](media/health-data-services-workspace.png)](media/health-data-services-workspace.png#lightbox)
 
-## About user access and permissions
+## User access and permissions
 
 Azure Health Data Services is a collection of secured managed services using Azure Active Directory (Azure AD). For Azure Health Data Services to access Azure resources, such as storage accounts and event hubs, you must enable the system managed identity, and grant proper permissions to the managed identity. Client applications are registered in the Azure AD and can be used to access the Azure Health Data Services. User data access controls are done in the applications or services that implement business logic.
 
