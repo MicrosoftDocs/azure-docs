@@ -1,6 +1,3 @@
-# Job lifecycle
-
-```mermaid
 graph TD
     Create["Submit Job (SDK)"] -->HasCP{Has Classification Policy?}
     HasCP-->|Yes| Classify["Apply Classification Policy (JobClassified Event)"]-->Queue
@@ -11,4 +8,3 @@ graph TD
     Accept-->Revoke["Revoke other Offers"]
     Accept-->|Worker processes job|Complete
     Complete["Complete Job (SDK)"]-->Close["Close Job (SDK)"]
-```
