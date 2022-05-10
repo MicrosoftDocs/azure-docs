@@ -54,8 +54,6 @@
         href: firewall-integration.md
     - name: Observability
       href: observability.md
-    - name: Health probes
-      href: health-probes.md
     - name: Authentication
       href: authentication.md
     - name: Dapr integration
@@ -80,6 +78,8 @@
       href: github-actions-cli.md
     - name: Use a custom VNET
       href: vnet-custom.md
+    - name: Use health probes
+      href: health-probes.md
     - name: Enable authentication
       items:
       - name: Azure Active Directory
