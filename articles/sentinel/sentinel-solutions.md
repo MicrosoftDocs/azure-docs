@@ -125,10 +125,10 @@ Each piece of out-of-the-box content or solution has one of the following conten
 
 |Content source  |Description  |
 |---------|---------|
-|**Content hub**   |Content or solutions that support lifecycle management         |
-|**Custom**  |         |
-|**Gallery**     | Pre-existing content or solutions that don't support lifecycle management       |
-|**Repositories**   | Content from a repository connected to your workspace      |
+|**Content hub**   |Content or solutions deployed by the content hub that support lifecycle management         |
+|**Custom**  | Content or solutions you've customized in your workspace         |
+|**Gallery content**     | Content or solutions from the gallery that don't support lifecycle management       |
+|**Repository**   | Content or solutions from a repository connected to your workspace      |
 
 ## Next steps
 
