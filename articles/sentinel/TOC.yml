@@ -198,9 +198,9 @@
       - name: Identify historical data 
         href: migration-identify-historical-data.md
       - name: Select data ingestion tool
-        href: migration-historical-data.md
+        href: migration-ingestion-tool.md
       - name: Ingest data
-      href: migration-export-ingest.md
+        href: migration-export-ingest.md
     - name: Convert dashboards to workbooks
       items: 
       - name: Review dashboards
