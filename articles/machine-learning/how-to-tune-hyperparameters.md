@@ -45,11 +45,11 @@ Azure Machine Learning lets you automate hyperparameter tuning and run experimen
 Tune hyperparameters by exploring the range of values defined for each hyperparameter.
 
 Hyperparameters can be discrete or continuous, and has a distribution of values described by a
-[parameter expression](reference-yaml-job-sweep.md#parameter-expressions).
+[parameter expression](https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-job-sweep#parameter-expressions).
 
 ### Discrete hyperparameters
 
-Discrete hyperparameters are specified as a `choice` among discrete values. `choice` can be:
+Discrete hyperparameters are specified as a `Choice` among discrete values. `Choice` can be:
 
 * one or more comma-separated values
 * a `range` object
@@ -88,8 +88,8 @@ An example of a parameter space definition:
 from azure.ai.ml.sweep import Normal, Uniform
 
 command_job_for_sweep = command_job(   
-    learning_rate=Normal(mu=10, sigma=3)
-    keep_probability=Uniform(min_value=0.05, max_value=0.1)
+    learning_rate=Normal(mu=10, sigma=3),
+    keep_probability=Uniform(min_value=0.05, max_value=0.1),
 )
 ```
 
@@ -125,8 +125,8 @@ In random sampling, hyperparameter values are randomly selected from the defined
 from azure.ai.ml.sweep import Normal, Uniform, RandomParameterSampling
 
 command_job_for_sweep = command_job(   
-    learning_rate=Normal(mu=10, sigma=3)
-    keep_probability=Uniform(min_value=0.05, max_value=0.1)
+    learning_rate=Normal(mu=10, sigma=3),
+    keep_probability=Uniform(min_value=0.05, max_value=0.1),
     batch_size=Choice(values=[16, 32, 64, 128]),
 )
 
@@ -146,7 +146,7 @@ from azure.ai.ml.sweep import RandomParameterSampling
 
 sweep_job = command_job_for_sweep.sweep(
     compute="cpu-cluster",
-    sampling_algorithm = RandomParameterSampling(seed=123, rule=sobol)
+    sampling_algorithm = RandomParameterSampling(seed=123, rule="sobol"),
     ...
 )
 ```
@@ -186,7 +186,7 @@ Bayesian sampling only supports `choice`, `uniform`, and `quniform` distribution
 from azure.ai.ml.sweep import Uniform, Choice
 
 command_job_for_sweep = command_job(   
-    learning_rate=Uniform(min_value=0.05, max_value=0.1)
+    learning_rate=Uniform(min_value=0.05, max_value=0.1),
     batch_size=Choice(values=[16, 32, 64, 128]),
 )
 
@@ -209,7 +209,7 @@ Define the objective of your sweep job by specifying the [primary metric](/pytho
 from azure.ai.ml.sweep import Uniform, Choice
 
 command_job_for_sweep = command_job(   
-    learning_rate=Uniform(min_value=0.05, max_value=0.1)
+    learning_rate=Uniform(min_value=0.05, max_value=0.1),
     batch_size=Choice(values=[16, 32, 64, 128]),
 )
 
@@ -244,8 +244,8 @@ Automatically end poorly performing jobs with an early termination policy. Early
 
 You can configure the following parameters that control when a policy is applied:
 
-* `evaluation_interval`: the frequency of applying the policy. Each time the training script logs the primary metric counts as one interval. An `evaluation_interval` of 1 will apply the policy every time the training script reports the primary metric. An `evaluation_interval` of 2 will apply the policy every other time. If not specified, `evaluation_interval` is set to 1 by default.
-* `delay_evaluation`: delays the first policy evaluation for a specified number of intervals. This is an optional parameter that avoids premature termination of training jobs by allowing all configurations to run for a minimum number of intervals. If specified, the policy applies every multiple of evaluation_interval that is greater than or equal to delay_evaluation.
+* `evaluation_interval`: the frequency of applying the policy. Each time the training script logs the primary metric counts as one interval. An `evaluation_interval` of 1 will apply the policy every time the training script reports the primary metric. An `evaluation_interval` of 2 will apply the policy every other time. If not specified, `evaluation_interval` is set to 0 by default.
+* `delay_evaluation`: delays the first policy evaluation for a specified number of intervals. This is an optional parameter that avoids premature termination of training jobs by allowing all configurations to run for a minimum number of intervals. If specified, the policy applies every multiple of evaluation_interval that is greater than or equal to delay_evaluation. If not specified, `delay_evaluation` is set to 0 by default.
 
 Azure Machine Learning supports the following early termination policies:
 * [Bandit policy](#bandit-policy)
@@ -371,12 +371,29 @@ from azure.ai.ml import command, Input
 from azure.ai.ml.sweep import Choice, Uniform, MedianStoppingPolicy
 from azure.identity import DefaultAzureCredential
 
+# Create your base command job
+command_job = command(
+    code="./src",
+    command="python main.py --iris-csv ${{inputs.iris_csv}} --learning-rate ${{inputs.learning_rate}} --boosting ${{inputs.boosting}}",
+    environment="AzureML-lightgbm-3.2-ubuntu18.04-py37-cpu@latest",
+    inputs={
+        "iris_csv": Input(
+            type="uri_file",
+            path="https://azuremlexamples.blob.core.windows.net/datasets/iris.csv",
+        ),
+        "learning_rate": 0.9,
+        "boosting": "gbdt",
+    },
+    compute="cpu-cluster",
+)
+
+# Override your inputs with parameter expressions
 command_job_for_sweep = command_job(
     learning_rate=Uniform(min_value=0.01, max_value=0.9),
     boosting=Choice(values=["gbdt", "dart"]),
 )
 
-# this is the same as above
+# Call sweep() on your command job to sweep over your parameter expressions
 sweep_job = command_job_for_sweep.sweep(
     compute="cpu-cluster",
     sampling_algorithm="random",
@@ -384,45 +401,23 @@ sweep_job = command_job_for_sweep.sweep(
     goal="Minimize",
 )
 
+# Specify your experiment details
 sweep_job.display_name = "lightgbm-iris-sweep-example"
 sweep_job.experiment_name = "lightgbm-iris-sweep-example"
 sweep_job.description = "Run a hyperparameter sweep job for LightGBM on Iris dataset."
 
-# define the limits for this sweep
+# Define the limits for this sweep
 sweep_job.set_limits(max_total_trials=20, max_concurrent_trials=10, timeout=7200)
 
-# set early stopping on this one
+# Set early stopping on this one
 sweep_job.early_termination = MedianStoppingPolicy(
     delay_evaluation=5, evaluation_interval=2
 )
 ```
 
-The `command_job` is called as a function so we can apply the sweep `search_space` inputs with parameter expressions. The `sweep` function is then configured with `trial`, `sampling-algorithm`, `objective`, `limits`, and `compute`. The above code snippet is taken from the sample notebook [Run hyperparameter sweep on a Command or CommandComponent](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb). In this sample, the `learning_rate` and `boosting` parameters will be tuned. Early stopping of jobs will be determined by a `MedianStoppingPolicy`, which stops a job whose primary metric value is worse than the median of the averages across all training jobs.(see [MedianStoppingPolicy class reference](/python/api/azure-ai-ml/azure.ai.ml.sweep.medianstoppingpolicy)).
+The `command_job` is called as a function so we can apply the parameter expressions to the sweep inputs. The `sweep` function is then configured with `trial`, `sampling-algorithm`, `objective`, `limits`, and `compute`. The above code snippet is taken from the sample notebook [Run hyperparameter sweep on a Command or CommandComponent](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb). In this sample, the `learning_rate` and `boosting` parameters will be tuned. Early stopping of jobs will be determined by a `MedianStoppingPolicy`, which stops a job whose primary metric value is worse than the median of the averages across all training jobs.(see [MedianStoppingPolicy class reference](/python/api/azure-ai-ml/azure.ai.ml.sweep.medianstoppingpolicy)).
 
-The following code from the sample shows how the being-tuned values are received, parsed, and passed to the training script's `fine_tune_model` function:
-
-```python
-# from pytorch_train.py
-def main():
-    print("Torch version:", torch.__version__)
-
-    # get command-line arguments
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--num_epochs', type=int, default=25,
-                        help='number of epochs to train')
-    parser.add_argument('--output_dir', type=str, help='output directory')
-    parser.add_argument('--learning_rate', type=float,
-                        default=0.001, help='learning rate')
-    parser.add_argument('--momentum', type=float, default=0.9, help='momentum')
-    args = parser.parse_args()
-
-    data_dir = download_data()
-    print("data directory is: " + data_dir)
-    model = fine_tune_model(args.num_epochs, data_dir,
-                            args.learning_rate, args.momentum)
-    os.makedirs(args.output_dir, exist_ok=True)
-    torch.save(model, os.path.join(args.output_dir, 'model.pt'))
-```
+To see how the parameter values are received, parsed, and passed to the training script to be tuned, refer to this [code sample](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/single-step/lightgbm/iris/src/main.py)
 
 > [!Important]
 > Every hyperparameter sweep job restarts the training from scratch, including rebuilding the model and _all the data loaders_. You can minimize 
@@ -440,10 +435,6 @@ returned_sweep_job.services["Studio"].endpoint
 ```
 
 ## Visualize hyperparameter tuning jobs
-
-You can visualize your hyperparameter tuning jobs in the Azure Machine Learning studio, or you can use a notebook widget.
-
-### Studio
 
 You can visualize all of your hyperparameter tuning jobs in the [Azure Machine Learning studio](https://ml.azure.com). For more information on how to view an experiment in the portal, see [View job records in the studio](how-to-log-view-metrics.md#view-the-experiment-in-the-web-portal).
 
@@ -463,43 +454,20 @@ You can visualize all of your hyperparameter tuning jobs in the [Azure Machine L
 
     :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-3-dimensional-scatter.png" alt-text="Hyparameter tuning 3-dimensional scatter chart":::
 
-### Notebook widget
-
-Use the [Notebook widget](/python/api/azure-ai-ml-widgets/azure.ai.ml.widgets.jobdetails) to visualize the progress of your training jobs. The following snippet visualizes all your hyperparameter tuning jobs in one place in a Jupyter notebook:
-
-```Python
-from azureml.widgets import RunDetails
-RunDetails(hyperdrive_run).show()
-```
-
-This code displays a table with details about the training jobs for each of the hyperparameter configurations.
-
-:::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png" alt-text="Hyperparameter tuning table":::
-
-You can also visualize the performance of each of the jobs as training progresses.
 
 ## Find the best trial job
 
-Once all of the hyperparameter tuning jobs have completed, identify the best performing configuration and hyperparameter values:
+Once all of the hyperparameter tuning jobs have completed, retrieve your best trial outputs:
 
 ```Python
-best_trial = sweep_job.get_best_run_by_primary_metric()
-best_trial_metrics = best_trial.get_metrics()
-parameter_values = best_trial.get_details()['runDefinition']['arguments']
-
-print('Best Trial Id: ', best_trial.id)
-print('\n Accuracy:', best_run_metrics['accuracy'])
-print('\n learning rate:',parameter_values[3])
-print('\n keep probability:',parameter_values[5])
-print('\n batch size:',parameter_values[7])
+# Download best trial model output
+ml_client.jobs.download(returned_sweep_job.name, output_name="model")
 ```
 
-## Sample notebook
+## References
 
-Refer to train-hyperparameter-* notebooks in this folder:
-* [how-to-use-azureml/ml-frameworks](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/single-step/lightgbm/iris/src/main.py)
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
+- [Hyperparameter tuning example](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/single-step/lightgbm/iris/src/main.py)
+- [CLI (v2) sweep job YAML schema here](https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-job-sweep#parameter-expressions)
 
 ## Next steps
 * [Track an experiment](how-to-log-view-metrics.md)
