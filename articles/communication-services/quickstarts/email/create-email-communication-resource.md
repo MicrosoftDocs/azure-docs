@@ -21,7 +21,7 @@ Get started with Email by provisioning your first Email Communication Services r
 Create the Email Communications Service Resource using Portal
 --------------------------
 
-1. Navigate to the [Azure Portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_EmailCommunicationServicesHidden&Microsoft_Azure_EmailCommunicationServices_assettypeoptions=%7B%22EmailCommunicationService%22%3A%7B%22options%22%3A%22%22%7D%7D#create/hub) to create a new resource.
+1. Navigate to the [Azure Portal](https://portal.azure.com/) to create a new resource.
 2. Search for Email Communication Services and hit enter. Select **Email Communication Services** and press **Create**.
 
    :::image type="content" source="./media/email-comm-search.png" alt-text="Search Email Communication Service":::
@@ -52,7 +52,7 @@ Create the Email Communications Service Resource using Portal
 
 The following documents may be interesting to you:
 
-- Familiarize yourself with the [Email client library](../email/sdk-features.md)
+- Familiarize yourself with the [Email client library](../../concepts/email/sdk-features.md)
 - How to send emails with custom verified domains?[Add custom domains](../../quickstarts/email/add-custom-verified-domains.md)
 - How to send emails with Azure Communication Service managed domains?[Add Azure Managed domains](../../quickstarts/email/add-azure-managed-domains.md)
 
