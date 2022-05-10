@@ -95,7 +95,7 @@ $ACR_PASSWORD=(Get-AzContainerRegistryCredential `
 
     Select the **Fork** button at the top of the page to fork the repo to your account. Follow the prompts from GitHub to fork the repository and return here once the operation is complete.
 
-1. If your terminal is still *code-to-cloud* folder, back out to the parent folder.
+1. If your terminal is still in the *code-to-cloud\src* folder, back out to the parent folder.
 
     ```console
     cd ../..
@@ -130,8 +130,8 @@ $ACR_PASSWORD=(Get-AzContainerRegistryCredential `
     # [PowerShell](#tab/powershell)
 
     ```powershell
-    $FRONTEND_NAME=albumapp-ui
-    $$CONTAINER_IMAGE_NAME=$ACR_NAME.azurecr.io/$FRONTEND_NAME
+    $FRONTEND_NAME="albumapp-ui"
+    $CONTAINER_IMAGE_NAME="$ACR_NAME.azurecr.io/$FRONTEND_NAME"
     ```
 
     ---
