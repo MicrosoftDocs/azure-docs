@@ -29,13 +29,13 @@ For more information, see [Which appliances do I need?](ot-appliance-sizing.md),
 
 ## Update an on-premises management console
 
-<!-- what are the procedures that are still unique to the management console? aside from security/airgapped reasons, when does a customer *need* an on-prem mc?-->
-
 This procedure describes how to update Defender for IoT software on an on-premises management console, and is only relevant if your organization is using an on-premises management console to manage multiple sensors simultaneously.
 
-In such cases, make sure to update your on-premises management consoles *before* you update software on your sensors.
+In such cases, make sure to update your on-premises management consoles *before* you update software on your sensors. This process takes about 30 minutes.
 
-This process takes about 30 minutes.
+> [!IMPORTANT]
+> The software version on your on-premises management console must be equal to that of your most up-to-date sensor version. Each on-premises management console version is backwards compatible to older, supported sensor versions, but cannot connect to newer sensor versions.
+>
 
 **To update on-premises management console software**:
 
