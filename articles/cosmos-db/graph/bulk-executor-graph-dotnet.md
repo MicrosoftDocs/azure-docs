@@ -45,7 +45,7 @@ To run this sample, run the `git clone` command below:
 ```bash
 git clone https://github.com/Azure-Samples/azure-cosmos-graph-bulk-executor.git
 ```
-The sample is available at path <root>\azure-cosmos-graph-bulk-executor\dotnet\src\
+The sample is available at path .\azure-cosmos-graph-bulk-executor\dotnet\src\
 
 ### Run
 Modify the following parameters as:
@@ -90,7 +90,7 @@ To run the sample, run the `git clone` command below:
 ```bash
 git clone https://github.com/Azure-Samples/azure-cosmos-graph-bulk-executor.git
 ```
-The sample is available at <root>\azure-cosmos-graph-bulk-executor\java\
+The sample is available at .\azure-cosmos-graph-bulk-executor\java\
 
 To run the sample, refer the configuration as follows and modify as needed:
 ##### Configuration
