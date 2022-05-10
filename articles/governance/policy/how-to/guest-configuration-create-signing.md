@@ -20,7 +20,7 @@ require code to be signed.
 
 To use the Signature Validation feature, run the
 `Protect-GuestConfigurationPackage` cmdlet to sign the package before it's
-published. This cmdlet requires a 'Code Signing' certificate. If you do not have a 'Code Signing' certificate, please use the script below to create a 'Self Signed' certificate to follow along with the example. 
+published. This cmdlet requires a 'Code Signing' certificate. If you do not have a 'Code Signing' certificate, please use the script below to create a self-signed certificate for testing purposes to follow along with the example. 
 
 ## Windows signature validation
 
@@ -46,7 +46,7 @@ Protect-GuestConfigurationPackage -Path C:\demo\AuditWindowsService.zip -Certifi
 
 ## Linux signature validation
 
-```azurepowershell-interactive
+```bash
 # generate gpg key
 gpg --gen-key
 
