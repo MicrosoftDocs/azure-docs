@@ -49,7 +49,7 @@ To enable vulnerability scans of images in your GitHub workflows:
 1. In the pane that appears, select an Application Insights account to push the CI/CD scan results from your workflow.
 1. Copy the authentication token and connection string into your GitHub workflow.
 
-    :::image type="content" source="./media/defender-for-container-registries-cicd/enable-cicd-integration.png" alt-text="Enable the CI/CD integration for vulnerability scans of container images in your GitHub workflows." lightbox="./media/defender-for-container-registries-cicd/enable-cicd-integration.png":::
+    :::image type="content" source="./media/defender-for-containers-cicd/enable-cicd-integration.png" alt-text="Enable the CI/CD integration for vulnerability scans of container images in your GitHub workflows." lightbox="./media/defender-for-containers-cicd/enable-cicd-integration.png":::
 
     > [!IMPORTANT]
     > The authentication token and connection string are used to correlate the ingested security telemetry with resources in the subscription. If you use invalid values for these parameters, it'll lead to dropped telemetry.
@@ -105,27 +105,27 @@ To enable vulnerability scans of images in your GitHub workflows:
 
 1. Open the **affected resources** list and select an unhealthy registry to see the repositories within it that have vulnerable images.
 
-    :::image type="content" source="media/defender-for-container-registries-cicd/select-registry.png" alt-text="Select an unhealthy registry.":::
+    :::image type="content" source="media/defender-for-containers-cicd/select-registry.png" alt-text="Select an unhealthy registry.":::
 
     The registry details page opens with the list of affected repositories.
 
 1. Select a specific repository to see the repositories within it that have vulnerable images.
 
-    :::image type="content" source="media/defender-for-container-registries-cicd/select-repository.png" alt-text="Select an unhealthy repository.":::
+    :::image type="content" source="media/defender-for-containers-cicd/select-repository.png" alt-text="Select an unhealthy repository.":::
 
     The repository details page opens. It lists the vulnerable images together with an assessment of the severity of the findings.
 
 1. Select a specific image to see the vulnerabilities.
 
-    :::image type="content" source="media/defender-for-container-registries-cicd/select-image.png" alt-text="Select an unhealthy image.":::
+    :::image type="content" source="media/defender-for-containers-cicd/select-image.png" alt-text="Select an unhealthy image.":::
 
     The list of findings for the selected image opens.
 
-    :::image type="content" source="media/defender-for-container-registries-cicd/cicd-scan-results.png" alt-text="Image scan results.":::
+    :::image type="content" source="media/defender-for-containers-cicd/cicd-scan-results.png" alt-text="Image scan results.":::
 
 1. To learn more about which GitHub workflow is pushing these vulnerable images, select the information bubble:
 
-    :::image type="content" source="media/defender-for-container-registries-cicd/cicd-findings.png" alt-text="CI/CD findings about specific GitHub branches and commits.":::
+    :::image type="content" source="media/defender-for-containers-cicd/cicd-findings.png" alt-text="CI/CD findings about specific GitHub branches and commits.":::
 
 ## Next steps
 
