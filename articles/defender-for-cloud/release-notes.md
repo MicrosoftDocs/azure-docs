@@ -27,9 +27,10 @@ Updates in May Include:
 
 The database protection capabilities provided by Microsoft Defender for Cloud now include support for your SQL databases hosted in AWS and GCP environments.
 
-Using Defender for SQL, enterprises can now protect their entire data holdings, whether hosted in Azure, AWS, GCP, or on-premises machines.
+Using Defender for SQL, enterprises can now protect their data, whether hosted in Azure, AWS, GCP, or on-premises machines.
 
 Microsoft Defender for SQL now provides a unified cross-environment experience to view security recommendations, security alerts and vulnerability assessment findings encompassing SQL servers and the underlying Windows OS.
+
 
 Using the multi-cloud onboarding experience, you can enable and enforce databases protection for VMs in AWS and GCP. After enabling multi-cloud protection, all supported resources covered by your subscription are protected. Future resources created within the same subscription will also be protected.
 
