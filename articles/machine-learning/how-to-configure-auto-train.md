@@ -206,13 +206,13 @@ In the following list of links you can explore the supported algorithms per mach
 * [Classification Algorithms (Tabular Data)](https://review.docs.microsoft.com/en-us/python/api/azure-ml/azure.ml.automl.classificationmodels?view=azure-ml-py&branch=sdk-cli-v2-preview-master)
 * [Regression Algorithms  (Tabular Data)](https://review.docs.microsoft.com/en-us/python/api/azure-ml/azure.ml.automl.regressionmodels?view=azure-ml-py&branch=sdk-cli-v2-preview-master)
 * [Time Series Forecasting Algorithms (Tabular Data)](https://review.docs.microsoft.com/en-us/python/api/azure-ml/azure.ml.automl.forecastingmodels?view=azure-ml-py&branch=sdk-cli-v2-preview-master)
-* [Image Classification Multi-class Algorithms](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models#supported-model-algorithms)
-* [Image Classification Multi-label Algorithms](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models#supported-model-algorithms)
-* [Image Object Detection Algorithms](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models#supported-model-algorithms)
-* [Image Instance Segmentation Algorithms](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models#supported-model-algorithms)
-* [NLP Text Classification Multi-class Algorithms](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-nlp-models#language-settings)
-* [NLP Text Classification Multi-label Algorithms](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-nlp-models#language-settings)
-* [NLP Text Named Entity Recognition (NER) Algorithms](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-nlp-models#language-settings)
+* [Image Classification Multi-class Algorithms](how-to-auto-train-image-models.md#supported-model-algorithms)
+* [Image Classification Multi-label Algorithms](how-to-auto-train-image-models.md#supported-model-algorithms)
+* [Image Object Detection Algorithms](how-to-auto-train-image-models.md#supported-model-algorithms)
+* [Image Instance Segmentation Algorithms](how-to-auto-train-image-models.md#supported-model-algorithms)
+* [NLP Text Classification Multi-class Algorithms](how-to-auto-train-nlp-models.md#language-settings)
+* [NLP Text Classification Multi-label Algorithms](how-to-auto-train-nlp-models.md#language-settings)
+* [NLP Text Named Entity Recognition (NER) Algorithms](how-to-auto-train-nlp-models.md#language-settings)
 
 Follow [this link](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/automl-standalone-jobs) for example notebooks of each task type.
 
