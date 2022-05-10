@@ -60,15 +60,15 @@ The following procedure sets up the Config Server using the Azure portal to depl
 
 3. Select **Validate**.
 
-    ![Navigate to Config Server](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    :::image type="content" source="media/spring-cloud-quickstart-launch-app-portal/portal-config.png" alt-text="Screenshot of Azure portal showing Config Server page.":::
 
 4. When validation is complete, select **Apply** to save your changes.
 
-    ![Validating Config Server](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
+    :::image type="content" source="media/spring-cloud-quickstart-launch-app-portal/validate-complete.png" alt-text="Screenshot of Azure portal showing Config Server page with Apply button highlighted.":::
 
 5. Updating the configuration can take a few minutes.
 
-    ![Updating Config Server](media/spring-cloud-quickstart-launch-app-portal/updating-config.png)
+    :::image type="content" source="media/spring-cloud-quickstart-launch-app-portal/updating-config.png" alt-text="Screenshot of Azure portal showing Config Server page with Updating status message.":::
 
 6. You should get a notification when the configuration is complete.
 
@@ -96,21 +96,21 @@ The following procedure explains how to troubleshoot config server settings.
 1. Select **Run**.
 1. If you find the error **java.lang.illegalStateException** in logs, this indicates that spring cloud service cannot locate properties from config server.
 
-    [ ![ASC portal run query](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png)
+    :::image type="content" source="media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps query." lightbox="media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png":::
 
 1. Go to the service **Overview** page.
 1. Select **Diagnose and solve problems**.
 1. Select **Config Server** detector.
 
-    [ ![ASC portal diagnose problems](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png)
+    :::image type="content" source="media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png" alt-text="Screenshot of Azure portal showing Diagnose and solve problems page with Config Server button highlighted." lightbox="media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png":::
 
 1. Select **Config Server Health Check**.
 
-    [ ![ASC portal genie](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png)
+    :::image type="content" source="media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png" alt-text="Screenshot of Azure portal showing Diagnose and solve problems page and the Availability and Performance tab." lightbox="media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png":::
 
 1. Select **Config Server Status** to see more details from the detector.
 
-    [ ![ASC portal health status](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
+    :::image type="content" source="media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png" alt-text="Screenshot of Azure portal showing Diagnose and solve problems page with Config Server Health Status highlighted." lightbox="media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png":::
 
 ## Clean up resources
 

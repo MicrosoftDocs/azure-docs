@@ -145,7 +145,7 @@ It depends on the logic of resource providers that own the extension resources. 
 You can delete the Azure Spring Apps diagnostic settings by using Azure CLI:
 
 ```azurecli
- az monitor diagnostic-settings delete --name $diagnosticSettingName --resource $azureSpringCloudResourceId
+ az monitor diagnostic-settings delete --name $DIAGNOSTIC_SETTINGS_NAME --resource $AZURE_SPRING_APPS_RESOURCE_ID
 ```
 
 ::: zone pivot="programming-language-java"
