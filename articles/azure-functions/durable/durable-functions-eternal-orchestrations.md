@@ -172,8 +172,8 @@ PowerShell doesn't support *continue-as-new*.
 # [Java](#tab/java)
 
 ```java
-@FunctionName("StartHelloCities")
-public HttpResponseMessage startHelloCities(
+@FunctionName("Trigger_Eternal_Orchestration")
+public HttpResponseMessage triggerEternalOrchestration(
         @HttpTrigger(name = "req") HttpRequestMessage<?> req,
         @DurableClientInput(name = "durableContext") DurableClientContext durableContext) {
 

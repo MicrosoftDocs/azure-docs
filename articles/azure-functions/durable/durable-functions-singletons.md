@@ -171,6 +171,32 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
 ```
 
+# [Java](#tab/java)
+
+```java
+@FunctionName("HttpStartSingle")
+public HttpResponseMessage runSingle(
+        @HttpTrigger(name = "req") HttpRequestMessage<?> req,
+        @DurableClientInput(name = "durableContext") DurableClientContext durableContext) {
+
+    String instanceID = "StaticID";
+    DurableTaskClient client = durableContext.getClient();
+
+    // Check to see if an instance with this ID is already running
+    OrchestrationMetadata metadata = client.getInstanceMetadata(instanceID, false);
+    if (metadata.isRunning()) {
+        return req.createResponseBuilder(HttpStatus.CONFLICT)
+                .body("An instance with ID '" + instanceID + "' already exists.")
+                .build();
+    }
+
+    // No such instance exists - create a new one. De-dupe is handled automatically
+    // in the storage layer if another function tries to also use this instance ID.
+    client.scheduleNewOrchestrationInstance("MyOrchestration", null, instanceID);
+    return durableContext.createCheckStatusResponse(req, instanceID);
+}
+```
+
 ---
 
 By default, instance IDs are randomly generated GUIDs. In the previous example, however, the instance ID is passed in route data from the URL. The code calls `GetStatusAsync`(C#), `getStatus` (JavaScript), or `get_status` (Python) to check if an instance having the specified ID is already running. If no such instance is running, a new instance is created with that ID.
