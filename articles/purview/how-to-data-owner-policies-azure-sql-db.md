@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 05/09/2022
+ms.date: 05/10/2022
 ms.custom: references_regions
 ---
 # Access provisioning by data owner for Azure SQL DB (preview)
@@ -63,7 +63,7 @@ Once your data source has the **Data Use Management** toggle *Enabled*, it will 
 
 ## Create and publish a data owner policy
 
-Execute the steps in the [data-owner policy authoring tutorial](./how-to-data-owner-policy-authoring-generic.md) to create and then publish a data owner policy similar to one of the examples shown in the images.
+Execute the steps in the **Create a new policy** and **Publish a policy** sections of the [data-owner policy authoring tutorial](./how-to-data-owner-policy-authoring-generic.md#create-a-new-policy). The result will be a data owner policy similar to one of the examples shown in the images.
 
 **Example #1: SQL Performance Monitor policy**. This policy assigns the Azure AD principal 'Mateo Gomez' to the *SQL Performance monitoring* role, in the scope of SQL server *relecloud-sql-srv2*. This policy has also been published to that server.
 
@@ -77,14 +77,13 @@ Execute the steps in the [data-owner policy authoring tutorial](./how-to-data-ow
 
 
 >[!Important]
-> - Publish is a background operation. It can take up to **4 minutes** for the changes to be reflected in the data source.
+> - Publish is a background operation. It can take up to **4 minutes** for the changes to be reflected in this data source.
 > - There is no need to publish a policy again for it to take effect if the data resource continues to be the same.
 > - Changing a policy does not require a new publish operation. The changes will be picked up with the next pull
 
 ### Test the policy
 
-Once the policy is published, it takes a maximum of 4 minutes for the SQL Server to download the latest policy state.
-The Azure AD Accounts that the SQL policies are applied to should now be able to connect to any database that is on the server to which the policies are published to.
+The Azure AD Accounts referenced in the access policies should now be able to connect to any database in the server to which the policies are published.
 
 #### Force policy download
 It is possible to force an immediate download of the latest published policies to the current SQL database by running the following command. The minimal permission required to run it is membership in ##MS_ServerStateManager##-server role.

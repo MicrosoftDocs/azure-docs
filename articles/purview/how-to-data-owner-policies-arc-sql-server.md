@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 05/09/2022
+ms.date: 05/10/2022
 ms.custom: references_regions
 ---
 # Access provisioning by data owner for SQL Server on Azure Arc-enabled servers (preview)
@@ -76,9 +76,12 @@ Register each data source with Microsoft Purview to later define access policies
 Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this picture. 
 ![Screenshot shows how to register a data source for policy.](./media/how-to-data-owner-policies-sql/register-data-source-for-policy-arc-sql.png)
 
+> [!Note]
+> Scan is not currently available for the SQL Server on Azure Arc-enabled server.
+
 ## Create and publish a data owner policy
 
-Execute the steps in the [data-owner policy authoring tutorial](./how-to-data-owner-policy-authoring-generic.md) to create and then publish a data owner policy similar to one of the examples shown in the images.
+Execute the steps in the **Create a new policy** and **Publish a policy** sections of the [data-owner policy authoring tutorial](./how-to-data-owner-policy-authoring-generic.md#create-a-new-policy). The result will be a data owner policy similar to one of the examples shown in the images.
 
 **Example #1: SQL Performance Monitor policy**. This policy assigns the Azure AD principal 'Christie Cline' to the *SQL Performance monitoring* role, in the scope of Arc-enabled SQL server *DESKTOP-xxx*. This policy has also been published to that server.
 
@@ -90,14 +93,18 @@ Execute the steps in the [data-owner policy authoring tutorial](./how-to-data-ow
 
 ![Screenshot shows a sample data owner policy giving Data Reader access to an Azure SQL Database.](./media/how-to-data-owner-policies-sql/data-owner-policy-example-arc-sql-server-data-reader.png)
 
+> [!Note]
+> Given that scan is not currently available for this data source, data reader policies can only be created at server level. Use the **Data sources** box instead of the Asset box when authoring the **data resources** part of the policy.
+
+
 >[!Important]
-> - Publish is a background operation. It can take up to **4 minutes** for the changes to be reflected in the data source.
+> - Publish is a background operation. It can take up to **4 minutes** for the changes to be reflected in this data source.
 > - There is no need to publish a policy again for it to take effect if the data resource continues to be the same.
 > - Changing a policy does not require a new publish operation. The changes will be picked up with the next pull
 
 ### Test the policy
 
-The Azure AD Accounts that the SQL policies are applied to should now be able to connect to any database that is on the server to which the policies are published to.
+The Azure AD Accounts referenced in the access policies should now be able to connect to any database in the server to which the policies are published.
 
 #### Force policy download
 It is possible to force an immediate download of the latest published policies to the current SQL database by running the following command. The minimal permission required to run it is membership in ##MS_ServerStateManager##-server role.
