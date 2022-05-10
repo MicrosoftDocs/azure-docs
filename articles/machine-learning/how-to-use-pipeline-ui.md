@@ -100,7 +100,7 @@ If your pipeline fails or gets stuck on a node, first view the logs.
 
 If you would like to work based on an existing pipeline job in the workspace, you can easily clone it into a new pipeline draft to continue editing.
 
-![Screenshot showing clone](./media/new-pipeline-ui/job-detail-clone.png)
+:::image type="content" source="./media/how-to-use-pipeline-ui/job-detail-clone.png" alt-text="Screenshot showing clone.":::
 
 After cloning, you can also know which pipeline job it's cloned from by clicking **Showing lineage**.
 

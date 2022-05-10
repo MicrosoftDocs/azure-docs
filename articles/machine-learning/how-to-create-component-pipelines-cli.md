@@ -93,7 +93,7 @@ Open the `services.Studio.endpoint` URL you'll see a graph visualization of the 
 
 Let's take a look at the pipeline definition in the *3b_pipeline_with_data/pipeline.yml* file.  
 
-:::code language="yaml" source="~/azureml-examples-skd-preview/cli/jobs/pipelines-with-components/basics/basics/3b_pipeline_with_data/pipeline.yml":::
+:::code language="yaml" source="~/azureml-examples-skd-preview/cli/jobs/pipelines-with-components/basics/3b_pipeline_with_data/pipeline.yml":::
 
 Below table describes the most common used fields of pipeline YAML schema. See [full pipeline YAML schema here](./reference-pipeline-yaml.md).  
 
@@ -126,7 +126,7 @@ One common scenario is to read and write data in your pipeline. In AuzreML, we u
 
 Now let's look at the *componentA.yml* as an example to understand component definition YAML.
 
-:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/pipelines-with-components/basics/basics/3b_pipeline_with_data/componentA.yml":::
+:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/pipelines-with-components/basics/3b_pipeline_with_data/componentA.yml":::
 
 The most common used schema of the component YAML is described in below table. See [full component YAML schema here](./reference-yaml-component-command.md). 
 

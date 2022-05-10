@@ -104,7 +104,7 @@ If you're following along with the example in the [AzureML Examples repo](https:
 By using command_component() function as a decorator, you can easily define the component's interface, metadata and code to execute from a python function. Each decorated Python function will be transformed into a single static specification (YAML) that the pipeline service can process.
 
 
-:::code language="python" source="~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/prep/prep_component.py":::
+:::code language="python" source="~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/prep/prep_dsl_component.py":::
 
 The code above define a component with display name `Prep Data` using `@command_component` decorator:
 
@@ -157,7 +157,7 @@ The `train.py` file contains a normal python function, which performs the traini
 
 After defining the training function successfully, you can use @command_component in Azure Machine Learning SDK v2 to wrap your function as a component which can be used in AML pipelines.
 
-:::code language="python" source="~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/train/train_component.py":::
+:::code language="python" source="~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/train/train_dsl_component.py":::
 
 The code above define a component with display name `Train Image Classification Keras` using ``@command_componen`:
 
