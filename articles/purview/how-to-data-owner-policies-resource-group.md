@@ -25,7 +25,7 @@ You can also [register an entire resource group or subscription](register-scan-a
 * [Data owner policies on an Azure SQL Database](./how-to-data-owner-policies-azure-sql-db.md#prerequisites)*
 * [Data owner policies on an Arc-enabled SQL Server](./how-to-data-owner-policies-arc-sql-server.md#prerequisites)*
 
-(*) Only the *SQL Performance monitor* and *Security auditor* roles are supported for these data sources. *Data reader* role is not yet supported.
+(*) Only the *SQL Performance monitor* and *Security auditor* roles are supported for these data sources. The *Data reader* role isn't currently supported.
 
 ## Configuration
 [!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]

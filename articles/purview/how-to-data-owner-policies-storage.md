@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
 ms.date: 05/10/2022
-ms.custom:
+ms.custom: references_regions
 ---
 
 # Access provisioning by data owner to Azure Storage datasets (preview)

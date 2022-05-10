@@ -77,7 +77,7 @@ Once your data source has the **Data Use Management** toggle *Enabled*, it will 
 ![Screenshot shows how to register a data source for policy.](./media/how-to-data-owner-policies-sql/register-data-source-for-policy-arc-sql.png)
 
 > [!Note]
-> Scan is not yet available for the SQL Server on Azure Arc-enabled server.
+> Scan is not currently available for the SQL Server on Azure Arc-enabled server.
 
 ## Create and publish a data owner policy
 
@@ -94,7 +94,7 @@ Execute the steps in the **Create a new policy** and **Publish a policy** sectio
 ![Screenshot shows a sample data owner policy giving Data Reader access to an Azure SQL Database.](./media/how-to-data-owner-policies-sql/data-owner-policy-example-arc-sql-server-data-reader.png)
 
 > [!Note]
-> Given that scan is not yet available for this data source, data reader policies can only be created at server level, i.e. use the **Data sources** box instead of the Asset box when authoring the **data resources** part of the policy.
+> Given that scan is not currently available for this data source, data reader policies can only be created at server level. Use the **Data sources** box instead of the Asset box when authoring the **data resources** part of the policy.
 
 
 >[!Important]
