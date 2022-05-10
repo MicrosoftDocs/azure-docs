@@ -77,12 +77,6 @@ To define the input data of a job that references the Web-based data, run:
 
 [!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=define-input)]
 
-```python
-from azure.ml.entities import Input
-
-fashion_ds = Input(path="wasbs://demo@data4mldemo6150520719.blob.core.windows.net/mnist-fashion/")
-```
-
 By defining an `Input`, you create a reference to the data source location. The data remains in its existing location, so no extra storage cost is incurred.
 
 ## Create components for building pipeline
@@ -225,7 +219,7 @@ Now, you've got all source files for score-model component.
 
 For prep-data component and train-model component defined by python function, you can import the components just like normal python functions. 
 
-In the following code, you import `prep()` and `keras_train()` function from the `prep_dsl_component.py` file under `prep` folder and `train_dsl_component` file under `train_dsl_component` folder respectively.
+In the following code, you import `prepare_data_component()` and `keras_train_component()` function from the `prep_dsl_component.py` file under `prep` folder and `train_dsl_component` file under `train_dsl_component` folder respectively.
 
 [!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=load-from-dsl-component)]
 
