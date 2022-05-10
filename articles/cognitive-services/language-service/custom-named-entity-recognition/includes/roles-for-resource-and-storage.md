@@ -7,30 +7,33 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: how-to
-ms.date: 05/06/2022
+ms.topic: include
+ms.date: 05/10/2022
 ms.author: aahi
-ms.custom: language-service-custom-classification, references_regions, ignite-fall-2021
 ---
+
+Use the following steps to set the required roles for your Language resource and storage account.
+
+:::image type="content" source="../../custom-classification/media/add-roles.gif" alt-text="An animated image showing how to set roles in the Azure portal." lightbox="../../custom-classification/media/add-roles.gif":::
 
 ### Roles for your Azure Language resource
 
-You should have the **owner** or **contributor** role assigned on your **Azure Language resource**.
+1. Go to your storage account or Language resource in the [Azure portal](https://portal.azure.com/).
+2. Select **Access Control (IAM)** in the left navigation menu.
+3. Select **Add** to **Add Role Assignments**, and choose the appropriate role for your account.
 
-<!-- add GIF for the previous step --->
+    You should have the **owner** or **contributor** role assigned on your Language resource.
+
+4. Within **Assign access to**, select **User, group, or service principal**
+5. Select **Select members**
+6. Select your user name. You can search for user names in the **Select** field. Repeat this for all roles. 
+7. Repeat these steps for all the user accounts that need access to this resource. 
 
 ### Roles for your storage account
 
-Your Azure blob storage account must have the below roles:
-
-* Your **Language resource** has the **Storage blob data contributor** role on the storage account.
-
-To set proper roles on your storage account:
-
 1. Go to your storage account page in the [Azure portal](https://portal.azure.com/).
 2. Select **Access Control (IAM)** in the left navigation menu.
-3. Select **Add** to **Add Role Assignments**, and choose the appropriate role for your Language resource.
-4. Select **Managed identity** under **Assign access to**. 
-5. Select **Members** and find your resource. In the window that appears, select your subscription, and **Language** as the managed identity. You can search for user names in the **Select** field. Repeat this for all roles. 
-
-<!-- add GIF for the previous step --->
+3. Select **Add** to **Add Role Assignments**, and choose the **Storage blob data contributor** role on the storage account.
+4. Within **Assign access to**, select **Managed identity**. 
+5. Select **Select members**
+6. Select your subscription, and **Language** as the managed identity. You can search for user names in the **Select** field. 
