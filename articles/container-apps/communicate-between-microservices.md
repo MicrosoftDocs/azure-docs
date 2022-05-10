@@ -10,18 +10,13 @@ ms.author: cshoe
 zone_pivot_groups: container-apps-image-build-type
 ---
 
-<!--
-https://github.com/kendallroden/codetocloud
-https://gist.github.com/kendallroden/391a0fb9a67c943902f8c2b49418f152
--->
-
 # Tutorial: Communication between microservices in Azure Container Apps Preview
 
 This tutorial builds on the app deployed in the [Deploy your code to Azure Container Apps](./quickstart-code-to-cloud.md) article and adds a front end microservice to the container app. In this article, you learn how to enable communication between different microservices.
 
-**TODO:**
- - screenshot
- - explain conceptual overview
+The following screenshot shows the UI application added in this article.
+
+:::image type="content" source="media/communicate-between-microservices/azure-container-apps-album-ui.png" alt-text="Screenshot of album list UI microservice.":::
 
 In this tutorial, you learn to:
 
@@ -302,7 +297,8 @@ az containerapp create \
   --resource-group $RESOURCE_GROUP \
   --environment $ENVIRONMENT \
   --image $CONTAINER_IMAGE_NAME \
-  --env-vars "API_BASE_URL=$API_ENDPOINT" \
+  --target-port 3000 \
+  --env-vars API_BASE_URL=https://$API_ENDPOINT \
   --ingress 'external' \
   --registry-password $ACR_PASSWORD \
   --registry-username $ACR_NAME \
@@ -318,25 +314,24 @@ az containerapp create `
   --resource-group $RESOURCE_GROUP `
   --environment $ENVIRONMENT `
   --image $API_NAME `
-  --env-vars "API_BASE_URL=$API_ENDPOINT" `
-  --target-port $API_PORT `
+  --env-vars API_BASE_URL=https://$API_ENDPOINT `
+  --target-port 3000 `
   --ingress 'external' `
   --registry-password $ACR_PASSWORD `
   --registry-username $ACR_NAME `
   --registry-server $ACR_NAME.azurecr.io `
   --query configuration.ingress.fqdn
-  --query configuration.ingress.fqdn
 ```
 
 ---
 
-By adding the argument `--env-vars "API_BASE_URL=$API_ENDPOINT"` to `az containerapp create`, you define an environment variable for your front-end application. With this syntax, the environment variable named `API_BASE_URL` is set to the API's FQDN.
+By adding the argument `--env-vars "API_BASE_URL=https://$API_ENDPOINT"` to `az containerapp create`, you define an environment variable for your front-end application. With this syntax, the environment variable named `API_BASE_URL` is set to the API's FQDN.
 
 ## View website
 
-**TODO:**
- - open in browser
- - screenshot
+The `az containerapp create` CLI command returns the fully qualified domain name (FQDN) of your new container app. Open this location in a browser, and you're presented with a web application that resembles the following screenshot.
+
+:::image type="content" source="media/communicate-between-microservices/azure-container-apps-album-ui.png" alt-text="Screenshot of album list UI microservice.":::
 
 ## Clean up resources
 
