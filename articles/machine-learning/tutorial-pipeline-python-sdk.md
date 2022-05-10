@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: msdpalam
 ms.author: meeral
 ms.reviewer: sgilley
-ms.date: 04/20/2022
+ms.date: 05/10/2022
 ms.custom: sdkv2
 #Customer intent: This tutorial is intended to introduce Azure ML to data scientists who want to scale up or publish their ML projects. By completing a familiar end-to-end project, which starts by loading the data and ends by creating and calling an online inference endpoint, the user should become familiar with the core concepts of Azure ML and their most common usage. Each step of this tutorial can be modified or performed in other ways that might have security or scalability advantages. We will cover some of those in the Part II of this tutorial, however, we suggest the reader use the provide links in each section to learn more on each topic. 
 ---
@@ -66,8 +66,10 @@ First you'll install the v2 SDK on your compute instance:
 1. In the terminal window, install Python SDK v2 (preview) with this command:
 
     ```
-    pip install azure-ml==0.0.139 --extra-index-url  https://azuremlsdktestpypi.azureedge.net/sdk-cli-v2
+    pip install azure-ai-ml==0.0.139 --extra-index-url  https://azuremlsdktestpypi.azureedge.net/sdk-cli-v2
     ```
+
+    For more information, see [Install the Python SDK v2](https://aka.ms/sdk-v2-install).
 
 ## Clone the azureml-examples repo
 
@@ -127,7 +129,7 @@ Before we dive in the code, you'll need to connect to your Azure ML workspace. T
 
 ```Python
 # handle to the workspace
-from azure.ml import MLClient
+from azure.ai.ml import MLClient
 
 # Authentication package
 from azure.identity import DefaultAzureCredential
@@ -166,7 +168,7 @@ The data you use for training is usually in one of the locations below:
 Azure ML uses a `Dataset` object to register a reusable definition of data, and consume data within a pipeline. A `Dataset` object is a pointer to a data storage service and a path. In the section below, you'll consume some data from web url as one example. Datasets from other sources can be created as well.
 
 ```python
-from azure.ml.entities import Dataset
+from azure.ai.ml.entities import Dataset
 
 web_path = "https://archive.ics.uci.edu/ml/machine-learning-databases/00350/default%20of%20credit%20card%20clients.xls"
 
@@ -240,7 +242,7 @@ The Azure ML packages aren't mandatory to run Azure ML jobs. However, adding the
 Use the *yaml* file to create and register this custom environment in your workspace:
 
 ```Python
-from azure.ml.entities import Environment
+from azure.ai.ml.entities import Environment
 
 custom_env_name = "aml-scikit-learn"
 
@@ -358,10 +360,10 @@ You'll use the general purpose **CommandComponent** that can run command line ac
 
 ```Python
 # importing the CommandComponent Package
-from azure.ml.entities import CommandComponent
+from azure.ai.ml.entities import CommandComponent
 
 # importing the CommandComponent Package
-from azure.ml.entities import Code
+from azure.ai.ml.entities import Code
 
 data_prep_component = CommandComponent(
     # Name of the component
@@ -559,7 +561,7 @@ Now create and register the component:
 
 ```Python
 # importing the Component Package
-from azure.ml.entities import Component
+from azure.ai.ml.entities import Component
 
 # Loading the component from the yml file
 train_component = Component.load(path=os.path.join(train_src_dir, "train.yml"))
@@ -580,9 +582,9 @@ print(
 Now that both your components are defined and registered, you can start implementing the pipeline. 
 
 ```Python
-from azure.ml import dsl, MLClient
-from azure.ml.dsl import Pipeline
-from azure.ml.entities import Component as ComponentEntity, Dataset
+from azure.ai.ml import dsl, MLClient
+from azure.ai.ml.dsl import Pipeline
+from azure.ai.ml.entities import Component as ComponentEntity, Dataset
 from pathlib import Path
 
 
@@ -766,7 +768,7 @@ online_endpoint_name = "credit-endpoint-" + str(uuid.uuid4())[:8]
 ```
 
 ```Python
-from azure.ml.entities import (
+from azure.ai.ml.entities import (
     ManagedOnlineEndpoint,
     ManagedOnlineDeployment,
     Model,
