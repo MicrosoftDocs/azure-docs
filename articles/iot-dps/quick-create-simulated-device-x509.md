@@ -247,16 +247,16 @@ To create the X.509 certificate:
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device_key.pem -out ./device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=c-device-01"
+    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device_key.pem -out ./device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=my-x509-device"
     ```
 
     > [!IMPORTANT]
-    > The extra forward slash given for the subject name (`//CN=c-device-01`) is only required to escape the string with Git on Windows platforms.
+    > The extra forward slash given for the subject name (`//CN=my-x509-device`) is only required to escape the string with Git on Windows platforms.
 
     # [Linux](#tab/linux)
 
     ```bash
-    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device_key.pem -out ./device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=c-device-01"
+    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device_key.pem -out ./device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=my-x509-device"
     ```
 
     ---
@@ -267,7 +267,7 @@ To create the X.509 certificate:
 
     A test certificate file (*device_cert.pem*) and private key file (*device_key.pem*) should now be generated in the directory where you ran the `openssl` command.
 
-    The certificate file has its subject common name (CN) set to `c-device-01`. For an X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
+    The certificate file has its subject common name (CN) set to `my-x509-device`. For an X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
 
 1. To view the common name (CN) and other properties of the certificate file, enter the following command:
 
@@ -292,11 +292,11 @@ To create the X.509 certificate:
         Serial Number:
             77:3e:1d:e4:7e:c8:40:14:08:c6:09:75:50:9c:1a:35:6e:19:52:e2
         Signature Algorithm: sha256WithRSAEncryption
-        Issuer: CN = c-device-01
+        Issuer: CN = my-x509-device
         Validity
             Not Before: May  5 21:41:42 2022 GMT
             Not After : Jun  4 21:41:42 2022 GMT
-        Subject: CN = c-device-01
+        Subject: CN = my-x509-device
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
                 RSA Public-Key: (4096 bit)
@@ -332,7 +332,7 @@ To create the X.509 certificate:
 
 ::: zone pivot="programming-language-csharp"
 
-The sample code is set up to use X.509 certificates that are stored within a password-protected PKCS12 formatted file (`certificate.pfx`). Additionally, you'll need a public key certificate file (`device.pem`) to create an individual enrollment later in this quickstart.
+The sample code is set up to use X.509 certificates that are stored within a password-protected PKCS12 formatted file (`certificate.pfx`). Additionally, you'll need a public key certificate file (`device_cert.pem`) to create an individual enrollment later in this quickstart.
 
 1. On Windows, open a Git Bash prompt. On Linux, you can use a regular Bash prompt.\
 
@@ -347,16 +347,16 @@ The sample code is set up to use X.509 certificates that are stored within a pas
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device.key.pem -out ./device.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=iothubx509device1"
+    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device_key.pem -out ./device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=my-x509-device"
     ```
 
     > [!IMPORTANT]
-    > The extra forward slash given for the subject name (`//CN=iothubx509device1`) is only required to escape the string with Git on Windows platforms.
+    > The extra forward slash given for the subject name (`//CN=my-x509-device`) is only required to escape the string with Git on Windows platforms.
 
     # [Linux](#tab/linux)
 
     ```bash
-    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device.key.pem -out ./device.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=iothubx509device1"
+    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device_key.pem -out ./device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=my-x509-device"
     ```
 
     ---
@@ -365,22 +365,22 @@ The sample code is set up to use X.509 certificates that are stored within a pas
 
 1. When asked **Verifying - Enter PEM pass phrase:**, use the pass phrase `1234` again.
 
-    A test certificate file (*device.pem*) and private key file (*device.key.pem*) should now be generated in the directory where you ran the `openssl` command.
+    A test certificate file (*device_cert.pem*) and private key file (*device_key.pem*) should now be generated in the directory where you ran the `openssl` command.
 
-    The certificate file has its subject common name (CN) set to `iothubx509device1`. For an X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
+    The certificate file has its subject common name (CN) set to `my-x509-device`. For an X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
 
 1. To view the common name (CN) and other properties of the certificate file, enter the following command:
 
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl x509 -in ./python-device.pem -text -noout
+    winpty openssl x509 -in ./python-device_cert.pem -text -noout
     ```
 
     # [Linux](#tab/linux)
 
     ```bash
-    openssl x509 -in ./python-device.pem -text -noout
+    openssl x509 -in ./python-device_cert.pem -text -noout
     ```
 
     ---
@@ -392,11 +392,11 @@ The sample code is set up to use X.509 certificates that are stored within a pas
         Serial Number:
             77:3e:1d:e4:7e:c8:40:14:08:c6:09:75:50:9c:1a:35:6e:19:52:e2
         Signature Algorithm: sha256WithRSAEncryption
-        Issuer: CN = iothubx509device1
+        Issuer: CN = my-x509-device
         Validity
             Not Before: May  5 21:41:42 2022 GMT
             Not After : Jun  4 21:41:42 2022 GMT
-        Subject: CN = iothubx509device1
+        Subject: CN = my-x509-device
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
                 RSA Public-Key: (4096 bit)
@@ -433,18 +433,18 @@ The sample code is set up to use X.509 certificates that are stored within a pas
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl pkcs12 -inkey device.key.pem -in device.pem -export -out certificate.pfx
+    winpty openssl pkcs12 -inkey device_key.pem -in device_cert.pem -export -out certificate.pfx
     ```
 
     # [Linux](#tab/linux)
 
     ```bash
-    openssl pkcs12 -inkey device.key.pem -in device.pem -export -out certificate.pfx
+    openssl pkcs12 -inkey device_key.pem -in device_cert.pem -export -out certificate.pfx
     ```
 
     ---
 
-1. When asked to **Enter pass phrase for device.key.pem:**, use the same pass phrase you did previously, `1234`.
+1. When asked to **Enter pass phrase for device_key.pem:**, use the same pass phrase you did previously, `1234`.
 
 1. When asked to **Enter Export Password:**, use the password `1234`.
 
@@ -469,16 +469,16 @@ The sample code is set up to use X.509 certificates that are stored within a pas
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device_key.pem -out ./device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=nodejs-device-01"
+    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device_key.pem -out ./device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=my-x509-device"
     ```
 
     > [!IMPORTANT]
-    > The extra forward slash given for the subject name (`//CN=nodejs-device-01`) is only required to escape the string with Git on Windows platforms.
+    > The extra forward slash given for the subject name (`//CN=my-x509-device`) is only required to escape the string with Git on Windows platforms.
 
     # [Linux](#tab/linux)
 
     ```bash
-    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device_key.pem -out ./device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=nodejs-device-01"
+    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device_key.pem -out ./device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=my-x509-device"
     ```
 
     ---
@@ -489,7 +489,7 @@ The sample code is set up to use X.509 certificates that are stored within a pas
 
     A test certificate file (*device_cert.pem*) and private key file (*device_key.pem*) should now be generated in the directory where you ran the `openssl` command.
 
-    The certificate file has its subject common name (CN) set to `nodejs-device-01`. For an X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
+    The certificate file has its subject common name (CN) set to `my-x509-device`. For an X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
 
 1. To view the common name (CN) and other properties of the certificate file, enter the following command:
 
@@ -514,11 +514,11 @@ The sample code is set up to use X.509 certificates that are stored within a pas
         Serial Number:
             77:3e:1d:e4:7e:c8:40:14:08:c6:09:75:50:9c:1a:35:6e:19:52:e2
         Signature Algorithm: sha256WithRSAEncryption
-        Issuer: CN = nodejs-device-01
+        Issuer: CN = my-x509-device
         Validity
             Not Before: May  5 21:41:42 2022 GMT
             Not After : Jun  4 21:41:42 2022 GMT
-        Subject: CN = nodejs-device-01
+        Subject: CN = my-x509-device
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
                 RSA Public-Key: (4096 bit)
@@ -561,16 +561,16 @@ The sample code is set up to use X.509 certificates that are stored within a pas
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./python-device.key.pem -out ./python-device.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=Python-device-01"
+    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./python-device_key.pem -out ./python-device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=my-x509-device"
     ```
 
     > [!IMPORTANT]
-    > The extra forward slash given for the subject name (`//CN=Python-device-01`) is only required to escape the string with Git on Windows platforms.
+    > The extra forward slash given for the subject name (`//CN=my-x509-device`) is only required to escape the string with Git on Windows platforms.
 
     # [Linux](#tab/linux)
 
     ```bash
-    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./python-device.key.pem -out ./python-device.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=Python-device-01"
+    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./python-device_key.pem -out ./python-device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=my-x509-device"
     ```
 
     ---
@@ -579,22 +579,22 @@ The sample code is set up to use X.509 certificates that are stored within a pas
 
 1. When asked **Verifying - Enter PEM pass phrase:**, use the pass phrase `1234` again.
 
-    A test certificate file (*python-device.pem*) and private key file (*python-device.key.pem*) should now be generated in the directory where you ran the `openssl` command.
+    A test certificate file (*python-device_cert.pem*) and private key file (*python-device_key.pem*) should now be generated in the directory where you ran the `openssl` command.
 
-    The certificate file has its subject common name (CN) set to `Python-device-01`. For an X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
+    The certificate file has its subject common name (CN) set to `my-x509-device`. For an X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
 
 1. To view the common name (CN) and other properties of the certificate file, enter the following command:
 
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl x509 -in ./python-device.pem -text -noout
+    winpty openssl x509 -in ./python-device_cert.pem -text -noout
     ```
 
     # [Linux](#tab/linux)
 
     ```bash
-    openssl x509 -in ./python-device.pem -text -noout
+    openssl x509 -in ./python-device_cert.pem -text -noout
     ```
 
     ---
@@ -606,11 +606,11 @@ The sample code is set up to use X.509 certificates that are stored within a pas
         Serial Number:
             77:3e:1d:e4:7e:c8:40:14:08:c6:09:75:50:9c:1a:35:6e:19:52:e2
         Signature Algorithm: sha256WithRSAEncryption
-        Issuer: CN = Python-device-01
+        Issuer: CN = my-x509-device
         Validity
             Not Before: May  5 21:41:42 2022 GMT
             Not After : Jun  4 21:41:42 2022 GMT
-        Subject: CN = Python-device-01
+        Subject: CN = my-x509-device
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
                 RSA Public-Key: (4096 bit)
@@ -698,7 +698,7 @@ This article demonstrates an individual enrollment for a single device to be pro
 
     * **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
     * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *device_cert.pem* that you created in the previous section.
-    * Leave **IoT Hub Device ID:** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, *c-device-01*. This common name will also be the name used for the registration ID for the individual enrollment entry.
+    * Leave **IoT Hub Device ID:** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, *my-x509-device*. This common name will also be the name used for the registration ID for the individual enrollment entry.
     * Optionally, you can provide the following information:
         * Select an IoT hub linked with your provisioning service.
         * Update the **Initial device twin state** with the desired initial configuration for the device.
@@ -712,8 +712,8 @@ This article demonstrates an individual enrollment for a single device to be pro
 6. In the **Add Enrollment** page, enter the following information.
 
     * **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
-    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *device.pem* that you created in the previous section.
-    * Leave **IoT Hub Device ID:** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, *iothubx509device1*. This common name will also be the name used for the registration ID for the individual enrollment entry.
+    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *device_cert.pem* that you created in the previous section.
+    * Leave **IoT Hub Device ID:** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, *my-x509-device*. This common name will also be the name used for the registration ID for the individual enrollment entry.
     * Optionally, you can provide the following information:
         * Select an IoT hub linked with your provisioning service.
         * Update the **Initial device twin state** with the desired initial configuration for the device.
@@ -741,7 +741,7 @@ This article demonstrates an individual enrollment for a single device to be pro
 6. In the **Add Enrollment** page, enter the following information.
 
     * **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
-    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *python-device.pem* if you are using the test certificate created earlier.
+    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *python-device_cert.pem* if you are using the test certificate created earlier.
     * Optionally, you can provide the following information:
         * Select an IoT hub linked with your provisioning service.
         * Update the **Initial device twin state** with the desired initial configuration for the device.
@@ -809,14 +809,14 @@ In this section, you update the sample code with your Device Provisioning Servic
 
 The specifics of interacting with actual secure hardware-based storage vary depending on the hardware. As a result, the certificate and private key used by the simulated device in this quickstart will be hardcoded in the custom Hardware Security Module (HSM) stub code.
 
-To update the custom HSM stub code to simulate the identity of the device with ID `c-device-01`:
+To update the custom HSM stub code to simulate the identity of the device with ID `my-x509-device`:
 
 1. In Solution Explorer for Visual Studio, navigate to **Provisioning_Samples > custom_hsm_example > Source Files** and open *custom_hsm_example.c*.
 
-1. Update the string value of the `COMMON_NAME` string constant using the common name you used when generating the device certificate, `c-device-01`.
+1. Update the string value of the `COMMON_NAME` string constant using the common name you used when generating the device certificate, `my-x509-device`.
 
     ```c
-    static const char* const COMMON_NAME = "c-device-01";
+    static const char* const COMMON_NAME = "my-x509-device";
     ```
 
 1. In the same file, you need to update the string value of the `CERTIFICATE` constant string using your certificate chain text you saved in *./certs/new-device-01-full-chain.cert.pem* after generating your certificates.
@@ -853,7 +853,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
     done < "$input"
     ```
 
-    Copy and paste the output certificate text for the new constant value. 
+    Copy and paste the output certificate text for the new constant value.
 
 1. In the same file, the string value of the `PRIVATE_KEY` constant must also be updated with the private key for your device certificate.
 
@@ -938,13 +938,13 @@ To update the custom HSM stub code to simulate the identity of the device with I
     Loading the certificate...
     Enter the PFX password for certificate.pfx:
     ****
-    Found certificate: A33DB11B8883DEE5B1690ACFEAAB69E8E928080B CN=iothubx509device1; PrivateKey: True
-    Using certificate A33DB11B8883DEE5B1690ACFEAAB69E8E928080B CN=iothubx509device1
+    Found certificate: A33DB11B8883DEE5B1690ACFEAAB69E8E928080B CN=my-x509-device; PrivateKey: True
+    Using certificate A33DB11B8883DEE5B1690ACFEAAB69E8E928080B CN=my-x509-device
     Initializing the device provisioning client...
-    Initialized for registration Id iothubx509device1.
+    Initialized for registration Id my-x509-device.
     Registering with the device provisioning service...
     Registration status: Assigned.
-    Device iothubx509device1 registered to MyExampleHub.azure-devices.net.
+    Device my-x509-device registered to MyExampleHub.azure-devices.net.
     Creating X509 authentication for IoT Hub...
     Testing the provisioned device with IoT Hub...
     Sending a telemetry message...
@@ -1014,19 +1014,19 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
     $export PROVISIONING_IDSCOPE=<ID scope for your DPS resource>
     ```
 
-4. The registration ID for the IoT device must match subject name on its device certificate. If you generated a self-signed test certificate, `Python-device-01` is both the subject name and the registration ID for the device.
+4. The registration ID for the IoT device must match subject name on its device certificate. If you generated a self-signed test certificate, `my-x509-device` is both the subject name and the registration ID for the device.
 
 5. In the Git Bash prompt, set the environment variable for the registration ID as follows:
 
     ```bash
-    $export DPS_X509_REGISTRATION_ID=Python-device-01
+    $export DPS_X509_REGISTRATION_ID=my-x509-device
     ```
 
 6. In the Git Bash prompt, set the environment variables for the certificate file, private key file, and pass phrase.
 
     ```bash
-    $export X509_CERT_FILE=./python-device.pem
-    $export X509_KEY_FILE=./python-device.key.pem
+    $export X509_CERT_FILE=./python-device_cert.pem
+    $export X509_KEY_FILE=./python-device_key.pem
     $export PASS_PHRASE=1234
     ```
 
@@ -1040,7 +1040,7 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
     $ winpty python azure-iot-sdk-python/azure-iot-device/samples/async-hub-scenarios/provision_x509.py
     RegistrationStage(RequestAndResponseOperation): Op will transition into polling after interval 2.  Setting timer.
     The complete registration result is
-    Python-device-01
+    my-x509-device
     TestHub12345.azure-devices.net
     initialAssignment
     null
