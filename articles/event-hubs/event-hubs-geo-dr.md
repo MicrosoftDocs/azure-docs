@@ -165,7 +165,7 @@ When creating a namespace, you see the following highlighted message when you se
 :::image type="content" source="./media/event-hubs-geo-dr/eh-az.png" alt-text="Image showing the Create Namespace page with region that has availability zones":::
 
 > [!NOTE]
-> When you use the Azure portal, zone redundancy via support for availability zones is automatically enabled. You can't disable it in the portal. You can use the Azure CLI command [az eventhubs namespace](/cli/azure/eventhubs/namespace#az-eventhubs-namespace-create) with the parameter `--zone-redundant` set to `false` or use the PowerShell command `New-AzEventHubNamespace` with the parameter `-ZoneRedundant` set to `false` to create a namespace with zone redundancy disabled. 
+> When you use the Azure portal, zone redundancy via support for availability zones is automatically enabled. You can't disable it in the portal. You can use the Azure CLI command [az eventhubs namespace](/cli/azure/eventhubs/namespace#az-eventhubs-namespace-create) with `--zone-redundant=false` or use the PowerShell command `New-AzEventHubNamespace` with `-ZoneRedundant=false` to create a namespace with zone redundancy disabled. 
 
 ## Private endpoints
 This section provides more considerations when using Geo-disaster recovery with namespaces that use private endpoints. To learn about using private endpoints with Event Hubs in general, see [Configure private endpoints](private-link-service.md).
