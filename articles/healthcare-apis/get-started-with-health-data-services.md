@@ -42,9 +42,9 @@ To be guided through these steps, see [Deploy Azure Health Data Services workspa
 
 [![Screenshot of the Azure Health Data Services workspace.](media/health-data-services-workspace.png)](media/health-data-services-workspace.png#lightbox)
 
-### About user access and permissions
+## About user access and permissions
 
-Azure Health Data Services is a collection of secured managed services using Azure Active Directory (Azure AD). For the Azure Health Data Services to access Azure resources, such as storage accounts and event hubs, you must enable the system managed identity, and grant proper permissions to the managed identity. Client applications are registered in the Azure AD and can be used to access the Azure Health Data Services. User data access controls are done in the applications or services that implement business logic.
+Azure Health Data Services is a collection of secured managed services using Azure Active Directory (Azure AD). For Azure Health Data Services to access Azure resources, such as storage accounts and event hubs, you must enable the system managed identity, and grant proper permissions to the managed identity. Client applications are registered in the Azure AD and can be used to access the Azure Health Data Services. User data access controls are done in the applications or services that implement business logic.
 
 Authenticated users and client applications of the Azure Health Data Services must be granted with proper [application roles](./../healthcare-apis/authentication-authorization.md#application-roles). After being granted with proper application roles, the [authenticated users and client applications](./../healthcare-apis/authentication-authorization.md#authorization) can access Azure Health Data Services by obtaining a valid [access token](./../healthcare-apis/authentication-authorization.md#access-token) issued by Azure AD, and perform specific operations defined by the application roles. For more information, see [Authentication and Authorization for Azure Health Data Services](authentication-authorization.md).
 
@@ -97,45 +97,6 @@ You can also do the following:
 - Send data to the Event Hub, which is associated with the MedTech service 
 
 For more information, see [Get started with the MedTech service](./../healthcare-apis/iot/get-started-with-iot.md).
-
-## Authentication and authorization
-
-For Azure Health Data Services to access Azure resources, such as storage accounts and event hubs, you must enable the system managed identity, and grant proper permissions to the managed identity. For more information, see [Azure managed identities](../active-directory/managed-identities-azure-resources/overview.md).
-
-Azure Health Data Services doesn't support other identity providers. However, customers can use their own identity provider to secure applications, and enable them to interact with the Health Data Services by managing client applications and user data access controls.
-
-The client applications are registered in the Azure Active Directory (Azure AD) and can be used to access Azure Health Data Services. User data access controls are done in the applications or services that implement business logic.
-
-### Register client application
-
-The Microsoft identity platform performs identity and access management (IAM) only for registered applications. Whether it's a client application like a web or mobile app, or it's a web API that backs a client app, registering it establishes a trust relationship between your application and the identity provider, the Microsoft identity platform.
-
-For more information about how to register a client application in Azure AD to access Azure Health Data Services, see [Register a client application in Azure Active Directory](./../healthcare-apis/register-application.md).
-
-### Assign application roles
-
-Authenticated users and client applications of Azure Health Data Services must be granted with proper application roles. To view a list of application roles for the FHIR service and DICOM service, see [Application roles](./../healthcare-apis/authentication-authorization.md#application-roles). 
-
-* For information about assigning roles to the FHIR service, see [Assign roles for the FHIR service](./../healthcare-apis/configure-azure-rbac.md#assign-roles-for-the-fhir-service).
-
-* For information about assigning roles to the DICOM service, see [Assign roles for the DICOM service](./../healthcare-apis/configure-azure-rbac.md#assign-roles-for-the-dicom-service)
-
-> [!Note] 
-> MedTech service doesn't require application roles, but it does rely on the "Azure Event Hubs Data Receiver" to retrieve data stored in the event hub of the customer's subscription. For more information, see [Granting MedTech service access](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-medtech-service-access).
-
-### Steps for authorization
-
-After being granted with proper application roles, the authenticated users and client applications can access Azure Health Data Services by obtaining a valid access token issued by Azure AD, and perform specific operations defined by the application roles.
-
-* For **FHIR service**, the access token is specific to the service or resource.
-* For **DICOM service**, the access token is granted to the dicom.healthcareapis.azure.com resource, not a specific service.
-* For **MedTech service**, the access token isn’t required because it isn’t exposed to the users or client applications.
-
-For information about obtaining an access token for Azure Health Data Services, see the [steps for using authorization code flow](./../healthcare-apis/authentication-authorization.md#steps-for-authorization). 
-
-## Access Azure Health Data Services
-
-After you've provisioned a FHIR service, DICOM service, or MedTech service, you can access them in your applications using tools like Postman, cURL, REST Client in Visual Studio Code, and with programming languages such as Python and C#. For more information, see [Access Azure Health Data Services](./../healthcare-apis/access-healthcare-apis.md).
 
 ## Next steps
 
