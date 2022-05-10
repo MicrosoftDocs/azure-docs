@@ -23,6 +23,7 @@ For the usage with [Form Recognizer SDK](quickstarts/try-v3-csharp-sdk.md), [For
 | **Concurrent Request limit** | 1 | 15 (default value) |
 | Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
 | **Compose Model limit** | 5 | 100 (default value) |
+| Adjustable | No<sup>2</sup> | No<sup>2</sup> |
 | **Custom neural model train** | 10 per month | 10 per month |
 | Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
 
