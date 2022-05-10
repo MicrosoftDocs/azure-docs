@@ -51,7 +51,7 @@ Use the following JSON in your request body. The model will be given the `{MODEL
 | `modelLabel` | `{MODEL-NAME}` | The model name that will be assigned to your model once trained successfully.  | `myModel` |
 | `trainingConfigVersion` | `{CONFIG-VERSION}` | This is the [model version](../../../concepts/model-lifecycle.md) that will be used to train the model. | `2022-05-01` |
 | `evaluationOptions` | `{}` | Option to split your data across training and testing sets. | `{}` |
-| `kind` | `percentage` |  Split methods. Possible Values are `percentage` or `manual`. <!--See [How to train a model](../../how-to/train-model.md#data-splitting) for more information on how your data is split.--> |`percentage`|
+| `kind` | `percentage` |  Split methods. Possible Values are `percentage` or `manual`. See [How to train a model](../../how-to/train-model.md#data-splitting) for more information on how your data is split. |`percentage`|
 | `trainingSplitPercentage` | `80`| Percentage of your tagged data to be included in the training set. Recommended value is `80`. | `80`|
 | `testingSplitPercentage` | `20` | Percentage of your tagged data to be included in the testing set. Recommended value is `20`.   | `20` |
 

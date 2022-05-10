@@ -108,12 +108,12 @@ Use the following JSON in your request. Replace the placeholder values below wit
 | `projectName` | `{PROJECT-NAME}` | The name of your project. This value is case-sensitive. | `myProject` |
 | `projectKind` | `customNamedEntityRecognition` | Your project kind. | `customNamedEntityRecognition` |
 | `language` | `{LANGUAGE-CODE}` |  A string specifying the language code for the documents used in your project. If your project is a multilingual project, choose the [language code](../../language-support.md) of the majority of the documents. |`en-us`|
-| `multilingual` | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents. <!--See [language support](../../language-support.md#multi-lingual-option) for information on multilingual support.-->  | `true`|
+| `multilingual` | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents. See [language support](../../language-support.md#multi-lingual-option) for information on multilingual support.  | `true`|
 | `storageInputContainerName` | {CONTAINER-NAME} | The name of your Azure storage container where you have uploaded your documents.   | `myContainer` |
 | `entities` |  | Array containing all the entity types you have in the project. These are the entity types that will be extracted from your documents into.| |
 | `documents` | | Array containing all the documents in your project and list of the entities labeled within each document. | [] |
 | `location` | `{DOCUMENT-NAME}` |  The location of the documents in the storage container. Since all the documents are in the root of the container this should be the document name.|`doc1.txt`|
-| `dataset` | `{DATASET}` |  The test set to which this file will go to when split before training. <!--See [How to train a model](../../how-to/train-model.md#data-splitting) for more information on how your data is split.--> Possible values for this field are `Train` and `Test`.      |`Train`|
+| `dataset` | `{DATASET}` |  The test set to which this file will go to when split before training. See [How to train a model](../../how-to/train-model.md#data-splitting) for more information on how your data is split. Possible values for this field are `Train` and `Test`.      |`Train`|
 
 
 Once you send your API request, you’ll receive a `202` response indicating that the job was submitted correctly. In the response headers, extract the `location` value. It will be formatted like this: 

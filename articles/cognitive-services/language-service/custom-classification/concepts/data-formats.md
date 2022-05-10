@@ -19,7 +19,7 @@ If you're trying to import your data into custom text classification, it has to 
 
 ## Labels file format
 
-Your Labels file should be in the `json` format below. <!--This will enable you to [import](../how-to/create-project.md#import-a-custom-text-classification-project) your labels into a project.-->
+Your Labels file should be in the `json` format below. This will enable you to [import](../how-to/create-project.md#import-a-custom-text-classification-project) your labels into a project.
 
 # [Multi label classification](#tab/multi-classification)
 
@@ -56,7 +56,7 @@ Your Labels file should be in the `json` format below. <!--This will enable you 
 | classes | [] | Array containing all the classes you have in the project. These are the classes you want to classify your documents into.| [] |
 | documents | [] | Array containing all the documents in your project and the classes labeled for this document. | [] |
 | location | `{DOCUMENT-NAME}` |  The location of the documents in the storage container. Since all the documents are in the root of the container, this value should be the document name.|`doc1.txt`|
-| dataset | `{DATASET}` |  The test set to which this file will go to when split before training. <!--See [data splitting](../how-to/train-model.md#data-splitting) for more information.--> Possible values for this field are `Train` and `Test`.      |`Train`|
+| dataset | `{DATASET}` |  The test set to which this file will go to when split before training. See [How to train a model](../how-to/train-model.md#data-splitting) for more information. Possible values for this field are `Train` and `Test`.      |`Train`|
 
 
 # [Single label classification](#tab/single-classification)
@@ -96,12 +96,12 @@ Your Labels file should be in the `json` format below. <!--This will enable you 
 | classes | [] | Array containing all the classes you have in the project. These are the classes you want to classify your documents into.| [] |
 | documents | [] | Array containing all the documents in your project and which class this document belongs to. | [] |
 | location | `{DOCUMENT-NAME}` |  The location of the documents in the storage container. Since all the documents are in the root of the container this should be the document name.|`doc1.txt`|
-| dataset | `{DATASET}` |  The test set to which this file will go to when split before training. <!--See [data splitting](../how-to/train-model.md#data-splitting) for more information.--> Possible values for this field are `Train` and `Test`.      |`Train`|
+| dataset | `{DATASET}` |  The test set to which this file will go to when split before training. See [How to train a model](../how-to/train-model.md#data-splitting) for more information. Possible values for this field are `Train` and `Test`.      |`Train`|
 
 
 ---
 
 ## Next steps
 
-* You can import your labeled data into your project directly. <!--See [How to create a project](../how-to/create-project.md#import-a-custom-text-classification-project) to learn more about importing projects.-->
+* You can import your labeled data into your project directly. See [How to create a project](../how-to/create-project.md#import-a-custom-text-classification-project) to learn more about importing projects.
 * See the [how-to article](../how-to/tag-data.md) more information about labeling your data. When you're done labeling your data, you can [train your model](../how-to/train-model.md).  

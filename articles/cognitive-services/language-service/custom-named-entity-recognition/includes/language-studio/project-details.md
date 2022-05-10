@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 04/22/2022
+ms.date: 05/10/2022
 ms.author: aahi
 ---
 
@@ -18,7 +18,7 @@ ms.author: aahi
 
 4. You can also view the connected storage account and container to your Language resource.
 
-5. You can also retrieve your resource primary key from this page.
+5. You can also retrieve your primary resource key from this page.
 
-    <!--:::image type="content" source="../../media/project-settings.png" alt-text="A screenshot of the project settings page." lightbox="../../media/project-settings.png":::-->
+    :::image type="content" source="../../../custom-classification/media/project-details.png" alt-text="A screenshot of the project settings page." lightbox="../../../custom-classification/media/project-details.png":::
 

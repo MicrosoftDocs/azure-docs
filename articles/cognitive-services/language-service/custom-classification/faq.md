@@ -24,7 +24,7 @@ See the [quickstart](./quickstart.md) to quickly create your first project, or v
 
 ## What are the service limits?
 
-See the [service limits article](service-limits.md) for more information.
+See the [service limits article](service-limits.md).
 
 ## Which languages are supported in this feature?
 
@@ -32,7 +32,7 @@ See the [language support](./language-support.md) article.
 
 ## How many tagged files are needed?
 
-Generally, diverse and representative [tagged data](how-to/tag-data.md) leads to better results, given that the tagging is done precisely, consistently and completely. There is no set number of tagged classes that will make every model perform well. Performance is highly dependent on your schema and the ambiguity of your schema. Ambiguous classes need more tags. Performance also depends on the quality of your tagging. The recommended number of tagged instances per class is 50. 
+Generally, diverse and representative [tagged data](how-to/tag-data.md) leads to better results, given that the tagging is done precisely, consistently and completely. There's no set number of tagged classes that will make every model perform well. Performance is highly dependent on your schema and the ambiguity of your schema. Ambiguous classes need more tags. Performance also depends on the quality of your tagging. The recommended number of tagged instances per class is 50. 
 
 ## Training is taking a long time, is this expected?
 
@@ -46,11 +46,11 @@ When you're ready to start [using your model to make predictions](#how-do-i-use-
 
 ## What is the recommended CI/CD process?
 
-You can train multiple models on the same dataset within the same project. After you have trained your model successfully, you can [view its evaluation](how-to/view-model-evaluation.md). You can [deploy and test](quickstart.md#deploy-your-model) your model within [Language studio](https://aka.ms/languageStudio). You can add or remove tags from your data and train a **new** model and test it as well. View [service limits](service-limits.md)to learn about maximum number of trained models with the same project. When you [tag your data](how-to/tag-data.md#label-your-data) you can determine how your dataset is split into training and testing sets.
+You can train multiple models on the same dataset within the same project. After you have trained your model successfully, you can [view its evaluation](how-to/view-model-evaluation.md). You can [deploy and test](quickstart.md#deploy-your-model) your model within [Language studio](https://aka.ms/languageStudio). You can add or remove tags from your data and train a **new** model and test it as well. View [service limits](service-limits.md)to learn about maximum number of trained models with the same project. When you [tag your data](how-to/tag-data.md#label-your-data), you can determine how your dataset is split into training and testing sets.
 
 ## Does a low or high model score guarantee bad or good performance in production?
 
-Model evaluation may not always be comprehensive. This is dependent on: 
+Model evaluation may not always be comprehensive, depending on: 
 * If the **test set** is too small, the good/bad scores are not representative of model's actual performance. Also if a specific class is missing or under-represented in your test set it will affect model performance.
 * **Data diversity** if your data only covers few scenarios/examples of the text you expect in production, your model will not be exposed to all possible scenarios and might perform poorly on the scenarios it hasn't been trained on.
 * **Data representation** if the dataset used to train the model is not representative of the data that would be introduced to the model in production, model performance will be affected greatly.
@@ -75,7 +75,7 @@ See the [data selection and schema design](how-to/design-schema.md) article for 
 
 ## How do I get predictions in different languages?
 
-First, you need to enable the multilingual option when [creating your project](how-to/create-project.md) or you can enable it later from the project settings page. After you train and deploy your model, you can start querying it in multiple languages. You may get varied results for different languages. To improve the accuracy of any language, add more tagged instances to your project in that language to introduce the trained model to more syntax of that language. <!-- See [language support](language-support.md#multi-lingual-option) for more information.-->
+First, you need to enable the multilingual option when [creating your project](how-to/create-project.md) or you can enable it later from the project settings page. After you train and deploy your model, you can start querying it in multiple languages. You may get varied results for different languages. To improve the accuracy of any language, add more tagged instances to your project in that language to introduce the trained model to more syntax of that language. See [language support](language-support.md#multi-lingual-option) for more information.
 
 ## I trained my model, but I can't test it
 

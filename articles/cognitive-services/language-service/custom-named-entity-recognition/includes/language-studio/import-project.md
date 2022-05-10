@@ -29,7 +29,7 @@ ms.author: aahi
     > * This process is irreversible, if you connect a storage account to your Language resource you cannot disconnect it later.
     > * You can only connect your Language resource to one storage account.
 
-    <!--:::image type="content" source="../../media/project-types.png" alt-text="A screenshot of the available custom classification project types." lightbox="../../media/project-types.png":::-->
+    :::image type="content" source="../../media/connect-storage.png" alt-text="A screenshot of the storage connection screen for new projects." lightbox="../../media/connect-storage.png":::-->
 
 4. Enter the project information, including a name, description, and the language of the files in your project. You won’t be able to change the name of your project later. Click **Next**.
        

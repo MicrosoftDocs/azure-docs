@@ -19,13 +19,11 @@ To start training your model from within the [Language Studio](https://aka.ms/La
 
     :::image type="content" source="../../media/train-model.png" alt-text="Create a new training job" lightbox="../../media/train-model.png":::
     
-4. Select data splitting method. You can choose **Automatically splitting the testing set from training data** where the system will split your labeled data between the training and testing sets, according to the specified percentages. Or you can **Use a manual split of training and testing data**, this option is only enabled if you have added documents to your testing set during [data labeling](../../how-to/tag-data.md). <!--Learn more about [data splitting](../../how-to/train-model.md#data-splitting).-->
+4. Select data splitting method. You can choose **Automatically splitting the testing set from training data** where the system will split your labeled data between the training and testing sets, according to the specified percentages. Or you can **Use a manual split of training and testing data**, this option is only enabled if you have added documents to your testing set during [data labeling](../../how-to/tag-data.md). See [How to train a model](../../how-to/train-model.md#data-splitting) for information about data splitting.
 
 4. Click on the **Train** button.
 
-5. Click on the Training Job ID from the list, a side pane will appear where you can check **Training progress** and **Job status** and other details for this job.
-
-    <!--:::image type="content" source="../../media/train-pane.png" alt-text="View training job details" lightbox="../../media/train-pane.png":::-->
+5. If you click on the Training Job ID from the list, a side pane will appear where you can check the **Training progress**, **Job status**, and other details for this job.
 
     > [!NOTE]
     > * Only successfully completed training jobs will generate models.
