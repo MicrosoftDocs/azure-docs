@@ -4,7 +4,7 @@ description: Learn foundational information to plan and design your verification
 documentationCenter: ''
 author: barbaraselden
 manager: martinco
-ms.service: active-directory
+ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 07/20/2021

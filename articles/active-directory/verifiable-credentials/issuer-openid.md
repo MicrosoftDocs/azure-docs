@@ -2,8 +2,8 @@
 title: Issuer service communication examples (preview) - Azure Active Directory Verifiable Credentials
 description: Details of communication between identity provider and issuer service
 author: barclayn
-manager: karenhoran
-ms.service: active-directory
+manager: rkarlin
+ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.workload: identity
 ms.topic: conceptual
