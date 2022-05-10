@@ -121,7 +121,7 @@ git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-$LANGUAGE.g
 Next, change the directory into the root of the cloned repo.
 
 ```console
-cd code-to-cloud
+cd code-to-cloud/src
 ```
 
 ---

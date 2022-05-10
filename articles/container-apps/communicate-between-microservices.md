@@ -103,7 +103,7 @@ $ACR_PASSWORD=(Get-AzContainerRegistryCredential `
 1. If your terminal is still *code-to-cloud* folder, back out to the parent folder.
 
     ```console
-    cd ..
+    cd ../..
     ```
 
 1. Use the following git command to clone your forked repo into the *code-to-cloud-ui* folder:
@@ -118,7 +118,7 @@ $ACR_PASSWORD=(Get-AzContainerRegistryCredential `
 1. Next, change the directory into the root of the cloned repo.
 
     ```console
-    cd code-to-cloud-ui
+    cd code-to-cloud-ui/src
     ```
 
 ## Build the frontend application
@@ -168,7 +168,7 @@ $ACR_PASSWORD=(Get-AzContainerRegistryCredential `
     ```azurecli
     az acr manifest list-metadata \
       --registry $ACR_NAME \
-      --name $CONTAINER_IMAGE_NAME
+      --name $FRONTEND_NAME
     ```
 
     # [PowerShell](#tab/powershell)
