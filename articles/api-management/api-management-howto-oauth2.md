@@ -71,7 +71,7 @@ When configuring OAuth 2.0 user authorization in the test console of the develop
 
 ## Keeping track of key information
 
-Throughout this tutorial you will be asked to record key information to reference later on:
+Throughout this tutorial you'll be asked to record key information to reference later on:
 
 - **Backend Application (client) ID**: The GUID of the application that represents the backend API
 - **Backend Application Scopes**: One or more scopes you may create to access the API. The scope format is `api://<Backend Application (client) ID>/<Scope Name>` (e.g. api://1764e900-1827-4a0b-9182-b2c1841864c2/Read)
