@@ -4,6 +4,7 @@ description: This topic provides considerations and guidelines for working with 
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 09/21/2020
 ---
