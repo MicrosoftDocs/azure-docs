@@ -5,7 +5,7 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 05/05/2022
+ms.date: 05/10/2022
 ---
 
 # Dapr integration with Azure Container Apps
@@ -183,12 +183,6 @@ scopes:
 - publisher-app
 - subscriber-app
 ```
-
-## Current supported Dapr version
-
-Azure Container Apps supports Dapr version 1.4.2. 
-
-Version upgrades are handled transparently by Azure Container Apps. You can find the current version via the Azure portal and the CLI. See [known limitations](#limitations) around versioning.
 
 ## Limitations
 
