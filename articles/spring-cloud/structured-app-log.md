@@ -145,7 +145,7 @@ The procedure:
     </configuration>
     ```
 
-    For local development, run the Spring Cloud application with JVM argument `-Dspring.profiles.active=dev`, then you can see human readable logs instead of JSON formatted lines.
+    For local development, run the Spring application with JVM argument `-Dspring.profiles.active=dev`, then you can see human readable logs instead of JSON formatted lines.
 
 ### Log with log4j2
 

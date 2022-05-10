@@ -100,11 +100,11 @@ We've identified an issue with Spring Boot 2.4 and are currently working with th
 
 ::: zone-end
 
-### Where can I view my Spring Cloud application logs and metrics?
+### Where can I view my Spring application logs and metrics?
 
 Find metrics in the App Overview tab and the [Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md#metrics-explorer) tab.
 
-Azure Spring Apps supports exporting Spring Cloud application logs and metrics to Azure Storage, Event Hub, and [Log Analytics](../azure-monitor/logs/data-platform-logs.md). The table name in Log Analytics is *AppPlatformLogsforSpring*. To learn how to enable it, see [Diagnostic services](diagnostic-services.md).
+Azure Spring Apps supports exporting Spring application logs and metrics to Azure Storage, Event Hub, and [Log Analytics](../azure-monitor/logs/data-platform-logs.md). The table name in Log Analytics is *AppPlatformLogsforSpring*. To learn how to enable it, see [Diagnostic services](diagnostic-services.md).
 
 ### Does Azure Spring Apps support distributed tracing?
 
@@ -207,7 +207,7 @@ No.  Azure Spring Apps abstracts the developer from the underlying architecture,
 
 ### Does Azure Spring Apps support building containers from source?
 
-Yes. For more information, see [Launch your Spring Cloud application from source code](./quickstart.md).
+Yes. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
 
 ### Does Azure Spring Apps support autoscaling in app instances?
 
@@ -225,9 +225,9 @@ Azure Spring Apps continuously probes port 1025 for customer's applications. The
 Yes. For more information, see [Monitor app lifecycle events using Azure Activity log and Azure Service Health](./monitor-app-lifecycle-events.md).
 
 ::: zone pivot="programming-language-java"
-### What are the best practices for migrating existing Spring Cloud applications to Azure Spring Apps?
+### What are the best practices for migrating existing Spring applications to Azure Spring Apps?
 
-For more information, see [Migrate Spring Cloud applications to Azure Spring Apps](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud).
+For more information, see [Migrate Spring applications to Azure Spring Apps](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud).
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"

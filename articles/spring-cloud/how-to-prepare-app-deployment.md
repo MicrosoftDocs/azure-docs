@@ -126,7 +126,7 @@ using (var client = new HttpClient(discoveryHandler, false))
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-This article shows how to prepare an existing Java Spring application for deployment to Azure Spring Apps. If configured properly, Azure Spring Apps provides robust services to monitor, scale, and update your Java Spring Cloud application.
+This article shows how to prepare an existing Java Spring application for deployment to Azure Spring Apps. If configured properly, Azure Spring Apps provides robust services to monitor, scale, and update your Java Spring application.
 
 Before running this example, you can try the [basic quickstart](./quickstart.md).
 
