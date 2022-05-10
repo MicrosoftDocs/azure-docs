@@ -57,7 +57,7 @@ Custom named entity recognition is only available in some Azure regions. To use 
 |:-|:-|:-|
 |Authoring API|POST|10 per minute|
 |Authoring API|GET|100 per minute|
-|Predection API|GET/POST|1,000 per minute|
+|Prediction API|GET/POST|1,000 per minute|
 |Document size|--|125,000 characters. You can send up to 25 documents as long as they collectively do not exceed 125,000 characters|
 
 > [!TIP]
@@ -91,7 +91,7 @@ The following limits are observed for the custom named entity recognition.
 |Count of entity types | 1 | 200 |
 |Entity length in characters | 1 | 500 |
 |Count of trained models per project| 0 | 50 |
-|Count of deployments per project|  | 10 |
+|Count of deployments per project| 0 | 10 |
 
 ## Naming limits
 
