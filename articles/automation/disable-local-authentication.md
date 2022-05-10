@@ -20,7 +20,7 @@ Disabling local authentication doesn't take effect immediately. Allow a few minu
 
 >[!NOTE]
 > PowerShell support has not been released for new API version (2021-06-22) or the flag – `DisableLocalAuth`. Use the Rest-API with API version - 2021-06-22 to update the flag.
-To enroll your subscription for this feature in your respective regions, write to us by following the steps mentioned here in [how to create an Azure support request - Azure supportability | Microsoft Docs](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+To enroll your subscription for this feature in your respective regions, follow the steps to create a support ticket mentioned here in [how to create an Azure support request - Azure supportability | Microsoft Docs](/azure/azure-portal/supportability/how-to-create-azure-support-request) to allowlist your subscription for this feature.
  
 ## Re-enable local authentication
 
