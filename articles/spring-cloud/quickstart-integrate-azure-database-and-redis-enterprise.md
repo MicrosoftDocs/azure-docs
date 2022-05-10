@@ -27,7 +27,7 @@ This quickstart shows you how to provision and prepare an Azure Database for Pos
 
 ## Provision Services
 
-To add persistence to the application, you must create an Azure Cache for Redis instance and a Azure Database for PostgreSQL Flexible Server. This guide provides instructions to [Provision Services using the Azure CLI](#provision-services-using-the-azure-cli) or to [Provision Services with an Arm Template](#provision-services-with-arm-template).
+To add persistence to the application, you must create an Azure Cache for Redis and a Azure Database for PostgreSQL Flexible Server. This guide provides instructions to [Provision Services using the Azure CLI](#provision-services-using-the-azure-cli) or to [Provision Services with an Arm Template](#provision-services-with-arm-template).
 
 ### Provision Services Using the Azure CLI
 
@@ -38,7 +38,7 @@ The following steps describe how to provision an Azure Cache for Redis instance 
     ```azurecli
     az redis create \
       --resource-group <resource-group> \
-      --name <cache-server-name> \
+      --name <redis-cache-name> \
       --location ${REGION} \
       --sku Basic \
       --vm-size c0
@@ -97,7 +97,7 @@ The following steps describe how to provision an Azure Cache for Redis instance 
 
 ### Provision Services with ARM Template
 
-The following instructions describe how to provision an Azure Cache for Redis instance and a Azure Database for PostgreSQL Flexible Server using an Azure Resource Manager template (ARM template). Continue  on to [Create Service Connectors](#create-service-connectors) if these resource have already been provisioned using the Azure CLI.
+The following instructions describe how to provision an Azure Cache for Redis and a Azure Database for PostgreSQL Flexible Server using an Azure Resource Manager template (ARM template). Continue  on to [Create Service Connectors](#create-service-connectors) if these resource have already been provisioned using the Azure CLI.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -165,7 +165,7 @@ The following steps show how to bind applications running in Azure Spring Cloud 
         --service <spring-cloud-service> \
         --app cart-service \
         --deployment default \
-        --server <cache-server-name> \
+        --server <redis-cache-name> \
         --database 0 \
         --client-type java
     ```

@@ -217,7 +217,7 @@ Spring Cloud Gateway can be configured to authenticate requests via Single Sign-
     ```azurecli
     az spring-cloud app update \
         --resource-group <resource-group> \
-        --name cart-service \
+        --name order-service \
         --service <spring-cloud-service> \
         --env "AcmeServiceSettings__AuthUrl=https://${GATEWAY_URL}"    
     ```
@@ -232,7 +232,7 @@ Spring Cloud Gateway can be configured to authenticate requests via Single Sign-
     echo "https://${GATEWAY_URL}"
     ```
 
-    The above URL can be opened in a browser, use this to explore the deployed application. The Log In function will now work, allowing items to be added to the cart and orders to be placed.
+    The above URL can be opened in a browser, use this to explore the updated application. The Log In function will now work, allowing items to be added to the cart and orders to be placed.
 
 ## Configure Single Sign-On for API Portal
 
