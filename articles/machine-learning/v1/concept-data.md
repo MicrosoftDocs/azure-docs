@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
-ms.author: nibaccam
+ms.author: xunwan
 ms.date: 10/21/2021
 ms.custom: devx-track-python, data4ml
 
