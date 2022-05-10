@@ -50,10 +50,10 @@ npm init -y
 Use a text editor to create a file called **send-email.js** in the project root directory. You'll add all the source code for this quickstart to this file in the following sections.
 
 ### Install the package
-Use the `npm install` command to install the Azure Communication Services SMS client library for JavaScript.
+Use the `npm install` command to install the Azure Communication Services Email client library for JavaScript.
 
 ```console
-npm install @azure/communication-sms --save
+npm install @azure/communication-email --save
 ```
 
 The `--save` option lists the library as a dependency in your **package.json** file.
