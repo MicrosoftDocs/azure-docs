@@ -45,7 +45,7 @@ Collect all the values in the following table for the packet core instance that 
 
 ## Collect access network values
 
-Collect all the values in the following table to define the packet core instance's connection to the access network over the N2 and N3 interfaces.
+Collect all the values in the following table to define the packet core instance's connection to the access network over the control plane and user plane interfaces.
 
 > [!IMPORTANT]
 > For all values in this table, you must use the same values you used when deploying the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device for this site. You did this as part of the steps in [Order and set up your Azure Stack Edge Pro device(s)](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices).
@@ -59,7 +59,7 @@ Collect all the values in the following table to define the packet core instance
 
 ## Collect data network values
 
-Collect all the values in the following table to define the packet core instance's connection to the data network over the N6 interface.
+Collect all the values in the following table to define the packet core instance's connection to the data network over the user plane interface.
 
 > [!IMPORTANT]
 > Where noted, you must use the same values you used when deploying the AKS-HCI cluster on your Azure Stack Edge Pro device. You did this as part of the steps in [Order and set up your Azure Stack Edge Pro device(s)](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices).
