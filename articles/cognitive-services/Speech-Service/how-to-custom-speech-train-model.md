@@ -50,4 +50,4 @@ On the main **Train custom models** page, details about the new model are displa
 
 - [Test recognition quality](how-to-custom-speech-inspect-data.md)
 - [Test model accuracy](how-to-custom-speech-evaluate-data.md)
-* [Deploy a model](how-to-custom-speech-deploy-model.md)
+- [Deploy a model](how-to-custom-speech-deploy-model.md)

@@ -46,50 +46,6 @@ To help inspect the side-by-side comparison, you can toggle various error types 
 
 Side-by-side model testing is useful to validate which speech recognition model is best for an application. For an objective measure of accuracy, requiring transcribed audio, follow the instructions found in [Evaluate Accuracy](how-to-custom-speech-evaluate-data.md).
 
-## Online transcription editor
-
-The online transcription editor allows you to easily work with audio transcriptions in Custom Speech. The main use cases of the editor are as follows: 
-
-* You only have audio data, but want to build accurate audio + human-labeled datasets from scratch to use in model training.
-* You already have audio + human-labeled datasets, but there are errors or defects in the transcription. The editor allows you to quickly modify the transcriptions to get best training accuracy.
-
-The only requirement to use the transcription editor is to have audio data uploaded (either audio-only, or audio + transcription).
-
-### Import datasets to Editor
-
-To import data into the Editor, first navigate to **Custom Speech > [Your project] > Speech datasets > Editor**
-
-:::image type="content" source="media/custom-speech/custom-speech-editor.png" alt-text="Custom speech editor":::
-
-Next, use the following steps to import data.
-
-1. Select **Import data**
-1. Create a new dataset(s) and give it a description
-1. Select datasets. You can select audio data only, audio + human-labeled data, or both.
-1. For audio-only data, you can use the default models to automatically generate machine transcription after importing to the editor.
-1. Select **Import**
-
-After data has been successfully imported, you can select datasets and start editing.
-
-> [!TIP]
-> You can also import datasets into the Editor directly by selecting datasets and selecting **Export to Editor**
-
-### Edit transcription by listening to audio
-
-After the data upload has succeeded, select each item name to see details of the data. You can also use **Previous** and **Next** to move between each file.
-
-The detail page lists all the segments in each audio file, and you can select the desired utterance. For each utterance, you can play back the audio and examine the transcripts, and edit the transcriptions if you find any insertion, deletion, or substitution errors. See the [data evaluation how-to](how-to-custom-speech-evaluate-data.md) for more detail on error types.
-
-:::image type="content" source="media/custom-speech/custom-speech-editor-detail.png" alt-text="Custom speech editor details":::
-
-After you've made edits, select **Save**.
-
-### Export datasets from the Editor
-
-To export datasets back to the **Data** tab, navigate to the data detail page and select  **Export** to export all the files as a new dataset. You can also filter the files by last edited time, audio durations, etc. to partially select the desired files. 
-
-The files exported to Data will be used as a brand-new dataset and will not affect any of the existing data/training/testing entities.
-
 ## Next steps
 
 - [Test model accuracy](how-to-custom-speech-evaluate-data.md)
