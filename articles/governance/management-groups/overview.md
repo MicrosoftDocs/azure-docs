@@ -277,7 +277,7 @@ need to be evaluated as true.
 
 If you're doing the move action, you need:
 
-- Management group write and Role Assignment write permissions on the child subscription or
+- Management group write and role assignment write permissions on the child subscription or
   management group.
   - Built-in role example: **Owner**
 - Management group write access on the target parent management group.

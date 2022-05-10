@@ -102,6 +102,7 @@
             - name: App sign-in flow
               href: app-sign-in-flow.md
             - name: Support passwordless authentication
+              href: support-fido2-authentication.md
         - name: Protect and access APIs
           items:
             - name: Restrict your app to a set of users
