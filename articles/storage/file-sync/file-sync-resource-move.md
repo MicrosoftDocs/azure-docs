@@ -1,11 +1,11 @@
 ---
 title: Azure File Sync resource moves and topology changes
 description: Learn how to move sync resources across resource groups, subscriptions, and Azure Active Directory (AAD) tenants.
-author: fauhse
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 04/13/2021
-ms.author: fauhse
+ms.author: kendownie
 ms.subservice: files
 ---
 

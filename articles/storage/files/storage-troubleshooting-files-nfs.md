@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot Azure NFS file share problems - Azure Files
 description: Troubleshoot Azure NFS file share problems.
-author: jeffpatt24
+author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 09/15/2020
-ms.author: jeffpatt
+ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
 ---
