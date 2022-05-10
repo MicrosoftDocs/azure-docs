@@ -3,13 +3,13 @@ title: Create and configure an Azure DDoS Protection plan using Azure CLI
 description: Learn how to create a DDoS Protection Plan using Azure CLI
 services: ddos-protection
 documentationcenter: na
-author: KumudD
+author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/18/2022
-ms.author: kumud
+ms.author: abell
 
 ---
 # Quickstart: Create and configure Azure DDoS Protection Standard using Azure CLI
