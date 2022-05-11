@@ -26,7 +26,7 @@ With Azure Machine Learning dataset monitors (preview), you can:
 * **Set up alerts on data drift** for early warnings to potential issues. 
 * **[Create a new dataset version](how-to-version-track-datasets.md)** when you determine the data has drifted too much.
 
-An [Azure Machine learning dataset](how-to-create-register-datasets.md) is used to create the monitor. The dataset must include a timestamp column.
+An [Azure Machine learning dataset](./v1/how-to-create-register-datasets.md) is used to create the monitor. The dataset must include a timestamp column.
 
 You can view data drift metrics with the Python SDK or in Azure Machine Learning studio.  Other metrics and insights are available through the [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) resource associated with the Azure Machine Learning workspace.
 
@@ -91,7 +91,7 @@ Dataset monitors depend on the following Azure services.
 
 ### Baseline and target datasets 
 
-You monitor [Azure machine learning datasets](how-to-create-register-datasets.md) for data drift. When you create a dataset monitor, you will reference your:
+You monitor [Azure machine learning datasets](./v1/how-to-create-register-datasets.md) for data drift. When you create a dataset monitor, you will reference your:
 * Baseline dataset - usually the training dataset for a model.
 * Target dataset - usually model input data - is compared over time to your baseline dataset. This comparison means that your target dataset must have a timestamp column specified.
 

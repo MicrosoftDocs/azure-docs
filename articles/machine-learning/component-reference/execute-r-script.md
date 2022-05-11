@@ -82,7 +82,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ## Access to registered dataset
 
-You can refer to the following sample code to access to the [registered datasets](../how-to-create-register-datasets.md) in your workspace:
+You can refer to the following sample code to access to the [registered datasets](../v1/how-to-create-register-datasets.md) in your workspace:
 
 ```R
 azureml_main <- function(dataframe1, dataframe2){

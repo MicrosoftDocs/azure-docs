@@ -39,7 +39,7 @@ For this tutorial, you need:
     
     ws = Workspace.from_config()
     ```
-- An [Azure Machine Learning dataset](how-to-create-register-datasets.md).
+- An [Azure Machine Learning dataset](./v1/how-to-create-register-datasets.md).
 
 <a name="register"></a>
 

@@ -28,7 +28,7 @@ In this article, you learn how to work with [Azure Machine Learning datasets](/p
 
 Azure Machine Learning datasets provide a seamless integration with Azure Machine Learning training functionality like [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig), [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive), and [Azure Machine Learning pipelines](./how-to-create-machine-learning-pipelines.md).
 
-If you are not ready to make your data available for model training, but want to load your data to your notebook for data exploration, see how to [explore the data in your dataset](how-to-create-register-datasets.md#explore-data). 
+If you are not ready to make your data available for model training, but want to load your data to your notebook for data exploration, see how to [explore the data in your dataset](./v1/how-to-create-register-datasets.md). 
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ To create and train with datasets, you need:
 
 If you have structured data not yet registered as a dataset, create a TabularDataset and use it directly in your training script for your local or remote experiment.
 
-In this example, you create an unregistered [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) and specify it as a script argument in the [ScriptRunConfig](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig) object for training. If you want to reuse this TabularDataset with other experiments in your workspace, see [how to register datasets to your workspace](how-to-create-register-datasets.md#register-datasets).
+In this example, you create an unregistered [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) and specify it as a script argument in the [ScriptRunConfig](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig) object for training. If you want to reuse this TabularDataset with other experiments in your workspace, see [how to register datasets to your workspace](./v1/how-to-create-register-datasets.md).
 
 ### Create a TabularDataset
 
@@ -70,7 +70,7 @@ The following code configures a script argument `--input-data` that you will spe
 > [!Note]
 > If your original data source contains NaN, empty strings or blank values, when you use `to_pandas_dataframe()`, then those values are replaced as a *Null* value.
 
-If you need to load the prepared data into a new dataset from an in-memory pandas dataframe, write the data to a local file, like a parquet, and create a new dataset from that file. Learn more about [how to create datasets](how-to-create-register-datasets.md).
+If you need to load the prepared data into a new dataset from an in-memory pandas dataframe, write the data to a local file, like a parquet, and create a new dataset from that file. Learn more about [how to create datasets](./v1/how-to-create-register-datasets.md).
 
 ```Python
 %%writefile $script_folder/train_titanic.py
@@ -138,7 +138,7 @@ For the notebook example , see [How to configure a training run with data input 
 
 The following example creates an unregistered FileDataset, `mnist_data` from web urls. This FileDataset is the input data for your training run.
 
-Learn more about [how to create datasets](how-to-create-register-datasets.md) from other sources.
+Learn more about [how to create datasets](./v1/how-to-create-register-datasets.md) from other sources.
 
 ```Python
 

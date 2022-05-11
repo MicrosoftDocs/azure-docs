@@ -46,11 +46,11 @@ Automated ML supports model training for computer vision tasks like image classi
     * Use the following commands to install Azure ML Python SDK v2:
        * Uninstall previous preview version:
        ```python
-       pip uninstall azure-ml
+       pip uninstall azure-ai-ml
        ```
        * Install the Azure ML Python SDK v2:
        ```python
-       pip install azure-ml
+       pip install azure-ai-ml
        ```
   
     > [!NOTE]
@@ -87,7 +87,7 @@ Based on the task type, you can create automl image jobs using task specific `au
 For example:
 
 ```python
-from azure.ml import automl
+from azure.ai.ml import automl
 image_object_detection_job = automl.image_object_detection()
 ```
 ---
@@ -219,7 +219,7 @@ Training data is a required parameter and is passed in using the `training_data`
 Target column name is a required parameter and used as target for supervised ML task. It's passed in using the `target_column_name` parameter of the task specific `automl` function. For example,
 
 ```python
-from azure.ml import automl
+from azure.ai.ml import automl
 image_object_detection_job = automl.image_object_detection(
     training_data=my_training_data_input,
     validation_data=my_validation_data_input,
@@ -245,7 +245,7 @@ compute: azureml:gpu-cluster
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
 ```python
-from azure.ml import automl
+from azure.ai.ml import automl
 
 compute_name = "gpu-cluster"
 image_object_detection_job = automl.image_object_detection(

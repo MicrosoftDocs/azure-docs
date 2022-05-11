@@ -116,7 +116,7 @@ The extension currently supports the following dataset types:
 - *Tabular*: Allows you to materialize data into a DataFrame.
 - *File*: A file or collection of files. Allows you to download or mount files to your compute.
 
-For more information, see [datasets](concept-data.md#datasets)
+For more information, see [datasets](./v1/concept-data.md)
 
 ### Create dataset
 

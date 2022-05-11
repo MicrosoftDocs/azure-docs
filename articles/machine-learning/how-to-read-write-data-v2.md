@@ -32,7 +32,7 @@ Learn how to read and write data for your training jobs with the Azure Machine L
 
 ```python
 
-from azure.ml import MLClient
+from azure.ai.ml import MLClient
 from azure.identity import InteractiveBrowserCredential
 
 #enter details of your AML workspace
@@ -54,8 +54,8 @@ The JobInput class allows you to define data inputs from a specific file, `uri_f
 
 ```python
 
-from azure.ml.entities import Data, UriReference, JobInput, CommandJob
-from azure.ml._constants import AssetTypes
+from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob
+from azure.ai.ml._constants import AssetTypes
 
 my_job_inputs = {
     "input_data": JobInput(
@@ -88,8 +88,8 @@ The following code shows how to read in data from Azure Data Lake Storage Gen 2.
 
 ```python
 
-from azure.ml.entities import Data, UriReference, JobInput, CommandJob
-from azure.ml._constants import AssetTypes
+from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob
+from azure.ai.ml._constants import AssetTypes
 
 my_job_inputs = {
     "input_data": JobInput(
@@ -118,8 +118,8 @@ The following code shows how to read in data from Azure Blob Storage.
 
 ```python
 
-from azure.ml.entities import Data, UriReference, JobInput, CommandJob
-from azure.ml._constants import AssetTypes
+from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob
+from azure.ai.ml._constants import AssetTypes
 
 # in this example we
 my_job_inputs = {
@@ -154,8 +154,8 @@ The JobInput defaults the mode - how the input will be exposed during job runtim
 # [Azure Data Lake Storage Gen2](#tab/ADLS-Gen2)
 
 ```python
-from azure.ml.entities import Data, UriReference, JobInput, CommandJob, JobOutput
-from azure.ml._constants import AssetTypes
+from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob, JobOutput
+from azure.ai.ml._constants import AssetTypes
 
 my_job_inputs = {
     "input_data": JobInput(
@@ -192,8 +192,8 @@ returned_job.services["Studio"].endpoint
 
 ```python
 
-from azure.ml.entities import Data, UriReference, JobInput, CommandJob, JobOutput
-from azure.ml._constants import AssetTypes
+from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob, JobOutput
+from azure.ai.ml._constants import AssetTypes
 
 my_job_inputs = {
     "input_data": JobInput(
@@ -238,8 +238,8 @@ The following example demonstrates versioning of sample data, and shows how to r
 
 ```python
 
-from azure.ml.entities import Data
-from azure.ml._constants import AssetTypes
+from azure.ai.ml.entities import Data
+from azure.ai.ml._constants import AssetTypes
 
 my_data = Data(
     path="./sample_data/titanic.csv",
@@ -255,8 +255,8 @@ ml_client.data.create_or_update(my_data)
 To register data that is in a cloud location, you can specify the path with any of the supported protocols for the storage type. The following example shows what the path looks like for data from Azure Data Lake Storage Gen 2. 
 
 ```python
-from azure.ml.entities import Data
-from azure.ml._constants import AssetTypes
+from azure.ai.ml.entities import Data
+from azure.ai.ml._constants import AssetTypes
 
 my_path = 'abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>' # adls gen2
 
@@ -279,8 +279,8 @@ The following example demonstrates how to consume `version` 1 of the registered 
 
 ```python
 
-from azure.ml.entities import Data, UriReference, JobInput, CommandJob
-from azure.ml._constants import AssetTypes
+from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob
+from azure.ai.ml._constants import AssetTypes
 
 registered_data_asset = ml_client.data.get(name='titanic', version='1')
 

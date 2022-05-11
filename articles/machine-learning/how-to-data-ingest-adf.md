@@ -87,7 +87,7 @@ The Data Factory pipeline saves the prepared data to your cloud storage (such as
 Consume your prepared data in Azure Machine Learning by, 
 
 * Invoking an Azure Machine Learning pipeline from your Data Factory pipeline.<br>**OR**
-* Creating an [Azure Machine Learning datastore](how-to-access-data.md#create-and-register-datastores) and [Azure Machine Learning dataset](how-to-create-register-datasets.md) for use at a later time.
+* Creating an [Azure Machine Learning datastore](how-to-access-data.md#create-and-register-datastores).
 
 ### Invoke Azure Machine Learning pipeline from Data Factory
 
@@ -139,7 +139,7 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(
 
 Next, create a dataset to reference the file(s) you want to use in your machine learning task. 
 
-The following code creates a TabularDataset from a csv file, `prepared-data.csv`. Learn more about [dataset types and accepted file formats](how-to-create-register-datasets.md#dataset-types). 
+The following code creates a TabularDataset from a csv file, `prepared-data.csv`. Learn more about [dataset types and accepted file formats](./v1/how-to-create-register-datasets.md#dataset-types). 
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 

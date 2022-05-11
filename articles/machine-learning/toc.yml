@@ -13,20 +13,7 @@
     - name: How it works
       displayName: concepts, definitions, glossary
       href: concept-azure-machine-learning-v2.md
-    - name: Migrate from ML Studio (classic)
-      items: 
-        - name: Migration overview
-          href: migrate-overview.md
-        - name: Migrate datasets
-          href: migrate-register-dataset.md
-        - name: Rebuild experiments
-          href: migrate-rebuild-experiment.md
-        - name: Rebuild web services
-          href: migrate-rebuild-web-service.md
-        - name: Migrate client applications
-          href: migrate-rebuild-integrate-with-client-app.md
-        - name: Rebuild Execute R Script components
-          href: migrate-execute-r-script.md
+    
 - name: Quickstart
   expanded: true
   items: 
@@ -665,9 +652,7 @@
         - name: Manage and optimize cost
           displayName: cost-management,cost-optimization
           href: how-to-manage-optimize-cost.md
-        - name: Manage resources VS Code
-          displayName: vscode,resources
-          href: how-to-manage-resources-vscode.md
+        
 - name: Troubleshoot & debug
   items: 
     - name: VS Code interactive debugging

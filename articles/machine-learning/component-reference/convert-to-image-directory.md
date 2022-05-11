@@ -45,7 +45,7 @@ This article describes how to use the Convert to Image Directory component to he
     > [!NOTE]
     > For inference, the image dataset folder only needs to contain unclassified images.
 
-1. [Register the image dataset as a file dataset](../how-to-create-register-datasets.md) in your workspace, since the input of Convert to Image Directory component must be a **File dataset**.
+1. [Register the image dataset as a file dataset](../v1/how-to-create-register-datasets.md) in your workspace, since the input of Convert to Image Directory component must be a **File dataset**.
 
 1. Add the registered image dataset to the canvas. You can find your registered dataset in the **Datasets** category in the component list in the left of canvas. Currently Designer does not support visualize image dataset.
 
