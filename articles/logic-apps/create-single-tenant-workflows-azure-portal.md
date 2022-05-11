@@ -461,6 +461,19 @@ To debug a stateless workflow more easily, you can enable the run history for th
 
 1. To disable the run history when you're done, either set the `Workflows.{yourWorkflowName}.OperationOptions`property to `None`, or delete the property and its value.
 
+<a name="view-connections"></a>
+
+## View connections
+
+When you create connections within a workflow using [managed connectors](../connectors/managed.md) or [service provider based, built-in connectors](../connectors/built-in.md), these connections are actually separate Azure resources with their own resource definitions. To view and manage these connections, follow these steps:
+
+1. From your logic app's menu, under **Workflows**, select **Connections**.
+
+1. Based on the connection type, you want to view, select one of the following options:
+
+   **API Connections**, which are created by managed connectors. a specific connection instance, which shows more information about that connection. To view the underlying connection resource definition, select **JSON View**.
+
+
 <a name="delete-from-designer"></a>
 
 ## Delete items from the designer
