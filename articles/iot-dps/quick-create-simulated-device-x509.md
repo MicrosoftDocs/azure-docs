@@ -1136,46 +1136,92 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
 
-2. Copy the **_ID Scope_** and **Global device endpoint** values.
+1. Copy the **_ID Scope_** and **Global device endpoint** values.
 
     :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope-and-global-device-endpoint.png" alt-text="Copy ID Scope from the portal.":::
 
-3. Open a command prompt. Navigate to the sample project folder of the Java SDK repository.
+1. Open a command prompt. Navigate to the sample project folder of the Java SDK repository.
 
     ```cmd/sh
     cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-X509-sample
     ```
 
-4. Enter the provisioning service and X.509 identity information in your code. This is used during provisioning, for attestation of the simulated device, prior to device registration:
+1. Enter the provisioning service and X.509 identity information in your code. This is used during provisioning, for attestation of the simulated device, prior to device registration. Open the file `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` in your favorite editor:
 
-   * Edit the file `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java`, to include your _ID Scope_ and _Provisioning Service Global Endpoint_ as noted previously. Also include _Client Cert_ and _Client Cert Private Key_ as noted in the previous section.
+    1. Update the following values with the **ID Scope** and **Provisioning Service Global Endpoint** that you copied previously.
 
       ```java
       private static final String idScope = "[Your ID scope here]";
       private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
       private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
-      private static final String leafPublicPem = "<Your Public PEM Certificate here>";
-      private static final String leafPrivateKey = "<Your Private PEM Key here>";
-      ```
 
-   * Use the following format when copying/pasting your certificate and private key:
+    1. Update the string value of the `leafPublicPem` constant string the value of your certificate, *device-cert.pem*.
+    
+        The syntax of certificate text must follow the pattern below with no extra spaces or parsing done by Visual Studio.
+    
+        ```java
+        private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
+        "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n" +
+            ...
+        "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n" +
+        "-----END CERTIFICATE-----";        
+        ```
+    
+        Updating this string value correctly in this step can be very tedious and subject to error. To generate the proper syntax, copy and paste the following bash shell commands into a Git Bash prompt in Windows or a bash prompt on Linux, and press **ENTER**. These commands will generate the syntax for the `leafPublicPem` string constant value.
+    
+        ```Bash
+        input="device-cert.pem"
+        bContinue=true
+        prev=
+        while $bContinue; do
+            if read -r next; then
+              if [ -n "$prev" ]; then	
+                echo "\"$prev\\n\" +"
+              fi
+              prev=$next  
+            else
+              echo "\"$prev\";"
+              bContinue=false
+            fi	
+        done < "$input"
+        ```
+    
+        Copy and paste the output certificate text for the new constant value.
+    
+    1. Update the string value of the `leafPrivateKey` constant with the private key for your device certificate.
+    
+        The syntax of the private key text must follow the pattern below with no extra spaces or parsing done by Visual Studio.
+    
+        ```java
+        private static final String leafPrivateKey = "-----BEGIN PRIVATE KEY-----\n" +
+        "MIIJJwIBAAKCAgEAtjvKQjIhp0EE1PoADL1rfF/W6v4vlAzOSifKSQsaPeebqg8U\n" +
+            ...
+        "X7fi9OZ26QpnkS5QjjPTYI/wwn0J9YAwNfKSlNeXTJDfJ+KpjXBcvaLxeBQbQhij\n" +
+        "-----END PRIVATE KEY-----";
+        ```
+    
+        Updating this string value correctly in this step can be very tedious and subject to error. To generate the proper syntax, copy and paste the following bash shell commands into a Git Bash prompt in Windows or a bash prompt on Linux, and press **ENTER**. These commands will generate the syntax for the `leafPrivateKey` string constant value.
+    
+        ```Bash
+        input="device-key.pem"
+        bContinue=true
+        prev=
+        while $bContinue; do
+            if read -r next; then
+              if [ -n "$prev" ]; then	
+                echo "\"$prev\\n\" +"
+              fi
+              prev=$next  
+            else
+              echo "\"$prev\";"
+              bContinue=false
+            fi	
+        done < "$input"
+        ```
+    
+        Copy and paste the output private key text for the new constant value.
 
-      ```java
-      private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
-        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-        "+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-        "-----END CERTIFICATE-----\n";
-      private static final String leafPrivateKey = "-----BEGIN PRIVATE KEY-----\n" +
-            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-            "XXXXXXXXXX\n" +
-            "-----END PRIVATE KEY-----\n";
-      ```
-
-5. Build the sample, and then go to the `target` folder and execute the created .jar file.
+1. Build the sample, and then go to the `target` folder and execute the created .jar file.
 
     ```cmd/sh
     mvn clean install
