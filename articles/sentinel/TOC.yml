@@ -207,8 +207,6 @@
         href: migration-review-dashboards.md
       - name: Convert dashboards
         href: migration-convert-dashboards.md
-    - name: Perform Azure workbook tasks
-      href: migration-workbook-tasks.md  
     - name: Migrate SOC operations
       items:
       - name: Overview
