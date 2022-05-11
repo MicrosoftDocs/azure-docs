@@ -15,23 +15,23 @@ ms.reviewer: sngun, wiassaf
 This article provides a step-by-step guide for getting started with Azure Synapse Link for SQL Server 2022. For more information, see [Get started with Azure Synapse Link for SQL Server 2022 (Preview)](sql-server-2022-synapse-link.md). 
 
 > [!IMPORTANT]
-> Azure Synapse Link for SQL Server 2022 is currently in PREVIEW.
+> Azure Synapse Link for SQL is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
-* [Create a new Synapse workspace](https://portal.azure.com/#create/Microsoft.Synapse) to get Azure Synapse Link for SQL Server 2022. Ensure to check "Disable Managed virtual network" and "Allow connections from all IP address" when creating Synapse workspace.
+* [Create a new Synapse workspace](https://portal.azure.com/#create/Microsoft.Synapse) to get Azure Synapse Link for SQL. Ensure to check "Disable Managed virtual network" and "Allow connections from all IP address" when creating Synapse workspace. If you have a workspace created after May 24, 2022, you do not need to create a new workspace.
 
 * Create an Azure Data Lake Storage Gen2 account used as the landing zone to stage the data submitted by SQL Server 2022. See [how to create a Azure Data Lake Storage Gen2 account](../../storage/blobs/create-data-lake-storage-account.md) article for more details.
 
 
-* Make sure your database in SQL Server 2022 has master key created.
+* Make sure your database in SQL Server 2022 has a master key created.
 
    ```sql
    CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<a new password>'
    ```
 
-## Create your target Synapse SQL pool
+## Create your target Synapse dedicated SQL pool
 
 1. Launch [Synapse Studio](https://ms.web.azuresynapse.net/).
 
@@ -197,19 +197,19 @@ You may monitor the status of your Azure Synapse Link connection, see which tabl
 
 ## Query replicated data
 
-Wait for a few minutes, then check the target database has the expected table and data. See the data available in your Synapse SQL gen2 destination store. You can also now explore the replicated tables in your target Synapse SQL database.
+Wait for a few minutes, then check the target database has the expected table and data. See the data available in your Synapse dedicated SQL pool destination store. You can also now explore the replicated tables in your target Synapse dedicated SQL pool.
 
 1. In the **Data** hub, under **Workspace**, open your target database, and within **Tables**, right-click one of your target tables.
 
 1. Choose **New SQL script**, then **Select TOP 100 rows**.
 
-1. Run this query to view the replicated data in your target Synapse SQL database.
+1. Run this query to view the replicated data in your target Synapse dedicated SQL pool.
 
 1. You can also query the target database with SSMS (or other tools). Use the dedicated SQL endpoint for your workspace as the server name. This is typically `<workspacename>.sql.azuresynapse.net`. Add `Database=databasename@poolname` as an extra connection string parameter when connecting via SSMS (or other tools).
 
 ## Add/remove table in existing Azure Synapse Link connection
 
-You can add/remove tables on Synapse Studio as following:
+You can add/remove tables on Synapse Studio as follows:
 
 1. Open the **Integrate Hub**.
 
@@ -224,7 +224,7 @@ You can add/remove tables on Synapse Studio as following:
    
 ## Stop the Azure Synapse Link connection
 
-You can stop the Azure Synapse Link connection on Synapse Studio as following:
+You can stop the Azure Synapse Link connection on Synapse Studio as follows:
 
 1. Open the **Integrate Hub** of your Synapse workspace.
 
@@ -239,7 +239,7 @@ You can stop the Azure Synapse Link connection on Synapse Studio as following:
 
 ## Rotate the SAS token for landing zone
 
-SAS token is required for SQL change feed to get access on landing zone and push data there. It has expiry date so that you need to rotate the SAS token before the expiry date. Otherwise, Azure Synapse Link will fail to replicate the data from SQL Server to Synapse SQL pool.
+A SAS token is required for SQL change feed to get access to the landing zone and push data there. It has an expiration date so you need to rotate the SAS token before the expiration date. Otherwise, Azure Synapse Link will fail to replicate the data from SQL Server to the Synapse dedicated SQL pool.
 
 1. Open the **Integrate Hub** of your Synapse workspace.
 
