@@ -16,7 +16,7 @@ ms.custom: language-service-summarization, ignite-fall-2021
 # What is document and conversation summarization (preview)?
 
 Document summarization is one of the features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Use this article to learn more about this feature, and how to use it in your applications. 
-
+# [Document summarization](#tab/document-summarization)
 This documentation contains the following article types:
 
 * [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
