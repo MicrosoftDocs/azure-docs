@@ -94,7 +94,7 @@ In most cases, Durable Functions doesn't use Azure Storage Blobs to persist data
 
 The queues, tables, and blobs used by Durable Functions are created in a configured Azure Storage account. The account to use can be specified using the `durableTask/storageProvider/connectionStringName` setting (or `durableTask/azureStorageConnectionStringName` setting in Durable Functions 1.x) in the **host.json** file.
 
-# [Durable Functions 2.x](#tab/v2)
+#### Durable Functions 2.x
 
 ```json
 {
@@ -108,7 +108,7 @@ The queues, tables, and blobs used by Durable Functions are created in a configu
 }
 ```
 
-# [Durable Functions 1.x](#tab/v1)
+#### Durable Functions 1.x
 
 ```json
 {
@@ -134,7 +134,7 @@ While activity functions can be scaled out infinitely by adding more VMs elastic
 
 The number of control queues is defined in the **host.json** file. The following example host.json snippet sets the `durableTask/storageProvider/partitionCount` property (or `durableTask/partitionCount` in Durable Functions 1.x) to `3`. Note that there are as many control queues as there are partitions.
 
-# [Durable Functions 2.x](#tab/v2)
+#### Durable Functions 2.x
 
 ```json
 {
@@ -148,7 +148,7 @@ The number of control queues is defined in the **host.json** file. The following
 }
 ```
 
-# [Durable Functions 1.x](#tab/v1)
+#### Durable Functions 1.x
 
 ```json
 {
@@ -199,8 +199,7 @@ Extended sessions is a setting that keeps orchestrations and entities in memory 
 
 You can enable extended sessions by setting `durableTask/extendedSessionsEnabled` to `true` in the **host.json** file. The `durableTask/extendedSessionIdleTimeoutInSeconds` setting can be used to control how long an idle session will be held in memory:
 
-# [Functions 2.0](#tab/v2)
-
+**Functions 2.0**
 ```json
 {
   "extensions": {
@@ -212,8 +211,7 @@ You can enable extended sessions by setting `durableTask/extendedSessionsEnabled
 }
 ```
 
-# [Functions 1.0](#tab/v1)
-
+**Functions 1.0**
 ```json
 {
   "durableTask": {
