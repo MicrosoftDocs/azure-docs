@@ -33,12 +33,12 @@ For more details about subscription licenses that qualify to run Windows 10 on A
 
 You have a choice of operating systems that you can use for session hosts to provide virtual desktops and remote apps. You can use different operating systems with different host pools to provide flexibility to your users. Supported dates are inline with the [Microsoft Lifecycle Policy](/lifecycle/). We support the following 64-bit versions of these operating systems: 
 
-Operating system licenses:
-- Windows 11 Enterprise multi-session<
+### Operating system licenses
+- Windows 11 Enterprise multi-session
 - Windows 11 Enterprise
 - Windows 10 Enterprise, version 1909 and later
 
-License entitlement:
+### License entitlement
 - Microsoft 365 E3, E5, A3, A5, F3, Business Premium, Student Use Benefit
 - Windows Enterprise E3, E5
 - Windows VDA E3, E5
