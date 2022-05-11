@@ -130,7 +130,7 @@ In this step, you add the custom domain you registered in [Step 1](#step-1-add-a
 
 ### 3.1 Create a CNAME DNS record
 
-To add the custom domain, create a canonical name (CNAME) record with your domain provider. A CNAME record is a type of DNS record that maps a source domain name to a destination domain name (alias). For Azure Front Door, the source domain name is your custom domain name, and the destination domain name is your Front Door default hostname you configure in [step 2.1](#21-add-frontend-host). For example, `b2cazurefrontdoor-ab123e.z01.azurefd.net`.
+To add the custom domain, create a canonical name (CNAME) record with your domain provider. A CNAME record is a type of DNS record that maps a source domain name to a destination domain name (alias). For Azure Front Door, the source domain name is your custom domain name, and the destination domain name is your Front Door default hostname you configure in [Step 2. Create a new Azure Front Door instance](#step-2-create-a-new-azure-front-door-instance). For example, `b2cazurefrontdoor-ab123e.z01.azurefd.net`.
 
 After Front Door verifies the CNAME record that you created, traffic addressed to the source custom domain (such as login.contoso.com) is routed to the specified destination Front Door default frontend host, such as `contoso-frontend.azurefd.net`. For more information, see [add a custom domain to your Front Door](../frontdoor/front-door-custom-domain.md). 
 
@@ -356,7 +356,6 @@ When using custom domains, consider the following:
 - **Resolution**:  
     1. Make sure the custom domain is [registered and successfully verified](#step-1-add-a-custom-domain-name-to-your-azure-ad-b2c-tenant) in your Azure AD B2C tenant.
     1. Make sure the [custom domain](../frontdoor/front-door-custom-domain.md) is configured properly. The `CNAME` record for your custom domain must point to your Azure Front Door default frontend host (for example, contoso-frontend.azurefd.net).
-    1. Make sure the [Azure Front Door backend pool configuration](#22-add-backend-and-backend-pool) points to the tenant where you set up the custom domain name, and where your user flow or custom policies are stored.
 
 ### Our services aren't available right now
 
