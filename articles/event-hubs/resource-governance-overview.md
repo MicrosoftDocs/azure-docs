@@ -1,6 +1,6 @@
 ---
 title: Resource governance with application groups
-description: This article describes how to enable resource governance using Application Groups.
+description: This article describes how to enable resource governance using application groups.
 ms.topic: article
 ms.date: 05/9/2022
 ms.custom: build-2022
@@ -8,16 +8,16 @@ ms.custom: build-2022
 
 # Resource governance with application groups (preview)
 
-Azure Event Hubs enables you to govern the event streaming workloads of each client application that connects to Event Hubs. Users can create logical groups known as *Application Groups* between client applications and apply quota and access management policies against those client applications.  
+Azure Event Hubs enables you to govern the event streaming workloads of each client application that connects to Event Hubs. Users can create logical groups known as *application groups* between client applications and apply quota and access management policies against those client applications.  
 
 > [!NOTE] 
-> Application Groups are available only in **premium** and **dedicated** tiers. 
+> Application groups are available only in **premium** and **dedicated** tiers. 
 
-## Application Groups
+## Application groups
 
 An application group is a collection of one or more client applications that interact with the Event Hubs data plane. Each application group is scoped to a single Event Hubs namespace and should use a uniquely identifying condition such as the security context(shared access signatures (SAS) or Azure Active Directory(Azure AD) application ID) of the client application. 
 
-Event Hubs currently supports using security contexts for creating Application Groups. Therefore, each application group must have a unique SAS policy or Azure AD application ID associated with them. 
+Event Hubs currently supports using security contexts for creating application groups. Therefore, each application group must have a unique SAS policy or Azure AD application ID associated with them. 
 
 Application groups are logical entities that are created at the Event Hubs namespace level. Therefore client application code doesn't need to be aware of the existence of an application group. Event Hubs can associate any client application to an application group by using the identifying condition. 
 
@@ -30,6 +30,7 @@ Application groups have no direct association with a consumer group. Depending o
 
 
 These are the key attributes of an application group:  
+
 | Parameter | Description | 
 | ---- | ----------- | 
 | name | Unique user defined name of an application group. |
@@ -41,7 +42,7 @@ These are the key attributes of an application group:
 ## Application Group policies
 Each application group can contain zero or more policies that control the data plane access of the client applications that are part of the application group. 
 
-Application Groups currently support throttling policies. 
+Application groups currently support throttling policies. 
 
 ### Throttling Policies 
 You can have throttling policies specified using different ingress and egress metrics. Application groups support using the following metrics to throttle ingress or egress workloads of client applications. 
@@ -55,7 +56,7 @@ You can have throttling policies specified using different ingress and egress me
 
 When application groups policies are applied the client application workload may slow down or encounter server busy exceptions.
 
-### Disabling Application Groups  
+### Disabling application groups  
 Application group is enabled by default and that means all the client applications can access Event Hubs namespace for publishing and consuming events by adhering to the application group policies. 
 
 When an application group is disabled, then client application of that application group won't be able to connect to Event Hubs and all the existing connections that are already established from client applications are terminated. 
