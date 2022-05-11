@@ -121,9 +121,6 @@ Defender for Cloud's billing is closely tied to the billing for Log Analytics. [
 - [WindowsFirewall](/azure/azure-monitor/reference/tables/windowsfirewall)
 - [MaliciousIPCommunication](/azure/azure-monitor/reference/tables/maliciousipcommunication)
 
-- [WindowsEvent](/azure/azure-monitor/reference/tables/windowsevent)
-- [LinuxAuditLog](/azure/azure-monitor/reference/tables/linuxauditlog)
-
 If the workspace is in the legacy Per Node pricing tier, the Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data.
 
 ## How can I monitor my daily usage
