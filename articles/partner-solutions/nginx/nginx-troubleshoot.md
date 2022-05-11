@@ -13,17 +13,17 @@ ms.date: 05/12/2022
 
 ## Getting support  
 
-1. To contact support about the Azure Nginx integration, select the **New Support request** menu item in the left navigation.
+1. To contact support about the Azure Nginx integration, open your NGINX Deployment in the portal.
 
-1. Click on the Open an Nginx Support ticket and fill out the details.
+1. Select the **New Support request** in Resource menu on the left.
+
+1. Select **Raise a support ticket** and fill out the details.
 
     :::image type="content" source="media/nginx-troubleshoot/nginx-support-request.png" alt-text="screenshot of nginx support ticket":::
 
-1. Click on the Open a Nginx Support ticket and fill out the details.
+### Unable to create an NGINX resource as not a subscription owner  
 
-## Unable to create a Nginx resource as not a subscription owner  
-
-The Azure Nginx integration can only be setup by users who have Owner access on the Azure subscription. Ensure you have the appropriate Owner access before starting to setup this integration.
+The NGINX for Azure integration can only be set up by users who have Owner access on the Azure subscription. Ensure you have the appropriate Owner access before starting to set up this integration.
 
 ## Next steps
 
