@@ -202,7 +202,7 @@ There are three options to specify the data inputs in CLI `invoke`.
 
 * __Option 2: Registered dataset__
 
-    Use `--input-data` to pass in an Azure Machine Learning registered v1 FileDataset. While full backward compatibility is provided, if your intention with your V1 `FileDataset` assets was to have a single path to a file or folder with no loading transforms (sample, take, filter, etc.), then we recommend that you re-create them as a `uri_file`/`uri_folder` using the v2 CLI and use `--input-path` parameter to use with batch endpoint. V1 `TabularDataset` is not supported.
+    Use `--input-data` to pass in an Azure Machine Learning registered V1 `FileDataset`. While full backward compatibility is provided, if your intention with your V1 `FileDataset` assets was to have a single path to a file or folder with no loading transforms (sample, take, filter, etc.), then we recommend that you re-create them as a `uri_file`/`uri_folder` using the CLI v2 and use `--input-path` parameter to use with batch endpoint. V1 `TabularDataset` is not supported.
 
     > [!NOTE]
     > For more information on V2 data assets, see [Work with data using SDK v2 preview](how-to-use-data.md). As we enable the abstraction for tabular data called `mltable` for batch endpoint in the future, migration from V1 data assets (specifically `FileDataset`) to V2 data assets (`mltable`) will be required. 
