@@ -1,5 +1,5 @@
 ---
-title: Azure Container Apps Samples
+title: Azure Container Apps samples
 description: Learn how to use Azure Container Apps from existing samples 
 services: container-apps
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 05/11/2022
 ms.author: cshoe
 ---
 
-# Azure Container Apps Samples
+# Azure Container Apps samples
 
 Refer to the following samples to learn how to use Azure Container Apps in different contexts and paired with different technologies.
 
