@@ -100,16 +100,30 @@ Centrally manage content items for an installed solution deployed by the content
 
     :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-parser.png" alt-text="Screenshot of parser content type in a solution.":::
 
-1. **Playbook** - Not yet supported in this view.
+1. **Playbook** - Not yet supported in this view. In Microsoft Sentinel, go to **Playbook** to find and use the solution's playbook.
 
 ## Delete content items
 
 Delete content items for an installed solution deployed by the content hub.
 
+1. In the content hub, select an installed solution where the content source is **Content hub**.
+1. On the solutions details page, select **Manage**.
 1. Select the content item or items you want to delete.
 1. Select **Delete items**.
 
     :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-delete-item.png" alt-text="Screenshot of solution with content items selected for deletion.":::
+
+To restore deleted content items, select **Reinstall** on the solution.
+
+## Delete the solution
+
+Delete a solution and the related content templates from the content hub or in the manage solution view. Active, cloned, saved, or custom items associated with a content template aren't deleted.
+
+1. In the content hub, select an installed solution.
+1. On the solutions details page, select **Delete**.
+1. Select **Yes** to delete the solution and the templates.
+
+    :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-delete.png" alt-text="Screenshot of the delete confirmation prompt.":::
 
 ## Find the support model for your solution
 
