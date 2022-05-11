@@ -12,7 +12,7 @@ ms.date: 05/10/2022
 ms.custom: responsible-ml
 ---
 
-# Make data-driven policies and influence decision making
+# Make data-driven policies and influence decision making (preview)
 
 While machine learning models are powerful in identifying patterns in data and making predictions, they offer little support for estimating how the real-world outcome changes in the presence of an intervention. Practitioners have become increasingly focused on using historical data to inform their future decisions and business interventions. For example, how would revenue be affected if a corporation pursues a new pricing strategy? Would a new medication improve a patient’s condition, all else equal?
 

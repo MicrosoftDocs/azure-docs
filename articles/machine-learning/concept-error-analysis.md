@@ -11,7 +11,7 @@ author: mesameki
 ms.date: 05/10/2022
 ms.custom: responsible-ml
 ---
-# Assess errors in ML models
+# Assess errors in ML models (preview)
 
 One of the most apparent challenges with current model debugging practices is using aggregate metrics to score models on a benchmark. Model accuracy may not be uniform across subgroups of data, and there might exist input cohorts for which the model fails more often. The direct consequences of these failures are a lack of reliability and safety, unfairness, and a loss of trust in machine learning altogether.
 

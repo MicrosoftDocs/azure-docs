@@ -14,6 +14,8 @@ ms.custom: responsible-ml
 
 # Share insights with Responsible AI scorecard (preview)
 
+[!INCLUDE [dev v2](../../../includes/machine-learning-dev-v2.md)]
+
 Azure Machine Learning’s Responsible AI dashboard is designed for machine learning professionals and data scientists to explore and evaluate model insights and inform their data-driven decisions, and while it can help you implement Responsible AI practically in your machine learning lifecycle, there are some needs left unaddressed:
 
 - There often exists a gap between the technical Responsible AI tools (designed for machine-learning professionals) and the ethical, regulatory, and business requirements that define the production environment.
