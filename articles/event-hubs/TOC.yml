@@ -78,6 +78,8 @@
       href: event-hubs-samples.md
 - name: Concepts
   items:
+    - name: Application groups
+      href: resource-governance-overview.md     
     - name: Tiers 
       items: 
       - name: Premium tier
@@ -160,6 +162,8 @@
         href: event-hubs-amqp-troubleshoot.md
 - name: How-to guides
   items:
+    - name: Create and manage application groups
+      href: resource-governance-with-app-groups.md
     - name: Develop
       items:
         - name: Get Event Hubs connection string
