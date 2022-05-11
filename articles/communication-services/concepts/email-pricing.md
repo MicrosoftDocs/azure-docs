@@ -37,3 +37,19 @@ Alice sends an Email of 1 MB Size to 100 patients every day and pricing for 30 d
 
 1 MB x 100 x 30 = 3000 MB x 0.00012 = $0.36 USD
 
+## Next steps
+
+> [Understanding Email Communication Services](./email/Understanding-email-communication-resource.md)
+
+> [Understanding Email Domains in Email Communication Services](./email/Understanding-email-domain-setup.md)
+
+> [Get started with Creating Email Communication Resource](../quickstarts/email/create-email-communication-resource.md)
+
+> [Get started by Connecting Email Resource with a Communication Resource](../quickstarts/email/connect-email-communication-acs-resource.md)
+
+
+The following documents may be interesting to you:
+
+- Familiarize yourself with the [Email client library](./email/sdk-features.md)
+- How to send emails with custom verified domains?[Add custom domains](../quickstarts/email/add-custom-verified-domains.md)
+- How to send emails with Azure Communication Service managed domains?[Add Azure Managed domains](../quickstarts/email/add-azure-managed-domains.md)
