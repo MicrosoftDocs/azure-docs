@@ -28,7 +28,8 @@ Use What-If Counterfactuals when you need to:
 - Debug specific input instances in depth.
 - Provide solutions to end users and determining what they can do to get a desirable outcome from the model next time.
 
-## How are counterfactual examples generated
+## How are counterfactual examples generated?
+
 To generate counterfactuals, DiCE implements a few model-agnostic techniques. These methods apply to any opaque-box classifier or regressor. They're based on sampling nearby points to an input point, while optimizing a loss function based on proximity (and optionally, sparsity, diversity, and feasibility). Currently supported methods are:
 
 - [Randomized Search](http://interpret.ml/DiCE/notebooks/DiCE_model_agnostic_CFs.html#1.-Independent-random-sampling-of-features): Samples points randomly near the given query point and returns counterfactuals as those points whose predicted label is the desired class.
