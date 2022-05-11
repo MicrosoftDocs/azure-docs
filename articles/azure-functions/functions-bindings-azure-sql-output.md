@@ -3,7 +3,7 @@ title: Azure SQL output binding for Functions
 description: Learn to use the Azure SQL output binding in Azure Functions.
 author: dzsquared
 ms.topic: reference
-ms.date: 4/1/2022
+ms.date: 5/24/2022
 ms.author: drskwier
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -15,16 +15,18 @@ The Azure SQL output binding lets you write to a database.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-azure-sql.md).
 
-## Example
+## Examples
+<a id="example"></a>
+
 ::: zone pivot="programming-language-csharp"
 
 # [In-process](#tab/in-process)
 
 This section contains the following examples:
 
-* [Http trigger, write one record](#http-trigger-write-one-record-c)
-* [Http trigger, write to two tables](#http-trigger-write-to-two-tables-c)
-* [Http trigger, write records using IAsyncCollector](#http-trigger-write-records-using-iasynccollector-c)
+* [HTTP trigger, write one record](#http-trigger-write-one-record-c)
+* [HTTP trigger, write to two tables](#http-trigger-write-to-two-tables-c)
+* [HTTP trigger, write records using IAsyncCollector](#http-trigger-write-records-using-iasynccollector-c)
 
 The examples refer to a `ToDoItem` class and a corresponding database table:
 
@@ -35,7 +37,7 @@ The examples refer to a `ToDoItem` class and a corresponding database table:
 
 <a id="http-trigger-write-one-record-c"></a>
 
-### Http trigger, write one record
+### HTTP trigger, write one record
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that adds a record to a database, using data provided in an HTTP POST request as a JSON body.
 
@@ -43,7 +45,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 
 <a id="http-trigger-write-to-two-tables-c"></a>
 
-### Http trigger, write to two tables
+### HTTP trigger, write to two tables
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that adds records to a database in two different tables (`dbo.ToDo` and `dbo.RequestLog`), using data provided in an  HTTP POST request as a JSON body and multiple output bindings.
 
@@ -150,24 +152,312 @@ Isolated process isn't currently supported.
 ---
 
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
+
+::: zone pivot="programming-language-java,programming-language-powershell"  
 
 > [!NOTE]
-> In the current preview, Azure SQL bindings are only supported by [C# class library functions](functions-dotnet-class-library.md). 
+> In the current preview, Azure SQL bindings are only supported by [C# class library functions](functions-dotnet-class-library.md), [JavaScript functions](functions-reference-node.md), and [Python functions](functions-reference-python.md). 
 
 ::: zone-end
-<!---### Use these pivots when we get other non-C# languages added. ###
+
 ::: zone pivot="programming-language-javascript"
 
+This section contains the following examples:
+
+* [HTTP trigger, write records to a table](#http-trigger-write-records-to-table-javascript)
+* [HTTP trigger, write to two tables](#http-trigger-write-to-two-tables-javascript)
+
+The examples refer to a database table:
+
+:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
+
+
+<a id="http-trigger-write-records-to-table-javascript"></a>
+### HTTP trigger, write records to a table
+
+The following example shows a SQL input binding in a function.json file and a JavaScript function that adds records to a table, using data provided in an HTTP POST request as a JSON body.
+
+Here's the binding data in the function.json file:
+
+```json
+{
+    "authLevel": "anonymous",
+    "type": "httpTrigger",
+    "direction": "in",
+    "name": "req",
+    "methods": [
+        "post"
+    ]
+},
+{
+    "type": "http",
+    "direction": "out",
+    "name": "res"
+},
+{
+    "name": "todoItems",
+    "type": "sql",
+    "direction": "out",
+    "commandText": "dbo.ToDo",
+    "connectionStringSetting": "SqlConnectionString"
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+Here's the JavaScript code:
+
+```javascript
+module.exports = async function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+    context.log(req.body);
+
+    if (req.body) {
+        context.bindings.todoItems = req.body;
+        context.res = {
+            body: req.body,
+            mimetype: "application/json",
+            status: 201
+        }
+    } else {
+        context.res = {
+            status: 400,
+            body: "Error reading request body"
+        }
+    }
+}
+```
+
+<a id="http-trigger-write-to-two-tables-javascript"></a>
+### HTTP trigger, write to two tables
+
+The following example shows a SQL input binding in a function.json file and a JavaScript function that adds records to a database in two different tables (`dbo.ToDo` and `dbo.RequestLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.
+
+Here's the binding data in the function.json file:
+
+```json
+{
+    "authLevel": "anonymous",
+    "type": "httpTrigger",
+    "direction": "in",
+    "name": "req",
+    "methods": [
+        "post"
+    ]
+},
+{
+    "type": "http",
+    "direction": "out",
+    "name": "res"
+},
+{
+    "name": "todoItems",
+    "type": "sql",
+    "direction": "out",
+    "commandText": "dbo.ToDo",
+    "connectionStringSetting": "SqlConnectionString"
+},
+{
+    "name": "requestLog",
+    "type": "sql",
+    "direction": "out",
+    "commandText": "dbo.RequestLog",
+    "connectionStringSetting": "SqlConnectionString"
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+Here's the JavaScript code:
+
+```javascript
+module.exports = async function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+    context.log(req.body);
+
+    const newLog = {
+        RequestTimeStamp = Date.now(),
+        ItemCount = 1
+    }
+
+    if (req.body) {
+        context.bindings.todoItems = req.body;
+        context.bindings.requestLog = newLog;
+        context.res = {
+            body: req.body,
+            mimetype: "application/json",
+            status: 201
+        }
+    } else {
+        context.res = {
+            status: 400,
+            body: "Error reading request body"
+        }
+    }
+}
+```
+
+
 ::: zone-end  
+::: zone pivot="programming-language-python"  
+
+This section contains the following examples:
+
+* [HTTP trigger, write records to a table](#http-trigger-write-records-to-table-python)
+* [HTTP trigger, write to two tables](#http-trigger-write-to-two-tables-python)
+
+The examples refer to a database table:
+
+:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
+
+
+<a id="http-trigger-write-records-to-table-python"></a>
+### HTTP trigger, write records to a table
+
+The following example shows a SQL input binding in a function.json file and a Python function that adds records to a table, using data provided in an HTTP POST request as a JSON body.
+
+Here's the binding data in the function.json file:
+
+```json
+{
+    "authLevel": "anonymous",
+    "type": "httpTrigger",
+    "direction": "in",
+    "name": "req",
+    "methods": [
+        "post"
+    ]
+},
+{
+    "type": "http",
+    "direction": "out",
+    "name": "$return"
+},
+{
+    "name": "todoItems",
+    "type": "sql",
+    "direction": "out",
+    "commandText": "dbo.ToDo",
+    "connectionStringSetting": "SqlConnectionString"
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+Here's the Python code:
+
+```python
+import logging
+import azure.functions as func
+
+
+def main(req: func.HttpRequest, todoItems: func.Out[func.SqlRow]) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+
+    try:
+        req_body = req.get_json()
+        rows = list(map(lambda r: json.loads(r.to_json()), req_body))
+    except ValueError:
+        pass
+
+    if req_body:
+        todoItems.set(rows)
+        return func.HttpResponse(
+            todoItems.to_json(),
+            status_code=201,
+            mimetype="application/json"
+        )
+    else:
+        return func.HttpResponse(
+            "Error accessing request body",
+            status_code=400
+        )
+```
+
+<a id="http-trigger-write-to-two-tables-python"></a>
+### HTTP trigger, write to two tables
+
+The following example shows a SQL input binding in a function.json file and a Python function that adds records to a database in two different tables (`dbo.ToDo` and `dbo.RequestLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.
+
+Here's the binding data in the function.json file:
+
+```json
+{
+    "authLevel": "anonymous",
+    "type": "httpTrigger",
+    "direction": "in",
+    "name": "req",
+    "methods": [
+        "post"
+    ]
+},
+{
+    "type": "http",
+    "direction": "out",
+    "name": "$return"
+},
+{
+    "name": "todoItems",
+    "type": "sql",
+    "direction": "out",
+    "commandText": "dbo.ToDo",
+    "connectionStringSetting": "SqlConnectionString"
+},
+{
+    "name": "requestLog",
+    "type": "sql",
+    "direction": "out",
+    "commandText": "dbo.RequestLog",
+    "connectionStringSetting": "SqlConnectionString"
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+Here's the Python code:
+
+```python
+import logging
+from datetime import datetime
+import azure.functions as func
+
+
+def main(req: func.HttpRequest, todoItems: func.Out[func.SqlRow], requestLog: func.Out[func.SqlRow]) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+
+    try:
+        req_body = req.get_json()
+        rows = list(map(lambda r: json.loads(r.to_json()), req_body))
+    except ValueError:
+        pass
+
+    requestLog.set(func.SqlRow({
+        RequestTimeStamp: datetime.now(),
+        ItemCount: 1
+    }))
+
+    if req_body:
+        todoItems.set(rows)
+        return func.HttpResponse(
+            todoItems.to_json(),
+            status_code=201,
+            mimetype="application/json"
+        )
+    else:
+        return func.HttpResponse(
+            "Error accessing request body",
+            status_code=400
+        )
+```
+
+
+::: zone-end
+
+<!---### Use these pivots when we get other non-C# languages added. ###
 ::: zone pivot="programming-language-powershell" 
  
 
 ::: zone-end 
-::: zone pivot="programming-language-python"  
-
-
-::: zone-end
 ::: zone pivot="programming-language-java"
 
 ::: zone-end
@@ -197,21 +487,22 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 | **connectionStringSetting** | The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable.| 
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+-->
+
+::: zone pivot="programming-language-javascript,programming-language-python"  
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
 
 |function.json property | Description|
 |---------|----------------------|
-|**type** |  Must be set to `table`. This property is set automatically when you create the binding in the Azure portal.|
-|**direction** |  Must be set to `in`. This property is set automatically when you create the binding in the Azure portal. |
-|**name** |  The name of the variable that represents the table or entity in function code. | 
-| **commandText** | Required. The Transact-SQL query command or name of the stored procedure executed by the binding.  |
+|**type** |  Must be set to `sql`.|
+|**direction** |  Must be set to `out`. |
+|**name** |  The name of the variable that represents the entity in function code. | 
+| **commandText** | Required. The name of the table being written to by the binding.  |
 | **connectionStringSetting** | The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable.| 
 
 ::: zone-end  
--->
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

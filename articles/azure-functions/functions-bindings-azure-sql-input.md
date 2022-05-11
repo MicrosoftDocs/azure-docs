@@ -155,6 +155,20 @@ Here's the binding data in the function.json file:
 
 ```json
 {
+    "authLevel": "anonymous",
+    "type": "httpTrigger",
+    "direction": "in",
+    "name": "req",
+    "methods": [
+        "get"
+    ]
+},
+{
+    "type": "http",
+    "direction": "out",
+    "name": "res"
+},
+{
     "name": "todoItems",
     "type": "sql",
     "direction": "in",
@@ -189,6 +203,20 @@ The following example shows a SQL input binding in a function.json file and a Ja
 Here's the binding data in the function.json file:
 
 ```json
+{
+    "authLevel": "anonymous",
+    "type": "httpTrigger",
+    "direction": "in",
+    "name": "req",
+    "methods": [
+        "get"
+    ]
+},
+{
+    "type": "http",
+    "direction": "out",
+    "name": "res"
+},
 {
     "name": "todoItem",
     "type": "sql",
@@ -228,6 +256,20 @@ The stored procedure `dbo.DeleteToDo` must be created on the SQL database.  In t
 
 
 ```json
+{
+    "authLevel": "anonymous",
+    "type": "httpTrigger",
+    "direction": "in",
+    "name": "req",
+    "methods": [
+        "get"
+    ]
+},
+{
+    "type": "http",
+    "direction": "out",
+    "name": "res"
+},
 {
     "name": "todoItems",
     "type": "sql",
@@ -278,6 +320,20 @@ Here's the binding data in the function.json file:
 
 ```json
 {
+    "authLevel": "anonymous",
+    "type": "httpTrigger",
+    "direction": "in",
+    "name": "req",
+    "methods": [
+        "get"
+    ]
+},
+{
+    "type": "http",
+    "direction": "out",
+    "name": "$return"
+},
+{
     "name": "todoItems",
     "type": "sql",
     "direction": "in",
@@ -314,6 +370,20 @@ The following example shows a SQL input binding in a function.json file and a Py
 Here's the binding data in the function.json file:
 
 ```json
+{
+    "authLevel": "anonymous",
+    "type": "httpTrigger",
+    "direction": "in",
+    "name": "req",
+    "methods": [
+        "get"
+    ]
+},
+{
+    "type": "http",
+    "direction": "out",
+    "name": "$return"
+},
 {
     "name": "todoItem",
     "type": "sql",
@@ -356,6 +426,20 @@ The stored procedure `dbo.DeleteToDo` must be created on the SQL database.  In t
 
 
 ```json
+{
+    "authLevel": "anonymous",
+    "type": "httpTrigger",
+    "direction": "in",
+    "name": "req",
+    "methods": [
+        "get"
+    ]
+},
+{
+    "type": "http",
+    "direction": "out",
+    "name": "$return"
+},
 {
     "name": "todoItems",
     "type": "sql",
