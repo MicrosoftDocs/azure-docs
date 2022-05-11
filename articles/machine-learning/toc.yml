@@ -169,8 +169,8 @@
     - name: Responsible AI
       items:
         - name: Responsible AI overview
-           displayName: responsible,ml
-           href: concept-responsible-ml.md
+          displayName: responsible,ml
+          href: concept-responsible-ml.md
         - name: Implement Responsible AI in Practice
           items:
            - name: Responsible AI dashboard
