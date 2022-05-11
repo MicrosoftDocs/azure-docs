@@ -128,18 +128,41 @@ Please replace with your domain details and modify the content, recipient detail
                 ]
             }
 
-  emailClient.sendEmail(repeatabilityRequestId, repeatabilityFirstSent, emailMessage);
+  const response = emailClient.sendEmail(repeatabilityRequestId, repeatabilityFirstSent, emailMessage);
 ```
 ## Getting MessageId to track Email Delivery
 
 To track the status of email delivery you need to get the MessageId back from response and track the status. if there is no MessageId retry the request.
 
 ```javascript
-
+  const messageId = response._response.parsedHeaders.xMsRequestId;
+   if(messageId === null){
+            console.log("Message Id not found.")
+            return
+   }
+   
 ```
 ## Getting Status on Email Delivery
 To get the delivery status of email call GetMessageStatus API with MessageId
 ```javascript
+   
+   const response = emailClient.getMessageStatus(messageId);
+   console.log(`Email status  : ${response.status}` )
+   const statusInterval = setInterval(async function(){
+
+        counter++;
+        response = emailClient.getMessageStatus(messageId)
+           
+        if(response){
+              console.log(`Email status  : ${response.status}` )` )
+
+             if(response.status.toLowerCase() !== "queued" || counter > 12){
+
+                clearInterval(statusInterval)
+             }
+            }
+
+        },5000)
 
 ```
 
