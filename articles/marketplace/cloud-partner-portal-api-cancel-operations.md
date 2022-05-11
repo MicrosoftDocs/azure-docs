@@ -25,8 +25,6 @@ contains the operation's location that should be used to query status.
 
 ## URI parameters
 
---------------
-
 |  **Name**    |      **Description**                                  |    **Data type**  |
 | ------------ |     ----------------                                  |     -----------   |
 | publisherId  |  Publisher identifier, for example, `contoso`         |   String          |
@@ -34,7 +32,6 @@ contains the operation's location that should be used to query status.
 | api-version  |  Current version of API                               |    Date           |
 
 ## Header
-------
 
 |  **Name**              |  **Value**         |
 |  ---------             |  ----------        |

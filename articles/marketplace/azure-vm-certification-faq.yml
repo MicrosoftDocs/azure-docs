@@ -58,7 +58,7 @@ sections:
           |---|---|---|---|
           |1|Invalid virtual hard disk (VHD)|If the specified cookie value in the VHD footer is incorrect, the VHD will be considered invalid.|Re-create the image and submit the request.|
           |2|Invalid blob type|VM provisioning failed because the used blob is a block type instead of a page type.|Re-create the image as page type and submit the request.|
-          |3|Provisioning timeout or not properly generalized|There's an issue with VM generalization.|Re-create the image with generalization and submit the request.|
+          |3|Provisioning timeout or not properly generalized|There's an issue with VM generalization.|Re-create the image with generalization and submit the request. |
           
           > [!NOTE]
           > For more information about VM generalization, see:
@@ -96,7 +96,6 @@ sections:
           Unique ID|16
           Saved State|1
           Reserved|427
-          |
           
       - question: |
           VHD specifications
@@ -199,7 +198,6 @@ sections:
           |---|---|
           |Linux|1 GB to 1023 GB|
           |Windows|30 GB to 250 GB|
-          |
           
           Because VMs allow access to the underlying operating system, ensure that the VHD size is sufficiently large for the VHD. Disks aren't expandable without downtime. Use a disk size from 30 GB to 50 GB.
           
