@@ -89,6 +89,8 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 1. Select **Test connection** to ensure the firewall rules are properly configured and the workspace can successfully connect to the source Azure SQL Database.
 
 1. Select **Create**.
+   > [!NOTE]
+   > The linked service that you create here is not dedicated to Azure Synapse Link for SQL - it can be used by any workspace user that has the appropriate permissions. Please take time to understand the scope of users who may have access to this linked service and its credentials. For more information on permissions in Azure Synapse workspaces, see [Azure Synapse workspace access control overview - Azure Synapse Analytics](/synapse-analytics/security/synapse-workspace-access-control-overview).
 
 1. Select one or more source tables to replicate to your Synapse workspace and select **Continue**.
 
