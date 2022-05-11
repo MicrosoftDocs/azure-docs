@@ -229,7 +229,7 @@ Use the tabs below to select where your model is located.
 
 # [Local model](#tab/use-local)
 
-To upload a model from your computer, Select **Local** and upload the model you want save in the model registry.
+To upload a model from your computer, Select **Local** and upload the model you want to save in the model registry.
 
 :::image type="content" source="./media/how-to-manage-models/register-model-local.png" alt-text="Screenshot of registering a local model in the UI." lightbox="./media/how-to-manage-models/register-model-local.png":::
 
@@ -245,7 +245,7 @@ To add a model from an Azure Machine Learning Job, Select **Job Output** and pic
 
 :::image type="content" source="./media/how-to-manage-models/select-job-output.png" alt-text="Screenshot of selecting the job output in the UI." lightbox="./media/how-to-manage-models/select-job-output.png":::
 
-To add a model from an Azure Machine Learning Job, you can also located the Job in the Job UI and select **Create Model**. You can then folder in the job output where the model is located. 
+To add a model from an Azure Machine Learning Job, locate the Job in the Job UI and select **Create Model**. You can then folder in the job output where the model is located. 
 
 :::image type="content" source="./media/how-to-manage-models/register-model-job-output.png" alt-text="Screenshot of creating a model from job output in the UI." lightbox="./media/how-to-manage-models/register-model-job-output.png":::
 
