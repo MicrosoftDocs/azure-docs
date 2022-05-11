@@ -11,15 +11,15 @@ ms.date: 05/12/2022
 
 # What is NGINX for Azure?
 
-This article discusses how to enable deeper integration of the **NGINX** SaaS service with Azure.
+In this article you learn how to enable deeper integration of the **NGINX** SaaS service with Azure.
 
 The Cloud-Native Observability Platform of NGINX centralizes log, metric, and tracing analytics in one place. You can more easily monitor the health and performance of your Azure environment, and troubleshoot your services faster.
 
 The NGINX for Azure offering in the Azure Marketplace allows you to manage NGINX in the Azure portal as an integrated service. You can implement NGINX as a monitoring solution for your cloud workloads through a streamlined workflow.
 
-You can set up the NGINX resources through a resource provider named Nginx.NginxPlus. You can create, provision, and manage NGINX resources through the Azure portal. NGINX owns and runs the software as a service (SaaS) application including the NGINX accounts created.
+You can set up the NGINX resources through a resource provider named Nginx.NginxPlus. You can create and manage NGINX resources through the Azure portal. NGINX owns and runs the software as a service (SaaS) application including the NGINX accounts created.
 
-Here are the key capabilities provided by the Azure NGINX integration:
+Here are the key capabilities provided by the NGINX for Azure integration:
 
 - **Seamless onboarding** of NGINX SaaS software as an integrated service on Azure
 - **Unified billing** of NGINX SaaS through Azure Monthly bill  
@@ -30,7 +30,7 @@ Here are the key capabilities provided by the Azure NGINX integration:
 
 ### Subscription owner
 
-The Azure NGINX integration can only be set up by users who have Owner access on the Azure subscription. Ensure you have the appropriate Owner access before starting to set up this integration.
+The NGINX for Azure integration can only be set up by users who have Owner access on the Azure subscription. Ensure you have the appropriate Owner access before starting to set up this integration.
 
 ## Find NGINX for Azure in the Azure Marketplace
 

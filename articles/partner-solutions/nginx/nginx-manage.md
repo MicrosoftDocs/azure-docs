@@ -9,17 +9,18 @@ ms.date: 05/12/2022
 
 ---
 
-# Manage your NGINX integration through Azure portal
+# Manage your NGINX integration through the Azure portal
 
-Once your NGINX resource is created in the Azure portal, you might need to get information or change it. Here's list of ways to manage your NGINX resource.
+Once your NGINX resource is created in the Azure portal, you might need to get information about it or change it. Here's list of ways to manage your NGINX resource.
 
 - [Identity](#configure-managed-identity)
+- [Configuration](#nginx-configuration)
 - [Certificates](#nginx-certificates)
 - [Monitoring](#nginx-monitoring)
 - [Delete accounts](#delete-nginx-accounts)
 - [GitHub integration](#github-integration)
 
-## Configure Managed Identity
+## Configure managed identity
 
 Add a new User Assigned Managed Identity.
 
@@ -33,7 +34,7 @@ Add a new User Assigned Managed Identity.
 
     :::image type="content" source="media/nginx-manage/nginx-user-assigned.png" alt-text="screenshot of user assigned identity":::
 
-### NGINX Configuration
+## Changing the configuration
 
 1. From the Resource menu, select your NGINX deployment.
 
@@ -53,7 +54,7 @@ Add a new User Assigned Managed Identity.
 
     :::image type="content" source="media/nginx-manage/nginx-config-editor.png" alt-text="asd":::
 
-## NGINX Certificates
+## Adding certificates
 
 You can add a certificate by uploading it to Azure Key vault, and then associating the certificate with your deployment.
 
@@ -69,7 +70,7 @@ You can add a certificate by uploading it to Azure Key vault, and then associati
 
 1. When you've added the needed information, select **Save**.
 
-## NGINX Monitoring
+## Send metrics to monitoring
 
 1. From the Resource menu, select your NGINX deployment.
 
@@ -81,9 +82,9 @@ You can add a certificate by uploading it to Azure Key vault, and then associati
 
     :::image type="content" source="media/nginx-manage/nginx-send-to-monitor.png" alt-text="screenshot of nginx sent to monitoring":::
 
-## Delete NGINX Accounts
+## Delete an NGINX deployment
 
-To delete your deployment of NGINX for Azure:
+To delete a deployment of NGINX for Azure:
 
 1. From the Resource menu, select your NGINX deployment.
 1. Select **Overview** on the left.
@@ -98,7 +99,7 @@ After the account is deleted, logs are no longer sent to NGINX, and all billing 
 
 ## GitHub Integration
 
-Enable CI/CD deployments via GitHub Actions integrations
+Enable CI/CD deployments via GitHub Actions integrations.
 
 <!-- <<Add screenshot for GitHub integration>>  -->
 

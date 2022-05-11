@@ -15,6 +15,8 @@ In this quickstart, you'll use the Azure Marketplace to find and create an insta
 
 ## Create new NGINX account
 
+### Basics
+
 1. To create an NGINX deployment using the Marketplace, subscribe to **NGINX for Azure** in the Azure portal.
 
 1. Set the following values in the **Create NGINX Deployment** pane.
@@ -26,21 +28,26 @@ In this quickstart, you'll use the Azure Marketplace to find and create an insta
     | Subscription     | From the drop-down, select your Azure subscription where you have owner access |
     | Resource group     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see Azure Resource Group overview. |
     | NGINX account name  | Put the name for the NGINX account you want to create |
-    | Location | Select West Central US. Note that West Central US is the only Azure region supported by NGINX during preview |
+    | Location | Select West Central US. West Central US is the only Azure region supported by NGINX during preview |
     | Plan     | Specified based on the selected NGINX plan |
     | Price    | Pay As You Go |
+
+> [!NOTE]
+> West Central US is the only Azure region supported by NGINX during preview.
+
+### Networking
 
 1. After filling in the proper values, select the **Next: Networking** to see the **Networking** screen. Specify the VNet and Subnet that is associated with the NGINX deployment.  
 
     :::image type="content" source="media/nginx-create/nginx-networking.png" alt-text="screenshot of networking part of nginx create experience":::
 
-1. Select the checkbox that acknowledges access to your Tenant to ensure VNET and NIC association.
+1. Select the checkbox **I allow NGINX service provider to access the above virtual network for deployment** to indicate that you acknowledge access to your Tenant to ensure VNet and NIC association.
 
-1. Select either Public or Private End points for IP address selection.
+1. Select either Public or Private End points for the IP address selection.
 
-### Add custom tags
+### Tags
 
-You can specify custom tags for the new NGINX resource in Azure by adding custom key value pairs.
+You can specify custom tags for the new NGINX resource in Azure by adding custom key-value pairs.
 
 1. Select Tags.
 
@@ -51,19 +58,23 @@ You can specify custom tags for the new NGINX resource in Azure by adding custom
     |Name | Name of the tag corresponding to the Azure NGINX resource. |
     | Value | Value of the tag corresponding to the Azure NGINX resource. |
 
-1. Select the **Next: Review+Create** to navigate to the final step for resource creation. When you get to the **Review + Create** page, all validations are run. At this point, review all the selections made in the Basics, Metrics and Logs, Single sign-on and Tags screens. You can also review the NGINX and Azure Marketplace terms and conditions.  
+### Review and create
+
+1. Select the **Next: Review + Create** to navigate to the final step for resource creation. When you get to the **Review + Create** page, all validations are run. At this point, review all the selections made in the Basics, Networking, and optionally Tags panes. You can also review the NGINX and Azure Marketplace terms and conditions.  
 
     :::image type="content" source="media/nginx-create/nginx-review-and-create.png" alt-text="screenshot of review and create nginx resource":::
 
-1.Once you've reviewed all the information select **Create**. Azure now deploys the NGINX for Azure resource.
+1. Once you've reviewed all the information select **Create**. Azure now deploys the NGINX for Azure resource.
 
    :::image type="content" source="media/nginx-create/nginx-deploy.png" alt-text="screenshot of nginx deployment":::
 
-1. Once the process is complete, select **Go to Resource** to navigate to the specific NGINX resource.
+## Deployment completed
+
+1. Once the create process is completed, select **Go to Resource** to navigate to the specific NGINX resource.
 
     :::image type="content" source="media/nginx-create/nginx-overview-pane.png" alt-text="screenshot of completed NGINX deployment ":::
 
-1. Select Overview in the resource menu to see information on the deployed resources in the working pane.
+1. Select **Overview** in the Resource menu to see information on the deployed resources.
 
     :::image type="content" source="media/nginx-create/nginx-overview-pane.png" alt-text="screenshot of information on the nginx resource overview":::
 
