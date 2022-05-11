@@ -52,6 +52,9 @@ landingContent:
             url: tutorial-java-spring-confluent-kafka.md
           - text: Store secrets in Key Vault
             url: tutorial-portal-key-vault.md
+          - text: Web app with App Configuration
+            url: tutorial-connect-web-app-app-configuration.md
+            
       - linkListType: how-to-guide
         links:
           - text: Troubleshooting guide
