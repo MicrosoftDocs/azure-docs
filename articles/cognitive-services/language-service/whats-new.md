@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 04/20/2022
+ms.date: 05/11/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -19,7 +19,10 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
 
 ## May 2022
 
-* Rebranded Text Summarization to Document Summarization
+* Rebranded Text Summarization to Document Summarization.
+* Custom named entity recognition and custom text summarization are now Generally Available (GA).
+* Conversation summarization is now available in public preview.
+
 
 ## April 2022
 
