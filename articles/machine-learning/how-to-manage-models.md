@@ -223,28 +223,31 @@ For a complete example, see the [model notebook](https://github.com/Azure/azurem
 
 To create a model in Azure Machine Learning, open the Models page in Azure Machine Learning. Click **Create** and select where your model is located. 
 
-![image](https://user-images.githubusercontent.com/9068012/167925312-d87e03c0-16b1-4a0f-ac79-2dd5fb7ec6e4.png)
+:::image type="content" source="./media/how-to-manage-models/register-model-as-asset.png" alt-text="Screenshot of the UI to register a model.":::
 
 Use the tabs below to select where your model is located.
 
 # [Local model](#tab/use-local)
 
 To upload a model from your computer, Select **Local** and upload the model you want save in the model registry.
-![image](https://user-images.githubusercontent.com/9068012/167925375-e2a3370d-ad5f-4f94-8754-99b759543370.png)
+
+:::image type="content" source="./media/how-to-manage-models/register-model-local.png" alt-text="Screenshot of registering a local model in the UI.":::
 
 # [Datastore](#tab/use-datastore)
 
 To add a model from an Azure Machine Learning Datastore, Select **Datastore** and pick the datastore and folder where the model is located.
-![image](https://user-images.githubusercontent.com/9068012/167925404-1d4e2fcc-12f4-41dd-a59d-1267832ab987.png)
+
+:::image type="content" source="./media/how-to-manage-models/register-model-datastore.png" alt-text="Screenshot of registering a model from a datastore in the UI.":::
 
 # [Job Output](#tab/use-job-output)
 
 To add a model from an Azure Machine Learning Job, Select **Job Output** and pick the job and folder in the job output where the model is located.
-![image](https://user-images.githubusercontent.com/9068012/167925417-623bd7ef-f064-460c-a2aa-32e869037910.png)
+
+:::image type="content" source="./media/how-to-manage-models/select-job-output.png" alt-text="Screenshot of selecting the job output in the UI.":::
 
 To add a model from an Azure Machine Learning Job, you can also located the Job in the Job UI and select **Create Model**. You can then folder in the job output where the model is located. 
 
-![image](https://user-images.githubusercontent.com/9068012/167925433-295f4f4f-5faf-43eb-93da-2f893479a8a3.png)
+:::image type="content" source="./media/how-to-manage-models/register-model-job-output.png" alt-text="Screenshot of creating a model from job output in the UI.":::
 
 
 ---
