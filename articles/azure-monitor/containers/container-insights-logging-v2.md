@@ -1,5 +1,5 @@
 ---
-title: Configure ContainerLogv2 Schema in Container Insights (preview)
+title: Configure ContainerLogv2 schema (preview) for Container Insights
 description: Switch your ContainerLog table to the ContainerLogv2 schema
 author: aul
 ms.author: bwren
@@ -10,8 +10,11 @@ ms.date: 05/11/2022
 
 ---
 
-# Schema for Container logs (ContainerLogV2)
+# Enable ContainerLogV2 schema (preview)
 As part of [Basic Logs](../logs/basic-logs-configure.md), Azure Monitor Container Insights is now in Public Preview of new schema for container logs called ContainerLogV2. As part of this schema, there new fields to make common queries to view AKS (Azure Kubernetes Service) and Azure Arc enabled Kubernetes data.
+
+> [!NOTE]
+> The ContainerLogv2 schema is currently a preview feature.
 
 >[!NOTE]
 >The new fields are:
@@ -45,7 +48,7 @@ As part of [Basic Logs](../logs/basic-logs-configure.md), Azure Monitor Containe
           containerlog_schema_version = "v2"
 ```
 ### Configuring a new ConfigMap
-* Download the new ConfigMap from [here](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml).
+* Download the new ConfigMap from [here](https://aka.ms/container-azm-ms-agentconfig).
 * For new downloaded configmapdefault the value for containerlog_schema_version is "v1"
 * Update the "containerlog_schema_version = "v2""
 
