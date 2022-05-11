@@ -31,6 +31,15 @@
     href: reference-azure-machine-learning-cli.md
   - name: Set up software environments CLI (v1)
     href: how-to-use-environments.md
+  - name: Automated machine learning
+    displayName: automl, auto ml
+    items:
+    - name: Use automated ML (Python)
+      displayName: SDK, automl
+      href: how-to-configure-auto-train-v1.md
+  - name: Create & manage compute cluster
+    displayName: compute target, low priority, managed identity
+    href: how-to-create-attach-compute-cluster.md
   - name: Track experiments with MLflow 
     displayName: log, monitor, metrics, model registry, register
     href: how-to-use-mlflow.md  
