@@ -19,7 +19,7 @@ ms.custom: responsible-ml
 
 Responsible AI dashboards are linked to your registered models. To view your Responsible AI dashboard, go into your model registry and select the registered model you've generated a Responsible AI dashboard for. Once you select into your model, select the **Responsible AI (preview)** tab to view a list of generated dashboards.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/dashboard-model-details-tab.png" alt-text="Screenshot of model details tab in studio with Responsible AI tab highlighted.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/dashboard-model-details-tab.png" alt-text="Screenshot of model details tab in studio with Responsible AI tab highlighted." lightbox= "./media/how-to-responsible-ai-dashboard/dashboard-model-details-tab.png":::
 
 Multiple dashboards can be configured and attached to your registered model. Different combinations of components (explainers, causal analysis, etc.) can be attached to each Responsible AI dashboard. The list below only shows whether a component was generated for your dashboard, but different components can be viewed or hidden within the dashboard itself.
 
@@ -48,13 +48,13 @@ Some features of the Responsible AI dashboard require dynamic, real-time computa
 
 The information above can also be found on the Responsible AI dashboard page by selecting the information icon button:
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/compute_view-full-functionality.png" alt-text="Screenshot of a Responsible AI tab dashboard hovering over the information icon button.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/compute-view-full-functionality.png" alt-text="Screenshot of a Responsible AI tab dashboard hovering over the information icon button.":::
 
 ### How to enable full functionality of Responsible AI dashboard?
 
 Select a running compute instance from compute dropdown above your dashboard. If you don’t have a running compute, create a new compute instance by selecting “+ ” button next to the compute dropdown, or  “Start compute” button to start a stopped compute instance. Creating or starting a compute instance may take few minutes.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/select-compute.png" alt-text="Screenshot of selecting a compute.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/select-compute.png" alt-text="Screenshot showing how to selecting a compute.":::
 
 Once compute is in “Running” state, your Responsible AI dashboard will start to connect to the compute instance. To achieve this, a terminal process will be created on the selected compute instance, and Responsible AI endpoint will be started on the terminal. Select **View terminal outputs** to view current terminal process.
 
@@ -107,7 +107,7 @@ Selecting the **New cohort** button on the top of the dashboard or in the Cohort
 6. **Categorical Values**: filter by a list of values that should be included
 7. **Numerical Values**: filter by a Boolean operation over the values (for example, select datapoints where age < 64)
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/view-dashboard-cohort-panel.png" alt-text="Screenshot of making multiple new cohorts.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/view-dashboard-cohort-panel.png" alt-text="Screenshot of making multiple new cohorts." lightbox= "./media/how-to-responsible-ai-dashboard/view-dashboard-cohort-panel.png":::
 
 You can name your new dataset cohort, select **Add filter** to add each desired filter, then select **Save** to save the new cohort to your cohort list or Save and switch to save and immediately switch the global cohort of the dashboard to the newly created cohort.
 
@@ -140,7 +140,6 @@ The first tab of the Error analysis component is the Tree map, which illustrates
 9. **Instances in the base cohort**: displays the total number of points in the entire dataset and the number of correctly and incorrectly predicted points.
 10. **Instances in the selected cohort**: displays the total number of points in the selected node and the number of correctly and incorrectly predicted points.
 11. **Prediction path (filters)**: lists the filters placed over the full dataset to create this smaller cohort.
-
 
 Selecting the "Feature list" button opens a side panel, which allows you to retrain the error tree on specific features.
 
@@ -184,7 +183,7 @@ You can further investigate your model by looking at a comparative analysis of i
 
 The Data explorer component allows you to analyze data statistics along axes filters such as predicted outcome, dataset features and error groups. This component helps you understand over and underrepresentation in your dataset.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/data-explorer-aggregate.png" alt-text="Screenshot of the dashboard showing the data explorer. ":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/data-explorer-aggregate.png" alt-text="Screenshot of the dashboard showing the data explorer." lightbox= "./media/how-to-responsible-ai-dashboard/data-explorer-aggregate.png":::
 
 1. **Select a dataset cohort to explore**: Specify which dataset cohort from your list of cohorts you want to view data statistics for.
 2. **X-axis**: displays the type of value being plotted horizontally, modify by clicking the button to open a side panel.
@@ -193,7 +192,7 @@ The Data explorer component allows you to analyze data statistics along axes fil
 
  Selecting the "Individual datapoints" option under "Chart type" shifts to a disaggregated view of the data with the availability of a color axis.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/data-explorer-individual.png" alt-text="Screenshot of the dashboard showing the data explorer with individual datapoints option selected. ":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/data-explorer-individual.png" alt-text="Screenshot of the dashboard showing the data explorer with individual datapoints option selected." lightbox= "./media/how-to-responsible-ai-dashboard/data-explorer-individual.png":::
 
 ### Feature importances (model explanations)
 
@@ -201,16 +200,16 @@ The model explanation component allows you to see which features were most impor
 
 #### Aggregate feature importances (global explanations)
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/aggregate-feature-importance.png" alt-text="Screenshot of the dashboard showing feature importances on the  aggregate feature importances tab.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/aggregate-feature-importance.png" alt-text="Screenshot of the dashboard showing feature importances on the  aggregate feature importances tab." lightbox= "./media/how-to-responsible-ai-dashboard/aggregate-feature-importance.png":::
 
-1. **Top k features**: lists the most important global features for a prediction and allows you to change it through a slider bar. 
+1. **Top k features**: lists the most important global features for a prediction and allows you to change it through a slider bar.
 2. **Aggregate feature importance**: visualizes the weight of each feature in influencing model decisions across all predictions.
 3. **Sort by**: allows you to select which cohort's importances to sort the aggregate feature importance graph by.
 4. **Chart type**: allows you to select between a bar plot view of average importances for each feature and a box plot of importances for all data.
 
 When you select on one of the features in the bar plot, the below dependence plot will be populated. The dependence plot shows the relationship of the values of a feature to its corresponding feature importance values impacting the model prediction.  
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/aggregate-feature-importance-2.png" alt-text="Screenshot of the dashboard showing a populated dependence plot on the aggregate feature importances tab.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/aggregate-feature-importance-2.png" alt-text="Screenshot of the dashboard showing a populated dependence plot on the aggregate feature importances tab." lightbox="./media/how-to-responsible-ai-dashboard/aggregate-feature-importance-2.png":::
 
 5. **Feature importance of [feature] (regression) or Feature importance of [feature] on [predicted class] (classification)**: plots the importance of a particular feature across the predictions. For regression scenarios, the importance values are in terms of the output so positive feature importance means it contributed positively towards the output; vice versa for negative feature importance.  For classification scenarios, positive feature importances mean that feature value is contributing towards the predicted class denoted in the y-axis title; and negative feature importance means it's contributing against the predicted class.
 6. **View dependence plot for**: selects the feature whose importances you want to plot.
@@ -220,20 +219,20 @@ When you select on one of the features in the bar plot, the below dependence plo
 
 This tab explains how features influence the predictions made on specific datapoints. You can choose up to five datapoints to compare feature importances for.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/individual-feature-importance.png" alt-text="Screenshot of the dashboard showing the individual feature importances tab.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/individual-feature-importance.png" alt-text="Screenshot of the dashboard showing the individual feature importances tab." lightbox= "./media/how-to-responsible-ai-dashboard/individual-feature-importance.png":::
 
 **Point selection table**: view your datapoints and select up to five points to display in the feature importance plot or the ICE plot below the table.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/individual-feature-importance-bar-plot.png" alt-text="Screenshot of the dashboard showing a bar plot on the individual feature importances tab.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/individual-feature-importance-bar-plot.png" alt-text="Screenshot of the dashboard showing a bar plot on the individual feature importances tab." lightbox="./media/how-to-responsible-ai-dashboard/individual-feature-importance-bar-plot.png":::
 
 **Feature importance plot**: bar plot of the importance of each feature for the model's prediction on the selected datapoint(s)
 
-1. **Top k features**: allows you to specify the number of features to show importances for through a slider. 
+1. **Top k features**: allows you to specify the number of features to show importances for through a slider.
 2. **Sort by**: allows you to select the point (of those checked above) whose feature importances are displayed in descending order on the feature importance plot.
 3. **View absolute values**: Toggle on to sort the bar plot by the absolute values; this allows you to see the top highest impacting features regardless of its positive or negative direction.
 4. **Bar plot**: displays the importance of each feature in the dataset for the model prediction of the selected datapoints.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/individual-feature-importance-ice-plot.png" alt-text="Screenshot of the dashboard showing an ICE plot on the individual feature importances tab.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/individual-feature-importance-ice-plot.png" alt-text="Screenshot of the dashboard showing an ICE plot on the individual feature importances tab." lightbox="./media/how-to-responsible-ai-dashboard/individual-feature-importance-ice-plot.png":::
 
 **Individual conditional expectation (ICE) plot**: switches to the ICE plot showing model predictions across a range of values of a particular feature
 
@@ -247,20 +246,20 @@ This tab explains how features influence the predictions made on specific datapo
 
 Counterfactual analysis provides a diverse set of “what-if” examples generated by changing the values of features minimally to produce the desired prediction class (classification) or range (regression).
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/counterfactuals.png" alt-text="Screenshot of the dashboard showing counterfactuals.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/counterfactuals.png" alt-text="Screenshot of the dashboard showing counterfactuals." lightbox="./media/how-to-responsible-ai-dashboard/counterfactuals.png":::
 
 1. **Point selection**: selects the point to create a counterfactual for and display in the top-ranking features plot below
 2. **Selected datapoint**: performs the same action as the point selection in the table, except in a dropdown menu
 3. **Desired class for counterfactual(s)**: specifies the class or range to generate counterfactuals for
 4. **Create what-if counterfactual**: opens a panel for counterfactual what-if datapoint creation
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/counterfactuals-top-ranked-features.png" alt-text="Screenshot of the dashboard showing a the top ranked features plot.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/counterfactuals-top-ranked-features.png" alt-text="Screenshot of the dashboard showing a the top ranked features plot." lightbox="./media/how-to-responsible-ai-dashboard/counterfactuals-top-ranked-features.png":::
 
 **Top ranked features plot**: displays, in descending order in terms of average frequency, the features to perturb to create a diverse set of counterfactuals of the desired class. You must generate at least 10 diverse counterfactuals per datapoint to enable this chart due to lack of accuracy with a lesser number of counterfactuals.
 
 Selecting the **Create what-if counterfactual** button opens a full window panel.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/counterfactuals-examples.png" alt-text="Screenshot of the dashboard showing what-if counterfactuals.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/counterfactuals-examples.png" alt-text="Screenshot of the dashboard showing what-if counterfactuals." lightbox="./media/how-to-responsible-ai-dashboard/counterfactuals-examples.png":::
 
 5. **Search features**: finds features to observe and change values
 6. **Sort counterfactual by ranked features**: sorts counterfactual examples in order of perturbation effect (see above for top ranked features plot)
@@ -277,9 +276,9 @@ Selecting the **Create what-if counterfactual** button opens a full window panel
 Selecting on the **Aggregate causal effects** tab of the Causal analysis component shows the average causal effects for pre-defined treatment features (the features that you want to treat to optimize your outcome).
 
 > [!NOTE]
-> Global cohort functionality is currently not supported for the causal analysis component.
+> Global cohort functionality is not supported for the causal analysis component.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/aggregate-causal-effects.png" alt-text="Screenshot of the dashboard showing casual analysis on the aggregate causal effects tab.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/aggregate-causal-effects.png" alt-text="Screenshot of the dashboard showing casual analysis on the aggregate causal effects tab." lightbox= "./media/how-to-responsible-ai-dashboard/aggregate-causal-effects.png":::
 
 1. **Direct aggregate causal effect table**: displays the causal effect of each feature aggregated on the entire dataset and associated confidence statistics
     1. **Continuous treatments**: On average in this sample, increasing this feature by one unit will cause the probability of class to increase by X units, where X is the causal effect.
@@ -290,7 +289,7 @@ Selecting on the **Aggregate causal effects** tab of the Causal analysis compone
 
 To get a granular view of causal effects on an individual datapoint, switch to the **Individual causal what-if** tab.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/individual-causal-what-if.png" alt-text="Screenshot of the dashboard showing casual analysis on the individual causal what-if tab.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/individual-causal-what-if.png" alt-text="Screenshot of the dashboard showing casual analysis on the individual causal what-if tab." lightbox="./media/how-to-responsible-ai-dashboard/individual-causal-what-if.png":::
 
 1. **X axis**: selects feature to plot on the x-axis.
 2. **Y axis**: selects feature to plot on the y-axis.
@@ -308,11 +307,11 @@ Selecting the Treatment policy tab switches to a view to help determine real-wor
 1. **Set treatment feature**: selects feature to change as a real-world intervention
 2. **Recommended global treatment policy**: displays recommended interventions for data cohorts to improve target feature value. The table can be read from left to right, where the segmentation of the dataset is first in rows and then in columns. For example, 658 individuals whose employer isn't Snapchat, and their Programming language isn't JavaScript, the recommended treatment policy is to increase the number of GitHub repos contributed to.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/causal-treatment-policy-2.png" alt-text="Screenshot of the dashboard showing a bar chart of the average gains of alternative policies over always applying treatment on the treatment policy tab.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/causal-treatment-policy-2.png" alt-text="Screenshot of the dashboard showing a bar chart of the average gains of alternative policies over always applying treatment on the treatment policy tab." lightbox= "./media/how-to-responsible-ai-dashboard/causal-treatment-policy-2.png":::
 
 **Average gains of alternative policies over always applying treatment**: plots the target feature value in a bar chart average gain in your outcome for the above recommended treatment policy versus always applying treatment.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/causal-treatment-policy-3.png" alt-text="Screenshot of the dashboard showing a recommended individual treatment policy table on the treatment policy tab.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/causal-treatment-policy-3.png" alt-text="Screenshot of the dashboard showing a recommended individual treatment policy table on the treatment policy tab." lightbox"./media/how-to-responsible-ai-dashboard/causal-treatment-policy-3.png":::
 
 1. **Show top k datapoint samples ordered by causal effects for recommended treatment feature**: selects the number of datapoints to show in the table below
 2. **Recommended individual treatment policy table**: lists, in descending order of causal effect, the datapoints whose target features would be most improved by an intervention
