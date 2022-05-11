@@ -80,7 +80,7 @@ workspace = '<AML_WORKSPACE_NAME>'
 #get a handle to the workspace
 ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
 
-tracking_uri = ml_client.workspaces.get(name="chpirill-canary").mlflow_tracking_uri
+tracking_uri = ml_client.workspaces.get(name=workspace).mlflow_tracking_uri
 
 mlflow.set_tracking_uri(tracking_uri)
 
