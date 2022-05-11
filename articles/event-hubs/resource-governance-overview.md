@@ -23,7 +23,7 @@ Application groups are logical entities that are created at the namespace level.
 
 As illustrated below, you can create application groups based on the security context that each client application uses. Therefore, application groups can span across multiple client applications using the same security context. 
 
-:::image type="content" source="./media/event-hubs-resource-governance-overview/app-groups.png" alt-text="Image showing capturing of Event Hubs data into Azure Storage or Azure Data Lake Storage":::
+:::image type="content" source="./media/event-hubs-resource-governance-overview/app-groups.png" alt-text="Image showing capturing of Event Hubs data into Azure Storage or Azure Data Lake Storage.":::
 
 Application groups have no direct association with a consumer group. Depending on the application group identifier such as security context, one consumer group can have one or more application groups associated with it or one application group can span across multiple consumer groups. 
 
