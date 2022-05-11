@@ -52,13 +52,30 @@ If you have previously labeled data that you would like to use to train your mod
 
 # [CLI v2](#tab/CLI-v2)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+Create a .yml file with the following configuration.
+
+```yml
+$schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
+name: fridge-items-images-object-detection
+description: Fridge-items images Object detection
+path: ./data/odFridgeObjects
+type: uri_folder
+```
+
+To upload the images as a data asset, you run the following CLI v2 command with the path to your .yml file, workspace name, resource group and subscription ID.
+
+```azurecli
+az ml data create -f [PATH_TO_YML_FILE] --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
+```
+
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 [!Notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=upload-data)]
 ---
 
 Next, you will need to get the label annotations in JSONL format. The schema of labeled data depends on the computer vision task at hand. Refer to [schemas for JSONL files for AutoML computer vision experiments](reference-automl-images-schema.md) to learn more about the required JSONL schema for each task type.
 
-If your training data is in a different format (like, pascal VOC or COCO), you can use the [helper scripts](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/image-object-detection/coco2jsonl.py) to convert the data to JSONL.
+If your training data is in a different format (like, pascal VOC or COCO), [helper scripts](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/image-object-detection/coco2jsonl.py) to convert the data to JSONL are available in [notebook examples](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/automl-standalone-jobs).
 
 ## Create MLTable
 
