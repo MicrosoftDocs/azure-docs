@@ -1,5 +1,5 @@
 ---
-title: What is text summarization in Azure Cognitive Service for Language (preview)?
+title: What is document summarization in Azure Cognitive Service for Language (preview)?
 titleSuffix: Azure Cognitive Services
 description: Learn about summarizing text.
 services: cognitive-services
@@ -15,12 +15,8 @@ ms.custom: language-service-summarization, ignite-fall-2021
 
 # What is document and conversation summarization (preview)?
 
-Use this documentation to learn about the summarization features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language.
-
-## Summarization options
-
+Document summarization is one of the features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Use this article to learn more about this feature, and how to use it in your applications. 
 # [Document summarization](#tab/document-summarization)
-
 This documentation contains the following article types:
 
 * [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
@@ -30,19 +26,19 @@ Text summarization is a broad topic, consisting of several approaches to represe
 
 As an example, consider the following paragraph of text:
 
-*"We’re delighted to announce that Cognitive Service for Language service now supports extractive summarization! In general, there are two approaches for automatic text summarization: extractive and abstractive. This feature provides extractive summarization. Text summarization is a feature that produces a text summary by extracting sentences that collectively represent the most important or relevant information within the original content. This feature is designed to shorten content that could be considered too long to read. Extractive summarization condenses articles, papers, or documents to key sentences."*
+*"We’re delighted to announce that Cognitive Service for Language service now supports extractive summarization! In general, there are two approaches for automatic document summarization: extractive and abstractive. This feature provides extractive summarization. Document summarization is a feature that produces a text summary by extracting sentences that collectively represent the most important or relevant information within the original content. This feature is designed to shorten content that could be considered too long to read. Extractive summarization condenses articles, papers, or documents to key sentences."*
 
-The text summarization feature would simplify the text into the following key sentences:
+The document summarization feature would simplify the text into the following key sentences:
 
-:::image type="content" source="media/feature-example.png" alt-text="A simple example of the text summarization feature." lightbox="media/feature-example.png":::
+:::image type="content" source="media/feature-example.png" alt-text="A simple example of the document summarization feature." lightbox="media/feature-example.png":::
 
 ## Key features
 
-Text summarization supports the following features:
+Document summarization supports the following features:
 
 * **Extracted sentences**: These sentences collectively convey the main idea of the document. They’re original sentences extracted from the input document’s content.
-* **Rank score**: The rank score indicates how relevant a sentence is to a document's main topic. Text summarization ranks extracted sentences, and you can determine whether they're returned in the order they appear, or according to their rank.
-* **Maximum sentences**: Determine the maximum number of sentences to be returned. For example, if you request a three-sentence summary Text summarization will return the three highest scored sentences.
+* **Rank score**: The rank score indicates how relevant a sentence is to a document's main topic. Document summarization ranks extracted sentences, and you can determine whether they're returned in the order they appear, or according to their rank.
+* **Maximum sentences**: Determine the maximum number of sentences to be returned. For example, if you request a three-sentence summary Document summarization will return the three highest scored sentences.
 * **Positional information**: The start position and length of extracted sentences.
 
 # [Conversation summarization](#tab/conversation-summarization)
@@ -102,8 +98,9 @@ To use this feature, you submit raw unstructured text for analysis and handle th
 
 |Development option  |Description  | Links | 
 |---------|---------|---------|
-| Language Studio    | A web-based platform that enables you to try text summarization without needing writing code. | • [Language Studio website](https://language.cognitive.azure.com/tryout/summarization) <br> • [Quickstart: Use the Language studio](../language-studio.md) |
-| REST API or Client library (Azure SDK)     | Integrate text summarization into your applications using the REST API, or the client library available in a variety of languages. | • [Quickstart: Use text summarization](quickstart.md) |
+| Language Studio    | A web-based platform that enables you to try document summarization without needing writing code. | • [Language Studio website](https://language.cognitive.azure.com/tryout/summarization) <br> • [Quickstart: Use the Language studio](../language-studio.md) |
+| REST API or Client library (Azure SDK)     | Integrate document summarization into your applications using the REST API, or the client library available in a variety of languages. | • [Quickstart: Use document summarization](quickstart.md) |
+
 
 # [Conversation summarization](#tab/conversation-summarization)
 
@@ -123,6 +120,7 @@ To use this feature, you submit raw text for analysis and handle the API output 
 * Text summarization takes raw unstructured text for analysis. See [Data and service limits](../concepts/data-limits.md) in the how-to guide for more information.
 * Text summarization works with a variety of written languages. See [language support](language-support.md) for more information.
 
+
 # [Conversation summarization](#tab/conversation-summarization)
 
 * Conversation summarization takes structured text for analysis. See the [data and service limits](../concepts/data-limits.md) for more information.
@@ -132,7 +130,7 @@ To use this feature, you submit raw text for analysis and handle the API output 
 
 ## Reference documentation and code samples
 
-As you use text summarization in your applications, see the following reference documentation and samples for Azure Cognitive Services for Language:
+As you use document summarization in your applications, see the following reference documentation and samples for Azure Cognitive Services for Language:
 
 |Development option / language  |Reference documentation |Samples  |
 |---------|---------|---------|
@@ -144,6 +142,6 @@ As you use text summarization in your applications, see the following reference 
 
 ## Responsible AI 
 
-An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it’s deployed. Read the [transparency note for text summarization](/legal/cognitive-services/language-service/transparency-note-extractive-summarization?context=/azure/cognitive-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
+An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it’s deployed. Read the [transparency note for document summarization](/legal/cognitive-services/language-service/transparency-note-extractive-summarization?context=/azure/cognitive-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
 
 [!INCLUDE [Responsible AI links](../includes/overview-responsible-ai-links.md)]

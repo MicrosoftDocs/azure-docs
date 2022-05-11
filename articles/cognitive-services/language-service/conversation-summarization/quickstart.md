@@ -29,4 +29,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-* [Summarization overview](../text-summarization/overview.md)
+* [Summarization overview](../document-summarization/overview.md)

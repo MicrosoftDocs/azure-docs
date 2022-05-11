@@ -1,7 +1,7 @@
 ---
-title: Text summarization language support
+title: Document summarization language support
 titleSuffix: Azure Cognitive Services
-description: Learn about which languages are supported by text summarization.
+description: Learn about which languages are supported by document summarization.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,15 +13,13 @@ ms.author: aahi
 ms.custom: language-service-summarization, ignite-fall-2021
 ---
 
-# Summarization feature language support
+# Document summarization language support
 
-Use this article to learn which natural languages are supported by document summarization and conversation summarization. 
-
-# [Document summarization](#tab/document-summarization)
+Use this article to learn which natural languages are supported by document summarization feature. 
 
 ## Languages supported by document summarization 
 
-Text summarization supports the following languages:
+Document summarization supports the following languages:
 
 | Language              | Language code |  Starting with v3 model version |     Notes          |
 |:----------------------|:-------------:|:-------------------------------:|:------------------:|
@@ -50,4 +48,4 @@ Conversation summarization supports the following languages:
 
 ## Next steps
 
-[Text summarization overview](overview.md)
+[Document summarization overview](overview.md)
