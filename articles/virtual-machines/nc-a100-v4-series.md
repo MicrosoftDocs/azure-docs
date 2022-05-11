@@ -6,7 +6,7 @@ ms.author: sherrywang
 ms.service: virtual-machines
 ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
-ms.date: 03/01/2022
+ms.date: 06/01/2022
 
 ---
 
