@@ -59,7 +59,9 @@ You can install this version of the extension in your function app by registerin
 
 ## Install bundle    
 
-The SQL bindings are part of a preview [extension bundle], which is specified in your host.json project file. 
+The SQL bindings extension is part of a preview [extension bundle], which is specified in your host.json project file.  
+
+# [Preview Bundle v3.x](#tab/extensionv3)
 
 You can add the preview extension bundle by adding or replacing the following code in your `host.json` file:
 
@@ -68,10 +70,26 @@ You can add the preview extension bundle by adding or replacing the following co
   "version": "2.0",
   "extensionBundle": {
     "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[4.0.0, 5.0.0)"
+    "version": "[3.*, 4.0.0)"
   }
 }
 ```
+
+# [Preview Bundle v4.x](#tab/extensionv4)
+
+You can add the preview extension bundle by adding or replacing the following code in your `host.json` file:
+
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[4.*, 5.0.0)"
+  }
+}
+```
+
+---
 
 ::: zone-end
 
