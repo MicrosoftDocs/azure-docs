@@ -1,7 +1,7 @@
 ---
 title: Understand your datasets
 titleSuffix: Azure Machine Learning
-description: 
+description: Perform exploratory data analysis to understand feature biases and imbalances with the Responsible AI dashboard's Data Explorer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness

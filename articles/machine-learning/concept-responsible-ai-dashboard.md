@@ -1,7 +1,7 @@
 ---
 title: Assess AI systems and make data-driven decisions with Azure Machine Learning Responsible AI dashboard
 titleSuffix: Azure Machine Learning
-description: 
+description: The Responsible AI dashboard is a comprehensive UI and set of SDK/YAML components to help data scientists debug their machine learning models and make data-driven decisions.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness

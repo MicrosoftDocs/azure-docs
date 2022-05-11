@@ -1,7 +1,7 @@
 ---
 title: Generate Responsible AI dashboard with YAML and Python (preview) 
 titleSuffix: Azure Machine Learning
-description: 
+description: Learn how to generate the Responsible AI dashboard with Python and YAML in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness

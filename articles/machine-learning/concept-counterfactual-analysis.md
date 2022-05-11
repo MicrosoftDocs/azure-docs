@@ -13,6 +13,7 @@ ms.custom: responsible-ml
 ---
 
 # Counterfactuals analysis and what-if
+
 What-if counterfactuals address the question of “what would the model predict if the action input is changed”, enables understanding and debugging of a machine learning model in terms of how it reacts to input (feature) changes. Compared with approximating a machine learning model or ranking features by their predictive importance (which standard interpretability techniques do), counterfactual analysis “interrogates” a model to determine what changes to a particular datapoint would flip the model decision. Such an analysis helps in disentangling the impact of different correlated features in isolation or for acquiring a more nuanced understanding on how much of a feature change is needed to see a model decision flip for classification models and decision change for regression models.
 
 The Counterfactual Analysis and what-if component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md) consists of two functionalities:

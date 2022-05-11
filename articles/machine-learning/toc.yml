@@ -166,20 +166,36 @@
           href: concept-component.md
         - name: MLflow
           href: concept-mlflow.md
-        - name: Responsible AI
-          items: 
-            - name: Responsible AI overview
-              displayName: responsible,ml
-              href: concept-responsible-ml.md
-            - name: Model interpretability
-              displayName: explainability
-              href: how-to-machine-learning-interpretability.md
-            - name: Fairness in Machine Learning
-              displayName: fairness
-              href: concept-fairness-ml.md
-            - name: Differential Privacy
-              displayName: differential,privacy
-              href: concept-differential-privacy.md
+    - name: Responsible AI
+      items:
+        - name: Responsible AI overview
+           displayName: responsible,ml
+           href: concept-responsible-ml.md
+        - name: Implement Responsible AI in Practice
+          items:
+           - name: Responsible AI dashboard
+             href: concept-responsible-ai-dashboard.md
+           - name: Model interpretability
+             displayName: explainability, explanations, interpretability
+             href: how-to-machine-learning-interpretability.md
+           - name: Fairness in Machine Learning
+             displayName: fairness, bias, model performance, disparity metrics, unfairness
+             href: concept-fairness-ml.md
+           - name: Causal analysis tool
+             displayName: causal analysis, causal inference
+             href: concept-causal-inference.md
+           - name: Assess errors in ML models
+             displayName: error analysis, model error
+             href: concept-error-analysis.md
+           - name: Understand your datasets
+             displayName: exploratory data analysis, EDA, dataset explorer
+             href: concept-data-analysis.md
+           - name: Counterfactuals analysis and what-if
+             href: concept-counterfactual-analysis.md
+           - name: Differential Privacy
+             displayName: differential,privacy
+             href: concept-differential-privacy.md
+
     - name: Workspace & compute resources
       items: 
         - name: Workspace

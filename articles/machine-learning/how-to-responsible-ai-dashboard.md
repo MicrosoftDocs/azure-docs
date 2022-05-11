@@ -1,7 +1,7 @@
 ---
 title: How to use the Responsible AI dashboard in studio (preview)
 titleSuffix: Azure Machine Learning
-description: 
+description: Learn how to use the different tools and visualization charts in the Responsible AI dashboard in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness

@@ -1,7 +1,7 @@
 ---
 title: Generate Responsible AI dashboard in the studio UI (preview) 
 titleSuffix: Azure Machine Learning
-description: 
+description: Learn how to generate the Responsible AI dashboard with no-code experience in the Azure Machine Learning studio UI.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
