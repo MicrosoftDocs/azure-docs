@@ -85,15 +85,15 @@ If the same prefix is announced in multiple peering locations, it is sufficient 
 
 1. If you are an Operator Connect Partner, you would be able to see the “Register Prefix” tab on the left panel of your peering resource page. 
 
-:::image type="content" source="<media/registered-prefixes-under-direct-peering.png>" alt-text="<alt Screenshot of registered prefixes tab under a peering enabled for Peering Service.>" :::
+:::image type="content" source="media/registered-prefixes-under-direct-peering.png" alt-text="Screenshot of registered prefixes tab under a peering enabled for Peering Service" :::
 
 2. Register prefixes to access the activation keys.
 
-:::image type="content" source="<media/registered-prefixes-blade.png>" alt-text="<alt Screenshot of registered prefixes blade with a list of prefixes and keys.>" :::
+:::image type="content" source="media/registered-prefixes-blade.png" alt-text="Screenshot of registered prefixes blade with a list of prefixes and keys" :::
 
-:::image type="content" source="<media/registered-prefix-example.png>" alt-text="<alt Screenshot showing a sample prefix being registered.>" :::
+:::image type="content" source="media/registered-prefix-example.png" alt-text="Screenshot showing a sample prefix being registered" :::
 
-:::image type="content" source="<media/prefix-after-registration.png>" alt-text="<alt Screenshot of registered prefixes blade showing a new prefix added.>" :::
+:::image type="content" source="media/prefix-after-registration.png" alt-text="Screenshot of registered prefixes blade showing a new prefix added" :::
 
 **Prefix Activation**
 
@@ -103,22 +103,22 @@ Below are the steps to activate the prefix.
 
 1. Look for “Peering Services” resource 
 
-:::image type="content" source="<media/peering-service-search.png>" alt-text="<alt Screenshot showing searching for Peering Service on Azure portal.>" :::
+:::image type="content" source="media/peering-service-search.png" alt-text="Screenshot on searching for Peering Service on Azure portal" :::
 
-:::image type="content" source="<media/peering-service-list.png>" alt-text="<alt Screenshot of a list of existing peering services.>" :::
+:::image type="content" source="media/peering-service-list.png" alt-text="Screenshot of a list of existing peering services" :::
 
 2. Create a new Peering Service resource
 
-:::image type="content" source="<media/create-peering-service.png>" alt-text="<alt Screenshot showing how to create a new peering service.>" :::
+:::image type="content" source="media/create-peering-service.png" alt-text="Screenshot showing how to create a new peering service" :::
 
 3. Provide details on the location, provider and primary and backup interconnect location. If backup location is set to “none”, the traffic will fail over the internet. 
 
     If you are an Operator Connect partner, you would be able to see yourself as the provider. 
     The prefix key should be the same as the one obtained in the "Prefix Registration" step. 
 
-:::image type="content" source="<media/peering-service-properties.png>" alt-text="<alt Screenshot of the fields to be filled to create a peering service.>" :::
+:::image type="content" source="media/peering-service-properties.png" alt-text="Screenshot of the fields to be filled to create a peering service" :::
 
-:::image type="content" source="<media/peering-service-deployment.png>" alt-text="<alt Screenshot showing the validation of peering service resource before deployment.>" :::
+:::image type="content" source="media/peering-service-deployment.png" alt-text="Screenshot showing the validation of peering service resource before deployment" :::
 
 ## FAQs:
 
