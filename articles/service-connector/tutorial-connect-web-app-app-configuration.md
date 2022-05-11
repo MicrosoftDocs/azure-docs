@@ -45,9 +45,8 @@ Start by creating your Azure resources.
     git clone https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet.git
     ```
 
-
 1. Deploy the web app to Azure
-    
+
     Run `az login` to sign in to and follow these steps to create an App Service and deploy the sample app. Make sure you have the Subscription Contributor role.
 
     ### [SMI](#tab/smi)
@@ -70,7 +69,7 @@ Start by creating your Azure resources.
     | Parameter    | Description                                                                             | Example |
     |--------------|-----------------------------------------------------------------------------------------|----------|
     | Location | Choose a location near you. Use `az account list-locations --output table` to list locations. | *eastus*     |
-    | Resource group name    | You will use this resource group to organize all the Azure resources needed to complete this tutorial.              | *service-connector-tutorial-rg*     |
+    | Resource group name    | You'll use this resource group to organize all the Azure resources needed to complete this tutorial.              | *service-connector-tutorial-rg*     |
     | App service name   | The app service name is used as the name of the resource in Azure and to form the fully qualified domain name for your app, in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be unique across all Azure and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`.      | *webapp-appconfig-smi*   |
 
     ### [UMI](#tab/umi)
@@ -93,10 +92,10 @@ Start by creating your Azure resources.
     | Parameter    | Description                                                                             | Example |
     |--------------|-----------------------------------------------------------------------------------------|----------|
     | Location | Choose a location near you. Use `az account list-locations --output table` to list locations. | *eastus*     |
-    | Resource group name    | You will use this resource group to organize all the Azure resources needed to complete this tutorial.              | *service-connector-tutorial-rg*     |
+    | Resource group name    | You'll use this resource group to organize all the Azure resources needed to complete this tutorial.              | *service-connector-tutorial-rg*     |
     | App service name   | The app service name is used as the name of the resource in Azure and to form the fully qualified domain name for your app, in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be unique across all Azure and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`.      | *webapp-appconfig-umi*   |
 
-    Create a user-assigned managed idendity. Save the output into a temporary notepad.
+    Create a user-assigned managed identity. Save the output into a temporary notepad.
     ```azurecli
     az identity create --resource-group $RESOURCE_GROUP_NAME -n "myIdentity"
     ```
@@ -121,10 +120,10 @@ Start by creating your Azure resources.
     | Parameter    | Description                                                                             | Example |
     |--------------|-----------------------------------------------------------------------------------------|----------|
     | Location | Choose a location near you. Use `az account list-locations --output table` to list locations. | *eastus*     |
-    | Resource group name    | You will use this resource group to organize all the Azure resources needed to complete this tutorial.              | *service-connector-tutorial-rg*     |
+    | Resource group name    | You'll use this resource group to organize all the Azure resources needed to complete this tutorial.              | *service-connector-tutorial-rg*     |
     | App service name   | The app service name is used as the name of the resource in Azure and to form the fully qualified domain name for your app, in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be unique across all Azure and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`.      | *webapp-appconfig-sp*   |
 
-    Create a service pricipal, make sure replace the `yourSubscriptionID` with your actual subscription ID. Save the output into a temporary notepad.
+    Create a service principal, make sure to replace the `yourSubscriptionID` with your actual subscription ID. Save the output into a temporary notepad.
 
     ```azurecli
     az ad sp create-for-rbac --name myServicePrincipal --role Contributor --scopes /subscriptions/{yourSubscriptionID}/resourceGroups/$RESOURCE_GROUP_NAME
@@ -132,7 +131,7 @@ Start by creating your Azure resources.
 
     ### [Connection string](#tab/connectionstring)
 
-    Create an app service and deploy the sample app that uses connection string to interact with App Config. .
+    Create an app service and deploy the sample app that uses connection string to interact with App Config.
 
     ```azurecli
     # Change directory to the service principal sample
@@ -150,10 +149,10 @@ Start by creating your Azure resources.
     | Parameter    | Description                                                                             | Example |
     |--------------|-----------------------------------------------------------------------------------------|----------|
     | Location | Choose a location near you. Use `az account list-locations --output table` to list locations. | *eastus*     |
-    | Resource group name    | You will use this resource group to organize all the Azure resources needed to complete this tutorial.              | *service-connector-tutorial-rg*     |
+    | Resource group name    | You'll use this resource group to organize all the Azure resources needed to complete this tutorial.              | *service-connector-tutorial-rg*     |
     | App service name   | The app service name is used as the name of the resource in Azure and to form the fully qualified domain name for your app, in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be unique across all Azure and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`.      | *webapp-appconfig-cs*   |
 
----
+    ---
 
 1. Create an Azure App Configuration store
 
@@ -209,7 +208,7 @@ Start by creating your Azure resources.
         az appconfig kv import -n $APP_CONFIG_NAME --source file --format json --path ./sampleconfigs.json --separator : --yes
         ```
 
----
+        ---
 
 ## Connect the web app to App Configuration
 
@@ -281,7 +280,7 @@ Service Connector manages the connection configuration for you:
 
 Service Connector manages the connection configuration for you:
 
-- Setup the web app's  `AZURE_APPCONFIGURATION_ENDPOINT`, `AZURE_APPCONFIGURATION_CLIENTID`
+- Set up the web app's  `AZURE_APPCONFIGURATION_ENDPOINT`, `AZURE_APPCONFIGURATION_CLIENTID`
 to let the application access it and get app configuration endpoint in [code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/user-assigned-managed-identity/ServiceConnectorSample/Program.cs#L10-L12);
 - Activate the web app's user-assigned managed authentication and grant App Configuration a Data Reader role to let the application authenticate to the App Configuration using DefaultAzureCredential from Azure.Identity. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/user-assigned-managed-identity/ServiceConnectorSample/Program.cs#L16).
 
