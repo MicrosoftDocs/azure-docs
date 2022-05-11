@@ -17,8 +17,9 @@ In this article, learn how to configure and use Apache JMeter user properties wi
 
 - You want to use the JMX test script in multiple deployment environments with different application endpoints.
 - Your test script needs to accommodate multiple load patterns, such as smoke tests, peak load, or soak tests.
+- You want to override default JMeter behavior by configuring JMeter settings, such as the results file format.
 
-Azure Load Testing uses the standard [Apache JMeter properties](https://jmeter.apache.org/usermanual/test_plan.html#properties) and allows you to upload a user properties file. You can configure one user properties file per load test.
+Azure Load Testing supports the standard [Apache JMeter properties](https://jmeter.apache.org/usermanual/test_plan.html#properties) and enables you to upload a user properties file. You can configure one user properties file per load test.
 
 Alternately, you can also [use environment variables and secrets in Azure Load Testing](./how-to-parameterize-load-tests.md) to make your tests configurable.
 
@@ -43,6 +44,8 @@ durationSeconds=600
 ```
 
 Azure Load Testing supports using a single properties file per load test. Additional property files are ignored.
+
+You can also specify [JMeter configuration settings](https://jmeter.apache.org/usermanual/properties_reference.html) in user properties file to override default behavior. For example, you can modify any of the `jmeter.save.saveservice.*` settings to configure the JMeter results file.
 
 ::: zone pivot="experience-azp"
 
@@ -75,16 +78,15 @@ To add a user properties file to your load test, follow these steps:
 1. Add the *.properties* file to the source control repository.
 1. Open your YAML test configuration file in Visual Studio Code or your editor of choice.
 1. Specify the *.properties* file in the `properties.userPropertyFile` setting.
-
     ```yaml
     testName: MyTest
     testPlan: SampleApp.jmx
     description: Configure a load test with peak load properties.
     engineInstances: 1
     properties:
-      userPropertyFile: 'peak-load.properties'
+      userPropertyFile: peak-load.properties
     configurationFiles:
-      - 'input-data.csv'
+      - input-data.csv
     ```
 
     > [!NOTE]
