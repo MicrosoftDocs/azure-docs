@@ -55,7 +55,7 @@ This article is a reference for the supported identity providers in API Manageme
 
 --- 
 
-## Google, Facebook, LinkedIn, Instagram, Spotify, Dropbox, GitHub   
+## Google, LinkedIn, Spotify, Dropbox, GitHub   
 
 **Supported grant types**: authorization code
 
