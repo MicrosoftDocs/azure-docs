@@ -171,7 +171,7 @@ Managed online endpoints can help streamline your deployment process. Managed on
     > [!NOTE]
     > Managed online endpoints are based on Azure Machine Learning compute. When using a managed online endpoint, you pay for the compute and networking charges. There is no additional surcharge.
     >
-    > If you use a virtual network and secure outbound (egress) traffic from the managed online endpoint, there is an additional cost. For egress, three private endpoints are created _per deployment_ for the managed online endpoint. These are used to communicate with the default storage account, Azure Container Registry, and workspace. Additional networking charges may apply. For more information on pricing, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).zzs
+    > If you use a virtual network and secure outbound (egress) traffic from the managed online endpoint, there is an additional cost. For egress, three private endpoints are created _per deployment_ for the managed online endpoint. These are used to communicate with the default storage account, Azure Container Registry, and workspace. Additional networking charges may apply. For more information on pricing, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 For a step-by-step tutorial, see [How to deploy online endpoints](how-to-deploy-managed-online-endpoints.md).
 
@@ -204,9 +204,15 @@ You can [override compute resource settings](how-to-use-batch-endpoint.md#config
 
 You can use the following options for input data when invoking a batch endpoint:
 
-- Azure Machine Learning registered datasets - for more information, see [Create Azure Machine Learning datasets](how-to-train-with-datasets.md)
+- Azure Machine Learning registered datasets - for more information, see [Create Azure Machine Learning datasets](how-to-train-with-datasets.md), which uses SDK v1.
+
+    > [!NOTE]
+    > Currently V1 FileDataset is supported for batch endpoint, and we will enable V2 data assets in the future. For more information on V2 data assets, see [Work with data using SDK v2 (preview)](how-to-use-data.md). For more information on the new V2 experience, see [What is v2](concept-v2.md).
+
 - Cloud data - Either a public data URI or data path in datastore. For more information, see [Connect to data with the Azure Machine Learning studio](how-to-connect-data-ui.md)
 - Data stored locally
+
+For more information on supported input options, see [Batch scoring with batch endpoint](how-to-use-batch-endpoint.md#invoke-the-batch-endpoint-with-different-input-options).
 
 Specify the storage output location to any datastore and path. By default, batch endpoints store their output to the workspace's default blob store, organized by the Job Name (a system-generated GUID).
 
