@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/28/2022
+ms.date: 05/12/2022
 ms.author: helohr
 manager: femila
 ---
@@ -23,12 +23,12 @@ To summarize, to keep your users connected during an outage, you'll need to do t
 
 - Replicate the VMs to a secondary location.
 - If you're using profile containers, set up data replication in the secondary location.
-- Make sure user identities you set up in the primary location are available in the secondary location. You would do this by making your Active Directory Domain Controllers availble in or from the secondary location
+- Make sure user identities you set up in the primary location are available in the secondary location. To ensure availability, make sure your Active Directory Domain Controllers are available in or from the secondary location.
 - Make sure any line-of-business applications and data in your primary location are also failed over to the secondary location.
 
 ## Active-passive and active-active disaster recovery plans
 
-There are two different types of disaster recovery infrastructure: active-passive and active-active. Each of them works a different way.
+There are two different types of disaster recovery infrastructure: active-passive and active-active. Each type of infrastructure works a different way, so let's look at what those differences are.
 
 Active-passive plans are when you have a region with one set of resources that's active and one that's turned off until it's needed (passive). If the active region is taken offline by an outage or disaster, the organization can switch to the passive region by turning it on and directing all the users there.
 
@@ -114,7 +114,7 @@ Let’s take a look at how to configure FSLogix to set up disaster recovery for 
 
 ### FSLogix configuration
 
-The FSLogix agent can support multiple profile locations using the standard "VHDLocations" option. This method doesn't have anything to do with the Cloud Cache, so if you'd rather use the cache, skip ahead to [FSLogix Cloud Cache](#fslogix-cloud-cache). This option also does not do any replication of data it just allows you multiple storage providers that the FSLogix agent can look in to find or create your user profile. This separately requires storage replication in order for the profile to be made available in the secondary region. 
+The FSLogix agent can support multiple profile locations using the standard [VHDLocations](/fslogix/profile-container-configuration-reference#vhd-locations) option. This method doesn't have anything to do with the Cloud Cache, so if you'd rather use the cache, skip ahead to [FSLogix Cloud Cache](#fslogix-cloud-cache). This option also doesn't replicate data; it allows you access to multiple storage providers that the FSLogix agent can look in to find or create your user profile. This option separately requires storage replication so that the profile can be made available in the secondary region. 
 
 To configure the registry entries:
 
@@ -134,14 +134,13 @@ To configure the registry entries:
 
 If the first location is unavailable, the FSLogix agent will automatically fail over to the second, and so on.
 
-We recommend you configure the FSLogix agent VHDLocation registry setting with both storage locations in both of the Azure locations you have deployed them. To do this you would have two different group policies one for the session hosts located in primary region with the correspoding storage locations ordered with the primary first and the secondary second. The second group policy would be for the session hosts in the secondary location with the storage options reveresed, such that the secondary storage location is listed first just for the VM's in the secondary or failover site.
+We recommend you configure the FSLogix agent VHDLocation registry setting with both storage locations in both of the Azure locations you have deployed them. To configure the VHDLocation registry setting, you'll need to set up two different group policies. The first group policy is for the session hosts located in primary region with the corresponding storage locations ordered with the primary first and the secondary second. The second group policy would be for the session hosts in the secondary location with the storage options reversed, so that the secondary storage location is listed first for only the VMs in the secondary or failover site.
 
 For example, let's say your primary session host VMs are in the Central US region, and the profile container is also in the Central US region for performance reasons. In this case, you'd configure the FSLogix agent with a path to the storage in the Central US region listed first. Next, you'd configure the the storage service you used in the previous example to replicate to the West US region. Once the path to Central US fails, the agent will try to load the profile in West US instead.
 
-
 ### FSlogix Cloud Cache
 
-FSlogix supports replicating user and Office containers from the agent running on the session host itself. While you'll need to deploy multiple storage providers in multiple regions to store the replicated profiles, you won't need to configure the storage service's replication capabilities as you do when using multiple entries in VHDLocations as in the previous example. However, before you start configuring FSLogix Cloud cache, you should be aware this method requires extra processing and storage space on the session host itself. Make sure you review [Cloud Cache to create resiliency and availability](/fslogix/cloud-cache-resiliency-availability-cncpt) before you get started.
+FSlogix supports replicating user and Office containers from the agent running on the session host itself. While you'll need to deploy multiple storage providers in multiple regions to store the replicated profiles, you won't need to configure the storage service's replication capabilities with multiple entries like you did with the VHDLocations settings in the previous section. However, before you start configuring FSLogix Cloud cache, you should be aware this method requires extra processing and storage space on the session host itself. Make sure you review [Cloud Cache to create resiliency and availability](/fslogix/cloud-cache-resiliency-availability-cncpt) before you get started.
 
 You can configure FSlogix Cloud Cache directly in the registry based on the VHDLocations example in the previous section. However, we recommend you configure the cloud cache using a group policy instead. To create or edit a group policy object, go to **Computer Configuration** > **Administrative Templates** > **FSLogix** > **Profiles Containers (and Office 365 Containers, if necessary) > Cloud Cache - Cloud Cache Locations**. Once you've created or edited your policy object, you'll need to enable it, then list all storage provider locations you want the FSLogix to replicate it to, as shown in the following image. 
 
