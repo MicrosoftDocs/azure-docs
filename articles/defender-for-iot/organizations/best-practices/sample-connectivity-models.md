@@ -28,3 +28,19 @@ The following diagram is a general abstraction of a multilayer, multitenant netw
 Typically, NTA sensors are deployed in layers 0 to 3 of the OSI model.
 
 :::image type="content" source="media/how-to-set-up-your-network/osi-model.png" alt-text="Diagram of the OSI model." lightbox="media/how-to-set-up-your-network/osi-model.png":::
+
+## Next steps
+
+After you've [understood your own network's OT architecture](understand-network-architecture.md) and [planned out your deployment](plan-network-monitoring.md), learn more about methods for traffic mirroring and passive or active monitoring.
+
+For more information, see:
+
+- [Traffic mirroring methods for OT monitoring](traffic-mirroring-methods.md)
+- [Active and passive OT monitoring in Defender for IoT](passive-active-monitoring.md)
+
+To get started with Defender for IoT:
+
+- [Welcome to Microsoft Defender for IoT for organizations](overview.md)
+- [Quickstart: Get started with Defender for IoT](getting-started.md)
+- [About Microsoft Defender for IoT network setup](how-to-set-up-your-network.md)
+

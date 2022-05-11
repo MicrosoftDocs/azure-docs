@@ -174,3 +174,15 @@ The following TAP models have been tested for compatibility with Defender for Io
 
 ## Next steps
 
+After you've [understood your own network's OT architecture](understand-network-architecture.md) and [planned out your deployment](plan-network-monitoring.md), learn more about sample connectivity methods and active or passive monitoring.
+
+For more information, see:
+
+- [Sample OT network connectivity models](sample-connectivity-models.md)
+- [Active and passive OT monitoring in Defender for IoT](passive-active-monitoring.md)
+
+To get started with Defender for IoT:
+
+- [Welcome to Microsoft Defender for IoT for organizations](overview.md)
+- [Quickstart: Get started with Defender for IoT](getting-started.md)
+- [About Microsoft Defender for IoT network setup](how-to-set-up-your-network.md)

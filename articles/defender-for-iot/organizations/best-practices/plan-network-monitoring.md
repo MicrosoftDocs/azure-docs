@@ -1,11 +1,16 @@
 ---
-title: Plan your OT network monitoring - Microsoft Defender for IoT
+title: Plan your sensor connections for OT monitoring - Microsoft Defender for IoT
 description: Learn about best practices for planning your OT network monitoring with Microsoft Defender for IoT.
 ms.topic: conceptual
 ms.date: 03/27/2022
 ---
 
-# Plan your sensor connections
+# Plan your sensor connections for OT monitoring
+
+After you've [understood your network's OT architecture and how the Purdue module applies](understand-network-architecture.md), start planning your sensor connections in a Microsoft Defender for IoT deployment.
+
+
+## Sensor placement considerations
 
 We recommend that Defender for IoT monitors traffic from Purdue layers 1 and 2. For some architectures, if OT traffic exists on layer 3, Defender for IoT will also monitor layer 3 traffic.
 
@@ -17,9 +22,6 @@ Review your OT and ICS network diagram together with your site engineers to defi
 - Switch models and whether they support port mirroring
 - Switch managers, including external resources
 - OT networks on your site
-
-For more information, see [Sample: Multi-layer, multi-tenant network](#sample-multi-layer-multi-tenant-network) and [More questions for planning your network connections](#more-questions-for-planning-your-network-connections).
-
 
 ## Multi-sensor deployments
 
@@ -74,7 +76,15 @@ Other common questions to consider when planning your network connections to Def
 
 ## Next steps
 
+After you've understood your own network's OT architecture and planned out your deployment, learn more about methods for traffic mirroring and passive or active monitoring, and browse sample connectivity methods.
+
 For more information, see:
+
+- [Traffic mirroring methods for OT monitoring](traffic-mirroring-methods.md)
+- [Sample OT network connectivity models](sample-connectivity-models.md)
+- [Active and passive OT monitoring in Defender for IoT](passive-active-monitoring.md)
+
+To get started with Defender for IoT:
 
 - [Welcome to Microsoft Defender for IoT for organizations](overview.md)
 - [Quickstart: Get started with Defender for IoT](getting-started.md)
