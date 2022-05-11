@@ -1,5 +1,5 @@
 ---
-title: Upload and analyze a file with Azure Functions and Blob Storage
+title: Upload and analyze a file with Azure Functions (JavaScript) and Blob Storage
 description: With JavaScript, learn how to upload an image to Azure Blob Storage and analyze its content using Azure Functions and Cognitive Services
 author: diberry
 ms.author: diberry
@@ -206,7 +206,7 @@ The following [function.json](https://github.com/Azure-Samples/msdocs-storage-bi
     * `tableName`: The name of the table to write the parsed image text value returned by the function. 
     * `connection`: The Table Storage connection string from the environment variable so that the Azure function has access to it. 
 
-:::code language="javascript" source="source="~/msdocs-storage-bind-function-service/javascript/ProcessImageUpload/index.js" range="36-60":::
+:::code language="javascript" source="~/msdocs-storage-bind-function-service/javascript/ProcessImageUpload/index.js" range="36-60":::
 
 This code also retrieves essential configuration values from environment variables, such as the storage account connection string and Computer Vision key. These environment variables are added to the Azure Function environment after it's deployed.
 
