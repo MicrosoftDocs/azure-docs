@@ -40,7 +40,7 @@ The [Usage dashboard](https://go.microsoft.com/fwlink/?linkid=2166106) displays 
 
 1. In the left menu, select **Usage**.
 
-    ![Illustrates the Insights tile on the Partner Center Home page.](./media/usage-dashboard/usage-select.png)(./media/usage-dashboard/usage-select.png#lightbox)
+    [![Illustrates the Insights tile on the Partner Center Home page.](./media/usage-dashboard/usage-select.png)](./media/usage-dashboard/usage-select.png#lightbox)
 
 ## Elements of the Usage dashboard
 
