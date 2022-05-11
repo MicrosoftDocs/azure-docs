@@ -824,9 +824,9 @@ Azure Synapse SQL returns NULL instead of the values that you see in the transac
 
 The error "Column `column name` of the type `type name` is not compatible with the external data type `type name`" is returned if the specified column type in the WITH clause doesn't match the type in the Azure Cosmos DB container. Try to change the column type as it's described in the section [Azure Cosmos DB to SQL type mappings](query-cosmos-db-analytical-store.md#azure-cosmos-db-to-sql-type-mappings) or use the VARCHAR type.
 
-### Resolving Azure Cosmos DB path has failed
+### Resolving CosmosDB path has failed with error
 
-If you get the error "Resolving Cosmos DB path has failed with error 'This request is not authorized to perform this operation'," check to see if you used private endpoints in Azure Cosmos DB. To allow serverless SQL pool to access an analytical store with private endpoints, you must [configure private endpoints for the Azure Cosmos DB analytical store](../../cosmos-db/analytical-store-private-endpoints.md#using-synapse-serverless-sql-pools).
+If you get the error "Resolving CosmosDB path has failed with error 'This request is not authorized to perform this operation'," check to see if you used private endpoints in Azure Cosmos DB. To allow serverless SQL pool to access an analytical store with private endpoints, you must [configure private endpoints for the Azure Cosmos DB analytical store](../../cosmos-db/analytical-store-private-endpoints.md#using-synapse-serverless-sql-pools).
 
 ### Azure Cosmos DB performance issues
 
@@ -883,8 +883,8 @@ Serverless SQL pool assigns the resources to the queries based on the size of th
 
 If you have queries with a query duration longer than 30 minutes, the query slowly returning results to the client are slow. Serverless SQL pool has a 30-minute limit for execution. Any more time is spent on result streaming. Try the following workarounds:
 
-- If you use [Synapse Studio](#query-is-slow-when-executed-using-synapse-studio), try to reproduce the issues with some other application like SQL Server Management Studio or Azure Data Studio.
-- If your query is slow when executed by using [SQL Server Management Studio, Azure Data Studio, Power BI, or some other application](#query-is-slow-when-executed-using-application), check networking issues and best practices.
+- If you use [Synapse Studio](#query-is-slow-when-executed-by-using-synapse-studio), try to reproduce the issues with some other application like SQL Server Management Studio or Azure Data Studio.
+- If your query is slow when executed by using [SQL Server Management Studio, Azure Data Studio, Power BI, or some other application](#query-is-slow-when-executed-by-using-application), check networking issues and best practices.
 - Put the query in the CETAS command and measure the query duration. The CETAS command stores the results to Azure Data Lake Storage and doesn't depend on the client connection. If the CETAS command finishes faster than the original query, check the network bandwidth between the client and serverless SQL pool.
 
 #### Query is slow when executed by using Synapse studio
@@ -940,7 +940,7 @@ Make sure that a user has permissions to access databases, [permissions to execu
 
 You must use a read-only Azure Cosmos DB key to access your analytical storage, so make sure that it didn't expire or that it isn't regenerated.
 
-If you get the ["Resolving Azure Cosmos DB path has failed"](#resolving-cosmos-db-path-has-failed) error, make sure that you configured a firewall.
+If you get the ["Resolving CosmosDB path has failed"](#resolving-cosmosdb-path-has-failed) error, make sure that you configured a firewall.
 
 ### Can't access lakehouse or Spark database
 
