@@ -117,12 +117,12 @@ The Azure virtual machines you create for Azure Virtual Desktop must have access
 > 
 > |Address|Outbound TCP port|Purpose|Service Tag|
 > |---|---|---|---|
-> |gcs.monitoring.core.usgovcloudapi.net|443|Agent traffic (optional)|AzureCloud|
-> |monitoring.core.usgovcloudapi.net|443|Agent traffic (optional)|AzureCloud|
-> |fairfax.warmpath.usgovcloudapi.net|443|Agent traffic (optional)|AzureCloud|
-> |*xt.blob.core.usgovcloudapi.net|443|Agent traffic (optional)|AzureCloud|
-> |*.servicebus.usgovcloudapi.net|443|Agent traffic (optional)|AzureCloud|
-> |*xt.table.core.usgovcloudapi.net|443|Agent traffic (optional)|AzureCloud|
+> |gcs.monitoring.core.usgovcloudapi.net|443|Agent traffic (deprecated)|AzureCloud|
+> |monitoring.core.usgovcloudapi.net|443|Agent traffic (deprecated)|AzureCloud|
+> |fairfax.warmpath.usgovcloudapi.net|443|Agent traffic (deprecated)|AzureCloud|
+> |*xt.blob.core.usgovcloudapi.net|443|Agent traffic (deprecated)|AzureCloud|
+> |*.servicebus.usgovcloudapi.net|443|Agent traffic (deprecated)|AzureCloud|
+> |*xt.table.core.usgovcloudapi.net|443|Agent traffic (deprecated)|AzureCloud|
 
 The following table lists optional URLs that your Azure virtual machines can have access to:
 
