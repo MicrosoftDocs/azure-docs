@@ -18,28 +18,28 @@ The Cloud-Native Observability Platform of NGINX centralizes log, metric, and tr
 
 The NGINX for Azure offering in the Azure Marketplace allows you to manage NGINX in the Azure portal as an integrated service. You can implement NGINX as a monitoring solution for your cloud workloads through a streamlined workflow.
 
-You can provision the NGINX resources through a resource provider named Nginx.NginxPlus. You can create, provision, and manage NGINX resources through the Azure portal. NGINX owns and runs the software as a service (SaaS) application including the NGINX accounts created.
+You can set up the NGINX resources through a resource provider named Nginx.NginxPlus. You can create, provision, and manage NGINX resources through the Azure portal. NGINX owns and runs the software as a service (SaaS) application including the NGINX accounts created.
 
 Here are the key capabilities provided by the Azure NGINX integration:
 
 - **Seamless onboarding** of NGINX SaaS software as an integrated service on Azure
 - **Unified billing** of NGINX SaaS through Azure Monthly bill  
 - **Single-Sign on to NGINX.** No separate sign-up needed from NGINX portal
-- **Lift and Shift config files** - Ability to leverage and use existing Configuration (.conf) files for SaaS deployment
+- **Lift and Shift config files** - Ability to use existing Configuration (.conf) files for SaaS deployment
 
 ## Pre-requisites  
 
 ### Subscription owner
 
-The Azure NGINX integration can only be setup by users who have Owner access on the Azure subscription. Ensure you have the appropriate Owner access before starting to setup this integration.
+The Azure NGINX integration can only be set up by users who have Owner access on the Azure subscription. Ensure you have the appropriate Owner access before starting to set up this integration.
 
 ## Find NGINX for Azure in the Azure Marketplace
 
 1. Navigate to the Azure Marketplace page.
 
-1. Search for NGINX integration listed there.  
+1. Search for _NGINX for Azure_ listed.  
 
-1. In the plan overview screen, select the **Setup and Subscribe** button. The **Create new NGINX account** window opens.  
+1. In the plan overview pane, select the **Setup and Subscribe**. The **Create new NGINX account** window opens.  
 
 ## Next steps
 
