@@ -6,7 +6,7 @@ services: azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/10/2022
+ms.date: 05/11/2022
 ---
 
 # Overview of Azure Monitor agents
@@ -53,7 +53,7 @@ Use the Azure Monitor agent to gain these benefits:
   -	Granular targeting via [Data Collection Rules](../essentials/data-collection-rule-overview.md) to collect specific data types from specific machines, as compared to the "all or nothing" mode that Log Analytics agent supports
   -	Use XPath queries to filter Windows events that get collected. This helps further reduce ingestion and storage costs.
 - **Centrally configure** collection for different sets of data from different sets of VMs.
-- **Simplified management of data collection:** Send data from Windows and Linux VMs to multiple Log Analytics workspaces (i.e. "multi-homing") and/or other [supported destinations](#data-sources-and-destinations). Additionally, every action across the data collection lifecycle, from onboarding to deployment to updates, is significantly easier, scalable, and centralized (in Azure) using data collection rules
+- **Simplified management of data collection:** Send data from Windows and Linux VMs to multiple Log Analytics workspaces (i.e. "multi-homing") and/or other [supported destinations](./azure-monitor-agent-overview.md#data-sources-and-destinations). Additionally, every action across the data collection lifecycle, from onboarding to deployment to updates, is significantly easier, scalable, and centralized (in Azure) using data collection rules
 - **Management of dependent solutions or services:** The Azure Monitor agent uses a new method of handling extensibility that's more transparent and controllable than management packs and Linux plug-ins in the legacy Log Analytics agents. Moreover this management experience is identical for machines in Azure or on-premises/other clouds via Azure Arc, at no added cost.
 - **Security and performance** - For authentication and security, it uses Managed Identity (for virtual machines) and AAD device tokens (for clients) which are both much more secure and ‘hack proof’ than certificates or workspace keys that legacy agents use. This agent performs better at higher EPS (events per second upload rate)  compared to legacy agents.
 - Manage data collection configuration centrally, using [data collection rules](../essentials/data-collection-rule-overview.md) and use Azure Resource Manager (ARM) templates or policies for management overall.
