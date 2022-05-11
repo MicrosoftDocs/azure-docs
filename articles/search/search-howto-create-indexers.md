@@ -155,7 +155,7 @@ When you're ready to create an indexer on a remote search service, you'll need a
 
 1. On the search service Overview page, choose from two options: 
 
-   + [**Import data wizard**](search-import-data-portal.md). The wizard is unique in that it creates all of the required elements. Other approaches require that you have predefined a data source and index.
+   + [**Import data wizard**](search-import-data-portal.md). The wizard is unique in that it creates all of the required elements. Other approaches require a predefined data source and index.
 
    + **New Indexer**, a visual editor for specifying an indexer definition. 
 
@@ -228,7 +228,7 @@ If your data source supports change detection, an indexer can detect underlying 
 
 Change detection logic is built into the data platforms. How an indexer supports change detection varies by data source:
 
-+ Azure Storage has built-in change detection, which means an indexer can recognize new and updated documents automatically.. Blob Storage, Azure Table Storage, and Azure Data Lake Storage Gen2 stamp each blob or row update with a date and time. An indexer can use this information to determine which documents to update in the index.
++ Azure Storage has built-in change detection, which means an indexer can recognize new and updated documents automatically. Blob Storage, Azure Table Storage, and Azure Data Lake Storage Gen2 stamp each blob or row update with a date and time. An indexer can use this information to determine which documents to update in the index.
 
 + Azure SQL and Cosmos DB provide optional change detection features in their platforms. You can specify the change detection policy in your data source definition.
 
