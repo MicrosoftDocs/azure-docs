@@ -31,7 +31,7 @@ After creating the necessary credentials, it is highly recommended to backup any
 
 ## Backup a TDE Credential from Azure Arc-enabled SQL Managed Instance
 
-When backing up from Azure Arc-enabled SQL Managed Instance, the credentials should be stored on one of the volume mounts paths within the container. The mount path for the data volume within the container is `/var/opt/mssql/data`, so this would be an appropriate location to place these credentials. Below is an example of backing up a certificate from Azure Arc-enabled SQL Managed Instance.
+When backing up from Azure Arc-enabled SQL Managed Instance, the credentials will be stored within the container. It is not necessary to store the credentials on a persistent volume, but you may use the mount path for the data volume within the container if you'd like: `/var/opt/mssql/data`. Otherwise, the credentials will be stored in-memory in the container.  Below is an example of backing up a certificate from Azure Arc-enabled SQL Managed Instance.
 
 1. Backup the certificate from the container to `/var/opt/mssql/data`.
 
@@ -53,6 +53,12 @@ kubectl cp -n arc-ns -c arc-sqlmi sql-0:/var/opt/mssql/data/servercert.crt $HOME
 kubectl cp -n arc-ns -c arc-sqlmi sql-0:/var/opt/mssql/data/servercert.key $HOME/sqlcerts/servercert.key
 ```
 
+4. Delete the certificate and private key from the container.
+
+```bash
+kubectl exec -it -n arc-ns -c arc-sqlmi sql-0 -- bash -c "rm /var/opt/mssql/data/servercert.crt /var/opt/mssql/data/servercert.key"
+```
+
 ## Restore a TDE Credential to Azure Arc-enabled SQL Managed Instance
 
 Similar to above, restore the credentials by copying them into the container and running the corresponding T-SQL afterwards.
@@ -60,20 +66,26 @@ Similar to above, restore the credentials by copying them into the container and
 1. Copy the certificate from your file system to the container.
 
 ```bash
-kubectl cp -n onprem-indirect -c arc-sqlmi $HOME/sqlcerts/servercert.crt sql-0:/var/opt/mssql/data/servercert.crt
+kubectl cp -n arc-ns -c arc-sqlmi $HOME/sqlcerts/servercert.crt sql-0:/var/opt/mssql/data/servercert.crt
 ```
 
 2. Copy the private key from your file system to the container.
 
 ```bash
-kubectl cp -n onprem-indirect -c arc-sqlmi $HOME/sqlcerts/servercert.key sql-0:/var/opt/mssql/data/servercert.key
+kubectl cp -n arc-ns -c arc-sqlmi $HOME/sqlcerts/servercert.key sql-0:/var/opt/mssql/data/servercert.key
 ```
 
-3. Create the certificate using file paths from `/var/opt/mssql/data`
+3. Create the certificate using file paths from `/var/opt/mssql/data`.
 
 ```sql
 CREATE CERTIFICATE MyServerCertRestored
 FROM FILE = '/var/opt/mssql/data/servercert.crt'
 WITH PRIVATE KEY ( FILE = '/var/opt/mssql/data/servercert.key',
     DECRYPTION BY PASSWORD = '<UseStrongPasswordHere>' )
+```
+
+4. Delete the certificate and private key from the container.
+
+```bash
+kubectl exec -it -n arc-ns -c arc-sqlmi sql-0 -- bash -c "rm /var/opt/mssql/data/servercert.crt /var/opt/mssql/data/servercert.key"
 ```
