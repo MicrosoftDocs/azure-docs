@@ -2,10 +2,8 @@
 title: Understand the enhanced security features of Microsoft Defender for Cloud 
 description: Learn about the benefits of enabling enhanced security in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 04/11/2022
-ms.author: benmansheim
+ms.date: 05/11/2022
 ms.custom: references_regions
-author: bmansheim
 ---
 
 # Microsoft Defender for Cloud's enhanced security features
@@ -108,24 +106,37 @@ Yes. If you've configured your Log Analytics agent to send data to two or more d
 Yes. If you've configured your Log Analytics agent to send data to two or more different Log Analytics workspaces (multi-homing), you'll get 500 MB free data ingestion. It's calculated per node, per reported workspace, per day, and available for every workspace that has a 'Security' or 'AntiMalware' solution installed. You'll be charged for any data ingested over the 500 MB limit.
 
 ### Is the 500 MB free data ingestion calculated for an entire workspace or strictly per machine?
-You'll get 500 MB free data ingestion per day, for every machine connected to the workspace. Specifically for security data types directly collected by Defender for Cloud. 
+You'll get 500 MB free data ingestion per day, for every VM connected to the workspace. Specifically for the [security data types](#what-data-types-are-included-in-the-500-mb-data-daily-allowance) that are directly collected by Defender for Cloud. 
 
-This data is a daily rate averaged across all nodes. So even if some machines send 100-MB and others send 800-MB, if the total doesn't exceed the **[number of machines] x 500 MB** free limit, you won't be charged extra.
+This data is a daily rate averaged across all nodes. Your total daily free limit is equal to **[number of machines] x 500 MB**. So even if some machines send 100-MB and others send 800-MB, if the total doesn't exceed your total daily free limit, you won't be charged extra.
 
 ### What data types are included in the 500 MB data daily allowance?
 Defender for Cloud's billing is closely tied to the billing for Log Analytics. [Microsoft Defender for Servers](defender-for-servers-introduction.md) provides a 500 MB/node/day allocation for machines against the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security):
-- SecurityAlert
-- SecurityBaseline
-- SecurityBaselineSummary
-- SecurityDetection
-- SecurityEvent
-- WindowsFirewall
-- MaliciousIPCommunication
-- SysmonEvent
-- ProtectionStatus
-- Update and UpdateSummary data types when the Update Management solution is not running on the workspace or solution targeting is enabled
+
+- [SecurityAlert](/azure/azure-monitor/reference/tables/securityalert)
+- [SecurityBaseline](/azure/azure-monitor/reference/tables/securitybaseline)
+- [SecurityBaselineSummary](/azure/azure-monitor/reference/tables/securitybaselinesummary)
+- [SecurityDetection](/azure/azure-monitor/reference/tables/securitydetection)
+- [SecurityEvent](/azure/azure-monitor/reference/tables/securityevent)
+- [WindowsFirewall](/azure/azure-monitor/reference/tables/windowsfirewall)
+- [MaliciousIPCommunication](/azure/azure-monitor/reference/tables/maliciousipcommunication)
+
+- [WindowsEvent](/azure/azure-monitor/reference/tables/windowsevent)
+- [LinuxAuditLog](/azure/azure-monitor/reference/tables/linuxauditlog)
 
 If the workspace is in the legacy Per Node pricing tier, the Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data.
+
+## How can I monitor my daily usage
+
+You can view your daily usage by running the following script:
+
+```bash
+INSERT SCRIPT HERE
+```
+
+**INSERT SCREENSHOT HERE**
+
+Based on your usage, you will not be billed until you have used your daily allowance. If you are receiving a bill, it is only for the data used after the 500mb has been consumed.
 
 ## Next steps
 This article explained Defender for Cloud's pricing options. For related material, see:
