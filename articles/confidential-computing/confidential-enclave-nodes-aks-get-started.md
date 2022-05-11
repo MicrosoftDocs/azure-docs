@@ -61,7 +61,7 @@ az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enabl
 ```
 The above command will deploy a new AKS cluster with system node pool of non confidential computing node. Confidential computing Intel SGX nodes are not recommended for system node pools.
 
-### Add an user node pool with confidential computing capabilities to the AKS cluster
+### Add an user node pool with confidential computing capabilities to the AKS cluster<a id="add-a-user-node-pool-with-confidential-computing-capabilities-to-the-aks-cluster"></a>
 
 Run the following command to add a user node pool of `Standard_DC4s_v3` size with three nodes to the AKS cluster. You can choose another larger sized SKU from the [list of supported DCsv2/DCsv3 SKUs and regions](../virtual-machines/dcv3-series.md).
 
