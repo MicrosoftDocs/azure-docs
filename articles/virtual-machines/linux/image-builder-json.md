@@ -195,6 +195,12 @@ To learn more, see [How to use managed identities for Azure resources on an Azur
 ## Properties: stagingResourceGroup
 The `stagingResourceGroup` field contains information about the staging resource group that the Image Builder service will create for use during the image build process. The `stagingResourceGroup` is an optional field for anyone who wants more control over the resource group created by Image Builder during the image build process. You can create your own resource group and specify it in the `stagingResourceGroup` section or have Image Builder create one on your behalf.
 
+```json			 
+    "properties": {
+      "stagingResourceGroup": "/subscriptions/<subscriptionID>/resourceGroups/<stagingResourceGroupName>"
+    }
+```
+
 > [!NOTE]
 > Any staging resource group specified for use by the Image Builder service must be empty (no resources inside), in the same region as the image template and have either "Contributor" or "Owner" RBAC assigned to it.
 
@@ -213,12 +219,6 @@ If the `stagingResourceGroup` field is specified with a resource group that does
 Any staging resource group created by the Image Builder service will be deleted after the image build process is completed. This includes staging resource groups that were specified in the `stagingResourceGroup` field, but did not exist prior to the image build. 
 
 If Image Builder did not create the staging resource group, but it did create resources inside of it, those resources will be deleted after the image build process as long as the Image Builder service has the appropriate permissions or role required to delete resources. 
-
-```json			 
-    "properties": {
-      "stagingResourceGroup": "/subscriptions/<subscriptionID>/resourceGroups/<stagingResourceGroupName>"
-    }
-```
 
 
 ## Properties: source
