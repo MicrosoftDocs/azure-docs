@@ -17,26 +17,16 @@ Azure Container Apps implements container app versioning by creating revisions. 
 - The first revision is automatically created when you deploy your container app.
 - New revisions are automatically created when you make a [*revision-scope*](#revision-scope-changes) change to your container app.
 - While revisions are immutable, they're affected by [*application-scope*](#application-scope-changes) changes, which apply to all revisions.
+- Up to 100 revisions are retained giving you a historical record of your container app updates.
+- You can run multiple revisions concurrently.
+- You can split external HTTP traffic between active revisions.
 
 :::image type="content" source="media/revisions/azure-container-apps-revisions.png" alt-text="Azure Container Apps: Containers":::
 
-## Revision modes
-
-The revision mode controls whether only a single revision or multiple revisions of your container app can be simultaneously active. You can set your app's revision mode from your container app's **Revision management** page in the Azure portal, using Azure CLI commands, or in the ARM template.
-
-### Single revision mode
-
-By default, a container app is in *single revision mode*. In this mode, only one revision is active at a time. When a new revision is created in *single revision mode*, the latest revision replaces the active revision.
-
-### Multiple revision mode
-
-Set the revision mode to *multiple revision mode*, to run multiple revisions of your app simultaneously. While in *multiple revision mode*, new revisions are activated alongside current active revisions. 
-
-In *multiple revision mode*, traffic isn't automatically allocated to new revisions for apps with external HTTP ingress.  Configure traffic splitting from your container app's **Revision management** page in the Azure portal, using Azure CLI commands, or in an ARM template. 
 
 ## Use cases
 
-Container Apps revisions help you manage the versioning of your container app by creating a new revision each time you make a *revision-scope* change to your app.  You can control access to versions of your container app by activating and deactivating revisions and by configuring the external HTTP traffic routed to each active revision.  
+Container Apps revisions help you manage the release of updates to your container app by creating a new revision each time you make a *revision-scope* change to your app.  You can control which revisions are active, and when external HTTP ingress is enabled, the traffic that is routed to each active revision. 
 
 You can use revisions to:
 
@@ -56,25 +46,39 @@ The scenario shown above presumes the container app is in the following state:
 - After the container was updated, a new revision was activated as _Revision 2_.
 - [Traffic splitting](revisions-manage.md#traffic-splitting) rules are configured so that _Revision 1_ receives 80% of the requests, and _Revision 2_ receives the remaining 20%.
 
+## Revision suffix
+
+You can customize the revision name by setting the revision suffix.
+
+The format of a revision name is:
+
+[container app name]--[revision suffix]
+
+By default, Container Apps creates a unique revision name with a suffix consisting of a semi-random string of alphanumeric characters.  You can customize the name by setting a unique custom revision suffix.
+
+For example, for a container app named *album-api*, setting the revision suffix name to *1st-revision* would create a revision with the name *album-api--1st-revision*.
+
+You can set the revision suffix in the [ARM template](azure-resource-manager-api-spec.md#propertiestemplate), through Azure CLI commands, or when creating a revision via the Azure portal.
+
 ## Change types
 
 Changes to a container app fall under two categories: *revision-scope* or *application-scope* changes. *Revision-scope* changes trigger a new revision when you deploy your app, while *application-scope* changes don't.
 
 ### Revision-scope changes
 
-A new revision is created when a container app is updated with *revision-scope* changes.  *Revision-scope* changes modify the container app itself rather than only its runtime settings.
+A new revision is created when a container app is updated with *revision-scope* changes.  The changes are limited to the revision in which they're deployed, and don't affect other revisions.
 
 A *revision-scope* change is any change to the parameters in the [`properties.template`](azure-resource-manager-api-spec.md#propertiestemplate) section of the container app resource template.
 
 These changes include modifications to:
 
-- Revision name
+- [Revision suffix](#revision-suffix)
 - Container configuration and images
 - Scale rules for the container application
 
 ### Application-scope changes
 
-*Application-scope* changes modify the settings in which the container app is run, not the container app itself. When you deploy a container app with *application-scope* changes:
+*Application-scope* changes are global to all container app revision.  When you deploy a container app with *application-scope* changes:
 
 - a new revision isn't created
 - the changes are applied to every revision
@@ -93,6 +97,21 @@ These parameters include:
 - Credentials for private container registries
 - Dapr settings
 
+
+## Revision modes
+
+The revision mode controls whether only a single revision or multiple revisions of your container app can be simultaneously active. You can set your app's revision mode from your container app's **Revision management** page in the Azure portal, using Azure CLI commands, or in the ARM template.
+
+### Single revision mode
+
+By default, a container app is in *single revision mode*. In this mode, only one revision is active at a time. When a new revision is created in this mode, the latest revision replaces the active revision.
+
+### Multiple revision mode
+
+Set the revision mode to *multiple revision mode*, to run multiple revisions of your app simultaneously. While in this mode, new revisions are activated alongside current active revisions.
+
+For an app implementing external HTTP ingress, you can control the percentage of traffic going to each active revision from your container app's **Revision management** page in the Azure portal, using Azure CLI commands, or in an ARM template. For more information, see [Traffic splitting](revisions-manage.md#traffic-splitting).
+
 ## Revision Labels
 
 For container apps with external HTTP traffic, labels are a portable means to direct traffic to specific revisions. A label provides a unique URL that you can use to route traffic to the revision that the label is assigned. To switch traffic between revisions, you can move the label from one revision to another.
@@ -107,6 +126,14 @@ For container apps with external HTTP traffic, labels are a portable means to di
 Labels are useful for testing new revisions.  For example, when you want to give access to a set of test users, you can give them the label's URL. Then when you want to move your users to a different revision, you can move the label to that revision.
 
 Labels work independently of traffic splitting.  Traffic splitting distributes traffic going to the container app's application URL to revisions based on the percentage of traffic.  While traffic directed to a label's URL is routed to one specific revision.
+
+A label name must:
+
+- consist of lower case alphanumeric characters or dashes ('-')
+- start with an alphabetic character
+- end with an alphanumeric character
+- not have two consecutive dashes (--)
+- not be more than 64 characters
 
 You can manage labels from your container app's **Revision management** page in the Azure portal.
 
