@@ -4,6 +4,7 @@ description: An overview of the security features in Azure Database for MySQL.
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 3/18/2020
 ---

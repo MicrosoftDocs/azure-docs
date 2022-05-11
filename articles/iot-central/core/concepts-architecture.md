@@ -85,7 +85,8 @@ Reasons to export data include:
 
 ### Storage and analysis
 
-For long-term storage and control over archiving and retention policies, you can [continuously export your data](howto-export-data.md) to other storage destinations. Use of separate storage also lets you use other analytics tools to derive insights and view the data in your solution.
+For long-term storage and control over archiving and retention policies, you can [continuously export your data](howto-export-to-blob-storage.md).
+ to other storage destinations. Use of separate storage also lets you use other analytics tools to derive insights and view the data in your solution.
 
 ### Business automation
 
