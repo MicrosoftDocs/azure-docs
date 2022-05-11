@@ -10,17 +10,17 @@
   - name: Migrate from ML Studio (classic)
     items: 
     - name: Migration overview
-      href: migrate-overview.md
+      href: ../migrate-overview.md
     - name: Migrate datasets
-      href: migrate-register-dataset.md
+      href: ../migrate-register-dataset.md
     - name: Rebuild experiments
-      href: migrate-rebuild-experiment.md
+      href: ../migrate-rebuild-experiment.md
     - name: Rebuild web services
-      href: migrate-rebuild-web-service.md
+      href: ../migrate-rebuild-web-service.md
     - name: Migrate client applications
-      href: migrate-rebuild-integrate-with-client-app.md
+      href: ../migrate-rebuild-integrate-with-client-app.md
     - name: Rebuild Execute R Script components
-      href: migrate-execute-r-script.md
+      href: ../migrate-execute-r-script.md
 - name: Concepts
   items:
   - name: Work with data
@@ -36,7 +36,7 @@
       href: concept-mlflow-v1.md
     - name: Manage resources VS Code
       displayName: vscode,resources
-      href: how-to-manage-resources-vscode.md
+      href: ../how-to-manage-resources-vscode.md
 - name: Tutorials
   expanded: true
   items:

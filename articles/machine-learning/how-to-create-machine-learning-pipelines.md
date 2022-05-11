@@ -73,7 +73,7 @@ def_file_store = Datastore(ws, "workspacefilestore")
 
 ```
 
-Steps generally consume data and produce output data. A step can create data such as a model, a directory with model and dependent files, or temporary data. This data is then available for other steps later in the pipeline. To learn more about connecting your pipeline to your data, see the articles [How to Access Data](how-to-access-data.md) and [How to Register Datasets](how-to-create-register-datasets.md). 
+Steps generally consume data and produce output data. A step can create data such as a model, a directory with model and dependent files, or temporary data. This data is then available for other steps later in the pipeline. To learn more about connecting your pipeline to your data, see the articles [How to Access Data](how-to-access-data.md) and [How to Register Datasets](./v1/how-to-create-register-datasets.md). 
 
 ### Configure data with `Dataset` and `OutputFileDatasetConfig` objects
 
