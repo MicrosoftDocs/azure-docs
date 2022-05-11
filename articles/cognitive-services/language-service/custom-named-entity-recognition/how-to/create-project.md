@@ -35,15 +35,10 @@ You also will need an Azure storage account where you will upload your `.txt` fi
 
 ## Create Language resource and connect storage account
 
-### Using the Azure portal
 
 [!INCLUDE [create a new resource from the Azure portal](../includes/resource-creation-azure-portal.md)]
 
-### Using Language Studio
-
 [!INCLUDE [create a new resource from the Language Studio](../includes/language-studio/resource-creation-language-studio.md)]
-
-### Using Azure PowerShell
 
 [!INCLUDE [create a new resource with Azure PowerShell](../includes/resource-creation-powershell.md)]
 

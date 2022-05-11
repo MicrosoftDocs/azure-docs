@@ -33,7 +33,7 @@ Custom text classification is available with the following pricing tiers:
 
 |Tier|Description|Limit|
 |--|--|--|
-|F0 |Free tier|You are only allowed one F 0tier Language resource per subscription.|
+|F0 |Free tier|You are only allowed one F0 tier Language resource per subscription.|
 |S |Paid tier|You can have unlimited Language S tier resources per subscription. | 
 
 
