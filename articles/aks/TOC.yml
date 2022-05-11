@@ -390,6 +390,8 @@
           href: azure-disk-csi.md
         - name: Azure Files CSI drivers
           href: azure-files-csi.md
+        - name: Burstable CSI Storage Class
+          href: azure-disk-burstable-storage-class.md
     - name: Monitoring and logging
       items:
         - name: Monitor AKS
