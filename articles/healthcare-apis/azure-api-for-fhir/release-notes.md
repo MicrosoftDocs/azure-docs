@@ -6,7 +6,7 @@ author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 05/10/2022
+ms.date: 05/11/2022
 ms.custom: references_regions
 ms.author: mikaelw
 ---
