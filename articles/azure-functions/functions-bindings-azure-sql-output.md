@@ -20,6 +20,8 @@ For information on setup and configuration details, see the [overview](./functio
 
 ::: zone pivot="programming-language-csharp"
 
+Additional samples for the Azure SQL output binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csharp).
+
 # [In-process](#tab/in-process)
 
 This section contains the following examples:
@@ -162,6 +164,8 @@ Isolated process isn't currently supported.
 
 ::: zone pivot="programming-language-javascript"
 
+Additional samples for the Azure SQL output binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-js).
+
 This section contains the following examples:
 
 * [HTTP trigger, write records to a table](#http-trigger-write-records-to-table-javascript)
@@ -300,6 +304,8 @@ module.exports = async function (context, req) {
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
+
+Additional samples for the Azure SQL output binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-python).
 
 This section contains the following examples:
 
