@@ -4,7 +4,7 @@ description: Sample Azure Resource Manager templates to deploy Azure Monitor log
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 04/26/2022
+ms.date: 05/11/2022
 
 ---
 
@@ -184,13 +184,6 @@ resource alert 'Microsoft.Insights/scheduledQueryRules@2021-08-01' = {
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "metadata": {
-    "_generator": {
-      "name": "bicep",
-      "version": "0.4.1318.3566",
-      "templateHash": "12208728220243293101"
-    }
-  },
   "parameters": {
     "alertName": {
       "type": "string",
@@ -681,13 +674,6 @@ resource metricMeasurementLogQueryAlert 'Microsoft.Insights/scheduledQueryRules@
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "metadata": {
-    "_generator": {
-      "name": "bicep",
-      "version": "0.4.1318.3566",
-      "templateHash": "12309033796902196770"
-    }
-  },
   "parameters": {
     "sourceId": {
       "type": "string",
