@@ -132,7 +132,7 @@ The **similar incidents** tab in the incident details page, now in preview, pres
 
 ### Similarity calculation
 
-There are three criteria by which similarity is judged:
+There are three criteria by which similarity is determined:
 
 - **Entities in common:** An incident is considered similar to another incident if they both include the same [entities](entities.md). The more entities two incidents have in common, the more similar they are considered to be.
 
