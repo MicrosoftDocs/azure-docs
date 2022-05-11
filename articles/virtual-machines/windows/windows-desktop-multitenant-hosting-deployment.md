@@ -35,8 +35,8 @@ You have a choice of operating systems that you can use for session hosts to pro
 
 |Operating system |User access rights|
 |---|---|
-|<ul><li>Windows 11 Enterprise multi-session</li><li>Windows 11 Enterprise</li><li>Windows 10 Enterprise multi-session, version 1909 and later</li><li>Windows 10 Enterprise, version 1909 and later</li><li>Windows 7 Enterprise</li></ul>|License entitlement:<ul><li>Microsoft 365 E3, E5, A3, A5, F3, Business Premium, Student Use Benefit</li><li>Windows Enterprise E3, E5</li><li>Windows VDA E3, E5</li><li>Windows Education A3, A5</li></ul>External users can use [per-user access pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) instead of license entitlement.</li></ul>|
-|<ul><li>Windows Server 2022</li><li>Windows Server 2019</li><li>Windows Server 2016</li><li>Windows Server 2012 R2</li></ul>|License entitlement:<ul><li>Remote Desktop Services (RDS) Client Access License (CAL) with Software Assurance (per-user or per-device), or RDS User Subscription Licenses.</li></ul>Per-user access pricing is not available for Windows Server operating systems.|
+|<ul><li>Windows 11 Enterprise multi-session</li><li>Windows 11 Enterprise</li><li>Windows 10 Enterprise, version 1909 and later</li></ul>|License entitlement:<ul><li>Microsoft 365 E3, E5, A3, A5, F3, Business Premium, Student Use Benefit</li><li>Windows Enterprise E3, E5</li><li>Windows VDA E3, E5</li><li>Windows Education A3, A5</li></ul>External users can use [per-user access pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) instead of license entitlement.</li></ul>|
+
 
 ## Deploying Windows 10 Image from Azure Marketplace 
 For PowerShell, CLI and Azure Resource Manager template deployments, Windows 10 images can be found using the `PublisherName: MicrosoftWindowsDesktop` and `Offer: Windows-10`. Windows 10 version Creators Update (1809) or later is supported for Multitenant Hosting Rights. 
