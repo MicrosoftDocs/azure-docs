@@ -23,7 +23,7 @@ We do not recommend deleting the default workspace. Defender for Containers uses
 
 ### I deleted my default workspace, how can I get it back?
 
-To recover your default workspace, you need to remove the Defender profile/extension, and reinstall the agent. Reinstalling the Defender profile/extension creates a new default workspaces.
+To recover your default workspace, you need to remove the Defender profile/extension, and reinstall the agent. Reinstalling the Defender profile/extension creates a new default workspace.
 
 ### Where is the default Log Analytics workspace located?
 
