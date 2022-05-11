@@ -8016,7 +8016,7 @@
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/How-tos/extractive-summarization.md",
       "redirect_url": "/azure/cognitive-services/language-service/document-summarization/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/How-tos/text-analytics-how-to-install-containers.md",
@@ -43071,11 +43071,6 @@
     {
       "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/includes/quickstarts/rest-api.md",
       "redirect_url": "/azure/cognitive-services/language-service/document-summarization/includes/quickstarts/rest-api",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/tutorials/use-kubernetes-service.md",
-      "redirect_url": "/azure/cognitive-services/language-service/document-summarization/tutorials/use-kubernetes-service",
       "redirect_document_id": true
     },
     {
