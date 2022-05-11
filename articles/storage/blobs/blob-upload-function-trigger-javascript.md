@@ -32,6 +32,8 @@ In this tutorial, you will learn how to:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Visual Studio Code](https://code.visualstudio.com/) installed.
     - [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to deploy and configure the Function App.
+    - [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage)
+    - [Azure Resources extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
 
 ## Create the storage account and container
 The first step is to create the storage account that will hold the uploaded blob data, which in this scenario will be images that contain text. A storage account offers several different services, but this tutorial utilizes Blob Storage and Table Storage.
@@ -206,11 +208,11 @@ The following [function.json](https://github.com/Azure-Samples/msdocs-storage-bi
     * `tableName`: The name of the table to write the parsed image text value returned by the function. 
     * `connection`: The Table Storage connection string from the environment variable so that the Azure function has access to it. 
 
-:::code language="javascript" source="~/msdocs-storage-bind-function-service/javascript/ProcessImageUpload/index.js" range="36-60":::
+:::code language="javascript" source="~/msdocs-storage-bind-function-service/javascript/ProcessImageUpload/index.js" highlight="36-60":::
 
-This code also retrieves essential configuration values from environment variables, such as the storage account connection string and Computer Vision key. These environment variables are added to the Azure Function environment after it's deployed.
+This code also retrieves essential configuration values from environment variables, such as the Blob Storage connection string and Computer Vision key. These environment variables are added to the Azure Function environment after it's deployed.
 
-The default function also utilizes a second method called `AnalyzeImage`. This code uses the URL Endpoint and Key of the Computer Vision account to make a request to that server to process the image.  The request returns all of the text discovered in the image. This text is written to Table Storage, using the outbound binding.
+The default function also utilizes a second method called `AnalyzeImage`. This code uses the URL Endpoint and Key of the Computer Vision account to make a request to Computer Vision to process the image.  The request returns all of the text discovered in the image. This text is written to Table Storage, using the outbound binding.
 
 ### Running locally
 
@@ -218,94 +220,49 @@ To run the project locally, enter the environment variables in the `./local.sett
 
 Although the Azure Function code runs locally, it connects to the cloud-based services for Storage, rather than using any local emulators.
 
-```javascript
-{
-    "IsEncrypted": false,
-    "Values": {
-      "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-      "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-      "StorageConnection": "your-storage-account-connection-string",
-      "StorageAccountName": "your-storage-account-name",
-      "ComputerVisionKey": "your-computer-vision-key",
-      "ComputerVisionEndPoint":  "your-computer-vision-endpoint"
-    }
-}
-```
+:::code language="json" source="~/msdocs-storage-bind-function-service/javascript/local.settings.json" highlight="6-10":::
 
-## Deploy the code to Azure Functions
+## Create Azure Functions app
 
-You are now ready to deploy the application to Azure using a Visual Studio Code extension.  You can also create the Azure Functions app in Azure at the same time as part of the deployment process.
+You are now ready to deploy the application to Azure using a Visual Studio Code extension.  
 
 1. In Visual Studio Code, select <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd> to open the **Azure** sidebar.
-1. In the **Functions** section, find and expand the subscription's App Service resource.
-1. Right-click the app and select **Deploy to Web App**.
-1. Select the `javascript` folder.
-1. When you're asked if you want to deploy, select **Deploy**.
-1. Select the **output window** option when it appears.
-1. Notice that the deployment status appears with date/time stamps and actions.
+1. In the **Functions** section, find and right-click the subscription, and select **Create Function App in Azure (Advanced)**.
+1. Use the following table to create the Function resource.
 
-:::image type="content" source="./media/blob-upload-storage-function/visual-studio-publish-target.png" alt-text="A screenshot showing how to select Azure as the deployment target." :::
- 
-3) Select **Azure Function App (Windows)** or **Azure Function App (Linux)** on the next screen, and then choose **Next** again.
+    |Setting|Value|   
+    |--|--|
+    |**Name**| Enter *msdocsprocessimage* or something similar.|
+    |**Runtime stack**| Select a **Node.js LTS** version. |
+    |**OS**| Select **Linux**. |
+    |**Resource Group**|Choose the `msdocs-storage-function` resource group you created earlier.|
+    |**Location**|Choose the region closest to you.|
+    |**Plan Type**|Select **Consumption**.|
+    |**Azure Storage**| Select the storage account you created earlier.|
+    |**Application Insights**| Skip for now.|
 
-:::image type="content" source="./media/blob-upload-storage-function/visual-studio-publish-specific-target.png" alt-text="A screenshot showing how to choose Azure Functions as a specific deployment target." :::
+1. Azure provisions the requested resources, which will take a few moments to complete.
 
-4) On the **Functions instance** step, make sure to choose the subscription you'd like to deploy to. Next, select the green **+** symbol on the right side of the dialog.
+## Deploy Azure Functions app
 
-5) A new dialog will open.  Enter the following values for your new Function App.
+1. When the previous resource creation process finishes, right-click the new resource in the **Functions** section of the Azure sidebar, and select **Deploy to Function App**.
+1. If asked **Are you sure you want to deploy...**, select **Deploy**.
 
-- **Name**: Enter *msdocsprocessimage* or something similar.
-- **Subscription Name**: Choose whatever subscription you'd like to use.
-- **Resource Group**: Choose the `msdocs-storage-function` resource group you created earlier.
-- **Plan Type**: Select **Consumption**.
-- **Location**: Choose the region closest to you.
-- **Azure Storage**: Select the storage account you created earlier.
+## Add app settings for Storage and Computer Vision
 
-:::image type="content" source="./media/blob-upload-storage-function/visual-studio-create-function-app.png" alt-text="A screenshot showing how to create a new Function App in Azure." :::
+The Azure Function was deployed successfully, but it cannot connect to our Storage account and Computer Vision services yet. The correct keys and connection strings must first be added to the configuration settings of the Azure Functions app.
 
-6) Once you have filled in all of those values, select **Create**. Visual Studio and Azure will begin provisioning the requested resources, which will take a few moments to complete.
+1. Find your resource in the **Functions** section of the Azure sidebar, right-click **Application Settings**, and select **Add New Setting**.
+1. Enter a new app setting for the following secrets. Copy and paste your secret values from your local project in the `local.settings.json` file.
 
-7) Once the process has finished, select **Finish** to close out the dialog workflow.
+    |Setting|
+    |--|
+    |StorageConnection|
+    |StorageAccountName|
+    |StorageContainerName|
+    |ComputerVisionKey|
+    |ComputerVisionEndPoint|
 
-8) The final step to deploy the Azure Function is to select **Publish** in the upper right of the screen. Publishing the function might also take a few moments to complete.  Once it finishes, your application will be running on Azure.
-
-## Connect the services
-
-The Azure Function was deployed successfully, but it cannot connect to our storage account and Computer Vision services yet. The correct keys and connection strings must first be added to the configuration settings of the Azure Functions app.
-
-1) At the top of the Azure portal, search for *function* and select **Function App** from the results.
-
-2) On the **Function App** screen, select the Function App you created in Visual Studio.
-
-3) On the **Function App** overview page, select **Configuration** on the left navigation.  This will open up a page where we can manage various types of configuration settings for our app.  For now, we are interested in **Application Settings** section.
-
-4) The next step is to add settings for our storage account name and connection string, the Computer Vision secret key, and the Computer Vision endpoint.
-
-5) On the **Application settings** tab, select **+ New application setting**. In the flyout that appears, enter the following values:
-
-- **Name**: Enter a value of *ComputerVisionKey*.
-- **Value**: Paste in the Computer Vision key you saved from earlier.
-
-6) Click **OK** to add this setting to your app.
-
-:::image type="content" source="./media/blob-upload-storage-function/function-app-settings.png" alt-text="A screenshot showing how to add a new application setting to an Azure Function." :::
-
-7) Next, let's repeat this process for the endpoint of our Computer Vision service, using the following values:
-
-- **Name**: Enter a value of *ComputerVisionEndpoint*.
-- **Value**: Paste in the endpoint URL you saved from earlier.
-
-8) Repeat this step again for the storage account connection, using the following values:
-
-- **Name**: Enter a value of *StorageConnection*.
-- **Value**: Paste in the connection string you saved from earlier.
-
-9) Finally, repeat this process one more time for the storage account name, using the following values:
-
-- **Name**: Enter a value of *StorageAccountName*.
-- **Value**: Enter in the name of the storage account you created.
-
-10) After you have added these application settings, make sure to select **Save** at the top of the configuration page.  When the save completes, you can hit **Refresh** as well to make sure the settings are picked up.
 
 All of the required environment variables to connect our Azure function to different services are now in place.
 
@@ -314,36 +271,24 @@ All of the required environment variables to connect our Azure function to diffe
 
 You are now ready to test out our application! You can upload a blob to the container, and then verify that the text in the image was saved to Table Storage.
 
-1) First, at the top of the Azure portal, search for *Storage* and select **storage account**.  On the **storage account** page, select the account you created earlier.
+1. In the Azure sidebar in Visual Studio Code, find and expand your Storage resource in the **Storage** section.
+1. Expand **Blob Containers** and right-click your container name, then select **Upload files**.
+1. You can find a few sample images included in the **images** folder at the root of the downloadable sample project, or you can use one of your own. 
+1. Wait until the files are uploaded and listed in the container.
 
-2) Next, select **Containers** on the left nav, and then navigate into the **ImageAnalysis** container you created earlier.  From here you can upload a test image right inside the browser. 
+## View text analysis of image
 
-:::image type="content" source="./media/blob-upload-storage-function/storage-container-browse.png" alt-text="A screenshot showing how to navigate to a storage container." :::
+Next, you can verify that the upload triggered the Azure Function, and that the text in the image was analyzed and saved to Table Storage properly.
 
-3) You can find a few sample images included in the **images** folder at the root of the downloadable sample project, or you can use one of your own.
-
-4) At the top of the **ImageAnalysis** page, select  **Upload**.  In the flyout that opens, select the folder icon on the right to open up a file browser.  Choose the image you'd like to upload, and then select **Upload**.
-
-:::image type="content" source="./media/blob-upload-storage-function/storage-container-upload.png" alt-text="A screenshot showing how to upload a blob to a storage container." :::
-
-5) The file should appear inside of your blob container. Next, you can verify that the upload triggered the Azure Function, and that the text in the  image was analyzed and saved to Table Storage properly.
-
-6) Using the breadcrumbs at the top of the page, navigate up one level in your storage account. Locate and select **Storage browser** on the left nav, and then select **Tables**.
-
-7) An **ImageText** table should now be available.  Click on the table to preview the data rows inside of it.  You should see an entry for the processed image text of our upload.  You can verify this using either the Timestamp, or by viewing the content of the **Text** column.
-
-:::image type="content" source="./media/blob-upload-storage-function/storage-table.png" alt-text="A screenshot showing a text entry in Azure Table Storage." :::
+1. Under the same Storage resource, expand **Tables** to find your resource. 
+1. An **ImageText** table should now be available.  Click on the table to preview the data rows inside of it.  You should see an entry for the processed image text of an uploaded file.  You can verify this using either the Timestamp, or by viewing the content of the **Text** column.
 
 Congratulations! You succeeded in processing an image that was uploaded to Blob Storage using Azure Functions and Computer Vision.
-
 
 ## Clean up resources
 
 If you're not going to continue to use this application, you can delete the resources you created by removing the resource group.
 
-1) Select **Resource groups** from the main navigation
-1) Select the `msdocs-storage-function` resource group from the list.
-2) Select the **Delete resource group** button at the top of the resource group overview page.
-3) Enter the resource group name *msdocs-storage-function* in the confirmation dialog.
-4) Select delete.
-The process to delete the resource group may take a few minutes to complete.
+1. Select **Resource groups** from the Azure sidebar
+1. Find and right-click the `msdocs-storage-function` resource group from the list.
+1. Select **Delete**. The process to delete the resource group may take a few minutes to complete.
