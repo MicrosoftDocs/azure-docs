@@ -35,20 +35,19 @@ To get started with NC A100 v4 VMs, refer to [HPC Workload Configuration and Opt
 
 Due to increased GPU memory I/O footprint, the NC A100 v4 requires the use of [Generation 2 VMs](./generation-2.md) and marketplace images. The [Azure HPC images](./workloads/hpc/configure.md) are strongly recommended. Azure HPC Ubuntu 18.04, 20.04 and Azure HPC CentOS 7.9, CentOS 8.4, RHEL 7.9 and RHEL 8.5 images are supported. Windows Service 2019 and Windows Service 2022 images are supported.
  
-[Premium Storage](premium-storage-performance.md): Supported<br>
-[Premium Storage caching](premium-storage-performance.md): Supported<br>
-[Ultra Disks](disks-types.md#ultra-disks): Not Supported <br>
-[Live Migration](maintenance-and-updates.md): Not Supported<br>
-[Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
-[VM Generation Support](generation-2.md): Generation 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
-InfiniBand: Not Supported<br>
-Nvidia NVLink Interconnect: Supported<br>
-[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
-<br>
 
-These features are not supported:[Live Migration](maintenance-and-updates.md), [Memory Preserving Updates](maintenance-and-updates.md) and [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) . 
+- [Premium Storage](premium-storage-performance.md): Supported
+- [Premium Storage caching](premium-storage-performance.md): Supported
+- [Ultra Disks](disks-types.md#ultra-disks): Not Supported
+- [Live Migration](maintenance-and-updates.md): Not Supported
+- [Memory Preserving Updates](maintenance-and-updates.md): Not Supported
+- [VM Generation Support](generation-2.md): Generation 2
+- [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported
+- [Ephemeral OS Disks](ephemeral-os-disks.md): Supported
+- InfiniBand: Not Supported
+- Nvidia NVLink Interconnect: Supported
+- [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported
+
 
 
 | Size | vCPU | Memory: GiB | Temp Storage (with NVMe) : GiB  | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs/network bandwidth (Mbps) |
