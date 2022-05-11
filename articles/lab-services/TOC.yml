@@ -251,6 +251,8 @@
         href: how-to-add-user-lab-owner.md
       - name: Manage labs in a lab account
         href: manage-labs-1.md
+      - name: Set up a lab with GPU virtual machines
+        href: how-to-setup-lab-gpu-1.md
     - name: Administrator guide
       href: administrator-guide-1.md
     - name: Lab account creation guide
