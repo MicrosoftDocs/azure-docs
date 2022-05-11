@@ -15,7 +15,7 @@
       href: quickstart-control-device.md
     - name: Auto-route messages using Bicep
       displayName: ARM, Resource Manager, Template
-      href: horizontal-bicep-route-messages.md
+      href: quickstart-bicep-route-messages.md
     - name: Auto-route messages using an ARM template
       displayName: Resource Manager
       href: horizontal-arm-route-messages.md
