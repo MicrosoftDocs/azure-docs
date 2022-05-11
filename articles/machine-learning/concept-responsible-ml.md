@@ -15,9 +15,9 @@ ms.custom: responsible-ai
 
 # What is responsible AI? (preview)
 
-[!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
+[!INCLUDE [dev v1](../../includes/machine-learning-dev-v1.md)]
 
-[!INCLUDE [dev v2](../../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 The societal implications of AI and the responsibility of organizations to anticipate and mitigate unintended consequences of AI technology are significant. Organizations are finding the need to create internal policies, practices, and tools to guide their AI efforts, whether they're deploying third-party AI solutions or developing their own. At Microsoft, we've recognized six principles that we believe should guide AI development and use: fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability. For us, these principles are the cornerstone of a responsible and trustworthy approach to AI, especially as intelligent technology becomes more prevalent in the products and services we use every day. Azure Machine Learning currently supports tools for various these principles, making it seamless for ML developers and data scientists to implement Responsible AI in practice.
 
@@ -61,7 +61,7 @@ Besides SmartNoise, Microsoft released [Counterfit](https://github.com/Azure/cou
 
 The people who design and deploy AI systems must be accountable for how their systems operate. Organizations should draw upon industry standards to develop accountability norms. These norms can ensure that AI systems aren't the final authority on any decision that impacts people's lives and that humans maintain meaningful control over otherwise highly autonomous AI systems.
 
-**Accountability in Azure Machine Learning**: Azure Machine Learning’s [Machine Learning Operations (MLOps)](oncept-model-management-and-deployment.md) is based on DevOps principles and practices that increase the efficiency of workflows. It specifically supports quality assurance and end-to-end lineage tracking to capture the governance data for the end-to-end ML lifecycle. The logged lineage information can include who is publishing models, why changes were made, and when models were deployed or used in production.
+**Accountability in Azure Machine Learning**: Azure Machine Learning’s [Machine Learning Operations (MLOps)](concept-model-management-and-deployment.md) is based on DevOps principles and practices that increase the efficiency of workflows. It specifically supports quality assurance and end-to-end lineage tracking to capture the governance data for the end-to-end ML lifecycle. The logged lineage information can include who is publishing models, why changes were made, and when models were deployed or used in production.
 
 Azure Machine Learning’s [Responsible AI scorecard](./how-to-responsible-ai-scorecard.md) creates accountability by enabling cross-stakeholders communications and by empowering machine learning developers to easily configure, download, and share their model health insights with their technical and non-technical stakeholders to educate them about data and model health and compliance and build trust.  
 
@@ -71,5 +71,6 @@ The ML platform also enables decision-making by informing model-driven and data-
 - Model-driven insights, to answer end-users’ questions such as “what can I do to get a different outcome from your AI next time?” to inform their actions. Such insights are provided to data scientists through the [Counterfactual What-If](concept-counterfactual-analysis.md) component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md).
 
 ## Next steps
+
 - For more information on how to implement Responsible AI in Azure Machine Learning, see [Responsible AI dashboard](concept-responsible-ai-dashboard.md). 
 - Learn more about the [ABOUT ML](https://www.partnershiponai.org/about-ml/) set of guidelines for machine learning system documentation.

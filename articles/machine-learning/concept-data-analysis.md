@@ -26,7 +26,7 @@ Use Data Explorer when you need to:
 - Determine whether your findings related to fairness, error analysis and causality (derived from other dashboard components) are a result of your dataset’s distribution.
 - Decide in which areas to collect more data to mitigate errors arising from representation issues, label noise, feature noise, label bias, etc.
 
-# Next steps
+## Next steps
 
 - Learn how to generate the Responsible AI dashboard via [CLIv2 and SDKv2](how-to-responsible-ai-dashboard-sdk-cli.md) or [studio UI ](how-to-responsible-ai-dashboard-ui.md)
 - Learn how to generate a [Responsible AI scorecard](how-to-responsible-ai-scorecard.md) based on the insights observed in the Responsible AI dashboard.
