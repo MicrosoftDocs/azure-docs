@@ -59,6 +59,12 @@
   - name: Traffic Analytics overview 
     href: traffic-analytics.md
     items:
+    - name: Supported Regions
+      href: supported-region-traffic-analytics.md
+    - name: Enable Network Watcher and Flow Log Settings
+      href: enable-network-watcher-flow-log-settings.md
+    - name: Usage Scenarios
+      href: usage-scenarios-traffic-analytics.md
     - name: Frequently asked questions
       href: traffic-analytics-faq.yml
   - name: Network security group flow logging
@@ -141,16 +147,6 @@
     items:
     - name: Read NSG flow logs
       href: network-watcher-read-nsg-flow-logs.md
-    - name: Delete NSG flow log storage blobs
-      href: network-watcher-delete-nsg-flow-log-blobs.md
-    - name: Use traffic analytics
-      items:
-      - name: Built-in Policy
-        href: traffic-analytics-policy-portal.md
-      - name: Schema and Data Aggregation
-        href: traffic-analytics-schema.md
-      - name: Schema update (August 2019)
-        href: traffic-analytics-schema-update.md
     - name: Analyze NSG flow logs
       items:
       - name: Use Power BI
@@ -161,6 +157,16 @@
         href: network-watcher-nsg-grafana.md
       - name: Use Graylog
         href: network-watcher-analyze-nsg-flow-logs-graylog.md
+    - name: Delete NSG flow log storage blobs
+      href: network-watcher-delete-nsg-flow-log-blobs.md
+    - name: Enable traffic analytics
+      items:
+      - name: Built-in Policy
+        href: traffic-analytics-policy-portal.md
+      - name: Schema and Data Aggregation
+        href: traffic-analytics-schema.md
+      - name: Schema update (August 2019)
+        href: traffic-analytics-schema-update.md
     - name: View network security groups
       items:
       - name: Azure PowerShell
