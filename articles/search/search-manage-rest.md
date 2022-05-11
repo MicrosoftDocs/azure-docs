@@ -1,19 +1,19 @@
 ---
-title: PowerShell scripts using Az.Search module
+title: REST APIs for search management
 titleSuffix: Azure Cognitive Search
-description: Create and configure an Azure Cognitive Search service with PowerShell. You can scale a service up or down, manage admin and query api-keys, and query for system information.
+description: Create and configure an Azure Cognitive Search service with the REST Management API. You can scale a service up or down, manage admin and query api-keys, and query for system information.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.devlang: powershell
 ms.topic: how-to
-ms.date: 04/19/2022 
-ms.custom: devx-track-azurepowershell
+ms.date: 05/09/2022 
+
 ---
 
-# Manage your Azure Cognitive Search service with PowerShell
+# Manage your Azure Cognitive Search service with REST
+
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
@@ -22,7 +22,7 @@ ms.custom: devx-track-azurepowershell
 > * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)
 
-You can run PowerShell cmdlets and scripts on Windows, Linux, or in [Azure Cloud Shell](../cloud-shell/overview.md) to create and configure Azure Cognitive Search. The **Az.Search** module extends [Azure PowerShell](/powershell/) with full parity to the [Search Management REST APIs](/rest/api/searchmanagement) and the ability to perform the following tasks:
+In this article, learn how to create and configure an Azure Cognitive Search service using using the [Management REST APIs](rest/api/searchmanagement/). Although you can use the portal, script, or other SDKs for most management tasks, the Management REST API is guaranteed to provide [preview features](/rest/api/searchmanagement/management-api-versions#2021-04-01-preview).
 
 > [!div class="checklist"]
 > * [List search services in a subscription](#list-search-services)
@@ -34,63 +34,111 @@ You can run PowerShell cmdlets and scripts on Windows, Linux, or in [Azure Cloud
 > * [Scale up or down with replicas and partitions](#scale-replicas-and-partitions)
 > * [Create a shared private link resource](#create-a-shared-private-link-resource)
 
-Occasionally, questions are asked about tasks *not* on the above list. Currently, you cannot use either the **Az.Search** module or the management REST API to change a server name, region, or tier. Dedicated resources are allocated when a service is created. As such, changing the underlying hardware (location or node type) requires a new service. Similarly, there are no tools or APIs for transferring content, such as an index, from one service to another.
+## Prerequisites
 
-Within a service, programmatic creation of content is through [Search Service REST API](/rest/api/searchservice/) or [.NET SDK](/dotnet/api/overview/azure/search.documents-readme). While there are no dedicated PowerShell commands for content, you can write PowerShell script that calls REST or .NET APIs to create and load indexes.
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-search/)
 
-<a name="check-versions-and-load"></a>
+* Postman or another REST client that sends HTTP requests
 
-## Check versions and load modules
+* Azure Active Directory (Azure AD)
 
-The examples in this article are interactive and require elevated permissions. Local PowerShell and the Azure PowerShell (the **Az** module) are required.
+* [Elevated access to subscriptions and management groups](../role-based-access-control/elevate-access-global-admin.md). Elevated access allows requests to succeed and avoid this error: "The client does not have authorization to perform action 'Microsoft.Resources/subscriptions/resourcegroups/read'".
 
-### PowerShell version check
+## Generate a security token
 
-PowerShell 7.0.6 LTS, PowerShell 7.1.3, or higher is the recommended version of PowerShell for use with the Azure Az PowerShell module on all platforms. [Install the latest version of PowerShell](/powershell/scripting/install/installing-powershell) if you don't have it.
+Management REST API calls are authenticated through Azure Active Directory, which means the client app needs a security principle in Azure AD and permissions to create and configure a resource. This section explains how to create a security principle to generate the token used for authenticating to Azure AD. You can do this in the browser.
 
-```azurepowershell-interactive
-$PSVersionTable.PSVersion
-```
+The following steps are from Jon Gallant's blog post: [Azure REST APIs with Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). You can refer to the blog post or [watch the video](https://www.youtube.com/watch?v=6b1J03fDnOg) for more information.
 
-### Load Azure PowerShell
+1. Go to [https://shell.azure.com](https://shell.azure.com) to open an Azure CLI session in the browser. Sign in with the Microsoft account you used for your Azure subscription.
 
-If you aren't sure whether **Az** is installed, run the following command as a verification step. 
+1. At the command line, enter the following command to create the security principle for your client (Postman):
 
-```azurepowershell-interactive
-Get-InstalledModule -Name Az
-```
+   ```azurecli
+   az ad sp create-for-rbac
+   ````
 
-Some systems do not auto-load modules. If you get an error on the previous command, try loading the module, and if that fails, go back to the installation [Azure PowerShell installation instructions](/powershell/azure/) to see if you missed a step.
+   The response should look similar to the following example.
 
-```azurepowershell-interactive
-Import-Module -Name Az
-```
+   ```azurecli
+   {
+   "appId": "<YOUR CLIENT ID>",
+   "displayName": "azure-cli-2022-05-09-17-10-24",
+   "password": "<YOUR CLIENT SECRET>",
+   "tenant": "<YOUR TENANT ID>"
+    }
+    ```
 
-### Connect to Azure with a browser sign-in token
+1. Enter the following command to obtain your subscription ID:
 
-You can use your portal sign-in credentials to connect to a subscription in PowerShell. Alternatively you can [authenticate non-interactively with a service principal](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+   ```azurecli
+   az account show --query id -o tsv
+   ````
 
-```azurepowershell-interactive
-Connect-AzAccount
-```
+## Set up Postman
 
-If you hold multiple Azure subscriptions, set your Azure subscription. To see a list of your current subscriptions, run this command.
+As with the previous section, the following steps are from [this blog post](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/).
 
-```azurepowershell-interactive
-Get-AzSubscription | sort SubscriptionName | Select SubscriptionName
-```
+1. Start a new Postman collection and edit its properties. In the Variables tab, create the following variables:
 
-To specify the subscription, run the following command. In the following example, the subscription name is `ContosoSubscription`.
+    | Variable | Description |
+    |----------|-------------|
+    | clientId | Provide the previously generated "appID" that you created in Azure AD. |
+    | clientSecret | Provide the "password" that was created for your client. |
+    | tenantId | Provide the "tenant" that was returned in the previous step. |
+    | subscriptionId | Provide the subscription ID for your subscription. |
+    | resource | Enter `https://management.azure.com/`. This is the Azure resource used for all control plane (service provisioning and management) operations. | 
+    | bearerToken | (leave blank; the token is generated programmatically) |
 
-```azurepowershell-interactive
-Select-AzSubscription -SubscriptionName ContosoSubscription
-```
+1. In the Authorization tab, select **Bearer Token** as the type.
+
+1. In the **Token** field, specify the variable placeholder `{{{{bearerToken}}}}`.
+
+1. In the Pre-request Script tab, paste in the following script:
+
+    ```javascript
+    pm.test("Check for collectionVariables", function () {
+        let vars = ['clientId', 'clientSecret', 'tenantId', 'subscriptionId'];
+        vars.forEach(function (item, index, array) {
+            console.log(item, index);
+            pm.expect(pm.collectionVariables.get(item), item + " variable not set").to.not.be.undefined;
+            pm.expect(pm.collectionVariables.get(item), item + " variable not set").to.not.be.empty; 
+        });
+    
+        if (!pm.collectionVariables.get("bearerToken") || Date.now() > new Date(pm.collectionVariables.get("bearerTokenExpiresOn") * 1000)) {
+            pm.sendRequest({
+                url: 'https://login.microsoftonline.com/' + pm.collectionVariables.get("tenantId") + '/oauth2/token',
+                method: 'POST',
+                header: 'Content-Type: application/x-www-form-urlencoded',
+                body: {
+                    mode: 'urlencoded',
+                    urlencoded: [
+                        { key: "grant_type", value: "client_credentials", disabled: false },
+                        { key: "client_id", value: pm.collectionVariables.get("clientId"), disabled: false },
+                        { key: "client_secret", value: pm.collectionVariables.get("clientSecret"), disabled: false },
+                        { key: "resource", value: pm.collectionVariables.get("resource") || "https://management.azure.com/", disabled: false }
+                    ]
+                }
+            }, function (err, res) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    let resJson = res.json();
+                    pm.collectionVariables.set("bearerTokenExpiresOn", resJson.expires_on);
+                    pm.collectionVariables.set("bearerToken", resJson.access_token);
+                }
+            });
+        }
+    });
+    ```
+
+1. Save the collection.
 
 <a name="list-search-services"></a>
 
 ## List services in a subscription
 
-The following commands are from [**Az.Resources**](/powershell/module/az.resources), returning information about existing resources and services already provisioned in your subscription. If you don't know how many search services are already created, these commands return that information, saving you a trip to the portal.
+The following GET request lists the search services already created in your subscription. If a search service exists, you'll get its name, resource group, region, and resource ID.
 
 The first command returns all search services.
 
@@ -122,43 +170,7 @@ Commands from [**Az.Search**](/powershell/module/az.search) are not available un
 Install-Module -Name Az.Search
 ```
 
-### List all Az.Search commands
 
-As a verification step, return a list of commands provided in the module.
-
-```azurepowershell-interactive
-Get-Command -Module Az.Search
-```
-
-Results should look similar to the following output.
-
-```
-CommandType     Name                                               Version    Source                                                                
------------     ----                                               -------    ------                                                                
-Cmdlet          Get-AzSearchAdminKeyPair                           0.8.0      Az.Search                                                             
-Cmdlet          Get-AzSearchPrivateEndpointConnection              0.8.0      Az.Search                                                             
-Cmdlet          Get-AzSearchPrivateLinkResource                    0.8.0      Az.Search                                                             
-Cmdlet          Get-AzSearchQueryKey                               0.8.0      Az.Search                                                             
-Cmdlet          Get-AzSearchService                                0.8.0      Az.Search                                                             
-Cmdlet          Get-AzSearchSharedPrivateLinkResource              0.8.0      Az.Search                                                             
-Cmdlet          New-AzSearchAdminKey                               0.8.0      Az.Search                                                             
-Cmdlet          New-AzSearchQueryKey                               0.8.0      Az.Search                                                             
-Cmdlet          New-AzSearchService                                0.8.0      Az.Search                                                             
-Cmdlet          New-AzSearchSharedPrivateLinkResource              0.8.0      Az.Search                                                             
-Cmdlet          Remove-AzSearchPrivateEndpointConnection           0.8.0      Az.Search                                                             
-Cmdlet          Remove-AzSearchQueryKey                            0.8.0      Az.Search                                                             
-Cmdlet          Remove-AzSearchService                             0.8.0      Az.Search                                                             
-Cmdlet          Remove-AzSearchSharedPrivateLinkResource           0.8.0      Az.Search                                                             
-Cmdlet          Set-AzSearchPrivateEndpointConnection              0.8.0      Az.Search                                                             
-Cmdlet          Set-AzSearchService                                0.8.0      Az.Search                                                             
-Cmdlet          Set-AzSearchSharedPrivateLinkResource              0.8.0      Az.Search   
-```
-
-If you have an older version of the package, update the module to get the latest functionality.
-
-```azurepowershell-interactive
-Update-Module -Name Az.Search
-```
 
 ## Get search service information
 
@@ -438,10 +450,11 @@ $job | Get-Job
 ```
 
 For full details on setting up shared private link resources, see the documentation on [making indexer connections through a private endpoint](search-indexer-howto-access-private.md).
+ -->
 
 ## Next steps
 
-Build an [index](search-what-is-an-index.md), [query an index](search-query-overview.md) using the portal, REST APIs, or the .NET SDK.
+Build an [index](search-what-is-an-index.md), then [query an index](search-query-overview.md) using the portal, REST APIs, or the .NET SDK.
 
 * [Create an Azure Cognitive Search index in the Azure portal](search-get-started-portal.md)
 * [Set up an indexer to load data from other services](search-indexer-overview.md)
