@@ -34,8 +34,15 @@ Azure Data Factory and Synapse pipelines provide templates to help accelerate co
 
 See [pipeline templates](solution-templates-introduction.md) for an overview of pipeline templates.
 
+Templates are offered for the following scenarios
+- Incrementally copy from SAP BW to ADLS Gen 2
+- Incrementally copy from SAP Table to Blob
+- Dynamically copy multiple tables from SAP ECC to ADLS Gen 2
+- Dynamically copy multiple tables from SAP HANA to ADLS Gen 2
+
 For a summary of the SAP specific templates and how to use them see [SAP templates](industry-sap-templates.md).
 
-## SAP data integration partners
 
-Data integration partners provide solutions and accelerators to help with SAP extraction and analytics. A summary of our SAP data integration partners and their solutions can be found at [SAP data integration partners](industry-sap-partners.md).
+## SAP white paper
+
+To learn about overall support for the SAP data integration scenario, see [SAP data integration whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction on each SAP connector, comparison and guidance.
