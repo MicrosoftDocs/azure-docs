@@ -195,7 +195,6 @@
            - name: Differential Privacy
              displayName: differential,privacy
              href: concept-differential-privacy.md
-
     - name: Workspace & compute resources
       items: 
         - name: Workspace
