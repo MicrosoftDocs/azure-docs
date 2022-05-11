@@ -6,7 +6,7 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: overview
-ms.date: 04/26/2022
+ms.date: 05/11/2022
 ms.reviewer: cynthn
 
 ---
@@ -168,6 +168,19 @@ There are some limitations for sharing your gallery to the community:
 
 **A**: Only the content publishers have control over the regions their images are available in. If you don’t find an image in a specific region, reach out to the publisher directly.
 
+
+## Direct sharing to a tenant or subscription
+
+Give subscription-level or tenant-level access to gallery using direct sharing.
+
+### Limitations
+
+During the preview:
+- You can only share to subscriptions that are also in the preview.
+- You can only share to 30 subscriptions and 5 tenants.
+- The gallery using direct sharing cannot contain encrypted image versions. Encrypted images cannot be created within a gallery that is directly shared.
+- The user or service principal that will share must be a member of the `Owner` role definition. Only an `Owner` at the scope of the gallery or higher will be able to enable group-based sharing.
+- You need to create a new gallery,  with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
 
 ## Explicit sharing using RBAC roles
 
