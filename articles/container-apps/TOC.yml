@@ -94,6 +94,8 @@
         href: authentication-twitter.md
       - name: Custom OpenID Connect
         href: authentication-openid.md
+    - name: Plan for disaster recovery
+      href: disaster-recovery.md
 - name: Tutorials
   items:
     - name: Microservices with Dapr using the CLI
