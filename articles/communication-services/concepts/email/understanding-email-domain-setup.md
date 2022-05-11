@@ -16,7 +16,7 @@ ms.custom: private_preview
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 
-Domain is a unique name that appears after the @ sign in email addresses. It typically takes the form of your organization's name and brand that is recognized in public. Using your domains in email helps build credibility and reputation for email that you send. If you prefer to off board the managing domains Azure Communication Services offers email domain that can be used to send emails on behalf if your applications.
+Domain is a unique name that appears after the @ sign in email addresses. It typically takes the form of your organization's name and brand that is recognized in public. Using your domain in email allows users to trust that this message is not a phishing attempt, and that it is coming from a trust source, thereby building credibility for your brand. If you prefer, you can offboard domain management to Azure Communication Services. We offer an email domain that can be used to send emails on behalf of your organization.
 
 ## Email Domains and Sender Authentication
 Email Communication Services allows you to configure email with two types of domains : **Azure Managed Domains** and **Custom Domains**. 
