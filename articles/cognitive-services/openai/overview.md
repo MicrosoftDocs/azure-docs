@@ -28,9 +28,6 @@ The Azure OpenAI service provides REST API access to OpenAI's powerful language 
 | Regional availability | South Central US, <br> West Europe |
 | Content filtering | Prompts and completions are evaluated against our content policy with automated systems. High severity content will be blocked. |
 
-> [!NOTE]
-> Access to the fine-tuning APIs are restricted to a limited number of customers. We are actively enabling access and we will inform customers of the process for access during onboarding.
-
 ## Responsible AI
 
 At Microsoft, we're committed to the advancement of AI driven by principles that put people first. Generative models such as the ones available in the Azure OpenAI service have significant potential benefits, but without careful design and thoughtful mitigations, such models have the potential to generate incorrect or even harmful content. Microsoft has made significant investments to help guard against abuse and unintended harm, which includes requiring applicants to show well-defined use cases, incorporating Microsoft’s [principles for responsible AI use](https://www.microsoft.com/ai/responsible-ai?activetab=pivot1:primaryr6), building content filters to support customers, and providing responsible AI implementation guidance to onboarded customers.
