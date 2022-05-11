@@ -28,6 +28,13 @@ It's now available in following flavors:
 * An Azure subscription. You can create [a free Azure account here](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Alternatively, you can create a Cosmos database account with [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
 * An Azure Cosmos DB Gremlin API database with an **unlimited collection**. The guide shows how to get started with [Azure Cosmos DB Gremlin API in .NET](./create-graph-dotnet.md).
 * Git. For more information check out the [Git Downloads page](https://git-scm.com/downloads).
+#### Clone
+To run this sample, run the `git clone` command below:
+```bash
+git clone https://github.com/Azure-Samples/azure-cosmos-graph-bulk-executor.git
+```
+The sample is available at path .\azure-cosmos-graph-bulk-executor\dotnet\src\
+
 #### Sample
 ```csharp
 
@@ -40,14 +47,8 @@ BulkOperationResponse bulkOperationResponse = await graphBulkExecutor.BulkImport
     gremlinElements: gremlinElements,
     enableUpsert: true);
 ```
-#### Clone
-To run this sample, run the `git clone` command below:
-```bash
-git clone https://github.com/Azure-Samples/azure-cosmos-graph-bulk-executor.git
-```
-The sample is available at path .\azure-cosmos-graph-bulk-executor\dotnet\src\
 
-### Run
+### Execute
 Modify the following parameters as:
 
 Parameter|Description
@@ -66,6 +67,13 @@ Download the full sample application in .NET from [here](https://github.com/Azur
 
 The sample application is provided to illustrate how to use the GraphBulkExecutor package. Samples are available for using either the Domain object annotations or using the POJO objects directly. It's recommended, to try both approaches, to determine which better meets your implementation and performance demands.
 
+### Clone
+To run the sample, run the `git clone` command below:
+```bash
+git clone https://github.com/Azure-Samples/azure-cosmos-graph-bulk-executor.git
+```
+The sample is available at .\azure-cosmos-graph-bulk-executor\java\
+
 ### Prerequisites
 
 To run this sample, you'll need to have the following software:
@@ -73,7 +81,8 @@ To run this sample, you'll need to have the following software:
 * OpenJDK 11
 * Maven
 * An Azure Cosmos DB Account configured to use the Gremlin API
-#### Sample
+
+### Sample
 ```java
 private static void executeWithPOJO(Stream<GremlinVertex> vertices,
                                         Stream<GremlinEdge> edges,
@@ -84,13 +93,6 @@ private static void executeWithPOJO(Stream<GremlinVertex> vertices,
         loader.uploadDocuments(vertices, edges, createDocs);
     }
 ```
-
-### Clone
-To run the sample, run the `git clone` command below:
-```bash
-git clone https://github.com/Azure-Samples/azure-cosmos-graph-bulk-executor.git
-```
-The sample is available at .\azure-cosmos-graph-bulk-executor\java\
 
 To run the sample, refer the configuration as follows and modify as needed:
 ### Configuration
@@ -104,7 +106,7 @@ The /resources/application.properties file defines the data required to configur
 * **sample.sql.partition.path**: If the container needs to be created, this value will be used to define the partitionKey path.
 * **sample.sql.allow.throughput**: The container will be updated to use the throughput value defined here. If you're exploring different throughput options to meet your performance demands, make sure to reset the throughput on the container when done with your exploration. There are costs associated with leaving the container provisioned with a higher throughput.
 
-### Execute the sample
+### Execute
 
 Once the configuration is modified as per your environment, then run the command:
 
