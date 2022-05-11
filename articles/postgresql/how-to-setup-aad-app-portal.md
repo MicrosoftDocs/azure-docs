@@ -54,7 +54,7 @@ Repeat the following for source single server, target flexible server, resource 
     :::image type="content" source="./media/concepts-single-to-flex/aad-iam-screen.png" alt-text="Access Control IAM screen" lightbox="./media/concepts-single-to-flex/aad-iam-screen.png":::
 
 2.  Click **Add** and choose **Add role assignment**.
-    :::image type="content" source="./media/concepts-single-to-flex/aad-add-role-assignment.png" alt-text="Access Control IAM screen" lightbox="./media/concepts-single-to-flex/aad-add-role-assignment.png":::
+    :::image type="content" source="./media/concepts-single-to-flex/aad-add-role-assignment.png" alt-text="Add role assignment" lightbox="./media/concepts-single-to-flex/aad-add-role-assignment.png":::
 
 > [!NOTE]
 >   The Add role assignment capability is only enabled for users in the subscription with role type as **Owners**. Users with other roles do not have permission to add role assignments.

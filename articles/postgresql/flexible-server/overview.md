@@ -120,6 +120,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | US Gov Virginia | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | UK South | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | UK West | :heavy_check_mark: | :x: | :x: |
+| West Central US | :heavy_check_mark: | :x: | :x: |
 | West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | West US | :heavy_check_mark: | :x: | :x: |
 | West US 2 | :x: $$ | :x: $ | :x: |

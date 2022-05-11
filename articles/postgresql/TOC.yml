@@ -19,7 +19,7 @@
           - name: Concepts, Pre-requisites, and best practices
             href: concepts-single-to-flexible.md
           - name: Migrate using Portal
-            href: how-to-migrate-single-flex-portal.md
+            href: how-to-migrate-single-to-flex-portal.md
           - name: Migrate using CLI
             href: how-to-migrate-single-to-flex-cli.md
           - name: Configure AAP App using Portal

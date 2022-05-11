@@ -1,7 +1,7 @@
 ---
 title: "Migrate PostgreSQL Single Server to Flexible Server using the Azure CLI"
 titleSuffix: Azure Database for PostgreSQL Flexible Server
-description: Learn about migrating your Single server databases to Azure database for PostgreSQL Flexible server.
+description: Learn about migrating your Single server databases to Azure database for PostgreSQL Flexible server using CLI.
 author: hariramt
 ms.author: hariramt
 ms.service: postgresql
@@ -10,6 +10,9 @@ ms.date: 05/09/2022
 ---
 
 # Migrate PostgreSQL Single Server to Flexible Server using the Azure CLI
+
+>[!NOTE]
+> Single Server to Flexible Server migration feature is in public preview.
 
 This quick start article shows you how to use Single to Flexible Server migration feature to migrate databases from Azure database for PostgreSQL Single server to Flexible server.
 
@@ -20,7 +23,7 @@ This quick start article shows you how to use Single to Flexible Server migratio
 
   :::image type="content" source="./media/concepts-single-to-flex/single-to-flex-cli-dms.png" alt-text="CLI DMS" lightbox="./media/concepts-single-to-flex/single-to-flex-cli-dms.png":::
 
-3. In your subscription, navigate to **Resource Providers** from the left navigation menu. Search for &quot; **Microsoft.DataMigration**&quot; as shown below and click on **Register**.
+3. In your subscription, navigate to **Resource Providers** from the left navigation menu. Search for "**Microsoft.DataMigration**"; as shown below and click on **Register**.
 
   :::image type="content" source="./media/concepts-single-to-flex/single-to-flex-cli-dms-register.png" alt-text="CLI DMS Register" lightbox="./media/concepts-single-to-flex/single-to-flex-cli-dms-register.png":::
 
@@ -28,13 +31,14 @@ This quick start article shows you how to use Single to Flexible Server migratio
 
 ### Setup Azure CLI
 
-1. Install the latest Azure CLI for your corresponding operating system from the [Azure CLI install page](https://docs.microsoft.com/cli/azure/install-azure-cli-windows)
-2. In case Azure CLI is already installed, check the version by issuing **az version** command. The version should be **2.28.0 or above** to use the migration CLI commands. If not, please update your Azure CLI using this [link](https://docs.microsoft.com/cli/azure/update-azure-cli).
-3. Once you have the right Azure CLI version, run the **az login** command. This will open the default browser and load an Azure sign-in page to authenticate. Pass in your Azure credentials to do a successful authentication. For other ways to sign with Azure CLI, visit this [link](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
+1. Install the latest Azure CLI for your corresponding operating system from the [Azure CLI install page](/cli/azure/install-azure-cli)
+2. In case Azure CLI is already installed, check the version by issuing **az version** command. The version should be **2.28.0 or above** to use the migration CLI commands. If not, please update your Azure CLI using this [link](/cli/azure/update-azure-cli.md).
+3. Once you have the right Azure CLI version, run the **az login** command. This will open the default browser and load an Azure sign-in page to authenticate. Pass in your Azure credentials to do a successful authentication. For other ways to sign with Azure CLI, visit this [link](/cli/azure/authenticate-azure-cli.md).
+   
 ```bash
 az login
 ```
-4. Take care of the pre-requisites listed in this [**document**](./concepts-single-to-flexible.md#pre-requisites) which are necessary to get started with the Single to Flexible migration feature.
+1. Take care of the pre-requisites listed in this [**document**](./concepts-single-to-flexible.md#pre-requisites) which are necessary to get started with the Single to Flexible migration feature.
 
 ## Migration CLI commands
 

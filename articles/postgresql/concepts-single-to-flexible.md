@@ -1,12 +1,12 @@
 ---
 title: "Migrate from Azure Database for PostgreSQL Single Server to Flexible Server - Concepts"
 titleSuffix: Azure Database for PostgreSQL Flexible Server
-description: Learn about migrating your Single server databases to Azure database for PostgreSQL Flexible server.
+description: Concepts about migrating your Single server to Azure database for PostgreSQL Flexible server.
 author: shriram-muthukrishnan
-ms.author: shriram-muthukrishnan
+ms.author: shriramm
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 05/11/2022
 ---
 
 # Migrate from Azure Database for PostgreSQL Single Server to Flexible Server (Preview)
@@ -14,9 +14,9 @@ ms.date: 05/09/2022
 ## Overview
 
 >[!NOTE]
-> This feature is in public preview.
+> Single Server to Flexible Server migration feature is in public preview.
 
-Azure Database for PostgreSQL Flexible Server provides zone redundant high availability, control over price, and control over maintenance window.  Single to Flexible Server Migration feature enables customers to migrate their databases from Single server to Flexible. See this [documentation](./concepts-compare-single-server-flexible-server.md) to understand the differences between Single and Flexible servers. Customers can initiate migrations for multiple servers and databases in a repeatable fashion using this migration feature. This feature automates most of the steps needed to do the migration and thus making the migration journey across Azure platforms as seamless as possible. The feature is provided free of cost for customers.
+Azure Database for PostgreSQL Flexible Server provides zone redundant high availability, control over price, and control over maintenance window.  Single to Flexible Server Migration feature enables customers to migrate their databases from Single server to Flexible. See this [documentation](./flexible-server/concepts-compare-single-server-flexible-server.md) to understand the differences between Single and Flexible servers. Customers can initiate migrations for multiple servers and databases in a repeatable fashion using this migration feature. This feature automates most of the steps needed to do the migration and thus making the migration journey across Azure platforms as seamless as possible. The feature is provided free of cost for customers.
 
 Single to Flexible server migration is enabled in the following regions:
 
@@ -55,7 +55,7 @@ You choose the source server and can select up to 8 databases from the source se
 
 Following is the flow diagram for Single to Flexible migration feature.
 
-     :::image type="content" source="./media/concepts-single-to-flex/oncepts-flow-diagram.png" alt-text="Single to Flexible Server migration flow" lightbox="./media/concepts-single-to-flex/concepts-flow-diagram.png":::
+     :::image type="content" source="./media/concepts-single-to-flex/concepts-flow-diagram.png" alt-text="Single to Flexible Server migration flow" lightbox="./media/concepts-single-to-flex/concepts-flow-diagram.png":::
     
 Steps:
 1. Create a Flex PG server
@@ -115,7 +115,7 @@ Based on the above differences, pick the mode that best works for your workloads
 
 Follow the steps provided in this section before you get started with the single to flexible server migration feature.
 
-- **Target Server Creation** - You need to create the target PostgreSQL flexible server before using the migration feature. Use the creation [QuickStart guide](./quickstart-create-server-portal.md) to create one.
+- **Target Server Creation** - You need to create the target PostgreSQL flexible server before using the migration feature. Use the creation [QuickStart guide](./flexible-server/quickstart-create-server-portal.md) to create one.
 
 - **Source Server pre-requisites** - You must [enable logical replication](./concepts-logical#pre-requisites-for-logical-replication-and-logical-decoding.md) on the source server.
 
@@ -201,5 +201,5 @@ Once all these pre-requisites are taken care of, you can do the migration. This 
 
 ## Next steps
 
-- You can test the migration: [Migrate to Flexible server using Azure portal](./how-to-single-to-flex-migration-portal.md).
-- For CLI mode [Migrate to Flexible server using Azure CLI](./how-to-single-to-flex-migration-cli.md)
+- You can test the migration: [Migrate to Flexible server using Azure portal](./how-to-migrate-single-to-flex-portal.md).
+- For CLI mode [Migrate to Flexible server using Azure CLI](./how-to-migrate-single-to-flex-cli.md)
