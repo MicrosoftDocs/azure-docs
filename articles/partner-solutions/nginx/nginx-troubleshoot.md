@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting nginx - Azure partner solutions
-description: This article provides information about getting support and troubleshooting Nginx integration with Azure.
+title: Troubleshooting your NGINXfor Azure deployment
+description: This article provides information about getting support and troubleshooting an NGINX integration with Azure.
 ms.topic: conceptual
 ms.service: partner-services
 author: flang-msft
@@ -11,9 +11,11 @@ ms.date: 05/12/2022
 
 # Troubleshooting nginx integration with Azure
 
+You can get support for your NGINX deployment through a **New Support request**. The procedure for creating the request is here. In addition, we have included other troubleshooting for problems you might experience in creating and using an NGINX deployment.
+
 ## Getting support  
 
-1. To contact support about the Azure Nginx integration, open your NGINX Deployment in the portal.
+1. To contact support about an Azure NGINX integration, open your NGINX Deployment in the portal.
 
 1. Select the **New Support request** in Resource menu on the left.
 
