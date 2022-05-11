@@ -50,8 +50,8 @@ Use the Azure Monitor agent to gain these benefits:
 
 - Collect guest logs and metrics from any machine in Azure, in other clouds, or on-premises. ([Azure Arc-enabled servers](../../azure-arc/servers/overview.md) required for machines outside of Azure.) 
 - **Cost savings:** 
- - Granular targeting via [Data Collection Rules](../essentials/data-collection-rule-overview.md) to collect specific data types from specific machines, as compared to the "all or nothing" mode that Log Analytics agent supports
- - Use XPath queries to filter Windows events that get collected. This helps further reduce ingestion and storage costs.
+  -	Granular targeting via [Data Collection Rules](../essentials/data-collection-rule-overview.md) to collect specific data types from specific machines, as compared to the "all or nothing" mode that Log Analytics agent supports
+  -	Use XPath queries to filter Windows events that get collected. This helps further reduce ingestion and storage costs.
 - **Centrally configure** collection for different sets of data from different sets of VMs.
 - **Simplified management of data collection:** Send data from Windows and Linux VMs to multiple Log Analytics workspaces (i.e. "multi-homing") and/or other [supported destinations](#data-sources-and-destinations). Additionally, every action across the data collection lifecycle, from onboarding to deployment to updates, is significantly easier, scalable, and centralized (in Azure) using data collection rules
 - **Management of dependent solutions or services:** The Azure Monitor agent uses a new method of handling extensibility that's more transparent and controllable than management packs and Linux plug-ins in the legacy Log Analytics agents. Moreover this management experience is identical for machines in Azure or on-premises/other clouds via Azure Arc, at no added cost.
