@@ -1,7 +1,7 @@
 ---
-title: Email as Service Overview in Azure Communication Services
+title: Email Pricing 
 titleSuffix: An Azure Communication Services concept document
-description: Learn about Communication Services Email concepts.
+description: Learn about Communication Services Email pricing.
 author: bashan-git
 manager: sphenry
 services: azure-communication-services
