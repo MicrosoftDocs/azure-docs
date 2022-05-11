@@ -28,7 +28,7 @@ ms.author: lajanuar
 > [!NOTE]
 > Language code `pt` will default to `pt-br`, Portuguese (Brazil).
 >
-> ☼ Indicates the languages is not available for scanned PDF document translation.
+> ☼ Indicates the language is not available for scanned PDF document translation.
 
 |Language | Language code | Cloud – Text Translation and Document Translation | Containers – Text Translation|Custom Translator|Auto Language Detection|Dictionary
 |:-|:-:|:-:|:-:|:-:|:-:|:-:|
