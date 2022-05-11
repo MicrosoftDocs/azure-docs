@@ -90,4 +90,3 @@ For data larger than 10 GB| Move to a cluster using `Ray`, `Dask`, or `Spark`
 ## Next steps
 
 * [Data ingestion options with Azure Machine Learning](concept-data-ingestion.md).
-* [Create and register datasets](how-to-create-register-datasets.md).

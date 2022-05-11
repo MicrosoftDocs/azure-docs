@@ -70,7 +70,7 @@ The following code configures a script argument `--input-data` that you will spe
 > [!Note]
 > If your original data source contains NaN, empty strings or blank values, when you use `to_pandas_dataframe()`, then those values are replaced as a *Null* value.
 
-If you need to load the prepared data into a new dataset from an in-memory pandas dataframe, write the data to a local file, like a parquet, and create a new dataset from that file. Learn more about [how to create datasets](how-to-create-register-datasets.md).
+If you need to load the prepared data into a new dataset from an in-memory pandas dataframe, write the data to a local file, like a parquet, and create a new dataset from that file. Learn more about [how to create datasets](./v1/how-to-create-register-datasets.md).
 
 ```Python
 %%writefile $script_folder/train_titanic.py
@@ -138,7 +138,7 @@ For the notebook example , see [How to configure a training run with data input 
 
 The following example creates an unregistered FileDataset, `mnist_data` from web urls. This FileDataset is the input data for your training run.
 
-Learn more about [how to create datasets](how-to-create-register-datasets.md) from other sources.
+Learn more about [how to create datasets](./v1/how-to-create-register-datasets.md) from other sources.
 
 ```Python
 

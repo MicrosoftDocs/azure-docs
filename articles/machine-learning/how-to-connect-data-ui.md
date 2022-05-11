@@ -198,12 +198,6 @@ For Azure blob container and Azure Data Lake Gen 2 storage, make sure your authe
 
 Use your datasets in your machine learning experiments for training ML models. [Learn more about how to train with datasets](how-to-train-with-datasets.md)
 
-## Move data to supported Azure storage solutions
-
-Azure Machine Learning supports accessing data from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, and Azure Data Lake Storage Gen2. If you're using unsupported storage, we recommend that you move your data to supported Azure storage solutions by using [Azure Data Factory and these steps](/azure/data-factory/quickstart-create-data-factory-copy-data-tool). Moving data to supported storage can help you save data egress costs during machine learning experiments. 
-
-Azure Data Factory provides efficient and resilient data transfer with more than 80 prebuilt connectors at no extra cost. These connectors include Azure data services, on-premises data sources, Amazon S3 and Redshift, and Google BigQuery.
-
 ## Next steps
 
 * [A step-by-step example of training with TabularDatasets and automated machine learning](tutorial-first-experiment-automated-ml.md).

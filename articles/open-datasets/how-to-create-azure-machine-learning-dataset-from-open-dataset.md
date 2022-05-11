@@ -15,7 +15,7 @@ ms.custom: how-to, tracking-python
 
 In this article, you learn how to bring curated enrichment data into your local or remote machine learning experiments with [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md) datasets and [Azure Open Datasets](./index.yml). 
 
-By creating an [Azure Machine Learning dataset](../machine-learning/how-to-create-register-datasets.md), you create a reference to the data source location, along with a copy of its metadata. Because datasets are lazily evaluated, and the data remains in its existing location, you
+By creating an [Azure Machine Learning dataset](../machine-learning/v1/how-to-create-register-datasets.md), you create a reference to the data source location, along with a copy of its metadata. Because datasets are lazily evaluated, and the data remains in its existing location, you
 * Incur no extra storage cost.
 * Don't risk unintentionally changing your original data sources. 
 * Improve ML workflow performance speeds.
@@ -54,7 +54,7 @@ For this article, you need:
 
 ## Create datasets with the SDK
 
-To create Azure Machine Learning datasets via Azure Open Datasets classes in the Python SDK, make sure you've installed the package with `pip install azureml-opendatasets`. Each discrete data set is represented by its own class in the SDK, and certain classes are available as either an Azure Machine Learning [`TabularDataset`, `FileDataset`](../machine-learning/how-to-create-register-datasets.md#dataset-types), or both. See the [reference documentation](/python/api/azureml-opendatasets/azureml.opendatasets) for a full list of `opendatasets` classes.
+To create Azure Machine Learning datasets via Azure Open Datasets classes in the Python SDK, make sure you've installed the package with `pip install azureml-opendatasets`. Each discrete data set is represented by its own class in the SDK, and certain classes are available as either an Azure Machine Learning [`TabularDataset`, `FileDataset`](../machine-learning/v1/how-to-create-register-datasets.md#dataset-types), or both. See the [reference documentation](/python/api/azureml-opendatasets/azureml.opendatasets) for a full list of `opendatasets` classes.
 
 You can retrieve certain `opendatasets` classes as either a `TabularDataset` or `FileDataset`, which allows you to manipulate and/or download the files directly. Other classes can get a dataset **only** by using the `get_tabular_dataset()` or `get_file_dataset()` functions from the `Dataset`class in the Python SDK.
 
@@ -128,4 +128,4 @@ For examples and demonstrations of Open Datasets functionality,  see these [samp
 
 * [Train with datasets](../machine-learning/how-to-train-with-datasets.md).
 
-* [Create an Azure machine learning dataset](../machine-learning/how-to-create-register-datasets.md).
+* [Create an Azure machine learning dataset](../machine-learning/v1/how-to-create-register-datasets.md).
