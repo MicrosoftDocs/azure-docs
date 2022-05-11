@@ -31,9 +31,15 @@
   - name: Track experiments with MLflow 
     displayName: log, monitor, metrics, model registry, register
     href: how-to-use-mlflow.md  
+  - name: Tutorial AutoML- train object detection model
+    displayName: auto ML, automl, CLI
+    href: tutorial-auto-train-image-models-v1.md
   - name: Auto-train a natural language processing model
     displayName: nlp, auto ML, automl, SDK
     href: how-to-auto-train-nlp-models-v1.md
+  - name: Set up AutoML to train computer vision models with Python
+    displayName: auto ML, automl, SDK
+    href: how-to-auto-train-image-models-v1.md
   - name: Create & manage compute resources
     items:
     - name: Compute instance
@@ -72,6 +78,9 @@
     - name: Where and how to deploy
       displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
       href: ../how-to-deploy-and-where.md
+    - name: Hyperparameter tuning a model (v1)
+      displayName: azurecli, AzureML
+      href: how-to-tune-hyperparameters-v1.md
     - name: Azure Kubernetes Service
       displayName: aks, aad, authentication, azure active directory
       href: how-to-deploy-azure-kubernetes-service.md
