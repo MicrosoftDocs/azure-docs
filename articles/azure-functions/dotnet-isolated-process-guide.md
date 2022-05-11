@@ -118,25 +118,13 @@ The [ConfigureFunctionsWorkerDefaults] extension method has an overload that let
 
 The below extension methods on [FunctionContext] comes in handy when working with a middleware in the isolated model.
 
-##### GetHttpRequestDataAsync
-
-Gets the `Microsoft.Azure.Functions.Worker.Http.HttpRequestData` instance if the invocation is for an http trigger. This method returns an instance of `ValueTask<HttpRequestData?>` This will be helpful if you want to read the request headers, cookies etc.
-
-##### GetHttpResponseData
-
-Gets the `Microsoft.Azure.Functions.Worker.Http.HttpResponseData` instance if the invocation is for an http trigger.
-
-##### GetInvocationResult
-
-Gets an instance of `Microsoft.Azure.Functions.Worker.InvocationResult` which represents the invocation result of the current function invocation. You can use the `Value` property to get or set the value as needed.
-
-##### GetOutputBindings
-
-Gets the output binding entries for the current function invocation. Each entry in the result of this method is of type `OutputBindingData`. You can use the `Value` property to get or set the value as needed.
-
-##### BindInputAsync
-
-Binds an input binding item for the requested `Microsoft.Azure.Functions.Worker.BindingMetadata` instance. For example, if you have a function with a `BlobInput` input binding and you prefer to get/update the value of that in your middleware, you may use this method.
+| Method | Description |
+| ---- | ---- |
+| **`GetHttpRequestDataAsync`** | Gets the `HttpRequestData` instance when called by an HTTP trigger. This method returns an instance of `ValueTask<HttpRequestData?>`, which is useful when you want to read message data, such as request headers and cookies. |
+| **`GetHttpResponseData`** | Gets the `HttpResponseData` instance when called by an HTTP trigger. |
+|  **`GetInvocationResult`** | Gets an instance of `InvocationResult`, which represents the result of the current function execution. Use the `Value` property to get or set the value as needed. |
+|  **` GetOutputBindings`** | Gets the output binding entries for the current function execution. Each entry in the result of this method is of type `OutputBindingData`. You can use the `Value` property to get or set the value as needed. | 
+|  **` BindInputAsync`** | Binds an input binding item for the requested `BindingMetadata` instance. For example, you can use this method when you have a function with a `BlobInput` input binding that needs to be accessed or updated by your middleware. |
 
 The following is an example of a middleware implementation which reads the `HttpRequestData` instance and updates the `HttpResponseData` instance during function execution. This middleware checks for the presence of a specific request header(x-correlationId), and when present uses the header value to stamp a response header. Otherwise, it generates a new GUID value and uses that for stamping the response header.
  
