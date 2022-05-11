@@ -25,7 +25,7 @@ After your model has finished training, you can view the model performance and s
 Before viewing model evaluation you need:
 
 * [A custom text classification project](create-project.md) with a configured Azure blob storage account.
-* Text data that has [been uploaded](create-project.md#prepare-training-data) to your storage account.
+* Text data that has [been uploaded](design-schema.md#data-preparation) to your storage account.
 * [Tagged data](tag-data.md)
 * A successfully [trained model](train-model.md)
 

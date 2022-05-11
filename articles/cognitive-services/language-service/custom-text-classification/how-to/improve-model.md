@@ -23,7 +23,7 @@ In some cases, the model is expected to make predictions that are inconsistent w
 To optionally improve a model, you'll need to have:
 
 * [A custom text classification project](create-project.md) with a configured Azure blob storage account, 
-* Text data that has [been uploaded](create-project.md#prepare-training-data) to your storage account.
+* Text data that has [been uploaded](design-schema.md#data-preparation) to your storage account.
 * [Tagged data](tag-data.md) to successfully [train a model](train-model.md).
 * Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
 * Familiarized yourself with the [evaluation metrics](../concepts/evaluation-metrics.md).
