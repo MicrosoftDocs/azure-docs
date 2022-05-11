@@ -27,6 +27,7 @@ An [isolated process class library](dotnet-isolated-process-guide.md) compiled C
 
 ---
 
+<!--- Legacy .NET content from the repo
 Kafka messages can be serialized to multiple formats. A complete set of samples  
 
 # [JSON](#tab/string/in-process)
@@ -178,7 +179,6 @@ public static class ProtobufTriggers
 
 The following example shows a Kafka trigger that writes output to a storage queue. 
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/test/Microsoft.Azure.WebJobs.Extensions.Kafka.LangEndToEndTests/FunctionApps/dotnet-isolated/EventHub/SingleKafkaTriggerQueueOutput.cs" range="18-34" :::
 
 # [Avro](#tab/avro/isolated-process)
 
@@ -190,9 +190,73 @@ Isolated process only supported string (JSON) payloads.
 
 ---
 
+-->
+
+The attributes you use depend on the specific event provider.
+
+# [Confluent](#tab/confluent/in-process)
+
+The following example shows a C# function that reads and logs the Kafka message as a Kafka event:
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet/Confluent/KafkaTrigger.cs" range="10-21" :::
+
+To receive events in a batch, use an input string or `KafkaEventData` as an array, as shown in the following example:
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet/Confluent/KafkaTriggerMany.cs" range="10-24" :::
+
+The following function logs the message and headers for the Kafka Event:
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet/Confluent/KafkaTriggerWithHeaders.cs" range="10-27" :::
+
+For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet/). 
+
+# [Event Hubs](#tab/event-hubs/in-process)
+
+The following example shows a C# function that reads and logs the Kafka message as a Kafka event:
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet/EventHub/KafkaTrigger.cs" range="10-21" :::
+
+To receive events in a batch, use a string array or `KafkaEventData` array as input, as shown in the following example:
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet/EventHub/KafkaTriggerMany.cs" range="10-24" :::
+
+The following function logs the message and headers for the Kafka Event:
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet/EventHub/KafkaTriggerWithHeaders.cs" range="10-26" :::
+
+For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet/). 
+
+# [Confluent](#tab/confluent/isolated-process)
+
+The following example shows a C# function that reads and logs the Kafka message as a Kafka event:
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaTrigger.cs" range="12-24" :::
+
+To receive events in a batch, use a string array as input, as shown in the following example:
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaTriggerMany.cs" range="12-27" :::
+
+For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet-isolated/). 
+
+# [Event Hubs](#tab/event-hubs/isolates-process)
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaTrigger.cs" range="12-24" :::
+
+To receive events in a batch, use a string array as input, as shown in the following example:
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaTriggerMany.cs" range="12-27" :::
+
+For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet-isolated/). 
+
+---
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
+
+> [!NOTE]
+> For an equivalent set of TypeScript examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/tree/dev/samples/typescript)
+
+The following examples show a Kafka trigger for a function that reads and logs a Kafka message.
 
 The following function.json defines the trigger for the specific provider:
 
@@ -200,15 +264,32 @@ The following function.json defines the trigger for the specific provider:
 
 :::code language="json" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTrigger/function.confluent.json" :::
 
-# [Event Hubs](#tab/event-hub)
+# [Event Hubs](#tab/event-hubs)
 
 :::code language="json" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTrigger/function.eventhub.json" :::
 
 ---
 
-The following code is run when the function is triggered:
+The following code then runs when the function is triggered:
 
 :::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTrigger/index.js" :::
+
+To receive events in a batch, set the `cardinality` value to `many` in the function.json file, as shown in the following examples:
+
+# [Confluent](#tab/confluent)
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerMany/function.confluent.json" :::
+
+# [Event Hubs](#tab/event-hubs)
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerMany/function.eventhub.json" :::
+
+---
+
+The following code then parses the array of events and logs the event data:
+
+:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerMany/index.js" :::
+
 
 For a complete set of working JavaScript examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/javascript/). 
 
@@ -288,22 +369,14 @@ The following table explains the binding configuration properties that you set i
 ## Usage
 
 ::: zone pivot="programming-language-csharp"
-Kafka messages can be serialized to multiple formats. Currently the following formats are supported: 
 
-# [JSON](#tab/string)
+# [In-process](#tab/in-process)
 
-String format is supported for JSON payloads.
+Kafka events are represented by the `KafkaEventData` object. Strings that are JSON payloads are also supported.
+ 
+# [Isolated process](#tab/isolated-process)
 
-# [Avro](#tab/avro)
-
-The Kafka trigger supports two methods for consuming [Avro format](http://avro.apache.org/docs/current/):
-
-- **Specific**: A concrete user-defined class is instantiated during message de-serialization.
-- **Generic**: An Avro schema and a generic record instance are created during message de-serialization.
-
-# [Protobuf](#tab/protobuf)
-
-[Protobuf](https://developers.google.com/protocol-buffers/)
+Kafka events are currently supported as strings that are JSON payloads.
 
 ---
 
