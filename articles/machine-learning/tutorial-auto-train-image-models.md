@@ -374,7 +374,7 @@ When you've configured your AutoML Job to the desired settings, you can submit t
 
 When doing a hyperparameter sweep, it can be useful to visualize the different configurations that were tried using the HyperDrive UI. You can navigate to this UI by going to the 'Child runs' tab in the UI of the main automl_image_run from above, which is the HyperDrive parent run. Then you can go into the 'Child runs' tab of this one.
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK v2 (preview)](#tab/SDK-v2-)
 
 Alternatively, here below you can see directly the HyperDrive parent run and navigate to its 'Child runs' tab:
 
