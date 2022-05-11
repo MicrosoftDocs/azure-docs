@@ -108,22 +108,6 @@ git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-python.git 
 
 ---
 
-Next, set an environment variable for the target port of your application.  If you're using the JavaScript API, the target port should be set to `3000`.  Otherwise, set your target port to `80`.
-
-# [Bash](#tab/bash)
-
-```bash
-API_PORT="<TARGET_PORT>"
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-$API_PORT="<TARGET_PORT>"
-```
-
----
-
 Next, change the directory into the root of the cloned repo.
 
 ```console
@@ -169,7 +153,7 @@ az acr create \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$ACA_REGISTRY = New-AzContainerRegistry `
+New-AzContainerRegistry `
     -ResourceGroupName $RESOURCE_GROUP `
     -Name $ACR_NAME `
     -EnableAdminUser `
@@ -308,7 +292,7 @@ az containerapp create \
   --resource-group $RESOURCE_GROUP \
   --environment $ENVIRONMENT \
   --image $ACR_NAME.azurecr.io/$API_NAME \
-  --target-port $API_PORT \
+  --target-port 3500 \
   --ingress 'external' \
   --registry-server $ACR_NAME.azurecr.io \
   --query configuration.ingress.fqdn
@@ -322,7 +306,7 @@ az containerapp create `
   --resource-group $RESOURCE_GROUP `
   --environment $ENVIRONMENT `
   --image $API_NAME `
-  --target-port $API_PORT `
+  --target-port 3500 `
   --ingress 'external' `
   --registry-server "$ACR_NAME.azurecr.io" `
   --query configuration.ingress.fqdn
