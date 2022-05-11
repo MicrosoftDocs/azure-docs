@@ -908,7 +908,21 @@ Arabic|`ar-DZ`<br/>`ar-BH`<br/>`ar-EG`<br/>`ar-IQ`<br/>`ar-OM`<br/>`ar-SY`|
 
 ## Pronunciation assessment
 
-The [pronunciation assessment](how-to-pronunciation-assessment.md) feature currently supports the `en-US` locale, which is available with all speech-to-text regions. Support for `en-GB` and `zh-CN` languages is in preview.
+The following table lists the released languages and public preview languages.
+
+| Language | Locale |
+|--|--|
+|Chinese (Mandarin, Simplified)|`zh-CN`<sup>Public preview</sup> |
+|English (Australia)|`en-AU`<sup>Public preview</sup> |
+|English (United Kingdom)|`en-GB`<sup>Public preview</sup> |
+|English (United States)|`en-US`<sup>General available</sup>|
+|French (France)|`fr-FR`<sup>Public preview</sup> |
+|Spanish (Spain)|`es-ES`<sup>Public preview</sup> |
+
+> [!NOTE]
+> If you want to use languages that aren't listed here, please contact us by email at [mspafeedback@microsoft.com](mailto:mspafeedback@microsoft.com). 
+>  
+> For pronunciation assessment supported regions, see [available regions](regions.md#speech-to-text-pronunciation-assessment-text-to-speech-and-translation).
 
 ## Speech translation
 

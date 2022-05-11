@@ -150,7 +150,7 @@ When planning for disaster recovery during a regional outage, you should create 
 
 ### Enabling access to virtual networks in other regions (preview)
 
-To enable access from a virtual network that is located in another region, register the `AllowGlobalTagsForStorage` feature in the subscription of the virtual network. Subnets in other regions which have storage service endpoints will no longer use a public IP address to communicate with the storage account. All traffic will originate from a private IP address and any IP network rules that permit traffic from those subnets will no longer have an effect.
+To enable access from a virtual network that is located in another region, register the `AllowGlobalTagsForStorage` feature in the subscription of the virtual network. All the subnets in the subscription that has the _AllowedGlobalTagsForStorage_ feature enabled will no longer use a public IP address to communicate with any storage account. Instead, all the traffic from these subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
 
 > [!IMPORTANT]
 > This capability is currently in PREVIEW.

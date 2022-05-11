@@ -4,6 +4,7 @@ description: Learn how to use the sys_schema to find performance issues and main
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: troubleshooting
 ms.date: 3/10/2022
 ---
