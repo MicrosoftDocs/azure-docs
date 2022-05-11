@@ -43045,7 +43045,7 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/how-to/call-api.md",
-      "redirect_url": "/azure/cognitive-services/language-service/summarization/how-to/document-summarization.md",
+      "redirect_url": "/azure/cognitive-services/language-service/summarization/how-to/document-summarization",
       "redirect_document_id": true
     },
     {
