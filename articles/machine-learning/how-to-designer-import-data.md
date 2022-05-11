@@ -27,7 +27,7 @@ We recommend that you use [datasets](./v1/concept-data.md#datasets) to import da
 
 ### Register a dataset
 
-You can register existing datasets [programatically with the SDK](./v1/how-to-create-register-datasets.md#datasets-sdk) or [visually in Azure Machine Learning studio](how-to-connect-data-ui.md#create-datasets).
+You can register existing datasets [programatically with the SDK](./v1/how-to-create-register-datasets.md#create-datasets-from-datastores) or [visually in Azure Machine Learning studio](how-to-connect-data-ui.md#create-datasets).
 
 You can also register the output for any designer component as a dataset.
 

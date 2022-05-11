@@ -57,7 +57,7 @@ To create and work with Data assets, you need:
 
 ## Compute size guidance
 
-When creating a Data asset, review your compute processing power and the size of your data in memory. The size of your data in storage is not the same as the size of data in a dataframe. For example, data in CSV files can expand up to 10x in a dataframe, so a 1 GB CSV file can become 10 GB in a dataframe. 
+When creating a Data asset, review your compute processing power and the size of your data in memory. The size of your data in storage isn't the same as the size of data in a dataframe. For example, data in CSV files can expand up to 10x in a dataframe, so a 1-GB CSV file can become 10 GB in a dataframe. 
 
 If your data is compressed, it can expand further; 20 GB of relatively sparse data stored in compressed parquet format can expand to ~400 GB in memory.
 
@@ -65,17 +65,17 @@ If your data is compressed, it can expand further; 20 GB of relatively sparse da
 
 ## Data types
 
-Azure Machine Learning allows you to work with different types of data. Your data can be local or in the cloud (from a registered Azure ML Datastore, an common Azure Storage URL or a public data url). In this article, you'll learn about using the Python SDK v2 to work with _URIs_ and _Tables_. URIs reference a location either local to your development environment or in the cloud. Tables are a tabular data abstraction.
+Azure Machine Learning allows you to work with different types of data. Your data can be local or in the cloud (from a registered Azure ML Datastore, a common Azure Storage URL or a public data url). In this article, you'll learn about using the Python SDK v2 to work with _URIs_ and _Tables_. URIs reference a location either local to your development environment or in the cloud. Tables are a tabular data abstraction.
 
 For most scenarios, you'll use URIs (`uri_folder` and `uri_file`). A URI references a location in storage that can be easily mapped to the filesystem of a compute node when you run a job. The data is accessed by either mounting or downloading the storage to the node.
 
 When using tables, you'll use `mltable`. It's an abstraction for tabular data that is used for AutoML jobs, parallel jobs, and some advanced scenarios. If you're just starting to use Azure Machine Learning, and aren't using AutoML, we strongly encourage you to begin with URIs.
 
-If you are creating Azure ML Data asset from an existing Datastore:
+If you're creating Azure ML Data asset from an existing Datastore:
 
 1. Verify that you have `contributor` or `owner` access to the underlying storage service of your registered Azure Machine Learning datastore. [Check your storage account permissions in the Azure portal](/azure/role-based-access-control/check-access).
 
-1. Create the data asset by referencing paths in the datastore. You can create a Data asset from multiple paths in multiple datastores. There is no hard limit on the number of files or data size that you can create a data asset from. 
+1. Create the data asset by referencing paths in the datastore. You can create a Data asset from multiple paths in multiple datastores. There's no hard limit on the number of files or data size that you can create a data asset from. 
 
 > [!NOTE]
 > For each data path, a few requests will be sent to the storage service to check whether it points to a file or a folder. This overhead may lead to degraded performance or failure. A Data asset referencing one folder with 1000 files inside is considered referencing one data path. We recommend creating Data asset referencing less than 100 paths in datastores for optimal performance.
@@ -250,14 +250,14 @@ path: wasbs://mainstorage9c05dabf5c924.blob.core.windows.net/azureml-blobstore-5
 ## MLTable
 
 ### Register data as MLTable type Data assets
-Registering an mltable as an asset in Azure Machine Learning
-You can register an mltable as a data asset in Azure Machine Learning. The benefits of registering data are:
+Registering a `mltable` as an asset in Azure Machine Learning
+You can register a `mltable` as a data asset in Azure Machine Learning. The benefits of registering data are:
 
 Easy to share with other members of the team (no need to remember file locations)
-Versioning of the metadata (location, description, etc)
+Versioning of the metadata (location, description, etc.)
 Below we show an example of versioning the sample data in this repo. The data is uploaded to cloud storage and registered as an asset.
 
-Python```
+```python
 from azure.ml.entities import Data
 from azure.ml._constants import AssetTypes
 
