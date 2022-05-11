@@ -6,35 +6,37 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.author: lagayhar
-author: lgayhardt
-ms.date: 05/06/2022
+ms.author: mesameki
+author: mesameki
+ms.date: 05/10/2022
 ms.custom: responsible-ai
 #Customer intent: As a data scientist, I want to learn about machine learning fairness and how to assess and mitigate unfairness in machine learning models.
 ---
 
-# Why is model fairness important to model debugging? 
+# Why is model fairness important to model debugging?
 
 Artificial Intelligence (AI) has transformed modern life via previously unthinkable feats, from self-driving cars and machines that can master the ancient boardgame Go to more “everyday” developments, such as customer support chatbots and personalized product recommendations. But, at the same time, these new opportunities have also raised new challenges; among these, most notably, are challenges that have highlighted the potential for AI systems to treat people unfairly. Indeed, the fairness of AI systems is one of the key concerns facing society as AI plays an increasingly significant role in our daily lives.  
 
-One way to define unfair behavior is by its harm, or impact on people. There are many types of harm that AI systems can give rise to. See this [Microsoft Research webinar](https://www.microsoft.com/en-us/research/video/fairness-related-harms-in-ai-systems-examples-assessment-and-mitigation/) to learn more. 
+One way to define unfair behavior is by its harm, or impact on people. There are many types of harm that AI systems can give rise to. See this [Microsoft Research webinar](https://www.microsoft.com/research/video/fairness-related-harms-in-ai-systems-examples-assessment-and-mitigation/) to learn more. 
 
-Two common types of AI-caused harm are: 
+Two common types of AI-caused harm are:
+
 - Harm of allocation: An AI system extends or withholds opportunities, resources, or information for certain groups. Examples include hiring, school admissions, and lending where a model might be much better at picking good candidates among a specific group of people than among other groups. 
 - Harm of quality-of-service: An AI system does not work as well for one group of people as it does for another. As an example, a voice recognition system might fail to work as well for women as it does for men. 
 
 To reduce unfair behavior in AI systems, you must assess and mitigate these harms. 
 
-The model overview component of the [Responsible AI dashboard](./concept-responsible-ai-dashboard.md) contributes to the “identify” stage of the model lifecycle workflow by evaluating the performance of your model across different sub-pockets of data. It enables exploring the distribution of your prediction values and the values of your model performance metrics across different pre-built dataset cohorts, while allowing you to run a comparative analysis of model performance across sensitive feature sub-cohorts (e.g., performance across different genders, income levels). 
+The model overview component of the [Responsible AI dashboard](./concept-responsible-ai-dashboard.md) contributes to the “identify” stage of the model lifecycle workflow by evaluating the performance of your model across different sub-pockets of data. It enables exploring the distribution of your prediction values and the values of your model performance metrics across different pre-built dataset cohorts, while allowing you to run a comparative analysis of model performance across sensitive feature sub-cohorts (e.g., performance across different genders, income levels).
 
-The capabilities of this component are founded by [Fairlearn](https://fairlearn.org/) capabilities on assessing and mitigating model fairness issues. 
+The capabilities of this component are founded by [Fairlearn](https://fairlearn.org/) capabilities on assessing and mitigating model fairness issues.
 
   
 
 **Use model overview and fairness when you need to…**
+
 - Understand your overall model performance and metrics. 
 - Explore how your model is treating different subgroups represented in your dataset. 
-- Explore your model fairness insights by understanding model performance disparities across sensitive groups (e.g., age, gender). 
+- Explore your model fairness insights by understanding model performance disparities across sensitive groups (e.g., age, gender).
 
 
 ##  How to assess your model fairness? 
@@ -70,12 +72,12 @@ The Fairlearn open-source package includes a variety of unfairness mitigation al
 
 The Fairlearn open-source package supports the following types of parity constraints: 
 
-|Parity constraint  | Purpose  |Machine learning task  |
-|---------|---------|---------|
-|Demographic parity     |  Mitigate allocation harms | Binary classification, Regression |
-|Equalized odds  | Diagnose allocation and quality-of-service harms | Binary classification        |
-|Equal opportunity | Diagnose allocation and quality-of-service harms | Binary classification        |
-|Bounded group loss     |  Mitigate quality-of-service harms | Regression |
+| Parity constraint  | Purpose                                          | Machine learning task             |
+|--------------------|--------------------------------------------------|-----------------------------------|
+| Demographic parity | Mitigate allocation harms                        | Binary classification, Regression |
+| Equalized odds     | Diagnose allocation and quality-of-service harms | Binary classification             |
+| Equal opportunity  | Diagnose allocation and quality-of-service harms | Binary classification             |
+| Bounded group loss | Mitigate quality-of-service harms                | Regression                        |
 
 ### Mitigation algorithms
 
@@ -94,4 +96,4 @@ The Fairlearn open-source package provides postprocessing and reduction unfairne
 ## Next steps
 
 - See the how-to guide for generating a Responsible AI dashboard with model overview and fairness assessment via [CLIv2 and SDKv2](./how-to-responsible-ai-dashboard-SDK.md) or [studio UI](./how-to-responsible-ai-dashboard.md).
-- See the how-to generate a [Responsible AI scorecard](./how-to-responsible-ai-scorecard.md) based on the insights observed in the Responsible AI dashboard. 
+- See the how-to generate a [Responsible AI scorecard](./how-to-responsible-ai-scorecard.md) based on the insights observed in the Responsible AI dashboard.

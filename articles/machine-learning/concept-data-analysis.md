@@ -29,4 +29,4 @@ Use Data Explorer when you need to:
 # Next steps
 
 - Learn how to generate the Responsible AI dashboard via [CLIv2 and SDKv2](how-to-responsible-ai-dashboard-sdk-cli.md) or [studio UI ](how-to-responsible-ai-dashboard-ui.md)
-- Learn how to generate a [Responsible AI scorecard](how-to-responsible-ai-scorecard.md)) based on the insights observed in the Responsible AI dashboard.
+- Learn how to generate a [Responsible AI scorecard](how-to-responsible-ai-scorecard.md) based on the insights observed in the Responsible AI dashboard.
