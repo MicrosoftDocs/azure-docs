@@ -203,10 +203,12 @@
           href: point-to-site-vpn-client-configuration-azure-cert.md
       - name: RADIUS authentication clients
         items:
-        - name: All clients
-          href: point-to-site-vpn-client-configuration-radius.md
+        - name: Certificate authentication clients
+          href: point-to-site-vpn-client-configuration-radius-certificate.md
         - name: Password authentication clients
           href: point-to-site-vpn-client-configuration-radius-password.md
+        - name: Other authentication protocols
+          href: point-to-site-vpn-client-configuration-radius-other.md
       - name: AAD authentication clients
         items:
         - name: Windows client
