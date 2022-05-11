@@ -16,7 +16,7 @@ ms.custom: template-how-to
 
 This article described how to enable Transparent Data Encryption on a database created in an Azure Arc-enabled SQL Managed Instance.
 
-# Prerequisites
+## Prerequisites
 
 Before you proceed with this article, you must have an Azure Arc-enabled SQL Managed Instance resource created and have connected to it.
 
@@ -25,7 +25,7 @@ Before you proceed with this article, you must have an Azure Arc-enabled SQL Man
 
 ## Turn on TDE on a Database in Azure Arc-enabled SQL Managed Instance
 
-Turning on TDE in Azure Arc-enabled SQL Managed Instance follows the same steps as Azure SQL Managed Instance. Follow the steps described in [Azure SQL Managed Instance's Transparent Data Encryption guide](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver15#enable-tde).
+Turning on TDE in Azure Arc-enabled SQL Managed Instance follows the same steps as Azure SQL Managed Instance. Follow the steps described in [Azure SQL Managed Instance's Transparent Data Encryption guide](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver15#enable-tde).
 
 After creating the necessary credentials, it is highly recommended to backup any newly created credentials.
 
