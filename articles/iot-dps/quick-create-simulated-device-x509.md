@@ -206,35 +206,16 @@ In this section, you'll prepare a development environment that's used to build t
 
 ## Create a self-signed X.509 device certificate
 
-::: zone pivot="programming-language-java"
-
-In this section, you'll use sample code from the Azure IoT SDK to create a self-signed X.509 certificate. This certificate must be uploaded to your provisioning service, and verified by the service.
-
-> [!CAUTION]
-> Use certificates created with the SDK tooling for development testing only.
-> Do not use these certificates in production.
-> The SDK generated certificates contain hard-coded passwords, such as *1234*, and expire after 30 days.
-> To learn about obtaining certificates suitable for production use, see [How to get an X.509 CA certificate](../iot-hub/iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate) in the Azure IoT Hub documentation.
->
-
-To create the X.509 certificate:
-
-::: zone-end
-
-::: zone pivot="programming-language-ansi-c,programming-language-python,programming-language-csharp,programming-language-nodejs"
-
 In this section, you'll use OpenSSL to create a self-signed X.509 certificate. This certificate must be uploaded to your provisioning service, and verified by the service.
 
 > [!CAUTION]
-> Use certificates created in this quickstart with OpenSSL for development testing only.
+> Use certificates created with OpenSSL in this quickstart for development testing only.
 > Do not use these certificates in production.
-> These certificates contain hard-coded passwords, such as *1234*, and expire after 30 days.
-> To learn about obtaining certificates suitable for production use, see [How to get an X.509 CA certificate](../iot-hub/iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate) in the Azure IoT Hub documentation.
+> These certificates expire after 30 days and may contain hard-coded passwords, such as *1234*.
+> To learn about obtaining certificates suitable for use in production, see [How to get an X.509 CA certificate](../iot-hub/iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate) in the Azure IoT Hub documentation.
 >
 
 To create the X.509 certificate:
-
-::: zone-end
 
 ::: zone pivot="programming-language-ansi-c"
 
@@ -1150,15 +1131,15 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
 
     1. Update the following values with the **ID Scope** and **Provisioning Service Global Endpoint** that you copied previously.
 
-      ```java
-      private static final String idScope = "[Your ID scope here]";
-      private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
-      private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
+        ```java
+        private static final String idScope = "[Your ID scope here]";
+        private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
+        private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
 
     1. Update the string value of the `leafPublicPem` constant string the value of your certificate, *device-cert.pem*.
-    
+
         The syntax of certificate text must follow the pattern below with no extra spaces or parsing done by Visual Studio.
-    
+
         ```java
         private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
         "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n" +
@@ -1166,32 +1147,32 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
         "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n" +
         "-----END CERTIFICATE-----";        
         ```
-    
+
         Updating this string value correctly in this step can be very tedious and subject to error. To generate the proper syntax, copy and paste the following bash shell commands into a Git Bash prompt in Windows or a bash prompt on Linux, and press **ENTER**. These commands will generate the syntax for the `leafPublicPem` string constant value.
-    
+
         ```Bash
         input="device-cert.pem"
         bContinue=true
         prev=
         while $bContinue; do
             if read -r next; then
-              if [ -n "$prev" ]; then	
+              if [ -n "$prev" ]; then
                 echo "\"$prev\\n\" +"
               fi
               prev=$next  
             else
               echo "\"$prev\";"
               bContinue=false
-            fi	
+            fi
         done < "$input"
         ```
-    
+
         Copy and paste the output certificate text for the new constant value.
-    
+
     1. Update the string value of the `leafPrivateKey` constant with the private key for your device certificate.
-    
+
         The syntax of the private key text must follow the pattern below with no extra spaces or parsing done by Visual Studio.
-    
+
         ```java
         private static final String leafPrivateKey = "-----BEGIN PRIVATE KEY-----\n" +
         "MIIJJwIBAAKCAgEAtjvKQjIhp0EE1PoADL1rfF/W6v4vlAzOSifKSQsaPeebqg8U\n" +
@@ -1199,26 +1180,26 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
         "X7fi9OZ26QpnkS5QjjPTYI/wwn0J9YAwNfKSlNeXTJDfJ+KpjXBcvaLxeBQbQhij\n" +
         "-----END PRIVATE KEY-----";
         ```
-    
+
         Updating this string value correctly in this step can be very tedious and subject to error. To generate the proper syntax, copy and paste the following bash shell commands into a Git Bash prompt in Windows or a bash prompt on Linux, and press **ENTER**. These commands will generate the syntax for the `leafPrivateKey` string constant value.
-    
+
         ```Bash
         input="device-key.pem"
         bContinue=true
         prev=
         while $bContinue; do
             if read -r next; then
-              if [ -n "$prev" ]; then	
+              if [ -n "$prev" ]; then
                 echo "\"$prev\\n\" +"
               fi
               prev=$next  
             else
               echo "\"$prev\";"
               bContinue=false
-            fi	
+            fi
         done < "$input"
         ```
-    
+
         Copy and paste the output private key text for the new constant value.
 
 1. Build the sample, and then go to the `target` folder and execute the created .jar file.
