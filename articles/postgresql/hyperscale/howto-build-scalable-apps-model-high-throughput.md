@@ -13,8 +13,8 @@ ms.date: 04/28/2022
 
 ## Common filter as shard key
 
-To pick the shard key for a high-throughput transactional (HTAP) application,
-follow these guidelines:
+To pick the shard key for a high-throughput transactional application, follow
+these guidelines:
 
 * Choose a column that is used for point lookups and is present in most
   create, read, update, and delete operations.
