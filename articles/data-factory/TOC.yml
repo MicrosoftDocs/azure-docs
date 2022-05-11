@@ -1041,10 +1041,6 @@ items:
         href: industry-sap-connectors.md
       - name: SAP Templates
         href: industry-sap-templates.md
-      - name: SAP Accelerators
-        href: industry-sap-accelerators.md
-      - name: SAP Patners
-        href: industry-sap-partners.md
   - name: Templates
     items:
     - name: Overview of templates
