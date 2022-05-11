@@ -132,8 +132,8 @@ additionalContent:
           summary: Manage admin permissions and apply the principle of least privilege using Azure AD role-based access control.
           url: ./roles/index.yml
         # Card
-        - title: Privileged identity management (PIM)
-          summary: Manage the number of people who have access to secure information and resources.
+        - title: Privileged Identity Management (PIM)
+          summary: Manage just-in-time role assignments to limit access to secure information and resources.
           url: ./privileged-identity-management/index.yml
         # Card
         - title: External Identities
@@ -141,7 +141,7 @@ additionalContent:
           url: ./external-identities/index.yml
         # Card
         - title: Cloud sync
-          summary: Create user identities in Azure AD by provisioning from apps.
+          summary: Create and manage user identities in Azure AD using Azure AD Connect cloud sync.
           url: ./cloud-sync/index.yml
         # Card
         - title: Application provisioning
