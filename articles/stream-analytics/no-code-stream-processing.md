@@ -56,7 +56,7 @@ The following screenshot shows a finished Stream Analytics job. It highlights al
 
 Azure Event Hubs is a big-data streaming platform and event ingestion service. It can receive and process millions of events per second. Data sent to an event hub can be transformed and stored by using any real-time analytics provider or batching/storage adapters.
 
-To configure an event hub as an input for streaming dataflows, select the **Event Hub** symbol. A tile appears in the diagram view, including a side pane for its configuration and connection.
+To configure an event hub as an input for your job, select the **Event Hub** symbol. A tile appears in the diagram view, including a side pane for its configuration and connection.
 
 After you set up your Event Hubs credentials and select **Connect**, you can add fields manually by using **+ Add field** if you know the field names. To instead detect fields and data types automatically based on a sample of the incoming messages, select **Autodetect fields**. Selecting the gear symbol allows you to edit the credentials if needed. When Stream Analytics job detect the fields, you'll see them in the list. You'll also see a live preview of the incoming messages in the **Data Preview** table under the diagram view.
 
@@ -76,7 +76,7 @@ The available data types are:
 
 Streaming data transformations are inherently different from batch data transformations. Almost all streaming data has a time component, which affects any data preparation tasks involved.
 
-To add a streaming data transformation to your dataflow, select the transformation symbol on the ribbon for that transformation. The respective tile will be dropped in the diagram view. After you select it, you'll see the side pane for that transformation to configure it.
+To add a streaming data transformation to your job, select the transformation symbol on the ribbon for that transformation. The respective tile will be dropped in the diagram view. After you select it, you'll see the side pane for that transformation to configure it.
 
 ### Filter
 

@@ -136,6 +136,6 @@ To learn more about how autoscale settings work, especially how it picks a profi
 
 ## Next steps
 
-- [Understand and adjust Streaming Units](stream-analytics-streaming-unit-consumption.md).
+- [Understand and adjust Streaming Units](stream-analytics-streaming-unit-consumption.md)
 - [Create parallelizable queries in Azure Stream Analytics](stream-analytics-parallelization.md)
 - [Scale Azure Stream Analytics jobs to increase throughput](stream-analytics-scale-jobs.md)
