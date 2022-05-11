@@ -46,12 +46,12 @@ Known issues and limitations associated with online migrations from PostgreSQL t
 :::image type="content" source="./media/known-issues-azure-postgresql-online/DMS_table_selection.png" alt-text="DMS screen that shows the option to pick tables"::: 
 
 Behind the scenes, there is a **pg_dump** command that is used to take the dump of the selected tables using one of the following options:
- - -T to include the table names picked in the UI
- - -t to exclude the table names not picked by the user
+ - **-T** to include the table names picked in the UI
+ - **-t** to exclude the table names not picked by the user
  
-There is a max limit of 7500 characters that can be included as part of the pg_dump command following the -t or -T option. The count of the characters for selected or unselected tables , whichever is lower, will be used in the pg_dump command. If the count of characters for selected and unselected tables exceed 7500, the pg_dump command will fail and result in an error.
+There is a max limit of 7500 characters that can be included as part of the pg_dump command following the **-t** or **-T** option. The pg_dump command uses the count of the characters for selected or unselected tables , whichever is lower. If the count of characters for the selected and unselected tables exceed 7500, the pg_dump command fails with an error.
 
-For the above example, the pg_dump command will look like this:
+For the previous example, the pg_dump command would be:
 
 ```
 pg_dump -h hostname -u username -d databasename -T "\"public\".\"table_1\"" -T "\"public\".\"table_2\""
