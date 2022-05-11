@@ -223,7 +223,7 @@ For a complete example, see the [model notebook](https://github.com/Azure/azurem
 
 To create a model in Azure Machine Learning, open the Models page in Azure Machine Learning. Click **Create** and select where your model is located. 
 
-:::image type="content" source="./media/how-to-manage-models/register-model-as-asset.png" alt-text="Screenshot of the UI to register a model.":::
+:::image type="content" source="./media/how-to-manage-models/register-model-as-asset.png" alt-text="Screenshot of the UI to register a model." lightbox="./media/how-to-manage-models/register-model-as-asset.png":::
 
 Use the tabs below to select where your model is located.
 
@@ -231,23 +231,23 @@ Use the tabs below to select where your model is located.
 
 To upload a model from your computer, Select **Local** and upload the model you want save in the model registry.
 
-:::image type="content" source="./media/how-to-manage-models/register-model-local.png" alt-text="Screenshot of registering a local model in the UI.":::
+:::image type="content" source="./media/how-to-manage-models/register-model-local.png" alt-text="Screenshot of registering a local model in the UI." lightbox="./media/how-to-manage-models/register-model-local.png":::
 
 # [Datastore](#tab/use-datastore)
 
 To add a model from an Azure Machine Learning Datastore, Select **Datastore** and pick the datastore and folder where the model is located.
 
-:::image type="content" source="./media/how-to-manage-models/register-model-datastore.png" alt-text="Screenshot of registering a model from a datastore in the UI.":::
+:::image type="content" source="./media/how-to-manage-models/register-model-datastore.png" alt-text="Screenshot of registering a model from a datastore in the UI." lightbox="./media/how-to-manage-models/register-model-datastore.png":::
 
 # [Job Output](#tab/use-job-output)
 
 To add a model from an Azure Machine Learning Job, Select **Job Output** and pick the job and folder in the job output where the model is located.
 
-:::image type="content" source="./media/how-to-manage-models/select-job-output.png" alt-text="Screenshot of selecting the job output in the UI.":::
+:::image type="content" source="./media/how-to-manage-models/select-job-output.png" alt-text="Screenshot of selecting the job output in the UI." lightbox="./media/how-to-manage-models/select-job-output.png":::
 
 To add a model from an Azure Machine Learning Job, you can also located the Job in the Job UI and select **Create Model**. You can then folder in the job output where the model is located. 
 
-:::image type="content" source="./media/how-to-manage-models/register-model-job-output.png" alt-text="Screenshot of creating a model from job output in the UI.":::
+:::image type="content" source="./media/how-to-manage-models/register-model-job-output.png" alt-text="Screenshot of creating a model from job output in the UI." lightbox="./media/how-to-manage-models/register-model-job-output.png":::
 
 
 ---
