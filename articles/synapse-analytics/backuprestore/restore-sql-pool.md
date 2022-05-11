@@ -164,12 +164,12 @@ Get-AzSubscription
 Select-AzSubscription -SubscriptionName $SourceSubscriptionName
 
 # list all restore points
-Get-AzSynapseSqlPoolRestorePoint -ResourceGroupName $ResourceGroupName -WorkspaceName $WorkspaceName -Name $SQLPoolName
+Get-AzSynapseSqlPoolRestorePoint -ResourceGroupName $ResourceGroupName -WorkspaceName $SourceWorkspaceName -Name $SourceSQLPoolName
 # Pick desired restore point using RestorePointCreationDate "xx/xx/xxxx xx:xx:xx xx"
 $PointInTime="<RestorePointCreationDate>"
 
 # Get the specific SQL pool to restore
-$SQLPool = Get-AzSynapseSqlPool -ResourceGroupName $ResourceGroupName -WorkspaceName $WorkspaceName -Name $SQLPoolName
+$SQLPool = Get-AzSynapseSqlPool -ResourceGroupName $ResourceGroupName -WorkspaceName $SourceWorkspaceName -Name $SourceSQLPoolName
 # Transform Synapse SQL pool resource ID to SQL database ID because currently the restore command only accepts the SQL database ID format.
 $DatabaseID = $SQLPool.Id -replace "Microsoft.Synapse", "Microsoft.Sql" `
 	-replace "workspaces", "servers" `
@@ -180,7 +180,7 @@ Select-AzSubscription -SubscriptionName $TargetSubscriptionName
 
 # Restore database from a desired restore point of the source database to the target server in the desired subscription
 $RestoredDatabase = Restore-AzSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $TargetResourceGroupName `
-    -ServerName $TargetServerName -TargetDatabaseName $TargetDatabaseName –ResourceId $Database.ID
+    -ServerName $TargetServerName -TargetDatabaseName $TargetDatabaseName –ResourceId $DatabaseID
 
 # Verify the status of restored database
 $RestoredDatabase.status
@@ -200,9 +200,9 @@ $RestoredDatabase.status
 
 ## Troubleshooting
 A restore operation can result in a deployment failure based on a "RequestTimeout" exception. 
-![TimeoutException](../media/sql-pools/restore-sqlpool-troubleshooting-01.PNG)
+![Screenshot of timeout exception.](../media/sql-pools/restore-sql-pool-troubleshooting-01.png)
 This timeout can be ignored. Review the dedicated SQL pool blade in the portal and it may still have status of "Restoring" and eventually will transition to "Online". 
-![Restoring](../media/sql-pools/restore-sqlpool-troubleshooting-02.png)
+![Screenshot of SQL pool restoring.](../media/sql-pools/restore-sql-pool-troubleshooting-02.png)
 
 ## Next Steps
 
