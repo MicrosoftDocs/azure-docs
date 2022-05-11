@@ -12,11 +12,9 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ---
 
-# High Availability with Azure Arc-enabled SQL Managed Instance (preview)
+# High Availability with Azure Arc-enabled SQL Managed Instance
 
 Azure Arc-enabled SQL Managed Instance is deployed on Kubernetes as a containerized application. It uses Kubernetes constructs such as stateful sets and persistent storage to provide built-in health monitoring, failure detection, and failover mechanisms to maintain service health. For increased reliability, you can also configure Azure Arc-enabled SQL Managed Instance to deploy with extra replicas in a high availability configuration. Monitoring, failure detection, and automatic failover are managed by the Arc data services data controller. Arc-enabled data service provides this service is provided without user intervention. The service sets up the availability group, configures database mirroring endpoints, adds databases to the availability group, and coordinates failover and upgrade. This document explores both types of high availability.
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 Azure Arc-enabled SQL Managed Instance provides different levels of high availability depending on whether the SQL managed instance was deployed as a *General Purpose* service tier or *Business Critical* service tier. 
 
