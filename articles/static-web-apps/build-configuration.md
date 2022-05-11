@@ -190,7 +190,7 @@ To skip building the front-end app:
 - Set `output_location` to an empty string (`''`).
 
 > [!NOTE]
-> Make sure you have your `staticwebapp.config.json` file copied as well into the Output directory.
+> Make sure you have your `staticwebapp.config.json` file copied as well into the *output* directory.
 
 # [GitHub Actions](#tab/github-actions)
 
