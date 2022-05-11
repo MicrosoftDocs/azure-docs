@@ -17,7 +17,7 @@ ms.custom: data4ml
 
 # Connect to data with the Azure Machine Learning studio
 
-In this article, learn how to access your data with the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md). Connect to your data in storage services on Azure with [Azure Machine Learning datastores](how-to-access-data.md), and then package that data for tasks in your ML workflows with [Azure Machine Learning datasets](how-to-create-register-datasets.md).
+In this article, learn how to access your data with the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md). Connect to your data in storage services on Azure with [Azure Machine Learning datastores](how-to-access-data.md), and then package that data for tasks in your ML workflows with [Azure Machine Learning datasets](./v1/how-to-create-register-datasets.md).
 
 The following table defines and summarizes the benefits of datastores and datasets. 
 
@@ -30,7 +30,7 @@ To understand where datastores and datasets fit in Azure Machine Learning's over
 
 For a code first experience, see the following articles to use the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/) to:
 * [Connect to Azure storage services with datastores](how-to-access-data.md). 
-* [Create Azure Machine Learning datasets](how-to-create-register-datasets.md). 
+* [Create Azure Machine Learning datasets](./v1/how-to-create-register-datasets.md). 
 
 ## Prerequisites
 
