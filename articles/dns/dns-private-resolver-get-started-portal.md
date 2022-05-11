@@ -63,11 +63,11 @@ Next, add a virtual network to the resource group that you created, and configur
 
 1. To display the **DNS Private Resolvers** resource during public preview, open the following [preview-enabled Azure portal link](https://go.microsoft.com/fwlink/?linkid=2194569).
 2. Search for and select **DNS Private Resolvers**, select **Create**, and then on the **Basics** tab for **Create a DNS Private Resolver** enter the following:
-    - Subscription: Choose the subscription name you are using.
-    - Resource group: Choose the name of the resource group that you just created.
+    - Subscription: Choose the subscription name you're using.
+    - Resource group: Choose the name of the resource group that you created.
     - Name: Enter a name for your DNS resolver (ex: mydnsresolver).
     - Region: Choose the region you used for the virtual network.
-    - Virtual Network: Select the virtual network that you just created.
+    - Virtual Network: Select the virtual network that you created.
 
     Don't create the DNS resolver yet.
 
