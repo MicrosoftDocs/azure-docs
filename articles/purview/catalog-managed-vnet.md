@@ -54,7 +54,7 @@ Additionally, you can deploy managed private endpoints for your Azure Key Vault 
 
 > [!IMPORTANT]
 > If you are planning to scan Azure Synapse workspaces using Managed Virtual Network, you are also required to [configure Azure Synapse workspace firewall access](register-scan-synapse-workspace.md#set-up-azure-synapse-workspace-firewall-access) to enable **Allow Azure services and resources to access this workspace**. Currently, we do not support setting up scans for an Azure Synapse workspace from the Microsoft Purview governance portal, if you cannot enable **Allow Azure services and resources to access this workspace** on your Azure Synapse workspaces. If you cannot enable the firewall:
->  - You can use [Microsoft Purview Rest API - Scans - Create Or Update](/rest/api/purview/scanningdataplane/scans/create-or-update/) to create a new scan for your Synapse workspaces including dedicated and serverless pools.
+>  - You can use [Microsoft Purview REST API - Scans - Create Or Update](/rest/api/purview/scanningdataplane/scans/create-or-update/) to create a new scan for your Synapse workspaces including dedicated and serverless pools.
 >  - You must use **SQL Authentication** as authentication mechanism.
 
 ### Managed Virtual Network
@@ -121,7 +121,7 @@ Interactive authoring capabilities is used for functionalities like test connect
 
 Before deploying a Managed VNet and Managed VNet Runtime for a Microsoft Purview account, ensure you meet the following prerequisites:
 
-1. An Microsoft Purview account deployed in one of the [supported regions](#supported-regions).
+1. A Microsoft Purview account deployed in one of the [supported regions](#supported-regions).
 2. From Microsoft Purview roles, you must be a data curator at root collection level in your Microsoft Purview account.
 3. From Azure RBAC roles, you must be contributor on the Microsoft Purview account and data source to approve private links.
 

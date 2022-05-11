@@ -2399,19 +2399,21 @@ This container image has the following tags available. You can also find a full 
 
 # [Latest version](#tab/current)
 
-* Release notes for version `1.6.1`:
-    * Added new languages: Ukrainian
+* Release notes for version `1.7.0`:
+    * Update langauge detection engine, and fix the support of throttling rate for continuous accuracy mode
 
 
 | Image Tags                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                       |      |
-| `1.6.1-amd64-preview`                       |      |
+| `1.8.0-amd64-preview`                       |      |
 
 # [Previous versions](#tab/previous)
 
 | Image Tags                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
+| `1.7.0-amd64-preview`                       |      |
+| `1.6.1-amd64-preview`                       |      |
 | `1.5.0-amd64-preview`                       |      |
 | `1.3.0-amd64-preview`                       |      |
 | `1.2.0-amd64-preview`                       |      |
@@ -2524,13 +2526,13 @@ Release notes for `3.0.015490002-onprem-amd64`:
 
 ## Translator
 
-The [Translator][tr-containers] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/translator` repository and is named `text-translation`. The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/translator/text-translation:1.0.018950002-amd64-preview`.
+The [Translator][tr-containers] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/translator` repository and is named `text-translation`. The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/translator/text-translation:1.0.019410001-amd64-preview`.
 
 This container image has the following tags available.
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|
-| `1.0.018950002-amd64-preview`                      |       |
+| `1.0.019410001-amd64-preview`                      |       |
 
 
 [ad-containers]: ../anomaly-Detector/anomaly-detector-container-howto.md

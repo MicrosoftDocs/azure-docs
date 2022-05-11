@@ -65,7 +65,7 @@ Note: If you created the Purview account, you are automatically assigned all the
 
 1. Provide the details for your share. Specify a name, share type, description of share contents (optional), and collection. Then select **Continue**.
 
-    Note: If you do not see a collection from the drop down list, it means you do not have Data Share Contributor role access to any Purview collection to share data. Please contact your Collection Admin to grant you access. 
+    Note: If you don't see a collection from the drop-down list, it means you don't have Data Share Contributor role access to any Purview collection to share data. Contact your Collection Admin to grant you access. 
 
     <img src="./media/how-to-share-data/create-share-details.png" alt="Create share and enter details" width=500/>
 
@@ -73,13 +73,13 @@ Note: If you created the Purview account, you are automatically assigned all the
 
     <img src="./media/how-to-share-data/create-share-add-asset.png" alt="Add assets" width=500/>
 
-1. Select a asset type, and a data source which has already been registered with Purview. Select **Continue**. 
+1. Select an asset type, and a data source that has already been registered with Purview. Select **Continue**. 
 
     Note: If you do not see a data source from the drop down list, click on the **Register a new source to share from** link below to register your data source. Azure resource needs to be registered with Purview before you can share data from that resource. Your data source needs to be registered in the same collection as the share. 
 
     <img src="./media/how-to-share-data/create-share-select-source.png" alt="Select source" width=500/> 
 
-1. Browse your data source hierarchy and select (check) the objects you want to share. Then select **Add**. When sharing from storage account, only files and folders are currently supported. Sharing from container is not currently supported. 
+1. Browse your data source hierarchy and select (check) the objects you want to share. Then select **Add**. When sharing from storage account, only files and folders are currently supported. Sharing from container isn't currently supported. 
 
     <img src="./media/how-to-share-data/create-share-select-contents.png" alt="Select objects to share" width=500/> 
 
@@ -101,13 +101,14 @@ You've now created your Azure data share. The recipients of your share will rece
 
 1. In Microsoft Purview governance portal, select **Data Share** icon from the left navigation. Then select **pending received share**.
 
-    If you are a guest user of a tenant, you will be asked to verify your email address for the tenant prior to viewing pending received share for the first time. Once verified, it is valid for 12 months.
+    If you're a guest user of a tenant, you'll be asked to verify your email address for the tenant prior to viewing pending received share for the first time. Once verified, it's valid for 12 months.
 
    ![Screenshot showing pending received share.](./media/how-to-receive-share/receive-share-invitation.png "Pending receive share.") 
 
 1. Select name of the pending share you want to view. 
 
    ![Screenshot showing how to select pending received share.](./media/how-to-receive-share/receive-share-select-invitation.png "Select pending receive share.") 
+
 
 1. Specify a **Received share name** and a collection. Select **Accept and configure**. If you do not want to accept the invitation, select *Reject*.
 
@@ -123,7 +124,9 @@ You've now created your Azure data share. The recipients of your share will rece
 
     <img src="./media/how-to-receive-share/receive-share-map-target.png" alt="Map asset to target" width=500/>   
 
+
     Note: If you do not see a data store from the drop down list, click on the **Register a new data store to map assets** link below to register your data store. Azure resource needs to be registered with Purview before you can receive data into that resource. Your data store needs to be registered in the same collection as the received share. 
+
 
 1. The screen will show *Mapping* in progress. Asset mapping can take a few minutes. Select **Close**. 
 
@@ -131,7 +134,7 @@ You've now created your Azure data share. The recipients of your share will rece
 
     <img src="./media/how-to-receive-share/receive-share-map-inprogress.png" alt="Map asset to target in progress" width=500/>  
 
-1. Select **Assets** tab to monitor mapping status. Once mapping is completed, you will get a notification in the screen. The status will change from *Mapping* to *Mapped*. You can now access the data in the target data store. 
+1. Select **Assets** tab to monitor mapping status. Once mapping is completed, you'll get a notification in the screen. The status will change from *Mapping* to *Mapped*. You can now access the data in the target data store. 
 
    ![Screenshot showing mapping complete.](./media/how-to-receive-share/receive-share-asset-mapped.png "Map asset complete.") 
 

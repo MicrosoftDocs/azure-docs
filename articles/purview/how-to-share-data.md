@@ -23,6 +23,7 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
 
 * Your Azure subscription must be registered for the **AllowDataSharing** preview feature. Follow the below steps using Azure portal or PowerShell. 
 
+
     1. In Azure portal, select your Azure subscription which you will use to create the source and target storage account.
     1. From the left menu, select **Preview features** under *Settings*.
     1. Select **AllowDataSharing** and *Register*. 
@@ -56,7 +57,7 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
 
 1. Provide the details for your share. Specify a name, share type, description of share contents (optional), and collection. Then select **Continue**.
 
-    Note: If you do not see a collection from the drop down list, it means you do not have Data Share Contributor role access to any Purview collection to share data. Please contact your Collection Admin to grant you access. 
+    Note: If you don't see a collection from the drop-down list, it means you don't have Data Share Contributor role access to any Purview collection to share data. Contact your Collection Admin to grant you access. 
 
     <img src="./media/how-to-share-data/create-share-details.png" alt="Create share and enter details" width=500/>
 
@@ -64,13 +65,13 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
 
     <img src="./media/how-to-share-data/create-share-add-asset.png" alt="Add assets" width=500/>
 
-1. Select a asset type, and a data source which has already been registered with Purview. Select **Continue**. 
+1. Select an asset type, and a data source that has already been registered with Purview. Select **Continue**. 
 
     Note: If you do not see a data source from the drop down list, click on the **Register a new source to share from** link below to register your data source. Azure resource needs to be registered with Purview before you can share data from that resource. Your data source needs to be registered in the same collection as the share. 
 
     <img src="./media/how-to-share-data/create-share-select-source.png" alt="Select source" width=500/>
 
-1. Browse your data source hierarchy and select (check) the objects you want to share. Then select **Add**. When sharing from storage account, only files and folders are currently supported. Sharing from container is not currently supported. 
+1. Browse your data source hierarchy and select (check) the objects you want to share. Then select **Add**. When sharing from storage account, only files and folders are currently supported. Sharing from container isn't currently supported. 
 
     <img src="./media/how-to-share-data/create-share-select-contents.png" alt="Select objects to share" width=500/>  
 
@@ -107,7 +108,7 @@ To share the same data with more recipients, first select the share, and then se
 
 ![Screenshot edit share to add recipient.](./media/how-to-share-data/edit-share-add-recipient.png "Add recipient.") 
 
-To view status of existing recipients, first select the share, and then select **Recipients** tab. You can select **Accepted**, **Pending**, and **Rejected** to view status of these recipients. If you want to terminate access to a specific recipient, you can revoke access to a recipient in *accepted* state by locating the recipient and selecting **Revoke** action next to it. 
+To view status of existing recipients, first select the share, and then select **Recipients** tab. You can select **Accepted**, **Pending**, and **Rejected** to view status of these recipients. If you want to terminate,  access to a specific recipient, you can revoke access to a recipient in *accepted* state by locating the recipient and selecting **Revoke** action next to it. 
 
 ![Screenshot revoke.](./media/how-to-share-data/edit-share-revoke.png "Revoke.") 
 
@@ -126,7 +127,7 @@ Deleting a sent share will delete the share and revoke access to all the existin
 Here are some common issues for sharing data and how to troubleshoot.
 
 ### Both Sent Shares and Received Shares are disabled
-If both *sent shares* and *received shares* are disabled in the navigation, you do not have **Data Share Contributor** role to any collections in this Purview account. 
+If both *sent shares* and *received shares* are disabled in the navigation, you don't have **Data Share Contributor** role to any collections in this Purview account. 
 
 ### Cannot select a collection when creating a share or register a data source
 If you cannot select a collection when creating a share or register a data source, you do not have proper permission to the collection. You need to have **Data Share Contributor** role to a Purview collection in order to register data source and add asset to a share. 
@@ -136,14 +137,14 @@ If your storage account is not listed for you to select, it is likely due to the
 1. The storage account is not supported. Microsoft Purview Data sharing only [supports storage accounts with specific configurations](#storage-account-prerequisites).
 1. You do not have **Data Share Contributor** role to the collection where the storage account is registered in. Data Share Contributor role is required to view the list of registered storage account in a collection and share data.
 
-If you failed to add or update asset, it is likely due to the following reasons:
+If you failed to add or update asset, it's likely due to the following reasons:
 1. Permission issue to the data store where you want to share data from. Check [Prerequisite](#prerequisites-to-share-data) for required data store permissions.
-1. The share and source data store do not belong to the same Purview collection. In order to share data from a data store, the share and source data store need to belong to the same Purview collection. 
-1. You tried to share data from a *storage container*. Sharing from container is not currently supported. You can select all files and folders within the container to share.
-1. Exceeding limit. Source storage account can support up to 20 targets, and target storage account can support up to 100 sources. If you require an increase in limit, please contact Support.
+1. The share and source data store don't belong to the same Purview collection. In order to share data from a data store, the share and source data store need to belong to the same Purview collection. 
+1. You tried to share data from a *storage container*. Sharing from container isn't currently supported. You can select all files and folders within the container to share.
+1. Exceeding limit. Source storage account can support up to 20 targets, and target storage account can support up to 100 sources. If you require an increase in limit, contact Support.
 
 ### Failed to reinstate a recipient
-After successfully revoking access to a recipient, you will need to wait for a minute before reinstating the recipient.
+After successfully revoking access to a recipient, you'll need to wait for a minute before reinstating the recipient.
 
 ## Next steps
 * [How to Receive Shared Data](how-to-receive-share.md)

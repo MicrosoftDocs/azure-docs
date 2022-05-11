@@ -52,7 +52,9 @@ Microsoft Purview Data Sharing enables data consumers to:
 * Accept shared data into [supported data stores](purview-connector-overview.md)
 * Access shared data in near real time
 
+
 All key capabilities listed above are supported through the Microsoft Purview governance portal or via REST APIs. For more details on using data sharing through REST APIs, check out our reference documentation. 
+
 
 ## Where data is stored
 

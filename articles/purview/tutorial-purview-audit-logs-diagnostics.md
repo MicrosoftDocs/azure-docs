@@ -13,7 +13,7 @@ ms.date: 02/10/2022
 
 This tutorial lists the step-by-step configuration required to enable and capture Microsoft Purview audit and diagnostics logs via Azure Event Hubs.
 
-An Microsoft Purview administrator or Microsoft Purview data-source admin needs the ability to monitor audit and diagnostics logs captured from [Microsoft Purview](https://azure.microsoft.com/services/purview/#get-started). Audit and diagnostics information consists of the timestamped history of actions taken and changes made to a Microsoft Purview account by every user. Captured activity history includes actions in the [Microsoft Purview portal](https://ms.web.purview.azure.com) and outside the portal. Actions outside the portal include calling [Microsoft Purview REST APIs](/rest/api/purview/) to perform write operations.
+A Microsoft Purview administrator or Microsoft Purview data-source admin needs the ability to monitor audit and diagnostics logs captured from [Microsoft Purview](https://azure.microsoft.com/services/purview/#get-started). Audit and diagnostics information consists of the timestamped history of actions taken and changes made to a Microsoft Purview account by every user. Captured activity history includes actions in the [Microsoft Purview portal](https://ms.web.purview.azure.com) and outside the portal. Actions outside the portal include calling [Microsoft Purview REST APIs](/rest/api/purview/) to perform write operations.
 
 This tutorial takes you through the steps to enable audit logging on Microsoft Purview. It also shows you how to configure and capture streaming audit events from Microsoft Purview via Azure Diagnostics event hubs.
 

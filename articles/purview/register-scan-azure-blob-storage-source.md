@@ -41,7 +41,7 @@ For file types such as csv, tsv, psv, ssv, the schema is extracted when the foll
 This section will enable you to register the Azure Blob storage account for scan and data share in Purview.
 
 ### Prerequisites for register
-* You will need to be a Data Source Admin and one of the other Purview roles (e.g. Data Reader or Data Share Contributor) to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Admin and one of the other Purview roles (e.g. Data Reader or Data Share Contributor) to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 ### Steps to register
 
@@ -351,7 +351,7 @@ Or you can follow the [generic guide for creating data access policies](how-to-d
 
 Now that you have registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
-* [Data insights in Microsoft Purview](concept-insights.md)
-* [Data share in Microsoft Purview](concept-data-share.md)
+* [Data Estate Insights in Microsoft Purview](concept-insights.md)
+* [Data Share in Microsoft Purview](concept-data-share.md)
 * [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 * [Search Data Catalog](how-to-search-catalog.md)
