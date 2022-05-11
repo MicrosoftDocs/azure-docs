@@ -233,7 +233,7 @@ Here's the binding data in the function.json file:
 
 The [configuration](#configuration) section explains these properties.
 
-Here's the JavaScript code:
+The following is sample JavaScript code:
 
 
 ```javascript
