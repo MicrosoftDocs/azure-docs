@@ -63,8 +63,6 @@ Before you configure and enable automatic user provisioning, you should decide w
 
 * When you assign a user to Zscaler Two, you need to select any valid application-specific role (if available) in the assignment dialog box. Users with the **Default Access** role are excluded from provisioning.
 
-> [!VIDEO https://www.youtube.com/embed/7SU5S0WtNNk]
-
 ## Set up automatic user provisioning
 
 This section guides you through the steps for configuring the Azure AD provisioning service to create, update, and disable users and groups in Zscaler Two based on user and group assignments in Azure AD.
