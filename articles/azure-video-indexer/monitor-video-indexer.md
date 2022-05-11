@@ -176,4 +176,4 @@ VIAudit
 <!-- Add additional links. You can change the wording of these and add more if useful.   -->
 
 - See [Monitoring Azure Video Indexer data reference](monitor-video-indexer-data-reference.md) for a reference of the metrics, logs, and other important values created by Azure Video Indexer account.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.---
+- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
