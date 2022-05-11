@@ -1,6 +1,6 @@
 ---
-title: Turn on transparent data encryption (TDE) manually in Azure Arc-enabled SQL Managed Instance
-description: How-to guide to turn on transparent data encryption (TDE) in an Azure Arc-enabled SQL Managed Instance
+title: Turn on transparent data encryption manually in Azure Arc-enabled SQL Managed Instance
+description: How-to guide to turn on transparent data encryption in an Azure Arc-enabled SQL Managed Instance
 author: patelr3
 ms.author: ravpate
 services: azure-arc
@@ -12,9 +12,9 @@ ms.date: 05/22/2022
 ms.custom: template-how-to
 ---
 
-# Enable transparent data encryption (TDE) on Azure Arc-enabled SQL Managed Instance
+# Enable transparent data encryption on Azure Arc-enabled SQL Managed Instance
 
-This article described how to enable (TDE) on a database created in an Azure Arc-enabled SQL Managed Instance.
+This article describes how to enable transparent data encryption on a database created in an Azure Arc-enabled SQL Managed Instance.
 
 ## Prerequisites
 
@@ -23,13 +23,13 @@ Before you proceed with this article, you must have an Azure Arc-enabled SQL Man
 - [An Azure Arc-enabled SQL Managed Instance created](./create-sql-managed-instance.md)
 - [Connect to Azure Arc-enabled SQL Managed Instance](./connect-managed-instance.md)
 
-## Turn on TDE on a Database in Azure Arc-enabled SQL Managed Instance
+## Turn on transparent data encryption on a database in Azure Arc-enabled SQL Managed Instance
 
-Turning on TDE in Azure Arc-enabled SQL Managed Instance follows the same steps as Azure SQL Managed Instance. Follow the steps described in [Azure SQL Managed Instance's transparent data encryption guide](/sql/relational-databases/security/encryption/transparent-data-encryption#enable-tde).
+Turning on transparent data encryption in Azure Arc-enabled SQL Managed Instance follows the same steps as Azure SQL Managed Instance. Follow the steps described in [Azure SQL Managed Instance's transparent data encryption guide](/sql/relational-databases/security/encryption/transparent-data-encryption#enable-tde).
 
 After creating the necessary credentials, it's highly recommended to back up any newly created credentials.
 
-## Back up a TDE Credential from Azure Arc-enabled SQL Managed Instance
+## Back up a transparent data encryption credential from Azure Arc-enabled SQL Managed Instance
 
 When backing up from Azure Arc-enabled SQL Managed Instance, the credentials will be stored within the container. It isn't necessary to store the credentials on a persistent volume, but you may use the mount path for the data volume within the container if you'd like: `/var/opt/mssql/data`. Otherwise, the credentials will be stored in-memory in the container.  Below is an example of backing up a certificate from Azure Arc-enabled SQL Managed Instance.
 
@@ -59,7 +59,7 @@ When backing up from Azure Arc-enabled SQL Managed Instance, the credentials wil
    kubectl exec -it -n arc-ns -c arc-sqlmi sql-0 -- bash -c "rm /var/opt/mssql/data/servercert.crt /var/opt/mssql/data/servercert.key"
    ```
 
-## Restore a TDE Credential to Azure Arc-enabled SQL Managed Instance
+## Restore a transparent data encryption credential to Azure Arc-enabled SQL Managed Instance
 
 Similar to above, restore the credentials by copying them into the container and running the corresponding T-SQL afterwards.
 
@@ -91,4 +91,4 @@ Similar to above, restore the credentials by copying them into the container and
    ```
 ## Next steps
 
-[Transparent data encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption)
+[Transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption)

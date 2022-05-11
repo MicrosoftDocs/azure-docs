@@ -255,7 +255,7 @@ items:
               href: connect-active-directory-sql-managed-instance.md
         - name: Transparent data encryption
           items:
-            - name: Turn on TDE Manually
+            - name: Turn on transparent data encryption manually
               href: configure-transparent-data-encryption-manually.md
         - name: Business continuity
           items:
