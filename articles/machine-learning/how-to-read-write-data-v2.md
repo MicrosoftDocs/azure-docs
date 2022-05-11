@@ -47,7 +47,7 @@ ml_client = MLClient(InteractiveBrowserCredential(), subscription_id, resource_g
 ## Use local data in a job
 
 You can use data from your current working directory in a training job with the JobInput class. 
-The JobInput class allows you to define data inputs from a specific file, `uri_file` or a folder location, `uri_folder`. In the JobInput object you specify the `path` of where your data is located; the path can be a local path or a cloud path. Azure Machine Learning supports https://, abfss://, wasbs:// and azureml:// URIs. 
+The JobInput class allows you to define data inputs from a specific file, `uri_file` or a folder location, `uri_folder`. In the JobInput object, you specify the `path` of where your data is located; the path can be a local path or a cloud path. Azure Machine Learning supports `https://`, `abfss://`, `wasbs://` and `azureml://` URIs. 
 
 > [!IMPORTANT] 
 > If the path is local, but your compute is defined to be in the cloud, Azure Machine Learning will automatically upload the data to cloud storage for you.
@@ -149,8 +149,7 @@ returned_job.services["Studio"].endpoint
 
 You can read and write data from your job into your cloud-based storage. 
 
-The JobInput defaults the mode - how the input will be exposed during job runtime - to InputOutputModes.RO_MOUNT (read-only mount). Put another way, Azure Machine Learning will mount the file or folder to the compute and set the file/folder to read-only. By design, you cannot write to JobInputs only JobOutputs 
-The data is automatically uploaded to cloud storage.
+The JobInput defaults the mode - how the input will be exposed during job runtime - to InputOutputModes.RO_MOUNT (read-only mount). Put another way, Azure Machine Learning will mount the file or folder to the compute and set the file/folder to read-only. By design, you can't write to JobInputs only JobOutputs. The data is automatically uploaded to cloud storage.
 
 # [Azure Data Lake Storage Gen2](#tab/ADLS-Gen2)
 
@@ -232,10 +231,10 @@ returned_job.services["Studio"].endpoint
 You can register data as an asset to your workspace. The benefits of registering data are:
 
 * Easy to share with other members of the team (no need to remember file locations)
-* Versioning of the metadata (location, description, etc)
+* Versioning of the metadata (location, description, etc.)
 * Lineage tracking
 
-The following is an example of versioning the sample data in this repo and shows how to register a local file as a data asset. The data is uploaded to cloud storage and registered as an asset.
+The following example demonstrates versioning of sample data, and shows how to register a local file as a data asset. The data is uploaded to cloud storage and registered as an asset.
 
 ```python
 
@@ -309,17 +308,18 @@ returned_job.services["Studio"].endpoint
 
 ## Use data in pipelines 
 
-If you are working with Azure Machine Learning pipelines, you can read data into and move data between pipeline components with the Azure Machine Learning CLI v2 extension or the Python SDK v2 (preview). 
+If you're working with Azure Machine Learning pipelines, you can read data into and move data between pipeline components with the Azure Machine Learning CLI v2 extension or the Python SDK v2 (preview). 
 
 ### Azure Machine Learning CLI v2
-The following YAML file demonstrates how to use the output data from one component as the input for another component of the pipeline using the Azure Machine Learning CLI v2 extension
- [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+The following YAML file demonstrates how to use the output data from one component as the input for another component of the pipeline using the Azure Machine Learning CLI v2 extension:
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 :::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/pipelines-with-components/basics/3b_pipeline_with_data/pipeline.yml":::
 
 ## Python SDK v2 (preview)
 
-The following example defines a pipeline containing 3 nodes and moves data between each node.
+The following example defines a pipeline containing three nodes and moves data between each node.
 
 * `prepare_data_node` that loads the image and labels from Fashion MNIST data set into `mnist_train.csv` and `mnist_test.csv`.
 * `train_node` that trains a CNN model with Keras using the training data, `mnist_train.csv` .
