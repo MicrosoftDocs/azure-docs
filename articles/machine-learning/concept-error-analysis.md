@@ -34,7 +34,7 @@ Error Analysis identifies the cohorts of data with a higher error rate versus th
 
 ## Error tree
 
-Very often, error patterns may be complex and involve more than one or two features. Therefore, it may be difficult for developers to explore all possible combinations of features to discover hidden data pockets with critical failure. To alleviate the burden, the binary tree visualization automatically partitions the benchmark data into interpretable subgroups, which have unexpectedly high or low error rates. In other words, the tree leverages the input features to maximally separate model error from success. For each node defining a data subgroup, users can investigate the following information:
+Often, error patterns may be complex and involve more than one or two features. Therefore, it may be difficult for developers to explore all possible combinations of features to discover hidden data pockets with critical failure. To alleviate the burden, the binary tree visualization automatically partitions the benchmark data into interpretable subgroups, which have unexpectedly high or low error rates. In other words, the tree uses the input features to maximally separate model error from success. For each node defining a data subgroup, users can investigate the following information:
 
 - **Error rate**: a portion of instances in the node for which the model is incorrect. This is shown through the intensity of the red color.
 - **Error coverage**: a portion of all errors that fall into the node. This is shown through the fill rate of the node.
@@ -42,7 +42,7 @@ Very often, error patterns may be complex and involve more than one or two featu
 
 ## Error Heatmap
 
-The view slices the data based on a one- or two-dimensional grid of input features. Users can choose the input features of interest for analysis. The heatmap visualizes cells with higher error with a darker red color to bring the user’s attention to regions with high error discrepancy. This is beneficial especially when the error themes are different in different partitions, which happens frequently in practice. In this error identification view, the analysis is highly guided by the users and their knowledge or hypotheses of what features might be most important for understanding failure.
+The view slices the data based on a one- or two-dimensional grid of input features. Users can choose the input features of interest for analysis. The heatmap visualizes cells with higher error with a darker red color to bring the user’s attention to regions with high error discrepancy. This is beneficial especially when the error themes are different in different partitions, which happen frequently in practice. In this error identification view, the analysis is highly guided by the users and their knowledge or hypotheses of what features might be most important for understanding failure.
 
 ## Next steps
 
