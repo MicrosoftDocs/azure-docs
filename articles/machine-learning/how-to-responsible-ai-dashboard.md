@@ -311,7 +311,7 @@ Selecting the Treatment policy tab switches to a view to help determine real-wor
 
 **Average gains of alternative policies over always applying treatment**: plots the target feature value in a bar chart average gain in your outcome for the above recommended treatment policy versus always applying treatment.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/causal-treatment-policy-3.png" alt-text="Screenshot of the dashboard showing a recommended individual treatment policy table on the treatment policy tab." lightbox"./media/how-to-responsible-ai-dashboard/causal-treatment-policy-3.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/causal-treatment-policy-3.png" alt-text="Screenshot of the dashboard showing a recommended individual treatment policy table on the treatment policy tab." lightbox= "./media/how-to-responsible-ai-dashboard/causal-treatment-policy-3.png":::
 
 1. **Show top k datapoint samples ordered by causal effects for recommended treatment feature**: selects the number of datapoints to show in the table below
 2. **Recommended individual treatment policy table**: lists, in descending order of causal effect, the datapoints whose target features would be most improved by an intervention

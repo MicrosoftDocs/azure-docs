@@ -206,26 +206,26 @@ A sample json string generated is shown below:
 
 This component performs a causal analysis on the supplied datasets. It has a single input port, which accepts the output of the `RAI Insights Dashboard Constructor`. It also accepts the following parameters:
 
-| Parameter Name | Description | Type |
+|Parameter Name |Description |Type |
 |----------------|-------------|------|
-| treatment_features | A list of feature names in the datasets, which are potentially ‘treatable’ to obtain different outcomes | List of strings (see note below) |
-| heterogeneity_features | A list of feature names in the datasets, which might affect how the ‘treatable’ features behave. By default all features will be considered | Optional list of strings (see note below) |
-| nuisance_model  | The model used to estimate the outcome of changing the treatment features | Optional string. Must be ‘linear’ or ‘AutoML’ defaulting to ‘linear.’ |
-| heterogeneity_model | The model used to estimate the effect of the heterogeneity features on the outcome  | Optional string. Must be ‘linear’ or ‘forest’ defaulting to ‘linear.’ |
-| alpha | Confidence level of confidence intervals | Optional floating point number. Defaults to 0.05 |
-| upper_bound_on_cat_expansion | Maximum expansion for categorical features | Optional integer. Defaults to 50 |
-| treatment_cost | The cost of the treatments. If 0, then all treatments will have zero cost. If a list is passed, then each element is applied to one of the treatment_features. Each element can be a scalar value to indicate a constant cost of applying that treatment or an array indicating the cost for each sample. If the treatment is a discrete treatment, then the array for that feature should be two dimensional with the first dimension representing samples  and the second representing the difference in cost between the non-default values and the default value. | Optional integer or list (see note below)|
+| treatment_features | A list of feature names in the datasets, which are potentially ‘treatable’ to obtain different outcomes. | List of strings (see note below) |
+| heterogeneity_features | A list of feature names in the datasets, which might affect how the ‘treatable’ features behave. By default all features will be considered | Optional list of strings (see note below).|
+| nuisance_model  | The model used to estimate the outcome of changing the treatment features. | Optional string. Must be ‘linear’ or ‘AutoML’ defaulting to ‘linear.’ |
+| heterogeneity_model | The model used to estimate the effect of the heterogeneity features on the outcome.  | Optional string. Must be ‘linear’ or ‘forest’ defaulting to ‘linear.’ |
+| alpha | Confidence level of confidence intervals | Optional floating point number. Defaults to 0.05. |
+| upper_bound_on_cat_expansion | Maximum expansion for categorical features. | Optional integer. Defaults to 50. |
+| treatment_cost | The cost of the treatments. If 0, then all treatments will have zero cost. If a list is passed, then each element is applied to one of the treatment_features. Each element can be a scalar value to indicate a constant cost of applying that treatment or an array indicating the cost for each sample. If the treatment is a discrete treatment, then the array for that feature should be two dimensional with the first dimension representing samples and the second representing the difference in cost between the non-default values and the default value. | Optional integer or list (see note below).|
 | min_tree_leaf_samples | Minimum number of samples per leaf in policy tree. | Optional integer. Defaults to 2 |
-| max_tree_depth | Maximum depth of the policy tree | Optional integer. Defaults to 2 | By default, categorical features need to have several instances of each category in order for a model to be fit robustly.  | skip_cat_limit_checks | Setting this to True will skip these checks. |Optional Boolean. Defaults to False  |
-| categories | What categories to use for the categorical columns. If `auto`, then the categories will be inferred for all categorical columns. Otherwise, this argument should have as many entries as there are categorical columns. Each entry should be either `auto` to infer the values for that column or the list of values for the column.  If explicit values are provided, the first value is treated as  the "control" value for that column against which other values are compared. | Optional. `auto` or list (see note below) |
-| n_jobs | Degree of parallelism to use | Optional integer. Defaults to 1 |
-| verbose | Whether to provide detailed output during the computation | Optional integer. Defaults to 1 |
-| random_state | Seed for the PRNG | Optional integer |
+| max_tree_depth | Maximum depth of the policy tree | Optional integer. Defaults to 2 | By default, categorical features need to have several instances of each category in order for a model to be fit robustly.  | skip_cat_limit_checks | Setting this to True will skip these checks. |Optional Boolean. Defaults to False.  |
+| categories | What categories to use for the categorical columns. If `auto`, then the categories will be inferred for all categorical columns. Otherwise, this argument should have as many entries as there are categorical columns. Each entry should be either `auto` to infer the values for that column or the list of values for the column.  If explicit values are provided, the first value is treated as  the "control" value for that column against which other values are compared. | Optional. `auto` or list (see note below.) |
+| n_jobs | Degree of parallelism to use | Optional integer. Defaults to 1. |
+| verbose | Whether to provide detailed output during the computation | Optional integer. Defaults to 1. |
+| random_state | Seed for the PRNG | Optional integer. |
 
 > [!NOTE]
 > For the `list` parameters: Several of the parameters accept lists of other types (strings, numbers, even other lists). To pass these into the component, they must first be JSON-encoded into a single string.
 
-This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the Gather RAI Insights Dashboard component. 
+This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the Gather RAI Insights Dashboard component.
 
 # [YAML](#tab/yaml)
 
