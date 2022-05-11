@@ -310,7 +310,7 @@ The YAML files in this section demonstrate how to create and register a datastor
 > The `credentials` property in these sample `YAML` is redacted. Please replace the redacted `account_key`, `sas_token`, `tenant_id`, `client_id` and `client_secret` appropriately in these files.
 
 
-To learn more about Azure Machine Learning CLI (v2), [follow this link](https://docs.microsoft.com/azure/machine-learning/how-to-configure-cli).
+For more information on the CLI v2, see [Install and configure CLI](/azure/machine-learning/how-to-configure-cli).
 
 ### Azure blob container - CLI (v2)
 

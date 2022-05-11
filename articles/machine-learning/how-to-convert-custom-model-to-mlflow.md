@@ -14,7 +14,7 @@ ms.custom: devx-track-python, mlflow
 
 # Convert custom ML models to MLflow formatted models
 
-In this article, learn how to convert your custom ML model into MLflow format. [MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. In some cases, you might use a machine learning framework without its built-in MLflow model flavor support. Due to this lack of built-in MLflow model flavor, you cannot log or register the model with MLflow model fluent APIs. To resolve this, you can convert your model to an MLflow format where you can leverage the following benefits of Azure Machine Learning and MLflow models.
+In this article, learn how to convert your custom ML model into MLflow format. [MLflow](https://www.mlflow.org) is an open-source library for managing the lifecycle of your machine learning experiments. In some cases, you might use a machine learning framework without its built-in MLflow model flavor support. Due to this lack of built-in MLflow model flavor, you cannot log or register the model with MLflow model fluent APIs. To resolve this, you can convert your model to an MLflow format where you can leverage the following benefits of Azure Machine Learning and MLflow models.
 
 With Azure Machine Learning, MLflow models get the added benefits of, 
 
@@ -22,7 +22,7 @@ With Azure Machine Learning, MLflow models get the added benefits of,
 * Portability as an open source standard format
 * Ability to deploy both locally and on cloud
 
-MLflow provides support for a variety of machine learning frameworks (scikit-learn, Keras, Pytorch, and more); however, it might not cover every use case. For example, you may want to create an MLflow model with a framework that MLflow does not natively support or you may want to change the way your model does pre-processing or post-processing when running jobs.
+MLflow provides support for a variety of [machine learning frameworks](https://mlflow.org/docs/latest/models.html#built-in-model-flavors) (scikit-learn, Keras, Pytorch, and more); however, it might not cover every use case. For example, you may want to create an MLflow model with a framework that MLflow does not natively support or you may want to change the way your model does pre-processing or post-processing when running jobs.
 
 If you didn't train your model with MLFlow and want to use Azure Machine Learning's MLflow no-code deployment offering, you need to convert your custom model to MLFLow. Learn more about [custom python models and MLflow](https://mlflow.org/docs/latest/models.html#custom-python-models).
 
@@ -110,15 +110,16 @@ The following code prints a test prediction from the mlflow formatted model and 
 ```python
 loaded_model = mlflow.pyfunc.load_model(mlflow_pyfunc_model_path)
 
+input_data = "<insert test data>"
 # Evaluate the model
 import pandas as pd
-test_predictions = loaded_model.predict(model_input)
+test_predictions = loaded_model.predict(input_data)
 print(test_predictions)
 
 # load the model from disk
 import pickle
 loaded_model = pickle.load(open(sklearn_model_path, 'rb'))
-result = loaded_model.predict(model_input)
+result = loaded_model.predict(input_data)
 print(result)
 ```
 
@@ -138,7 +139,7 @@ mlflow.pyfunc.log_model(artifact_path=mlflow_pyfunc_model_path,
                         registered_model_name="Custom_mlflow_model", 
                         conda_env=conda_env,
                         artifacts=artifacts)
- mlflow.end_run()
+mlflow.end_run()
 ```
 
 > [!IMPORTANT]

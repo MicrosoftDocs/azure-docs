@@ -82,6 +82,6 @@ The below table shows a few examples of open-source and third-party integrations
 [open-faas-aks]: openfaas.md
 [apache-spark]: https://spark.apache.org/
 [spark-job]: spark-job.md
-[azure-ml-overview]: ../machine-learning/how-to-attach-arc-kubernetes.md
+[azure-ml-overview]: ../machine-learning/how-to-attach-kubernetes-anywhere.md
 [dapr-overview]: ./dapr.md
 [gitops-overview]: ../azure-arc/kubernetes/conceptual-gitops-flux2.md

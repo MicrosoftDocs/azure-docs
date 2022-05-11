@@ -8,13 +8,13 @@ ms.subservice: mlops
 ms.author: ssambare
 author: shivanissambare
 ms.reviewer: larryfr
-ms.date: 03/31/2022
+ms.date: 05/11/2022
 ms.topic: how-to
 ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2
 ms.devlang: azurecli
 ---
 
-# Deploy a TensorFlow model served with TF Serving using a custom container in an online endpoint (preview)
+# Deploy a TensorFlow model served with TF Serving using a custom container in an online endpoint
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -184,6 +184,6 @@ az ml model delete -n tfserving-mounted --version 1
 
 ## Next steps
 
-- [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
+- [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md)
 - [Troubleshooting online endpoints deployment](./how-to-troubleshoot-online-endpoints.md)
 - [Torch serve sample](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-torchserve.sh)

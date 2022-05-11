@@ -360,15 +360,9 @@ To use RStudio open source, set up a custom application as follows:
 1.	Follow the steps listed above to **Add application** when creating your compute instance.
 1.	Select **Custom Application** on the **Application** dropdown 
 1.	Configure the **Application name** you would like to use.
-1. Set up the application to run on **Service port** `8787`. 
-1. Point the **Docker image** to `docker.io/rocker/ml-verse:4`. 
-1. Add the following **Environment variables**:
-    * `DISABLE_AUTH: true`
-    * `ROOT: true`
-    * `USERID: 1001`
-    * `GROUPID: 1004`
-    * `USER: azureuser`
-1. Add the **Bind mounts** `/home/azureuser: /home/azureuser`.
+1. Set up the application to run on **Target port** `8787` - the docker image for RStudio open source listed below needs to run on this Target port. 
+1. Set up the application to be accessed on **Published port** `8787` - you can configure the application to be accessed on a different Published port if you wish.
+1. Point the **Docker image** to `ghcr.io/azure/rocker-rstudio-ml-verse:latest`. 
 1. Select **Add application** to set up RStudio as a custom application on your compute instance.
 
  
@@ -380,7 +374,7 @@ Set up other custom applications on your compute instance by providing the appli
 
 1.	Follow the steps listed above to **Add application** when creating your compute instance.
 1.	Select **Custom Application** on the **Application** dropdown. 
-1. Configure the **Application name**, the **Service port** you wish to run the application on, and the **Docker image** that contains your application.
+1. Configure the **Application name**, the **Target port** you wish to run the application on, the **Published port** you wish to access the application on and the **Docker image** that contains your application.
 1. Optionally, add **Environment variables** and **Bind mounts** you wish to use for your application.
 1. Select **Add application** to set up the custom application on your compute instance.
 

@@ -1,5 +1,5 @@
 ---
-title: Deploy an AutoML model with an online endpoint (preview)
+title: Deploy an AutoML model with an online endpoint
 titleSuffix: Azure Machine Learning
 description: Learn to deploy your AutoML model as a web service that's automatically managed by Azure.
 services: machine-learning
@@ -8,13 +8,13 @@ ms.subservice: core
 ms.author: ssambare
 ms.reviewer: larryfr
 author: shivanissambare
-ms.date: 03/31/2022
+ms.date: 05/11/2022
 ms.topic: how-to
 ms.custom: how-to, devplatv2, devx-track-azurecli, cliv2
 ms.devlang: azurecli
 ---
 
-# How to deploy an AutoML model to an online endpoint (preview)
+# How to deploy an AutoML model to an online endpoint
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -39,7 +39,7 @@ Deploying an AutoML-trained model from the Automated ML page is a no-code experi
 1. Choose the Models tab
 1. Select the model you want to deploy 
 1. Once you select a model, the Deploy button will light up with a drop-down menu
-1. Select *Deploy to real-time endpoint (preview)* option
+1. Select *Deploy to real-time endpoint* option
 
    :::image type="content" source="media/how-to-deploy-automl-endpoint/deploy-button.png" lightbox="media/how-to-deploy-automl-endpoint/deploy-button.png" alt-text="Screenshot showing the Deploy button's drop-down menu":::
 
@@ -145,7 +145,7 @@ You'll need to modify this file to use the files you downloaded from the AutoML 
     | `environment:conda_file` | A file URL for the downloaded conda environment file (`conda_env_<VERSION>.yml`). |
 
     > [!NOTE]
-    > For a full description of the YAML, see [Online endpoint (preview) YAML reference](reference-yaml-endpoint-online.md).
+    > For a full description of the YAML, see [Online endpoint YAML reference](reference-yaml-endpoint-online.md).
 
 1. From the command line, run: 
 
