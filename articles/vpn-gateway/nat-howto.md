@@ -2,12 +2,10 @@
 title: 'Configure NAT on Azure VPN Gateway'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure NAT on Azure VPN Gateway.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 11/29/2021
+ms.date: 05/11/2022
 ms.author: cherylmc 
 
 ---
@@ -131,6 +129,7 @@ After completing these steps, you will have a setup that matches the topology sh
 * NAT rules cannot be associated with connection resources during the create connection process. Create the connection resource first, then associate the NAT rules in the Connection Configuration page.
 * Address spaces for different local network gateways (on-premises networks or branches) can be the same with *IngressSNAT* rules to map to non-overlapping prefixes as shown in [Diagram 1](#diagram).
 * NAT rules are not supported on connections that have *Use Policy Based Traffic Selectors* enabled.
+* The maximum supported external mapping subnet size for Dynamic NAT is /26.
 
 ## Next steps
 
