@@ -238,7 +238,7 @@ To receive events in a batch, use a string array as input, as shown in the follo
 
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet-isolated/). 
 
-# [Event Hubs](#tab/event-hubs/isolates-process)
+# [Event Hubs](#tab/event-hubs/isolated-process)
 
 :::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaTrigger.cs" range="12-24" :::
 
@@ -386,6 +386,8 @@ Kafka events are currently supported as strings that are JSON payloads.
 Kafka messages are currently supported as strings that are JSON payloads.
 
 ::: zone-end 
+
+For a complete set of supported host.json settings for the Kafka trigger, see [host.json settings](functions-bindings-kafka.md#hostjson-settings). 
 
 ## Next steps
 

@@ -86,15 +86,33 @@ This section describes the configuration settings available for this binding.
 
 |Property  |Default | Type | Description |
 |---------|---------|---------| ---- |
+| ChannelFullRetryIntervalInMs | 50 | Trigger | Defines the subscriber retry interval, in milliseconds, used when attempting to add items to an at-capacity channel. | 
+| ExecutorChannelCapacity | 1| Both| Defines the channel message capacity. Once capacity is reached, the Kafka subscriber pauses until the function catches up. |
 | MaxBatchSize | 64 | Trigger | Maximum batch size when calling a Kafka triggered function. | 
 | SubscriberIntervalInSeconds | 1 | Trigger | Defines the minimum frequency incoming messages are executed, per function in seconds. Only when the message volume is less than `MaxBatchSize` / `SubscriberIntervalInSeconds`| 
-| ExecutorChannelCapacity | 1| Both| Defines the channel message capacity. Once capacity is reached, the Kafka subscriber pauses until the function catches up. |
-| ChannelFullRetryIntervalInMs | 50 | Trigger | Defines the subscriber retry interval, in milliseconds, used when attempting to add items to an at-capacity channel. | 
 
-Setting	librdkafka property
-LibkafkaDebug	debug
-MetadataMaxAgeMs	metadata.max.age.ms
-SocketKeepaliveEnable	socket.keepalive.enable
+The following properties are inherited from the [Apache Kafka C/C++ client library](https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md).
+
+|Property  | Type | librdkafka equivalent |
+|---------|---------|---------| 
+| AutoCommitIntervalMs	| Trigger | `auto.commit.interval.ms` |
+| FetchMaxBytes	| Trigger | `fetch.max.bytes` |
+| LibkafkaDebug	| Both | `debug` |
+| MaxPartitionFetchBytes	| Trigger | `max.partition.fetch.bytes` |
+| MaxPollIntervalMs	| Trigger | `max.poll.interval.ms` |
+| MetadataMaxAgeMs | Both | `metadata.max.age.ms` |
+| QueuedMinMessages	| Trigger | `queued.min.messages` |
+| QueuedMaxMessagesKbytes	| Trigger | `queued.max.messages.kbytes` |
+| ReconnectBackoffMs | Output | `reconnect.backoff.max.ms` |	
+| ReconnectBackoffMaxMs | Trigger | `reconnect.backoff.max.ms` |
+| SessionTimeoutMs	| Trigger | `session.timeout.ms` |
+| SocketKeepaliveEnable	| Both | `socket.keepalive.enable` |
+| StatisticsIntervalMs	| Trigger | `statistics.interval.ms` |
+
+
+
+
+
 
 ## Next steps
 

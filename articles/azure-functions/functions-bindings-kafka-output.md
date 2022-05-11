@@ -175,6 +175,8 @@ See the host.json section for settings that apply to Kafka output bindings.
 
 In a Premium plan, you must enable runtime scale monitoring for the Kafka output to be able to scale out to multiple instances. To learn more, see [Premium plan with virtual network triggers](functions-networking-options.md#premium-plan-with-virtual-network-triggers).
 
+For a complete set of supported host.json settings for the Kafka trigger, see [host.json settings](functions-bindings-kafka.md#hostjson-settings). 
+
 ## Next steps
 
 - [Run a function from an Apache Kafka event stream](./functions-bindings-kafka-trigger.md)
