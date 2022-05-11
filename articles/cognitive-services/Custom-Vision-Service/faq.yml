@@ -83,11 +83,7 @@ sections:
       - question: |
           My project training took many hours to complete. Why is the turnaround time so long?
         answer: |
-          42 hours is the maximum compute hours that can be used for training. However, this is different from wall clock hours: with N compute hours reserved, it doesn't mean the training will finish right at 42 hours.
-
-          As we do parallel training in the backend (multiple compute nodes running at the same time), it's possible the operation might finish within 32 hours, but customers will see a 42-hour billing.
-
-          In a high-usage period when many customers are training, the GPU resources could be tight, so the job may stay in the queue and not finish within 42 hour time frame. However, it's guaranteed that customers won't be charged for more than 42 hours.
+          High training traffic or high usage periods when many customers are training can impact training time. It leads to long queues and tight GPU resources. Sometimes, the job may stay in the queue and won't finish within a certain time frame, but it's guaranteed that our customers won't be charged for more than the set time budget.
 
       - question: |
           How can I write logs on this service?
