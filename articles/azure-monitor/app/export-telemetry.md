@@ -250,16 +250,16 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
 
 ## Diagnostic settings based export
 
-Diagnostic settings export differs from continuous export in the following ways:
-* Updated schema.
-* Additional features.
+Diagnostic settings export is preferred because it provides additional features.
  > [!div class="checklist"]
  > * Azure storage accounts with virtual networks, firewalls, and private links
  > * Export to Event Hubs
-* Telemetry data is sent as it arrives instead of in batched uploads.
 
-> [!IMPORTANT]
-> Additional costs may be incurred due to an increase in calls to the destination, such as a storage account.
+Diagnostic settings export further differs from continuous export in the following ways:
+* Updated schema.
+* Telemetry data is sent as it arrives instead of in batched uploads.
+ > [!IMPORTANT]
+ > Additional costs may be incurred due to an increase in calls to the destination, such as a storage account.
 
 To migrate to diagnostic settings-based export:
 
