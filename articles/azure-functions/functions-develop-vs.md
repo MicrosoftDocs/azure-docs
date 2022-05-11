@@ -2,9 +2,9 @@
 title: Develop Azure Functions using Visual Studio  
 description: Learn how to develop and test Azure Functions by using Azure Functions Tools for Visual Studio 2019.
 ms.devlang: csharp
-ms.custom: "vs-azure, devx-track-csharp"
+ms.custom: devdivchpfy22
 ms.topic: conceptual
-ms.date: 12/10/2020
+ms.date: 05/11/2022
 ---
 
 # Develop Azure Functions using Visual Studio  
@@ -32,7 +32,7 @@ Unless otherwise noted, procedures and examples shown are for Visual Studio 2019
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 > [!NOTE]
-> In Visual Studio 2017, the Azure development workload installs Azure Functions Tools as a separate extension. When you update your Visual Studio 2017 installation, make sure that you're using the [most recent version](#check-your-tools-version) of the Azure Functions Tools. The following sections show you how to check and (if needed) update your Azure Functions Tools extension in Visual Studio 2017.
+> In Visual Studio 2017, the Azure development workload installs Azure Functions Tools as a separate extension. When you update your Visual Studio 2017 installation, make sure that you're using the [most recent version](#check-your-tools-version) of the Azure Functions tools. The following sections show you how to check and (if needed) update your Azure Functions Tools extension in Visual Studio 2017.
 >
 > Skip these sections if you're using Visual Studio 2019.
 
