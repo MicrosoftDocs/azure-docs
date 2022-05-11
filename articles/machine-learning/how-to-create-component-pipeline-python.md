@@ -162,7 +162,7 @@ After defining the training function successfully, you can use @command_componen
 
 :::code language="python" source="~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/train/train_dsl_component.py":::
 
-The code above define a component with display name `Train Image Classification Keras` using ``@command_componen`:
+The code above define a component with display name `Train Image Classification Keras` using `@command_component`:
 
 * The `keras_train_component` function defines one input `input_data` where training data comes from, one input `epochs` specifying epochs during training, and one output `output_model` where outputs the model file. The default value of `epochs` is 10. The execution logic of this component is from `train()` function in `train.py` above.
 
@@ -227,7 +227,6 @@ In the following code, you import `prepare_data_component()` and `keras_train_co
 For score component defined by yaml, you can use `load_component()` function to load.
 
 [!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=load-from-yaml)]
-
 
 ## Build your pipeline
 
