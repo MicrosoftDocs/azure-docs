@@ -715,14 +715,11 @@ To confirm the certificate is expired, perform the following steps:
 1. Open the Certificates MMC snap-in, select Computer Account and navigate to Certificates (Local Computer)\Personal\Certificates.
 2. Check if the client authentication certificate is expired.
 
-If the client authentication certificate is expired, perform the following steps to resolve the issue:
+If the client authentication certificate is expired, run the following PowerShell command on the server:
 
-1. Verify Azure File Sync agent version 4.0.1.0 or later is installed.
-2. Run the following PowerShell command on the server:
-
-    ```powershell
-    Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
-    ```
+```powershell
+Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
+```
 
 <a id="-2134375896"></a>**Sync failed due to authentication certificate not found.**  
 
@@ -737,9 +734,9 @@ This error occurs because the certificate used for authentication is not found.
 
 To resolve this issue, run the following PowerShell command on the server:
 
-    ```powershell
-    Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
-    ```
+```powershell
+Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
+```
 
 <a id="-2134364039"></a>**Sync failed due to authentication identity not found.**  
 
