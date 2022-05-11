@@ -44,16 +44,20 @@ If using [Azure Active Directory (Azure AD) authentication](/azure/active-direct
 > - [Configurable token lifetimes in the Microsoft identity platform (preview)](/azure/active-directory/develop/active-directory-configurable-token-lifetimes)
 > - [Create SAS tokens](azure-maps-authentication.md#create-sas-tokens)
 
-### Publicly facing client applications
+### Public client and confidential client applications
 
-You should consider defining which domains have access to your Azure Map account using [Cross origin resource sharing (CORS)](azure-maps-authentication.md#cross-origin-resource-sharing-cors). CORS instructs the clients' browser on which origin such as "https://microsoft.com" is allowed to request resources for the Azure Map account.
+There are different security concerns between public and confidential client applications. See [Public client and confidential client applications](/azure/active-directory/develop/msal-client-applications) in the Microsoft identity platform documentation for more information about what is considered a *public* versus *confidential* client application.
+
+### Public client applications
+
+For apps that run on devices or desktop computers or in a web browser, you should consider defining which domains have access to your Azure Map account using [Cross origin resource sharing (CORS)](azure-maps-authentication.md#cross-origin-resource-sharing-cors). CORS instructs the clients' browser on which origins such as "https://microsoft.com" are allowed to request resources for the Azure Map account.
 
 > [!NOTE]
 > If you're developing a web server or service, your Azure Maps account does not need to be configured with CORS. If you have JavaScript code in the client side web application, CORS does apply.
 
-### Web server or service
+### Confidential client applications
 
-If you prefer to avoid the overhead and complexity of managing secrets, consider [Managed Identities](/azure/active-directory/managed-identities-azure-resources/overview). Managed identities can provide an identity for your web service to use when connecting to Azure Maps using Azure Active Directory (Azure AD) authentication. In this case, your web service will use that identity to obtain the required Azure AD tokens. You should use Azure RBAC to configure what access the web service is given, using the [Least privileged roles](/azure/active-directory/roles/delegate-by-task) possible.
+For apps that run on servers (such as web services and service/daemon apps), if you prefer to avoid the overhead and complexity of managing secrets, consider [Managed Identities](/azure/active-directory/managed-identities-azure-resources/overview). Managed identities can provide an identity for your web service to use when connecting to Azure Maps using Azure Active Directory (Azure AD) authentication. In this case, your web service will use that identity to obtain the required Azure AD tokens. You should use Azure RBAC to configure what access the web service is given, using the [Least privileged roles](/azure/active-directory/roles/delegate-by-task) possible.
 
 ## Next steps
 
