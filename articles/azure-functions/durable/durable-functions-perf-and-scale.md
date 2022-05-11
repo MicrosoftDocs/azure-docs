@@ -88,7 +88,7 @@ Instance caching is currently supported by the Azure Storage provider and by the
 | Instance caching     | Supported<br/>(C# SDK only)       | Supported          | Not supported |
 | Default setting       | Disabled       | Enabled   | n/a |
 | Mechanism         | Extended Sessions       | Instance Cache   | n/a |
-| Documentation   |  [see documentation](durable-functions-azure-storage-provider.md#extended-sessions) | [see documentation](https://microsoft.github.io/durabletask-netherite/#/caching) | n/a |
+| Documentation   |  see [Extended sessions](durable-functions-azure-storage-provider.md#extended-sessions) | see [Instance cache](https://microsoft.github.io/durabletask-netherite/#/caching) | n/a |
 
 > [!TIP]
 > Caching can reduce how often histories are replayed, but it cannot eliminate replay altogether. When developing orchestrators, we highly recommend testing them on a configuration that disables caching. This forced-replay behavior can useful for detecting [orchestrator function code constraints](durable-functions-code-constraints.md) violations at development time.  
@@ -119,7 +119,7 @@ To ensure that an individual worker does not overcommit, it may be necessary to 
 > The concurrency throttles only apply locally, to limit what is currently being processed **per worker**. Thus, these throttles do not limit the total throughput of the system.
 
 > [!TIP]
-> Paradoxically, throttling the per-worker concurrency can *increase* the total throughput of the system in situations where workers are experiencing resource contention! If each worker takes less work, then the scale controller adds more workers to keep up with the queues, which then increases the total throughput.
+> Be aware that throttling the per-worker concurrency can actually *increase* the total throughput of the system. This can occur when each worker takes less work, causing the scale controller to add more workers to keep up with the queues, which then increases the total throughput.
 
 ### Configuration of throttles
 
@@ -177,7 +177,7 @@ The following table shows, for each storage provider, which queues are partition
 | Task queue<br/>(activity work items)     | Not partitioned      | Partitioned          | Not partitioned    |
 | Default `partitionCount`     | 4        | 12          | n/a    |
 | Maximum `partitionCount`     | 16       | 32          | n/a     |
-| Documentation   |  [see documentation](durable-functions-azure-storage-provider.md#orchestrator-scale-out) | [see documentation](https://microsoft.github.io/durabletask-netherite/#/settings?id=partition-count-considerations) | n/a |
+| Documentation   |  see [Orchestrator scale-out](durable-functions-azure-storage-provider.md#orchestrator-scale-out) | see [Partition count considerations](https://microsoft.github.io/durabletask-netherite/#/settings?id=partition-count-considerations) | n/a |
 
 > [!WARNING]
 > The partition count can no longer be changed after a task hub has been created. Thus, it is advisable to set it to a large enough value to accommodate future scale out requirements for the task hub instance.

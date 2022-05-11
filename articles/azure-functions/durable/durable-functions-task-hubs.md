@@ -26,6 +26,8 @@ These differences do not matter as far as the design of the application is conce
 
 ## Task hub management
 
+Next, let's take a closer look at how task hubs are created or deleted, how to use task hubs correctly when running multiple function apps, and how the content of task hubs can be inspected.
+
 ### Creation and deletion
 
 An empty task hub with all the required resources is automatically created in storage when a function app is started the first time.
