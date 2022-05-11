@@ -230,7 +230,7 @@ Go to the Azure portal to get your connection string information and copy it int
 
     :::image type="content" source="./media/manage-data-nodejs/output.png" alt-text="Screenshot shows a Command Prompt window where you can view and verify the output.":::
 
-    Press *Ctrl*+*C* to stop the program and close the console window.
+    Press **Ctrl**+**C** to stop the program and close the console window.
 
 1. In the Azure portal, open **Data Explorer** to query, modify, and work with this new data.
 
