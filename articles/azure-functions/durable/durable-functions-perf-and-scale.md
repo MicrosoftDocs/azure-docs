@@ -9,7 +9,7 @@ ms.author: azfuncdf
 
 # Performance and scale in Durable Functions (Azure Functions)
 
-To optimize performance and scalability, it's important to understand the unique scaling characteristics of [Durable Functions](durable-functions-overview.md). In this article, we explain how workers are scaled based on load, and how one can tune the various parameters. 
+To optimize performance and scalability, it's important to understand the unique scaling characteristics of [Durable Functions](durable-functions-overview.md). In this article, we explain how workers are scaled based on load, and how one can tune the various parameters.
 
 ## Worker scaling
 
@@ -22,12 +22,12 @@ The following diagram illustrates this concept:
 
 ### Automatic scaling
 
-As with all Azure Functions running in the Consumption and Elastic Premium plans, Durable Functions supports auto-scale via the [Azure Functions scale controller](../event-driven-scaling.md#runtime-scaling). The Scale Controller monitors how long messages and tasks have to wait in their respective queues before they are processed. Based on these latencies it can decide whether to add or remove VMs.
+As with all Azure Functions running in the Consumption and Elastic Premium plans, Durable Functions supports auto-scale via the [Azure Functions scale controller](../event-driven-scaling.md#runtime-scaling). The Scale Controller monitors how long messages and tasks have to wait in their respective queues before they are processed. Based on these latencies it can decide whether to add or remove workers.
 
 > [!NOTE]
 > Starting with Durable Functions 2.0, function apps can be configured to run within VNET-protected service endpoints in the Elastic Premium plan. In this configuration, the Durable Functions triggers initiate scale requests instead of the Scale Controller. For more information, see [Runtime scale monitoring](../functions-networking-options.md#premium-plan-with-virtual-network-triggers).
 
-On a premium plan, automatic scaling allows the cost to remain roughly proportional to the load.
+On a premium plan, automatic scaling can help to keep the number of workers (and therefore the operating cost) roughly proportional to the load that the application is experiencing.
 
 ## Work item processing
 
@@ -36,14 +36,16 @@ The tasks queue and message queue in the task hub represent the *work* that the 
 * **Activity work items**: Run an activity function to process a task from the task queue.
 * **Orchestrator work item**: Run an orchestrator or entity function to process one or more new messages from the message queue.
 
-A worker may be processing more than one work item at a time, subject to the [configured per-worker concurrency limits](durable-functions-perf-and-scale.md#concurrency-throttles). Once the worker completes executing an activity, orchestrator, or entity function, it commits the effects back to the task hub. These effects vary by the type of function that was executed:
+A worker may be processing more than one work item at a time, subject to the [configured per-worker concurrency limits](durable-functions-perf-and-scale.md#concurrency-throttles).
+
+> [!NOTE]
+> Each step, or *episode*, of an orchestration is a separate work item. An episode starts when there are new messages for the orchestrator to process. Such a message may indicate that the orchestration should start; or it may indicate that an activity, entity call, timer, or suborchestration has completed; or it can represent an external event. The message triggers a work item that allows the orchestrator to process the result and to continue with the next episode. That episode ends when the orchestrator either completes, or reaches a point where it must wait for new messages.
+
+Once a worker completes executing an activity, orchestrator, or entity function, it commits the effects back to the task hub. These effects vary by the type of function that was executed:
 
 * A completed activity function enqueues a result message for the parent orchestrator instance.
 * A completed orchestrator function updates the orchestration state and history, and may enqueue new tasks or messages.
 * A completed entity function updates the entity state, and may also enqueue new messages.
-
-> [!NOTE]
-> Each step, or *episode*, of an orchestration is a separate work item. An episode starts when there are new messages for the orchestrator to process. Such a message may indicate that the orchestration should start; or it may indicate that an activity, entity call, timer, or suborchestration has completed; or it can represent an external event. The message triggers a work item that allows the orchestrator to process the result and to continue with the next episode. That episode ends when the orchestrator either completes, or reaches a point where it must wait for new messages.
 
 ### CPU usage
 
@@ -75,24 +77,21 @@ Generally, to process an orchestration work item, a worker has to both
 1. Fetch the orchestration history.
 1. Replay the orchestrator code using the history.
 
-If the same worker is processing multiple work items for the same orchestration, we can optimize this process by caching the history in the worker's memory, which eliminates the first step. Moreover, we can cache the mid-execution orchestrator, which eliminates the second step, the history replay, as well.
+If the same worker is processing multiple work items for the same orchestration, the storage provider can optimize this process by caching the history in the worker's memory, which eliminates the first step. Moreover, it can cache the mid-execution orchestrator, which eliminates the second step, the history replay, as well.
 
 The typical effect of caching is reduced I/O against the underlying storage service, and overall improved throughput and latency. On the other hand, caching increases the memory consumption on the worker.  
-
-> [!NOTE]
-> For non .NET languages, it is currently not possible to cache a mid-execution orchestrator. Rather, the orchestrator has to be replayed from the beginning when executing an orchestrator work item. It is however still possible to cache the history, if using the Netherite storage provider.
 
 Instance caching is currently supported by the Azure Storage provider and by the Netherite storage provider. The table below provides a comparison.
 
 | Storage provider | Azure Storage | Netherite | MSSQL |
 | -                |-              |-          |- |
-| Instance caching     | Supported       | Supported          | Not supported |
+| Instance caching     | Supported<br/>(C# SDK only)       | Supported          | Not supported |
 | Default setting       | Disabled       | Enabled   | n/a |
 | Mechanism         | Extended Sessions       | Instance Cache   | n/a |
 | Documentation   |  [see documentation](durable-functions-azure-storage-provider.md#extended-sessions) | [see documentation](https://microsoft.github.io/durabletask-netherite/#/caching) | n/a |
 
 > [!TIP]
-> Caching can reduce how often we have to replay histories, but it cannot eliminate replay altogether. When developing orchestrators, we highly recommend testing them on a configuration that disables caching. This forced-replay behavior can useful for detecting [orchestrator function code constraints](durable-functions-code-constraints.md) violations at development time.  
+> Caching can reduce how often histories are replayed, but it cannot eliminate replay altogether. When developing orchestrators, we highly recommend testing them on a configuration that disables caching. This forced-replay behavior can useful for detecting [orchestrator function code constraints](durable-functions-code-constraints.md) violations at development time.  
 
 ### Comparison of caching mechanisms
 
@@ -100,8 +99,14 @@ The providers use different mechanisms to implement caching, and offer different
 
 * **Extended sessions**, as used by the Azure Storage provider, keep mid-execution orchestrators in memory until they are idle for some time. The parameters to control this mechanism are  `extendedSessionsEnabled` and `extendedSessionIdleTimeoutInSeconds`. For more details, see the section [Extended sessions](durable-functions-azure-storage-provider.md#extended-sessions) of the Azure Storage provider documentation.
 
+> [!NOTE]
+> Extended sessions are supported only for the C# SDK.
+
 * The **Instance cache**, as used by the Netherite storage provider, keeps the state of all instances, including their histories, in the worker's memory, while keeping track of the total memory used. If the cache size exceeds the limit configured by `InstanceCacheSizeMB`, the least recently used instance data is evicted. If `CacheOrchestrationCursors` is set to true, the cache also stores the mid-execution orchestrators along with the instance state.
  For more details, see the section [Instance cache](https://microsoft.github.io/durabletask-netherite/#/caching) of the Netherite storage provider documentation.
+
+> [!NOTE]
+> Instance caches work for all language SDKs, but the `CacheOrchestrationCursors` option is available only for the C# SDK.
 
 ## Concurrency throttles
 
@@ -113,7 +118,8 @@ To ensure that an individual worker does not overcommit, it may be necessary to 
 > [!NOTE]
 > The concurrency throttles only apply locally, to limit what is currently being processed **per worker**. Thus, these throttles do not limit the total throughput of the system.
 
-Paradoxically, throttling the per-worker concurrency can actually *increase* the total throughput of the system! If each worker takes less work, then the scale controller adds more workers to keep up with the queues, which then increases the total throughput.
+> [!TIP]
+> Paradoxically, throttling the per-worker concurrency can *increase* the total throughput of the system in situations where workers are experiencing resource contention! If each worker takes less work, then the scale controller adds more workers to keep up with the queues, which then increases the total throughput.
 
 ### Configuration of throttles
 

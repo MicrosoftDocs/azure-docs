@@ -16,18 +16,20 @@ This document describes the characteristics of the Durable Functions Azure Stora
 
 In the Azure Storage provider, all function execution is driven by Azure Storage queues. Orchestration and entity status and history are stored in Azure Tables. Azure Blobs and blob leases are used to distribute orchestration instances and entities across multiple app instances (also known as *workers* or simply *VMs*). This section goes into more detail on the various Azure Storage artifacts and how they impact performance and scalability.
 
-## Storage representation of task hubs
+## Storage representation
 
-For this storage provider, a task hub consists of the following components:
+The Azure Storage provider represents a [logical task hub](durable-functions-task-hubs.md) in storage using the following components:
 
 * Two Azure Tables that represent the instance store.
 * One Azure Queue that stores the tasks.
-* One or more Azure Queues that store the messages.
-* Some extra blob containers for lease blobs and/or large messages.
+* One or more Azure Queues that store the messages. Each of these so-called *control queues* represents a [partition](durable-functions-perf-and-scale.md#partition-count) that is assigned a subset of all instance messages, based on the hash of the instance id.
+* A few extra blob containers for lease blobs and/or large messages.
 
-For example, a taskhub named `x` with `PartitionCount = 4` contains the following queues and tables:
+For example, a taskhub named `x` with `partitionCount = 4` contains the following queues and tables:
 
 ![Diagram showing Azure Storage provider storage storage organization for 4 control queues.](./media/durable-functions-task-hubs/azure-storage.png)
+
+Next, we describe these components and the role they play in more detail.
 
 ### History table
 
@@ -195,7 +197,7 @@ Generally speaking, orchestrator functions are intended to be lightweight and sh
 
 ## Extended sessions
 
-Extended sessions is a setting that keeps orchestrations and entities in memory even after they finish processing messages. The typical effect of enabling extended sessions is reduced I/O against the underlying durable store and overall improved throughput.
+Extended sessions is a [caching mechanism](durable-functions-perf-and-scale.md#instance-caching) that keeps orchestrations and entities in memory even after they finish processing messages. The typical effect of enabling extended sessions is reduced I/O against the underlying durable store and overall improved throughput.
 
 You can enable extended sessions by setting `durableTask/extendedSessionsEnabled` to `true` in the **host.json** file. The `durableTask/extendedSessionIdleTimeoutInSeconds` setting can be used to control how long an idle session will be held in memory:
 
