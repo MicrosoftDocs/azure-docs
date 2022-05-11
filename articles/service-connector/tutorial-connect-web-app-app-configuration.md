@@ -56,7 +56,7 @@ Start by creating your Azure resources.
 
     ```azurecli
     # Change directory to the SMI sample
-    cd system-managed-identity
+    cd serviceconnector-webapp-appconfig-dotnet\system-managed-identity
 
     # Create a web app
 
@@ -79,7 +79,7 @@ Start by creating your Azure resources.
 
     ```azurecli
     # Change directory to the UMI sample
-    cd user-assigned-managed-identity
+    cd serviceconnector-webapp-appconfig-dotnet\user-assigned-managed-identity
 
     # Create a web app
 
@@ -107,7 +107,7 @@ Start by creating your Azure resources.
 
     ```azurecli
     # Change directory to the service principal sample
-    cd service-principal
+    cd serviceconnector-webapp-appconfig-dotnet\service-principal
 
     # Create a web app
 
@@ -136,7 +136,7 @@ Start by creating your Azure resources.
 
     ```azurecli
     # Change directory to the service principal sample
-    cd connection-string
+    cd serviceconnector-webapp-appconfig-dotnet\connection-string
 
     # Create a web app
 
@@ -169,7 +169,7 @@ Start by creating your Azure resources.
 
     Import the test configuration file to Azure App Configuration using a system-assigned managed identity.
 
-    1. Cd into the folder `serviceconnector-webapp-appconfig-dotnet\system-managed-identity\ServiceConnectorSample`
+    1. Cd into the folder `ServiceConnectorSample`
     1. Import the [./sampleconfigs.json](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/system-managed-identity/ServiceConnectorSample/sampleconfigs.json) test configuration file into the App Configuration store. If you're using Cloud Shell, upload [sampleconfigs.json](../cloud-shell/persisting-shell-storage.md) before running the command.
 
         ```azurecli
@@ -180,7 +180,7 @@ Start by creating your Azure resources.
 
     Import the test configuration file to Azure App Configuration using a user-assigned managed identity.
 
-    1. Cd into the folder `serviceconnector-webapp-appconfig-dotnet\user-assigned-managed-identity\ServiceConnectorSample`
+    1. Cd into the folder `ServiceConnectorSample`
     1. Import the [./sampleconfigs.json](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/user-assigned-managed-identity/ServiceConnectorSample/sampleconfigs.json) test configuration file into the App Configuration store. If you're using Cloud Shell, upload [sampleconfigs.json](../cloud-shell/persisting-shell-storage.md) before running the command.
 
         ```azurecli
@@ -191,7 +191,7 @@ Start by creating your Azure resources.
 
     Import the test configuration file to Azure App Configuration using service principal.
 
-    1. Cd into the folder `serviceconnector-webapp-appconfig-dotnet\service-principal\ServiceConnectorSample`
+    1. Cd into the folder `ServiceConnectorSample`
     1. Import the [./sampleconfigs.json](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/service-principal/ServiceConnectorSample/sampleconfigs.json) test configuration file into the App Configuration store. If you're using Cloud Shell, upload [sampleconfigs.json](../cloud-shell/persisting-shell-storage.md) before running the command.
 
         ```azurecli
@@ -202,7 +202,7 @@ Start by creating your Azure resources.
 
     Import the test configuration file to Azure App Configuration using a connection string.
 
-    1. Cd into the folder `serviceconnector-webapp-appconfig-dotnet\connection-string\ServiceConnectorSample`
+    1. Cd into the folder `ServiceConnectorSample`
     1. Import the [./sampleconfigs.json](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/connection-string/ServiceConnectorSample/sampleconfigs.json) test configuration file into the App Configuration store. If you're using Cloud Shell, upload [sampleconfigs.json](../cloud-shell/persisting-shell-storage.md) before running the command.
 
         ```azurecli
