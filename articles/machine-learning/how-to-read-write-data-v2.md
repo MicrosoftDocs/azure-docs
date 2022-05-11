@@ -78,7 +78,7 @@ returned_job = ml_client.create_or_update(job)
 returned_job.services["Studio"].endpoint
 ```
 
-## Using data stored in storage service on Azure in a job
+## Use data stored in storage service on Azure in a job
 
 You can read your data in from existing storage on Azure.
 
