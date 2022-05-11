@@ -95,6 +95,9 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/view-linked-service-connection.png" alt-text="View the linked service connection.":::
 
+   > [!NOTE]
+   > The linked service that you create here is not dedicated to Azure Synapse Link for SQL - it can be used by any workspace user that has the appropriate permissions. Please take time to understand the scope of users who may have access to this linked service and its credentials. For more information on permissions in Azure Synapse workspaces, see [Azure Synapse workspace access control overview - Azure Synapse Analytics](/synapse-analytics/security/synapse-workspace-access-control-overview).
+
 ## Create linked service to connect to your landing zone on Azure Data Lake Storage Gen2
 
 1. Go to your created Azure Data Lake Storage Gen2 account, navigate to **Access Control (IAM)**, select **+Add**, and select **Add role assignment**.
@@ -127,6 +130,9 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 1. Select **Create** and you'll have your new linked service connecting to Azure Data Lake Storage Gen2.
 
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/storage-gen2-linked-service-created.png" alt-text="New linked service to Azure Data Lake Storage Gen2.":::
+
+   > [!NOTE]
+   > The linked service that you create here is not dedicated to Azure Synapse Link for SQL - it can be used by any workspace user that has the appropriate permissions. Please take time to understand the scope of users who may have access to this linked service and its credentials. For more information on permissions in Azure Synapse workspaces, see [Azure Synapse workspace access control overview - Azure Synapse Analytics](/synapse-analytics/security/synapse-workspace-access-control-overview).
 
 ## Create the Azure Synapse Link connection
 
