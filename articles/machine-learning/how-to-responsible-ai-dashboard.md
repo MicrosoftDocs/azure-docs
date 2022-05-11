@@ -76,7 +76,7 @@ The Responsible AI dashboard includes a robust and rich set of visualizations an
 
 - [Global controls](#global-controls)
 - [Error analysis](#error-analysis)
-- [Model overview and fairness metrics](#model-overview-and-fairness-disparity-metrics)
+- [Model overview](#model-overview)
 - [Data explorer](#data-explorer)
 - [Feature importances (model explanations)](#feature-importances-model-explanations)
 - [Counterfactual what-if](#counterfactual-what-if)
@@ -95,7 +95,7 @@ At the top of the dashboard, you can create cohorts, subgroups of datapoints sha
 
 Selecting Cohort settings will open a panel with a list of your cohorts, where you can create, edit, duplicate, or delete your cohorts.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/view-dashboard-cohort-settings.png" alt-text="Screenshot of cohort settings.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/view-dashboard-cohort-settings.png" alt-text="Screenshot showing the cohort settings in he dashboard.":::
 
 Selecting the **New cohort** button on the top of the dashboard or in the Cohort settings opens a new panel with options to filter on the following:
 
@@ -111,11 +111,11 @@ Selecting the **New cohort** button on the top of the dashboard or in the Cohort
 
 You can name your new dataset cohort, select **Add filter** to add each desired filter, then select **Save** to save the new cohort to your cohort list or Save and switch to save and immediately switch the global cohort of the dashboard to the newly created cohort.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/view-dashboard-new-cohort.png" alt-text="Screenshot of making a new cohort.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/view-dashboard-new-cohort.png" alt-text="Screenshot of making a new cohort in the dashboard.":::
 
 Selecting **Dashboard configuration** will open a panel with a list of the components you’ve configured in your dashboard. You can hide components in your dashboard by selecting the ‘trash’ icon.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/dashboard-configuration.png" alt-text="Screenshot of dashboard configuration.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/dashboard-configuration.png" alt-text="Screenshot showing the dashboard configuration.":::
 
 You can add components back into your dashboard via the blue circular ‘+’ icon in the divider between each component.
 
@@ -158,7 +158,7 @@ Selecting the "Feature list" button opens a side panel, which allows you to retr
 
 Selecting the **Heat map** tab switches to a different view of the error in the dataset. You can select on one or many heat map cells and create new cohorts. You can choose up to two features to create a heatmap.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/error-analysis-heat-map.png" alt-text="Screenshot of the dashboard showing error analysis tree map feature list. ":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/error-analysis-heat-map.png" alt-text="Screenshot of the dashboard showing error analysis heat map feature list. ":::
 
 1. **Number of Cells**: displays the number of cells selected.
 2. **Error coverage**: displays the percentage of all errors concentrated in the selected cell(s).
@@ -173,12 +173,12 @@ The model overview component provides a set of commonly used model performance m
 
 | ML scenario    | Metrics                                                                                         |
 |----------------|-------------------------------------------------------------------------------------------------|
-| Regression     | Mean absolute error, Mean squared error, R,<sup>2</sup>, Mean prediction                        |
+| Regression     | Mean absolute error, Mean squared error, R,<sup>2</sup>, Mean prediction.                        |
 | Classification | Accuracy, Precision, Recall, F1 score, False positive rate, False negative rate, Selection rate |
 
 You can further investigate your model by looking at a comparative analysis of its performance across different cohorts or subgroups of your dataset, including automatically created “temporary cohorts” based on selected nodes from the Error analysis component. Select filters along y-value and x-value to cut across different dimensions.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/model-overview-v1.png" alt-text=" ":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/model-overview-v1.png" alt-text="Screenshot of model overview showing a box plot of cohort on y and error on x. ":::
 
 ### Data explorer
 
@@ -186,10 +186,10 @@ The Data explorer component allows you to analyze data statistics along axes fil
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/data-explorer-aggregate.png" alt-text="Screenshot of the dashboard showing the data explorer. ":::
 
-1. **Select a dataset cohort to explore**: Specify which dataset cohort from your list of cohorts you want to view data statistics for
-2. **X-axis**: displays the type of value being plotted horizontally, modify by clicking the button to open a side panel
-3. **Y-axis**: displays the type of value being plotted vertically, modify by clicking the button to open a side panel
-4. **Chart type**: specifies chart type, choose between aggregate plots (bar charts) or individual datapoints (scatter plot)
+1. **Select a dataset cohort to explore**: Specify which dataset cohort from your list of cohorts you want to view data statistics for.
+2. **X-axis**: displays the type of value being plotted horizontally, modify by clicking the button to open a side panel.
+3. **Y-axis**: displays the type of value being plotted vertically, modify by clicking the button to open a side panel.
+4. **Chart type**: specifies chart type, choose between aggregate plots (bar charts) or individual datapoints (scatter plot).
 
  Selecting the "Individual datapoints" option under "Chart type" shifts to a disaggregated view of the data with the availability of a color axis.
 
@@ -203,45 +203,45 @@ The model explanation component allows you to see which features were most impor
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/aggregate-feature-importance.png" alt-text="Screenshot of the dashboard showing feature importances on the  aggregate feature importances tab.":::
 
-1. **Top k features**: lists the most important global features for a prediction and allows you to change it through a slider bar  
-2. **Aggregate feature importance**: visualizes the weight of each feature in influencing model decisions across all predictions
-3. **Sort by**: allows you to select which cohort's importances to sort the aggregate feature importance graph by
-4. **Chart type**: allows you to select between a bar plot view of average importances for each feature and a box plot of importances for all data
+1. **Top k features**: lists the most important global features for a prediction and allows you to change it through a slider bar. 
+2. **Aggregate feature importance**: visualizes the weight of each feature in influencing model decisions across all predictions.
+3. **Sort by**: allows you to select which cohort's importances to sort the aggregate feature importance graph by.
+4. **Chart type**: allows you to select between a bar plot view of average importances for each feature and a box plot of importances for all data.
 
 When you select on one of the features in the bar plot, the below dependence plot will be populated. The dependence plot shows the relationship of the values of a feature to its corresponding feature importance values impacting the model prediction.  
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/aggregate-feature-importance-2.png" alt-text="Screenshot of the dashboard showing a populated dependence plot on the aggregate feature importances tab.":::
 
 5. **Feature importance of [feature] (regression) or Feature importance of [feature] on [predicted class] (classification)**: plots the importance of a particular feature across the predictions. For regression scenarios, the importance values are in terms of the output so positive feature importance means it contributed positively towards the output; vice versa for negative feature importance.  For classification scenarios, positive feature importances mean that feature value is contributing towards the predicted class denoted in the y-axis title; and negative feature importance means it's contributing against the predicted class.
-6. **View dependence plot for**: selects the feature whose importances you want to plot
-7. **Select a dataset cohort**: selects the cohort whose importances you want to plot
+6. **View dependence plot for**: selects the feature whose importances you want to plot.
+7. **Select a dataset cohort**: selects the cohort whose importances you want to plot.
 
 #### Individual feature importances (local explanations)
 
-This tab explains how features influence the predictions made on specific datapoints. You can choose up to 5 datapoints to compare feature importances for.
+This tab explains how features influence the predictions made on specific datapoints. You can choose up to five datapoints to compare feature importances for.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/individual-feature-importance.png" alt-text="Screenshot of the dashboard showing the individual feature importances tab.":::
 
-**Point selection table**: view your datapoints and select up to 5 points to display in the feature importance plot or the ICE plot below the table.
+**Point selection table**: view your datapoints and select up to five points to display in the feature importance plot or the ICE plot below the table.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/individual-feature-importance-bar-plot.png" alt-text="Screenshot of the dashboard showing a bar plot on the individual feature importances tab.":::
 
 **Feature importance plot**: bar plot of the importance of each feature for the model's prediction on the selected datapoint(s)
 
-1. **Top k features**: allows you to specify the number of features to show importances for through a slider  
-2. **Sort by**: allows you to select the point (of those checked above) whose feature importances are displayed in descending order on the feature importance plot
-3. **View absolute values**: Toggle on to sort the bar plot by the absolute values; this allows you to see the top highest impacting features regardless of its positive or negative direction
-4. **Bar plot**: displays the importance of each feature in the dataset for the model prediction of the selected datapoints
+1. **Top k features**: allows you to specify the number of features to show importances for through a slider. 
+2. **Sort by**: allows you to select the point (of those checked above) whose feature importances are displayed in descending order on the feature importance plot.
+3. **View absolute values**: Toggle on to sort the bar plot by the absolute values; this allows you to see the top highest impacting features regardless of its positive or negative direction.
+4. **Bar plot**: displays the importance of each feature in the dataset for the model prediction of the selected datapoints.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/individual-feature-importance-ice-plot.png" alt-text="Screenshot of the dashboard showing an ICE plot on the individual feature importances tab.":::
 
 **Individual conditional expectation (ICE) plot**: switches to the ICE plot showing model predictions across a range of values of a particular feature
 
-1. **Min (numerical features)**: specifies the lower bound of the range of predictions in the ICE plot
-2. **Max (numerical features)**: specifies the upper bound of the range of predictions in the ICE plot
-3. **Steps (numerical features)**: specifies the number of points to show predictions for within the interval
-4. **Feature values (categorical features)**: specifies which categorical feature values to show predictions for
-5. **Feature**: specifies the feature to make predictions for
+1. **Min (numerical features)**: specifies the lower bound of the range of predictions in the ICE plot.
+2. **Max (numerical features)**: specifies the upper bound of the range of predictions in the ICE plot.
+3. **Steps (numerical features)**: specifies the number of points to show predictions for within the interval.
+4. **Feature values (categorical features)**: specifies which categorical feature values to show predictions for.
+5. **Feature**: specifies the feature to make predictions for.
 
 ### Counterfactual what-if
 
@@ -282,7 +282,7 @@ Selecting on the **Aggregate causal effects** tab of the Causal analysis compone
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/aggregate-causal-effects.png" alt-text="Screenshot of the dashboard showing casual analysis on the aggregate causal effects tab.":::
 
 1. **Direct aggregate causal effect table**: displays the causal effect of each feature aggregated on the entire dataset and associated confidence statistics
-    1. **Continuous treatments**: On average in this sample, increasing this feature by 1 unit will cause the probability of class to increase by X units, where X is the causal effect.
+    1. **Continuous treatments**: On average in this sample, increasing this feature by one unit will cause the probability of class to increase by X units, where X is the causal effect.
     1. **Binary treatments**: On average in this sample, turning on this feature will cause the probability of class to increase by X units, where X is the causal effect.
 1. **Direct aggregate causal effect whisker plot**: visualizes the causal effects and confidence intervals of the points in the table
 
@@ -292,12 +292,12 @@ To get a granular view of causal effects on an individual datapoint, switch to t
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/individual-causal-what-if.png" alt-text="Screenshot of the dashboard showing casual analysis on the individual causal what-if tab.":::
 
-1. **X axis**: selects feature to plot on the x-axis
-2. **Y axis**: selects feature to plot on the y-axis
+1. **X axis**: selects feature to plot on the x-axis.
+2. **Y axis**: selects feature to plot on the y-axis.
 3. **Individual causal scatter plot**: visualizes points in table as scatter plot to select datapoint for analyzing causal-what-if and viewing the individual causal effects below
 4. **Set new treatment value**
-    1. **(numerical)**: shows slider to change the value of the numerical feature as a real-world intervention
-    1. **(categorical)**: shows dropdown to select the value of the categorical feature
+    1. **(numerical)**: shows slider to change the value of the numerical feature as a real-world intervention.
+    1. **(categorical)**: shows dropdown to select the value of the categorical feature.
 
 #### Treatment policy
 

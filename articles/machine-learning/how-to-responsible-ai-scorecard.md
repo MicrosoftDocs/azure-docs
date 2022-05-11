@@ -129,22 +129,22 @@ This section defines the list of parameters required to configure the Responsibl
 
 | ModelName    | Name of Model                                            |
 |--------------|----------------------------------------------------------|
-| ModelType    | Values in [‘classification’, ‘regression’, ‘multiclass’] |
-| ModelSummary | Input a blurb of text summarizing what the model is for  |
+| ModelType    | Values in [‘classification’, ‘regression’, ‘multiclass’]. |
+| ModelSummary | Input a blurb of text summarizing what the model is for.  |
 
 #### Metrics
 
 | Performance Metric    | Definition                                                                                                                             | Model Type     |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------|----------------|
-| accuracy_score        | The fraction of data points classified correctly                                                                                       | Classification |
-| precision_score       | The fraction of data points classified correctly among those classified as 1                                                           | Classification |
+| accuracy_score        | The fraction of data points classified correctly.                                                                                       | Classification |
+| precision_score       | The fraction of data points classified correctly among those classified as 1.                                                           | Classification |
 | recall_score          | The fraction of data points classified correctly among those whose true label is 1. Alternative names: true positive rate, sensitivity | Classification |
-| f1_score              | F1-score is the harmonic mean of precision and recall                                                                                  | Classification |
-| error_rate            | Proportion of instances misclassified over the whole set of instances                                                                  | Classification |
-| mean_absolute_error   | The average of absolute values of errors. More robust to outliers than MSE                                                             | Regression     |
-| mean_squared_error    | The average of squared errors                                                                                                          | Regression     |
-| median_absolute_error | The median of squared errors                                                                                                           | Regression     |
-| r2_score              | The fraction of variance in the labels explained by the model                                                                          | Regression     |
+| f1_score              | F1-score is the harmonic mean of precision and recall.                                                                                  | Classification |
+| error_rate            | Proportion of instances misclassified over the whole set of instances.                                                                  | Classification |
+| mean_absolute_error   | The average of absolute values of errors. More robust to outliers than MSE.                                                             | Regression     |
+| mean_squared_error    | The average of squared errors.                                                                                                          | Regression     |
+| median_absolute_error | The median of squared errors.                                                                                                           | Regression     |
+| r2_score              | The fraction of variance in the labels explained by the model.                                                                          | Regression     |
 
 Threshold:
  Desired threshold for selected metric. Allowed mathematical tokens are >, <, >=,  and <= followed by a real number. For example, >= 0.75 means that the target for selected metric is greater than or equal to 0.75.
@@ -154,18 +154,14 @@ Threshold:
 top_n:
 Number of features to show with a maximum of 10. Positive integers up to 10 are allowed.
 
-#### Cohorts
-
-Prebuilt cohorts can be defined and exported to json for use as seen in “cohorts.json” in section “How to generate a Responsible AI scorecard”. For examples in defining and exporting them in json to use here, see [Generate Responsible AI dashboard](how-to-responsible-ai-dashboard-sdk.md#exporting-pre-built-cohorts-for-scorecard-generation).
-
 #### Fairness
 
 | Metric | Definition |
 |--|--|
 | metric | Primary metric for evaluation fairness |
 | sensitive_features | A list of feature name from input dataset to be designated as sensitive feature for fairness report. |
-| fairness_evaluation_kind | Values in [‘difference’, ‘ratio’] |
-| threshold | **Desired target values** of the fairness evaluation. Allowed mathematical tokens are >, <, >=,  and <= followed by a real number. For example, metric=“accuracy”, fairness_evaluation_kind=”difference” <= 0.05 means that the target of for the difference in accuracy is less than or equal to 0.05 |
+| fairness_evaluation_kind | Values in [‘difference’, ‘ratio’]. |
+| threshold | **Desired target values** of the fairness evaluation. Allowed mathematical tokens are >, <, >=,  and <= followed by a real number. For example, metric=“accuracy”, fairness_evaluation_kind=”difference” <= 0.05 means that the target of for the difference in accuracy is less than or equal to 0.05. |
 
 > [!NOTE]
  Your choice of `fairness_evaluation_kind` (selecting ‘difference’ vs ‘ratio) impacts the scale of your target value. Be mindful of your selection to choose a meaningful target value.
@@ -199,7 +195,7 @@ You can select from the following metrics, paired with the `fairness_evaluation_
 
 Responsible AI scorecards are linked to your Responsible AI dashboards. To view your Responsible AI scorecard, go into your model registry and select the registered model you've generated a Responsible AI dashboard for. Once you select your model, select the Responsible AI (preview) tab to view a list of generated dashboards. Select which dashboard you’d like to export a Responsible AI scorecard PDF for by selecting **Responsible AI scorecard (preview)**.
 
-:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-studio.png" alt-text="Screenshot of Responsible AI tab in studio with Responsible AI  scorecard tab highlights.":::
+:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-studio.png" alt-text="Screenshot of Responsible AI tab in studio with Responsible AI scorecard tab highlights.":::
 
 Selecting **Responsible AI scorecard (preview)** will show you a dropdown to view all Responsible AI scorecards generated for this dashboard.
 
@@ -207,7 +203,7 @@ Selecting **Responsible AI scorecard (preview)** will show you a dropdown to vie
 
 Select which scorecard you’d like to download from the list and select Download to download the PDF to your machine.
 
-:::image type="content" source="./media/how-to-responsible-ai-scorecard/studio-select-scorecard.png" alt-text="Screenshot of selecting a Responsible AI scorecard to download. ":::
+:::image type="content" source="./media/how-to-responsible-ai-scorecard/studio-select-scorecard.png" alt-text="Screenshot of selecting a Responsible AI scorecard to download.":::
 
 ## How to read your Responsible AI scorecard
 

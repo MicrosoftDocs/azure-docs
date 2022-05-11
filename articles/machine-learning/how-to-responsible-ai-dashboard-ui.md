@@ -42,8 +42,8 @@ After you picked your dataset, select your modeling task type.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/modeling.png" alt-text="Screenshot of the wizard on modeling task type.":::
 
-> [!NOTE]]
-> The wizard  only supports models with MLflow format and sci-kit learn flavor.
+> [!NOTE]
+> The wizard only supports models with MLflow format and sci-kit learn flavor.
 
 ## Select your dashboard components
 
