@@ -25,7 +25,7 @@ A component consists of three parts:
 - Interface: input/output specifications (name, type, description, default value, etc.).
 - Command, Code & Environment: command, code and environment required to run the component.
 
-:::image type="content" source="/media/concept-component/component.png" alt-text="Diagram of what a component looks like and how it looks in a pipeline.In addition to screenshots of a component in the CLI, SDK, and portal UI." lightbox = "/media/concept-component/component.png":::
+:::image type="content" source="./media/concept-component/component.png" alt-text="Diagram of what a component looks like and how it looks in a pipeline.In addition to screenshots of a component in the CLI, SDK, and portal UI." lightbox = "./media/concept-component/component.png":::
 
 ## Why should I use a component?
 
