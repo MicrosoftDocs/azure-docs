@@ -25,6 +25,57 @@ This quickstart shows you how to set request rate limits using Spring Cloud Gate
 - Complete the previous quickstarts in this series:
   - [Build and deploy apps to Azure Spring Cloud using the Enterprise Tier](./quickstart-deploy-enterprise.md)
 
+## Set Request Rate Limits
+
+Spring Cloud Gateway includes route filters from the Open Source version as well as several additional route filters. One of these additional filters is the `[RateLimit: Limiting user requests filter](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.1/scg-k8s/GUID-route-filters.html#ratelimit-limiting-user-requests-filter). The RateLimit filter limits the number of requests allowed per route during a time window.
+
+When defining a Route, you can add the RateLimit filter by including it in the list of filters for the route. The filter accepts 4 options:
+
+- Number of requests accepted during the window.
+- Duration of the window: by default milliseconds, but you can use s, m or h suffix to specify it in seconds, minutes or hours.
+- (Optional) User partition key: it's also possible to apply rate limiting per user, that is, different users can have its own throughput allowed based on an identifier found in the request. Set whether the key is in a JWT claim or HTTP header with '' or '' syntax.
+- (Optional) It is possible to rate limit by IP addresses. Note, this cannot be combined with the rate limiting per user.
+
+The following example would limit all users to two requests every 5 seconds to the `/products` route:
+
+    ```json
+    {
+        "predicates": [
+          "Path=/products",
+          "Method=GET"
+        ],
+        "filters": [
+          "StripPrefix=0",
+          "RateLimit=2,5s"
+        ]
+    }
+    ```
+
+When the limit is exceeded, response will fail with `429 Too Many Requests` status.
+
+Apply the `RateLimit` filter to the `/products` route using the following command:
+
+    ```azurecli
+    az spring-cloud gateway route-config update \
+        --resource-group <resource-group> \
+        --service <spring-cloud-service> \
+        --name catalog-routes \
+        --app-name catalog-service \
+        --routes-file azure/routes/catalog-service_rate-limit.json
+    ```
+
+Retrieve the URL for the `/products` route in Spring Cloud Gateway using the following command:
+
+    ```azurecli
+    GATEWAY_URL=$(az spring-cloud gateway show \
+        --resource-group <resource-group> \
+        --service <spring-cloud-service> | jq -r '.properties.url')
+
+    echo "https://${GATEWAY_URL}/products"
+    ```
+
+Make several requests to the URL for `/products` within a five second period to see requests fail with a status `429 Too Many Requests`.
+
 ## Clean up resources
 
 If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI, use the following commands:
