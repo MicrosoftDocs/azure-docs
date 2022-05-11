@@ -9,7 +9,7 @@ ms.date: 02/10/2022
 # Govern resources for client applications with Application Groups
 Azure Event Hubs enables you to govern the event streaming workloads of each client application that connects to Event Hubs by using *Application Groups*. 
 
-For more information, see [Resource governance with application groups](event-hubs-resource-governance-overview.md). 
+For more information, see [Resource governance with application groups](resource-governance-overview.md). 
 
 ## Creating an Application Group
 
