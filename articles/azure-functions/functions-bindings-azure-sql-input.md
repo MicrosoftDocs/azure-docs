@@ -24,7 +24,7 @@ For information on setup and configuration details, see the [overview](./functio
 
 This section contains the following examples:
 
-* [HTTP trigger, get row by Id from query string](#http-trigger-look-up-id-from-query-string-c)
+* [HTTP trigger, get row by ID from query string](#http-trigger-look-up-id-from-query-string-c)
 * [HTTP trigger, get multiple rows from route data](#http-trigger-get-multiple-items-from-route-data-c)
 * [HTTP trigger, delete rows](#http-trigger-delete-one-or-multiple-rows-c)
 
@@ -35,7 +35,7 @@ The examples refer to a `ToDoItem` class and a corresponding database table:
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
 
 <a id="http-trigger-look-up-id-from-query-string-c"></a>
-### HTTP trigger, get row by Id from query string
+### HTTP trigger, get row by ID from query string
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single record. The function is triggered by an HTTP request that uses a query string to specify the ID. That ID is used to retrieve a `ToDoItem` record with the specified query.
 
@@ -139,7 +139,7 @@ Isolated process isn't currently supported.
 This section contains the following examples:
 
 * [HTTP trigger, get multiple rows](#http-trigger-get-multiple-items-javascript)
-* [HTTP trigger, get row by Id from query string](#http-trigger-look-up-id-from-query-string-javascript)
+* [HTTP trigger, get row by ID from query string](#http-trigger-look-up-id-from-query-string-javascript)
 * [HTTP trigger, delete rows](#http-trigger-delete-one-or-multiple-rows-javascript)
 
 The examples refer to a database table:
@@ -149,7 +149,7 @@ The examples refer to a database table:
 <a id="http-trigger-get-multiple-items-javascript"></a>
 ### HTTP trigger, get multiple rows
 
-The following example shows a SQL input binding in a function.json file and a JavaScript function that reads rows resulting from a query and returns them in the HTTP response.
+The following example shows a SQL input binding in a function.json file and a JavaScript function that reads from a query and returns the results in the HTTP response.
 
 Here's the binding data in the function.json file:
 
@@ -196,9 +196,9 @@ module.exports = async function (context, req, todoItems) {
 ```
 
 <a id="http-trigger-look-up-id-from-query-string-javascript"></a>
-### HTTP trigger, get row by Id from query string
+### HTTP trigger, get row by ID from query string
 
-The following example shows a SQL input binding in a function.json file and a JavaScript function that reads a specific row resulting from a query with a parameter from the query string and returns them in the HTTP response.
+The following example shows a SQL input binding in a JavaScript function that reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
 
 Here's the binding data in the function.json file:
 
@@ -304,7 +304,7 @@ module.exports = async function (context, req, todoItems) {
 This section contains the following examples:
 
 * [HTTP trigger, get multiple rows](#http-trigger-get-multiple-items-python)
-* [HTTP trigger, get row by Id from query string](#http-trigger-look-up-id-from-query-string-python)
+* [HTTP trigger, get row by ID from query string](#http-trigger-look-up-id-from-query-string-python)
 * [HTTP trigger, delete rows](#http-trigger-delete-one-or-multiple-rows-python)
 
 The examples refer to a database table:
@@ -314,7 +314,7 @@ The examples refer to a database table:
 <a id="http-trigger-get-multiple-items-python"></a>
 ### HTTP trigger, get multiple rows
 
-The following example shows a SQL input binding in a function.json file and a Python function that reads rows resulting from a query and returns them in the HTTP response.
+The following example shows a SQL input binding in a function.json file and a Python function that reads from a query and returns the results in the HTTP response.
 
 Here's the binding data in the function.json file:
 
@@ -363,9 +363,9 @@ def main(req: func.HttpRequest, todoItems: func.SqlRowList) -> func.HttpResponse
 ```
 
 <a id="http-trigger-look-up-id-from-query-string-python"></a>
-### HTTP trigger, get row by Id from query string
+### HTTP trigger, get row by ID from query string
 
-The following example shows a SQL input binding in a function.json file and a Python function that reads a specific row resulting from a query with a parameter from the query string and returns them in the HTTP response.
+The following example shows a SQL input binding in a Python function that reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
 
 Here's the binding data in the function.json file:
 
@@ -490,7 +490,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the [Sql](https:
 | Attribute property |Description|
 |---------|---------|
 | **CommandText** | Required. The Transact-SQL query command or name of the stored procedure executed by the binding.  |
-| **ConnectionStringSetting** | The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This isn't the actual connection string and must instead resolve to an environment variable. | 
+| **ConnectionStringSetting** | The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. | 
 | **CommandType** | A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
 | **Parameters** | Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
 
@@ -504,7 +504,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 | Element |Description|
 |---------|---------|
 | **commandText** | Required. The Transact-SQL query command or name of the stored procedure executed by the binding.  |
-| **connectionStringSetting** | The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This isn't the actual connection string and must instead resolve to an environment variable. | 
+| **connectionStringSetting** | The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. | 
 | **commandType** | A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
 | **parameters** | Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
 
@@ -521,7 +521,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** |  Must be set to `in`. |
 |**name** |  The name of the variable that represents the query results in function code. | 
 | **commandText** | Required. The Transact-SQL query command or name of the stored procedure executed by the binding.  |
-| **connectionStringSetting** | The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This isn't the actual connection string and must instead resolve to an environment variable. | 
+| **connectionStringSetting** | The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. | 
 | **commandType** | A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
 | **parameters** | Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
 ::: zone-end  
