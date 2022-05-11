@@ -414,7 +414,10 @@
               displayName: blob, get, fileshare, access, mount, download, data lake, datastore, dataset, data set
               href: how-to-connect-data-ui.md
         - name: Manage & consume data
-          items: 
+          items:
+            - name: Read & write data (v2)
+              displayName: train
+              href: how-to-read-write-data-v2.md
             - name: Train with datasets
               displayName: data, dataset, mount
               href: how-to-train-with-datasets.md
