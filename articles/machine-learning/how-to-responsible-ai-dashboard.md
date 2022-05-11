@@ -14,9 +14,6 @@ ms.custom: responsible-ml
 
 # How to use the Responsible AI dashboard in studio (preview)
 
-
-## Where to find your Responsible AI dashboard
-
 Responsible AI dashboards are linked to your registered models. To view your Responsible AI dashboard, go into your model registry and select the registered model you've generated a Responsible AI dashboard for. Once you select into your model, select the **Responsible AI (preview)** tab to view a list of generated dashboards.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/dashboard-model-details-tab.png" alt-text="Screenshot of model details tab in studio with Responsible AI tab highlighted." lightbox= "./media/how-to-responsible-ai-dashboard/dashboard-model-details-tab.png":::
@@ -313,8 +310,8 @@ Selecting the Treatment policy tab switches to a view to help determine real-wor
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/causal-treatment-policy-3.png" alt-text="Screenshot of the dashboard showing a recommended individual treatment policy table on the treatment policy tab." lightbox= "./media/how-to-responsible-ai-dashboard/causal-treatment-policy-3.png":::
 
-1. **Show top k datapoint samples ordered by causal effects for recommended treatment feature**: selects the number of datapoints to show in the table below
-2. **Recommended individual treatment policy table**: lists, in descending order of causal effect, the datapoints whose target features would be most improved by an intervention
+1. **Show top k datapoint samples ordered by causal effects for recommended treatment feature**: selects the number of datapoints to show in the table below.
+2. **Recommended individual treatment policy table**: lists, in descending order of causal effect, the datapoints whose target features would be most improved by an intervention.
 
 ## Next steps
 

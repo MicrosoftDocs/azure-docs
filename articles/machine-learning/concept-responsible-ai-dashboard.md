@@ -29,7 +29,7 @@ The Responsible AI dashboard brings together, in a comprehensive view, various n
 1. [Data explorer](concept-data-analysis.md) to understand and explore your dataset distributions and statistics.
 2. [Model overview and fairness assessment](concept-fairness-ml.md) to evaluate the performance of your model and evaluate your model’s group fairness issues (how diverse groups of people are impacted by your model’s predictions).
 3. [Error Analysis](concept-error-analysis.md) to view and understand the error distributions of your model in a dataset via a decision tree map or a heat map visualization.  
-4. [Model interpretability](concept-interpretability-ml.md) (aggregate/individual feature importance values) to understand you model’s predictions and how those overall and individual predictions are made.
+4. [Model interpretability](how-to-machine-learning-interpretability.md) (aggregate/individual feature importance values) to understand you model’s predictions and how those overall and individual predictions are made.
 5. [Counterfactual What-If's](concept-counterfactual-analysis.md) to observe how feature perturbations would impact your model predictions and provide you with the closest datapoints with opposing or different model predictions.
 6. [Causal analysis](concept-causal-inference.md) to use historical data to view the causal effects of treatment features on the real-world outcome.
 
