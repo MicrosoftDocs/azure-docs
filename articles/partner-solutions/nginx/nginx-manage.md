@@ -9,7 +9,7 @@ ms.date: 05/12/2022
 
 ---
 
-# Manage your NGINX integration through the Azure portal
+# Manage your NGINX for Azure (preview) integration through the portal
 
 Once your NGINX resource is created in the Azure portal, you might need to get information about it or change it. Here's list of ways to manage your NGINX resource.
 
@@ -84,7 +84,7 @@ You can add a certificate by uploading it to Azure Key vault, and then associati
 
 ## Delete an NGINX deployment
 
-To delete a deployment of NGINX for Azure:
+To delete a deployment of NGINX for Azure (preview):
 
 1. From the Resource menu, select your NGINX deployment.
 1. Select **Overview** on the left.
