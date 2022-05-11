@@ -32,7 +32,7 @@ This guide uses remote images that are accessed by URL. Save a reference to the 
 
 You need to detect faces in images before you can compare them. In this guide, the following remote image, called *findsimilar.jpg*, will be used as the source:
 
-![Photo of a man smiling](../media/quickstarts/find-similar.jpg) 
+![Photo of a man who is smiling.](../media/quickstarts/find-similar.jpg) 
 
 #### [C#](#tab/csharp)
 
@@ -76,7 +76,7 @@ Finally, detect the single source face that you'll use for matching, and save it
 
 In this guide, the face detected in the *Family1-Dad1.jpg* image should be returned as the face that's similar to the source image face.
 
-![Photo of a man smiling; this is the same person as the previous image](../media/quickstarts/family-1-dad-1.jpg)
+![Photo of a man who is smiling; this is the same person as the previous image.](../media/quickstarts/family-1-dad-1.jpg)
 
 #### [C#](#tab/csharp)
 
