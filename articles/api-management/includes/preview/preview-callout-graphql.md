@@ -1,11 +1,11 @@
 ---
 ms.service: api-management
 ms.topic: include
-author: v-hhunter
-ms.author: v-hhunter
+author: dlepow
+ms.author: danlep
 ms.date: 05/10/2022
 ms.custom: 
 ---
 
 > [!IMPORTANT]
-> Setting up custom resolvers for GraphQL APIs is currently in preview.
+> Configuring resolvers for GraphQL queries is currently in preview and is not available in the **Consumption** service tier.

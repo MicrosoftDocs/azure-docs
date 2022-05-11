@@ -1,26 +1,25 @@
 ---
-title: Azure API Management validation policy for GraphQL requests | Microsoft Docs
-description: Reference for Azure API Management policies to work with GraphQL APIs. Provides policy usage, settings, and examples.
+title: Azure API Management policies for GraphQL API queries | Microsoft Docs
+description: Reference for Azure API Management policies to validate and resolve GraphQL API queries. Provides policy usage, settings, and examples.
 services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: reference
-ms.date: 03/07/2022
+ms.date: 05/11/2022
 ms.author: danlep
 ms.custom: ignite-fall-2021
 ---
 
-# API Management policies to work with GraphQL APIs
+# API Management policies for GraphQL APIs
 
-This article provides a reference for an API Management policy to validate and authorize requests to a [GraphQL API](graphql-api.md) imported to API Management.
+This article provides a reference for API Management policies to validate and resolve queries to GraphQL APIs.
 
 [!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
 
 ## GraphQL API policies
 
 - [Validate GraphQL request](#validate-graphql-request) - Validates and authorizes a request to a GraphQL API. 
-- [Set GraphQL resolver](#set-graphql-resolver) - Resolves...
-
+- [Set GraphQL resolver](#set-graphql-resolver) - Retrieves or sets data for a GraphQL field in an object type specified in a GraphQL schema.
 
 ## Validate GraphQL request
 
@@ -137,7 +136,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 The `set-graphql-resolver` policy retrieves or sets data for a GraphQL field in an object type specified in a GraphQL schema. Currently the data must be resolved using an HTTP-based data source.
 
 * This policy is invoked only when a GraphQL query is executed. 
-* The policy resolves data for a single field. To resolve data for multiple fields, configure multiple occurences of this policy in a policy definition.
+* The policy resolves data for a single field. To resolve data for multiple fields, configure multiple occurrences of this policy in a policy definition.
 * The context for the HTTP request and HTTP response (if specified) differs from the context for the original gateway API request: 
     * The HTTP request context contains arguments that are passed in the GraphQL query as its body. 
     * The HTTP response context is the response from the independent HTTP call made by the resolver, not the context for the complete response for the gateway request. 
@@ -194,7 +193,7 @@ type User {
 </set-graphql-resolver>
 ```
 
-### Resolver for a field that returns a list, using a liquid template
+### Resolver for a GraqhQL query that returns a list, using a liquid template
 
 The following example uses a liquid template, supported for use in the [set-body](api-management-transformation-policies.md#SetBody) policy, to return a list in the HTTP response to a query. 
 
@@ -237,7 +236,7 @@ type User {
 
 ### Resolver for GraphQL mutation
 
-The following example resolves a mutation that inserts data by making a `POST` request to an HTTP data source. The policy expression in the `set-body` policy of the HTTP requests modifies the JSON body extracted from the request context passed to the resolver.
+The following example resolves a mutation that inserts data by making a `POST` request to an HTTP data source. The policy expression in the `set-body` policy of the HTTP request modifies a `name` argument that is passed in the GraphQL query as its body.
 
 #### Example schema
 
@@ -283,10 +282,10 @@ type User {
 | Name         | Description                                                                                                                                   | Required |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | `set-graphql-resolver` | Root element.                                                                                                                               | Yes      |
-| `http-data-source` | Specifies the configuration for the HTTP request and optionally the HTTP response that are used to resolve data for the given `parent-type` and `field`.   | Yes |
-| `http-request` | Specifies a URL and policies to configure the HTTP request used to resolve the specified GraphQL query. Each of the following policies can be specified at most once in the element. <br/><br/>**Required policy**: [set-method](api-management-advanced-policies.md#SetRequestMethod)<br/><br/>**Optional policies**: [set-header](api-management-transformation-policies.md#SetHTTPheader), [set-body](api-management-transformation-policies.md#SetBody), authentication-token-store, [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity) | Yes |
+| `http-data-source` | Configures the HTTP request and optionally the HTTP response that are used to resolve data for the given `parent-type` and `field`.   | Yes |
+| `http-request` | Specifies a URL and child policies to configure the resolver's HTTP request. Each of the following policies can be specified at most once in the element. <br/><br/>Required policy: [set-method](api-management-advanced-policies.md#SetRequestMethod)<br/><br/>Optional policies: [set-header](api-management-transformation-policies.md#SetHTTPheader), [set-body](api-management-transformation-policies.md#SetBody), [authentication-certificate](api-management-authentication-policies.md#ClientCertificate) | Yes |
 | `set-url` | The URL of the request. | Yes |
-| `http-response` |  Optionally specifies policies to configure the HTTP response used to resolve the specified GraphQL query. If not specified, the response is returned as a raw string. Each of the following policies can be specified at most once. <br/><br/>**Optional policies**: [set-body](/api-management-transformation-policies.md#SetBody), [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML), [xml-to-json](api-management-transformation-policies#ConvertXMLtoJSON), [find-and-replace](api-management-transformation-policies.md#Findandreplacestringinbody) | No |
+| `http-response` |  Optionally specifies child policies to configure the resolver's HTTP response. If not specified, the response is returned as a raw string. Each of the following policies can be specified at most once. <br/><br/>Optional policies: [set-body](api-management-transformation-policies.md#SetBody), [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML), [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON), [find-and-replace](api-management-transformation-policies.md#Findandreplacestringinbody) | No |
 
 ### Attributes
 

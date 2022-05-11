@@ -1,25 +1,17 @@
 ---
-title: Import a GraphQL API using the Azure portal | Microsoft Docs
+title: Import a GraphQL API to Azure API Management using the portal | Microsoft Docs
 titleSuffix: 
-description: Learn how API Management supports GraphQL, add a GraphQL API, and GraphQL limitations.
+description: Learn how to add an existing GraphQL service as an API in Azure API Management. Manage the API and enable queries to pass through to the GraphQL endpoint.
 ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 10/21/2021
-ms.custom: ignite-fall-2021
+ms.date: 05/04/2022
 ---
 
-# Import a GraphQL API (preview)
+# Import a GraphQL API
 
-GraphQL is an open-source, industry-standard query language for APIs. Unlike endpoint-based (or REST-style) APIs designed around actions over resources, GraphQL APIs support a broader set of use cases and focus on data types, schemas, and queries.
-
-API Management tackles the security, authentication, and authorization challenges that come with publishing GraphQL APIs. Using API Management to expose your GraphQL APIs, you can:
-* Add a GraphQL service as APIs via Azure portal.  
-* Secure GraphQL APIs by applying both existing access control policies and a [new policy](graphql-validation-policies.md) to secure and protect against GraphQL-specific attacks. 
-* Explore the schema and run test queries against the GraphQL APIs in the Azure and developer portals. 
-
-[!INCLUDE [preview-callout-graphql.md](./includes/preview/preview-callout-graphql.md)]
+[!INCLUDE [api-management-graphql-intro.md](../../includes/api-management-graphql-intro.md)]
 
 In this article, you'll:
 > [!div class="checklist"]
@@ -32,6 +24,8 @@ In this article, you'll:
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
 - A GraphQL API. 
+
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## Add a GraphQL API
 
@@ -47,20 +41,22 @@ In this article, you'll:
 
     | Field | Description |
     |----------------|-------|
-    | Display name | The name by which your GraphQL API will be displayed. |
-    | Name | Raw name of the GraphQL API. Automatically populates as you type the display name. |
-    | GraphQL API endpoint | The base URL with your GraphQL API endpoint name. <br /> For example: *`https://example.com/your-GraphQL-name`*. You can also use the common ["Star Wars" GraphQL endpoint](https://swapi-graphql.netlify.app/.netlify/functions/index) as a demo. |
-    | Upload schema file | Select to browse and upload your schema file. |
-    | Description | Add a description of your API. |
-    | URL scheme | Select HTTP, HTTPS, or Both. Default selection: *Both*. |
-    | API URL suffix| Add a URL suffix to identify this specific API in this API Management instance. It has to be unique in this API Management instance. |
-    | Base URL | Uneditable field displaying your API base URL |
-    | Tags | Associate your GraphQL API with new or existing tags. |
-    | Products | Associate your GraphQL API with a product to publish it. |
-    | Gateways | Associate your GraphQL API with existing gateways. Default gateway selection: *Managed*. |
-    | Version this API? | Select to version control your GraphQL API. |
- 
-1. Click **Create**.
+    | **Display name** | The name by which your GraphQL API will be displayed. |
+    | **Name** | Raw name of the GraphQL API. Automatically populates as you type the display name. |
+    | **GraphQL API endpoint** | The base URL with your GraphQL API endpoint name. <br /> For example: *`https://example.com/your-GraphQL-name`*. You can also use the common ["Star Wars" GraphQL endpoint](https://swapi-graphql.netlify.app/.netlify/functions/index) as a demo. |
+    | **Upload schema** | Optionally select to browse and upload your schema file to replace the schema retrieved from the GraphQL endpoint (if available).  |
+    | **Description** | Add a description of your API. |
+    | **URL scheme** | Select **HTTP**, **HTTPS**, or **Both**. Default selection: *Both*. |
+    | **API URL suffix**| Add a URL suffix to identify this specific API in this API Management instance. It has to be unique in this API Management instance. |
+    | **Base URL** | Uneditable field displaying your API base URL |
+    | **Tags** | Associate your GraphQL API with new or existing tags. |
+    | **Products** | Associate your GraphQL API with a product to publish it. |
+    | **Gateways** | Associate your GraphQL API with existing gateways. Default gateway selection: *Managed*. |
+    | **Version this API?** | Select to apply a versioning scheme to your GraphQL API. |
+
+1. Select **Create**.
+1. After the API is created, browse the schema on the **Design** tab, in the **Frontend** section.
+       :::image type="content" source="media/graphql-api/explore-schema.png" alt-text="Explore the GraphQL schema in the portal":::
 
 ## Test your GraphQL API
 
