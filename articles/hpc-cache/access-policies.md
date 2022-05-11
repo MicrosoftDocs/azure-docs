@@ -1,11 +1,11 @@
 ---
 title: Use access policies in Azure HPC Cache
 description: How to create and apply custom access policies to limit client access to storage targets in Azure HPC Cache
-author: femila
+author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/11/2021
-ms.author: femila
+ms.date: 05/02/2022
+ms.author: v-erinkelly
 ---
 
 # Control client access
@@ -80,7 +80,7 @@ This setting controls how Azure HPC Cache treats requests from the root user on 
 
 If root squash is disabled, a request from the client root user (UID 0) is passed through to a back-end NFS storage system as root. This configuration might allow inappropriate file access.
 
-Setting root squash for client requests can help compensate for the required ``no_root_squash`` setting on NAS systems that are used as storage targets. (Read more about [NFS storage target prerequisites](hpc-cache-prerequisites.md#nfs-storage-requirements).) It also can improve security when used with Azure Blob storage targets.
+Setting root squash for client requests can provide extra security for your storage target back-end systems. This might be important if you use a NAS system that is configured with ``no_root_squash`` as a storage target. (Read more about [NFS storage target prerequisites](hpc-cache-prerequisites.md#nfs-storage-requirements).)
 
 If you turn on root squash, you must also set the anonymous ID user value. The portal accepts integer values between 0 and 4294967295. (The old values -2 and -1 are supported for backward compatibility, but not recommended for new configurations.)
 

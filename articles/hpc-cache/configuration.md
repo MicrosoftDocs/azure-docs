@@ -18,8 +18,8 @@ To see the settings, open the cache's **Networking** page in the Azure portal.
 
 ![screenshot of networking page in Azure portal](media/networking-page.png)
 
-> [!NOTE]
-> A previous version of this page included a cache-level root squash setting, but this setting has moved to [client access policies](access-policies.md).
+<!--- > [!NOTE]
+> A previous version of this page included a cache-level root squash setting, but this setting has moved to [client access policies](access-policies.md). --->
 
 <!-- >> [!TIP]
 > The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows the networking page and its settings. -->

@@ -1,18 +1,18 @@
 ---
 title: Troubleshoot Azure HPC Cache NFS storage targets
 description: Tips to avoid and fix configuration errors and other problems that can cause failure when creating an NFS storage target
-author: femila
+author: ekpgh    
 ms.service: hpc-cache
 ms.topic: troubleshooting
-ms.date: 03/18/2020
-ms.author: femila
+ms.date: 05/02/2022
+ms.author: v-erinkelly
 ---
 
 # Troubleshoot NAS configuration and NFS storage target issues
 
 This article gives solutions for some common configuration errors and other issues that could prevent Azure HPC Cache from adding an NFS storage system as a storage target.
 
-This article includes details about how to check ports and how to enable root access to a NAS system. It also includes detailed information about less common issues that might cause NFS storage target creation to fail.
+This article includes details about how to check ports and how to enable needed access to a NAS system. It also includes detailed information about less common issues that might cause NFS storage target creation to fail.
 
 > [!TIP]
 > Before using this guide, read [prerequisites for NFS storage targets](hpc-cache-prerequisites.md#nfs-storage-requirements).
@@ -47,7 +47,7 @@ Make sure that all of the ports returned by the ``rpcinfo`` query allow unrestri
 
 Check these settings both on the NAS itself and also on any firewalls between the storage system and the cache subnet.
 
-## Check root access
+<!--- ## Check root access
 
 Azure HPC Cache needs access to your storage system's exports to create the storage target. Specifically, it mounts the exports as user ID 0.
 
@@ -65,7 +65,7 @@ Work with your NAS storage vendor to enable the right level of access for the ca
 
 ### Allow root access on directory paths
 <!-- linked in prereqs article -->
-
+<!--
 For NAS systems that export hierarchical directories, Azure HPC Cache needs root access to each export level.
 
 For example, a system might show three exports like these:
@@ -84,7 +84,7 @@ A NAS system with hierarchical exports can give different file handles for the s
 
 The back-end storage system keeps internal aliases for file handles, but Azure HPC Cache cannot tell which file handles in its index reference the same item. So it is possible that the cache can have different writes cached for the same file, and apply the changes incorrectly because it does not know that they are the same file.
 
-To avoid this possible file collision for files in multiple exports, Azure HPC Cache automatically mounts the shallowest available export in the path (``/ifs`` in the example) and uses the file handle given from that export. If multiple exports use the same base path, Azure HPC Cache needs root access to that path.
+To avoid this possible file collision for files in multiple exports, Azure HPC Cache automatically mounts the shallowest available export in the path (``/ifs`` in the example) and uses the file handle given from that export. If multiple exports use the same base path, Azure HPC Cache needs root access to that path. -->
 
 <!-- ## Enable export listing
 
