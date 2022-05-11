@@ -149,9 +149,8 @@ If you're targeting .NET 6.0, you need to perform two additional steps:
 using ConfigurationManager = Microsoft.Extensions.Configuration.ConfigurationManager;
 ```
 1. Just after `WebApplication.CreateBuilder(args)`, add the following line:
-```csharp
-ConfigurationManager Configuration = builder.Configuration;
-```
+  ```csharp
+  ConfigurationManager Configuration = builder.Configuration;
 
 Find the `ConfigureServices(IServiceCollection services)` function. Then, before the `services.AddControllers();` line of code, add the following code snippet:
 
