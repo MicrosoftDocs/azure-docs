@@ -4,7 +4,7 @@ description: Create a free certificate, import an App Service certificate, impor
 tags: buy-ssl-certificates
 
 ms.topic: tutorial
-ms.date: 05/13/2021
+ms.date: 04/27/2022
 ms.reviewer: yutlin
 ms.custom: seodec18
 ---
@@ -15,7 +15,7 @@ ms.custom: seodec18
 Once the certificate is added to your App Service app or [function app](../azure-functions/index.yml), you can [secure a custom DNS name with it](configure-ssl-bindings.md) or [use it in your application code](configure-ssl-certificate-in-code.md).
 
 > [!NOTE]
-> A certificate uploaded into an app is stored in a deployment unit that is bound to the app service plan's resource group and region combination (internally called a *webspace*). This makes the certificate accessible to other apps in the same resource group and region combination. 
+> A certificate uploaded into an app is stored in a deployment unit that is bound to the app service plan's resource group, region and operating system combination (internally called a *webspace*). This makes the certificate accessible to other apps in the same resource group and region combination. 
 
 The following table lists the options you have for adding certificates in App Service:
 
@@ -466,7 +466,7 @@ Now you can delete the App Service certificate. From the left navigation, select
 
 ### Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
+[Bind a custom TLS/SSL certificate to a web app](scripts/cli-configure-ssl-certificate.md)
 
 ### PowerShell
 

@@ -140,8 +140,8 @@ Indirect costs impacting Microsoft Purview pricing to be considered are:
     - Plan virtual machine sizing in order to distribute the scanning workload across VMs to optimize the v-cores utilized while running scans
 
 - [Microsoft 365 license](./create-sensitivity-label.md) 
-    - Microsoft Information Protection (MIP) sensitivity labels can be automatically applied to your Azure assets in Microsoft Purview.
-    - MIP sensitivity labels are created and managed in the Microsoft 365 Security and Compliance Center.
+    - Microsoft Purview Information Protection sensitivity labels can be automatically applied to your Azure assets in the Microsoft Purview Data Map.
+    - Microsoft Purview Information Protection sensitivity labels are created and managed in the Microsoft Purview compliance portal.
     - To create sensitivity labels for use in Microsoft Purview, you must have an active Microsoft 365 license, which offers the benefit of automatic labeling. For the full list of licenses, see the Sensitivity labels in Microsoft Purview FAQ. 
 
 - [Azure Alerts](../azure-monitor/alerts/alerts-overview.md)

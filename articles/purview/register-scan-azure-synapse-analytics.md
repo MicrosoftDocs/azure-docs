@@ -35,11 +35,11 @@ This article outlines how to register dedicated SQL pools (formerly SQL DW), and
 
 * An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview Studio. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 
-This section describes how to register dedicated SQL pools in Microsoft Purview using the [Microsoft Purview Studio](https://web.purview.azure.com/).
+This section describes how to register dedicated SQL pools in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Authentication for registration
 
@@ -54,7 +54,7 @@ There are three ways to set up authentication:
 
 #### System or user assigned managed identity to register
 
-You can use either your Microsoft Purview system-assigned managed identity (SAMI), or a [User-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) (UAMI) to authenticate. Both options allow you to assign authentication directly to Microsoft Purview, like you would for any other user, group, or service principal. The Microsoft Purview SAMI is created automatically when the account is created. A UAMI is a resource that can be created independently, and to create one you can follow our [user-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity). Create an Azure AD user in the dedicated SQL pool using your managed identity object name by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](../azure-sql/database/authentication-aad-service-principal-tutorial.md).
+You can use either your Microsoft Purview system-assigned managed identity (SAMI), or a [User-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) (UAMI) to authenticate. Both options allow you to assign authentication directly to Microsoft Purview, like you would for any other user, group, or service principal. The Microsoft Purview SAMI is created automatically when the account is created. A UAMI is a resource that can be created independently, and to create one you can follow our [user-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity). Create an Azure AD user in the dedicated SQL pool using your managed identity object name by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](/azure/azure-sql/database/authentication-aad-service-principal-tutorial).
 
 Example SQL syntax to create user and grant permission:
 
@@ -95,7 +95,7 @@ It is required to get the Service Principal's application ID and secret:
 
 ##### Granting the Service Principal access
 
-In addition, you must also create an Azure AD user in the dedicated pool by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](../azure-sql/database/authentication-aad-service-principal-tutorial.md). Example SQL syntax to create user and grant permission:
+In addition, you must also create an Azure AD user in the dedicated pool by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](/azure/azure-sql/database/authentication-aad-service-principal-tutorial). Example SQL syntax to create user and grant permission:
 
 ```sql
 CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
@@ -148,7 +148,7 @@ Follow the steps below to scan dedicated SQL pools to automatically identify ass
 
 To create and run a new scan, complete the following steps:
 
-1. Select the **Data Map** tab on the left pane in the [Microsoft Purview Studio](https://web.purview.azure.com/resource/).
+1. Select the **Data Map** tab on the left pane in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
 1. Select the SQL dedicated pool source that you registered.
 
@@ -178,6 +178,6 @@ To create and run a new scan, complete the following steps:
 
 Now that you have registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
-- [Data insights in Microsoft Purview](concept-insights.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

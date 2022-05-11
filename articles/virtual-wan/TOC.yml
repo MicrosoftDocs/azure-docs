@@ -35,7 +35,7 @@
       href: work-remotely-support.md
   - name: Virtual WAN FAQ
     href: virtual-wan-faq.md
-  - name: NVA in a Virtual WAN Hub
+  - name: NVA in a Virtual WAN hub
     href: about-nva-hub.md
   - name: Locations and Partners
     items:
@@ -57,30 +57,30 @@
     items:
     - name: About virtual hub routing
       href: about-virtual-hub-routing.md
-  - name: Routing scenarios
-    items:
-    - name: Any-to-any
-      href: scenario-any-to-any.md
-    - name: Isolating VNets
-      href: scenario-isolate-vnets.md
-    - name: Isolating VNets - custom
-      href: scenario-isolate-vnets-custom.md
-    - name: Isolating virtual networks and branches
-      href: scenario-isolate-virtual-networks-branches.md
-    - name: Shared services VNets
-      href: scenario-shared-services-vnet.md
-    - name: Route through an NVA
-      href: scenario-route-through-nva.md
-    - name: Route through an NVA - custom
-      href: scenario-route-through-nvas-custom.md
-    - name: BGP peering with virtual hub
-      href: scenario-bgp-peering-hub.md
-    - name: Azure Firewall - custom
-      href: scenario-route-between-vnets-firewall.md
-    - name: Application Gateway and backend pools
-      href: scenario-secured-hub-app-gateway.md
-    - name: Microsoft 365 - ExpressRoute private peering
-      href: scenario-365-expressroute-private.md
+    - name: Routing scenarios
+      items:
+      - name: Any-to-any
+        href: scenario-any-to-any.md
+      - name: Isolating VNets
+        href: scenario-isolate-vnets.md
+      - name: Isolating VNets - custom
+        href: scenario-isolate-vnets-custom.md
+      - name: Isolating virtual networks and branches
+        href: scenario-isolate-virtual-networks-branches.md
+      - name: Shared services VNets
+        href: scenario-shared-services-vnet.md
+      - name: Route through an NVA
+        href: scenario-route-through-nva.md
+      - name: Route through an NVA - custom
+        href: scenario-route-through-nvas-custom.md
+      - name: BGP peering with virtual hub
+        href: scenario-bgp-peering-hub.md
+      - name: Azure Firewall - custom
+        href: scenario-route-between-vnets-firewall.md
+      - name: Application Gateway and backend pools
+        href: scenario-secured-hub-app-gateway.md
+      - name: Microsoft 365 - ExpressRoute private peering
+        href: scenario-365-expressroute-private.md
   - name: Site-to-site
     items:
     - name: About S2S IPsec policies
@@ -95,17 +95,15 @@
       href: about-client-address-pools.md
     - name: About P2S global and hub-based profiles
       href: global-hub-profile.md
-  - name: Security
-    items:
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=/azure/virtual-wan/TOC.json
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=/azure/virtual-wan/TOC.json
+  - name: Secured virtual hubs
+    href: ../firewall-manager/secured-virtual-hub.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
   - name: Pricing explained
     href: pricing-concepts.md
-  - name: About secured virtual hubs
-    href: ../firewall-manager/secured-virtual-hub.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
 - name: How-to guides
   items:
-  - name: Upgrade a virtual WAN SKU
+  - name: Upgrade from Basic to Standard
     href: upgrade-virtual-wan.md
   - name: Create an NVA in a virtual hub
     href: How-to-nva-hub.md

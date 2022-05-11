@@ -24,8 +24,8 @@ The following video describes how to manage secrets using Azure Key Vault.
 
 * [JDK 8](/azure/java/jdk/java-jdk-install)
 * [Maven 3.0 or above](http://maven.apache.org/install.html)
-* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure Cloud Shell](../cloud-shell/overview.md)
-* An existing Key Vault. If you need to create a Key Vault, you can use the [Azure portal](../key-vault/secrets/quick-create-portal.md) or [Azure CLI](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create)
+* [Azure CLI](/cli/azure/install-azure-cli) or [Azure Cloud Shell](../cloud-shell/overview.md)
+* An existing Key Vault. If you need to create a Key Vault, you can use the [Azure portal](../key-vault/secrets/quick-create-portal.md) or [Azure CLI](/cli/azure/keyvault#az-keyvault-create)
 * An existing Azure Database for MySQL instance with a database named `demo`. If you need to create an Azure Database for MySQL, you can use the [Azure portal](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md) or [Azure CLI](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## Create a resource group
@@ -73,7 +73,7 @@ az mysql db create \
 
 ## Create an app and service in Azure Spring Cloud
 
-After installing the corresponding extension, create an Azure Spring Cloud instance with the Azure CLI command [az spring-cloud create](/cli/azure/spring-cloud?view=azure-cli-latest#az-spring-cloud-create).
+After installing the corresponding extension, create an Azure Spring Cloud instance with the Azure CLI command [az spring-cloud create](/cli/azure/spring-cloud#az-spring-cloud-create).
 
 ```azurecli
 az extension add --name spring-cloud
@@ -96,7 +96,7 @@ Make a note of the returned `url`, which will be in the format `https://<your-ap
 
 ## Grant your app access to Key Vault
 
-Use [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) to grant proper access in Key Vault for your app.
+Use [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) to grant proper access in Key Vault for your app.
 
 ```azurecli
 az keyvault set-policy 
@@ -132,7 +132,7 @@ This [sample](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/m
     mvn clean package
     ```
 
-4. Now deploy the app to Azure with the Azure CLI command [az spring-cloud app deploy](/cli/azure/spring-cloud/app?view=azure-cli-latest#az-spring-cloud-app-deploy).
+4. Now deploy the app to Azure with the Azure CLI command [az spring-cloud app deploy](/cli/azure/spring-cloud/app#az-spring-cloud-app-deploy).
 
     ```azurecli
     az spring-cloud app deploy \

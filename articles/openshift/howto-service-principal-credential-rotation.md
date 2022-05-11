@@ -94,7 +94,7 @@ If the service principal credentials are expired please update using one of the 
 
 ### Cluster AAD application contains a client secret with an empty description
 When using [automated service principal credential rotation](#Automated-Service-Principal-Credential-Rotation) the following error occurs:
-```bash
+```azurecli
 $ az aro update --refresh-credentials --name MyManagedCluster --resource-group MyResourceGroup
 
 Cluster AAD application contains a client secret with an empty description.

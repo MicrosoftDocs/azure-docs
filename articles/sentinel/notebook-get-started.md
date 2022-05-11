@@ -284,7 +284,7 @@ The Azure CLI component on the Compute instance caches a *refresh token* that it
 
 To authenticate using Azure CLI enter the following into an empty cell and run it:
 
-```python
+```azurecli
 !az login
 ```
 

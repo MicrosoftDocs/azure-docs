@@ -8,8 +8,6 @@ author: bmansheim
 ---
 # Use asset inventory to manage your resources' security posture
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 The asset inventory page of Microsoft Defender for Cloud provides a single page for viewing the security posture of the resources you've connected to Microsoft Defender for Cloud.
 
 Defender for Cloud periodically analyzes the security state of resources connected to your subscriptions to identify potential security vulnerabilities. It then provides you with recommendations on how to remediate those vulnerabilities.

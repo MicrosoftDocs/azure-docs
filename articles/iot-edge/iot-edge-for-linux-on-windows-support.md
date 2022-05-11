@@ -56,9 +56,7 @@ Azure IoT Edge for Linux on Windows supports the following architectures:
 Azure IoT Edge for Linux on Windows can run in Windows virtual machines. Using a virtual machine as an IoT Edge device is common when customers want to augment existing infrastructure with edge intelligence. In order to run the EFLOW virtual machine inside a Windows VM, the host VM must support nested virtualization. There are two forms of nested virtualization compatible with Azure IoT Edge for Linux on Windows. Users can choose to deploy through a local VM or Azure VM. For more information, see [EFLOW Nested virtualization](./nested-virtualization.md).
 
 ### VMware virtual machine
-
 Azure IoT Edge for Linux on Windows supports running inside a Windows virtual machine running on top of [VMware ESXi](https://www.vmware.com/products/esxi-and-esx.html) product family. Specific networking and virtualization configurations are needed to support this scenario. For more information about VMware configuration, see [EFLOW Nested virtualization](./nested-virtualization.md).
-
 
 ## Releases
 
@@ -86,3 +84,9 @@ A Windows device with the following minimum requirements:
   * On Windows 10, enable Hyper-V. For more information, see [Install Hyper-V on Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
   * On Windows Server, install the Hyper-V role and create a default network switch. For more information, see [Nested virtualization for Azure IoT Edge for Linux on Windows](./nested-virtualization.md).
   * On a virtual machine, configure nested virtualization. For more information, see [nested virtualization](./nested-virtualization.md).
+
+## Next steps
+
+Read more about [IoT Edge for Linux on Windows security premises](./iot-edge-for-linux-on-windows-security.md).
+
+Stay up-to-date with the latest [IoT Edge for Linux on Windows updates](./iot-edge-for-linux-on-windows-updates.md).

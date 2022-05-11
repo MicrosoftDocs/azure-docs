@@ -25,6 +25,10 @@ landingContent:
         links:
           - text: What is Azure Route Server?
             url: overview.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Route Server
+            url: /learn/modules/intro-to-azure-route-server
             
   # Card
   - title: Get started
