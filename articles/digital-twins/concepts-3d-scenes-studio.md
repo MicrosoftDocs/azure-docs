@@ -63,18 +63,18 @@ In the builder, you'll create *elements* and *behaviors* for your scene. Element
 
 When creating an element in the builder, you'll define the following components:
 
-* **Linked twin**: Each element is connected to a primary digital twin counterpart. You connect the element to a twin in your Azure Digital Twins instance so that the element can represent your twin and its data within the 3D visualization.
-* **Name**: Each element needs a name. You might want to make it match the `$dtId` of its linked twin.
+* **Primary twin**: Each element is connected to a primary digital twin counterpart. You connect the element to a twin in your Azure Digital Twins instance so that the element can represent your twin and its data within the 3D visualization.
+* **Name**: Each element needs a name. You might want to make it match the `$dtId` of its primary twin.
 * **Meshes**: Identify which components of the 3D model represent this element.
 * **Behaviors**: [Behaviors](#behaviors) describe how elements appear in the visualization. You can assign behaviors to this element here.
-* **Aliased twins**: If you want, you can add secondary digital twin data sources for an element. You should only add aliased twins when there are additional twins with data beyond your linked twin that you want to leverage in your behaviors. After configuring an aliased twin, you'll be able to use properties from that twin when defining behaviors for that element.
+* **Aliased twins**: If you want, you can add secondary digital twin data sources for an element. You should only add aliased twins when there are additional twins with data beyond your primary twin that you want to leverage in your behaviors. After configuring an aliased twin, you'll be able to use properties from that twin when defining behaviors for that element.
 
 ### Behaviors
 
 When creating a behavior for an element, you'll define the following components:
 
 * **Elements**: Behaviors describe the visuals that are applied to each [element](#elements) in the visualization. You can choose which elements this behavior applies to.
-* **Twins**: Identify the set of twins whose data is available to this behavior. This includes the targeted elements' linked twins, and any aliased twins.
+* **Twins**: Identify the set of twins whose data is available to this behavior. This includes the targeted elements' primary twins, and any aliased twins.
 * **Status**: States are data-driven overlays on your elements to indicate the health or status of the element. 
 * **Alerts**: Alerts are conditional notifications to help you quickly see when an element requires attention.
 * **Widgets**: Widgets are data-driven visuals that provide additional data to help you diagnose and investigate the scenario that the behavior represents. Configuring widgets will help you make sure the right data is discoverable when an alert or status is active.

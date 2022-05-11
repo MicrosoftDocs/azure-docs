@@ -118,13 +118,13 @@ This will open the **New element** panel where you can fill in element informati
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-panel.png" alt-text="Screenshot of New element options in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-element-panel.png":::
 
-### Name and linked twin
+### Name and primary twin
 
-A *linked twin* is the primary digital twin counterpart for an element. You connect the element to a twin in your Azure Digital Twins instance so that the element can represent your twin and its data within the 3D visualization.
+A *primary twin* is the main digital twin counterpart for an element. You connect the element to a twin in your Azure Digital Twins instance so that the element can represent your twin and its data within the 3D visualization.
 
-In the **New element** panel, the **Linked twin** dropdown list contains names of all the twins in the connected Azure Digital Twins instance. 
+In the **New element** panel, the **Primary twin** dropdown list contains names of all the twins in the connected Azure Digital Twins instance. 
 
-:::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-linked-twin.png" alt-text="Screenshot of the New element options in 3D Scenes Studio. The Linked twin dropdown list is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-element-linked-twin.png":::
+:::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-primary-twin.png" alt-text="Screenshot of the New element options in 3D Scenes Studio. The Primary twin dropdown list is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-element-primary-twin.png":::
 
 Select a twin to link to this element. This will automatically apply the digital twin ID (`$dtId`) as the element **Name**. You can rename the element if you want, to make it understandable for both builders and consumers of the 3D scene.
 
@@ -150,7 +150,7 @@ For more details on creating new behaviors, see [Add behaviors](#add-behaviors).
 
 ### Aliased twins
 
-An *aliased twin* is a secondary digital twin data source for an element. You can add aliased twins to an element if the data on the linked twin won't be enough to define all the behaviors you want for the element, so you need access to the data of additional twins.
+An *aliased twin* is a secondary digital twin data source for an element. You can add aliased twins to an element if the data on the primary twin won't be enough to define all the behaviors you want for the element, so you need access to the data of additional twins.
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-aliased-twins.png" alt-text="Screenshot of the New element options in 3D Scenes Studio. The Aliased twins tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-element-aliased-twins.png":::
 
@@ -193,9 +193,9 @@ If you started the behavior creation process from a specific element, that eleme
 
 ### Twins
 
-On the **Twins** tab, you can modify the set of twins whose data is available to this behavior. This includes the targeted elements' linked twins, and any aliased twins.
+On the **Twins** tab, you can modify the set of twins whose data is available to this behavior. This includes the targeted elements' primary twins, and any aliased twins.
 
-An *aliased twin* is a secondary digital twin data source for an element. After configuring an aliased twin, you'll be able to use properties from that twin in your behavior expressions for this element. You should only add aliased twins when there are additional twins with data beyond your linked twin that you want to leverage in your [status](#status), [alerts](#alerts), and [widgets](#widgets) for this behavior.
+An *aliased twin* is a secondary digital twin data source for an element. After configuring an aliased twin, you'll be able to use properties from that twin in your behavior expressions for this element. You should only add aliased twins when there are additional twins with data beyond your primary twin that you want to leverage in your [status](#status), [alerts](#alerts), and [widgets](#widgets) for this behavior.
 
 To create a new alias, select **Add twin alias** and **Create twin alias**.
 
@@ -206,15 +206,15 @@ This will open a **New twin alias** panel where you can name the alias and selec
 :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-twins-new-alias.png" alt-text="Screenshot of the New twin alias panel in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-twins-new-alias.png":::
 
 >[!TIP]
->[Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) can help you see twins that might be related to the linked twin for this element. You can query your graph using `SELECT * FROM digitaltwins WHERE $dtId="<linked-twin-id>`, and then use the [double-click expansion feature](how-to-use-azure-digital-twins-explorer.md#control-twin-graph-expansion) to explore related twins.
+>[Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) can help you see twins that might be related to the primary twin for this element. You can query your graph using `SELECT * FROM digitaltwins WHERE $dtId="<primary-twin-id>`, and then use the [double-click expansion feature](how-to-use-azure-digital-twins-explorer.md#control-twin-graph-expansion) to explore related twins.
 
 ### Status 
 
 In the **Status** tab, you can define states for your element. *States* are data-driven overlays on your elements to indicate the health or status of the element. 
 
-To create a state, choose a property from the list of properties on the linked twin. 
+To create a state, first choose whether the state is dependent on a **Single property** or a **Custom (advanced)** property expression. For a **Single property**, you'll get a dropdown list of properties on the primary twin. For **Custom (advanced)**, you'll get a text box.
 
-Then, define value ranges to create state boundaries, and choose colors to represent each state in the visualization.
+Once you've defined your property expression, set value ranges to create state boundaries, and choose colors to represent each state in the visualization.
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-status.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio. The Status tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-status.png":::
 
@@ -222,7 +222,7 @@ Then, define value ranges to create state boundaries, and choose colors to repre
 
 In the **Alerts** tab, you can set conditional notifications to help you quickly see when an element requires your attention.
 
-First, select a **Trigger expression** involving properties of *LinkedTwin* that will generate an alert badge when it evaluates to true. Then, customize your alert badge with a **Badge icon**, **Badge color**, and **Notification text**.
+First, select a **Trigger expression** involving properties of *PrimaryTwin* that will generate an alert badge when it evaluates to true. Then, customize your alert badge with a **Badge icon**, **Badge color**, and **Notification text**.
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-alerts.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio. The Alerts tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-alerts.png":::
 
