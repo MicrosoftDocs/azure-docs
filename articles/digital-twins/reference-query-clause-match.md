@@ -273,7 +273,7 @@ You can chain multiple relationship conditions together, like this. The placehol
 
 ### Examples
 
-Here's an example that combines relationship direction, relationship name, and number of hops The following query finds twins Floor and Room where the relationship between Floor and Room meets these conditions:
+Here's an example that combines relationship direction, relationship name, and number of hops. The following query finds twins Floor and Room where the relationship between Floor and Room meets these conditions:
 * the relationship is left-to-right, with Floor as the source and Room as the target
 * the relationship has a name of either 'contains' or 'isAssociatedWith'
 * the relationship has either 4 or 5 hops
