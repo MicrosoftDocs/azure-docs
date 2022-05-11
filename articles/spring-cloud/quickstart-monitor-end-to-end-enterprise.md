@@ -31,7 +31,8 @@ This quickstart shows you how monitor apps running Azure Spring Cloud Enterprise
 
 The Application Insights connection string must be provided manually to the Order Service (ASP.NET core) and Cart Service (python) applications. The following instructions describe how to provide this connection string and increase the sampling rate to Application Insights.
 
-> Note: Currently only the buildpacks for Java and NodeJS applications instrument Application Insights. This will be changed in future iterations.
+> [!NOTE]
+> Currently only the buildpacks for Java and NodeJS applications instrument Application Insights. This will be changed in future iterations.
 
 1. Retrieve the Application Insights connection string and set it in Key Vault using the following commands:
 
@@ -90,7 +91,7 @@ The Application Insights connection string must be provided manually to the Orde
 
     For the Java and NodeJS applications, this will allow the new sampling rate to take effect. For the non-java applications, this will allow them to access the Instrumentation Key from Key Vault.
 
-## Stream Logs
+## Log Streaming
 
 The following instructions describe various ways to explore Metrics, Monitoring, and Logs in Application Insights.
 
@@ -125,9 +126,10 @@ By adding the `--follow` option you can get real-time log streaming from an app.
         --follow
     ```
 
-    You can use az spring-cloud app logs `--help` to explore more parameters and log stream functionalities.
+> [!TIP]
+> You can use az spring-cloud app logs `--help` to explore more parameters and log stream functionalities.
 
-## Explore Application Metrics
+## Tracing
 
 Open the Application Insights created by Azure Spring Cloud and start monitoring Spring Boot applications. You can find the Application Insights in the same Resource Group where you created an Azure Spring Cloud service instance.
 
@@ -156,6 +158,8 @@ Navigate to the `Failures/Exceptions` blade - you can see a collection of except
 
 ![An image showing application failures graphed](media/spring-cloud-enterprise-quickstart-monitor/fitness-store-exceptions.jpg)
 
+## Metrics
+
 Navigate to the `Metrics` blade - you can see metrics contributed by Spring Boot apps, Spring Cloud modules, and dependencies. The chart below shows `http_server_requests` and `Heap Memory Used`:
 
 ![An image showing metrics over time](media/spring-cloud-enterprise-quickstart-monitor/metrics.jpg)
@@ -177,13 +181,11 @@ Navigate to the `Live Metrics` blade - you can see live metrics on screen with l
 
 ![An image showing the live metrics of all applications](media/spring-cloud-enterprise-quickstart-monitor/live-metrics.jpg)
 
-## Monitor Logs and Metrics in Azure Log Analytics
+## Log Analytics
 
-Open the Log Analytics that you created - you can find the Log Analytics in the same
-Resource Group where you created an Azure Spring Cloud service instance.
+Open the Log Analytics that you created - you can find the Log Analytics in the same  Resource Group where you created an Azure Spring Cloud service instance.
 
-In the Log Analytics page, selects `Logs` blade and run any of the sample queries supplied below
-for Azure Spring Cloud.
+In the Log Analytics page, selects `Logs` blade and run any of the sample queries supplied below for Azure Spring Cloud.
 
 Type and run the following Kusto query to see application logs:
 
