@@ -29,8 +29,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 | :------------------- | ---------------: |
 |FHIRPath Patch |FHIRPath Patch was added as a feature to both the Azure API for FHIR. This implements FHIRPath Patch as defined on the [HL7](http://hl7.org/fhir/fhirpatch.html) website. |
 |Handles invalid header on versioned update |When the versioning policy is set to "versioned-update", we required that the most recent version of the resource is provided in the request's if-match header on an update. The specified version must be in ETag format. Previously, a 500 would be returned if the version was invalid or in an incorrect format. This update now returns a 400 Bad Request. For more information, see [PR #2467](https://github.com/microsoft/fhir-server/pull/2467). |
-|Bulk import in public preview |The bulk-import feature enables importing FHIR data to the FHIR server at high throughput using the $import operation. It's designed for initial data load into the FHIR server.
-For more information, see [Bulk-import FHIR data (Preview)](./../healthcare-apis/fhir/import-data.md) |
+|Bulk import in public preview |The bulk-import feature enables importing FHIR data to the FHIR server at high throughput using the $import operation. It's designed for initial data load into the FHIR server. For more information, see [Bulk-import FHIR data (Preview)](./../healthcare-apis/fhir/import-data.md). |
 
 ### **Bug fixes**
 
@@ -46,7 +45,7 @@ For more information, see [Bulk-import FHIR data (Preview)](./../healthcare-apis
 | :----------------------------------- | ---------------: |
 |Reduce the strictness of validation applied to incoming DICOM files |When value representation (VR) is a decimal string (DS)/ integer string (IS), `fo-dicom` serialization treats value as a number. Customer DICOM files could be old and contains invalid numbers. Our service blocks such file upload due to the serialization exception. For more information, see [PR #1450](https://github.com/microsoft/dicom-server/pull/1450). |
 |Correctly parse a range of input in the content negotiation headers |Currently, WADO with Accept: multipart/related; type=application/dicom will throw an error. It will accept Accept: multipart/related; type="application/dicom", but they should be equivalent. For more information, see [PR #1462](https://github.com/microsoft/dicom-server/pull/1462). |
-|Fixed an issue where parallel upload of images in a study could fail under certain circumstances  |Handle race conditions during parallel instance inserts in the same study. For more information, see [#1491](https://github.com/microsoft/dicom-server/pull/1491) and [PR #1496](https://github.com/microsoft/dicom-server/pull/1496). |
+|Fixed an issue where parallel upload of images in a study could fail under certain circumstances  |Handle race conditions during parallel instance inserts in the same study. For more information, see [PR #1491](https://github.com/microsoft/dicom-server/pull/1491) and [PR #1496](https://github.com/microsoft/dicom-server/pull/1496). |
 
 ## March 2022
 
