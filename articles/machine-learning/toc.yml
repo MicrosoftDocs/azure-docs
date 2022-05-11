@@ -420,8 +420,7 @@
           items:
             - name: Read & write data (v2)
               displayName: train
-              href: how-to-read-write-data-v2.md          
-          items: 
+              href: how-to-read-write-data-v2.md
             - name: Train with datasets
               displayName: data, dataset, mount
               href: how-to-train-with-datasets.md
