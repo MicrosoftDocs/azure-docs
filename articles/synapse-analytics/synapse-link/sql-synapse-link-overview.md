@@ -25,16 +25,16 @@ The following image shows the Azure Synapse Link integration with Azure SQL DB, 
 
 ## Benefit
 
-Azure Synapse Link for SQL provides fully managed and turnkey experience for you to land operational data in Azure Synapse dedicated SQL pool. It does this by continuously replicating the data from Azure SQL DB or SQL Server 2022 with full consistency. By using Azure Synapse Link for SQL, you can get the following benefits:
+Azure Synapse Link for SQL provides fully managed and turnkey experience for you to land operational data in Azure Synapse Analytics dedicated SQL pools. It does this by continuously replicating the data from Azure SQL Database or SQL Server 2022 with full consistency. By using Azure Synapse Link for SQL, you can get the following benefits:
 
 * **Minimum impact on operational workload**
-With the new change feed technology in Azure SQL Database and SQL Server 2022, Synapse link for SQL can automatically extract incremental changes from Azure SQL DB or SQL Server 2022. It then replicates to Azure Synapse dedicated SQL pool without impacting the operational workload.
+With the new change feed technology in Azure SQL Database and SQL Server 2022, Azure Synapse Link for SQL can automatically extract incremental changes from Azure SQL Database or SQL Server 2022. It then replicates to Azure Synapse Analytics dedicated SQL pool with minimal impact on the operational workload.
 
 * **Reduced complexity with No ETL jobs to manage**
-After going through a few clicks including selecting operational database and tables, updates made to the operational data in Azure SQL DB or SQL Server 2022 are visible in the Azure Synapse dedicated SQL pool. They're available in near real-time with no ETL or data integration logic. You can focus on analytical and reporting logic against operational data via all the capabilities within Azure Synapse Analytics.
+After going through a few clicks including selecting your operational database and tables, updates made to the operational data in Azure SQL Database or SQL Server 2022 are visible in the Azure Synapse Analytics dedicated SQL pool. They're available in near real-time with no ETL or data integration logic. You can focus on analytical and reporting logic against operational data via all the capabilities within Azure Synapse Analytics.
 
 * **Near real-time insights into your operational data**
-You can now get rich insights by analyzing operational data in Azure SQL DB or SQL Server 2022 in near real-time to enable new business scenarios including operational BI reporting, real time scoring and personalization, or supply chain forecasting etc. via Synapse link for SQL.
+You can now get rich insights by analyzing operational data in Azure SQL Database or SQL Server 2022 in near real-time to enable new business scenarios including operational BI reporting, real time scoring and personalization, or supply chain forecasting etc. via Azure Synapse link for SQL.
 
 ## Next steps
 
