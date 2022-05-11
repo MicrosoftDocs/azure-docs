@@ -84,7 +84,7 @@ Run an assessment as follows:
     - In **VM series**, specify the Azure VM series you want to consider for *SQL Server on Azure VM* sizing. Based on the configuration and performance requirements of your SQL Server or SQL Server instance, the assessment will recommend a VM size from the selected list of VM series.
     - You can edit settings as needed. For example, if you don't want to include D-series VM, you can exclude D-series from this list.
     > [!NOTE]
-    > As Azure SQL assessments are intended to give the best performance for your SQL workloads, the VM series list only has VMs that are optimized for running your SQL Server on Azure Virtual Machines (VMs). [Learn more](../virtual-machines/windows/performance-guidelines-best-practices-checklist.md#vm-size)
+    > As Azure SQL assessments are intended to give the best performance for your SQL workloads, the VM series list only has VMs that are optimized for running your SQL Server on Azure Virtual Machines (VMs). [Learn more](azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist?view=azuresql#vm-size).
     - **Storage Type** is defaulted to *Recommended*, which means the assessment will recommend the best suited Azure Managed Disk based on the chosen environment type, on-premises disk size, IOPS and throughput.
 
 1. In Assessment settings > **Azure SQL Database sizing**:
@@ -97,7 +97,7 @@ Run an assessment as follows:
     - **Compute tier** is defaulted to *Provisioned*
 
     - Click **Save** if you make changes.
-     :::image type="content" source="./media/tutorial-assess-sql/view-all.png" alt-text="Save button on assessment settings":::
+     :::image type="content" source="./media/tutorial-assess-sql/view-all.png" alt-text="Save button on assessment settings.":::
 8. In **Assess Servers**, click **Next**.
 9.	In **Select servers to assess** > **Assessment name** > specify a name for the assessment.
 10.	In **Select or create a group** > select **Create New** and specify a group name.
@@ -160,8 +160,8 @@ You can review readiness reports for different migration strategies:
 1. Click **Readiness** report for any of the migration strategies.
     :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-readiness.png" alt-text="Azure SQL readiness details":::
 1.Review the readiness columns in the respective reports:
-    **Migration strategy** | **Readiness Columns (Respective deployment target)** |
-    |--- | --- |
+    **Migration strategy** | **Readiness Columns (Respective deployment target)** 
+    |--- | --- 
     Recommended | MI readiness (Azure SQL MI), VM readiness (SQL Server on Azure VM), DB readiness (Azure SQL DB)
     Instances to Azure SQL MI | MI readiness (Azure SQL Managed Instance)
     Instances to SQL Server on Azure VM | VM readiness (SQL Server on Azure VM)

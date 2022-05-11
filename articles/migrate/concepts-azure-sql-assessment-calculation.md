@@ -24,7 +24,7 @@ There are three types of assessments you can create using the Azure Migrate: Dis
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. <br/><br/> You can assess your on-premises servers in [VMware](how-to-set-up-appliance-vmware.md) and [Hyper-V](how-to-set-up-appliance-hyper-v.md) environment, and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
 **Azure SQL** | Assessments to migrate your on-premises SQL servers from your VMware environment to SQL Server on Azure VM or Azure SQL Database or Azure SQL Managed Instance. <br/><br/> If your SQL servers are running on a non-VMware platform, you can assess readiness by using the [Data Migration Assistant](/sql/dma/dma-assess-sql-data-estate-to-sqldb).
 **Azure App Service** | Assessments to migrate your on-premises ASP.NET web apps, running on IIS web servers, from your VMware environment to Azure App Service.
-**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
+**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md).
 
 > [!NOTE]
 > If the number of Azure VM or AVS assessments are incorrect on the Discovery and assessment tool, click on the total number of assessments to navigate to all the assessments and recalculate the Azure VM or AVS assessments. The Discovery and assessment tool will then show the correct count for that assessment type. 
@@ -70,8 +70,8 @@ The appliance collects performance data for compute settings with these steps:
 
 Here's what's included in Azure SQL assessment properties:
 
-**Section**| **Property** | **Details** |
-| --- | --- | --- |
+**Section**| **Property** | **Details**
+| --- | --- | ---
 Target and pricing settings | **Target location** | The Azure region to which you want to migrate. Azure SQL configuration and cost recommendations are based on the location that you specify.
 Target and pricing settings | **Environment type** | The environment for the SQL deployments to apply pricing applicable to Production or Dev/Test.
 Target and pricing settings | **Offer/Licensing program** |The Azure offer if you're enrolled. Currently the field is defaulted to Pay-as-you-go, which will give you retail Azure prices. <br/><br/>You can avail additional discount by applying reserved capacity and Azure Hybrid Benefit on top of Pay-as-you-go offer.<br/>You can apply Azure Hybrid Benefit on top of Pay-as-you-go offer and Dev/Test environment. The assessment does not support applying Reserved Capacity on top of Pay-as-you-go offer and Dev/Test environment. <br/>If the offer is set to *Pay-as-you-go* and Reserved capacity is set to *No reserved instances*, the monthly cost estimates are calculated by multiplying number of hours chosen in the VM uptime field with the hourly price of the recommended SKU.
@@ -87,7 +87,7 @@ Assessment criteria | **Comfort factor** | You can indicate the buffer you want 
 Azure SQL Managed Instance sizing | **Service Tier** | You can choose the most appropriate service tier option to accommodate your business needs for migration to Azure SQL Managed Instance:<br/><br/>Select *Recommended* if you want Azure Migrate to recommend the best suited service tier for your servers. This can be General purpose or Business critical.<br/><br/>Select *General Purpose* if you want an Azure SQL configuration designed for budget-oriented workloads.<br/><br/>Select *Business Critical* if you want an Azure SQL configuration designed for low-latency workloads with high resiliency to failures and fast failovers.
 Azure SQL Managed Instance sizing | **Instance type** | Defaulted to *Single instance*.
 Azure SQL Managed Instance sizing | **Pricing Tier** | Defaulted to *Standard*.
-SQL Server on Azure VM sizing | **VM series** | You can specify the Azure VM series you want to consider for *SQL Server on Azure VM* sizing. Based on the configuration and performance requirements of your SQL Server or SQL Server instance, the assessment will recommend a VM size from the selected list of VM series. <br/>You can edit settings as needed. For example, if you don't want to include D-series VM, you can exclude D-series from this list.<br/> As Azure SQL assessments are intended to give the best performance for your SQL workloads, the VM series list only has VMs that are optimized for running your SQL Server on Azure Virtual Machines (VMs). [Learn more](../virtual-machines/windows/performance-guidelines-best-practices-checklist.md#vm-size).
+SQL Server on Azure VM sizing | **VM series** | You can specify the Azure VM series you want to consider for *SQL Server on Azure VM* sizing. Based on the configuration and performance requirements of your SQL Server or SQL Server instance, the assessment will recommend a VM size from the selected list of VM series. <br/>You can edit settings as needed. For example, if you don't want to include D-series VM, you can exclude D-series from this list.<br/> As Azure SQL assessments are intended to give the best performance for your SQL workloads, the VM series list only has VMs that are optimized for running your SQL Server on Azure Virtual Machines (VMs). [Learn more](azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist?view=azuresql#vm-size).
 SQL Server on Azure VM sizing | **Storage Type** | Defaulted to *Recommended*, which means the assessment will recommend the best suited Azure Managed Disk based on the chosen environment type, on-premises disk size, IOPS and throughput.
 Azure SQL Database sizing | **Service Tier** | You can choose the most appropriate service tier option to accommodate your business needs for migration to Azure SQL Database:<br/><br/>Select **Recommended** if you want Azure Migrate to recommend the best suited service tier for your servers. This can be General purpose or Business critical.<br/><br/>Select **General Purpose** if you want an Azure SQL configuration designed for budget-oriented workloads.<br/><br/>Select **Business Critical** if you want an Azure SQL configuration designed for low-latency workloads with high resiliency to failures and fast failovers.
 Azure SQL Database sizing | **Instance type** | Defaulted to *Single database*.
@@ -150,7 +150,7 @@ After the assessment determines the readiness and the recommended Azure SQL depl
 
 ### Instances to SQL Server on Azure VM configuration
 
-"Instance to SQL Server on Azure VM" assessment report covers the ideal approach for migrating SQL Server instances and databases to SQL Server on Azure VM, adhering to the best practices. [Learn more] (../virtual-machines/windows/performance-guidelines-best-practices-checklist?view=azuresql)
+"Instance to SQL Server on Azure VM" assessment report covers the ideal approach for migrating SQL Server instances and databases to SQL Server on Azure VM, adhering to the best practices. [Learn more] (azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist?view=azuresql)
 
 #### Storage sizing
 For storage sizing, the assessment maps each of the instance disk to an Azure disk. Sizing works as follows:
@@ -179,7 +179,7 @@ After it calculates storage requirements, the assessment considers CPU and RAM r
 
 
 ### Servers to SQL Server on Azure VM configuration
-For *All serves to SQL Server on Azure VM* migration strategy, refer compute and storage sizing [here](concepts-assessment-calculation.md#calculate-sizing-performance-based)
+For *All serves to SQL Server on Azure VM* migration strategy, refer compute and storage sizing [here](concepts-assessment-calculation.md#calculate-sizing-performance-based).
 
 ### Confidence ratings 
 Each Azure SQL assessment is associated with a confidence rating. The rating ranges from one (lowest) to five (highest) stars. The confidence rating helps you estimate the reliability of the size recommendations Azure Migrate provides.
@@ -238,9 +238,9 @@ After sizing recommendations are complete, Azure SQL assessment calculates the c
     - Discount (%)
 - Backup storage cost is not included in the assessment.
 - **Azure SQL Database**
-    - A minimum of 5GB storage cost is added in the cost estimate and additional storage cost is added for storage in 1GB increments. [Learn More](https://azure.microsoft.com/pricing/details/sql-database/single/)
+    - A minimum of 5GB storage cost is added in the cost estimate and additional storage cost is added for storage in 1GB increments. [Learn More](https://azure.microsoft.com/pricing/details/sql-database/single/).
 - **Azure SQL Managed Instance**
-    - There is no storage cost added for the first 32 GB/instance/month storage and additional storage cost is added for storage in 32GB increments. [Learn More](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)
+    - There is no storage cost added for the first 32 GB/instance/month storage and additional storage cost is added for storage in 32GB increments. [Learn More](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
         
 ## Next steps
 - [Review](best-practices-assessment.md) best practices for creating assessments. 
