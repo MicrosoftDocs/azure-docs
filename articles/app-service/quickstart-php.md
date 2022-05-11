@@ -16,7 +16,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 ::: zone-end  
 
 ::: zone pivot="platform-linux"
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart tutorial shows how to deploy a PHP app to Azure App Service on Linux.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy a PHP app to Azure App Service on Linux.
 
 You create and deploy the web app using [Azure CLI](/cli/azure/get-started-with-azure-cli).
 
@@ -31,7 +31,7 @@ To complete this quickstart, you need:
 1. <a href="https://php.net/manual/install.php" target="_blank">PHP</a>
 1. <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> to run commands in any shell to provision and configure Azure resources.
 
-## 1 - Sample application
+## 1 - Set up the sample application
 
 1. In a terminal window, run the following commands. It will clone the sample application to your local machine, and navigate to the directory containing the sample code.
 
@@ -126,7 +126,7 @@ Browse to the deployed application in your web browser at the URL `http://<app-n
 
     ![Updated sample app running in Azure](media/quickstart-php/hello-azure-in-browser.png)
 
-## Manage your new Azure app
+## 5 - Manage your new Azure app
 
 1. Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created. Search for and select **App Services**.
 
