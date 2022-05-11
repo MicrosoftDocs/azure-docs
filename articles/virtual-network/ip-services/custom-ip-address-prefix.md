@@ -60,6 +60,8 @@ When ready, you can issue the command to have your range advertised from Azure a
 
 * Any IP addresses utilized from a custom IP prefix currently count against the standard public IP quota for a subscription and region. Contact Azure support to have quotas increased when required.
 
+* IPs brought to Azure cannot currently be used for Windows Server Activation.
+
 ## Pricing
 
 * There is no charge to provision or use custom IP prefixes. There is no charge for any public IP prefixes and public IP addresses that are derived from custom IP prefixes.
