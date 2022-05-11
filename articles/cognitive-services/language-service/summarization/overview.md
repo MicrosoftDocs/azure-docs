@@ -22,7 +22,7 @@ Document summarization is one of the features offered by [Azure Cognitive Servic
 This documentation contains the following article types:
 
 * [**Quickstarts**](quickstart.md?pivots=rest-api&tabs=document-summarization) are getting-started instructions to guide you through making requests to the service.
-* [**How-to guides**](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
+* [**How-to guides**](how-to/document-summarization.md) contain instructions for using the service in more specific or customized ways.
 
 Text summarization is a broad topic, consisting of several approaches to represent relevant information in text. The document summarization feature described in this documentation enables you to use extractive text summarization to produce a summary of a document. It extracts sentences that collectively represent the most important or relevant information within the original content. This feature is designed to shorten content that could be considered too long to read. For example, it can condense articles, papers, or documents to key sentences.
 

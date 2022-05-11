@@ -66,4 +66,4 @@ Using the above example, the API might return the following summarized sentences
 
 ## See also
 
-* [Summarization overview](../../document-summarization/overview.md)
+* [Summarization overview](../overview.md)
