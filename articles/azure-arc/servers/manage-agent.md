@@ -69,7 +69,7 @@ This parameter specifies a resource in Azure Resource Manager to delete from Azu
 
 To disconnect using a service principal, run the following command:
 
-`azcmagent disconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
+`azcmagent disconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword>`
 
 To disconnect using an access token, run the following command:
 
