@@ -23,7 +23,7 @@ The following table
 
 | SAP Data Store | Scenario | Description |
 | -- | -- | -- |
-| SAP BW via Open Hub | [Incremental copy to Azure Data Lake Storage Gen 2] (load-sap-bw-data.md) | Use this template to incrementally copy SAP BW data via LastRequestID watermark to ADLS Gen 2 |
+| SAP BW via Open Hub | [Incremental copy to Azure Data Lake Storage Gen 2](load-sap-bw-data.md) | Use this template to incrementally copy SAP BW data via LastRequestID watermark to ADLS Gen 2 |
 | SAP ECC | Dynamically copy tables to Azure Data Lake Storage Gen 2 | Use this template to do a full copy of list of tables from SAP ECC to ADLS Gen 2 |
 | SAP HANA | Dynamically copy tables to Azure Data Lake Storage Gen 2 | Use this template to do a full copy of list of tables from SAP HANA to ADLS Gen 2 |
 | SAP Table | Incremental copy to Azure Blob Storage | Use this template to incrementally copy SAP Table data via a date timestamp watermark to Azure Blob Storage |
