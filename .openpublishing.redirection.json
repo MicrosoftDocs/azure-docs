@@ -2734,6 +2734,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/machine-learning/how-to-kubernetes-instance-type.md",
+      "redirect_url": "/azure/machine-learning/how-to-attach-kubernetes-anywhere",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-attach-arc-kubernetes.md",
+      "redirect_url": "/azure/machine-learning/how-to-attach-kubernetes-anywhere",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/reference-yaml-endpoint-managed-batch.md",
       "redirect_url": "/azure/machine-learning/reference-yaml-endpoint-batch.md",
       "redirect_document_id": false

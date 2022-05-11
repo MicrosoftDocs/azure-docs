@@ -70,7 +70,7 @@ Following tools and environments are already installed on the compute instance:
 |----|:----:|
 |R kernel||
 
-You can [Add RStudio](how-to-create-manage-compute-instance.md#add-custom-services-such-as-rstudio-preview) when you create the instance.
+You can [Add RStudio](how-to-create-manage-compute-instance.md#add-custom-applications-such-as-rstudio-preview) when you create the instance.
 
 |**PYTHON** tools & environments|Details|
 |----|----|

@@ -249,7 +249,7 @@ az k8s-extension delete --name azureml --cluster-name <clusterName> --resource-g
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
-[azure-ml-overview]: ../machine-learning/how-to-attach-arc-kubernetes.md
+[azure-ml-overview]: ../machine-learning/how-to-attach-kubernetes-anywhere.md
 [dapr-overview]: ./dapr.md
 [gitops-overview]: ../azure-arc/kubernetes/conceptual-gitops-flux2.md
 [k8s-extension-reference]: /cli/azure/k8s-extension

@@ -7,7 +7,7 @@ ms.service: machine-learning
 author: blackmist
 ms.author: larryfr
 ms.subservice: core
-ms.date: 05/03/2021
+ms.date: 05/10/2022
 ms.topic: how-to
 ms.custom: how-to, deploy, devplatv2
 ---
@@ -87,8 +87,8 @@ Use the tabs below to select where your data is located.
 When you pass local data, the data is automatically uploaded to cloud storage as part of the job submission.
 
 ```python
-from azure.ml.entities import Data, UriReference, JobInput, CommandJob
-from azure.ml._constants import AssetTypes
+from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob
+from azure.ai.ml._constants import AssetTypes
 
 my_job_inputs = {
     "input_data": JobInput(
@@ -114,8 +114,8 @@ returned_job.services["Studio"].endpoint
 # [ADLS Gen2](#tab/use-adls)
 
 ```python
-from azure.ml.entities import Data, UriReference, JobInput, CommandJob
-from azure.ml._constants import AssetTypes
+from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob
+from azure.ai.ml._constants import AssetTypes
 
 # in this example we
 my_job_inputs = {
@@ -142,8 +142,8 @@ returned_job.services["Studio"].endpoint
 # [Blob](#tab/use-blob)
 
 ```python
-from azure.ml.entities import Data, UriReference, JobInput, CommandJob
-from azure.ml._constants import AssetTypes
+from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob
+from azure.ai.ml._constants import AssetTypes
 
 # in this example we
 my_job_inputs = {
@@ -176,8 +176,8 @@ Use the tabs below to select where your data is located.
 # [Blob](#tab/rw-blob)
 
 ```python
-from azure.ml.entities import Data, UriReference, JobInput, CommandJob, JobOutput
-from azure.ml._constants import AssetTypes
+from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob, JobOutput
+from azure.ai.ml._constants import AssetTypes
 
 my_job_inputs = {
     "input_data": JobInput(
@@ -211,8 +211,8 @@ returned_job.services["Studio"].endpoint
 # [ADLS Gen2](#tab/rw-adls)
 
 ```python
-from azure.ml.entities import Data, UriReference, JobInput, CommandJob, JobOutput
-from azure.ml._constants import AssetTypes
+from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob, JobOutput
+from azure.ai.ml._constants import AssetTypes
 
 my_job_inputs = {
     "input_data": JobInput(
@@ -247,8 +247,8 @@ returned_job.services["Studio"].endpoint
 ### Register data assets
 
 ```python
-from azure.ml.entities import Data
-from azure.ml._constants import AssetTypes
+from azure.ai.ml.entities import Data
+from azure.ai.ml._constants import AssetTypes
 
 # select one from:
 my_path = 'abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>' # adls gen2
@@ -268,8 +268,8 @@ ml_client.data.create_or_update(my_data)
 ### Consume registered data assets in job
 
 ```python
-from azure.ml.entities import Data, UriReference, JobInput, CommandJob
-from azure.ml._constants import AssetTypes
+from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob
+from azure.ai.ml._constants import AssetTypes
 
 registered_data_asset = ml_client.data.get(name='titanic', version='1')
 
@@ -344,8 +344,8 @@ inputs:
 The following example shows how to do this using the v2 SDK:
 
 ```python
-from azure.ml.entities import Data, UriReference, JobInput, CommandJob
-from azure.ml._constants import AssetTypes
+from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob
+from azure.ai.ml._constants import AssetTypes
 
 registered_v1_data_asset = ml_client.data.get(name='<ASSET NAME>', version='<VERSION NUMBER>')
 
