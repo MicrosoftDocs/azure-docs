@@ -253,7 +253,7 @@ module.exports = async function (context, req, todoItem) {
 
 The following example shows a SQL input binding in a function.json file and a JavaScript function that executes a stored procedure with input from the HTTP request query parameter.
 
-The stored procedure `dbo.DeleteToDo` must be created on the SQL database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+The stored procedure `dbo.DeleteToDo` must be created on the database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="11-25":::
 
