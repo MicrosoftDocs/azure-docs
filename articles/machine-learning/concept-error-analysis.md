@@ -15,7 +15,7 @@ ms.custom: responsible-ml
 
 One of the most apparent challenges with current model debugging practices is using aggregate metrics to score models on a benchmark. Model accuracy may not be uniform across subgroups of data, and there might exist input cohorts for which the model fails more often. The direct consequences of these failures are a lack of reliability and safety, unfairness, and a loss of trust in machine learning altogether.
 
-:::image type="content" source="./media/concept-error-analysis/error-analysis.png" alt-text="Diagram showing benchmark and ml model point to accurate then to different regions fail for different reasons. ":::
+:::image type="content" source="./media/concept-error-analysis/error-analysis.png" alt-text="Diagram showing benchmark and ml model point to accurate then to different regions fail for different reasons.":::
 
 Error Analysis moves away from aggregate accuracy metrics, exposes the distribution of errors to developers in a transparent way, and enables them to identify & diagnose errors efficiently.
 

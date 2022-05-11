@@ -205,7 +205,7 @@ Selecting **Responsible AI scorecard (preview)** will show you a dropdown to vie
 
 Select which scorecard you’d like to download from the list and select Download to download the PDF to your machine.
 
-:::image type="content" source="./media/how-to-responsible-ai-scorecard/studio-select-scorecard.png" alt-text="Screenshot of selecting a Responsible AI scorecard to download. lightbox = "./media/how-to-responsible-ai-scorecard/studio-select-scorecard.png":::
+:::image type="content" source="./media/how-to-responsible-ai-scorecard/studio-select-scorecard.png" alt-text="Screenshot of selecting a Responsible AI scorecard to download." lightbox= "./media/how-to-responsible-ai-scorecard/studio-select-scorecard.png":::
 
 ## How to read your Responsible AI scorecard
 

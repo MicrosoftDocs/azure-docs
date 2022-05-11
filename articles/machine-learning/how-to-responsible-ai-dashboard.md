@@ -154,7 +154,7 @@ Selecting the "Feature list" button opens a side panel, which allows you to retr
 
 Selecting the **Heat map** tab switches to a different view of the error in the dataset. You can select on one or many heat map cells and create new cohorts. You can choose up to two features to create a heatmap.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/error-analysis-heat-map.png" alt-text="Screenshot of the dashboard showing error analysis heat map feature list." lightbox+ "./media/how-to-responsible-ai-dashboard/error-analysis-heat-map.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/error-analysis-heat-map.png" alt-text="Screenshot of the dashboard showing error analysis heat map feature list." lightbox= "./media/how-to-responsible-ai-dashboard/error-analysis-heat-map.png":::
 
 1. **Number of Cells**: displays the number of cells selected.
 2. **Error coverage**: displays the percentage of all errors concentrated in the selected cell(s).

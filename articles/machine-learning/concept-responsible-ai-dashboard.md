@@ -51,7 +51,7 @@ Assessing and debugging machine learning models is critical for model reliabilit
   - *How can I improve my model?*
   - *What social or technical solutions exist for these issues?*
 
-:::image type="content" source="./media/concept-responsible-ai-dashboard/model-debugging.png" alt-text=" Diagram of model debugging via responsible AI dashboard with the information in the table below." lightbox= "./media/concept-responsible-ai-dashboard/model-debugging.png":::
+:::image type="content" source="./media/concept-responsible-ai-dashboard/model-debugging.png" alt-text="Diagram of model debugging via responsible AI dashboard with the information in the table below." lightbox= "./media/concept-responsible-ai-dashboard/model-debugging.png":::
 
 Below are the components of the Responsible AI dashboard supporting model debugging:
 

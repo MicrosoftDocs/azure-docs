@@ -257,7 +257,7 @@ This component has a single output port, which can be connected to one of the `i
 
 ---
 
-### Add Counterfactuals to RAI Insights Dashboard 
+### Add Counterfactuals to RAI Insights Dashboard
 
 This component generates counterfactual points for the supplied test dataset. It has a single input port, which accepts the output of the RAI Insights Dashboard Constructor. It also accepts the following parameters: 
 
