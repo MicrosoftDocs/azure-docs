@@ -16,7 +16,7 @@ This article demonstrates how to build and deploy a microservice to Azure Contai
 
 This quickstart is the first in a series of articles that walk you through how to use core capabilities within Azure Container Apps. The first step is to create a backend web API service that returns a static collection of music albums.
 
-The following screenshot shows the final results of the API deployed in this article.
+The following screenshot shows the output from the album API deployed in this quickstart.
 
 :::image type="content" source="media/quickstart-code-to-cloud/azure-container-apps-album-api.png" alt-text="Screenshot of response from albums API endpoint.":::
 
@@ -49,34 +49,64 @@ To complete this project, you'll need the following items:
 
 [!INCLUDE [container-apps-setup-cli-only.md](../../includes/container-apps-setup-cli-only.md)]
 
-Now Azure CLI setup is validated, you can next define the initial environment variables used throughout this article.
+Now that your Azure CLI setup is complete, you can define the environment variables that used throughout this article.
 
 [!INCLUDE [container-apps-code-to-cloud-setup.md](../../includes/container-apps-code-to-cloud-setup.md)]
 
-### Set your language preference
 
-Set an environment variable for the language you'll be using. The variable can be set to one of the following values:
+## Prepare the GitHub repository
 
-- csharp
-- go
-- javascript
-- python
+Navigate to the repository for your preferred language and fork the repository.
 
-# [Bash](#tab/bash)
+# [C#](#tab/csharp)
 
-```bash
-LANGUAGE="<LANGUAGE_VALUE>"
+Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-csharp) to fork the repo to your account.
+
+Now you can clone your fork of the sample repository.
+
+Use the following git command to clone your forked repo into the *code-to-cloud* folder:
+
+```git
+git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-csharp.git code-to-cloud
 ```
 
-# [PowerShell](#tab/powershell)
+# [Go](#tab/go)
 
-```powershell
-$LANGUAGE="<LANGUAGE_VALUE>"
+Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-go) to fork the repo to your account.
+
+Now you can clone your fork of the sample repository.
+
+Use the following git command to clone your forked repo into the *code-to-cloud* folder:
+
+```git
+git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-go.git code-to-cloud
+```
+
+# [JavaScript](#tab/javascript)
+
+Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-javascript) to fork the repo to your account.
+
+Now you can clone your fork of the sample repository.
+
+Use the following git command to clone your forked repo into the *code-to-cloud* folder:
+
+```git
+git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-javascript.git code-to-cloud
+```
+
+# [Python](#tab/python)
+
+Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-python) to fork the repo to your account.
+
+Now you can clone your fork of the sample repository.
+
+Use the following git command to clone your forked repo into the *code-to-cloud* folder:
+
+```git
+git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-python.git code-to-cloud
 ```
 
 ---
-
-Before you run this command, replace `<LANGUAGE_VALUE>` with one of the following values: `csharp`, `go`, `javascript`, or `python`.
 
 Next, set an environment variable for the target port of your application.  If you're using the JavaScript API, the target port should be set to `3000`.  Otherwise, set your target port to `80`.
 
@@ -94,37 +124,11 @@ $API_PORT="<TARGET_PORT>"
 
 ---
 
-Before you run this command, replace `<TARGET_PORT>` with `3000` for node apps, or `80` for all other apps.
-
-## Prepare the GitHub repository
-
-Navigate to the repository for your preferred language and fork the repository.
-
-Select the **Fork** button at the top of the page to fork the repo to your account.
-
-* [C#](https://github.com/azure-samples/containerapps-albumapi-csharp)
-* [Go](https://github.com/azure-samples/containerapps-albumapi-go)
-* [JavaScript](https://github.com/azure-samples/containerapps-albumapi-javascript)
-* [Python](https://github.com/azure-samples/containerapps-albumapi-python)
-
-Now you can clone your fork of the sample repository.
-
-Use the following git command to clone your forked repo into the *code-to-cloud* folder:
-
-```git
-git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-$LANGUAGE.git code-to-cloud
-```
-
-> [!NOTE]
-> If the `clone` command fails, check that you have successfully forked the repository. (See instructions above.)
-
 Next, change the directory into the root of the cloned repo.
 
 ```console
 cd code-to-cloud/src
 ```
-
----
 
 ## Create an Azure Resource Group
 
@@ -141,14 +145,16 @@ az group create \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-New-AzResourceGroup -Name $RESOURCE_GROUP -Location $LOCATION
+az group create `
+  --name $RESOURCE_GROUP `
+  --location "$LOCATION"
 ```
 
 ---
 
 ## Create an Azure Container Registry
 
-Next, create an Azure Container Registry (ACR) instance in your resource group to store the Album API container image once it is built.
+Next, create an Azure Container Registry (ACR) instance in your resource group to store the album API container image once it's built.
 
 # [Bash](#tab/bash)
 
@@ -172,27 +178,11 @@ $ACA_REGISTRY = New-AzContainerRegistry `
 
 ---
 
-Sign in to your container registry.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az acr login --name $ACR_NAME
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-Connect-AzContainerRegistry -Name $ACR_NAME
-```
-
----
-
 ::: zone pivot="acr-remote"
 
 ## Build your application
 
-With ACR Tasks, you can build the docker image for the album API without the need to install Docker locally.  You'll find the Dockerfile in the root directory of the GitHub repo that you use to create the container image.
+With [ACR tasks](/azure/container-registry/container-registry-tasks-overview), you can build and push the docker image for the album API without installing Docker locally.  
 
 ### Build the container with ACR
 
@@ -220,11 +210,11 @@ Output from the `az acr build` command shows the upload progress of the source c
 
 ## Build your application
 
-In the below steps, you will build your container image locally using Docker and push the image to your newly created container registry.
+The following steps, demonstrate how to build your container image locally using Docker and push the image to the new container registry.
 
 ### Build the container with Docker
 
-The following command builds a container image using the Dockerfile for the Album API.  The `.` at the end of the command represents the docker build context, meaning this command should be run within the *src* folder where the Dockerfile is located.
+The following command builds a container image using the Dockerfile for the album API.  The `.` at the end of the command represents the docker build context, meaning this command should be run within the *src* folder where the Dockerfile is located.
 
 # [Bash](#tab/bash)
 
@@ -320,7 +310,6 @@ az containerapp create \
   --image $ACR_NAME.azurecr.io/$API_NAME \
   --target-port $API_PORT \
   --ingress 'external' \
-  --registry-username $ACR_NAME \
   --registry-server $ACR_NAME.azurecr.io \
   --query configuration.ingress.fqdn
 ```
@@ -335,9 +324,7 @@ az containerapp create `
   --image $API_NAME `
   --target-port $API_PORT `
   --ingress 'external' `
-  --registry-username $ACR_NAME `
-  --registry-server "$ACR_NAME.azurecr.io"  `
-  --query configuration.ingress.fqdn
+  --registry-server "$ACR_NAME.azurecr.io" `
   --query configuration.ingress.fqdn
 ```
 
@@ -347,7 +334,7 @@ az containerapp create `
 
 The `az containerapp create` command returns the fully qualified domain name (FQDN) for the container app. Copy the FQDN to a web browser.
 
-From your web browser, navigate to the `/albums` endpoint off the FQDN.
+From your web browser, navigate to the `/albums` endpoint of the FQDN.
 
 :::image type="content" source="media/quickstart-code-to-cloud/azure-container-apps-album-api.png" alt-text="Screenshot of response from albums API endpoint.":::
 
@@ -374,7 +361,7 @@ Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 
 ## Next steps
 
-This quickstart is the entrypoint for a set of progressive tutorials that showcase the various features within Azure Container Apps. Continue on to learn how to enable communication from a frontend caller to the backend Album API.
+This quickstart is the entrypoint for a set of progressive tutorials that showcase the various features within Azure Container Apps. Continue on to learn how to enable communication from a web front end that calls the API you deployed in this article.
 
 > [!div class="nextstepaction"]
 > [Communication between microservices](communicate-between-microservices.md)
