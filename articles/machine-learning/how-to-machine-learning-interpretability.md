@@ -17,6 +17,9 @@ ms.date: 05/10/2022
 
 This article describes methods you can use for model interpretability in Azure Machine Learning.
 
+> [!IMPORTANT]
+> With the release of the Responsible AI dashboard which includes model interpretability, we recommend users to migrate to the new experience as the older SDKv1 preview model interpretability dashboard will no longer be actively maintained.
+
 ## Why is model interpretability important to model debugging?
 
 When machine learning models are used in ways that impact people’s lives, it is critically important to understand what influences the behavior of models. Interpretability helps answer questions in scenarios such as model debugging (Why did my model make this mistake? How can I improve my model?), human-AI collaboration (How can I understand and trust the model’s decisions?), and regulatory compliance (Does my model satisfy legal requirements?).  

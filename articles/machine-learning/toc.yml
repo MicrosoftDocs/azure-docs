@@ -181,7 +181,7 @@
            - name: Fairness in Machine Learning
              displayName: fairness, bias, model performance, disparity metrics, unfairness
              href: concept-fairness-ml.md
-           - name: Causal analysis tool
+           - name: Causal analysis
              displayName: causal analysis, causal inference
              href: concept-causal-inference.md
            - name: Assess errors in ML models
@@ -683,12 +683,16 @@
         - name: Generate Responsible AI dashboard
           items:
             - name: Responsible AI dashboard (V2)
+              displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
               href: how-to-responsible-ai-dashboard-sdk-cli.md
             - name: Responsible AI dashboard (UI)
+              displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
               href: how-to-responsible-ai-dashboard-ui.md
         - name: Using the Responsible AI dashboard in studio
+          displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-dashboard.md
         - name: Responsible AI dashboard scorecard
+          displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-scorecard.md
 - name: Troubleshoot & debug
   items: 

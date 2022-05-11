@@ -30,6 +30,9 @@ The wizard is designed to provide an interface to input all the necessary parame
 
 The first step is to select the train and test dataset that you used when training your model to generate model-debugging insights. For components like Causal analysis, which doesn't require a model, the train dataset will be used to train the causal model to generate the causal insights.
 
+> [!NOTE]
+> Only tabular dataset formats are supported.
+
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/datasets.png" alt-text="Screenshot of the wizard on datasets for training and testing.":::
 
 1. **Select a dataset for training**: Select the dropdown to view your registered datasets in Azure Machine Learning workspace. This dataset will be used to generate Responsible AI insights for components such as model explanations and error analysis.  
