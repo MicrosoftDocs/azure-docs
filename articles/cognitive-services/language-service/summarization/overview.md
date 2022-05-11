@@ -32,7 +32,7 @@ As an example, consider the following paragraph of text:
 
 The document summarization feature would simplify the text into the following key sentences:
 
-:::image type="content" source="media/feature-example.png" alt-text="A simple example of the document summarization feature." lightbox="media/feature-example.png":::
+:::image type="content" source="media/document-summary-example.png" alt-text="A simple example of the document summarization feature." lightbox="media/document-summary-example.png":::
 
 ## Key features
 
@@ -52,7 +52,7 @@ This documentation contains the following article types:
 
 Conversation summarization is a broad topic, consisting of several approaches to represent relevant information in text. The conversation summarization feature described in this documentation enables you to use abstractive text summarization to produce a summary of issues and resolutions in transcripts of web chats and service call transcripts between customer-service agents, and your customers. 
 
-:::image type="content" source="../conversation-summarization/media/feature-diagram.svg" alt-text="A diagram for sending data to the conversation summarization feature.":::
+:::image type="content" source="../media/conversation-summary-diagram.svg" alt-text="A diagram for sending data to the conversation summarization feature.":::
 
 ## When to use conversation summarization
 
