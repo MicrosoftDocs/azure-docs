@@ -203,9 +203,9 @@ The task method determines the list of algorithms/models, to apply. Use the `all
 
 In the following list of links you can explore the supported algorithms per machine learning task listed below.
  
-* [Classification Algorithms (Tabular Data)](https://review.docs.microsoft.com/en-us/python/api/azure-ml/azure.ml.automl.classificationmodels?view=azure-ml-py&branch=sdk-cli-v2-preview-master)
-* [Regression Algorithms  (Tabular Data)](https://review.docs.microsoft.com/en-us/python/api/azure-ml/azure.ml.automl.regressionmodels?view=azure-ml-py&branch=sdk-cli-v2-preview-master)
-* [Time Series Forecasting Algorithms (Tabular Data)](https://review.docs.microsoft.com/en-us/python/api/azure-ml/azure.ml.automl.forecastingmodels?view=azure-ml-py&branch=sdk-cli-v2-preview-master)
+* Classification Algorithms (Tabular Data)
+* Regression Algorithms  (Tabular Data)
+* Time Series Forecasting Algorithms (Tabular Data)
 * [Image Classification Multi-class Algorithms](how-to-auto-train-image-models.md#supported-model-algorithms)
 * [Image Classification Multi-label Algorithms](how-to-auto-train-image-models.md#supported-model-algorithms)
 * [Image Object Detection Algorithms](how-to-auto-train-image-models.md#supported-model-algorithms)
@@ -238,13 +238,13 @@ Threshold-dependent metrics, like `accuracy`, `recall_score_weighted`, `norm_mac
 | `norm_macro_recall` | Churn prediction |
 | `precision_score_weighted` |  |
 
-You can also see the *enums* to use in Python in this reference page for [ClassificationPrimaryMetrics Enum](https://review.docs.microsoft.com/en-us/python/api/azure-ml/azure.ml.automl.classificationprimarymetrics?view=azure-ml-py&branch=sdk-cli-v2-preview-master)
+You can also see the *enums* to use in Python in this reference page for ClassificationPrimaryMetrics Enum
 
 #### Metrics for classification multi-label scenarios 
 
 - For Text classification multi-label currently 'Accuracy' is the only primary metric supported.
 
-- For Image classification multi-label, the primary metrics supported are defined in the [ClassificationMultilabelPrimaryMetrics Enum](https://review.docs.microsoft.com/en-us/python/api/azure-ml/azure.ml.automl.classificationmultilabelprimarymetrics?view=azure-ml-py&branch=sdk-cli-v2-preview-master)
+- For Image classification multi-label, the primary metrics supported are defined in the ClassificationMultilabelPrimaryMetrics Enum
 
 #### Metrics for NLP Text NER (Named Entity Recognition) scenarios 
 
@@ -270,7 +270,7 @@ However, currently no primary metrics for regression addresses relative differen
 | `r2_score` | Airline delay, Salary estimation, Bug resolution time |
 | `normalized_mean_absolute_error` |  |
 
-You can also see the *enums* to use in Python in this reference page for [RegressionPrimaryMetrics Enum](https://review.docs.microsoft.com/en-us/python/api/azure-ml/azure.ml.automl.regressionprimarymetrics?view=azure-ml-py&branch=sdk-cli-v2-preview-master)
+You can also see the *enums* to use in Python in this reference page for RegressionPrimaryMetrics Enum
 
 #### Metrics for Time Series Forecasting scenarios
 
@@ -282,15 +282,14 @@ The recommendations are similar to those noted for regression scenarios.
 | `r2_score` | Price prediction (forecasting), Inventory optimization, Demand forecasting |
 | `normalized_mean_absolute_error` | |
 
-You can also see the *enums* to use in Python in this reference page for [ForecastingPrimaryMetrics Enum](https://review.docs.microsoft.com/en-us/python/api/azure-ml/azure.ml.automl.forecastingprimarymetrics?view=azure-ml-py&branch=sdk-cli-v2-preview-master)
-
+You can also see the *enums* to use in Python in this reference page for ForecastingPrimaryMetrics Enum
 #### Metrics for Image Object Detection scenarios 
 
-- For Image Object Detection, the primary metrics supported are defined in the [ObjectDetectionPrimaryMetrics Enum](https://review.docs.microsoft.com/en-us/python/api/azure-ml/azure.ml.automl.objectdetectionprimarymetrics?view=azure-ml-py&branch=sdk-cli-v2-preview-master)
+- For Image Object Detection, the primary metrics supported are defined in the ObjectDetectionPrimaryMetrics Enum
 
 #### Metrics for Image Instance Segmentation scenarios 
 
-- For Image Instance Segmentation scenarios, the primary metrics supported are defined in the [InstanceSegmentationPrimaryMetrics Enum](https://review.docs.microsoft.com/en-us/python/api/azure-ml/azure.ml.automl.instancesegmentationprimarymetrics?view=azure-ml-py&branch=sdk-cli-v2-preview-master)
+- For Image Instance Segmentation scenarios, the primary metrics supported are defined in the InstanceSegmentationPrimaryMetrics Enum
 
 ### Data featurization
 
