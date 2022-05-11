@@ -11,11 +11,11 @@ ms.date: 05/12/2022
 
 # QuickStart: Get started with NGINX
 
-In this quickstart, you'll use the Azure Marketplace to find and create an instance of  **NGINX for Azure (Preview)**.
+In this quickstart, you'll use the Azure Marketplace to find and create an instance of  **NGINX for Azure**.
 
 ## Create new NGINX account
 
-1. To create an NGINX deployment using the Marketplace, subscribe to **NGINX for Azure (Preview)** in the Azure portal.
+1. To create an NGINX deployment using the Marketplace, subscribe to **NGINX for Azure** in the Azure portal.
 
 1. Set the following values in the **Create NGINX Deployment** pane.
 
