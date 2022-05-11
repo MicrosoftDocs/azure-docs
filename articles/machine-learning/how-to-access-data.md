@@ -316,7 +316,7 @@ To learn more about Azure Machine Learning CLI (v2), [follow this link](https://
 
 The following code creates and registers the `blob_example` datastore to the workspace. This datastore accesses the `data-container` blob container on the `mytestblobstore` storage account, by using account key.
 
-```Python
+```YAML
 $schema: https://azuremlschemas.azureedge.net/latest/azureBlob.schema.json
 name: blob_example
 type: azure_blob
@@ -329,7 +329,7 @@ credentials:
 
 The following code creates and registers the `blob_sas_example` datastore to the workspace. This datastore accesses the `data-container` blob container on the `mytestblobstore` storage account, by using sas token.
 
-```Python
+```YAML
 $schema: https://azuremlschemas.azureedge.net/latest/azureBlob.schema.json
 name: blob_sas_example
 type: azure_blob
@@ -343,7 +343,7 @@ credentials:
 
 The following code creates and registers the `blob_protocol_example` datastore to the workspace. This datastore accesses the `data-container` blob container on the `mytestblobstore` storage account, by using wasbs protocol and account key.
 
-```Python
+```YAML
 $schema: https://azuremlschemas.azureedge.net/latest/azureBlob.schema.json
 name: blob_protocol_example
 type: azure_blob
@@ -357,7 +357,7 @@ credentials:
 
 The following code creates and registers the `blob_credless_example` datastore to the workspace. This datastore accesses the `data-container` blob container on the `mytestblobstore` storage account, by using the user's identity or other managed identities.
 
-```Python
+```YAML
 $schema: https://azuremlschemas.azureedge.net/latest/azureBlob.schema.json
 name: blob_credless_example
 type: azure_blob
@@ -371,7 +371,7 @@ container_name: data-container
 
 The following code creates and registers the `file_example` datastore to the workspace. This datastore accesses the `my-share` file share on the `mytestfilestore` storage account, by using the provided account access key. Review the [storage access & permissions](#storage-access-and-permissions) section for guidance on virtual network scenarios, and where to find required authentication credentials. 
 
-```Python
+```YAML
 $schema: https://azuremlschemas.azureedge.net/latest/azureFile.schema.json
 name: file_example
 type: azure_file
@@ -385,7 +385,7 @@ credentials:
 
 The following code creates and registers the `file_sas_example` datastore to the workspace. This datastore accesses the `my-share` file share on the `mytestfilestore` storage account, by using the provided account sas token. Review the [storage access & permissions](#storage-access-and-permissions) section for guidance on virtual network scenarios, and where to find required authentication credentials. 
 
-```Python
+```YAML
 $schema: https://azuremlschemas.azureedge.net/latest/azureFile.schema.json
 name: file_sas_example
 type: azure_file
@@ -406,7 +406,7 @@ Review the [storage access & permissions](#storage-access-and-permissions) secti
 
 In order to utilize your service principal, you need to [register your application](../active-directory/develop/app-objects-and-service-principals.md) and grant the service principal data access via either Azure role-based access control (Azure RBAC) or access control lists (ACL). Learn more about [access control set up for ADLS](../storage/blobs/data-lake-storage-access-control-model.md). 
 
-```python 
+```YAML 
 $schema: https://azuremlschemas.azureedge.net/latest/azureDataLakeGen1.schema.json
 name: adls_gen1_example
 type: azure_data_lake_gen1
@@ -420,7 +420,7 @@ credentials:
 
 The following code creates and registers the `adls_gen1_credless_example` datastore to the workspace. This datastore accesses the `mytestdatalakegen1` storage, by using the user's identity or other managed identities.
 
-```python 
+```YAML 
 $schema: https://azuremlschemas.azureedge.net/latest/azureDataLakeGen1.schema.json
 name: alds_gen1_credless_example
 type: azure_data_lake_gen1
@@ -437,7 +437,7 @@ Review the [storage access & permissions](#storage-access-and-permissions) secti
 
 In order to utilize your service principal, you need to [register your application](../active-directory/develop/app-objects-and-service-principals.md) and grant the service principal data access via either Azure role-based access control (Azure RBAC) or access control lists (ACL). Learn more about [access control set up for ADLS Gen 2](../storage/blobs/data-lake-storage-access-control-model.md). 
 
-```python 
+```YAML 
 $schema: https://azuremlschemas.azureedge.net/latest/azureDataLakeGen2.schema.json
 name: adls_gen2_example
 type: azure_data_lake_gen2
@@ -452,7 +452,7 @@ credentials:
 
 The following code creates and registers the `adls_gen2_credless_example` datastore to the workspace. This datastore accesses the file system `my-gen2-container` in the `mytestdatalakegen2` storage account, by using the user's identity or other managed identities.
 
-```python 
+```YAML 
 $schema: https://azuremlschemas.azureedge.net/latest/azureDataLakeGen2.schema.json
 name: adls_gen2_credless_example
 type: azure_data_lake_gen2

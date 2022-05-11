@@ -67,6 +67,8 @@
       items:
       - name: Connect to storage with datastores
         href: how-to-access-data.md
+      - name: Get data from storage with datasets
+        href: how-to-create-register-datasets.md     
   - name: Train models
     items: 
     - name: Train with SDK v1
