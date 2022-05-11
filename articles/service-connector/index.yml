@@ -50,6 +50,8 @@ landingContent:
             url: tutorial-csharp-webapp-storage-cli.md
           - text: Spring Cloud app with Kafka on Confluent Cloud
             url: tutorial-java-spring-confluent-kafka.md
+          - text: Store secrets in Key Vault
+            url: tutorial-portal-key-vault.md
       - linkListType: how-to-guide
         links:
           - text: Troubleshooting guide
