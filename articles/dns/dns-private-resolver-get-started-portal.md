@@ -15,7 +15,7 @@ ms.custom: mode-ui
 
 This quickstart walks you through the steps to create an Azure DNS Private Resolver (Public Preview) using the Azure portal. If you prefer, you can complete this quickstart using [Azure PowerShell](private-dns-getstarted-powershell.md).
 
-Azure DNS Private Resolver enables you to query Azure DNS private zones from an on-prem environment, and vice versa, without deploying VM based DNS servers. You no longer need to provision IaaS based solutions on your virtual networks to resolve names registered on Azure private DNS zones. You can configure conditional forwarding of domains back to on-prem, multi-cloud and public DNS servers. For more information, including benefits, capabilities, and regional availability, see [What is Azure DNS Private Resolver](dns-private-resolver-overview.md).
+Azure DNS Private Resolver enables you to query Azure DNS private zones from an on-premises environment, and vice versa, without deploying VM based DNS servers. You no longer need to provision IaaS based solutions on your virtual networks to resolve names registered on Azure private DNS zones. You can configure conditional forwarding of domains back to on-premises, multi-cloud and public DNS servers. For more information, including benefits, capabilities, and regional availability, see [What is Azure DNS Private Resolver](dns-private-resolver-overview.md).
 
 ## Prerequisites
 
@@ -101,13 +101,13 @@ Next, add a virtual network to the resource group that you created, and configur
 
 ## Create a second virtual network
 
-Create a second virtual network to simulate an on-prem or other environment. To create a second virtual network:
+Create a second virtual network to simulate an on-premises or other environment. To create a second virtual network:
 
 1. Select **Virtual Networks** from the **Azure services** list, or search for **Virtual Networks** and then select **Virtual Networks**.
 2. Select **Create**, and then on the **Basics** tab select your subscription and choose the same resource group that you have been using in this guide (ex: myresourcegroup).
 3. Next to **Name**, enter a name for the new virtual network (ex: myvnet2).
 4. Verify that the **Region** selected is the same region used previously in this guide (ex: West Central US).
-5. Select the **IP Addresses** tab and edit the default IP address space. Replace the address space with a simulated on-prem address space (ex: 12.0.0.0/8). 
+5. Select the **IP Addresses** tab and edit the default IP address space. Replace the address space with a simulated on-premises address space (ex: 12.0.0.0/8). 
 6. Select **Add subnet** and enter the following:
     - Subnet name: backendsubnet
     - Subnet address range: 12.2.0.0/24
@@ -122,7 +122,7 @@ Create a second virtual network to simulate an on-prem or other environment. To 
 You should now be able to send DNS traffic to your DNS resolver and resolve records based on your forwarding rulesets, including:
 - Azure DNS private zones linked to the virtual network where the resolver is deployed.
 - DNS zones in the public internet DNS namespace.
-- Private DNS zones that are hosted on-prem.
+- Private DNS zones that are hosted on-premises.
 
 ## Next steps
 
