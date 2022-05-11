@@ -40,6 +40,12 @@ Subscription key-based authentication (Shared Key) can be used in either client 
 
 If using [Azure Active Directory (Azure AD) authentication](/azure/active-directory/fundamentals/active-directory-whatis) or [Shared Access Signature (SAS) Token authentication](azure-maps-authentication.md#shared-access-signature-token-authentication) (preview), access to Azure Maps REST APIs is authorized using [role-based access control (RBAC)](azure-maps-authentication.md#authorization-with-role-based-access-control). RBAC enables you to control what access is given to the issued tokens. You should consider how long access should be granted for the tokens. Unlike Shared Key authentication, the lifetime of these tokens is configurable.
 
+> [!TIP]
+>
+> For more information on configuring token lifetimes see:
+> - [Configurable token lifetimes in the Microsoft identity platform (preview)](/azure/active-directory/develop/active-directory-configurable-token-lifetimes)
+> - [Create SAS tokens](azure-maps-authentication.md#create-sas-tokens)
+
 You should consider defining which domains have access to your Azure Map account using [Cross origin resource sharing (CORS)](azure-maps-authentication.md#cross-origin-resource-sharing-cors). CORS instructs the clients' browser on which origin such as "https://microsoft.com" is allowed to request resources for the Azure Map account.
 
 ### When building a web server or service that works with Azure Maps
@@ -49,7 +55,7 @@ If you prefer to avoid the overhead and complexity of managing secrets, consider
 If using [Azure Active Directory (Azure AD) authentication](/azure/active-directory/fundamentals/active-directory-whatis) or [Shared Access Signature (SAS) Token authentication](azure-maps-authentication.md#shared-access-signature-token-authentication) (preview), access to Azure Maps REST API is authorized using [role-based access control (RBAC)](azure-maps-authentication.md#authorization-with-role-based-access-control). RBAC enables you to control what access is given to the issued tokens. You should consider how long access should be granted for the tokens. Unlike Shared Key authentication, the lifetime of these tokens is configurable.
 
 > [!NOTE]
-> If you're developing a web server or service, CORS isn't applicable.
+> If you're developing a web server or service, your Azure Maps account does not need to be configured with CORS. If you have JavaScript code in the client side web application, CORS does apply.
 
 ## Next steps
 
