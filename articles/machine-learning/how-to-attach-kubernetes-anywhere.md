@@ -100,7 +100,6 @@ Ensure you have fulfilled [prerequisites](#prerequisites). Assuming your cluster
 
 Azure Machine Learning workspace defaults to having a system-assigned managed identity to access Azure ML resources. The steps are completed if the system assigned default setting is on. 
 
-:::image type="content" source="media/how-to-attach-arc-kubernetes/ws-msi.png" alt-text="Settings for default Kubernetes cluster":::
 
 Otherwise, if a user-assigned managed identity is specified in Azure Machine Learning workspace creation, the following role assignments need to be granted to the identity manually before attaching the compute.
 
@@ -120,7 +119,7 @@ Attaching an Azure Arc-enabled Kubernetes cluster makes it available to your wor
 1. Select the **Attached computes** tab.
 1. Select **+New > Kubernetes (preview)**
 
-   :::image type="content" source="media/how-to-attach-arc-kubernetes/attach-kubernetes-cluster.png" alt-text="Settings for Kubernetes cluster to make available in your workspace":::
+   :::image type="content" source="media/how-to-attach-arc-kubernetes/attach-kubernetes-cluster.png" alt-text="Screenshot of settings for Kubernetes cluster to make available in your workspace.":::
 
 1. Enter a compute name and select your Azure Arc-enabled Kubernetes cluster from the dropdown.
 
@@ -128,13 +127,13 @@ Attaching an Azure Arc-enabled Kubernetes cluster makes it available to your wor
 
     * **(Optional)** Assign system-assigned or user-assigned managed identity. Managed identities eliminate the need for developers to manage credentials. For more information, see [managed identities overview](../active-directory/managed-identities-azure-resources/overview.md) .
 
-    :::image type="content" source="media/how-to-attach-arc-kubernetes/configure-kubernetes-cluster-2.png" alt-text="Settings for developer configuration of Kubernetes cluster":::
+    :::image type="content" source="media/how-to-attach-arc-kubernetes/configure-kubernetes-cluster-2.png" alt-text="Screenshot of settings for developer configuration of Kubernetes cluster.":::
 
 1. Select **Attach**
 
     In the Attached compute tab, the initial state of your cluster is *Creating*. When the cluster is successfully attached, the state changes to *Succeeded*. Otherwise, the state changes to *Failed*.
 
-    :::image type="content" source="media/how-to-attach-arc-kubernetes/provision-resources.png" alt-text="Attached settings for configuration of Kubernetes cluster":::
+    :::image type="content" source="media/how-to-attach-arc-kubernetes/provision-resources.png" alt-text="Screenshot of attached settings for configuration of Kubernetes cluster.":::
 
 ### [CLI](#tab/cli)
 
@@ -397,3 +396,14 @@ For AzureML extension deployment configurations, use ```--config``` or ```--conf
    |--|--|--|--|--|
    | ```sslCertPemFile```, ```sslKeyPemFile``` |Path to SSL certificate and key file (PEM-encoded), required for AzureML extension deployment with HTTPS endpoint support for inference, when  ``allowInsecureConnections`` is set to False. | N/A| Optional |  Optional |
    
+
+## Next steps
+
+- [Train models with CLI (v2)](how-to-train-cli.md)
+- [Configure and submit training runs](how-to-set-up-training-targets.md)
+- [Tune hyperparameters](how-to-tune-hyperparameters.md)
+- [Train a model using Scikit-learn](how-to-train-scikit-learn.md)
+- [Train a TensorFlow model](how-to-train-tensorflow.md)
+- [Train a PyTorch model](how-to-train-pytorch.md)
+- [Train using Azure Machine Learning pipelines](how-to-create-machine-learning-pipelines.md)
+- [Train model on-premise with outbound proxy server](../azure-arc/kubernetes/quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server)
