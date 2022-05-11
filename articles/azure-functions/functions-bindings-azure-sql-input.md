@@ -154,7 +154,7 @@ The examples refer to a database table:
 
 The following example shows a SQL input binding in a function.json file and a JavaScript function that reads from a query and returns the results in the HTTP response.
 
-Here's the binding data in the function.json file:
+The following is binding data in the function.json file:
 
 ```json
 {
