@@ -189,7 +189,7 @@ The examples refer to a database table:
 
 The following example shows a SQL input binding in a function.json file and a JavaScript function that adds records to a table, using data provided in an HTTP POST request as a JSON body.
 
-Here's the binding data in the function.json file:
+The following is binding data in the function.json file:
 
 ```json
 {
@@ -217,7 +217,7 @@ Here's the binding data in the function.json file:
 
 The [configuration](#configuration) section explains these properties.
 
-Here's the JavaScript code:
+The following is sample JavaScript code:
 
 ```javascript
 module.exports = async function (context, req) {
@@ -255,7 +255,7 @@ CREATE TABLE dbo.RequestLog (
 )
 ```
 
-Here's the binding data in the function.json file:
+The following is binding data in the function.json file:
 
 ```json
 {
@@ -290,7 +290,7 @@ Here's the binding data in the function.json file:
 
 The [configuration](#configuration) section explains these properties.
 
-Here's the JavaScript code:
+The following is sample JavaScript code:
 
 ```javascript
 module.exports = async function (context, req) {
@@ -340,7 +340,7 @@ The examples refer to a database table:
 
 The following example shows a SQL input binding in a function.json file and a Python function that adds records to a table, using data provided in an HTTP POST request as a JSON body.
 
-Here's the binding data in the function.json file:
+The following is binding data in the function.json file:
 
 ```json
 {
@@ -368,7 +368,7 @@ Here's the binding data in the function.json file:
 
 The [configuration](#configuration) section explains these properties.
 
-Here's the Python code:
+The following is sample Python code:
 
 ```python
 import logging
@@ -413,7 +413,7 @@ CREATE TABLE dbo.RequestLog (
 )
 ```
 
-Here's the binding data in the function.json file:
+The following is binding data in the function.json file:
 
 ```json
 {
@@ -448,7 +448,7 @@ Here's the binding data in the function.json file:
 
 The [configuration](#configuration) section explains these properties.
 
-Here's the Python code:
+The following is sample Python code:
 
 ```python
 import logging

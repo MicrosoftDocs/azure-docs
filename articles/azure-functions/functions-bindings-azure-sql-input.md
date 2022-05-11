@@ -203,7 +203,7 @@ module.exports = async function (context, req, todoItems) {
 
 The following example shows a SQL input binding in a JavaScript function that reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
 
-Here's the binding data in the function.json file:
+The following is binding data in the function.json file:
 
 ```json
 {
@@ -286,7 +286,7 @@ The stored procedure `dbo.DeleteToDo` must be created on the database.  In this 
 
 The [configuration](#configuration) section explains these properties.
 
-Here's the JavaScript code:
+The following is sample JavaScript code:
 
 
 ```javascript
@@ -322,7 +322,7 @@ The examples refer to a database table:
 
 The following example shows a SQL input binding in a function.json file and a Python function that reads from a query and returns the results in the HTTP response.
 
-Here's the binding data in the function.json file:
+The following is binding data in the function.json file:
 
 ```json
 {
@@ -351,7 +351,7 @@ Here's the binding data in the function.json file:
 
 The [configuration](#configuration) section explains these properties.
 
-Here's the Python code:
+The following is sample Python code:
 
 
 ```python
@@ -373,7 +373,7 @@ def main(req: func.HttpRequest, todoItems: func.SqlRowList) -> func.HttpResponse
 
 The following example shows a SQL input binding in a Python function that reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
 
-Here's the binding data in the function.json file:
+The following is binding data in the function.json file:
 
 ```json
 {
@@ -403,7 +403,7 @@ Here's the binding data in the function.json file:
 
 The [configuration](#configuration) section explains these properties.
 
-Here's the Python code:
+The following is sample Python code:
 
 
 ```python
@@ -426,7 +426,7 @@ def main(req: func.HttpRequest, todoItem: func.SqlRowList) -> func.HttpResponse:
 
 The following example shows a SQL input binding in a function.json file and a Python function that executes a stored procedure with input from the HTTP request query parameter.
 
-The stored procedure `dbo.DeleteToDo` must be created on the SQL database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+The stored procedure `dbo.DeleteToDo` must be created on the database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="11-25":::
 
@@ -459,7 +459,7 @@ The stored procedure `dbo.DeleteToDo` must be created on the SQL database.  In t
 
 The [configuration](#configuration) section explains these properties.
 
-Here's the Python code:
+The following is sample Python code:
 
 
 ```python
