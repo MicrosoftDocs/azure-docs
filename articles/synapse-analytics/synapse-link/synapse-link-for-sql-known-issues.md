@@ -5,9 +5,9 @@ author: jonburchel
 ms.service: synapse-analytics
 ms.topic: troubleshooting
 ms.subservice: synapse-link
-ms.date: 05/09/2022
+ms.date: 05/24/2022
 ms.author: jburchel
-ms.reviewer: jburchel
+ms.reviewer: jburchel, chuckheinzelman, wiassaf
 ---
 
 # Known limitations and issues with Azure Synapse Link for SQL
@@ -64,6 +64,8 @@ This is the list of known limitations for Azure Synapse Link for SQL.
 * The security configuration from the source database will **NOT** be reflected in the target dedicated SQL pool.
 * Enabling Azure Synapse Link for SQL will create a new schema called `changefeed`. Don't use this schema, as it is reserved for system use.
 * Source tables with non-default collations: UTF8, Japanese can't be replicated to Synapse. Here's the [supported collations in Synapse SQL Pool](../sql/reference-collation-types.md).
+* Single row updates (including off-page storage) of > 370MB are not supported.
+* Single transactions of > 500MB could cause data ingestion to the Azure Synapse Analytics dedicated SQL pool to fail.
 
 ### Azure SQL DB only
 * Azure Synapse Link for SQL isn't supported on Free, Basic or Standard tier with fewer than 100 DTUs.
