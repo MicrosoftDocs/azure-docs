@@ -10,7 +10,7 @@ ms.author: elkrieger
 
 The Log Analytics workspace is used by the Defender profile/extension as a data pipeline to send data from the cluster to Defender for Cloud without retaining any data in the Log Analytics workspace itself. As a result, users will not be billed in this use case.
 
-The Defender profile/extension uses a default Log Analytics workspace. If you do not already have a default Log Analytics workspace, Defender for Cloud will creates a new resource group and default workspace when the Defender for Containers plan is enabled. The default workspace is created based on your [region](../faq-data-collection-agents.yml), and connects the Defender profile/extension to that workspace.
+The Defender profile/extension uses a default Log Analytics workspace. If you do not already have a default Log Analytics workspace, Defender for Cloud will creates a new resource group and default workspace when the Defender profile/extension is installed. The default workspace is created based on your [region](../faq-data-collection-agents.yml).
 
 The naming convention for the default Log Analytics workspace and resource group is:
 - **Workspace**: DefaultWorkspace-\[subscription-ID]-\[geo]
