@@ -582,13 +582,13 @@ print(
 
 Now that both your components are defined and registered, you can start implementing the pipeline.
 
-Here, you'll use *input data*, *split ratio* and *registered model name* as input variables. Then call the components and connect them via their inputs /outputs identifiers. The outputs of each step can be accessed via the `.outputs` property.
+Here, you'll use *input data*, *split ratio* and *registered model name* as input variables. Then call the components and connect them via their inputs/outputs identifiers. The outputs of each step can be accessed via the `.outputs` property.
 
 The python functions returned by `load_component()` work as any regular python function that we'll use within a pipeline to call each step.
 
 To code the pipeline, you use a specific `@dsl.pipeline` decorator that identifies the Azure ML pipelines. In the decorator, we can specify the pipeline description and default resources like compute and storage. Like a python function, pipelines can have inputs. You can then create multiple instances of a single pipeline with different inputs.
 
-Here, we used *input data*, *split ratio* and *registered model name* as input variables. We then call the components and connect them via their inputs /outputs identifiers. The outputs of each step can be accessed via the `.outputs` property.
+Here, we used *input data*, *split ratio* and *registered model name* as input variables. We then call the components and connect them via their inputs/outputs identifiers. The outputs of each step can be accessed via the `.outputs` property.
 
 > [!IMPORTANT]
 > In the code below, replace `<CPU-CLUSTER-NAME>` with the name you used when you created a compute cluster in the [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md).
@@ -857,7 +857,7 @@ If you're not going to use the endpoint, delete it to stop using the resource.  
 ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
 ```
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > Learn more about [Azure ML logging](https://github.com/Azure/azureml-examples/blob/sdk-preview/notebooks/mlflow/mlflow-v1-comparison.ipynb).
