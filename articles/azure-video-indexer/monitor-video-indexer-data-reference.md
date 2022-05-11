@@ -137,11 +137,11 @@ Resource Provider and Type: [Microsoft.videoindexer/accounts](/azure/azure-monit
 
 ### Azure Video Indexer
 
-Resource Provider and Type: [Microsoft.VideoIndexer/accounts](/azure/azure-monitor/platform/resource-logs-categories#microsoftwebsitesslots)
+Resource Provider and Type: [Microsoft.VideoIndexer/accounts](/azure/azure-monitor/platform/resource-logs-categories#microsoftvideoindexeraccounts)
 
 | Category | Display Name | Additional information |
 |:---------|:-------------|------------------|
-| VIAudit   | Azure Video Indexer Audit Logs | Logs are produced for both the Video Indexer portal and the REST API. |
+| VIAudit   | Azure Video Indexer Audit Logs | Logs are produced from both the Video Indexer portal and the REST API. |
 
 <!-- --------------**END Examples** ------------- -->
 
@@ -160,7 +160,6 @@ This section refers to all of the Azure Monitor Logs Kusto tables relevant to Az
 |Resource Type | Notes |
 |-------|-----|
 | [Azure Video Indexer](/azure/azure-monitor/reference/tables/tables-resourcetype#video-indexer) | |
-|  |
 
 <!----------------**OPTION 2 EXAMPLE** -------------
 
@@ -223,8 +222,10 @@ The following table lists the operations related to Azure Video Indexer that may
 | Operation | Description |
 |:---|:---|
 |Generate_AccessToken | |
+|Accounts_Update | |
+|Write tags | |
 |Create or update resource diagnostic setting| |
-|Delete resource diagnostic setting||
+|Delete resource diagnostic setting|
 
 <!-- NOTE: This information may be hard to find or not listed anywhere.  Please ask your PM for at least an incomplete list of what type of messages could be written here. If you can't locate this, contact azmondocs@microsoft.com for help -->
 
@@ -237,6 +238,32 @@ The following schemas are in use by Azure Video Indexer
 
 <!-- List the schema and their usage. This can be for resource logs, alerts, event hub formats, etc depending on what you think is important. -->
 
+```json
+{
+    "time": "2022-03-22T10:59:39.5596929Z",
+    "resourceId": "/SUBSCRIPTIONS/602a61eb-c111-43c0-8323-74825230a47d/RESOURCEGROUPS/VI-RESOURCEGROUP/PROVIDERS/MICROSOFT.VIDEOINDEXER/ACCOUNTS/VIDEOINDEXERACCOUNT",
+    "operationName": "Get-Video-Thumbnail",
+    "category": "Audit",
+    "location": "westus2",
+    "durationMs": "192",
+    "resultSignature": "200",
+    "resultType": "Success",
+    "resultDescription": "Get Video Thumbnail",
+    "correlationId": "33473fc3-bcbc-4d47-84cc-9fba2f3e9faa",
+    "callerIpAddress": "46.*****",
+    "operationVersion": "Operations",
+    "identity": {
+      "externalUserId": "4704F34286364F2*****",
+      "upn": "alias@outlook.com",
+      "claims": { "permission": "Reader", "scope": "Account" }
+    },
+    "properties": {
+      "accountName": "videoIndexerAccoount",
+      "accountId": "8878b584-d8a0-4752-908c-00d6e5597f55",
+      "videoId": "1e2ddfdd77"
+    }
+  }
+  ```
 ## See Also
 
 <!-- replace below with the proper link to your main monitoring service article -->
