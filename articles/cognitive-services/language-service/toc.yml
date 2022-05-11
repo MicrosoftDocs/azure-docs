@@ -114,7 +114,7 @@ items:
           href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
         - name: Node.js
           href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
-- name: Custom Named Entity Recognition (NER) (preview)
+- name: Custom named entity recognition (NER) (preview)
   items:
   - name: Overview
     href: custom-named-entity-recognition/overview.md
@@ -146,7 +146,7 @@ items:
       href: custom-named-entity-recognition/how-to/design-schema.md
     - name: Tag data
       href: custom-named-entity-recognition/how-to/tag-data.md
-    - name: Use autotagging to automatically tag your data
+    - name: Use autotagging (preview) to automatically tag your data
       href: custom-named-entity-recognition/how-to/use-autotagging.md
     - name: Train a model
       href: custom-named-entity-recognition/how-to/train-model.md

@@ -47,7 +47,7 @@ Use the following information to help guide model improvements.
 
 * If a file that should belong to class  `X` is constantly classified as class `Y`, it means that there is ambiguity between these classes and you need to reconsider your schema. Learn more about [data selection and schema design](design-schema.md#schema-design). Another solution is to consider adding more data to these classes, to help the model improve and differentiate between them.
 
-    :::image type="content" source="../media/train-model.png" alt-text="A screenshot showing a new training job in Language Studio." lightbox="../media/train-model.png":::
+    :::image type="content" source="../media/review-validation-set.png" alt-text="A screenshot showing model predictions in Language Studio." lightbox="../media/review-validation-set.png":::
 
 
 ## Next steps

@@ -53,7 +53,7 @@ To review inconsistent predictions in the [test set](train-model.md) from within
     * If an entity is predicted while it was not tagged in your data, this means to you need to review your tags. Be sure that all instances of an entity are properly tagged in all documents.
     
     
-    :::image type="content" source="../media/train-model.png" alt-text="A screenshot showing a new training job in Language Studio." lightbox="../media/train-model.png":::
+    :::image type="content" source="../media/review-predictions.png" alt-text="A screenshot showing model predictions in Language Studio." lightbox="../media/review-predictions.png":::
 
 
 

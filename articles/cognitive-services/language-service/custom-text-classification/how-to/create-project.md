@@ -99,14 +99,6 @@ If you have already labeled data, you can use it to get started with the service
 
 ---
 
-## Prepare training data
-
-When you're ready to prepare your training data:
-
-* You should have an idea of the [project schema](design-schema.md) you will use to label your data.
-
-* After your project is created, you can start [labeling your data](tag-data.md), which will inform your text classification model how to interpret text, and is used for training and evaluation.
-
 ## Delete project
 
 ### [Language Studio](#tab/studio)

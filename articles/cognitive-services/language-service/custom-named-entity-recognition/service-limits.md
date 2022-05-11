@@ -22,12 +22,13 @@ Use this article to learn about the data and service limits when using custom NE
 * Your Language resource has to be created in one of the [supported regions](#regional-availability).
 
 * Your resource must be one of the supported pricing tiers:
-
-  |Tier|Description|Limit|
-  |--|--|--|
-  |F|Free tier|You are only allowed one Language resource per subscription.|
-  |S|Paid tier|This pricing tier, you can have unlimited Language resources per subscription| 
-
+    
+    |Tier|Description|Limit|
+    |--|--|--|
+    |F0 |Free tier|You are only allowed one F 0tier Language resource per subscription.|
+    |S |Paid tier|You can have unlimited Language S tier resources per subscription. | 
+    
+    
 * You can only connect 1 storage account per resource. This process is irreversible. If you connect a storage account to your resource, you cannot unlink it later. Learn more about [connecting a storage account](how-to/create-project.md#create-language-resource-and-connect-storage-account)
 
 * You can have up to 500 projects per resource.

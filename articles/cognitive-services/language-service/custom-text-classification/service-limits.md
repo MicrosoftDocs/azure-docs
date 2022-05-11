@@ -33,8 +33,8 @@ Custom text classification is available with the following pricing tiers:
 
 |Tier|Description|Limit|
 |--|--|--|
-|F|Free tier|You are only allowed one F tier Language resource per subscription.|
-|S|Paid tier|You can have unlimited Language S tier resources per subscription. | 
+|F0 |Free tier|You are only allowed one F 0tier Language resource per subscription.|
+|S |Paid tier|You can have unlimited Language S tier resources per subscription. | 
 
 
 See [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/) for more information.
