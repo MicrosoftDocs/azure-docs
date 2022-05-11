@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/10/2022
+ms.date: 05/11/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -78,6 +78,7 @@ In this section, you find documents about Microsoft Power BI integration into SA
 
 ## Change Log
 
+- May 11, 2022: Change in [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk in Azure](./sap-high-availability-guide-wsfc-shared-disk.md), [Prepare the Azure infrastructure for SAP HA by using a Windows failover cluster and shared disk for SAP ASCS/SCS](./sap-high-availability-infrastructure-wsfc-shared-disk.md) and [SAP ASCS/SCS instance multi-SID high availability with Windows server failover clustering and Azure shared disk](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) to update instruction about the usage of Azure shared disk for SAP deployment with PPG.
 - May 10, 2022: Changes in Change in [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md), [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md), [HA for SAP HANA Scale-up with Azure NetApp Files on SLES](./sap-hana-high-availability-netapp-files-suse.md), [SAP HANA scale-out with standby node on Azure VMs with ANF on SLES](./sap-hana-scale-out-standby-netapp-files-suse.md), [SAP HANA scale-out HSR with Pacemaker on Azure VMs on SLES](./sap-hana-high-availability-scale-out-hsr-suse.md) and [SAP HANA scale-out with standby node on Azure VMs with ANF on RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md) to adjust parameters per SAP note 3024346
 - April 26, 2022: Changes in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](high-availability-guide-suse-pacemaker.md) to add Azure Identity python module to installation instructions for Azure Fence Agent
 - March 30, 2022: Adding information that Red Hat Gluster Storage is being phased out [GlusterFS on Azure VMs  on RHEL](./high-availability-guide-rhel-glusterfs.md)
