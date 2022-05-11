@@ -72,8 +72,7 @@
             displayName: server parameters, cli
       - name: Create databases and users
         href: howto-create-users.md
-        displayName: users
- 
+        displayName: users 
   - name: Concepts
     items:
     - name: Server Management
@@ -126,6 +125,10 @@
       items:
       - name: Backup & Restore concepts
         href: flexible-server/concepts-backup-restore.md
+  - name: Integrations
+    items:
+    - name: Azure Data factory
+      href: ../data-factory/connector-azure-database-for-mysql.md
   - name: Tutorials
     items:
     - name: Application Development
