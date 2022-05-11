@@ -720,7 +720,6 @@ If the client authentication certificate is expired, run the following PowerShel
 ```powershell
 Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
 ```
-
 <a id="-2134375896"></a>**Sync failed due to authentication certificate not found.**  
 
 | Error | Code |
@@ -737,7 +736,6 @@ To resolve this issue, run the following PowerShell command on the server:
 ```powershell
 Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
 ```
-
 <a id="-2134364039"></a>**Sync failed due to authentication identity not found.**  
 
 | Error | Code |
