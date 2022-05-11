@@ -2,36 +2,35 @@
 title: Create nginx application - Azure partner solutions
 description: This article describes how to use the Azure portal to create an instance of nginx.
 ms.topic: quickstart
-ms.collection: na
 ms.service: partner-services
 author: flang-msft
 ms.author: franlanglois
 ms.date: 05/12/2022
-ms.custom: mode-other
+
 ---
 
 # QuickStart: Get started with nginx
 
-In this quickstart, you'll use the Azure portal to create an instance of nginx with your Azure solutions.
+In this quickstart, you'll use the Azure Marketplace to find and create an instance of  **NGINX for Azure (Preview)**.
 
-## Create new Nginx account
+## Create new NGINX account
 
-1. Create an Nginx deployment using the Resource Manager in the Azure portal.
+1. To create an NGINX deployment using the Marketplace, subscribe to **NGINX for Azure (Preview)** in the Azure portal. 
 
-    Set the following values in the Create Nginx resource screen.
+1. Set the following values in the **Create NGINX Deployment** pane.
 
     :::image type="content" source="media/nginx-create/nginx-create.png" alt-text="screenshot of basics page of nginx":::
 
     | Property  | Description |
     |---------|---------|
-    | Subscription     | From the drop-down, select your Azure subscription where you have owner access        |
-    | Resource group     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see Azure Resource Group overview.          |
-    | Nginx account name  | Put the name for the Nginx account you want to create         |
-    | Location | Select West Central US. Note that West Central US is the only Azure region supported by Nginx during preview.          |
-    | Plan     |    Specified based on the selected Nginx plan      |
-    | Price    |     Pay As You Go     |
+    | Subscription     | From the drop-down, select your Azure subscription where you have owner access |
+    | Resource group     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see Azure Resource Group overview. |
+    | NGINX account name  | Put the name for the NGINX account you want to create |
+    | Location | Select West Central US. Note that West Central US is the only Azure region supported by NGINX during preview |
+    | Plan     | Specified based on the selected NGINX plan |
+    | Price    | Pay As You Go |
 
-1. After filling in the proper values, select the **Next: Networking**. You're taken the **Networking** screen. Specify the VNet and Subnet that is associated with the Nginx deployment.  
+1. After filling in the proper values, select the **Next: Networking** to see the **Networking** screen. Specify the VNet and Subnet that is associated with the NGINX deployment.  
 
     :::image type="content" source="media/nginx-create/nginx-networking.png" alt-text="screenshot of networking part of nginx create experience":::
 
@@ -41,7 +40,7 @@ In this quickstart, you'll use the Azure portal to create an instance of nginx w
 
 ### Add custom tags
 
-You can specify custom tags for the new Nginx resource in Azure by adding custom key value pairs.
+You can specify custom tags for the new NGINX resource in Azure by adding custom key value pairs.
 
 1. Select Tags.
 
@@ -49,18 +48,18 @@ You can specify custom tags for the new Nginx resource in Azure by adding custom
 
     | Property | Description |
     |----------| -------------|
-    |Name | Name of the tag corresponding to the Azure Nginx resource |
-    | Value | Value of the tag corresponding to the Azure Nginx resource |
+    |Name | Name of the tag corresponding to the Azure NGINX resource. |
+    | Value | Value of the tag corresponding to the Azure NGINX resource. |
 
-1. Select the **Next: Review+Create** to navigate to the final step for resource creation. Once you get to the **Review + Create** page, all validations are run. At this point, you can review all the selections made in the Basics, Metrics and Logs, Single sign-on and Tags screens. You can also review the Nginx and Azure Marketplace terms and conditions.  
+1. Select the **Next: Review+Create** to navigate to the final step for resource creation. When you get to the **Review + Create** page, all validations are run. At this point, review all the selections made in the Basics, Metrics and Logs, Single sign-on and Tags screens. You can also review the NGINX and Azure Marketplace terms and conditions.  
 
     :::image type="content" source="media/nginx-create/nginx-review-and-create.png" alt-text="screenshot of review and create nginx resource":::
 
-1.Once you've reviewed all the information select **Create**. Azure now deploys the Nginx resource.
+1.Once you've reviewed all the information select **Create**. Azure now deploys the NGINX for Azure resource.
 
    :::image type="content" source="media/nginx-create/nginx-deploy.png" alt-text="screenshot of nginx deployment":::
 
-1. Once the process is complete, select **Go to Resource** to navigate to the specific Nginx resource.
+1. Once the process is complete, select **Go to Resource** to navigate to the specific NGINX resource.
 
     :::image type="content" source="media/nginx-create/nginx-overview-pane.png" alt-text="Image ":::
 

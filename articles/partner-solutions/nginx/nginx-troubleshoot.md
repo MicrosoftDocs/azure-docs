@@ -1,8 +1,7 @@
 ---
 title: Troubleshooting nginx - Azure partner solutions
-description: This article provides information about getting support and troubleshooting nginx integration with Azure
+description: This article provides information about getting support and troubleshooting Nginx integration with Azure.
 ms.topic: conceptual
-ms.collection: na
 ms.service: partner-services
 author: flang-msft
 ms.author: franlanglois
@@ -14,11 +13,13 @@ ms.date: 05/12/2022
 
 ## Getting support  
 
-To contact support about the Azure Nginx integration, select the **New Support request** menu item in the left navigation. Click on the Open an Nginx Support ticket and fill out the details.
+1. To contact support about the Azure Nginx integration, select the **New Support request** menu item in the left navigation.
 
-Image
+1. Click on the Open an Nginx Support ticket and fill out the details.
 
-Click on the Open a Nginx Support ticket and fill out the details. 
+    :::image type="content" source="media/nginx-troubleshoot/nginx-support-request.png" alt-text="screenshot of nginx support ticket":::
+
+1. Click on the Open a Nginx Support ticket and fill out the details.
 
 ## Unable to create a Nginx resource as not a subscription owner  
 
