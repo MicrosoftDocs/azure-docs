@@ -542,7 +542,7 @@ The following table explains the binding configuration properties that you set i
 
 ## Usage
 
-::: zone pivot="programming-language-csharp"
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
 The `CommandText` property is the name of the table where the data is to be stored. The connection string setting name corresponds to the application setting that contains the [connection string](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-3.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString) to the Azure SQL or SQL Server instance.
 
 ::: zone-end
