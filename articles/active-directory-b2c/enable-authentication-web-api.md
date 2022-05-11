@@ -143,7 +143,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Identity.Web;
 ```
 If you're targeting .NET 6.0, you need to perform two additional steps:
-1. add an extra `using` declaration  to access `Configuration` properties 
+1. Add an extra `using` declaration to access `Configuration` properties: 
 
 ```csharp
 using ConfigurationManager = Microsoft.Extensions.Configuration.ConfigurationManager;
