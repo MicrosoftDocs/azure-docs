@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: msdpalam
 ms.author: meeral
 ms.reviewer: sgilley
-ms.date: 04/20/2022
+ms.date: 05/10/2022
 ms.custom: sdkv2
 #Customer intent: This tutorial is intended to introduce Azure ML to data scientists who want to scale up or publish their ML projects. By completing a familiar end-to-end project, which starts by loading the data and ends by creating and calling an online inference endpoint, the user should become familiar with the core concepts of Azure ML and their most common usage. Each step of this tutorial can be modified or performed in other ways that might have security or scalability advantages. We will cover some of those in the Part II of this tutorial, however, we suggest the reader use the provide links in each section to learn more on each topic. 
 ---
@@ -68,6 +68,8 @@ First you'll install the v2 SDK on your compute instance:
     ```
     pip install azure-ai-ml
     ```
+
+    For more information, see [Install the Python SDK v2](https://aka.ms/sdk-v2-install).
 
 ## Clone the azureml-examples repo
 
@@ -244,7 +246,7 @@ The Azure ML packages aren't mandatory to run Azure ML jobs. However, adding the
 
 Use the *yaml* file to create and register this custom environment in your workspace:
 
-```python
+```Python
 from azure.ai.ml.entities import Environment
 
 custom_env_name = "aml-scikit-learn"
@@ -378,7 +380,6 @@ command: >-
 ```
 
 Once the `yaml` file and the script are ready, you can create your component using `load_component()`. 
-
 
 ```python
 # importing the Component Package
@@ -751,7 +752,7 @@ online_endpoint_name = "credit-endpoint-" + str(uuid.uuid4())[:8]
 
 ```
 
-```python
+```Python
 from azure.ai.ml.entities import (
     ManagedOnlineEndpoint,
     ManagedOnlineDeployment,

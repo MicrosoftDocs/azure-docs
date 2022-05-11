@@ -558,25 +558,26 @@
           items: 
             - name: Deploy an ML model with an online endpoint
               href: how-to-deploy-managed-online-endpoints.md
-            - name: Authenticate to endpoints
-              href: how-to-authenticate-online-endpoint.md
+            - name: Security
+              items:
+                - name: Authenticate to endpoints
+                  href: how-to-authenticate-online-endpoint.md
+                - name: Managed online endpoints VM SKU list
+                  href: reference-managed-online-endpoints-vm-sku-list.md
+                - name: Network isolation with managed online endpoints
+                  displayName: network, vnet, secure
+                  href: how-to-secure-online-endpoint.md
             - name: Safe rollout for online endpoints
               href: how-to-safely-rollout-managed-endpoints.md
             - name: Autoscale managed online endpoints
               href: how-to-autoscale-endpoints.md
             - name: Access Azure resources from online endpoints
               href: how-to-access-resources-from-endpoints-managed-identities.md
-            - name: Network isolation with managed online endpoints
-              displayName: network, vnet, secure
-              href: how-to-secure-online-endpoint.md
             - name: Deployment scenarios
               items: 
                 - name: Deploy a MLflow model with an online endpoint
                   displayName: ncd, no code deploy, no-code deployment
                   href: how-to-deploy-mlflow-models-online-endpoints.md
-                - name: Convert custom model to MLflow model
-                  displayName: ncd, no code deploy, no-code deployment
-                  href: how-to-convert-custom-model-to-mlflow.md
                 - name: Deploy a custom container with an online endpoint
                   href: how-to-deploy-custom-container.md
                 - name: Use online endpoints in studio
@@ -589,8 +590,6 @@
                   href: how-to-deploy-automl-endpoint.md
             - name: Viewing managed online endpoint costs
               href: how-to-view-online-endpoints-costs.md
-            - name: Managed online endpoints VM SKU list
-              href: reference-managed-online-endpoints-vm-sku-list.md
             - name: Monitoring managed online endpoints
               href: how-to-monitor-online-endpoints.md
             - name: Debug online endpoints locally VS Code
@@ -610,6 +609,9 @@
         - name: Inference HTTP server
           displayName: local debug
           href: how-to-inference-server-http.md
+        - name: Convert custom model to MLflow model
+          displayName: ncd, no code deploy, no-code deployment
+          href: how-to-convert-custom-model-to-mlflow.md
     - name: Manage the ML lifecycle
       items: 
         - name: Automation
