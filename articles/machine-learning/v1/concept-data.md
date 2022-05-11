@@ -81,7 +81,7 @@ Because datasets are lazily evaluated, and the data remains in its existing loca
 * Don't risk unintentionally changing your original data sources.
 * Improve ML workflow performance speeds.
 
-To interact with your data in storage, [create a dataset](../how-to-create-register-datasets.md) to package your data into a consumable object for machine learning tasks. Register the dataset to your workspace to share and reuse it across different experiments without data ingestion complexities.
+To interact with your data in storage, [create a dataset](how-to-create-register-datasets.md) to package your data into a consumable object for machine learning tasks. Register the dataset to your workspace to share and reuse it across different experiments without data ingestion complexities.
 
 Datasets can be created from local files, public urls, [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/), or Azure storage services via datastores. 
 
@@ -129,5 +129,5 @@ See the [Create a dataset monitor](../how-to-monitor-datasets.md) article, to le
 
 ## Next steps 
 
-+ Create a dataset in Azure Machine Learning studio or with the Python SDK [using these steps.](../how-to-create-register-datasets.md)
++ Create a dataset in Azure Machine Learning studio or with the Python SDK [using these steps.](how-to-create-register-datasets.md)
 + Try out dataset training examples with our [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/).
