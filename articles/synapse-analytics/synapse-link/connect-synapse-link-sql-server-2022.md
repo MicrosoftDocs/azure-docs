@@ -89,6 +89,9 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 1. Continue to input the rest information on your linked service including **SQL Server name**, **Database name**, **Authentication type**, **User name** and **Password** to connect to your SQL Server 2022.
 
+   > [!NOTE]
+   > We recommend that you enable encryption on this connection. To enable encryption, add the `Encrypt` property with a value of `true` as an Additional connection property, and also set the `Trust Server Certificate` property to either `true` or `false` - depending on your server configuration. For more information, see [Enable encrypted connections to the Database Engine](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+
 1. Select **Test Connection** to ensure your self-hosted integration runtime can access on your SQL Server.
 
 1. Select **Create**, and you'll have your new linked service connecting to SQL Server 2022 available in your workspace.
