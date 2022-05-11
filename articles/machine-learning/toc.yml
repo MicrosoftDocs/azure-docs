@@ -614,6 +614,8 @@
           href: how-to-convert-custom-model-to-mlflow.md
     - name: Manage the ML lifecycle
       items: 
+        - name: Manage models
+          href: how-to-manage-models.md
         - name: Automation
           items: 
             - name: Azure Pipelines for CI/CD
