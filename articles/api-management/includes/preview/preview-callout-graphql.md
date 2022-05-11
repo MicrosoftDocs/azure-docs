@@ -8,4 +8,4 @@ ms.custom:
 ---
 
 > [!IMPORTANT]
-> Configuring resolvers for GraphQL queries is currently in preview and is not available in the **Consumption** service tier.
+> Configuring resolvers for GraphQL queries is currently in preview. This feature is not available in the **Consumption** service tier or in the self-hosted gateway.
