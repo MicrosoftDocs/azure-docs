@@ -471,7 +471,8 @@ When you create connections within a workflow using [managed connectors](../conn
 
 1. Based on the connection type, you want to view, select one of the following options:
 
-   **API Connections**, which are created by managed connectors. a specific connection instance, which shows more information about that connection. To view the underlying connection resource definition, select **JSON View**.
+   * **API Connections**, which are created by managed connectors.
+   * **Service Provider Connections**, which are created by built-in connectors based on the service provider interface implementation. a specific connection instance, which shows more information about that connection. To view the underlying connection resource definition, select **JSON View**.
 
 
 <a name="delete-from-designer"></a>
