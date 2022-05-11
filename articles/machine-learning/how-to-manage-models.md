@@ -18,8 +18,8 @@ ms.custom: devx-track-python, cli-v2, sdk-v2
 
 Azure Machine Learning allows you to work with different types of models. In this article, you'll learn about using Azure Machine Learning to work with different model types (Custom, MLflow, and Triton), how to register a model from different locations and how to use the SDK, UI and CLI to manage your models. 
 
-> [!TIP]
-> If you have model assets created using the SDK/CLI v1, you can still use those with SDK/CLI v2. For more information, see the [Consuming V1 Model Assets in V2](#consuming-v1-model-assets-in-v2) section.
+<!-- > [!TIP]
+> If you have model assets created using the SDK/CLI v1, you can still use those with SDK/CLI v2. For more information, see the [Consuming V1 Model Assets in V2](#consuming-v1-model-assets-in-v2) section. -->
 
 
 ## Prerequisites
