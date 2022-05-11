@@ -9,6 +9,8 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [header](includes/edge-env.md)]
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 In this tutorial, you'll learn how to use Azure Video Analyzer to perform [continuous video recording](../continuous-video-recording.md) (CVR) to the cloud and play back that recording. This capability is useful for scenarios such as safety and compliance where there is a need to maintain an archive of the footage from a camera for days, weeks, months or even years or alternatively you could specify the retention period for the video being recorded. Retention policy defines how many days of video should be stored (for example, the last 7 days), you can learn more about it in the [Manage retention policy](../manage-retention-policy.md) article.
 
 In this tutorial you will:

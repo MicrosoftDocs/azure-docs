@@ -288,8 +288,8 @@
         "articles/cognitive-services/Translator/**/*.md": "laujan",
         "articles/connectors/*.md": "ecfan",
         "articles/container-instances/**/*.md": "macolso",
-        "articles/container-registry/**/*.md": "tejaswikolli",
-        "articles/data-catalog/*.md": "ChandraKavya",
+        "articles/container-registry/**/*.md": "tejaswikolli-web",
+        "articles/data-catalog/*.md": "whhender",
         "articles/data-lake-analytics/*.md": "xujxu",
         "articles/defender-for-cloud/*.md": "elazark",
         "articles/defender-for-iot/organizations/*.md": "batamig",
@@ -328,7 +328,7 @@
         "articles/virtual-machines/linux/*.md": "cynthn",
         "articles/virtual-machines/windows/*.md": "cynthn",
         "articles/virtual-machines-scale-sets/*.md": "ju-shim",
-        "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "Juliako",
+        "articles/azure-video-indexer/*.md": "Juliako",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "Juliako",
         "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "Juliako",
         "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "Juliako"        
@@ -469,7 +469,7 @@
         "articles/machine-learning/**/*.md": "https://feedback.azure.com/d365community/forum/b9a0c624-ad25-ec11-b6e6-000d3a4f09d0",
         "articles/machine-learning/classic/*.md": "https://feedback.azure.com/d365community/forum/b9a0c624-ad25-ec11-b6e6-000d3a4f09d0",
         "articles/machine-learning/data-science-virtual-machine/*.md": "https://feedback.azure.com/d365community/forum/fe7451c9-7426-ec11-b6e6-000d3a4f032c",
-        "articles/machine-learning/studio/*.md": "https://feedback.azure.com/d365community/forum/b9a0c624-ad25-ec11-b6e6-000d3a4f09d0",
+        "articles/machine-learning/studio/*.md": "https://feedback.azure.com/d36a5community/forum/b9a0c624-ad25-ec11-b6e6-000d3a4f09d0",
         "articles/machine-learning/team-data-science-process/*.md": "https://feedback.azure.com/d365community/forum/b9a0c624-ad25-ec11-b6e6-000d3a4f09d0",
         "articles/managed-applications/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "articles/marketplace/**/*.md": "https://feedback.azure.com/d365community/forum/45156b35-0a25-ec11-b6e6-000d3a4f09d0",
@@ -652,7 +652,7 @@
         "articles/connectors/*.md": "estfan",
         "articles/container-instances/**/*.md": "macolso",
         "articles/container-registry/**/*.md": "tejaswikolli",
-        "articles/data-catalog/*.md": "kchandra",
+        "articles/data-catalog/*.md": "whhender",
         "articles/data-lake-analytics/*.md": "xujiang1",
         "articles/defender-for-cloud/*.md": "elkrieger",
         "articles/defender-for-iot/organizations/*.md": "bagol",
@@ -695,7 +695,7 @@
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "juliako",
         "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "juliako",  
         "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "juliako",        
-        "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "Juliako"
+        "articles/azure-video-indexer/*.md": "Juliako"
       },
       "ms.collection": {
         "articles/application-gateway/*.md": "networking",
@@ -739,7 +739,7 @@
         "articles/vpn-gateway/*.md": "networking",
         "articles/vpn-gateway/*.yml": "networking",
         "articles/web-application-firewall/*.md": "networking",
-        "articles/web-application-firewall/*.yml": "networking"
+        "articles/web-application-firewall/*.yml": "anetworking"
       },
       "ms.service": {
         "articles/advisor/**/*.md": "advisor",
@@ -806,8 +806,8 @@
         "articles/virtual-machine-scale-sets/*.md": "virtual-machine-scale-sets",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "azure-video-analyzer",
         "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "azure-video-analyzer", 
-        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "azure-video-analyzer",        
-        "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "azure-video-analyzer"
+        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "azure-video-analyzer",  
+        "articles/azure-video-indexer/*.md": "azure-video-indexer"
       },
       "ms.reviewer": {
         "articles/advisor/*.md": "ikhapova"
@@ -866,7 +866,6 @@
         "articles/media-services/live-video-analytics-edge/*.md": "lva-edge",
         "articles/media-services/previous/*.md": "rest-v2",
         "articles/media-services/video-indexer/*.md": "video-indexer",
-        "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "azure-video-analyzer-media",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "video-analyzer-subservice",
         "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "video-analyzer-subservice",  
         "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "video-analyzer-subservice",        

@@ -7,8 +7,6 @@ ms.custom: mode-api
 ---
 # Automate onboarding of Microsoft Defender for Cloud using PowerShell
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 You can secure your Azure workloads programmatically, using the Microsoft Defender for Cloud PowerShell module. Using PowerShell enables you to automate tasks and avoid the human error inherent in manual tasks. This is especially useful in large-scale deployments that involve dozens of subscriptions with hundreds and thousands of resources, all of which must be secured from the beginning.
 
 Onboarding Microsoft Defender for Cloud using PowerShell enables you to programmatically automate onboarding and management of your Azure resources and add the necessary security controls.

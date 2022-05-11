@@ -12,6 +12,9 @@ ms.subservice: azure-arc-data
 ---
 
 # az arcdata dc config
+
+Configuration commands.
+
 ## Commands
 | Command | Description|
 | --- | --- |

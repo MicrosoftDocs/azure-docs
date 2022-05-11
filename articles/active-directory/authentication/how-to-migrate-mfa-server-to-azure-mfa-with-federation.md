@@ -174,6 +174,7 @@ This section covers final steps before migrating user phone numbers.
 
 ### Set federatedIdpMfaBehavior to enforceMfaByFederatedIdp
 
+
 For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. Each federated domain has a Microsoft Graph PowerShell security setting named **federatedIdpMfaBehavior**. You can set **federatedIdpMfaBehavior** to `enforceMfaByFederatedIdp` so Azure AD accepts MFA that's performed by the federated identity provider. If the federated identity provider didn't perform MFA, Azure AD redirects the request to the federated identity provider to perform MFA. For more information, see [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values).
 
 >[!NOTE]
@@ -418,9 +419,3 @@ Possible considerations when decommissions the MFA Servers include:
 - [Deploy password hash synchronization](../hybrid/whatis-phs.md)
 - [Learn more about Conditional Access](../conditional-access/overview.md)
 - [Migrate applications to Azure AD](../manage-apps/migrate-application-authentication-to-azure-active-directory.md)
-
- 
-
- 
-
- 

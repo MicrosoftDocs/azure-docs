@@ -7,8 +7,6 @@ ms.date: 04/26/2022
 
 # What's new in Microsoft Defender for Cloud?
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Defender for Cloud is in active development and receives improvements on an ongoing basis. To stay up to date with the most recent developments, this page provides you with information about new features, bug fixes, and deprecated functionality.
 
 This page is updated frequently, so revisit it often. 
@@ -145,7 +143,7 @@ Changes in our roadmap and priorities have removed the need for the network traf
 
 Defender for Container's image scan now supports Windows images that are hosted in Azure Container Registry. This feature is free while in preview, and will incur a cost when it becomes generally available.
 
-Learn more in [Use Microsoft Defender for Container to scan your images for vulnerabilities](defender-for-container-registries-usage.md).
+Learn more in [Use Microsoft Defender for Container to scan your images for vulnerabilities](defender-for-containers-usage.md).
 
 ### New alert for Microsoft Defender for Storage (preview)
 
