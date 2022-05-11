@@ -188,8 +188,8 @@ Here's the JavaScript code:
 
 ```javascript
 module.exports = async function (context, req, todoItems) {
-    context.log('JavaScript HTTP trigger function processed a request.');
-
+    context.log('JavaScript HTTP trigger and SQL input binding function processed a request.');
+    
     context.res = {
         // status: 200, /* Defaults to 200 */
         mimetype: "application/json",
@@ -238,7 +238,7 @@ Here's the JavaScript code:
 
 ```javascript
 module.exports = async function (context, req, todoItem) {
-    context.log('JavaScript HTTP trigger function processed a request.');
+    context.log('JavaScript HTTP trigger and SQL input binding function processed a request.');
 
     context.res = {
         // status: 200, /* Defaults to 200 */
@@ -291,7 +291,7 @@ Here's the JavaScript code:
 
 ```javascript
 module.exports = async function (context, req, todoItems) {
-    context.log('JavaScript HTTP trigger function processed a request.');
+    context.log('JavaScript HTTP trigger and SQL input binding function processed a request.');
 
     context.res = {
         // status: 200, /* Defaults to 200 */
@@ -496,9 +496,9 @@ In [C# class libraries](functions-dotnet-class-library.md), use the [Sql](https:
 | Attribute property |Description|
 |---------|---------|
 | **CommandText** | Required. The Transact-SQL query command or name of the stored procedure executed by the binding.  |
-| **ConnectionStringSetting** | The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. | 
-| **CommandType** | A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
-| **Parameters** | Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
+| **ConnectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. | 
+| **CommandType** | Required. A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
+| **Parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
 
 ::: zone-end  
 <!---### Use these pivots when we get other non-C# languages added. ###
@@ -519,17 +519,17 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 ::: zone pivot="programming-language-javascript,programming-language-python"  
 ## Configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file.
+The following table explains the binding configuration properties that you set in the function.json file.
 
 |function.json property | Description|
 |---------|----------------------|
-|**type** |  Must be set to `sql`. |
-|**direction** |  Must be set to `in`. |
-|**name** |  The name of the variable that represents the query results in function code. | 
+|**type** |  Required. Must be set to `sql`. |
+|**direction** | Required. Must be set to `in`. |
+|**name** |  Required. The name of the variable that represents the query results in function code. | 
 | **commandText** | Required. The Transact-SQL query command or name of the stored procedure executed by the binding.  |
-| **connectionStringSetting** | The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. | 
-| **commandType** | A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
-| **parameters** | Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
+| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. | 
+| **commandType** | Required. A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
+| **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
 ::: zone-end  
 
 
