@@ -102,7 +102,7 @@ Additional datasets capabilities can be found in the following documentation:
 
 With datasets, you can accomplish a number of machine learning tasks through seamless integration with Azure Machine Learning features. 
 
-+ Create a [data labeling project](#label).
++ Create a [data labeling project](#label-data-with-data-labeling-projects).
 + Train machine learning models:
      + [automated ML experiments](../how-to-use-automated-ml-for-ml-models.md)
      + the [designer](../tutorial-designer-automobile-price-train-score.md#import-data)
