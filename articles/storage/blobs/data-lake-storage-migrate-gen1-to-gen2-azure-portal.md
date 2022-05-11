@@ -78,7 +78,7 @@ Before you begin, review the two migration options below, and decide whether to 
 
 **Option 1: Copy data only (recommended).** In this option, data will be copied from Gen1 to Gen2. As the data is being copied, the Gen1 account will become read-only. After the data is copied, both the Gen1 and Gen2 accounts will be accessible. However, you must update the applications and compute workloads to use the new ADLS Gen2 endpoint.
 
-**Option 2: Perform a complete migration.** In this option, data will be copied from Gen1 to Gen2. After the data is copied, all the traffic from the Gen1 account will be redirected to the Gen2 account. Redirected requests will use the *Error! Hyperlink reference not valid* message to translate Gen1 API calls to Gen2 equivalents. During the migration, the Gen1 account will become read-only. After the migration is complete, the Gen1 account won't be accessible.
+**Option 2: Perform a complete migration.** In this option, data will be copied from Gen1 to Gen2. After the data is copied, all the traffic from the Gen1 account will be redirected to the Gen2 account. Redirected requests will use the [Gen1 compatibility layer](#gen1-compatibility-layer) to translate Gen1 API calls to Gen2 equivalents. During the migration, the Gen1 account will become read-only. After the migration is complete, the Gen1 account won't be accessible.
 
 Whichever option you choose, after you've migrated and verified that all your workloads work as expected, you can delete the Gen1 account.
 
@@ -163,7 +163,7 @@ Whichever option you choose, after you've migrated and verified that all your wo
 
 4. Search for URI references that contain the string `adl://` in code files, or in Databricks notebooks, Apache Hive HQL files or any other file used as part of your workloads. Replace these references with the [Gen2 formatted URI](data-lake-storage-introduction-abfs-uri.md) of your new storage account. For example: the Gen1 URI: `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` might become `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile`.
 
-## Use the Gen1 compatibility layer (optional)
+## Gen1 compatibility layer
 
 This layer attempts to provide application compatibility between Gen1 and Gen2 as a convenience during the migration, so that applications can continue using Gen1 APIs to interact with data in the Gen2-enabled account. This layer has limited functionality and it is strongly advised to validate the workloads with test accounts if you use this approach as part of migration. The compatibility layer runs on the server, so there's nothing to install.
 
@@ -196,7 +196,7 @@ The following functionality isn't supported in the compatibility layer.
 
 There is no cost to use the portal-based migration tool, however you will be billed for usage of Azure Data Lake Gen1 and Gen2 services. During the data migration, you will be billed for the data storage and transactions of the Gen1 account.
 
-Post migration, if you have chosen the option that copies only data, then you will be billed for the data storage and transactions for both Azure Data Lake Gen1 and Gen2 accounts. To avoid being billed for the Gen1 account, you'll have to delete the Gen1 account. Delete the Gen1 account after you have completed updating your applications to point to Gen2. If you chose the option to perform a complete migration, you will be billed only for the data storage and transactions of the Gen2-enabled account.
+Post migration, if you chose the option that copies only data, then you will be billed for the data storage and transactions for both Azure Data Lake Gen1 and Gen2 accounts. To avoid being billed for the Gen1 account, delete the Gen1 account after you've updated your applications to point to Gen2. If you chose to perform a complete migration, you will be billed only for the data storage and transactions of the Gen2-enabled account.
 
 #### While providing consent I encountered the error message *Migration initiation failed*. What should I do next?
 
