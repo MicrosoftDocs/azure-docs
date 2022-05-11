@@ -98,6 +98,7 @@ type User {
     </set-graphql-resolver>
     ```
 1. To resolve data for other fields in the schema, repeat the preceding step. 
+1. Select **Save**.
 
 [!INCLUDE [api-management-graphql-test.md](../../includes/api-management-graphql-test.md)]
 
