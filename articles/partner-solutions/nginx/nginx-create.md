@@ -15,7 +15,7 @@ In this quickstart, you'll use the Azure Marketplace to find and create an insta
 
 ## Create new NGINX account
 
-1. To create an NGINX deployment using the Marketplace, subscribe to **NGINX for Azure (Preview)** in the Azure portal. 
+1. To create an NGINX deployment using the Marketplace, subscribe to **NGINX for Azure (Preview)** in the Azure portal.
 
 1. Set the following values in the **Create NGINX Deployment** pane.
 
@@ -63,7 +63,7 @@ You can specify custom tags for the new NGINX resource in Azure by adding custom
 
     :::image type="content" source="media/nginx-create/nginx-overview-pane.png" alt-text="Image ":::
 
-1. Select Overview in the Resource Manager to see information on the deployed resources in the working pane.
+1. Select Overview in the resource menu to see information on the deployed resources in the working pane.
 
     :::image type="content" source="media/nginx-create/nginx-overview-pane.png" alt-text="screenshot of information on the nginx resource overview":::
 
