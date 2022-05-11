@@ -123,8 +123,8 @@ Main changes:
 * Changed CUDA to version 11.5
 * Changed Docker to version 20.10.10
 * Changed Intellijidea to version 2021.2.3
-* Changed NVIDIA Drivers to version 495.29.05
-* Changed NVIDIA SMI to version 495.29.05
+* Changed NVIDIA Drivers to version 470.103.01
+* Changed NVIDIA SMI to version 470.103.01
 * Changed Nodejs to version v16.13.0
 * Changed Pycharm to version 2021.2.3
 * Changed VS Code to version 1.61.2
