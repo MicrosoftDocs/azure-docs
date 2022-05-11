@@ -36,7 +36,6 @@ In the *Basics* tab, do the following actions.
     | Setting | Value |
     |---|---|
     | Environment name | Enter **my-environment**. |
-    | Region | Select **Canada Central**. |
 
 1. Select the **Monitoring** tab to create a Log Analytics workspace.
 1. Select **Create new** in the *Log Analytics workspace* field.
