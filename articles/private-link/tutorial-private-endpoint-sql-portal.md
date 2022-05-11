@@ -276,6 +276,6 @@ In this tutorial, you created a:
 
 You used the virtual machine to test connectivity securely to the SQL server across the private endpoint.
 
-As a next step, you may also be interested in the **Web app with private connectivity to Azure SQL database** architecture scenario, which connects a web application outside of the virtual network to the private endpoint of a database.
+As a next step, you may also be interested in the **Web app with private connectivity to Azure SQL Database** architecture scenario, which connects a web application outside of the virtual network to the private endpoint of a database.
 > [!div class="nextstepaction"]
-> [Web app with private connectivity to Azure SQL database](/azure/architecture/example-scenario/private-web-app/private-web-app)
+> [Web app with private connectivity to Azure SQL Database](/azure/architecture/example-scenario/private-web-app/private-web-app)

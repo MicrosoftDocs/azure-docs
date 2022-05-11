@@ -34,6 +34,8 @@ To complete this quickstart, make sure you have:
   - <a href="https://git-scm.com/download/mac" target="_blank">Git for macOS</a>.
   - <a href="https://git-lfs.github.com/">Git LFS</a>.
 
+## Create a Spatial Anchors resource
+
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## Open the sample project

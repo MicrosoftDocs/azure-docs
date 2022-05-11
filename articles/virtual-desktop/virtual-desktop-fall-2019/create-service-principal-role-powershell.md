@@ -46,7 +46,7 @@ After you've fulfilled the prerequisites in your PowerShell session, run the fol
 ```powershell
 Import-Module AzureAD
 $aadContext = Connect-AzureAD
-$svcPrincipal = New-AzureADApplication -AvailableToOtherTenants $true -DisplayName "Windows Virtual Desktop Svc Principal"
+$svcPrincipal = New-AzureADApplication -AvailableToOtherTenants $true -DisplayName "Azure Virtual Desktop Svc Principal"
 $svcPrincipalCreds = New-AzureADApplicationPasswordCredential -ObjectId $svcPrincipal.ObjectId
 ```
 ## View your credentials in PowerShell

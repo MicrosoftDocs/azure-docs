@@ -21,7 +21,7 @@ Before you get started, make sure to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Node.js](https://nodejs.org/en/download/) Active LTS and Maintenance LTS versions.
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to **record your resource endpoint** for this quickstart.
-- Create *three* ACS Users and issue them a user access token [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**. The full demo creates a thread with two initial participants and then adds a third participant to the thread.
+- Create *three* Azure Communication Services Users and issue them a user access token [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**. The full demo creates a thread with two initial participants and then adds a third participant to the thread.
 
 ## Setting up
 

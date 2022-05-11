@@ -54,7 +54,7 @@ Log in to the [Azure portal](https://portal.azure.com/) and follow these steps t
 
 ### [Azure CLI](#tab/azure-cli)
 
-Cosmos DB accounts are created using the [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) command. You must include the `--capabilities EnableTable` option to enable table storage within your Cosmos DB.  As all Azure resource must be contained in a resource group, the following code snippet also creates a resource group for the  Cosmos DB account.
+Cosmos DB accounts are created using the [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command. You must include the `--capabilities EnableTable` option to enable table storage within your Cosmos DB.  As all Azure resource must be contained in a resource group, the following code snippet also creates a resource group for the  Cosmos DB account.
 
 Cosmos DB account names must be between 3 and 44 characters in length and may contain only lowercase letters, numbers, and the hyphen (-) character.  Cosmos DB account names must also be unique across Azure.
 
@@ -124,7 +124,7 @@ In the [Azure portal](https://portal.azure.com/), complete the following steps t
 
 ### [Azure CLI](#tab/azure-cli)
 
-Tables in Cosmos DB are created using the [az cosmosdb table create](/cli/azure/cosmosdb/table#az_cosmosdb_table_create) command.
+Tables in Cosmos DB are created using the [az cosmosdb table create](/cli/azure/cosmosdb/table#az-cosmosdb-table-create) command.
 
 ```azurecli
 COSMOS_TABLE_NAME='WeatherData'
@@ -165,7 +165,7 @@ To access your table(s) in Cosmos DB, your app will need the table connection st
 
 ### [Azure CLI](#tab/azure-cli)
 
-To get the primary table storage connection string using Azure CLI, use the [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az_cosmosdb_keys_list) command with the option `--type connection-strings`.  This command uses a [JMESPath query](https://jmespath.org/) to display only the primary table connection string.
+To get the primary table storage connection string using Azure CLI, use the [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command with the option `--type connection-strings`.  This command uses a [JMESPath query](https://jmespath.org/) to display only the primary table connection string.
 
 ```azurecli
 # This gets the primary Table connection string
@@ -558,7 +558,7 @@ public class UpdateWeatherObject
 }
 ```
 
-In the sample app, this object is passed to the `UpdateEntity` method in the `TableService` class.  This method first loads the existing entity from the Table API using the [GetEntity](/dotnet/api/azure.data.tables.tableclient.getentity) method on the [TableClient](/dotnet/api/azure.data.tables.tableclient).  It then updates that entity object and uses the `UpdateEntity` method save the updates to the database.  Note how the [UpdateEntity](/dotnet/api/azure.data.tables.tableclient.updateentity) method takes the current Etag of the object to insure the object has not changed since it was initially loaded.  If you want to update the entity regardless, you may pass a value of `Etag.Any` to the `UpdateEntity` method.
+In the sample app, this object is passed to the `UpdateEntity` method in the `TableService` class.  This method first loads the existing entity from the Table API using the [GetEntity](/dotnet/api/azure.data.tables.tableclient.getentity) method on the [TableClient](/dotnet/api/azure.data.tables.tableclient).  It then updates that entity object and uses the `UpdateEntity` method save the updates to the database.  Note how the [UpdateEntity](/dotnet/api/azure.data.tables.tableclient.updateentity) method takes the current Etag of the object to insure the object has not changed since it was initially loaded.  If you want to update the entity regardless, you may pass a value of `ETag.All` to the `UpdateEntity` method.
 
 ```csharp
 public void UpdateEntity(UpdateWeatherObject weatherObject)
@@ -628,7 +628,7 @@ A resource group can be deleted using the [Azure portal](https://portal.azure.co
 
 ### [Azure CLI](#tab/azure-cli)
 
-To delete a resource group using the Azure CLI, use the [az group delete](/cli/azure/group#az_group_delete) command with the name of the resource group to be deleted.  Deleting a resource group will also remove all Azure resources contained in the resource group.
+To delete a resource group using the Azure CLI, use the [az group delete](/cli/azure/group#az-group-delete) command with the name of the resource group to be deleted.  Deleting a resource group will also remove all Azure resources contained in the resource group.
 
 ```azurecli
 az group delete --name $RESOURCE_GROUP_NAME

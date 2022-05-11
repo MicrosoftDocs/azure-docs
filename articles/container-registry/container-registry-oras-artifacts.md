@@ -49,14 +49,14 @@ IMAGE=$REGISTRY/${REPO}:$TAG
 
 ### Create a resource group
 
-If needed, run the [az group create](/cli/azure/group#az_group_create) command to create a resource group for the registry.
+If needed, run the [az group create](/cli/azure/group#az-group-create) command to create a resource group for the registry.
 
 ```azurecli
 az group create --name $ACR_NAME --location southcentralus
 ```
 ### Create ORAS Artifact enabled registry
 
-Preview support for ORAS Artifacts requires Zone Redundancy, which requires a Premium service tier, in the South Central US region. Run the [az acr create](/cli/azure/acr#az_acr_create) command to create an ORAS Artifacts enabled registry. See the `az acr create` command help for more registry options.
+Preview support for ORAS Artifacts requires Zone Redundancy, which requires a Premium service tier, in the South Central US region. Run the [az acr create](/cli/azure/acr#az-acr-create) command to create an ORAS Artifacts enabled registry. See the `az acr create` command help for more registry options.
 
 ```azurecli
 az acr create \
@@ -80,7 +80,7 @@ In the command output, note the `zoneRedundancy` property for the registry. When
 
 [Sign in](/cli/azure/authenticate-azure-cli) to the Azure CLI with your identity to push and pull artifacts from the container registry.
 
-Then, use the Azure CLI command [az acr login](/cli/azure/acr#az_acr_login) to access the registry.
+Then, use the Azure CLI command [az acr login](/cli/azure/acr#az-acr-login) to access the registry.
 
 ```azurecli
 az login

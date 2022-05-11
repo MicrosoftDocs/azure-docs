@@ -61,7 +61,7 @@ Each organization will have different metrics of success and internal migration 
 
 **Include the following steps in your migration process**:
 
-1. Make sure that you've considered your environmental requirements and understand the gaps between the different agents. For more information, see [Plan your migration](../azure-monitor/agents/azure-monitor-agent-migration.md#plan-your-migration) in the Azure Monitor documentation.
+1. Make sure that you've considered your environmental requirements and understand the gaps between the different agents. For more information, see [When should I migrate](../azure-monitor/agents/azure-monitor-agent-migration.md#when-should-i-migrate-to-the-azure-monitor-agent) in the Azure Monitor documentation.
 
 1. Run a proof of concept to test how the AMA sends data to Microsoft Sentinel, ideally in a development or sandbox environment.
 

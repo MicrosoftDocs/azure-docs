@@ -45,3 +45,4 @@ For frequently asked questions about Azure Route Server, see [Azure Route Server
 
 - [Learn how to configure Azure Route Server](quickstart-configure-route-server-powershell.md)
 - [Learn how Azure Route Server works with Azure ExpressRoute and Azure VPN](expressroute-vpn-support.md)
+- [Learn module: Introduction to Azure Route Server](/learn/modules/intro-to-azure-route-server)

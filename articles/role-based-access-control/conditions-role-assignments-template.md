@@ -80,7 +80,7 @@ To use the template, you must specify the following input:
 }
 ```
 
-The scope of the role assignment is determined from the level of the deployment. Here are example [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) commands for how to start the deployment at a resource group scope.
+The scope of the role assignment is determined from the level of the deployment. Here are example [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) commands for how to start the deployment at a resource group scope.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName example-group -TemplateFile rbac-test.json -principalId $principalId -principalType "User"

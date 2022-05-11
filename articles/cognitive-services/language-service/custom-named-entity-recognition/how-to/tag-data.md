@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 04/05/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
 ---
@@ -44,12 +44,29 @@ The precision, consistency and completeness of your tagged data are key factors 
 
 3. You can find a list of all `.txt` files available in your projects to the left. You can select the file you want to start tagging or you can use the **Back** and **Next** button from the bottom of the page to navigate.
 
-4. To start tagging, click **Add entities** in the top-right corner. You can either view all files or only tagged files by changing the view from the **Viewing** drop down.
+4. To start tagging, click **Add entities** in the top-right corner. You can either view all files or only tagged files by changing the view from the **Viewing** drop down filter.
+
+    :::image type="content" source="../media/tagging-screen.png" alt-text="A screenshot showing the Language Studio screen for tagging data." lightbox="../media/tagging-screen.png":::
+
+    In the image above:
+    
+    * *Section 1*: is where the content of the text file is displayed and tagging takes place. You have [two options for tagging](#tagging-options) your files.
+    
+    * *Section 2*: includes your project's entities and distribution across your files and tags.
+    If you click **Distribution**, you can view your tag distribution across:
+        
+        * Files: View the distribution of files across one single entity.
+        * Tags: view the distribution of tags across all files.
+    
+        :::image type="content" source="../media/distribution-ner.png" alt-text="A screenshot showing the distribution section." lightbox="../media/distribution-ner.png":::
+        
+    
+    * *Section 3*: This is the split project data toggle. You can choose to add a selected text file to your training set or the testing set. By default, the toggle is off, and all text files are added to your training set.
+    
+To add a text file to a training or testing set, simply choose from the radio buttons to which set it belongs.
 
 >[!TIP]
-> * There is no standard number of tags you will need, Consider starting with 50 tags per entity. The number of tags you'll need depends on how distinct your entities are, and how easily they can be differentiated from each other. It also depends on your tagging, which should be consistent and complete.
-
-:::image type="content" source="../media/tagging-screen.png" alt-text="A screenshot showing the Language Studio screen for tagging data." lightbox="../media/tagging-screen.png":::
+>It is recommended to define your testing set.
 
 If you enabled multiple languages for your project, you will find a **Language** dropdown, which lets you select the language of each document.
 

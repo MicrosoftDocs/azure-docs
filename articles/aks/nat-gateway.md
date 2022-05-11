@@ -67,10 +67,10 @@ az group create --name myresourcegroup --location southcentralus
 
 ```azurecli-interactive
 az aks create \
-    --resource-group myresourcegroup \
+    --resource-group myResourceGroup \
     --name natcluster \
     --node-count 3 \
-    --outbound-type managedNATGateway \ 
+    --outbound-type managedNATGateway \
     --nat-gateway-managed-outbound-ip-count 2 \
     --nat-gateway-idle-timeout 30
 ```

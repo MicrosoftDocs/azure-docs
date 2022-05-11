@@ -26,34 +26,41 @@
     displayName: deploy azure resource manager template
   - name: REST API
     href: signalr-quickstart-rest-api.md
-
 - name: Tutorials
   items:
   - name: Build a serverless real-time app with authentication
     href: signalr-tutorial-authenticate-azure-functions.md
   - name: Build a Blazor Server chat app
     href: signalr-tutorial-build-blazor-server-chat-app.md
-
 - name: Samples
   items:
   - name: Code samples
     href: https://github.com/aspnet/AzureSignalR-samples
   - name: Azure CLI
-    href: signalr-reference-cli.md
-
+    items:
+    - name: Overview
+      href: signalr-reference-cli.md
+    - name: Create SignalR Service
+      href: scripts/signalr-cli-create-service.md
+    - name: Create SignalR Service and Web App
+      href: scripts/signalr-cli-create-with-app-service.md
+    - name: Create SignalR Service and Web App with GitHub OAuth
+      href: scripts/signalr-cli-create-with-app-service-github-oauth.md
 - name: Concepts
   items:
   - name: Azure SignalR Service internals
     href: signalr-concept-internals.md
   - name: Service mode
     href: concept-service-mode.md
+  - name: Connection string
+    href: concept-connection-string.md
   - name: Scale ASP.NET Core SignalR
     href: signalr-concept-scale-aspnet-core.md
   - name: Serverless
     items:
     - name: Build real-time apps with Azure Functions
       href: signalr-concept-azure-functions.md
-    - name: Develop and configure serverless SignalR Service apps
+    - name: Develop and configure SignalR Service apps
       href: signalr-concept-serverless-development-config.md
     - name: SignalR Service bindings for Azure Functions reference
       href: ../azure-functions/functions-bindings-signalr-service.md
@@ -61,7 +68,7 @@
       href: concept-upstream.md
   - name: High availability
     items:
-    - name: Gracefully shutdown your app server
+    - name: Gracefully shut down your app server
       href: server-graceful-shutdown.md
     - name: Resiliency and disaster recovery
       href: signalr-concept-disaster-recovery.md
@@ -69,6 +76,8 @@
       href: availability-zones.md
   - name: Messages and connections
     href: signalr-concept-messages-and-connections.md
+  - name: Metrics
+    href: concept-metrics.md
   - name: Performance considerations
     href: signalr-concept-performance.md
   - name: Authentication
@@ -143,7 +152,7 @@
   - name: Azure CLI
     href: /cli/azure/signalr
   - name: REST API
-    href: https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md
+    href: /rest/api/signalr
   - name: ASP.NET Core SignalR
     href: /aspnet/core/signalr/introduction
   - name: Azure SignalR Service Protocol

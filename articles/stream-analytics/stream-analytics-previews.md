@@ -30,14 +30,3 @@ You can use the job diagram while testing your query locally to examine the inte
 ## Explore jobs in Visual Studio Code
 
 Stream Analytics Explorer in Visual Studio Code Extension gives developers a lightweight experience for managing their Stream Analytics jobs. In the Stream Analytics Explorer, you can easily manage your jobs, view job diagram, and debug in Job Monitor.
-
-## Debug query steps in Visual Studio
-
-You can easily preview the intermediate row set on a data diagram when doing local testing in Azure Stream Analytics tools for Visual Studio. 
-
-
-## Live data testing in Visual Studio
-
-Visual Studio tools for Azure Stream Analytics enhance the local testing feature that allows you to test you queries against live event streams from cloud sources such as Event Hub or IoT hub. Learn how to [Test live data locally using Azure Stream Analytics tools for Visual Studio](stream-analytics-live-data-local-testing.md).
-
-

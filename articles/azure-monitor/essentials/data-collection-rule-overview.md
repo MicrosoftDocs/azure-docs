@@ -2,7 +2,7 @@
 title: Data Collection Rules in Azure Monitor
 description: Overview of data collection rules (DCRs) in Azure Monitor including their contents and structure and how you can create and work with them.
 ms.topic: conceptual
-ms.date: 02/21/2022
+ms.date: 04/26/2022
 
 ---
 
@@ -14,7 +14,7 @@ There are currently two types of data collection rule in Azure Monitor:
 
 - **Standard DCR**. Used with different workflows that send data to Azure Monitor. Workflows currently supported are [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and [custom logs (preview)](../logs/custom-logs-overview.md).
 
-- **Workspace transformation DCR)**. Used with a Log Analytics workspace to apply [ingestion-time transformations (preview)](../logs/ingestion-time-transformations.md) to workflows that don't currently support DCRs.
+- **Workspace transformation DCR**. Used with a Log Analytics workspace to apply [ingestion-time transformations (preview)](../logs/ingestion-time-transformations.md) to workflows that don't currently support DCRs.
 
 ## Structure of a data collection rule
 Data collection rules are formatted in JSON. While you may not need to interact with them directly, there are scenarios where you may need to directly edit a data collection rule. See [Data collection rule structure](data-collection-rule-structure.md) for a description of this structure and different elements.

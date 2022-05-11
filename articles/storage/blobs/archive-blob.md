@@ -71,7 +71,7 @@ Get-ChildItem -Path "C:\sample-blobs" -File -Recurse |
 
 ### [Azure CLI](#tab/azure-cli)
 
-To archive a single blob on upload with Azure CLI, call the [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values:
+To archive a single blob on upload with Azure CLI, call the [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values:
 
 ```azurecli
 az storage blob upload \
@@ -83,7 +83,7 @@ az storage blob upload \
     --auth-mode login
 ```
 
-To archive a set of blobs on upload with Azure CLI, call the [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values:
+To archive a set of blobs on upload with Azure CLI, call the [az storage blob upload-batch](/cli/azure/storage/blob#az-storage-blob-upload-batch) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values:
 
 ```azurecli
 az storage blob upload-batch \
@@ -157,7 +157,7 @@ $blob.BlobClient.SetAccessTier("Archive", $null)
 
 #### [Azure CLI](#tab/azure-cli)
 
-To change a blob's tier from Hot or Cool to Archive with Azure CLI, call the [az storage blob set-tier](/cli/azure/storage/blob#az_storage_blob_set_tier) command. Remember to replace placeholders in angle brackets with your own values:
+To change a blob's tier from Hot or Cool to Archive with Azure CLI, call the [az storage blob set-tier](/cli/azure/storage/blob#az-storage-blob-set-tier) command. Remember to replace placeholders in angle brackets with your own values:
 
 ```azurecli
 az storage blob set-tier \
@@ -213,7 +213,7 @@ Start-AzStorageBlobCopy -SrcContainer $srcContainerName `
 
 #### [Azure CLI](#tab/azure-cli)
 
-To copy a blob from an online tier to the Archive tier with Azure CLI, call the [az storage blob copy start](/cli/azure/storage/blob/copy#az_storage_blob_copy_start) command and specify the Archive tier. Remember to replace placeholders in angle brackets with your own values:
+To copy a blob from an online tier to the Archive tier with Azure CLI, call the [az storage blob copy start](/cli/azure/storage/blob/copy#az-storage-blob-copy-start) command and specify the Archive tier. Remember to replace placeholders in angle brackets with your own values:
 
 ```azurecli
 az storage blob copy start \

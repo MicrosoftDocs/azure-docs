@@ -49,7 +49,7 @@ This section will guide you through automatically adding Application Insights to
 3. Before the closing `</ApplicationInsights>` tag, add a line that contains the connection string for your Application Insights resource. Find your connection string on the overview pane of the newly created Application Insights resource.
 
     ```xml
-    <InstrumentationKey>Copy connection string from Application Insights Resource Overview</InstrumentationKey>
+    <ConnectionString>Copy connection string from Application Insights Resource Overview</ConnectionString>
     ```
 
 4. Select **Project** > **Manage NuGet Packages** > **Updates**. Then update each `Microsoft.ApplicationInsights` NuGet package to the latest stable release.   
@@ -67,7 +67,7 @@ This section will guide you through manually adding Application Insights to a te
 
 2. In some cases, the *ApplicationInsights.config* file is created for you automatically. If the file is already present, skip to step 4. 
 
-   If it's not created automatically, you'll need to create it yourself. At the same level in your project as the *Global.asax* file, create a new file called *ApplicationInsights.config*.
+   If it's not created automatically, you'll need to create it yourself. In the root directory of an ASP.NET application, create a new file called *ApplicationInsights.config*.
 
 3. Copy the following XML configuration into your newly created file:
 
@@ -212,14 +212,14 @@ This section will guide you through manually adding Application Insights to a te
         Learn more about Application Insights configuration with ApplicationInsights.config here: 
         http://go.microsoft.com/fwlink/?LinkID=513840
       -->
-      <InstrumentationKey>Copy connection string from Application Insights Resource Overview</InstrumentationKey>
+      <ConnectionString>Copy connection string from Application Insights Resource Overview</ConnectionString>
     </ApplicationInsights>
      ```
 
 4. Before the closing `</ApplicationInsights>` tag, add the connection string for your Application Insights resource. You can find your connection string on the overview pane of the newly created Application Insights resource.
 
     ```xml
-    <InstrumentationKey>Copy connection string from Application Insights Resource Overview</InstrumentationKey>
+    <ConnectionString>Copy connection string from Application Insights Resource Overview</ConnectionString>
     ```
 
 5. At the same level of your project as the *ApplicationInsights.config* file, create a folder called *ErrorHandler* with a new C# file called *AiHandleErrorAttribute.cs*. The contents of the file will look like this:

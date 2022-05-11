@@ -1,6 +1,6 @@
 ---
-title: Asset insights on your data in Azure Purview
-description: This how-to guide describes how to view and use Azure Purview Insights asset reporting on your data. 
+title: Asset insights on your data in Microsoft Purview
+description: This how-to guide describes how to view and use Microsoft Purview Data Estate Insights asset reporting on your data. 
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
@@ -9,48 +9,48 @@ ms.topic: how-to
 ms.date: 09/27/2021
 ---
 
-# Asset insights on your data in Azure Purview
+# Asset insights on your data in Microsoft Purview
 
-This how-to guide describes how to access, view, and filter Azure Purview Asset insight reports for your data.
+This how-to guide describes how to access, view, and filter Microsoft Purview Asset insight reports for your data.
 
 > [!IMPORTANT]
-> Azure Purview Insights are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Microsoft Purview Data Estate Insights are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 In this how-to guide, you'll learn how to:
 
 > [!div class="checklist"]
-> * View insights from your Azure Purview account.
+> * View data estate insights from your Microsoft Purview account.
 > * Get a bird's eye view of your data.
 > * Drill down for more asset count details.
 
 ## Prerequisites
 
-Before getting started with Azure Purview insights, make sure that you've completed the following steps:
+Before getting started with Microsoft Purview Data Estate Insights, make sure that you've completed the following steps:
 
 * Set up your Azure resources and populate the account with data.
 
 * Set up and complete a scan on the source type.
 
-For more information, see [Manage data sources in Azure Purview](manage-data-sources.md).
+For more information, see [Manage data sources in Microsoft Purview](manage-data-sources.md).
 
-## Use Azure Purview Asset Insights
+## Use Microsoft Purview Asset Insights
 
-In Azure Purview, you can register and scan source types. Once the scan is complete, you can view the asset distribution in Asset Insights, which tells you the state of your data estate by classification and resource sets. It also tells you if there is any change in data size.
+In Microsoft Purview, you can register and scan source types. Once the scan is complete, you can view the asset distribution in Asset Insights, which tells you the state of your data estate by classification and resource sets. It also tells you if there is any change in data size.
 
 > [!NOTE]
 > After you have scanned your source types, give Asset Insights 3-8 hours to reflect the new assets. The delay may be due to high traffic in deployment region or size of your workload. For further information, please contact the field support team.
 
-1. Navigate to your Azure Purview account in the Azure portal.
+1. Navigate to your Microsoft Purview account in the Azure portal.
 
-1. On the **Overview** page, in the **Get Started** section, select the **Open Azure Purview Studio** tile.
+1. On the **Overview** page, in the **Get Started** section, select the **Open Microsoft Purview governance portal** tile.
 
-   :::image type="content" source="./media/asset-insights/portal-access.png" alt-text="Launch Azure Purview from the Azure portal":::
+   :::image type="content" source="./media/asset-insights/portal-access.png" alt-text="Launch Microsoft Purview from the Azure portal":::
 
-1. On the Azure Purview **Home** page, select **Insights** on the left menu.
+1. On the Microsoft Purview **Home** page, select **Data Estate Insights** on the left menu.
 
-   :::image type="content" source="./media/asset-insights/view-insights.png" alt-text="View your insights in the Azure portal":::
+   :::image type="content" source="./media/asset-insights/view-insights.png" alt-text="View your data estate insights in the Azure portal":::
 
-1. In the **Insights** area, select **Assets** to display the Azure Purview **Asset insights** report.
+1. In the **Data Estate Insights** area, select **Assets** to display the Microsoft Purview **Asset insights** report.
 
 ### View Asset Insights
 
@@ -74,7 +74,7 @@ In Azure Purview, you can register and scan source types. Once the scan is compl
 
    :::image type="content" source="./media/asset-insights/file-path.png" alt-text="View file paths":::
 
-8. View the list of files within the folder. Navigate back to Insights using the bread crumbs.
+8. View the list of files within the folder. Navigate back to Data Estate Insights using the bread crumbs.
 
    :::image type="content" source="./media/asset-insights/list-page.png" alt-text="View list of assets":::  
 
@@ -98,5 +98,7 @@ The second graph in file-based source types is ***Files not associated with a re
 
 ## Next steps
 
-Learn more about Azure Purview insight reports with
-[Scan Insights](./scan-insights.md)
+Learn more about Microsoft Purview insight reports with
+
+- [Classification insights](./classification-insights.md)
+- [Glossary insights](glossary-insights.md)

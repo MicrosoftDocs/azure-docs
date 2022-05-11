@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 04/13/2022
 ms.author: lajanuar
 ---
 
@@ -32,15 +32,15 @@ Follow these tips to further optimize your data set for training:
 
 ## Upload your training data
 
-When you've put together the set of forms or documents that you'll use for training, you'll need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, following the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
+Once you've put together the set of forms or documents for training, you'll need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, following the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
 ## Create a project in the Form Recognizer Studio
 
-The Form Recognizer Studio provides and orchestrates all the API calls required to create the files required to complete your dataset and train your model.
+The Form Recognizer Studio provides and orchestrates all the API calls required to complete your dataset and train your model.
 
-1. Start by navigating to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio). If this is your first time using the Studio, you'll need to [initialize it for use](../quickstarts/try-v3-form-recognizer-studio.md). Follow the [additional prerequisite for custom projects](../quickstarts/try-v3-form-recognizer-studio.md#additional-prerequisites-for-custom-projects) to configure the Studio to access your training dataset.
+1. Start by navigating to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio). The first time you use the Studio, you'll need to [initialize your subscription, resource group, and resource](../quickstarts/try-v3-form-recognizer-studio.md). Follow the [additional prerequisite for custom projects](../quickstarts/try-v3-form-recognizer-studio.md#additional-prerequisites-for-custom-projects) to configure the Studio to access your training dataset.
 
-1. In the Studio select the **Custom models** tile, on the custom models page and select the **Create a project** button.
+1. In the Studio, select the **Custom models** tile, on the custom models page and select the **Create a project** button.
 
     :::image type="content" source="../media/how-to/studio-create-project.png" alt-text="Screenshot: Create a project in the Form Recognizer Studio.":::
 
@@ -49,11 +49,11 @@ The Form Recognizer Studio provides and orchestrates all the API calls required 
     1. On the next step in the workflow, choose or create a Form Recognizer resource before you select continue.
 
     > [!IMPORTANT]
-    > Custom neural models models are only available in a few regions. If you plan on training a neural model, please select or create a resource in one of [these supported regions](/azure/applied-ai-services/form-recognizer/concept-custom-neural#l).
+    > Custom neural models models are only available in a few regions. If you plan on training a neural model, please select or create a resource in one of [these supported regions](../concept-custom-neural.md).
 
     :::image type="content" source="../media/how-to/studio-select-resource.png" alt-text="Screenshot: Select the Form Recognizer resource.":::
 
-1. Next select the storage account where you uploaded the dataset you wish to use to train your custom model. The **Folder path** should be empty if your training documents are in the root of the container. If your documents are in a sub-folder, enter the relative path from the container root in the **Folder path** field. Once your storage account is configured, select continue.
+1. Next select the storage account where you uploaded your custom model training dataset. The **Folder path** should be empty if your training documents are in the root of the container. If your documents are in a subfolder, enter the relative path from the container root in the **Folder path** field. Once your storage account is configured, select continue.
 
     :::image type="content" source="../media/how-to/studio-select-storage.png" alt-text="Screenshot: Select the storage account.":::
 
@@ -71,13 +71,13 @@ You'll see the files you uploaded to storage on the left of your screen, with th
 
 1. Enter a name for the field.
 
-1. To assign a value to the field, simply choose a word or words in the document and select the field in either the dropdown or the field list on the right navigation bar. You'll see the labeled value below the field name in the list of fields.
+1. To assign a value to the field, choose a word or words in the document and select the field in either the dropdown or the field list on the right navigation bar. You'll see the labeled value below the field name in the list of fields.
 
-1. Repeat this process for all the fields you wish to label for your dataset
+1. Repeat the process for all the fields you wish to label for your dataset.
 
-1. Label the remaining documents in your dataset by selecting each document in the document list and selecting the text to be labeled
+1. Label the remaining documents in your dataset by selecting each document and selecting the text to be labeled.
 
-You now have all the documents in your dataset labeled. If you look at the storage account, you'll find a *.labels.json* and *.ocr.json* files that correspond to each document in your training dataset and an additional fields.json file. This is the training dataset that will be submitted to train the model.
+You now have all the documents in your dataset labeled. If you look at the storage account, you'll find a *.labels.json* and *.ocr.json* files that correspond to each document in your training dataset and a new fields.json file. This training dataset will be submitted to train the model.
 
 ## Train your model
 

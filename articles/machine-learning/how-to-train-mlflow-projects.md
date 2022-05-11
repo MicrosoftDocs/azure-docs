@@ -3,8 +3,8 @@ title: Train with MLflow Projects
 titleSuffix: Azure Machine Learning
 description:  Set up MLflow with Azure Machine Learning to log metrics and artifacts from ML models
 services: machine-learning
-author: nibaccam
-ms.author: nibaccam
+author: blackmist
+ms.author: larryfr
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/16/2021

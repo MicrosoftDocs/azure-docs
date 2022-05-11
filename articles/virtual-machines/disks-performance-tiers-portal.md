@@ -4,7 +4,7 @@ description: Learn how to change performance tiers for new and existing managed 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/02/2021
+ms.date: 03/24/2022
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
