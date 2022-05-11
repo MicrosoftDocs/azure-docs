@@ -220,15 +220,13 @@ You can refresh the preview by selecting **Refresh static preview** (1). When yo
 
 ### Authoring errors
 
-If you have any authoring errors or warnings, the **Authoring errors** tab (1) will list them, as shown in the following screenshot. The list includes details of the error or warning, the type of tile (input, transformation, or output), the error level, and a description of the error or warning (2). When you select any of the errors or warnings, the respective tile is selected and the configuration side pane opens for you to make the needed changes.
+If you have any authoring errors or warnings, the Authoring errors tab will list them, as shown in the following screenshot. The list includes details about the error or warning, the type of card (input, transformation, or output), the error level, and a description of the error or warning. 
 
 :::image type="content" source="./media/no-code-stream-processing/authoring-errors.png" alt-text="Screenshot showing the Authoring errors tab that shows a list of example errors." lightbox="./media/no-code-stream-processing/authoring-errors.png" :::
 
 ### Runtime errors
 
-**Runtime errors** (1) is as shown in the following screenshot. Runtime errors are a common cause for jobs ending up in a failed state.
-
-This tab offers the option to filter by timespan and to download the list of errors and refresh it if needed (2).
+Runtime errors are warning/Error/Critical level errors. These errors are helpful when you want to edit your Stream Analytics job topology/configuration for troubleshooting. In the following screenshot example, the user has configured Synapse output with an incorrect table name. The user started the job, but there's a Runtime error stating that the schema definition for the output table can't be found.
 
 :::image type="content" source="./media/no-code-stream-processing/runtime-errors.png" alt-text="Screenshot showing the Runtime errors tab where you can select a timespan to filter error events." lightbox="./media/no-code-stream-processing/runtime-errors.png" :::
 
