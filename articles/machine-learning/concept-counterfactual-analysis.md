@@ -1,7 +1,7 @@
 ---
 title: Counterfactuals analysis and what-if
 titleSuffix: Azure Machine Learning
-description: The Counterfactual Analysis and what-if component of the Responsible AI dashboard interrogates a model to determine what changes to a particular datapoint would flip the model decision.
+description: Generate diverse counterfactual examples with feature perturbations to see minimal changes required to achieve desired prediction with the Responsible AI dashboard's integration of DiceML.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
