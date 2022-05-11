@@ -41,7 +41,7 @@ Aim to run the latest patch release of the minor version you're running. For exa
 
 Azure Kubernetes Service allows for you to create a cluster without specifying the exact patch version. When creating a cluster without designating a patch, the cluster will run the minor version's latest GA patch. For example, if you create a cluster with **`1.21`**, your cluster will be running **`1.21.7`**, which is the latest GA patch version of *1.21*.
 
-When upgrading by a version alias, only a higher minor version is supported. For example, upgrading from 1.14.x to 1.14 will not trigger an upgrade to the latest 1.14 patch, but upgrading to 1.15 will trigger an upgrade to the latest 1.15 patch.
+When upgrading by a version alias, only a higher minor version is supported. For example, upgrading from 1.14.x to 1.14 will not trigger an upgrade to the latest GA 1.14 patch, but upgrading to 1.15 will trigger an upgrade to the latest GA 1.15 patch.
 
 To see what patch you are on, run the `az aks show --resource-group myResourceGroup --name myAKSCluster` command. The property `currentKubernetesVersion` shows the whole Kubernetes version.
 
