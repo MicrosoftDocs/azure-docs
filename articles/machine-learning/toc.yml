@@ -279,50 +279,47 @@
           displayName: policy
           href: how-to-integrate-azure-policy.md
     - name: Workspaces & compute resources
-      items: 
-        - name: Create & manage workspaces
-          items: 
-            - name: Use Azure portal or Python SDK
-              href: how-to-manage-workspace.md
-            - name: Use Azure CLI
-              href: how-to-manage-workspace-cli.md
-            - name: Use Resource Manager template
-              displayName: arm
-              href: how-to-create-workspace-template.md
-            - name: Use Terraform
-              href: how-to-manage-workspace-terraform.md
-            - name: Use REST
-              href: how-to-manage-rest.md
-            - name: How to move a workspace
-              href: how-to-move-workspace.md
-            - name: Link to Azure Synapse Analytics workspace
-              href: how-to-link-synapse-ml-workspaces.md
-            - name: Securely integrate Azure Synapse & Azure Machine Learning
-              href: how-to-private-endpoint-integration-synapse.md
-            - name: Workspace Diagnostics
-              href: how-to-workspace-diagnostic-api.md
-        - name: Create & manage compute resources
-          items: 
-            - name: Compute instance
-              displayName: compute target, No public IP
-              href: how-to-create-manage-compute-instance.md
-            - name: Customized compute instance
-              displayName: compute target, No public IP
-              href: how-to-customize-compute-instance.md
-            - name: Compute cluster
-              displayName: compute target, low priority, managed identity
-              href: how-to-create-attach-compute-cluster.md
-            - name: Azure Arc-enabled machine learning
-              displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
-              href: how-to-attach-arc-kubernetes.md
-            - name: Kubernetes instance types
-              displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
-              href: how-to-kubernetes-instance-type.md
-            - name: Use studio
-              displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
-              href: how-to-create-attach-compute-studio.md
-        - name: Customer-managed keys
-          href: how-to-setup-customer-managed-keys.md
+      items:
+          - name: Create & manage workspaces
+            items:
+              - name: Use Azure portal or Python SDK
+                href: how-to-manage-workspace.md
+              - name: Use Azure CLI
+                href: how-to-manage-workspace-cli.md
+              - name: Use Resource Manager template
+                displayName: arm
+                href: how-to-create-workspace-template.md
+              - name: Use Terraform
+                href: how-to-manage-workspace-terraform.md
+              - name: Use REST
+                href: how-to-manage-rest.md
+              - name: How to move a workspace
+                href: how-to-move-workspace.md
+              - name: Link to Azure Synapse Analytics workspace
+                href: how-to-link-synapse-ml-workspaces.md
+              - name: Securely integrate Azure Synapse & Azure Machine Learning
+                href: how-to-private-endpoint-integration-synapse.md
+              - name: Workspace Diagnostics
+                href: how-to-workspace-diagnostic-api.md
+          - name: Create & manage compute resources
+            items:
+              - name: Compute instance
+                displayName: compute target, No public IP
+                href: how-to-create-manage-compute-instance.md
+              - name: Compute cluster
+                displayName: compute target, low priority, managed identity
+                href: how-to-create-attach-compute-cluster.md
+              - name: Kubernetes cluster
+                displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
+                href: how-to-attach-kubernetes-anywhere.md
+              - name: Azure Kubernetes Service
+                displayName: AKS, inference
+                href: how-to-create-attach-kubernetes.md
+              - name: Use studio
+                displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
+                href: how-to-create-attach-compute-studio.md
+          - name: Customer-managed keys
+            href: how-to-setup-customer-managed-keys.md
     - name: Set up an environment
       items: 
         - name: Set up dev environments
