@@ -4,7 +4,7 @@ description: Learn how to configure logging and connection policy used by Azure 
 author: ealsur
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/04/2021
+ms.date: 05/09/2022
 ms.author: maquaran
 ---
 
@@ -17,7 +17,7 @@ This article describes advanced configuration options you can set when using the
 
 The Azure Functions trigger for Cosmos DB uses the [Change Feed Processor Library](change-feed-processor.md) internally, and the library generates a set of health logs that can be used to monitor internal operations for [troubleshooting purposes](./troubleshoot-changefeed-functions.md).
 
-The health logs describe how the Azure Functions trigger for Cosmos DB behaves when attempting operations during load-balancing scenarios or initialization.
+The health logs describe how the Azure Functions trigger for Cosmos DB behaves when attempting operations during load-balancing, initialization, and processing scenarios.
 
 ### Enabling logging
 
@@ -29,13 +29,32 @@ To enable logging when using Azure Functions trigger for Cosmos DB, locate the `
   "logging": {
     "fileLoggingMode": "always",
     "logLevel": {
-      "Host.Triggers.CosmosDB": "Trace"
+      "Host.Triggers.CosmosDB": "Warning"
     }
   }
 }
 ```
 
-After the Azure Function is deployed with the updated configuration, you will see the Azure Functions trigger for Cosmos DB logs as part of your traces. You can view the logs in your configured logging provider under the *Category* `Host.Triggers.CosmosDB`.
+After the Azure Function is deployed with the updated configuration, you'll see the Azure Functions trigger for Cosmos DB logs as part of your traces. You can view the logs in your configured logging provider under the *Category* `Host.Triggers.CosmosDB`.
+
+### Which type of logs are emitted?
+
+Once enabled, there are three levels of log events that will be emitted:
+
+* Error:
+  * When there's an unknown or critical error on the Change Feed processing that is affecting the correct trigger functionality.
+
+* Warning:
+  * When your Function user code had an unhandled exception - There's a gap in your Function code and the Function isn't [resilient to errors](../../azure-functions/performance-reliability.md#write-defensive-functions) or a serialization error (for C# Functions, the raw json can't be deserialized to the selected C# type).
+  * When there are transient connectivity issues preventing the trigger from interacting with the Cosmos DB account. The trigger will retry these [transient connectivity errors](troubleshoot-dot-net-sdk-request-timeout.md) but if they extend for a long period of time, there could be a network problem. You can enable Debug level traces to obtain the Diagnostics from the underlying Cosmos DB SDK.
+
+* Debug:
+  * When a lease is acquired by an instance - The current instance will start processing the Change Feed for the lease.
+  * When a lease is released by an instance - The current instance has stopped processing the Change Feed for the lease.
+  * When new changes are delivered from the trigger to your Function code - Helps debug situations when your Function code might be having errors and you aren't sure if you're receiving changes or not.
+  * For traces that are Warning and Error, adds the Diagnostics information from the underlying Cosmos DB SDK for troubleshooting purposes.
+
+You can also [refer to the source code](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerHealthMonitor.cs) to see the full details.
 
 ### Query the logs
 

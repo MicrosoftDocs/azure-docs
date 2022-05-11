@@ -196,7 +196,7 @@ For Azure blob container and Azure Data Lake Gen 2 storage, make sure your authe
 
 ## Train with datasets
 
-Use your datasets in your machine learning experiments for training ML models. [Learn more about how to train with datasets](how-to-train-with-datasets.md)
+Use your datasets in your machine learning experiments for training ML models. [Learn more about how to train with datasets](how-to-train-with-datasets.md).
 
 ## Next steps
 

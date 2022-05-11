@@ -34,7 +34,9 @@ To understand where datastores fit in Azure Machine Learning's overall data acce
 For a low code experience, see how to use the [Azure Machine Learning studio to create and register datastores](../how-to-connect-data-ui.md#create-datastores).
 
 >[!TIP]
-> This article assumes you want to connect to your storage service with credential-based authentication credentials, like a service principal or a shared access signature (SAS) token. Keep in mind, if credentials are registered with datastores, all users with workspace *Reader* role are able to retrieve these credentials. [Learn more about workspace *Reader* role.](../how-to-assign-roles.md#default-roles) <br><br>If this is a concern, learn how to [Connect to storage services with identity based access](../how-to-identity-based-data-access.md).
+> This article assumes you want to connect to your storage service with credential-based authentication credentials, like a service principal or a shared access signature (SAS) token. Keep in mind, if credentials are registered with datastores, all users with workspace *Reader* role are able to retrieve these credentials. [Learn more about workspace *Reader* role.](../how-to-assign-roles.md#default-roles).
+>
+> If this is a concern, learn how to [Connect to storage services with identity based access](../how-to-identity-based-data-access.md).
 
 ## Prerequisites
 
@@ -81,8 +83,8 @@ Datastores currently support storing connection information to the storage servi
 [Azure&nbsp;Database&nbsp;for&nbsp;MySQL](/azure/mysql/overview) | SQL authentication|  | ✓* | ✓* |✓*|
 [Databricks&nbsp;File&nbsp;System](/azure/databricks/data/databricks-file-system)| No authentication | | ✓** | ✓ ** |✓** |
 
-\* MySQL is only supported for pipeline [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep)<br />
-\*\* Databricks is only supported for pipeline [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep)
+* MySQL is only supported for pipeline [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep).
+* Databricks is only supported for pipeline [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep).
 
 
 ### Storage guidance
@@ -126,8 +128,8 @@ You can find account key, SAS token, and service principal information on your [
 
 * If you plan to use an account key or SAS token for authentication, select **Storage Accounts** on the left pane, and choose the storage account that you want to register. 
   * The **Overview** page provides information such as the account name, container, and file share name. 
-      1. For account keys, go to **Access keys** on the **Settings** pane. 
-      1. For SAS tokens, go to **Shared access signatures** on the **Settings** pane.
+      * For account keys, go to **Access keys** on the **Settings** pane. 
+      * For SAS tokens, go to **Shared access signatures** on the **Settings** pane.
 
 * If you plan to use a service principal for authentication, go to your **App registrations** and select which app you want to use. 
     * Its corresponding **Overview** page will contain required information like tenant ID and client ID.

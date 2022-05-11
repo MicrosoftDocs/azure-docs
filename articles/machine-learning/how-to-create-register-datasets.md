@@ -258,8 +258,8 @@ Versioning of the metadata (location, description, etc.)
 Below we show an example of versioning the sample data in this repo. The data is uploaded to cloud storage and registered as an asset.
 
 ```python
-from azure.ml.entities import Data
-from azure.ml._constants import AssetTypes
+from azure.ai.ml.entities import Data
+from azure.ai.ml._constants import AssetTypes
 
 my_data = Data(
     path="./sample_data",

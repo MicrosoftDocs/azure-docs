@@ -37,11 +37,11 @@ When you're ready to use the data in your cloud-based storage solution, we recom
 2. From that datastore, create an [Azure Machine Learning dataset](#datasets) to point to a specific file(s) in your underlying storage. 
 
 3. To use that dataset in your machine learning experiment you can either
-    1. Mount it to your experiment's compute target for model training.
+    * Mount it to your experiment's compute target for model training.
 
         **OR** 
 
-    1. Consume it directly in Azure Machine Learning solutions like, automated machine learning (automated ML) experiment runs, machine learning pipelines, or the [Azure Machine Learning designer](../concept-designer.md).
+    * Consume it directly in Azure Machine Learning solutions like, automated machine learning (automated ML) experiment runs, machine learning pipelines, or the [Azure Machine Learning designer](../concept-designer.md).
 
 4. Create [dataset monitors](#drift) for your model output dataset to detect for data drift. 
 
@@ -49,9 +49,9 @@ When you're ready to use the data in your cloud-based storage solution, we recom
 
 The following diagram provides a visual demonstration of this recommended workflow.
 
-![Diagram shows the Azure Storage Service which flows into a datastore, which flows into a dataset. The dataset flows into model training, which flows into data drift, which flows back to dataset.](./media/concept-data/data-concept-diagram.svg)
+![Diagram shows the Azure Storage Service which flows into a datastore, which flows into a dataset.](./media/concept-data/data-concept-diagram.svg)
 
-<a name="datastores"></a>
+
 ## Connect to storage with datastores
 
 Azure Machine Learning datastores securely keep the connection information to your data storage on Azure, so you don't have to code it in your scripts. [Register and create a datastore](../how-to-access-data.md) to easily connect to your storage account, and access the data in your underlying storage service. 
@@ -68,9 +68,11 @@ Supported cloud-based storage services in Azure that can be registered as datast
 + Azure Database for MySQL
 
 >[!TIP]
-> You can create datastores with credential-based authentication for accessing storage services, like a service principal or shared access signature (SAS) token. These credentials can be accessed by users who have *Reader* access to the workspace. <br><br>If this is a concern,  [create a datastore that uses identity-based data access](../how-to-identity-based-data-access.md) to connect to storage services.
+> You can create datastores with credential-based authentication for accessing storage services, like a service principal or shared access signature (SAS) token. These credentials can be accessed by users who have *Reader* access to the workspace.
+>
+> If this is a concern, [create a datastore that uses identity-based data access](../how-to-identity-based-data-access.md) to connect to storage services.
 
-<a name="datasets"></a>
+
 ## Reference data in storage with datasets
 
 Azure Machine Learning datasets aren't copies of your data. By creating a dataset, you create a reference to the data in its storage service, along with a copy of its metadata. 
@@ -109,7 +111,7 @@ With datasets, you can accomplish a number of machine learning tasks through sea
 + Access datasets for scoring with [batch inference](../tutorial-pipeline-batch-scoring-classification.md) in [machine learning pipelines](../how-to-create-machine-learning-pipelines.md).
 + Set up a dataset monitor for [data drift](#drift) detection.
 
-<a name="label"></a>
+
 
 ## Label data with data labeling projects
 
@@ -119,7 +121,7 @@ Azure Machine Learning gives you a central location to create, manage, and monit
 
 Create an [image labeling project](../how-to-create-image-labeling-projects.md) or [text labeling project](../how-to-create-text-labeling-projects.md), and output a dataset for use in machine learning experiments.
 
-<a name="drift"></a>
+
 
 ## Monitor model performance with data drift
 
