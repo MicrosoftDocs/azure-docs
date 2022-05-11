@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 04/26/2022
+ms.date: 05/11/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -15,6 +15,28 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 > [!TIP]
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+
+## May 2022
+
+Updates in May include:
+
+- [Multi-cloud settings of Servers plan are now available in connector level](#multi-cloud-settings-of-servers-plan-are-now-available-in-connector-level)
+
+### Multi-cloud settings of Servers plan are now available in connector level
+
+There are now connector-level settings for Defender for Servers in multi-cloud.
+
+The new connector-level settings provide granularity for pricing and auto-provisioning configuration per connector, independently of the subscription.
+
+All auto-provisioning components available in the connector level (Azure Arc, MDE, and vulnerability assessments) are enabled by default, and the new configuration supports both P1 and P2 pricing tiers.
+ 
+Updates in the UI include a reflection of the selected pricing tier and the required components configured.
+
+:::image type="content" source="media/release-notes/main-page.jpg" alt-text="Screenshot of the main plan page with the Server plan multi-cloud settings.":::
+
+:::image type="content" source="media/release-notes/auto-provision.png" alt-text="Screenshot of the auto-provision page with the multi-cloud connector enabled.":::
+
+:::image type="content" source="media/release-notes/auto-provision-second.png" alt-text="Screenshot of the second auto-provision screen with the multi-cloud setting enabled.":::
 
 ## April 2022
 
