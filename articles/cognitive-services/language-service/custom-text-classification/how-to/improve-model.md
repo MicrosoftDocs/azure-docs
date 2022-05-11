@@ -23,7 +23,7 @@ In some cases, the model is expected to make predictions that are inconsistent w
 To optionally improve a model, you'll need to have:
 
 * [A custom text classification project](create-project.md) with a configured Azure blob storage account, 
-* Text data that has [been uploaded](create-project.md#prepare-training-data) to your storage account.
+* Text data that has [been uploaded](design-schema.md#data-preparation) to your storage account.
 * [Tagged data](tag-data.md) to successfully [train a model](train-model.md).
 * Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
 * Familiarized yourself with the [evaluation metrics](../concepts/evaluation-metrics.md).
@@ -47,7 +47,7 @@ Use the following information to help guide model improvements.
 
 * If a file that should belong to class  `X` is constantly classified as class `Y`, it means that there is ambiguity between these classes and you need to reconsider your schema. Learn more about [data selection and schema design](design-schema.md#schema-design). Another solution is to consider adding more data to these classes, to help the model improve and differentiate between them.
 
-    :::image type="content" source="../media/train-model.png" alt-text="A screenshot showing a new training job in Language Studio." lightbox="../media/train-model.png":::
+    :::image type="content" source="../media/review-validation-set.png" alt-text="A screenshot showing model predictions in Language Studio." lightbox="../media/review-validation-set.png":::
 
 
 ## Next steps

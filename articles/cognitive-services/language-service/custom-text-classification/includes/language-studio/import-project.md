@@ -29,7 +29,7 @@ ms.author: aahi
     > * This process is irreversible, if you connect a storage account to your Language resource you cannot disconnect it later.
     > * You can only connect your Language resource to one storage account.
 
-    :::image type="content" source="../../media/project-types.png" alt-text="A screenshot of the available custom classification project types." lightbox="../../media/project-types.png":::
+    :::image type="content" source="../../media/connect-storage.png" alt-text="A screenshot of the storage connection screen for custom classification projects." lightbox="../../media/connect-storage.png":::
 
 5. Select project type. You can either create a **Multi label classification** project where each document can belong to one or more classes or **Single label classification** project where each document can belong to only one class. The selected type can't be changed later. 
     

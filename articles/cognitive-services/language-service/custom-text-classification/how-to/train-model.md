@@ -28,7 +28,7 @@ Model evaluation is triggered automatically after training is completed successf
 Before you train your model, you need:
 
 * [A successfully created project](create-project.md) with a configured Azure blob storage account, 
-* Text data that has [been uploaded](create-project.md#prepare-training-data) to your storage account.
+* Text data that has [been uploaded](design-schema.md#data-preparation) to your storage account.
 * [Labeled data](tag-data.md)
 
 See the [project development lifecycle](../overview.md#project-development-lifecycle) for more information.

@@ -35,19 +35,18 @@ You also will need an Azure storage account where you will upload your `.txt` fi
 
 ## Create Language resource and connect storage account
 
-### [Using the Azure portal](#tab/azure-portal)
+You can create a resource in the following ways:
+
+* The Azure portal
+* Language Studio
+* PowerShell
 
 [!INCLUDE [create a new resource from the Azure portal](../includes/resource-creation-azure-portal.md)]
 
-### [Using Language Studio](#tab/language-studio)
-
 [!INCLUDE [create a new resource from the Language Studio](../includes/language-studio/resource-creation-language-studio.md)]
-
-### [Using Azure PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [create a new resource with Azure PowerShell](../includes/resource-creation-powershell.md)]
 
----
 
 > [!NOTE]
 > * The process of connecting a storage account to your Language resource is irreversible, it cannot be disconnected later.
@@ -61,11 +60,11 @@ You also will need an Azure storage account where you will upload your `.txt` fi
 
 Once your resource and storage container are configured, create a new custom NER project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have access to the Azure resource being used. If you have labeled data, you can use it to get started by [importing a project](#import-project).
 
-### [Language Studio](#tab/studio)
+### [Language Studio](#tab/language-studio)
 
 [!INCLUDE [Language Studio project creation](../includes/language-studio/create-project.md)]
 
-### [Rest APIs](#tab/apis)
+### [Rest APIs](#tab/rest-api)
 
 [!INCLUDE [Rest APIs project creation](../includes/rest-api/create-project.md)]
 
@@ -75,11 +74,11 @@ Once your resource and storage container are configured, create a new custom NER
 
 If you have already labeled data, you can use it to get started with the service. Make sure that your labeled data follows the [accepted data formats](../concepts/data-formats.md).
 
-### [Language Studio](#tab/studio)
+### [Language Studio](#tab/language-studio)
 
 [!INCLUDE [Import project](../includes/language-studio/import-project.md)]
 
-### [Rest APIs](#tab/apis)
+### [Rest APIs](#tab/rest-api)
 
 [!INCLUDE [Import project](../includes/rest-api/import-project.md)]
 
@@ -87,11 +86,11 @@ If you have already labeled data, you can use it to get started with the service
 
 ## Get project details
 
-### [Language Studio](#tab/studio)
+### [Language Studio](#tab/language-studio)
 
 [!INCLUDE [Language Studio project details](../includes/language-studio/project-details.md)]
 
-### [Rest APIs](#tab/apis)
+### [Rest APIs](#tab/rest-api)
 
 [!INCLUDE [Rest APIs project details](../includes/rest-api/project-details.md)]
 
@@ -99,11 +98,11 @@ If you have already labeled data, you can use it to get started with the service
 
 ## Delete project
 
-### [Language Studio](#tab/studio)
+### [Language Studio](#tab/language-studio)
 
 [!INCLUDE [Delete project using the Language studio](../includes/language-studio/delete-project.md)]
 
-### [Rest APIs](#tab/apis)
+### [Rest APIs](#tab/rest-api)
 
 [!INCLUDE [Delete project using the REST API](../includes/rest-api/delete-project.md)]
 

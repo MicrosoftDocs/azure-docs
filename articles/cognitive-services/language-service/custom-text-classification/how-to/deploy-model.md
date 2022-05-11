@@ -20,7 +20,7 @@ Once you are satisfied with how your model performs, it is ready to be deployed;
 ## Prerequisites
 
 * [A custom text classification project](create-project.md) with a configured Azure storage account,
-* Text data that has [been uploaded](create-project.md#prepare-training-data) to your storage account.
+* Text data that has [been uploaded](design-schema.md#data-preparation) to your storage account.
 * [Labeled data](tag-data.md) and successfully [trained model](train-model.md)
 * Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
 * (optional) [Made improvements](improve-model.md) to your model if its performance isn't satisfactory. 
