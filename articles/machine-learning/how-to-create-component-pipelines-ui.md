@@ -60,7 +60,7 @@ In the example below take using CLI for example. If you want to learn more about
 
 1. Create a new pipeline in the designer.
 
-        :::image type="content" source="./media/how-to-create-component-pipelines-ui/new-pipeline.png" alt-text="Screenshot showing creating new pipeline in designer homepage." lightbox ="./media/how-to-create-component-pipelines-ui/new-pipeline.png":::
+    :::image type="content" source="./media/how-to-create-component-pipelines-ui/new-pipeline.png" alt-text="Screenshot showing creating new pipeline in designer homepage." lightbox ="./media/how-to-create-component-pipelines-ui/new-pipeline.png":::
 
 1. Set the default compute target of the pipeline. 
 
@@ -96,7 +96,7 @@ In the example below take using CLI for example. If you want to learn more about
 
 1. Select submit, and fill in the required information for your pipeline job.
 
-    :::image type="content" source="./media/how-to-create-component-pipelines-ui/submit-pipeline.png" alt-text="Screenshot showing component parameter settings." lightbox ="./media/how-to-create-component-pipelines-ui/submit-pipeline.png":::
+    :::image type="content" source="./media/how-to-create-component-pipelines-ui/submit-pipeline.png" alt-text="Screenshot of set up pipeline job with submit highlighted." lightbox ="./media/how-to-create-component-pipelines-ui/submit-pipeline.png":::
 
 1. After submit successfully, you'll see a job detail page link in the left page. Select **Job detail** to go to pipeline job detail page for checking status and debugging.
 

@@ -56,7 +56,7 @@ You'll see a submission list on the left of canvas. You can select the job detai
     > [!NOTE]
     > Currently auto-generating inference pipeline only works for training pipeline built purely by the designer built-in components.
 
-    :::image type="content" source="./media/how-to-run-batch-predictions-designer/create-batch-inference.png)" alt-text="Screenshot of the create inference pipeline drop-down with batch inference pipeline highlighted." lightbox= "./media/how-to-run-batch-predictions-designer/create-batch-inference.png)":::
+    :::image type="content" source="./media/how-to-run-batch-predictions-designer/create-batch-inference.png)" alt-text="Screenshot of the create inference pipeline drop-down with batch inference pipeline highlighted." lightbox= "./media/how-to-run-batch-predictions-designer/create-batch-inference.png":::
     
     It will create a batch inference pipeline draft for you. The batch inference pipeline draft uses the trained model as **MD-** node and transformation as **TD-** node from the training pipeline job.
 
