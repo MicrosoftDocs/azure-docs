@@ -56,8 +56,6 @@ You can install this version of the extension in your function app by registerin
 
 ::: zone pivot="programming-language-javascript,programming-language-python"  
 
-> [!NOTE]
-> In the current preview, Azure SQL bindings are only supported by [C# class library functions](functions-dotnet-class-library.md). 
 
 ## Install bundle    
 
