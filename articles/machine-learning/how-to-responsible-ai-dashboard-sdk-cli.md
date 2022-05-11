@@ -18,7 +18,7 @@ ms.custom: responsible-ml
 
 The Responsible AI (RAI) dashboard can be generated via a pipeline job using RAI components. There are six core components for creating Responsible AI dashboards, along with a couple of helper components. A sample experiment graph:
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-sdk-cli/sample-experiment-graph.png" alt-text="Screenshot of a sample experiment graph.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-sdk-cli/sample-experiment-graph.png" alt-text="Screenshot of a sample experiment graph." lightbox= "./media/how-to-responsible-ai-dashboard-sdk-cli/sample-experiment-graph.png":::
 
 ## Getting started
 

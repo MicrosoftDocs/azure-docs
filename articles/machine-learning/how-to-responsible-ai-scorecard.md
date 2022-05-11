@@ -197,15 +197,15 @@ You can select from the following metrics, paired with the `fairness_evaluation_
 
 Responsible AI scorecards are linked to your Responsible AI dashboards. To view your Responsible AI scorecard, go into your model registry and select the registered model you've generated a Responsible AI dashboard for. Once you select your model, select the Responsible AI (preview) tab to view a list of generated dashboards. Select which dashboard you’d like to export a Responsible AI scorecard PDF for by selecting **Responsible AI scorecard (preview)**.
 
-:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-studio.png" alt-text="Screenshot of Responsible AI tab in studio with Responsible AI scorecard tab highlights.":::
+:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-studio.png" alt-text="Screenshot of Responsible AI tab in studio with Responsible AI scorecard tab highlights." lightbox = "./media/how-to-responsible-ai-scorecard/scorecard-studio.png":::
 
 Selecting **Responsible AI scorecard (preview)** will show you a dropdown to view all Responsible AI scorecards generated for this dashboard.
 
-:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-studio-dropdown.png" alt-text="Screenshot of Responsible AI scorecard dropdown.":::
+:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-studio-dropdown.png" alt-text="Screenshot of Responsible AI scorecard dropdown." lightbox ="./media/how-to-responsible-ai-scorecard/scorecard-studio-dropdown.png":::
 
 Select which scorecard you’d like to download from the list and select Download to download the PDF to your machine.
 
-:::image type="content" source="./media/how-to-responsible-ai-scorecard/studio-select-scorecard.png" alt-text="Screenshot of selecting a Responsible AI scorecard to download.":::
+:::image type="content" source="./media/how-to-responsible-ai-scorecard/studio-select-scorecard.png" alt-text="Screenshot of selecting a Responsible AI scorecard to download. lightbox = "./media/how-to-responsible-ai-scorecard/studio-select-scorecard.png":::
 
 ## How to read your Responsible AI scorecard
 

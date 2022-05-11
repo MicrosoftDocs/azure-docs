@@ -16,7 +16,7 @@ ms.custom: responsible-ml
 
 You can create a Responsible AI dashboard with a no-code experience in the Azure Machine Learning studio UI. To start the wizard, navigate to the registered model you’d like to create Responsible AI insights for and select the **Details** tab. Then select the **Create Responsible AI dashboard (preview)** button.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/model-page.png" alt-text="Screenshot of the wizard details tab with create responsible AI dashboard tab highlighted.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/model-page.png" alt-text="Screenshot of the wizard details tab with create responsible AI dashboard tab highlighted." lightbox ="./media/how-to-responsible-ai-dashboard-ui/model-page.png":::
 
 The wizard is designed to provide an interface to input all the necessary parameters to instantiate your Responsible AI dashboard without having to touch code. The experience takes place entirely in the Azure Machine Learning studio UI with a guided flow and instructional text to help contextualize the variety of choices in which Responsible AI components you’d like to populate your dashboard with. The wizard is divided into five steps:
 
@@ -33,7 +33,7 @@ The first step is to select the train and test dataset that you used when traini
 > [!NOTE]
 > Only tabular dataset formats are supported.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/datasets.png" alt-text="Screenshot of the wizard on datasets for training and testing.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/datasets.png" alt-text="Screenshot of the wizard on datasets for training and testing." lightbox= "./media/how-to-responsible-ai-dashboard-ui/datasets.png":::
 
 1. **Select a dataset for training**: Select the dropdown to view your registered datasets in Azure Machine Learning workspace. This dataset will be used to generate Responsible AI insights for components such as model explanations and error analysis.  
 2. **Create new dataset**: If the desired datasets aren't in your Azure Machine Learning workspace, select “New dataset” to upload your dataset
@@ -43,7 +43,7 @@ The first step is to select the train and test dataset that you used when traini
 
 After you picked your dataset, select your modeling task type.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/modeling.png" alt-text="Screenshot of the wizard on modeling task type.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/modeling.png" alt-text="Screenshot of the wizard on modeling task type." lightbox= "./media/how-to-responsible-ai-dashboard-ui/modeling.png":::
 
 > [!NOTE]
 > The wizard only supports models with MLflow format and sci-kit learn flavor.
@@ -59,13 +59,13 @@ The Responsible AI dashboard offers two profiles for recommended sets of tools y
 > Multi-class classification does not support Real-life intervention analysis profile.
 Select the desired profile, then **Next**.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/model-debug.png" alt-text="Screenshot of the wizard on dashboard components.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/model-debug.png" alt-text="Screenshot of the wizard on dashboard components." lightbox ="./media/how-to-responsible-ai-dashboard-ui/model-debug.png":::
 
 ## Configure parameters for dashboard components
 
 Once you’ve selected a profile, the configuration step for the corresponding components will appear.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/model-debug-parameters.png" alt-text="Screenshot of the wizard on component parameters.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/model-debug-parameters.png" alt-text="Screenshot of the wizard on component parameters." lightbox = "./media/how-to-responsible-ai-dashboard-ui/model-debug-parameters.png":::
 
 Component parameters for model debugging:
 
@@ -82,11 +82,11 @@ Component parameters for model debugging:
 
 For counterfactuals when you select “Specify features to perturb”, you can specify which range you want to allow perturbations in. For example: for the feature YOE (Years of experience), specify that counterfactuals should only have feature values ranging from 10 to 21 instead of the default 5 to 21.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/model-debug-counterfactuals.png" alt-text="Screenshot of the wizard on component parameters when you select specify features to perturb.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/model-debug-counterfactuals.png" alt-text="Screenshot of the wizard on component parameters when you select specify features to perturb." lightbox = "./media/how-to-responsible-ai-dashboard-ui/model-debug-counterfactuals.png":::
 
 Alternatively, if you're interested in selecting **Real-life interventions** profile, you’ll see the following screen generate a causal analysis. This will help you understand causal effects of features you want to “treat” on a certain outcome you wish to optimize.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/real-life-parameters.png" alt-text="Screenshot of the wizard on component parameters for real-life intervention use causal analysis.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/real-life-parameters.png" alt-text="Screenshot of the wizard on component parameters for real-life intervention use causal analysis." lightbox = "./media/how-to-responsible-ai-dashboard-ui/real-life-parameters.png":::
 
 Component parameters for real-life intervention use causal analysis:
 
@@ -99,7 +99,7 @@ Component parameters for real-life intervention use causal analysis:
 
 Finally, configure your experiment to kick off a job to generate your Responsible AI dashboard.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/experiment-config.png" alt-text="Screenshot of the wizard on experiment configuration.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/experiment-config.png" alt-text="Screenshot of the wizard on experiment configuration." lightbox= "./media/how-to-responsible-ai-dashboard-ui/experiment-config.png":::
 
 1. **Name**: Give your dashboard a unique name so that you can differentiate it when you’re viewing the list of dashboards for a given model.
 2. **Experiment name**: Select an existing experiment to run the job in, or create a new experiment.
@@ -110,8 +110,6 @@ Finally, configure your experiment to kick off a job to generate your Responsibl
 7. **Tags**: Add any tags to this Responsible AI dashboard.
 
 After you’ve finished your experiment configuration, select **Create** to start the generation of your Responsible AI dashboard. You'll be redirected to the experiment page to track the progress of your job. See below next steps on how to view your Responsible AI dashboard.
-
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/run-page.png" alt-text="Screenshot of the experiment page to track the progress of your job.":::
 
 ## Next steps
 

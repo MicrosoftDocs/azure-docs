@@ -20,7 +20,7 @@ Responsible AI dashboards are linked to your registered models. To view your Res
 
 Multiple dashboards can be configured and attached to your registered model. Different combinations of components (explainers, causal analysis, etc.) can be attached to each Responsible AI dashboard. The list below only shows whether a component was generated for your dashboard, but different components can be viewed or hidden within the dashboard itself.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/dashboard-page.png" alt-text="Screenshot of Responsible AI tab with a dashboard name highlighted.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/dashboard-page.png" alt-text="Screenshot of Responsible AI tab with a dashboard name highlighted." lightbox = "./media/how-to-responsible-ai-dashboard/dashboard-page.png":::
 
 Selecting the name of the dashboard will open up your dashboard into a full view in your browser. At anytime, select the **Back to models details** to get back to your list of dashboards.
 
@@ -51,19 +51,19 @@ The information above can also be found on the Responsible AI dashboard page by 
 
 Select a running compute instance from compute dropdown above your dashboard. If you don’t have a running compute, create a new compute instance by selecting “+ ” button next to the compute dropdown, or  “Start compute” button to start a stopped compute instance. Creating or starting a compute instance may take few minutes.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/select-compute.png" alt-text="Screenshot showing how to selecting a compute.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/select-compute.png" alt-text="Screenshot showing how to selecting a compute." lightbox = "./media/how-to-responsible-ai-dashboard/select-compute.png":::
 
 Once compute is in “Running” state, your Responsible AI dashboard will start to connect to the compute instance. To achieve this, a terminal process will be created on the selected compute instance, and Responsible AI endpoint will be started on the terminal. Select **View terminal outputs** to view current terminal process.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/compute-connect-terminal.png" alt-text="Screenshot showing the responsible AI dashboard is connecting to a compute resource.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/compute-connect-terminal.png" alt-text="Screenshot showing the responsible AI dashboard is connecting to a compute resource." lightbox = "./media/how-to-responsible-ai-dashboard/compute-connect-terminal.png":::
 
 When your Responsible AI dashboard is connected to the compute instance, you'll see a green message bar, and the dashboard is now fully functional.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/compute-terminal-connected.png" alt-text="Screenshot of a connected compute.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/compute-terminal-connected.png" alt-text="Screenshot of a connected compute." lightbox= "./media/how-to-responsible-ai-dashboard/compute-terminal-connected.png":::
 
 If it takes a while and your Responsible AI dashboard is still not connected to the compute instance, or a red error message bar shows up, it means there are issues with starting your Responsible AI endpoint. Select **View terminal outputs** and scroll down to the bottom to view the error message.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/compute-terminal-error.png" alt-text="Screenshot of an error connecting to a compute.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/compute-terminal-error.png" alt-text="Screenshot of an error connecting to a compute." lightbox ="./media/how-to-responsible-ai-dashboard/compute-terminal-error.png":::
 
 If you're having issues with figuring out how to resolve the failed to connect to compute instance issue, select the “smile” icon on the upper right corner, and submit feedback to us to let us know what error or issue you hit. You can include screenshot and/or your email address in the feedback form.
 
@@ -83,7 +83,7 @@ The Responsible AI dashboard includes a robust and rich set of visualizations an
 
 At the top of the dashboard, you can create cohorts, subgroups of datapoints sharing specified characteristics, to focus your analysis in each component on. The name of the cohort currently applied to the dashboard is always shown on the top left above your dashboard. The default shown in your dashboard will always be your whole dataset denoted by the title **All data (default)**.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/view-dashboard-global-controls.png" alt-text="Screenshot of a responsible AI dashboard showing all data.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/view-dashboard-global-controls.png" alt-text="Screenshot of a responsible AI dashboard showing all data." lightbox = "./media/how-to-responsible-ai-dashboard/view-dashboard-global-controls.png":::
 
 1. **Cohort settings**: allows you to view and modify the details of each cohort in a side panel.
 2. **Dashboard configuration**: allows you to view and modify the layout of the overall dashboard in a side panel.
@@ -92,7 +92,7 @@ At the top of the dashboard, you can create cohorts, subgroups of datapoints sha
 
 Selecting Cohort settings will open a panel with a list of your cohorts, where you can create, edit, duplicate, or delete your cohorts.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/view-dashboard-cohort-settings.png" alt-text="Screenshot showing the cohort settings in he dashboard.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/view-dashboard-cohort-settings.png" alt-text="Screenshot showing the cohort settings in he dashboard." lightbox ="./media/how-to-responsible-ai-dashboard/view-dashboard-cohort-settings.png":::
 
 Selecting the **New cohort** button on the top of the dashboard or in the Cohort settings opens a new panel with options to filter on the following:
 
@@ -108,15 +108,15 @@ Selecting the **New cohort** button on the top of the dashboard or in the Cohort
 
 You can name your new dataset cohort, select **Add filter** to add each desired filter, then select **Save** to save the new cohort to your cohort list or Save and switch to save and immediately switch the global cohort of the dashboard to the newly created cohort.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/view-dashboard-new-cohort.png" alt-text="Screenshot of making a new cohort in the dashboard.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/view-dashboard-new-cohort.png" alt-text="Screenshot of making a new cohort in the dashboard." lightbox= "./media/how-to-responsible-ai-dashboard/view-dashboard-new-cohort.png":::
 
 Selecting **Dashboard configuration** will open a panel with a list of the components you’ve configured in your dashboard. You can hide components in your dashboard by selecting the ‘trash’ icon.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/dashboard-configuration.png" alt-text="Screenshot showing the dashboard configuration.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/dashboard-configuration.png" alt-text="Screenshot showing the dashboard configuration." lightbox="./media/how-to-responsible-ai-dashboard/dashboard-configuration.png":::
 
 You can add components back into your dashboard via the blue circular ‘+’ icon in the divider between each component.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/dashboard-add-component.png" alt-text="Screenshot of adding a component to the dashboard. ":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/dashboard-add-component.png" alt-text="Screenshot of adding a component to the dashboard." lightbox= "./media/how-to-responsible-ai-dashboard/dashboard-add-component.png":::
 
 ### Error analysis
 
@@ -124,7 +124,7 @@ You can add components back into your dashboard via the blue circular ‘+’ ic
 
 The first tab of the Error analysis component is the Tree map, which illustrates how model failure is distributed across different cohorts with a tree visualization. Select any node to see the prediction path on your features where error was found.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/error-analysis-tree-map-selected.png" alt-text="Screenshot of the dashboard showing error analysis on the tree map tab. ":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/error-analysis-tree-map-selected.png" alt-text="Screenshot of the dashboard showing error analysis on the tree map tab." lightbox="./media/how-to-responsible-ai-dashboard/error-analysis-tree-map-selected.png":::
 
 1. **Heatmap view**: switches to heatmap visualization of error distribution.
 2. **Feature list:** allows you to modify the features used in the heatmap using a side panel.
@@ -140,7 +140,7 @@ The first tab of the Error analysis component is the Tree map, which illustrates
 
 Selecting the "Feature list" button opens a side panel, which allows you to retrain the error tree on specific features.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/error-analysis-feature-selection.png" alt-text="Screenshot of the dashboard showing error analysis tree map feature list. ":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/error-analysis-feature-selection.png" alt-text="Screenshot of the dashboard showing error analysis tree map feature list." lightbox= "./media/how-to-responsible-ai-dashboard/error-analysis-feature-selection.png":::
 
 1. **Search features**: allows you to find specific features in the dataset.
 2. **Features:** lists the name of the feature in the dataset.
@@ -154,7 +154,7 @@ Selecting the "Feature list" button opens a side panel, which allows you to retr
 
 Selecting the **Heat map** tab switches to a different view of the error in the dataset. You can select on one or many heat map cells and create new cohorts. You can choose up to two features to create a heatmap.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/error-analysis-heat-map.png" alt-text="Screenshot of the dashboard showing error analysis heat map feature list. ":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/error-analysis-heat-map.png" alt-text="Screenshot of the dashboard showing error analysis heat map feature list." lightbox+ "./media/how-to-responsible-ai-dashboard/error-analysis-heat-map.png":::
 
 1. **Number of Cells**: displays the number of cells selected.
 2. **Error coverage**: displays the percentage of all errors concentrated in the selected cell(s).
@@ -174,7 +174,7 @@ The model overview component provides a set of commonly used model performance m
 
 You can further investigate your model by looking at a comparative analysis of its performance across different cohorts or subgroups of your dataset, including automatically created “temporary cohorts” based on selected nodes from the Error analysis component. Select filters along y-value and x-value to cut across different dimensions.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/model-overview-v1.png" alt-text="Screenshot of model overview showing a box plot of cohort on y and error on x. ":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/model-overview-v1.png" alt-text="Screenshot of model overview showing a box plot of cohort on y and error on x. " lightbox="./media/how-to-responsible-ai-dashboard/model-overview-v1.png":::
 
 ### Data explorer
 
@@ -299,7 +299,7 @@ To get a granular view of causal effects on an individual datapoint, switch to t
 
 Selecting the Treatment policy tab switches to a view to help determine real-world interventions and shows treatment(s) to apply to achieve a particular outcome.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/causal-treatment-policy.png" alt-text="Screenshot of the dashboard showing casual analysis on the treatment policy tab.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/causal-treatment-policy.png" alt-text="Screenshot of the dashboard showing casual analysis on the treatment policy tab." lightbox= "./media/how-to-responsible-ai-dashboard/causal-treatment-policy.png":::
 
 1. **Set treatment feature**: selects feature to change as a real-world intervention
 2. **Recommended global treatment policy**: displays recommended interventions for data cohorts to improve target feature value. The table can be read from left to right, where the segmentation of the dataset is first in rows and then in columns. For example, 658 individuals whose employer isn't Snapchat, and their Programming language isn't JavaScript, the recommended treatment policy is to increase the number of GitHub repos contributed to.
