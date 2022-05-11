@@ -41,7 +41,7 @@ So, a simple, real-world example would look like:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/local-file-definition.bicep" :::
 
-You can use a ARM JSON template as a module:
+You can also use an ARM JSON template as a module:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/local-file-definition-json.bicep" :::
 
