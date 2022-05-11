@@ -1,6 +1,6 @@
 ---
-title: Create nginx application - Azure partner solutions
-description: This article describes how to use the Azure portal to create an instance of nginx.
+title: Create an NGINX for Azure deployment
+description: This article describes how to use the Azure portal to create an instance of NGINX.
 ms.topic: quickstart
 ms.service: partner-services
 author: flang-msft
@@ -9,7 +9,7 @@ ms.date: 05/12/2022
 
 ---
 
-# QuickStart: Get started with nginx
+# QuickStart: Get started with NGINX
 
 In this quickstart, you'll use the Azure Marketplace to find and create an instance of  **NGINX for Azure (Preview)**.
 
@@ -61,7 +61,7 @@ You can specify custom tags for the new NGINX resource in Azure by adding custom
 
 1. Once the process is complete, select **Go to Resource** to navigate to the specific NGINX resource.
 
-    :::image type="content" source="media/nginx-create/nginx-overview-pane.png" alt-text="Image ":::
+    :::image type="content" source="media/nginx-create/nginx-overview-pane.png" alt-text="screenshot of completed NGINX deployment ":::
 
 1. Select Overview in the resource menu to see information on the deployed resources in the working pane.
 
@@ -69,4 +69,4 @@ You can specify custom tags for the new NGINX resource in Azure by adding custom
 
 ## Next steps
 
-- [Manage the nginx resource](nginx-manage.md)
+- [Manage the NGINX resource](nginx-manage.md)

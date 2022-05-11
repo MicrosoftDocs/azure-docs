@@ -1,14 +1,13 @@
 ### YamlMime:Landing
 
-title: nginx integration with Azure
-summary: Uses nginx to nginx stuff.
+title: NGINX for Azure 
+summary: NGINX for Azure is part of Marketplace. Use NGINX for Azure to combine the benefits of NGINX and the Azure cloud. You can learn how to create an NGINX deployment and manage it. You also can read about how you get support for your NGINX deployment.
 
 metadata:
-  title: nginx with Azure documentation
-  description: nginx integrates with Azure to offer 
+  title: NGINX with Azure 
+  description: NGINX integrates with Azure to combine the benefits of NGINX and the Azure cloud.
   ms.service: partner-services
   ms.topic: landing-page
-  ms.collection: na
   author: flang-msft
   ms.author: franlanglois
   ms.date: 05/12/2022

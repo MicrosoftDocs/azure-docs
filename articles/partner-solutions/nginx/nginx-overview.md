@@ -1,9 +1,8 @@
 ---
-title: NGINX overview - Azure partner solutions
-description: Learn about using the nginx Cloud-Native Observability Platform in the Azure Marketplace.
+title: What is NGINX for Azure
+description: Learn about using the NGINX Cloud-Native Observability Platform in the Azure Marketplace.
 ms.topic: conceptual
 ms.service: partner-services    
-
 author: flang-msft
 ms.author: franlanglois
 ms.date: 05/12/2022
@@ -24,7 +23,7 @@ Here are the key capabilities provided by the Azure NGINX integration:
 
 - **Seamless onboarding** of NGINX SaaS software as an integrated service on Azure
 - **Unified billing** of NGINX SaaS through Azure Monthly bill  
-- **Single-Sign on to NGINX.** No separate sign-up needed from NGINX portal
+- **Single-Sign on to NGINX.** - No separate sign-up needed from NGINX portal
 - **Lift and Shift config files** - Ability to use existing Configuration (.conf) files for SaaS deployment
 
 ## Pre-requisites  
@@ -43,4 +42,4 @@ The Azure NGINX integration can only be set up by users who have Owner access on
 
 ## Next steps
 
-To create an instance of NGINX, see [QuickStart: Get started with nginx](nginx-create.md).
+To create an instance of NGINX, see [QuickStart: Get started with NGINX](nginx-create.md).

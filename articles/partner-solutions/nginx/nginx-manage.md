@@ -88,7 +88,7 @@ To delete your deployment of NGINX for Azure:
 1. From the Resource menu, select your NGINX deployment.
 1. Select **Overview** on the left.
 1. Select **Delete**.
-1. Confirm that you want to delete NGINX resource.
+1. Confirm that you want to delete the NGINX resource.
 1. Select **Delete**.
 
 After the account is deleted, logs are no longer sent to NGINX, and all billing stops for NGINX through Azure Marketplace.
@@ -104,4 +104,4 @@ Enable CI/CD deployments via GitHub Actions integrations
 
 ## Next steps
 
-For help with troubleshooting, see [Troubleshooting nginx integration with Azure](nginx-troubleshoot.md).
+For help with troubleshooting, see [Troubleshooting NGiNX integration with Azure](nginx-troubleshoot.md).
