@@ -9,7 +9,7 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/17/2022
+ms.date: 05/11/2022
 ---
 
 # Creating indexers in Azure Cognitive Search
@@ -68,7 +68,7 @@ You can also [specify a schedule](search-howto-schedule-indexers.md) or set an [
 
 ### Indexer definition for AI enrichment
 
-Indexers also drive [AI enrichment](cognitive-search-concept-intro.md). All of the above properties and parameters apply, but the following properties are specific to AI enrichment: **`skillSetName`**, **`outputFieldMappings`**, **`cache`**. A few other required and similarly named properties are added for context.
+Indexers also drive [AI enrichment](cognitive-search-concept-intro.md). All of the above properties and parameters apply, but the following properties are specific to AI enrichment: **`skillSetName`**, **`outputFieldMappings`**, **`cache`**. A [skillset](cognitive-search-defining-skillset.md) also has **`cognitiveServices`**, and **`knowledgeStore`**. A few other required and similarly named properties are added for context.
 
 ```json
 {

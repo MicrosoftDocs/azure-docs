@@ -8,7 +8,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/03/2021
+ms.date: 05/11/2022
 ---
 # Create a knowledge store using REST and Postman
 
@@ -39,11 +39,24 @@ Because the workload is so small, Cognitive Services is tapped behind the scenes
 
    :::image type="content" source="media/knowledge-store-create-portal/blob-container-storage-explorer.png" alt-text="Screenshot of Storage Browser with uploaded file and left nav pane" border="true":::
 
-1. You are almost done with this resource, but before you leave these pages, select **Access Keys** on the left navigation pane to get a connection string so that you can retrieve this data using the indexer.
+## Decide on a connection strategy
 
-1. In **Access Keys**, select **Show Keys** at the top of the page to unhide the connection strings, and then copy the connection string for either key1 or key2.
+During skillset execution, the indexer connects to Azure Storage and creates the knowledge store. The connection information will be specified in the `knowledgeStore` section of the skillset. You can choose from the following approaches when setting up your connection:
 
-   A connection string has the following format: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
++ Option 1, use a full access Azure Storage connection string that includes an access key:
+
+  1. Select **Access Keys** on the left navigation pane.
+
+  1. In **Access Keys**, select **Show Keys** at the top of the page to unhide the connection strings, and then copy the connection string for either key1 or key2.
+
+     A connection string has the following format: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
+
++ Option 2, use your search service's system managed identity or user-assigned managed identity to connect to Azure Storage. Follow the instructions and examples in [Connect using a managed identity](search-howto-managed-identities-data-sources.md). You'll need to set up the managed identity, assign roles, and assemble a connection string that references a managed identity.
+
+     A connection string for a system managed identity has the following format: `"knowledgeStore": {
+  "storageConnectionString": "ResourceId=/subscriptions/{YOUR-SUBSCRIPTION-ID}/resourceGroups/{YOUR-RESOURCE-GROUP-NAME}/providers/Microsoft.Storage/storageAccounts/{YOUR-ACCOUNT-NAME};"`
+
+Once you decide on an approach, you'll provide the appropriate connection string as a variable in the Postman collection, as described in the next step.
 
 ## Configure requests
 
@@ -79,7 +92,7 @@ Variables are defined for Azure services, service connections, and object names.
 | `search-service-name` | The name of the Azure Cognitive Search service. If the URL is `https://mySearchService.search.windows.net`, the value you should enter is `mySearchService`. | 
 | `skillset-name` | Leave as **hotel-reviews-ss**. | 
 | `storage-account-name` | The Azure storage account name. | 
-| `storage-connection-string` | In the storage account, on the **Access Keys** tab, select **Show key** at the top of the page, then copy **key1** > **Connection string**. | 
+| `storage-connection-string` | Use the storage account's connection string from **Access Keys** or paste in a connection string that references a managed identity. | 
 | `storage-container-name` | Leave as **hotel-reviews**. | 
 
 ### Review the request collection in Postman
