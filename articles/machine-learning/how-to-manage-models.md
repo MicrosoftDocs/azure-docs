@@ -40,7 +40,7 @@ The code snippets in this section cover the following scenarios:
 * Registering model as an asset in Azure Machine Learning using SDK
 * Registering model as an asset in Azure Machine Learning using UI
 
-These snippets use `custom' and `mlfow`.
+These snippets use `custom` and `mlflow`.
 
 - `custom` is a type that refers to a model file.
 - `mlflow` is a type that refers to a model trained with [mlflow](how-to-use-mlflow-cli-runs.md). MLflow trained model are in a folder that contains the `MLmodel file`, `model file`, `conda dependecies` and the `requirements.txt`. 
@@ -76,7 +76,7 @@ az ml model create --name my-model --version 1 --path azureml://datastores/myblo
 
 The examples use shorthand `azureml` scheme for pointing to a path on the `datastore` using syntax `azureml://datastores/${{datastore-name}}/paths/${{path_on_datastore}}`. 
 
-For a complete example, see the [CLI Reference](??).
+For a complete example, see the [CLI Reference](/cli/azure/ml/model).
 
 # [Job Output](#tab/use-job-output)
 
@@ -127,8 +127,8 @@ Use the tabs below to select where your model is located.
 # [Local model](#tab/use-local)
 
 ```python
-from azure.ml.entities import Model
-from azure.ml._constants import ModelType
+from azure.ai.ml.entities import Model
+from azure.ai.ml._constants import ModelType
 
 file_model = Model(
     path="mlflow-model/model.pkl",
@@ -145,8 +145,8 @@ ml_client.models.create_or_update(file_model)
 A model can be created from a cloud path using any one of the following supported URI formats.
 
 ```python
-from azure.ml.entities import Model
-from azure.ml._constants import ModelType
+from azure.ai.ml.entities import Model
+from azure.ai.ml._constants import ModelType
 
 cloud_model = Model(
     path= "azureml://datastores/workspaceblobstore/paths/model.pkl"
@@ -170,8 +170,8 @@ Example:
 `runs:/$RUN_ID/model/`
 
 ```python
-from azure.ml.entities import Model
-from azure.ml._constants import ModelType
+from azure.ai.ml.entities import Model
+from azure.ai.ml._constants import ModelType
 
 run_model = Model(
     path="runs:/$RUN_ID/model/"
@@ -192,7 +192,7 @@ Format:
 
 Examples:
 - Default artifact location: `azureml://jobs/$RUN_ID/outputs/artifacts/paths/model/`
-    * this is equivalent to `runs:/$RUN_ID/model/` from the #2 mlflow run URI format
+    * this is equivalent to `runs:/$RUN_ID/model/` from the mlflow run URI format
     * **note: "artifacts"** is the reserved key word we use to refer to the output that represents the **default artifact location**
 - From a named output dir: `azureml://jobs/$RUN_ID/outputs/trained-model`
 - From a specific file or folder path within the named output dir:
@@ -202,8 +202,8 @@ Examples:
 Saving model from a named output:
 
 ```python
-from azure.ml.entities import Model
-from azure.ml._constants import ModelType
+from azure.ai.ml.entities import Model
+from azure.ai.ml._constants import ModelType
 
 run_model = Model(
     path="azureml://jobs/$RUN_ID/outputs/artifacts/paths/model/"
