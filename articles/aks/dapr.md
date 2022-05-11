@@ -39,7 +39,11 @@ Once Dapr is installed on your cluster, you can begin to develop using the Dapr 
 The Dapr extension support varies depending on how you manage the runtime. 
 
 **Self-managed**
-For self-managed runtime, the Dapr extension will follow the [Dapr OSS support policy][dapr-oss-support] (which is N-1), and requires manual upgrade to remain in the support window. To upgrade the Dapr extension, follow the [Update extension instance instructions][update-extension].
+For self-managed runtime, the Dapr extension will follow the [Dapr OSS support policy][dapr-oss-support], supporting:
+- [The latest version of Dapr and 2 previous versions (N-2)][dapr-supported-version]
+- Upgrading minor version incrementally (for example, 1.5 -> 1.6 -> 1.7) 
+
+Self-managed runtime requires manual upgrade to remain in the support window. To upgrade the Dapr extension, follow the [Update extension instance instructions][update-extension].
 
 **Auto-upgrade**
 Enabling auto-upgrade keeps your Dapr extension updated to the latest minor version. You may experience breaking changes between updates.
@@ -269,5 +273,6 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 [dapr-security]: https://docs.dapr.io/concepts/security-concept/
 [dapr-deployment-annotations]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-overview/#adding-dapr-to-a-kubernetes-deployment
 [dapr-oss-support]: https://docs.dapr.io/operations/support/support-release-policy/
+[dapr-supported-version]: https://docs.dapr.io/operations/support/support-release-policy/#supported-versions
 [dapr-troubleshooting]: https://docs.dapr.io/operations/troubleshooting/common_issues/
 [supported-cloud-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc
