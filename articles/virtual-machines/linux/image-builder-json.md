@@ -218,7 +218,7 @@ If Image Builder did not create the staging resource group, but it did create re
     "properties": {
       "stagingResourceGroup": "/subscriptions/<subscriptionID>/resourceGroups/<stagingResourceGroupName>"
     }
-```![image](https://user-images.githubusercontent.com/12863757/167726394-7d1fce4f-f4b1-4c35-a3ac-b26970cf9eee.png)
+```
 
 
 ## Properties: source
@@ -593,6 +593,8 @@ Azure Image Builder supports a 'Validation-only' mode that can be set using the 
 The `inVMValidations` field takes a list of validation customizers that will be performed on the image. Azure Image Builder supports both PowerShell and Shell validator customizers. Please keep in mind that exactly one 'scriptUri' and 'inline' customizer can be specified in the `inVMValidations` field.
 
 The `continueDistributeOnFailure` field is responsible for whether the output image(s) will be distributed after validation. If validation fails and this field is set to false, the output image(s) will not be distributed (this is the default behavior). If validation fails and this field is set to true, the output image(s) will still be distributed. Please use this option with caution as it may result in failed images being distributed for use. In either case (true or false), the end to end image run will be reported as a failed in the case of a validation failure. This field has no effect on whether validation succeeds or not.
+
+How to use the `validate` property to validate Windows images
         
 ```json
 
@@ -600,23 +602,61 @@ The `continueDistributeOnFailure` field is responsible for whether the output im
    "properties": {
         "validate": {
           "properties": {
-            "continueDistributeOnFailure": {
-              "type": "boolean",
-              "default": false,
-            "sourceValidationOnly": {
-              "type": "boolean",
-              "default": false,
-            "inVMValidations": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ImageTemplateInVMValidator"
-              },
-            }
-          }
-        },
+            "continueDistributeOnFailure": false,
+            "sourceValidationOnly": false,
+            "inVMValidations": [
+	    { 
+	        "type": "PowerShell",
+	        "name":   "<name>",  
+	        "scriptUri": "<path to script>",
+	        "runElevated": <true false>,
+	        "sha256Checksum": "<sha256 checksum>" 
+	    }, 	
+	    { 
+	        "type": "PowerShell", 
+	        "name": "<name>", 
+	        "inline": [
+	        "<command to run inline",
+	        ], 
+	        "validExitCodes": "<exit code>",
+	        "runElevated": <true or false> 
+	    }
+          ]
+        }
+      }
     }
 }
+```
 
+How to use the `validate` property to validate Linux images
+        
+```json
+
+{
+   "properties": {
+        "validate": {
+          "properties": {
+            "continueDistributeOnFailure": false,
+            "sourceValidationOnly": false,
+            "inVMValidations": [
+	    { 
+	        "type": "Shell",
+	        "name":   "<name>",  
+	        "scriptUri": "<path to script>",
+	        "sha256Checksum": "<sha256 checksum>" 
+	    }, 	
+	    { 
+	        "type": "Shell", 
+	        "name": "<name>", 
+	        "inline": [
+	        "<command to run inline>", 
+	        ]
+	    }
+          ]
+        }
+      }
+    }
+}
 ```
  
 ## Properties: distribute
