@@ -29,7 +29,7 @@ In this tutorial, you deploy the same applications from the Dapr [Hello World](h
 
 The application consists of:
 
-- A client (Python) container app to generates messages.
+- A client (Python) container app to generate messages.
 - A service (Node) container app to consume and persist those messages in a state store
 
 The following architecture diagram illustrates the components that make up this tutorial:
