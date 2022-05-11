@@ -53,7 +53,8 @@ Follow these steps to configure Single Sign-On using an existing Identity Provid
 
 1. Obtain the `Issuer URI` for your identity provider. The provider needs to be configured with an issuer URI which is the URI that the it asserts as its Issuer Identifier. For example, if the issuer-uri provided is "https://example.com", then an OpenID Provider Configuration Request will be made to "https://example.com/.well-known/openid-configuration". The result is expected to be an OpenID Provider Configuration Response.
 
-> Note that only authorization servers supporting OpenID Connect Discovery protocol can be used.
+> [!NOTE]
+> Only authorization servers supporting OpenID Connect Discovery protocol can be used.
 
 1. Obtain the `JSON Web Key (JWK) URI` for your identity provider. The `JWK URI` typically takes the form `${ISSUER_URI}/keys` or `${ISSUER_URI}/<version>/keys`. 
 
