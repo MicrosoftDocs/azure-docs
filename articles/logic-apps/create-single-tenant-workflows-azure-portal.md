@@ -465,15 +465,18 @@ To debug a stateless workflow more easily, you can enable the run history for th
 
 ## View connections
 
-When you create connections within a workflow using [managed connectors](../connectors/managed.md) or [service provider based, built-in connectors](../connectors/built-in.md), these connections are actually separate Azure resources with their own resource definitions. To view and manage these connections, follow these steps:
+When you create connections within a workflow using [managed connectors](../connectors/managed.md) or [service provider based, built-in connectors](../connectors/built-in.md), these connections are actually separate Azure resources with their own resource definitions.
 
 1. From your logic app's menu, under **Workflows**, select **Connections**.
 
 1. Based on the connection type, you want to view, select one of the following options:
 
-   * **API Connections**, which are created by managed connectors.
-   * **Service Provider Connections**, which are created by built-in connectors based on the service provider interface implementation. a specific connection instance, which shows more information about that connection. To view the underlying connection resource definition, select **JSON View**.
-
+   | Option | Description |
+   |--------|-------------|
+   | **API Connections** | Connections created by managed connectors |
+   | **Service Provider Connections** | Connections created by built-in connectors based on the service provider interface implementation. a specific connection instance, which shows more information about that connection. To view the selected connection's underlying resource definition, select **JSON View**. |
+   | **JSON View** | The underlying resource definitions for all connections in the logic app |
+   |||
 
 <a name="delete-from-designer"></a>
 

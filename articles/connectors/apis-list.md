@@ -63,9 +63,13 @@ Before you can use a managed connector's triggers or actions in your workflow, m
 
 Although you create connections within a workflow, these connections are actually separate Azure resources with their own resource definitions. To review these connection resource definitions, follow these steps based on whether you have a Consumption or Standard logic app:
 
-* Consumption: [View connections in the Azure portal](../logic-apps/manage-logic-apps-with-azure-portal.md#view-connections). For more information about connection resource definitions for Consumption logic apps, review [Connection resource definitions](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#connection-resource-definitions).
+* Consumption: To view these connections in the Azure portal, review [View connections for Consumption logic apps in the Azure portal](../logic-apps/manage-logic-apps-with-azure-portal.md#view-connections).
 
-* Standard: [View your logic app in Visual Studio Code](../logic-apps/create-single-tenant-workflows-visual-studio-code.md#manage-deployed-apps-vs-code). The **connections.json** file contains the required configuration for the connections created by connectors.
+  To view and manage these connections in Visual Studio, review [Manage Consumption logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), and download your logic app from Azure into Visual Studio. For more information about connection resource definitions for Consumption logic apps, review [Connection resource definitions](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#connection-resource-definitions).
+
+* Standard: To view these connections in the Azure portal, review [View connections for Standard logic apps in the Azure portal](../logic-apps/create-single-tenant-workflows-azure-portal.md#view-connections).
+
+  To view and manage these connections in Visual Studio Code, review [View your logic app in Visual Studio Code](../logic-apps/create-single-tenant-workflows-visual-studio-code.md#manage-deployed-apps-vs-code). The **connections.json** file contains the required configuration for the connections created by connectors.
 
 <a name="connection-security-encryption"></a>
 
