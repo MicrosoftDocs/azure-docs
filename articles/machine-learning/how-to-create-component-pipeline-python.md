@@ -287,7 +287,7 @@ The call to `submit` the `Experiment` completes quickly, and produces output sim
 
 | Experiment | Name | Type | Status | Details Page |
 | --- | ---- | ----------- | -------------- | ------------- |
-| pipeline_samples | sharp_pipe_4gvqx6h1fb | pipeline | Preparing | Link to Azure Machine Learning studio |
+| pipeline_samples | sharp_pipe_4gvqx6h1fb | pipeline | Preparing | Link to Azure Machine Learning studio. |
 
 You can monitor the pipeline run by opening the link or you can block until it completes by running:
 
