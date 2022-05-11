@@ -21,7 +21,7 @@ ms.author: lajanuar
 
 #### When should rgw source language be specified in a request?
 
-If the language of the content in the source document is known, its recommended to specify the source language in the request to get a better translation. If the document has content in multiple languages or the language is unknown, then don't specify the source language in the request. Document translation automatically identifies language for each text segment and translates.
+If the language of the content in the source document is known, it's recommended to specify the source language in the request to get a better translation. If the document has content in multiple languages or the language is unknown, then don't specify the source language in the request. Document translation automatically identifies language for each text segment and translates.
 
 #### To what extent are the layout, structure, and formatting maintained?
 
