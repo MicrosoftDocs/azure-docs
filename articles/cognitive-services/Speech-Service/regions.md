@@ -39,7 +39,7 @@ The Speech service is available in these regions for speech-to-text, pronunciati
 If you plan to train a custom model with audio data, use one of the [regions with dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for faster training. You can use the [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) to copy the fully trained model to another region later.
 
 > [!TIP]
-> For pronunciation assessment feature, the released en-US language is available in all speech-to-text regions, and [preview languages](language-support.md#pronunciation-assessment) are available in one region: West US.
+> For pronunciation assessment feature, `en-US` and `en-GB` are available in all regions listed above, `zh-CN` is available in East Asia and Southeast Asia regions, `es-ES` and `fr-FR` are available in West Europe region, and `en-AU` is available in Australia East region.
 
 ### Intent recognition
 
