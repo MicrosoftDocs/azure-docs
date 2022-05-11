@@ -16,7 +16,7 @@ You can create a custom storage class based on [Azure Premium LRS][premium-ssd] 
 
 - For online deployments, you need an Azure account. If you don't have one, create a [free Azure account][free-azure-account] before you begin.
 - Install [Visual Studio Code][visual-studio-code] to edit YAML manifests and bash script on your local machine.
-- Install [Azure CLI][azure-cli] and [kubectl][kubectl] to run commands against your Azure subscription and AKS cluster.
+- Install [Azure CLI][install-azure-cli] and [kubectl][kubectl] to run commands against your Azure subscription and AKS cluster.
 - Run the bash script from a Linux/WSL/macOS terminal.
 
 ## Azure Managed Disk Bursting
@@ -31,7 +31,7 @@ Azure [Premium SSDs][premium-ssd] can use either bursting model, but [Standard S
 |  |Credit-based bursting  |On-demand bursting  |Changing performance tier  |
 |---------|---------|---------|---------|
 | **Scenarios**|Ideal for short-term scaling (30 minutes or less).|Ideal for short-term scaling(Not time restricted).|Ideal if your workload would otherwise continually be running in burst.|
-|**Cost**     |Free         |Cost is variable, see the [Billing](#billing) section for details.        |The cost of each performance tier is fixed, see [Managed Disks pricing][managed-disk-pricing-performance] for details.         |
+|**Cost**     |Free         |Cost is variable.        |The cost of each performance tier is fixed, see [Managed Disks pricing][managed-disk-pricing-performance] for details.         |
 |**Availability**     |Only available for premium SSDs 512 GiB and smaller, and standard SSDs 1024 GiB and smaller.         |Only available for premium SSDs larger than 512 GiB.         |Available to all premium SSD sizes.         |
 |**Enablement**     |Enabled by default on eligible disks.         |Must be enabled by user.         |User must manually change their tier.         |
 
@@ -281,7 +281,6 @@ You can create custom storage classes and enable additional features in your per
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 [persistent-volume-claim]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims
 [visual-studio-code]: https://code.visualstudio.com/download
-[azure-cli]: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli
 [kubectl]: https://kubernetes.io/docs/tasks/tools/
 [free-azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
@@ -303,7 +302,7 @@ You can create custom storage classes and enable additional features in your per
 [disk-types]: ../virtual-machines/disks-types.md
 [storage-files-planning]: ../storage/files/storage-files-planning.md
 [azure-netapp-files-service-levels]: ../azure-netapp-files/azure-netapp-files-service-levels.md
-[storage-account-overview]: ../storage/common/storage-account-overview
+[storage-account-overview]: ../storage/common/storage-account-overview.md
 [concepts-storage]: concepts-storage.md
 [csi-storage-drivers]: csi-storage-drivers.md
 [disk-bursting-billing]: ../virtual-machines/disk-bursting.md#billing
