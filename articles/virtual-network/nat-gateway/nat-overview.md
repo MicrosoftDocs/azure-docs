@@ -88,7 +88,7 @@ For information on the SLA, see [SLA for Virtual Network NAT](https://azure.micr
 
 ## Next steps
 
-* To create and validate a NAT gateway, see [Tutorial: Create a NAT gateway using the Azure portal](tutorial-create-nat-gateway-portal.md)
+* To create and validate a NAT gateway, see [Quickstart: Create a NAT gateway using the Azure portal](quickstart-create-nat-gateway-portal.md)
 
 * To view a video on more information about Azure Virtual Network NAT, see [How to get better outbound connectivity using an Azure NAT gateway](https://www.youtube.com/watch?v=2Ng_uM0ZaB4)
 

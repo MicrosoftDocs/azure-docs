@@ -155,11 +155,11 @@ containers:
 
 The optional `failureThreshold` setting defines the number of attempts Container Apps tries if the probe if execution fails. Attempts that exceed the `failureThreshold` amount cause different results for each probe.
 
-## Default configuration 
+## Default configuration
 
 Container Apps offers default probe settings if no probes are defined. If your app takes an extended amount of time to start, which is very common in Java, you often need to customize the probes so your container won't crash.
 
-The following example demonstrates how to extend the liveness and readiness probes to accommodate an extended start-up process.
+The following example demonstrates how to configure the liveness and readiness probes in order to extend the startup times.
 
 ```json
 "probes": [
