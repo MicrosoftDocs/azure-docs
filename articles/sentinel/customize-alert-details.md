@@ -28,7 +28,7 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
 1. Click the **Set rule logic** tab.
 
-1. In the **Alert enrichment (Preview)** section, expand **Alert details**.
+1. In the **Alert enrichment** section, expand **Alert details**.
 
     :::image type="content" source="media/customize-alert-details/alert-enrichment.png" alt-text="Customize alert details":::
 

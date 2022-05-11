@@ -39,7 +39,7 @@ For a list of Azure services that support availability zones by Azure region, se
 
 ## Highly available services
 
-Three types of Azure services support availability zones: *zonal*, *zone-redundant*, and *always-available* services. You can combine all three of these architecture approaches when you design your resiliency strategy.
+Three types of Azure services support availability zones: *zonal*, *zone-redundant*, and *always-available* services. You can combine all three of these approaches to architecture when you design your resiliency strategy.
 
 - **Zonal services**: A resource can be deployed to a specific, self-selected availability zone to achieve more stringent latency or performance requirements. Resiliency is self-architected by replicating applications and data to one or more zones within the region. Resources can be pinned to a specific zone. For example, virtual machines, managed disks, or standard IP addresses can be pinned to a specific zone, which allows for increased resiliency by having one or more instances of resources spread across zones.
 - **Zone-redundant services**: Resources are replicated or distributed across zones automatically. For example, zone-redundant services replicate the data across three zones so that a failure in one zone doesn't affect the high availability of the data. 
@@ -66,7 +66,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 
 | **Products**   | **Resiliency**   |
 | --- | --- |
-| [Azure Application Gateway (V2)](../application-gateway/application-gateway-autoscaling-zone-redundant.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| [Azure Application Gateway (V2)](../application-gateway/application-gateway-autoscaling-zone-redundant.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
 | [Azure Backup](../backup/backup-create-rs-vault.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
 | [Azure Cosmos DB](../cosmos-db/high-availability.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)   |
 | [Azure DNS: Azure DNS Private Zones](../dns/private-dns-getstarted-portal.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
@@ -96,7 +96,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | Virtual Machines: [Ev3-Series](../virtual-machines/windows/create-powershell-availability-zone.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
 | Virtual Machines: [F-Series](../virtual-machines/windows/create-powershell-availability-zone.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
 | Virtual Machines: [FS-Series](../virtual-machines/windows/create-powershell-availability-zone.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [Shared Image Gallery](../virtual-machines/shared-image-galleries.md#make-your-images-highly-available) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| Virtual Machines: [Azure Compute Gallery](../virtual-machines/azure-compute-gallery.md#high-availability)| ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | [Azure Virtual Network](../vpn-gateway/create-zone-redundant-vnet-gateway.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 
@@ -167,7 +167,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | [Azure HPC Cache](../hpc-cache/hpc-cache-overview.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
 | [Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | Azure Red Hat OpenShift | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
-| [Azure Managed Instance for Apache Cassandra](../managed-instance-apache-cassandra/create-cluster-portal.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure SQL Managed Instance for Apache Cassandra](../managed-instance-apache-cassandra/create-cluster-portal.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | Azure Storage: Ultra Disk | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
 
 ### ![An icon that signifies this service is non-regional.](media/icon-always-available.svg) Non-regional services (always-available services)
@@ -192,7 +192,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | Azure Peering Service  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Performance Diagnostics  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Policy  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
-| Azure Portal  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure portal  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Resource Graph  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Stack Edge  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Traffic Manager  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |

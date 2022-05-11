@@ -36,10 +36,10 @@ SSH access to Arc-enabled servers is currently supported in the following region
 ### Supported operating systems
  - Windows: Windows 7+ and Windows Server 2012+
  - Linux: 
-  - CentOS: CentOS 7, CentOS 8
-  - RedHat Enterprise Linux (RHEL): RHEL 7.4 to RHEL 7.10, RHEL 8.3+
-  - SUSE Linux Enterprise Server (SLES): SLES 12, SLES 15.1+
-  - Ubuntu Server: Ubuntu Server 16.04 to Ubuntu Server 20.04
+   - CentOS: CentOS 7, CentOS 8
+   - RedHat Enterprise Linux (RHEL): RHEL 7.4 to RHEL 7.10, RHEL 8.3+
+   - SUSE Linux Enterprise Server (SLES): SLES 12, SLES 15.1+
+   - Ubuntu Server: Ubuntu Server 16.04 to Ubuntu Server 20.04
 
 ## Getting started
 ### Register the HybridConnectivity resource provider
@@ -67,17 +67,24 @@ If you already have the extension installed, it can be updated by running:
 ```az extension update --name ssh```
 
 > [!NOTE]
-> The Azure CLI extension version must be greater than 1.0.1.
+> The Azure CLI extension version must be greater than 1.1.0.
 
 ### Create default connectivity endpoint
 > [!NOTE]
 > The following actions must be completed for each Arc-enabled server.
 
-Run the following commands:
- ```az rest --method put --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2021-10-06-preview --body '{\"properties\": {\"type\": \"default\"}}'```
-
- ```az rest --method get --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2021-10-06-preview```
-
+Create the default endpoint in PowerShell:
+ ```powershell
+ az rest --method put --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2021-10-06-preview --body '{\"properties\": {\"type\": \"default\"}}'
+ ```
+Create the default endpoint in Bash:
+```bash
+az rest --method put --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2021-10-06-preview --body '{"properties": {"type": "default"}}'
+```
+Validate endpoint creation:
+ ```
+ az rest --method get --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2021-10-06-preview
+ ```
 
 ### Enable functionality on your Arc-enabled server
 In order to use the SSH connect feature, you must enable connections on the hybrid agent.

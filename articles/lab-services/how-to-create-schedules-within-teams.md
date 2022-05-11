@@ -2,21 +2,22 @@
 title: Create Azure Lab Services schedules within Teams
 description: Learn how to create Lab Services schedules within Teams. 
 ms.topic: how-to
-ms.date: 02/05/2022
+ms.date: 04/25/2022
+ms.custom: devdivchpfy22
 ---
 
 # Create and manage Lab Services schedules within Teams
 
-Schedules allow you to configure a lab such that VMs in the lab automatically start and shut down at a specified time. You can define a one-time schedule or a recurring schedule. The article covers the procedures to create and manage schedules for a lab.
+Schedules allow you to configure a classroom lab such that the VMs automatically start and shut down at a specified time. You can define a one-time schedule or a recurring schedule. The article covers the procedures to create and manage schedules for a lab.
 
 Here's how schedules affect lab virtual machines:
 
-- Template virtual machine isn't included in schedules.
-- Only assigned virtual machines are started. If a machine is not claimed by user (student), the machine won't start on the scheduled hours.
+- Template VM isn't included in schedules.
+- Only assigned virtual machines are started. If a machine isn't claimed by user (student), the machine won't start on the scheduled hours.
 - All virtual machines (whether claimed by a user or not) are stopped based on the lab schedule.
 
 > [!IMPORTANT]
-> The scheduled running time of VMs does not count against the quota allotted to a user. The quota is for the time outside of schedule hours that a student spends on VMs.
+> The scheduled run time of VMs doesn't count against the quota allotted to a user. The alloted quota is for the time outside of schedule hours that a student spends on VMs.
 
 Users can create, edit, and delete lab schedules within Teams as in the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com). For more information, see [creating and managing schedules](how-to-create-schedules-within-teams.md).
 
@@ -32,8 +33,8 @@ For more information, see the article on [configuring auto-shutdown settings for
 
 ## Next steps
 
-- [Use Azure Lab Services within Teams overview](lab-services-within-teams-overview.md)
+- [Use Azure Lab Services within Teams overview](lab-services-within-teams-overview.md).
 - As an educator, [manage the VM pool within Teams](how-to-manage-vm-pool-within-teams.md).
 - As an educator, [manage lab user lists from Teams](how-to-manage-user-lists-within-teams.md).
-- As an admin or educator, [delete labs within Teams](how-to-delete-lab-within-teams.md)
-- As student, [access a VM within Teams](how-to-access-vm-for-students-within-teams.md)
+- As an admin or educator, [delete the labs within Teams](how-to-delete-lab-within-teams.md).
+- As a student, [access a VM within Teams](how-to-access-vm-for-students-within-teams.md).

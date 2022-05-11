@@ -251,6 +251,7 @@ _**Table 1: Dictionary of data terms**_
 | PlanId | PlanID | The display name of the plan entered when the offer was created in Partner Center. Note that PlanId was originally a number. | PlanID |
 |||||
 
+
 ## Next steps
 
 - For an overview of analytics reports available in the commercial marketplace, see [Access analytic reports for the commercial marketplace in Partner Center](analytics.md).

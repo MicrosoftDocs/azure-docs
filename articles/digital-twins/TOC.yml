@@ -75,14 +75,6 @@
         href: how-to-set-up-instance-cli.md
     - name: Enable private access with Private Link
       href: how-to-enable-private-link.md
-    - name: Write app authentication code
-      href: how-to-authenticate-client.md
-    - name: Create an app registration with Azure Digital Twins access
-      items:
-      - name: Portal
-        href: how-to-create-app-registration-portal.md
-      - name: CLI
-        href: how-to-create-app-registration-cli.md
     - name: Move instance to a different region
       href: how-to-move-regions.md
   - name: Design models
@@ -109,6 +101,14 @@
     items:
     - name: Make API requests with Postman
       href: how-to-use-postman.md
+    - name: Write app authentication code
+      href: how-to-authenticate-client.md
+    - name: Create an app registration with Azure Digital Twins access
+      items:
+      - name: Portal
+        href: how-to-create-app-registration-portal.md
+      - name: CLI
+        href: how-to-create-app-registration-cli.md
     - name: Integrate with Azure SignalR Service
       href: how-to-integrate-azure-signalr.md
   - name: Connect input
@@ -191,7 +191,7 @@
           href: reference-query-clause-select.md
         - name: FROM
           href: reference-query-clause-from.md
-        - name: MATCH (preview)
+        - name: MATCH
           href: reference-query-clause-match.md
         - name: JOIN
           href: reference-query-clause-join.md

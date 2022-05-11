@@ -22,7 +22,7 @@ Use this article to learn about the languages and regions currently supported by
 With custom NER, you can train a model in one language and test in another language. This feature is very powerful because it helps you save time and effort, instead of building separate projects for every language, you can handle multi-lingual dataset in one project. Your dataset doesn't have to be entirely in the same language but you have to specify this option at project creation. If you notice your model performing poorly in certain languages during the evaluation process, consider adding more data in this language to your training set.
 
 > [!NOTE]
-> To enable support for multiple languages, you need to enable this option when [creating your project](how-to/create-project.md) or you can enbale it later form the project settings page.
+> To enable support for multiple languages, you need to enable this option when [creating your project](how-to/create-project.md) or you can enable it later form the project settings page.
 
 ## Language support
 

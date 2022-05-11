@@ -7,9 +7,9 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 05/10/2022
 ms.author: tamram
-ms.reviewer: dineshm
+ms.reviewer: nachakra
 ms.subservice: blobs
 ms.custom: devx-track-csharp
 ---

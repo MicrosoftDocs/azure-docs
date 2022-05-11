@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/31/2022
+ms.date: 04/26/2022
 
 ms.author: mimart
 author: msmimart
@@ -87,6 +87,9 @@ Guest user teri@gmail.com is invited to Fabrikam, which doesn't have Google fede
    ![Email one-time passcode toggle enabled](media/one-time-passcode/enable-email-otp-options.png)
 
 1. Select **Save**.
+
+> [!NOTE]
+> Email one-time passcode settings can also be configured with the [emailAuthenticationMethodConfiguration](/graph/api/resources/emailauthenticationmethodconfiguration) resource type in the Microsoft Graph API.
 
 ## Disable email one-time passcode
 

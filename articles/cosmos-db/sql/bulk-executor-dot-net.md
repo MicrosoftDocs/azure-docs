@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: csharp
 ms.topic: how-to
-ms.date: 03/23/2020
+ms.date: 05/02/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ---
@@ -20,19 +20,19 @@ ms.custom: devx-track-csharp
 
 > If you are currently using the bulk executor library and planning to migrate to bulk support on the newer SDK, use the steps in the [Migration guide](how-to-migrate-from-bulk-executor-library.md) to migrate your application.
 
-This tutorial provides instructions on using the bulk executor .NET library to import and update documents to an Azure Cosmos container. To learn about the bulk executor library and how it helps you leverage massive throughput and storage, see the [bulk executor library overview](../bulk-executor-overview.md) article. In this tutorial, you will see a sample .NET application that bulk imports randomly generated documents into an Azure Cosmos container. After importing, it shows you how you can bulk update the imported data by specifying patches as operations to perform on specific document fields.
+This tutorial provides instructions on using the bulk executor .NET library to import and update documents to an Azure Cosmos container. To learn about the bulk executor library and how it helps you use massive throughput and storage, see the [bulk executor library overview](../bulk-executor-overview.md) article. In this tutorial, you'll see a sample .NET application that bulk imports randomly generated documents into an Azure Cosmos container. After importing the data, the library shows you how you can bulk update the imported data by specifying patches as operations to perform on specific document fields.
 
 Currently, bulk executor library is supported by the Azure Cosmos DB SQL API and Gremlin API accounts only. This article describes how to use the bulk executor .NET library with SQL API accounts. To learn about using the bulk executor .NET library with Gremlin API accounts, see [perform bulk operations in the Azure Cosmos DB Gremlin API](../graph/bulk-executor-graph-dotnet.md).
 
 ## Prerequisites
 
-* If you don't already have Visual Studio 2019 installed, you can download and use the [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable "Azure development" during the Visual Studio setup.
+* Latest [!INCLUDE [cosmos-db-visual-studio](../includes/cosmos-db-visual-studio.md)]
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 * You can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments. Or, you can use the [Azure Cosmos DB Emulator](../local-emulator.md) with the `https://localhost:8081` endpoint. The Primary Key is provided in [Authenticating requests](../local-emulator.md#authenticate-requests).
 
-* Create an Azure Cosmos DB SQL API account by using the steps described in [create database account](create-sql-api-dotnet.md#create-account) section of the .NET quickstart article.
+* Create an Azure Cosmos DB SQL API account by using the steps described in the [create a database account](create-sql-api-dotnet.md#create-account) section of the .NET quickstart article.
 
 ## Clone the sample application
 
@@ -44,7 +44,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
 
 The cloned repository contains two samples "BulkImportSample" and "BulkUpdateSample". You can open either of the sample applications, update the connection strings in App.config file with your Azure Cosmos DB account's connection strings, build the solution, and run it.
 
-The "BulkImportSample" application generates random documents and bulk imports them to your Azure Cosmos account. The "BulkUpdateSample" application bulk updates the imported documents by specifying patches as operations to perform on specific document fields. In the next sections, you will review the code in each of these sample apps.
+The "BulkImportSample" application generates random documents and bulk imports them to your Azure Cosmos account. The "BulkUpdateSample" application bulk updates the imported documents by specifying patches as operations to perform on specific document fields. In the next sections, you'll review the code in each of these sample apps.
 
 ## Bulk import data to an Azure Cosmos account
 
@@ -74,7 +74,7 @@ The "BulkImportSample" application generates random documents and bulk imports t
    connectionPolicy)
    ```
 
-4. The BulkExecutor object is initialized with a high retry value for wait time and throttled requests. And then they are set to 0 to pass congestion control to BulkExecutor for its lifetime.  
+4. The BulkExecutor object is initialized with a high retry value for wait time and throttled requests. And then they're set to 0 to pass congestion control to BulkExecutor for its lifetime.  
 
    ```csharp
    // Set retry options high during initialization (default values).
@@ -104,8 +104,8 @@ The "BulkImportSample" application generates random documents and bulk imports t
    
    |**Parameter**  |**Description** |
    |---------|---------|
-   |enableUpsert    |   A flag to enable upsert operations on the documents. If a document with the given ID already exists, it's updated. By default, it is set to false.      |
-   |disableAutomaticIdGeneration    |    A flag to disable automatic generation of ID. By default, it is set to true.     |
+   |enableUpsert    |   A flag to enable upsert operations on the documents. If a document with the given ID already exists, it's updated. By default, it's set to false.      |
+   |disableAutomaticIdGeneration    |    A flag to disable automatic generation of ID. By default, it's set to true.     |
    |maxConcurrencyPerPartitionKeyRange    | The maximum degree of concurrency per partition key range, setting to null will cause library to use a default value of 20. |
    |maxInMemorySortingBatchSize     |  The maximum number of documents that are pulled from the document enumerator, which is passed to the API call in each stage. For in-memory sorting phase that happens before bulk importing, setting this parameter to null will cause library to use default minimum value (documents.count, 1000000).       |
    |cancellationToken    |    The cancellation token to gracefully exit the bulk import operation.     |
@@ -118,15 +118,15 @@ The "BulkImportSample" application generates random documents and bulk imports t
    |NumberOfDocumentsImported (long)   |  The total number of documents that were successfully imported out of the total documents supplied to the bulk import API call.       |
    |TotalRequestUnitsConsumed (double)   |   The total request units (RU) consumed by the bulk import API call.      |
    |TotalTimeTaken (TimeSpan)    |   The total time taken by the bulk import API call to complete the execution.      |
-   |BadInputDocuments (List\<object>)   |     The list of bad-format documents that were not successfully imported in the bulk import API call. Fix the documents returned and retry import. Bad-formatted documents include documents whose ID value is not a string (null or any other datatype is considered invalid).    |
+   |BadInputDocuments (List\<object>)   |     The list of bad-format documents that weren't successfully imported in the bulk import API call. Fix the documents returned and retry import. Bad-formatted documents include documents whose ID value isn't a string (null or any other datatype is considered invalid).    |
 
 ## Bulk update data in your Azure Cosmos account
 
-You can update existing documents by using the BulkUpdateAsync API. In this example, you will set the `Name` field to a new value and remove the `Description` field from the existing documents. For the full set of supported update operations, refer to the [API documentation](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate).
+You can update existing documents by using the BulkUpdateAsync API. In this example, you'll set the `Name` field to a new value and remove the `Description` field from the existing documents. For the full set of supported update operations, refer to the [API documentation](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate).
 
 1. Navigate to the "BulkUpdateSample" folder and open the "BulkUpdateSample.sln" file.  
 
-2. Define the update items along with the corresponding field update operations. In this example, you will use `SetUpdateOperation` to update the `Name` field and `UnsetUpdateOperation` to remove the `Description` field from all the documents. You can also perform other operations like increment a document field by a specific value, push specific values into an array field, or remove a specific value from an array field. To learn about different methods provided by the bulk update API, refer to the [API documentation](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate).
+2. Define the update items along with the corresponding field update operations. In this example, you'll use `SetUpdateOperation` to update the `Name` field and `UnsetUpdateOperation` to remove the `Description` field from all the documents. You can also perform other operations like increment a document field by a specific value, push specific values into an array field, or remove a specific value from an array field. To learn about different methods provided by the bulk update API, refer to the [API documentation](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate).
 
    ```csharp
    SetUpdateOperation<string> nameUpdate = new SetUpdateOperation<string>("Name", "UpdatedDoc");
@@ -175,9 +175,9 @@ Consider the following points for better performance when using the bulk executo
 
 * For best performance, run your application from an Azure virtual machine that is in the same region as your Azure Cosmos account's write region.  
 
-* It is recommended that you instantiate a single `BulkExecutor` object for the whole application within a single virtual machine that corresponds to a specific Azure Cosmos container.  
+* It's recommended that you instantiate a single `BulkExecutor` object for the whole application within a single virtual machine that corresponds to a specific Azure Cosmos container.  
 
-* Since a single bulk operation API execution consumes a large chunk of the client machine's CPU and network IO (This happens by spawning multiple tasks internally). Avoid spawning multiple concurrent tasks within your application process that execute bulk operation API calls. If a single bulk operation API call that is running on a single virtual machine is unable to consume the entire container's throughput (if your container's throughput > 1 million RU/s), it's preferred to create separate virtual machines to concurrently execute the bulk operation API calls.  
+* A single bulk operation API execution consumes a large chunk of the client machine's CPU and network IO (This happens by spawning multiple tasks internally). Avoid spawning multiple concurrent tasks within your application process that execute bulk operation API calls. If a single bulk operation API call that is running on a single virtual machine is unable to consume the entire container's throughput (if your container's throughput > 1 million RU/s), it's preferred to create separate virtual machines to concurrently execute the bulk operation API calls.  
 
 * Ensure the `InitializeAsync()` method is invoked after instantiating a BulkExecutor object to fetch the target Cosmos container's partition map.  
 

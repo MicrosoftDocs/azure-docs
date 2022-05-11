@@ -371,8 +371,7 @@
   - name: Azure Compute Gallery
     items:
     - name: Overview
-      displayName: Shared Image Gallery, SIG, sig, gallery, image
-      href: ./shared-image-galleries.md
+      href: azure-compute-gallery.md
     - name: Create a gallery
       displayName: Shared Image Gallery, SIG, sig, gallery, image
       href: create-gallery.md
@@ -380,6 +379,9 @@
       href: share-gallery.md
     - name: Images
       items:
+      - name: Images in a gallery
+        displayName: Shared Image Gallery, SIG, sig, gallery, image
+        href: ./shared-image-galleries.md
       - name: Capture a VM in the portal
         href: capture-image-portal.md
       - name: Create an image
@@ -602,6 +604,9 @@
       - name: Store scripts
         displayName: Image builder, images, building, scripts
         href: ./linux/image-builder-user-assigned-identity.md
+      - name: What's new in Azure Image Builder
+        displayName: Image builder, images, building, api, features, updates, change log
+        href: image-builder-api-update-release-notes.md
       - name: Troubleshoot
         displayName: Image builder, images, building
         href: ./linux/image-builder-troubleshoot.md

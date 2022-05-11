@@ -4,6 +4,7 @@ description: This article explains two common ways to back up and restore databa
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 10/30/2020
 ---

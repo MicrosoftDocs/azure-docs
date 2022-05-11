@@ -5,7 +5,7 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: charles.weininger
 ms.topic: conceptual
-ms.date: 04/25/2022
+ms.date: 04/26/2022
 ms.reviewer: mbullwin
 ---
 
@@ -36,59 +36,50 @@ Profiler works with .NET applications deployed on the following Azure services. 
 
 If you've enabled Profiler but aren't seeing traces, check our [Troubleshooting guide](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
 
-## View Profiler data
+## How to generate load to view Profiler data
 
-For Profiler to upload traces, your application must be actively handling requests. To generate requests: 
-- **If you're doing an experiment,** use [Application Insights performance testing](/vsts/load-test/app-service-web-app-performance-test).
-- **If you've newly enabled Profiler,** simply run a short load test. 
+For Profiler to upload traces, your application must be actively handling requests. You can trigger Profiler manually with a single click. 
 
-While the load test is running, select the **Profile Now** button on the [**Profiler Settings** pane](profiler-settings.md). Once Profiler starts running, it profiles randomly about once per hour, for a duration of two minutes. If your application is handling a steady stream of requests, Profiler uploads traces every hour.
+Suppose you're running a web performance test. You'll need traces to help you understand how your web app is running under load. By controlling when traces are captured, you'll know when the load test will be running, while the random sampling interval might miss it.
 
-After your application receives some traffic and Profiler has had time to upload the traces, you should be able to view traces within 5 to 10 minutes. To view traces:
+### Generate traffic to your web app by starting a web performance test
 
-1. Select **Take Actions** in the **Performance** pane.
-1. Select the **Profiler Traces** button.
+If you've newly enabled Profiler, you can run a short [load test](/vsts/load-test/app-service-web-app-performance-test). If your web app already has incoming traffic or if you just want to manually generate traffic, skip the load test and start a Profiler on-demand session.
 
-   ![Application Insights Performance pane preview Profiler traces][performance-blade]
+### Start a Profiler on-demand session
+1. From the Application Insights overview page, select **Performance** from the left menu. 
+1. On the **Performance** pane, select **Profiler** from the top menu for Profiler settings.
 
-1. Select a sample to display a code-level breakdown of time spent executing the request.
+   :::image type="content" source="./media/profiler-overview/profiler-button-inline.png" alt-text="Screenshot of the Profiler button from the Performance blade" lightbox="media/profiler-settings/profiler-button.png":::
 
-   ![Application Insights trace explorer][trace-explorer]
+1. Once the Profiler settings page loads, select **Profile Now**. 
+
+   :::image type="content" source="./media/profiler-settings/configure-blade-inline.png" alt-text="Profiler page features and settings" lightbox="media/profiler-settings/configure-blade.png":::
+
+### View traces
+1. After the Profiler sessions finish running, return to the **Performance** pane. 
+1. Under **Drill into...**, select **Profiler traces** to view the traces.
+
+   :::image type="content" source="./media/profiler-overview/trace-explorer-inline.png" alt-text="Screenshot of trace explorer page" lightbox="media/profiler-overview/trace-explorer.png":::
 
 The trace explorer displays the following information:
 
-| Category | Description |
-| -------- | ----------- |
-| **Show Hot Path** | Opens the biggest leaf node, or at least something close. In most cases, this node is near a performance bottleneck. |
-| **Label** | The name of the function or event. The tree displays a mix of code and events that occurred, such as SQL and HTTP events. The top event represents the overall request duration. |
-| **Elapsed** | The time interval between the start of the operation and the end of the operation. |
-| **When** | The time when the function or event was running in relation to other functions. |
-
-
-### Other options for viewing profiler data
-
-Besides viewing the profiles in the Azure portal, you can download the profiles and open them in other tools. There are 3 options for viewing the contents' profiles. The downloaded file is a .diagsession file and can be opened natively by Visual Studio. Use the profiling tools in Visual Studio to examine the details of the file. 
-
-If you rename the file by adding `.zip` to the end of the file name, you can also open it in:
-
-- Windows Performance analyzer
-    - [Download](https://www.microsoft.com/p/windows-performance-analyzer/9n0w1b2bxgnz)
-    - [Documentation](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-analyzer)
-- Perfview
-    - [Download](https://github.com/microsoft/perfview/blob/main/documentation/Downloading.md)
-    - [How-to videos](https://docs.microsoft.com/shows/PerfView-Tutorial/)
+| Filter | Description |
+| ------ | ----------- |
+| Profile tree v. Flame graph | View the traces as either a tree or in graph form. |
+| Hot path | Select to open the biggest leaf node. In most cases, this node is near a performance bottleneck. |
+| Framework dependencies | Select to view each of the traced framework dependencies associated with the traces. |
+| Hide events | Type in strings to hide from the trace view. Select *Suggested events* for suggestions. |
+| Event | Event or function name. The tree displays a mix of code and events that occurred, such as SQL and HTTP events. The top event represents the overall request duration. |
+| Module | The module where the traced event or function occurred. |
+| Thread time | The time interval between the start of the operation and the end of the operation. |
+| Timeline | The time when the function or event was running in relation to other functions. |
 
 ## How to read performance data
 
-The Microsoft service Profiler uses a combination of sampling methods and instrumentation to analyze the performance of your application. During detailed collection the service Profiler:
-- Samples the instruction pointer of each machine CPU every millisecond. Each sample:
-  - Captures the complete call stack of the thread that's currently executing (the result of sampling and instrumentation). 
-  - Includes code from Microsoft .NET Framework and from other frameworks that you reference.
-  - Gives detailed information about the thread actions, at both a high level and a low level of abstraction. 
-- Collects other events to track activity correlation and causality, including:
-  - Context switching events
-  - Task Parallel Library (TPL) events
-  - Thread pool events
+The Microsoft service profiler uses a combination of sampling methods and instrumentation to analyze the performance of your application. When detailed collection is in progress, the service profiler samples the instruction pointer of each machine CPU every millisecond. Each sample captures the complete call stack of the thread that's currently executing. It gives detailed information about what that thread was doing, at both a high level and a low level of abstraction. The service profiler also collects other events to track activity correlation and causality, including context switching events, Task Parallel Library (TPL) events, and thread pool events.
+
+The call stack displayed in the timeline view is the result of the sampling and instrumentation. Because each sample captures the complete call stack of the thread, it includes code from Microsoft .NET Framework and other frameworks that you reference.
 
 ### <a id="jitnewobj"></a>Object allocation (clr!JIT\_New or clr!JIT\_Newarr1)
 

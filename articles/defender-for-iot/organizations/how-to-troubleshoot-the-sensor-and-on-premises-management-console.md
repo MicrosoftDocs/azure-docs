@@ -183,6 +183,22 @@ Audit logs record key information at the time of occurrence. Audit logs are usef
 
 The exported log is added to the **Archived Logs** list. Select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view the OTP. Send the OTP string to the support team in a separate message from the exported logs. The support team will be able to extract exported logs only by using the unique OTP that's used to encrypt the logs.
 
+## Clearing sensor data to factory default
+
+In cases where the sensor needs to be relocated or erased, the sensor can be reset to factory default data.
+
+> [!NOTE]
+> Network settings such as IP/DNS/GATEWAY will not be changed by clearing system data.
+
+**To clear system data**:
+1. Sign in to the sensor as the **cyberx** user.
+1. Select **Support** > **Clear system data**, and confirm that you do want to reset the sensor to factory default data.
+
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/warning-screenshot.png" alt-text="Screenshot of warning message.":::
+
+All allowlists, policies, and configuration settings are cleared, and the sensor is restarted.
+
+
 ## Next steps
 
 - [View alerts](how-to-view-alerts.md)

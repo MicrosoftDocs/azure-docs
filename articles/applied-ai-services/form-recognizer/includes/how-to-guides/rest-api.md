@@ -40,13 +40,13 @@ ms.custom: ignite-fall-2021
 You can use Form Recognizer to analyze and extract tables, selection marks, text, and structure in documents, without needing to train a model. For more information about layout extraction, see the [Layout conceptual guide](../../concept-layout.md). Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
-1. Replace `{subscription key}` with the subscription key you copied from the previous step.
+1. Replace `{key}` with the key you copied from the previous step.
 1. Replace `\"{your-document-url}` with one of the example URLs.
 
 #### Request
 
 ```bash
-curl -v -i POST "https://{endpoint}/formrecognizer/v2.1/layout/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{​​​​​​​'source': '{your-document-url}'}​​​​​​​​"
+curl -v -i POST "https://{endpoint}/formrecognizer/v2.1/layout/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{​​​​​​​'source': '{your-document-url}'}​​​​​​​​"
 ```
 
 #### Operation-Location
@@ -66,14 +66,14 @@ https://cognitiveservice/formrecognizer/v2/layout/analyzeResults/54f0b076-4e38-4
 After you've called the **[Analyze Layout](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync)** API, you call the **[Get Analyze Layout Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeLayoutResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
-1. Replace `{subscription key}` with the subscription key you copied from the previous step.
+1. Replace `{key}` with the key you copied from the previous step.
 1. Replace `{resultId}` with the result ID from the previous step.
 <!-- markdownlint-disable MD024 -->
 
 #### Request
 
 ```bash
-curl -v -X GET "https://{endpoint}/formrecognizer/v2.1/layout/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X GET "https://{endpoint}/formrecognizer/v2.1/layout/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {key}"
 ```
 
 ### Examine the results
@@ -217,12 +217,12 @@ This section demonstrates how to analyze and extract common fields from US recei
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{your receipt URL}` with the URL address of a receipt image.
-1. Replace `{subscription key>` with the subscription key you copied from the previous step.
+1. Replace `{key>` with the key you copied from the previous step.
 
 #### Request
 
 ```bash
-curl -i -X POST "https://{endpoint}/formrecognizer/v2.1/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your receipt URL}'}"
+curl -i -X POST "https://{endpoint}/formrecognizer/v2.1/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{ 'source': '{your receipt URL}'}"
 ```
 
 #### Operation-Location
@@ -241,14 +241,14 @@ https://cognitiveservice/formrecognizer/v2.1/prebuilt/receipt/operations/54f0b07
 
 After you've called the **Analyze Receipt** API, you call the **[Get Analyze Receipt Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeReceiptResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
-1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
+1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `{resultId}` with the result ID from the previous step.
-1. Replace `{subscription key}` with your subscription key.
+1. Replace `{key}` with your key.
 
 #### Request
 
 ```bash
-curl -X GET "https://{endpoint}/formrecognizer/v2.1/prebuilt/receipt/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -X GET "https://{endpoint}/formrecognizer/v2.1/prebuilt/receipt/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {key}"
 ```
 
 ### Examine the response
@@ -596,12 +596,12 @@ This section demonstrates how to analyze and extract common fields from English 
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{your business card URL}` with the URL address of a receipt image.
-1. Replace `{subscription key}` with the subscription key you copied from the previous step.
+1. Replace `{key}` with the key you copied from the previous step.
 
 #### Request
 
 ```bash
-curl -i -X POST "https://{endpoint}/formrecognizer/v2.1/prebuilt/businessCard/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your receipt URL}'}"
+curl -i -X POST "https://{endpoint}/formrecognizer/v2.1/prebuilt/businessCard/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{ 'source': '{your receipt URL}'}"
 ```
 
 #### Operation-Location
@@ -620,13 +620,13 @@ https://cognitiveservice/formrecognizer/v2.1/prebuilt/businessCard/analyzeResult
 
 After you've called the **Analyze Business Card** API, you call the **[Get Analyze Business Card Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeBusinessCardResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
-1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
+1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `{resultId}` with the result ID from the previous step.
-1. Replace `{subscription key}` with your subscription key.
+1. Replace `{key}` with your key.
 
 ```bash
 curl -v -X GET https://{endpoint}/formrecognizer/v2.1/prebuilt/businessCard/analyzeResults/{resultId}"
--H "Ocp-Apim-Subscription-Key: {subscription key}"
+-H "Ocp-Apim-Subscription-Key: {key}"
 ```
 
 ### Examine the response
@@ -759,12 +759,12 @@ You can use Form Recognizer to extract field text and semantic values from a giv
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{your invoice URL}` with the URL address of an invoice document.
-1. Replace `{subscription key}` with your subscription key.
+1. Replace `{key}` with your key.
 
 #### Request
 
 ```bash
-curl -v -i POST https://{endpoint}/formrecognizer/v2.1/prebuilt/invoice/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key:  {subscription key}" --data-ascii "{​​​​​​​'source': '{your invoice URL}'}​​​​​​​​"
+curl -v -i POST https://{endpoint}/formrecognizer/v2.1/prebuilt/invoice/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key:  {key}" --data-ascii "{​​​​​​​'source': '{your invoice URL}'}​​​​​​​​"
 ```
 
 #### Operation-Location
@@ -783,14 +783,14 @@ https://cognitiveservice/formrecognizer/v2.1/prebuilt/invoice/analyzeResults/54f
 
 After you've called the **Analyze Invoice** API, you call the **[Get Analyze Invoice Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9acb78c40a2533aee83)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
-1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
+1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `{resultId}` with the result ID from the previous step.
-1. Replace `{subscription key}` with your subscription key.
+1. Replace `{key}` with your key.
 
 #### Request
 
 ```bash
-curl -v -X GET "https://{endpoint}/formrecognizer/v2.1/prebuilt/invoice/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X GET "https://{endpoint}/formrecognizer/v2.1/prebuilt/invoice/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {key}"
 ```
 
 ### Examine the response
@@ -969,12 +969,12 @@ To start analyzing an identification document, use the cURL command below. For m
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{your ID document URL}` with the URL address of a receipt image.
-1. Replace `{subscription key}` with the subscription key you copied from the previous step.
+1. Replace `{key}` with the key you copied from the previous step.
 
 #### Request
 
 ```bash
-curl -i -X POST "https://{endpoint}/formrecognizer/v2.1/prebuilt/idDocument/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your ID document URL}'}"
+curl -i -X POST "https://{endpoint}/formrecognizer/v2.1/prebuilt/idDocument/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{ 'source': '{your ID document URL}'}"
 ```
 
 #### Operation-Location
@@ -993,14 +993,14 @@ https://westus.api.cognitive.microsoft.com/formrecognizer/v2.1/prebuilt/idDocume
 
 After you've called the **Analyze ID Document** API, call the **[Get Analyze ID Document Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeBusinessCardResult)** API to get the status of the operation and the extracted data.  Before you run the command, make these changes:
 
-1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
+1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `{resultId}` with the result ID from the previous step.
-1. Replace `{subscription key}` with your subscription key.
+1. Replace `{key}` with your key.
 
 #### Request
 
 ```bash
-curl -X GET "https://{endpoint}/formrecognizer/v2.1/prebuilt/businessCard/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -X GET "https://{endpoint}/formrecognizer/v2.1/prebuilt/businessCard/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {key}"
 ```
 
 ### Examine the response
@@ -1191,7 +1191,7 @@ Training without labeled data is the default operation and is simpler. Alternati
 To train a Form Recognizer model with the documents in your Azure blob container, call the **[Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync)** API by running the following cURL command. Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
-1. Replace `{subscription key}` with the subscription key you copied from the previous step.
+1. Replace `{key}` with the key you copied from the previous step.
 1. Replace `{SAS URL}` with the Azure Blob storage container's shared access signature (SAS) URL. [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
 
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
@@ -1199,7 +1199,7 @@ To train a Form Recognizer model with the documents in your Azure blob container
 #### Request
 
 ```bash
-curl -i -X POST "https://{endpoint}/formrecognizer/v2.1/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{SAS URL}'}"
+curl -i -X POST "https://{endpoint}/formrecognizer/v2.1/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{ 'source': '{SAS URL}'}"
 ```
 
 #### Location
@@ -1221,7 +1221,7 @@ To train with labels, you need to have special label information files (`\<filen
 Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
-1. Replace `{subscription key}` with the subscription key you copied from the previous step.
+1. Replace `{key}` with the key you copied from the previous step.
 1. Replace `{SAS URL}` with the Azure Blob storage container's shared access signature (SAS) URL. [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
 
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
@@ -1229,7 +1229,7 @@ Before you run the command, make these changes:
 #### Request
 
 ```bash
-curl -i -X POST "https://{endpoint}/formrecognizer/v2.1/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{SAS URL}', 'useLabelFile':true}"
+curl -i -X POST "https://{endpoint}/formrecognizer/v2.1/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{ 'source': '{SAS URL}', 'useLabelFile':true}"
 ```
 
 #### Location
@@ -1248,29 +1248,29 @@ https://westus.api.cognitive.microsoft.com/formrecognizer/v2.1/custom/models/4da
 
 After you've started the train operation, use **[Get Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetCustomModel)** to check the training status. Pass the model ID into the API request to check the training status:
 
-1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription key.
-1. Replace `{subscription key}` with your subscription key
+1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer key.
+1. Replace `{key}` with your key
 1. Replace `{model ID}` with the model ID you received in the previous step
 
 #### Request
 
 ```bash
-curl -X GET "https://{endpoint}/formrecognizer/v2.1/custom/models/{modelId}" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -X GET "https://{endpoint}/formrecognizer/v2.1/custom/models/{modelId}" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}"
 ```
 
 ## Analyze forms with a custom model
 
 Next, you'll use your newly trained model to analyze a document and extract fields and tables from it. Call the **[Analyze Form](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)** API by running the following cURL command. Before you run the command, make these changes:
 
-1. Replace `{endpoint}` with the endpoint that you obtained from your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
+1. Replace `{endpoint}` with the endpoint that you obtained from your Form Recognizer key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `{model ID}` with the model ID that you received in the previous section.
 1. Replace `{SAS URL}` with an SAS URL to your file in Azure storage. Follow the steps in the Training section, but instead of getting a SAS URL for the whole blob container, get one for the specific file you want to analyze.
-1. Replace `{subscription key}` with your subscription key.
+1. Replace `{key}` with your key.
 
 #### Request
 
 ```bash
-curl -v "https://{endpoint}/formrecognizer/v2.1/custom/models/{modelId}/analyze?includeTextDetails=true" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" -d "{ 'source': '{SAS URL}' } "
+curl -v "https://{endpoint}/formrecognizer/v2.1/custom/models/{modelId}/analyze?includeTextDetails=true" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" -d "{ 'source': '{SAS URL}' } "
 ```
 
 You'll receive a `202 (Success)` response with an **Operation-Location** header. The value of this header includes a result ID you'll use to track the results of the Analyze operation:
@@ -1289,14 +1289,14 @@ Save this results ID for the next step.
 
 Call the Get **[Analyze Form Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeFormResult)** API to query the results of the Analyze operation.
 
-1. Replace `{endpoint}` with the endpoint that you obtained from your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
+1. Replace `{endpoint}` with the endpoint that you obtained from your Form Recognizer key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `{result ID}` with the ID that you received in the previous section.
-1. Replace `{subscription key}` with your subscription key.
+1. Replace `{key}` with your key.
 
 #### Request
 
 ```bash
-curl -X GET "https://{endpoint}/formrecognizer/v2.1/custom/models/{modelId}/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -X GET "https://{endpoint}/formrecognizer/v2.1/custom/models/{modelId}/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {key}"
 ```
 
 You'll receive a `200 (Success)` response with a JSON body in the following format. The output has been shortened for simplicity. Notice the `"status"` field near the bottom. This will have the value `"succeeded"` when the Analyze operation is complete. If the Analyze operation hasn't completed, you'll need to query the service again by rerunning the command. We recommend an interval of one second or more between calls.
@@ -1461,13 +1461,13 @@ This sample JSON output has been shortened for simplicity. See the [full sample 
 Use the **[List Custom Models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetCustomModels)** API in the following command to return a list of all the custom models that belong to your subscription.
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
-1. Replace `{subscription key}` with the subscription key you copied from the previous step.
+1. Replace `{key}` with the key you copied from the previous step.
 
 #### Request
 
 ```bash
 curl -v -X GET "https://{endpoint}/formrecognizer/v2.1/custom/models?op=full"
--H "Ocp-Apim-Subscription-Key: {subscription key}"
+-H "Ocp-Apim-Subscription-Key: {key}"
 ```
 
 #### Response body
@@ -1498,13 +1498,13 @@ You'll receive a `200` success response, with JSON data like the following. The 
 To retrieve detailed information about a specific custom model, use the **[Get Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetCustomModel)** API in the following command.
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
-1. Replace `{subscription key}` with the subscription key you copied from the previous step.
+1. Replace `{key}` with the key you copied from the previous step.
 1. Replace `{modelId}` with the ID of the custom model you want to look up.
 
 ### Request
 
 ```bash
-curl -v -X GET "https://{endpoint}/formrecognizer/v2.1/custom/models/{modelId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X GET "https://{endpoint}/formrecognizer/v2.1/custom/models/{modelId}" -H "Ocp-Apim-Subscription-Key: {key}"
 ```
 
 #### Request body
@@ -1554,13 +1554,13 @@ You'll receive a `200` success response, with JSON data like the following.
 You can also delete a model from your account by referencing its ID. This command calls the **[Delete Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/DeleteCustomModel)** API to delete the model used in the previous section.
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
-1. Replace `{subscription key}` with the subscription key you copied from the previous step.
+1. Replace `{key}` with the key you copied from the previous step.
 1. Replace `{modelId}` with the ID of the custom model you want to look up.
 
 ### Request
 
 ```bash
-curl -v -X DELETE "https://{endpoint}/formrecognizer/v2.1/custom/models/{modelId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X DELETE "https://{endpoint}/formrecognizer/v2.1/custom/models/{modelId}" -H "Ocp-Apim-Subscription-Key: {key}"
 ```
 
 You'll receive a `204` success response, indicating that your model is marked for deletion. Model artifacts will be removed within 48 hours.
