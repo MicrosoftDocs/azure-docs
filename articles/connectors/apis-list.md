@@ -72,7 +72,7 @@ To create or manage logic app resources and connections, you need certain permis
 
 Before you can use a connector's triggers or actions in your workflow, most connectors require that you first create a *connection* to the target service or system. To create a connection from within a logic app workflow, you have to authenticate your identity with account credentials and sometimes other connection information. For example, before your workflow can access and work with your Office 365 Outlook email account, you must authorize a connection to that account. For a small number of built-in operations and managed connectors, you can [set up and use a managed identity for authentication](../logic-apps/create-managed-service-identity.md#triggers-actions-managed-identity), rather than provide your credentials.
 
-<a name="connection-security-encyrption"></a>
+<a name="connection-security-encryption"></a>
 
 ### Connection security and encryption
 
