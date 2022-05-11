@@ -73,11 +73,14 @@ Centrally manage content items for an installed solution deployed by the content
 
     :::image type="content" source="media/sentinel-solutions-deploy/content-hub-manage-option.png" alt-text="Screenshot of manage button on details page of the Azure Activity content hub solution.":::
 
+1. Review the list of content items.
+
+    :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-azure-activity.png" alt-text="Screenshot of solution description and list of content items for Azure Activity solution." lightbox="media/sentinel-solutions-deploy/manage-solution-azure-activity.png":::
 1. The following table describes how you can interact with the different content types for a solution in the content hub. Select the content item to get started.
 
     |Content type  |Description  |
     |---------|---------|
-    |Data connectors     | View and complete the data connector configuration steps. After you configure the data connector, the content item status shows as **Connected**.         |
+    |Data connectors     | Select **Open connector page**. Complete the data connector configuration steps. After you configure the data connector, the content item status shows as **Connected**.   <br>:::image type="content" source="media/sentinel-solutions-deploy/manage-solution-data-connector-connected.png" alt-text="Screenshot of data connector content item for Azure Activity solution where status is connected.":::      |
     |Analytics rule    | View the template in the analytics template gallery. Select **Create rule** and follow the steps to enable the analytics rule . The number of active rules created from the rule template is shown in the **Created content** column for the content item.       |
     |Hunting queries   |  Select **Run query** from the details page. To customize the query, go to the hunting gallery and create a clone of the read-only hunting query template. The number of cloned queries associated with a hunting query is shown in the **Created content** column for the content item.       |
     |Workbook     |    Select **View template** to open the workbook and see the visualizations. To create an instance of the workbook template to customize, select **Manage in gallery** > **Save**. View your saved customizable workbook by selecting **1 item** in the  **Created content** column.    |
