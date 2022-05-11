@@ -106,7 +106,7 @@ The Azure virtual machines you create for Azure Virtual Desktop must have access
 |---|---|---|---|
 |*.wvd.azure.us|443|Service traffic|WindowsVirtualDesktop|
 |*.prod.warm.ingest.monitor.core.usgovcloudapi.net|443|Agent traffic|AzureMonitor|
-|Kms.core.usgovcloudapi.net|1688|Windows activation|Internet|
+|kms.core.usgovcloudapi.net|1688|Windows activation|Internet|
 |mrsglobalstugviffx.blob.core.usgovcloudapi.net|443|Agent and SXS stack updates|AzureCloud|
 |wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Azure portal support|AzureCloud|
 | 169.254.169.254 | 80 | [Azure Instance Metadata service endpoint](../virtual-machines/windows/instance-metadata-service.md) | N/A |
