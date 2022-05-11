@@ -40,15 +40,15 @@ Get started with facial recognition using the Face REST API. The Face service pr
 
     Save the returned ID of the created group to a temporary location.
 
-1. Next, you'll create **Person** objects that belong to the group. Run the following command, inserting your own subscription key and the ID of the **LargePersonGroup** from the previous step. This following command creates a **Person** named "Family1-Dad".
+1. Next, you'll create **Person** objects that belong to the group. Run the following command, inserting your own subscription key and the ID of the **LargePersonGroup** from the previous step. This command creates a **Person** named "Family1-Dad".
 
     :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_create_person":::
 
-    After you run this command, run it again to create additional **Person** objects: "Family1-Mom", "Family1-Son", "Family1-Daughter", "Family2-Lady", and "Family2-Man".
+    After you run this command, run it again with different input data to create additional **Person** objects: "Family1-Mom", "Family1-Son", "Family1-Daughter", "Family2-Lady", and "Family2-Man".
 
-    Save the IDs of each **Person** created; it's important to keep track of which name has which ID.
+    Save the IDs of each **Person** created; it's important to keep track of which person name has which ID.
 
-1. Next you'll need to detect new faces and associate them with the other **Person** objects that exist. The following command detects a face from the image *Family1-Dad.jpg* and adds it to the corresponding person. You need to specify the `personId` as the ID returned when you created the "Family1-Dad" **Person** object. The image name corresponds to the name of the created **Person**. Also enter the **LargePersonGroup** ID and your subscription key in the appropriate fields.
+1. Next you'll need to detect new faces and associate them with the **Person** objects that exist. The following command detects a face from the image *Family1-Dad.jpg* and adds it to the corresponding person. You need to specify the `personId` as the ID that was returned when you created the "Family1-Dad" **Person** object. The image name corresponds to the name of the created **Person**. Also enter the **LargePersonGroup** ID and your subscription key in the appropriate fields.
 
     :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_add_face":::
 
@@ -56,11 +56,11 @@ Get started with facial recognition using the Face REST API. The Face service pr
 
     At the end of this step, you should have multiple **Person** objects that each have one or more corresponding faces, detected directly from the provided images.
 
-1. Next, train the LargePersonGroup with the current face data. The training operation teaches the model how to associate facial features, sometimes aggregated from multiple source images, to each single person. Insert the **LargePersonGroup** ID and your subscription key before running the command.
+1. Next, train the **LargePersonGroup** with the current face data. The training operation teaches the model how to associate facial features, sometimes aggregated from multiple source images, to each single person. Insert the **LargePersonGroup** ID and your subscription key before running the command.
 
     :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_train":::
  
-1. New you are ready to call the Identify API, using the source face ID from the first step and the **LargePersonGroup** ID. Insert these values into the appropriate fields in teh request body, and insert your subscription key.
+1. Now you are ready to call the Identify API, using the source face ID from the first step and the **LargePersonGroup** ID. Insert these values into the appropriate fields in the request body, and insert your subscription key.
 
     :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_identify":::
 
@@ -68,7 +68,7 @@ Get started with facial recognition using the Face REST API. The Face service pr
 
 ## Clean up resources
 
-To delete the **LargePersonGroup** you created in this exercise, run the LargePersonGroup - Delete call.-
+To delete the **LargePersonGroup** you created in this exercise, run the LargePersonGroup - Delete call.
 
 :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_delete":::
 
