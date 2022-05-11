@@ -17,7 +17,7 @@ ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
 
 Train a linear regression model that predicts car prices using the Azure Machine Learning designer. This tutorial is part one of a two-part series.
 
-This tutorial uses the Azure Machine Learning designer, for more information see [What is Azure Machine Learning designer?](concept-designer.md)
+This tutorial uses the Azure Machine Learning designer, for more information, see [What is Azure Machine Learning designer?](concept-designer.md)
 
 In part one of the tutorial, you learn how to:
 
@@ -113,7 +113,7 @@ Datasets typically require some preprocessing before analysis. You might have no
 
 ### Remove a column
 
-When you train a model, you have to do something about the data that's missing. In this dataset, the **normalized-losses** column is missing many values, so you will exclude that column from the model altogether.
+When you train a model, you have to do something about the data that's missing. In this dataset, the **normalized-losses** column is missing many values, so you'll exclude that column from the model altogether.
 
 1. In the component palette to the left of the canvas, expand the **Data Transformation** section and find the **Select Columns in Dataset** component.
 
@@ -174,7 +174,7 @@ Your dataset still has missing values after you remove the **normalized-losses**
 
     Your pipeline should now look something like this:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png" alt-text="Screenshot of automobilie price data connected to select columns in dataset componet which is connected to clean missing data.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png" alt-text="Screenshot of automobile price data connected to select columns in dataset componet, which is connected to clean missing data.":::
 
 ## Train a machine learning model
 
@@ -184,7 +184,7 @@ Because you want to predict price, which is a number, you can use a regression a
 
 ### Split the data
 
-Splitting data is a common task in machine learning. You will split your data into two separate datasets. One dataset will train the model and the other will test how well the model performed.
+Splitting data is a common task in machine learning. You'll split your data into two separate datasets. One dataset will train the model and the other will test how well the model performed.
 
 1. In the component palette, expand the section **Data Transformation** and find the **Split Data** component.
 
@@ -274,7 +274,7 @@ Now that your pipeline is all setup, you can submit a pipeline run to train your
 
     1. Select **Submit**.
     
-    1. You will see a submission list in the left pane of the canvas, and a notification will pop up at the top right corner of the page. You can select the **Job detail** link to go to job detail page for debugging.
+    1. You'll see a submission list in the left pane of the canvas, and a notification will pop up at the top right corner of the page. You can select the **Job detail** link to go to job detail page for debugging.
         
         ![Submission list](./media/how-to-run-batch-predictions-designer/submission-list.png)
     

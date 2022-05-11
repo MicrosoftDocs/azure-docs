@@ -17,7 +17,6 @@ ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
 
 Use the designer to deploy a machine learning model to predict the price of cars. This tutorial is part two of a two-part series.
 
-
 In [part one of the tutorial](tutorial-designer-automobile-price-train-score.md) you trained a linear regression model on car prices. In part two, you deploy the model to give others a chance to use it. In this tutorial, you:
 
 > [!div class="checklist"]
@@ -90,7 +89,6 @@ In the dialog box that appears, you can select from any existing Azure Kubernete
 
     > [!NOTE]
     > It takes approximately 15 minutes to create a new AKS service. You can check the provisioning state on the **Inference Clusters** page.
-    >
 
 ## Deploy the real-time endpoint
 
@@ -117,7 +115,6 @@ After your AKS service has finished provisioning, return to the real-time infere
     |Refresh period|How often (in seconds) the autoscaler attempts to scale this web service.</br> By default: 1|
     |CPU reserve capacity|The number of CPU cores to allocate for this web service.</br> By default: 0.1|
     |Memory reserve capacity|The amount of memory (in GB) to allocate for this web service.</br> By default: 0.5|
-        
 
 1. Select **Deploy**. 
 
@@ -183,23 +180,7 @@ You can update the online endpoint with new model trained in the designer. On th
 
 ## Limitations
 
-<!-- ### Update inference pipeline
-
-If you make some modifications in your training pipeline, you should resubmit the training pipeline, **Update** the inference pipeline and run the inference pipeline again.
-
-Note that only trained models will be updated in the inference pipeline, while data transformation will not be updated.
-
-To use the updated transformation in inference pipeline, you need to register the transformation output of the transformation component as dataset.
-
-![Screenshot showing how to register transformation dataset](./media/tutorial-designer-automobile-price-deploy/register-transformation-dataset.png)
-
-Then manually replace the **TD-** component in inference pipeline with the registered dataset.
-
-![Screenshot showing how to replace transformation component](./media/tutorial-designer-automobile-price-deploy/replace-td-module.png)
-
-Then submit the inference pipeline with the updated model and transformation, and deploy. -->
-
-Due to datstore access limitation, if your inference pipeline contains **Import Data** or **Export Data** component, they will be auto-removed when deploy to real-time endpoint.
+Due to datastore access limitation, if your inference pipeline contains **Import Data** or **Export Data** component, they'll be auto-removed when deploy to real-time endpoint.
 
 ## Clean up resources
 
