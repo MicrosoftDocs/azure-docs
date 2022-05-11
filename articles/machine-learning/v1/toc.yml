@@ -9,6 +9,9 @@
     href: concept-azure-machine-learning-architecture.md
 - name: Concepts
   items:
+  - name: Automated ML overview
+    displayName: automl, auto ml
+    href: concept-automated-ml-v1.md
   - name: Manage the ML lifecycle (MLOps)
     items:
     - name: MLOps capabilities
