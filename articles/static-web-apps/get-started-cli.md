@@ -37,7 +37,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
 1. Create a resource group.
 
-    ```bash
+    ```azurecli
     az group create \
       --name my-swa-group \
       --location "eastus2"
@@ -147,7 +147,7 @@ Before you can navigate to your new static site, the deployment build must first
 
 1. Return to your console window and run the following command to list the URLs associated with your app.
 
-    ```bash
+    ```azurecli
     az staticwebapp show \
       --name  my-first-static-web-app \
       --query "repositoryUrl"
@@ -165,7 +165,7 @@ Before you can navigate to your new static site, the deployment build must first
 
 1. Run the following command to query for your website's URL.
 
-    ```bash
+    ```azurecli
     az staticwebapp show \
       --name my-first-static-web-app \
       --query "defaultHostname"

@@ -144,6 +144,8 @@ You may choose **view the YAML spec** to review and download the yaml file gener
 
 To launch the job, choose **Create**. Once the job is created, Azure will show you the run details page, where you can monitor and manage your training job. 
 
+  [!INCLUDE [Email Notification Include](../../includes/machine-learning-email-notifications.md)]
+
 ## Next steps
 
 * [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md).

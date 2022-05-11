@@ -14,7 +14,9 @@ ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, cont
 adobe-target: true
 ---
 
-# Deploy machine learning models to Azure 
+# Deploy machine learning models to Azure
+
+[!INCLUDE [sdk & cli v1](../../includes/machine-learning-dev-v1.md)]
 
 Learn how to deploy your machine learning or deep learning model as a web service in the Azure cloud.
 
@@ -176,7 +178,7 @@ For more information, see the documentation for the [Model class](/python/api/az
 
     For more information, see the [AutoMLRun.register_model](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-) documentation.
 
-    To deploy a registered model from an `AutoMLRun`, we recommend doing so via the [one-click deploy button in Azure Machine learning studio](how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
+    To deploy a registered model from an `AutoMLRun`, we recommend doing so via the [one-click deploy button in Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
 
 ---
 
@@ -467,6 +469,8 @@ When you deploy remotely, you may have key authentication enabled. The example b
 
 
 See the article on [client applications to consume web services](how-to-consume-web-service.md) for more example clients in other languages.
+
+  [!INCLUDE [Email Notification Include](../../includes/machine-learning-email-notifications.md)]
 
 ### Understanding service state
 

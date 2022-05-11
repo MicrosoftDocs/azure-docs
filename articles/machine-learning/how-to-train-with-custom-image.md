@@ -108,7 +108,7 @@ For more information about creating and managing Azure Machine Learning environm
 
 ### Create or attach a compute target
 
-You need to create a [compute target](concept-azure-machine-learning-architecture.md#compute-targets) for training your model. In this tutorial, you create `AmlCompute` as your training compute resource.
+You need to create a [compute target](v1/concept-azure-machine-learning-architecture.md#compute-targets) for training your model. In this tutorial, you create `AmlCompute` as your training compute resource.
 
 Creation of `AmlCompute` takes a few minutes. If the `AmlCompute` resource is already in your workspace, this code skips the creation process.
 

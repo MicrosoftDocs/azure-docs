@@ -38,8 +38,6 @@ It is important to register the data source in Microsoft Purview prior to settin
 
 1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Microsoft Purview accounts** page and select your _Purview account_
 
-    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-purview-acct.png" alt-text="Screenshot that shows the Microsoft Purview account used to register the data source":::
-
 1. **Open Microsoft Purview governance portal** and navigate to the **Data Map --> Sources**
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-open-purview-studio.png" alt-text="Screenshot that shows the link to open Microsoft Purview governance portal":::
@@ -58,7 +56,7 @@ It is important to register the data source in Microsoft Purview prior to settin
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-select-data-source.png" alt-text="Screenshot that allows selection of the data source":::
 
-1. Provide a suitable **Name** for the data source, select the relevant **Azure subscription**, existing **Data Lake Store account name** and the **collection** and select **Apply**. Leave the **data use management** toggle on the **disabled** position until you have a chance to carefully go over this [document](./how-to-access-policies-storage.md).
+1. Provide a suitable **Name** for the data source, select the relevant **Azure subscription**, existing **Data Lake Store account name** and the **collection** and select **Apply**. Leave the **Data Use Management** toggle on the **disabled** position until you have a chance to carefully go over this [document](./how-to-access-policies-storage.md).
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-data-source-details.png" alt-text="Screenshot that shows the details to be entered in order to register the data source":::
 
@@ -261,10 +259,10 @@ To create an access policy for Azure Data Lake Storage Gen 2, follow the guideli
 
 [!INCLUDE [Azure Storage specific pre-requisites](./includes/access-policies-prerequisites-storage.md)]
 
-### Enable data use management
+### Enable Data Use Management
 
-Data use management is an option on your Microsoft Purview sources that will allow you to manage access for that source from within Microsoft Purview.
-To enable data use management, follow [the data use management guide](how-to-enable-data-use-management.md#enable-data-use-management).
+Data Use Management is an option on your Microsoft Purview sources that will allow you to manage access for that source from within Microsoft Purview.
+To enable Data Use Management, follow [the Data Use Management guide](how-to-enable-data-use-management.md#enable-data-use-management).
 
 ### Create an access policy
 
@@ -279,6 +277,6 @@ Or you can follow the [generic guide for creating data access policies](how-to-d
 
 Now that you have registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
-- [Data insights in Microsoft Purview](concept-insights.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

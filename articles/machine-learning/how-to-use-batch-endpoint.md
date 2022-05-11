@@ -6,21 +6,21 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-author: tracych
-ms.author: tracych
+author: dem108
+ms.author: sehan
 ms.reviewer: larryfr
-ms.date: 03/31/2022
+ms.date: 04/26/2022
 ms.custom: how-to, devplatv2
 
 # Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
 ---
 
-# Use batch endpoints (preview) for batch scoring
+# Use batch endpoints for batch scoring
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
 
-Learn how to use batch endpoints (preview) to do batch scoring. Batch endpoints simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. For more information, see [What are Azure Machine Learning endpoints (preview)?](concept-endpoints.md).
+
+Learn how to use batch endpoints to do batch scoring. Batch endpoints simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. For more information, see [What are Azure Machine Learning endpoints?](concept-endpoints.md).
 
 In this article, you learn to do the following tasks:
 
@@ -86,10 +86,10 @@ Batch endpoint runs only on cloud computing resources, not locally. The cloud co
 
 ## Understand batch endpoints and batch deployments
 
-A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch scoring job. A batch scoring job is a job that scores multiple inputs (for more, see [What are batch endpoints?](concept-endpoints.md#what-are-batch-endpoints-preview)). A batch deployment is a set of compute resources hosting the model that does the actual batch scoring. One batch endpoint can have multiple batch deployments. 
+A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch scoring job. A batch scoring job is a job that scores multiple inputs (for more, see [What are batch endpoints?](concept-endpoints.md#what-are-batch-endpoints)). A batch deployment is a set of compute resources hosting the model that does the actual batch scoring. One batch endpoint can have multiple batch deployments. 
 
 > [!TIP]
-> One of the batch deployments will serve as the default deployment for the endpoint. The default deployment will be used to do the actual batch scoring when the endpoint is invoked. Learn more about [batch endpoints and batch deployment](concept-endpoints.md#what-are-batch-endpoints-preview).
+> One of the batch deployments will serve as the default deployment for the endpoint. The default deployment will be used to do the actual batch scoring when the endpoint is invoked. Learn more about [batch endpoints and batch deployment](concept-endpoints.md#what-are-batch-endpoints).
 
 The following YAML file defines a batch endpoint, which you can include in the CLI command for [batch endpoint creation](#create-a-batch-endpoint). In the repository, this file is located at `/cli/endpoints/batch/batch-endpoint.yml`.
 
@@ -188,7 +188,7 @@ Invoke a batch endpoint triggers a batch scoring job. A job `name` will be retur
 
 #### Invoke the batch endpoint with different input options
 
-You can either use CLI or REST to `invoke` the endpoint. For REST experience, see [Use batch endpoints(preview) with REST](how-to-deploy-batch-with-rest.md)
+You can either use CLI or REST to `invoke` the endpoint. For REST experience, see [Use batch endpoints with REST](how-to-deploy-batch-with-rest.md)
 
 There are three options to specify the data inputs in CLI `invoke`.
 
@@ -274,7 +274,7 @@ To create a new batch deployment under the existing batch endpoint but not set i
 
 Notice that `--set-default` is not used. If you `show` the batch endpoint again, you should see no change of the `defaults.deployment_name`. 
 
-The example uses a model (`/cli/endpoints/batch/autolog_nyc_taxi`) trained and tracked with MLflow. `scoring_script` and `environment` can be auto generated using model's metadata, no need to specify in the YAML file. For more about MLflow, see [Train and track ML models with MLflow and Azure Machine Learning (preview)](how-to-use-mlflow.md).
+The example uses a model (`/cli/endpoints/batch/autolog_nyc_taxi`) trained and tracked with MLflow. `scoring_script` and `environment` can be auto generated using model's metadata, no need to specify in the YAML file. For more about MLflow, see [Train and track ML models with MLflow and Azure Machine Learning](how-to-use-mlflow.md).
 
 Below is the YAML file the example uses to deploy an MLflow model, which only contains the minimum required properties. The source file in repository is `/cli/endpoints/batch/mlflow-deployment.yml`.
 
@@ -316,5 +316,5 @@ Run the following code to delete the batch endpoint and all the underlying deplo
 ## Next steps
 
 * [Batch endpoints in studio](how-to-use-batch-endpoints-studio.md)
-* [Deploy models with REST (preview) for batch scoring](how-to-deploy-batch-with-rest.md)
+* [Deploy models with REST for batch scoring](how-to-deploy-batch-with-rest.md)
 * [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md)

@@ -14,6 +14,8 @@ ms.custom: how-to, devx-track-python, sdkv1
 
 # MLflow and Azure Machine Learning (v1)
 
+[!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
+
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you are using:"]
 > * [v1](concept-mlflow-v1.md)
 > * [v2 (current version)](../concept-mlflow.md)
@@ -45,7 +47,7 @@ Together, MLflow Tracking and Azure Machine learning allow you to track an exper
 
 With MLflow Tracking you can connect Azure Machine Learning as the backend of your MLflow experiments. By doing so, you can do the following tasks,
 
-+ Track and log experiment metrics and artifacts in your [Azure Machine Learning workspace](../concept-azure-machine-learning-architecture.md#workspace). If you already use MLflow Tracking for your experiments, the workspace provides a centralized, secure, and scalable location to store training metrics and models. Learn more at [Track ML models with MLflow and Azure Machine Learning](../how-to-use-mlflow.md). 
++ Track and log experiment metrics and artifacts in your [Azure Machine Learning workspace](concept-azure-machine-learning-architecture.md#workspace). If you already use MLflow Tracking for your experiments, the workspace provides a centralized, secure, and scalable location to store training metrics and models. Learn more at [Track ML models with MLflow and Azure Machine Learning](../how-to-use-mlflow.md). 
 
 + Track and manage models in MLflow and Azure Machine Learning model registry.
 

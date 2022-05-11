@@ -28,8 +28,10 @@ landingContent:
             url: overview-what-is-azure-machine-learning.md
           - text: "What is Azure Machine Learning studio?"
             url:  overview-what-is-machine-learning-studio.md
-          - text:  Architecture & terms
-            url: concept-azure-machine-learning-architecture.md 
+          - text:  Key concepts (v2)
+            url: concept-azure-machine-learning-v2.md 
+          - text: What is CLI & SDK v2?
+            url: concept-v2.md
   # Card
   - title: Get Started
     linkLists:
@@ -37,8 +39,10 @@ landingContent:
         links:   
         - text: Set up resources
           url: quickstart-create-resources.md
-        - text: "Train with the v2 CLI (preview)"
+        - text: "Train with the v2 CLI"
           url: how-to-train-cli.md   
+        - text: "Train with the v2 SDK (preview)"
+          url: how-to-train-sdk.md   
         - text: "Day 1: Get started with Python"
           url: tutorial-1st-experiment-hello-world.md
         - text: "Migrate from ML Studio (classic)"
@@ -48,7 +52,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:            
-          - text: Run training code in the cloud (v2 CLI preview)
+          - text: Run training code in the cloud (v2 CLI)
             url: how-to-train-cli.md
           - text: Train and deploy a model in Jupyter notebook
             url:  tutorial-train-deploy-notebook.md

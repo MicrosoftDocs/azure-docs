@@ -30,7 +30,7 @@ The following tables list the Private Link services and the regions where they'r
 
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
-|Azure Synapse Analytics| All public regions <br/> All Government regions |  Supported for Proxy [connection policy](../azure-sql/database/connectivity-architecture.md#connection-policy) |GA <br/> [Learn how to create a private endpoint for Azure Synapse Analytics.](../azure-sql/database/private-endpoint-overview.md)|
+|Azure Synapse Analytics| All public regions <br/> All Government regions |  Supported for Proxy [connection policy](/azure/azure-sql/database/connectivity-architecture#connection-policy) |GA <br/> [Learn how to create a private endpoint for Azure Synapse Analytics.](/azure/azure-sql/database/private-endpoint-overview)|
 |Azure Event Hub | All public regions<br/>All Government regions      |   | GA   <br/> [Learn how to create a private endpoint for Azure Event Hub.](../event-hubs/private-link-service.md)  |
 | Azure Monitor <br/>(Log Analytics & Application Insights) | All public regions      |  | GA   <br/> [Learn how to create a private endpoint for Azure Monitor.](../azure-monitor/logs/private-link-security.md)   |
 |Azure Data Factory | All public regions<br/> All Government regions<br/>All China regions    | Credentials need to be stored in an Azure key vault| GA   <br/> [Learn how to create a private endpoint for Azure Data Factory.](../data-factory/data-factory-private-link.md)   |
@@ -54,7 +54,7 @@ The following tables list the Private Link services and the regions where they'r
 
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
-|  Azure SQL Database         | All public regions <br/> All Government regions<br/>All China regions      |  Supported for Proxy [connection policy](../azure-sql/database/connectivity-architecture.md#connection-policy) | GA <br/> [Learn how to create a private endpoint for Azure SQL](./tutorial-private-endpoint-sql-portal.md)      |
+|  Azure SQL Database         | All public regions <br/> All Government regions<br/>All China regions      |  Supported for Proxy [connection policy](/azure/azure-sql/database/connectivity-architecture#connection-policy) | GA <br/> [Learn how to create a private endpoint for Azure SQL](./tutorial-private-endpoint-sql-portal.md)      |
 |Azure Cosmos DB|  All public regions<br/> All Government regions</br> All China regions | |GA <br/> [Learn how to create a private endpoint for Cosmos DB.](./tutorial-private-endpoint-cosmosdb-portal.md)|
 |  Azure Database for PostgreSQL - Single server         | All public regions <br/> All Government regions<br/>All China regions     | Supported for General Purpose and Memory Optimized pricing tiers | GA <br/> [Learn how to create a private endpoint for Azure Database for PostgreSQL.](../postgresql/concepts-data-access-and-security-private-link.md)      |
 |  Azure Database for MySQL         | All public regions<br/> All Government regions<br/>All China regions      |  | GA <br/> [Learn how to create a private endpoint for Azure Database for MySQL.](../mysql/concepts-data-access-security-private-link.md)     |

@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 03/28/2022
+ms.date: 04/25/2022
 ---
 
 # Azure Machine Learning Python SDK release notes
@@ -17,6 +17,28 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+## 2022-04-25
+
+### Azure Machine Learning SDK for Python v1.41.0
+
+**Breaking change warning**
+
+This breaking change comes from the June release of `azureml-inference-server-http`. In the `azureml-inference-server-http` June release (v0.9.0), Python 3.6 support will be dropped. Since `azureml-defaults` depends on `azureml-inference-server-http`, this change will be propagated to `azureml-defaults`. If you are not using `azureml-defaults` for inference, feel free to use `azureml-core` or any other AzureML SDK packages directly instead of install `azureml-defaults`.
+
+  + **azureml-automl-dnn-nlp**
+    + Turning on long range text feature by default.
+  + **azureml-automl-dnn-vision**
+    + Changing the ObjectAnnotation Class type from object to "dataobject".
+  + **azureml-core**
+    + This release updates the Keyvault class used by customers to enable them to provide the keyvault content type when creating a secret using the SDK. This release also updates the SDK to include a new function that enables customers to retrieve the value of the content type from a specific secret.
+  + **azureml-interpret**
+    + updated azureml-interpret package to interpret-community 0.25.0
+  + **azureml-pipeline-core**
+    + Do not print run detail anymore if `pipeline_run.wait_for_completion` with `show_output=False`
+  + **azureml-train-automl-runtime**
+    + Fixes a bug that would cause code generation to fail when the azureml-contrib-automl-dnn-forecasting package is present in the training environment.
+    + Fix error when using a test dataset without a label column with AutoML Model Testing.
 
 ## 2022-03-28
 

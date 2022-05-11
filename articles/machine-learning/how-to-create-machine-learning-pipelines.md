@@ -53,7 +53,7 @@ Create the resources required to run an ML pipeline:
 
 * Configure a `Dataset` object to point to persistent data that lives in, or is accessible in, a datastore. Configure an `OutputFileDatasetConfig` object for temporary data passed between pipeline steps. 
 
-* Set up the [compute targets](concept-azure-machine-learning-architecture.md#compute-targets) on which your pipeline steps will run.
+* Set up the [compute targets](v1/concept-azure-machine-learning-architecture.md#compute-targets) on which your pipeline steps will run.
 
 ### Set up a datastore
 
@@ -309,7 +309,7 @@ When you submit the pipeline, Azure Machine Learning checks the dependencies for
 > [!IMPORTANT]
 > [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
 >
-> For more information, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshots).
+> For more information, see [Snapshots](v1/concept-azure-machine-learning-architecture.md#snapshots).
 
 ```python
 from azureml.core import Experiment

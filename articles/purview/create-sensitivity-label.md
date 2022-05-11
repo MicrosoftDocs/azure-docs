@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 04/22/2022
 ---
 
 # Labeling in the Microsoft Purview Data Map

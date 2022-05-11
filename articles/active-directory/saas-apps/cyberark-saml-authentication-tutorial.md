@@ -115,11 +115,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure CyberArk SAML Authentication SSO
 
-To configure single sign-on on **CyberArk SAML Authentication** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [CyberArk SAML Authentication support team](mailto:bizdevtech@cyberark.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **CyberArk SAML Authentication** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [CyberArk SAML Authentication support team](mailto:support@cyberark.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create CyberArk SAML Authentication test user
 
-In this section, you create a user called B.Simon in CyberArk SAML Authentication. Work with [CyberArk SAML Authentication support team](mailto:bizdevtech@cyberark.com) to add the users in the CyberArk SAML Authentication platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in CyberArk SAML Authentication. Work with [CyberArk SAML Authentication support team](mailto:support@cyberark.com) to add the users in the CyberArk SAML Authentication platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO
 
