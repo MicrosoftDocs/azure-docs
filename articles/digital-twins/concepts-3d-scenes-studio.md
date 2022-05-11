@@ -23,17 +23,26 @@ With a digital twin graph and curated 3D model, subject matter experts can lever
 
 ## Studio overview
 
-3D Scenes Studio is built around the concept of *scenes*. A scene is a view of a single business environment, and is comprised of 3D content, custom business logic, and references to an Azure Digital Twins instance. You can have multiple scenes for a single digital twin instance.
+Work in 3D Scenes Studio is built around the concept of *scenes*. A scene is a view of a single business environment, and is comprised of 3D content, custom business logic, and references to an Azure Digital Twins instance. You can have multiple scenes for a single digital twin instance.
 
 Scenes are configured in the [builder](#builder) inside the 3D Scenes Studio. Then, you can view your finished scenes in the studio's [built-in view experience](#viewer), or [embedded in custom web applications](#embeddable-viewer-component). You can extend the built-in viewer or create your own viewers that access the 3D Scenes files and your Azure Digital Twins graph.
 
-### Artifacts and file storage
+### Environment and storage
 
-Each 3D scene relies on two files:
-* A 3D file, which contains environment data and meshes for your visualization. You import this file into 3D Scenes Studio.
-* A configuration file, which is automatically created for you when you create a 3D Scenes environment that's connected to a storage container and an Azure Digital Twins instance. This file contains the mapping definition between 3D content and Azure Digital Twins, as well as all of the user-defined business logic.
+From an Azure resource perspective, a *3D Scenes Studio environment* is formed from a unique pairing of an **Azure Digital Twins instance** and an **Azure storage container**. You'll create these Azure resources separately, and connect 3D Scenes Studio to both of them to set up a unique 3D Scenes Studio environment. You can then start building scenes in this environment.
 
-The files for a scene are stored in linked [Azure storage](/azure/storage/blobs/), which you create and manage in your Azure account. As a result, you'll be able to modify any of the stored files directly. However, it's **not recommended** to manually edit the configuration file, as this creates a risk of inconsistencies in the file that might not be handled correctly in the viewer experience.
+Each 3D scene relies on two files, which will be stored inside your storage container: 
+* A 3D file, which contains scenario data and meshes for your visualization. You import this file into 3D Scenes Studio.
+* A configuration file, which is automatically created for you when you create a 3D Scenes Studio environment. This file contains the mapping definition between 3D content and Azure Digital Twins, as well as all of the user-defined business logic.
+
+>[!NOTE]
+>Because you manage the storage container in your Azure account, you'll be able to modify any of the stored scene files directly. However, it's **not recommended** to manually edit the configuration file, as this creates a risk of inconsistencies in the file that might not be handled correctly in the viewer experience.
+
+Once you've created a 3D Scenes Studio environment with an Azure Digital Twins instance and an Azure storage container, it's possible to switch out either of these resources for a different instance or container to change the environment. Here are the results of these actions:
+* Switching to a new Azure Digital Twins instance will switch the underlying digital twin data for the scene. This is **not recommended**, because it may result in broken digital twin references in your scene.
+* Switching to a new storage container means switching to a new configuration file, which will change the set of scenes that are showing in the studio.
+
+To [share your scenes with someone else](how-to-use-3d-scenes-studio.md#share-your-environment), they can connect to your environment inside 3D Scenes Studio, using the URLs of your Azure Digital Twins instance and Azure storage container. They'll need *Reader* access to both the instance and the container in order to see your scenes.
 
 ## Set up
 

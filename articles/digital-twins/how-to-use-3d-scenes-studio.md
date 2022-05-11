@@ -45,7 +45,7 @@ Now you have all the necessary resources to work with scenes in 3D Scenes Studio
 
 ## Initialize your 3D Scenes Studio environment
 
-In this section, you'll create an environment in *3D Scenes Studio* and customize your scene for the sample graph that's in your Azure Digital Twins instance.
+In this section, you'll set the environment in *3D Scenes Studio* and customize your scene for the sample graph that's in your Azure Digital Twins instance.
 
 1. Navigate to the [3D Scenes Studio](https://explorer.digitaltwins.azure.net/3dscenes). The studio will open, connected to the Azure Digital Twins instance that you accessed last in the Azure Digital Twins Explorer.
 1. Select the **Edit** icon next to the instance name to configure the instance and storage container details.
@@ -266,6 +266,18 @@ Alternatively, you can create layers while [creating or modifying a behavior](#n
 In the **Build** view for a scene, you can use the **Theme** button to change the style, object colors, and background color of the display.
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/theme.png" alt-text="Screenshot of 3D Scenes Studio builder for a scene. The Theme button is highlighted." lightbox="media/how-to-use-3d-scenes-studio/theme.png":::
+
+## Share your environment
+
+A *3D Scenes Studio environment* is formed from a unique pairing of an **Azure Digital Twins instance** and an **Azure storage container**. You can share your environment with someone else by giving them these things:
+* The URL of your Azure Digital Twins instance
+* The URL of your Azure storage container
+* *Azure Digital Twins Data Reader* access (or greater) on the Azure Digital Twins instance
+* *Storage Blob Data Reader* access (or greater) to the storage container
+    * *Storage Blob Data Reader* will allow them to view your scenes.
+    * *Storage Blob Data Owner* will allow them to edit your scenes.
+
+Once someone has the required permissions, they can use your resource URLs to connect to your environment when [initializing 3D Scenes Studio](how-to-use-3d-scenes-studio.md#initialize-your-3d-scenes-studio-environment). Then, they'll be able to view and interact with your scenes.
 
 ## Next steps 
 
