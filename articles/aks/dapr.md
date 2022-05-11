@@ -5,7 +5,7 @@ author: greenie-msft
 ms.author: nigreenf
 ms.service: container-service
 ms.topic: article
-ms.date: 05/10/2022
+ms.date: 05/11/2022
 ms.custom: devx-track-azurecli, ignite-fall-2021
 ---
 
@@ -32,15 +32,25 @@ Once Dapr is installed on your cluster, you can begin to develop using the Dapr 
 > [!WARNING]
 > If you install Dapr through the AKS or Arc-enabled Kubernetes extension, our recommendation is to continue using the extension for future management of Dapr instead of the Dapr CLI. Combining the two tools can cause conflicts and result in undesired behavior.
 
-## Supported Dapr versions
+## Currently supported
+
+### Dapr versions
 
 The Dapr extension support varies depending on how you manage the runtime. 
 
 **Self-managed**
-For self-managed runtime, the Dapr extension will follow the [Dapr OSS support policy][dapr-oss-support] (which is N-1), and requires manual upgrade to remain in the support window.
+For self-managed runtime, the Dapr extension will follow the [Dapr OSS support policy][dapr-oss-support] (which is N-1), and requires manual upgrade to remain in the support window. To upgrade the Dapr extension, follow the [Update extension instance instructions][update-extension].
 
 **Auto-upgrade**
-Enabling auto-upgrade keeps your Dapr extension updated to the latest minor version. 
+Enabling auto-upgrade keeps your Dapr extension updated to the latest minor version. You may experience breaking changes between updates.
+
+### Components
+
+Stable components (Azure + OSS) are supported. 
+
+### Clouds/regions
+
+Public Azure cloud is supported with Arc support on the regions listed by [Azure Products by Region][supported-cloud-regions].
 
 ## Prerequisites 
 
@@ -249,6 +259,7 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 [sample-application]: ./quickstart-dapr.md
 [k8s-version-support-policy]: ./supported-kubernetes-versions.md?tabs=azure-cli#kubernetes-version-support-policy
 [arc-k8s-cluster]: /azure-arc/kubernetes/quickstart-connect-cluster.md
+[update-extension]: ./cluster-extensions.md#update-extension-instance
 
 <!-- LINKS EXTERNAL -->
 [kubernetes-production]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-production
@@ -259,3 +270,4 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 [dapr-deployment-annotations]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-overview/#adding-dapr-to-a-kubernetes-deployment
 [dapr-oss-support]: https://docs.dapr.io/operations/support/support-release-policy/
 [dapr-troubleshooting]: https://docs.dapr.io/operations/troubleshooting/common_issues/
+[supported-cloud-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc
