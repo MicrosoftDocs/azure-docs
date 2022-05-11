@@ -17,7 +17,7 @@ This article introduces the workings of the attestation service and the policy e
 
 ## Policy Version 1.2
 
-:::image type="content" source="./media/maa-policy-version-12.png" alt-text="A diagram showing Azure attestation using policy version 1.2":::
+:::image type="content" source="./media/maa-policy-version-1-2-small.png" alt-text="A diagram showing Azure attestation using policy version 1.2" lightbox="./media/maa-policy-version-1-2.png":::
 
 The attestation flow is as follows:
 - The platform sends the attestation evidence in the attest call to the attestation service.

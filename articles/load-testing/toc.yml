@@ -62,6 +62,8 @@
           href: how-to-assign-roles.md
         - name: Use a managed identity
           href: how-to-use-a-managed-identity.md
+        - name: Configure customer-managed keys
+          href: how-to-configure-customer-managed-keys.md
     - name: Manage resources
       expanded: true
       items:
