@@ -100,7 +100,7 @@ The easiest way to supply the model is using our `Fetch Registered Model` compon
 > [!NOTE]
 > Currently only models with MLFlow format, with a sklearn flavor are supported.
 
-The two datasets should be file datasets (of type uri_file) in Parquet format. Tabular datasets are not supported, we provide a `TabularDataset to Parquet file` component to help with conversions. The training and test datasets provided don't have to be the same datasets used in training the model (although it's permissible for them to be the same). By default, the test dataset is restricted to 5000 rows for performance reasons of the visualization UI.
+The two datasets should be file datasets (of type uri_file) in Parquet format. Tabular datasets aren't supported, we provide a `TabularDataset to Parquet file` component to help with conversions. The training and test datasets provided don't have to be the same datasets used in training the model (although it's permissible for them to be the same). By default, the test dataset is restricted to 5000 rows for performance reasons of the visualization UI.
 
 The constructor component also accepts the following parameters:
 

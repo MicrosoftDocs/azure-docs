@@ -102,7 +102,7 @@ Finally, configure your experiment to kick off a job to generate your Responsibl
 2. **Experiment name**: Select an existing experiment to run the job in, or create a new experiment.
 3. **Existing experiment**: Select an existing experiment from drop-down.
 4. **Select compute type**: Specify which compute type you’d like to use to execute your job. 
-5. **Select compute**: Select from a drop-down which compute you’d like to use. If there are no existing compute resources, select the “+” to create a new compute resource and refresh the list.
+5. **Select compute**: Select from a drop-down that compute you’d like to use. If there are no existing compute resources, select the “+” to create a new compute resource and refresh the list.
 6. **Description**: Add a more verbose description for your Responsible AI dashboard.
 7. **Tags**: Add any tags to this Responsible AI dashboard.
 

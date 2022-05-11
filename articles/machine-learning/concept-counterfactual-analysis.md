@@ -20,7 +20,7 @@ The Counterfactual Analysis and what-if component of the [Responsible AI dashboa
 - Generating a set of examples with minimal changes to a given point such that they change the model's prediction (showing the closest datapoints with opposite model precisions)
 - Enabling users to generate their own what-if perturbations to understand how the model reacts to features’ changes.
 
-The capabilities of this component are founded by the [DiCE](https://github.com/interpretml/DiCE) package, which implements counterfactual explanations that provide this information by showing feature-perturbed versions of the same datapoint who would have received a different model prediction (for example, Taylor would have received the loan if his/her income was higher by $10,000).  The counterfactual analysis component enables you to identify which features to vary and their permissible ranges for valid and logical counterfactual examples.
+The capabilities of this component are founded by the [DiCE](https://github.com/interpretml/DiCE) package, which implements counterfactual explanations that provide this information by showing feature-perturbed versions of the same datapoint who would have received a different model prediction (for example, Taylor would have received the loan if their income was higher by $10,000).  The counterfactual analysis component enables you to identify which features to vary and their permissible ranges for valid and logical counterfactual examples.
 
 Use What-If Counterfactuals when you need to:
 
