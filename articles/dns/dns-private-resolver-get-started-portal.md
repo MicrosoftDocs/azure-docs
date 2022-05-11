@@ -24,17 +24,19 @@ An Azure subscription is required.
 
 ## Register the Microsoft.Network provider namespace
 
-Before you can use Microsoft.Network services with your Azure subscription, you must register the Microsoft.Network namespace:
+Before you can use **Microsoft.Network** services with your Azure subscription, you must register the **Microsoft.Network** namespace:
 
 1. Select the **Subscription** blade in the Azure portal, and then choose your subscription by clicking on it.
-2. Under **Settings** select on **Resource Providers**.
-3. Select on **Microsoft.Network** and then select on Register.
+2. Under **Settings** select **Resource Providers**.
+3. Select **Microsoft.Network** and then select **Register**.
 
 ## Create a resource group
 
 First, create or choose an existing resource group to host the resources for your DNS resolver. The resource group must be in a [supported region](dns-private-resolver-overview.md#regional-availability). In this example, the location is **West Central US**. To create a new resource group:
 
-1. Select [Create a resource group](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup), the resource group name, choose a supported region, select **Review + create**, and then select **Create**.
+1. Select [Create a resource group](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup).
+2. Select your subscription name, enter a name for the resource group, and choose a supported region.
+3. Select **Review + create**, and then select **Create**.
 
     ![create resource group](./media/dns-resolver-getstarted-portal/resource-group.png)
 
@@ -43,12 +45,12 @@ First, create or choose an existing resource group to host the resources for you
 Next, add a virtual network to the resource group that you created, and configure subnets.
 
 1. Select the resource group you created, select **Create**, select **Networking** from the list of categories, and then next to **Virtual network**, select **Create**.
-2. On the **Basics** tab, enter a name for the new virtual network and verify the location is the same as your resource group.
-3. On the **IP Addresses** tab, replace the default address space with 10.0.0.0/8.
-4. Select the **default** subnet and edit the subnet name and address range:
+2. On the **Basics** tab, enter a name for the new virtual network and select the **Region** that is the same as your resource group.
+3. On the **IP Addresses** tab, modify the **IPv4 address space** to be 10.0.0.0/8.
+4. Select **Add subnet** and enter the subnet name and address range:
     - Subnet name: snet-inbound
     - Subnet address range: 10.0.0.0/28
-    - Select **Save** to save your changes.
+    - Select **Add** to add the new subnet.
 5. Select **Add subnet** and configure the outbound endpoint subnet:
     - Subnet name: snet-outbound
     - Subnet address range: 10.1.1.0/28
@@ -60,12 +62,12 @@ Next, add a virtual network to the resource group that you created, and configur
 ## Create a DNS resolver inside the virtual network 
 
 1. To display the **DNS Private Resolvers** resource during public preview, open the following [preview-enabled Azure portal link](https://go.microsoft.com/fwlink/?linkid=2194569).
-2. Next to Azure services, select **DNS Private Resolvers**, select **Create**, and then on the **Basics** tab enter the following:
-    - Subscription: Enter your subscription name.
-    - Resource group: Enter the name of the resource group that you created.
+2. Search for and select **DNS Private Resolvers**, select **Create**, and then on the **Basics** tab for **Create a DNS Private Resolver** enter the following:
+    - Subscription: Choose the subscription name you are using.
+    - Resource group: Choose the name of the resource group that you just created.
     - Name: Enter a name for your DNS resolver (ex: mydnsresolver).
-    - Region: Enter the region you used for the Virtual Network.
-    - Virtual Network: Select the virtual network that you created.
+    - Region: Choose the region you used for the virtual network.
+    - Virtual Network: Select the virtual network that you just created.
 
     Don't create the DNS resolver yet.
 
@@ -82,9 +84,9 @@ Next, add a virtual network to the resource group that you created, and configur
     - Rule name: Enter a rule name (ex: contosocom).
     - Domain Name: Enter a domain name with a trailing dot (ex: contoso.com.).
     - Rule State: Choose **Enabled** or **Disabled**. The default is enabled.
-    - Select **Add a destination** and enter a desired destination IPv4 address.
-    - Select *Add a destination** to add more destination IPv4 addresses (ex: 11.0.1.4, 11.0.1.5).  
-    - When you're finished adding destination addresses, select **Add**.
+    - Select **Add a destination** and enter a desired destination IPv4 address (ex: 11.0.1.4).
+    - If desired, select **Add a destination** again to add another destination IPv4 address (ex: 11.0.1.5).  
+    - When you're finished adding destination IP addresses, select **Add**.
 9. Select **Review and Create**, and then select **Create**.
 
     ![create resolver - ruleset](./media/dns-resolver-getstarted-portal/resolver-ruleset.png)
@@ -101,12 +103,12 @@ Next, add a virtual network to the resource group that you created, and configur
 
 Create a second virtual network to simulate an on-prem or other environment. To create a second virtual network:
 
-1. Select on **Virtual Networks** from the **Azure services** list, or search for **Virtual Networks** and then select **Virtual Networks**.
+1. Select **Virtual Networks** from the **Azure services** list, or search for **Virtual Networks** and then select **Virtual Networks**.
 2. Select **Create**, select your subscription and select the same resource group that you have been using in this guide (ex: myresourcegroup).
 3. On the Basics tab, enter a name for the new virtual network (ex: myvnet2).
 4. Verify that the **Region** selected is the same region used previously in this guide (ex: West Central US).
 5. On the IP Addresses tab, edit the default IP address space and enter a simulated on-prem address space (ex: 12.0.0.0/8). 
-6. Select on **Add subnet** and enter the following:
+6. Select **Add subnet** and enter the following:
     - Subnet name: backendsubnet
     - Subnet address range: 12.2.0.0/24
 7. Select **Add**, select **Review + create**, and then select **Create**.
