@@ -61,6 +61,12 @@
       - name: Configure secure web services (v1)
         displayName: ssl, tls
         href: ../how-to-secure-web-service.md
+  - name: Work with data
+    items:
+    - name: Access data
+      items:
+      - name: Connect to storage with datastores
+        href: how-to-access-data.md
   - name: Train models
     items: 
     - name: Train with SDK v1
