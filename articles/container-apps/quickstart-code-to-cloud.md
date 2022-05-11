@@ -12,9 +12,9 @@ zone_pivot_groups: container-apps-image-build-type
 
 # Quickstart: Deploy your code to Azure Container Apps
 
-This article demonstrates how to deploy to Azure Container Apps from a repository on your machine in the language of your choice.
+This article demonstrates how to build and deploy a microservice to Azure Container Apps from a source repository using the programming language of your choice.
 
-This quickstart is the first in a series of articles that walk you through how to use core capabilities within Azure Container Apps. The first step is to create a backend web API for an application that returns a static collection of music albums.
+This quickstart is the first in a series of articles that walk you through how to use core capabilities within Azure Container Apps. The first step is to create a backend web API service that returns a static collection of music albums.
 
 The following screenshot shows the final results of the API deployed in this article.
 
@@ -43,7 +43,7 @@ To complete this project, you'll need the following items:
 | GitHub Account | Sign up for [free](https://github.com/join). |
 | git | [Install git](https://git-scm.com/downloads) |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
-| Docker engine | Install the Docker Engine. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). <br><br>From your command prompt, type `docker` to ensure Docker is running. |
+| Docker Desktop | Docker provides installers that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). <br><br>From your command prompt, type `docker` to ensure Docker is running. |
 
 ::: zone-end
 
@@ -55,7 +55,7 @@ Now Azure CLI setup is validated, you can next define the initial environment va
 
 ### Set your language preference
 
-Set an environment variable for the language you'll be using. The value can be one of the following values:
+Set an environment variable for the language you'll be using. The variable can be set to one of the following values:
 
 - csharp
 - go
@@ -116,7 +116,7 @@ git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-$LANGUAGE.g
 ```
 
 > [!NOTE]
-> If the `clone` command fails, then you probably forgot to first fork the repository.
+> If the `clone` command fails, check that you have successfully forked the repository. (See instructions above.)
 
 Next, change the directory into the root of the cloned repo.
 
@@ -148,7 +148,7 @@ New-AzResourceGroup -Name $RESOURCE_GROUP -Location $LOCATION
 
 ## Create an Azure Container Registry
 
-Next, create an Azure Container Registry (ACR) registry instance in your new resource group.
+Next, create an Azure Container Registry (ACR) instance in your resource group to store the Album API container image once it is built.
 
 # [Bash](#tab/bash)
 
@@ -196,7 +196,7 @@ With ACR Tasks, you can build the docker image for the album API without the nee
 
 ### Build the container with ACR
 
-The following command uses ACR to remotely build the Dockerfile for the album API. The `.` represents the current build context, so this command is run in the *src* folder where the Dockerfile is located.
+Run the following command to initiate the image build and push process using ACR. The `.` at the end of the command represents the docker build context, meaning this command should be run within the *src* folder where the Dockerfile is located.
 
 # [Bash](#tab/bash)
 
@@ -212,7 +212,7 @@ az acr build --registry $ACR_NAME --image $API_NAME .
 
 ---
 
-Output from the `az acr build` command shows the upload progress of the source code to Azure and the details of the `docker build` operation.
+Output from the `az acr build` command shows the upload progress of the source code to Azure and the details of the `docker build` and `docker push` operations.
 
 ::: zone-end
 
@@ -220,11 +220,11 @@ Output from the `az acr build` command shows the upload progress of the source c
 
 ## Build your application
 
-In the below steps, you build your container image locally using Docker. Once the image is built successfully, you push the image to your newly created container registry.
+In the below steps, you will build your container image locally using Docker and push the image to your newly created container registry.
 
 ### Build the container with Docker
 
-The following command builds the image using the Dockerfile for the album API. The `.` represents the current build context, so this command is run in the *src* folder where the Dockerfile is located.
+The following command builds a container image using the Dockerfile for the Album API.  The `.` at the end of the command represents the docker build context, meaning this command should be run within the *src* folder where the Dockerfile is located.
 
 # [Bash](#tab/bash)
 
@@ -235,12 +235,12 @@ docker build -t $ACR_NAME.azurecr.io/$API_NAME .
 # [PowerShell](#tab/powershell)
 
 ```powershell
-docker build -t $ACR_NAME.azurecr.io/$API_NAME .
+docker build -t "$ACR_NAME.azurecr.io/$API_NAME" .
 ```
 
 ---
 
-### Push the image to your ACR registry
+### Push the image to your container registry
 
 First, sign in to your Azure Container Registry.
 
@@ -269,7 +269,7 @@ docker push $ACR_NAME.azurecr.io/$API_NAME
 # [PowerShell](#tab/powershell)
 
 ```powershell
-docker push $ACR_NAME.azurecr.io/$API_NAME
+docker push "$ACR_NAME.azurecr.io/$API_NAME"
 ```
 
 ---
@@ -336,7 +336,7 @@ az containerapp create `
   --target-port $API_PORT `
   --ingress 'external' `
   --registry-username $ACR_NAME `
-  --registry-server $ACR_NAME.azurecr.io `
+  --registry-server "$ACR_NAME.azurecr.io"  `
   --query configuration.ingress.fqdn
   --query configuration.ingress.fqdn
 ```
@@ -345,7 +345,7 @@ az containerapp create `
 
 ## Verify deployment
 
-The `az containerapp create` command returns the fully qualified domain name (FQDN) for the container app. Copy this location to a web browser.
+The `az containerapp create` command returns the fully qualified domain name (FQDN) for the container app. Copy the FQDN to a web browser.
 
 From your web browser, navigate to the `/albums` endpoint off the FQDN.
 
@@ -353,7 +353,7 @@ From your web browser, navigate to the `/albums` endpoint off the FQDN.
 
 ## Clean up resources
 
-If you're not going to continue on to the [Communication between microservices](communicate-between-microservices.md) tutorial, you can remove the Auzre resources created during this quickstart. Run the following command to delete the resource group along with all the resources created in this quickstart.
+If you're not going to continue on to the [Communication between microservices](communicate-between-microservices.md) tutorial, you can remove the Azure resources created during this quickstart. Run the following command to delete the resource group along with all the resources created in this quickstart.
 
 # [Bash](#tab/bash)
 
@@ -374,7 +374,7 @@ Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 
 ## Next steps
 
-This quickstart is the entrypoint for a set of progressive tutorials that showcase the various features within Azure Container Apps. Continue on to learn how to enable communication between two microservices.
+This quickstart is the entrypoint for a set of progressive tutorials that showcase the various features within Azure Container Apps. Continue on to learn how to enable communication from a frontend caller to the backend Album API.
 
 > [!div class="nextstepaction"]
 > [Communication between microservices](communicate-between-microservices.md)

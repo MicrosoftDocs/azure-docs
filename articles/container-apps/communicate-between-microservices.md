@@ -176,7 +176,7 @@ $ACR_PASSWORD=(Get-AzContainerRegistryCredential `
 
     ---
 
-## Push the Docker image to your ACR registry
+## Push the image to your ACR registry
 
 1. First, sign in to your Azure Container Registry.
 
