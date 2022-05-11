@@ -183,6 +183,22 @@ We have seen spurious failures when trying to compile Unity samples (quickstart,
 
 The `AudioPluginMsHRTF.dll` for Arm64 was added to the *Windows Mixed Reality* package *(com.unity.xr.windowsmr.metro)* in version 3.0.1. Ensure that you have version 3.0.1 or later installed via the Unity Package Manager. From the Unity menu bar, navigate to *Window > Package Manager* and look for the *Windows Mixed Reality* package.
 
+## The Unity Cinemachine plugin does work in Remote pose mode
+
+In [Remote pose mode](../overview/features/late-stage-reprojection.md#remote-pose-mode), the ARR Unity binding code implicitly creates a proxy camera that performs the actual rendering. In this case, the main camera's culling mask is set to 0 ("nothing") to effectively turn off the rendering for it. However, some 3rd party plugins (like Cinemachine) that drive the camera, may rely on at least some layer bits being set.
+
+For this purpose, The binding code allows to programmatically change the layer bitmask for the main camera. Specifically, the following steps are required:
+
+1. Create a new layer in Unity that is not used for rendering any local scene geometry. In this example, assume the layer is named "Cam".
+1. Pass this bitmask to ARR so ARR sets it on the main camera:
+   ```cs
+   RemoteManagerUnity.CameraCullingMask = LayerMask.GetMask("Cam");
+   ```
+1. Configure the Cinemachine properties to use this new layer:
+![Cinemachine camera layer assigned in Unity inspector.](./media/cinemachine-camera-config.png)
+
+The local pose mode is not affected by this, since in this case the ARR binding does not re-direct rendering to an internal proxy camera.
+
 ## Native C++ based application does not compile
 
 ### 'Library not found' error for UWP application or DLL
