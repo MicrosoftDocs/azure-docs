@@ -27,14 +27,14 @@ ms.custom: sdkv2
 > For a tutorial that uses SDK v1 to build a pipeline, see [Tutorial: Build an Azure Machine Learning pipeline for image classification](v1/tutorial-pipeline-python-sdk.md)
 > 
 
-In this tutorial, you'll use Azure Machine Learning (ML) to create a production ready machine learning (ML) project, using AzureML Python SDK v2 (preview).
+In this tutorial, you'll use Azure Machine Learning (Azure ML) to create a production ready machine learning (ML) project, using AzureML Python SDK v2 (preview).
 
 You'll learn how to use the AzureML Python SDK v2 to:
 
 > [!div class="checklist"]
 > 
 > * Connect to your Azure ML workspace
-> * Create Azure ML datasets
+> * Create Azure ML data assets
 > * Create reusable Azure ML components
 > * Create, validate and run Azure ML pipelines
 > * Deploy the newly-trained model as an endpoint
@@ -852,6 +852,9 @@ ml_client.online_endpoints.invoke(
 ## Clean up resources
 
 If you're not going to use the endpoint, delete it to stop using the resource.  Make sure no other deployments are using an endpoint before you delete it.
+
+> [!NOTE]
+> Expect this step to take approximately 6 to 8 minutes.
 
 ```python
 ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
