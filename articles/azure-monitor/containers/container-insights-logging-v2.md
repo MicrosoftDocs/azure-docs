@@ -32,7 +32,7 @@ As part of [Basic Logs](../logs/basic-logs-configure.md), Azure Monitor Containe
 ```
 ## Enable ContainerLogV2 schema
 1. Customers can enable ContainerLogV2 schema at cluster level. 
-2. To enable ContainerLogV2 schema, configure the cluster's configmap, Learn more about [configmap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) in Kubernetes documentation & [Azure Monitor configmap](./container-insights-agent-config#configmap-file-settings-overview.md).
+2. To enable ContainerLogV2 schema, configure the cluster's configmap, Learn more about [configmap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) in Kubernetes documentation & [Azure Monitor configmap](./container-insights-agent-config.md#configmap-file-settings-overview).
 3. Follow the instructions accordingly when configuring an existing ConfigMap or using a new one.
 
 ### Configuring an existing ConfigMap
