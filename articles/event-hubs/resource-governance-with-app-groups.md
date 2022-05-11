@@ -1,6 +1,6 @@
 ---
 title: Govern resources for client applications with Application Groups
-description: Learn how to use application groups to govern resources for client applications that connects with Event Hubs. 
+description: Learn how to use application groups to govern resources for client applications that connect with Event Hubs. 
 ms.topic: conceptual
 ms.custom: subject-monitoring
 ms.date: 02/10/2022
@@ -13,7 +13,7 @@ For more information, see [Resource governance with application groups](event-hu
 
 ## Creating an Application Group
 
-You can create an application group using the Azure portal as illustrated below. When you create the application group you should associate it to either a shared access signatures (SAS) or Azure Active Directory(Azure AD) application id which is used by the client applications. 
+You can create an application group using the Azure portal as illustrated below. When you create the application group, you should associate it to either a shared access signatures (SAS) or Azure Active Directory(Azure AD) application ID, which is used by the client applications. 
 
 :::image type="content" source="./media/resource-governance-with-app-groups/add-app-group.png" alt-text="Creating Application Group using Azure portal":::
 
@@ -22,10 +22,10 @@ For example, you can create application group `contosoAppGroup` associating it w
 ## Apply throttling policies
 You can add zero or more application group policies when you create the application group or to an existing application group. 
 
-In our example, you can add throttling policies related to `IncomingMessages`, `IncomingBytes` or `OutgoingBytes` to the `contosoAppGroup`. These policies will get applied for the event streaming workloads of the client applications that uses the SAS policy `contoso`. 
+In our example, you can add throttling policies related to `IncomingMessages`, `IncomingBytes` or `OutgoingBytes` to the `contosoAppGroup`. These policies will get applied for the event streaming workloads of the client applications that use the SAS policy `contoso`. 
 
 ## Publish or consume events 
-Once you successfully add throttling policies to the application group, you can test the throttling behavior by either publishing or consuming events using client applications that are part of the `contosoAppGroup` application group. For that you can use either [AMQP client](event-hubs-dotnet-standard-getstarted-send.md) or [Kafka client](event-hubs-quickstart-kafka-enabled-event-hubs.md) application and same SAS policy name or Azure AD application id that is used to create the application group. 
+Once you successfully add throttling policies to the application group, you can test the throttling behavior by either publishing or consuming events using client applications that are part of the `contosoAppGroup` application group. For that you can use either [AMQP client](event-hubs-dotnet-standard-getstarted-send.md) or [Kafka client](event-hubs-quickstart-kafka-enabled-event-hubs.md) application and same SAS policy name or Azure AD application ID that is used to create the application group. 
 
 When your client applications are throttled, you should experience a slowness in publishing or consuming data. 
 
@@ -35,9 +35,9 @@ You can prevent client applications accessing the Event Hubs by disabling the ap
 
 
 ## Application Groups with Azure Resource Manager Templates 
-You can also create an application group using the Azure Resource Manager(ARM) templates. 
+You can also create an application group using the Azure Resource Manager (ARM) templates. 
 
-In the following example, we are creating an application group using ARM templates. We have associated the application group that we create with an existing SAS policy name `contoso` by setting the client `AppGroupIdentifier` as `SASKeyName=contoso`. The application group policies are also defined in the ARM template. 
+In the following example, we're creating an application group using ARM templates. We've associated the application group that we create with an existing SAS policy name `contoso` by setting the client `AppGroupIdentifier` as `SASKeyName=contoso`. The application group policies are also defined in the ARM template. 
 
 
 ```json

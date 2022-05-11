@@ -185,6 +185,13 @@ Event data:
 
 It's your responsibility to manage the offset.
 
+## Application Groups
+Application Group is a collection client application that connect to Event Hubs namespace that has a shared identifying condition such as the security context(Shared Access Policy or Azure Active Directory application ID). 
+
+Azure Event Hubs enables you to define resource access policies such as throttling policies for a given application group and controls the event streaming (publishing or consuming) between the client applications and Event Hubs. 
+
+See [Resource Governance for client applications with Application Groups](event-hubs-resource-governance-overview.md) for more details. 
+
 ## Next steps
 
 For more information about Event Hubs, visit the following links:

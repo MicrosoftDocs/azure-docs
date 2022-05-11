@@ -15,11 +15,11 @@ Azure Event Hubs enables you to govern the event streaming workloads of each cli
 
 ## Application Groups
 
-An application group is a collection of one or more client applications that interact with the Event Hubs data plane. Each application group is scoped to a single Event Hubs namespace and should use a uniquely identifying condition such as the security context(shared access signatures (SAS) or Azure Active Directory(Azure AD) application id) of the client application. 
+An application group is a collection of one or more client applications that interact with the Event Hubs data plane. Each application group is scoped to a single Event Hubs namespace and should use a uniquely identifying condition such as the security context(shared access signatures (SAS) or Azure Active Directory(Azure AD) application ID) of the client application. 
 
-Event Hubs currently supports using security contexts for creating Application Groups. Therefore, each application group must have a unique SAS policy or Azure AD application id associated with them. 
+Event Hubs currently supports using security contexts for creating Application Groups. Therefore, each application group must have a unique SAS policy or Azure AD application ID associated with them. 
 
-Application groups are logical entities that are created at the Event Hubs namespace level and client application code does not need to be aware of the existence of an application group. Event Hubs can associate any client application to an application group by using the identifying condition. 
+Application groups are logical entities that are created at the Event Hubs namespace level. Therefore client application code doesn't need to be aware of the existence of an application group. Event Hubs can associate any client application to an application group by using the identifying condition. 
 
 As illustrated below, you can create application groups based on the security context that each client application uses. Therefore, application groups can span across multiple client applications. 
 
@@ -33,8 +33,8 @@ These are the key attributes of an application group:
 | Parameter | Description | 
 | ---- | ----------- | 
 | name | Unique user defined name of an application group. |
-| clientAppGroupIdentifier | Associate an application group with a uniquely identifying condition (i.e security context such as SAS policy or Azure AD application id). |
-| policies | List of policies (such as throttling policies) that control the event streaming between client applications and Event Hubs namespace|
+| clientAppGroupIdentifier | Associate an application group with a uniquely identifying condition (i.e security context such as SAS policy or Azure AD application ID). |
+| policies | List of policies, such as throttling policies that control the event streaming between client applications and Event Hubs namespace|
 | isEnabled | Determine whether the client applications of an application group can access Event Hubs namespaces or not. |
 
 
@@ -56,10 +56,10 @@ You can have throttling policies specified using different ingress and egress me
 When application groups policies are applied the client application workload may slow down or encounter server busy exceptions.
 
 ### Disabling Application Groups  
-Application group is enabled by default and that means all the client applications can access Event Hubs namespace for publishing and consuming events by adhering to the application group polices. 
+Application group is enabled by default and that means all the client applications can access Event Hubs namespace for publishing and consuming events by adhering to the application group policies. 
 
 When an application group is disabled, then client application of that application group won't be able to connect to Event Hubs and all the existing connections that are already established from client applications are terminated. 
 
 ## Next steps
-- [Resource governance for client applications using Azure Portal](resource-governance-with-app-groups.md)
+- [Resource governance for client applications using Azure portal](resource-governance-with-app-groups.md)
 
