@@ -116,12 +116,6 @@ The student list for the course is automatically synced with the course roster. 
 
 This section outlines common error messages that you may see, along with the steps to resolve them.
 
-- Student sees warning that the lab isn't available yet.
-
-  In Canvas, you'll see the following message if the educator hasn't published the lab yet.  Educators must [publish the lab](tutorial-setup-lab.md#publish-a-lab) and [sync users](how-to-manage-user-lists-within-canvas.md#sync-users) for students to have access to a lab.
-
-  :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/troubleshooting-lab-isnt-available-yet.png" alt-text="Troubleshooting -> This lab is not available yet":::
-
 - Insufficient permissions to create lab.
 
   In Canvas, an educator will see a message indicating that they don't have sufficient permission. Educators should contact their Azure admin so they can be [added as a **Lab Creator**](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role).
@@ -130,9 +124,15 @@ This section outlines common error messages that you may see, along with the ste
 
   [Request a limit increase](capacity-limits.md#request-a-limit-increase).
 
-- Grant access to Azure Lab Services.
+- Student sees warning that the lab isn't available yet.
 
-  Before you see the sign in screen, some browsers may require that you grant Azure Lab Services access to your browser's local storage.  To grant access, educators and students should click the **Grant access** button when they are prompted:
+  In Canvas, you'll see the following message if the educator hasn't published the lab yet.  Educators must [publish the lab](tutorial-setup-lab.md#publish-a-lab) and [sync users](how-to-manage-user-lists-within-canvas.md#sync-users) for students to have access to a lab.
+
+  :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/troubleshooting-lab-isnt-available-yet.png" alt-text="Troubleshooting -> This lab is not available yet":::
+
+- Student or educator is prompted to grant access.
+
+  Before a student or educator can first access their lab, some browsers require that they first grant Azure Lab Services access to the browser's local storage.  To grant access, educators and students should click the **Grant access** button when they are prompted:
 
   :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/canvas-grant-access-prompt.png" alt-text="Grant access to Azure Lab Services to use the browser's local storage.":::
 
@@ -141,7 +141,13 @@ This section outlines common error messages that you may see, along with the ste
   :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/canvas-access-granted-success.png" alt-text="Access granted to Azure Lab Services.":::
 
   > [!IMPORTANT]
-  > Ensure that students and educators are using an up-to-date version of their browser.  For older browser versions, students and educators may experience issues  with being able to successfully grant access to Azure Lab Services.
+  > Ensure that students and educators are using an up-to-date version of their browser.  For older browser versions, students and educators may experience issues with being able to successfully grant access to Azure Lab Services.
+
+  - Educator isn't prompted for their credentials after they click sign-in.
+  
+  When an educator accesses Azure Lab Services within their course, they may be prompted to sign in.  Ensure that the browser's settings allow popups from the url of your canvas instance, otherwise the popup may be blocked by default.
+
+    :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/canvas-sign-in.png" alt-text="Azure Lab Services sign-in screen.":::
 
 ## Next steps
 
