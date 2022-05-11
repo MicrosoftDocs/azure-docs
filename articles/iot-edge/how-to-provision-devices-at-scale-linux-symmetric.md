@@ -130,6 +130,8 @@ Have the following information ready:
 
    If you use any PKCS#11 URIs, find the **PKCS#11** section in the config file and provide information about your PKCS#11 configuration.
 
+1. Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. If a device is set to dynamically reprovision itself, IoT Edge (and all modules) will restart and reprovision if a reprovisioning event is detected, like if the device is moved from one IoT Hub to another. Specifically, IoT Edge checks for `bad_credential` or `device_disabled` errors from the SDK to detect the reprovision event. To trigger this event manually, disable the device in IoT Hub. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+
 1. Save and close the config.toml file.
 
 1. Apply the configuration changes that you made to IoT Edge.

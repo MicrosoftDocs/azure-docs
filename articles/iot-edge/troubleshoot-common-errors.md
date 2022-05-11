@@ -153,7 +153,7 @@ Or
 ```output
 info: edgelet_docker::runtime -- Starting module edgeHub...
 warn: edgelet_utils::logging -- Could not start module edgeHub
-warn: edgelet_utils::logging -- 	caused by: failed to create endpoint edgeHub on network nat: hnsCall failed in Win32:  
+warn: edgelet_utils::logging --     caused by: failed to create endpoint edgeHub on network nat: hnsCall failed in Win32:  
         The process cannot access the file because it is being used by another process. (0x20)
 ```
 
@@ -515,6 +515,22 @@ You do not need to disable socket activation on a distro where socket activation
 1. Run `systemctl disable iotedge.socket iotedge.mgmt.socket` to disable the socket units so that systemd doesn't start them unnecessarily
 1. Change the iotedge config to use `/var/lib/iotedge/*.sock` in both `connect` and `listen` sections
 1. If you already have modules, they have the old `/var/run/iotedge/*.sock` mounts, so `docker rm -f` them.
+
+## DPS client error
+
+**Observed behavior:**
+
+IoT Edge fails to start with error message `failed to provision with IoT Hub, and no valid device backup was found dps client error.`
+
+**Root cause:**
+
+A group enrollment is used to provision an IoT Edge device to an IoT Hub. The IoT Edge device is moved to a different hub. The registration is deleted in DPS. A new registration is created in DPS for the new hub. The device is not reprovisioned.
+
+**Resolution:**
+
+If you remove the group enrollment and re-create it, you must run `sudo iotedge system reprovision` to reprovision the device. Run the reprovision command even if no DPS information has changed in `config.toml` for the device.
+
+To automatically reprovision, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. If a device is set to dynamically reprovision itself, IoT Edge (and all modules) will restart and reprovision if a reprovisioning event is detected, like if the device is moved from one IoT Hub to another. Specifically, IoT Edge checks for `bad_credential` or `device_disabled` errors from the SDK to detect the reprovision event. To trigger this event manually, disable the device in IoT Hub. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
 ## Next steps
 
