@@ -19,7 +19,7 @@ ms.author: lajanuar
 
 ## Document Translation: FAQ
 
-#### When should rgw source language be specified in a request?
+#### Should I specify the source language in a request?
 
 If the language of the content in the source document is known, it's recommended to specify the source language in the request to get a better translation. If the document has content in multiple languages or the language is unknown, then don't specify the source language in the request. Document translation automatically identifies language for each text segment and translates.
 
@@ -38,10 +38,6 @@ Yes. Document translation translates content from _scanned PDF_ documents.
 #### Will my document be translated if it is password protected?
 
 No. If your scanned or text-embedded PDFs are password-locked, you must remove the lock before submission.
-
-#### Can multiple languages in the same document be translated?
-
-Yes. Document Translation has extensive [language support](../language-support.md#translation) for printed text languages and supports PDF document translation with multiple languages in the same document.
 
 #### If I'm using managed identities, do I also need a SAS token URL?
 
