@@ -16,15 +16,15 @@ ms.date: 05/11/2022
 
 ---
 
-# Create Azure Machine Learning Data
+# Create Azure Machine Learning data assets
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
 > * [v1](./v1/how-to-create-register-datasets.md)
 > * [v2 (current version)](how-to-create-register-datasets.md)
 
-[!INCLUDE [sdk v2](../../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-In this article, you learn how to create Azure Machine Learning Data to access data for your local or remote experiments with the Azure Machine Learning CLI/SDK. To understand where Data fits in Azure Machine Learning's overall data access workflow, see  the [Work with Data](concept-data.md#data-workflow) article.
+In this article, you learn how to create Azure Machine Learning Data to access data for your local or remote experiments with the Azure Machine Learning CLI/SDK. To understand where Data fits in Azure Machine Learning's overall data access workflow, see the [Work with Data](concept-data.md) article.
 
 By creating a Data asset, you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources. Also Data assets are lazily evaluated, which aids in workflow performance speeds. You can create Data from Datastores, public URLs, and local files.
 
@@ -42,9 +42,9 @@ To create and work with Data assets, you need:
 
 * An Azure subscription. If you don't have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-* An [Azure Machine Learning workspace](../how-to-manage-workspace.md).
+* An [Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-* The [Azure Machine Learning CLI/SDK installed](https://review.docs.microsoft.com/en-us/azure/machine-learning/how-to-configure-cli?branch=release-build-2022-azureml&tabs=public) and MLTable package installed.
+* The [Azure Machine Learning CLI/SDK installed](how-to-configure-cli.md) and MLTable package installed.
 
     * Create an [Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md), which is a fully configured and managed development environment that includes integrated notebooks and the SDK already installed.
 
@@ -61,7 +61,7 @@ When creating a Data asset, review your compute processing power and the size of
 
 If your data is compressed, it can expand further; 20 GB of relatively sparse data stored in compressed parquet format can expand to ~400 GB in memory.
 
-[Learn more about optimizing data processing in Azure Machine Learning](../concept-optimize-data-processing.md).
+[Learn more about optimizing data processing in Azure Machine Learning](concept-optimize-data-processing.md).
 
 ## Data types
 
@@ -71,7 +71,7 @@ For most scenarios, you'll use URIs (`uri_folder` and `uri_file`). A URI referen
 
 When using tables, you'll use `mltable`. It's an abstraction for tabular data that is used for AutoML jobs, parallel jobs, and some advanced scenarios. If you're just starting to use Azure Machine Learning, and aren't using AutoML, we strongly encourage you to begin with URIs.
 
-If you are creating Azure ML Data asset from a exisitng Datastore:
+If you are creating Azure ML Data asset from an existing Datastore:
 
 1. Verify that you have `contributor` or `owner` access to the underlying storage service of your registered Azure Machine Learning datastore. [Check your storage account permissions in the Azure portal](/azure/role-based-access-control/check-access).
 
@@ -130,13 +130,14 @@ my_data = Data(
 ml_client.data.create_or_update(my_data)
 ```
 
-
 You can also use CLI to register a URI Folder type Data as below example.
 
-```cli
-> az ml data create -f <file-name>.yml
+```azurecli
+az ml data create -f <file-name>.yml
 ```
-Sample `YAML` file <file-name>.yml for local path is as below:
+
+Sample `YAML` file `<file-name>.yml` for local path is as below:
+
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
 name: uri_folder_my_data
@@ -144,7 +145,7 @@ description: Local data asset will be created as URI folder type Data in Azure M
 path: path
 ```
 
-Sample `YAML` file <file-name>.yml for data folder in an existing Azure ML Datastore is as below:
+Sample `YAML` file `<file-name>.yml` for data folder in an existing Azure ML Datastore is as below:
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
 name: uri_folder_my_data
@@ -153,7 +154,7 @@ type: uri_folder
 path: azureml://datastores/workspaceblobstore/paths/example-data/
 ```
    
-Sample `YAML` file <file-name>.yml for data folder in storage url is as below:
+Sample `YAML` file `<file-name>.yml` for data folder in storage url is as below:
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
 name: cloud_file_wasbs_example
@@ -219,7 +220,7 @@ You can also use CLI to register a URI File type Data as below example.
 ```cli
 > az ml data create -f <file-name>.yml
 ```
-Sample `YAML` file <file-name>.yml for data in local path is as below:
+Sample `YAML` file `<file-name>.yml` for data in local path is as below:
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
 name: uri_file_my_data
@@ -227,7 +228,7 @@ description: Local data asset will be created as URI folder type Data in Azure M
 path: ./paths/example-data.csv
 ```
 
-Sample `YAML` file <file-name>.yml for data in an existing Azure ML Datastore is as below:
+Sample `YAML` file `<file-name>.yml` for data in an existing Azure ML Datastore is as below:
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
 name: uri_file_my_data
@@ -236,7 +237,7 @@ type: uri_file
 path: azureml://datastores/workspaceblobstore/paths/example-data.csv
 ```
    
-Sample `YAML` file <file-name>.yml for data in storage url is as below:
+Sample `YAML` file `<file-name>.yml` for data in storage url is as below:
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
 name: cloud_file_wasbs_example

@@ -401,7 +401,10 @@
               displayName: blob, get, fileshare, access, mount, download, data lake, datastore, dataset, data set
               href: how-to-connect-data-ui.md
         - name: Manage & consume data
-          items: 
+          items:
+            - name: Read & write data (v2)
+              displayName: train
+              href: how-to-read-write-data-v2.md
             - name: Train with datasets
               displayName: data, dataset, mount
               href: how-to-train-with-datasets.md
@@ -610,22 +613,17 @@
               href: how-to-use-event-grid.md
         - name: Build & use ML pipelines
           displayName: pipelines
-          items: 
-            - name: Create ML pipelines (Python)
-              href: how-to-create-machine-learning-pipelines.md
+          items:
             - name: Create ML pipelines using components (CLI v2)
               href: how-to-create-component-pipelines-cli.md
-            - name: Moving data into and between ML pipeline steps (Python)
-              href: how-to-move-data-in-out-of-pipelines.md
-            - name: Use automated ML in ML pipelines (Python)
-              displayName: machine learning automl
-              href: how-to-use-automlstep-in-pipelines.md
-            - name: Deploy ML pipelines (Python)
-              href: how-to-deploy-pipelines.md
-            - name: Use Azure Synapse Apache spark pools in an ML pipeline (Python)
-              href: how-to-use-synapsesparkstep.md
-            - name: Trigger a pipeline
-              href: how-to-trigger-published-pipeline.md
+            - name: Create ML pipelines using components (Python SDK v2)
+              href: how-to-create-component-pipeline-python.md
+            - name: Create ML pipelines using components (UI)
+              href: how-to-create-component-pipelines-ui.md
+            - name: How to use sweep in pipelines (v2)
+              href: how-to-use-sweep-in-pipeline.md
+            - name: Build and debug pipelines (UI)
+              href: how-to-use-pipeline-ui.md
             - name: Designer (drag-n-drop)
               items: 
                 - name: Log metrics
@@ -658,16 +656,6 @@
     - name: VS Code interactive debugging
       displayName: vscode,remote,debug,pipelines,deployments,ssh
       href: how-to-debug-visual-studio-code.md
-    - name: Pipeline issues
-      items: 
-        - name: Troubleshoot pipelines
-          displayName: designer
-          href: how-to-debug-pipelines.md
-        - name: Log pipeline data to Application Insights
-          href: how-to-log-pipelines-application-insights.md
-        - name: Troubleshoot the ParallelRunStep
-          displayName: debug_batch consume pipeline parallelrunstep inference
-          href: how-to-debug-parallel-run-step.md
 - name: Reference
   items: 
     - name: Python SDK

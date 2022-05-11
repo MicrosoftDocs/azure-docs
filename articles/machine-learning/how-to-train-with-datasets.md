@@ -28,7 +28,7 @@ In this article, you learn how to work with [Azure Machine Learning datasets](/p
 
 Azure Machine Learning datasets provide a seamless integration with Azure Machine Learning training functionality like [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig), [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive), and [Azure Machine Learning pipelines](./how-to-create-machine-learning-pipelines.md).
 
-If you are not ready to make your data available for model training, but want to load your data to your notebook for data exploration, see how to [explore the data in your dataset](./v1/how-to-create-register-datasets.md#explore-data). 
+If you are not ready to make your data available for model training, but want to load your data to your notebook for data exploration, see how to [explore the data in your dataset](./v1/how-to-create-register-datasets.md). 
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ To create and train with datasets, you need:
 
 If you have structured data not yet registered as a dataset, create a TabularDataset and use it directly in your training script for your local or remote experiment.
 
-In this example, you create an unregistered [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) and specify it as a script argument in the [ScriptRunConfig](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig) object for training. If you want to reuse this TabularDataset with other experiments in your workspace, see [how to register datasets to your workspace](./v1/how-to-create-register-datasets.md#register-datasets).
+In this example, you create an unregistered [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) and specify it as a script argument in the [ScriptRunConfig](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig) object for training. If you want to reuse this TabularDataset with other experiments in your workspace, see [how to register datasets to your workspace](./v1/how-to-create-register-datasets.md).
 
 ### Create a TabularDataset
 

@@ -169,6 +169,36 @@
     - name: Package models
       displayName: docker file download
       href: ../how-to-deploy-package-models.md
+  - name: Manage the ML lifecycle
+    items:
+      - name: Build & use ML pipelines
+        displayName: pipelines
+        items: 
+          - name: Create ML pipelines (Python)
+            href: ../how-to-create-machine-learning-pipelines.md
+          - name: Moving data into and between ML pipeline steps (Python)
+            href: ../how-to-move-data-in-out-of-pipelines.md
+          - name: Use automated ML in ML pipelines (Python)
+            displayName: machine learning automl
+            href: ../how-to-use-automlstep-in-pipelines.md
+          - name: Deploy ML pipelines (Python)
+            href: ../how-to-deploy-pipelines.md
+          - name: Use Azure Synapse Apache spark pools in an ML pipeline (Python)
+            href: ../how-to-use-synapsesparkstep.md
+          - name: Trigger a pipeline
+            href: ../how-to-trigger-published-pipeline.md
+- name: Troubleshoot & debug
+  items: 
+    - name: Pipeline issues
+      items: 
+        - name: Troubleshoot pipelines
+          displayName: designer
+          href: ../how-to-debug-pipelines.md
+        - name: Log pipeline data to Application Insights
+          href: ../how-to-log-pipelines-application-insights.md
+        - name: Troubleshoot the ParallelRunStep
+          displayName: debug_batch consume pipeline parallelrunstep inference
+          href: ../how-to-debug-parallel-run-step.md
 - name: Reference
   items: 
   - name: Machine learning CLI pipeline YAML reference
