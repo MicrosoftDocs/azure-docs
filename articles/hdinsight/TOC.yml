@@ -793,6 +793,8 @@ items:
         href: ./hbase/hbase-troubleshoot-timeouts-hbase-hbck.md
       - name: REST API to query Apache HBase
         href: ./hbase/troubleshoot-rest-api.md
+      - name: Troubleshoot data retention issues
+        href: ./hbase/troubleshoot-data-retention-issues-expired-data.md  
 - name: Interactive Query
   items:
   - name: Overview
