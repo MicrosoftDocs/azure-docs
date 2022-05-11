@@ -226,41 +226,30 @@ The response to this request looks like the following example:
 
 ## Create a job
 
-Use the following request to retrieve the details of the devices in a job:
+Use the following request to create a job:
 
 ```http
 PUT https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006?api-version=1.2-preview
 ```
 
-The request body requires the `group` of the device group that the job applies to.
+The `group` field in the request body identifies a device group in your IoT Central application. A job uses a device group to identify the set of devices the job operates on.
 
-Use the following request to create a new device group.
+
+If you don't already have a suitable device group, you can create one with REST API call. The following example creates a device group with `group1` as the group ID:
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-version=1.2-preview
+PUT https://{subdomain}.{baseDomain}/api/deviceGroups/group1?api-version=1.2-preview
 ```
 
-When you create a device group, you define a `filter` that selects the devices to add to the group. A `filter` identifies a device template and any properties to match. The following example creates device group that contains all devices associated with the "dtmi:modelDefinition:dtdlv2" template where the `provisioned` property is true
+When you create a device group, you define a `filter` that selects the devices to include in the group. A filter identifies a device template and any properties to match. The following example creates device group that contains all devices associated with the "dtmi:modelDefinition:dtdlv2" device template where the `provisioned` property is `true`.
 
 ```json
 {
   "displayName": "Device group 1",
   "description": "Custom device group.",
-  "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:dtdlv2\" AND $provisioned = true",
-  "organizations": [
-    "seattle"
-  ]
+  "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:dtdlv2\" AND $provisioned = true"
 }
 ```
-
-The request body has some required fields:
-
-- `@displayName`: Display name of the device group.
-- `@filter`: Query defining which devices should be in this group.
-- `@etag`: ETag used to prevent conflict in device updates.
-- `description`: Short summary of device group.
-
-The organizations field is only used when an application has an organization hierarchy defined. To learn more about organizations, see [Manage IoT Central organizations](howto-edit-device-template.md)
 
 The response to this request looks like the following example: 
 
@@ -269,10 +258,7 @@ The response to this request looks like the following example:
   "id": "group1",
   "displayName": "Device group 1",
   "description": "Custom device group.",
-  "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:dtdlv2\" AND $provisioned = true",
-  "organizations": [
-    "seattle"
-  ]
+  "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:dtdlv2\" AND $provisioned = true"
 }
 ```
 
