@@ -33,11 +33,11 @@ To configure the minimum TLS version for an Event Hubs namespace with a template
         "contentVersion": "1.0.0.0",
         "parameters": {},
         "variables": {
-            "serviceBusNamespaceName": "[concat(uniqueString(subscription().subscriptionId), 'tls')]"
+            "eventHubNamespaceName": "[concat(uniqueString(subscription().subscriptionId), 'tls')]"
         },
         "resources": [
             {
-            "name": "[variables('serviceBusNamespaceName')]",
+            "name": "[variables('eventHubNamespaceName')]",
             "type": "Microsoft.EventHub/namespaces",
             "apiVersion": "2022-01-01-preview",
             "location": "westeurope",
@@ -59,24 +59,61 @@ To configure the minimum TLS version for an Event Hubs namespace with a template
 
 Configuring the minimum TLS version requires api-version 2022-01-01-preview or later of the Azure Event Hubs resource provider.
 
-## Check the minimum required TLS version for multiple namespaces
+## Check the minimum required TLS version for a namespace
 
-To check the minimum required TLS version across a set of Event Hubs namespaces with optimal performance, you can use the Azure Resource Graph Explorer in the Azure portal. To learn more about using the Resource Graph Explorer, see [Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md).
+To check the minimum required TLS version for your Event Hubs namespace, you can query the Azure Resource Manager API. You will need a Bearer token to query against the API, which you can retrieve using [ARMClient](https://github.com/projectkudu/ARMClient) by executing the following commands.
 
-Running the following query in the Resource Graph Explorer returns a list of Event Hubs namespaces and displays the minimum TLS version for each namespace:
+```powershell
+.\ARMClient.exe login
+.\ARMClient.exe token <your-subscription-id>
+```
 
-```kusto
-resources 
-| where type =~ 'Microsoft.EventHub/namespaces'
-| extend minimumTlsVersion = parse\_json(properties).minimumTlsVersion
-| project subscriptionId, resourceGroup, name, minimumTlsVersion
+Once you have your bearer token, you can use the script below in combination with something like [Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) to query the API.
+
+```http
+@token = Bearer <Token received from ARMClient>
+@subscription = <your-subscription-id>
+@resourceGroup = <your-resource-group-name>
+@namespaceName = <your-namespace-name>
+
+###
+GET https://management.azure.com/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.EventHub/namespaces/{{namespaceName}}?api-version=2022-01-01-preview
+content-type: application/json
+Authorization: {{token}}
+```
+
+The response should look something like the below, with the minimumTlsVersion set under the properties.
+
+```json
+{
+  "sku": {
+    "name": "Premium",
+    "tier": "Premium",
+    "capacity": 1
+  },
+  "id": "/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group-name>/providers/Microsoft.EventHub/namespaces/<your-namespace-name>",
+  "name": "<your-namespace-name>",
+  "type": "Microsoft.EventHub/Namespaces",
+  "location": "West Europe",
+  "properties": {
+    "minimumTlsVersion": "1.2",
+    "publicNetworkAccess": "Enabled",
+    "disableLocalAuth": false,
+    "zoneRedundant": true,
+    "isAutoInflateEnabled": false,
+    "maximumThroughputUnits": 0,
+    "kafkaEnabled": true,
+    "provisioningState": "Succeeded",
+    "status": "Active"
+  }
+}
 ```
 
 ## Test the minimum TLS version from a client
 
 To test that the minimum required TLS version for an Event Hubs namespace forbids calls made with an older version, you can configure a client to use an older version of TLS. For more information about configuring a client to use a specific version of TLS, see [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version.md).
 
-When a client accesses an Event Hubs namespace using a TLS version that does not meet the minimum TLS version configured for the namespace, Azure Event Hubs returns error code 400 error (Bad Request) and a message indicating that the TLS version that was used is not permitted for making requests against this Event Hubs namespace.
+When a client accesses an Event Hubs namespace using a TLS version that does not meet the minimum TLS version configured for the namespace, Azure Event Hubs returns error code 401 (Unauthorized) and a message indicating that the TLS version that was used is not permitted for making requests against this Event Hubs namespace.
 
 > [!NOTE]
 > Due to limitations in the confluent library, errors coming from an invalid TLS version will not surface when connecting through the Kafka protocol. Instead a general exception will be shown.

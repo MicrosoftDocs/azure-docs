@@ -97,3 +97,12 @@ The following sections describe common errors that appear in the connector statu
 **Cause**: The IP address of ITSM application is not allow ITSM connections from partners ITSM tools.
 
 **Resolution**: In order to list the ITSM IP addresses in order to allow ITSM connections from partners ITSM tools, we recommend the to list the whole public IP range of Azure region where their LogAnalytics workspace belongs. [details here](https://www.microsoft.com/download/details.aspx?id=56519) For regions EUS/WEU/EUS2/WUS2/US South Central the customer can list ActionGroup network tag only.
+
+
+## Authentication
+**Error**: "User Not Authenticated"
+
+**Cause**: There can be one of 2 options either the token need to be refreshed or there is missing integration user rights.
+
+**Resolution**:If the integration worked for you in the past, it might be that the refresh token has expired. Then sync ITSMC to generate a new refresh token, as explained in [How to manually fix sync problems](./itsmc-resync-servicenow.md). If it never worked, it might be missing integration user rights, Please check it [here ](./itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role)
+

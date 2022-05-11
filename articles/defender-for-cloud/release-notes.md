@@ -2,12 +2,10 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 04/26/2022
+ms.date: 05/09/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Defender for Cloud is in active development and receives improvements on an ongoing basis. To stay up to date with the most recent developments, this page provides you with information about new features, bug fixes, and deprecated functionality.
 
@@ -17,6 +15,27 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 > [!TIP]
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+
+## May 2022
+
+Updates in May Include: 
+
+- [Availability of Defender for SQL to protect Amazon Web Services (AWS) and Google Cloud Computing (GCP) environment](#general-availability-ga-of-defender-for-sql-for-aws-and-gcp-environments)
+
+
+### General availability (GA) of Defender for SQL for AWS and GCP environments
+
+The database protection capabilities provided by Microsoft Defender for Cloud now include support for your SQL databases hosted in AWS and GCP environments.
+
+Using Defender for SQL, enterprises can now protect their data, whether hosted in Azure, AWS, GCP, or on-premises machines.
+
+Microsoft Defender for SQL now provides a unified cross-environment experience to view security recommendations, security alerts and vulnerability assessment findings encompassing SQL servers and the underlying Windows OS.
+
+
+Using the multi-cloud onboarding experience, you can enable and enforce databases protection for VMs in AWS and GCP. After enabling multi-cloud protection, all supported resources covered by your subscription are protected. Future resources created within the same subscription will also be protected.
+
+Learn how to protect and connect your [AWS accounts](quickstart-onboard-aws.md) and your [GCP projects](quickstart-onboard-gcp.md) with Microsoft Defender for Cloud.
+
 
 ## April 2022
 
@@ -145,7 +164,7 @@ Changes in our roadmap and priorities have removed the need for the network traf
 
 Defender for Container's image scan now supports Windows images that are hosted in Azure Container Registry. This feature is free while in preview, and will incur a cost when it becomes generally available.
 
-Learn more in [Use Microsoft Defender for Container to scan your images for vulnerabilities](defender-for-container-registries-usage.md).
+Learn more in [Use Microsoft Defender for Container to scan your images for vulnerabilities](defender-for-containers-usage.md).
 
 ### New alert for Microsoft Defender for Storage (preview)
 

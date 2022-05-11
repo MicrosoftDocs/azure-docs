@@ -4,6 +4,7 @@ description: Learn how to set up and manage Infrastructure double encryption for
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: how-to
 ms.date: 06/30/2020
 ---

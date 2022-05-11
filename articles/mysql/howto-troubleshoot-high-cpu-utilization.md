@@ -4,8 +4,9 @@ description: Learn how to troubleshoot high CPU utilization in Azure Database fo
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: troubleshooting
-ms.date: 4/22/2022
+ms.date: 4/27/2022
 ---
 
 # Troubleshoot high CPU utilization in Azure Database for MySQL
@@ -101,7 +102,6 @@ An analysis of this information, by session, is listed in the following table.
 
 Note that if a session is reported as idle, it’s no longer executing any statements. At this point, the session has completed any prior work and is waiting for new statements from the client. However, idle sessions are still responsible for some CPU consumption and memory usage.
 
-
 ## Understanding thread states
 
 Transactions that contribute to higher CPU utilization during execution can have threads in various states, as described in the following sections. Use this information to better understand the query lifecycle and various thread states.
@@ -112,7 +112,7 @@ This state usually means the open table operation is consuming a long time. Usua
 
 ### Sending data
 
-While this state can mean that the thread is sending data through the network, it can also indicate that the query is reading data from the disk or memory. This state can be caused by a sequential table scan. You should check the values of the innodb_buffer_pool_reads and innodb_buffer_pool_read_requests to determine whether a large number of pages are being served from the disk into the memory.
+While this state can mean that the thread is sending data through the network, it can also indicate that the query is reading data from the disk or memory. This state can be caused by a sequential table scan. You should check the values of the innodb_buffer_pool_reads and innodb_buffer_pool_read_requests to determine whether a large number of pages are being served from the disk into the memory. For more information, see [Troubleshoot low memory issues in Azure Database for MySQL](howto-troubleshoot-low-memory-issues.md).
 
 ### Updating
 
