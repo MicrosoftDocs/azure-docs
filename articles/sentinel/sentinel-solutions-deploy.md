@@ -102,9 +102,14 @@ Centrally manage content items for an installed solution deployed by the content
 
 1. **Playbook** - Not yet supported in this view.
 
+## Delete content items
 
-## Delete solutions or content items
+Delete content items for an installed solution deployed by the content hub.
 
+1. Select the content item or items you want to delete.
+1. Select **Delete items**.
+
+    :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-delete-item.png" alt-text="Screenshot of solution with content items selected for deletion.":::
 
 ## Find the support model for your solution
 
