@@ -164,6 +164,9 @@ Have the following information ready:
    identity_cert = "DEVICE_IDENTITY_CERTIFICATE_HERE"
 
    identity_pk = "DEVICE_IDENTITY_PRIVATE_KEY_HERE"
+
+   #  always_reprovision_on_startup: true
+   #  dynamic_reprovisioning: false
    ```
 
 1. Update the value of `id_scope` with the scope ID you copied from your instance of DPS.

@@ -122,6 +122,9 @@ Have the following information ready:
    registration_id = "PASTE_YOUR_REGISTRATION_ID_HERE"
 
    symmetric_key = { value = "PASTE_YOUR_PRIMARY_KEY_OR_DERIVED_KEY_HERE" }
+
+   #  always_reprovision_on_startup: true
+   #  dynamic_reprovisioning: false
    ```
 
 1. Update the values of `id_scope`, `registration_id`, and `symmetric_key` with your DPS and device information.

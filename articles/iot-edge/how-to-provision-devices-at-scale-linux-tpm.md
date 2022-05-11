@@ -238,6 +238,9 @@ After the runtime is installed on your device, configure the device with the inf
    [provisioning.attestation]
    method = "tpm"
    registration_id = "REGISTRATION_ID_HERE"
+
+   #  always_reprovision_on_startup: true
+   #  dynamic_reprovisioning: false
    ```
 
 1. Update the values of `id_scope` and `registration_id` with your device provisioning service and device information. The `scope_id` value is the **ID Scope** from your device provisioning service instance's overview page.
