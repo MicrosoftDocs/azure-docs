@@ -223,7 +223,7 @@ Next, you'll create a *behavior* for the element. These behaviors allow you to c
 
     :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-status.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio, showing the Status options." lightbox="media/quickstart-3d-scenes-studio/new-behavior-status.png":::
 
-1. Switch to the **Alerts** tab. *Alerts* help grab your attention to quickly understand that some situation is active for the associated element. Here, you'll create an alert badge that will appear when an arm fails to pickup a package. The primary arm twin has a property *PickupFailedAlert* that we will use to create a visual alert in the scene.
+1. Switch to the **Alerts** tab. *Alerts* help grab your attention to quickly understand that some situation is active for the associated element. Here, you'll create an alert badge that will appear when an arm fails to pick up a package. The primary arm twin has a property *PickupFailedAlert* that we will use to create a visual alert in the scene.
 
     1. For the **Trigger expression**, enter *PrimaryTwin.PickupFailedAlert*. `PickupFailedAlert` is a property on the primary twin that is set to True when a pickup was failed. Using it as the trigger expression means this alert will appear whenever the property value is True.
  
