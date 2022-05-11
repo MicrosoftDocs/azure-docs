@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 05/03/2022
+ms.date: 05/11/2022
 ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---
@@ -26,7 +26,7 @@ Azure Container Apps implements container app versioning by creating revisions. 
 
 ## Use cases
 
-Container Apps revisions help you manage the release of updates to your container app by creating a new revision each time you make a *revision-scope* change to your app.  You can control which revisions are active, and when external HTTP ingress is enabled, the traffic that is routed to each active revision. 
+Container Apps revisions help you manage the release of updates to your container app by creating a new revision each time you make a *revision-scope* change to your app.  You can control which revisions are active, and when external HTTP ingress is enabled, control the traffic that is routed to each active revision. 
 
 You can use revisions to:
 
@@ -48,17 +48,19 @@ The scenario shown above presumes the container app is in the following state:
 
 ## Revision suffix
 
-You can customize the revision name by setting the revision suffix.
+Revision names are used to identify a revision, and in the revision's URL.  You can customize the revision name by setting the revision suffix.
 
 The format of a revision name is:
 
-[container app name]--[revision suffix]
+```text
+<container app name>--<revision suffix>
+```
 
 By default, Container Apps creates a unique revision name with a suffix consisting of a semi-random string of alphanumeric characters.  You can customize the name by setting a unique custom revision suffix.
 
 For example, for a container app named *album-api*, setting the revision suffix name to *1st-revision* would create a revision with the name *album-api--1st-revision*.
 
-You can set the revision suffix in the [ARM template](azure-resource-manager-api-spec.md#propertiestemplate), through Azure CLI commands, or when creating a revision via the Azure portal.
+You can set the revision suffix in the [ARM template](azure-resource-manager-api-spec.md#propertiestemplate), through the Azure CLI `az containerapp create` and `az containerapp update` commands, or when creating a revision via the Azure portal.
 
 ## Change types
 
@@ -78,17 +80,16 @@ These changes include modifications to:
 
 ### Application-scope changes
 
-*Application-scope* changes are global to all container app revision.  When you deploy a container app with *application-scope* changes:
+When you deploy a container app with *application-scope* changes:
 
-- a new revision isn't created
-- the changes are applied to every revision
+- The changes are globally applied to all revisions.  
+- A new revision isn't created.
 
 *Application-scope* changes are defined as any change to the parameters in the [`properties.configuration`](azure-resource-manager-api-spec.md#propertiesconfiguration) section of the container app resource template.
 
 These parameters include:
 
-- [Secret values](manage-secrets.md)
-  - Revisions must be [restarted](revisions.md) before a container recognizes new secret values.
+- [Secret values](manage-secrets.md) (Revisions must be [restarted](revisions.md) before a container recognizes new secret values.)
 - Revision mode
 - Ingress configuration including:
   - Turning [ingress](ingress.md) on or off
@@ -116,10 +117,9 @@ For an app implementing external HTTP ingress, you can control the percentage of
 
 For container apps with external HTTP traffic, labels are a portable means to direct traffic to specific revisions. A label provides a unique URL that you can use to route traffic to the revision that the label is assigned. To switch traffic between revisions, you can move the label from one revision to another.
 
-- Label name rules are the same as for container app names.
-- The same label can't be applied to more than one active or inactive revision.
 - Labels keep the same URL when moved from one revision to another.
-- Traffic allocation isn't required for revisions with labels.
+- A label can be applied to only one revision at a time.
+- Allocation for traffic splitting isn't required for revisions with labels.
 - Labels are most useful when the app is in *multiple revision mode*.
 - You can enable labels, traffic splitting or both.
 
