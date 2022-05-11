@@ -36,11 +36,11 @@ The [Usage dashboard](https://go.microsoft.com/fwlink/?linkid=2166106) displays 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Insights** tile.
 
-    ![The screen shot illustrates selecting the Usage option on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png)
+    ![The screenshot illustrates selecting the Usage option on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png)
 
 1. In the left menu, select **Usage**.
 
-    [![Illustrates the Insights tile on the Partner Center Home page.](./media/usage-dashboard/usage-select.png)](./media/usage-dashboard/usage-select.png#lightbox)
+    [![Screenshot that illustrates the Insights tile on the Partner Center Home page.](./media/usage-dashboard/usage-select.png)](./media/usage-dashboard/usage-select.png#lightbox)
 
 ## Elements of the Usage dashboard
 
@@ -52,20 +52,20 @@ You can download data for this dashboard by clicking on the Download option. To 
 
 Alternatively, you can also navigate to the [Downloads](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/downloads) dashboard and download the report.
 
-![The screen shot illustrates the download option of the Insights page.](./media/usage-dashboard/download-dashboard.png)
+![The screenshot illustrates the download option of the Insights page.](./media/usage-dashboard/download-dashboard.png)
 
 ### Share
 
 You share the dashboard widgets data via email. Provide recipient email address and message to the email body. Share report URLs by 'Copy link' and 'Share to teams' option and the snapshot of charts data by 'Copy as image' option.
 
-![The screen shot illustrates the share option of the Insights page.](./media/usage-dashboard/share-dashboard.png)
-![The screen shot illustrates the share via email option of the Insights page.](./media/usage-dashboard/share-as-email.png)
+![The screenshot illustrates the share option of the Insights page.](./media/usage-dashboard/share-dashboard.png)
+![The screenshot illustrates the share via email option of the Insights page.](./media/usage-dashboard/share-as-email.png)
 
-### Whats new
+### What's new
 
 You can view the recent updates and changes.
 
-![The screen shot illustrates the whats new option of the Insights page.](./media/usage-dashboard/dashboard-whats-new.png)
+![The screenshot illustrates the whats new option of the Insights page.](./media/usage-dashboard/dashboard-whats-new.png)
 
 ### About data refresh
 
@@ -74,18 +74,18 @@ Use this option to view the Data source and the Data refresh details like the fr
 
 You can give instant feedback about the report/dashboard with a screenshot.
 
-![The screen shot illustrates the feedback option of the Insights page.](./media/usage-dashboard/dashboard-feedback.png)
+![The screenshot illustrates the feedback option of the Insights page.](./media/usage-dashboard/dashboard-feedback.png)
 
 ### Month range
 
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Usage** page graphs by selecting a month range based on the past 3, 6, or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range is six months.
 
-![The screen shot illustrates the Month filters on the Usage dashboard.](./media/usage-dashboard/dashboard-month-range.png)
-![The screen shot illustrates the selection of the time range.](./media/usage-dashboard/dashboard-month-range-select.png)
+![The screenshot illustrates the Month filters on the Usage dashboard.](./media/usage-dashboard/dashboard-month-range.png)
+![The screenshot illustrates the selection of the time range.](./media/usage-dashboard/dashboard-month-range-select.png)
 
 ### Usage page dashboard filters
 
-The Usage page filters are applied at the Usage page level. You acn select one or multiple filters to render the chart for the criteria you choose to view, the data you want to see in the Usage orders data grid/export. Filters are applied on the data extracted for the month range that you selected in the upper right corner of the Usage page.
+The Usage page filters are applied at the Usage page level. You can select one or multiple filters to render the chart for the criteria you choose to view, the data you want to see in the Usage orders data grid/export. Filters are applied on the data extracted for the month range that you selected in the upper right corner of the Usage page.
 
 - Sales Channel
 - Is Free Trial
@@ -127,7 +127,7 @@ There are two representations of usage hours: VM normalized usage and VM raw usa
 
 [![Illustrates the normalized usage and raw usage data on the Usage dashboard.](./media/usage-dashboard/normalized-usage.png)](./media/usage-dashboard/normalized-usage.png#lightbox)
 
-Click the ellipsis (three dots '...') to dopy the widget imate, download aggregated widget data as a .csv file, or download the image as a pdf file for sharing purposes.
+Click the ellipsis (three dots '...') to copy the widget image, download aggregated widget data as a .csv file, or download the image as a pdf file for sharing purposes.
 
 ### Normalized usage by offers
 
@@ -248,6 +248,7 @@ _**Table 1: Dictionary of data terms**_
 | Estimated Financial Impact (USD) | Estimated Financial Impact in USD | **Applicable for offers with custom meter dimensions**.<br>When Partner Center flags an overage usage by the customer for the offer’s custom meter dimension as anomalous, the field specifies the estimated financial impact (in USD) of the anomalous overage usage.<br>_If the publisher doesn’t have offers with custom meter dimensions, and exports this column through programmatic means, then the value will be null._ | EstimatedFinancialImpactUSD |
 | Asset Id | Asset Id | **Applicable for offers with custom meter dimensions**.<br>The unique identifier of the customer's order subscription for your commercial marketplace service. Virtual machine usage-based offers are not associated with an order. | Asset Id |
 | N/A | Resource Id | The fully qualified ID of the resource, including the resource name and resource type. Note that this is a data field available in download reports only.<br>Use the format:<br> /subscriptions/{guid}/resourceGroups/{resource-group-name}/{resource-provider-namespace}/{resource-type}/{resource-name}<br>**Note**: This field will be deprecated on 10/20/2021. | N/A |
+| PlanId | PlanID | The display name of the plan entered when the offer was created in Partner Center. Note that PlanId was originally a number. | PlanID |
 |||||
 
 ## Next steps
