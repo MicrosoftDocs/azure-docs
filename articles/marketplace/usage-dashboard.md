@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 05/10/2022
+ms.date: 05/11/2022
 ---
 
 # Usage dashboard in commercial marketplace analytics
@@ -40,7 +40,7 @@ The [Usage dashboard](https://go.microsoft.com/fwlink/?linkid=2166106) displays 
 
 1. In the left menu, select **Usage**.
 
-    ![Illustrates the Insights tile on the Partner Center Home page.](./media/usage-dashboard/usage-select.png)
+    ![Illustrates the Insights tile on the Partner Center Home page.](./media/usage-dashboard/usage-select.png)(./media/usage-dashboard/usage-select.png#lightbox)
 
 ## Elements of the Usage dashboard
 
@@ -108,7 +108,7 @@ The widgets and export report for VM Raw usage are like VM Normalized usage with
 
 You can choose to analyze VM normalized usage, VM raw usage, Metered usage, and Metered usage anomalies from the dropdown picker at the top of the dashboard.
 
-![Screenshot of the dropdown picker on the Usage dashboard.](./media/usage-dashboard/usage-type-picker.png)(./media/usage-dashboard/usage-type-picker.png#lightbox)
+[![Screenshot of the dropdown picker on the Usage dashboard.](./media/usage-dashboard/usage-type-picker.png)](./media/usage-dashboard/usage-type-picker.png#lightbox)
 
 ### Public and private offer
 
@@ -197,7 +197,7 @@ The **usage details** table displays a numbered list of the top 500 usage record
 
 Click on the ellipsis (three dots '...') to copy the widget image, download the aggregated widget data as a .csv file, or download the image as a pdf for sharing purposes.
 
-![Illustrates the Usage details page.](./media/usage-dashboard/usage-details.png)
+[![Illustrates the Usage details page.](./media/usage-dashboard/usage-details.png)](./media/usage-dashboard/usage-details.png#lightbox)
 
 _**Table 1: Dictionary of data terms**_
 
