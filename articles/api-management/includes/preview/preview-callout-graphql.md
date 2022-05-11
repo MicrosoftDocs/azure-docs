@@ -3,9 +3,9 @@ ms.service: api-management
 ms.topic: include
 author: v-hhunter
 ms.author: v-hhunter
-ms.date: 10/19/2021
-ms.custom: ignite-fall-2021
+ms.date: 05/10/2022
+ms.custom: 
 ---
 
 > [!IMPORTANT]
-> API Management GraphQL API is currently in preview.
+> Setting up custom resolvers for GraphQL APIs is currently in preview.

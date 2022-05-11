@@ -137,7 +137,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 The `set-graphql-resolver` policy retrieves or sets data for a GraphQL field in an object type specified in a GraphQL schema. Currently the data must be resolved using an HTTP-based data source.
 
 * This policy is invoked only when a GraphQL query is executed. 
-* The policy resolves data for a single field. To resolve data for multiple fields, you can configure multiple occurences of this policy in a policy definition.
+* The policy resolves data for a single field. To resolve data for multiple fields, configure multiple occurences of this policy in a policy definition.
 * The context for the HTTP request and HTTP response (if specified) differs from the context for the original gateway API request: 
     * The HTTP request context contains arguments that are passed in the GraphQL query as its body. 
     * The HTTP response context is the response from the independent HTTP call made by the resolver, not the context for the complete response for the gateway request. 
@@ -162,18 +162,131 @@ The `set-graphql-resolver` policy retrieves or sets data for a GraphQL field in 
 </set-graphql-resolver> 
 ```
 
-### Example
+### Examples
 
+### Resolver for GraphQL query
+
+The following example resolves a query by making an HTTP `GET` call to a backend data source.
+
+#### Example schema
+
+```
+type Query {
+    users: [User]
+}
+
+type User {
+    id: String!
+    name: String!
+}
+```
+
+#### Example policy
+
+```xml
+<set-graphql-resolver parent-type="Query" field="users">
+    <http-data-source>
+        <http-request>
+            <set-method>GET</set-method>
+            <set-url>https://data.contoso.com/get/users</set-url>
+        </http-request>
+    </http-data-source>
+</set-graphql-resolver>
+```
+
+### Resolver for a field that returns a list, using a liquid template
+
+The following example uses a liquid template, supported for use in the [set-body](api-management-transformation-policies.md#SetBody) policy, to return a list in the HTTP response to a query. 
+
+#### Example schema
+
+```
+type Query {
+    users: [User]
+}
+
+type User {
+    id: String!
+    name: String!
+}
+```
+
+#### Example policy
+
+```xml
+<set-graphql-resolver parent-type="Query" field="users">
+    <http-data-source>
+        <http-request>
+            <set-method>GET</set-method>
+            <set-url>https://data.contoso.com/users</set-url>
+        </http-request>
+        <http-response>
+            <set-body template="liquid">
+                [
+                    {% JSONArrayFor elem in body %}
+                        {
+                            "name": "{{elem.title}}"
+                        }
+                    {% endJSONArrayFor %}
+                ]
+            </set-body>
+        </http-response>
+    </http-data-source>
+</set-graphql-resolver>
+```
+
+### Resolver for GraphQL mutation
+
+The following example resolves a mutation that inserts data by making a `POST` request to an HTTP data source. The policy expression in the `set-body` policy of the HTTP requests modifies the JSON body extracted from the request context passed to the resolver.
+
+#### Example schema
+
+```
+type Query {
+    users: [User]
+}
+
+type Mutation {
+    makeUser(name: String!): User
+}
+
+type User {
+    id: String!
+    name: String!
+}
+```
+
+#### Example policy
+
+```xml
+<set-graphql-resolver parent-type="Mutation" field="makeUser">
+    <http-data-source>
+        <http-request>
+            <set-method>POST</set-method>
+            <set-url> https://data.contoso.com/user/create </set-url>
+            <set-header name="Content-Type" exists-action="override">
+                <value>application/json</value>
+            </set-header>
+            <set-body>@{
+                var body = context.Request.Body.As<JObject>(true);  
+                JObject jsonObject = new JObject();
+                jsonObject.Add("name", body["name"])
+                return jsonObject.ToString();
+            }</set-body>
+        </http-request>
+    </http-data-source>
+</set-graphql-resolver>
+```
 
 ### Elements
 
 | Name         | Description                                                                                                                                   | Required |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | `set-graphql-resolver` | Root element.                                                                                                                               | Yes      |
-| `http-data-source` | Specifies the configuration for the HTTP request and response that are used to resolve data for the given `parent-type` and `field`.   | Yes |
-| `http-request` | Specifies a URL and policies to configure the HTTP request used to resolve the specified GraphQL query. Each policy can be specified at most once. <br/><br/>**Required policy**: [set-method](api-management-advanced-policies.md#SetRequestMethod)<br/><br/>**Optional policies**: [set-header](api-management-transformation-policies.md#SetHTTPheader), [set-body](api-management-transformation-policies.md#SetBody), authentication-token-store, [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity) | Yes |
+| `http-data-source` | Specifies the configuration for the HTTP request and optionally the HTTP response that are used to resolve data for the given `parent-type` and `field`.   | Yes |
+| `http-request` | Specifies a URL and policies to configure the HTTP request used to resolve the specified GraphQL query. Each of the following policies can be specified at most once in the element. <br/><br/>**Required policy**: [set-method](api-management-advanced-policies.md#SetRequestMethod)<br/><br/>**Optional policies**: [set-header](api-management-transformation-policies.md#SetHTTPheader), [set-body](api-management-transformation-policies.md#SetBody), authentication-token-store, [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity) | Yes |
 | `set-url` | The URL of the request. | Yes |
-| `http-response` |  Optionally specifies policies to configure the HTTP response used to resolve the specified GraphQL query. Each policy can be specified at most once. <br/><br/>**Optional policies**: [set-body](/api-management-transformation-policies.md#SetBody), [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML), [xml-to-json](api-management-transformation-policies#ConvertXMLtoJSON), [find-and-replace](api-management-transformation-policies.md#Findandreplacestringinbody) | No |
+| `http-response` |  Optionally specifies policies to configure the HTTP response used to resolve the specified GraphQL query. If not specified, the response is returned as a raw string. Each of the following policies can be specified at most once. <br/><br/>**Optional policies**: [set-body](/api-management-transformation-policies.md#SetBody), [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML), [xml-to-json](api-management-transformation-policies#ConvertXMLtoJSON), [find-and-replace](api-management-transformation-policies.md#Findandreplacestringinbody) | No |
 
 ### Attributes
 

@@ -23,15 +23,14 @@ API Management tackles the security, authentication, and authorization challenge
 
 In this article, you'll:
 > [!div class="checklist"]
-> * Learn more about the benefits of using GraphQL APIs.
-> * Add a GraphQL API to your API Management instance.
-> * Test your GraphQL API.
-> * Learn the limitations of your GraphQL API in API Management.
+> * Import a GraphQL schema to your API Management instance
+> * Set up custom resolvers for GraphQL fields using existing HTTP endpoints
+> * Test your GraphQL API
 
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
-- A GraphQL schema. A backend GraphQL endpoint is optional 
+- A GraphQL schema. A backend GraphQL endpoint is optional for this scenario.
 
 ## Add a GraphQL schma
 
@@ -47,20 +46,45 @@ In this article, you'll:
 
     | Field | Description |
     |----------------|-------|
-    | Display name | The name by which your GraphQL API will be displayed. |
-    | Name | Raw name of the GraphQL API. Automatically populates as you type the display name. |
-    | GraphQL API endpoint | The base URL with your GraphQL API endpoint name. <br /> For example: *`https://example.com/your-GraphQL-name`*. You can also use the common ["Star Wars" GraphQL endpoint](https://swapi-graphql.netlify.app/.netlify/functions/index) as a demo. |
-    | Upload schema file | Select to browse and upload your schema file. |
+    | **Display name** | The name by which your GraphQL API will be displayed. |
+    | **Name** | Raw name of the GraphQL API. Automatically populates as you type the display name. |
+    | **GraphQL API endpoint** | For this scenario, optionally enter a URL with a GraphQL API endpoint name. This endpoint can be used to pass through GraphQL queries when you don't configure custom resolvers for all fields.    |
+    | **Upload schema file** | Select to browse and upload a valid GraphQL schema file with the `graphql` extension. |
     | Description | Add a description of your API. |
-    | URL scheme | Select HTTP, HTTPS, or Both. Default selection: *Both*. |
-    | API URL suffix| Add a URL suffix to identify this specific API in this API Management instance. It has to be unique in this API Management instance. |
-    | Base URL | Uneditable field displaying your API base URL |
-    | Tags | Associate your GraphQL API with new or existing tags. |
-    | Products | Associate your GraphQL API with a product to publish it. |
-    | Gateways | Associate your GraphQL API with existing gateways. Default gateway selection: *Managed*. |
-    | Version this API? | Select to version control your GraphQL API. |
+    | URL scheme | Select **HTTP**, **HTTPS**, or **Both**. Default selection: *Both*. |
+    | **API URL suffix**| Add a URL suffix to identify this specific API in this API Management instance. It has to be unique in this API Management instance. |
+    | **Base URL** | Uneditable field displaying your API base URL |
+    | **Tags** | Associate your GraphQL API with new or existing tags. |
+    | **Products** | Associate your GraphQL API with a product to publish it. |
+    | **Gateways** | Associate your GraphQL API with existing gateways. Default gateway selection: *Managed*. |
+    | **Version this API?** | Select to apply a versioning scheme to your GraphQL API. |
  
-1. Click **Create**.
+1. Select **Create**.
+
+1. After the API is created, browse the schema on the **Design** tab, in the **Frontend** section.
+
+## Configure resolvers
+
+Configure the [set-graphql-resolver](graphql-policies.md#SetGraphQLResolver) policy to map a GraphQL endpoint to an existing HTTP endpoint. 
+
+1. On the **Design** tab of your GraphQL API, select **All operations**.
+1. In the **Backend** processing section, select **+ Add policy**.
+1. Configure `set-graphql-resolver` to resolve the data for a field in the schema. Add an HTTP request and optionally an HTTP response with required policies. 
+
+    For example, the following `set-graphql-resolver` policy retrieves the *users* field from an HTTP data source.
+
+    ```xml
+    <set-graphql-resolver parent-type="Query" field="users">
+        <http-data-source>
+            <http-request>
+                <set-method>GET</set-method>
+                <set-url>https://myapi.contoso.com/users</set-url>
+            </http-request>
+        </http-data-source>
+    </set-graphql-resolver>
+    ```
+1. To resolve data for additional fields, repeat the preceding step. 
+
 
 ## Test your GraphQL API
 
