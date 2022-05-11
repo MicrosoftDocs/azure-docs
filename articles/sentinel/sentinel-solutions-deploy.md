@@ -77,7 +77,7 @@ Centrally manage content items for an installed solution deployed by the content
 
     :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-azure-activity.png" alt-text="Screenshot of solution description and list of content items for Azure Activity solution." lightbox="media/sentinel-solutions-deploy/manage-solution-azure-activity.png":::
 
-    The following steps describe how you can interact with the different solution content types in the content hub. Select the content item to get started.
+1. Select a content item to get started. The following steps describe how you can interact with the different solution content types in the content hub. 
 
 1. **Data connector** -  Select **Open connector page**. 
 
@@ -90,26 +90,20 @@ Centrally manage content items for an installed solution deployed by the content
 
 1. **Hunting query** - Select **Run query** from the details page. To customize the query, go to the hunting gallery and create a clone of the read-only hunting query template. The number of cloned queries associated with a hunting query is shown in the **Created content** column for the content item.  
 
+    :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-hunting-rule.png" alt-text="Screenshot of cloned hunting query content item in solution for Azure Activity." lightbox="media/sentinel-solutions-deploy/manage-solution-hunting-query.png":::
+
 1. **Workbook** - Select **View template** to open the workbook and see the visualizations. To create an instance of the workbook template to customize, select **Manage in gallery** > **Save**. View your saved customizable workbook by selecting **1 item** in the  **Created content** column.
 
+    :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-workbook.png" alt-text="Screenshot of saved workbook item in solution for Azure Activity." lightbox="media/sentinel-solutions-deploy/manage-solution-workbook.png" :::
+
 1. **Parser** - Select **Load the function code** to open Azure Log Analytics and run the provided function code. Select **Use in editor** to open Azure Log Analytics with the parser.
+
+    :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-parser.png" alt-text="Screenshot of parser content type in a solution.":::
+
 1. **Playbook** - Not yet supported in this view.
 
 
-
-    |Content type  |Description  |
-    |---------|---------|
-    |Data connectors     | Select **Open connector page**. Complete the data connector configuration steps. After you configure the data connector, the content item status shows as **Connected**.     |
-    |Analytics rule    | View the template in the analytics template gallery. Select **Create rule** and follow the steps to enable the analytics rule . The number of active rules created from the rule template is shown in the **Created content** column for the content item.   |
-    |Hunting queries   |  Select **Run query** from the details page. To customize the query, go to the hunting gallery and create a clone of the read-only hunting query template. The number of cloned queries associated with a hunting query is shown in the **Created content** column for the content item.       |
-    |Workbook     |    Select **View template** to open the workbook and see the visualizations. To create an instance of the workbook template to customize, select **Manage in gallery** > **Save**. View your saved customizable workbook by selecting **1 item** in the  **Created content** column.    |
-    |Parser| Select **Load the function code** to open Azure Log Analytics and run the provided function code. Select **Use in editor** to open Azure Log Analytics with the parser.  |
-    |Playbooks| Not yet supported in this view. |
-
-
-
-
-## Delete content items or solutions
+## Delete solutions or content items
 
 
 ## Find the support model for your solution
