@@ -219,7 +219,7 @@ For a complete example, see the [model notebook](https://github.com/Azure/azurem
 
 ---
 
-### Registering model as an asset in Azure Machine Learning using UI\Use the tabs below to select where your model is located.
+<!-- ### Registering model as an asset in Azure Machine Learning using UI\Use the tabs below to select where your model is located.
 
 # [Local model](#tab/use-local)
 
@@ -241,7 +241,7 @@ For a complete example, see the [model notebook](https://github.com/Azure/azurem
 > Full backward compatibility is provided, all model registered with the V1 SDK will be assign the type of `custom`. 
 
 
-```
+``` -->
 
 ## Next steps
 
