@@ -51,7 +51,7 @@ Then the method combines these two predictive models in a final stage estimation
 
 [DoWhy](https://microsoft.github.io/dowhy/) is a Python library that aims to spark causal thinking and analysis. DoWhy provides a principled four-step interface for causal inference that focuses on explicitly modeling causal assumptions and validating them as much as possible. The key feature of DoWhy is its state-of-the-art refutation API that can automatically test causal assumptions for any estimation method, thus making inference more robust and accessible to non-experts. DoWhy supports estimation of the average causal effect for backdoor, front-door, instrumental variable and other identification methods, and estimation of the conditional effect (CATE) through an integration with the EconML library.
 
-# Next steps
+## Next steps
 
 - Learn how to generate the Responsible AI dashboard via [CLIv2 and SDKv2](how-to-responsible-ai-dashboard-sdk-cli.md) or [studio UI ](how-to-responsible-ai-dashboard-ui.md)
 - Learn how to generate a [Responsible AI scorecard](how-to-responsible-ai-scorecard.md)) based on the insights observed in the Responsible AI dashboard.

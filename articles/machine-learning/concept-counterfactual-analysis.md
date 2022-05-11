@@ -1,7 +1,7 @@
 ---
 title: Counterfactuals analysis and what-if
 titleSuffix: Azure Machine Learning
-description: 
+description: The Counterfactual Analysis and what-if component of the Responsible AI dashboard interrogates a model to determine what changes to a particular datapoint would flip the model decision.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -37,7 +37,7 @@ To generate counterfactuals, DiCE implements a few model-agnostic techniques. Th
 - [Genetic Search](http://interpret.ml/DiCE/notebooks/DiCE_model_agnostic_CFs.html#2.-Genetic-Algorithm): Samples points using a genetic algorithm, given the combined objective of optimizing proximity to the given query point, changing as few features as possible, and diversity among the counterfactuals generated.
 - [KD Tree Search](http://interpret.ml/DiCE/notebooks/DiCE_model_agnostic_CFs.html#3.-Querying-a-KD-Tree) (For counterfactuals from a given training dataset): This algorithm returns counterfactuals from the training dataset. It constructs a KD tree over the training data points based on a distance function and then returns the closest points to a given query point that yields the desired predicted label.
 
-# Next steps
+## Next steps
 
 - Learn how to generate the Responsible AI dashboard via [CLIv2 and SDKv2](how-to-responsible-ai-dashboard-sdk-cli.md) or [studio UI ](how-to-responsible-ai-dashboard-ui.md)
 - Learn how to generate a [Responsible AI scorecard](how-to-responsible-ai-scorecard.md)) based on the insights observed in the Responsible AI dashboard.
