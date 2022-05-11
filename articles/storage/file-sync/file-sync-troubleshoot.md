@@ -715,15 +715,11 @@ To confirm the certificate is expired, perform the following steps:
 1. Open the Certificates MMC snap-in, select Computer Account and navigate to Certificates (Local Computer)\Personal\Certificates.
 2. Check if the client authentication certificate is expired.
 
-If the client authentication certificate is expired, perform the following steps to resolve the issue:
+If the client authentication certificate is expired, run the following PowerShell command on the server:
 
-1. Verify Azure File Sync agent version 4.0.1.0 or later is installed.
-2. Run the following PowerShell command on the server:
-
-    ```powershell
-    Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
-    ```
-
+```powershell
+Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
+```
 <a id="-2134375896"></a>**Sync failed due to authentication certificate not found.**  
 
 | Error | Code |
@@ -735,15 +731,11 @@ If the client authentication certificate is expired, perform the following steps
 
 This error occurs because the certificate used for authentication is not found.
 
-To resolve this issue, perform the following steps:
+To resolve this issue, run the following PowerShell command on the server:
 
-1. Verify Azure File Sync agent version 4.0.1.0 or later is installed.
-2. Run the following PowerShell command on the server:
-
-    ```powershell
-    Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
-    ```
-
+```powershell
+Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
+```
 <a id="-2134364039"></a>**Sync failed due to authentication identity not found.**  
 
 | Error | Code |
@@ -890,9 +882,7 @@ This error occurs because of an internal problem with the sync database. This er
 | **Error string** | ECS_E_INVALID_AAD_TENANT |
 | **Remediation required** | Yes |
 
-Make sure you have the latest Azure File Sync agent. As of agent V10, Azure File Sync supports moving the subscription to a different Azure Active Directory tenant.
- 
-Once you have the latest agent version, you must give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](#troubleshoot-rbac)).
+Verify you have the latest Azure File Sync agent version installed and give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](#troubleshoot-rbac)).
 
 <a id="-2134364010"></a>**Sync failed due to firewall and virtual network exception not configured**  
 
@@ -1206,7 +1196,7 @@ If files fail to tier to Azure Files:
 | 0x80072ee7 | -2147012889 | WININET_E_NAME_NOT_RESOLVED | The file failed to tier due to a network issue. | No action required. If the error persists, check network connectivity to the Azure file share. |
 | 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | The file failed to tier due to access denied error. This error can occur if the file is located on a DFS-R read-only replication folder. | Azure Files Sync does not support server endpoints on DFS-R read-only replication folders. See [planning guide](file-sync-planning.md#distributed-file-system-dfs) for more information. |
 | 0x80072efe | -2147012866 | WININET_E_CONNECTION_ABORTED | The file failed to tier due to a network issue. | No action required. If the error persists, check network connectivity to the Azure file share. |
-| 0x80c80261 | -2134375839 | ECS_E_GHOSTING_MIN_FILE_SIZE | The file failed to tier because the file size is less than the supported size. | If the agent version is less than 9.0, the minimum supported file size is 64 KiB. If agent version is 9.0 and newer, the minimum supported file size is based on the file system cluster size (double file system cluster size). For example, if the file system cluster size is 4 KiB, the minimum file size is 8 KiB. |
+| 0x80c80261 | -2134375839 | ECS_E_GHOSTING_MIN_FILE_SIZE | The file failed to tier because the file size is less than the supported size. | The minimum supported file size is based on the file system cluster size (double file system cluster size). For example, if the file system cluster size is 4 KiB, the minimum file size is 8 KiB. |
 | 0x80c83007 | -2134364153 | ECS_E_STORAGE_ERROR | The file failed to tier due to an Azure storage issue. | If the error persists, open a support request. |
 | 0x800703e3 | -2147023901 | ERROR_OPERATION_ABORTED | The file failed to tier because it was recalled at the same time. | No action required. The file will be tiered when the recall completes and the file is no longer in use. |
 | 0x80c80264 | -2134375836 | ECS_E_GHOSTING_FILE_NOT_SYNCED | The file failed to tier because it has not synced to the Azure file share. | No action required. The file will tier once it has synced to the Azure file share. |
@@ -1279,14 +1269,13 @@ If the above conditions are not met, restoring access is not possible as these t
 
 <a id="get-orphaned"></a>**How to get the list of orphaned tiered files** 
 
-1. Verify Azure File Sync agent version v5.1 or later is installed.
-2. Run the following PowerShell commands to list orphaned tiered files:
+1. Run the following PowerShell commands to list orphaned tiered files:
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 $orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
 $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
 ```
-3. Save the OrphanTieredFiles.txt output file in case files need to be restored from backup after they are deleted.
+2. Save the OrphanTieredFiles.txt output file in case files need to be restored from backup after they are deleted.
 
 <a id="remove-orphaned"></a>**How to remove orphaned tiered files** 
 
@@ -1294,22 +1283,21 @@ $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
 
 This option deletes the orphaned tiered files on the Windows Server but requires removing the server endpoint if it exists due to recreation after 30 days or is connected to a different sync group. File conflicts will occur if files are updated on the Windows Server or Azure file share before the server endpoint is recreated.
 
-1. Verify Azure File Sync agent version v5.1 or later is installed.
-2. Back up the Azure file share and server endpoint location.
-3. Remove the server endpoint in the sync group (if exists) by following the steps documented in [Remove a server endpoint](file-sync-server-endpoint-delete.md).
+1. Back up the Azure file share and server endpoint location.
+2. Remove the server endpoint in the sync group (if exists) by following the steps documented in [Remove a server endpoint](file-sync-server-endpoint-delete.md).
 
 > [!Warning]  
 > If the server endpoint is not removed prior to using the Remove-StorageSyncOrphanedTieredFiles cmdlet, deleting the orphaned tiered file on the server will delete the full file in the Azure file share. 
 
-4. Run the following PowerShell commands to list orphaned tiered files:
+3. Run the following PowerShell commands to list orphaned tiered files:
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 $orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
 $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
 ```
-5. Save the OrphanTieredFiles.txt output file in case files need to be restored from backup after they are deleted.
-6. Run the following PowerShell commands to delete orphaned tiered files:
+4. Save the OrphanTieredFiles.txt output file in case files need to be restored from backup after they are deleted.
+5. Run the following PowerShell commands to delete orphaned tiered files:
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
@@ -1321,7 +1309,7 @@ $orphanFilesRemoved.OrphanedTieredFiles > DeletedOrphanFiles.txt
 - Tiered files that are accessible (not orphan) will not be deleted.
 - Non-tiered files will remain on the server.
 
-7. Optional: Recreate the server endpoint if deleted in step 3.
+6. Optional: Recreate the server endpoint if deleted in step 3.
 
 *Option 2: Mount the Azure file share and copy the files locally that are orphaned on the server*
 
@@ -1377,9 +1365,8 @@ If you encounter issues with Azure File Sync on a server, start by completing th
 
 If the issue is not resolved, run the AFSDiag tool and send its .zip file output to the support engineer assigned to your case for further diagnosis.
 
-To run AFSDiag, perform the steps below.
+To run AFSDiag, perform the steps below:
 
-For agent version v11 and later:
 1. Open an elevated PowerShell window, and then run the following commands (press Enter after each command):
 
     > [!NOTE]
@@ -1393,24 +1380,6 @@ For agent version v11 and later:
 
 2. Reproduce the issue. When you're finished, enter **D**.
 3. A .zip file that contains logs and trace files is saved to the output directory that you specified. 
-
-For agent version v10 and earlier:
-1. Create a directory where the AFSDiag output will be saved (for example, C:\Output).
-    > [!NOTE]
-    >AFSDiag will delete all content in the output directory prior to collecting logs. Specify an output location which does not contain data.
-2. Open an elevated PowerShell window, and then run the following commands (press Enter after each command):
-
-    ```powershell
-    cd "c:\Program Files\Azure\StorageSyncAgent"
-    Import-Module .\afsdiag.ps1
-    Debug-Afs c:\output # Note: Use the path created in step 1.
-    ```
-
-3. For the Azure File Sync kernel mode trace level, enter **1** (unless otherwise specified, to create more verbose traces), and then press Enter.
-4. For the Azure File Sync user mode trace level, enter **1** (unless otherwise specified, to create more verbose traces), and then press Enter.
-5. Reproduce the issue. When you're finished, enter **D**.
-6. A .zip file that contains logs and trace files is saved to the output directory that you specified.
-
 
 ## See also
 - [Monitor Azure File Sync](file-sync-monitoring.md)
