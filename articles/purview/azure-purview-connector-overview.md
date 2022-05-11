@@ -101,7 +101,7 @@ The following file types are supported for scanning, for schema extraction, and 
  > * Microsoft Purview scanner supports scanning snappy compressed PARQUET types for schema extraction and classification. 
  > * For GZIP file types, the GZIP must be mapped to a single csv file within. 
  > Gzip files are subject to System and Custom Classification rules. We currently don't support scanning a gzip file mapped to multiple files within, or any file type other than csv. 
- > * For delimited file types(CSV, PSV, SSV, TSV, TXT), we do not support data type detection. The data type will be listed as "string" for all columns. 
+ > * For delimited file types (CSV, PSV, SSV, TSV, TXT), we do not support data type detection. The data type will be listed as "string" for all columns. 
 - Document file formats supported by extension: DOC, DOCM, DOCX, DOT, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT
 - Microsoft Purview also supports custom file extensions and custom parsers.
 
@@ -125,7 +125,7 @@ For all structured file formats, Microsoft Purview scanner samples files in the 
 - For structured file types, it samples the top 128 rows in each column or the first 1 MB, whichever is lower.
 - For document file formats, it samples the first 20 MB of each file.
     - If a document file is larger than 20 MB, then it is not subject to a deep scan (subject to classification). In that case, Microsoft Purview captures only basic meta data like file name and fully qualified name.
-- For **tabular data sources(SQL, CosmosDB)**, it samples the top 128 rows.
+- For **tabular data sources (SQL, CosmosDB)**, it samples the top 128 rows.
 
 ## Resource set file sampling
 
@@ -134,14 +134,14 @@ A folder or group of partition files is detected as a *resource set* in Microsof
 File sampling for resource sets by file types:
 
 - **Delimited files (CSV, PSV, SSV, TSV)** - 1 in 100 files are sampled (L3 scan) within a folder or group of partition files that are considered a 'Resource set'
-- **Data Lake file types (Parquet, Avro, Orc)** - 1 in 18446744073709551615 (long max) files are sampled (L3 scan) within a folder or group of partition files that are considered a *resource set*
+- **Data Lake file types (Parquet, Avro, Orc)** - 1 in 18446744073709551615 (long max) files are sampled (L3 scan) within a folder or group of partition files that are considered a 'Resource set'
 - **Other structured file types (JSON, XML, TXT)** - 1 in 100 files are sampled (L3 scan) within a folder or group of partition files that are considered a 'Resource set'
 - **SQL objects and CosmosDB entities** - Each file is L3 scanned.
 - **Document file types** - Each file is L3 scanned. Resource set patterns don't apply to these file types.
 
 ## Classification
 
-All 206 system classification rules apply to structured file formats. Only the MCE classification rules apply to document file types (Not the data scan native regex patterns, bloom filter-based detection). For more information on supported classifications, see [Supported classifications in Microsoft Purview](supported-classifications.md).
+All 208 system classification rules apply to structured file formats. Only the MCE classification rules apply to document file types (Not the data scan native regex patterns, bloom filter-based detection). For more information on supported classifications, see [Supported classifications in Microsoft Purview](supported-classifications.md).
 
 ## Next steps
 

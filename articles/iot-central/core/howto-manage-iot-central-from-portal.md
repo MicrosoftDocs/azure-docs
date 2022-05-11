@@ -94,7 +94,7 @@ When you configure a managed identity, the configuration includes a *scope* and 
 
 You can configure role assignments in the Azure portal or use the Azure CLI:
 
-* To learn more about to configure role assignments in the Azure portal for specific destinations, see [Export IoT data to cloud destinations using data export](howto-export-data.md).
+* To learn more about to configure role assignments in the Azure portal for specific destinations, see [Export IoT data to cloud destinations using blob storage](howto-export-to-blob-storage.md).
 * To learn more about how to configure role assignments using the Azure CLI, see [Manage IoT Central from Azure CLI or PowerShell](howto-manage-iot-central-from-cli.md).
 
 ## Monitor application health
@@ -108,7 +108,8 @@ Metrics are enabled by default for your IoT Central application and you access t
 
 ### View metrics in the Azure portal
 
-The following steps assume you have an [IoT Central application](./howto-create-iot-central-application.md) with some [connected devices](./tutorial-connect-device.md) or a running [data export](howto-export-data.md).
+The following steps assume you have an [IoT Central application](./howto-create-iot-central-application.md) with some [connected devices](./tutorial-connect-device.md) or a running [data export](howto-export-to-blob-storage.md).
+
 
 To view IoT Central metrics in the portal:
 
@@ -123,7 +124,7 @@ Access to metrics in the Azure portal is managed by [Azure role based access con
 
 ### IoT Central metrics
 
-For a list of of the metrics that are currently available for IoT Central, see [Supported metrics with Azure Monitor](../../azure-monitor/essentials/metrics-supported.md#microsoftiotcentraliotapps).
+For a list of the metrics that are currently available for IoT Central, see [Supported metrics with Azure Monitor](../../azure-monitor/essentials/metrics-supported.md#microsoftiotcentraliotapps).
 
 ### Metrics and invoices
 
