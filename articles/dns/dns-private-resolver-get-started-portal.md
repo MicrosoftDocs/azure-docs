@@ -4,7 +4,7 @@ description: In this quickstart, you create and test a private DNS resolver in A
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 05/10/2022
+ms.date: 05/11/2022
 ms.topic: quickstart
 ms.service: dns
 ms.custom: mode-ui
