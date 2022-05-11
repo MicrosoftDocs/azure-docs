@@ -74,7 +74,7 @@ helm version
 ```
 
 > [!NOTE]
-> The version indicated must be at least 3.8.0 as OCI support in earlier versions was experimental.
+> The version indicated must be at least 3.8.0, as OCI support in earlier versions was experimental.
 
 Set the following environment variables for the target registry. The ACR_NAME is the registry resource name. If the ACR registry url is myregistry.azurecr.io, set the ACR_NAME to myregistry
 
