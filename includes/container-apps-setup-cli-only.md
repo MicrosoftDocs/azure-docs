@@ -19,7 +19,7 @@ az login
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Connect-AzAccount
+az login
 ```
 
 ---
@@ -58,8 +58,6 @@ az extension add --name containerapp --upgrade
 
 Now that the extension is installed, register the `Microsoft.App` namespace.
 
-> [!NOTE]
-> Azure Container Apps resources have migrated from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
 
 # [Bash](#tab/bash)
 
@@ -70,7 +68,7 @@ az provider register --namespace Microsoft.App
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Register-AzResourceProvider -ProviderNamespace Microsoft.App
+az provider register --namespace Microsoft.App
 ```
 
 ---
