@@ -43042,11 +43042,6 @@
       "source_path_from_root": "/articles/cognitive-services/translator/custom-translator/terminology.md",
       "redirect_url": "/azure/cognitive-services/translator/custom-translator/key-terms",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/cognitive-services/translator/document-translation/faq.md",
-      "redirect_url": "/cognitive-services/translator/document-translation/faq",
-      "redirect_document_id": false
     }
   ]
 }

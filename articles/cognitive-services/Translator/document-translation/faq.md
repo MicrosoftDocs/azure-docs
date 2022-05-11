@@ -15,7 +15,7 @@ ms.author: lajanuar
 
 <!-- markdownlint-disable MD001 -->
 
-# Frequently asked questions
+# Answers to frequently asked questions
 
 ## Document Translation: FAQ
 
