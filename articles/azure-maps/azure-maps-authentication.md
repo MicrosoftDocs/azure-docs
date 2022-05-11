@@ -285,7 +285,7 @@ After the application receives a SAS token, the Azure Maps SDK and/or applicatio
 | :------------ | :------------------- |
 | Authorization | jwt-sas eyJ0e….HNIVN |
 
-> [!NOTE] 
+> [!NOTE]
 > `jwt-sas` is the authentication scheme to denote using SAS token. Do not include `x-ms-client-id` or other Authorization headers or `subscription-key` query string parameter.
 
 ## Cross origin resource sharing (CORS)
@@ -410,12 +410,17 @@ See [Azure Maps pricing](https://azure.microsoft.com/pricing/details/azure-maps)
 
 ## Next steps
 
+To learn more about security best practices, see
+
+> [!div class="nextstepaction"]
+> [Authentication and authorization best practices](authentication-and-authorization-best-practices.md)
+
 To learn more about authenticating an application with Azure AD and Azure Maps, see
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Manage authentication in Azure Maps](./how-to-manage-authentication.md)
 
 To learn more about authenticating the Azure Maps Map Control with Azure AD, see
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Use the Azure Maps Map Control](./how-to-use-map-control.md)
