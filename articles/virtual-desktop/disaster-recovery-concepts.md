@@ -121,7 +121,7 @@ The following table lists deployment recommendations for host pool disaster reco
 
 For personal host pools, your disaster recovery strategy should involve replicating your resources to a secondary region using Azure Site Recovery Services Vault. If your primary region goes down during a disaster, Azure Site Recovery can failover and turn on the resources in your secondary region.
 
-For example, let's say we have a deployment with a primary region in the West US and a secondary region in the East US. The primary region has a personal host pool with two session hosts each. Each session host has their own local disk containing the user profile data and their own VNET that's not paired with anything. If there's a disaster, you can use Azure Backup Vault to failover to the secondary region in East US (or to a different availability zone in the same region). Unlike the primary region, the secondary region doesn't have local machines or disks. During the failover, Azure Site Recovery Vault takes the replicated data from the Azure Backup Vault and uses it to create two new VMs that are copies of the original session hosts, including the local disk and user profile data. The secondary region has its own independent VNET, so the VNET going offline in the primary region won't affect functionality.
+For example, let's say we have a deployment with a primary region in the West US and a secondary region in the East US. The primary region has a personal host pool with two session hosts each. Each session host has their own local disk containing the user profile data and their own VNET that's not paired with anything. If there's a disaster, you can use Azure Site Recovery to failover to the secondary region in East US (or to a different availability zone in the same region). Unlike the primary region, the secondary region doesn't have local machines or disks. During the failover, Azure Site Recovery takes the replicated data from the Azure Site Recovery Vault and uses it to create two new VMs that are copies of the original session hosts, including the local disk and user profile data. The secondary region has its own independent VNET, so the VNET going offline in the primary region won't affect functionality.
 
 The following diagram shows the example deployment we just described.
 
@@ -142,7 +142,7 @@ When using this disaster recovery strategy, it's important to keep the following
 
 - Personal host pools use VMs that are dedicated to one user, which means affinity load load-balancing rules direct all user sessions back to a specific VM. This one-to-one mapping between user and VM means that if a VM is down, the user won't be able to sign in until the VM comes back online or the VM is recovered after disaster recovery is finished.
 
-- VMs in a personal host pool store user profile on drive C. If user profile data is corrupted or unavailable, we recommend starting your disaster recovery plan.
+- VMs in a personal host pool store user profile on drive C and hence FSLogix is not a requirement
 
 - Region availability affects data or workspace monitoring. If a region isn't available, the service may lose all historical monitoring data during a disaster. We recommend using a custom export or dump of historical monitoring data.
 

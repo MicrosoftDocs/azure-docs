@@ -15,22 +15,22 @@ manager: femila
 
 To keep your organization's data safe, you should adopt and manage a business continuity and disaster recovery (BCDR) strategy. A sound BCDR strategy keeps your apps and workloads up and running during planned and unplanned service or Azure outages. These plans should cover the session host virtual machines (VMs) managed by customers, as opposed to the Azure Virtual Desktop service that's managed by Microsoft. For more information about management areas, see [Azure Virtual Desktop disaster recovery concepts](disaster-recovery-concepts.md).
 
-The Azure Virtual Desktop service is designed with high availability in mind. Azure Virtual Desktop is a global service with multiple instances of its independent components distributed across multiple Azure regions. If there's an unexpected outage in any of the components, you can bypass potential issues by diverting traffic to one or more of the remaining instances or do a full failover to redundant infrastructure in another Azure region.
+The Azure Virtual Desktop service is designed with high availability in mind. Azure Virtual Desktop is a global service managed by Microsoft, with multiple instances of its independent components distributed across multiple Azure regions. If there's an unexpected outage in any of the components, your traffic will be diverted to one of the remaining instances or Microsoft will initiate a full failover to redundant infrastructure in another Azure region.
 
-To make sure users can still connect during a region outage in session host VMs, you need to design your infrastructure with high availability and disaster recovery in mind. A typical disaster recovery plan includes replicating virtual machines (VMs) in a different location. During outages, the primary site fails over to the replicated VMs in the secondary location. Users can continue to access apps from the secondary location without interruption. On top of VM replication, you'll need to keep user identities accessible at the secondary location. If you're using profile containers, you'll also need to replicate them. Finally, make sure your business apps that rely on data in the primary location can fail over with the rest of the data.
+To make sure users can still connect during a region outage in session host VMs, you need to design your infrastructure with high availability and disaster recovery in mind. A typical disaster recovery plan includes replicating virtual machines (VMs) to a different location. During outages, the primary site fails over to the replicated VMs in the secondary location. Users can continue to access apps from the secondary location without interruption. On top of VM replication, you'll need to keep user identities accessible at the secondary location. If you're using profile containers, you'll also need to replicate them. Finally, make sure your business apps that rely on data in the primary location can fail over with the rest of the data.
 
 To summarize, to keep your users connected during an outage, you'll need to do the following things:
 
-- Replicate the VMs in a secondary location.
+- Replicate the VMs to a secondary location.
 - If you're using profile containers, set up data replication in the secondary location.
-- Make sure user identities you set up in the primary location are available in the secondary location.
-- Make sure any line-of-business applications relying on data in your primary location are failed over to the secondary location.
+- Make sure user identities you set up in the primary location are available in the secondary location. You would do this by making your Active Directory Domain Controllers availble in or from the secondary location
+- Make sure any line-of-business applications and data in your primary location are also failed over to the secondary location.
 
 ## Active-passive and active-active disaster recovery plans
 
-There are two different types of disaster recovery infrastructure: active-passive and active-active. Both require replicating resources in another Azure region, but each of them works a different way.
+There are two different types of disaster recovery infrastructure: active-passive and active-active. Each of them works a different way.
 
-Active-passive plans are when you have a region with one set of resources that's active and one that's turned off until it's needed (passive). If the active region is taken offline by an emergency, the organization can switch to the passive region by turning it on and moving all the users there.
+Active-passive plans are when you have a region with one set of resources that's active and one that's turned off until it's needed (passive). If the active region is taken offline by an outage or disaster, the organization can switch to the passive region by turning it on and directing all the users there.
 
 Another option is an active-active deployment, where you use both sets of infrastructure at the same time. While some users may be affected by outages, the impact is limited to the users in the region that went down. Users in the other region that's still online won't be affected, and the recovery is limited to the users in the affected region reconnecting to the functioning active region. Active-active deployments can take many forms, including:
 
@@ -40,7 +40,7 @@ Another option is an active-active deployment, where you use both sets of infras
 
 For more information about types of disaster recovery plans you can use, see [Azure Virtual Desktop disaster recovery concepts](disaster-recovery-concepts.md).
 
-Identifying which method works best for your organization is the first thing you should do before you get started. Once you have your plan in place, you can start replicating your resources to the secondary region.
+Identifying which method works best for your organization is the first thing you should do before you get started. Once you have your plan in place, you can start building your recovery plan.
 
 ## VM replication
 
@@ -50,7 +50,7 @@ First, you'll need to replicate your VMs to the secondary location. Your options
 - You can create a new host pool in the failover region while keeping all resources in your failover location turned off. For this method, you'd need to set up new app groups and workspaces in the failover region. You can then use an Azure Site Recovery plan to turn host pools on.
 - You can create a host pool that's populated by VMs built in both the primary and failover regions while keeping the VMs in the failover region turned off. In this case, you only need to set up one host pool and its related app groups and workspaces. You can use an Azure Site Recovery plan to power on host pools with this method.
 
-We recommend you use [Azure Site Recovery](../site-recovery/site-recovery-overview.md) to manage replicating VMs in other Azure locations, as described in [Azure-to-Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md). We especially recommend using Azure Site Recovery for personal host poolsWe especially recommend using Azure Site Recovery for personal host pools, because personal host pool by their very nature tend to have something that is personal about it for its user. Azure Site Recovery supports both [server-based and client-based SKUs](../site-recovery/azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
+We recommend you use [Azure Site Recovery](../site-recovery/site-recovery-overview.md) to manage replicating VMs to other Azure locations, as described in [Azure-to-Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md). We especially recommend using Azure Site Recovery for personal host pools. We especially recommend using Azure Site Recovery for personal host pools, because personal host pool by their very nature tend to have something that is personal about it for its user. Azure Site Recovery supports both [server-based and client-based SKUs](../site-recovery/azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 
 If you use Azure Site Recovery, you won't need to register these VMs manually. The Azure Virtual Desktop agent in the secondary VM will automatically use the latest security token to connect to the service instance closest to it. The VM (session host) in the secondary location will automatically become part of the host pool. The end-user will have to reconnect during the process, but apart from that, there are no other manual operations.
 
@@ -88,7 +88,8 @@ There are three ways to keep the domain controller available:
 
 ## User and app profile data
 
-If you're using profile containers, the next step is to set up data replication in the secondary location. You have five options to store FSLogix profiles:
+If you're using profile containers, the next step is to set up data replication to the secondary location. 
+You have five options to store FSLogix profiles:
 
    - Storage Spaces Direct (S2D)
    - Network drives (VM with extra drives)
@@ -113,7 +114,7 @@ Let’s take a look at how to configure FSLogix to set up disaster recovery for 
 
 ### FSLogix configuration
 
-The FSLogix agent can support multiple profile locations using the standard "VHDLocations" option if you configure the registry entries for FSLogix. This method doesn't have anything to do with the cloud cache, so if you'd rather use the cache, skip ahead to [FSLogix Cloud Cache](#fslogix-cloud-cache).
+The FSLogix agent can support multiple profile locations using the standard "VHDLocations" option. This method doesn't have anything to do with the Cloud Cache, so if you'd rather use the cache, skip ahead to [FSLogix Cloud Cache](#fslogix-cloud-cache). This option also does not do any replication of data it just allows you multiple storage providers that the FSLogix agent can look in to find or create your user profile. This separately requires storage replication in order for the profile to be made available in the secondary region. 
 
 To configure the registry entries:
 
@@ -133,14 +134,14 @@ To configure the registry entries:
 
 If the first location is unavailable, the FSLogix agent will automatically fail over to the second, and so on.
 
-We recommend you configure the FSLogix agent with a path to the secondary location in the main region. Once the primary location shuts down, the FLogix agent will replicate as part of the VM Azure Site Recovery replication. Once the replicated VMs are ready, the agent will automatically attempt to path to the secondary region.
+We recommend you configure the FSLogix agent VHDLocation registry setting with both storage locations in both of the Azure locations you have deployed them. To do this you would have two different group policies one for the session hosts located in primary region with the correspoding storage locations ordered with the primary first and the secondary second. The second group policy would be for the session hosts in the secondary location with the storage options reveresed, such that the secondary storage location is listed first just for the VM's in the secondary or failover site.
 
-For example, let's say your primary session host VMs are in the Central US region, but your profile container is in the Central US region for performance reasons. In this case, you'd configure the FSLogix agent with a path to the storage in the Central US region. Next, you'd configure the the storage service you used in the previous example to replicate to the West US region. Once the path to Central US fails, the agent will try to load the profile in West US instead.
+For example, let's say your primary session host VMs are in the Central US region, and the profile container is also in the Central US region for performance reasons. In this case, you'd configure the FSLogix agent with a path to the storage in the Central US region listed first. Next, you'd configure the the storage service you used in the previous example to replicate to the West US region. Once the path to Central US fails, the agent will try to load the profile in West US instead.
 
 
 ### FSlogix Cloud Cache
 
-FSlogix supports replicating user and office containers from an agent running on the session host itself. While you'll need to deploy multiple storage providers in multiple regions to store the replicated profiles, you won't need to configure the storage service's replication capabilities. However, before you start configuring FSLogic Cloud cache, you should be aware this method requires extra processing and storage space on the session host itself. Make sure you review [Cloud Cache to create resiliency and availability](/fslogix/cloud-cache-resiliency-availability-cncpt) before you get started.
+FSlogix supports replicating user and Office containers from the agent running on the session host itself. While you'll need to deploy multiple storage providers in multiple regions to store the replicated profiles, you won't need to configure the storage service's replication capabilities as you do when using multiple entries in VHDLocations as in the previous example. However, before you start configuring FSLogix Cloud cache, you should be aware this method requires extra processing and storage space on the session host itself. Make sure you review [Cloud Cache to create resiliency and availability](/fslogix/cloud-cache-resiliency-availability-cncpt) before you get started.
 
 You can configure FSlogix Cloud Cache directly in the registry based on the VHDLocations example in the previous section. However, we recommend you configure the cloud cache using a group policy instead. To create or edit a group policy object, go to **Computer Configuration** > **Administrative Templates** > **FSLogix** > **Profiles Containers (and Office 365 Containers, if necessary) > Cloud Cache - Cloud Cache Locations**. Once you've created or edited your policy object, you'll need to enable it, then list all storage provider locations you want the FSLogix to replicate it to, as shown in the following image. 
 
@@ -180,7 +181,7 @@ Here are some suggestions for how to test your plan:
 
 - If the test VMs have internet access, they will take over any existing session host for new connections, but all existing connections to the original session host will remain active. Make sure the admin running the test signs out all active users before testing the plan. 
 - You should only do full disaster recovery tests during a maintenance window to not disrupt your users.
-- Make sure your test covers all business-critical apps.
+- Make sure your test covers all business-critical applications and data.
 - We recommend you only failover up to 100 VMs at a time. If you have more VMs than that, we recommend you fail them over in batches 10 minutes apart.
 
 ## Next steps
