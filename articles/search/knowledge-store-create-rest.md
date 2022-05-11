@@ -41,7 +41,7 @@ Because the workload is so small, Cognitive Services is tapped behind the scenes
 
 ## Decide on a connection strategy
 
-During skillset execution, the indexer connects to Azure Storage and creates the knowledge store. The connection information will be specified in the `knowledgeStore` section of the skillset. You can choose from the following approaches when setting up your connection:
+During skillset execution, the indexer connects to Azure Storage and creates the knowledge store. The connection information will be specified in the "knowledgeStore" section of the skillset. You can choose from the following approaches when setting up your connection:
 
 + Option 1, obtain a full access Azure Storage connection string that includes an access key:
 
@@ -49,11 +49,23 @@ During skillset execution, the indexer connects to Azure Storage and creates the
 
   In **Access Keys**, select **Show Keys** at the top of the page to unhide the connection strings, and then copy the connection string for either key1 or key2.
 
-  A full access connection string has the following format: `"DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net;"`
+  A full access connection string has the following format:
+
+  ```json
+  "knowledgeStore": {
+      "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net;"
+  }
+  ```
 
 + Option 2, use your search service's system managed identity or user-assigned managed identity to connect to Azure Storage. Follow the instructions and examples in [Connect using a managed identity](search-howto-managed-identities-data-sources.md). You'll need to set up the managed identity, assign roles, and assemble a connection string.
 
-  A connection string for a system managed identity has the following format: `"ResourceId=/subscriptions/{YOUR-SUBSCRIPTION-ID}/resourceGroups/{YOUR-RESOURCE-GROUP-NAME}/providers/Microsoft.Storage/storageAccounts/{YOUR-ACCOUNT-NAME};"`
+  A connection string for a system managed identity has the following format:
+
+  ```json
+  "knowledgeStore": {
+      "storageConnectionString": "ResourceId=/subscriptions/{YOUR-SUBSCRIPTION-ID}/resourceGroups/{YOUR-RESOURCE-GROUP-NAME}/providers/Microsoft.Storage/storageAccounts/{YOUR-ACCOUNT-NAME};"
+   }
+  ```
 
 Once you decide on an approach, you'll provide the connection string as a variable in the Postman collection, as described in the next step.
 
