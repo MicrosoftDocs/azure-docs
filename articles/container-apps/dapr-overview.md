@@ -101,7 +101,7 @@ The `pubsub.yaml` spec will be scoped to the dapr-enabled container apps with ap
 This resource defines a Dapr component called `dapr-pubsub` via Bicep. The Dapr component is defined as a child resource of your Container Apps environment. The `dapr-pubsub` component is scoped to the Dapr-enabled container apps with app ids `publisher-app` and `subscriber-app`:
 
 ```bicep
-resource daprComponent 'daprComponents@2022-01-01-preview' = {
+resource daprComponent 'daprComponents@2022-03-01' = {
   name: 'dapr-pubsub'
   properties: {
     componentType: 'pubsub.azure.servicebus'
@@ -190,9 +190,8 @@ scopes:
 
 - **Dapr Secrets Management API**: Use [Container Apps secret mechanism][aca-secrets] as an alternative.
 - **Custom configuration for Dapr Observability**: Instrument your environment with Application Insights to visualize distributed tracing.
-- **Dapr Configuration spec**: Any capabilities that require use of the Dapr configuration spec, which includes preview features.
+- **Dapr Configuration spec**: Any capabilities that require use of the Dapr configuration spec.
 - **Advanced Dapr sidecar configurations**: Container Apps allows you to specify sidecar settings including `app-protocol`, `app-port`, and `app-id`. For a list of unsupported configuration options, see [the Dapr documentation](https://docs.dapr.io/reference/arguments-annotations-overview/).
-- **Dapr APIs in Preview state**
 
 ### Known limitations
 

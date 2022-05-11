@@ -1,5 +1,5 @@
 ---
-title: Quotas for Azure Container Apps Preview
+title: Quotas for Azure Container Apps
 description: Learn about quotas for Azure Container Apps.
 services: container-apps
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 05/03/2022
 ms.author: cshoe
 ---
 
-# Quotas for Azure Container Apps Preview
+# Quotas for Azure Container Apps
 
 The following quotas are on a per subscription basis for Azure Container Apps.
 

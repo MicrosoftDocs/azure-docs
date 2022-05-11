@@ -64,7 +64,7 @@ TCP probes wait for a connection to be established with the server to indicate s
 
 The following code listing shows how you can define health probes for your containers.
 
-The `...` placeholders denote omitted code. Refer to [Container Apps Preview ARM template API specification](./azure-resource-manager-api-spec.md) for full ARM template details.
+The `...` placeholders denote omitted code. Refer to [Container Apps ARM template API specification](./azure-resource-manager-api-spec.md) for full ARM template details.
 
 # [ARM template](#tab/arm-template)
 
