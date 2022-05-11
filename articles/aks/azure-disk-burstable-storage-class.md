@@ -215,7 +215,9 @@ else
 fi
 
 # Check if the persistent volume claim already exists
-result=$(kubectl get pvc -n $namespace -o json | jq -r '.items[].metadata.name | select(. == "'$persistentVolumeClaimName'")')
+result=$(kubectl get pvc -n $namespace -o json \
+        | jq -r '.items[].metadata.name \
+        | select(. == "'$persistentVolumeClaimName'")')
 
 if [[ -n $result ]]; then
     echo "[$persistentVolumeClaimName] persistent volume claim already exists"
