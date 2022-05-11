@@ -75,6 +75,9 @@
     - name: Where and how to deploy
       displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
       href: ../how-to-deploy-and-where.md
+    - name: Hyperparameter tuning a model (v1)
+      displayName: azurecli, AzureML
+      href: how-to-tune-hyperparameters-v1.md
     - name: Azure Kubernetes Service
       displayName: aks, aad, authentication, azure active directory
       href: how-to-deploy-azure-kubernetes-service.md
