@@ -114,9 +114,7 @@ The [ConfigureFunctionsWorkerDefaults] extension method has an overload that let
 
  The `UseWhen` extension method can be used to register a middleware which gets executed conditionally. A predicate which returns a boolean value needs to be passed to this method and the middleware will be participating in the invocation processing pipeline if the return value of the predicate is true.
 
-#### Useful extension methods when working with middleware
-
-The below extension methods on [FunctionContext] comes in handy when working with a middleware in the isolated model.
+The following extension methods on [FunctionContext] make it easier to work with middleware in the isolated model.
 
 | Method | Description |
 | ---- | ---- |
