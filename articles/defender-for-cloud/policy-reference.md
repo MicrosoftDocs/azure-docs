@@ -7,8 +7,6 @@ ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Microsoft Defender for Cloud
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions related to Microsoft Defender for Cloud. The following groupings of policy definitions are
 available:

@@ -33,6 +33,9 @@ For an analysis of how your offers are performing, go to the [Marketplace Insigh
 > [!IMPORTANT]
 > Make sure your offer name and offer description adhere to **[Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)** and other relevant, product-specific guidelines when referring to Microsoft trademarks and the names of Microsoft software, products, and services.
 
+> [!IMPORTANT]
+> When creating media for your offer, make sure that the assets you create are welcoming and inclusive for all. To learn more about how to create accessible media, see [Create accessible media](https://www.microsoft.com/accessibility/supplier-toolkit-resources).
+
 ## Link to your offer page from your website
 
 To easily direct users to your offer in the commercial marketplace, leverage our **Get It Now** badges on your website or in your digital marketing collateral. Find these badges in our [Marketplace Marketing Toolkit](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).

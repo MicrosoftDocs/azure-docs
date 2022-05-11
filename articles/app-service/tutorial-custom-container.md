@@ -214,7 +214,7 @@ The streamed logs look like this:
 ::: zone pivot="container-linux"
 
 
-Azure App Service uses the Docker container technology to host both built-in images and custom images. To see a list of built-in images, run the Azure CLI command, ['az webapp list-runtimes--linux'](/cli/azure/webapp#az-webapp-list-runtimes). If those images don't satisfy your needs, you can build and deploy a custom image.
+Azure App Service uses the Docker container technology to host both built-in images and custom images. To see a list of built-in images, run the Azure CLI command, ['az webapp list-runtimes --os linux'](/cli/azure/webapp#az-webapp-list-runtimes). If those images don't satisfy your needs, you can build and deploy a custom image.
 
 In this tutorial, you learn how to:
 

@@ -111,7 +111,7 @@ If you register this app and configure it with [https://jwt.ms/](https://jwt.ms/
 
 1. In the left menu, under **Manage**, select **Authentication**.
 
-1. Under **Implicit grant and hybrid flows**, select both the **Access tokens (used for implicit flows)** and **D tokens (used for implicit and hybrid flows)** check boxes.
+1. Under **Implicit grant and hybrid flows**, select both the **Access tokens (used for implicit flows)** and **ID tokens (used for implicit and hybrid flows)** check boxes.
 
 1. Select **Save**.
 

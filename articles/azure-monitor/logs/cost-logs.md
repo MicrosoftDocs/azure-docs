@@ -41,19 +41,15 @@ Some solutions have more specific policies about free data ingestion. For exampl
 See the documentation for different services and solutions for any unique billing calculations.
 
 ## Commitment Tiers
-In addition to the Pay-As-You-Go model, Log Analytics has **Commitment Tiers**, which can save you as much as 30 percent compared to the Pay-As-You-Go price. With commitment tier pricing, you can commit to buy data ingestion starting at 100 GB/day at a lower price than Pay-As-You-Go pricing. Any usage above the commitment level (overage) is billed at that same price per GB as provided by the current commitment tier. The commitment tiers have a 31-day commitment period from the time a commitment tier is selected. 
+In addition to the Pay-As-You-Go model, Log Analytics has **Commitment Tiers**, which can save you as much as 30 percent compared to the Pay-As-You-Go price. With commitment tier pricing, you can commit to buy data ingestion for a workspace, starting at 100 GB/day, at a lower price than Pay-As-You-Go pricing. Any usage above the commitment level (overage) is billed at that same price per GB as provided by the current commitment tier. The commitment tiers have a 31-day commitment period from the time a commitment tier is selected. 
 
 - During the commitment period, you can change to a higher commitment tier (which restarts the 31-day commitment period), but you can't move back to Pay-As-You-Go or to a lower commitment tier until after you finish the commitment period. 
 - At the end of the commitment period, the workspace retains the selected commitment tier, and the workspace can be moved to Pay-As-You-Go or to a different commitment tier at any time. 
  
-Billing for the commitment tiers is done on a daily basis. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for a detailed listing of the commitment tiers and their prices. 
+Billing for the commitment tiers is done per workspace on a daily basis. If the workspace is part of a [dedicated cluster](#dedicated-clusters), the billing is done for the cluster (see below). See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for a detailed listing of the commitment tiers and their prices. 
 
 > [!TIP]
 > The **Usage and estimated costs** menu item for each Log Analytics workspace hows an estimate of your monthly charges at each commitment level. You should periodically review this information to determine if you can reduce your charges by moving to another tier. See [Usage and estimated costs](../usage-estimated-costs.md#usage-and-estimated-costs) for information on this view.
-
-
-> [!NOTE]
-> Starting June 2, 2021, **Capacity Reservations** were renamed to **Commitment Tiers**. Data collected above your commitment tier level (overage) is now billed at the same price-per-GB as the current commitment tier level, lowering costs compared to the old method of billing at the Pay-As-You-Go rate, and reducing the need for users with large data volumes to fine-tune their commitment level. Three new commitment tiers were also added: 1000, 2000, and 5000 GB/day. 
 
 ## Dedicated clusters
 An [Azure Monitor Logs dedicated cluster](logs-dedicated-clusters.md) is a collection of workspaces in a single managed Azure Data Explorer cluster. Dedicated clusters support advanced features such as [customer-managed keys](customer-managed-keys.md) and use the same commitment tier pricing model as workspaces although they must have a commitment level of at least 500 GB/day. Any usage above the commitment level (overage) is billed at that same price per GB as provided by the current commitment tier.  There is no Pay-As-You-Go option for clusters. 
@@ -75,13 +71,26 @@ If your linked workspace is using legacy Per Node pricing tier, it will be bille
 See [Create a dedicated cluster](logs-dedicated-clusters.md#create-a-dedicated-cluster) for details on creating a dedicated cluster and specifying its billing type.
 
 ## Basic Logs
-You can configure certain tables in a Log Analytics workspace to use [Basic Logs](basic-logs-configure.md). Data in these tables has a significantly reduced ingestion charge and a limited retention period. There is a charge though to query against these tables. Basic Logs are intended for high-volume verbose logs you use for debugging, troubleshooting and auditing, but not for analytics and alerts.
+You can configure certain tables in a Log Analytics workspace to use [Basic Logs](basic-logs-configure.md). Data in these tables has a significantly reduced ingestion charge and a limited retention period. There is a charge though to search against these tables. Basic Logs are intended for high-volume verbose logs you use for debugging, troubleshooting and auditing, but not for analytics and alerts.
+
+The charge for searching against Basic Logs is based on the GB of data scanned in performing the search. 
 
 See [Configure Basic Logs in Azure Monitor](basic-logs-configure.md) for details on Basic Logs including how to configure them and query their data.
-## Data retention and Archive Logs
-In addition to data ingestion, there is a charge for the retention of data in each Log Analytics workspace. You can set the retention period for the entire workspace or for each table. After this period, the data is either removed or archived. Archived Logs have a reduced retention charge, but there is a charge to restore or search against them. Use Archive Logs to reduce your costs for data that you must store for compliance or occasional investigation.
+
+## Log data retention and archive
+In addition to data ingestion, there is a charge for the retention of data in each Log Analytics workspace. You can set the retention period for the entire workspace or for each table. After this period, the data is either removed or archived. Archived Logs have a reduced retention charge, and there is a charge search against them. Use Archive Logs to reduce your costs for data that you must store for compliance or occasional investigation.
 
 See [Configure data retention and archive policies in Azure Monitor Logs](data-retention-archive.md) for details on data retention and archiving including how to configure these settings and access archived data. 
+
+## Search jobs
+Searching against Archived Logs uses [search jobs](search-jobs.md). Search jobs are asynchronous queries that fetch records into a new search table within your workspace for further analytics. Search jobs are billed by the number of GB of data scanned on each day that is accessed to perform the search. 
+
+## Log data restore
+For situations in which older or archived logs need to be intensively queried with the full analyitics query capabilities, the [data restore](restore.md) feature is a powerful tool. The restore operation makes a specific time range of data in a table available in the hot cache for high-performance queries. You can later dismiss the data when you're done. Log data restore is billed by the amount of data restored, and by the time the restore is kept active.  The minimal values billed for any data restore is 2 TB and 12 hours. Data restored of more than 2 TB and/or more than 12 hours in duration are billed on a pro-rated basis. 
+
+## Log data export
+[Data export](logs-data-export.md) in Log Analytics workspace lets you continuously export data per selected tables in your workspace, to an Azure Storage Account or Azure Event Hubs as it arrives to Azure Monitor pipeline. Charges for the use of data export are based on the amount of data exported. The size of data exported is the number of bytes in the exported JSON formatted data.
+
 ## Application insights billing
 Since [workspace-based Application Insights resources](../app/create-workspace-resource.md) store their data in a Log Analytics workspace, the billing for data ingestion and retention is done by the workspace where the Application Insights data is located. This enables you to leverage all options of the Log Analytics pricing model, including [commitment tiers](#commitment-tiers) in addition to Pay-As-You-Go.
 

@@ -144,15 +144,15 @@ InfluxData is on a mission to help developers and organizations, such as IBM, Vi
 
 [Learn more about Azure Monitor integration with InfluxData Telegraf](essentials/collect-custom-metrics-linux-telegraf.md). 
 
-## Logic Monitor
+## LogicMonitor
 
-![Logic Monitor logo.](./media/partners/logicmonitor.png)
+![LogicMonitor logo.](./media/partners/logicmonitor.png)
 
 LogicMonitor is an SaaS-based performance monitoring platform for complex IT infrastructure. With coverage for thousands of technologies, LogicMonitor provides granular visibility into infrastructure and application performance. 
 
 LM Cloud's comprehensive Azure monitoring enables users to correlate the performance of Azure cloud, on-premises, and hybrid cloud resources—all from a single platform. Automated resource discovery, built-in monitoring templates, preconfigured alert thresholds, and customizable dashboards combine to give IT the speed, flexibility, and visibility required to succeed.
 
-For more information, see the [Logic Monitor documentation](https://www.logicmonitor.com/lp/azure-monitoring/).
+For more information, see the [LogicMonitor documentation](https://www.logicmonitor.com/lp/azure-monitoring/).
 
 ## LogRhythm
 

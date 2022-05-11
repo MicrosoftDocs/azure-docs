@@ -51,7 +51,7 @@ sections:
       - question: |
           What is a customer billing account ID and where can I find it for my customer?
         answer: |
-          To create a private offer, you need the billing account ID of your customer. Customers can find the billing account information in the Azure portal under Cost Management + Billing > Settings > Properties. The customer must be an owner or contributor on the billing account to access this information. If a customer doesn't have a billing account, they can create one by signing up on Azure.com. See Billing account scopes in the Azure portal.
+          To create a private offer, you need the billing account ID of your customer. Customers can find the billing account information in the Azure portal under Cost Management + Billing > Settings > Properties. The customer must be an owner or contributor on the billing account to access this information. If a customer doesn't have a billing account, they can create one by signing up on Azure.com. See [Billing account scopes in the Azure portal](../cost-management-billing/manage/view-all-accounts.md).
 
           Applying the private offer at the Billing Account ID level means that if new subscriptions are added to the customer's Azure plan, the private offer will automatically apply to those subscriptions also and no edits need to be made to the private offer.
 
@@ -206,4 +206,3 @@ additionalContent: |
   ## Next steps
   
   - [Create a private offer for a customer](isv-customer.md)
-  

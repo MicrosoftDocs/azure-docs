@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.author: minxia
-author: mx-iao
-ms.date: 03/14/2022
+ms.author: larryfr
+author: blackmist
+ms.date: 04/12/2022
 ---
 
 # Azure Machine Learning CLI (v2) release notes
@@ -24,7 +24,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 ## 2022-03-14
 
-### Azure Machine Learning CLI (v2) v2.2.0
+### Azure Machine Learning CLI (v2) v2.2.1
 
 - `az ml job`
   - For all job types, flattened the `code` section of the YAML schema. Instead of `code.local_path` to specify the path to the source code directory, it is now just `code`

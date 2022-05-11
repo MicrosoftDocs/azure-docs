@@ -107,7 +107,7 @@ Configure the Azure Bot we created with its Web App endpoint where the bot logic
 
 The final step would be to deploy the bot logic to the Web App we created. As we mentioned for this tutorial, we'll be using the Echo Bot. This bot only demonstrates a limited set of capabilities, such as echoing the user input. Here's how we deploy it to Azure Web App.
 
-   1. To use the samples, clone this Github repository using Git.
+   1. To use the samples, clone this GitHub repository using Git.
      ``` 
      git clone https://github.com/Microsoft/BotBuilder-Samples.gitcd BotBuilder-Samples
      ```

@@ -2,11 +2,10 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 04/06/2022
+ms.date: 04/26/2022
 ---
-# What's new in Microsoft Defender for Cloud?
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+# What's new in Microsoft Defender for Cloud?
 
 Defender for Cloud is in active development and receives improvements on an ongoing basis. To stay up to date with the most recent developments, this page provides you with information about new features, bug fixes, and deprecated functionality.
 
@@ -23,19 +22,24 @@ Updates in April include:
 
 - [New Defender for Servers plans](#new-defender-for-servers-plans)
 - [Relocation of custom recommendations](#relocation-of-custom-recommendations)
+- [PowerShell script to stream alerts to Splunk and QRadar](#powershell-script-to-stream-alerts-to-splunk-and-ibm-qradar)
+- [Deprecated the Azure Cache for Redis recommendation](#deprecated-the-azure-cache-for-redis-recommendation)
+- [New alert variant for Microsoft Defender for Storage (preview) to detect exposure of sensitive data](#new-alert-variant-for-microsoft-defender-for-storage-preview-to-detect-exposure-of-sensitive-data)
+- [Container scan alert title augmented with IP address reputation](#container-scan-alert-title-augmented-with-ip-address-reputation)
+- [See the activity logs that relate to a security alert](#see-the-activity-logs-that-relate-to-a-security-alert)
 
 ### New Defender for Servers plans
 
-Microsoft Defender for Servers is now offered in two incremental plans.
+Microsoft Defender for Servers is now offered in two incremental plans:
 
-- Microsoft Defender for Servers Plan 2, formerly Defender for Servers
-- Microsoft Defender for Servers Plan 1, including support for Defender for Endpoint only
+- Defender for Servers Plan 2, formerly Defender for Servers
+- Defender for Servers Plan 1, provides support for Microsoft Defender for Endpoint only
 
-While Microsoft Defender for Servers Plan 2 continues to provide complete protections from threats and vulnerabilities to your cloud and on-premises workloads, Microsoft Defender for Servers Plan 1 provides endpoint protection only, powered by Microsoft Defender for Endpoint and natively integrated with Defender for Cloud. Read more about the [Microsoft Defender for Servers plans](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans).
+While Defender for Servers Plan 2 continues to provide protections from threats and vulnerabilities to your cloud and on-premises workloads, Defender for Servers Plan 1 provides endpoint protection only, powered by the natively integrated Defender for Endpoint. Read more about the [Defender for Servers plans](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans).
 
-If you have been using Defender for Servers until now – no action is required.
- 
-In addition, Defender for Cloud also begins gradual support for the [Defender for Endpoint unified agent for Windows Server 2012 R2 and 2016 (Preview)](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/defending-windows-server-2012-r2-and-2016/ba-p/2783292). Defender for Servers Plan 1 deploys the new unified agent to Windows Server 2012 R2 and 2016 workloads. Defender for Servers Plan 2 deploy the legacy agent to Windows Server 2012 R2 and 2016 workloads, and will deploy the unified agent soon after it is approved for general use.
+If you have been using Defender for Servers until now no action is required.
+
+In addition, Defender for Cloud also begins gradual support for the [Defender for Endpoint unified agent for Windows Server 2012 R2 and 2016](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/defending-windows-server-2012-r2-and-2016/ba-p/2783292). Defender for Servers Plan 1 deploys the new unified agent to Windows Server 2012 R2 and 2016 workloads. Defender for Servers Plan 2 deploys the legacy agent to Windows Server 2012 R2 and 2016 workloads and will start deploying the unified agent soon.
 
 ### Relocation of custom recommendations
 
@@ -44,6 +48,59 @@ Custom recommendations are those created by users and have no impact on the secu
 Use the new "recommendation type" filter, to locate custom recommendations.
 
 Learn more in [Create custom security initiatives and policies](custom-security-policies.md).
+
+### PowerShell script to stream alerts to Splunk and IBM QRadar
+
+We recommend that you use Event Hubs and a built-in connector to export security alerts to Splunk and IBM QRadar. Now you can use a PowerShell script to set up the Azure resources needed to export security alerts for your subscription or tenant.
+
+Just download and run the PowerShell script. After you provide a few details of your environment, the script configures the resources for you. The script then produces output that you use in the SIEM platform to complete the integration.
+
+To learn more, see [Stream alerts to Splunk and QRadar](export-to-siem.md#stream-alerts-to-qradar-and-splunk).
+
+### Deprecated the Azure Cache for Redis recommendation
+
+The recommendation `Azure Cache for Redis should reside within a virtual network` (Preview) has been deprecated. We’ve changed our guidance for securing Azure Cache for Redis instances. We recommend the use of a private endpoint to restrict access to your Azure Cache for Redis instance, instead of a virtual network. 
+
+### New alert variant for Microsoft Defender for Storage (preview) to detect exposure of sensitive data
+
+Microsoft Defender for Storage's alerts notify you when threat actors attempt to scan and expose, successfully or not, misconfigured, publicly open storage containers to try to exfiltrate sensitive information.
+
+To allow for faster triaging and response time, when exfiltration of potentially sensitive data may have occurred, we've released a new variation to the existing `Publicly accessible storage containers have been exposed` alert.
+
+The new alert, `Publicly accessible storage containers with potentially sensitive data have been exposed`, is triggered with a `High` severity level, after there has been a successful discovery of a publicly open storage container(s) with names that statistically have been found to rarely be exposed publicly, suggesting they might hold sensitive information.
+
+| Alert (alert type) | Description | MITRE tactic | Severity |
+|--|--|--|--|
+|**PREVIEW - Publicly accessible storage containers with potentially sensitive data have been exposed** <br>(Storage.Blob_OpenContainersScanning.SuccessfulDiscovery.Sensitive)| Someone has scanned your Azure Storage account and exposed container(s) that allow public access. One or more of the exposed containers have names that indicate that they may contain sensitive data. <br> <br> This usually indicates reconnaissance by a threat actor that is scanning for misconfigured publicly accessible storage containers that may contain sensitive data. <br> <br> After a threat actor successfully discovers a container, they may continue by exfiltrating the data. <br> ✔ Azure Blob Storage <br> ✖ Azure Files <br> ✖ Azure Data Lake Storage Gen2 | Collection  | High |
+
+### Container scan alert title augmented with IP address reputation 
+
+An IP address's reputation can indicate whether the scanning activity originates from a known threat actor, or from an actor that is using the Tor network to hide their identity. Both of these indicators, suggest that there's malicious intent. The IP address's reputation is provided by [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684). 
+
+The addition of the IP address's reputation to the alert title provides a way to quickly evaluate the intent of the actor, and thus the severity of the threat.  
+
+The following alerts will include this information: 
+
+- `Publicly accessible storage containers have been exposed` 
+
+- `Publicly accessible storage containers with potentially sensitive data have been exposed`
+
+- `Publicly accessible storage containers have been scanned. No publicly accessible data was discovered`
+
+For example, the added information to the title of the `Publicly accessible storage containers have been exposed` alert will look like this: 
+
+- `Publicly accessible storage containers have been exposed`**`by a suspicious IP address`**
+
+- `Publicly accessible storage containers have been exposed`**`by a Tor exit node`** 
+
+All of the alerts for Microsoft Defender for Storage will continue to include threat intelligence information in the IP entity under the alert's Related Entities section.
+
+### See the activity logs that relate to a security alert
+
+As part of the actions you can take to [evaluate a security alert](managing-and-responding-alerts.md#respond-to-security-alerts), you can find the related platform logs in **Inspect resource context** to gain context about the affected resource.
+Microsoft Defender for Cloud identifies platform logs that are within one day of the alert.
+
+The platform logs can help you evaluate the security threat and identify steps that you can take to mitigate the identified risk.
 
 ## March 2022
 
@@ -86,7 +143,7 @@ Changes in our roadmap and priorities have removed the need for the network traf
 
 Defender for Container's image scan now supports Windows images that are hosted in Azure Container Registry. This feature is free while in preview, and will incur a cost when it becomes generally available.
 
-Learn more in [Use Microsoft Defender for Container to scan your images for vulnerabilities](defender-for-container-registries-usage.md).
+Learn more in [Use Microsoft Defender for Container to scan your images for vulnerabilities](defender-for-containers-usage.md).
 
 ### New alert for Microsoft Defender for Storage (preview)
 
@@ -508,7 +565,7 @@ Our Ignite release includes:
 
 - [Azure Security Center and Azure Defender become Microsoft Defender for Cloud](#azure-security-center-and-azure-defender-become-microsoft-defender-for-cloud)
 - [Native CSPM for AWS and threat protection for Amazon EKS, and AWS EC2](#native-cspm-for-aws-and-threat-protection-for-amazon-eks-and-aws-ec2)
-- [Prioritize security actions by data sensitivity (powered by Azure Purview) (in preview)](#prioritize-security-actions-by-data-sensitivity-powered-by-azure-purview-in-preview)
+- [Prioritize security actions by data sensitivity (powered by Microsoft Purview) (in preview)](#prioritize-security-actions-by-data-sensitivity-powered-by-microsoft-purview-in-preview)
 - [Expanded security control assessments with Azure Security Benchmark v3](#expanded-security-control-assessments-with-azure-security-benchmark-v3)
 - [Microsoft Sentinel connector's optional bi-directional alert synchronization released for general availability (GA)](#microsoft-sentinel-connectors-optional-bi-directional-alert-synchronization-released-for-general-availability-ga)
 - [New recommendation to push Azure Kubernetes Service (AKS) logs to Sentinel](#new-recommendation-to-push-azure-kubernetes-service-aks-logs-to-sentinel)
@@ -549,12 +606,12 @@ When you've added your AWS accounts, Defender for Cloud protects your AWS resour
 Learn more about [connecting your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md).
 
 
-### Prioritize security actions by data sensitivity (powered by Azure Purview) (in preview)
+### Prioritize security actions by data sensitivity (powered by Microsoft Purview) (in preview)
 Data resources remain a popular target for threat actors. So it's crucial for security teams to identify, prioritize, and secure sensitive data resources across their cloud environments.
 
-To address this challenge, Microsoft Defender for Cloud now integrates sensitivity information from [Azure Purview](../purview/overview.md). Azure Purview is a unified data governance service that provides rich insights into the sensitivity of your data within multi-cloud, and on-premises workloads.
+To address this challenge, Microsoft Defender for Cloud now integrates sensitivity information from [Microsoft Purview](../purview/overview.md). Microsoft Purview is a unified data governance service that provides rich insights into the sensitivity of your data within multi-cloud, and on-premises workloads.
 
-The integration with Azure Purview extends your security visibility in Defender for Cloud from the infrastructure level down to the data, enabling an entirely new way to prioritize resources and security activities for your security teams.
+The integration with Microsoft Purview extends your security visibility in Defender for Cloud from the infrastructure level down to the data, enabling an entirely new way to prioritize resources and security activities for your security teams.
 
 Learn more in [Prioritize security actions by data sensitivity](information-protection.md).
 
@@ -618,13 +675,13 @@ Learn more in [Review your security recommendations](review-security-recommendat
 
 ### Microsoft Threat and Vulnerability Management added as vulnerability assessment solution - released for general availability (GA)
 
-In October, [we announced](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview) an extension to the integration between [Microsoft Defender for Servers](defender-for-servers-introduction.md) and Microsoft Defender for Endpoint, to support a new vulnerability assessment provider for your machines: [Microsoft threat and vulnerability management](/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt). This feature is now released for general availability (GA).
+In October, [we announced](release-notes-archive.md#microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview) an extension to the integration between [Microsoft Defender for Servers](defender-for-servers-introduction.md) and Microsoft Defender for Endpoint, to support a new vulnerability assessment provider for your machines: [Microsoft threat and vulnerability management](/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt). This feature is now released for general availability (GA).
 
 Use **threat and vulnerability management** to discover vulnerabilities and misconfigurations in near real time with the [integration with Microsoft Defender for Endpoint](integration-defender-for-endpoint.md) enabled, and without the need for additional agents or periodic scans. Threat and vulnerability management prioritizes vulnerabilities based on the threat landscape and detections in your organization.
 
 Use the security recommendation "[A vulnerability assessment solution should be enabled on your virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/ffff0522-1e88-47fc-8382-2a80ba848f5d)" to surface the vulnerabilities detected by threat and vulnerability management for your [supported machines](/microsoft-365/security/defender-endpoint/tvm-supported-os?view=o365-worldwide&preserve-view=true). 
 
-To automatically surface the vulnerabilities, on existing and new machines, without the need to manually remediate the recommendation, see [Vulnerability assessment solutions can now be auto enabled (in preview)](#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview).
+To automatically surface the vulnerabilities, on existing and new machines, without the need to manually remediate the recommendation, see [Vulnerability assessment solutions can now be auto enabled (in preview)](release-notes-archive.md#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview).
 
 Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md).
 
@@ -649,7 +706,7 @@ Even though the feature is called *continuous*, there's also an option to export
 
 ### Auto provisioning of vulnerability assessment solutions released for general availability (GA)
 
-In October, [we announced](#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview) the addition of vulnerability assessment solutions to Defender for Cloud's auto provisioning page. This is relevant to Azure virtual machines and Azure Arc machines on subscriptions protected by [Azure Defender for Servers](defender-for-servers-introduction.md). This feature is now released for general availability (GA).
+In October, [we announced](release-notes-archive.md#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview) the addition of vulnerability assessment solutions to Defender for Cloud's auto provisioning page. This is relevant to Azure virtual machines and Azure Arc machines on subscriptions protected by [Azure Defender for Servers](defender-for-servers-introduction.md). This feature is now released for general availability (GA).
 
 If the [integration with Microsoft Defender for Endpoint](integration-defender-for-endpoint.md) is enabled, Defender for Cloud presents a choice of vulnerability assessment solutions:
 
@@ -662,7 +719,7 @@ Learn more in [Automatically configure vulnerability assessment for your machine
 
 ### Software inventory filters in asset inventory released for general availability (GA)
 
-In October, [we announced](#software-inventory-filters-added-to-asset-inventory-in-preview) new filters for the [asset inventory](asset-inventory.md) page to select machines running specific software - and even specify the versions of interest. This feature is now released for general availability (GA).
+In October, [we announced](release-notes-archive.md#software-inventory-filters-added-to-asset-inventory-in-preview) new filters for the [asset inventory](asset-inventory.md) page to select machines running specific software - and even specify the versions of interest. This feature is now released for general availability (GA).
 
 You can query the software inventory data in **Azure Resource Graph Explorer**.
 
@@ -686,146 +743,3 @@ To improve the presentation of resources in the [Asset inventory](asset-inventor
 
 - **Previous format:** ``machine-name_source-computer-id_VMUUID``
 - **From this update:** ``machine-name_VMUUID``
-
-## October 2021
-
-Updates in October include:
-
-- [Microsoft Threat and Vulnerability Management added as vulnerability assessment solution (in preview)](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview)
-- [Vulnerability assessment solutions can now be auto enabled (in preview)](#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview)
-- [Software inventory filters added to asset inventory (in preview)](#software-inventory-filters-added-to-asset-inventory-in-preview)
-- [Changed prefix of some alert types from "ARM_" to "VM_"](#changed-prefix-of-some-alert-types-from-arm_-to-vm_)
-- [Changes to the logic of a security recommendation for Kubernetes clusters](#changes-to-the-logic-of-a-security-recommendation-for-kubernetes-clusters)
-- [Recommendations details pages now show related recommendations](#recommendations-details-pages-now-show-related-recommendations)
-- [New alerts for Azure Defender for Kubernetes (in preview)](#new-alerts-for-azure-defender-for-kubernetes-in-preview)
-
-
-### Microsoft Threat and Vulnerability Management added as vulnerability assessment solution (in preview)
-
-We've extended the integration between [Azure Defender for Servers](defender-for-servers-introduction.md) and Microsoft Defender for Endpoint, to support a new vulnerability assessment provider for your machines: [Microsoft threat and vulnerability management](/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt). 
-
-Use **threat and vulnerability management** to discover vulnerabilities and misconfigurations in near real time with the [integration with Microsoft Defender for Endpoint](integration-defender-for-endpoint.md) enabled, and without the need for additional agents or periodic scans. Threat and vulnerability management prioritizes vulnerabilities based on the threat landscape and detections in your organization.
-
-Use the security recommendation "[A vulnerability assessment solution should be enabled on your virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/ffff0522-1e88-47fc-8382-2a80ba848f5d)" to surface the vulnerabilities detected by threat and vulnerability management for your [supported machines](/microsoft-365/security/defender-endpoint/tvm-supported-os?view=o365-worldwide&preserve-view=true). 
-
-To automatically surface the vulnerabilities, on existing and new machines, without the need to manually remediate the recommendation, see [Vulnerability assessment solutions can now be auto enabled (in preview)](#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview).
-
-Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md).
-
-### Vulnerability assessment solutions can now be auto enabled (in preview)
-
-Security Center's auto provisioning page now includes the option to automatically enable a vulnerability assessment solution to Azure virtual machines and Azure Arc machines on subscriptions protected by [Azure Defender for Servers](defender-for-servers-introduction.md).
-
-If the [integration with Microsoft Defender for Endpoint](integration-defender-for-endpoint.md) is enabled, Defender for Cloud presents a choice of vulnerability assessment solutions:
-
-- (**NEW**) The Microsoft threat and vulnerability management module of Microsoft Defender for Endpoint (see [the release note](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview))
-- The integrated Qualys agent
-
-:::image type="content" source="media/deploy-vulnerability-assessment-tvm/auto-provision-vulnerability-assessment-agent.png" alt-text="Configure auto provisioning of Microsoft's threat and vulnerability management from Azure Security Center.":::
-
-Your chosen solution will be automatically enabled on supported machines.
-
-Learn more in [Automatically configure vulnerability assessment for your machines](auto-deploy-vulnerability-assessment.md).
-
-### Software inventory filters added to asset inventory (in preview)
-
-The [asset inventory](asset-inventory.md) page now includes a filter to select machines running specific software - and even specify the versions of interest. 
-
-Additionally, you can query the software inventory data in **Azure Resource Graph Explorer**.
-
-To use these new features, you'll need to enable the [integration with Microsoft Defender for Endpoint](integration-defender-for-endpoint.md). 
-
-For full details, including sample Kusto queries for Azure Resource Graph, see [Access a software inventory](asset-inventory.md#access-a-software-inventory).
-
-:::image type="content" source="media/deploy-vulnerability-assessment-tvm/software-inventory.png" alt-text="If you've enabled the threat and vulnerability solution, Security Center's asset inventory offers a filter to select resources by their installed software.":::
-
-### Changed prefix of some alert types from "ARM_" to "VM_" 
-
-In July 2021, we announced a [logical reorganization of Azure Defender for Resource Manager alerts](release-notes-archive.md#logical-reorganization-of-azure-defender-for-resource-manager-alerts) 
-
-As part of a logical reorganization of some of the Azure Defender plans, we moved twenty-one alerts from [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) to [Azure Defender for Servers](defender-for-servers-introduction.md).
-
-With this update, we've changed the prefixes of these alerts to match this reassignment and replaced "ARM_" with "VM_" as shown in the following table:
-
-| Original name                                  | From this change                              |
-|------------------------------------------------|-----------------------------------------------|
-| ARM_AmBroadFilesExclusion                      | VM_AmBroadFilesExclusion                      |
-| ARM_AmDisablementAndCodeExecution              | VM_AmDisablementAndCodeExecution              |
-| ARM_AmDisablement                              | VM_AmDisablement                              |
-| ARM_AmFileExclusionAndCodeExecution            | VM_AmFileExclusionAndCodeExecution            |
-| ARM_AmTempFileExclusionAndCodeExecution        | VM_AmTempFileExclusionAndCodeExecution        |
-| ARM_AmTempFileExclusion                        | VM_AmTempFileExclusion                        |
-| ARM_AmRealtimeProtectionDisabled               | VM_AmRealtimeProtectionDisabled               |
-| ARM_AmTempRealtimeProtectionDisablement        | VM_AmTempRealtimeProtectionDisablement        |
-| ARM_AmRealtimeProtectionDisablementAndCodeExec | VM_AmRealtimeProtectionDisablementAndCodeExec |
-| ARM_AmMalwareCampaignRelatedExclusion          | VM_AmMalwareCampaignRelatedExclusion          |
-| ARM_AmTemporarilyDisablement                   | VM_AmTemporarilyDisablement                   |
-| ARM_UnusualAmFileExclusion                     | VM_UnusualAmFileExclusion                     |
-| ARM_CustomScriptExtensionSuspiciousCmd         | VM_CustomScriptExtensionSuspiciousCmd         |
-| ARM_CustomScriptExtensionSuspiciousEntryPoint  | VM_CustomScriptExtensionSuspiciousEntryPoint  |
-| ARM_CustomScriptExtensionSuspiciousPayload     | VM_CustomScriptExtensionSuspiciousPayload     |
-| ARM_CustomScriptExtensionSuspiciousFailure     | VM_CustomScriptExtensionSuspiciousFailure     |
-| ARM_CustomScriptExtensionUnusualDeletion       | VM_CustomScriptExtensionUnusualDeletion       |
-| ARM_CustomScriptExtensionUnusualExecution      | VM_CustomScriptExtensionUnusualExecution      |
-| ARM_VMAccessUnusualConfigReset                 | VM_VMAccessUnusualConfigReset                 |
-| ARM_VMAccessUnusualPasswordReset               | VM_VMAccessUnusualPasswordReset               |
-| ARM_VMAccessUnusualSSHReset                    | VM_VMAccessUnusualSSHReset                    |
-
-
-Learn more about the [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) and [Azure Defender for Servers](defender-for-servers-introduction.md) plans.
-
-### Changes to the logic of a security recommendation for Kubernetes clusters
-
-The recommendation "Kubernetes clusters should not use the default namespace" prevents usage of the default namespace for a range of resource types. Two of the resource types that were included in this recommendation have been removed: ConfigMap and Secret. 
-
-Learn more about this recommendation and hardening your Kubernetes clusters in [Understand Azure Policy for Kubernetes clusters](../governance/policy/concepts/policy-for-kubernetes.md).
-
-### Recommendations details pages now show related recommendations
-
-To clarify the relationships between different recommendations, we've added a **Related recommendations** area to the details pages of many recommendations. 
-
-The three relationship types that are shown on these pages are:
-
-- **Prerequisite** - A recommendation that must be completed before the selected recommendation
-- **Alternative** - A different recommendation which provides another way of achieving the goals of the selected recommendation
-- **Dependent** - A recommendation for which the selected recommendation is a prerequisite
-
-For each related recommendation, the number of unhealthy resources is shown in the "Affected resources" column.
-
-> [!TIP]
-> If a related recommendation is grayed out, its dependency isn't yet completed and so isn't available.
-
-An example of related recommendations:
-
-1. Security Center checks your machines for supported vulnerability assessment solutions:<br>
-    **A vulnerability assessment solution should be enabled on your virtual machines**
-
-1. If one is found, you'll get notified about discovered vulnerabilities:<br>
-    **Vulnerabilities in your virtual machines should be remediated**
-
-Obviously, Security Center can't notify you about discovered vulnerabilities unless it finds a supported vulnerability assessment solution.
-
-Therefore:
-
- - Recommendation #1 is a prerequisite for recommendation #2
- - Recommendation #2 depends upon recommendation #1
-
-:::image type="content" source="media/release-notes/related-recommendations-solution-not-found.png" alt-text="Screenshot of recommendation to deploy vulnerability assessment solution.":::
-
-:::image type="content" source="media/release-notes/related-recommendations-vulnerabilities-found.png" alt-text="Screenshot of recommendation to resolve discovered vulnerabilities.":::
-
-
-
-### New alerts for Azure Defender for Kubernetes (in preview)
-
-To expand the threat protections provided by Azure Defender for Kubernetes, we've added two preview alerts.
-
-These alerts are generated based on a new machine learning model and Kubernetes advanced analytics, measuring multiple deployment and role assignment attributes against previous activities in the cluster and across all clusters monitored by Azure Defender.
-
-| Alert (alert type)                                                                 | Description                                                                                                                                                                                                                                                                                                                                                      | MITRE tactic | Severity |
-|------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|----------|
-| **Anomalous pod deployment (Preview)**<br>(K8S_AnomalousPodDeployment)             | Kubernetes audit log analysis detected pod deployment that is anomalous based on previous pod deployment activity. This activity is considered an anomaly when taking into account how the different features seen in the deployment operation are in relations to one another. The features monitored by this analytics include the container image registry used, the account performing the deployment, day of the week, how often does this account performs pod deployments, user agent used in the operation, is this a namespace which is pod deployment occur to often, or other feature. Top contributing reasons for raising this alert as anomalous activity are detailed under the alert extended properties. | Execution | Medium |
-| **Excessive role permissions assigned in Kubernetes cluster (Preview)**<br>(K8S_ServiceAcountPermissionAnomaly) | Analysis of the Kubernetes audit logs detected an excessive permissions role assignment to your cluster. From examining role assignments, the listed permissions are uncommon to the specific service account. This detection considers previous role assignments to the same service account across clusters monitored by Azure, volume per permission, and the impact of the specific permission. The anomaly detection model used for this alert takes into account how this permission is used across all clusters monitored by Azure Defender. | Privilege Escalation | Low |
-
-
-For a full list of the Kubernetes alerts, see [Alerts for Kubernetes clusters](alerts-reference.md#alerts-k8scluster).

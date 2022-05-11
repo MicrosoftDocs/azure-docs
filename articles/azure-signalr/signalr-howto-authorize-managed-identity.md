@@ -7,6 +7,7 @@ ms.date: 09/06/2021
 ms.service: signalr
 ms.topic: conceptual
 ms.devlang: csharp
+ms.custom: subject-rbac-steps
 ---
 
 # Authorize request to SignalR resources with Azure AD from managed identities
@@ -44,46 +45,28 @@ See [How to use managed identities for App Service and Azure Functions](../app-s
 
 ## Add role assignments on Azure portal
 
-This sample shows how to assign a `SignalR App Server` role to a system-assigned identity over a SignalR resource. 
+The following steps describe how to assign a `SignalR App Server` role to a system-assigned identity over a SignalR resource. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 > [!Note]
 > A role can be assigned to any scope, including management group, subscription, resource group or a single resource. To learn more about scope, see [Understand scope for Azure RBAC](../role-based-access-control/scope-overview.md)
 
-1. Open [Azure portal](https://portal.azure.com/), navigate to your SignalR resource.
+1. From the [Azure portal](https://portal.azure.com/), navigate to your SignalR resource.
 
-1. Click **Access Control (IAM)** to display access control settings for the Azure SignalR.
+1. Select **Access control (IAM)**.
 
-   The following shows an example of the Access control (IAM) page for a resource group.
+1. Select **Add > Add role assignment**.
 
-1. Click the **Role assignments** tab to view the role assignments at this scope.
+   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
-   The following screenshot shows an example of the Access control (IAM) page for a SignalR resource.
+1. On the **Role** tab, select **SignalR App Server**.
 
-   ![Screenshot of access control](./media/authenticate/access-control.png)
+1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
 
-1. Click **Add > Add role assignment**.
+1. Select your Azure subscription.
 
-1. On the **Roles** tab, select `SignalR App Server`.
+1. Select **System-assigned managed identity**, search for a virtual machine to which would you'd like to assign the role, and then select it.
 
-1. Click **Next**.
-
-   ![Screenshot of adding role assignment](./media/authenticate/add-role-assignment.png)
-
-1. On the **Members** tab, under **Assign access to** section, select **Managed identity**.
-
-1. Click **Select Members**.
-
-1. In the **Select managed identities** pane, select **System-assigned managed identity > Virtual machine**
-
-1. Search for and select the virtual machine that you would like to assign the role to.
-
-1. Click **Select** to confirm the selection.
-
-2. Click **Next**.
-
-   ![Screenshot of assigning role to managed identities](./media/authenticate/assign-role-to-managed-identities.png)
-
-3. Click **Review + assign** to confirm the change.
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 > [!IMPORTANT]
 > Azure role assignments may take up to 30 minutes to propagate.

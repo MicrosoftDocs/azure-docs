@@ -58,9 +58,9 @@ Virtual Network NAT is scaled out from creation. There isn't a ramp up or scale-
 
 * Virtual Network NAT is compatible with standard SKU public IP addresses or public IP prefix resources or a combination of both. You can use a public IP prefix directly or distribute the public IP addresses of the prefix across multiple NAT gateway resources. The NAT gateway will groom all traffic to the range of IP addresses of the prefix. Basic resources, such as basic load balancer or basic public IPs aren't compatible with Virtual Network NAT.  Basic resources must be placed on a subnet not associated to a NAT gateway. Basic load balancer and basic public IP can be upgraded to standard to work with a NAT gateway
   
-* To upgrade a basic load balancer too standard, see [Upgrade a public basic Azure Load Balancer](../../load-balancer/upgrade-basic-standard.md)
+* To upgrade a basic load balancer to standard, see [Upgrade a public basic Azure Load Balancer](../../load-balancer/upgrade-basic-standard.md)
 
-* To upgrade a basic public IP too standard, see [Upgrade a public IP address](../ip-services/public-ip-upgrade-portal.md)
+* To upgrade a basic public IP to standard, see [Upgrade a public IP address](../ip-services/public-ip-upgrade-portal.md)
 
 * Virtual Network NAT is the recommended method for outbound connectivity. A NAT gateway doesn't have the same limitations of SNAT port exhaustion as does [default outbound access](../ip-services/default-outbound-access.md) and [outbound rules of a load balancer](../../load-balancer/outbound-rules.md)
 
@@ -88,9 +88,10 @@ For information on the SLA, see [SLA for Virtual Network NAT](https://azure.micr
 
 ## Next steps
 
-* To create and validate a NAT gateway, see [Tutorial: Create a NAT gateway using the Azure portal](tutorial-create-nat-gateway-portal.md)
+* To create and validate a NAT gateway, see [Quickstart: Create a NAT gateway using the Azure portal](quickstart-create-nat-gateway-portal.md)
 
 * To view a video on more information about Azure Virtual Network NAT, see [How to get better outbound connectivity using an Azure NAT gateway](https://www.youtube.com/watch?v=2Ng_uM0ZaB4)
 
 * Learn about the [NAT gateway resource](./nat-gateway-resource.md)
 
+* [Learn module: Introduction to Azure Virtual Network NAT](/learn/modules/intro-to-azure-virtual-network-nat).

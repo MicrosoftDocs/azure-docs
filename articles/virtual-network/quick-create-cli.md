@@ -2,11 +2,11 @@
 title: Create a virtual network - quickstart - Azure CLI
 titleSuffix: Azure Virtual Network
 description: In this quickstart, learn to create a virtual network using the Azure CLI. A virtual network lets Azure resources communicate with each other and with the internet.
-author: KumudD
+author: mbender-ms
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 03/06/2021
-ms.author: kumud
+ms.date: 04/13/2022
+ms.author: mbender
 ms.custom: devx-track-azurecli, mode-api
 #Customer intent: I want to create a virtual network so that virtual machines can communicate privately with each other and with the internet.
 ---
@@ -121,13 +121,24 @@ ssh <publicIpAddress>
 
 ## Communicate between VMs
 
-To confirm private communication between the **myVM2** and **myVM1** VMs, enter this command:
+To confirm private communication between the **myVM2** and **myVM1** VMs, enter `ping myVM1 -c 4`.
+
+You'll receive a reply message like this:
 
 ```bash
-ping myVM1 -c 4
-```
 
-You'll receive four replies from *10.0.0.4*.
+azureuser@myVM2:~$ ping myVM1 -c 4
+PING myVM1.h0o2foz2r0tefncddcnfqm2lid.bx.internal.cloudapp.net (10.0.0.4) 56(84) bytes of data.
+64 bytes from myvm1.internal.cloudapp.net (10.0.0.4): icmp_seq=1 ttl=64 time=2.77 ms
+64 bytes from myvm1.internal.cloudapp.net (10.0.0.4): icmp_seq=2 ttl=64 time=1.95 ms
+64 bytes from myvm1.internal.cloudapp.net (10.0.0.4): icmp_seq=3 ttl=64 time=2.19 ms
+64 bytes from myvm1.internal.cloudapp.net (10.0.0.4): icmp_seq=4 ttl=64 time=1.85 ms
+
+--- myVM1.h0o2foz2r0tefncddcnfqm2lid.bx.internal.cloudapp.net ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3003ms
+rtt min/avg/max/mdev = 1.859/2.195/2.770/0.357 ms
+
+```
 
 Exit the SSH session with the **myVM2** VM.
 

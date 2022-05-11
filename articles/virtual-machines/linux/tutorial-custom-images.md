@@ -30,11 +30,11 @@ Custom images are like marketplace images, but you create them yourself. Custom 
 
 This tutorial uses the CLI within the [Azure Cloud Shell](../../cloud-shell/overview.md), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.4.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.35.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Overview
 
-an [Azure Compute Gallery](../shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
+An [Azure Compute Gallery](../shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
 
 The Azure Compute Gallery lets you share your custom VM images with others. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. 
 
@@ -60,7 +60,7 @@ A gallery is the primary resource used for enabling image sharing.
 
 Allowed characters for gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot contain dashes. Gallery names must be unique within your subscription. 
 
-Create an gallery using [az sig create](/cli/azure/sig#az-sig-create). The following example creates a resource group named gallery named *myGalleryRG* in *East US*, and a gallery named *myGallery*.
+Create a gallery using [az sig create](/cli/azure/sig#az-sig-create). The following example creates a resource group named gallery named *myGalleryRG* in *East US*, and a gallery named *myGallery*.
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location eastus
@@ -111,7 +111,7 @@ Copy the ID of the image definition from the output to use later.
 
 ## Create the image version
 
-Create an image version from the VM using [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create).  
+Create an image version from the VM using [az sig image-version create](/cli/azure/sig/image-version#az-sig-image-version-create).  
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
@@ -139,7 +139,7 @@ az sig image-version create \
  
 ## Create the VM
 
-Create the VM using [az vm create](/cli/azure/vm#az-vm-create) using the --specialized parameter to indicate the the image is a specialized image. 
+Create the VM using [az vm create](/cli/azure/vm#az-vm-create) using the --specialized parameter to indicate the image is a specialized image.
 
 Use the image definition ID for `--image` to create the VM from the latest version of the image that is available. You can also create the VM from a specific version by supplying the image version ID for `--image`. 
 
@@ -148,7 +148,7 @@ In this example, we are creating a VM from the latest version of the *myImageDef
 ```azurecli
 az group create --name myResourceGroup --location eastus
 az vm create --resource-group myResourceGroup \
-    --name myVM \
+    --name myVM2 \
     --image "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
     --specialized
 ```

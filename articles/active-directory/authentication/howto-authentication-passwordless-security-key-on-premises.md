@@ -33,7 +33,7 @@ An Azure AD Kerberos Server object is created in your on-premises Active Directo
    Azure AD generates a Kerberos TGT for the user's on-premises Active Directory domain. The TGT includes the user's SID only, and no authorization data.
 
 1. The TGT is returned to the client along with the user's Azure AD Primary Refresh Token (PRT).
-1. The client machine contacts an on-premises Azure AD DC and trades the partial TGT for a fully formed TGT.
+1. The client machine contacts an on-premises Active Directory Domain Controller and trades the partial TGT for a fully formed TGT.
 1. The client machine now has an Azure AD PRT and a full Active Directory TGT and can access both cloud and on-premises resources.
 
 ## Prerequisites
@@ -47,6 +47,8 @@ You must also meet the following system requirements:
 - Your Windows Server domain controllers must have patches installed for the following servers:
     - [Windows Server 2016](https://support.microsoft.com/help/4534307/windows-10-update-kb4534307)
     - [Windows Server 2019](https://support.microsoft.com/help/4534321/windows-10-update-kb4534321)
+
+- AES256_HMAC_SHA1 must be enabled when **Network security: Configure encryption types allowed for Kerberos** policy is [configured](/windows/security/threat-protection/security-policy-settings/network-security-configure-encryption-types-allowed-for-kerberos) on domain controllers.
 
 - Have the credentials required to complete the steps in the scenario:
     - An Active Directory user who is a member of the Domain Admins group for a domain and a member of the Enterprise Admins group for a forest. Referred to as **$domainCred**.
@@ -270,7 +272,7 @@ For information about compliant security keys, see [FIDO2 security keys](concept
 
 ### What can I do if I lose my security key?
 
-To retrieve a security key, sign in to the Azure portal, and then go to the **Security info** page.
+To delete an enrolled security key, sign in to the Azure portal, and then go to the **Security info** page.
 
 ### What can I do if I'm unable to use the FIDO security key immediately after I create a hybrid Azure AD-joined machine?
 

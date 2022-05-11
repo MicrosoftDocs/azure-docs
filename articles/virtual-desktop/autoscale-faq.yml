@@ -4,7 +4,7 @@ metadata:
   description: Frequently asked questions and best practices for Azure Virtual Desktop.
   author: Heidilohr
   ms.topic: faq
-  ms.date: 02/25/2022
+  ms.date: 04/14/2022
   ms.author: helohr 
   ms.custom: devx-track-azurepowershell
   manager: femila
@@ -84,3 +84,13 @@ sections:
          Why would I want to configure the load balancing algorithm differently during different phases of the scaling plan schedule?
         answer: |
          When you set up your scaling plan schedule, you can specify different load balancing algorithms for different phases of the day. For example, during the ramp-up and peak phases, you can use the breadth-first load balancing algorithm. This algorithm will ensure you have an even distribution of user sessions during the first two phases of the day, which will optimize performance. Likewise, during the ramp-down and off-peak phases, you can use the depth-first load balancing algorithm to help the autsocale feature consolidate user sessions until it reaches the minimal possible number of session hosts in the host pool.
+
+      - question: |
+         Can you use Azure CLI to configure the autoscale feature?
+        answer: |
+         No, currently the autoscale feature doesn't offer the option to configure settings with Azure CLI.
+
+      - question: |
+         Does the autoscale feature handle scaling session hosts in secondary regions if the session hosts in the primary region have an outage?
+        answer: |
+         No. Customers will need to set up their own disaster recovery strategy to manage outages. The autoscale feature only handles scaling existing VMs within the region they're created in.

@@ -6,7 +6,7 @@ description: Learn how to set up an indexer connection to Azure SQL Database  us
 author: gmndrg
 ms.author: gimondra
 manager: nitinme
-
+ms.custom: subject-rbac-steps
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/11/2022
@@ -29,7 +29,7 @@ Before learning more about this feature, it is recommended that you have an unde
 
 * Azure AD admin role on SQL:
 
-  To assign read permissions on the database, you must be an Azure AD admin with a server in SQL Database or SQL Managed Instance. See [Configure and manage Azure AD authentication with Azure SQL](../azure-sql/database/authentication-aad-configure.md) and follow the steps to provision an Azure AD admin.
+  To assign read permissions on the database, you must be an Azure AD admin with a server in SQL Database or SQL Managed Instance. See [Configure and manage Azure AD authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure) and follow the steps to provision an Azure AD admin.
 
 ## 1 - Assign permissions to read the database
 
@@ -66,21 +66,27 @@ DROP USER IF EXISTS [insert your search service name or user-assigned managed id
 
 ## 2 - Add a role assignment
 
-In this step you will give your Azure Cognitive Search service permission to read data from your SQL Server.
+In this section you'll give your Azure Cognitive Search service permission to read data from your SQL Server. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. In the Azure portal navigate to your Azure SQL Server page.
-2. Select **Access control (IAM)**
-3. Select **Add** then **Add role assignment**
+1. In the Azure portal, navigate to your Azure SQL Server page.
 
-    ![Add role assignment](./media/search-managed-identities/add-role-assignment-sql-server.png "Add role assignment")
+1. Select **Access control (IAM)**.
 
-4. Select the appropriate **Reader** role.
-5. Leave **Assign access to** as **Azure AD user, group or service principal**
-6. If you're using a system-assigned managed identity, search for your search service, then select it. If you're using a user-assigned managed identity, search for the name of the user-assigned managed identity, then select it. Select **Save**.
+1. Select **Add > Add role assignment**.
 
-    Example for Azure SQL using a system-assigned managed identity:
+   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
-    ![Add reader role assignment](./media/search-managed-identities/add-role-assignment-sql-server-reader-role.png "Add reader role assignment")
+1. On the **Role** tab, select the appropriate **Reader** role.
+
+1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
+
+1. Select your Azure subscription.
+
+1. If you're using a system-assigned managed identity, select **System-assigned managed identity**, search for your search service, and then select it.
+
+1. Otherwise, if you're using a user-assigned managed identity, select **User-assigned managed identity**, search for the name of the user-assigned managed identity, and then select it.
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 ## 3 - Create the data source
 

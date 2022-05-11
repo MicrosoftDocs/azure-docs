@@ -93,7 +93,7 @@ If you've been using the Azure Cloud Shell up to this point, switch to a local c
 
    Make sure that the command prompt is in the project folder before running the following command.
 
-   ```console
+   ```azurecli
    az spring-cloud app deploy -n planet-weather-provider --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider.dll --artifact-path ./publish-deploy-planet.zip
    ```
 
@@ -127,7 +127,7 @@ If you've been using the Azure Cloud Shell up to this point, switch to a local c
 
 1. Deploy to Azure.
 
-   ```console
+   ```azurecli
    az spring-cloud app deploy -n solar-system-weather --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.dll --artifact-path ./publish-deploy-solar.zip
    ```
 

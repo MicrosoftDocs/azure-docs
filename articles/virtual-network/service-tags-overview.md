@@ -4,13 +4,13 @@ titlesuffix: Azure Virtual Network
 description: Learn about service tags. Service tags help minimize the complexity of security rule creation.
 services: virtual-network
 documentationcenter: na
-author: allegradomel
+author: mbender-ms
 ms.service: virtual-network
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2021
-ms.author: kumud
+ms.author: mbender
 ms.reviewer: kumud
 ---
 
@@ -19,7 +19,8 @@ ms.reviewer: kumud
 
 A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules.
 
-You can use service tags to define network access controls on [network security groups](./network-security-groups-overview.md#security-rules), [Azure Firewall](../firewall/service-tags.md), and [user-defined routes](./virtual-networks-udr-overview.md#service-tags-for-user-defined-routes-preview). Use service tags in place of specific IP addresses when you create security rules and routes. By specifying the service tag name, such as **ApiManagement**, in the appropriate *source* or *destination* field of a security rule, you can allow or deny the traffic for the corresponding service. By specifying the service tag name in the address prefix of a route, you can route traffic intended for any of the prefixes encapsulated by the service tag to a desired next hop type. 
+You can use service tags to define network access controls on [network security groups](./network-security-groups-overview.md#security-rules), [Azure Firewall](../firewall/service-tags.md), and user-defined routes. Use service tags in place of specific IP addresses when you create security rules and routes. By specifying the service tag name, such as **ApiManagement**, in the appropriate *source* or *destination* field of a security rule, you can allow or deny the traffic for the corresponding service. By specifying the service tag name in the address prefix of a route, you can route traffic intended for any of the prefixes encapsulated by the service tag to a desired next hop type. 
+
 
 > [!NOTE] 
 > As of March 2022, using service tags in place of explicit address prefixes in [user defined routes](./virtual-networks-udr-overview.md#user-defined) is out of preview and generally available.
@@ -94,7 +95,6 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **EOPExternalPublishedIPs** | This tag represents the IP addresses used for Security & Compliance Center PowerShell. Refer to the [Connect to Security & Compliance Center PowerShell using the EXO V2 module for more details](/powershell/exchange/connect-to-scc-powershell). | Both | No | Yes |
 | **EventHub** | Azure Event Hubs. | Outbound | Yes | Yes |
 | **GatewayManager** | Management traffic for deployments dedicated to Azure VPN Gateway and Application Gateway. | Inbound | No | No |
-| **GenevaActions** | This is used for inbound security rules to allow the Geneva Actions service access to downstream service APIs. | Inbound | No | Yes |
 | **GuestAndHybridManagement** | Azure Automation and Guest Configuration. | Outbound | No | Yes |
 | **HDInsight** | Azure HDInsight. | Inbound | Yes | No |
 | **Internet** | The IP address space that's outside the virtual network and reachable by the public internet.<br/><br/>The address range includes the [Azure-owned public IP address space](https://www.microsoft.com/download/details.aspx?id=41653). | Both | No | No |
