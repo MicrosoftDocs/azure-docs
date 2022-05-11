@@ -106,15 +106,15 @@ After your AKS service has finished provisioning, return to the real-time infere
 
     |Advanced setting|Description|
     |---|---|
-    |Enable Application Insights diagnostics and data collection| Whether to enable Azure Application Insights to collect data from the deployed endpoints. </br> By default: false |
-    |Scoring timeout| A timeout in milliseconds to enforce for scoring calls to the web service.</br>By default: 60000|
-    |Auto scale enabled|   Whether to enable autoscaling for the web service.</br>By default: true|
-    |Min replicas| The minimum number of containers to use when autoscaling this web service.</br>By default: 1|
-    |Max replicas| The maximum number of containers to use when autoscaling this web service.</br> By default: 10|
-    |Target utilization|The target utilization (in percent out of 100) that the autoscaler should attempt to maintain for this web service.</br> By default: 70|
-    |Refresh period|How often (in seconds) the autoscaler attempts to scale this web service.</br> By default: 1|
-    |CPU reserve capacity|The number of CPU cores to allocate for this web service.</br> By default: 0.1|
-    |Memory reserve capacity|The amount of memory (in GB) to allocate for this web service.</br> By default: 0.5|
+    |Enable Application Insights diagnostics and data collection| Whether to enable Azure Application Insights to collect data from the deployed endpoints. </br> By default: false. |
+    |Scoring timeout| A timeout in milliseconds to enforce for scoring calls to the web service.</br>By default: 60000.|
+    |Auto scale enabled|   Whether to enable autoscaling for the web service.</br>By default: true.|
+    |Min replicas| The minimum number of containers to use when autoscaling this web service.</br>By default: 1.|
+    |Max replicas| The maximum number of containers to use when autoscaling this web service.</br> By default: 10.|
+    |Target utilization|The target utilization (in percent out of 100) that the autoscaler should attempt to maintain for this web service.</br> By default: 70.|
+    |Refresh period|How often (in seconds) the autoscaler attempts to scale this web service.</br> By default: 1.|
+    |CPU reserve capacity|The number of CPU cores to allocate for this web service.</br> By default: 0.1.|
+    |Memory reserve capacity|The amount of memory (in GB) to allocate for this web service.</br> By default: 0.5.|
 
 1. Select **Deploy**.
 
