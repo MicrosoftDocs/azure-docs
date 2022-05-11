@@ -176,7 +176,7 @@ For mounting a volume in a Windows container, specify the drive letter and path.
 ...
 ```
 
-## Run the Demo
+## Create the Storage Class
 
 You can run the following `deploy.sh` bash script to create the custom storage class, the persistent volume, and the pod that uses the persistent volume claim to create and mount a P30 managed disk as a volume.
 
