@@ -28,11 +28,11 @@ There are now connector-level settings for Defender for Servers in multi-cloud.
 
 The new connector-level settings provide granularity for pricing and auto-provisioning configuration per connector, independently of the subscription.
 
-All auto-provisioning components available in the connector level (Azure Arc, MDE, and vulnerability assessments) are enabled by default, and the new configuration supports both P1 and P2 pricing tiers.
+All auto-provisioning components available in the connector level (Azure Arc, MDE, and vulnerability assessments) are enabled by default, and the new configuration supports both [Plan 1 and Plan 2 pricing tiers](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans).
  
 Updates in the UI include a reflection of the selected pricing tier and the required components configured.
 
-:::image type="content" source="media/release-notes/main-page.jpg" alt-text="Screenshot of the main plan page with the Server plan multi-cloud settings.":::
+:::image type="content" source="media/release-notes/main-page.jpg" alt-text="Screenshot of the main plan page with the Server plan multi-cloud settings." lightbox="media/release-notes/main-page.jpg":::
 
 :::image type="content" source="media/release-notes/auto-provision.png" alt-text="Screenshot of the auto-provision page with the multi-cloud connector enabled.":::
 
