@@ -23,7 +23,7 @@ This article will introduce how to use the studio UI to build and debug machine 
 
 ### Drag and drop components to build pipeline
 
-In the designer homepage, you can select "New" to open a blank pipeline draft.
+In the designer homepage, you can select **New pipeline** to open a blank pipeline draft.
 
 In the asset library left of the canvas, there are **Data assets** and **Components** tabs, which contain components and data registered to the workspace. For what is component and how to create custom component, you can refer to the [component concept article](concept-component.md).
 
@@ -73,7 +73,7 @@ You can filter failed or completed nodes, and filter by only components or datas
 
 :::image type="content" source="./media/how-to-use-pipeline-ui/quick-filter.png" alt-text="Screenshot showing the quick filter by in outline > search." lightbox= "./media/how-to-use-pipeline-ui/quick-filter.png":::
 
-You can also sort the filter nodes.
+You can also sort the filtered nodes.
 
 :::image type="content" source="./media/how-to-use-pipeline-ui/sort.png" alt-text="Screenshot of sorting search result in outline > search." lightbox= "./media/how-to-use-pipeline-ui/sort.png":::
 

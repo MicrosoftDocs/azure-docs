@@ -38,7 +38,7 @@ In this article, you'll learn how to create and run [machine learning pipelines]
 
 ## Register component in your workspace
 
-To build pipeline using components in UI, you need to register components to your workspace first. You can use CLI or SDK to register components to your workspace, so that you can share and resue the component within the workspace. Registered components support automatic versioning so you can update the component but assure that pipelines that require an older version will continue to work.  
+To build pipeline using components in UI, you need to register components to your workspace first. You can use CLI or SDK to register components to your workspace, so that you can share and reuse the component within the workspace. Registered components support automatic versioning so you can update the component but assure that pipelines that require an older version will continue to work.  
 
 In the example below take using CLI for example. If you want to learn more about how to build a component, see [Create and run pipelines using components with  CLI](how-to-create-component-pipelines-cli.md).
 
@@ -58,16 +58,20 @@ In the example below take using CLI for example. If you want to learn more about
 
 ## Create pipeline using registered component
 
-1. Create a new pipeline in the designer. You can change the pipeline name.
+1. Create a new pipeline in the designer.
+
+        :::image type="content" source="./media/how-to-create-component-pipelines-ui/new-pipeline.png" alt-text="Screenshot showing creating new pipeline in designer homepage." lightbox ="./media/how-to-create-component-pipelines-ui/new-pipeline.png":::
 
 1. Set the default compute target of the pipeline. 
 
-    Next to the pipeline name, select the **Gear icon** ![Screenshot of the gear icon that is in the UI.](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) at the top of the canvas to open the **Settings** pane. Select the default compute target for your pipeline.
+    Select the **Gear icon** ![Screenshot of the gear icon that is in the UI.](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) at the top right of the canvas to open the **Settings** pane. Select the default compute target for your pipeline.
+
+    :::image type="content" source="./media/how-to-create-component-pipelines-ui/set-default-compute.png" alt-text="Screenshot showing setting default compute for the pipeline." lightbox ="./media/how-to-create-component-pipelines-ui/set-default-compute.png":::
 
     > [!Important]
     > Attached compute is not supported, use [compute instances or clusters](concept-compute-target.md#azure-machine-learning-compute-managed) instead.
 
-1. In asset library, you can see the components registered from previous section.
+1. In asset library, you can see **Data assets** and **Components** tabs. Switch to **Components** tab, you can see the components registered from previous section.
 
     :::image type="content" source="./media/how-to-create-component-pipelines-ui/asset-library.png" alt-text="Screenshot showing registered component in asset library." lightbox ="./media/how-to-create-component-pipelines-ui/asset-library.png":::
 
