@@ -974,7 +974,7 @@ There are some general system constraints that might affect your workload:
 
 | Property | Limitation |
 |---|---|
-| Max number of Synapse workspaces per subscription | 20 |
+| Max number of Synapse workspaces per subscription | 2 |
 | Max number of databases per serverless pool | 20 (not including databases synchronized from Apache Spark pool) |
 | Max number of databases synchronized from Apache Spark pool | Not limited |
 | Max number of databases objects per database | The sum of the number of all objects in a database cannot exceed 2,147,483,647 (see [limitations in SQL Server database engine](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects) ) |
