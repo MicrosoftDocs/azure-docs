@@ -247,7 +247,7 @@ To create the X.509 certificate:
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device_key.pem -out ./device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=my-x509-device"
+    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device-key.pem -out ./device-cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=my-x509-device"
     ```
 
     > [!IMPORTANT]
@@ -256,7 +256,7 @@ To create the X.509 certificate:
     # [Linux](#tab/linux)
 
     ```bash
-    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device_key.pem -out ./device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=my-x509-device"
+    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device-key.pem -out ./device-cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=my-x509-device"
     ```
 
     ---
@@ -265,7 +265,7 @@ To create the X.509 certificate:
 
 1. When asked **Verifying - Enter PEM pass phrase:**, use the pass phrase `1234` again.
 
-    A test certificate file (*device_cert.pem*) and private key file (*device_key.pem*) should now be generated in the directory where you ran the `openssl` command.
+    A test certificate file (*device-cert.pem*) and private key file (*device-key.pem*) should now be generated in the directory where you ran the `openssl` command.
 
     The certificate file has its subject common name (CN) set to `my-x509-device`. For an X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
 
@@ -274,13 +274,13 @@ To create the X.509 certificate:
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl x509 -in ./device_cert.pem -text -noout
+    winpty openssl x509 -in ./device-cert.pem -text -noout
     ```
 
     # [Linux](#tab/linux)
 
     ```bash
-    openssl x509 -in ./device_cert.pem -text -noout
+    openssl x509 -in ./device-cert.pem -text -noout
     ```
 
     ---
@@ -332,7 +332,7 @@ To create the X.509 certificate:
 
 ::: zone pivot="programming-language-csharp"
 
-The sample code is set up to use X.509 certificates that are stored within a password-protected PKCS12 formatted file (`certificate.pfx`). Additionally, you'll need a public key certificate file (`device_cert.pem`) to create an individual enrollment later in this quickstart.
+The sample code is set up to use X.509 certificates that are stored within a password-protected PKCS12 formatted file (`certificate.pfx`). Additionally, you'll need a public key certificate file (`device-cert.pem`) to create an individual enrollment later in this quickstart.
 
 1. On Windows, open a Git Bash prompt. On Linux, you can use a regular Bash prompt.\
 
@@ -347,7 +347,7 @@ The sample code is set up to use X.509 certificates that are stored within a pas
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device_key.pem -out ./device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=my-x509-device"
+    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device-key.pem -out ./device-cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=my-x509-device"
     ```
 
     > [!IMPORTANT]
@@ -356,7 +356,7 @@ The sample code is set up to use X.509 certificates that are stored within a pas
     # [Linux](#tab/linux)
 
     ```bash
-    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device_key.pem -out ./device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=my-x509-device"
+    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device-key.pem -out ./device-cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=my-x509-device"
     ```
 
     ---
@@ -365,7 +365,7 @@ The sample code is set up to use X.509 certificates that are stored within a pas
 
 1. When asked **Verifying - Enter PEM pass phrase:**, use the pass phrase `1234` again.
 
-    A test certificate file (*device_cert.pem*) and private key file (*device_key.pem*) should now be generated in the directory where you ran the `openssl` command.
+    A test certificate file (*device-cert.pem*) and private key file (*device-key.pem*) should now be generated in the directory where you ran the `openssl` command.
 
     The certificate file has its subject common name (CN) set to `my-x509-device`. For an X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
 
@@ -374,13 +374,13 @@ The sample code is set up to use X.509 certificates that are stored within a pas
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl x509 -in ./python-device_cert.pem -text -noout
+    winpty openssl x509 -in ./python-device-cert.pem -text -noout
     ```
 
     # [Linux](#tab/linux)
 
     ```bash
-    openssl x509 -in ./python-device_cert.pem -text -noout
+    openssl x509 -in ./python-device-cert.pem -text -noout
     ```
 
     ---
@@ -433,18 +433,18 @@ The sample code is set up to use X.509 certificates that are stored within a pas
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl pkcs12 -inkey device_key.pem -in device_cert.pem -export -out certificate.pfx
+    winpty openssl pkcs12 -inkey device-key.pem -in device-cert.pem -export -out certificate.pfx
     ```
 
     # [Linux](#tab/linux)
 
     ```bash
-    openssl pkcs12 -inkey device_key.pem -in device_cert.pem -export -out certificate.pfx
+    openssl pkcs12 -inkey device-key.pem -in device-cert.pem -export -out certificate.pfx
     ```
 
     ---
 
-1. When asked to **Enter pass phrase for device_key.pem:**, use the same pass phrase you did previously, `1234`.
+1. When asked to **Enter pass phrase for device-key.pem:**, use the same pass phrase you did previously, `1234`.
 
 1. When asked to **Enter Export Password:**, use the password `1234`.
 
@@ -469,7 +469,7 @@ The sample code is set up to use X.509 certificates that are stored within a pas
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device_key.pem -out ./device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=my-x509-device"
+    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device-key.pem -out ./device-cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=my-x509-device"
     ```
 
     > [!IMPORTANT]
@@ -478,7 +478,7 @@ The sample code is set up to use X.509 certificates that are stored within a pas
     # [Linux](#tab/linux)
 
     ```bash
-    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device_key.pem -out ./device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=my-x509-device"
+    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device-key.pem -out ./device-cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=my-x509-device"
     ```
 
     ---
@@ -487,7 +487,7 @@ The sample code is set up to use X.509 certificates that are stored within a pas
 
 1. When asked **Verifying - Enter PEM pass phrase:**, use the pass phrase `1234` again.
 
-    A test certificate file (*device_cert.pem*) and private key file (*device_key.pem*) should now be generated in the directory where you ran the `openssl` command.
+    A test certificate file (*device-cert.pem*) and private key file (*device-key.pem*) should now be generated in the directory where you ran the `openssl` command.
 
     The certificate file has its subject common name (CN) set to `my-x509-device`. For an X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
 
@@ -496,13 +496,13 @@ The sample code is set up to use X.509 certificates that are stored within a pas
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl x509 -in ./device_cert.pem -text -noout
+    winpty openssl x509 -in ./device-cert.pem -text -noout
     ```
 
     # [Linux](#tab/linux)
 
     ```bash
-    openssl x509 -in ./device_cert.pem -text -noout
+    openssl x509 -in ./device-cert.pem -text -noout
     ```
 
     ---
@@ -561,7 +561,7 @@ The sample code is set up to use X.509 certificates that are stored within a pas
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./python-device_key.pem -out ./python-device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=my-x509-device"
+    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./python-device-key.pem -out ./python-device-cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=my-x509-device"
     ```
 
     > [!IMPORTANT]
@@ -570,7 +570,7 @@ The sample code is set up to use X.509 certificates that are stored within a pas
     # [Linux](#tab/linux)
 
     ```bash
-    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./python-device_key.pem -out ./python-device_cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=my-x509-device"
+    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./python-device-key.pem -out ./python-device-cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=my-x509-device"
     ```
 
     ---
@@ -579,7 +579,7 @@ The sample code is set up to use X.509 certificates that are stored within a pas
 
 1. When asked **Verifying - Enter PEM pass phrase:**, use the pass phrase `1234` again.
 
-    A test certificate file (*python-device_cert.pem*) and private key file (*python-device_key.pem*) should now be generated in the directory where you ran the `openssl` command.
+    A test certificate file (*python-device-cert.pem*) and private key file (*python-device-key.pem*) should now be generated in the directory where you ran the `openssl` command.
 
     The certificate file has its subject common name (CN) set to `my-x509-device`. For an X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
 
@@ -588,13 +588,13 @@ The sample code is set up to use X.509 certificates that are stored within a pas
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl x509 -in ./python-device_cert.pem -text -noout
+    winpty openssl x509 -in ./python-device-cert.pem -text -noout
     ```
 
     # [Linux](#tab/linux)
 
     ```bash
-    openssl x509 -in ./python-device_cert.pem -text -noout
+    openssl x509 -in ./python-device-cert.pem -text -noout
     ```
 
     ---
@@ -646,30 +646,93 @@ The sample code is set up to use X.509 certificates that are stored within a pas
 
 ::: zone pivot="programming-language-java"
 
-1. Using the command prompt from previous steps, go to the `target` folder.
+1. On Windows, open a Git Bash prompt. On Linux, you can use a regular Bash prompt.
 
-2. Run the .jar file created in the previous section.
+1. Run the following command:
 
-    ```cmd/sh
-    cd target
-    java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
+    # [Windows](#tab/windows)
+
+    ```bash
+    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./python-device-key.pem -out ./python-device-cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=my-x509-device"
     ```
 
-3. Enter **N** for _Do you want to input common name_. This creates a certificate with a subject common name (CN) of _microsoftriotcore_.
+    > [!IMPORTANT]
+    > The extra forward slash given for the subject name (`//CN=my-x509-device`) is only required to escape the string with Git on Windows platforms.
 
-    For an X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
+    # [Linux](#tab/linux)
 
-4. Copy the output of `Client Cert` to the clipboard, starting from *-----BEGIN CERTIFICATE-----* through *-----END CERTIFICATE-----*.
+    ```bash
+    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./python-device-key.pem -out ./python-device-cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=my-x509-device"
+    ```
 
-   ![Individual certificate generator](./media/quick-create-simulated-device-x509/cert-generator-java.png)
+    ---
 
-5. Create a file named *_X509individual.pem_* on your Windows machine.
+1. When asked to **Enter PEM pass phrase:**, use the pass phrase `1234`.
 
-6. Open *_X509individual.pem_* in an editor of your choice, and copy the clipboard contents to this file.
+1. When asked **Verifying - Enter PEM pass phrase:**, use the pass phrase `1234` again.
 
-7. Save the file and close your editor.
+    A test certificate file (*python-device-cert.pem*) and private key file (*python-device-key.pem*) should now be generated in the directory where you ran the `openssl` command.
 
-8. In the command prompt, enter **N** for _Do you want to input Verification Code_ and keep the program output open for reference later in the quickstart. Copy the `Client Cert` and `Client Cert Private Key` values, for use in the next section.
+    The certificate file has its subject common name (CN) set to `my-x509-device`. For an X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
+
+1. To view the common name (CN) and other properties of the certificate file, enter the following command:
+
+    # [Windows](#tab/windows)
+
+    ```bash
+    winpty openssl x509 -in ./python-device-cert.pem -text -noout
+    ```
+
+    # [Linux](#tab/linux)
+
+    ```bash
+    openssl x509 -in ./python-device-cert.pem -text -noout
+    ```
+
+    ---
+
+    ```output
+    Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            77:3e:1d:e4:7e:c8:40:14:08:c6:09:75:50:9c:1a:35:6e:19:52:e2
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: CN = my-x509-device
+        Validity
+            Not Before: May  5 21:41:42 2022 GMT
+            Not After : Jun  4 21:41:42 2022 GMT
+        Subject: CN = my-x509-device
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (4096 bit)
+                Modulus:
+                    00:d2:94:37:d6:1b:f7:43:b4:21:c6:08:1a:d6:d7:
+                    e6:40:44:4e:4d:24:41:6c:3e:8c:b2:2c:b0:23:29:
+                    ...
+                    23:6e:58:76:45:18:03:dc:2e:9d:3f:ac:a3:5c:1f:
+                    9f:66:b0:05:d5:1c:fe:69:de:a9:09:13:28:c6:85:
+                    0e:cd:53
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints:
+                CA:FALSE
+            Netscape Comment:
+                OpenSSL Generated Certificate
+            X509v3 Subject Key Identifier:
+                63:C0:B5:93:BF:29:F8:57:F8:F9:26:44:70:6F:9B:A4:C7:E3:75:18
+            X509v3 Authority Key Identifier:
+                keyid:63:C0:B5:93:BF:29:F8:57:F8:F9:26:44:70:6F:9B:A4:C7:E3:75:18
+
+            X509v3 Extended Key Usage:
+                TLS Web Client Authentication
+    Signature Algorithm: sha256WithRSAEncryption
+         82:8a:98:f8:47:00:85:be:21:15:64:b9:22:b0:13:cc:9e:9a:
+         ed:f5:93:b9:4b:57:0f:79:85:9d:89:47:69:95:65:5e:b3:b1:
+         ...
+         cc:b2:20:9a:b7:f2:5e:6b:81:a1:04:93:e9:2b:92:62:e0:1c:
+         ac:d2:49:b9:36:d2:b0:21
+    ```
 
 ::: zone-end
 
@@ -697,7 +760,7 @@ This article demonstrates an individual enrollment for a single device to be pro
 6. In the **Add Enrollment** page, enter the following information.
 
     * **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
-    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *device_cert.pem* that you created in the previous section.
+    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *device-cert.pem* that you created in the previous section.
     * Leave **IoT Hub Device ID:** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, *my-x509-device*. This common name will also be the name used for the registration ID for the individual enrollment entry.
     * Optionally, you can provide the following information:
         * Select an IoT hub linked with your provisioning service.
@@ -712,7 +775,7 @@ This article demonstrates an individual enrollment for a single device to be pro
 6. In the **Add Enrollment** page, enter the following information.
 
     * **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
-    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *device_cert.pem* that you created in the previous section.
+    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *device-cert.pem* that you created in the previous section.
     * Leave **IoT Hub Device ID:** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, *my-x509-device*. This common name will also be the name used for the registration ID for the individual enrollment entry.
     * Optionally, you can provide the following information:
         * Select an IoT hub linked with your provisioning service.
@@ -727,7 +790,7 @@ This article demonstrates an individual enrollment for a single device to be pro
 6. In the **Add Enrollment** page, enter the following information.
 
     * **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
-    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *device_cert.pem* that you created in the previous section.
+    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *device-cert.pem* that you created in the previous section.
     * Optionally, you can provide the following information:
         * Select an IoT hub linked with your provisioning service.
         * Enter a unique device ID. Make sure to avoid sensitive data while naming your device.
@@ -741,7 +804,7 @@ This article demonstrates an individual enrollment for a single device to be pro
 6. In the **Add Enrollment** page, enter the following information.
 
     * **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
-    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *python-device_cert.pem* if you are using the test certificate created earlier.
+    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *python-device-cert.pem* if you are using the test certificate created earlier.
     * Optionally, you can provide the following information:
         * Select an IoT hub linked with your provisioning service.
         * Update the **Initial device twin state** with the desired initial configuration for the device.
@@ -973,7 +1036,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
     * Replace `provisioning host` with the **_Global Device Endpoint_** noted in **Step 1** above.
     * Replace `id scope` with the **_ID Scope_** noted in **Step 1** above.
     * Replace `registration id` with the **_Registration ID_** noted in the previous section.
-    * Replace `cert filename` and `key filename` with the files you generated previously, *device_cert.pem* and *device_key.pem*.
+    * Replace `cert filename` and `key filename` with the files you generated previously, *device-cert.pem* and *device-key.pem*.
 
 6. Save the file.
 
@@ -1025,8 +1088,8 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
 6. In the Git Bash prompt, set the environment variables for the certificate file, private key file, and pass phrase.
 
     ```bash
-    $export X509_CERT_FILE=./python-device_cert.pem
-    $export X509_KEY_FILE=./python-device_key.pem
+    $export X509_CERT_FILE=./python-device-cert.pem
+    $export X509_KEY_FILE=./python-device-key.pem
     $export PASS_PHRASE=1234
     ```
 
@@ -1118,6 +1181,48 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
     mvn clean install
     cd target
     java -jar ./provisioning-x509-sample-{version}-with-deps.jar
+    ```
+
+    The sample will connect, provision the device to a hub, and send some test messages to the IoT hub.
+
+    ```output
+    Starting...
+    Beginning setup.
+    WARNING: sun.reflect.Reflection.getCallerClass is not supported. This will impact performance.
+    2022-05-11 09:42:05,025 DEBUG (main) [com.microsoft.azure.sdk.iot.provisioning.device.ProvisioningDeviceClient] - Initialized a ProvisioningDeviceClient instance using SDK version 2.0.0
+    2022-05-11 09:42:05,027 DEBUG (main) [com.microsoft.azure.sdk.iot.provisioning.device.ProvisioningDeviceClient] - Starting provisioning thread...
+    Waiting for Provisioning Service to register
+    2022-05-11 09:42:05,030 INFO (global.azure-devices-provisioning.net-6255a8ba-CxnPendingConnectionId-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Opening the connection to device provisioning service...
+    2022-05-11 09:42:05,252 INFO (global.azure-devices-provisioning.net-6255a8ba-Cxn6255a8ba-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Connection to device provisioning service opened successfully, sending initial device registration message
+    2022-05-11 09:42:05,286 INFO (global.azure-devices-provisioning.net-6255a8ba-Cxn6255a8ba-azure-iot-sdk-RegisterTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.RegisterTask] - Authenticating with device provisioning service using x509 certificates
+    2022-05-11 09:42:06,083 INFO (global.azure-devices-provisioning.net-6255a8ba-Cxn6255a8ba-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Waiting for device provisioning service to provision this device...
+    2022-05-11 09:42:06,083 INFO (global.azure-devices-provisioning.net-6255a8ba-Cxn6255a8ba-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Current provisioning status: ASSIGNING
+    Waiting for Provisioning Service to register
+    2022-05-11 09:42:15,685 INFO (global.azure-devices-provisioning.net-6255a8ba-Cxn6255a8ba-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Device provisioning service assigned the device successfully
+    IotHUb Uri : MyExampleHub.azure-devices.net
+    Device ID : java-device-01
+    2022-05-11 09:42:25,057 INFO (main) [com.microsoft.azure.sdk.iot.device.transport.ExponentialBackoffWithJitter] - NOTE: A new instance of ExponentialBackoffWithJitter has been created with the following properties. Retry Count: 2147483647, Min Backoff Interval: 100, Max Backoff Interval: 10000, Max Time Between Retries: 100, Fast Retry Enabled: true
+    2022-05-11 09:42:25,080 INFO (main) [com.microsoft.azure.sdk.iot.device.transport.ExponentialBackoffWithJitter] - NOTE: A new instance of ExponentialBackoffWithJitter has been created with the following properties. Retry Count: 2147483647, Min Backoff Interval: 100, Max Backoff Interval: 10000, Max Time Between Retries: 100, Fast Retry Enabled: true
+    2022-05-11 09:42:25,087 DEBUG (main) [com.microsoft.azure.sdk.iot.device.DeviceClient] - Initialized a DeviceClient instance using SDK version 2.0.3
+    2022-05-11 09:42:25,129 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.MqttIotHubConnection] - Opening MQTT connection...
+    2022-05-11 09:42:25,150 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.Mqtt] - Sending MQTT CONNECT packet...
+    2022-05-11 09:42:25,982 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.Mqtt] - Sent MQTT CONNECT packet was acknowledged
+    2022-05-11 09:42:25,983 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.Mqtt] - Sending MQTT SUBSCRIBE packet for topic devices/java-device-01/messages/devicebound/#
+    2022-05-11 09:42:26,068 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.Mqtt] - Sent MQTT SUBSCRIBE packet for topic devices/java-device-01/messages/devicebound/# was acknowledged
+    2022-05-11 09:42:26,068 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.MqttIotHubConnection] - MQTT connection opened successfully
+    2022-05-11 09:42:26,070 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - The connection to the IoT Hub has been established
+    2022-05-11 09:42:26,071 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Updating transport status to new status CONNECTED with reason CONNECTION_OK
+    2022-05-11 09:42:26,071 DEBUG (main) [com.microsoft.azure.sdk.iot.device.DeviceIO] - Starting worker threads
+    2022-05-11 09:42:26,073 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Invoking connection status callbacks with new status details
+    2022-05-11 09:42:26,074 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Client connection opened successfully
+    2022-05-11 09:42:26,075 INFO (main) [com.microsoft.azure.sdk.iot.device.DeviceClient] - Device client opened successfully
+    Sending message from device to IoT Hub...
+    2022-05-11 09:42:26,077 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Message was queued to be sent later ( Message details: Correlation Id [54d9c6b5-3da9-49fe-9343-caa6864f9a02] Message Id [28069a3d-f6be-4274-a48b-1ee539524eeb] )
+    Press any key to exit...
+    2022-05-11 09:42:26,079 DEBUG (MyExampleHub.azure-devices.net-java-device-01-ee6c362d-Cxn7a1fb819-e46d-4658-9b03-ca50c88c0440-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Sending message ( Message details: Correlation Id [54d9c6b5-3da9-49fe-9343-caa6864f9a02] Message Id [28069a3d-f6be-4274-a48b-1ee539524eeb] )
+    2022-05-11 09:42:26,422 DEBUG (MQTT Call: java-device-01) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - IotHub message was acknowledged. Checking if there is record of sending this message ( Message details: Correlation Id [54d9c6b5-3da9-49fe-9343-caa6864f9a02] Message Id [28069a3d-f6be-4274-a48b-1ee539524eeb] )
+    2022-05-11 09:42:26,425 DEBUG (MyExampleHub.azure-devices.net-java-device-01-ee6c362d-Cxn7a1fb819-e46d-4658-9b03-ca50c88c0440-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Invoking the callback function for sent message, IoT Hub responded to message ( Message details: Correlation Id [54d9c6b5-3da9-49fe-9343-caa6864f9a02] Message Id [28069a3d-f6be-4274-a48b-1ee539524eeb] ) with status OK
+    Message sent!
     ```
 
 ::: zone-end
