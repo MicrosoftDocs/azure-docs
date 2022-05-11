@@ -13,11 +13,11 @@ ms.date: 05/12/2022
 
 Once your NGINX resource is created in the Azure portal, you might need to get information about it or change it. Here's list of ways to manage your NGINX resource.
 
-- [Identity](#configure-managed-identity)
-- [Configuration](#nginx-configuration)
-- [Certificates](#nginx-certificates)
-- [Monitoring](#nginx-monitoring)
-- [Delete accounts](#delete-nginx-accounts)
+- [Configure managed identity](#configure-managed-identity)
+- [Changing the configuration](#changing-the-configuration)
+- [Adding certificates](#adding-certificates)
+- [Send metrics to monitoring](#send-metrics-to-monitoring)
+- [Delete an NGINX deployment](#delete-an-nginx-deployment)
 - [GitHub integration](#github-integration)
 
 ## Configure managed identity
