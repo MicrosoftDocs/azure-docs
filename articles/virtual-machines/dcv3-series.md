@@ -3,7 +3,7 @@ title: DCsv3 and DCdsv3-series - Azure Virtual Machines
 description: Specifications for the DCsv3 and DCdsv3-series VMs.
 author: mmcrey
 ms.service: virtual-machines
-ms.subservice: vm-sizes-general
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 11/01/2021
 ms.author: mmcrey

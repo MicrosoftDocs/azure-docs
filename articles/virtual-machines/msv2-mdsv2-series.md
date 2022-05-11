@@ -3,7 +3,7 @@ title: Msv2/Mdsv2 Medium Memory Series - Azure Virtual Machines
 description: Specifications for the Msv2-series VMs.
 author: ayshakeen
 ms.service: virtual-machines
-ms.subservice: vm-sizes-memory
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
