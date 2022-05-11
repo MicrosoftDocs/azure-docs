@@ -1,6 +1,7 @@
 ---
 title: Monitoring Azure Video Indexer #Required; Must be "Monitoring *Azure Video Indexer* 
 description: Start here to learn how to monitor Azure Video Indexer #Required; 
+ms.topic: how-to
 author: itnorman #Required; your GitHub user alias, with correct capitalization.
 ms.author: itnorman #Required; Microsoft alias of author; optional team alias.
 ms.service: azure-video-indexer #Required; The service you are monitoring
