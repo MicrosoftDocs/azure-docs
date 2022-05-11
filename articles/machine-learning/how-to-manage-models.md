@@ -157,6 +157,8 @@ cloud_model = Model(
 ml_client.models.create_or_update(cloud_model)
 ```
 
+The examples use shorthand `azureml` scheme for pointing to a path on the `datastore` using syntax `azureml://datastores/${{datastore-name}}/paths/${{path_on_datastore}}`. 
+
 # [Job Output](#tab/use-job-output)
 
 __Use the mlflow run URI format__
