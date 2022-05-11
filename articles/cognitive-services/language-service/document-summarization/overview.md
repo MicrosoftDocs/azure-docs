@@ -16,10 +16,12 @@ ms.custom: language-service-summarization, ignite-fall-2021
 # What is document and conversation summarization (preview)?
 
 Document summarization is one of the features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Use this article to learn more about this feature, and how to use it in your applications. 
+
 # [Document summarization](#tab/document-summarization)
+
 This documentation contains the following article types:
 
-* [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
+* [**Quickstarts**](quickstart.md?pivots=rest-api&tabs=document-summarization) are getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
 
 Text summarization is a broad topic, consisting of several approaches to represent relevant information in text. The document summarization feature described in this documentation enables you to use extractive text summarization to produce a summary of a document. It extracts sentences that collectively represent the most important or relevant information within the original content. This feature is designed to shorten content that could be considered too long to read. For example, it can condense articles, papers, or documents to key sentences.
@@ -45,7 +47,7 @@ Document summarization supports the following features:
 
 This documentation contains the following article types:
 
-* [**Quickstarts**](../conversation-summarization/quickstart.md) are getting-started instructions to guide you through making requests to the service.
+* [**Quickstarts**](quickstart.md?pivots=rest-api&tabs=conversation-summarization) are getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](../conversation-summarization/how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
 
 Conversation summarization is a broad topic, consisting of several approaches to represent relevant information in text. The conversation summarization feature described in this documentation enables you to use abstractive text summarization to produce a summary of issues and resolutions in transcripts of web chats and service call transcripts between customer-service agents, and your customers. 

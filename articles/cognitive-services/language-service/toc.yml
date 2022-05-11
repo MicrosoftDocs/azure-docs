@@ -813,14 +813,10 @@ items:
   items:
   - name: Overview
     href: document-summarization/overview.md
-  - name: Document summarization quickstart
+  - name: Quickstart
     href: document-summarization/quickstart.md
-  - name: Conversation summarization quickstart
-    href: conversation-summarization/quickstart.md
-  - name: Document summarization language support
+  - name: Language support
     href: document-summarization/language-support.md
-  - name: Conversation summarization language support
-    href: conversation-summarization/language-support.md
   - name: Responsible use of AI
     items: 
     - name: Transparency note for text summarization
