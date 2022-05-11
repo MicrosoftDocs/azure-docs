@@ -389,5 +389,5 @@ Container Apps manages updates to your container app by creating [revisions](rev
 
 ## Next steps
 
-- [Monitor an app in Azure Container Apps Preview](monitor.md)
+- [Monitor an app in Azure Container Apps](monitor.md)
 - [Health probes in Azure Container Apps](health-probes.md)
