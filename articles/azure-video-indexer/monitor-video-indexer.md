@@ -81,7 +81,7 @@ The metrics and logs you can collect are discussed in the following sections.
 
 ## Analyzing metrics
 
-Curretnly Azure Video Indexer does not support monitoring of metrics. 
+Currently Azure Video Indexer does not support monitoring of metrics. 
 <!-- REQUIRED. Please keep headings in this order 
 If you don't support metrics, say so. Some services may be only onboarded to logs -->
 

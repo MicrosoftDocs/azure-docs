@@ -159,7 +159,7 @@ This section refers to all of the Azure Monitor Logs Kusto tables relevant to Az
 
 |Resource Type | Notes |
 |-------|-----|
-| [Azure Video Indexer](/azure/azure-monitor/reference/tables/tables-resourcetype#video-indexer) | |
+| [Azure Video Indexer](/azure/azure-monitor/reference/tables/tables-resourcetype<!-- /azure/azure-monitor/reference/tables/tables-resourcetype#video-indexer-->) | |
 
 <!----------------**OPTION 2 EXAMPLE** -------------
 
@@ -172,7 +172,7 @@ NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays 
 
 | Table |  Description | Additional information  |
 |:---------|:-------------|------------------|
-| [VIAudit](/azure/azure-monitor/reference/tables/viaudit)   | <!-- description copied from previous link --> Events produced using Azure Video Indexer [portal](https://aka.ms/VIportal) or [REST API](https://aka.ms/vi-dev-portal). |  |
+| [VIAudit](/azure/azure-monitor/reference/tables/tables-resourcetype<!-- /azure/azure-monitor/reference/tables/viaudit-->)   | <!-- description copied from previous link --> Events produced using Azure Video Indexer [portal](https://aka.ms/VIportal) or [REST API](https://aka.ms/vi-dev-portal). |  |
 <!--| [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics) | <!-- description copied from previous link --> 
 <!--Metric data emitted by Azure services that measure their health and performance.    | *TODO other important information about this type |
 |  etc.               |                              |                                                   |  
@@ -268,4 +268,4 @@ The following schemas are in use by Azure Video Indexer
 
 <!-- replace below with the proper link to your main monitoring service article -->
 - See [Monitoring Azure Azure Video Indexer](monitor-video-indexer.md) for a description of monitoring Azure Azure Video Indexer.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
