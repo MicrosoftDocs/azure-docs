@@ -14,7 +14,7 @@ ms.author: pafarley
 Get started with facial recognition using the Face REST API. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
 
 > [!NOTE]
-> This quickstart uses cURL commands to call the REST API. You can also call the REST API using a programming language. See the GitHub samples for examples in [C#](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Face/rest), [Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Face/rest), [Java](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/java/Face/rest), [JavaScript](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Face/rest), and [Go](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/go/Face/rest).
+> This quickstart uses cURL commands to call the REST API. You can also call the REST API using a programming language. Complex scenarios like face identification are easier to implement using a language SDK. See the GitHub samples for examples in [C#](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Face/rest), [Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Face/rest), [Java](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/java/Face/rest), [JavaScript](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Face/rest), and [Go](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/go/Face/rest).
 
 ## Prerequisites
 
@@ -28,9 +28,12 @@ Get started with facial recognition using the Face REST API. The Face service pr
 
 ## Identify faces
 
-1. detect faces
-1. add to persons
-1. 
+1. Detect faces for identification, save their ids, sort by the person label. 
+1. Detect the source face and save its ID.
+1. Create LargePersonGroup
+1. Create Person objects withing the LargePersonGroup. The persons you'll need can be called "Family1-Dad", "Family1-Mom", "Family1-Son", "Family1-Daughter", "Family2-Lady", and "Family2-Man".
+1. Add the face IDs to the corresponding person.
+1. Call the Identify API, using the source face ID and the LargePersonGroup ID.
 
 ## Clean up resources
 
