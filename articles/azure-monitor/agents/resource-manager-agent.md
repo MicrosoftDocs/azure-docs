@@ -24,9 +24,9 @@ The samples in this section install the Azure Monitor agent on Windows and Linux
 | <ul><li>[Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)</li><li>[Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator)</li></ul> | <ul><li>Virtual machines, virtual machine scale sets</li><li>Arc-enabled servers</li></ul> | To deploy agent extension |
 | Any role that includes the action *Microsoft.Resources/deployments/** | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing data collection rule</li></ul> | To deploy ARM templates |
 
-### Windows Azure virtual machine
+### Azure virtual machine
 
-The following sample installs the Azure Monitor agent on a Windows Azure virtual machine.
+The following sample installs the Azure Monitor agent on an Azure virtual machine.
 
 #### Template file
 
@@ -176,9 +176,9 @@ resource linuxAgent 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' = 
 }
 ```
 
-### Windows Azure Arc-enabled server
+### Azure Arc-enabled server
 
-The following sample installs the Azure Monitor agent on a Windows Azure Arc-enabled server.
+The following sample installs the Azure Monitor agent on an Azure Arc-enabled server.
 
 #### Template file
 
@@ -326,7 +326,7 @@ The samples in this section install the legacy Log Analytics agent on Windows an
 
 ###  Windows
 
-The following sample installs the Log Analytics agent on a Windows Azure virtual machine. This is done by enabling the [Log Analytics virtual machine extension for Windows](../../virtual-machines/extensions/oms-windows.md).
+The following sample installs the Log Analytics agent on an Azure virtual machine. This is done by enabling the [Log Analytics virtual machine extension for Windows](../../virtual-machines/extensions/oms-windows.md).
 
 #### Template file
 
@@ -602,7 +602,7 @@ The samples in this section install the diagnostic extension on Windows and Linu
 
 ### Windows
 
-The following sample enables and configures the diagnostic extension on a Windows Azure virtual machine. For details on the configuration, see [Windows diagnostics extension schema](./diagnostics-extension-schema-windows.md).
+The following sample enables and configures the diagnostic extension on an Azure virtual machine. For details on the configuration, see [Windows diagnostics extension schema](./diagnostics-extension-schema-windows.md).
 
 #### Template file
 
