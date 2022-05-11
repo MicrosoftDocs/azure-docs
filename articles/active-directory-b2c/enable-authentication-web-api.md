@@ -142,7 +142,7 @@ Open *Startup.cs* and then, at the beginning of the class, add the following `us
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Identity.Web;
 ```
-if targeting net 6.0, you will also need to peform two additional steps 
+If you're targeting .NET 6.0, you need to perform two additional steps:
 1. add an extra `using` declaration  to access `Configuration` properties 
 
 ```csharp
