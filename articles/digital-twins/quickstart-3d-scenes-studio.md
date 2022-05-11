@@ -248,11 +248,11 @@ Next, you'll create a *behavior* for the element. These behaviors allow you to c
         
         :::image type="content" source="media/quickstart-3d-scenes-studio/new-widget-gauge.png" alt-text="Screenshot of the New widget options in 3D Scenes Studio for the gauge widget." lightbox="media/quickstart-3d-scenes-studio/new-widget-gauge.png":::
         
-    1. Next, create a widget with a link to a live camera stream of the arm. 
+    1. Next, create a widget with a link to a live camera stream of the arm.
 
         1. Select **Add widget**. From the **Widget library**, select the **Link** widget and then **Add widget**.
 
-        1. In the **New widget** options, enter a **Label** of *Live arm camera*. For the **URL**, enter the example URL *contoso.aws.armstreams.com/${$dtid}*.
+        1. In the **New widget** options, enter a **Label** of *Live arm camera*. For the **URL**, you can use the example URL *contoso.aws.armstreams.com/${$dtid}*. (There's no live camera hosted at the URL for this sample, but the link represents where the video feed might be hosted in a real scenario.)
     
         1. Select **Create widget**.
     
