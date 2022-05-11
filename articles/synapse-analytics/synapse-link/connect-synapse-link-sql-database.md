@@ -15,12 +15,12 @@ ms.reviewer: sngun, wiassaf
 This article provides a step-by-step guide for getting started with Azure Synapse Link for Azure SQL Database. For more information, see [Synapse Link for Azure SQL Database (Preview)](sql-database-synapse-link.md). 
 
 > [!IMPORTANT]
-> Azure Synapse Link for Azure SQL Database is currently in PREVIEW.
+> Azure Synapse Link for SQL is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
-* [Create a new Synapse workspace](https://ms.portal.azure.com/#create/Microsoft.Synapse) to get Azure Synapse Link for Azure SQL Database. Ensure to check "Disable Managed virtual network" and "Allow connections from all IP address" when creating Synapse workspace.
+* [Create a new Synapse workspace](https://ms.portal.azure.com/#create/Microsoft.Synapse) to get Azure Synapse Link for SQL. Make sure to check "Disable Managed virtual network" and "Allow connections from all IP address" when creating Synapse workspace.
 
 * For DTU-based provisioning, make sure your Azure SQL Database service is at least Standard tier with a minimum of 100 DTUs. Free, Basic, or Standard tiers with fewer than 100 DTUs provisioned are not supported.
 
@@ -57,7 +57,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 ## Create your target Synapse SQL pool
 
-1. Launch [Synapse Studio](https://ms.web.azuresynapse.net/).
+1. Launch [Synapse Studio](https://web.azuresynapse.net/).
 
 1. Open the **Manage** hub, navigate to **SQL pools**, and select **+ New**.
 
@@ -108,7 +108,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
    > [!NOTE]
    > * Consider heap table for structure type when your data contains varchar(max), nvarchar(max), and varbinary(max).
-   > * Make sure the schema in your Synapse SQL pool has already been created before you start the link connection. Azure Synapse Link will help you to create tables automatically under your schema in Synapse SQL Pool.
+   > * Make sure the schema in your Synapse dedicated SQL pool has already been created before you start the link connection. Azure Synapse Link for SQL will create tables automatically under your schema in the Synapse dedicated SQL pool.
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/studio-edit-link.png" alt-text="Edit Azure Synapse Link connection from Synapse Studio.":::
 
@@ -135,13 +135,13 @@ You may monitor the status of your Azure Synapse Link connection, see which tabl
 
 ## Query replicated data
 
-Wait for a few minutes, then check the target database has the expected table and data. You can also now explore the replicated tables in your target Synapse SQL database.
+Wait for a few minutes, then check the target database has the expected table and data. You can also now explore the replicated tables in your target Synapse dedicated SQL pool.
 
 1. In the **Data** hub, under **Workspace**, open your target database, and within **Tables**, right-click one of your target tables.
 
 1. Choose **New SQL script**, then **Select TOP 100 rows**.
 
-1. Run this query to view the replicated data in your target Synapse SQL database.
+1. Run this query to view the replicated data in your target Synapse dedicated SQL pool.
 
 1. You can also query the target database with SSMS (or other tools). Use the dedicated SQL endpoint for your workspace as the server name. This is typically `<workspacename>.sql.azuresynapse.net`. Add `Database=databasename@poolname` as another connection string parameter when connecting via SSMS (or other tools).
 
@@ -162,7 +162,7 @@ You can add/remove tables on Synapse Studio as following:
 
 ## Stop the Azure Synapse Link connection
 
-You can stop the Azure Synapse Link connection on Synapse Studio as following:
+You can stop the Azure Synapse Link connection in Synapse Studio as follows:
 
 1. Open the **Integrate Hub** of your Synapse workspace.
 
