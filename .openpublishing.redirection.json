@@ -3277,7 +3277,7 @@
       "source_path_from_root": "/articles/app-service/scenario-secure-app-clean-up-resources.md",
       "redirect_url": "/azure/app-service/scenario-secure-app-access-storage#clean-up-resources",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/app-service/quickstart-nodejs-uiex.md",
       "redirect_url": "/azure/app-service/quickstart-nodejs",
@@ -18094,7 +18094,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/lab-services/classroom-labs/tutorial-setup-classroom-lab.md",      
+      "source_path_from_root": "/articles/lab-services/classroom-labs/tutorial-setup-classroom-lab.md",
       "redirect_url": "/azure/lab-services/tutorial-setup-classroom-lab",
       "redirect_document_id": true
     },
@@ -23375,7 +23375,7 @@
     },
     {
       "source_path_from_root": "/articles/app-service-web/sendgrid-dotnet-how-to-send-email.md",
-      "redirect_url": "/azure/sendgrid-dotnet-how-to-send-email",
+      "redirect_url": "https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-account",
       "redirect_document_id": false
     },
     {
@@ -38492,7 +38492,7 @@
       "source_path": "articles/aks/security-hardened-vm-host-image.md",
       "redirect_url": "/azure/aks/cis-ubuntu",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/alerts-metric-create-templates.md",
       "redirect_url": "/azure/azure-monitor/alerts/alerts-metric-create-templates",
