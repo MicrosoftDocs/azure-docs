@@ -45,7 +45,7 @@ Azure Machine Learning lets you automate hyperparameter tuning and run experimen
 Tune hyperparameters by exploring the range of values defined for each hyperparameter.
 
 Hyperparameters can be discrete or continuous, and has a distribution of values described by a
-[parameter expression](https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-job-sweep#parameter-expressions).
+[parameter expression](reference-yaml-job-sweep.md#parameter-expressions).
 
 ### Discrete hyperparameters
 
@@ -477,7 +477,7 @@ az ml job download --name <sweep-job> --output-name model
 ## References
 
 - [Hyperparameter tuning example](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/single-step/lightgbm/iris/src/main.py)
-- [CLI (v2) sweep job YAML schema here](https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-job-sweep#parameter-expressions)
+- [CLI (v2) sweep job YAML schema here](reference-yaml-job-sweep.md#parameter-expressions)
 
 ## Next steps
 * [Track an experiment](how-to-log-view-metrics.md)
