@@ -45,7 +45,7 @@ For a code first experience, see the following articles to use the [Azure Machin
 
 ## Create datastores
 
-You can create datastores from [these Azure storage solutions](how-to-access-data.md#supported-data-storage-service-types). **For unsupported storage solutions**, and to save data egress cost during ML experiments, you must [move your data](how-to-access-data.md#move) to a supported Azure storage solution. [Learn more about datastores](how-to-access-data.md). 
+You can create datastores from [these Azure storage solutions](how-to-access-data.md#supported-data-storage-service-types). **For unsupported storage solutions**, and to save data egress cost during ML experiments, you must [move your data](how-to-access-data.md#move-data-to-supported-azure-storage-solutions) to a supported Azure storage solution. [Learn more about datastores](how-to-access-data.md). 
 
 You can create datastores with credential-based access or identity-based access. 
 
@@ -89,10 +89,10 @@ The following example demonstrates what the form looks like when you create an *
 
 ## Create datasets
 
-After you create a datastore, create a dataset to interact with your data. Datasets package your data into a lazily evaluated consumable object for machine learning tasks, like training. [Learn more about datasets](how-to-create-register-datasets.md).
+After you create a datastore, create a dataset to interact with your data. Datasets package your data into a lazily evaluated consumable object for machine learning tasks, like training. [Learn more about datasets](./v1/how-to-create-register-datasets.md).
 
 There are two types of datasets, FileDataset and TabularDataset. 
-[FileDatasets](how-to-create-register-datasets.md#filedataset) create references to single or multiple files or public URLs. Whereas [TabularDatasets](how-to-create-register-datasets.md#tabulardataset) represent your data in a tabular format. You can create TabularDatasets from .csv, .tsv, .parquet, .jsonl files, and from SQL query results.
+[FileDatasets](./v1/how-to-create-register-datasets.md#filedataset) create references to single or multiple files or public URLs. Whereas [TabularDatasets](./v1/how-to-create-register-datasets.md#tabulardataset) represent your data in a tabular format. You can create TabularDatasets from .csv, .tsv, .parquet, .jsonl files, and from SQL query results.
 
 The following steps and animation show how to create a dataset in [Azure Machine Learning studio](https://ml.azure.com).
 
