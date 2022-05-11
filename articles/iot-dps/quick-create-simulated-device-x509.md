@@ -45,32 +45,17 @@ The following prerequisites are for a Windows development environment. For Linux
     dotnet --info
     ```
 
-* Make sure [OpenSSL](https://www.openssl.org/) is installed on your machine. On Windows, your installation of Git includes an installation of OpenSSL. You can access OpenSSL from the Git Bash command prompt. To verify that OpenSSL is installed, open a Git Bash command prompt and enter `openssl version`.
-
-  >[!NOTE]
-  > Unless you're familiar with OpenSSL and already have it installed on your Windows machine, we recommend using OpenSSL from the Git Bash prompt. Alternatively, you can choose to download the source code and build OpenSSL. To learn more, see the [OpenSSL Downloads](https://www.openssl.org/source/) page. Or, you can download OpenSSL pre-built from a third-party. To learn more, see the [OpenSSL wiki](https://wiki.openssl.org/index.php/Binaries). Microsoft makes no guarantees about the validity of packages downloaded from third-parties. If you do choose to build or download OpenSSL make sure that the OpenSSL binary is accessible in your path and that the `OPENSSL_CNF` environment variable is set to the path of your *openssl.cnf* file.
-
 ::: zone-end
 
 ::: zone pivot="programming-language-nodejs"
 
 * Install [Node.js v4.0 or above](https://nodejs.org) on your machine.
 
-* Make sure [OpenSSL](https://www.openssl.org/) is installed on your machine. On Windows, your installation of Git includes an installation of OpenSSL. You can access OpenSSL from the Git Bash command prompt. To verify that OpenSSL is installed, open a Git Bash command prompt and enter `openssl version`.
-
-  >[!NOTE]
-  > Unless you're familiar with OpenSSL and already have it installed on your Windows machine, we recommend using OpenSSL from the Git Bash prompt. Alternatively, you can choose to download the source code and build OpenSSL. To learn more, see the [OpenSSL Downloads](https://www.openssl.org/source/) page. Or, you can download OpenSSL pre-built from a third-party. To learn more, see the [OpenSSL wiki](https://wiki.openssl.org/index.php/Binaries). Microsoft makes no guarantees about the validity of packages downloaded from third-parties. If you do choose to build or download OpenSSL make sure that the OpenSSL binary is accessible in your path and that the `OPENSSL_CNF` environment variable is set to the path of your *openssl.cnf* file.
-
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
 * [Python 3.6 or later](https://www.python.org/downloads/) on your machine.
-
-* Make sure [OpenSSL](https://www.openssl.org/) is installed on your machine. On Windows, your installation of Git includes an installation of OpenSSL. You can access OpenSSL from the Git Bash command prompt. To verify that OpenSSL is installed, open a Git Bash command prompt and enter `openssl version`.
-
-  >[!NOTE]
-  > Unless you're familiar with OpenSSL and already have it installed on your Windows machine, we recommend using OpenSSL from the Git Bash prompt. Alternatively, you can choose to download the source code and build OpenSSL. To learn more, see the [OpenSSL Downloads](https://www.openssl.org/source/) page. Or, you can download OpenSSL pre-built from a third-party. To learn more, see the [OpenSSL wiki](https://wiki.openssl.org/index.php/Binaries). Microsoft makes no guarantees about the validity of packages downloaded from third-parties. If you do choose to build or download OpenSSL make sure that the OpenSSL binary is accessible in your path and that the `OPENSSL_CNF` environment variable is set to the path of your *openssl.cnf* file.
 
 ::: zone-end
 
@@ -81,6 +66,11 @@ The following prerequisites are for a Windows development environment. For Linux
 * Download and install [Maven](https://maven.apache.org/install.html).
 
 ::: zone-end
+
+* Make sure [OpenSSL](https://www.openssl.org/) is installed on your machine. On Windows, your installation of Git includes an installation of OpenSSL. You can access OpenSSL from the Git Bash command prompt. To verify that OpenSSL is installed, open a Git Bash command prompt and enter `openssl version`.
+
+  >[!NOTE]
+  > Unless you're familiar with OpenSSL and already have it installed on your Windows machine, we recommend using OpenSSL from the Git Bash prompt. Alternatively, you can choose to download the source code and build OpenSSL. To learn more, see the [OpenSSL Downloads](https://www.openssl.org/source/) page. Or, you can download OpenSSL pre-built from a third-party. To learn more, see the [OpenSSL wiki](https://wiki.openssl.org/index.php/Binaries). Microsoft makes no guarantees about the validity of packages downloaded from third-parties. If you do choose to build or download OpenSSL make sure that the OpenSSL binary is accessible in your path and that the `OPENSSL_CNF` environment variable is set to the path of your *openssl.cnf* file.
 
 ## Prepare your development environment
 
@@ -180,7 +170,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 ::: zone pivot="programming-language-java"
 
-1. Open a Git CMD or Git Bash command line environment.
+1. Open a Git Bash command line environment.
 
 2. Clone the [Azure IoT Samples for Java](https://github.com/Azure/azure-iot-sdk-java.git) GitHub repository using the following command:
 
@@ -355,13 +345,13 @@ The sample code is set up to use X.509 certificates that are stored within a pas
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl x509 -in ./python-device-cert.pem -text -noout
+    winpty openssl x509 -in ./device-cert.pem -text -noout
     ```
 
     # [Linux](#tab/linux)
 
     ```bash
-    openssl x509 -in ./python-device-cert.pem -text -noout
+    openssl x509 -in ./device-cert.pem -text -noout
     ```
 
     ---
@@ -542,7 +532,7 @@ The sample code is set up to use X.509 certificates that are stored within a pas
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./python-device-key.pem -out ./python-device-cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=my-x509-device"
+    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device-key.pem -out ./device-cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=my-x509-device"
     ```
 
     > [!IMPORTANT]
@@ -551,7 +541,7 @@ The sample code is set up to use X.509 certificates that are stored within a pas
     # [Linux](#tab/linux)
 
     ```bash
-    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./python-device-key.pem -out ./python-device-cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=my-x509-device"
+    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device-key.pem -out ./device-cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=my-x509-device"
     ```
 
     ---
@@ -560,7 +550,7 @@ The sample code is set up to use X.509 certificates that are stored within a pas
 
 1. When asked **Verifying - Enter PEM pass phrase:**, use the pass phrase `1234` again.
 
-    A test certificate file (*python-device-cert.pem*) and private key file (*python-device-key.pem*) should now be generated in the directory where you ran the `openssl` command.
+    A test certificate file (*device-cert.pem*) and private key file (*device-key.pem*) should now be generated in the directory where you ran the `openssl` command.
 
     The certificate file has its subject common name (CN) set to `my-x509-device`. For an X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
 
@@ -569,13 +559,13 @@ The sample code is set up to use X.509 certificates that are stored within a pas
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl x509 -in ./python-device-cert.pem -text -noout
+    winpty openssl x509 -in ./device-cert.pem -text -noout
     ```
 
     # [Linux](#tab/linux)
 
     ```bash
-    openssl x509 -in ./python-device-cert.pem -text -noout
+    openssl x509 -in ./device-cert.pem -text -noout
     ```
 
     ---
@@ -634,7 +624,7 @@ The sample code is set up to use X.509 certificates that are stored within a pas
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./python-device-key.pem -out ./python-device-cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=my-x509-device"
+    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device-key.pem -out ./device-cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=my-x509-device"
     ```
 
     > [!IMPORTANT]
@@ -643,7 +633,7 @@ The sample code is set up to use X.509 certificates that are stored within a pas
     # [Linux](#tab/linux)
 
     ```bash
-    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./python-device-key.pem -out ./python-device-cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=my-x509-device"
+    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device-key.pem -out ./device-cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=my-x509-device"
     ```
 
     ---
@@ -652,7 +642,7 @@ The sample code is set up to use X.509 certificates that are stored within a pas
 
 1. When asked **Verifying - Enter PEM pass phrase:**, use the pass phrase `1234` again.
 
-    A test certificate file (*python-device-cert.pem*) and private key file (*python-device-key.pem*) should now be generated in the directory where you ran the `openssl` command.
+    A test certificate file (*device-cert.pem*) and private key file (*device-key.pem*) should now be generated in the directory where you ran the `openssl` command.
 
     The certificate file has its subject common name (CN) set to `my-x509-device`. For an X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
 
@@ -661,13 +651,13 @@ The sample code is set up to use X.509 certificates that are stored within a pas
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl x509 -in ./python-device-cert.pem -text -noout
+    winpty openssl x509 -in ./device-cert.pem -text -noout
     ```
 
     # [Linux](#tab/linux)
 
     ```bash
-    openssl x509 -in ./python-device-cert.pem -text -noout
+    openssl x509 -in ./device-cert.pem -text -noout
     ```
 
     ---
@@ -785,7 +775,7 @@ This article demonstrates an individual enrollment for a single device to be pro
 6. In the **Add Enrollment** page, enter the following information.
 
     * **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
-    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *python-device-cert.pem* if you are using the test certificate created earlier.
+    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *device-cert.pem* if you are using the test certificate created earlier.
     * Optionally, you can provide the following information:
         * Select an IoT hub linked with your provisioning service.
         * Update the **Initial device twin state** with the desired initial configuration for the device.
@@ -798,7 +788,7 @@ This article demonstrates an individual enrollment for a single device to be pro
 
 6. In the **Add Enrollment** panel, enter the following information:
    * Select **X.509** as the identity attestation *Mechanism*.
-   * Under the *Primary certificate .pem or .cer file*, choose *Select a file* to select the certificate file *X509individual.pem* created in the previous steps.
+   * Under the *Primary certificate .pem or .cer file*, choose *Select a file* to select the certificate file *device-certpem* created in the previous steps.
    * Optionally, you may provide the following information:
      * Select an IoT hub linked with your provisioning service.
      * Enter a unique device ID. Make sure to avoid sensitive data while naming your device.
@@ -1069,8 +1059,8 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
 6. In the Git Bash prompt, set the environment variables for the certificate file, private key file, and pass phrase.
 
     ```bash
-    $export X509_CERT_FILE=./python-device-cert.pem
-    $export X509_KEY_FILE=./python-device-key.pem
+    $export X509_CERT_FILE=./device-cert.pem
+    $export X509_KEY_FILE=./device-key.pem
     $export PASS_PHRASE=1234
     ```
 
