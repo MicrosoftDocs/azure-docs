@@ -54,12 +54,11 @@ This article uses the Python SDK for Azure ML to create and control an Azure Mac
 
 This article is based on the `image_classification_keras_minist_convnet.ipynb` notebook found in the `sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet` directory of the [AzureML Examples](https://github.com/azure/azureml-examples) repository.
 
-
 ## Import required libraries
 
 Import all the Azure Machine Learning required libraries that you'll need for this article:
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=required-library)]
+[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=required-library)]
 
 ## Prepare input data for your pipeline job
 
@@ -69,7 +68,7 @@ Fashion-MNIST is a dataset of fashion images divided into 10 classes. Each image
 
 To define the input data of a job that references the Web-based data, run:
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=define-input)]
+[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=define-input)]
 
 By defining an `Input`, you create a reference to the data source location. The data remains in its existing location, so no extra storage cost is incurred.
 
@@ -223,18 +222,18 @@ For prep-data component and train-model component defined by python function, yo
 
 In the following code, you import `prepare_data_component()` and `keras_train_component()` function from the `prep_component.py` file under `prep` folder and `train_component` file under `train` folder respectively.
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=load-from-dsl-component)]
+[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=load-from-dsl-component)]
 
 For score component defined by yaml, you can use `load_component()` function to load.
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=load-from-yaml)]
+[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=load-from-yaml)]
 
 
 ## Build your pipeline
 
 Now that you've created and loaded all components and input data to build the pipeline. You can compose them into a pipeline:
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=build-pipeline)]
+[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=build-pipeline)]
 
 The pipeline has a default compute `cpu_compute_target`, which means if you don't specify compute for a specific node, that node will run on the default compute.
 
@@ -265,13 +264,13 @@ We'll use `DefaultAzureCredential` to get access to workspace. `DefaultAzureCred
 Reference for more available credentials if it doesn't work for you: [configure credential example](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb), [azure-identity reference doc](/python/api/azure-identity/azure.identity?view=azure-python&preserve-view=true ).
 
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=credential)]
+[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=credential)]
 
 #### Get a handle to a workspace with compute
 
 Create a `MLClient` object to manage Azure Machine Learning services.
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=workspace)]
+[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=workspace)]
 
 > [!IMPORTANT]
 > This code snippet expects the workspace configuration json file to be saved in the current directory or its parent. For more information on creating a workspace, see [Create and manage Azure Machine Learning workspaces](how-to-manage-workspace.md). For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md#workspace).
@@ -295,7 +294,7 @@ The call to `submit` the `Experiment` completes quickly, and produces output sim
 
 You can monitor the pipeline run by opening the link or you can block until it completes by running:
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=stream-pipeline)]
+[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=stream-pipeline)]
 
 > [!IMPORTANT]
 > The first pipeline run takes roughly *15 minutes*. All dependencies must be downloaded, a Docker image is created, and the Python environment is provisioned and created. Running the pipeline again takes significantly less time because those resources are reused instead of created. However, total run time for the pipeline depends on the workload of your scripts and the processes that are running in each pipeline step.
@@ -312,7 +311,7 @@ You can check the logs and outputs of each component by right clicking the compo
 
 In the previous section, you have built a pipeline using three components to E2E complete an image classification task. You can also register components to your workspace so that they can be shared and resued within the workspace. Following is an example to register prep-data component.
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=register-component)]
+[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=register-component)]
 
 Using `ml_client.components.get()`, you can get a registered component by name and version. Using `ml_client.compoennts.create_or_update()`, you can register a component previously loaded from python function or yaml.
 
