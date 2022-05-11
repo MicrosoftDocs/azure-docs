@@ -141,7 +141,7 @@ In Consumption logic apps, you can call APIs that run custom code or aren't avai
 
 * [Create custom API Apps](../logic-apps/logic-apps-create-api-app.md)
 
-* [Create custom connectors](../logic-apps/custom-connector-overview.md) for any REST or SOAP-based APIs.
+* [Create custom connectors](../logic-apps/custom-connector-overview.md) for REST or SOAP-based APIs [up to specific limits](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits).
 
   Custom connectors make these APIs available to any Consumption logic app in your Azure subscription. To make custom API Apps or connectors public for anyone to use in Azure, you can [submit connectors for Microsoft certification](/connectors/custom-connectors/submit-certification).
 

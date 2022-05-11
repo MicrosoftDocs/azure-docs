@@ -172,20 +172,30 @@ When you're done, review the following code map diagram that shows the implement
 
 ## Install your connector
 
-To add the NuGet reference from the previous section, in the extension bundle named **Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB**, update the **extensions.json** file. For more information, go to the Azure logicapps-connector-extensions repo, and review the PowerShell script named [**add-extension.ps1**](https://github.com/Azure/logicapps-connector-extensions/blob/main/src/Common/tools/add-extension.ps1).
+To add the NuGet reference from the previous section, in the extension bundle named **Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB**, update the **extensions.json** file. For more information, go to the **Azure/logicapps-connector-extensions** repo, and review the PowerShell script named [**add-extension.ps1**](https://github.com/Azure/logicapps-connector-extensions/blob/main/src/Common/tools/add-extension.ps1).
 
 1. Update the extension bundle to include the custom built-in connector.
 
-1. In Visual Studio Code, which should have the **Azure Logic Apps (Standard) for Visual Studio Code** extension installed, create a logic app project, and install the extension package using the following command:
+1. In Visual Studio Code, which should have the **Azure Logic Apps (Standard) for Visual Studio Code** extension installed, create a logic app project, and install the extension package using the following PowerShell command:
+
+   **PowerShell**
 
    ```powershell
    dotnet add package "Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB" --version 1.0.0  --source $extensionPath
    ```
 
-   Alternatively, in your logic app project's directory, run the PowerShell script named [**add-extension.ps1**](https://github.com/Azure/logicapps-connector-extensions/blob/main/src/Common/tools/add-extension.ps1):
+   Alternatively, from your logic app project's directory using a PowerShell prompt, run the PowerShell script named [**add-extension.ps1**](https://github.com/Azure/logicapps-connector-extensions/blob/main/src/Common/tools/add-extension.ps1):
+
+   ```powershell
+   .\add-extension.ps1 {Cosmos-DB-output-bin-NuGet-folder-path} CosmosDB
+   ```
+
+   **Bash**
+
+   To use Bash instead, from your logic app project's directory, run the PowerShell script with the following command:
 
    ```bash
-   .\add-extension.ps1 {Cosmos-DB-output-bin-NuGet-folder-path} CosmosDB
+   powershell -file add-extension.ps1 {Cosmos-DB-output-bin-NuGet-folder-path} CosmosDB
    ```
 
    If the extension for your custom built-in connector was successfully installed, you get output that looks similar to the following example:

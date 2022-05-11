@@ -31,7 +31,9 @@ This article provides a general overview about built-in connectors in Consumptio
 
 ## Custom built-in connectors
 
-For Standard logic apps, if a built-connector isn't available for your scenario, you can create your own built-in connector. Some built-in connectors available for Standard logic apps, such as SQL Server, Service Bus, Blob Storage, and Event Hubs, and Blob Storage, use a [*service provider interface implementation*](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation), which is based on the Azure Functions extensibility model. This implementation provides the capability for you to create custom built-in connectors that anyone can use in Standard logic apps. For more information, review the following documentation:
+For Standard logic apps, if a built-connector isn't available for your scenario, you can create your own built-in connector. You can use the same [*service provider interface implementation*](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation) that's used by service provider-based built-in connectors, such as SQL Server, Service Bus, Blob Storage, Event Hubs, and Blob Storage. This interface implementation is based on the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and provides the capability for you to create custom built-in connectors that anyone can use in Standard logic apps.
+
+For more information, review the following documentation:
 
 * [Custom connectors for Standard logic apps](../logic-apps/custom-connector-overview.md#custom-connector-standard)
 * [Create custom built-in connectors for Standard logic apps](../logic-apps/create-custom-built-in-connector-standard.md)

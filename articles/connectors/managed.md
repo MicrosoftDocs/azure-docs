@@ -20,11 +20,11 @@ This article provides a general overview about managed connectors and how they'r
 
 ## Managed connector categories
 
-In a *Standard* logic app, all managed connectors are organized as **Azure** connectors. However, in a *Consumption* logic app, managed connectors are organized as **Standard** or **Enterprise**, based on pricing level.
+In a *Standard* logic app, all managed connectors are organized into the **Azure** group. However, in a *Consumption* logic app, managed connectors are either in the **Standard** group or **Enterprise** group. However, pricing for managed connectors works the same in both Standard and Consumption logic apps. For more information, review [Trigger and action operations in the Consumption model](../logic-apps/logic-apps-pricing.md#consumption-operations) and [Trigger and action operations in the Standard model](../logic-apps/logic-apps-pricing.md#standard-operations).
 
 * [Standard connectors](#standard-connectors) provide access to services such as Azure Blob Storage, Office 365, SharePoint, Salesforce, Power BI, OneDrive, and many more.
 
-* [Enterprise connectors](#enterprise-connectors) provide access to enterprise systems, such as SAP, IBM MQ, and IBM 3270.
+* [Enterprise connectors](#enterprise-connectors) provide access to enterprise systems, such as SAP, IBM MQ, and IBM 3270 for an additional cost.
 
 Some managed connectors also belong to the following informal groups:
 
@@ -36,9 +36,9 @@ Some managed connectors also belong to the following informal groups:
 
 <a name="standard-connectors"></a>
 
-## Standard-level connectors
+## Standard connectors
 
-For a *Consumption* logic app, this section lists only *some* of the popular Standard-level connectors. In a *Standard* logic app, all managed connectors are organized as **Azure** connectors.
+For a *Consumption* logic app, this section lists *some* of the popular connectors in the **Standard** group. In a *Standard* logic app, all managed connectors are in the **Azure** group, but pricing works the same as Consumption logic apps. For more information, review [Trigger and action operations in the Standard model](../logic-apps/logic-apps-pricing.md#standard-operations).
 
 :::row:::
     :::column:::
@@ -157,9 +157,9 @@ For a *Consumption* logic app, this section lists only *some* of the popular Sta
 
 <a name="enterprise-connectors"></a>
 
-## Enterprise-level connectors
+## Enterprise connectors
 
-For a *Consumption* logic app, this section lists connectors that can access enterprise systems for an additional cost. In a *Standard* logic app, all managed connectors are organized as **Azure** connectors.
+For a *Consumption* logic app, this section lists connectors in the **Enterprise** group, which can access enterprise systems for an additional cost. In a *Standard* logic app, all managed connectors are in the **Azure** group, but pricing is the same as for Consumption logic apps. For more information, review [Trigger and action operations in the Standard model](../logic-apps/logic-apps-pricing.md#standard-operations).
 
 :::row:::
     :::column:::
