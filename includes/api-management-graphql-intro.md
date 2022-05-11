@@ -10,9 +10,9 @@ ms.custom:
 GraphQL is an open-source, industry-standard query language for APIs. Unlike endpoint-based (or REST-style) APIs designed around actions over resources, GraphQL APIs support a broader set of use cases and focus on data types, schemas, and queries.
 
 Using API Management to expose your GraphQL APIs, you can:
-* Add a GraphQL schema or GraphQL endpoint as an API via the Azure portal, the Azure CLI, and other Azure tools
+* Add a GraphQL schema or GraphQL endpoint as an API via the Azure portal, the Azure CLI, or other Azure tools
 * Secure GraphQL APIs by applying both existing access control policies and a [GraphQL validation policy](../articles/api-management/graphql-policies.md#validate-graphql-request) to secure and protect against GraphQL-specific attacks.
-* Set up [HTTP resolvers](../articles/api-management/graphql-policies.md#validate-graphql-request#set-graphql-resolver) (preview) for fields defined in a GraphQL schema.   
+* Set up [HTTP resolvers](../articles/api-management/graphql-policies.md#set-graphql-resolver) (preview) for fields defined in a GraphQL schema.   
 * Explore the schema and run test queries against the GraphQL APIs in the Azure and developer portals.
 
 > [!NOTE]
