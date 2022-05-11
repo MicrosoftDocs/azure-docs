@@ -240,7 +240,7 @@ docker build -t $ACR_NAME.azurecr.io/$API_NAME .
 
 ---
 
-### Push the Docker image to your ACR registry
+### Push the image to your ACR registry
 
 First, sign in to your Azure Container Registry.
 
