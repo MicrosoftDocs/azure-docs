@@ -8,7 +8,7 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
-ms.author: jushiman
+ms.author: sasham
 
 ---
 
