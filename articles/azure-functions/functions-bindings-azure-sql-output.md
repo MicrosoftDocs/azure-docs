@@ -49,7 +49,15 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 
 ### HTTP trigger, write to two tables
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that adds records to a database in two different tables (`dbo.ToDo` and `dbo.RequestLog`), using data provided in an  HTTP POST request as a JSON body and multiple output bindings.
+The following example shows a [C# function](functions-dotnet-class-library.md) that adds records to a database in two different tables (`dbo.ToDo` and `dbo.RequestLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.
+
+```sql
+CREATE TABLE dbo.RequestLog (
+    Id int identity(1,1) primary key,
+    RequestTimeStamp datetime2 not null,
+    ItemCount int not null
+)
+```
 
 
 ```cs
@@ -213,7 +221,7 @@ Here's the JavaScript code:
 
 ```javascript
 module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
+    context.log('JavaScript HTTP trigger and SQL output binding function processed a request.');
     context.log(req.body);
 
     if (req.body) {
@@ -236,6 +244,16 @@ module.exports = async function (context, req) {
 ### HTTP trigger, write to two tables
 
 The following example shows a SQL input binding in a function.json file and a JavaScript function that adds records to a database in two different tables (`dbo.ToDo` and `dbo.RequestLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.
+
+The second table, `dbo.RequestLog`, corresponds to the following definition:
+
+```sql
+CREATE TABLE dbo.RequestLog (
+    Id int identity(1,1) primary key,
+    RequestTimeStamp datetime2 not null,
+    ItemCount int not null
+)
+```
 
 Here's the binding data in the function.json file:
 
@@ -276,7 +294,7 @@ Here's the JavaScript code:
 
 ```javascript
 module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
+    context.log('JavaScript HTTP trigger and SQL output binding function processed a request.');
     context.log(req.body);
 
     const newLog = {
@@ -358,7 +376,7 @@ import azure.functions as func
 
 
 def main(req: func.HttpRequest, todoItems: func.Out[func.SqlRow]) -> func.HttpResponse:
-    logging.info('Python HTTP trigger function processed a request.')
+    logging.info('Python HTTP trigger and SQL output binding function processed a request.')
 
     try:
         req_body = req.get_json()
@@ -384,6 +402,16 @@ def main(req: func.HttpRequest, todoItems: func.Out[func.SqlRow]) -> func.HttpRe
 ### HTTP trigger, write to two tables
 
 The following example shows a SQL input binding in a function.json file and a Python function that adds records to a database in two different tables (`dbo.ToDo` and `dbo.RequestLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.
+
+The second table, `dbo.RequestLog`, corresponds to the following definition:
+
+```sql
+CREATE TABLE dbo.RequestLog (
+    Id int identity(1,1) primary key,
+    RequestTimeStamp datetime2 not null,
+    ItemCount int not null
+)
+```
 
 Here's the binding data in the function.json file:
 
@@ -429,7 +457,7 @@ import azure.functions as func
 
 
 def main(req: func.HttpRequest, todoItems: func.Out[func.SqlRow], requestLog: func.Out[func.SqlRow]) -> func.HttpResponse:
-    logging.info('Python HTTP trigger function processed a request.')
+    logging.info('Python HTTP trigger and SQL output binding function processed a request.')
 
     try:
         req_body = req.get_json()
@@ -477,7 +505,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the [Sql](https:
 | Attribute property |Description|
 |---------|---------|
 | **CommandText** | Required. The name of the table being written to by the binding.  |
-| **ConnectionStringSetting** | The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable. | 
+| **ConnectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable. | 
 
 
 ::: zone-end  
@@ -502,11 +530,11 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Description|
 |---------|----------------------|
-|**type** |  Must be set to `sql`.|
-|**direction** |  Must be set to `out`. |
-|**name** |  The name of the variable that represents the entity in function code. | 
+|**type** | Required. Must be set to `sql`.|
+|**direction** | Required. Must be set to `out`. |
+|**name** | Required. The name of the variable that represents the entity in function code. | 
 | **commandText** | Required. The name of the table being written to by the binding.  |
-| **connectionStringSetting** | The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable.| 
+| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable.| 
 
 ::: zone-end  
 
