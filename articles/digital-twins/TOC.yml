@@ -197,7 +197,7 @@
           href: reference-query-clause-select.md
         - name: FROM
           href: reference-query-clause-from.md
-        - name: MATCH (preview)
+        - name: MATCH
           href: reference-query-clause-match.md
         - name: JOIN
           href: reference-query-clause-join.md
