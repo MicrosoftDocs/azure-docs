@@ -36,8 +36,6 @@ When creating a publicly facing client application with Azure Maps using any of 
 
 Subscription key-based authentication (Shared Key) can be used in either client side applications or web services, however it is the least secure approach to securing your application or web service. This is because the key grants access to all Azure Maps REST API that are available in the SKU selected when creating the Azure Maps account and the key can be easily obtained from an HTTP request. If you do use subscription keys, be sure to [rotate them regularly](how-to-manage-authentication.md#manage-and-rotate-shared-keys) and keep in mind that Shared Key doesn't allow for configurable lifetime, it must be done manually. You should also consider using [Shared Key authentication with Azure Key Vault](how-to-secure-daemon-app.md#scenario-shared-key-authentication-with-azure-key-vault), which enables you to securely store your secret in Azure.
 
-### Publicly facing client applications that works with Azure Maps
-
 If using [Azure Active Directory (Azure AD) authentication](/azure/active-directory/fundamentals/active-directory-whatis) or [Shared Access Signature (SAS) Token authentication](azure-maps-authentication.md#shared-access-signature-token-authentication) (preview), access to Azure Maps REST APIs is authorized using [role-based access control (RBAC)](azure-maps-authentication.md#authorization-with-role-based-access-control). RBAC enables you to control what access is given to the issued tokens. You should consider how long access should be granted for the tokens. Unlike Shared Key authentication, the lifetime of these tokens is configurable.
 
 > [!TIP]
@@ -46,16 +44,16 @@ If using [Azure Active Directory (Azure AD) authentication](/azure/active-direct
 > - [Configurable token lifetimes in the Microsoft identity platform (preview)](/azure/active-directory/develop/active-directory-configurable-token-lifetimes)
 > - [Create SAS tokens](azure-maps-authentication.md#create-sas-tokens)
 
+### Publicly facing client applications
+
 You should consider defining which domains have access to your Azure Map account using [Cross origin resource sharing (CORS)](azure-maps-authentication.md#cross-origin-resource-sharing-cors). CORS instructs the clients' browser on which origin such as "https://microsoft.com" is allowed to request resources for the Azure Map account.
-
-### When building a web server or service that works with Azure Maps
-
-If you prefer to avoid the overhead and complexity of managing secrets, consider [Managed Identities](/azure/active-directory/managed-identities-azure-resources/overview). Managed identities can provide an identity for your web service to use when connecting to Azure Maps using Azure Active Directory (Azure AD) authentication. In this case, your web service will use that identity to obtain the required Azure AD tokens. You should use Azure RBAC to configure what access the web service is given, using the [Least privileged roles](/azure/active-directory/roles/delegate-by-task) possible.
-
-If using [Azure Active Directory (Azure AD) authentication](/azure/active-directory/fundamentals/active-directory-whatis) or [Shared Access Signature (SAS) Token authentication](azure-maps-authentication.md#shared-access-signature-token-authentication) (preview), access to Azure Maps REST API is authorized using [role-based access control (RBAC)](azure-maps-authentication.md#authorization-with-role-based-access-control). RBAC enables you to control what access is given to the issued tokens. You should consider how long access should be granted for the tokens. Unlike Shared Key authentication, the lifetime of these tokens is configurable.
 
 > [!NOTE]
 > If you're developing a web server or service, your Azure Maps account does not need to be configured with CORS. If you have JavaScript code in the client side web application, CORS does apply.
+
+### Web server or service
+
+If you prefer to avoid the overhead and complexity of managing secrets, consider [Managed Identities](/azure/active-directory/managed-identities-azure-resources/overview). Managed identities can provide an identity for your web service to use when connecting to Azure Maps using Azure Active Directory (Azure AD) authentication. In this case, your web service will use that identity to obtain the required Azure AD tokens. You should use Azure RBAC to configure what access the web service is given, using the [Least privileged roles](/azure/active-directory/roles/delegate-by-task) possible.
 
 ## Next steps
 
