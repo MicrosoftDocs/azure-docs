@@ -23,8 +23,7 @@ ms.custom: devx-track-python, automl
 >[!IMPORTANT]
 > The features presented in this article are in preview. They should be considered [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview features that might change at any time.
 
-In this tutorial, you learn how to train an object detection model using Azure Machine Learning automated ML with the, [Azure Machine Learning CLI extension (v2)]()
-[Azure Machine Learning Python SDK v2 (preview)](/python/api/overview/azure/ml/).
+In this tutorial, you learn how to train an object detection model using Azure Machine Learning automated ML with the Azure Machine Learning CLI extension v2 or the Azure Machine Learning Python SDK v2 (preview).
 This object detection model identifies whether the image contains objects, such as a can, carton, milk bottle, or water bottle.
 
 Automated ML accepts training data and configuration settings, and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model.
@@ -61,8 +60,16 @@ This tutorial is also available in the [azureml-examples repository on GitHub](h
 
 This tutorial is also available in the [azureml-examples repository on GitHub](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items). If you wish to run it in your own local environment, setup using the following instructions
 
-* [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
-    
+* Use the following commands to install Azure ML Python SDK v2:
+   * Uninstall previous preview version:
+   ```python
+   pip uninstall azure-ml
+   ```
+   * Install the Azure ML Python SDK v2:
+   ```python
+   pip install azure-ml
+   ```
+
     > [!NOTE]
     > Only Python 3.6 and 3.7 are compatible with automated ML support for computer vision tasks. 
 
@@ -99,7 +106,9 @@ az ml compute create -f [PATH_TO_YML_FILE] --workspace-name [YOUR_AZURE_WORKSPAC
 
 The created compute can be provided using `compute` key in the `automl` task configuration yaml: 
 
-:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml" id="compute_settings":::
+```yaml
+compute: azureml:gpu-cluster
+```
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
@@ -128,7 +137,9 @@ You can use an Experiment to track your model training runs.
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 Experiment name can be provided using `experiment_name` key as follows: 
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml" id="experiment_name":::
+```yaml
+experiment_name: dpv2-cli-automl-image-object-detection-experiment
+```
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 Experiment name is used later while creating the task specific `automl` job.
@@ -221,8 +232,26 @@ In order to use the data for training, upload data to default Blob Storage of yo
 - Easy to share with other members of the team
 - Versioning of the metadata (location, description, etc)
 - Lineage tracking
+
 # [CLI v2](#tab/CLI-v2)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+Create a .yml file with the following configuration.
+
+```yml
+$schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
+name: fridge-items-images-object-detection
+description: Fridge-items images Object detection
+path: ./data/odFridgeObjects
+type: uri_folder
+```
+
+To upload the images as a data asset, you run the following CLI v2 command with the path to your .yml file, workspace name, resource group and subscription ID.
+
+```azurecli
+az ml data create -f [PATH_TO_YML_FILE] --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
+```
+
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 [!Notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=upload-data)]
 
@@ -237,7 +266,15 @@ Next step is to create `MLTable` from your data in jsonl format as shown below. 
 
 The following configuration creates training and validation data from the MLTable.
 
-:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml" id="mltable_settings":::
+```yaml
+target_column_name: label
+training_data:
+  path: data/training-mltable-folder
+  type: mltable
+validation_data:
+  path: data/validation-mltable-folder
+  type: mltable
+```
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
@@ -254,7 +291,10 @@ To configure automated ML runs for image-related tasks, create a task specific A
 # [CLI v2](#tab/CLI-v2)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml" id="task_settings":::
+```yaml
+task: image_object_detection
+primary_metric: mean_average_precision
+```
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
@@ -280,9 +320,29 @@ The Bandit early termination policy is also used. This policy terminates poor pe
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml" id="sweep_settings":::
+```yaml
+sweep:
+  limits:
+    max_trials: 10
+    max_concurrent_trials: 2
+  sampling_algorithm: random
+  early_termination:
+    type: bandit
+    evaluation_interval: 2
+    slack_factor: 0.2
+    delay_evaluation: 6
+```
 
-:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml" id="search_space_settings":::
+```yaml
+search_space:
+  - model_name: "yolov5"
+    learning_rate: "uniform(0.0001, 0.01)"
+    model_size: "choice('small', 'medium')"
+  - model_name: "fasterrcnn_resnet50_fpn"
+    learning_rate: "uniform(0.0001, 0.001)"
+    optimizer: "choice('sgd', 'adam', 'adamw')"
+    min_size: "choice(600, 800)"
+```
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
@@ -312,19 +372,15 @@ When you've configured your AutoML Job to the desired settings, you can submit t
 
 ---
 
-When doing a hyperparameter sweep, it can be useful to visualize the different configurations that were tried using the HyperDrive UI. You can navigate to this UI by going to the 'Child runs' tab in the UI of the main automl_image_run from above, which is the HyperDrive parent run. Then you can go into the 'Child runs' tab of this one. Alternatively, here below you can see directly the HyperDrive parent run and navigate to its 'Child runs' tab:
-
-# [CLI v2](#tab/CLI-v2)
-
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
+When doing a hyperparameter sweep, it can be useful to visualize the different configurations that were tried using the HyperDrive UI. You can navigate to this UI by going to the 'Child runs' tab in the UI of the main automl_image_run from above, which is the HyperDrive parent run. Then you can go into the 'Child runs' tab of this one.
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
+Alternatively, here below you can see directly the HyperDrive parent run and navigate to its 'Child runs' tab:
+
 ```python
-from azureml.core import Run
-hyperdrive_run = Run(experiment=experiment, run_id=automl_image_run.id + '_HD')
-hyperdrive_run
+hd_job = ml_client.jobs.get(returned_job.name + '_HD')
+hd_job
 ```
 
 ---
@@ -451,7 +507,13 @@ In this automated machine learning tutorial, you did the following tasks:
 * [Learn how to set up AutoML to train computer vision models with Python (preview)](how-to-auto-train-image-models.md).
 * [Learn how to configure incremental training on computer vision models](how-to-auto-train-image-models.md#incremental-training-optional).
 * See [what hyperparameters are available for computer vision tasks](reference-automl-images-hyperparameters.md).
-* Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/automl-standalone-jobs). Please check the folders with 'automl-image-' prefix for samples specific to building computer vision models.
+* Code examples:
+  # [CLI v2](#tab/CLI-v2)
+  * Review detailed code examples and use cases in the [azureml-examples repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/automl-standalone-jobs). Please check the folders with 'cli-automl-image-' prefix for samples specific to building computer vision models.
+  # [Python SDK v2 (preview)](#tab/SDK-v2)
+  * Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/automl-standalone-jobs). Please check the folders with 'automl-image-' prefix for samples specific to building computer vision models.
+
+---
 
 > [!NOTE]
 > Use of the fridge objects dataset is available through the license under the [MIT License](https://github.com/microsoft/computervision-recipes/blob/master/LICENSE).
