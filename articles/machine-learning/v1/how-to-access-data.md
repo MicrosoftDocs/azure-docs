@@ -27,7 +27,7 @@ ms.custom: contperf-fy21q1, devx-track-python, data4ml
 
 In this article, learn how to connect to data storage services on Azure with Azure Machine Learning datastores and the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).
 
-Datastores securely connect to your storage service on Azure without putting your authentication credentials and the integrity of your original data source at risk. They store connection information, like your subscription ID and token authorization in your [Key Vault](https://azure.microsoft.com/services/key-vault/) that's associated with the workspace, so you can securely access your storage without having to hard code them in your scripts. You can create datastores that connect to [these Azure storage solutions](#matrix).
+Datastores securely connect to your storage service on Azure without putting your authentication credentials and the integrity of your original data source at risk. They store connection information, like your subscription ID and token authorization in your [Key Vault](https://azure.microsoft.com/services/key-vault/) that's associated with the workspace, so you can securely access your storage without having to hard code them in your scripts. You can create datastores that connect to [these Azure storage solutions](#supported-data-storage-service-types).
 
 To understand where datastores fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](concept-data.md#data-workflow) article.
 
@@ -40,7 +40,7 @@ For a low code experience, see how to use the [Azure Machine Learning studio to 
 
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-- An Azure storage account with a [supported storage type](#matrix).
+- An Azure storage account with a [supported storage type](#supported-data-storage-service-types).
 
 - The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).
 
@@ -120,7 +120,7 @@ Azure Machine Learning can receive requests from clients outside of the virtual 
 
 **After datastore creation**, this validation is only performed for methods that require access to the underlying storage container, **not** each time datastore objects are retrieved. For example, validation happens if you want to download files from your datastore; but if you just want to change your default datastore, then validation doesn't happen.
 
-To authenticate your access to the underlying storage service, you can provide either your account key, shared access signatures (SAS) tokens, or service principal in the corresponding `register_azure_*()` method of the datastore type you want to create. The [storage type matrix](#matrix) lists the supported authentication types that correspond to each datastore type.
+To authenticate your access to the underlying storage service, you can provide either your account key, shared access signatures (SAS) tokens, or service principal in the corresponding `register_azure_*()` method of the datastore type you want to create. The [storage type matrix](#supported-data-storage-service-types) lists the supported authentication types that correspond to each datastore type.
 
 You can find account key, SAS token, and service principal information on your [Azure portal](https://portal.azure.com).
 
