@@ -84,9 +84,7 @@ landingContent:
           - text: Configure NSG flow logs
             url: network-watcher-nsg-flow-logging-portal.md
           - text: Analyze NSG flow logs using Traffic Analytics
-            url: traffic-analytics.md
-          - text: Log VM network traffic
-            url: network-watcher-nsg-flow-logging-portal.md              
+            url: traffic-analytics.md              
 
   # Card (optional)
   - title: Reference
