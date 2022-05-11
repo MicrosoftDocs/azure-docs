@@ -1,7 +1,7 @@
 ---
-title: MLflow and Azure Machine Learning
+title: Register and work with models
 titleSuffix: Azure Machine Learning
-description: Learn about how Azure Machine Learning uses MLflow to log metrics and artifacts from ML models, and deploy your ML models to an endpoint.
+description: Learn how to register and work with different model types in Azure Machine Learning (custom, MLflow, and Triton).
 services: machine-learning
 author: abeomor
 ms.author: osomorog
@@ -16,7 +16,7 @@ ms.custom: devx-track-python, cli-v2, sdk-v2
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-Azure Machine Learning allows you to work with different types of models. In this article, you'll learn about using Azure Machine Learning to work with different model types (Custom, MLflow and Triton), how to register a model from different locations and how to use the SDK, UI and CLI to manage your models. 
+Azure Machine Learning allows you to work with different types of models. In this article, you'll learn about using Azure Machine Learning to work with different model types (Custom, MLflow, and Triton), how to register a model from different locations and how to use the SDK, UI and CLI to manage your models. 
 
 > [!TIP]
 > If you have model assets created using the SDK/CLI v1, you can still use those with SDK/CLI v2. For more information, see the [Consuming V1 Model Assets in V2](#consuming-v1-model-assets-in-v2) section.
@@ -80,7 +80,8 @@ For a complete example, see the [CLI Reference](??).
 
 # [Job Output](#tab/use-job-output)
 
-## Using the mlflow run URI format
+__Use the mlflow run URI format__
+
 This option is optimized for mlflow users who are likely already familiar with the mlflow run URI format. This option allows mlflow users to create a model from artifacts in the default artifact location (where all mlflow-logged models and artifacts will be located). This establishes a lineage between a registered model and the run the model came from.
 
 Format:
@@ -93,7 +94,8 @@ Example:
 az ml model create --name my-model --version 1 --path runs:/$RUN_ID/model/ --type mlflow_model
 ```
 
-## Using the azureml job URI format
+__Use the azureml job URI format__
+
 We will also have an azureml job reference URI format to allow users to register a model from artifacts in any of the job's outputs. This format is aligned with the existing azureml datastore reference URI format, and also supports referencing artifacts from named outputs of the job (not just the default artifact location). This also enables establishing a lineage between a registered model and the job it was trained from if the user did not directly register their model within the training script using mlflow.
 
 Format:
@@ -114,7 +116,7 @@ Saving model from a named output:
 az ml model create --name my-model --version 1 --path azureml://jobs/$RUN_ID/outputs/trained-model
 ```
 
-For a complete example, see the [CLI Reference](https://docs.microsoft.com/en-us/cli/azure/ml/model?view=azure-cli-latest).
+For a complete example, see the [CLI Reference](/cli/azure/ml/model).
 
 ---
 
@@ -157,7 +159,8 @@ ml_client.models.create_or_update(cloud_model)
 
 # [Job Output](#tab/use-job-output)
 
-## Using the mlflow run URI format
+__Use the mlflow run URI format__
+
 This option is optimized for mlflow users who are likely already familiar with the mlflow run URI format. This option allows mlflow users to create a model from artifacts in the default artifact location (where all mlflow-logged models and artifacts will be located). This establishes a lineage between a registered model and the run the model came from.
 
 Format:
@@ -180,7 +183,8 @@ run_model = Model(
 ml_client.models.create_or_update(run_model) 
 ```
 
-## Using the azureml job URI format
+__Use the azureml job URI format__
+
 We will also have an azureml job reference URI format to allow users to register a model from artifacts in any of the job's outputs. This format is aligned with the existing azureml datastore reference URI format, and also supports referencing artifacts from named outputs of the job (not just the default artifact location). This also enables establishing a lineage between a registered model and the job it was trained from if the user did not directly register their model within the training script using mlflow.
 
 Format:
