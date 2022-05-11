@@ -138,7 +138,7 @@ The monthly cost estimate includes compute and storage costs for Azure SQL confi
         Ready | Ready | Azure SQL DB or Azure SQL MI [Learn more](concepts-azure-sql-assessment-calculation.md#recommended-deployment-type) | Yes
         Ready | Not ready or Unknown | Azure SQL DB | Yes
         Not ready or Unknown | Ready | Azure SQL MI | Yes
-        Not ready | Not ready | Potentially ready for Azure VM [Learn more](concepts-azure-sql-assessment-calculation.md#potentially-ready-for-azure-vm) | No
+        Not ready | Not ready | Potentially ready for Azure VM [Learn more](concepts-azure-sql-assessment-calculation.md#calculate-readiness) | No
         Not ready or Unknown | Not ready or Unknown | Unknown | No
     
     - **Target deployment type** (as selected in assessment properties): **Azure SQL DB**
