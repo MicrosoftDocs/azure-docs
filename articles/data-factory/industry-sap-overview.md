@@ -43,6 +43,6 @@ Templates are offered for the following scenarios
 For a summary of the SAP specific templates and how to use them see [SAP templates](industry-sap-templates.md).
 
 
-## SAP white paper
+## SAP whitepaper
 
 To learn about overall support for the SAP data integration scenario, see [SAP data integration whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction on each SAP connector, comparison and guidance.
