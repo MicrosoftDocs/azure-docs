@@ -1,6 +1,6 @@
 ---
-title: Regulatory Compliance details for Preview: SWIFT CSCF v2021
-description: Details of the Preview SWIFT CSCF v2021 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
+title: "Regulatory Compliance details for [Preview]: SWIFT CSCF v2021"
+description: "Details of the [Preview]: SWIFT CSCF v2021 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment."
 ms.date: 05/10/2022
 ms.topic: sample
 ms.custom: generated
