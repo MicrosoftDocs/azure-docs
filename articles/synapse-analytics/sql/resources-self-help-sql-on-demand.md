@@ -18,26 +18,26 @@ This article contains information about how to troubleshoot the most frequent pr
 
 ## Synapse Studio
 
-Synapse Studio is an easy-to-use tool that you can use to access your data by using a browser without a need to install database access tools. However, Synapse Studio isn't designed to read a large set of data or full management of SQL objects.
+Synapse Studio is an easy-to-use tool that you can use to access your data by using a browser without a need to install database access tools. Synapse Studio isn't designed to read a large set of data or full management of SQL objects.
 
 ### Serverless SQL pool is grayed out in Synapse Studio
 
 If Synapse Studio can't establish a connection to serverless SQL pool, you'll notice that serverless SQL pool is grayed out or shows the status **Offline**. Usually, this problem occurs when one of the following cases happens:
 
-- Your network prevents communication to the Azure Synapse Analytics back-end. The most frequent case is that port 1443 is blocked. To get serverless SQL pool to work, unblock this port. Other problems could prevent serverless SQL pool from working too. For more information, see the [full troubleshooting guide](../troubleshoot/troubleshoot-synapse-studio.md).
-- You don't have permission to sign in to serverless SQL pool. To gain access, an Azure Synapse workspace administrator must add you to the workspace administrator or SQL administrator role. For more information, see the [full guide on access control](../security/synapse-workspace-access-control-overview.md).
+- Your network prevents communication to the Azure Synapse Analytics back-end. The most frequent case is that port 1443 is blocked. To get serverless SQL pool to work, unblock this port. Other problems could prevent serverless SQL pool from working too. For more information, see the [Troubleshooting guide](../troubleshoot/troubleshoot-synapse-studio.md).
+- You don't have permission to sign in to serverless SQL pool. To gain access, an Azure Synapse workspace administrator must add you to the workspace administrator role or the SQL administrator role. For more information, see [Azure Synapse access control](../security/synapse-workspace-access-control-overview.md).
 
 ### Websocket connection closed unexpectedly
 
 Your query might fail with the error message "Websocket connection was closed unexpectedly." This message means that your browser connection to Synapse Studio was interrupted, for example, because of a network issue.
 
-To resolve this issue, rerun this query. If this message occurs often in your environment, get help from your network administrator. You can also check firewall settings, and check this [troubleshooting guide](../troubleshoot/troubleshoot-synapse-studio.md).
+To resolve this issue, rerun this query. If this message occurs often in your environment, get help from your network administrator. You can also check firewall settings, and check the [Troubleshooting guide](../troubleshoot/troubleshoot-synapse-studio.md).
 
 If the issue continues, create a [support ticket](../../azure-portal/supportability/how-to-create-azure-support-request.md) through the Azure portal. Try [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) for the same queries instead of Synapse Studio for further investigation.
 
 ### Serverless databases aren't shown in Synapse Studio
 
-If you don't see the databases that are created in serverless SQL pool, check to see if your serverless SQL pool started. If serverless SQL pool is deactivated, the databases won't show. Execute any query (for example, `SELECT 1`) on serverless SQL pool to activate it, and the databases will show.
+If you don't see the databases that are created in serverless SQL pool, check to see if your serverless SQL pool started. If serverless SQL pool is deactivated, the databases won't show. Execute any query, for example, `SELECT 1`, on serverless SQL pool to activate it and make the databases appear.
 
 ### Synapse Serverless SQL pool shows as unavailable
 
@@ -45,17 +45,17 @@ Incorrect network configuration is often the cause for this behavior. Make sure 
 
 ## Storage access
 
-If you get errors while you try to access the files in storage, make sure that you have permission to access data. You should be able to access publicly available files. If you try to access data without credentials, make sure that your Azure Active Directory (Azure AD) identity can directly access the files.
+If you get errors while you try to access files in storage, make sure that you have permission to access data. You should be able to access publicly available files. If you try to access data without credentials, make sure that your Azure Active Directory (Azure AD) identity can directly access the files.
 
-If you have a shared access signature (SAS) key that you should use to access files, make sure that you created a [server-level](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential) or [database-scoped](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential) credential that contains that credential. The credentials are required if you need to access data by using the workspace [managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#database-scoped-credential) and custom [service principal name (SPN)](develop-storage-files-storage-access-control.md?tabs=service-principal#database-scoped-credential).
+If you have a shared access signature key that you should use to access files, make sure that you created a [server-level](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential) or [database-scoped](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential) credential that contains that credential. The credentials are required if you need to access data by using the workspace [managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#database-scoped-credential) and custom [service principal name (SPN)](develop-storage-files-storage-access-control.md?tabs=service-principal#database-scoped-credential).
 
-### Can't read, list, or access files on Data Lake Storage
+### Can't read, list, or access files in Azure Data Lake Storage
 
-If you use an Azure AD login without explicit credentials, make sure that your Azure AD identity can access the files in storage. Your Azure AD identity must have Blob Data Reader or list/read access control list (ACL) permissions to access the files. For more information, see [Query fails because file cannot be opened](#query-fails-because-file-cannot-be-opened).
+If you use an Azure AD sign-in without explicit credentials, make sure that your Azure AD identity can access the files in storage. Your Azure AD identity must have Blob Data Reader or list/read access control list (ACL) permissions to access the files. For more information, see [Query fails because file cannot be opened](#query-fails-because-file-cannot-be-opened).
 
-If you access storage by using [credentials](develop-storage-files-storage-access-control.md#credentials), make sure that your [managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) or [SPN](develop-storage-files-storage-access-control.md?tabs=service-principal) has a Data Reader or Contributor role or ACL permissions. If you used an [SAS token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature), make sure that it has `rl` permission and that it hasn't expired.
+If you access storage by using [credentials](develop-storage-files-storage-access-control.md#credentials), make sure that your [managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) or [SPN](develop-storage-files-storage-access-control.md?tabs=service-principal) has a Data Reader or Contributor role or ACL permissions. If you used a [shared access signature token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature), make sure that it has `rl` permission and that it hasn't expired.
 
-If you use a SQL login and the `OPENROWSET` function [without a data source](develop-storage-files-overview.md#query-files-using-openrowset), make sure that you have a server-level credential that matches the storage URI and has permission to access the storage.
+If you use a SQL sign-in and the `OPENROWSET` function [without a data source](develop-storage-files-overview.md#query-files-using-openrowset), make sure that you have a server-level credential that matches the storage URI and has permission to access the storage.
 
 ### Query fails because file cannot be opened
 
@@ -72,12 +72,12 @@ For more information, see:
 
 Instead of granting yourself a Storage Blob Data Contributor role, you can also grant more granular permissions on a subset of files.
 
-* All users who need access to some data in this container also must have the EXECUTE permission on all parent folders up to the root (the container):
+All users who need access to some data in this container also must have the EXECUTE permission on all parent folders up to the root (the container).
 
 Learn more about how to [set ACLs in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-explorer-acl.md).
 
 > [!NOTE]
-> Execute permission on the container level must be set within Azure Data Lake Gen2.
+> Execute permission on the container level must be set within Data Lake Storage Gen2.
 > Permissions on the folder can be set within Azure Synapse.
 
 If you want to query data2.csv in this example, the following permissions are needed:
@@ -86,27 +86,27 @@ If you want to query data2.csv in this example, the following permissions are ne
    - Execute permission on folder1
    - Read permission on data2.csv
 
-![Drawing that shows permission structure on data lake.](./media/resources-self-help-sql-on-demand/folder-structure-data-lake.png)
+![Diagram that shows permission structure on data lake.](./media/resources-self-help-sql-on-demand/folder-structure-data-lake.png)
 
 1. Sign in to Azure Synapse with an admin user that has full permissions on the data you want to access.
 1. In the data pane, right-click the file and select **Manage access**.
 
-   ![Screenshot that shows manage access UI.](./media/resources-self-help-sql-on-demand/manage-access.png)
+   ![Screenshot that shows the Manage access option.](./media/resources-self-help-sql-on-demand/manage-access.png)
 
-1. Select at least **Read** permission. Enter the user's UPN or Object ID, for example, user@contoso.com, and select **Add**.
+1. Select at least **Read** permission. Enter the user's UPN or object ID, for example, user@contoso.com. Select **Add**.
 1. Grant read permission for this user.
 
-   ![Screenshot that shows granting read permissions UI.](./media/resources-self-help-sql-on-demand/grant-permission.png)
+   ![Screenshot that shows granting read permissions.](./media/resources-self-help-sql-on-demand/grant-permission.png)
 
 > [!NOTE]
-> For guest users, this step needs to be done directly with the Azure Data Lake Service because it can't be done directly through Azure Synapse.
+> For guest users, this step needs to be done directly with Azure Data Lake because it can't be done directly through Azure Synapse.
 
 ### Content of directory on the path cannot be listed
 
 This error indicates that the user who's querying Azure Data Lake can't list the files in storage. There are several scenarios where this error might happen:
 
 - The Azure AD user who's using [Azure AD pass-through authentication](develop-storage-files-storage-access-control.md?tabs=user-identity) doesn't have permission to list the files in Data Lake Storage.
-- The Azure AD or SQL user who's reading data by using an [SAS key](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [workspace managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) and that key or identity doesn't have permission to list the files in storage.
+- The Azure AD or SQL user who's reading data by using a [shared access signature key](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [workspace managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) and that key or identity doesn't have permission to list the files in storage.
 - The user who's accessing Dataverse data who doesn't have permission to query data in Dataverse. This scenario might happen if you use SQL users.
 - The user who's accessing Delta Lake might not have permission to read the Delta Lake transaction log.
 
@@ -114,19 +114,19 @@ The easiest way to resolve this issue is to grant yourself the Storage Blob Data
 
 For more information, see:
 
-- [Azure AD access control for storage](../../storage/blobs/assign-azure-role-data-access.md).
+- [Azure AD access control for storage](../../storage/blobs/assign-azure-role-data-access.md)
 - [Control storage account access for serverless SQL pool in Synapse Analytics](develop-storage-files-storage-access-control.md)
 
 #### Content of Dataverse table cannot be listed
 
 If you use the Azure Synapse link for Dataverse to read the linked Dataverse tables, you must use an Azure AD account to access the linked data by using serverless SQL pool.
-If you try to use a SQL login to read an external table that's referencing the Dataverse table, you'll get the following error:
+If you try to use a SQL sign-in to read an external table that's referencing the Dataverse table, you'll get the following error:
 
 ```
 External table '???' is not accessible because content of directory cannot be listed.
 ```
 
-Dataverse external tables always use Azure AD passthrough authentication. You *can't* configure them to use an [SAS key](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [workspace managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity).
+Dataverse external tables always use Azure AD passthrough authentication. You *can't* configure them to use a [shared access signature key](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [workspace managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity).
 
 #### Content of Delta Lake transaction log cannot be listed
 
@@ -155,7 +155,7 @@ You might get errors during the query execution in the following cases:
 
 ### Query fails because it cannot be executed due to current resource constraints
 
-Your query might fail with the error message "This query cannot be executed due to current resource constraints." This message means serverless SQL pool can't execute at this moment because of resource constraints:
+Your query might fail with the error message "This query cannot be executed due to current resource constraints." This message means serverless SQL pool can't execute at this moment because of resource constraints. Here are some troubleshooting options:
 
 - Make sure data types of reasonable sizes are used.  
 - If your query targets Parquet files, consider defining explicit types for string columns because they'll be VARCHAR(8000) by default. [Check inferred data types](./best-practices-serverless-sql-pool.md#check-inferred-data-types).
@@ -164,7 +164,7 @@ Your query might fail with the error message "This query cannot be executed due 
 
 ### Query timeout expired
 
-The error "Query timeout expired" is returned if the query executed more than 30 minutes on serverless SQL pool. This limit of serverless SQL pool can't be changed.
+The error "Query timeout expired" is returned if the query executed more than 30 minutes on serverless SQL pool. This limit for serverless SQL pool can't be changed.
 
 Try to optimize your query by applying [best practices](best-practices-serverless-sql-pool.md#prepare-files-for-querying). Or try to materialize parts of your queries by using [create external table as select (CETAS)](create-external-table-as-select.md). Check if there's a concurrent workload running on serverless SQL pool because the other queries might take the resources. In that case, you might split the workload on multiple workspaces.
 
@@ -174,7 +174,7 @@ The error "Invalid object name 'table name'" indicates that you're using an obje
 
 - List the tables or views and check if the object exists. Use SQL Server Management Studio or Azure Data Studio because Synapse Studio might show some tables that aren't available in serverless SQL pool.
 - If you see the object, check that you're using some case-sensitive/binary database collation. Maybe the object name doesn't match the name that you used in the query. With a binary database collation, `Employee` and `employee` are two different objects.
-- If you don't see the object, maybe you're trying to query a table from a lake or Spark database. The table might not be available in the serverless pool because:
+- If you don't see the object, maybe you're trying to query a table from a lake or Spark database. The table might not be available in the serverless SQL pool because:
 
     - The table has some column types that can't be represented in serverless SQL pool.
     - The table has a format that isn't supported in serverless SQL pool. Examples are Delta or ORC.
@@ -199,10 +199,11 @@ Apply best practices before you file a support ticket.
 
 ### Query fails with an error handling an external file (max errors count reached)
 
-If your query fails with the error message "Error handling external file: Max errors count reached," it means there's a mismatch of a specified column type and the data that needs to be loaded. To get more information about the error and which rows and columns to look at, change the parser version from `'2.0'` to `'1.0'`.
+If your query fails with the error message "Error handling external file: Max errors count reached," it means there's a mismatch of a specified column type and the data that needs to be loaded. To get more information about the error and which rows and columns to look at, change the parser version from 2.0 to 1.0.
 
 **Example**
-If you want to query the file `names.csv` with this query 1, Azure Synapse serverless SQL pool returns with the following error:
+
+If you want to query the file names.csv with this Query 1, Azure Synapse serverless SQL pool returns with the following error:
 
 names.csv
 ```csv
@@ -237,17 +238,17 @@ Causes:
 
 "Error handling external file: 'Max error count reached'. File/External table name: [filepath]."
 
-As soon as the parser version is changed from version 2.0 to version 1.0, the error messages help to identify the problem. The new error message is now:
+As soon as the parser version is changed from version 2.0 to 1.0, the error messages help to identify the problem. The new error message is now "Bulk load data conversion error (truncation) for row 1, column 2 (Text) in data file [filepath]."
 
-"Bulk load data conversion error (truncation) for row 1, column 2 (Text) in data file [filepath]"
-
-Truncation tells you that your column type is too small to fit your data. The longest first name in this `names.csv` file has seven characters. The according data type to be used should be at least VARCHAR(7). The error is caused by this line of code:
+Truncation tells you that your column type is too small to fit your data. The longest first name in this names.csv file has seven characters. The according data type to be used should be at least VARCHAR(7). The error is caused by this line of code:
 
 ```sql 
     [Text] VARCHAR (1) COLLATE Latin1_General_BIN2
 ```
 
-Changing the query accordingly resolves the error. After debugging, change the parser version to 2.0 again to achieve maximum performance. For more information about when to use which parser version, see [Use OPENROWSET using serverless SQL pool in Synapse Analytics](develop-openrowset.md).
+Changing the query accordingly resolves the error. After debugging, change the parser version to 2.0 again to achieve maximum performance. 
+
+For more information about when to use which parser version, see [Use OPENROWSET using serverless SQL pool in Synapse Analytics](develop-openrowset.md).
 
 ```sql 
 SELECT
@@ -272,15 +273,15 @@ FROM
 
 The error "Cannot bulk load because the file could not be opened" is returned if a file is modified during the query execution. Usually, you might get an error like "Cannot bulk load because the file {file path} could not be opened. Operating system error code 12. (The access code is invalid.)"
 
-The serverless sql pools can't read files that are being modified while the query is running. The query can't take a lock on the files. If you know that the modification operation is *append*, you can try to set the following option:
+The serverless SQL pools can't read files that are being modified while the query is running. The query can't take a lock on the files. If you know that the modification operation is *append*, you can try to set the following option:
 
  `{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}`.
 
-See how to [query append-only files](query-single-csv-file.md#querying-appendable-files) or [create tables on append-only files](create-use-external-tables.md#external-table-on-appendable-files).
+For more information, see how to [query append-only files](query-single-csv-file.md#querying-appendable-files) or [create tables on append-only files](create-use-external-tables.md#external-table-on-appendable-files).
 
 ### Query fails with data conversion error
 
-Your query might fail with the error message "Bulk load data conversion error (type mismatches or invalid character for the specified codepage) for row n, column m [columnname] in the data file [filepath]." This message means your data types didn't match the actual data for row number n and column m.
+Your query might fail with the error message "Bulk load data conversion error (type mismatches or invalid character for the specified code page) for row n, column m [columnname] in the data file [filepath]." This message means your data types didn't match the actual data for row number n and column m.
 
 For instance, if you expect only integers in your data, but in row n there's a string, this error message is the one you'll get.
 
@@ -323,11 +324,9 @@ FROM
     AS [result]
 ```
 
-Azure Synapse serverless SQL pool returns the error:
+Azure Synapse serverless SQL pool returns the error "Bulk load data conversion error (type mismatch or invalid character for the specified code page) for row 6, column 1 (ID) in data file [filepath]."
 
-"Bulk load data conversion error (type mismatch or invalid character for the specified codepage) for row 6, column 1 (ID) in data file [filepath]"
-
-It's necessary to browse the data and make an informed decision to handle this problem. To look at the data that causes this problem, the data type needs to be changed first. Instead of querying the "ID" column with the data type "SMALLINT," VARCHAR(100) is now used to analyze this issue.
+It's necessary to browse the data and make an informed decision to handle this problem. To look at the data that causes this problem, the data type needs to be changed first. Instead of querying the ID column with the data type SMALLINT, VARCHAR(100) is now used to analyze this issue.
 
 Using this slightly changed Query 2, the data can now be processed to return the list of names.
 
@@ -366,9 +365,11 @@ You might observe that the data has unexpected values for ID in the fifth row. I
 > [!Tip]
 > Try to make VARCHAR() as short as possible. Avoid VARCHAR(MAX) if possible because it can impair performance.
 
-### The query result doesn't look as expected. Resulting columns either empty or unexpected data is returned.
+### The query result doesn't look as expected
 
-If your query doesn't fail but you find that your result set isn't as expected, it's likely that a row delimiter or field terminator was incorrectly chosen. To resolve this problem, take another look at the data and change those settings. Debugging this query is easy, as shown in the following example.
+Your query might not fail, but you might see that your result set isn't as expected. The resulting columns might be empty or unexpected data might be returned. In this scenario, it's likely that a row delimiter or field terminator was incorrectly chosen.
+
+To resolve this problem, take another look at the data and change those settings. Debugging this query is easy, as shown in the following example.
 
 **Example**
 
@@ -403,7 +404,7 @@ FROM
     AS [result]
 ```
 
-| ID            |   firstname   | 
+| ID            |   Firstname   | 
 | ------------- |-------------  | 
 | 1,Adam        | NULL | 
 | 2,Bob         | NULL | 
@@ -411,7 +412,7 @@ FROM
 | 4,David       | NULL | 
 | 5,Eva         | NULL | 
 
-There seems to be no value in the column "firstname." Instead, all values ended up being in the "ID" column. Those values are separated by a comma. The problem was caused by this line of code because it's necessary to choose the comma instead of the semicolon symbol as field terminator:
+There seems to be no value in the column Firstname. Instead, all values ended up being in the ID column. Those values are separated by a comma. The problem was caused by this line of code because it's necessary to choose the comma instead of the semicolon symbol as field terminator:
 
 ```sql
 FIELDTERMINATOR =';',
@@ -447,7 +448,7 @@ FROM
 
 returns
 
-| ID            |   firstname   | 
+| ID            |   Firstname   | 
 | ------------- |-------------  | 
 | 1        | Adam | 
 | 2         | Bob | 
@@ -463,6 +464,7 @@ For instance, if your Parquet file has a column price with float numbers (like 1
 To resolve this issue, inspect the file and the data types you chose. This [mapping table](develop-openrowset.md#type-mapping-for-parquet) helps to choose a correct SQL data type. As a best practice, specify mapping only for columns that would otherwise resolve into the VARCHAR data type. Avoiding VARCHAR when possible leads to better performance in queries.
 
 **Example**
+
 If you want to query the file taxi-data.parquet with this Query 1, Azure Synapse serverless SQL pool returns the following error:
 
 taxi-data.parquet:
@@ -523,11 +525,13 @@ FROM
 
 ### The query references an object that is not supported in distributed processing mode
 
-The error "The query references an object that is not supported in distributed processing mode" indicates that you have used an object or function that can't be used while you query data in Azure Storage or Azure Cosmos DB analytical storage. Some objects, like system views, and functions can't be used while you query data stored in Azure Data Lake or Azure Cosmos DB analytical storage. Avoid using the queries that join external data with system views, load external data in a temp table, or use some security or metadata functions to filter external data.
+The error "The query references an object that is not supported in distributed processing mode" indicates that you've used an object or function that can't be used while you query data in Azure Storage or Azure Cosmos DB analytical storage.
 
-### `WaitIOCompletion` call failed
+Some objects, like system views, and functions can't be used while you query data stored in Azure Data Lake or Azure Cosmos DB analytical storage. Avoid using the queries that join external data with system views, load external data in a temp table, or use some security or metadata functions to filter external data.
 
-The error message "WaitIOCompletion call failed" indicates that the query failed while waiting to complete the I/O operation that reads data from the remote storage (Azure Data Lake).
+### WaitIOCompletion call failed
+
+The error message "WaitIOCompletion call failed" indicates that the query failed while waiting to complete the I/O operation that reads data from the remote storage, Azure Data Lake.
 
 The error message has the following pattern:
 
@@ -535,7 +539,7 @@ The error message has the following pattern:
 Error handling external file: 'WaitIOCompletion call failed. HRESULT = ???'. File/External table name...
 ```
 
-Make sure that your storage is placed in the same region as serverless SQL pool. Check the storage metrics and verify there are no other workloads on the storage layer (uploading new files) that could saturate I/O requests.
+Make sure that your storage is placed in the same region as serverless SQL pool. Check the storage metrics and verify there are no other workloads on the storage layer, such as uploading new files, that could saturate I/O requests.
 
 The field HRESULT contains the result code. The following error codes are the most common along with their potential solutions.
 
@@ -546,8 +550,8 @@ This error code means the source file isn't in storage.
 There are reasons why this error code can happen:
 
 - The file was deleted by another application.
-  - In this common scenario, the query execution starts, it enumerates the files, and the files are found. Later, during the query execution, a file is deleted, for example, by Databricks, Spark, or Azure Data Factory. The query fails because the file isn't found.
- - This issue can also occur with the delta format. The query might succeed on retry because there's a new version of the table and the deleted file isn't queried again.
+  - In this common scenario, the query execution starts, it enumerates the files, and the files are found. Later, during the query execution, a file is deleted. For example, it could be deleted by Databricks, Spark, or Azure Data Factory. The query fails because the file isn't found.
+ - This issue can also occur with the Delta format. The query might succeed on retry because there's a new version of the table and the deleted file isn't queried again.
 - An invalid execution plan is cached.
   - As a temporary mitigation, run the command `DBCC FREEPROCCACHE`. If the problem persists, create a support ticket.
 
@@ -561,17 +565,16 @@ The error message might also resemble:
 File {path} cannot be opened because it does not exist or it is used by another process.
 ```
 
-- If an Azure AD user has a connection open for more than one hour during query execution, any query that relies on Azure AD fails. This scenario includes queries that access storage by using Azure AD pass-through authentication and statements that interact with Azure AD like CREATE EXTERNAL PROVIDER. This issue frequently affects tools that keep connections open, like in query editor in SQL Server Management Studio and Azure Data Studio. Tools that open new connections to execute a query, like Synapse Studio, aren't affected.
+- If an Azure AD user has a connection open for more than one hour during query execution, any query that relies on Azure AD fails. This scenario includes queries that access storage by using Azure AD pass-through authentication and statements that interact with Azure AD like CREATE EXTERNAL PROVIDER. This issue frequently affects tools that keep connections open, like in the query editor in SQL Server Management Studio and Azure Data Studio. Tools that open new connections to execute a query, like Synapse Studio, aren't affected.
 - The Azure AD authentication token might be cached by the client applications. For example, Power BI caches the Azure AD token and reuses the same token for one hour. The long-running queries might fail if the token expires during execution.
 
 Consider the following mitigations:
 
 - Restart the client application to obtain a new Azure AD token.
 - Consider switching to:
-  - [Service Principal](develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types)
+  - [Service principal](develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types)
   - [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types)
-  - or [Shared access signature](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types)
-
+  - [Shared access signature](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types)
 
 ### [0x80070008](#tab/x80070008)
 
@@ -609,7 +612,7 @@ More information about syntax and usage:
 
   - [OPENROWSET syntax](query-single-csv-file.md#querying-appendable-files)  
   ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}'
-  - [External Tables syntax](create-use-external-tables.md#external-table-on-appendable-files)  
+  - [External tables syntax](create-use-external-tables.md#external-table-on-appendable-files)  
   TABLE_OPTIONS = N'{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}'
 
 ### Parquet files
@@ -645,7 +648,8 @@ Consider the following mitigations to resolve the issue:
 
 - Restart the client application to obtain a new Azure AD token.
 - Consider switching to:
-  - [Service Principal](develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types)
+
+  - [Service principal](develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types)
   - [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types)
   - or [Shared access signature](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types)
 
@@ -763,12 +767,12 @@ If you're trying to create SQL objects, users, or change permissions in a databa
 
 Create a separate database, and reference the synchronized [tables](../metadata/table.md) by using three-part names and cross-database queries.
 
-### Can't create Azure AD login or user
+### Can't create Azure AD sign-in or user
 
-If you get an error while you're trying to create a new Azure AD login or user in a database, check the login you used to connect to your database. The login that's trying to create a new Azure AD user must have permission to access the Azure AD domain and check if the user exists.
+If you get an error while you're trying to create a new Azure AD sign-in or user in a database, check the sign-in you used to connect to your database. The sign-in that's trying to create a new Azure AD user must have permission to access the Azure AD domain and check if the user exists.
 
-- SQL logins don't have this permission, so you'll always get this error if you use SQL authentication.
-- If you use an Azure AD login to create new logins, check to see if you have permission to access the Azure AD domain.
+- SQL sign-ins don't have this permission, so you'll always get this error if you use SQL authentication.
+- If you use an Azure AD sign-in to create new sign-ins, check to see if you have permission to access the Azure AD domain.
 
 ## Azure Cosmos DB
 
@@ -937,13 +941,13 @@ If a user can't access a lakehouse or Spark database, the user might not have pe
 
 Dataverse tables are accessing storage by using the caller's Azure AD identity. A SQL user with high permissions might try to select data from a table, but the table wouldn't be able to access Dataverse data. This scenario isn't supported.
 
-### Azure AD service principal login failures when SPI creates a role assignment
+### Azure AD service principal sign-in failures when SPI creates a role assignment
 
 If you want to create a role assignment for a service principal identifier or Azure AD app by using another service principal identifier, or you've already created one and it fails to log in, you'll probably receive the following error:
 ```
 Login error: Login failed for user '<token-identified principal>'.
 ```
-For service principals, login should be created with Application ID as SID (not with Object ID). There's a known limitation for service principals, which prevents Azure Synapse from fetching the Application ID from Microsoft Graph when it creates a role assignment for another service principal identifier or app.  
+For service principals, sign-in should be created with an application ID as a security ID (SID) not with an object ID. There's a known limitation for service principals, which prevents Azure Synapse from fetching the application ID from Microsoft Graph when it creates a role assignment for another service principal identifier or app.  
 
 **Solution 1**
 
@@ -951,7 +955,7 @@ Go to the **Azure portal** > **Synapse Studio** > **Manage** > **Access control*
 
 **Solution 2**
 
-You must manually create a proper login with SQL code:
+You must manually create a proper sign-in with SQL code:
 ```sql
 use master
 go
@@ -963,8 +967,8 @@ go
 
 **Solution 3**
 
-You can also set up a service principal Synapse Admin by using PowerShell. You must have the [Az.Synapse module](/powershell/module/az.synapse) installed.
-The solution is to use the cmdlet New-AzSynapseRoleAssignment with `-ObjectId "parameter"`. In that parameter field, provide Application ID (instead of Object ID) by using workspace admin Azure service principal credentials. 
+You can also set up a service principal Azure Synapse admin by using PowerShell. You must have the [Az.Synapse module](/powershell/module/az.synapse) installed.
+The solution is to use the cmdlet New-AzSynapseRoleAssignment with `-ObjectId "parameter"`. In that parameter field, provide the application ID instead of the object ID by using the workspace admin Azure service principal credentials.
 
 PowerShell script:
 
@@ -982,7 +986,7 @@ New-AzSynapseRoleAssignment -WorkspaceName "<workspaceName>" -RoleDefinitionName
 
 **Validation**
 
-Connect to the serverless SQL endpoint and verify that the external login with SID `app_id_to_add_as_admin` is created:
+Connect to the serverless SQL endpoint and verify that the external sign-in with SID `app_id_to_add_as_admin` is created:
 
 ```sql
 select name, convert(uniqueidentifier, sid) as sid, create_date
