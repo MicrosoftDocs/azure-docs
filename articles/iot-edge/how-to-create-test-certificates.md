@@ -197,9 +197,9 @@ Device identity certificates go in the **Provisioning** section of the config fi
 
     | Type | File | Description |
     |---|---|---|
-    | Device identity certificate | `certs\iot-edge-device-identity-<device-id>.cert.pem` | Signed by the intermediate certificate generated earlier. Contains just the identity certificate. Specify in `config.toml` for DPS individual enrollment or IoT Hub provisioning.  |
-    | Full chain certificate | `certs\iot-edge-device-identity-<device-id>-full-chain.cert.pem` | Contains the full certificate chain including the intermediate certificate. Specify in `config.toml` for IoT Edge to present to DPS for group enrollment provisioning. |
-    | Private key | `private\iot-edge-device-identity-<device-id>.key.pem` | Private key associated with the device identity certificate. Should be specified in `config.toml` as long as you're using some sort of certificate authentication (thumbprint or CA) for either DPS or IoT Hub. |
+    | Device identity certificate | `certs\iot-edge-device-identity-<device-id>.cert.pem` | Signed by the intermediate certificate generated earlier. Contains just the identity certificate. Specify in configuration file for DPS individual enrollment or IoT Hub provisioning.  |
+    | Full chain certificate | `certs\iot-edge-device-identity-<device-id>-full-chain.cert.pem` | Contains the full certificate chain including the intermediate certificate. Specify in configuration file for IoT Edge to present to DPS for group enrollment provisioning. |
+    | Private key | `private\iot-edge-device-identity-<device-id>.key.pem` | Private key associated with the device identity certificate. Should be specified in configuration file as long as you're using some sort of certificate authentication (thumbprint or CA) for either DPS or IoT Hub. |
 
 # [Linux](#tab/linux)
 
@@ -217,9 +217,9 @@ Device identity certificates go in the **Provisioning** section of the config fi
 
     | Type | File | Description |
     |---|---|---|
-    | Device identity certificate | `certs/iot-edge-device-identity-<device-id>.cert.pem` | Signed by the intermediate certificate generated earlier. Contains just the identity certificate. Specify in `config.toml` for DPS individual enrollment or IoT Hub provisioning.  |
-    | Full chain certificate | `certs/iot-edge-device-identity-<device-id>-full-chain.cert.pem` | Contains the full certificate chain including the intermediate certificate. Specify in `config.toml` for IoT Edge to present to DPS for group enrollment provisioning. |
-    | Private key | `private/iot-edge-device-identity-<device-id>.key.pem` | Private key associated with the device identity certificate. Should be specified in `config.toml` as long as you're using some sort of certificate authentication (thumbprint or CA) for either DPS or IoT Hub. |
+    | Device identity certificate | `certs/iot-edge-device-identity-<device-id>.cert.pem` | Signed by the intermediate certificate generated earlier. Contains just the identity certificate. Specify in configuration file for DPS individual enrollment or IoT Hub provisioning.  |
+    | Full chain certificate | `certs/iot-edge-device-identity-<device-id>-full-chain.cert.pem` | Contains the full certificate chain including the intermediate certificate. Specify in configuration file for IoT Edge to present to DPS for group enrollment provisioning. |
+    | Private key | `private/iot-edge-device-identity-<device-id>.key.pem` | Private key associated with the device identity certificate. Should be specified in configuration file as long as you're using some sort of certificate authentication (thumbprint or CA) for either DPS or IoT Hub. |
 
 ---
 
