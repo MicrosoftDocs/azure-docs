@@ -61,7 +61,7 @@ To learn more about how to build a component, see:
 - [Define component with the Azure ML CLI v2](./how-to-create-component-pipelines-cli.md)
 - [Define component with the Azure ML SDK v2](./how-to-create-component-pipeline-python.md)
 - [Define component with Designer](./how-to-create-component-pipelines-ui.md)
-- [Component CLI v2 YAML reference](/reference-yaml-component-command.md)
+- [Component CLI v2 YAML reference](./reference-yaml-component-command.md)
 - [What is Azure Machine Learning Pipeline?](concept-ml-pipelines.md)
 - Try out [CLI v2 component example](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines-with-components)
 - Try out [Python SDK v2 component example](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/pipelines)

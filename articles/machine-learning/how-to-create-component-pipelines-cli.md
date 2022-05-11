@@ -19,7 +19,7 @@ ms.devlang: azurecli, cliv2
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 [!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
 
-In this article, you learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the Azure CLI and Components (for more, see [What is an Azure Machine Learning component?](concept-component.md)). You can [create pipelines without using components](how-to-train-cli.md#build-a-training-pipeline), but components offer the greatest amount of flexibility and reuse. AzureML Pipelines may be defined in YAML and run from the CLI, authored in Python, or composed in AzureML Studio Designer with a drag-and-drop UI. This document focuses on the CLI.
+In this article, you learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the Azure CLI and components (for more, see [What is an Azure Machine Learning component?](concept-component.md)). You can [create pipelines without using components](how-to-train-cli.md#build-a-training-pipeline), but components offer the greatest amount of flexibility and reuse. AzureML Pipelines may be defined in YAML and run from the CLI, authored in Python, or composed in AzureML Studio Designer with a drag-and-drop UI. This document focuses on the CLI.
 
 ## Prerequisites
 
@@ -70,7 +70,7 @@ If you don't have it, create a cluster called `cpu-cluster` by running:
 az ml compute create -n cpu-cluster --type amlcompute --min-instances 0 --max-instances 10
 ```
 
-Now, create a pipeline job defined in the pipeline.yml file with the following command:
+Now, create a pipeline job defined in the pipeline.yml file with the following command. The compute target will be referenced in the pipeline.yml file as `azureml:cpu-cluster`. If your compute target uses a different name, remember to update it in the pipeline.yml file. 
 
 ```azurecli
 az ml job create --file pipeline.yml
@@ -95,18 +95,17 @@ Let's take a look at the pipeline definition in the *3b_pipeline_with_data/pipel
 
 :::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/pipelines-with-components/basics/3b_pipeline_with_data/pipeline.yml":::
 
-Below table describes the most common used fields of pipeline YAML schema. See [full pipeline YAML schema here](./reference-pipeline-yaml.md).  
+Below table describes the most common used fields of pipeline YAML schema. See [full pipeline YAML schema here](reference-yaml-job-pipeline.md).  
 
 |key|description|
 |------|------|
 |type|**Required**. Job type, must be `pipeline` for pipeline jobs.|
-|name|Name of the pipeline job. Must be unique across all jobs in the workspace. If omitted, Azure ML will autogenerate a GUID for the name.|
 |display_name|Display name of the pipeline job in Studio UI. Editable in Studio UI. Doesn't have to be unique across all jobs in the workspace.|
 |jobs|**Required**. Dictionary of the set of individual jobs to run as steps within the pipeline. These jobs are considered child jobs of the parent pipeline job. In this release, supported job types in pipeline are `command` and `sweep`
 |inputs|Dictionary of inputs to the pipeline job. The key is a name for the input within the context of the job and the value is the input value. These pipeline inputs can be referenced by the inputs of an individual step job in the pipeline using the ${{ parent.inputs.<input_name> }} expression.|
 |outputs|Dictionary of output configurations of the pipeline job. The key is a name for the output within the context of the job and the value is the output configuration. These pipeline outputs can be referenced by the outputs of an individual step job in the pipeline using the ${{ parents.outputs.<output_name> }} expression. |
 
-In the *3b_pipeline_with_data* example, we've created a three step pipeline.
+In the *3b_pipeline_with_data* example, we've created a three steps pipeline.
 
 - The three steps are defined under `jobs`. All three step type is command job. Each step's definition is in corresponding `component.yml` file. You can see the component YAML files under *3b_pipeline_with_data* directory. We'll explain the componentA.yml in next section.
 - This pipeline has data dependency, which is common in most real world pipelines. Component_a takes data input from local folder under `./data`(line 17-20) and passes its output to componentB (line 29). Component_a's output can be referenced as `${{parent.jobs.component_a.outputs.component_a_output}}`.
@@ -129,7 +128,7 @@ Now let's look at the *componentA.yml* as an example to understand component def
 
 :::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/pipelines-with-components/basics/3b_pipeline_with_data/componentA.yml":::
 
-The most common used schema of the component YAML is described in below table. See [full component YAML schema here](./reference-yaml-component-command.md).
+The most common used schema of the component YAML is described in below table. See [full component YAML schema here](reference-yaml-component-command.md).
 
 |key|description|
 |------|------|
@@ -199,18 +198,16 @@ Let's use `1b_e2e_registered_components` to demo how to use registered component
 
 ### Manage components
 
-You can check component details and manage the component using CLI (v2). Use `az ml component -h` to get detailed instructions on component command. Below table lists all available commands. See more examples in [Azure CLI reference](/cli/azure/ml/component?view=azure-cli-latest&source=docs#commands&preserve-view=true)
+You can check component details and manage the component using CLI (v2). Use `az ml component -h` to get detailed instructions on component command. Below table lists all available commands. See more examples in [Azure CLI reference](/cli/azure/ml/component?view=azure-cli-latest&preserve-view=true)
 
 |commands|description|
 |------|------|
 |`az ml component create`|Create a component|
 |`az ml component list`|List components in a workspace|
-|`az ml component show --name <component_name>`|Show details of a component|
-|`az ml component update --name <component_name>`|Update a component. Only a few fields(description, display_name) support update|
-|`az ml component archive -n <component_name>`|Archive a component container(archive all versions of that component)|
-|`az ml component archive -n <component_name> -v <component_version>`|Archive a component version|
-|`az ml component restore -n <component_name>`|Restore an archived component container (restores all versions of that component)|
-|`az ml component restore -n <component_name> -v <component_version>`|Restore an archived component version|
+|`az ml component show`|Show details of a component|
+|`az ml component update`|Update a component. Only a few fields(description, display_name) support update|
+|`az ml component archive`|Archive a component container|
+|`az ml component restore`|Restore an archived component|
 
 ## Next steps
 
