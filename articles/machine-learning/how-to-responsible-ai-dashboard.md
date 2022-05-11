@@ -167,58 +167,18 @@ Selecting the **Heat map** tab switches to a different view of the error in the 
 5. **Cells**: represents a cohort of the dataset, with filters applied, and the percentage of errors out of the total number of datapoints in the cohort. A blue outline indicates selected cells, and the darkness of red represents the concentration of failures.
 6. **Prediction path (filters)**: lists the filters placed over the full dataset for each selected cohort.
 
-### Model overview and fairness disparity metrics
+### Model overview
 
-The Model overview component provides a comprehensive set of performance and fairness metrics to evaluate your model, along with key performance disparity metrics along specified features and dataset cohorts.  
+The model overview component provides a set of commonly used model performance metrics and a box plot visualization to explore the distribution of your prediction values and errors.  
 
-#### Dataset cohort metrics
+| ML scenario    | Metrics                                                                                         |
+|----------------|-------------------------------------------------------------------------------------------------|
+| Regression     | Mean absolute error, Mean squared error, R,<sup>2</sup>, Mean prediction                        |
+| Classification | Accuracy, Precision, Recall, F1 score, False positive rate, False negative rate, Selection rate |
 
-The **Dataset cohort** tab allows you to investigate your model by comparing the model performance of different user-specified dataset cohorts (accessible via the **Cohort settings** icon on the top right corner of the dashboard). You can create new dataset cohorts from the UI experience or pass your pre-built cohorts to the dashboard via the SDK experience.
+You can further investigate your model by looking at a comparative analysis of its performance across different cohorts or subgroups of your dataset, including automatically created “temporary cohorts” based on selected nodes from the Error analysis component. Select filters along y-value and x-value to cut across different dimensions.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/model-overview-dataset-cohorts.png" alt-text="Screenshot of the dashboard showing the model overview. ":::
-
-1. **Help me choose metrics**: Clicking this icon will open a panel with more information about what model performance metrics are available to be shown in the table below. Easily adjust which metrics you can view by using the multi-select drop-down to select and deselect performance metrics. (see more below)
-
-2. **Show heatmap**: toggle on and off to see heatmap visualization in the table below. The gradient of the heatmap corresponds to the range normalized between the lowest value and the highest value in each column.  
-
-3. **Table of metrics for each dataset cohort**: Table with columns for dataset cohorts, sample size of each cohort, and the selected model performance metrics for each cohort.
-
-4. **Bar chart visualizing individual metric** (mean absolute error) across the cohorts for easy comparison.
-
-5. **Choose metric (x-axis)**: Selecting this will allow you to select which metric to view in the bar chart.
-
-6. **Choose cohorts (y-axis)**: Selecting this will allow you to select which cohorts you want to view in the bar chart. You may see “Feature cohort” selection disabled unless you specify your desired features in the “Feature cohort tab” of the component first.
-
-Selecting **Help me choose metrics”** will open a panel with the list of model performance metrics and the corresponding metrics definition to aid users in selecting the right metric to view. Classification scenarios will support accuracy, F1 score, precision score, recall score, false positive rate, false negative rate and selection rate (the percentage of predictions with label 1):
-
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/model-overview-choose-metrics-classification.png" alt-text="Screenshot of the dashboard showing the model overview's choose your metrics with classification metrics selected. ":::
-
-Regression scenarios will support mean absolute error, mean squared error, and mean prediction:
-
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/model-overview-choose-metrics-regression.png" alt-text="Screenshot of the dashboard showing the model overview's choose your metrics with regression metrics selected. ":::
-
-#### Feature cohort metrics
-
-The **Feature cohort** tab allows you to investigate your model by comparing model performance across user-specified sensitive/non-sensitive features (for example, performance across different gender, race, income level cohorts).
-
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/model-overview-feature-cohorts.png" alt-text="Screenshot of the dashboard showing the model overview on the feature metrics tab. ":::
-
- 1. **Help me choose metrics**: Selecting this icon will open a panel with more information about what metrics are available to be shown in the table below. Easily adjust which metrics you can view by using the multi-select drop down to select and deselect performance metrics.
-2. **Help me choose features**: Selecting this icon will open a panel with more information about what features are available to be shown in the table below with descriptors of each feature and binning capability (see below). Easily adjust which features you can view by using the multi-select drop-down to select and deselect features.
-   
-     Selecting “Help me choose features” will open a panel with the list of features and their properties:
-
-    :::image type="content" source="./media/how-to-responsible-ai-dashboard/model-overview-choose-features.png" alt-text="Screenshot of the dashboard showing the model overview on the feature metrics tab's choose your features. ":::
-1. **Show heatmap**: toggle on and off to see heatmap visualization in the table below. The gradient of the heatmap corresponds to the range normalized between the lowest value and the highest value in each column.
-1. **Table of metrics for each feature cohort**: Table with columns for feature cohorts (sub-cohort of your selected feature), sample size of each cohort, and the selected model performance metrics for each feature cohort.
-1. **Fairness metrics/disparity metrics**: Table that corresponds to the above metrics table and shows the maximum difference or maximum ratio in performance scores between any two feature cohorts.
-1. **Bar chart visualizing individual metric** (mean absolute error) across the cohort for easy comparison.
-1. **Choose cohorts (y-axis)**: Clicking this will allow you to select which cohorts you want to view in the bar chart (see below).
-
-    Selecting **Choose cohort** will open a panel with an option to either show a comparison of selected dataset cohorts or feature cohorts based on what is selected in the multi-select drop-down below it. Select **Confirm** to save the changes to the bar chart view.
-
-    :::image type="content" source="./media/how-to-responsible-ai-dashboard/model-overview-choose-cohorts.png" alt-text="Screenshot of the dashboard showing the model overview on the feature metrics tab's choose cohorts. ":::
-1. **Choose metric (x-axis)**: Clicking this will allow you to select which metric to view in the bar chart.
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/model-overview-v1.png" alt-text=" ":::
 
 ### Data explorer
 
