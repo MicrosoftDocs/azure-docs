@@ -96,6 +96,8 @@ az keyvault storage add --vault-name <YourKeyVaultName> -n <YourStorageAccountNa
  ```
 
 ## Shared access signature tokens
+>[Note]
+> Shared access signature tokens are versioned. Key Vault only supports SAS token versions 2018-03-28 or older. SAS tokens generated using Azure CLI / Powershell may use a higher version. This is specified using the 'sv=' query parameter. If the version is higher than 2018-03-28 refer to Shared Access Signature documentation for Azure Storage to generate a template for the supported version.
 
 You can also ask Key Vault to generate shared access signature tokens. A shared access signature provides delegated access to resources in your storage account. You can grant clients access to resources in your storage account without sharing your account keys. A shared access signature provides you with a secure way to share your storage resources without compromising your account keys.
 
