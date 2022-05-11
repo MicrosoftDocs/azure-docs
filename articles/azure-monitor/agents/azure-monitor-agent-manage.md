@@ -4,7 +4,7 @@ description: Options for managing the Azure Monitor agent (AMA) on Azure virtual
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/09/2022
+ms.date: 05/10/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
