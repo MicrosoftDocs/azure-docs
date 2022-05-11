@@ -43,9 +43,8 @@ License entitlement:
 - Windows Enterprise E3, E5
 - Windows VDA E3, E5
 - Windows Education A3, A5
--
-- >External users can use [per-user access pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) instead of license entitlement.
 
+External users can use [per-user access pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) instead of license entitlement.
 
 ## Deploying Windows 10 Image from Azure Marketplace 
 For PowerShell, CLI and Azure Resource Manager template deployments, Windows 10 images can be found using the `PublisherName: MicrosoftWindowsDesktop` and `Offer: Windows-10`. Windows 10 version Creators Update (1809) or later is supported for Multitenant Hosting Rights. 
