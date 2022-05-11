@@ -26,15 +26,15 @@ ms.date: 10/21/2021
 
 In this article, you learn how to create Azure Machine Learning datasets to access data for your local or remote experiments with the Azure Machine Learning Python SDK. To understand where datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](concept-data.md#data-workflow) article.
 
-By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources. Also datasets are lazily evaluated, which aids in workflow performance speeds. You can create datasets from datastores, public URLs, and [Azure Open Datasets](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md).
+By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources. Also datasets are lazily evaluated, which aids in workflow performance speeds. You can create datasets from datastores, public URLs, and [Azure Open Datasets](/azure/open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset).
 
-For a low-code experience, [Create Azure Machine Learning datasets with the Azure Machine Learning studio.](how-to-connect-data-ui.md#create-datasets)
+For a low-code experience, [Create Azure Machine Learning datasets with the Azure Machine Learning studio.](../how-to-connect-data-ui.md#create-datasets)
 
 With Azure Machine Learning datasets, you can:
 
 * Keep a single copy of data in your storage, referenced by datasets.
 
-* Seamlessly access data during model training without worrying about connection strings or data paths. [Learn more about how to train with datasets](how-to-train-with-datasets.md).
+* Seamlessly access data during model training without worrying about connection strings or data paths. [Learn more about how to train with datasets](../how-to-train-with-datasets.md).
 
 * Share data and collaborate with other users.
 
@@ -44,7 +44,7 @@ To create and work with datasets, you need:
 
 * An Azure subscription. If you don't have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-* An [Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An [Azure Machine Learning workspace](../how-to-manage-workspace.md).
 
 * The [Azure Machine Learning SDK for Python installed](/python/api/overview/azure/ml/install), which includes the azureml-datasets package.
 
@@ -66,7 +66,7 @@ When creating a dataset, review your compute processing power and the size of yo
 
 If your data is compressed, it can expand further; 20 GB of relatively sparse data stored in compressed parquet format can expand to ~800 GB in memory. Since Parquet files store data in a columnar format, if you only need half of the columns, then you only need to load ~400 GB in memory.
 
-[Learn more about optimizing data processing in Azure Machine Learning](concept-optimize-data-processing.md).
+[Learn more about optimizing data processing in Azure Machine Learning](../concept-optimize-data-processing.md).
 
 ## Dataset types
 
@@ -75,11 +75,11 @@ There are two dataset types, based on how users consume them in training; FileDa
 ### FileDataset
 
 A [FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset) references single or multiple files in your datastores or public URLs. 
-If your data is already cleansed, and ready to use in training experiments, you can [download or mount](how-to-train-with-datasets.md#mount-vs-download) the files to your compute as a FileDataset object. 
+If your data is already cleansed, and ready to use in training experiments, you can [download or mount](../how-to-train-with-datasets.md#mount-vs-download) the files to your compute as a FileDataset object. 
 
 We recommend FileDatasets for your machine learning workflows, since the source files can be in any format, which enables a wider range of machine learning scenarios, including deep learning.
 
-Create a FileDataset with the [Python SDK](#create-a-filedataset) or the [Azure Machine Learning studio](how-to-connect-data-ui.md#create-datasets)
+Create a FileDataset with the [Python SDK](#create-a-filedataset) or the [Azure Machine Learning studio](../how-to-connect-data-ui.md#create-datasets)
 .
 ### TabularDataset
 
@@ -87,28 +87,27 @@ A [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) represe
 
 With TabularDatasets, you can specify a time stamp from a column in the data or from wherever the path pattern data is stored to enable a time series trait. This specification allows for easy and efficient filtering by time. For an example, see [Tabular time series-related API demo with NOAA weather data](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb).
 
-Create a TabularDataset with [the Python SDK](#create-a-tabulardataset) or [Azure Machine Learning studio](how-to-connect-data-ui.md#create-datasets).
+Create a TabularDataset with [the Python SDK](#create-a-tabulardataset) or [Azure Machine Learning studio](../how-to-connect-data-ui.md#create-datasets).
 
 >[!NOTE]
-> [Automated ML](concept-automated-ml.md) workflows generated via the Azure Machine Learning studio currently only support TabularDatasets. 
+> [Automated ML](../concept-automated-ml.md) workflows generated via the Azure Machine Learning studio currently only support TabularDatasets. 
 
 ## Access datasets in a virtual network
 
-If your workspace is in a virtual network, you must configure the dataset to skip validation. For more information on how to use datastores and datasets in a virtual network, see [Secure a workspace and associated resources](how-to-secure-workspace-vnet.md#datastores-and-datasets).
+If your workspace is in a virtual network, you must configure the dataset to skip validation. For more information on how to use datastores and datasets in a virtual network, see [Secure a workspace and associated resources](../how-to-secure-workspace-vnet.md#datastores-and-datasets).
 
-<a name="datasets-sdk"></a>
 
 ## Create datasets from datastores
 
 For the data to be accessible by Azure Machine Learning, datasets must be created from paths in [Azure Machine Learning datastores](how-to-access-data.md) or web URLs. 
 
 > [!TIP] 
-> You can create datasets directly from storage urls with identity-based data access. Learn more at [Connect to storage with identity-based data access](how-to-identity-based-data-access.md).
+> You can create datasets directly from storage urls with identity-based data access. Learn more at [Connect to storage with identity-based data access](../how-to-identity-based-data-access.md).
 
  
 To create datasets from a datastore with the Python SDK:
 
-1. Verify that you have `contributor` or `owner` access to the underlying storage service of your registered Azure Machine Learning datastore. [Check your storage account permissions in the Azure portal](../role-based-access-control/check-access.md).
+1. Verify that you have `contributor` or `owner` access to the underlying storage service of your registered Azure Machine Learning datastore. [Check your storage account permissions in the Azure portal](/azure/role-based-access-control/check-access).
 
 1. Create the dataset by referencing paths in the datastore. You can create a dataset from multiple paths in multiple datastores. There is no hard limit on the number of files or data size that you can create a dataset from. 
 
@@ -119,7 +118,7 @@ To create datasets from a datastore with the Python SDK:
 
 Use the [`from_files()`](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory#from-files-path--validate-true-) method on the `FileDatasetFactory` class to load files in any format and to create an unregistered FileDataset. 
 
-If your storage is behind a virtual network or firewall, set the parameter `validate=False` in your `from_files()` method. This bypasses the initial validation step, and ensures that you can create your dataset from these secure files. Learn more about how to [use datastores and datasets in a virtual network](how-to-secure-workspace-vnet.md#datastores-and-datasets).
+If your storage is behind a virtual network or firewall, set the parameter `validate=False` in your `from_files()` method. This bypasses the initial validation step, and ensures that you can create your dataset from these secure files. Learn more about how to [use datastores and datasets in a virtual network](../how-to-secure-workspace-vnet.md#datastores-and-datasets).
 
 ```Python
 from azureml.core import Workspace, Datastore, Dataset
@@ -156,7 +155,7 @@ Use the [`from_delimited_files()`](/python/api/azureml-core/azureml.data.dataset
 
 See the [TabularDatasetFactory reference documentation](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) for information about supported file formats, as well as syntax and design patterns such as [multiline support](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false--empty-as-string-false--encoding--utf8--). 
 
-If your storage is behind a virtual network or firewall, set the parameter `validate=False` in your `from_delimited_files()` method. This bypasses the initial validation step, and ensures that you can create your dataset from these secure files. Learn more about how to use [datastores and datasets in a virtual network](how-to-secure-workspace-vnet.md#datastores-and-datasets).
+If your storage is behind a virtual network or firewall, set the parameter `validate=False` in your `from_delimited_files()` method. This bypasses the initial validation step, and ensures that you can create your dataset from these secure files. Learn more about how to use [datastores and datasets in a virtual network](../how-to-secure-workspace-vnet.md#datastores-and-datasets).
 
 The following code gets the existing workspace and the desired datastore by name. And then passes the datastore and file locations to the `path` parameter to create a new TabularDataset, `weather_ds`.
 
@@ -206,7 +205,7 @@ To reuse and share datasets across experiments in your workspace, [register your
 ## Wrangle data
 After you create and [register](#register-datasets) your dataset, you can load it into your notebook for data wrangling and [exploration](#explore-data) prior to model training. 
 
-If you don't need to do any data wrangling or exploration, see how to consume datasets in your training scripts for submitting ML experiments in [Train with datasets](how-to-train-with-datasets.md).
+If you don't need to do any data wrangling or exploration, see how to consume datasets in your training scripts for submitting ML experiments in [Train with datasets](../how-to-train-with-datasets.md).
 
 ### Filter datasets (preview)
 
@@ -240,7 +239,7 @@ file_dataset = file_dataset.filter(file_dataset.file_metadata['Size'] < 100000)
 file_dataset = file_dataset.filter((file_dataset.file_metadata['CreatedTime'] < datetime(2020,1,1)) | (file_dataset.file_metadata['CanSeek'] == False))
 ```
 
-**Labeled datasets** created from [image labeling projects](how-to-create-image-labeling-projects.md) are a special case. These datasets are a type of TabularDataset made up of image files. For these types of datasets, you can [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) images by metadata, and by column values like `label` and `image_details`.
+**Labeled datasets** created from [image labeling projects](../how-to-create-image-labeling-projects.md) are a special case. These datasets are a type of TabularDataset made up of image files. For these types of datasets, you can [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) images by metadata, and by column values like `label` and `image_details`.
 
 ```python
 # Dataset that only contains records where the label column value is dog
@@ -302,7 +301,7 @@ partition_keys = new_dataset.partition_keys # ['country']
 
 After you're done wrangling your data, you can [register](#register-datasets) your dataset, and then load it into your notebook for data exploration prior to model training.
 
-For FileDatasets, you can either **mount** or **download** your dataset, and apply the Python libraries you'd normally use for data exploration. [Learn more about mount vs download](how-to-train-with-datasets.md#mount-vs-download).
+For FileDatasets, you can either **mount** or **download** your dataset, and apply the Python libraries you'd normally use for data exploration. [Learn more about mount vs download](../how-to-train-with-datasets.md#mount-vs-download).
 
 ```python
 # download the dataset 
@@ -364,16 +363,16 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 There are many templates at [https://github.com/Azure/azure-quickstart-templates/tree/master//quickstarts/microsoft.machinelearningservices](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices) that can be used to create datasets.
 
-For information on using these templates, see [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](how-to-create-workspace-template.md).
+For information on using these templates, see [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](../how-to-create-workspace-template.md).
  
 
 ## Train with datasets
 
-Use your datasets in your machine learning experiments for training ML models. [Learn more about how to train with datasets](how-to-train-with-datasets.md).
+Use your datasets in your machine learning experiments for training ML models. [Learn more about how to train with datasets](../how-to-train-with-datasets.md).
 
 ## Version datasets
 
-You can register a new dataset under the same name by creating a new version. A dataset version is a way to bookmark the state of your data so that you can apply a specific version of the dataset for experimentation or future reproduction. Learn more about [dataset versions](how-to-version-track-datasets.md).
+You can register a new dataset under the same name by creating a new version. A dataset version is a way to bookmark the state of your data so that you can apply a specific version of the dataset for experimentation or future reproduction. Learn more about [dataset versions](../how-to-version-track-datasets.md).
 ```Python
 # create a TabularDataset from Titanic training data
 web_paths = ['https://dprepdata.blob.core.windows.net/demo/Titanic.csv',
@@ -389,6 +388,6 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ## Next steps
 
-* Learn [how to train with datasets](how-to-train-with-datasets.md).
+* Learn [how to train with datasets](../how-to-train-with-datasets.md).
 * Use automated machine learning to [train with TabularDatasets](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
 * For more dataset training examples, see the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/).
