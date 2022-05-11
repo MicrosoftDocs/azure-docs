@@ -154,6 +154,7 @@ If you opted out of using Azure private DNS zones during private endpoint creati
 1. Go to the Azure portal.
 1. Navigate to the private endpoint resource associated with your virtual network and Azure Arc Private Link Scope.
 1. From the left-hand pane, select **DNS configuration** to see a list of the DNS records and corresponding IP addresses you’ll need to set up on your DNS server. The FQDNs and IP addresses will change based on the region you selected for your private endpoint and the available IP addresses in your subnet.
+
       :::image type="content" source="media/private-link/update-dns-configuration.png" alt-text="Screenshot showing manual DNS server configuration in the Azure portal.":::
 
 1. Follow the guidance from your DNS server vendor to add the necessary DNS zones and A records to match the table in the portal. Ensure that you select a DNS server that is appropriately scoped for your network. Every Kubernetes cluster that uses this DNS server now resolves the private endpoint IP addresses and must be associated with the Azure Arc Private Link Scope, or the connection will be refused.
