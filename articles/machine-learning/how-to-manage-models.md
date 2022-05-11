@@ -42,7 +42,7 @@ The code snippets in this section cover the following scenarios:
 
 These snippets use `custom' and `mlfow`.
 
-- `custom` is a type that refers to a model file. For example.
+- `custom` is a type that refers to a model file.
 - `mlflow` is a type that refers to a model trained with [mlflow](how-to-use-mlflow-cli-runs.md). MLflow trained model are in a folder that contains the `MLmodel file`, `model file`, `conda dependecies` and the `requirements.txt`. 
 
 ### Registering model as an asset in Azure Machine Learning using CLI
@@ -67,7 +67,7 @@ For a complete example, see the [model YAML](https://github.com/Azure/azureml-ex
 
 # [Datastore](#tab/use-datastore)
 
-A model can created from a cloud path using any one of the following supported URI foramts.
+A model can be created from a cloud path using any one of the following supported URI formats.
 
 
 ```cli
@@ -96,13 +96,13 @@ az ml model create --name my-model --version 1 --path runs:/$RUN_ID/model/ --typ
 
 __Use the azureml job URI format__
 
-We will also have an azureml job reference URI format to allow users to register a model from artifacts in any of the job's outputs. This format is aligned with the existing azureml datastore reference URI format, and also supports referencing artifacts from named outputs of the job (not just the default artifact location). This also enables establishing a lineage between a registered model and the job it was trained from if the user did not directly register their model within the training script using mlflow.
+We'll also have an azureml job reference URI format to allow users to register a model from artifacts in any of the job's outputs. This format is aligned with the existing azureml datastore reference URI format, and also supports referencing artifacts from named outputs of the job (not just the default artifact location). This also enables establishing a lineage between a registered model and the job it was trained from if the user didn't directly register their model within the training script using mlflow.
 
 Format:
 `azureml://jobs/<job-name>/outputs/<output-name>/paths/<path-to-model-relative-to-the-named-output-location>`
 
 Examples:
-- Defaut artifact location: `azureml://jobs/$RUN_ID/outputs/artifacts/paths/model/`
+- Default artifact location: `azureml://jobs/$RUN_ID/outputs/artifacts/paths/model/`
     * this is equivalent to `runs:/$RUN_ID/model/` from the #2 mlflow run URI format
     * **note: "artifacts"** is the reserved key word we use to refer to the output that represents the **default artifact location**
 - From a named output dir: `azureml://jobs/$RUN_ID/outputs/trained-model`
@@ -142,7 +142,7 @@ ml_client.models.create_or_update(file_model)
 
 # [Datastore](#tab/use-datastore)
 
-A model can created from a cloud path using any one of the following supported URI foramts.
+A model can be created from a cloud path using any one of the following supported URI formats.
 
 ```python
 from azure.ml.entities import Model
@@ -185,13 +185,13 @@ ml_client.models.create_or_update(run_model)
 
 __Use the azureml job URI format__
 
-We will also have an azureml job reference URI format to allow users to register a model from artifacts in any of the job's outputs. This format is aligned with the existing azureml datastore reference URI format, and also supports referencing artifacts from named outputs of the job (not just the default artifact location). This also enables establishing a lineage between a registered model and the job it was trained from if the user did not directly register their model within the training script using mlflow.
+We'll also have an azureml job reference URI format to allow users to register a model from artifacts in any of the job's outputs. This format is aligned with the existing azureml datastore reference URI format, and also supports referencing artifacts from named outputs of the job (not just the default artifact location). This also enables establishing a lineage between a registered model and the job it was trained from if the user didn't directly register their model within the training script using mlflow.
 
 Format:
 `azureml://jobs/<job-name>/outputs/<output-name>/paths/<path-to-model-relative-to-the-named-output-location>`
 
 Examples:
-- Defaut artifact location: `azureml://jobs/$RUN_ID/outputs/artifacts/paths/model/`
+- Default artifact location: `azureml://jobs/$RUN_ID/outputs/artifacts/paths/model/`
     * this is equivalent to `runs:/$RUN_ID/model/` from the #2 mlflow run URI format
     * **note: "artifacts"** is the reserved key word we use to refer to the output that represents the **default artifact location**
 - From a named output dir: `azureml://jobs/$RUN_ID/outputs/trained-model`
