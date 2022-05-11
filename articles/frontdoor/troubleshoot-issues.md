@@ -37,13 +37,9 @@ The cause of this problem can be one of three things:
 
 * Send the request to your backend directly without going through Azure Front Door. See how long your backend usually takes to respond.
 * Send the request via Azure Front Door and see if you're getting any 503 responses. If not, the problem might not be a timeout issue. Contact support.
-* If requests going through Azure Front Door result in a 503 error response code, configure **Origin response timeout (in seconds)** for the endpoint. You can extend the default timeout to up to 4 minutes, which is 240 seconds. To configure the setting, go to **Endpoint manager** and select **Edit endpoint**.
+* If requests going through Azure Front Door result in a 503 error response code, configure **Origin response timeout (in seconds)** for Azure Front Door. You can extend the default timeout to up to 4 minutes, which is 240 seconds. To configure the setting, go to overview page of the Front Door profile. Select **Origin response timeout** and enter a value between *16* and *240* seconds.
 
-    :::image type="content" source="./media/troubleshoot-issues/origin-response-timeout-1.png" alt-text="Screenshot that shows selecting Edit endpoint from Endpoint manager.":::
-
-    Then select **Endpoint properties** to configure **Origin response timeout**.
-
-    :::image type="content" source="./media/troubleshoot-issues/origin-response-timeout-2.png" alt-text="Screenshot that shows selecting Endpoint properties and the Origin response timeout field." lightbox="./media/troubleshoot-issues/origin-response-timeout-2-expanded.png":::
+    :::image type="content" source="./media/how-to-configure-endpoints/origin-timeout.png" alt-text="Screenshot of the origin timeout settings on the overview page of the Azure Front Door profile.":::
 
 * If the timeout doesn't resolve the issue, use a tool like Fiddler or your browser's developer tool to check if the client is sending byte range requests with **Accept-Encoding** headers. Using this option leads to the origin responding with different content lengths.
 
