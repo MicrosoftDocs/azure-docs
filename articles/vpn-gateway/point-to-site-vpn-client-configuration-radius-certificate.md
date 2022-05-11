@@ -12,7 +12,7 @@ ms.date: 05/11/2022
 
 To connect to a virtual network over point-to-site (P2S), you need to configure the client device that you'll connect from. This article helps you create and install the VPN client configuration for RADIUS certificate authentication.
 
-When you're using RADIUS authentication, there are multiple authentication instructions: [certificate authentication](point-to-site-vpn-client-configuration-radius-certificate.md), [password authentication](point-to-site-vpn-client-configuration-radius-password.md). and [other authentication methods and protocols](point-to-site-vpn-client-configuration-radius-other.md). The VPN client configuration is different for each type of authentication. To configure a VPN client, you use client configuration files that contain the required settings.
+When you're using RADIUS authentication, there are multiple authentication instructions: [certificate authentication](point-to-site-vpn-client-configuration-radius-certificate.md), [password authentication](point-to-site-vpn-client-configuration-radius-password.md), and [other authentication methods and protocols](point-to-site-vpn-client-configuration-radius-other.md). The VPN client configuration is different for each type of authentication. To configure a VPN client, you use client configuration files that contain the required settings.
 
 >[!NOTE]
 > [!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
@@ -98,7 +98,7 @@ Use the following steps to configure the native VPN client on a Mac for certific
 
    :::image type="content" source="./media/point-to-site-vpn-client-config-radius-certificate/add-certificate.png" alt-text="Screenshot shows adding the VpnServerRoot certificate." lightbox="./media/point-to-site-vpn-client-config-radius-certificate/add-certificate.png":::
 
-   :::image type="content" source="./media/point-to-site-vpn-client-config-radius-certificate/radius-root.png" alt-text="Screenshot shows adding the RadiusServerRoot certificate" lightbox="./media/point-to-site-vpn-client-config-radius-certificate/radius-root.png":::
+   :::image type="content" source="./media/point-to-site-vpn-client-config-radius-certificate/radius-root.png" alt-text="Screenshot shows adding the RadiusServerRoot certificate." lightbox="./media/point-to-site-vpn-client-config-radius-certificate/radius-root.png":::
 
 1. Each client requires a client certificate for authentication. Install the client certificate on the client device.
 
@@ -122,11 +122,11 @@ Use the following steps to configure the native VPN client on a Mac for certific
 
 1. **Choose An Identity** displays a list of certificates for you to choose from. Select the proper certificate, and then select **Continue**.
 
-   :::image type="content" source="./media/point-to-site-vpn-client-config-radius-certificate/identity.png" alt-text="Screenshot shows Choose An Identity list" lightbox="./media/point-to-site-vpn-client-config-radius-certificate/identity.png":::
+   :::image type="content" source="./media/point-to-site-vpn-client-config-radius-certificate/identity.png" alt-text="Screenshot shows Choose An Identity list." lightbox="./media/point-to-site-vpn-client-config-radius-certificate/identity.png":::
 
 1. In the **Local ID** box, specify the name of the certificate (from Step 6). In this example, it's **ikev2Client.com**. Then, select the **Apply** button to save the changes.
 
-   :::image type="content" source="./media/point-to-site-vpn-client-config-radius-certificate/apply-connect.png" alt-text="Screenshot shows Local ID box" lightbox="./media/point-to-site-vpn-client-config-radius-certificate/apply-connect.png":::
+   :::image type="content" source="./media/point-to-site-vpn-client-config-radius-certificate/apply-connect.png" alt-text="Screenshot shows Local I D box." lightbox="./media/point-to-site-vpn-client-config-radius-certificate/apply-connect.png":::
 
 1. In the **Network** dialog box, select **Apply** to save all changes. Then, select **Connect** to start the P2S connection to the Azure virtual network.
 
