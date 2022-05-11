@@ -12,6 +12,8 @@ ms.subservice: azure-arc-data
 ---
 
 # az sql mi-arc config
+
+Configuration commands.
 ## Commands
 | Command | Description|
 | --- | --- |

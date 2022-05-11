@@ -16,12 +16,14 @@ ms.devlang: azurecli
 
 # Deploy MLflow models to online endpoints (preview)
 
-[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
 > * [v1](./v1/how-to-deploy-mlflow-models.md)
 > * [v2 (current version)](how-to-deploy-mlflow-models-online-endpoints.md)
 
-In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to an [online endpoint](concept-endpoints.md) (preview). When you deploy your MLflow model to an online endpoint, it's a no-code-deployment so you don't have to provide a scoring script or an environment. 
+In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to an [online endpoint](concept-endpoints.md) (preview) for real-time inference. When you deploy your MLflow model to an online endpoint, it's a no-code-deployment so you don't have to provide a scoring script or an environment. 
 
 You only provide the typical MLflow model folder contents:
 
@@ -33,13 +35,11 @@ For no-code-deployment, Azure Machine Learning
 
 * Dynamically installs Python packages provided in the `conda.yaml` file, this means the dependencies are installed during container runtime.
     * The base container image/curated environment used for dynamic installation is `mcr.microsoft.com/azureml/mlflow-ubuntu18.04-py37-cpu-inference` or `AzureML-mlflow-ubuntu18.04-py37-cpu-inference`
-
-Provides a MLflow base image/curated environment that contains,
-
-* [`azureml-inference-server-http`](how-to-inference-server-http.md) 
-* [`mlflow-skinny`](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst)
-* `pandas`
-* The scoring script baked into the image
+* Provides a MLflow base image/curated environment that contains the following items:
+    * [`azureml-inference-server-http`](how-to-inference-server-http.md) 
+    * [`mlflow-skinny`](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst)
+    * `pandas`
+    * The scoring script baked into the image.
 
 ## Prerequisites
 

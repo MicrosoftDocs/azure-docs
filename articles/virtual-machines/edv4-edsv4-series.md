@@ -1,10 +1,8 @@
 ---
 title: Edv4 and Edsv4-series 
 description: Specifications for the Ev4, Edv4, Esv4 and Edsv4-series VMs.
-author: brbell
-ms.author: brbell
-ms.reviewer: jushiman
-ms.custom: mimckitt
+author: andysports8
+ms.author: shuji
 ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual

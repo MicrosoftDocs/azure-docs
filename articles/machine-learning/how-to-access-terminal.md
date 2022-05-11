@@ -42,7 +42,7 @@ To access the terminal:
 
 In addition to the steps above, you can also access the terminal from:
 
-* RStudio: Select the **Terminal** tab on top left.
+* RStudio (See [Add RStudio]([Create and manage an Azure Machine Learning compute instance]): Select the **Terminal** tab on top left.
 * Jupyter Lab:  Select the **Terminal** tile under the **Other** heading in the Launcher tab.
 * Jupyter:  Select **New>Terminal** on top right in the Files tab.
 * SSH to the machine, if you enabled SSH access when the compute instance was created.
@@ -68,7 +68,7 @@ Learn more about [cloning Git repositories into your workspace file system](conc
 
 Or you can install packages directly in Jupyter Notebook or RStudio:
 
-* RStudio Use the **Packages** tab on the bottom right, or the **Console** tab on the top left.  
+* RStudio [Add RStudio]([Create and manage an Azure Machine Learning compute instance]: Use the **Packages** tab on the bottom right, or the **Console** tab on the top left.  
 * Python: Add install code and execute in a Jupyter Notebook cell.
 
 > [!NOTE]

@@ -10,8 +10,6 @@ ms.custom: mode-other
 ---
 #  Connect your AWS accounts to Microsoft Defender for Cloud
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same.
 
 Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).

@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: tutorial
-ms.author: sacartac
+ms.author: larryfr
 ms.reviewer: nibaccam
-author: cartacioS
+author: blackmist
 ms.date: 10/21/2021
 ms.custom: automl
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.

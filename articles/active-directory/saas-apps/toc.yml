@@ -215,6 +215,8 @@
         href: attendancemanagementservices-tutorial.md
       - name: AuditBoard
         href: auditboard-tutorial.md
+      - name: Authomize
+        href: authomize-tutorial.md
       - name: Autodesk SSO
         href: autodesk-sso-tutorial.md
       - name: Autotask Endpoint Backup
@@ -601,10 +603,14 @@
         href: datasite-tutorial.md
       - name: Datava Enterprise Service Platform
         href: datava-enterprise-service-platform-tutorial.md
+      - name: Datto File Protection Single Sign On
+        href: datto-file-protection-tutorial.md
       - name: Datto Workplace Single Sign On
         href: datto-workplace-tutorial.md
       - name: Dealpath
         href: dealpath-tutorial.md
+      - name: deBroome Brand Portal
+        href: debroome-brand-portal-tutorial.md
       - name: Degreed
         href: degreed-tutorial.md
       - name: Deputy
@@ -792,6 +798,10 @@
         href: headerf5-tutorial.md
       - name: F5 BIG-IP Easy Button for SSO to Oracle EBS
         href: f5-big-ip-oracle-enterprise-business-suite-easy-button.md
+      - name: F5 BIG-IP Easy Button for SSO to Oracle JD Edwards using Azure AD
+        href: f5-big-ip-oracle-jd-edwards-easy-button.md
+      - name: F5 BIG-IP Easy Button for SSO to SAP ERP using Azure AD
+        href: f5-big-ip-sap-erp-easy-button.md    
       - name: Facebook Work Accounts
         href: facebook-work-accounts-tutorial.md  
       - name: FactSet
@@ -810,6 +820,8 @@
         href: field-id-tutorial.md
       - name: Fidelity NetBenefits
         href: fidelitynetbenefits-tutorial.md
+      - name: Fidelity PlanViewer
+        href: fidelity-planviewer-tutorial.md
       - name: Fieldglass
         href: fieldglass-tutorial.md
       - name: Figma
@@ -854,6 +866,8 @@
         href: folloze-tutorial.md
       - name: Foodee
         href: foodee-tutorial.md
+      - name: Forcepoint Cloud Security Gateway - User Authentication
+        href: forcepoint-cloud-security-gateway-tutorial.md
       - name: ForeSee CX Suite
         href: foreseecxsuite-tutorial.md
       - name: Form.com
@@ -868,6 +882,8 @@
         href: fortiweb-web-application-firewall-tutorial.md 
       - name: foundU
         href: foundu-tutorial.md
+      - name: Framer
+        href: framer-tutorial.md
       - name: Freedcamp
         href: freedcamp-tutorial.md
       - name: FreshDesk
@@ -920,6 +936,8 @@
         href: globalone-tutorial.md
       - name: GlobeSmart
         href: globesmart-tutorial.md
+      - name: GoalQuest
+        href: goalquest-tutorial.md
       - name: GoLinks
         href: golinks-tutorial.md
       - name: GoToMeeting
@@ -1648,6 +1666,8 @@
         href: periscope-data-tutorial.md
       - name: PetroVue
         href: petrovue-tutorial.md
+      - name: Phenom TXM
+        href: phenom-txm-tutorial.md
       - name: Phraseanet
         href: phraseanet-tutorial.md
       - name: Picturepark
@@ -2158,6 +2178,8 @@
         href: teamphoria-tutorial.md
       - name: TeamSeer
         href: teamseer-tutorial.md
+      - name: TeamSlide
+        href: teamslide-tutorial.md
       - name: TeamSticker by Communitio
         href: teamsticker-by-communitio-tutorial.md  
       - name: TeamViewer

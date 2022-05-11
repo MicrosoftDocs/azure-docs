@@ -42,10 +42,24 @@
       href: application-lifecycle-management.md
     - name: Microservices
       href: microservices.md
+    - name: Networking
+      items: 
+      - name: Architecture overview
+        href: networking.md
+      - name: Deploy with an external environment
+        href: vnet-custom.md
+      - name: Deploy with an internal environment
+        href: vnet-custom-internal.md
+      - name: Firewall integration
+        href: firewall-integration.md
     - name: Observability
       href: observability.md
     - name: Health probes
       href: health-probes.md
+    - name: Authentication
+      href: authentication.md
+    - name: Dapr integration
+      href: dapr-overview.md
 - name: How-to guides
   items:
     - name: Scale an app
@@ -66,6 +80,20 @@
       href: github-actions-cli.md
     - name: Use a custom VNET
       href: vnet-custom.md
+    - name: Enable authentication
+      items:
+      - name: Azure Active Directory
+        href: authentication-azure-active-directory.md
+      - name: Facebook
+        href: authentication-facebook.md
+      - name: GitHub
+        href: authentication-github.md
+      - name: Google
+        href: authentication-google.md
+      - name: Twitter
+        href: authentication-twitter.md
+      - name: Custom OpenID Connect
+        href: authentication-openid.md
 - name: Tutorials
   items:
     - name: Microservices with Dapr using the CLI

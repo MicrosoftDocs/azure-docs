@@ -10,7 +10,7 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 03/14/2022
+ms.date: 05/09/2022
 ms.custom: references_regions
 ---
 
@@ -47,7 +47,7 @@ The information in the rest of this document provides information on what featur
 | **[Integrated notebooks](how-to-run-jupyter-notebooks.md)** |   |  | | 
 | Workspace notebook and file sharing                                        | GA                   | YES                | YES         |
 | R and Python support                                                       | GA                   | YES                | YES         |
-| Virtual Network support                                                    | Public Preview       | NO                 | NO          |
+| Virtual Network support                                                    | GA       | YES                 | YES          |
 | **[Compute instance](concept-compute-instance.md)** |   |  | | 
 | Managed compute Instances for integrated Notebooks                         | GA                   | YES                | YES         |
 | Jupyter, JupyterLab Integration                                            | GA                   | YES                | YES         |
@@ -62,6 +62,7 @@ The information in the rest of this document provides information on what featur
 | ACI behind VNet                                                            | Public Preview       | NO                 | NO          |
 | ACR behind VNet                                                            | GA       | YES                 | YES          |
 | Private IP of AKS cluster                                                  | Public Preview       | NO                 | NO          |
+| Network isolation for managed online endpoints                             | Public Preview       | NO                 | NO          |
 | **Compute** |   | | |
 | [quota management across workspaces](how-to-manage-quotas.md)                                         | GA                   | YES                | YES         |
 | **[Data for machine learning](concept-data.md)** |   | | |
@@ -93,6 +94,7 @@ The information in the rest of this document provides information on what featur
 | [Experimentation UI](how-to-track-monitor-analyze-runs.md)                                                         | Public Preview                   | YES                | YES         |
 | [.NET integration ML.NET 1.0](/dotnet/machine-learning/tutorials/object-detection-model-builder)                                                | GA                   | YES                | YES         |
 | **Inference** |   | | |
+| Managed online endpoints | GA | YES | YES |
 | [Batch inferencing](tutorial-pipeline-batch-scoring-classification.md)                                                          | GA                   | YES                | YES         |
 | [Azure Stack Edge with FPGA](how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server)                                                    | Public Preview       | NO                 | NO          |
 | **Other** |   | | |
@@ -157,7 +159,7 @@ The information in the rest of this document provides information on what featur
 | **Integrated notebooks** |   | | |
 | Workspace notebook and file sharing                                        | GA               | YES       | N/A        |
 | R and Python support                                                       | GA               | YES       | N/A        |
-| Virtual Network support                                                    |  Preview   | YES        | N/A        |
+| Virtual Network support                                                    |  GA   | YES        | N/A        |
 | **Compute instance** |    | | |
 | Managed compute Instances for integrated Notebooks                         | GA               | YES        | N/A        |
 | Jupyter, JupyterLab Integration                                            | GA               | YES       | N/A        |
@@ -172,6 +174,7 @@ The information in the rest of this document provides information on what featur
 | ACI behind VNet                                                            | Preview   | NO        | N/A        |
 | ACR behind VNet                                                            | GA   | YES       | N/A        |
 | Private IP of AKS cluster                                                  | Preview   | NO        | N/A        |
+| Network isolation for managed online endpoints                             | Preview       | NO                 | N/A          |
 | **Compute** |   | | |
 | quota management across workspaces                                         | GA               | YES       | N/A        |
 | **Data for machine learning** | | | |
@@ -203,6 +206,7 @@ The information in the rest of this document provides information on what featur
 | Experimentation UI                                                         | GA               | YES       | N/A        |
 | .NET integration ML.NET 1.0                                                | GA               | YES       | N/A        |
 | **Inference** |   | | |
+| Managed online endpoints | GA | YES | N/A |
 | Batch inferencing                                                          | GA               | YES       | N/A        |
 | Azure Stack Edge with FPGA                                                    | Deprecating       | Deprecating            | N/A        |
 | **Other** |    | | |
@@ -225,6 +229,7 @@ The information in the rest of this document provides information on what featur
 * Sample notebook may not work, if it needs access to public data.
 * IP address ranges: The CLI command used in the [required public internet access](how-to-secure-training-vnet.md#required-public-internet-access) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure China](https://www.microsoft.com//download/details.aspx?id=57062) instead.
 * Azure Machine Learning compute instances preview is not supported in a workspace where Private Endpoint is enabled for now, but CI will be supported in the next deployment for the service expansion to all AML regions.
+* Searching for assets in the web UI with Chinese characters will not work correctly.
 
 ## Next steps
 

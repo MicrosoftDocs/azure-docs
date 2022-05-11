@@ -38,9 +38,9 @@ This table lists the Azure services that you can use with Azure Data Lake Storag
 |SQL Server Integration Services (SSIS)|Generally available|Yes|Yes|<ul><li>[Azure Storage connection manager](/sql/integration-services/connection-manager/azure-storage-connection-manager)</li></ul>|
 |Azure Data Explorer|Generally available|Yes|Yes|<ul><li>[Query data in Azure Data Lake using Azure Data Explorer](/azure/data-explorer/data-lake-query-data)</li></ul>|
 |Azure Cognitive Search|Generally available|Yes|Yes|<ul><li>[Index and search Azure Data Lake Storage Gen2 documents](../../search/search-howto-index-azure-data-lake-storage.md)</li></ul>|
-|Azure SQL Managed Instance|Preview|No|Yes|<ul><li>[Data virtualization with Azure SQL Managed Instance (preview)](../../azure-sql/managed-instance/data-virtualization-overview.md)</li></ul>|
+|Azure SQL Managed Instance|Preview|No|Yes|<ul><li>[Data virtualization with Azure SQL Managed Instance (preview)](/azure/azure-sql/managed-instance/data-virtualization-overview)</li></ul>|
 |Azure Content Delivery Network|Not yet supported|Not applicable|Not applicable|<ul><li>[Index and search Azure Data Lake Storage Gen2 documents (preview)](../../cdn/cdn-overview.md)</li></ul>|
-|Azure SQL Database|Not yet supported|Not applicable|Not applicable|<ul><li>[What is Azure SQL Database?](../../azure-sql/database/sql-database-paas-overview.md)</li></ul>|
+|Azure SQL Database|Not yet supported|Not applicable|Not applicable|<ul><li>[What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)</li></ul>|
 
 > [!TIP]
 > To see how services organized into categories such as ingest, download, process, and visualize, see [Ingest, process, and analyze](./data-lake-storage-best-practices.md#ingest-process-and-analyze).

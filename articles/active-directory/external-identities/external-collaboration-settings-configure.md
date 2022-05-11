@@ -6,12 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/11/2022
+ms.date: 05/05/2022
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
 
 ms.collection: M365-identity-device-management
 ---
@@ -30,9 +29,9 @@ External collaboration settings let you specify what roles in your organization 
 
 For B2B collaboration with other Azure AD organizations, you should also review your [cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md) to ensure your inbound and outbound B2B collaboration and scope access to specific users, groups, and applications.
 
-### To configure external collaboration settings:
+## Configure settings in the portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account and open the **Azure Active Directory** service.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account and open the **Azure Active Directory** service.
 1. Select **External Identities** > **External collaboration settings**.
 
 1. Under **Guest user access**, choose the level of access you want guest users to have:
@@ -41,7 +40,7 @@ For B2B collaboration with other Azure AD organizations, you should also review 
 
    - **Guest users have the same access as members (most inclusive)**: This option gives guests the same access to Azure AD resources and directory data as member users.
 
-   - **Guest users have limited access to properties and memberships of directory objects**: (Default) This setting blocks guests from certain directory tasks, like enumerating users, groups, or other directory resources. Guests can see membership of all non-hidden groups.
+   - **Guest users have limited access to properties and memberships of directory objects**: (Default) This setting blocks guests from certain directory tasks, like enumerating users, groups, or other directory resources. Guests can see membership of all non-hidden groups. [Learn more about default guest permissions](../fundamentals/users-default-permissions.md#member-and-guest-users).
 
    - **Guest user access is restricted to properties and memberships of their own directory objects (most restrictive)**: With this setting, guests can access only their own profiles. Guests are not allowed to see other users' profiles, groups, or group memberships.
 
@@ -63,6 +62,15 @@ For B2B collaboration with other Azure AD organizations, you should also review 
 1. Under **Collaboration restrictions**, you can choose whether to allow or deny invitations to the domains you specify and enter specific domain names in the text boxes. For multiple domains, enter each domain on a new line. For more information, see [Allow or block invitations to B2B users from specific organizations](allow-deny-list.md).
 
     ![Screenshot showing Collaboration restrictions settings.](./media/external-collaboration-settings-configure/collaboration-restrictions.png)
+
+## Configure settings with Microsoft Graph
+
+External collaboration settings can be configured by using the Microsoft Graph API:
+
+- For **Guest user access restrictions** and **Guest invite restrictions**, use the [authorizationPolicy](/graph/api/resources/authorizationpolicy?view=graph-rest-1.0&preserve-view=true) resource type.
+- For the **Enable guest self-service sign up via user flows** setting, use [authenticationFlowsPolicy](/graph/api/resources/authenticationflowspolicy?view=graph-rest-1.0&preserve-view=true) resource type.
+- For email one-time passcode settings (now on the **All identity providers** page in the Azure portal), use the [emailAuthenticationMethodConfiguration](/graph/api/resources/emailAuthenticationMethodConfiguration?view=graph-rest-1.0&preserve-view=true) resource type.
+
 ## Assign the Guest Inviter role to a user
 
 With the Guest Inviter role, you can give individual users the ability to invite guests without assigning them a global administrator or other admin role. Assign the Guest inviter role to individuals. Then make sure you set **Admins and users in the guest inviter role can invite** to **Yes**.

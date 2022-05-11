@@ -28,7 +28,7 @@
   items: 
     - name: Key concepts
       href: concept-load-testing-concepts.md
-- name: How-tos
+- name: How-to guides
   expanded: true
   items: 
     - name: Compare test runs
@@ -55,10 +55,14 @@
       href: how-to-use-a-managed-identity.md
     - name: Move between regions
       href: how-to-move-between-regions.md
+    - name: Monitor Azure Load Testing
+      href: monitor-load-testing.md
 - name: Reference
   items:
       - name: Test configuration YAML
         href: reference-test-config-yaml.md
+      - name: Monitor data reference
+        href: monitor-load-testing-reference.md
 - name: Resources
   items: 
     - name: Azure roadmap

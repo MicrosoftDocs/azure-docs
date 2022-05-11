@@ -481,7 +481,7 @@ Configure and prepare your OS by doing the following steps:
     sudo mount -a 
     </code></pre>
 
-10. **[A]** Verify that all HANA volumes are mounted with NFS protocol version **NFSv4**.  
+10. **[A]** Verify that all HANA volumes are mounted with NFS protocol version **NFSv4.1**.  
 
     <pre><code>
     sudo nfsstat -m

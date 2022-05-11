@@ -11,9 +11,9 @@ ms.date: 11/23/2020
 
 # Best practices for monitoring Azure Database for MySQL - Single server
 
-[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
-Learn about the best practices that can be used to monitor your database operations and ensure that the performance is not compromised as data size grows. As we add new capabilities to the platform, we will continue refine the best practices detailed in this section.
+Learn about the best practices that can be used to monitor your database operations and ensure that the performance is not compromised as data size grows. As we add new capabilities to the platform, we will continue to refine the best practices detailed in this section.
 
 ## Layout of the current monitoring toolkit
 
@@ -28,7 +28,7 @@ Monitor the database server to make sure that the resources assigned to the data
 
 ### CPU utilization
 
-Monitor CPU usage and if the database is exhausting CPU resources. If CPU usage is 90% or more than you should scale up your compute by increasing the number of vCores or scale to next pricing tier.  Make sure that the throughput or concurrency is as expected as you scale up/down the CPU. 
+Monitor CPU usage and if the database is exhausting CPU resources. If CPU usage is 90% or more then you should scale up your compute by increasing the number of vCores or scale to next pricing tier.  Make sure that the throughput or concurrency is as expected as you scale up/down the CPU. 
 
 ### Memory
 
