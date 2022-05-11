@@ -47,8 +47,8 @@ The following versions of Windows are supported:
 - **Windows Server 2019 Standard/Datacenter**
 - **Windows Server 2016 Standard/Datacenter** 
 - **Windows Server 2012 R2 Standard/Datacenter**
-- **Windows 10, version 21H2 or later**
-- **Windows 11**
+- **Windows 10/Windows 10 Enterprise multi-session, version 21H2 or later**
+- **Windows 11/Windows 11 Enterprise multi-session**
 
 The following distributions are supported out of the box from the Azure Gallery: 
 - **Ubuntu 14.04 with the linux-azure kernel**
