@@ -22,7 +22,7 @@ zone_pivot_groups: acs-js-csharp-java-python
 > For more information, see **[Phone number types](../../concepts/telephony/plan-solution.md)**.
 <br/>
 <br/>
->[!VIDEO https://www.youtube.com/embed/watch?v=YEyxSZqzF4o]
+>[!VIDEO https://www.youtube.com/embed/YEyxSZqzF4o]
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Send SMS with .NET SDK](./includes/send-sms-net.md)]
