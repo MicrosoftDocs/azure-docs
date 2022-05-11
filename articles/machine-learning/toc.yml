@@ -294,50 +294,47 @@
           displayName: policy
           href: how-to-integrate-azure-policy.md
     - name: Workspaces & compute resources
-      items: 
-        - name: Create & manage workspaces
-          items: 
-            - name: Use Azure portal or Python SDK
-              href: how-to-manage-workspace.md
-            - name: Use Azure CLI
-              href: how-to-manage-workspace-cli.md
-            - name: Use Resource Manager template
-              displayName: arm
-              href: how-to-create-workspace-template.md
-            - name: Use Terraform
-              href: how-to-manage-workspace-terraform.md
-            - name: Use REST
-              href: how-to-manage-rest.md
-            - name: How to move a workspace
-              href: how-to-move-workspace.md
-            - name: Link to Azure Synapse Analytics workspace
-              href: how-to-link-synapse-ml-workspaces.md
-            - name: Securely integrate Azure Synapse & Azure Machine Learning
-              href: how-to-private-endpoint-integration-synapse.md
-            - name: Workspace Diagnostics
-              href: how-to-workspace-diagnostic-api.md
-        - name: Create & manage compute resources
-          items: 
-            - name: Compute instance
-              displayName: compute target, No public IP
-              href: how-to-create-manage-compute-instance.md
-            - name: Customized compute instance
-              displayName: compute target, No public IP
-              href: how-to-customize-compute-instance.md
-            - name: Compute cluster
-              displayName: compute target, low priority, managed identity
-              href: how-to-create-attach-compute-cluster.md
-            - name: Azure Arc-enabled machine learning
-              displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
-              href: how-to-attach-arc-kubernetes.md
-            - name: Kubernetes instance types
-              displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
-              href: how-to-kubernetes-instance-type.md
-            - name: Use studio
-              displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
-              href: how-to-create-attach-compute-studio.md
-        - name: Customer-managed keys
-          href: how-to-setup-customer-managed-keys.md
+      items:
+          - name: Create & manage workspaces
+            items:
+              - name: Use Azure portal or Python SDK
+                href: how-to-manage-workspace.md
+              - name: Use Azure CLI
+                href: how-to-manage-workspace-cli.md
+              - name: Use Resource Manager template
+                displayName: arm
+                href: how-to-create-workspace-template.md
+              - name: Use Terraform
+                href: how-to-manage-workspace-terraform.md
+              - name: Use REST
+                href: how-to-manage-rest.md
+              - name: How to move a workspace
+                href: how-to-move-workspace.md
+              - name: Link to Azure Synapse Analytics workspace
+                href: how-to-link-synapse-ml-workspaces.md
+              - name: Securely integrate Azure Synapse & Azure Machine Learning
+                href: how-to-private-endpoint-integration-synapse.md
+              - name: Workspace Diagnostics
+                href: how-to-workspace-diagnostic-api.md
+          - name: Create & manage compute resources
+            items:
+              - name: Compute instance
+                displayName: compute target, No public IP
+                href: how-to-create-manage-compute-instance.md
+              - name: Compute cluster
+                displayName: compute target, low priority, managed identity
+                href: how-to-create-attach-compute-cluster.md
+              - name: Kubernetes cluster
+                displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
+                href: how-to-attach-kubernetes-anywhere.md
+              - name: Azure Kubernetes Service
+                displayName: AKS, inference
+                href: how-to-create-attach-kubernetes.md
+              - name: Use studio
+                displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
+                href: how-to-create-attach-compute-studio.md
+          - name: Customer-managed keys
+            href: how-to-setup-customer-managed-keys.md
     - name: Set up an environment
       items: 
         - name: Set up dev environments
@@ -432,7 +429,10 @@
               displayName: blob, get, fileshare, access, mount, download, data lake, datastore, dataset, data set
               href: how-to-connect-data-ui.md
         - name: Manage & consume data
-          items: 
+          items:
+            - name: Read & write data (v2)
+              displayName: train
+              href: how-to-read-write-data-v2.md
             - name: Train with datasets
               displayName: data, dataset, mount
               href: how-to-train-with-datasets.md
@@ -621,6 +621,8 @@
           href: how-to-convert-custom-model-to-mlflow.md
     - name: Manage the ML lifecycle
       items: 
+        - name: Manage models
+          href: how-to-manage-models.md
         - name: Automation
           items: 
             - name: Azure Pipelines for CI/CD
@@ -633,22 +635,17 @@
               href: how-to-use-event-grid.md
         - name: Build & use ML pipelines
           displayName: pipelines
-          items: 
-            - name: Create ML pipelines (Python)
-              href: how-to-create-machine-learning-pipelines.md
+          items:
             - name: Create ML pipelines using components (CLI v2)
               href: how-to-create-component-pipelines-cli.md
-            - name: Moving data into and between ML pipeline steps (Python)
-              href: how-to-move-data-in-out-of-pipelines.md
-            - name: Use automated ML in ML pipelines (Python)
-              displayName: machine learning automl
-              href: how-to-use-automlstep-in-pipelines.md
-            - name: Deploy ML pipelines (Python)
-              href: how-to-deploy-pipelines.md
-            - name: Use Azure Synapse Apache spark pools in an ML pipeline (Python)
-              href: how-to-use-synapsesparkstep.md
-            - name: Trigger a pipeline
-              href: how-to-trigger-published-pipeline.md
+            - name: Create ML pipelines using components (Python SDK v2)
+              href: how-to-create-component-pipeline-python.md
+            - name: Create ML pipelines using components (UI)
+              href: how-to-create-component-pipelines-ui.md
+            - name: How to use sweep in pipelines (v2)
+              href: how-to-use-sweep-in-pipeline.md
+            - name: Build and debug pipelines (UI)
+              href: how-to-use-pipeline-ui.md
             - name: Designer (drag-n-drop)
               items: 
                 - name: Log metrics
@@ -699,16 +696,6 @@
     - name: VS Code interactive debugging
       displayName: vscode,remote,debug,pipelines,deployments,ssh
       href: how-to-debug-visual-studio-code.md
-    - name: Pipeline issues
-      items: 
-        - name: Troubleshoot pipelines
-          displayName: designer
-          href: how-to-debug-pipelines.md
-        - name: Log pipeline data to Application Insights
-          href: how-to-log-pipelines-application-insights.md
-        - name: Troubleshoot the ParallelRunStep
-          displayName: debug_batch consume pipeline parallelrunstep inference
-          href: how-to-debug-parallel-run-step.md
 - name: Reference
   items: 
     - name: Python SDK
