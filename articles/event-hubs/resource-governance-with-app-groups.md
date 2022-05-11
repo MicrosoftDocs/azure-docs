@@ -3,7 +3,7 @@ title: Govern resources for client applications with application groups
 description: Learn how to use application groups to govern resources for client applications that connect with Event Hubs. 
 ms.topic: conceptual
 ms.custom: subject-monitoring
-ms.date: 05/11/2022
+ms.date: 05/24/2022
 ---
 
 # Govern resources for client applications with application groups
@@ -73,3 +73,5 @@ The following example shows how to create an application group using an ARM temp
 }
 ```
 
+## Next steps
+For conceptual information on application groups, see [Resource governance with application groups](resource-governance-overview.md). 
