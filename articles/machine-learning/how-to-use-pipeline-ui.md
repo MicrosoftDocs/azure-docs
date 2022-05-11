@@ -29,21 +29,20 @@ In the asset library left of the canvas, there are **Data assets** and **Compone
 
 You can quickly filter **My assets** or **Designer built-in assets**.
 
-:::image type="content" source="./media/how-to-use-pipeline-ui/asset-library.png" alt-text="Screenshot showing new asset library.":::
+:::image type="content" source="./media/how-to-use-pipeline-ui/asset-library.png" alt-text="Screenshot showing the asset library with filter by selected." lightbox= "./media/how-to-use-pipeline-ui/asset-library.png":::
 
 Then you can drag and drop either built-in components or custom components to the canvas. You can construct your pipeline or configure your components in any order. Just hide the right pane to construct your pipeline first, and open the right pane to configure your component.
 
 > [!NOTE]
 > Currently built-in components and custom components cannot be used together.
->
 
-:::image type="content" source="./media/how-to-use-pipeline-ui/hide-right-pane.png" alt-text="Screenshot showing close and open right pane.":::
+:::image type="content" source="./media/how-to-use-pipeline-ui/hide-right-pane.png" alt-text="Screenshot showing the close and open button." lightbox= "./media/how-to-use-pipeline-ui/hide-right-pane.png":::
 
 ### Submit pipeline
 
 Now you've built your pipeline. Select **Submit** button above the canvas, and configure your pipeline job.
 
-:::image type="content" source="./media/how-to-use-pipeline-ui/submit-pipeline.png" alt-text="Screenshot showing submitting.":::
+:::image type="content" source="./media/how-to-use-pipeline-ui/submit-pipeline.png" alt-text="Screenshot showing set up pipeline job with the submit button highlighted." lightbox= "./media/how-to-use-pipeline-ui/submit-pipeline.png":::
 
 After you submit your pipeline job, you'll see a submitted job list in the left pane, which shows all the pipeline job you create from the current pipeline draft in the same session. There's also notification popping up from the notification center. You can select through the pipeline job link in the submission list or the notification to check pipeline job status or debugging.
 
@@ -52,7 +51,7 @@ After you submit your pipeline job, you'll see a submitted job list in the left 
 
 If you want to try a few different parameter values for the same pipeline, you can change values and submit for multiple times, without having to waiting for the running status.
 
-:::image type="content" source="./media/how-to-use-pipeline-ui/submission-list.png" alt-text="Screenshot showing submission list and notification.":::
+:::image type="content" source="./media/how-to-use-pipeline-ui/submission-list.png" alt-text="Screenshot showing submitted job list and notification." lightbox= "./media/how-to-use-pipeline-ui/submission-list.png":::
 
 > [!NOTE]
 > The submission list only contains jobs submitted in the same session.
@@ -60,7 +59,7 @@ If you want to try a few different parameter values for the same pipeline, you c
 
 On the pipeline job detail page, you can check the status of the overall job and each node inside, and logs of each node.
 
-:::image type="content" source="./media/how-to-use-pipeline-ui/pipeline-job-detail-page.png" alt-text="Screenshot showing pipeline job detail page.":::
+:::image type="content" source="./media/how-to-use-pipeline-ui/pipeline-job-detail-page.png" alt-text="Screenshot showing pipeline job detail page." lightbox= "./media/how-to-use-pipeline-ui/pipeline-job-detail-page.png":::
 
 ## Debug your pipeline in job detail page
 
@@ -68,15 +67,15 @@ On the pipeline job detail page, you can check the status of the overall job and
 
 In pipeline job detail page, there's an outline left to the canvas, which shows the overall structure of your pipeline job. Hovering on any row, you can select the "Locate" button to locate that node in the canvas.
 
-:::image type="content" source="./media/how-to-use-pipeline-ui/outline.png" alt-text="Screenshot showing outline locate in canvas.":::
+:::image type="content" source="./media/how-to-use-pipeline-ui/outline.png" alt-text="Screenshot showing outline and locate in the canvas." lightbox= "./media/how-to-use-pipeline-ui/outline.png":::
 
 You can filter failed or completed nodes, and filter by only components or dataset for further search. The left pane will show the matched nodes with more information including status, duration, and created time.
 
-:::image type="content" source="./media/how-to-use-pipeline-ui/quick-filter.png" alt-text="Screenshot showing quick filter.":::
+:::image type="content" source="./media/how-to-use-pipeline-ui/quick-filter.png" alt-text="Screenshot showing the quick filter by in outline > search." lightbox= "./media/how-to-use-pipeline-ui/quick-filter.png":::
 
 You can also sort the filter nodes.
 
-:::image type="content" source="./media/how-to-use-pipeline-ui/sort.png" alt-text="Screenshot showing sorting search result.":::
+:::image type="content" source="./media/how-to-use-pipeline-ui/sort.png" alt-text="Screenshot of sorting search result in outline > search." lightbox= "./media/how-to-use-pipeline-ui/sort.png":::
 
 ### Check logs and outputs of component
 
@@ -90,25 +89,23 @@ If your pipeline fails or gets stuck on a node, first view the logs.
 
     The **system_logs folder** contains logs generated by Azure Machine Learning. Learn more about [how to view and download log files for a run](how-to-log-view-metrics.md#view-and-download-log-files-for-a-run).
 
-    :::image type="content" source="./media/how-to-use-pipeline-ui/view-user-log.png" alt-text="Screenshot showing user logs of a node.":::
+    :::image type="content" source="./media/how-to-use-pipeline-ui/view-user-log.png" alt-text="Screenshot showing the user logs of a node." lightbox= "./media/how-to-use-pipeline-ui/view-user-log.png":::
 
     If you don't see those folders, this is due to the compute run time update isn't released to the compute cluster yet, and you can look at **70_driver_log.txt** under **azureml-logs** folder first.
 
-    :::image type="content" source="./media/how-to-use-pipeline-ui/view-driver-logs.png" alt-text="Screenshot showing driver logs of a node.":::
+    :::image type="content" source="./media/how-to-use-pipeline-ui/view-driver-logs.png" alt-text="Screenshot showing the driver logs of a node." lightbox= "./media/how-to-use-pipeline-ui/view-driver-logs.png":::
 
 ## Clone a pipeline job to continue editing
 
 If you would like to work based on an existing pipeline job in the workspace, you can easily clone it into a new pipeline draft to continue editing.
 
-:::image type="content" source="./media/how-to-use-pipeline-ui/job-detail-clone.png" alt-text="Screenshot showing clone.":::
+:::image type="content" source="./media/how-to-use-pipeline-ui/job-detail-clone.png" alt-text="Screenshot of a pipeline job in the workspace with the clone button highlighted." lightbox= "./media/how-to-use-pipeline-ui/job-detail-clone.png":::
 
-After cloning, you can also know which pipeline job it's cloned from by clicking **Showing lineage**.
+After cloning, you can also know which pipeline job it's cloned from by selecting **Show lineage**.
 
-:::image type="content" source="./media/how-to-use-pipeline-ui/draft-show-lineage.png" alt-text="Screenshot showing draft lineage.":::
+:::image type="content" source="./media/how-to-use-pipeline-ui/draft-show-lineage.png" alt-text="Screenshot showing the draft lineage after selecting show lineage button." lightbox= "./media/how-to-use-pipeline-ui/draft-show-lineage.png":::
 
 You can edit your pipeline and then submit again. After submitting, you can see the lineage between the job you submit and the original job by selecting **Show lineage** in the job detail page.
-
-:::image type="content" source="./media/how-to-use-pipeline-ui/job-show-lineage.png" alt-text="Screenshot of job lineage.":::
 
 ## Next steps
 

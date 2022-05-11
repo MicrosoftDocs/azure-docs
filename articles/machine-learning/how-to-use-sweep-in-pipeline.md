@@ -69,15 +69,15 @@ After you submit a pipeline job, the SDK or CLI widget will give you a web URL l
 
 To check details of the sweep step, double click the sweep step and navigate to the **child run** tab in the panel on the right.
 
-:::image type="content" source="./media/how-to-use-sweep-in-pipeline/pipeline-view.png" alt-text="Screenshot of the pipeline with child run and the train_model node highlighted.":::
+:::image type="content" source="./media/how-to-use-sweep-in-pipeline/pipeline-view.png" alt-text="Screenshot of the pipeline with child run and the train_model node highlighted." lightbox= "./media/how-to-use-sweep-in-pipeline/pipeline-view.png":::
 
 This will link you to the sweep job page as seen in the below screenshot. Navigate to **child run** tab, here you can see the metrics of all child runs and list of all child runs.
 
-:::image type="content" source="./media/how-to-use-sweep-in-pipeline/sweep-job.png" alt-text="Screenshot of the job page on the child runs tab.":::
+:::image type="content" source="./media/how-to-use-sweep-in-pipeline/sweep-job.png" alt-text="Screenshot of the job page on the child runs tab." lightbox= "./media/how-to-use-sweep-in-pipeline/sweep-job.png":::
 
-If a child runs failed, select the name of that child run to enter detail page of that specific child run(looks like below screenshot). The useful debug information is under **Outputs + Logs**.
+If a child runs failed, select the name of that child run to enter detail page of that specific child run (see screenshot below). The useful debug information is under **Outputs + Logs**.
 
-:::image type="content" source="./media/how-to-use-sweep-in-pipeline/child-run.png" alt-text="Screenshot of the output + logs tab of a child run.":::
+:::image type="content" source="./media/how-to-use-sweep-in-pipeline/child-run.png" alt-text="Screenshot of the output + logs tab of a child run." lightbox= "./media/how-to-use-sweep-in-pipeline/child-run.png":::
 
 ## Sample notebooks
 

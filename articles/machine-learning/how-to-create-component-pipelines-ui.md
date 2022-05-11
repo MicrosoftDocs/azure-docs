@@ -54,7 +54,7 @@ In the example below take using CLI for example. If you want to learn more about
 
 1. After register component successfully, you can see your component in the studio UI.
 
-![Screenshot showing registered component in component page](./media/how-to-create-component-pipelines-ui/component-page.png)
+:::image type="content" source="./media/how-to-create-component-pipelines-ui/component-page.png" alt-text="Screenshot showing registered component in component page." lightbox ="./media/how-to-create-component-pipelines-ui/component-page.png":::
 
 ## Create pipeline using registered component
 
@@ -62,28 +62,28 @@ In the example below take using CLI for example. If you want to learn more about
 
 1. Set the default compute target of the pipeline. 
 
-    Next to the pipeline name, select the **Gear icon** ![Screenshot of the gear icon](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) at the top of the canvas to open the **Settings** pane. Select the default compute target for your pipeline.
+    Next to the pipeline name, select the **Gear icon** ![Screenshot of the gear icon that is in the UI.](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) at the top of the canvas to open the **Settings** pane. Select the default compute target for your pipeline.
 
     > [!Important]
     > Attached compute is not supported, use [compute instances or clusters](concept-compute-target.md#azure-machine-learning-compute-managed) instead.
 
 1. In asset library, you can see the components registered from previous section.
 
-    ![Screenshot showing registered component in asset library](./media/how-to-create-component-pipelines-ui/asset-library.png)
+    :::image type="content" source="./media/how-to-create-component-pipelines-ui/asset-library.png" alt-text="Screenshot showing registered component in asset library." lightbox ="./media/how-to-create-component-pipelines-ui/asset-library.png":::
 
     Drag the components and drop on the canvas. By default it will use the default version of the component, and you can change to a specific version in the right pane of component if your component has multiple versions.
     
-    ![Screenshot showing changing version of component](./media/how-to-create-component-pipelines-ui/change-component-version.png)
+      :::image type="content" source="./media/how-to-create-component-pipelines-ui/change-component-version.png" alt-text="Screenshot showing changing version of component." lightbox ="./media/how-to-create-component-pipelines-ui/change-component-version.png":::
     
 1. Connect the upstream component output ports to the downstream component input ports.
 
-1. Select one component, you'll see a right pane where you can configure the component. 
+1. Select one component, you'll see a right pane where you can configure the component.
 
     For components with primitive type inputs like number, integer, string and boolean, you can change values of such inputs in the component detailed pane.
 
     You can also change the output settings and compute target where this component run in the right pane.
 
-    ![Screenshot showing component parameter](./media/how-to-create-component-pipelines-ui/component-parameter.png)
+    :::image type="content" source="./media/how-to-create-component-pipelines-ui/component-parameter.png" alt-text="Screenshot showing component parameter settings." lightbox ="./media/how-to-create-component-pipelines-ui/component-parameter.png":::
 
 > [!NOTE]
 > Currently registered components and the designer built-in components cannot be used together.
@@ -92,11 +92,11 @@ In the example below take using CLI for example. If you want to learn more about
 
 1. Select submit, and fill in the required information for your pipeline job.
 
-    ![Screenshot showing submit pipeline](./media/how-to-create-component-pipelines-ui/submit-pipeline.png)
+    :::image type="content" source="./media/how-to-create-component-pipelines-ui/submit-pipeline.png" alt-text="Screenshot showing component parameter settings." lightbox ="./media/how-to-create-component-pipelines-ui/submit-pipeline.png":::
 
 1. After submit successfully, you'll see a job detail page link in the left page. Select **Job detail** to go to pipeline job detail page for checking status and debugging.
 
-    ![Screenshot showing submission list](./media/how-to-create-component-pipelines-ui/submission-list.png)
+    :::image type="content" source="./media/how-to-create-component-pipelines-ui/submission-list.png" alt-text="Screenshot showing the submitted jobs list." lightbox ="./media/how-to-create-component-pipelines-ui/submission-list.png":::
 
     > [!NOTE]
     > The **Submitted jobs** list only contains pipeline jobs submitted during an active session. A page reload will clear out the content.

@@ -20,7 +20,8 @@ In this article, you learn how to build an [Azure Machine Learning pipeline](con
 
 The example trains a small [Keras](https://keras.io/) convolutional neural network to classify images in the [Fashion MNIST](https://github.com/zalandoresearch/fashion-mnist) dataset. The pipeline looks like following.
 
-![Pipeline graph](./media/how-to-create-component-pipeline-python-v2/pipeline-graph.png)
+:::image type="content" source="./media/how-to-create-component-pipeline-python-v2/pipeline-graph.png" alt-text="Screenshot showing pipeline graph of the image classification Keras example." lightbox ="./media/how-to-create-component-pipeline-python-v2/pipeline-graph.png":::
+
 
 In this article, you complete the following tasks:
 
@@ -116,16 +117,16 @@ The code above define a component with display name `Prep Data` using `@command_
 `input_data` is input data path. `training_data` and `test_data` are output data paths for training data and test data. 
 * This component converts the data from `input_data` into a training data csv to `training_data` and a test data csv to `test_data`.
 
-Following is what a component looks like in the studio UI. 
+Following is what a component looks like in the studio UI.
 
 - A component is a block in a pipeline graph.
 - The `input_data`, `training_data` and `test_data` are ports of the component, which connects to other components for data streaming.
 
-![Prep Data component](./media/how-to-create-component-pipeline-python-v2/prep-data-component.png)
+:::image type="content" source="./media/how-to-create-component-pipeline-python-v2/prep-data-component.png" alt-text="Screenshot of the Prep Data component in the UI and code." lightbox ="./media/how-to-create-component-pipeline-python-v2/prep-data-component.png":::
 
 #### Specify component run-time environment
 
-You'll need to modify the runtime environment in which your component runs. 
+You'll need to modify the runtime environment in which your component runs.
 
 :::code language="python" source="~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/prep/prep_dsl_component.py" range="5-10":::
 
@@ -302,7 +303,7 @@ You can monitor the pipeline run by opening the link or you can block until it c
 
 You can open the `Link to Azure Machine Learning studio`, which is the job detail page of your pipeline. You'll see the pipeline graph like following.
 
-![Pipeline job detail page](./media/how-to-create-component-pipeline-python-v2/pipeline-ui.png)
+:::image type="content" source="./media/how-to-create-component-pipeline-python-v2/pipeline-ui.png" alt-text="Screenshot of the pipeline job detail page." lightbox ="./media/how-to-create-component-pipeline-python-v2/pipeline-ui.png":::
 
 You can check the logs and outputs of each component by right clicking the component, or select the component to open its detail pane. To learn more about how to debug your pipeline in UI, you can refer to [this article](how-to-use-pipeline-ui.md).
 
@@ -317,5 +318,5 @@ Using `ml_client.components.get()`, you can get a registered component by name a
 ## Next steps
 
 * For more examples of how to build pipelines by using the machine learning SDK, see the [example repository](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/pipelines).
-* For how to use studio UI to submit and debug your pipeline, refer to [this article](how-to-create-component-pipelines-ui.md).
-* For how to use Azure Machine Learning CLI to create components and pipelines, refer to[this article](how-to-create-component-pipelines-cli.md).
+* For how to use studio UI to submit and debug your pipeline, refer to [how to create pipelines using component in the UI](how-to-create-component-pipelines-ui.md).
+* For how to use Azure Machine Learning CLI to create components and pipelines, refer to [how to create pipelines using component with CLI](how-to-create-component-pipelines-cli.md).
