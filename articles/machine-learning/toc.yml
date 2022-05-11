@@ -169,7 +169,7 @@
     - name: Responsible AI
       items:
         - name: Responsible AI overview
-          displayName: responsible,ml
+          displayName: responsible, ml
           href: concept-responsible-ml.md
         - name: Implement Responsible AI in Practice
           items:
