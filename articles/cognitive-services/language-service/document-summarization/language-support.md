@@ -8,14 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 05/11/2022
 ms.author: aahi
 ms.custom: language-service-summarization, ignite-fall-2021
 ---
 
-# Document summarization language support
+# Summarization language support
 
-Use this article to learn which natural languages are supported by document summarization feature. 
+Use this article to learn which natural languages are supported by document and conversation summarization. 
+
+# [Document summarization](#tab/document-summarization)
 
 ## Languages supported by document summarization 
 

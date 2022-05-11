@@ -160,7 +160,7 @@ curl -X GET    https://your-text-analytics-endpoint-here/text/analytics/v3.2-pre
 }
 ```
 
-# [Conversation summarization](#tab/document-summarization)
+# [Conversation summarization](#tab/conversation-summarization)
 
 |parameter  |Description  |
 |---------|---------|
