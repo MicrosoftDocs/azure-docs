@@ -143,8 +143,7 @@ Authoring AutoML models for vision tasks is supported via the Azure ML Python SD
 
 Learn how to [set up AutoML training for computer vision models](../how-to-auto-train-image-models.md).
 
-![Computer vision tasks examples. Image from: http://cs231n.stanford.edu/slides/2021/lecture_15.pdf ](./media/concept-automated-ml/automl-computer-vision-tasks.png)
-Image from: http://cs231n.stanford.edu/slides/2021/lecture_15.pdf
+:::image type="content" source="./media/concept-automated-ml/automl-computer-vision-tasks.png" alt-text="Diagram of resulting experiment from above":::
 
 Automated ML for images supports the following computer vision tasks: 
 
@@ -197,7 +196,9 @@ Using **Azure Machine Learning**, you can design and run your automated ML train
 1. **Review the results** 
 
 The following diagram illustrates this process. 
-![Automated Machine learning](./media/concept-automated-ml/automl-concept-diagram2.png)
+
+:::image type="content" source="./media/concept-automated-ml/automl-concept-diagram-2.png" alt-text="Screenshot of resulting experiment from above":::
+
 
 
 You can also inspect the logged run information, which [contains metrics](../how-to-understand-automated-ml.md) gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
