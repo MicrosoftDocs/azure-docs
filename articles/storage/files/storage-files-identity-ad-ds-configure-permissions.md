@@ -63,7 +63,7 @@ The following permissions are included on the root directory of a file share:
 
 |Users|Definition|
 |---|---|
-|`BUILTIN\Administrators`|All users who are domain administrators of the on-prem AD DS environment.
+|`BUILTIN\Administrators`|Built-in security group representing administrators of the file server. This group is empty, and no one can be added to it.
 |`BUILTIN\Users`|Built-in security group representing users of the file server. It includes `NT AUTHORITY\Authenticated Users` by default. For a traditional file server, you can configure the membership definition per server. For Azure Files, there isn't a hosting server, hence `BUILTIN\Users` includes the same set of users as `NT AUTHORITY\Authenticated Users`.|
 |`NT AUTHORITY\SYSTEM`|The service account of the operating system of the file server. Such service account doesn't apply in Azure Files context. It is included in the root directory to be consistent with Windows Files Server experience for hybrid scenarios.|
 |`NT AUTHORITY\Authenticated Users`|All users in AD that can get a valid Kerberos token.|
