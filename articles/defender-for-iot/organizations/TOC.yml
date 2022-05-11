@@ -28,15 +28,15 @@
     - name: OT network monitoring best practices
       items:
       - name: Understand your network architecture
-        href: TBD
+        href: best-practices/understand-network-architecture.md
       - name: Plan your network connections
-        href: plan-network-monitoring.md
+        href: best-practices/plan-network-monitoring.md
       - name: Traffic mirroring methods
-        href: traffic-mirroring-methods.md
+        href: best-practices/traffic-mirroring-methods.md
       - name: Sample connectivity models
-        href: sample-connectivity-models.md
+        href: best-practices/sample-connectivity-models.md
       - name: Passive vs active monitoring
-        href: passive-active-monitoring.md
+        href: best-practices/passive-active-monitoring.md
       href: plan-network-monitoring.md
     - name: OT threat monitoring in enterprise SOCs
       href: concept-sentinel-integration.md
@@ -68,6 +68,8 @@
       href: how-to-view-information-per-zone.md
     - name: View OT assets from an on-premises management console
       href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
+    - name: Configure active monitoring for more visibility
+      href: active-monitoring.md
   - name: Manage alerts
     items:
     - name: Manage alerts from the Azure portal
