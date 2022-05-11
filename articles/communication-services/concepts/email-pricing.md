@@ -29,7 +29,8 @@ Messages can be sent to one more recipeints.
 
 ### Pricing example: A user of the Communication Services Virtual Visit Solution sends Appointment Reminder 
 
-Alice is managing virtual visit solution for all the patients. Alice will be schdueling the visit from the Azure Communication Application and sends email invites to all patients reminding about their upcoming visit. 
+Alice is managing virtual visit solution for all the patients. Alice will be schdueling the visit and sends email invites to all patients reminding about their upcoming visit. 
+
 Alice sends an Email of 1 MB Size to 100 patients every day and pricing for 30 days would be
 
 100 emails x 30 = 3000 Emails x 0.00025 = $0.75 USD
