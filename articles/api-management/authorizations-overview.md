@@ -51,6 +51,7 @@ For public preview the following limitations exist.
 - Maximum requests per minute per authorization: 100
 - Authorization code PKCE flow with code challenge isn't supported
 - Authorizations feature isn't supported on self-hosted gateway
+- No API documentation is available please see [this](scripts/authorizations_collection.json) Postman collection.   
 
 ### Authorization providers
  
@@ -86,7 +87,7 @@ Access policies determine which identities can use the authorization that the ac
 
 ### Process flow for creating authorizations
 
-The following image shows the process flow for creating an authorization in API Management using the grant type authorization code. For public preview no API documentation is available please see [this](authorizations_collection.json) Postman collection. 
+The following image shows the process flow for creating an authorization in API Management using the grant type authorization code. For public preview no API documentation is available please see [this](scripts/authorizations_collection.json) Postman collection. 
 
 :::image type="content" source="media/authorizations-overview/get-token.png" alt-text="Process flow for creating authorizations" border="false":::
 
