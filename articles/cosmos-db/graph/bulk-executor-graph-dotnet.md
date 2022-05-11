@@ -16,9 +16,9 @@ ms.devlang: csharp, java
 
 Graph database often has a use case to perform bulk ingestion to refresh the entire graph or update a portion of it. Cosmos DB, which is a distributed database and backbone of Azure Cosmos DB - Gremlin API, is meant to perform if the load is well distributed. BulkExecutor libraries in Cosmos DB designed to exploit this unique capability of Cosmos DB and provide the best performance, refer [here](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk).
 
-This tutorial provides instructions about using Azure Cosmos DB's bulk executor library to import and update graph objects into an Azure Cosmos DB Gremlin API container. This process makes use to create Vertex and Microsoft Edge objects programmatically to then insert multiple of them per network request.
+This tutorial provides instructions about using Azure Cosmos DB's bulk executor library to import and update graph objects into an Azure Cosmos DB Gremlin API container. This process makes use to create Vertex and Edge objects programmatically to then insert multiple of them per network request.
 
-Instead of sending Gremlin queries to a database, where the command is evaluated and then executed one at a time, using the bulkexecutor library will require to create and validate the objects locally. After initializing, the graph objects, the library allows you to send graph objects to the database service sequentially. Using this method, data ingestion speeds can be increased up to 100x, which makes it an ideal method for initial data migrations or periodical data movement operations. 
+Instead of sending Gremlin queries to a database, where the command is evaluated and then executed one at a time, using the BulkExecutor library will require to create and validate the objects locally. After initializing, the graph objects, the library allows you to send graph objects to the database service sequentially. Using this method, data ingestion speeds can be increased up to 100x, which makes it an ideal method for initial data migrations or periodical data movement operations. 
 
 It's now available in following flavors:
 
@@ -84,8 +84,8 @@ private static void executeWithPOJO(Stream<GremlinVertex> vertices,
         loader.uploadDocuments(vertices, edges, createDocs);
     }
 ```
-### Run
-#### Clone
+
+### Clone
 To run the sample, run the `git clone` command below:
 ```bash
 git clone https://github.com/Azure-Samples/azure-cosmos-graph-bulk-executor.git
@@ -93,7 +93,7 @@ git clone https://github.com/Azure-Samples/azure-cosmos-graph-bulk-executor.git
 The sample is available at .\azure-cosmos-graph-bulk-executor\java\
 
 To run the sample, refer the configuration as follows and modify as needed:
-##### Configuration
+### Configuration
 
 The /resources/application.properties file defines the data required to configure the Cosmos DB the required values are:
 
@@ -104,7 +104,7 @@ The /resources/application.properties file defines the data required to configur
 * **sample.sql.partition.path**: If the container needs to be created, this value will be used to define the partitionKey path.
 * **sample.sql.allow.throughput**: The container will be updated to use the throughput value defined here. If you're exploring different throughput options to meet your performance demands, make sure to reset the throughput on the container when done with your exploration. There are costs associated with leaving the container provisioned with a higher throughput.
 
-#### Execute the sample
+### Execute the sample
 
 Once the configuration is modified as per your environment, then run the command:
 
@@ -123,7 +123,7 @@ java -jar target/azure-cosmos-graph-bulk-executor-1.0-jar-with-dependencies.jar 
 
 Running the above commands will execute the sample with a small batch (1k Vertices and roughly 5k Edges). Use the following command lines arguments to tweak the volumes run and which sample version to run.
 
-#### Command line Arguments
+### Command line Arguments
 
 There are several command line arguments are available while running this sample, which is detailed as:
 
@@ -145,7 +145,7 @@ transformation into the GremlinVertex class. They are as follows:
 * **GremlinPartitionKey**: Is being used to define which field on the class contains the partition key. The field name provided here should match the value defined by the partition path on the container.
 * **GremlinIgnore**: Is being used to exclude the isSpecial field from the property being written to the database.
 
-#### Relationship Microsoft Edge
+#### Relationship Edge
 
 The RelationshipEdge is a fairly versatile domain object. Using the field level label annotation allows for a dynamic
 collection of edge types to be created. The following annotations are represented in this sample domain edge:
