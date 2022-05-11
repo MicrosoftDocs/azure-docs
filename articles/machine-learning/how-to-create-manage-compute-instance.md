@@ -333,13 +333,13 @@ Following is a sample policy to default a shutdown schedule at 10 PM PST.
 }    
 ```
 
-## Add custom services such as RStudio (preview)
+## Add custom applications such as RStudio (preview)
 
-You can set up other services, such as RStudio, when creating a compute instance. Follow these steps in studio to set up a custom service on your compute instance
+You can set up other applications, such as RStudio, when creating a compute instance. Follow these steps in studio to set up a custom application on your compute instance
 
 1.	Fill out the form to [create a new compute instance](?tabs=azure-studio#create)
 1.	Select **Next: Advanced Settings**
-1.	Select **Add Service** under the **Custom Service Setup (RStudio Workbench, etc.)** section
+1.	Select **Add application** under the **Custom application setup (RStudio Workbench, etc.)** section
  
 :::image type="content" source="media/how-to-create-manage-compute-instance/custom-service-setup.png" alt-text="Screenshot showing Custom Service Setup.":::
  
@@ -347,53 +347,47 @@ You can set up other services, such as RStudio, when creating a compute instance
 
 RStudio is one of the most popular IDEs among R developers for ML and data science projects. You can easily set up RStudio Workbench to run on your compute instance, using your own RStudio license, and access the rich feature set that RStudio Workbench offers.
 
-1.	Follow the steps listed above to **Add service** when creating your compute instance.
-1.	Select **RStudio Workbench (bring your own license)** in the **Service** dropdown and enter your RStudio Workbench license key in the **License key** field. You can get your RStudio Workbench license or trial license [from RStudio](https://www.rstudio.com/). 
-1. Select **Add service** to add RStudio Workbench service to your compute instance.
+1.	Follow the steps listed above to **Add application** when creating your compute instance.
+1.	Select **RStudio Workbench (bring your own license)** in the **Application** dropdown and enter your RStudio Workbench license key in the **License key** field. You can get your RStudio Workbench license or trial license [from RStudio](https://www.rstudio.com/). 
+1. Select **Add application** to add RStudio Workbench application to your compute instance.
  
 :::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-workbench.png" alt-text="Screenshot shows RStudio settings." lightbox="media/how-to-create-manage-compute-instance/rstudio-workbench.png":::
  
 ### Setup RStudio open source
 
-To use RStudio open source, set up a custom service as follows:
+To use RStudio open source, set up a custom application as follows:
 
-1.	Follow the steps listed above to **Add service** when creating your compute instance.
-1.	Select **Custom Service** on the **Service** dropdown 
-1.	Configure the Service name you would like to use.
-1. Set up the service to run on **Service port** `8787`. 
-1. Point the **Docker image** to `docker.io/rocker/ml-verse:4`. 
-1. Add the following **Environment variables**:
-    * `DISABLE_AUTH: true`
-    * `ROOT: true`
-    * `USERID: 1001`
-    * `GROUPID: 1001`
-    * `USER: azureuser`
-1. Add the **Bind mounts** `/home/azureuser: /home/azureuser`.
-1. Select **Add service** to set up RStudio as a custom service on your compute instance.
+1.	Follow the steps listed above to **Add application** when creating your compute instance.
+1.	Select **Custom Application** on the **Application** dropdown 
+1.	Configure the **Application name** you would like to use.
+1. Set up the application to run on **Target port** `8787`. 
+1. Set up the application to be accessed on **Published port** `8787`. 
+1. Point the **Docker image** to `ghcr.io/azure/rocker-rstudio-ml-verse:latest`. 
+1. Select **Add application** to set up RStudio as a custom application on your compute instance.
 
  
-:::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-open-source.png" alt-text="Screenshot shows form to set up RStudio as a custom service" lightbox="media/how-to-create-manage-compute-instance/rstudio-open-source.png":::
+:::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-open-source.png" alt-text="Screenshot shows form to set up RStudio as a custom application" lightbox="media/how-to-create-manage-compute-instance/rstudio-open-source.png":::
  
-### Setup other custom services
+### Setup other custom applications
 
-Set up other custom services on your compute instance by providing the service on a Docker image.
+Set up other custom applications on your compute instance by providing the application on a Docker image.
 
-1.	Follow the steps listed above to **Add service** when creating your compute instance.
-1.	Select **Custom Service** on the **Service** dropdown. 
-1. Configure the **Service name**, the **Service port** you wish to run the service on, and the **Docker image** that contains your service.
-1. Optionally, add **Environment variables** and **Bind mounts** you wish to use for your service.
-1. Select **Add service** to set up the custom service on your compute instance.
+1.	Follow the steps listed above to **Add application** when creating your compute instance.
+1.	Select **Custom Application** on the **Application** dropdown. 
+1. Configure the **Application name**, the **Target port** you wish to run the application on, the **Published port** you wish to access the application on and the **Docker image** that contains your application.
+1. Optionally, add **Environment variables** and **Bind mounts** you wish to use for your application.
+1. Select **Add application** to set up the custom application on your compute instance.
 
-:::image type="content" source="media/how-to-create-manage-compute-instance/custom-service.png" alt-text="Screenshot show custom service settings." lightbox="media/how-to-create-manage-compute-instance/custom-service.png":::
+:::image type="content" source="media/how-to-create-manage-compute-instance/custom-service.png" alt-text="Screenshot show custom application settings." lightbox="media/how-to-create-manage-compute-instance/custom-service.png":::
 
-### Accessing custom services in studio
+### Accessing custom applications in studio
 
-Access the custom services that you set up in studio:
+Access the custom applications that you set up in studio:
 
 1. On the left, select **Compute**.
-1. On the **Compute instance** tab, see your services under **Applications**.
+1. On the **Compute instance** tab, see your applications under the **Applications** column.
 
-:::image type="content" source="media/how-to-create-manage-compute-instance/custom-service-access.png" alt-text="Screenshot shows studio access for your custom services.":::
+:::image type="content" source="media/how-to-create-manage-compute-instance/custom-service-access.png" alt-text="Screenshot shows studio access for your custom applications.":::
 
 ## Manage
 
