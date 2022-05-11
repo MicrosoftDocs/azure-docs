@@ -28,14 +28,49 @@ Get started with facial recognition using the Face REST API. The Face service pr
 
 ## Identify faces
 
-1. Detect faces for identification, save their ids, sort by the person label. 
-1. Detect the source face and save its ID.
-1. Create LargePersonGroup
-1. Create Person objects withing the LargePersonGroup. The persons you'll need can be called "Family1-Dad", "Family1-Mom", "Family1-Son", "Family1-Daughter", "Family2-Lady", and "Family2-Man".
-1. Add the face IDs to the corresponding person.
-1. Call the Identify API, using the source face ID and the LargePersonGroup ID.
+1. First, call the Detect API on the source face. This is the face that we will try to identify from the larger group. Copy the following command to a text editor, insert your own subscription key, and then copy it into a shell window and run it.
+
+    :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_detect":::
+
+    Save the returned face ID string to a temporary location. You'll use it again at the end.
+
+1. Next you'll need to create a **LargePersonGroup**. This will store the aggregated face data of several persons. Run the following command, inserting your own subscription key. Optionally, change the group's name and metadata in the request body.
+
+    :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_create_persongroup":::
+
+    Save the returned ID of the created group to a temporary location.
+
+1. Next, you'll create **Person** objects that belong to the group. Run the following command, inserting your own subscription key and the ID of the **LargePersonGroup** from the previous step. This following command creates a **Person** named "Family1-Dad".
+
+    :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_create_person":::
+
+    After you run this command, run it again to create additional **Person** objects: "Family1-Mom", "Family1-Son", "Family1-Daughter", "Family2-Lady", and "Family2-Man".
+
+    Save the IDs of each **Person** created; it's important to keep track of which name has which ID.
+
+1. Next you'll need to detect new faces and associate them with the other **Person** objects that exist. The following command detects a face from the image *Family1-Dad.jpg* and adds it to the corresponding person. You need to specify the `personId` as the ID returned when you created the "Family1-Dad" **Person** object. The image name corresponds to the name of the created **Person**. Also enter the **LargePersonGroup** ID and your subscription key in the appropriate fields.
+
+    :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_add_face":::
+
+    Then, run the above command again with a different source image and target **Person**. The images available are: *Family1-Dad1.jpg*, *Family1-Dad2.jpg* *Family1-Mom1.jpg*, *Family1-Mom2.jpg*, *Family1-Son1.jpg*, *Family1-Son2.jpg*, *Family1-Daughter1.jpg*, *Family1-Daughter2.jpg*, *Family2-Lady1.jpg*, *Family2-Lady2.jpg*, *Family2-Man1.jpg*, and *Family2-Man2.jpg*. Be sure that the **Person** whose ID you specify in the API call matches the name of the image file in the request body.
+
+    At the end of this step, you should have multiple **Person** objects that each have one or more corresponding faces, detected directly from the provided images.
+
+1. Next, train the LargePersonGroup with the current face data. The training operation teaches the model how to associate facial features, sometimes aggregated from multiple source images, to each single person. Insert the **LargePersonGroup** ID and your subscription key before running the command.
+
+    :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_train":::
+ 
+1. New you are ready to call the Identify API, using the source face ID from the first step and the **LargePersonGroup** ID. Insert these values into the appropriate fields in teh request body, and insert your subscription key.
+
+    :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_identify":::
+
+    The response should give you a **Person** ID indicating the person identified with the source face. It should be the ID that corresponds to the "Family1-Dad" person, because the source face is of that person.
 
 ## Clean up resources
+
+To delete the **LargePersonGroup** you created in this exercise, run the LargePersonGroup - Delete call.-
+
+:::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_delete":::
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
