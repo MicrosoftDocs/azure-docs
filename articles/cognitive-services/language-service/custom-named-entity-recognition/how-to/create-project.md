@@ -35,19 +35,18 @@ You also will need an Azure storage account where you will upload your `.txt` fi
 
 ## Create Language resource and connect storage account
 
-### [Using the Azure portal](#tab/azure-portal)
+### Using the Azure portal
 
 [!INCLUDE [create a new resource from the Azure portal](../includes/resource-creation-azure-portal.md)]
 
-### [Using Language Studio](#tab/language-studio)
+### Using Language Studio
 
 [!INCLUDE [create a new resource from the Language Studio](../includes/language-studio/resource-creation-language-studio.md)]
 
-### [Using Azure PowerShell](#tab/azure-powershell)
+### Using Azure PowerShell
 
 [!INCLUDE [create a new resource with Azure PowerShell](../includes/resource-creation-powershell.md)]
 
----
 
 > [!NOTE]
 > * The process of connecting a storage account to your Language resource is irreversible, it cannot be disconnected later.
