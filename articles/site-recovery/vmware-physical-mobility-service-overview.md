@@ -6,12 +6,12 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: how-to
 ms.author: sharrai
-ms.date: 08/19/2021
+ms.date: 04/28/2022
 ---
 
 # About the Mobility service for VMware VMs and physical servers
 
-When you set up disaster recovery for VMware virtual machines (VM) and physical servers using [Azure Site Recovery](site-recovery-overview.md), you install the Site Recovery Mobility service on each on-premises VMware VM and physical server. The Mobility service captures data writes on the machine, and forwards them to the Site Recovery process server. The Mobility service is installed by the Mobility service agent software that you can deploy using the following methods:
+When you set up disaster recovery for VMware virtual machines (VM) and physical servers using [Azure Site Recovery](site-recovery-overview.md), you install the Site Recovery Mobility service on each on-premises VMware VM and physical server. The Mobility service captures data, writes on the machine, and forwards them to the Site Recovery process server. The Mobility service is installed by the Mobility service agent software that you can deploy using the following methods:
 
 - [Push installation](#push-installation): When protection is enabled via the Azure portal, Site Recovery installs the Mobility service on the server.
 - Manual installation: You can install the Mobility service manually on each machine through the [user interface (UI)](#install-the-mobility-service-using-ui-classic) or [command prompt](#install-the-mobility-service-using-command-prompt-classic).
@@ -32,20 +32,20 @@ Push installation is an integral part of the job that's run from the Azure porta
 
 - Ensure that all push installation [prerequisites](vmware-azure-install-mobility-service.md) are met.
 - Ensure that all server configurations meet the criteria in the [Support matrix for disaster recovery of VMware VMs and physical servers to Azure](vmware-physical-azure-support-matrix.md).
-- From 9.36 version onwards, for SUSE Linux Enterprise Server 11 SP3, RHEL 5, CentOS 5, Debian 7 ensure the latest installer is [available on the configuration server and scale-out process server](#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server)
+- From 9.36 version onwards, ensure the latest installer for SUSE Linux Enterprise Server 11 SP3, RHEL 5, CentOS 5, Debian 7 is [available on the configuration server and scale-out process server](#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server).
 
 The push installation workflow is described in the following sections:
 
 ### Mobility service agent version 9.23 and higher
 
-For more information about version 9.23 see [Update Rollup 35 for Azure Site Recovery](https://support.microsoft.com/help/4494485/update-rollup-35-for-azure-site-recovery).
+For more information about version 9.23, see [Update Rollup 35 for Azure Site Recovery](https://support.microsoft.com/help/4494485/update-rollup-35-for-azure-site-recovery).
 
 During a push installation of the Mobility service, the following steps are performed:
 
-1. The agent is pushed to the source machine. Copying the agent to the source machine can fail due to multiple environmental errors. Visit [our guidance](vmware-azure-troubleshoot-push-install.md) to troubleshoot push installation failures.
+1. The agent is pushed to the source machine. Copying the agent to the source machine can fail due to multiple environmental errors. Refer to [our guidance](vmware-azure-troubleshoot-push-install.md) to troubleshoot push installation failures.
 1. After the agent is successfully copied to the server, a prerequisite check is performed on the server.
    - If all prerequisites are met, the installation begins.
-   - The installation fails if one or more of the [prerequisites](vmware-physical-azure-support-matrix.md) aren't met.
+   - If one or more [prerequisites](vmware-physical-azure-support-matrix.md) aren't met, the installation fails.  
 1. As part of the agent installation, the Volume Shadow Copy Service (VSS) provider for Azure Site Recovery is installed. The VSS provider is used to generate application-consistent recovery points. If installation of the VSS provider fails, this step is skipped and the agent installation continues.
 1. If the agent installation succeeds but the VSS provider installation fails, then the job status is marked as **Warning**. This doesn't impact crash-consistent recovery point generation.
 
@@ -191,7 +191,7 @@ Syntax | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CS
 
 ## Locate installer files
 
-On the configuration server go to the folder _%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository_. Check which installer you need based on the operating system. The following table summarizes the installer files for each VMware VM and physical server operating system. Before you begin, you can review the [supported operating systems](vmware-physical-azure-support-matrix.md#replicated-machines).
+On the configuration server, go to the folder _%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository_. Check which installer you need based on the operating system. The following table summarizes the installer files for each VMware VM and physical server operating system. Before you begin, you can review the [supported operating systems](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 > [!NOTE]
 > The file names use the syntax shown in the following table with _version_ and _date_ as placeholders for the real values. The actual file names will look similar to these examples:
@@ -407,7 +407,7 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
 
 ## Generate Mobility Service configuration file
 
-  use the following steps to generate mobility service configuration file:
+  Use the following steps to generate mobility service configuration file:
 
   1. Navigate to the appliance with which you want to register your source machine. Open the Microsoft Azure Appliance Configuration Manager and navigate to the section **Mobility service configuration details**.
   2. Paste the Machine Details string that you copied from Mobility Service and paste it in the input field here.
@@ -415,7 +415,7 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
 
   ![Image showing download configuration file option for Mobility Service](./media/vmware-physical-mobility-service-overview-preview/download-configuration-file.png)
 
-This will download the Mobility Service configuration file. Copy this file to a local folder in your source machine. You can place it in the same folder as the Mobility Service installer.
+This downloads the Mobility Service configuration file. Copy the downloaded file to a local folder in your source machine. You can place it in the same folder as the Mobility Service installer.
 
 See information about [upgrading the mobility services](upgrade-mobility-service-preview.md).
 

@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 04/06/2022
+ms.date: 05/04/2022
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
@@ -16,7 +16,57 @@ ms.custom: references_regions, devx-track-azurecli
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
-## April 2022
+## May 4, 2022
+
+This release is published May 4, 2022.
+
+### Image tag
+
+`v1.6.0_2022-05-02`
+
+For complete release version information, see [Version log](version-log.md).
+
+### Data controller
+
+Added:
+
+- Create, update, and delete AD connector 
+- Create SQL Managed Instance with AD connectivity to the Azure CLI extension in direct connectivity mode.
+
+Data controller sends controller logs to the Log Analytics Workspace if logs upload is enabled. 
+
+Removed the `--ad-connector-namespace` parameter from `az sql mi-arc create` command because for now the AD connector resource must always be in the same namespace as the SQL Managed Instance resource.
+
+Updated ElasticSearch to latest version `7.9.1-36fefbab37-205465`.  Also Grafana, Kibana, Telegraf, Fluent Bit, Go.
+
+All container image sizes were reduced by approximately 40% on average.
+
+Introduced new `create-sql-keytab.ps1` PowerShell script to aid in creation of keytabs.
+
+### SQL Managed Instance
+
+Separated the availability group and failover group status into two different sections on Kubernetes.
+
+Updated SQL engine binaries to the latest version.
+
+Add support for `NodeSelector`, `TopologySpreadConstraints` and `Affinity`.  Only available through Kubernetes yaml/json file create/edit currently.  No Azure CLI, Azure Portal, or Azure Data Studio user experience yet.
+
+Add support for specifying labels and annotations on the secondary service endpoint. `REQUIRED_SECONDARIES_TO_COMMIT` is now a function of the number of replicas.  
+
+- If three replicas, then `REQUIRED_SECONDARIES_TO_COMMIT = 1`.  
+- If one or two replicas, then `REQUIRED_SECONDARIES_TO_COMMIT = 0`.
+
+In this release, the default value of the readable secondary service is `Cluster IP`.  The secondary service type can be set in the Kubernetes yaml/json at `spec.services.readableSecondaries.type`. In the next release, the default value will be the same as the primary service type.
+
+### User experience improvements
+
+Notifications added in Azure Portal if billing data has not been uploaded to Azure recently.
+
+#### Azure Data Studio
+
+Added upgrade experience for Data Controller in direct and indirect connectivity mode.
+
+## April 6, 2022
 
 This release is published April 6, 2022.
 
@@ -44,7 +94,10 @@ You can create a maintenance window on the data controller, and if you have SQL 
 
 Metrics for each replica in a business critical instance are now sent to the Azure portal so you can view them in the monitoring charts.
 
-AD authentication connectors can now be set up in an `automatic mode` which will use a service account to automatically create SQL service accounts, SPNs, and DNS entries as an alternative to the AD authentication connectors which use the `Bring Your Own Keytab` mode.
+AD authentication connectors can now be set up in an `automatic mode` or *system-managed keytab* which will use a service account to automatically create SQL service accounts, SPNs, and DNS entries as an alternative to the AD authentication connectors which use the *customer-managed keytab* mode.
+
+> [!NOTE]
+> In some early releases customer-managed keytab mode was called *bring your own keytab* mode.
 
 Backup and point-in-time-restore when a database has Transparent Data Encryption (TDE) enabled is now supported.
 
@@ -101,10 +154,10 @@ For complete release version information, see [Version log](version-log.md).
 
 - Support for readable secondary replicas:
     - To set readable secondary replicas use `--readable-secondaries` when you create or update an Arc-enabled SQL Managed Instance deployment. 
-    - Set `--readable secondaries` to any value between 0 and the number of replicas minus 1.
+    - Set `--readable-secondaries` to any value between 0 and the number of replicas minus 1.
     - `--readable-secondaries` only applies to Business Critical tier. 
 - Automatic backups are taken on the primary instance in a Business Critical service tier when there are multiple replicas. When a failover happens, backups move to the new primary. 
-- RWX capable storage class is required for backups, for both General Purpose and Business Critical service tiers.
+- [ReadWriteMany (RWX) capable storage class](/azure/aks/concepts-storage#azure-disks) is required for backups, for both General Purpose and Business Critical service tiers. Specifying a non-ReadWriteMany storage class will cause the SQL Managed Instance to be stuck in "Pending" status during deployment.
 - Billing support when using multiple read replicas.
 
 For additional information about service tiers, see [High Availability with Azure Arc-enabled SQL Managed Instance (preview)](managed-instance-high-availability.md).
@@ -666,7 +719,7 @@ Additional updates include:
 - Issues with Python environments when using azdata in notebooks in Azure Data Studio resolved
 - The pg_audit extension is now available for PostgreSQL Hyperscale
 - A backup ID is no longer required when doing a full restore of a PostgreSQL Hyperscale database
-- The status (health state) is reported for each of the PostgreSQL instances in a sever group
+- The status (health state) is reported for each of the PostgreSQL instances in a server group
 
    In earlier releases, the status was aggregated at the server group level and not itemized at the PostgreSQL node level.
 

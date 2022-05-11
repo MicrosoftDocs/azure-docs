@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 04/26/2022
+ms.date: 04/27/2022
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -303,7 +303,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ### Media Services v2 (legacy)
 
-For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)](/media-services/previous/media-services-quotas-and-limitations)
+For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)](/azure/media-services/previous/media-services-quotas-and-limitations)
 
 ## Mobile Services limits
 
@@ -373,6 +373,38 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 ## Microsoft Purview limits
 
 The latest values for Microsoft Purview quotas can be found in the [Microsoft Purview quota page](../../purview/how-to-manage-quotas.md).
+
+## Microsoft Sentinel limits
+
+This section lists the most common service limits you might encounter as you use Microsoft Sentinel.
+
+### Analytics rule limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-analytics-rules.md)]
+
+### Incident limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-incidents.md)]
+
+### Machine learning-based limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-machine-learning.md)]
+
+### Notebook limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-notebooks.md)]
+
+### Threat intelligence limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-threat-intelligence.md)]
+
+### Watchlist limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-watchlists.md)]
+
+### User and Entity Behavior Analytics (UEBA) limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-ueba.md)]
 
 ## Service Bus limits
 
@@ -463,11 +495,11 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../../../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
-### Shared Image Gallery limits
+### Compute Gallery limits
 
-There are limits, per subscription, for deploying resources using Shared Image Galleries:
+There are limits, per subscription, for deploying resources using Compute Galleries:
 
-- 100 shared image galleries, per subscription, per region
+- 100 compute galleries, per subscription, per region
 - 1,000 image definitions, per subscription, per region
 - 10,000 image versions, per subscription, per region
 

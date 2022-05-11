@@ -1,9 +1,8 @@
 ---
 title: Ddv5 and Ddsv5-series - Azure Virtual Machines
 description: Specifications for the Ddv5 and Ddsv5-series VMs.
-author: joelpelley
-ms.author: joelpell
-ms.reviewer: joelpell
+author: andysports8
+ms.author: shuji
 ms.custom: mimckitt
 ms.service: virtual-machines
 ms.subservice: vm-sizes-general

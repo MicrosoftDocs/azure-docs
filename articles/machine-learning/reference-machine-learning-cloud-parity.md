@@ -47,7 +47,7 @@ The information in the rest of this document provides information on what featur
 | **[Integrated notebooks](how-to-run-jupyter-notebooks.md)** |   |  | | 
 | Workspace notebook and file sharing                                        | GA                   | YES                | YES         |
 | R and Python support                                                       | GA                   | YES                | YES         |
-| Virtual Network support                                                    | Public Preview       | NO                 | NO          |
+| Virtual Network support                                                    | GA       | YES                 | YES          |
 | **[Compute instance](concept-compute-instance.md)** |   |  | | 
 | Managed compute Instances for integrated Notebooks                         | GA                   | YES                | YES         |
 | Jupyter, JupyterLab Integration                                            | GA                   | YES                | YES         |
@@ -157,7 +157,7 @@ The information in the rest of this document provides information on what featur
 | **Integrated notebooks** |   | | |
 | Workspace notebook and file sharing                                        | GA               | YES       | N/A        |
 | R and Python support                                                       | GA               | YES       | N/A        |
-| Virtual Network support                                                    |  Preview   | YES        | N/A        |
+| Virtual Network support                                                    |  GA   | YES        | N/A        |
 | **Compute instance** |    | | |
 | Managed compute Instances for integrated Notebooks                         | GA               | YES        | N/A        |
 | Jupyter, JupyterLab Integration                                            | GA               | YES       | N/A        |
@@ -225,6 +225,7 @@ The information in the rest of this document provides information on what featur
 * Sample notebook may not work, if it needs access to public data.
 * IP address ranges: The CLI command used in the [required public internet access](how-to-secure-training-vnet.md#required-public-internet-access) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure China](https://www.microsoft.com//download/details.aspx?id=57062) instead.
 * Azure Machine Learning compute instances preview is not supported in a workspace where Private Endpoint is enabled for now, but CI will be supported in the next deployment for the service expansion to all AML regions.
+* Searching for assets in the web UI with Chinese characters will not work correctly.
 
 ## Next steps
 
