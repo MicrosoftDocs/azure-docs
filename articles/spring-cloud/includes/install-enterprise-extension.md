@@ -13,9 +13,9 @@ Use the following line at the end of the Prerequisites section, where relevant. 
 
 -->
 
-The Azure Spring Cloud Enterprise tier extension (3.0.0 or later). Use the following command to remove previous versions and install the latest Enterprise tier extension:
+The Azure Spring Apps Enterprise tier extension (3.0.0 or later). Use the following command to remove previous versions and install the latest Enterprise tier extension:
 
    ```azurecli
-   az extension remove --name spring-cloud
-   az extension add --name spring-cloud
+   az extension remove --name spring
+   az extension add --name spring
    ```

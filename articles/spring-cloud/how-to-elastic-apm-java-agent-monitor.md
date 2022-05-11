@@ -1,6 +1,6 @@
 ---
 title:  How to monitor Spring Boot apps with Elastic APM Java Agent
-description: How to use Elastic APM Java Agent to monitor Spring Boot applications running in Azure Spring Cloud
+description: How to use Elastic APM Java Agent to monitor Spring Boot applications running in Azure Spring Apps
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
@@ -11,14 +11,17 @@ ms.custom: devx-track-java
 
 # How to monitor Spring Boot apps with Elastic APM Java Agent
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article explains how to use Elastic APM Agent to monitor Spring Boot applications running in Azure Spring Cloud.
+This article explains how to use Elastic APM Agent to monitor Spring Boot applications running in Azure Spring Apps.
 
 With the Elastic Observability Solution, you can achieve unified observability to:
 
-* Monitor apps using the Elastic APM Java Agent and using persistent storage with Azure Spring Cloud.
-* Use diagnostic settings to ship Azure Spring Cloud logs to Elastic. For more information, see [Analyze logs with Elastic (ELK) using diagnostics settings](how-to-elastic-diagnostic-settings.md).
+* Monitor apps using the Elastic APM Java Agent and using persistent storage with Azure Spring Apps.
+* Use diagnostic settings to ship Azure Spring Apps logs to Elastic. For more information, see [Analyze logs with Elastic (ELK) using diagnostics settings](how-to-elastic-diagnostic-settings.md).
 
 The following video introduces unified observability for Spring Boot applications using Elastic.
 
@@ -36,30 +39,30 @@ The following video introduces unified observability for Spring Boot application
 
 This article uses the Spring Petclinic sample to walk through the required steps. Use the following steps to deploy the sample application:
 
-1. Follow the steps in [Deploy Spring Boot apps using Azure Spring Cloud and MySQL](https://github.com/Azure-Samples/spring-petclinic-microservices#readme) until you reach the [Deploy Spring Boot applications and set environment variables](https://github.com/Azure-Samples/spring-petclinic-microservices#deploy-spring-boot-applications-and-set-environment-variables) section.
+1. Follow the steps in [Deploy Spring Boot apps using Azure Spring Apps and MySQL](https://github.com/Azure-Samples/spring-petclinic-microservices#readme) until you reach the [Deploy Spring Boot applications and set environment variables](https://github.com/Azure-Samples/spring-petclinic-microservices#deploy-spring-boot-applications-and-set-environment-variables) section.
 
-1. Use the Azure Spring Cloud extension for Azure CLI with the following command to create an application to run in Azure Spring Cloud:
+1. Use the Azure Spring Apps extension for Azure CLI with the following command to create an application to run in Azure Spring Apps:
 
    ```azurecli
-   az spring-cloud app create \
+   az spring app create \
       --resource-group <your-resource-group-name> \
-      --service <your-Azure-Spring-Cloud-instance-name> \
+      --service <your-Azure-Spring-Apps-instance-name> \
       --name <your-app-name> \
       --is-public true
    ```
 
-## Enable custom persistent storage for Azure Spring Cloud
+## Enable custom persistent storage for Azure Spring Apps
 
 Use the following steps to enable custom persistent storage:
 
-1. Follow the steps in [How to enable your own persistent storage in Azure Spring Cloud](how-to-custom-persistent-storage.md).
+1. Follow the steps in [How to enable your own persistent storage in Azure Spring Apps](how-to-custom-persistent-storage.md).
 
-1. Use the following Azure CLI command to add persistent storage for your Azure Spring Cloud apps.
+1. Use the following Azure CLI command to add persistent storage for your Azure Spring Apps apps.
 
    ```azurecli
-   az spring-cloud app append-persistent-storage \
+   az spring app append-persistent-storage \
       --resource-group <your-resource-group-name> \
-      --service <your-Azure-Spring-Cloud-instance-name> \
+      --service <your-Azure-Spring-Apps-instance-name> \
       --name <your-app-name> \
       --persistent-storage-type AzureFileVolume \
       --share-name <your-Azure-file-share-name> \
@@ -90,7 +93,7 @@ Before proceeding, you'll need your Elastic APM server connectivity information 
 1. After you have the Elastic APM endpoint and secret token, use the following command to activate Elastic APM Java agent when deploying applications. The placeholder *`<agent-location>`* refers to the mounted storage location of the Elastic APM Java Agent.
 
    ```azurecli
-   az spring-cloud app deploy \
+   az spring app deploy \
        --name <your-app-name> \
        --artifact-path <unique-path-to-your-app-jar-on-custom-storage> \
        --jvm-options='-javaagent:<agent-location>' \
@@ -106,7 +109,7 @@ You can also run a provisioning automation pipeline using Terraform or an Azure 
 
 ### Automate provisioning using Terraform
 
-To configure the environment variables in a Terraform template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Manages an Active Azure Spring Cloud Deployment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment).
+To configure the environment variables in a Terraform template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Manages an Active Azure Spring Apps Deployment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment).
 
 ```terraform
 resource "azurerm_spring_cloud_java_deployment" "example" {
@@ -163,15 +166,15 @@ You can drill down in a specific transaction to understand the transaction-speci
 
 :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-customer-service-latency-distribution.png" alt-text="Elastic / Kibana screenshot showing A P M Services Transactions page." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-customer-service-latency-distribution.png":::
 
-Elastic APM Java agent also captures the JVM metrics from the Azure Spring Cloud apps that are available with Kibana App for users for troubleshooting.
+Elastic APM Java agent also captures the JVM metrics from the Azure Spring Apps apps that are available with Kibana App for users for troubleshooting.
 
 :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-customer-service-jvm-metrics.png" alt-text="Elastic / Kibana screenshot showing A P M Services J V M page." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-customer-service-jvm-metrics.png":::
 
-Using the inbuilt AI engine in the Elastic solution, you can also enable Anomaly Detection on the Azure Spring Cloud Services and choose an appropriate action - such as Teams notification, creation of a JIRA issue, a webhook-based API call, and others.
+Using the inbuilt AI engine in the Elastic solution, you can also enable Anomaly Detection on the Azure Spring Apps Services and choose an appropriate action - such as Teams notification, creation of a JIRA issue, a webhook-based API call, and others.
 
 :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-alert-anomaly.png" alt-text="Elastic / Kibana screenshot showing A P M Services page with 'Create rule' pane showing and Actions highlighted." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-alert-anomaly.png":::
 
 ## Next steps
 
-* [Quickstart: Deploy your first Spring Boot app in Azure Spring Cloud](./quickstart.md)
+* [Quickstart: Deploy your first Spring Boot app in Azure Spring Apps](./quickstart.md)
 * [Deploy Elastic on Azure](https://www.elastic.co/blog/getting-started-with-the-azure-integration-enhancement)

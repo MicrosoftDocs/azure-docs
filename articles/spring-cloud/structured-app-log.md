@@ -1,6 +1,6 @@
 ---
-title: Structured application log for Azure Spring Cloud | Microsoft Docs
-description: This article explains how to generate and collect structured application log data in Azure Spring Cloud.
+title: Structured application log for Azure Spring Apps | Microsoft Docs
+description: This article explains how to generate and collect structured application log data in Azure Spring Apps.
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
@@ -9,18 +9,21 @@ ms.author: karler
 ms.custom: devx-track-java
 ---
 
-# Structured application log for Azure Spring Cloud
+# Structured application log for Azure Spring Apps
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article explains how to generate and collect structured application log data in Azure Spring Cloud. With proper configuration, Azure Spring Cloud provides useful application log query and analysis through Log Analytics.
+This article explains how to generate and collect structured application log data in Azure Spring Apps. With proper configuration, Azure Spring Apps provides useful application log query and analysis through Log Analytics.
 
 ## Log schema requirements
 
-To improve log query experience, an application log is required to be in JSON format and conform to a schema. Azure Spring Cloud uses this schema to parse your application and stream to Log Analytics.
+To improve log query experience, an application log is required to be in JSON format and conform to a schema. Azure Spring Apps uses this schema to parse your application and stream to Log Analytics.
 
 > [!NOTE]
-> Enabling the JSON log format makes it difficult to read the log streaming output from console. To get human readable output, append the `--format-json` argument to the `az spring-cloud app logs` CLI command. See [Format JSON structured logs](./how-to-log-streaming.md#format-json-structured-logs).
+> Enabling the JSON log format makes it difficult to read the log streaming output from console. To get human readable output, append the `--format-json` argument to the `az spring app logs` CLI command. See [Format JSON structured logs](./how-to-log-streaming.md#format-json-structured-logs).
 
 **JSON schema requirements:**
 
@@ -142,7 +145,7 @@ The procedure:
     </configuration>
     ```
 
-    For local development, run the Spring Cloud application with JVM argument `-Dspring.profiles.active=dev`, then you can see human readable logs instead of JSON formatted lines.
+    For local development, run the Spring application with JVM argument `-Dspring.profiles.active=dev`, then you can see human readable logs instead of JSON formatted lines.
 
 ### Log with log4j2
 

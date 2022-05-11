@@ -1,6 +1,6 @@
 ---
-title: "Quickstart - Provision an Azure Spring Cloud service instance using the Enterprise tier"
-description: Describes the creation of an Azure Spring Cloud service instance for app deployment using the Enterprise tier.
+title: "Quickstart - Provision an Azure Spring Apps service instance using the Enterprise tier"
+description: Describes the creation of an Azure Spring Apps service instance for app deployment using the Enterprise tier.
 author: karlerickson
 ms.author: caiqing
 ms.service: spring-cloud
@@ -9,55 +9,58 @@ ms.date: 02/09/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier
+# Quickstart: Provision an Azure Spring Apps service instance using the Enterprise tier
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This quickstart shows you how to create an Azure Spring Cloud service instance using the Enterprise tier.
+This quickstart shows you how to create an Azure Spring Apps service instance using the Enterprise tier.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A license for Azure Spring Cloud Enterprise Tier. For more information, see [View Azure Spring Cloud Enterprise Tier Offer in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- A license for Azure Spring Apps Enterprise Tier. For more information, see [View Azure Spring Apps Enterprise Tier Offer in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 - [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 
 ## Provision a service instance
 
-Use the following steps to provision an Azure Spring Cloud service instance:
+Use the following steps to provision an Azure Spring Apps service instance:
 
 ### [Portal](#tab/azure-portal)
 
 1. Open the [Azure portal](https://ms.portal.azure.com/).
 
-1. In the top search box, search for *Azure Spring Cloud*.
+1. In the top search box, search for *Azure Spring Apps*.
 
-1. Select **Azure Spring Cloud** from the **Services** results.
+1. Select **Azure Spring Apps** from the **Services** results.
 
-1. On the **Azure Spring Cloud** page, select **Create**.
+1. On the **Azure Spring Apps** page, select **Create**.
 
-1. On the Azure Spring Cloud **Create** page, select **Change** next to the **Pricing** option, then select the **Enterprise** tier.
+1. On the Azure Spring Apps **Create** page, select **Change** next to the **Pricing** option, then select the **Enterprise** tier.
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/choose-enterprise-tier.png" alt-text="Screenshot of Azure portal Azure Spring Cloud creation page with Basics section and 'Choose your pricing tier' pane showing." lightbox="media/enterprise/getting-started-enterprise/choose-enterprise-tier.png":::
+   :::image type="content" source="media/enterprise/getting-started-enterprise/choose-enterprise-tier.png" alt-text="Screenshot of Azure portal Azure Spring Apps creation page with Basics section and 'Choose your pricing tier' pane showing." lightbox="media/enterprise/getting-started-enterprise/choose-enterprise-tier.png":::
 
    Select the **Terms** checkbox to agree to the legal terms and privacy statements of the Enterprise tier offering in the Azure Marketplace.
 
 1. To configure VMware Tanzu components, select **Next: VMware Tanzu settings**.
 
    > [!NOTE]
-   > All Tanzu components are enabled by default. Be sure to carefully consider which Tanzu components you want to use or enable during the provisioning phase. After provisioning the Azure Spring Cloud instance, you can't enable or disable Tanzu components.
+   > All Tanzu components are enabled by default. Be sure to carefully consider which Tanzu components you want to use or enable during the provisioning phase. After provisioning the Azure Spring Apps instance, you can't enable or disable Tanzu components.
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/create-instance-tanzu-settings-public-preview.png" alt-text="Screenshot of Azure portal Azure Spring Cloud creation page with V M ware Tanzu Settings section showing." lightbox="media/enterprise/getting-started-enterprise/create-instance-tanzu-settings-public-preview.png":::
+   :::image type="content" source="media/enterprise/getting-started-enterprise/create-instance-tanzu-settings-public-preview.png" alt-text="Screenshot of Azure portal Azure Spring Apps creation page with V M ware Tanzu Settings section showing." lightbox="media/enterprise/getting-started-enterprise/create-instance-tanzu-settings-public-preview.png":::
 
-1. Select the **Application Insights** section, then select **Enable Application Insights**. You can also enable Application Insights after you provision the Azure Spring Cloud instance.
+1. Select the **Application Insights** section, then select **Enable Application Insights**. You can also enable Application Insights after you provision the Azure Spring Apps instance.
 
    - Choose an existing Application Insights instance or create a new Application Insights instance.
    - Give a **Sampling Rate** with in the range of 0-100, or use the default value 10.
 
    > [!NOTE]
-   > You'll pay for the usage of Application Insights when integrated with Azure Spring Cloud. For more information about Application Insights pricing, see [Application Insights billing](../azure-monitor/logs/cost-logs.md#application-insights-billing).
+   > You'll pay for the usage of Application Insights when integrated with Azure Spring Apps. For more information about Application Insights pricing, see [Application Insights billing](../azure-monitor/logs/cost-logs.md#application-insights-billing).
 
-    :::image type="content" source="media/enterprise/getting-started-enterprise/application-insights.png" alt-text="Screenshot of Azure portal Azure Spring Cloud creation page with Application Insights section showing." lightbox="media/enterprise/getting-started-enterprise/application-insights.png":::
+    :::image type="content" source="media/enterprise/getting-started-enterprise/application-insights.png" alt-text="Screenshot of Azure portal Azure Spring Apps creation page with Application Insights section showing." lightbox="media/enterprise/getting-started-enterprise/application-insights.png":::
 
 1. Select **Review and create**. After validation completes successfully, select **Create** to start provisioning the service instance.
 
@@ -65,10 +68,10 @@ It takes about 5 minutes to finish the resource provisioning.
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Update Azure CLI with the Azure Spring Cloud extension by using the following command:
+1. Update Azure CLI with the Azure Spring Apps extension by using the following command:
 
    ```azurecli
-   az extension update --name spring-cloud
+   az extension update --name spring
    ```
 
 1. Sign in to the Azure CLI and choose your active subscription by using the following command:
@@ -79,20 +82,20 @@ It takes about 5 minutes to finish the resource provisioning.
    az account set --subscription <subscription-ID>
    ```
 
-1. Use the following command to accept the legal terms and privacy statements for the Enterprise tier. This step is necessary only if your subscription has never been used to create an Enterprise tier instance of Azure Spring Cloud.
+1. Use the following command to accept the legal terms and privacy statements for the Enterprise tier. This step is necessary only if your subscription has never been used to create an Enterprise tier instance of Azure Spring Apps.
 
    ```azurecli
    az provider register --namespace Microsoft.SaaS
    az term accept --publisher vmware-inc --product azure-spring-cloud-vmware-tanzu-2 --plan tanzu-asc-ent-mtr
    ```
 
-1. Prepare a name for your Azure Spring Cloud service instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
+1. Prepare a name for your Azure Spring Apps service instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 
-1. Create a resource group and an Azure Spring Cloud service instance using the following the command:
+1. Create a resource group and an Azure Spring Apps service instance using the following the command:
 
    ```azurecli
    az group create --name <resource-group-name>
-   az spring-cloud create \
+   az spring create \
        --resource-group <resource-group-name> \
        --name <service-instance-name> \
        --sku enterprise

@@ -1,6 +1,6 @@
 ---
-title:  "App and deployment in Azure Spring Cloud"
-description: This topic explains the distinction between application and deployment in Azure Spring Cloud.
+title:  "App and deployment in Azure Spring Apps"
+description: This topic explains the distinction between application and deployment in Azure Spring Apps.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
@@ -9,19 +9,22 @@ ms.date: 07/23/2020
 ms.custom: devx-track-java
 ---
 
-# App and deployment in Azure Spring Cloud
+# App and deployment in Azure Spring Apps
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Java ✔️ C#
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-**App** and **Deployment** are the two key concepts in the resource model of Azure Spring Cloud. In Azure Spring Cloud, an *App* is an abstraction of one business app.  One version of code or binary deployed as the *App* runs in a *Deployment*.  Apps run in an *Azure Spring Cloud Service Instance*, or simply *service instance*, as shown next.
+**App** and **Deployment** are the two key concepts in the resource model of Azure Spring Apps. In Azure Spring Apps, an *App* is an abstraction of one business app.  One version of code or binary deployed as the *App* runs in a *Deployment*.  Apps run in an *Azure Spring Apps Service Instance*, or simply *service instance*, as shown next.
 
  ![Apps and Deployments](./media/spring-cloud-app-and-deployment/app-deployment-rev.png)
 
-You can have multiple service instances within a single Azure subscription, but the Azure Spring Cloud Service is easiest to use when all of the Apps that make up a business app reside within a single service instance.
+You can have multiple service instances within a single Azure subscription, but the Azure Spring Apps Service is easiest to use when all of the Apps that make up a business app reside within a single service instance.
 
-Azure Spring Cloud standard tier allows one App to have one production deployment and one staging deployment, so that you can do blue/green deployment on it easily.
+Azure Spring Apps standard tier allows one App to have one production deployment and one staging deployment, so that you can do blue/green deployment on it easily.
 
 ## App
 
@@ -57,4 +60,4 @@ The following features/properties are defined on Deployment level, and will be e
 
 ## Next steps
 
-* [Set up a staging environment in Azure Spring Cloud](./how-to-staging-environment.md)
+* [Set up a staging environment in Azure Spring Apps](./how-to-staging-environment.md)

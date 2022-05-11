@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Provision Azure Spring Cloud using Azure CLI
-description: This quickstart shows you how to use Azure CLI to deploy a Spring Cloud cluster into an existing virtual network.
+title: Quickstart - Provision Azure Spring Apps using Azure CLI
+description: This quickstart shows you how to use Azure CLI to deploy an Azure Spring Apps cluster into an existing virtual network.
 services: azure-cli
 author: karlerickson
 ms.service: spring-cloud
@@ -10,29 +10,32 @@ ms.author: vramasubbu
 ms.date: 11/12/2021
 ---
 
-# Quickstart: Provision Azure Spring Cloud using Azure CLI
+# Quickstart: Provision Azure Spring Apps using Azure CLI
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This quickstart describes how to use Azure CLI to deploy an Azure Spring Cloud cluster into an existing virtual network.
+This quickstart describes how to use Azure CLI to deploy an Azure Spring Apps cluster into an existing virtual network.
 
-Azure Spring Cloud makes it easy to deploy Spring applications to Azure without any code changes. The service manages the infrastructure of Spring Cloud applications so developers can focus on their code. Azure Spring Cloud provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
+Azure Spring Apps makes it easy to deploy Spring applications to Azure without any code changes. The service manages the infrastructure of Spring applications so developers can focus on their code. Azure Spring Apps provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* Two dedicated subnets for the Azure Spring Cloud cluster, one for the service runtime and another for the Spring applications. For subnet and virtual network requirements, see the [Virtual network requirements](how-to-deploy-in-azure-virtual-network.md#virtual-network-requirements) section of [Deploy Azure Spring Cloud in a virtual network](how-to-deploy-in-azure-virtual-network.md).
-* An existing Log Analytics workspace for Azure Spring Cloud diagnostics settings and a workspace-based Application Insights resource. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md) and [Application Insights Java In-Process Agent in Azure Spring Cloud](how-to-application-insights.md).
-* Three internal Classless Inter-Domain Routing (CIDR) ranges (at least */16* each) that you've identified for use by the Azure Spring Cloud cluster. These CIDR ranges will not be directly routable and will be used only internally by the Azure Spring Cloud cluster. Clusters may not use *169.254.0.0/16*, *172.30.0.0/16*, *172.31.0.0/16*, or *192.0.2.0/24* for the internal Spring Cloud CIDR ranges, or any IP ranges included within the cluster virtual network address range.
-* Service permission granted to the virtual network. The Azure Spring Cloud Resource Provider requires Owner permission to your virtual network in order to grant a dedicated and dynamic service principal on the virtual network for further deployment and maintenance. For instructions and more information, see the [Grant service permission to the virtual network](how-to-deploy-in-azure-virtual-network.md#grant-service-permission-to-the-virtual-network) section of [Deploy Azure Spring Cloud in a virtual network](how-to-deploy-in-azure-virtual-network.md).
+* Two dedicated subnets for the Azure Spring Apps cluster, one for the service runtime and another for the Spring applications. For subnet and virtual network requirements, see the [Virtual network requirements](how-to-deploy-in-azure-virtual-network.md#virtual-network-requirements) section of [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
+* An existing Log Analytics workspace for Azure Spring Apps diagnostics settings and a workspace-based Application Insights resource. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md) and [Application Insights Java In-Process Agent in Azure Spring Apps](how-to-application-insights.md).
+* Three internal Classless Inter-Domain Routing (CIDR) ranges (at least */16* each) that you've identified for use by the Azure Spring Apps cluster. These CIDR ranges will not be directly routable and will be used only internally by the Azure Spring Apps cluster. Clusters may not use *169.254.0.0/16*, *172.30.0.0/16*, *172.31.0.0/16*, or *192.0.2.0/24* for the internal Spring app CIDR ranges, or any IP ranges included within the cluster virtual network address range.
+* Service permission granted to the virtual network. The Azure Spring Apps Resource Provider requires Owner permission to your virtual network in order to grant a dedicated and dynamic service principal on the virtual network for further deployment and maintenance. For instructions and more information, see the [Grant service permission to the virtual network](how-to-deploy-in-azure-virtual-network.md#grant-service-permission-to-the-virtual-network) section of [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 * If you're using Azure Firewall or a Network Virtual Appliance (NVA), you'll also need to satisfy the following prerequisites:
   * Network and fully qualified domain name (FQDN) rules. For more information, see [Virtual network requirements](how-to-deploy-in-azure-virtual-network.md#virtual-network-requirements).
-  * A unique User Defined Route (UDR) applied to each of the service runtime and Spring application subnets. For more information about UDRs, see [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md). The UDR should be configured with a route for *0.0.0.0/0* with a destination of your NVA before deploying the Spring Cloud cluster. For more information, see the [Bring your own route table](how-to-deploy-in-azure-virtual-network.md#bring-your-own-route-table) section of [Deploy Azure Spring Cloud in a virtual network](how-to-deploy-in-azure-virtual-network.md).
+  * A unique User Defined Route (UDR) applied to each of the service runtime and Spring application subnets. For more information about UDRs, see [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md). The UDR should be configured with a route for *0.0.0.0/0* with a destination of your NVA before deploying the Azure Spring Apps cluster. For more information, see the [Bring your own route table](how-to-deploy-in-azure-virtual-network.md#bring-your-own-route-table) section of [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 * [Azure CLI](/cli/azure/install-azure-cli)
 
 ## Review the Azure CLI deployment script
 
-The deployment script used in this quickstart is from the [Azure Spring Cloud reference architecture](reference-architecture.md).
+The deployment script used in this quickstart is from the [Azure Spring Apps reference architecture](reference-architecture.md).
 
 ```azurecli
 #!/bin/bash
@@ -45,25 +48,25 @@ echo "Enter Azure region for resource deployment: "
 read region
 location=$region
 
-echo "Enter Azure Spring cloud Resource Group Name: "
-read azurespringcloudrg
-azurespringcloud_resource_group_name=$azurespringcloudrg
+echo "Enter Azure Spring Apps Resource Group Name: "
+read azurespringappsrg
+azurespringapps_resource_group_name=$azurespringappsrg
 
-echo "Enter Azure Spring cloud VNet Resource Group Name: "
-read azurespringcloudvnetrg
-azurespringcloud_vnet_resource_group_name=$azurespringcloudvnetrg
+echo "Enter Azure Spring Apps VNet Resource Group Name: "
+read azurespringappsvnetrg
+azurespringapps_vnet_resource_group_name=$azurespringappsvnetrg
 
-echo "Enter Azure Spring cloud Spoke VNet : "
-read azurespringcloudappspokevnet
-azurespringcloudappspokevnet=$azurespringcloudappspokevnet
+echo "Enter Azure Spring Apps Spoke VNet : "
+read azurespringappsappspokevnet
+azurespringappsappspokevnet=$azurespringappsappspokevnet
 
-echo "Enter Azure Spring cloud App SubNet : "
-read azurespringcloudappsubnet
-azurespringcloud_app_subnet_name='/subscriptions/'$subscription'/resourcegroups/'$azurespringcloud_vnet_resource_group_name'/providers/Microsoft.Network/virtualNetworks/'$azurespringcloudappspokevnet'/subnets/'$azurespringcloudappsubnet
+echo "Enter Azure Spring Apps App SubNet : "
+read azurespringappsappsubnet
+azurespringapps_app_subnet_name='/subscriptions/'$subscription'/resourcegroups/'$azurespringapps_vnet_resource_group_name'/providers/Microsoft.Network/virtualNetworks/'$azurespringappsappspokevnet'/subnets/'$azurespringappsappsubnet
 
-echo "Enter Azure Spring cloud Service SubNet : "
-read azurespringcloudservicesubnet
-azurespringcloud_service_subnet_name='/subscriptions/'$subscription'/resourcegroups/'$azurespringcloud_vnet_resource_group_name'/providers/Microsoft.Network/virtualNetworks/'$azurespringcloudappspokevnet'/subnets/'$azurespringcloudservicesubnet
+echo "Enter Azure Spring Apps Service SubNet : "
+read azurespringappsservicesubnet
+azurespringapps_service_subnet_name='/subscriptions/'$subscription'/resourcegroups/'$azurespringapps_vnet_resource_group_name'/providers/Microsoft.Network/virtualNetworks/'$azurespringappsappspokevnet'/subnets/'$azurespringappsservicesubnet
 
 echo "Enter Azure Log Analytics Workspace Resource Group Name: "
 read loganalyticsrg
@@ -73,7 +76,7 @@ echo "Enter Log Analytics Workspace Resource ID: "
 read workspace
 workspaceID='/subscriptions/'$subscription'/resourcegroups/'$loganalyticsrg'/providers/microsoft.operationalinsights/workspaces/'$workspace
 
-echo "Enter Reserved CIDR Ranges for Azure Spring Cloud: "
+echo "Enter Reserved CIDR Ranges for Azure Spring Apps: "
 read reservedcidrrange
 reservedcidrrange=$reservedcidrrange
 
@@ -82,43 +85,43 @@ read tag
 tags=$tag
 
 randomstring=$(LC_ALL=C tr -dc 'a-z0-9' < /dev/urandom | fold -w 13 | head -n 1)
-azurespringcloud_service='spring-'$randomstring #Name of unique Spring Cloud resource
-azurespringcloud_appinsights=$azurespringcloud_service
-azurespringcloud_resourceid='/subscriptions/'$subscription'/resourceGroups/'$azurespringcloud_resource_group_name'/providers/Microsoft.AppPlatform/Spring/'$azurespringcloud_service
+azurespringapps_service='spring-'$randomstring #Name of unique Azure Spring Apps service instance
+azurespringapps_appinsights=$azurespringapps_service
+azurespringapps_resourceid='/subscriptions/'$subscription'/resourceGroups/'$azurespringapps_resource_group_name'/providers/Microsoft.AppPlatform/Spring/'$azurespringapps_service
 
 # Create Application Insights
 az monitor app-insights component create \
-    --app ${azurespringcloud_service} \
+    --app ${azurespringapps_service} \
     --location ${location} \
     --kind web \
-    -g ${azurespringcloudrg} \
+    -g ${azurespringappsrg} \
     --application-type web \
     --workspace ${workspaceID}
 
-# Create Azure Spring Cloud Instance
-az spring-cloud create \
-   -n ${azurespringcloud_service} \
-   -g ${azurespringcloudrg} \
+# Create Azure Spring Apps Instance
+az spring create \
+   -n ${azurespringapps_service} \
+   -g ${azurespringappsrg} \
    -l ${location} \
    --enable-java-agent true \
-   --app-insights ${azurespringcloud_service} \
+   --app-insights ${azurespringapps_service} \
    --sku Standard \
-   --app-subnet ${azurespringcloud_app_subnet_name} \
-   --service-runtime-subnet ${azurespringcloud_service_subnet_name} \
+   --app-subnet ${azurespringapps_app_subnet_name} \
+   --service-runtime-subnet ${azurespringapps_service_subnet_name} \
    --reserved-cidr-range ${reservedcidrrange} \
    --tags ${tags}
 
-# Update diagnostic setting for Azure Spring Cloud instance
+# Update diagnostic setting for Azure Spring Apps instance
 az monitor diagnostic-settings create  \
    --name monitoring \
-   --resource ${azurespringcloud_resourceid} \
+   --resource ${azurespringapps_resourceid} \
    --logs    '[{"category": "ApplicationConsole","enabled": true}]' \
    --workspace  ${workspaceID}
 ```
 
 ## Deploy the cluster
 
-To deploy the Azure Spring Cloud cluster using the Azure CLI script, follow these steps:
+To deploy the Azure Spring Apps cluster using the Azure CLI script, follow these steps:
 
 1. Sign in to Azure by using the following command:
 
@@ -134,7 +137,7 @@ To deploy the Azure Spring Cloud cluster using the Azure CLI script, follow thes
    az account set --subscription "<your subscription name>"
    ```
 
-1. Register the Azure Spring Cloud Resource Provider.
+1. Register the Azure Spring Apps Resource Provider.
 
    ```azurecli
    az provider register --namespace 'Microsoft.AppPlatform'
@@ -143,10 +146,10 @@ To deploy the Azure Spring Cloud cluster using the Azure CLI script, follow thes
 1. Add the required extensions to Azure CLI.
 
    ```azurecli
-   az extension add --name spring-cloud
+   az extension add --name spring
    ```
 
-1. Choose a deployment location from the regions where Azure Spring Cloud is available, as shown in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud&regions=all).
+1. Choose a deployment location from the regions where Azure Spring Apps is available, as shown in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud&regions=all).
 
 1. Use the following command to generate a list of Azure locations. Take note of the short **Name** value for the region you selected in the previous step.
 
@@ -173,11 +176,11 @@ To deploy the Azure Spring Cloud cluster using the Azure CLI script, follow thes
    * The name of the resource group that you created earlier.
    * The name of the virtual network resource group where you'll deploy your resources.
    * The name of the spoke virtual network (for example, *vnet-spoke*).
-   * The name of the subnet to be used by the Spring Cloud App Service (for example, *snet-app*).
-   * The name of the subnet to be used by the Spring Cloud runtime service (for example, *snet-runtime*).
+   * The name of the subnet to be used by the Azure Spring Apps service (for example, *snet-app*).
+   * The name of the subnet to be used by the Spring runtime service (for example, *snet-runtime*).
    * The name of the resource group for the Azure Log Analytics workspace to be used for storing diagnostic logs.
    * The name of the Azure Log Analytics workspace (for example, *la-cb5sqq6574o2a*).
-   * The CIDR ranges from your virtual network to be used by Azure Spring Cloud (for example, *XX.X.X.X/16,XX.X.X.X/16,XX.X.X.X/16*).
+   * The CIDR ranges from your virtual network to be used by Azure Spring Apps (for example, *XX.X.X.X/16,XX.X.X.X/16,XX.X.X.X/16*).
    * The key/value pairs to be applied as tags on all resources that support tags. For more information, see [Use tags to organize your Azure resources and management hierarchy](../azure-resource-manager/management/tag-resources.md). Use a space-separated list to apply multiple tags (for example, *environment=Dev BusinessUnit=finance*).
 
 After you provide this information, the script will create and deploy the Azure resources.
@@ -199,11 +202,11 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
-In this quickstart, you deployed an Azure Spring Cloud instance into an existing virtual network using Azure CLI, and then validated the deployment. To learn more about Azure Spring Cloud, continue on to the resources below.
+In this quickstart, you deployed an Azure Spring Apps instance into an existing virtual network using Azure CLI, and then validated the deployment. To learn more about Azure Spring Apps, continue on to the resources below.
 
 * Deploy one of the following sample applications from the locations below:
   * [Pet Clinic App with MySQL Integration](https://github.com/azure-samples/spring-petclinic-microservices)
   * [Simple Hello World](./quickstart.md?pivots=programming-language-java&tabs=Azure-CLI).
-* Use [custom domains](tutorial-custom-domain.md) with Azure Spring Cloud.
-* Expose applications in Azure Spring Cloud to the internet using [Azure Application Gateway](expose-apps-gateway-azure-firewall.md).
-* View the secure end-to-end [Azure Spring Cloud reference architecture](reference-architecture.md), which is based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
+* Use [custom domains](tutorial-custom-domain.md) with Azure Spring Apps.
+* Expose applications in Azure Spring Apps to the internet using [Azure Application Gateway](expose-apps-gateway-azure-firewall.md).
+* View the secure end-to-end [Azure Spring Apps reference architecture](reference-architecture.md), which is based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).

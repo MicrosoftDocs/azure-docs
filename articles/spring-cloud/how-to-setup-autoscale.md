@@ -11,26 +11,29 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Set up autoscale for applications
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ✔️ Java ✔️ C#
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 This article describes how to set up Autoscale settings for your applications using the Microsoft Azure portal or the Azure CLI.
 
-Autoscale is a built-in feature of Azure Spring Cloud that helps applications perform their best when demand changes. Azure Spring Cloud supports scale-out and scale-in, which includes modifying the number of app instances and load balancing.
+Autoscale is a built-in feature of Azure Spring Apps that helps applications perform their best when demand changes. Azure Spring Apps supports scale-out and scale-in, which includes modifying the number of app instances and load balancing.
 
 ## Prerequisites
 
 To follow these procedures, you need:
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* A deployed Azure Spring Cloud service instance. Follow the [quickstart on deploying an app via the Azure CLI](./quickstart.md) to get started.
+* A deployed Azure Spring Apps service instance. Follow the [quickstart on deploying an app via the Azure CLI](./quickstart.md) to get started.
 * At least one application already created in your service instance.
 
 ## Navigate to the Autoscale page in the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Go to the Azure Spring Cloud **Overview** page.
+2. Go to the Azure Spring Apps **Overview** page.
 3. Select the resource group that contains your service.
 4. Select the **Apps** tab under **Settings** in the menu on the left navigation pane.
 5. Select the application for which you want to set up Autoscale. In this example, select the application named **demo**. You should then see the application's **Overview** page.
@@ -77,7 +80,7 @@ You can also set Autoscale modes using the Azure CLI. The following commands cre
        --condition "tomcat.global.request.total.count > 100 avg 1m where AppName == demo and Deployment == default"
    ```
 
-For information on the available metrics, see the [User metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Cloud](./concept-metrics.md).
+For information on the available metrics, see the [User metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Apps](./concept-metrics.md).
 
 ## Upgrade to the Standard tier
 
