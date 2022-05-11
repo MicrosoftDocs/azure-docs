@@ -50,13 +50,13 @@ The following screenshot shows a finished Stream Analytics job. It highlights al
 1. **Ribbon** - On the ribbon, sections follow the order of a classic/ analytics process: Event Hubs as input (also known as data source), transformations (streaming ETL operations), outputs, a button to save your progress and a button to start the job.
 2. **Diagram view** - A graphical representation of your Stream Analytics job, from input to operations to outputs.
 3. **Side pane** -  Depending on which component you selected in the diagram view, you'll have settings to modify input, transformation, or output.
-4. **Tabs for data preview, authoring errors, and runtime errors** - For each card shown, the data preview will show you results for that step (live for inputs and on-demand for transformations and outputs). This section also summarizes any authoring errors or warnings that you might have in your job when it's being developed. Selecting each error or warning will select that transform.
+4. **Tabs for data preview, authoring errors, and runtime errors** - For each tile shown, the data preview will show you results for that step (live for inputs and on-demand for transformations and outputs). This section also summarizes any authoring errors or warnings that you might have in your job when it's being developed. Selecting each error or warning will select that transform.
 
 ## Event Hubs as the streaming input
 
 Azure Event Hubs is a big-data streaming platform and event ingestion service. It can receive and process millions of events per second. Data sent to an event hub can be transformed and stored by using any real-time analytics provider or batching/storage adapters.
 
-To configure an event hub as an input for streaming dataflows, select the **Event Hub** symbol. A card appears in the diagram view, including a side pane for its configuration and connection.
+To configure an event hub as an input for streaming dataflows, select the **Event Hub** symbol. A tile appears in the diagram view, including a side pane for its configuration and connection.
 
 After you set up your Event Hubs credentials and select **Connect**, you can add fields manually by using **+ Add field** if you know the field names. To instead detect fields and data types automatically based on a sample of the incoming messages, select **Autodetect fields**. Selecting the gear symbol allows you to edit the credentials if needed. When Stream Analytics job detect the fields, you'll see them in the list. You'll also see a live preview of the incoming messages in the **Data Preview** table under the diagram view.
 
@@ -76,7 +76,7 @@ The available data types are:
 
 Streaming data transformations are inherently different from batch data transformations. Almost all streaming data has a time component, which affects any data preparation tasks involved.
 
-To add a streaming data transformation to your dataflow, select the transformation symbol on the ribbon for that transformation. The respective card will be dropped in the diagram view. After you select it, you'll see the side pane for that transformation to configure it.
+To add a streaming data transformation to your dataflow, select the transformation symbol on the ribbon for that transformation. The respective tile will be dropped in the diagram view. After you select it, you'll see the side pane for that transformation to configure it.
 
 ### Filter
 
@@ -85,7 +85,7 @@ Use the **Filter** transformation to filter events based on the value of a field
 :::image type="content" source="./media/no-code-stream-processing/filter-transformation.png" alt-text="Screenshot showing the Filter event fields view." lightbox="./media/no-code-stream-processing/filter-transformation.png" :::
 
 > [!NOTE]
-> Inside every card, you'll see information about what else is needed for the transformation to be ready. For example, when you're adding a new card, you'll see a `Set-up required` message. If you're missing a node connector, you'll see either an *Error* or a *Warning* message.
+> Inside every tile, you'll see information about what else is needed for the transformation to be ready. For example, when you're adding a new tile, you'll see a `Set-up required` message. If you're missing a node connector, you'll see either an *Error* or a *Warning* message.
 
 ### Manage fields
 
@@ -94,7 +94,7 @@ The **Manage fields** transformation allows you to add, remove, or rename fields
 :::image type="content" source="./media/no-code-stream-processing/manage-field-transformation.png" alt-text="Screenshot showing the Manage fields view." lightbox="./media/no-code-stream-processing/manage-field-transformation.png" :::
 
 > [!TIP]
-> After you configure a card, the diagram view gives you a glimpse of the settings within the card itself. For example, in the **Manage fields** area of the preceding image, you can see the first three fields being managed and the new names assigned to them. Each card has information relevant to it.
+> After you configure a tile, the diagram view gives you a glimpse of the settings within the tile itself. For example, in the **Manage fields** area of the preceding image, you can see the first three fields being managed and the new names assigned to them. Each tile has information relevant to it.
 
 ### Aggregate
 
@@ -194,7 +194,7 @@ The no code drag-and-drop experience provides tools to help you author, troubles
 
 ### Live data preview for inputs
 
-When you're connecting to an event hub and selecting its card in the diagram view (the **Data Preview** tab), you'll get a live preview of data coming in if all the following are true:
+When you're connecting to an event hub and selecting its tile in the diagram view (the **Data Preview** tab), you'll get a live preview of data coming in if all the following are true:
 
 - Data is being pushed.
 - The input is configured correctly.
@@ -220,7 +220,7 @@ You can refresh the preview by selecting **Refresh static preview** (1). When yo
 
 ### Authoring errors
 
-If you have any authoring errors or warnings, the **Authoring errors** tab (1) will list them, as shown in the following screenshot. The list includes details of the error or warning, the type of card (input, transformation, or output), the error level, and a description of the error or warning (2). When you select any of the errors or warnings, the respective card is selected and the configuration side pane opens for you to make the needed changes.
+If you have any authoring errors or warnings, the **Authoring errors** tab (1) will list them, as shown in the following screenshot. The list includes details of the error or warning, the type of tile (input, transformation, or output), the error level, and a description of the error or warning (2). When you select any of the errors or warnings, the respective tile is selected and the configuration side pane opens for you to make the needed changes.
 
 :::image type="content" source="./media/no-code-stream-processing/authoring-errors.png" alt-text="Screenshot showing the Authoring errors tab that shows a list of example errors." lightbox="./media/no-code-stream-processing/authoring-errors.png" :::
 
