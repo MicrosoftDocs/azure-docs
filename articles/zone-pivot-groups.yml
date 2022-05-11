@@ -1816,13 +1816,13 @@ groups:
     title: Bicep   
 # Owner: cshoe
 - id: container-apps-image-build-type
-  title: Container location
-  prompt: Choose an option
+  title: Container build method
+  prompt: Choose how you want to build your containers
   pivots:
   - id: acr-remote
-    title: Azure Container Registry
+    title: Cloud build
   - id: docker-local
-    title: Docker
+    title: Local build (requires Docker)
  # Owner: rahulmehta
 - id: azure-red-hat-openshift-service-principal
   title: Azure CLI and Azure portal

@@ -95,7 +95,7 @@ $ACR_PASSWORD=(Get-AzContainerRegistryCredential `
 
     Select the **Fork** button at the top of the page to fork the repo to your account. Follow the prompts from GitHub to fork the repository and return here once the operation is complete.
 
-1. If your terminal is still *code-to-cloud* folder, back out to the parent folder.
+1. If your terminal is still in the *code-to-cloud\src* folder, back out to the parent folder.
 
     ```console
     cd ../..
@@ -130,15 +130,15 @@ $ACR_PASSWORD=(Get-AzContainerRegistryCredential `
     # [PowerShell](#tab/powershell)
 
     ```powershell
-    $FRONTEND_NAME=albumapp-ui
-    $$CONTAINER_IMAGE_NAME=$ACR_NAME.azurecr.io/$FRONTEND_NAME
+    $FRONTEND_NAME="albumapp-ui"
+    $CONTAINER_IMAGE_NAME="$ACR_NAME.azurecr.io/$FRONTEND_NAME"
     ```
 
     ---
 
 ::: zone pivot="acr-remote"
 
-1. You can build your Dockerfile with the ACR build command.
+1. Build your Dockerfile with the ACR build command.
 
     # [Bash](#tab/bash)
 
@@ -248,14 +248,14 @@ $ACR_PASSWORD=(Get-AzContainerRegistryCredential `
 
 ## Communicate between container apps
 
-In the previous quickstart, the album API was deployed by creating a container app and enabling external ingress. Making the container app set to *external* meant that the endpoint's URL is publicly available.
+In the previous quickstart, the album API was deployed by creating a container app and enabling external ingress. Setting the container app's ingress to *external* made its HTTP endpoint URL publicly available.
 
 Now you can configure the front-end application to call the API endpoint by going through the following steps:
 
 * Query the API application for its fully qualified domain name (FQDN)
 * Pass the API FQDN to `az containerapp create` so the UI app can use the API endpoint location.
 
-The [UI application](https://github.com/Azure-Samples/containerapps-albumui) uses this location during as it sets up the reference to the album API. The following code listing is an excerpt of the code used in the *routes > index.js* file.
+The [UI application](https://github.com/Azure-Samples/containerapps-albumui) uses this location to set up the reference to the album API. The following is an excerpt from the code used in the *routes > index.js* file.
 
 ```javascript
 const api = axios.create({
@@ -267,7 +267,7 @@ const api = axios.create({
 
 Notice how the the `baseURL` property get its value from the `API_BASE_URL` environment variable.
 
-Next, you'll query for the API endpoint address to pass to the UI application when you create a the new container app instance.
+Next, you'll query for the API endpoint address to pass to the UI application when you create the new container app instance.
 
 # [Bash](#tab/bash)
 
@@ -283,7 +283,7 @@ $API_ENDPOINT=$(az containerapp show --resource-group $RESOURCE_GROUP --name $AP
 
 ---
 
-Now that you have set the `API_ENDPOINT` variable with the FQDN of the API endpoint, you can now pass it to the UI application to link the two together.
+Now that you have set the `API_ENDPOINT` variable with the FQDN of the API endpoint, you can now pass it to the UI application to link the two container apps together.
 
 ## Deploy front-end application
 
@@ -313,13 +313,13 @@ az containerapp create `
   --name $FRONTEND_NAME `
   --resource-group $RESOURCE_GROUP `
   --environment $ENVIRONMENT `
-  --image $API_NAME `
+  --image $CONTAINER_IMAGE_NAME `
   --env-vars API_BASE_URL=https://$API_ENDPOINT `
   --target-port 3000 `
   --ingress 'external' `
   --registry-password $ACR_PASSWORD `
   --registry-username $ACR_NAME `
-  --registry-server $ACR_NAME.azurecr.io `
+  --registry-server "$ACR_NAME.azurecr.io"  `
   --query configuration.ingress.fqdn
 ```
 
