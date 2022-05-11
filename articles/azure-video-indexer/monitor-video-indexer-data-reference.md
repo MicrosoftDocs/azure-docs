@@ -137,7 +137,7 @@ Resource Provider and Type: [Microsoft.videoindexer/accounts](/azure/azure-monit
 
 ### Azure Video Indexer
 
-Resource Provider and Type: [Microsoft.VideoIndexer/accounts](/azure/azure-monitor/platform/resource-logs-categories#microsoftwebsitesslots)
+Resource Provider and Type: [Microsoft.VideoIndexer/accounts](/azure/azure-monitor/platform/resource-logs-categories#microsoftvideoindexeraccounts)
 
 | Category | Display Name | Additional information |
 |:---------|:-------------|------------------|
