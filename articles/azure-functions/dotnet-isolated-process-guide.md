@@ -138,7 +138,7 @@ Gets the output binding entries for the current function invocation. Each entry 
 
 Binds an input binding item for the requested `Microsoft.Azure.Functions.Worker.BindingMetadata` instance. For example, if you have a function with a `BlobInput` input binding and you prefer to get/update the value of that in your middleware, you may use this method.
 
-Below is an example of a middleware implementation which reads the `HttpRequestData` instance and updates the `HttpResponseData` instance during the function invocation. This middleware checks for the presence of a specific request header(x-correlationId) and if present, use the header value to stamp a response header, else it generates a new guid value and use that for stamping the response header.
+The following is an example of a middleware implementation which reads the `HttpRequestData` instance and updates the `HttpResponseData` instance during function execution. This middleware checks for the presence of a specific request header(x-correlationId), and when present uses the header value to stamp a response header. Otherwise, it generates a new GUID value and uses that for stamping the response header.
  
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/CustomMiddleware/StampHttpHeaderMiddleware.cs" id="docsnippet_middleware_example_stampheader" :::
  
