@@ -197,6 +197,8 @@
       items:
       - name: Identify historical data 
         href: migration-identify-historical-data.md
+      - name: Select target platform
+        href: migration-ingestion-target-platform.md
       - name: Select data ingestion tool
         href: migration-ingestion-tool.md
       - name: Ingest data
