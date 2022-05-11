@@ -61,7 +61,7 @@ To use a new model and redeploy the custom endpoint:
 1. Select the new model that you want the endpoint to use.
 1. Select **Done** to save and redeploy the endpoint.
 
-The endpoint redeployment takes several minutes to process, and your endpoint will be out of service during this period. If downtime isn't acceptable, you can create a new endpoint and use the new model. This would require a code change for your application to use the new endpoint ID, so consider your use case far enough in advance.
+The redeployment takes several minutes to complete. In the meantime, your endpoint will use the previous model without interruption of service. 
 
 ## View logging data
 

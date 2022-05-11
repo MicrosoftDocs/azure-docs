@@ -1,7 +1,7 @@
 ---
 title: Model lifecycle of Custom Speech - Speech service
 titleSuffix: Azure Cognitive Services
-description: Custom Speech provides baseline models for adaptation and lets you create custom models from your data. This article describes the timelines for models and for endpoints that use these models.
+description: Custom Speech provides baseline models for training and lets you create custom models from your data. This article describes the timelines for models and for endpoints that use these models.
 services: cognitive-services
 author: heikora
 manager: dongli
@@ -16,19 +16,19 @@ ms.author: heikora
 
 Speech recognition models that are provided by Microsoft are referred to as baseline models. When you make a speech recognition request, the current baseline model for each [supported language](language-support.md) is used by default. Baseline models are updated periodically to improve accuracy and quality. 
 
-You can use a custom model for some time after it's trained and deployed. You must periodically recreate and adapt your custom model from the latest baseline model to take advantage of the improved accuracy and quality.
+You can use a custom model for some time after it's trained and deployed. You must periodically recreate and train your custom model from the latest baseline model to take advantage of the improved accuracy and quality.
 
 Some key terms related to the model lifecycle include:
 
-* **Adaptation**: Taking a baseline model and customizing it to your domain/scenario by using text data and/or audio data.
+* **Training**: Taking a baseline model and customizing it to your domain/scenario by using text data and/or audio data. In some contexts such as the REST API properties, training is also referred to as **adaptation**.
 * **Transcription**: Using a model and performing speech recognition (decoding audio into text).
 * **Endpoint**: A specific deployment of either a baseline model or a custom model that only you can access. 
 
 ## Expiration timeline
 
-When new models are made available, the older models are retired. Here are timelines for model and adaptation and transcription expiration:
+When new models are made available, the older models are retired. Here are timelines for model adaptation and transcription expiration:
 
-- Adaptation is available for one year after the quarter when the baseline model was created by Microsoft.
+- Training is available for one year after the quarter when the baseline model was created by Microsoft.
 - Transcription with a baseline model is available for two years after the quarter when the baseline model was created by Microsoft.
 - Transcription with a custom model is available for two years after the quarter when you created the custom model.
 
@@ -40,9 +40,9 @@ When a custom model or baseline model expires, typically speech recognition requ
 
 You can change the model that is used by your custom speech endpoint without downtime:
  - In the Speech Studio, go to your Custom Speech project and select **Deploy models**. Select the endpoint name to see its details, and then select **Change model**. Choose a new model and select **Done**.
- - Update the endpoint's model property via the [`UpdateEndpoint`](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateEndpoint) REST API. 
+ - Update the endpoint's model property via the [`UpdateEndpoint`](https://westus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateEndpoint) REST API. 
 
-[Batch transcription](batch-transcription.md) requests for retired models will fail with a 4xx error. In the [`CreateTranscription`](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateTranscription) REST API request body, update the `model` parameter to use a baseline model or custom model that hasn't yet retired. Otherwise you can remove the `model` entry from the JSON to always use the latest baseline model.
+[Batch transcription](batch-transcription.md) requests for retired models will fail with a 4xx error. In the [`CreateTranscription`](https://westus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateTranscription) REST API request body, update the `model` parameter to use a baseline model or custom model that hasn't yet retired. Otherwise you can remove the `model` entry from the JSON to always use the latest baseline model.
 
 ## Find out when a model expires
 You can get the adaptation and transcription expiration dates for a model via the Speech Studio and REST API.
@@ -56,11 +56,10 @@ Here's an example transcription expiration date shown on the deployment detail p
 
 ![Screenshot of endpoint deployment detail](media/custom-speech/custom-speech-deploy-details.png)
 
-
 ### Model expiration dates via REST API
-You can also check the expiration dates via the [`GetBaseModel`](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel) and [`GetModel`](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel) REST API. The `deprecationDates` property in the JSON response includes the adaptation and transcription expiration dates for each model
+You can also check the expiration dates via the [`GetBaseModel`](https://westus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel) and [`GetModel`](https://westus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel) REST API. The `deprecationDates` property in the JSON response includes the adaptation and transcription expiration dates for each model
 
-Here's an example baseline model retrieved via [`GetBaseModel`](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel): 
+Here's an example baseline model retrieved via [`GetBaseModel`](https://westus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel): 
 
 ```json
 {
@@ -84,7 +83,7 @@ Here's an example baseline model retrieved via [`GetBaseModel`](https://eastus.d
 }
 ```
 
-Here's an example custom model retrieved via [`GetModel`](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel). The custom model was adapted from the previously mentioned baseline model (`e065c68b-21d3-4b28-ae61-eb4c7e797789`):
+Here's an example custom model retrieved via [`GetModel`](https://westus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel). The custom model was trained from the previously mentioned baseline model (`e065c68b-21d3-4b28-ae61-eb4c7e797789`):
 
 ```json
 {

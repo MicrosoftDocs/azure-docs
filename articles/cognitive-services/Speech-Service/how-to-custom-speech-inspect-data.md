@@ -45,11 +45,11 @@ When the test status is *Succeeded*, select the test item name to see details of
 
 To help inspect the side-by-side comparison, you can toggle various error types including insertion, deletion, and substitution. By listening to the audio and comparing recognition results in each column (showing human-labeled transcription and the results of two speech-to-text models), you can decide which model meets your needs and where improvements are needed.
 
-Side-by-side model testing is useful to validate which speech recognition model is best for an application. For an objective measure of accuracy, requiring transcribed audio, see [Test model accuracy](how-to-custom-speech-evaluate-data.md).
+Side-by-side model testing is useful to validate which speech recognition model is best for an application. For an objective measure of accuracy, requiring transcribed audio, see [Test model quantitatively](how-to-custom-speech-evaluate-data.md).
 
 ## Next steps
 
-- [Test model accuracy](how-to-custom-speech-evaluate-data.md)
+- [Test model quantitatively](how-to-custom-speech-evaluate-data.md)
 - [Train your model](how-to-custom-speech-train-model.md)
 - [Deploy your model](./how-to-custom-speech-train-model.md)
 

@@ -57,5 +57,5 @@ You can get a list of existing project URLs that can be used in the `project` el
 ## Next steps
 
 * [Test recognition quality](how-to-custom-speech-inspect-data.md)
-* [Test model accuracy](how-to-custom-speech-evaluate-data.md)
+* [Test model quantitatively](how-to-custom-speech-evaluate-data.md)
 * [Train a custom model](how-to-custom-speech-train-model.md)

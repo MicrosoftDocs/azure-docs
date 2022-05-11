@@ -74,7 +74,7 @@ items:
             href: how-to-custom-speech-upload-data.md
           - name: Test recognition quality
             href: how-to-custom-speech-inspect-data.md
-          - name: Test model accuracy
+          - name: Test model quantitatively
             href: how-to-custom-speech-evaluate-data.md
           - name: Train a model
             href: how-to-custom-speech-train-model.md

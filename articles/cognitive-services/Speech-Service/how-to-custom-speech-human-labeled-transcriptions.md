@@ -179,6 +179,6 @@ Here are some examples of automatic transcription normalization:
 
 ## Next Steps
 
-- [Test model accuracy](how-to-custom-speech-evaluate-data.md)
+- [Test model quantitatively](how-to-custom-speech-evaluate-data.md)
 - [Test recognition quality](how-to-custom-speech-inspect-data.md)
 - [Train your model](how-to-custom-speech-train-model.md)

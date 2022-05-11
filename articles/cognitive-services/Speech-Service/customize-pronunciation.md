@@ -1,5 +1,5 @@
 ---
-title: Create phonetic pronunciation data
+title: Structured text phonetic pronunciation data
 description: Use phonemes to customize pronunciation of words in Speech-to-Text.
 author: ut-karsh
 ms.author: umaheshwari

@@ -19,12 +19,7 @@ With Custom Speech, you can evaluate and improve the Microsoft speech-to-text ac
 
 Out of the box, speech to text utilizes a Universal Language Model as a baseline model that is trained with Microsoft-owned data and reflects commonly used spoken language. This baseline model is pre-trained with dialects and phonetics representing a variety of common domains. As a result, consuming the baseline model requires no additional configuration and works very well in most scenarios. When you make a speech recognition request, the current baseline model for each [supported language](language-support.md) is used by default.
 
-The baseline model may not be sufficient if the audio contains ambient noise or includes a lot of industry and domain-specific jargon. In these cases, you can create and train custom speech models with acoustic, language, and pronunciation data. Custom speech models are private and can offer a competitive advantage. 
-
-There are a few approaches to using speech-to-text models:
-- The baseline model applies when the audio is clear of ambient noise and the speech transcribed consists of commonly spoken language.
-- A custom model augments the baseline model to include domain-specific vocabulary shared across all areas of the custom domain.
-- Multiple custom models can be used when the custom domain has multiple areas, each with a specific vocabulary.
+A custom model can be used to augment the baseline model to improve recognition of domain-specific vocabulary specific to the application by providing text data to train the model. It can also be used to improve recognition based for the specific audio conditions of the application by providing audio data with reference transcriptions
 
 For more information, see [Choose a model for Custom Speech](how-to-custom-speech-choose-model.md).
 
@@ -39,7 +34,7 @@ Here's more information about the sequence of steps shown in the previous diagra
 1. [Choose a model](how-to-custom-speech-choose-model.md) and create a Custom Speech project. Use a <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" title="Create a Speech resource" target="_blank">Speech resource</a> that you create in the Azure portal.
 1. [Upload test data](./how-to-custom-speech-upload-data.md). Upload test data to evaluate the Microsoft speech-to-text offering for your applications, tools, and products.
 1. [Test recognition quality](how-to-custom-speech-inspect-data.md). Use the [Speech Studio](https://speech.microsoft.com/customspeech) to play back uploaded audio and inspect the speech recognition quality of your test data. 
-1. [Test model accuracy](how-to-custom-speech-evaluate-data.md). Evaluate and improve the accuracy of the speech-to-text model. The Speech service provides a quantitative word error rate (WER), which you can use to determine if additional training is required. 
+1. [Test model quantitatively](how-to-custom-speech-evaluate-data.md). Evaluate and improve the accuracy of the speech-to-text model. The Speech service provides a quantitative word error rate (WER), which you can use to determine if additional training is required. 
 1. [Train a model](how-to-custom-speech-train-model.md). Provide written transcripts and related text, along with the corresponding audio data. Testing a model before and after training is optional but recommended.
 1. [Deploy a model](how-to-custom-speech-deploy-model.md). Once you're satisfied with the test results, deploy the model to a custom endpoint.
 

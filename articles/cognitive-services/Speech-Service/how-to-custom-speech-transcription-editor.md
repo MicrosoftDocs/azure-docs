@@ -25,7 +25,7 @@ You can find the **Editor** tab next to the **Training and testing dataset** tab
 
 :::image type="content" source="media/custom-speech/custom-speech-editor.png" alt-text="Custom speech editor":::
 
-You will import a copy of a training or testing dataset to the **Editor** tab, add or edit human-labeled transcriptions to match the audio, and then export the edited dataset to the **Training and testing dataset** tab. You can't use a dataset that's in the Editor to train or test a model.
+Datasets in the **Training and testing dataset** tab can't be updated. You can import a copy of a training or testing dataset to the **Editor** tab, add or edit human-labeled transcriptions to match the audio, and then export the edited dataset to the **Training and testing dataset** tab. Please also note that you can't use a dataset that's in the Editor to train or test a model.
 
 ## Import datasets to the Editor
 
@@ -55,7 +55,7 @@ To edit a dataset's transcription in the Editor, follow these steps:
 
 If there are multiple files in the dataset, you can select **Previous** and **Next** to move from file to file. Edit and save changes to each file as you go.
 
-The detail page lists all the segments in each audio file, and you can select the desired utterance. For each utterance, you can play and compare the audio with the corresponding transcription. Edit the transcriptions if you find any insertion, deletion, or substitution errors. For more information about word error types, see [test model accuracy](how-to-custom-speech-evaluate-data.md).
+The detail page lists all the segments in each audio file, and you can select the desired utterance. For each utterance, you can play and compare the audio with the corresponding transcription. Edit the transcriptions if you find any insertion, deletion, or substitution errors. For more information about word error types, see [Test model quantitatively](how-to-custom-speech-evaluate-data.md).
 
 ## Export datasets from the Editor
 
