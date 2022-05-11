@@ -2,7 +2,7 @@
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: include
-ms.date: 04/08/2022
+ms.date: 05/11/2022
 ms.author: cshoe
 ---
 
@@ -34,7 +34,7 @@ az upgrade
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az upgrade
 ```
 
@@ -57,7 +57,6 @@ az extension add --name containerapp --upgrade
 ---
 
 Now that the extension is installed, register the `Microsoft.App` namespace.
-
 
 # [Bash](#tab/bash)
 

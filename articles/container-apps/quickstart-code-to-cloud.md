@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: quickstart
-ms.date: 05/09/2022
+ms.date: 05/11/2022
 ms.author: cshoe
 zone_pivot_groups: container-apps-image-build-type
 ---
@@ -160,12 +160,6 @@ az acr create \
   --admin-enabled true
 ```
 
-Now store your ACR password in an environment variable.
-
-```azurecli
-ACR_PASSWORD=$(az acr credential show -n $ACR_NAME --query "passwords[0].value" | tr -d '"')
-```
-
 # [PowerShell](#tab/powershell)
 
 ```powershell
@@ -174,14 +168,6 @@ $ACA_REGISTRY = New-AzContainerRegistry `
     -Name $ACR_NAME `
     -EnableAdminUser `
     -Sku Basic
-```
-
-Now store your ACR password in an environment variable.
-
-```powershell
-$ACR_PASSWORD=(Get-AzContainerRegistryCredential `
- -ResourceGroupName $RESOURCE_GROUP `
- -Name $ACR_NAME | Select -Property Password).Password
 ```
 
 ---
@@ -210,7 +196,7 @@ With ACR Tasks, you can build the docker image for the album API without the nee
 
 ### Build the container with ACR
 
-The following command uses ACR to remotely build the Dockerfile for the album API. The `.` represents the current build context, so run this command at the root of the repository where the Dockerfile is located.
+The following command uses ACR to remotely build the Dockerfile for the album API. The `.` represents the current build context, so this command is run in the *src* folder where the Dockerfile is located.
 
 # [Bash](#tab/bash)
 
@@ -228,26 +214,6 @@ az acr build --registry $ACR_NAME --image $API_NAME .
 
 Output from the `az acr build` command shows the upload progress of the source code to Azure and the details of the `docker build` operation.
 
-To verify that your image is now available in ACR, run the command below.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az acr manifest list-metadata \
-  --registry $ACR_NAME \
-  --name $API_NAME
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-Get-AzContainerRegistryManifest `
-  -RegistryName $ACR_NAME `
-  -Repository $API_NAME
-```
-
----
-
 ::: zone-end
 
 ::: zone pivot="docker-local"
@@ -258,7 +224,7 @@ In the below steps, you build your container image locally using Docker. Once th
 
 ### Build the container with Docker
 
-The following command builds the image using the Dockerfile for the album API. The `.` represents the current build context, so run this command at the root of the repository where the Dockerfile is located.
+The following command builds the image using the Dockerfile for the album API. The `.` represents the current build context, so this command is run in the *src* folder where the Dockerfile is located.
 
 # [Bash](#tab/bash)
 
@@ -270,22 +236,6 @@ docker build -t $ACR_NAME.azurecr.io/$API_NAME .
 
 ```powershell
 docker build -t $ACR_NAME.azurecr.io/$API_NAME .
-```
-
----
-
-If your image was successfully built, it's listed in the output of the following command:
-
-# [Bash](#tab/bash)
-
-```azurecli
-docker images
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-docker images
 ```
 
 ---
@@ -370,7 +320,6 @@ az containerapp create \
   --image $ACR_NAME.azurecr.io/$API_NAME \
   --target-port $API_PORT \
   --ingress 'external' \
-  --registry-password $ACR_PASSWORD \
   --registry-username $ACR_NAME \
   --registry-server $ACR_NAME.azurecr.io \
   --query configuration.ingress.fqdn
@@ -386,7 +335,6 @@ az containerapp create `
   --image $API_NAME `
   --target-port $API_PORT `
   --ingress 'external' `
-  --registry-password $ACR_PASSWORD `
   --registry-username $ACR_NAME `
   --registry-server $ACR_NAME.azurecr.io `
   --query configuration.ingress.fqdn

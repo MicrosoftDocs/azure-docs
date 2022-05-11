@@ -156,24 +156,6 @@ $ACR_PASSWORD=(Get-AzContainerRegistryCredential `
 
     Output from the `az acr build` command shows the upload progress of the source code to Azure and the details of the `docker build` operation.
 
-1. To verify that your image is now available in ACR, run the command below.
-
-    # [Bash](#tab/bash)
-
-    ```azurecli
-    az acr manifest list-metadata \
-      --registry $ACR_NAME \
-      --name $FRONTEND_NAME
-    ```
-
-    # [PowerShell](#tab/powershell)
-
-    ```powershell
-    Get-AzContainerRegistryManifest `
-      -RegistryName $ACR_NAME `
-      -Repository $CONTAINER_IMAGE_NAME
-    ```
-
 ::: zone-end
 
 ::: zone pivot="docker-local"
@@ -190,22 +172,6 @@ $ACR_PASSWORD=(Get-AzContainerRegistryCredential `
 
     ```powershell
     docker build -t $CONTAINER_IMAGE_NAME .
-    ```
-
-    ---
-
-1. If your image was successfully built, it's listed in the output of the following command:
-
-    # [Bash](#tab/bash)
-
-    ```azurecli
-    docker images
-    ```
-
-    # [PowerShell](#tab/powershell)
-
-    ```powershell
-    docker images
     ```
 
     ---
@@ -252,7 +218,7 @@ In the previous quickstart, the album API was deployed by creating a container a
 
 Now you can configure the front-end application to call the API endpoint by going through the following steps:
 
-* Query the API application for its fully qualified domain name (FQDN)
+* Query the API application for its fully qualified domain name (FQDN).
 * Pass the API FQDN to `az containerapp create` so the UI app can use the API endpoint location.
 
 The [UI application](https://github.com/Azure-Samples/containerapps-albumui) uses this location to set up the reference to the album API. The following is an excerpt from the code used in the *routes > index.js* file.
