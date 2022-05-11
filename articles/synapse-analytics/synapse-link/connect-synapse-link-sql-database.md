@@ -86,9 +86,6 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/studio-new-linked-service.png" alt-text="Enter the server, database details to create a new linked service.":::
 
-   > [!NOTE]
-   > We recommend that you enable encryption on this connection. To enable encryption, add the `Encrypt` property with a value of `true` as an Additional connection property, and also set the `Trust Server Certificate` property to either `true` or `false` - depending on your server configuration. For more information, see [Enable encrypted connections to the Database Engine](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
-
 1. Select **Test connection** to ensure the firewall rules are properly configured and the workspace can successfully connect to the source Azure SQL Database.
 
 1. Select **Create**.
