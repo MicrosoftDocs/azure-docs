@@ -433,8 +433,13 @@ items:
     - name: Resource logs
       href: essentials/resource-logs.md
     - name: Diagnostic settings
-      displayName: Platform logs, Resource logs, Activity log
-      href: essentials/diagnostic-settings.md
+      items:
+      - name: Overview
+        displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
+        href: essentials/diagnostic-settings.md
+      - name: Create with Azure Policy
+        displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
+        href: essentials/diagnostic-settings-policy.md
   - name: Data collection
     items:
     - name: Data collection rules
