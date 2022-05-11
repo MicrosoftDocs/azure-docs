@@ -67,7 +67,7 @@ Namespace- [Microsoft.Compute/virtualMachinesscaleset](/azure/azure-monitor/plat
 <!-- Add additional explanation of reference information as needed here. Link to other articles such as your Monitor [servicename] article as appropriate. -->
 
 <!-- Keep this text as-is -->
-For more information, see a list of [all platform metrics supported in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+For more information, see a list of [all platform metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
 ## Metric Dimensions
 
