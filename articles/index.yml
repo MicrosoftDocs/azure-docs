@@ -1494,7 +1494,7 @@ productDirectory:
         - networking
       url: orbital/index.yml
     # Card
-    - title: Azure Web PubSub Service
+    - title: Azure Web PubSub
       summary: Easily build real-time messaging web applications using WebSockets and the publish-subscribe pattern
       imageSrc: ./media/index/web-pubsub.svg
       azureCategories:
