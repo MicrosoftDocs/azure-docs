@@ -20,7 +20,7 @@ Generally, when looking to improve performance of the map, look for ways to redu
 
 ## Security best practices
 
-For security best practices, see [Authentication and authorization best practices](authentication-and-authorization-best-practices.md).
+For security best practices, see [Authentication and authorization best practices](authentication-best-practices.md).
 
 ### Use the latest versions of Azure Maps
 

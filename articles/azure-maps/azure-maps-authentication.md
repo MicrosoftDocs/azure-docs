@@ -413,7 +413,7 @@ See [Azure Maps pricing](https://azure.microsoft.com/pricing/details/azure-maps)
 To learn more about security best practices, see
 
 > [!div class="nextstepaction"]
-> [Authentication and authorization best practices](authentication-and-authorization-best-practices.md)
+> [Authentication and authorization best practices](authentication-best-practices.md)
 
 To learn more about authenticating an application with Azure AD and Azure Maps, see
 
