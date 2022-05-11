@@ -61,7 +61,7 @@ See [Monitoring *Azure Video Indexer* data reference](monitor-video-indexer-data
 
 <!-- REQUIRED. Please keep headings in this order -->
 
-Platform metrics and the Activity log are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.  
+<!-- Platform metrics and the -->Activity log are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.  
 
 Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
 
@@ -129,19 +129,19 @@ Following are queries that you can use to help you monitor your Azure Video Inde
 <!-- Put in a code section here. -->  
 
 ```kusto
-//All failures by operations and user rendered over time. 
+// Project failures summarized by operationName and Upn, aggregated in 30m windows.
 VIAudit
-//| where AccountId == "<ENTER YOUR ACCOUNT ID>"
 | where Status == "Failure"
 | summarize count() by OperationName, bin(TimeGenerated, 30m), Upn
 | render timechart  
 ```
 
 ```kusto
+// Project failures with detailed error message.
 VIAudit
 | where  Status == "Failure"
 | parse Description with "ErrorType: " ErrorType ". Message: " ErrorMessage ". Trace" *
-| project TimeGenerated, _ResourceId, OperationName, ErrorMessage, ErrorType, CorrelationId
+| project TimeGenerated, OperationName, ErrorMessage, ErrorType, CorrelationId, _ResourceId
 ```
 
 ## Alerts
@@ -162,10 +162,9 @@ The following table lists common and recommended alert rules for Azure Video Ind
 | Alert type | Condition | Description  |
 |:---|:---|:---|
 | Log Alert|Failed operation |Send an alerts when a upload failed |
-| | | |
 
 ```kusto
-//All failed uploads.
+//All failed uploads, aggregated in one hour window.
 VIAudit
 | where OperationName == "Upload-Video" and Status == "Failure"
 | summarize count() by bin(TimeGenerated, 1h)
