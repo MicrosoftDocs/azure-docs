@@ -12,6 +12,8 @@ ms.author: aahi
 ---
 
 
+### Create a new Language resource using PowerShell
+
 You can create a new resource and a storage account using the following CLI [template](https://github.com/Azure-Samples/cognitive-services-sample-data-files) and [parameters](https://github.com/Azure-Samples/cognitive-services-sample-data-files) files, which are hosted on GitHub.
 
 Edit the following values in the parameters file:
