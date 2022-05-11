@@ -62,7 +62,9 @@ To add a user properties file to your load test by using the Azure portal, follo
 
     :::image type="content" source="media/how-to-configure-user-properties/edit-test-upload-properties.png" alt-text="Screenshot of the 'Test plan' tab on the 'Edit test' pane.":::
   
-1. Mark the file as a user properties file by selecting **User properties** for the dropdown list.
+1. Select **User properties** in the **File relevance** dropdown list.
+
+    You can select only one file as a user properties file for a load test.
 
 1. Select **Apply** to modify the test, or **Review + create**, and then **Create** to create the new test.
 ::: zone-end
