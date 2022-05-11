@@ -25,7 +25,7 @@ In future, it will also consolidate features from the Diagnostic extensions.
 In addition to consolidating this functionality into a single agent, the Azure Monitor agent provides the following benefits over the existing agents:
 
 - **Cost savings:**  
- - Granular targeting via [Data Collection Rules](../essentials/data-collection-rule-overview.md)to collect specific data types from specific machines, as compared to the "all or nothing" mode that Log Analytics agent supports
+ - Granular targeting via [Data Collection Rules](../essentials/data-collection-rule-overview.md) to collect specific data types from specific machines, as compared to the "all or nothing" mode that Log Analytics agent supports
  - Use XPath queries to filter Windows events that get collected. This helps further reduce ingestion and storage costs.
 - **Simplified management of data collection:** Send data from Windows and Linux VMs to multiple Log Analytics workspaces (i.e. "multi-homing") and/or other [supported destinations](#data-sources-and-destinations). Additionally, every action across the data collection lifecycle, from onboarding to deployment to updates, is significantly easier, scalable, and centralized (in Azure) using data collection rules
 - **Management of dependent solutions or services:** The Azure Monitor agent uses a new method of handling extensibility that's more transparent and controllable than management packs and Linux plug-ins in the legacy Log Analytics agents. Moreover this management experience is identical for machines in Azure or on-premises/other clouds via Azure Arc, at no added cost.
