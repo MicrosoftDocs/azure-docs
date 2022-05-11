@@ -176,7 +176,7 @@ Create a file named *queue.json* and paste the following configuration code into
     {
         "name": "queuereader",
         "type": "Microsoft.App/containerApps",
-        "apiVersion": "2022-01-01-preview",
+        "apiVersion": "2022-03-01",
         "kind": "containerapp",
         "location": "[parameters('location')]",
         "properties": {

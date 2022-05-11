@@ -74,7 +74,7 @@ The following example ARM template deploys a Container Apps environment.
   "resources": [
     {
       "type": "Microsoft.App/managedEnvironments",
-      "apiVersion": "2022-01-01-preview",
+      "apiVersion": "2022-03-01",
       "name": "[parameters('environment_name')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -195,7 +195,7 @@ The following example ARM template deploys a container app.
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-01-01-preview",
+      "apiVersion": "2022-03-01",
       "type": "Microsoft.App/containerApps",
       "name": "[parameters('containerappName')]",
       "location": "[parameters('location')]",
