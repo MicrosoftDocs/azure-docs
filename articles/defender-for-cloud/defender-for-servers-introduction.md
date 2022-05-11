@@ -1,10 +1,8 @@
 ---
 title: Microsoft Defender for Servers - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for Servers.
-ms.date: 03/28/2022
+ms.date: 05/11/2022
 ms.topic: overview
-ms.author: benmansheim
-author: bmansheim
 ---
 # Introduction to Microsoft Defender for Servers
 
@@ -128,8 +126,9 @@ You can simulate alerts by downloading one of the following playbooks:
 
 - For Linux: [Microsoft Defender for Cloud Playbook: Linux Detections](https://github.com/Azure/Azure-Security-Center/blob/master/Simulations/Azure%20Security%20Center%20Linux%20Detections_v2.pdf).
 
+## Learn more
 
-
+If you would like to learn more from the product manager about Defender for Servers, check out [Microsoft Defender for Servers](episode-five.md).
 
 ## Next steps
 
