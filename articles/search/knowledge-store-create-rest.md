@@ -43,20 +43,19 @@ Because the workload is so small, Cognitive Services is tapped behind the scenes
 
 During skillset execution, the indexer connects to Azure Storage and creates the knowledge store. The connection information will be specified in the `knowledgeStore` section of the skillset. You can choose from the following approaches when setting up your connection:
 
-+ Option 1, use a full access Azure Storage connection string that includes an access key:
++ Option 1, obtain a full access Azure Storage connection string that includes an access key:
 
-  1. Select **Access Keys** on the left navigation pane.
+  In the Azure Storage portal page, select **Access Keys** on the left navigation pane.
 
-  1. In **Access Keys**, select **Show Keys** at the top of the page to unhide the connection strings, and then copy the connection string for either key1 or key2.
+  In **Access Keys**, select **Show Keys** at the top of the page to unhide the connection strings, and then copy the connection string for either key1 or key2.
 
-     A connection string has the following format: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
+  A full access connection string has the following format: `"DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net;"`
 
-+ Option 2, use your search service's system managed identity or user-assigned managed identity to connect to Azure Storage. Follow the instructions and examples in [Connect using a managed identity](search-howto-managed-identities-data-sources.md). You'll need to set up the managed identity, assign roles, and assemble a connection string that references a managed identity.
++ Option 2, use your search service's system managed identity or user-assigned managed identity to connect to Azure Storage. Follow the instructions and examples in [Connect using a managed identity](search-howto-managed-identities-data-sources.md). You'll need to set up the managed identity, assign roles, and assemble a connection string.
 
-     A connection string for a system managed identity has the following format: `"knowledgeStore": {
-  "storageConnectionString": "ResourceId=/subscriptions/{YOUR-SUBSCRIPTION-ID}/resourceGroups/{YOUR-RESOURCE-GROUP-NAME}/providers/Microsoft.Storage/storageAccounts/{YOUR-ACCOUNT-NAME};"`
+  A connection string for a system managed identity has the following format: `"ResourceId=/subscriptions/{YOUR-SUBSCRIPTION-ID}/resourceGroups/{YOUR-RESOURCE-GROUP-NAME}/providers/Microsoft.Storage/storageAccounts/{YOUR-ACCOUNT-NAME};"`
 
-Once you decide on an approach, you'll provide the appropriate connection string as a variable in the Postman collection, as described in the next step.
+Once you decide on an approach, you'll provide the connection string as a variable in the Postman collection, as described in the next step.
 
 ## Configure requests
 
@@ -78,7 +77,7 @@ Variables are defined for Azure services, service connections, and object names.
 
 + To get the values for `search-service-name` and `search-service-admin-key`, go to the Azure Cognitive Search service in the portal and copy the values from **Overview** and **Keys** pages.
 
-+ To get the values for `storage-account-name` and `storage-account-connection-string`, check the **Access Keys** page.
++ To get the values for `storage-account-name` and `storage-account-connection-string`, check the **Access Keys** page in the portal, or format a [connection string that references a managed identity](search-howto-managed-identities-data-sources.md).
 
 ![Postman app variables tab](media/knowledge-store-create-rest/postman-variables-window.png "Postman's variables window")
 
