@@ -177,7 +177,7 @@ Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-se
 > [!IMPORTANT]
 > You cannot use this method for the Azure Activity log. Instead, use [Create diagnostic setting in Azure Monitor using a Resource Manager template](./resource-manager-diagnostic-settings.md) to create a Resource Manager template and deploy it with CLI.
 
-Following is an example CLI command to create a diagnostic setting using all three destinations. The syntax is slightly difference depending on your client.
+Following is an example CLI command to create a diagnostic setting using all three destinations. The syntax is slightly different depending on your client.
 
 **CMD client**
 
