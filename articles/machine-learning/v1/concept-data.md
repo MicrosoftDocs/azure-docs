@@ -32,9 +32,9 @@ Azure Machine Learning makes it easy to connect to your data in the cloud. It pr
 
 When you're ready to use the data in your cloud-based storage solution, we recommend the following data delivery workflow. This workflow assumes you have an [Azure storage account](/storage/common/storage-account-create.md?tabs=azure-portal) and data in a cloud-based storage service in Azure. 
 
-1. Create an [Azure Machine Learning datastore](#datastores) to store connection information to your Azure storage.
+1. Create an [Azure Machine Learning datastore](#connect-to-storage-with-datastores) to store connection information to your Azure storage.
 
-2. From that datastore, create an [Azure Machine Learning dataset](#datasets) to point to a specific file(s) in your underlying storage. 
+2. From that datastore, create an [Azure Machine Learning dataset](#reference-data-in-storage-with-datasets) to point to a specific file(s) in your underlying storage. 
 
 3. To use that dataset in your machine learning experiment you can either
     * Mount it to your experiment's compute target for model training.
@@ -43,7 +43,7 @@ When you're ready to use the data in your cloud-based storage solution, we recom
 
     * Consume it directly in Azure Machine Learning solutions like, automated machine learning (automated ML) experiment runs, machine learning pipelines, or the [Azure Machine Learning designer](../concept-designer.md).
 
-4. Create [dataset monitors](#drift) for your model output dataset to detect for data drift. 
+4. Create [dataset monitors](#monitor-model-performance-with-data-drift) for your model output dataset to detect for data drift. 
 
 5. If data drift is detected, update your input dataset and retrain your model accordingly.
 
@@ -109,7 +109,7 @@ With datasets, you can accomplish a number of machine learning tasks through sea
      + [notebooks](../how-to-train-with-datasets.md)
      + [Azure Machine Learning pipelines](../how-to-create-machine-learning-pipelines.md)
 + Access datasets for scoring with [batch inference](../tutorial-pipeline-batch-scoring-classification.md) in [machine learning pipelines](../how-to-create-machine-learning-pipelines.md).
-+ Set up a dataset monitor for [data drift](#drift) detection.
++ Set up a dataset monitor for [data drift](#monitor-model-performance-with-data-drift) detection.
 
 
 

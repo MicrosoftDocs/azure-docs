@@ -16,14 +16,14 @@ ms.custom: designer
 
 In this article, you learn how to import your own data in the designer to create custom solutions. There are two ways you can import data into the designer: 
 
-* **Azure Machine Learning datasets** - Register [datasets](./v1/concept-data.md#datasets) in Azure Machine Learning to enable advanced features that help you manage your data.
+* **Azure Machine Learning datasets** - Register [datasets](./v1/concept-data.md) in Azure Machine Learning to enable advanced features that help you manage your data.
 * **Import Data component** - Use the [Import Data](algorithm-module-reference/import-data.md) component to directly access data from online data sources.
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## Use Azure Machine Learning datasets
 
-We recommend that you use [datasets](./v1/concept-data.md#datasets) to import data into the designer. When you register a dataset, you can take full advantage of advanced data features like [versioning and tracking](how-to-version-track-datasets.md) and [data monitoring](how-to-monitor-datasets.md).
+We recommend that you use [datasets](./v1/concept-data.md) to import data into the designer. When you register a dataset, you can take full advantage of advanced data features like [versioning and tracking](how-to-version-track-datasets.md) and [data monitoring](how-to-monitor-datasets.md).
 
 ### Register a dataset
 
@@ -68,7 +68,7 @@ If you register a file dataset, the output port type of the dataset is **AnyDire
 
 ## Import data using the Import Data component
 
-While we recommend that you use datasets to import data, you can also use the [Import Data](algorithm-module-reference/import-data.md) component. The Import Data component skips registering your dataset in Azure Machine Learning and imports data directly from a [datastore](./v1/concept-data.md#datastores) or HTTP URL.
+While we recommend that you use datasets to import data, you can also use the [Import Data](algorithm-module-reference/import-data.md) component. The Import Data component skips registering your dataset in Azure Machine Learning and imports data directly from a [datastore](./v1/concept-data.md) or HTTP URL.
 
 For detailed information on how to use the Import Data component, see the [Import Data reference page](algorithm-module-reference/import-data.md).
 
