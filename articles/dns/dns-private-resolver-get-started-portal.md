@@ -104,10 +104,10 @@ Next, add a virtual network to the resource group that you created, and configur
 Create a second virtual network to simulate an on-prem or other environment. To create a second virtual network:
 
 1. Select **Virtual Networks** from the **Azure services** list, or search for **Virtual Networks** and then select **Virtual Networks**.
-2. Select **Create**, select your subscription and select the same resource group that you have been using in this guide (ex: myresourcegroup).
-3. On the Basics tab, enter a name for the new virtual network (ex: myvnet2).
+2. Select **Create**, and then on the **Basics** tab select your subscription and choose the same resource group that you have been using in this guide (ex: myresourcegroup).
+3. Next to **Name**, enter a name for the new virtual network (ex: myvnet2).
 4. Verify that the **Region** selected is the same region used previously in this guide (ex: West Central US).
-5. On the IP Addresses tab, edit the default IP address space and enter a simulated on-prem address space (ex: 12.0.0.0/8). 
+5. Select the **IP Addresses** tab and edit the default IP address space. Replace the address space with a simulated on-prem address space (ex: 12.0.0.0/8). 
 6. Select **Add subnet** and enter the following:
     - Subnet name: backendsubnet
     - Subnet address range: 12.2.0.0/24
