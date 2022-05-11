@@ -11,5 +11,5 @@
     href: ./elastic/index.yml
   - name: Logz.io
     href: ./logzio/index.yml
-  - name: nginx
+  - name: NGINX
     href: ./nginx/index.yml

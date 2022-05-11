@@ -17,37 +17,27 @@ metadata:
 
 landingContent:
   # Card (optional)
-  - title: About nginx with Azure
+  - title: About NGINX for Azure
     linkLists:
       - linkListType: overview
         links:
-          - text: What is nginx integration with Azure?
+          - text: What is NGINX for Azure?
             url: nginx-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Manage the nginx integration with Azure
+          - text: Manage your NGINX resource
             url: nginx-manage.md
 
   # Card
-  - title: Create nginx resource
+  - title: Create an NGINX deployment
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Get started with nginx
+          - text: Get started with NGINX
             url: nginx-create.md
       - linkListType: how-to-guide
         links:
-          - text: Troubleshooting nginx with Azure
+          - text: Troubleshooting NGINX for Azure
             url: nginx-troubleshoot.md
 
-  # Card
-  - title: Explore reference content
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Azure CLI
-            url: /cli/azure/nginx
-          - text: Azure PowerShell
-            url: /powershell/module/az.nginx/#nginx
-          - text: REST API
-            url: /rest/api/nginx
+  

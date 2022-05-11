@@ -1,25 +1,17 @@
-- name: nginx Azure Integration Documentation
+- name: NGINX for Azure Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is nginx?
+  - name: What is NGINX?
     href: nginx-overview.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create nginx resource
+  - name: Create an NGINX deployment
     href: nginx-create.md
 - name: How to
   items:
-  - name: Manage integration
+  - name: Manage your NGINX resource
     href: nginx-manage.md
-  - name: Troubleshoot
+  - name: Troubleshoot NGINX
     href: nginx-troubleshoot.md
-- name: Reference
-  items:
-  - name: Azure CLI
-    href: /cli/azure/nginx
-  - name: Azure PowerShell
-    href: /powershell/module/az.nginx/#nginx
-  - name: REST API
-    href: /rest/api/nginx

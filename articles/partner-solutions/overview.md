@@ -17,4 +17,4 @@ Partner solutions are available through the Marketplace.
 | [Datadog](./datadog/overview.md) | Monitor your servers, clouds, metrics, and apps in one place. |
 | [Elastic](./elastic/overview.md) | Monitor the health and performance of your Azure environment. |
 | [Logz.io](./logzio/overview.md)  | Monitor the health and performance of your Azure environment. |
-| [nginx](./nginx/nginx-overview.md)  | Use nginx as a reverse proxy within your Azure environment. |
+| [NGINX](./nginx/nginx-overview.md)  | Use NGINX for Azure as a reverse proxy within your Azure environment. |
