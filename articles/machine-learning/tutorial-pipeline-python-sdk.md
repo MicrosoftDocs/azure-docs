@@ -85,7 +85,7 @@ First you'll install the v2 SDK on your compute instance:
 
     :::image type="content" source="media/tutorial-pipeline-python-sdk/clone-tutorials-users-files.png" alt-text="Screenshot that shows the Clone tutorials folder.":::
 
-1. A list of folders shows each user who accesses the workspace. Select your folder, you'll find **azure-samples** is cloned.
+1. A list of folders shows each user who accesses the workspace. Select your folder, you'll find **azureml-samples** is cloned.
 
 ## Open the cloned notebook
 
@@ -93,7 +93,7 @@ First you'll install the v2 SDK on your compute instance:
     
 1. Select the **e2e-ml-workflow-part-I.ipynb** file from your **azureml-examples/tutorials/e2e-ds-experience/** folder. 
 
-    :::image type="content" source="media/tutorial-pipeline-python-sdk/expand-folder.png" alt-text="Screenshot shows the Open tutorials folder.":::
+    :::image type="content" source="media/tutorial-pipeline-python-sdk/expand-folder.png" alt-text="Screenshot shows the open tutorials folder.":::
 
 1. On the top bar, select the compute instance you created during the  [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to use for running the notebook.
 
@@ -158,7 +158,7 @@ The result is a handler to the workspace that you'll use to manage other resourc
 > [!IMPORTANT]
 > Creating MLClient will not connect to the workspace. The client initialization is lazy, it will wait for the first time it needs to make a call (in the notebook below, that will happen during dataset registration).
 
-## Register a dataset from an external url
+## Register data from an external url
 
 The data you use for training is usually in one of the locations below:
 
@@ -166,7 +166,7 @@ The data you use for training is usually in one of the locations below:
 * Web
 * Big Data Storage services (for example, Azure Blob, Azure Data Lake Storage, SQL)
  
-Azure ML uses a `Dataset` object to register a reusable definition of data, and consume data within a pipeline. A `Dataset` object is a pointer to a data storage service and a path. In the section below, you'll consume some data from web url as one example. Datasets from other sources can be created as well.
+Azure ML uses a `Data` object to register a reusable definition of data, and consume data within a pipeline. In the section below, you'll consume some data from web url as one example. Data from other sources can be created as well.
 
 ```python
 from azure.ai.ml.entities import Data
@@ -183,7 +183,7 @@ credit_data = Data(
 )
 ```
 
-This code just created a `Data Asset`, ready to be consumed as an input by the pipeline that you'll define in the next sections. In addition, you can register the dataset to your workspace so it becomes reusable across pipelines.
+This code just created a `Data` asset, ready to be consumed as an input by the pipeline that you'll define in the next sections. In addition, you can register the dataset to your workspace so it becomes reusable across pipelines.
 
 Registering the dataset will enable you to:
 
