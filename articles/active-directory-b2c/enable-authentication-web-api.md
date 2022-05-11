@@ -148,7 +148,7 @@ If you're targeting .NET 6.0, you need to perform two additional steps:
 ```csharp
 using ConfigurationManager = Microsoft.Extensions.Configuration.ConfigurationManager;
 ```
-2.  add the line below after `WebApplication.CreateBuilder(args)`
+1. Just after `WebApplication.CreateBuilder(args)`, add the following line:
 ```csharp
 ConfigurationManager Configuration = builder.Configuration;
 ```
