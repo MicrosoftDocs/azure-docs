@@ -42,7 +42,7 @@ Once you've created a 3D Scenes Studio environment with an Azure Digital Twins i
 * Switching to a new Azure Digital Twins instance will switch the underlying digital twin data for the scene. This is **not recommended**, because it may result in broken digital twin references in your scene.
 * Switching to a new storage container means switching to a new configuration file, which will change the set of scenes that are showing in the studio.
 
-To [share your scenes with someone else](how-to-use-3d-scenes-studio.md#share-your-environment), they can connect to your environment inside 3D Scenes Studio, using the URLs of your Azure Digital Twins instance and Azure storage container. They'll need *Reader* access to both the instance and the container in order to see your scenes.
+To share your scenes with someone else, the recipient will need at least *Reader*-level access to both the Azure Digital Twins instance and the storage container in the environment, as well as URL information about these resources. For detailed instructions on how to share your environment with someone else, see [Share your environment](how-to-use-3d-scenes-studio.md#share-your-environment).
 
 ## Set up
 

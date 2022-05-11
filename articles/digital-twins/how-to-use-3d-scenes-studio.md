@@ -82,9 +82,9 @@ You can use 3D Scenes Studio with a 3D file that's already present in your stora
 
 ### View scenes in globe view
 
-The home page of 3D Scenes Studio shows a list of your scenes. 
+The home page of 3D Scenes Studio shows a **List view** of your scenes. 
 
-You can also select **Globe** to see your scenes placed visually on a globe.
+You can also select **Globe view** to see your scenes placed visually on a globe.
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/globe-view-1.png" alt-text="Screenshot of 3D Scenes Studio, Globe is highlighted on the home screen." lightbox="media/how-to-use-3d-scenes-studio/globe-view-1.png":::
 
@@ -269,15 +269,22 @@ In the **Build** view for a scene, you can use the **Theme** button to change th
 
 ## Share your environment
 
-A *3D Scenes Studio environment* is formed from a unique pairing of an **Azure Digital Twins instance** and an **Azure storage container**. You can share your environment with someone else by giving them these things:
-* The URL of your Azure Digital Twins instance
-* The URL of your Azure storage container
+A *3D Scenes Studio environment* is formed from a unique pairing of an **Azure Digital Twins instance** and an **Azure storage container**. 
+
+To share your environment with someone else, they need to have these permissions to your resources:
 * *Azure Digital Twins Data Reader* access (or greater) on the Azure Digital Twins instance
 * *Storage Blob Data Reader* access (or greater) to the storage container
     * *Storage Blob Data Reader* will allow them to view your scenes.
     * *Storage Blob Data Owner* will allow them to edit your scenes.
 
-Once someone has the required permissions, they can use your resource URLs to connect to your environment when [initializing 3D Scenes Studio](how-to-use-3d-scenes-studio.md#initialize-your-3d-scenes-studio-environment). Then, they'll be able to view and interact with your scenes.
+Once someone has the required permissions, there are two ways to give them access to your environment. You can do either of the following things:
+* Use the Share button on the 3D Scenes Studio homepage to copy the **URL of your 3D Scenes Studio environment**. (The URL includes the URLs of both your Azure Digital Twins instance and your storage container.)
+    :::image type="content" source="media/how-to-use-3d-scenes-studio/copy-url.png" alt-text="Screenshot of the Share button in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/copy-url.png":::
+
+    Share it with the recipient, who can paste this URL directly into their browser to connect to your environment.
+* Share the **URL of your Azure Digital Twins instance** and the **URL of your Azure storage container** that you used when [initializing your 3D Scenes Studio environment](#initialize-your-3d-scenes-studio-environment). The recipient can access [3D Scenes Studio](https://dev.explorer.azuredigitaltwins-test.net/3dscenes) and initialize it with these same URL values to connect to your same environment.
+
+After this, the recipient can view and interact with your scenes in the studio.
 
 ## Next steps 
 

@@ -223,7 +223,7 @@ Next, you'll create a *behavior* for the element. These behaviors allow you to c
 
     :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-status.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio, showing the Status options." lightbox="media/quickstart-3d-scenes-studio/new-behavior-status.png":::
 
-1. Switch to the **Alerts** tab. *Alerts* help grab your attention to quickly understand that some situation is active for the associated element. Here, you'll create an alert badge that will appear when an arm fails to pickup a package. The primary arm twin has a property *PickupFailedAlert* that we will use to create a visual alert in the scene.
+1. Switch to the **Alerts** tab. *Alerts* help grab your attention to quickly understand that some situation is active for the associated element. Here, you'll create an alert badge that will appear when an arm fails to pick up a package. The primary arm twin has a property *PickupFailedAlert* that we will use to create a visual alert in the scene.
 
     1. For the **Trigger expression**, enter *PrimaryTwin.PickupFailedAlert*. `PickupFailedAlert` is a property on the primary twin that is set to True when a pickup was failed. Using it as the trigger expression means this alert will appear whenever the property value is True.
  
@@ -248,11 +248,11 @@ Next, you'll create a *behavior* for the element. These behaviors allow you to c
         
         :::image type="content" source="media/quickstart-3d-scenes-studio/new-widget-gauge.png" alt-text="Screenshot of the New widget options in 3D Scenes Studio for the gauge widget." lightbox="media/quickstart-3d-scenes-studio/new-widget-gauge.png":::
         
-    1. Next, create a widget with a link to a live camera stream of the arm. 
+    1. Next, create a widget with a link to a live camera stream of the arm.
 
         1. Select **Add widget**. From the **Widget library**, select the **Link** widget and then **Add widget**.
 
-        1. In the **New widget** options, enter a **Label** of *Live arm camera*. For the **URL**, enter the example URL *contoso.aws.armstreams.com/${$dtid}*.
+        1. In the **New widget** options, enter a **Label** of *Live arm camera*. For the **URL**, you can use the example URL *contoso.aws.armstreams.com/${$dtid}*. (There's no live camera hosted at the URL for this sample, but the link represents where the video feed might be hosted in a real scenario.)
     
         1. Select **Create widget**.
     
