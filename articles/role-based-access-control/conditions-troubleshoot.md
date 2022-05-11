@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 11/16/2021
+ms.date: 05/11/2022
 ms.author: rolyon
 
 #Customer intent: 
@@ -207,7 +207,7 @@ In May 2022, the Read a blob action was changed from the following format:
 
 `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})`
 
-To include the `Blob.List` suboperation:
+To exclude the `Blob.List` suboperation:
 
 `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})`
 
