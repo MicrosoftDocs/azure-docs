@@ -922,7 +922,7 @@ The following table lists the released languages and public preview languages.
 > [!NOTE]
 > If you want to use languages that aren't listed here, please contact us by email at [mspafeedback@microsoft.com](mailto:mspafeedback@microsoft.com). 
 >  
-> For pronunciation assessment feature, the released en-US language is available in all [Speech-to-Text regions](regions.md#speech-to-text-pronunciation-assessment-text-to-speech-and-translation), and preview languages are available in one region: West US.
+> For pronunciation assessment supported regions, see [available regions](regions.md#speech-to-text-pronunciation-assessment-text-to-speech-and-translation).
 
 ## Speech translation
 
