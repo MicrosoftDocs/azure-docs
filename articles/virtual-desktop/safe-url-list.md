@@ -87,7 +87,7 @@ A [Service Tag](../virtual-network/service-tags-overview) represents a group of 
 >We recommend you use FQDN tags or service tags instead of URLs to prevent service issues. The listed URLs and tags only correspond to Azure Virtual Desktop sites and resources. They don't include URLs for other services like Azure Active Directory.
 
 > [!IMPORTANT]
-> The following entries have been deprecated and replaced by ***.prod.warm.ingest.monitor.core.windows.net** in the table above. Please update any existing entries .
+> The following entries have been deprecated and replaced by ***.prod.warm.ingest.monitor.core.windows.net** in the table above. Please update any existing entries.
 > 
 > |Address|Outbound TCP port|Purpose|Service Tag|
 > |---|---|---|---|
@@ -113,7 +113,7 @@ The Azure virtual machines you create for Azure Virtual Desktop must have access
 | 168.63.129.16 | 80 | [Session host health monitoring](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/A |
 
 > [!IMPORTANT]
-> The following entries have been deprecated and replaced by ***.prod.warm.ingest.monitor.core.usgovcloudapi.net** in the table above. Please update any existing entries .
+> The following entries have been deprecated and replaced by ***.prod.warm.ingest.monitor.core.usgovcloudapi.net** in the table above. Please update any existing entries.
 > 
 > |Address|Outbound TCP port|Purpose|Service Tag|
 > |---|---|---|---|
