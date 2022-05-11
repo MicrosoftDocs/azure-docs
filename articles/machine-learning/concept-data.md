@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: blackmist
 ms.author: larryfr
-ms.date: 10/21/2021
+ms.date: 05/11/2022
 ms.custom: devx-track-python, data4ml
 
 # Customer intent: As an experienced Python developer, I need to securely access my data in my Azure storage solutions and use it to accomplish my machine learning tasks.
@@ -70,9 +70,7 @@ In the following example, the expectation is to provide a `uri_folder` because t
  file_name = os.path.join(args.input_folder, "MY_CSV_FILE.csv") 
 df = pd.read_csv(file_name)
 ```
-For more details about how to access data via V2 SDK/CLI, you can check [Work with data using SDK v2 preview] (https://review.docs.microsoft.com/en-us/azure/machine-learning/how-to-use-data?branch=release-build-2022-azureml&tabs=use-local%2Crw-blob)
-
 
 ## Next steps 
 
-+ Try out dataset training examples with the [Working with data sample notebook](https://github.com/Azure/azureml-examples/blob/samuel100/mltable/sdk/assets/data/working_with_uris.ipynb).
+* [Work with data using SDK v2](how-to-use-data.md)
