@@ -28,13 +28,13 @@ Get started with facial recognition using the Face REST API. The Face service pr
 
 ## Identify faces
 
-1. First, call the Detect API on the source face. This is the face that we will try to identify from the larger group. Copy the following command to a text editor, insert your own subscription key, and then copy it into a shell window and run it.
+1. First, call the Detect API on the source face. This is the face that we'll try to identify from the larger group. Copy the following command to a text editor, insert your own subscription key, and then copy it into a shell window and run it.
 
     :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_detect":::
 
     Save the returned face ID string to a temporary location. You'll use it again at the end.
 
-1. Next you'll need to create a **LargePersonGroup**. This will store the aggregated face data of several persons. Run the following command, inserting your own subscription key. Optionally, change the group's name and metadata in the request body.
+1. Next you'll need to create a **LargePersonGroup**. This object will store the aggregated face data of several persons. Run the following command, inserting your own subscription key. Optionally, change the group's name and metadata in the request body.
 
     :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_create_persongroup":::
 
@@ -44,7 +44,7 @@ Get started with facial recognition using the Face REST API. The Face service pr
 
     :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_create_person":::
 
-    After you run this command, run it again with different input data to create additional **Person** objects: "Family1-Mom", "Family1-Son", "Family1-Daughter", "Family2-Lady", and "Family2-Man".
+    After you run this command, run it again with different input data to create more **Person** objects: "Family1-Mom", "Family1-Son", "Family1-Daughter", "Family2-Lady", and "Family2-Man".
 
     Save the IDs of each **Person** created; it's important to keep track of which person name has which ID.
 
@@ -60,7 +60,7 @@ Get started with facial recognition using the Face REST API. The Face service pr
 
     :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_train":::
  
-1. Now you are ready to call the Identify API, using the source face ID from the first step and the **LargePersonGroup** ID. Insert these values into the appropriate fields in the request body, and insert your subscription key.
+1. Now you're ready to call the Identify API, using the source face ID from the first step and the **LargePersonGroup** ID. Insert these values into the appropriate fields in the request body, and insert your subscription key.
 
     :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_identify":::
 
