@@ -198,18 +198,18 @@ The following steps, demonstrate how to build your container image locally using
 
 ### Build the container with Docker
 
-The following command builds a container image using the Dockerfile for the album API.  The `.` at the end of the command represents the docker build context, meaning this command should be run within the *src* folder where the Dockerfile is located.
+The following command builds a container image for the album API using the Dockerfile and tags it with the fully qualified name of the ACR login server. The `.` at the end of the command represents the docker build context, meaning this command should be run within the *src* folder where the Dockerfile is located.
 
 # [Bash](#tab/bash)
 
 ```azurecli
-docker build -t $ACR_NAME.azurecr.io/$API_NAME .
+docker build --tag $ACR_NAME.azurecr.io/$API_NAME .
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-docker build -t "$ACR_NAME.azurecr.io/$API_NAME" .
+docker build --tag "$ACR_NAME.azurecr.io/$API_NAME" .
 ```
 
 ---
@@ -305,7 +305,7 @@ az containerapp create `
   --name $API_NAME `
   --resource-group $RESOURCE_GROUP `
   --environment $ENVIRONMENT `
-  --image $API_NAME `
+  --image "$ACR_NAME.azurecr.io/$API_NAME" `
   --target-port 3500 `
   --ingress 'external' `
   --registry-server "$ACR_NAME.azurecr.io" `
