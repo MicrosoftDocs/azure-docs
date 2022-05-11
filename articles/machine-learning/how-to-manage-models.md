@@ -26,8 +26,8 @@ Azure Machine Learning allows you to work with different types of models. In thi
 
 * An Azure subscription - If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 * An Azure Machine Learning workspace.
-* The Azure Machine Learning SDK v2 for Python
-* The Azure Machine Learning CLI v2
+* The Azure Machine Learning [SDK v2 for Python](https://aka.ms/sdk-v2-install).
+* The Azure Machine Learning [CLI v2](how-to-configure-cli.md)).
 
 
 ## Creating a model in the model registry
