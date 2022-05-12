@@ -66,3 +66,5 @@ For more information, see [Overview of Azure DNS alias records](dns-alias.md).
 * To learn how to create a zone in Azure DNS, see [Create a DNS zone](./dns-getstarted-portal.md).
 
 * For frequently asked questions about Azure DNS, see the [Azure DNS FAQ](dns-faq.yml).
+
+* [Learn module: Introduction to Azure DNS](/learn/modules/intro-to-azure-dns).

@@ -52,7 +52,7 @@ Follow these steps to list Azure AD roles assigned to a user using PowerShell.
     Install-module -name Microsoft.Graph
     ```
 
-3. In a PowerShell window, Use [Connect-MgGraph](/graph/powershell/get-started) to sign into and use Microsoft Graph PowerShell cmdlets.
+3. In a PowerShell window, Use [Connect-MgGraph](/powershell/microsoftgraph/get-started) to sign into and use Microsoft Graph PowerShell cmdlets.
   
       ```powershell
       Connect-MgGraph

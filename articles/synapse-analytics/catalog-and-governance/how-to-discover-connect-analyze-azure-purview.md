@@ -16,7 +16,7 @@ In this document, you will learn the type of interactions that you can perform
 
 ## Prerequisites 
 
-- [Azure Microsoft Purview account](../../purview/create-catalog-portal.md) 
+- [Microsoft Purview account](../../purview/create-catalog-portal.md) 
 - [Synapse workspace](../quickstart-create-workspace.md) 
 - [Connect a Microsoft Purview Account into Synapse](quickstart-connect-azure-purview.md) 
 

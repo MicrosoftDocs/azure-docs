@@ -4,14 +4,12 @@ description: This article describes how to set up auto provisioning of the Log A
 ms.topic: quickstart
 ms.author: benmansheim
 author: bmansheim
-ms.date: 01/17/2022
+ms.date: 04/28/2022
 ms.custom: mode-other
 ---
 # Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-Microsoft Defender for Cloud collects data from your resources using the relevant agent or extensions for that resource and the type of data collection you've enabled. Use the procedures below to ensure your resources have the necessary agents and extensions used by Defender for Cloud.
+Microsoft Defender for Cloud collects data from your resources using the relevant agent or extensions for that resource and the type of data collection you've enabled. Use the procedures below to automatically provision the necessary agents and extensions used by Defender for Cloud to your resources.
 
 :::image type="content" source="media/enable-data-collection/auto-provisioning-list-of-extensions.png" alt-text="Screenshot of Microsoft Defender for Cloud's extensions that can be auto provisioned.":::
 
@@ -82,14 +80,16 @@ This table shows the availability details for the auto provisioning **feature** 
 
 ### [**Defender for Containers**](#tab/autoprovision-containers)
 
-This table shows the availability details for the various components that can be auto provisioned to provide the protections offered by [Microsoft Defender for Containers](defender-for-containers-introduction.md).
+This table shows the availability details for the components that are required for auto provisioning to provide the protections offered by [Microsoft Defender for Containers](defender-for-containers-introduction.md).
+
+By default, auto provisioning is enabled when you enable Defender for Containers from the Azure portal.
 
 | Aspect                                               | Azure Kubernetes Service clusters                                                      | Azure Arc-enabled Kubernetes clusters                                                       |
 |------------------------------------------------------|----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| Release state:                                       | • Defender profile is in preview<br> • Azure Policy add-on is generally available (GA) | • Defender extension is in preview<br> • Azure Policy extension for Azure Arc is in preview |
+| Release state:                                       | • Defender profile: Preview<br> • Azure Policy add-on: Generally available (GA) | • Defender extension: Preview<br> • Azure Policy extension: Preview |
 | Relevant Defender plan:                              | [Microsoft Defender for Containers](defender-for-containers-introduction.md)           | [Microsoft Defender for Containers](defender-for-containers-introduction.md)                |
-| Required roles and permissions (subscription-level): | [Owner](../role-based-access-control/built-in-roles.md#owner)                          | [Owner](../role-based-access-control/built-in-roles.md#owner)                               |
-| Supported destinations:                              | Any [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) applied to your nodes *might* disrupt the configuration of Defender for Containers <br><br> The AKS Defender profile doesn't support AKS clusters that don't have RBAC enabled.                                                                                     | Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters             |
+| Required roles and permissions (subscription-level): | [Owner](../role-based-access-control/built-in-roles.md#owner) or [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator)                          | [Owner](../role-based-access-control/built-in-roles.md#owner) or [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator)                               |
+| Supported destinations:                              | The AKS Defender profile only supports [AKS clusters that have RBAC enabled](../aks/concepts-identity.md#kubernetes-rbac).                                                                                   | [See Kubernetes distributions supported for Arc-enabled Kubernetes](supported-machines-endpoint-solutions-clouds-containers.md?tabs=azure-aks#kubernetes-distributions-and-configurations)             |
 | Policy-based:                                        | :::image type="icon" source="./media/icons/yes-icon.png"::: Yes                        | :::image type="icon" source="./media/icons/yes-icon.png"::: Yes                             |
 | Clouds:                                              | **Defender profile**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet<br>**Azure Policy add-on**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet|**Defender extension**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet<br>**Azure Policy extension for Azure Arc**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet|
 

@@ -18,7 +18,7 @@ In Microsoft Purview, you can register and scan various types of data sources, a
 
 ## Monitor scan runs
 
-1. Go to your Microsoft Purview account -> open **Microsoft Purview Studio** -> **Data map** -> **Monitoring**.
+1. Go to your Microsoft Purview account -> open **Microsoft Purview governance portal** -> **Data map** -> **Monitoring**.
  
 1. The high-level KPIs show total scan runs within a period. The time period is defaulted at last 30 days, you can also choose to select last seven days. Based on the time filter selected, you can see the distribution of successful, failed, and canceled scan runs by week or by the day in the graph.
 

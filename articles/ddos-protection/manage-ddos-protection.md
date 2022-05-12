@@ -3,7 +3,7 @@ title: Manage Azure DDoS Protection Standard using the Azure portal
 description: Learn how to use Azure DDoS Protection Standard to mitigate an attack.
 services: ddos-protection
 documentationcenter: na
-author: aletheatoh
+author: AbdullahBell
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.custom: mode-ui
 ms.date: 04/13/2022
-ms.author: yitoh
+ms.author: abell
 
 ---
 
@@ -46,6 +46,8 @@ In this quickstart, you'll create a DDoS protection plan and link it to a virtua
     |Region         | Enter **East US**.                                  |
 
 1. Select **Review + create** then **Create**
+
+[!INCLUDE [DDoS-Protection-region-requirement.md](../../includes/DDoS-Protection-region-requirement.md)]
 
 ## Enable DDoS protection for a virtual network
 ### Enable DDoS protection for a new virtual network

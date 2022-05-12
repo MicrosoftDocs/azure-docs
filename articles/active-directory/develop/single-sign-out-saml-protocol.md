@@ -24,6 +24,9 @@ The following diagram shows the workflow of the Azure AD single sign-out process
 
 ![Azure AD Single Sign Out Workflow](./media/single-sign-out-saml-protocol/active-directory-saml-single-sign-out-workflow.png)
 
+> [!NOTE]
+> Per section 3.7 of the [SAML 2.0 core specification](http://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf), there can be multiple participants (other applications) in a session besides your application. If one of the other participants sends a `LogoutRequest` to Microsoft identity platform (the session authority), then Microsoft identity platform will send a `LogoutRequest` back to all the session participants except the participant which sent the initial `LogoutRequest`. Additionally, if one of the other participants happened to initiate sign-out at the same time, there would be a race to see which `LogoutRequest` reaches Microsoft identity platform first. As a result, an application should always be prepared to handle a `LogoutRequest`.
+
 ## LogoutRequest
 The cloud service sends a `LogoutRequest` message to Azure AD to indicate that a session has been terminated. The following excerpt shows a sample `LogoutRequest` element.
 

@@ -1,27 +1,28 @@
 ---
-title: 'How to call Grafana APIs in your automation: Azure Managed Grafana Preview'
-description: Learn how to call Grafana APIs in your automation with Azure Active Directory (Azure AD) and an Azure service principal
+title: 'Call Grafana APIs programmatically'
+titleSuffix: Azure Managed Grafana Preview
+description: Learn how to call Grafana APIs programmatically with Azure Active Directory (Azure AD) and an Azure service principal
 author: maud-lv 
 ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: how-to 
-ms.date: 3/31/2022 
+ms.date: 4/18/2022 
 ---
 
-# How to call Grafana APIs in your automation within Azure Managed Grafana Preview
+# How to call Grafana APIs programmatically
 
 In this article, you'll learn how to call Grafana APIs within Azure Managed Grafana Preview using a service principal.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- An Azure Managed Grafana workspace. If you don't have one yet, [create a workspace](/quickstart-managed-grafana-workspace.md).
+- An Azure Managed Grafana workspace. If you don't have one yet, [create a workspace](/azure/managed-grafana/quickstart-managed-grafana-portal).
 
 ## Sign in to Azure
 
 Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.com/) with your Azure account.
 
-## Assign roles to the service principal of your application and of your Azure Managed Grafana workspace
+## Assign roles to the service principal of your application and of your Azure Managed Grafana Preview workspace
 
 1. Start by [Creating an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). This guide takes you through creating an application and assigning a role to its service principal. For simplicity, use an application located in the same Azure Active Directory (Azure AD) tenant as your Grafana workspace.
 1. Assign the role of your choice to the service principal for your Grafana resource. Refer to [How to share a Managed Grafana workspace](how-to-share-grafana-workspace.md) to learn how to grant access to a Grafana instance. Instead of selecting a user, select **Service principal**.
@@ -62,7 +63,7 @@ curl -X GET \
 https://<grafana-url>/api/user
 ```
 
-Replace `<access-token>` with the access token retrieved in the previous step and replace `<grafana-url>` with the URL of your Grafana instance. For example `https://grafanaworkspace-abcd.cuse.grafana.azure.com`. This URL is displayed in the Azure platform, in the **Overview** page of your Managed Grafana workspace. 
+Replace `<access-token>` with the access token retrieved in the previous step and replace `<grafana-url>` with the URL of your Grafana instance. For example `https://grafanaworkspace-abcd.cuse.grafana.azure.com`. This URL is displayed in the Azure platform, in the **Overview** page of your Managed Grafana workspace.
 
 :::image type="content" source="media/managed-grafana-how-to-api-endpoint.png" alt-text="Screenshot of the Azure platform. Endpoint displayed in the Overview page.":::
 

@@ -3,12 +3,12 @@ title: Form Recognizer quotas and limits
 titleSuffix: Azure Applied AI Services
 description: Quick reference, detailed description, and best practices on Azure Form Recognizer service Quotas and Limits
 services: cognitive-services
-author: vkurpad
+author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 05/09/2022
 ms.author: lajanuar
 ---
 
@@ -23,6 +23,7 @@ For the usage with [Form Recognizer SDK](quickstarts/try-v3-csharp-sdk.md), [For
 | **Concurrent Request limit** | 1 | 15 (default value) |
 | Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
 | **Compose Model limit** | 5 | 100 (default value) |
+| Adjustable | No<sup>2</sup> | No<sup>2</sup> |
 | **Custom neural model train** | 10 per month | 10 per month |
 | Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
 

@@ -267,7 +267,7 @@ To use this playbook, create a watchlist that maps between the sensor names and 
 
 Typically, the entity authorized to program a PLC is the Engineering Workstation. Therefore, attackers might create new Engineering Workstations in order to create malicious PLC programming.
 
-This playbook opens a ticket in SerivceNow each time a new Engineering Workstation is detected, explicitly parsing the IoT device entity fields.
+This playbook opens a ticket in ServiceNow each time a new Engineering Workstation is detected, explicitly parsing the IoT device entity fields.
 
 ## Next steps
 

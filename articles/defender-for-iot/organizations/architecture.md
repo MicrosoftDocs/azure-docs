@@ -17,7 +17,7 @@ Defender for IoT connects to both cloud and on-premises components, and is built
 
 Defender for IoT systems include the following components:
 
-- The Azure portal, for cloud management and integration to other Microsoft services, such as Microsoft Sentinel
+- The Azure portal, for cloud management and integration to other Microsoft services, such as Microsoft Sentinel.
 - Network sensors, deployed on either a virtual machine or a physical appliance. You can configure your OT sensors as cloud-connected sensors, or fully on-premises sensors.
 - An on-premises management console for cloud-connected or local, air-gapped site management.
 - An embedded security agent (optional).
@@ -30,9 +30,9 @@ Defender for IoT network sensors discover and continuously monitor network traff
 
 - Sensors use IoT and OT-aware analytics engines and Layer-6 Deep Packet Inspection (DPI) to detect IoT and OT threats, such as fileless malware, based on anomalous or unauthorized activity.
 
-Data collection, processing, analysis, and alerting takes place directly on the sensor, which can be ideal for locations with low bandwidth or high latency connectivity because only metadata is transferred on, either to the Azure portal for cloud management, or an on-premises management console.
+Data collection, processing, analysis, and alerting takes place directly on the sensor. Running processes directly on the sensor can be ideal for locations with low bandwidth or high-latency connectivity because only the metadata is transferred on for management, either to the Azure portal or an on-premises management console.
 
-### Cloud-connected vs local sensors
+### Cloud-connected vs. local sensors
 
 Cloud-connected sensors are sensors that are connected to Defender for IoT in Azure, and differ from locally managed sensors as follows:
 
@@ -58,11 +58,11 @@ Defender for IoT sensors apply analytics engines on ingested data, triggering al
 
 Analytics engines provide machine learning and profile analytics, risk analysis, a device database and set of insights, threat intelligence, and behavioral analytics.
 
-For example, for OT networks, the **policy violation detection** engine alerts users of any deviation from baseline behavior, such as unauthorized use of specific function codes, access to specific objects, or changes to device configuration. The policy violation engine models industry control system (ICS) networks as deterministic sequences of states and transitions—using a patented technique called Industrial Finite State Modeling (IFSM). The policy violation detection engine establishes a baseline of the ICS networks, so that the platform requires a shorter learning period to build a baseline of the network than generic mathematical approaches or analytics, which were originally developed for IT rather than OT networks.
+For example, for OT networks, the **policy violation detection** engine alerts users of any deviation from baseline behavior, such as unauthorized use of specific function codes, access to specific objects, or changes to device configuration. The policy violation engine models industry control system (ICS) networks as deterministic sequences of states and transitions - using a patented technique called Industrial Finite State Modeling (IFSM). The policy violation detection engine creates a baseline for industrial control system (ICS) networks. Since many detection algorithms were build for IT, rather than OT, networks, an extra baseline for ICS networks helps to shorten the systems learning curve for new detections.
 
 Specifically for OT networks, OT network sensors also provide the following analytics engines:
 
-- **Protocol violation detection engine**. Identifies the use of packet structures and field values that violate ICS protocol specifications, for example: Modbus exception, and Initiation of an obsolete function code alerts.
+- **Protocol violation detection engine**. Identifies the use of packet structures and field values that violate ICS protocol specifications, for example: Modbus exception, and initiation of an obsolete function code alerts.
 
 - **Industrial malware detection engine**. Identifies behaviors that indicate the presence of known malware, such as Conficker, Black Energy, Havex, WannaCry, NotPetya, and Triton.
 
@@ -74,7 +74,7 @@ Specifically for OT networks, OT network sensors also provide the following anal
 
 Defender for IoT provides hybrid network support using the following management options:
 
-- **The Azure portal**. Use the Azure portal as a single pane of glass view all data ingested from your devices via network sensors. The Azure portal provides extra value, such as [workbooks](workbooks.md), [connections to Microsoft Sentinel](/azure/sentinel/iot-solution?toc=%2Fazure%2Fdefender-for-iot%2Forganizations%2Ftoc.json&bc=%2Fazure%2Fdefender-for-iot%2Fbreadcrumb%2Ftoc.json&tabs=use-out-of-the-box-analytics-rules-recommended), and more.
+- **The Azure portal**. Use the Azure portal as a single pane of glass to view all data ingested from your devices via network sensors. The Azure portal provides extra value, such as [workbooks](workbooks.md), [connections to Microsoft Sentinel](../../sentinel/iot-solution.md?bc=%2fazure%2fdefender-for-iot%2fbreadcrumb%2ftoc.json&tabs=use-out-of-the-box-analytics-rules-recommended&toc=%2fazure%2fdefender-for-iot%2forganizations%2ftoc.json), and more.
 
     Also use the Azure portal to obtain new appliances and software updates, onboard and maintain your sensors in Defender for IoT, and update threat intelligence packages.
 
@@ -95,4 +95,3 @@ For more information, see:
 - [Frequently asked questions](resources-frequently-asked-questions.md)
 - [Sensor connection methods](architecture-connections.md)
 - [Connect your sensors to Microsoft Defender for IoT](connect-sensors.md)
-
