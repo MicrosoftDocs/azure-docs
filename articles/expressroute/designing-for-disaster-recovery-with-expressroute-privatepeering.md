@@ -136,7 +136,7 @@ The solution is illustrated in the following diagram. As illustrated, you can ar
 [![10]][10]
 
 > [!IMPORTANT]
-> When one or multiple ExpressRoute circuits are connected to multiple virtual networks, virtual network to virtual network traffic can route via ExpressRoute. However, this is not recommended. To enable virtual network to virtual network connectivity, [configure virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering).
+> When one or multiple ExpressRoute circuits are connected to multiple virtual networks, virtual network to virtual network traffic can route via ExpressRoute. However, this is not recommended. To enable virtual network to virtual network connectivity, [configure virtual network peering](../virtual-network/virtual-network-manage-peering.md).
 > 
 
 
