@@ -18,7 +18,7 @@ In this monetization model, your app is authenticated by your SaaS offering, whi
 
 **New monetization model**
 
-![New monetization model](images/new-monetization-model-diagram.png)
+![New monetization model](images/monetize-addins/new-monetization-model-diagram.png)
 
 You are also free to monetize using your own payment model.
 
@@ -83,7 +83,7 @@ When a customer initiates a purchase, your service receives this information in 
 
 The following diagram shows the sequence of API calls for a provisioning scenario.
 
-![API calls for provisioning a SaaS service](images/saas-post-provisioning-api-v2-calls.png)
+![API calls for provisioning a SaaS service](images/monetize-addins/saas-post-provisioning-api-v2-calls.png)
 
 #### Marketplace initiated update
 
@@ -91,7 +91,7 @@ When a customer initiates an update on Microsoft AppSource, Microsoft AppSource 
 
 The following diagram shows the sequence of actions when an update is initiated from the marketplace.
 
-![API calls when the update is initiated from the marketplace](images/saas-update-api-v2-calls-from-marketplace-a.png)
+![API calls when the update is initiated from the marketplace](images/monetize-addins/saas-update-api-v2-calls-from-marketplace-a.png)
 
 #### Service initiated update
 
@@ -99,7 +99,7 @@ When a customer initiates an update on your service (if you allow this action), 
 
 The following diagram shows the actions when an update is initiated from your SaaS service.
 
-![API calls when the update is initiated from the SaaS service](images/saas-update-api-v2-calls-from-saas-service-a.png) 
+![API calls when the update is initiated from the SaaS service](images/monetize-addins/saas-update-api-v2-calls-from-saas-service-a.png)
 
 For more details, see [SaaS fufillment APIs](/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) reference.
 
