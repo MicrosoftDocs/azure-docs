@@ -7,7 +7,7 @@ author: AbdullahBell
 ms.service: ddos-protection
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/08/2022
+ms.date: 05/11/2022
 ms.author: abell
 ms.custom: subject-policy-reference
 ms.topic: include
