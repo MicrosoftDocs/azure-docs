@@ -145,45 +145,56 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, sign in to uniFLOW Online website as an administrator.
 
-1. From the left navigation panel, select **User** tab.
+1. From the left navigation panel, select **Extensions** tab.
 
-	![Screenshot shows User selected from the uniflow Online site.](./media/uniflow-online-tutorial/user.png)
+	![Screenshot shows Extension selected from the uniFLOW Online site.](https://user-images.githubusercontent.com/105236682/168039133-e0949734-6a94-49e7-9e79-0c2a3bc4a6a8.png)
 
-1. Click **Identity providers**.
 
-	![Screenshot shows Identity Providers selected.](./media/uniflow-online-tutorial/profile.png)
+1. Click **Identity Providers**.
+
+	![Screenshot shows Identity Providers selected.](https://user-images.githubusercontent.com/105236682/168039492-c9fd09a2-41fa-4b9a-93bb-edb29b2ffea6.png)
+	
+1. Click **Configure identity providers**
+
+	![Screenshot shows box to configure identity providers](https://user-images.githubusercontent.com/105236682/168039991-e01cdaf7-ce19-4757-874a-74a4c521a75a.png)
 
 1. Click on **Add identity provider**.
 
-	![Screenshot shows Add identity provider selected.](./media/uniflow-online-tutorial/add-profile.png)
+	![Screenshot shows Add identity provider selected.](https://user-images.githubusercontent.com/105236682/168040343-9cf39080-fffa-49d7-a997-e50e2ac7c3f6.png)
+
 
 1. On the **ADD IDENTITY PROVIDER** section, perform the following steps:
 
-	![Screenshot shows the ADD IDENTITY PROVIDER section where you can enter the values described.](./media/uniflow-online-tutorial/configuration.png)
+	![Screenshot shows the ADD IDENTITY PROVIDER section where you can enter the values described.](https://user-images.githubusercontent.com/105236682/168040442-82f7b387-eb3a-4bea-a2ba-577c9e4a89e2.png)
+
 
 	a. Enter the Display name Ex: **AzureAD SSO**.
 
-	b. For **Provider type**, select **WS-Fed** option from the dropdown.
+	b. For **Provider type**, select **WS-Federation** option from the dropdown.
 
-	c. For **WS-Fed type**, select **Azure Active Directory** option from the dropdown.
+	c. For **WS-Federation type**, select **Azure Active Directory** option from the dropdown.
 
 	d. Click **Save**.
 
 1. On the **General** tab, perform the following steps:
 
-	![Screenshot shows the General tab where you can enter the values described.](./media/uniflow-online-tutorial/general-tab.png)
+	![Screenshot shows the General tab where you can enter the values described.](https://user-images.githubusercontent.com/105236682/168040648-595e9548-bebd-49d5-a7b5-ad65c4a6fb51.png)
+
 
 	a. Enter the Display name Ex: **AzureAD SSO**.
+	
+	b. Select **Identity provider** as **Enable AzureAD SSO**.
 
-	b. Select the **From URL** option for the **ADFS Federation Metadata**.
+	c. Select the **From URL** option for the **ADFS Federation Metadata**.
 
-	c. In the **Federation Metadata URL** textbox, paste the **App Federation Metadata Url** value, which you have copied from the Azure portal.
-
-	d. Select **Identity provider** as **Enabled**.
+	d. In the **Federation Metadata URL** textbox, paste the **App Federation Metadata URL** value, which you have copied from the Azure portal.
 
 	e. Select **Automatic user registration** as **Activated**.
 
 	f. Click **Save**.
+	
+> [!NOTE]
+> **Reply URL** is automatically pre-filled and cannot be changed.	
 
 ### Sign in to uniFLOW Online using the created test user
 
