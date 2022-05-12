@@ -376,3 +376,4 @@ This command deletes the resource group that includes all of the resources creat
 
 > [!div class="nextstepaction"]
 > [Application lifecycle management](application-lifecycle-management.md)
+
