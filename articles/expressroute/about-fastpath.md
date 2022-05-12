@@ -59,6 +59,8 @@ The following FastPath features are in Public preview:
 
 **VNet Peering** - FastPath will send traffic directly to any VM deployed in a virtual network peered to the one connected to ExpressRoute, bypassing the ExpressRoute virtual network gateway. This preview is available for both IPv4 and IPv6 connectivity.
 
+Available in all regions.
+
 **Private Link Connectivity for 10Gbps ExpressRoute Direct Connectivity** - Private Link traffic sent over ExpressRoute FastPath will bypass the ExpressRoute virtual network gateway in the data path.
 This preview is available in the following Azure Regions.
 - Australia East
@@ -90,7 +92,6 @@ This preview is available for connections associated to ExpressRoute Direct circ
 
 See [How to enroll in ExpressRoute FastPath features](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview).
 
-Available in all regions.
  
 ## Next steps
 
