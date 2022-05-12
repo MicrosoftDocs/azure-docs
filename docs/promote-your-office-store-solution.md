@@ -11,7 +11,7 @@ After submitting your solution and it's approved for addition to Microsoft AppSo
 
 1. Download the [Microsoft AppSource marketing toolkit](https://aka.ms/marketplaceresourcesguide) or download the [Get it from Microsoft AppSource](https://assetsprod.microsoft.com/mpn/ms-appsource.png) badge directly.
 
-    ![Screenshot of the Get it from Microsoft AppSource badge](images/MS_AppSource.png)
+    ![Screenshot of the Get it from Microsoft AppSource badge](images/promote-your-office-store-solution/ms-appsource.png)
 
 1. Add the badge to the webpage for your solution and add a link to your associated product listing landing page. This makes it clear to your users that they can download your solution from Microsoft AppSource, and simplifies the user experience by providing a direct link to your solution.
 

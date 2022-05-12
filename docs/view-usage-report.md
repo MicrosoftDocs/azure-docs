@@ -38,7 +38,7 @@ As a provider, if you have multiple apps listed on Microsoft AppSource, you can 
 
 Near the top of the page, you can select the time period for which you want to see the usage. The default selection is 30D (30 days), but you can choose to show data for two or three months.
 
-:::image type="content" source="images/usage-timeline.png" alt-text="Usage Timeline ":::
+:::image type="content" source="images/view-usage-report/usage-timeline.png" alt-text="Usage Timeline ":::
 
 ## Filters
 
