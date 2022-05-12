@@ -20,7 +20,7 @@ This article shows you how to do the following tasks:
 
 On the first page of the lab creation wizard, in the **Which virtual machine size do you need?** drop-down list, you select the size of the VMs that are needed for your class.  
 
-![Screenshot of the "New lab" pane for selecting a VM size](./media/how-to-setup-gpu/lab-gpu-selection.png)
+![Screenshot of the "New lab" pane for selecting a VM size](./media/how-to-setup-gpu-1/lab-gpu-selection.png)
 
 In this process, you have the option of selecting either **Visualization** or **Compute** GPUs.  It's important to choose the type of GPU that's based on the software that your students will use.  
 
@@ -44,7 +44,7 @@ The *visualization* GPU sizes are intended for graphics-intensive applications. 
 
 To take advantage of the GPU capabilities of your lab VMs, ensure that the appropriate GPU drivers are installed.  In the lab creation wizard, when you select a GPU VM size, you can select the **Install GPU drivers** option.  
 
-![Screenshot of the "New lab" showing the "Install GPU drivers" option](./media/how-to-setup-gpu/lab-gpu-drivers.png)
+![Screenshot of the "New lab" showing the "Install GPU drivers" option](./media/how-to-setup-gpu-1/lab-gpu-drivers.png)
 
 As shown in the preceding image, this option is enabled by default, which ensures that recently released drivers are installed for the type of GPU and image that you selected:
 
@@ -66,7 +66,7 @@ To manually install drivers for the *compute* GPU size, do the following:
 
 1. After your lab is created, connect to the template VM to install the appropriate drivers.
 
-   ![Screenshot of the NVIDIA Driver Downloads page](./media/how-to-setup-gpu/nvidia-driver-download.png)
+   ![Screenshot of the NVIDIA Driver Downloads page](./media/how-to-setup-gpu-1/nvidia-driver-download.png)
 
    a. In a browser, go to the [NVIDIA Driver Downloads page](https://www.nvidia.com/Download/index.aspx).  
    b. Set the **Product Type** to **Tesla**.  
@@ -106,11 +106,11 @@ This section describes how to validate that your GPU drivers are properly instal
 1. If you're using a *visualization* GPU, you can also:
     - View and adjust your GPU settings in the NVIDIA Control Panel. To do so, in **Windows Control Panel**, select **Hardware**, and then select **NVIDIA Control Panel**.
 
-      ![Screenshot of Windows Control Panel showing the NVIDIA Control Panel link](./media/how-to-setup-gpu/control-panel-nvidia-settings.png)
+      ![Screenshot of Windows Control Panel showing the NVIDIA Control Panel link](./media/how-to-setup-gpu-1/control-panel-nvidia-settings.png)
 
     - View your GPU performance by using **Task Manager**.  To do so, select the **Performance** tab, and then select the **GPU** option.
 
-       ![Screenshot showing the Task Manager GPU Performance tab](./media/how-to-setup-gpu/task-manager-gpu.png)
+       ![Screenshot showing the Task Manager GPU Performance tab](./media/how-to-setup-gpu-1/task-manager-gpu.png)
 
       > [!IMPORTANT]
       > The NVIDIA Control Panel settings can be accessed only for *visualization* GPUs.  If you attempt to open the NVIDIA Control Panel for a compute GPU, you'll get the following error: "NVIDIA Display settings are not available.  You are not currently using a display attached to an NVIDIA GPU."  Similarly, the GPU performance information in Task Manager is provided only for visualization GPUs.
