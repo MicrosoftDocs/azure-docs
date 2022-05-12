@@ -21,7 +21,7 @@ For Azure-based applications, Azure Load Testing collects detailed resource metr
 
 You can [automate regression testing](#enable-automated-load-testing) by running load tests as part of your continuous integration and continuous deployment (CI/CD) workflow.
 
-Azure Load Testing allows you to test private application endpoints or applications that you host on-premise. [Configure Azure Load Testing to use a virtual network](./how-to-test-private-endpoint.md) to connect to these endpoints.
+Azure Load Testing allows you to test private application endpoints or applications that you host on-premise. For more information, see the [scenarios for deploying Azure Load Testing in a virtual network](./concept-azure-load-testing-vnet-injection.md).
 
 Learn more about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).
 
@@ -56,7 +56,9 @@ Azure Load Testing test engines abstract the required infrastructure for [runnin
 
 Azure Load Testing uses Apache JMeter version 5.4.3 for running load tests. You can use Apache JMeter plugins that are available on https://jmeter-plugins.org in your test script.
 
-The application can be hosted anywhere: in Azure, on-premises, or in other clouds. During the load test, the service collects the following resource metrics and displays them in a dashboard:
+The application can be hosted anywhere: in Azure, on-premises, or in other clouds. To load test services that have no public endpoint, [deploy Azure Load Testing in a virtual network](./how-to-test-private-endpoint.md).
+
+During the load test, the service collects the following resource metrics and displays them in a dashboard:
 
 - *Client-side metrics* give you details reported by the test engine. These details include the number of virtual users, the request response time, or the number of requests per second.
 
