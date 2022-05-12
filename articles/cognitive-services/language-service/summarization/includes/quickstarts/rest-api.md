@@ -172,6 +172,8 @@ curl -X GET    https://your-text-analytics-endpoint-here/text/analytics/v3.2-pre
 
 The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
 
+## Conversation summarization
+
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
 
 ```bash
