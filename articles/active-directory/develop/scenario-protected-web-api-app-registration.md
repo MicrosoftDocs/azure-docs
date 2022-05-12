@@ -75,7 +75,7 @@ To expose delegated permissions, or _scopes_, follow the steps in [Configure an 
 
 If you're following along with the web API scenario described in this set of articles, use these settings:
 
-- **Application ID URI**: Accept the proposed application ID URI (_api://<clientId>_) (if prompted)
+- **Application ID URI**: Accept the proposed application ID URI (_api://\<clientId\>_) (if prompted)
 - **Scope name**: _access_as_user_
 - **Who can consent**: _Admins and users_
 - **Admin consent display name**: _Access TodoListService as a user_
@@ -104,10 +104,9 @@ To add another layer of security, an Azure AD tenant administrator can configure
 To increase security by restricting token issuance only to client apps that have been assigned app roles:
 
 1. In the Azure portal, select your app in **Azure Active Directory** > **App registrations**.
-1. On application's overview page, select **Managed application in local directory** (it might be ), select your application to go to its **Enterprise Application Overview** page.
-
+1. On the application's overview page, select its **Managed application in local directory** link to navigate to its **Enterprise Application Overview** page.
 1. Under **Manage**, select **Properties**.
-1. Set **User assignment required?** to **Yes**.
+1. Set **Assignment required?** to **Yes**.
 1. Select **Save**.
 
 Azure AD will now check for app role assignments of client applications that request access tokens for your web API. If a client app hasn't been assigned any app roles, Azure AD returns an error message to the client similar to _invalid_client: AADSTS501051: Application \<application name\> isn't assigned to a role for the \<web API\>_.

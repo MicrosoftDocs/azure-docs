@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: how-to
 ms.date: 05/11/2022
 ms.author: arcrowe
-ms.reviewer: marsma
+ms.reviewer: marsma, ryanwi
 # Customer intent: As a developer, I want to set up a test environment so that I can test my app integrated with Microsoft identity platform.
 ---
 
@@ -21,9 +21,9 @@ To help move your app through the development, test, and production lifecycle, s
 
 ## Dedicated test tenant or production Azure AD tenant?
 
-Your first task is to decide between using Azure AD tenant dedicated to testing or using your production tenant as your test environment.
+Your first task is to decide between using an Azure AD tenant dedicated to testing or your production tenant as your test environment.
 
-Using a production tenant can make some aspects application testing easier, but it requires the right level of isolation between test and production resources. Isolation is especially important for high-privilege scenarios.
+Using a production tenant can make some aspects of application testing easier, but it requires the right level of isolation between test and production resources. Isolation is especially important for high-privilege scenarios.
 
 Don't use your production Azure AD tenant if:
 
@@ -34,7 +34,7 @@ Don't use your production Azure AD tenant if:
 - Policies are enabled in your production tenant that require user interaction during authentication. For example, if multi-factor authentication is required for all users, you can't use automated sign-ins for integration testing.
 - Adding non-production resources and/or workload to your production tenant would [exceed service or throttling limits](test-throttle-service-limits.md) for the tenant.
 
-If _any_ of these restrictions apply, set up a [test environment in a separate tenant](#set-up-a-test-environment-in-a-separate-tenant).
+If any of these restrictions apply, set up a [test environment in a separate tenant](#set-up-a-test-environment-in-a-separate-tenant).
 
 If none of these restrictions apply, you can set up a [test environment in your production tenant](#set-up-a-test-environment-in-your-production-tenant). Be aware that global administrators in your production tenant can access its resources and change its configuration at any time. To prevent access to any test resources or configuration, put that data in a separate tenant.
 
