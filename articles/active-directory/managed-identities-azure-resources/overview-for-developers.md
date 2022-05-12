@@ -120,7 +120,7 @@ You can read more about the Azure Identity library below:
 * [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme?view=azure-node-latest)
 
 ### Accessing a secret stored in Azure Key Vault
-```aspx-csharp
+```csharp
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 using Azure.Core;
