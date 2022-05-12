@@ -23,13 +23,12 @@ You can use the scaling tool to:
 - Scale out VMs based on number of sessions per CPU core.
 - Scale in VMs during off-peak hours, leaving the minimum number of session host VMs running.
 
-The scaling tool uses a combination of an Azure Automation account, a PowerShell runbook, a webhook, and the Azure Logic App to function. When the tool runs, Azure Logic App calls a webhook to start the Azure Automation runbook. The runbook then creates a job.
+The scaling tool uses a combination of an Azure Automation account, a PowerShell runbook, a webhook, and a Logic App to function. When the tool runs, the Logic App calls a webhook to start the runbook. The runbook then creates a job.
 
 Peak and off-peak hours are defined as:
 
-| Peak  | Off-peak |
-|--|--|
-| The time when *maximum* user session concurrency is expected to be reached. | The time when  *minimum* user session concurrency is expected to be reached. |
+- **Peak**: The time when *maximum* user session concurrency is expected to be reached.
+- **Off-peak**: The time when *minimum* user session concurrency is expected to be reached.
 
 During peak usage time, the job checks the current number of sessions and the VM capacity of the current running session host for each host pool. It uses this information to calculate if the running session host VMs can support existing sessions based on the *SessionThresholdPerCPU* parameter defined for the **CreateOrUpdateAzLogicApp.ps1** file. If the session host VMs can't support existing sessions, the job starts extra session host VMs in the host pool.
 
