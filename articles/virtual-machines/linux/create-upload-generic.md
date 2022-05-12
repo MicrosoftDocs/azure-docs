@@ -191,8 +191,21 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
    The Azure Linux Agent is required for provisioning a Linux image on Azure.  Many distributions provide the agent as an RPM or .deb package (the package is typically called WALinuxAgent or walinuxagent).  The agent can also be installed manually by following the steps in the [Linux Agent Guide](../extensions/agent-linux.md).
    
    Install the Azure Linux Agent, cloud-init and other necessary utilities by running the following command:
+
+   **Redhat/Centos**
    ```bash
    sudo yum install -y [waagent] cloud-init cloud-utils-growpart gdisk hyperv-daemons
+   ```
+   **Ubuntu/Debian**
+   ```bash
+   sudo apt install walinuxagent cloud-init cloud-utils-growpart gdisk hyperv-daemons
+   ```
+   **Suse**
+   ```bash
+   sudo zypper install python-azure-agent cloud-init cloud-utils-growpart gdisk hyperv-daemons
+   ```
+   Then enable the agent and cloud-init on all distributions using:
+   ```bash
    sudo systemctl enable waagent.service
    sudo systemctl enable cloud-init.service
    ```
