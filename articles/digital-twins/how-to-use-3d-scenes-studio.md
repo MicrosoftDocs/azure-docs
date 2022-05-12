@@ -30,16 +30,11 @@ To use 3D Scenes Studio, you'll need the following resources:
 * A private container in the storage account. For instructions, see [Create a container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
     * Take note of the *URL* of your storage container to use later.
 
-You should also configure CORS for your storage account, so that 3D Scenes Studio will be able to access your storage container.
-1. Return to the storage account's page in the portal.
-1. Scroll down in the left menu to **Resource sharing (CORS)** and select it.
-1. On the **Resource sharing (CORS)** page for your storage account, fill in an entry with the following details:
-    1. **Allowed origins** - Enter *https://explorer.digitaltwins.azure.net*. You can add additional origins if you want, or use * to allow general access.
-    1. **Allowed methods** - Select the checkboxes for *GET*, *POST*, *OPTIONS*, and *PUT*. You can add additional methods if you want.
-    1. **Allowed headers** - Enter *Authorization,x-ms-version,x-ms-blob-type*. You can add additional headers if you want.
-1. Select **Save**.
+You should also configure [CORS](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) for your storage account, so that 3D Scenes Studio will be able to access your storage container. You can use the following [Azure CLI](/cli/azure/what-is-azure-cli) command to set the minimum required methods, origins, and headers. The command contains one placeholder for the name of your storage account.
 
-    :::image type="content"  source="media/how-to-use-3d-scenes-studio/cors.png" alt-text="Screenshot of the Azure portal where the CORS entry is being created and saved." lightbox="media/how-to-use-3d-scenes-studio/cors.png":::
+```azurecli
+az storage cors add --services b --methods GET OPTIONS POST PUT --origins https://explorer.digitaltwins.azure.net --allowed-headers Authorization x-ms-version x-ms-blob-type --account-name <your-storage-account>
+```
 
 Now you have all the necessary resources to work with scenes in 3D Scenes Studio.
 

@@ -86,64 +86,49 @@ To see the models that have been uploaded and how they relate to each other, sel
 
 ## Create storage resources
 
-Next, create a new storage account and a container in the storage account. 3D Scenes Studio will use this storage container to store your 3D file and configuration information. You'll also set up read and write permissions to the storage account.
+Next, create a new storage account and a container in the storage account. 3D Scenes Studio will use this storage container to store your 3D file and configuration information. 
 
-### Create the storage account 
+You'll also set up read and write permissions to the storage account. In order to set these backing resources up quickly, this section uses the [Azure Cloud Shell](/azure/cloud-shell/overview).
 
-1. In the [Azure portal](https://portal.azure.com), search for *storage accounts* in the top search bar. 
-1. On the **Storage accounts** page, select **+ Create**.
+1. Navigate to the [Cloud Shell](https://shell.azure.com) in your browser.
 
-    :::image type="content"  source="media/quickstart-3d-scenes-studio/create-storage-account-1.png" alt-text="Screenshot of the Azure portal showing the Storage accounts page and highlighting the Create button." lightbox="media/quickstart-3d-scenes-studio/create-storage-account-1.png":::
+    Run the following command to set the CLI context to your subscription for this session. 
 
-1. Fill in the details on the **Basics** tab, including your **Subscription** and **Resource group**. Choose a **Storage account name** and **Region**, select **Standard** performance, and select **Geo-redundant storage (GRS)**.
-    :::image type="content"  source="media/quickstart-3d-scenes-studio/create-storage-account-2.png" alt-text="Screenshot of the Azure portal showing the Basics tab of storage account creation." lightbox="media/quickstart-3d-scenes-studio/create-storage-account-2.png":::
+    ```azurecli
+    az account set --subscription "<your-Azure-subscription-ID>"
+    ```
+1. Run the following command to create a storage account in your subscription. The command contains placeholders for you to enter a name and choose a region for your storage account, as well as a placeholder for your resource group.
 
-    Select **Review + create**.
+    ```azurecli
+    az storage account create --resource-group <your-resource-group> --name <name-for-your-storage-account> --location <region> --sku Standard_RAGRS
+    ```
 
-1. You will see a summary page on the **Review + create** tab showing the details you've entered. Confirm and create the storage account by selecting **Create**.
-1. After deployment completes, use the **Go to resource** button to navigate to the storage account in the portal.
-    :::image type="content" source="media/quickstart-3d-scenes-studio/deployment-complete-storage.png" alt-text="Screenshot of the deployment page for the storage account in the Azure portal. The page indicates that deployment is complete." lightbox="media/quickstart-3d-scenes-studio/deployment-complete-storage.png":::
+    When the command completes successfully, you'll see details of your new storage account in the output. Look for the `ID` value in the output and copy it to use in the next command.
 
-1. Select **Access Control (IAM)** from the storage account's left menu, **+ Add**, and **Add role assignment**.
-    :::image type="content" source="media/quickstart-3d-scenes-studio/add-storage-role-1.png" alt-text="Screenshot of the IAM tab for the storage account in the Azure portal." lightbox="media/quickstart-3d-scenes-studio/add-storage-role-1.png":::
+    :::image type="content"  source="media/quickstart-3d-scenes-studio/storage-account-id.png" alt-text="Screenshot of Cloud Shell output. The I D of the storage account is highlighted." lightbox="media/quickstart-3d-scenes-studio/storage-account-id.png":::
+ 
+1. Run the following command to grant yourself the *Storage Blob Data Owner* on the storage account. This level of access will allow you to perform both read and write operations in 3D Scenes Studio. The command contains placeholders for your Azure account and the ID of your storage account from the previous step.
 
-1. Search for *Storage Blob Data Owner* and select **Next**. This level of access will allow you to perform both read and write operations in 3D Scenes Studio.
-1. Switch to the **Members** tab. Assign access to a **User, group, or service principal**, and select **+ Select members**. Search for your name in the list and hit **Select**.
-    :::image type="content" source="media/quickstart-3d-scenes-studio/add-storage-role-2.png" alt-text="Screenshot of granting a user Storage Blob Data Owner in the Azure portal." lightbox="media/quickstart-3d-scenes-studio/add-storage-role-2.png":::
+    ```azurecli
+    az role assignment create --role "Storage Blob Data Owner" --assignee <your-Azure-account> --scope <ID-of-your-storage-account>
+    ```
 
-1. Select **Review + assign** to review the details of your assignment, and **Review + assign** again to confirm and finish the role assignment.
+    When the command completes successfully, you'll see details of the role assignment in the output.
 
-### Configure CORS
+1. Run the following command to configure CORS for your storage account. This will be necessary for 3D Scenes Studio to access your storage container. The command contains a placeholder for the name of your storage account.
 
-Next, configure CORS for your storage account. This will be necessary for 3D Scenes Studio to access your storage container.
+    ```azurecli
+    az storage cors add --services b --methods GET OPTIONS POST PUT --origins https://explorer.digitaltwins.azure.net --allowed-headers Authorization x-ms-version x-ms-blob-type --account-name <your-storage-account>
+    ```
 
-1. Return to the storage account's page in the portal.
-1. Scroll down in the left menu to **Resource sharing (CORS)** and select it.
-1. On the **Resource sharing (CORS)** page for your storage account, fill in an entry with the following details:
-    1. **Allowed origins** - Enter *https://explorer.digitaltwins.azure.net*.
-    1. **Allowed methods** - Select the checkboxes for *GET*, *POST*, *OPTIONS*, and *PUT*.
-    1. **Allowed headers** - Enter *Authorization,x-ms-version,x-ms-blob-type*
-1. Select **Save**.
+    This command doesn't have any output.
 
-    :::image type="content"  source="media/how-to-use-3d-scenes-studio/cors.png" alt-text="Screenshot of the Azure portal where the C O R S entry is being created and saved." lightbox="media/how-to-use-3d-scenes-studio/cors.png":::
+1. Run the following command to create a private container in the storage account. Your 3D Scenes Studio files will be stored here. The command contains a placeholder for you to enter a name for your storage container, and a placeholder for the name of your storage account.
+    ```azurecli
+    az storage container create --name <name-for-your-container> --public-access off --account-name <your-storage-account>
+    ```
 
-### Create the container
-
-Lastly, create a private container in the storage account.
-
-1. Select **Containers** from the left menu for the storage account and use **+ Container** to create a new container.
-
-1. Enter a **Name** for the container and set the **Public access level** to **Private**. Select **Create**.
-
-    :::image type="content"  source="media/quickstart-3d-scenes-studio/create-container.png" alt-text="Screenshot of the Azure portal highlighting Containers for the storage account." lightbox="media/quickstart-3d-scenes-studio/create-container.png":::
-1. Once the container has been created, open its menu of options and select **Container properties**.
-
-    :::image type="content"  source="media/quickstart-3d-scenes-studio/container-properties.png" alt-text="Screenshot of the Azure portal highlighting the Container Properties for the new container." lightbox="media/quickstart-3d-scenes-studio/container-properties.png":::
-
-    This will bring you to a **Properties** page for the container.
-1. Copy the **URL** and save this value to use later.
-
-    :::image type="content"  source="media/quickstart-3d-scenes-studio/container-url.png" alt-text="Screenshot of the Azure portal highlighting the container's U R L value." lightbox="media/quickstart-3d-scenes-studio/container-url.png":::
+    When the command completes successfully, the output will show `"created": true`.
 
 ## Initialize your 3D Scenes Studio environment
 
@@ -154,9 +139,9 @@ Now that all your resources are set up, you can use them to create an environmen
 
     :::image type="content" source="media/quickstart-3d-scenes-studio/studio-edit-environment-1.png" alt-text="Screenshot of 3D Scenes Studio highlighting the edit environment icon, which looks like a pencil." lightbox="media/quickstart-3d-scenes-studio/studio-edit-environment-1.png":::
 
-    1. For the **Environment URL**, enter *https://*, followed by the *host name* of your instance from the [Collect host name](#collect-host-name) step.
+    1. For the **Environment URL**, fill the *host name* of your instance from the [Collect host name](#collect-host-name) step into this URL: `https://<your-instance-host-name>`.
     
-    1. For the **Container URL**, enter the URL of your container from the [Create storage resources](#create-storage-resources) step.
+    1. For the **Container URL**, fill the names of your storage account and container from the [Create storage resources](#create-storage-resources) step into this URL: `https://<your-storage-account>.blob.core.windows.net/<your-container>`.
     
     1. Select **Save**.
     
