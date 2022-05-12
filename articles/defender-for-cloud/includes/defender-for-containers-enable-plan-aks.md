@@ -45,7 +45,7 @@ ms.date: 05/12/2022
 
 You can enable the Defender for Containers plan and deploy all of the relevant components from the Azure portal, the REST API, or with a Resource Manager template. For detailed steps, select the relevant tab.
 
-Once the Defender profile has been deployed, a default workspace will be automatically assigned. You can override the default workspace and make a change through Azure Policy by assigning a custom workspace
+Once the Defender profile has been deployed, a default workspace will be automatically assigned. You can [assign a custom workspace](https://docs.microsoft.com/azure/defender-for-cloud/defender-for-containers-enable?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks#assign-a-custom-workspace) in place of the default workspace through Azure Policy.
 
 The Defender security profile is a preview feature. [!INCLUDE [Legalese](../../../includes/defender-for-cloud-preview-legal-text.md)]
 
