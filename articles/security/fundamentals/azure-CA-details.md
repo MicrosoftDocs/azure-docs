@@ -76,13 +76,9 @@ The following URLs may need to be included in your firewall allowlists to optimi
 
 ## Client compatibility for public PKIs
 
-| PKI | Windows | Firefox | iOS | MacOS | Android | Java |
-|--|--| -- | -- | --  | -- | -- |
-| Microsoft PKI (DigiCert Root)| Windows XP Sp3+ | Firefox 32+ | iOS 7+ | OS X Mavericks (10.9)+ | Android SDK 5.x+ | Java JRE 1.8.0_101+ |
-| SSL Admin (Public) | Windows XP SP3+ | Firefox 1+ | iOS 5+ | OS X Mavericks (10.5)+ | Android SDK 2.3+ | Java JRE 1.4.1+ |
-| DigiCert (Mooncake) | Windows XP SP3+ | Firefox 1+ | iOS 5+ | OS X Mavericks (10.5)+ | Android SDK 2.3+ |Java JRE 1.4.1+ |
-| DigiCert (Mgd Certs) | Windows XP SP3+ | Firefox 1+ | iOS 5+ | OS X Mavericks (10.5)+ | Android SDK 2.3+ | Java JRE 1.4.1+ |
-| D-TRUST | Windows XP SP3+ | Firefox 23+ | iOS 7+ | OS Mavericks (10.9)+ | Android SDK 4.4x+ | Java JRE 1.7.0_111+ |
+| Windows | Firefox | iOS | MacOS | Android | Java |
+|--| -- | -- | --  | -- | -- |
+| Windows XP Sp3+ | Firefox 32+ | iOS 7+ | OS X Mavericks (10.9)+ | Android SDK 5.x+ | Java JRE 1.8.0_101+ |
 - - -
 
 ## Past changes
