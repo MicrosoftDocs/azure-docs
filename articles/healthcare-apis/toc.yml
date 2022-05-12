@@ -77,7 +77,7 @@ items:
   - name: GitHub projects
     href: github-projects.md
   - name: Known issues - Azure Health Data Services
-    href: known-services.md
+    href: known-issues.md
   - name: Release notes
     href: release-notes.md 
    
