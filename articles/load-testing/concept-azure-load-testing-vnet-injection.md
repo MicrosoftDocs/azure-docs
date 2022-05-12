@@ -1,17 +1,16 @@
 ---
-title: Key concepts for Azure Load Testing concepts
+title: Scenarios for VNET deployment
 titleSuffix: Azure Load Testing
-description: Learn how Azure Load Testing works, and the key concepts behind it.
+description: Learn about the scenarios for deploying Azure Load Testing in a virtual network (VNET). This deployment enables you to load test private application endpoints and hybrid deployments.
 services: load-testing
 ms.service: load-testing
 author: ntrogh
 ms.author: nicktrog
 ms.topic: conceptual
 ms.date: 05/18/2022
-ms.custom: template-concept 
 ---
 
-# Scenarios for Azure Load Testing virtual network deployment
+# Scenarios for deploying Azure Load Testing in a virtual network
 
 In this article, you'll learn about the scenarios for deploying Azure Load Testing Preview in a virtual network (VNET). This deployment is sometimes called VNET injection.
 
@@ -19,7 +18,7 @@ This functionality enables the following usage scenarios:
 
 - Generate load to a [web service exposed to an Azure Virtual Network](#scenario-load-test-an-azure-hosted-private-backend-microservice).
 - Generate load to an [Azure-hosted public endpoint with access restrictions](#scenario-load-test-an-azure-hosted-public-endpoint-with-access-restrictions), such as restricting client IP addresses.
-- Generate load to an [on-premise service, not publicly accessible, that is connected to Azure via ExpressRoute](#scenario-load-test-an-on-premise-hosted-service-connected-via-azure-expressroute).
+- Generate load to an [on-premise service, not publicly accessible, that is connected to Azure via ExpressRoute (hybrid application deployment)](#scenario-load-test-an-on-premise-hosted-service-connected-via-azure-expressroute).
 
 When you deploy Azure Load Testing in a virtual network, the load test agents are attached to the virtual network in your subscription. The load test agents can then communicate with the other resources in the virtual network. You are not billed for the load agent compute resources.
 
