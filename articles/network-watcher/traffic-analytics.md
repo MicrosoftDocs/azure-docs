@@ -51,7 +51,6 @@ Traffic analytics examines the raw NSG flow logs and captures reduced logs by ag
 
 ![Data flow for NSG flow logs processing](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
-
 ## Prerequisites
 
 ### User access requirements
