@@ -86,7 +86,7 @@ sections:
           
           In addition to the customer data, there is Data Box Disk data that includes metadata and monitoring logs. In all the regions (except Brazil South, Southeast Asia, and East Asia), Data Box Disk data is stored and replicated in a [paired region](../availability-zones/cross-region-replication-azure.md) via a Geo-redundant Storage account to protect against data loss.  
           
-          Due to [data residency requirements](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brazil South, Southeast Asia, and East Asia, Data Box Disk data is stored in a Zone-redundant Storage (ZRS) account so that it is contained in a single region. For Southeast Asia, all the Data Box Disk data is stored in Singapore and for Brazil South, the data is stored in Brazil. 
+          Due to [data residency requirements](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brazil South, Southeast Asia, and East Asia, Data Box Disk data is stored in a Zone-redundant Storage (ZRS) account so that it is contained in a single region. For Southeast Asia, all the Data Box Disk data is stored in Singapore. For Brazil South, the data is stored in Brazil. For East Asia, the data is stored in Hong Kong.
           
           If there is a service outage in Brazil South, Southeast Asia, or East Asia, the customers can create new orders from another region. The new orders will be served from the region in which they are created and the customers are responsible for the to and fro shipment of the Data Box Disk.
       
