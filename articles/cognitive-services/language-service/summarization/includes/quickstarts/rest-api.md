@@ -5,13 +5,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 05/11/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
-
-[Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/)
-
 
 ## Prerequisites
 
@@ -36,6 +33,8 @@ Choose the type of summarization you would like to perform, and select one of th
 |Conversation summarization     | Use abstractive text summarization to produce a summary of issues and resolutions in transcripts between customer-service agents, and customers.         |
 
 # [Document summarization](#tab/document-summarization)
+
+[Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/)
 
 |parameter  |Description  |
 |---------|---------|
@@ -162,6 +161,8 @@ curl -X GET    https://your-text-analytics-endpoint-here/text/analytics/v3.2-pre
 
 # [Conversation summarization](#tab/conversation-summarization)
 
+[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2195178)
+
 |parameter  |Description  |
 |---------|---------|
 |`-X POST <endpoint>`     | Specifies your endpoint for accessing the API.        |
@@ -174,74 +175,76 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
 
 ```bash
-curl -i -X POST https://your-text-analytics-endpoint-here/text/analytics/v3.2-preview.1/analyze \
+curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations?api-version=2022-05-15-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: your-key-here" \
 -d \
 ' 
 {
-    "displayName": "Analyze test conversation",
+    "displayName": "Analyze conversations from 123",
     "analysisInput": {
         "conversations": [
             {
+                "modality": "text",
+                "id": "conversation1",
+                "language": "en",
                 "conversationItems": [
                     {
                         "text": "Hello, you’re chatting with Rene. How may I help you?",
-                        "modality": "text",
                         "id": "1",
-                        "participantId": "Agent"
+                        "role": "Agent",
+                        "participantId": "Agent_1"
                     },
                     {
                         "text": "Hi, I tried to set up wifi connection for Smart Brew 300 espresso machine, but it didn’t work.",
-                        "modality": "text",
                         "id": "2",
-                        "participantId": "Customer"
+                        "role": "Customer",
+                        "participantId": "Customer_1"
                     },
                     {
                         "text": "I’m sorry to hear that. Let’s see what we can do to fix this issue. Could you please try the following steps for me? First, could you push the wifi connection button, hold for 3 seconds, then let me know if the power light is slowly blinking on and off every second?",
-                        "modality": "text",
                         "id": "3",
-                        "participantId": "Agent"
+                        "role": "Agent",
+                        "participantId": "Agent_1"
                     },
                     {
                         "text": "Yes, I pushed the wifi connection button, and now the power light is slowly blinking.",
-                        "modality": "text",
                         "id": "4",
-                        "participantId": "Customer"
+                        "role": "Customer",
+                        "participantId": "Customer_1"
                     },
                     {
                         "text": "Great. Thank you! Now, please check in your Contoso Coffee app. Does it prompt to ask you to connect with the machine?",
-                        "modality": "text",
                         "id": "5",
-                        "participantId": "Agent"
+                        "role": "Agent",
+                        "participantId": "Agent_1"
                     },
                     {
                         "text": "No. Nothing happened.",
-                        "modality": "text",
                         "id": "6",
-                        "participantId": "Customer"
+                        "role": "Customer",
+                        "participantId": "Customer_1"
                     },
                     {
                         "text": "I’m very sorry to hear that. Let me see if there’s another way to fix the issue. Please hold on for a minute.",
-                        "modality": "text",
                         "id": "7",
-                        "participantId": "Agent"
-                    },
-
-                ],
-                "modality": "text",
-                "id": "conversation1",
-                "language": "en"
+                        "role": "Agent",
+                        "participantId": "Agent_1"
+                    }
+                ]
             }
         ]
     },
     "tasks": [
         {
             "taskName": "analyze 1",
-            "kind": "IssueResolutionSummarization",
+            "kind": "ConversationalSummarizationTask",
             "parameters": {
-                "modelVersion": "2022-04-01",
-                "summaryAspects ": "issue, resolution"
+                "modelVersion": "2022-05-15-preview",
+                "summaryAspects": [
+                    "Issue",
+                    "Resolution"
+                ]
             }
         }
     ]
@@ -252,13 +255,13 @@ curl -i -X POST https://your-text-analytics-endpoint-here/text/analytics/v3.2-pr
 Get the `operation-location` from the response header. The value will look similar to the following URL:
 
 ```http
-https://your-resource.cognitiveservices.azure.com/text/analytics/v3.2-preview.1/analyze/jobs/12345678-1234-1234-1234-12345678
+https://your-language-endpoint-here/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678
 ```
 
 To get the results of the request, use the following cURL command. Be sure to replace `my-job-id` with the numerical ID value you received from the previous `operation-location` response header:
 
 ```bash
-curl -X GET    https://your-text-analytics-endpoint-here/text/analytics/v3.2-preview.1/analyze/jobs/my-job-id \
+curl -X GET    https://your-language-endpoint-here/language/analyze-conversations/jobs/my-job-id \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: your-key-here"
 ```
@@ -268,12 +271,13 @@ curl -X GET    https://your-text-analytics-endpoint-here/text/analytics/v3.2-pre
 
 ```json
 {
-    "displayName": "Analyze chat",
-    "createdDateTime": "2022-04-01T15:00:45Z",
-    "expirationDateTime": "2022-04-02T15:00:45Z",
-    "jobId": "3e9e8518-492f-47f9-abd1-9a7468231086",
-    "lastUpdateDateTime": "2022-04-01T15:00:49Z ",
+    "jobId": "28261846-59bc-435a-a73a-f47c2feb245e",
+    "lastUpdatedDateTime": "2022-05-11T23:16:48Z",
+    "createdDateTime": "2022-05-11T23:16:44Z",
+    "expirationDateTime": "2022-05-12T23:16:44Z",
     "status": "succeeded",
+    "errors": [],
+    "displayName": "Analyze conversations from 123",
     "tasks": {
         "completed": 1,
         "failed": 0,
@@ -281,38 +285,33 @@ curl -X GET    https://your-text-analytics-endpoint-here/text/analytics/v3.2-pre
         "total": 1,
         "items": [
             {
-                "kind": "issueResolutionSummaryResults",
-                "lastUpdateDateTime": "2022-04-01T15:00:49Z",
+                "kind": "conversationalSummarizationResults",
                 "taskName": "analyze 1",
+                "lastUpdateDateTime": "2022-05-11T23:16:48.9553011Z",
                 "status": "succeeded",
                 "results": {
                     "conversations": [
                         {
-                            "id": "20220101meeting",
+                            "id": "conversation1",
                             "summaries": [
                                 {
                                     "aspect": "issue",
-                                    "text": "Customer wants to use the wifi connection on their Smart Brew 300. They can’t connect it using the Contoso Coffee app"
+                                    "text": "Customer tried to set up wifi connection for Smart Brew 300 medication machine, but it didn't work"
                                 },
                                 {
                                     "aspect": "resolution",
-                                    "text": "Tried pushing wifi button. Checked if the power light is blinking slowly."
+                                    "text": "Asked customer to try the following steps | Asked customer for the power light | Helped customer to connect to the machine"
                                 }
                             ],
-                            "warnings": [],
-                            "statistics": {
-                                "charactersCount": "123",
-                                "transactionCount": "1"
-                            }
+                            "warnings": []
                         }
                     ],
                     "errors": [],
-                    "modelVersion": "2022-04-01"
+                    "modelVersion": "2022-05-15-preview"
                 }
             }
         ]
-    },
-    "@nextLink": "<resource-endpoint>/language/analyze-conversations/jobs/12345678-123a-abc1-abd1-12345abcde?$skip=10&$top=10"
+    }
 }
 ```
 
