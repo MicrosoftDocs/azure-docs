@@ -30,7 +30,7 @@ ms.author: lajanuar
 >
 > ☼ Indicates the language is not available for scanned PDF document translation.
 
-|Language | Language code | Cloud – Text Translation and Document Translation | Containers – Text Translation|Custom Translator|Auto Language Detection|Dictionary
+|Language | Language code | ☼ Cloud – Text Translation and Document Translation | Containers – Text Translation|Custom Translator|Auto Language Detection|Dictionary
 |:-|:-:|:-:|:-:|:-:|:-:|:-:|
 | Afrikaans  | `af` |✔|✔|✔|✔|✔|
 | Albanian | `sq` |✔|✔||✔||
