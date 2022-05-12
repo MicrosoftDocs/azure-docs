@@ -19,7 +19,7 @@ This article shows you how to perform the following tasks:
 
 You can create an application group using the Azure portal as illustrated below. When you create the application group, you should associate it to either a shared access signatures (SAS) or Azure Active Directory(Azure AD) application ID, which is used by client applications. 
 
-:::image type="content" source="./media/resource-governance-with-app-groups/add-app-group.png" alt-text="Creating an application group using Azure portal":::
+:::image type="content" source="./media/resource-governance-with-app-groups/add-app-group.png" alt-text="Screenshot of the Create an application group page in the Azure portal.":::
 
 For example, you can create application group `contosoAppGroup` associating it with SAS policy `contososaspolicy`. 
 
