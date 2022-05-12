@@ -1,5 +1,5 @@
 ---
-title: Azure API Management policies for GraphQL API queries | Microsoft Docs
+title: Azure API Management policies for GraphQL APIs | Microsoft Docs
 description: Reference for Azure API Management policies to validate and resolve GraphQL API queries. Provides policy usage, settings, and examples.
 services: api-management
 author: dlepow
@@ -133,9 +133,11 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## Set GraphQL resolver
 
-The `set-graphql-resolver` policy retrieves or sets data for a GraphQL field in an object type specified in a GraphQL schema. Currently the data must be resolved using an HTTP-based data source.
+The `set-graphql-resolver` policy retrieves or sets data for a GraphQL field in an object type specified in a GraphQL schema. The schema must be imported to API Management. Currently the data must be resolved using an HTTP-based data source (REST or SOAP API). 
 
-* This policy is invoked only when a GraphQL query is executed. 
+[!INCLUDE [preview-callout-graphql.md](./includes/preview/preview-callout-graphql.md)]
+
+* This policy is invoked only when a matching GraphQL query is executed. 
 * The policy resolves data for a single field. To resolve data for multiple fields, configure multiple occurrences of this policy in a policy definition.
 * The context for the HTTP request and HTTP response (if specified) differs from the context for the original gateway API request: 
     * The HTTP request context contains arguments that are passed in the GraphQL query as its body. 
@@ -284,7 +286,7 @@ type User {
 | `set-graphql-resolver` | Root element.                                                                                                                               | Yes      |
 | `http-data-source` | Configures the HTTP request and optionally the HTTP response that are used to resolve data for the given `parent-type` and `field`.   | Yes |
 | `http-request` | Specifies a URL and child policies to configure the resolver's HTTP request. Each of the following policies can be specified at most once in the element. <br/><br/>Required policy: [set-method](api-management-advanced-policies.md#SetRequestMethod)<br/><br/>Optional policies: [set-header](api-management-transformation-policies.md#SetHTTPheader), [set-body](api-management-transformation-policies.md#SetBody), [authentication-certificate](api-management-authentication-policies.md#ClientCertificate) | Yes |
-| `set-url` | The URL of the request. | Yes |
+| `set-url` | The URL of the resolver's HTTP request. | Yes |
 | `http-response` |  Optionally specifies child policies to configure the resolver's HTTP response. If not specified, the response is returned as a raw string. Each of the following policies can be specified at most once. <br/><br/>Optional policies: [set-body](api-management-transformation-policies.md#SetBody), [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML), [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON), [find-and-replace](api-management-transformation-policies.md#Findandreplacestringinbody) | No |
 
 ### Attributes

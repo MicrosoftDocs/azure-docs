@@ -1,7 +1,7 @@
 ---
 title: Import GraphQL schema and set up field resolvers | Microsoft Docs
 titleSuffix: 
-description: Import a GraphQL schema to API Management and configure a policy to resolve GraphQL queries using HTTP-based data sources.
+description: Import a GraphQL schema to API Management and configure a policy to resolve a GraphQL query using an HTTP-based data sources.
 ms.service: api-management
 author: dlepow
 ms.author: danlep
@@ -20,7 +20,7 @@ ms.custom:
 In this article, you'll:
 > [!div class="checklist"]
 > * Import a GraphQL schema to your API Management instance
-> * Set up resolvers for GraphQL fields using existing HTTP endpoints
+> * Set up a resolver for a GraphQL query using an existing HTTP endpoints
 > * Test your GraphQL API
 
 If you want to expose an existing GraphQL endpoint as an API, see [Import a GraphQL API](graphql-api.md).
@@ -28,12 +28,13 @@ If you want to expose an existing GraphQL endpoint as an API, see [Import a Grap
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
-- A GraphQL schema. A backend GraphQL endpoint is optional for this scenario.
+- A valid GraphQL schema file with the `.graphql` extension. 
+- A backend GraphQL endpoint is optional for this scenario.
 
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## Add a GraphQL schema for a synthetic GraphQL API
+## Add a GraphQL schema
 
 1. From the side navigation menu, under the **APIs** section, select **APIs**.
 1. Under **Define a new API**, select the **Synthetic GraphQL** icon.
@@ -63,7 +64,7 @@ If you want to expose an existing GraphQL endpoint as an API, see [Import a Grap
 
 1. After the API is created, browse the schema on the **Design** tab, in the **Frontend** section.
 
-## Configure resolvers
+## Configure resolver
 
 Configure the [set-graphql-resolver](graphql-policies.md#set-graphql-resolver) policy to map a field in the schema to an existing HTTP endpoint. 
 

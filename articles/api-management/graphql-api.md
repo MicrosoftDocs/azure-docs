@@ -20,7 +20,7 @@ In this article, you'll:
 > * Test your GraphQL API.
 > * Learn the limitations of your GraphQL API in API Management.
 
-If you want to import a GraphQL schema and set up field resolvers using existing HTTP endpoints, see [Import a GraphQL schema and set up field resolvers](graphql-schema-resolve-api.md).
+If you want to import a GraphQL schema and set up field resolvers using REST or SOAP API endpoints, see [Import a GraphQL schema and set up field resolvers](graphql-schema-resolve-api.md).
 
 ## Prerequisites
 
