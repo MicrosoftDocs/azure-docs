@@ -9,6 +9,8 @@ ms.custom: ignite-fall-2021, mode-other, contperf-fy22q2
 
 [!INCLUDE [header](includes/edge-env.md)]
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 This article walks you through the steps to use Azure Video Analyzer edge module for [event-based recording](../event-based-video-recording-concept.md). It uses a Linux VM in Azure as an IoT Edge device and a simulated live video stream. This video stream is analyzed for the presence of moving objects. When motion is detected, events are sent to Azure IoT Hub, and the relevant part of the video stream is recorded as a [video resource](../terminology.md#video) in your Video Analyzer account.
 
 ## Prerequisites

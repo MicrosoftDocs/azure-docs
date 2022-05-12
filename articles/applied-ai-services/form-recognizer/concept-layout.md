@@ -43,11 +43,11 @@ The following tools are supported by Form Recognizer v3.0:
 
 ### Try Form Recognizer
 
-See how data, including tables, check boxes, and text, is extracted from forms and documents using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following resources:
+See how data is extracted from forms and documents using the Form Recognizer Studio or Sample Labeling tool. You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your API key and endpoint.
+* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -89,9 +89,9 @@ You'll need a form document. You can use our [sample form document](https://raw.
 ## Input requirements
 
 * For best results, provide one clear photo or high-quality scan per document.
-* Supported file formats: JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
+* Supported file formats: JPEG/JPG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
-* The file size must be less than 50 MB.
+* The file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier (4 MB for the free tier).
 * Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
 
 > [!NOTE]
@@ -99,9 +99,11 @@ You'll need a form document. You can use our [sample form document](https://raw.
 
 ## Supported languages and locales
 
- Form Recognizer preview version introduces additional language support for the layout model. *See* [Language Support](language-support.md) for a complete list of supported handwritten and printed languages.
+*See* [Language Support](language-support.md) for a complete list of supported handwritten and printed languages.
 
-## Features
+## Data extraction
+
+The layout model extracts table structures, selection marks, printed and handwritten text, and bounding box coordinates from your documents.
 
 ### Tables and table headers
 
@@ -117,7 +119,7 @@ Layout API also extracts selection marks from documents. Extracted selection mar
 
 ### Text lines and words
 
-Layout API extracts text from documents and images with multiple text angles and colors. It accepts photos of documents, faxes, printed and/or handwritten (English only) text, and mixed modes. Text is extracted with information provided in lines, words, and bounding boxes. All the text information is included in the `readResults` section of the JSON output.
+The layout model extracts text from documents and images with multiple text angles and colors. It accepts photos of documents, faxes, printed and/or handwritten (English only) text, and mixed modes. Printed and handwritten text is extracted from lines and words. The service then returns bounding box coordinates, confidence scores, and style (handwritten or other). All the text information is included in the `readResults` section of the JSON output.
 
 :::image type="content" source="./media/layout-text-extraction.png" alt-text="Layout text extraction output":::
 

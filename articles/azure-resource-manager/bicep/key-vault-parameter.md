@@ -131,10 +131,9 @@ The following procedure shows how to create a role with the minimum permission, 
     ```azurecli-interactive
     az role definition create --role-definition "<path-to-role-file>"
     az role assignment create \
-      --role "Key Vault resource manager template deployment operator" \
+      --role "Key Vault Bicep deployment operator" \
       --scope /subscriptions/<Subscription-id>/resourceGroups/<resource-group-name> \
-      --assignee <user-principal-name> \
-      --resource-group ExampleGroup
+      --assignee <user-principal-name>
     ```
 
     # [PowerShell](#tab/azure-powershell)

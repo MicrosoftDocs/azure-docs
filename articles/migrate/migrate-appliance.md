@@ -154,9 +154,22 @@ management.azure.com |  Used for resource deployments and management operations
 *.services.visualstudio.com (optional) | Upload appliance logs used for internal monitoring.
 aka.ms/* (optional) | Allow access to these links; used to download and install the latest updates for appliance services.
 download.microsoft.com/download | Allow downloads from Microsoft download center.
-*.servicebus.windows.net | **Used for VMware agentless migration**<br><br> Communication between the appliance and the Azure Migrate service.
-*.hypervrecoverymanager.windowsazure.com | **Used for VMware agentless migration**<br><br> Connect to Azure Migrate service URLs.
-*.blob.core.windows.net |  **Used for VMware agentless migration**<br><br>Upload data to storage for migration. <br>This is optional and is not required if the storage accounts (both cache storage account and gateway storage account) have a private endpoint attached.
+*.blob.core.windows.net (optional) |  This is optional and is not required if the storage account has a private endpoint attached.
+
+### Government cloud URLs for private link connectivity
+
+**URL** | **Details**  
+--- | --- |
+*.portal.azure.us  | Navigate to the Azure portal.
+graph.windows.net | Sign in to your Azure subscription.
+login.microsoftonline.us  | Used for access control and identity management by Azure Active Directory.
+management.usgovcloudapi.net |  Used for resource deployments and management operations.
+*.services.visualstudio.com (optional)| Upload appliance logs used for internal monitoring.
+aka.ms/* (optional)| Allow access to these links; used to download and install the latest updates for appliance services.
+download.microsoft.com/download | Allow downloads from Microsoft download center.
+*.blob.core.usgovcloudapi.net (optional)|  This is optional and is not required if the storage account has a private endpoint attached.
+*.applicationinsights.us (optional)| Upload appliance logs used for internal monitoring.  
+
 
 ### Azure China 21Vianet (Azure China) URLs
 

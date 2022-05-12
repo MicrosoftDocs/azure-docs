@@ -30,12 +30,17 @@ You'll perform the following tasks during this lab:
 
 - An Azure subscription. If you don't have an Azure subscription, you can [create a free account here](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+> [!Note]
+> The free Azure account may not be sufficient to run the deployment.
+
+- A Service Principal with 'Contributor' permissions in the target subscriptions. For more information, see [Prepare the deployment credentials](automation-deploy-control-plane.md#prepare-the-deployment-credentials).
+
 - A configured Azure DevOps instance, follow the steps here [Configure Azure DevOps Services for SAP Deployment Automation](automation-configure-devops.md)
 
 - For the 'SAP software acquisition' and the 'Configuration and SAP installation' pipelines a configured self hosted agent, see [Configure a self-hosted agent for SAP Deployment Automation](automation-configure-devops.md#register-the-deployer-as-a-self-hosted-agent-for-azure-devops)
 
 > [!Note]
-> The free Azure account may not be sufficient to run the deployment.
+> The self hosted agent virtual machine will be deployed as part of the control plane deployment.
 
 ## Overview
 

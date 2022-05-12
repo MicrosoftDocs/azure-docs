@@ -6,6 +6,7 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 07/07/2021
+ms.custom: subject-rbac-steps
 ---
 
 # Use Managed Identity to authenticate your Azure Stream Analytics job to Azure Blob Storage
@@ -171,35 +172,37 @@ Unless you need the job to create containers on your behalf, you should choose *
 
 1. Navigate to the container's configuration pane within your storage account.
 
-2. Select **Access Control (IAM)** on the left-hand side.
+1. Select **Access control (IAM)**.
 
-3. Under the "Add a role assignment" section click **Add**.
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-4. In the role assignment pane:
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-    1. Set the **Role** to "Storage Blob Data Contributor"
-    2. Ensure the **Assign access to** dropdown is set to "Azure AD user, group, or service principal".
-    3. Type the name of your Stream Analytics job in the search field.
-    4. Select your Stream Analytics job and click **Save**.
+    | Setting | Value |
+    | --- | --- |
+    | Role | Storage Blob Data Contributor |
+    | Assign access to | User, group, or service principal |
+    | Members | \<Name of your Stream Analytics job> |
 
-   ![Grant container access](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-container-access-portal.png)
+    ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 #### Account level access
 
 1. Navigate to your storage account.
 
-2. Select **Access Control (IAM)** on the left-hand side.
+1. Select **Access control (IAM)**.
 
-3. Under the "Add a role assignment" section click **Add**.
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-4. In the role assignment pane:
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-    1. Set the **Role** to "Storage Blob Data Contributor"
-    2. Ensure the **Assign access to** dropdown is set to "Azure AD user, group, or service principal".
-    3. Type the name of your Stream Analytics job in the search field.
-    4. Select your Stream Analytics job and click **Save**.
+    | Setting | Value |
+    | --- | --- |
+    | Role | Storage Blob Data Contributor |
+    | Assign access to | User, group, or service principal |
+    | Members | \<Name of your Stream Analytics job> |
 
-   ![Grant account access](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-account-access-portal.png)
+    ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ### Grant access via the command line
 

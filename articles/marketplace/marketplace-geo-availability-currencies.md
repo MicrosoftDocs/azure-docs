@@ -160,8 +160,7 @@ A CSP can purchase an offer in Partner Center in their end customer's currency s
 | Vietnam                             | VN        | USD          | EUR, USD, VND |
 | Yemen                               | YE        | USD          | EUR, USD, YER |
 | Zambia                              | ZM        | USD          | EUR, USD, ZMW |
-| Zimbabwe                            | ZW        | USD          | EUR, USD|
-|   |   |   |
+| Zimbabwe                            | ZW        | USD          | EUR, USD |
 
 \* For customers in Brazil, the commercial marketplace through Cloud Solution Providers (CSP) uses USD.
 
@@ -174,9 +173,9 @@ For all paid offer types, you have the option of entering prices in USD or uploa
 To adjust any price before you publish, just export the pricing spreadsheet, modify it, and upload it with changes.
 
 > [!NOTE]
-> After a price for a market in your plan is published, it can't be changed. To ensure that the prices are right before you publish them, export the pricing spreadsheet and review the prices in each market.
+> To ensure prices are right before you publish them, export the pricing spreadsheet and review the prices in each market. See [Changing prices in active commercial marketplace offers](price-changes.md) for details and limitations on changing prices in active transactable offers.
 
-The price of an offer is always shown to customers in their local currency. The price you select in Partner Center is converted to the local currency of customers according to the exchange rate at the time you saved the price in Partner Center. The price shown to customers in the online stores doesn't change, unless you republish your offer.
+The price of an offer is always shown to customers in their local currency. The price you select in Partner Center is converted to the local currency of customers according to the exchange rate at the time you saved the price in Partner Center. The price shown to customers in the online stores doesn't change unless you republish your offer.
 
 Microsoft receives payments from customers in their local currency, and pays you in the currency you selected in Partner Center. Microsoft converts the customer local currency using the exchange rate of the day of purchase.
 

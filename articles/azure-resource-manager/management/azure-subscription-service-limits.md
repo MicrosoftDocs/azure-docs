@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 12/01/2021
+ms.date: 04/27/2022
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -127,9 +127,9 @@ For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for
 
 For more information, see [Functions Hosting plans comparison](../../azure-functions/functions-scale.md).
 
-## Azure Healthcare APIs
+## Azure Health Data Services
 
-### Healthcare APIs service limits
+### Azure Health Data Services limits
 
 [!INCLUDE [functions-limits](../../../includes/azure-healthcare-api-limits.md)]
 
@@ -303,7 +303,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ### Media Services v2 (legacy)
 
-For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)](../../media-services/previous/media-services-quotas-and-limitations.md)
+For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)](/azure/media-services/previous/media-services-quotas-and-limitations)
 
 ## Mobile Services limits
 
@@ -362,7 +362,7 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [azure-firewall-limits](../../../includes/firewall-limits.md)]
 
-### Azure Front Door Service limits
+### Azure Front Door (classic) limits
 
 [!INCLUDE [azure-front-door-service-limits](../../../includes/front-door-limits.md)]
 
@@ -370,9 +370,41 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
 
-## Azure Purview limits
+## Microsoft Purview limits
 
-The latest values for Azure Purview quotas can be found in the [Azure Purview quota page](../../purview/how-to-manage-quotas.md).
+The latest values for Microsoft Purview quotas can be found in the [Microsoft Purview quota page](../../purview/how-to-manage-quotas.md).
+
+## Microsoft Sentinel limits
+
+This section lists the most common service limits you might encounter as you use Microsoft Sentinel.
+
+### Analytics rule limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-analytics-rules.md)]
+
+### Incident limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-incidents.md)]
+
+### Machine learning-based limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-machine-learning.md)]
+
+### Notebook limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-notebooks.md)]
+
+### Threat intelligence limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-threat-intelligence.md)]
+
+### Watchlist limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-watchlists.md)]
+
+### User and Entity Behavior Analytics (UEBA) limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-ueba.md)]
 
 ## Service Bus limits
 
@@ -384,7 +416,7 @@ The latest values for Azure Purview quotas can be found in the [Azure Purview qu
 
 ## SQL Database limits
 
-For SQL Database limits, see [SQL Database resource limits for single databases](../../azure-sql/database/resource-limits-vcore-single-databases.md), [SQL Database resource limits for elastic pools and pooled databases](../../azure-sql/database/resource-limits-vcore-elastic-pools.md), and [SQL Database resource limits for SQL Managed Instance](../../azure-sql/managed-instance/resource-limits.md).
+For SQL Database limits, see [SQL Database resource limits for single databases](/azure/azure-sql/database/resource-limits-vcore-single-databases), [SQL Database resource limits for elastic pools and pooled databases](/azure/azure-sql/database/resource-limits-vcore-elastic-pools), and [SQL Database resource limits for SQL Managed Instance](/azure/azure-sql/managed-instance/resource-limits).
 
 The maximum number of private endpoints per Azure SQL Database logical server is 250.
 
@@ -463,11 +495,11 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../../../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
-### Shared Image Gallery limits
+### Compute Gallery limits
 
-There are limits, per subscription, for deploying resources using Shared Image Galleries:
+There are limits, per subscription, for deploying resources using Compute Galleries:
 
-- 100 shared image galleries, per subscription, per region
+- 100 compute galleries, per subscription, per region
 - 1,000 image definitions, per subscription, per region
 - 10,000 image versions, per subscription, per region
 

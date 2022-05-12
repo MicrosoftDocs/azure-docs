@@ -1,19 +1,16 @@
 ---
-title:  How to run a reindex job in FHIR service - Azure Healthcare APIs (preview)
-description: How to run a reindex job to index any search or sort parameters that have not yet been indexed in your database
+title:  How to run a reindex job in FHIR service - Azure Health Data Services
+description: How to run a reindex job to index any search or sort parameters that haven't yet been indexed in your database
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 08/23/2021
-ms.author: cavoeg
+ms.date: 03/01/2022
+ms.author: mikaelw
 ---
 # Running a reindex job
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-There are scenarios where you may have search or sort parameters in the FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) that haven't yet been indexed. This scenario is relevant when you define your own search parameters. Until the search parameter is indexed, it can't be used in search. This article covers an overview of how to run a reindex job to index any search or sort parameters that have not yet been indexed in your database.
+There are scenarios where you may have search or sort parameters in the FHIR service in Azure Health Data Services (hereby called FHIR service) that haven't yet been indexed. This scenario is relevant when you define your own search parameters. Until the search parameter is indexed, it can't be used in search. This article covers an overview of how to run a reindex job to index any search or sort parameters that haven't yet been indexed in your database.
 
 > [!Warning]
 > It's important that you read this entire article before getting started. A reindex job can be very performance intensive. This article includes options for how to throttle and control the reindex job.
@@ -88,7 +85,7 @@ Content-Location: https://{{FHIR URL}}/_operations/reindex/560c7c61-2c70-4c54-b8
 ```
 
 > [!NOTE]
-> To check the status of or to cancel a reindex job, you’ll need the reindex ID. This is the ID of the resulting Parameters resource. In the example above, the ID for the reindex job would be `560c7c61-2c70-4c54-b86d-c53a9d29495e`.
+> To check the status of or to cancel a reindex job, you'll need the reindex ID. This is the ID of the resulting Parameters resource. In the example above, the ID for the reindex job would be `560c7c61-2c70-4c54-b86d-c53a9d29495e`.
 
  ## How to check the status of a reindex job
 
@@ -183,11 +180,11 @@ A reindex job can be quite performance intensive. We’ve implemented some throt
 > [!NOTE]
 > It is not uncommon on large datasets for a reindex job to run for days.
 
-Below is a table outlining the available parameters, defaults, and recommended ranges. You can use these parameters to either speed up the process (use more compute) or slow down the process (use less compute). 
+Below is a table outlining the available parameters, defaults, and recommended ranges. You can use these parameters to either speedup the process (use more compute) or slow down the process (use less compute). 
 
 | **Parameter**                     | **Description**              | **Default**        | **Available Range**            |
 | --------------------------------- | ---------------------------- | ------------------ | ------------------------------- |
-| QueryDelayIntervalInMilliseconds  | The delay between each batch of resources being kicked off during the reindex job. A smaller number will speedup the job while a higher number will slow it down. | 500 MS (.5 seconds) | 50 to 500000 |
+| QueryDelayIntervalInMilliseconds  | The delay between each batch of resources being kicked off during the reindex job. A smaller number will speed up the job while a higher number will slow it down. | 500 MS (.5 seconds) | 50 to 500000 |
 | MaximumResourcesPerQuery  | The maximum number of resources included in the batch of resources to be reindexed.  | 100 | 1-5000 |
 | MaximumConcurrency  | The number of batches done at a time.  | 1 | 1-10 |
 
@@ -215,7 +212,7 @@ If you want to use any of the parameters above, you can pass them into the Param
 
 ## Next steps
 
-In this article, you’ve learned how to start a reindex job. To learn how to define new search parameters that require the reindex job, see 
+In this article, you've learned how to start a reindex job. To learn how to define new search parameters that require the reindex job, see 
 
 >[!div class="nextstepaction"]
 >[Defining custom search parameters](how-to-do-custom-search.md)

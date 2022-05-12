@@ -5,7 +5,7 @@ author: manishmsfte
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 04/29/2020
+ms.date: 05/02/2020
 ms.author: mansha
 ---
 
@@ -103,7 +103,7 @@ git clone https://github.com/Azure-Samples/DynamoDB-to-CosmosDB
 ### Pre-requisites
 
 - .NET Framework 4.7.2
-- Visual Studio 2019
+* Latest [!INCLUDE [cosmos-db-visual-studio](../includes/cosmos-db-visual-studio.md)]
 - Access to Azure Cosmos DB SQL API Account
 - Local installation of Amazon DynamoDB
 - Java 8
@@ -141,13 +141,13 @@ client_documentDB = new CosmosClient("your connectionstring from the Azure porta
 
 With Azure Cosmos DB, you can use the following options to optimize your connection:
 
-* **ConnectionMode** - Use direct connection mode to connect to the data nodes in the Azure Cosmos DB service. Use gateway mode only to initialize and cache the logical addresses and refresh on updates. See the [connectivity modes](sql-sdk-connection-modes.md) article for more details.
+* **ConnectionMode** - Use direct connection mode to connect to the data nodes in the Azure Cosmos DB service. Use gateway mode only to initialize and cache the logical addresses and refresh on updates. For more information, see [connectivity modes](sql-sdk-connection-modes.md).
 
-* **ApplicationRegion** - This option is used to set the preferred geo-replicated region that is used to interact with Azure Cosmos DB. To learn more see the [global distribution](../distribute-data-globally.md) article.
+* **ApplicationRegion** - This option is used to set the preferred geo-replicated region that is used to interact with Azure Cosmos DB. For more information, see [global distribution](../distribute-data-globally.md).
 
-* **ConsistencyLevel** - This option is used to override default consistency level. To learn more, see the [Consistency levels](../consistency-levels.md) article.
+* **ConsistencyLevel** - This option is used to override default consistency level. For more information, see [consistency levels](../consistency-levels.md).
 
-* **BulkExecutionMode** - This option is used to execute bulk operations by setting the *AllowBulkExecution* property to true. To learn more see the [Bulk import](tutorial-sql-api-dotnet-bulk-import.md) article.
+* **BulkExecutionMode** - This option is used to execute bulk operations by setting the *AllowBulkExecution* property to true. For more information, see [bulk import](tutorial-sql-api-dotnet-bulk-import.md).
 
    ```csharp
    client_cosmosDB = new CosmosClient(" Your connection string ",new CosmosClientOptions()
@@ -159,11 +159,11 @@ With Azure Cosmos DB, you can use the following options to optimize your connect
    });
    ```
 
-### Provision the container
+### Create the container
 
 **DynamoDB**:
 
-To store the data into Amazon DynamoDB you need to create the table first. In this process you define the schema, key type, and attributes as shown in the following code:
+To store the data into Amazon DynamoDB, you need to create the table first. In the table creation process; you define the schema, key type, and attributes as shown in the following code:
 
 ```csharp
 // movies_key_schema
@@ -261,7 +261,7 @@ for( int i = 0, j = 99; i < n; i++ )
 
 **Azure Cosmos DB**:
 
-In Azure Cosmos DB, you can opt for stream and write with `moviesContainer.CreateItemStreamAsync()`. However, in this sample, the JSON will be deserialized into the *MovieModel* type to demonstrate type-casting feature. The code is multi-threaded, which will use Azure Cosmos DB's distributed architecture and speed-up the loading:
+In Azure Cosmos DB, you can opt for stream and write with `moviesContainer.CreateItemStreamAsync()`. However, in this sample, the JSON will be deserialized into the *MovieModel* type to demonstrate type-casting feature. The code is multi-threaded, which will use Azure Cosmos DB's distributed architecture and speed up the loading:
 
 ```csharp
 List<Task> concurrentTasks = new List<Task>();
@@ -369,7 +369,7 @@ Primitive range = new Primitive(title, false);
 
 **Azure Cosmos DB**:
 
-However, with Azure Cosmos DB the query is natural (linq):
+However, with Azure Cosmos DB the query is natural (LINQ):
 
 ```csharp
 IQueryable<MovieModel> movieQuery = moviesContainer.GetItemLinqQueryable<MovieModel>(true)

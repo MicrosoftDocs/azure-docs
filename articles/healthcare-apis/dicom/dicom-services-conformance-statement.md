@@ -1,21 +1,18 @@
 ---
-title: DICOM Conformance Statement for Azure Healthcare APIs
-description: This document provides details about the DICOM Conformance Statement for Azure Healthcare APIs. 
+title: DICOM Conformance Statement for Azure Health Data Services
+description: This document provides details about the DICOM Conformance Statement for Azure Health Data Services. 
 services: healthcare-apis
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/05/2021
+ms.date: 02/24/2022
 ms.author: aersoy
 ---
 
 # DICOM Conformance Statement
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-The **Azure API for DICOM service** supports a subset of the DICOMweb&trade; Standard. This support includes:
+The **DICOM service within Azure Health Data Services** supports a subset of the DICOMweb&trade; Standard. This support includes:
 
 * [Store (STOW-RS)](#store-stow-rs)
 * [Retrieve (WADO-RS)](#retrieve-wado-rs)
@@ -36,7 +33,7 @@ This transaction uses the POST method to store representations of studies, serie
 | POST   | ../studies         | Store instances. |
 | POST   | ../studies/{study} | Store instances for a specific study. |
 
-Parameter `study` corresponds to the DICOM attribute StudyInstanceUID. If it is specified, any instance that does not belong to the provided study will be rejected with a `43265` warning code.
+Parameter `study` corresponds to the DICOM attribute StudyInstanceUID. If it's specified, any instance that doesn't belong to the provided study will be rejected with a `43265` warning code.
 
 The following `Accept` header(s) for the response are supported:
 
@@ -63,7 +60,7 @@ The following DICOM elements are required to be present in every DICOM file atte
 
 Each file stored must have a unique combination of StudyInstanceUID, SeriesInstanceUID, and SopInstanceUID. The warning code `45070` will be returned if a file with the same identifiers already exists.
 
-DICOM File Size Limit: there is a size limit of 2 GB for a DICOM file by default.
+DICOM File Size Limit: there's a size limit of 2 GB for a DICOM file by default.
 
 ### Store response status codes
 
@@ -72,12 +69,12 @@ DICOM File Size Limit: there is a size limit of 2 GB for a DICOM file by default
 | 200 (OK)                     | All the SOP instances in the request have been stored. |
 | 202 (Accepted)               | Some instances in the request have been stored but others have failed. |
 | 204 (No Content)             | No content was provided in the store transaction request. |
-| 400 (Bad Request)            | The request was badly formatted. For example, the provided study instance identifier did not conform to the expected UID format. |
-| 401 (Unauthorized)           | The client is not authenticated. |
-| 403 (Forbidden)              | The user is not authorized. |
-| 406 (Not Acceptable)         | The specified `Accept` header is not supported. |
+| 400 (Bad Request)            | The request was badly formatted. For example, the provided study instance identifier didn't conform to the expected UID format. |
+| 401 (Unauthorized)           | The client isn't authenticated. |
+| 403 (Forbidden)              | The user isn't authorized. |
+| 406 (Not Acceptable)         | The specified `Accept` header isn't supported. |
 | 409 (Conflict)               | None of the instances in the store transaction request have been stored. |
-| 415 (Unsupported Media Type) | The provided `Content-Type` is not supported. |
+| 415 (Unsupported Media Type) | The provided `Content-Type` isn't supported. |
 | 503 (Service Unavailable)    | The service is unavailable or busy. Please try again later. |
 
 ### Store response payload
@@ -95,7 +92,7 @@ Each dataset in the `FailedSOPSequence` will have the following elements (if the
 | Tag          | Name                     | Description |
 | :----------- | :----------------------- | :---------- |
 | (0008, 1150) | ReferencedSOPClassUID    | The SOP class unique identifier of the instance that failed to store. |
-| (0008, 1150) | ReferencedSOPInstanceUID | The SOP instance unique identifier of the instance that failed to store. |
+| (0008, 1155) | ReferencedSOPInstanceUID | The SOP instance unique identifier of the instance that failed to store. |
 | (0008, 1197) | FailureReason            | The reason code why this instance failed to store. |
 
 Each dataset in the `ReferencedSOPSequence` will have the following elements:
@@ -103,7 +100,7 @@ Each dataset in the `ReferencedSOPSequence` will have the following elements:
 | Tag          | Name                     | Description |
 | :----------- | :----------------------- | :---------- |
 | (0008, 1150) | ReferencedSOPClassUID    | The SOP class unique identifier of the instance that failed to store. |
-| (0008, 1150) | ReferencedSOPInstanceUID | The SOP instance unique identifier of the instance that failed to store. |
+| (0008, 1155) | ReferencedSOPInstanceUID | The SOP instance unique identifier of the instance that failed to store. |
 | (0008, 1190) | RetrieveURL              | The retrieve URL of this instance on the DICOM server. |
 
 Below is an example response with `Accept` header `application/dicom+json`:
@@ -165,11 +162,11 @@ Below is an example response with `Accept` header `application/dicom+json`:
 
 | Code  | Description |
 | :---- | :---------- |
-| 272   | The store transaction did not store the instance because of a general failure in processing the operation. |
+| 272   | The store transaction didn't store the instance because of a general failure in processing the operation. |
 | 43264 | The DICOM instance failed the validation. |
-| 43265 | The provided instance StudyInstanceUID did not match the specified StudyInstanceUID in the store request. |
+| 43265 | The provided instance StudyInstanceUID didn't match the specified StudyInstanceUID in the store request. |
 | 45070 | A DICOM instance with the same StudyInstanceUID, SeriesInstanceUID, and SopInstanceUID has already been stored. If you wish to update the contents, delete this instance first. |
-| 45071 | A DICOM instance is being created by another process, or the previous attempt to create has failed and the cleanup process has not had chance to clean up yet. Delete the instance first before attempting to create again. |
+| 45071 | A DICOM instance is being created by another process, or the previous attempt to create has failed and the cleanup process hasn't had chance to clean up yet. Delete the instance first before attempting to create again. |
 
 ## Retrieve (WADO-RS)
 
@@ -191,7 +188,7 @@ The following `Accept` header(s) are supported for retrieving instances within a
 
 
 * `multipart/related; type="application/dicom"; transfer-syntax=*`
-* `multipart/related; type="application/dicom";` (when transfer-syntax is not specified, 1.2.840.10008.1.2.1 is used as default)
+* `multipart/related; type="application/dicom";` (when transfer-syntax isn't specified, 1.2.840.10008.1.2.1 is used as default)
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.1`
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.4.90`
 
@@ -201,8 +198,8 @@ The following `Accept` header(s) are supported for retrieving a specific instanc
 
 * `application/dicom; transfer-syntax=*`
 * `multipart/related; type="application/dicom"; transfer-syntax=*`
-* `application/dicom;` (when transfer-syntax is not specified, 1.2.840.10008.1.2.1 is used as default)
-* `multipart/related; type="application/dicom"` (when transfer-syntax is not specified, 1.2.840.10008.1.2.1 is used as default)
+* `application/dicom;` (when transfer-syntax isn't specified, 1.2.840.10008.1.2.1 is used as default)
+* `multipart/related; type="application/dicom"` (when transfer-syntax isn't specified, 1.2.840.10008.1.2.1 is used as default)
 * `application/dicom; transfer-syntax=1.2.840.10008.1.2.1`
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.1`
 * `application/dicom; transfer-syntax=1.2.840.10008.1.2.4.90`
@@ -213,9 +210,9 @@ The following `Accept` header(s) are supported for retrieving a specific instanc
 The following `Accept` headers are supported for retrieving frames:
 
 * `multipart/related; type="application/octet-stream"; transfer-syntax=*`
-* `multipart/related; type="application/octet-stream";` (when transfer-syntax is not specified, 1.2.840.10008.1.2.1 is used as default)
+* `multipart/related; type="application/octet-stream";` (when transfer-syntax isn't specified, 1.2.840.10008.1.2.1 is used as default)
 * `multipart/related; type="application/octet-stream"; transfer-syntax=1.2.840.10008.1.2.1`
-* `multipart/related; type="image/jp2";` (when transfer-syntax is not specified, 1.2.840.10008.1.2.4.90 is used as default)
+* `multipart/related; type="image/jp2";` (when transfer-syntax isn't specified, 1.2.840.10008.1.2.4.90 is used as default)
 * `multipart/related; type="image/jp2";transfer-syntax=1.2.840.10008.1.2.4.90`
 
 ### Retrieve transfer syntax
@@ -240,7 +237,7 @@ The following `Accept` header(s) are supported for retrieving metadata for a stu
 
 * `application/dicom+json`
 
-Retrieving metadata will not return attributes with the following value representations:
+Retrieving metadata won't return attributes with the following value representations:
 
 | VR Name | Description            |
 | :------ | :--------------------- |
@@ -256,7 +253,7 @@ Retrieving metadata will not return attributes with the following value represen
 
 Cache validation is supported using the `ETag` mechanism. In the response to a metadata request, ETag is returned as one of the headers. This ETag can be cached and added as `If-None-Match` header in the later requests for the same metadata. Two types of responses are possible if the data exists:
 
-* Data has not changed since the last request: HTTP 304 (Not Modified) response will be sent with no response body.
+* Data hasn't changed since the last request: HTTP 304 (Not Modified) response will be sent with no response body.
 * Data has changed since the last request: HTTP 200 (OK) response will be sent with updated ETag. Required data will also be returned as part of the body.
 
 ### Retrieve response status codes
@@ -264,12 +261,12 @@ Cache validation is supported using the `ETag` mechanism. In the response to a m
 | Code                         | Description |
 | :--------------------------- | :---------- |
 | 200 (OK)                     | All requested data has been retrieved. |
-| 304 (Not Modified)           | The requested data has not been modified since the last request. Content is not added to the response body in such case. For more information, see the above section **Retrieve Metadata Cache Validation (for Study, Series, or Instance)**. |
-| 400 (Bad Request)            | The request was badly formatted. For example, the provided study instance identifier did not conform to the expected UID format, or the requested transfer-syntax encoding is not supported. |
-| 401 (Unauthorized)           | The client is not authenticated. |
-| 403 (Forbidden)              | The user is not authorized. |
-| 404 (Not Found)              | The specified DICOM resource could not be found. |
-| 406 (Not Acceptable)         | The specified `Accept` header is not supported. |
+| 304 (Not Modified)           | The requested data hasn't been modified since the last request. Content isn't added to the response body in such case. For more information, see the above section **Retrieve Metadata Cache Validation (for Study, Series, or Instance)**. |
+| 400 (Bad Request)            | The request was badly formatted. For example, the provided study instance identifier didn't conform to the expected UID format, or the requested transfer-syntax encoding isn't supported. |
+| 401 (Unauthorized)           | The client isn't authenticated. |
+| 403 (Forbidden)              | The user isn't authorized. |
+| 404 (Not Found)              | The specified DICOM resource couldn't be found. |
+| 406 (Not Acceptable)         | The specified `Accept` header isn't supported. |
 | 503 (Service Unavailable)    | The service is unavailable or busy. Please try again later. |
 
 ## Search (QIDO-RS)
@@ -302,7 +299,7 @@ The following parameters for each query are supported:
 | `includefield=`  | `{attributeID}`<br/>`all`   | 0...N         | The additional attributes to return in the response. Both, public and private tags are supported.<br/>When `all` is provided. Refer to [Search Response](#search-response) for more information about which attributes will be returned for each query type.<br/>If a mixture of {attributeID} and 'all' is provided, the server will default to using 'all'. |
 | `limit=`         | {value}                       | 0..1          | Integer value to limit the number of values returned in the response.<br/>Value can be between the range 1 >= x <= 200. Defaulted to 100. |
 | `offset=`        | {value}                       | 0..1          | Skip {value} results.<br/>If an offset is provided larger than the number of search query results, a 204 (no content) response will be returned. |
-| `fuzzymatching=` | `true` \| `false`             | 0..1          | If true fuzzy matching is applied to PatientName attribute. It will do a prefix word match of any name part inside PatientName value. For example, if PatientName is "John^Doe", then "joh", "do", "jo do", "Doe" and "John Doe" will all match. However, "ohn" will not match. |
+| `fuzzymatching=` | `true` \| `false`             | 0..1          | If true fuzzy matching is applied to PatientName attribute. It will do a prefix word match of any name part inside PatientName value. For example, if PatientName is "John^Doe", then "joh", "do", "jo do", "Doe" and "John Doe" will all match. However, "ohn" won't match. |
 
 #### Searchable attributes
 
@@ -334,7 +331,7 @@ We support the following matching types.
 
 #### Attribute ID
 
-Tags can be encoded in many ways for the query parameter. We have partially implemented the standard as defined in [PS3.18 6.7.1.1.1](http://dicom.nema.org/medical/dicom/2019a/output/chtml/part18/sect_6.7.html#sect_6.7.1.1.1). The following encodings for a tag are supported:
+Tags can be encoded in many ways for the query parameter. We've partially implemented the standard as defined in [PS3.18 6.7.1.1.1](http://dicom.nema.org/medical/dicom/2019a/output/chtml/part18/sect_6.7.html#sect_6.7.1.1.1). The following encodings for a tag are supported:
 
 | Value            | Example          |
 | :--------------- | :--------------- |
@@ -437,22 +434,22 @@ The query API returns one of the following status codes in the response:
 | 200 (OK)                  | The response payload contains all the matching resources. |
 | 204 (No Content)          | The search completed successfully but returned no results. |
 | 400 (Bad Request)         | The server was unable to perform the query because the query component was invalid. Response body contains details of the failure. |
-| 401 (Unauthorized)        | The client is not authenticated. |
-| 403 (Forbidden)           | The user is not authorized. |
+| 401 (Unauthorized)        | The client isn't authenticated. |
+| 403 (Forbidden)           | The user isn't authorized. |
 | 503 (Service Unavailable) | The service is unavailable or busy. Please try again later. |
 
 ### Extra notes
 
-* Querying using the `TimezoneOffsetFromUTC` (`00080201`) is not supported.
-* The query API will not return 413 (request entity too large). If the requested query response limit is outside of the acceptable range, a bad request will be returned. Anything requested within the acceptable range will be resolved.
-* When target resource is study/series, there is a potential for inconsistent study/series level metadata across multiple instances. For example, two instances could have different patientName. In this case, the latest will win, and you can search only on the latest data.
+* Querying using the `TimezoneOffsetFromUTC` (`00080201`) isn't supported.
+* The query API won't return 413 (request entity too large). If the requested query response limit is outside of the acceptable range, a bad request will be returned. Anything requested within the acceptable range will be resolved.
+* When target resource is study/series, there's a potential for inconsistent study/series level metadata across multiple instances. For example, two instances could have different patientName. In this case, the latest will win, and you can search only on the latest data.
 * Paged results are optimized to return the matched *newest* instance first. This may result in duplicate records in subsequent pages if newer data matching the query was added.
 * Matching is case in-sensitive and accent in-sensitive for PN VR types.
 * Matching is case in-sensitive and accent sensitive for other string VR types.
 
 ## Delete
 
-This transaction is not part of the official DICOMweb&trade; Standard. It uses the DELETE method to remove representations of studies, series, and instances from the store.
+This transaction isn't part of the official DICOMweb&trade; Standard. It uses the DELETE method to remove representations of studies, series, and instances from the store.
 
 | Method | Path                                                    | Description |
 | :----- | :------------------------------------------------------ | :---------- |
@@ -473,9 +470,9 @@ There are no restrictions on the request's `Accept` header, `Content-Type` heade
 | :--------------------------- | :---------- |
 | 204 (No Content)             | When all the SOP instances have been deleted. |
 | 400 (Bad Request)            | The request was badly formatted. |
-| 401 (Unauthorized)           | The client is not authenticated. |
-| 403 (Forbidden)              | The user is not authorized. |
-| 404 (Not Found)              | When the specified series was not found within a study, or the specified instance was not found within the series. |
+| 401 (Unauthorized)           | The client isn't authenticated. |
+| 403 (Forbidden)              | The user isn't authorized. |
+| 404 (Not Found)              | When the specified series wasn't found within a study, or the specified instance wasn't found within the series. |
 | 503 (Service Unavailable)    | The service is unavailable or busy. Please try again later. |
 
 ### Delete response payload

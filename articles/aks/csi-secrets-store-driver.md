@@ -5,7 +5,7 @@ author: nickomang
 ms.author: nickoman
 ms.service: container-service
 ms.topic: how-to 
-ms.date: 10/13/2021
+ms.date: 4/26/2022
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -163,6 +163,16 @@ az aks disable-addons --addons azure-keyvault-secrets-provider -g myResourceGrou
 > [!NOTE]
 > When the Azure Key Vault Provider for Secrets Store CSI Driver is enabled, it updates the pod mount and the Kubernetes secret that's defined in the `secretObjects` field of `SecretProviderClass`. It does so by polling for changes periodically, based on the rotation poll interval you've defined. The default rotation poll interval is 2 minutes.
 
+>[!NOTE]
+> When the secret/key is updated in external secrets store after the initial pod deployment, the updated secret will be periodically updated in the pod mount and the Kubernetes Secret.
+>
+> Depending on how the application consumes the secret data:
+>
+> 1. Mount Kubernetes secret as a volume: Use auto rotation feature + Sync K8s secrets feature in Secrets Store CSI Driver, application will need to watch for changes from the mounted Kubernetes Secret volume. When the Kubernetes Secret is updated by the CSI Driver, the corresponding volume contents are automatically updated.
+> 2. Application reads the data from container’s filesystem: Use rotation feature in Secrets Store CSI Driver, application will need to watch for the file change from the volume mounted by the CSI driver.
+> 3. Using Kubernetes secret for environment variable: The pod needs to be restarted to get the latest secret as environment variable.
+> Use something like https://github.com/stakater/Reloader to watch for changes on the synced Kubernetes secret and do rolling upgrades on pods
+
 To enable autorotation of secrets, use the `enable-secret-rotation` flag when you create your cluster:
 
 ```azurecli-interactive
@@ -301,14 +311,14 @@ The following table lists the metrics provided by the Secrets Store CSI Driver:
 Now that you've learned how to use the Azure Key Vault Provider for Secrets Store CSI Driver with an AKS cluster, see [Enable CSI drivers for Azure Disks and Azure Files on AKS][csi-storage-drivers].
 
 <!-- LINKS INTERNAL -->
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-provider-register]: /cli/azure/provider#az_provider_register
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
-[az-aks-create]: /cli/azure/aks#az_aks_create
-[az-aks-enable-addons]: /cli/azure/aks#az_aks_enable_addons
-[az-aks-disable-addons]: /cli/azure/aks#az_aks_disable_addons
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
+[az-aks-disable-addons]: /cli/azure/aks#az-aks-disable-addons
 [key-vault-provider]: ../key-vault/general/key-vault-integrate-kubernetes.md
 [csi-storage-drivers]: ./csi-storage-drivers.md
 [create-key-vault]: ../key-vault/general/quick-create-cli.md

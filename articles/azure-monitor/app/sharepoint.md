@@ -66,6 +66,8 @@ Add the code just before the </head> tag.
 
 ![Screenshot that shows where to add the code to your site page.](./media/sharepoint/04-code.png)
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 #### Or on individual pages
 To monitor a limited set of pages, add the script separately to each page. 
 

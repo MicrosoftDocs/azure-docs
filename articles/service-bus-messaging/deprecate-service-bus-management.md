@@ -11,8 +11,6 @@ Resource Manager, our next-generation cloud infrastructure stack, is fully repla
 
 To continue using Service Bus, Relay, and Event Hubs, move to Resource Manager by November 30, 2021. We encourage all customers who are still using old APIs to make the switch soon to take advantage of the additional benefits of Resource Manager, which include resource grouping, tags, a streamlined deployment and management process, and fine-grained access control using Azure role-based access control (Azure RBAC).
 
-For more information on Azure Resource Manager vs Azure Service Manager, see the [TechNet Blog](https://blogs.technet.microsoft.com/meamcs/2016/12/22/difference-between-azure-service-manager-and-azure-resource-manager/).
-
 For more information on Service Manager and Resource Manager APIs for Azure Service Bus, Relay and Event Hubs, see our REST API documentation:
 
 - [Azure Service Bus](/rest/api/servicebus/)

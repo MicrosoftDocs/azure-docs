@@ -24,7 +24,7 @@ This article details some of the differences between these versions, how you can
 
 ## Languages
 
-Starting with version 2.x, the runtime uses a language extensibility model, and all functions in a function app must share the same language. You chose the language of functions in your function app when you create the app. The language of your function app is maintained in the [FUNCTIONS\_WORKER\_RUNTIME](functions-app-settings.md#functions_worker_runtime) setting, and shouldn't be changed when there are existing functions. 
+All functions in a function app must share the same language. You chose the language of functions in your function app when you create the app. The language of your function app is maintained in the [FUNCTIONS\_WORKER\_RUNTIME](functions-app-settings.md#functions_worker_runtime) setting, and shouldn't be changed when there are existing functions. 
 
 The following table indicates which programming languages are currently supported in each runtime version.
 
@@ -32,11 +32,15 @@ The following table indicates which programming languages are currently supporte
 
 ## <a name="creating-1x-apps"></a>Run on a specific version
 
-By default, function apps created in the Azure portal and by the Azure CLI are set to version 3.x. You can modify this version as needed. You can only downgrade the runtime version to 1.x after you create your function app but before you add any functions.  Moving between 2.x and 3.x is allowed even with apps that have existing functions. Before moving an app with existing functions from 2.x to 3.x, be aware of any [breaking changes between 2.x and 3.x](#breaking-changes-between-2x-and-3x). 
+By default, function apps created in the Azure portal and by the Azure CLI are set to version 4.x. You can modify this version if needed. You can only downgrade the runtime version to 1.x after you create your function app but before you add any functions. Moving to a later version is allowed even with apps that have existing functions. When your app has existing functions, be aware of any breaking changes between versions before moving to a later runtime version. The following sections detail changes between versions:
 
-Before making a change to the major version of the runtime, you should first test your existing code by deploying to another function app running on the latest major version. This testing helps to make sure it runs correctly after the upgrade. 
++ [Between 3.x and 4.x](#breaking-changes-between-3x-and-4x) 
++ [Between 2.x and 3.x](#breaking-changes-between-2x-and-3x)
++ [Between 1.x and later versions](#migrating-from-1x-to-later-versions)
 
-Downgrades from v3.x to v2.x aren't supported. When possible, you should always run your apps on the latest supported version of the Functions runtime. 
+Before making a change to the major version of the runtime, you should first test your existing code by deploying to another function app running on the latest major version. This testing helps to make sure it runs correctly after the upgrade. You can also verify your code locally by using the runtime-specific version of the [Azure Functions Core Tools](functions-run-local.md), which includes the Functions runtime. 
+
+Downgrades to v2.x aren't supported. When possible, you should always run your apps on the latest supported version of the Functions runtime. 
 
 ### Changing version of apps in Azure
 
@@ -50,13 +54,13 @@ The version of the Functions runtime used by published apps in Azure is dictated
 | `~1` | 1.x |
 
 >[!IMPORTANT]
-> Don't arbitrarily change this setting, because other app setting changes and changes to your function code may be required.
+> Don't arbitrarily change this app setting, because other app setting changes and changes to your function code may be required. You should instead change this setting in the **Function runtime settings** tab of the function app **Configuration** in the Azure portal when you are ready to make a major version upgrade.
 
 To learn more, see [How to target Azure Functions runtime versions](set-runtime-version.md).  
 
 ### Pinning to a specific minor version
 
-To resolve issues with your function app running on the latest major version, you have to pin your app to a specific minor version. This gives you time to get your app running correctly on the latest major version. The way that you pin to a minor version differs between Windows and Linux. To learn more, see [How to target Azure Functions runtime versions](set-runtime-version.md).
+To resolve issues your function app may have when running on the latest major version, you have to temporatily pin your app to a specific minor version. This gives you time to get your app running correctly on the latest major version. The way that you pin to a minor version differs between Windows and Linux. To learn more, see [How to target Azure Functions runtime versions](set-runtime-version.md).
 
 Older minor versions are periodically removed from Functions. For the latest news about Azure Functions releases, including the removal of specific older minor versions, monitor [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues). 
 
@@ -64,11 +68,49 @@ Older minor versions are periodically removed from Functions. For the latest new
 
 .NET function apps running on version 2.x (`~2`) are automatically upgraded to run on .NET Core 3.1, which is a long-term support version of .NET Core 3. Running your .NET functions on .NET Core 3.1 allows you to take advantage of the latest security updates and product enhancements. 
 
-Any function app pinned to `~2.0` continues to run on .NET Core 2.2, which no longer receives security and other updates. To learn more, see [Functions v2.x considerations](functions-dotnet-class-library.md#functions-v2x-considerations).   
+Any function app pinned to `~2.0` continues to run on .NET Core 2.2, which no longer receives security and other updates. To learn more, see [Functions v2.x considerations](functions-dotnet-class-library.md#functions-v2x-considerations). 
+
+## Minimum extension versions
+
+::: zone pivot="programming-language-csharp"
+There's technically not a correlation between binding extension versions and the Functions runtime version. However, starting with version 4.x the Functions runtime enforces a minimum version for all trigger and binding extensions. 
+
+If you receive a warning about a package not meeting a minimum required version, you should update that NuGet package to the minimum version as you normally would. The minimum version requirements for extensions used in Functions v4.x can be found in [this configuration file](https://github.com/Azure/azure-functions-host/blob/v4.x/src/WebJobs.Script/extensionrequirements.json).
+
+For C# script, update the extension bundle reference in the host.json as follows:
+
+```json
+{
+    "version": "2.0",
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[2.*, 3.0.0)"
+    }
+}
+```
+
+::: zone-end
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
+There's technically not a correlation between extension bundle versions and the Functions runtime version. However, starting with version 4.x the Functions runtime enforces a minimum version for extension bundles. 
+
+If you receive a warning about your extension bundle version not meeting a minimum required version, update your existing extension bundle reference in the host.json as follows:
+
+```json
+{
+    "version": "2.0",
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[2.*, 3.0.0)"
+    }
+}
+```  
+
+To learn more about extension bundles, see [Extension bundles](functions-bindings-register.md#extension-bundles).
+::: zone-end
 
 ## <a name="migrating-from-3x-to-4x"></a>Migrating from 3.x to 4.x
 
-Azure Functions version 4.x is highly backwards compatible to version 3.x. Many apps should safely upgrade to 4.x without significant code changes. Be sure to test extensively before changing the major version in production apps.
+Azure Functions version 4.x is highly backwards compatible to version 3.x. Many apps should safely upgrade to 4.x without significant code changes. Be sure to fully test your app locally using version 4.x of the [Azure Functions Core Tools](functions-run-local.md) or [in a staging slot](functions-deployment-slots.md) before changing the major version in production apps.
 
 ### Upgrading an existing app
 
@@ -126,13 +168,73 @@ A pre-upgrade validator is available to help identify potential issues when migr
 
 1. In *Search for common problems or tools*, enter and select **Functions 4.x Pre-Upgrade Validator**
 
-To migrate an app from 3.x to 4.x, set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` with the following Azure CLI command:
+Once you have validated that the app can be upgraded, you can begin the process of migration. See the subsections below for instructions for [migration without slots](#migration-without-slots) and [migration with slots](#migration-with-slots).
+
+> [!NOTE]
+> If you are using a slot to manage the migration, you will need to set the `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS` application setting to "0" on _both_ slots. This allows the version changes you make to be included in the slot swap operation. You can then upgrade your staging (non-production) slot, and then you can perform the swap.
+
+To migrate an app from 3.x to 4.x, you will:
+
+- Set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4`
+- **For Windows function apps only**, enable .NET 6.0 through the `netFrameworkVersion` setting
+
+##### Migration without slots
+
+You can use the following Azure CLI or Azure PowerShell commands to perform this upgrade directly on a site without slots:
+
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
+az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
 
 # For Windows function apps only, also enable .NET 6.0 that is needed by the runtime
-az functionapp config set --net-framework-version v6.0 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
+az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Update-AzFunctionAppSetting -AppSetting @{FUNCTIONS_EXTENSION_VERSION = "~4"} -Name <APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -Force
+
+# For Windows function apps only, also enable .NET 6.0 that is needed by the runtime
+Set-AzWebApp -NetFrameworkVersion v6.0 -Name <APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME>
+```
+
+---
+
+##### Migration with slots
+
+You can use the following Azure CLI commands to perform this upgrade using deployment slots:
+
+First, update the production slot with `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0`. If your app can tolerate a restart (which impacts availability), it is recommended that you update the setting directly on the production slot, possibly at a time of lower traffic. If you instead choose to swap this setting into place, you should immediately update the staging slot after the swap. A consequence of swapping when only staging has `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0` is that it will remove the `FUNCTIONS_EXTENSION_VERSION` setting in staging, putting the slot into a bad state. Updating the staging slot with a version right after the swap enables you to roll your changes back if necessary. However, in such a situation, you should still be prepared to directly update settings on production to remove `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0` before the swap back.
+
+```azurecli
+# Update production with WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS
+az functionapp config appsettings set --settings WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0  -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> 
+
+# OR
+
+# Alternatively get production prepared with WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS via a swap
+az functionapp config appsettings set --settings WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0  -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
+# The swap actions should be accompanied with a version specification for the slot. You may see errors from staging during the time between these actions.
+az functionapp deployment slot swap -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME> --target-slot production
+az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~3 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
+```
+
+After the production slot has `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0` configured, you can configure everything else in the staging slot and then swap: 
+
+```azurecli
+# Get staging configured with WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS
+az functionapp config appsettings set --settings WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
+# Get staging configured with the new extension version
+az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
+# For Windows function apps only, also enable .NET 6.0 that is needed by the runtime
+az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
+
+# Be sure to confirm that your staging environment is working as expected before swapping.
+
+# Swap to migrate production to the new version
+az functionapp deployment slot swap -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME> --target-slot production
 ```
 
 ### Breaking changes between 3.x and 4.x
@@ -143,13 +245,15 @@ The following are some changes to be aware of before upgrading a 3.x app to 4.x.
 
 - Azure Functions Proxies are no longer supported in 4.x. You are recommended to use [Azure API Management](../api-management/import-function-app-as-api.md).
 
-- Logging to Azure Storage using *AzureWebJobsDashboard* is no longer supported in 4.x. You are recommended to use [Application Insights](./functions-monitoring.md). ([#1923](https://github.com/Azure/Azure-Functions/issues/1923))
+- Logging to Azure Storage using *AzureWebJobsDashboard* is no longer supported in 4.x. You should instead use [Application Insights](./functions-monitoring.md). ([#1923](https://github.com/Azure/Azure-Functions/issues/1923))
 
-- Azure Functions 4.x enforces [minimum version requirements](https://github.com/Azure/Azure-Functions/issues/1987) for extensions. Upgrade to the latest version of affected extensions. For non-.NET languages, [upgrade](./functions-bindings-register.md#extension-bundles) to extension bundle version 2.x or later. ([#1987](https://github.com/Azure/Azure-Functions/issues/1987))
+- Azure Functions 4.x now enforces [minimum version requirements for extensions](#minimum-extension-versions). Upgrade to the latest version of affected extensions. For non-.NET languages, [upgrade](./functions-bindings-register.md#extension-bundles) to extension bundle version 2.x or later. ([#1987](https://github.com/Azure/Azure-Functions/issues/1987))
 
-- Default and maximum timeouts are now enforced in 4.x Linux consumption function apps. ([#1915](https://github.com/Azure/Azure-Functions/issues/1915))
+- Default and maximum timeouts are now enforced in 4.x for function app running on Linux in a Consumption plan. ([#1915](https://github.com/Azure/Azure-Functions/issues/1915))
 
-- Function apps that share storage accounts will fail to start if their computed hostnames are the same. Use a separate storage account for each function app. ([#2049](https://github.com/Azure/Azure-Functions/issues/2049))
+- Azure Functions 4.x uses Azure.Identity and Azure.Security.KeyVault.Secrets for the Key Vault provider and has deprecated the use of Microsoft.Azure.KeyVault. For more information about how to configure function app settings, see the Key Vault option in [Secret Repositories](security-concepts.md#secret-repositories). ([#2048](https://github.com/Azure/Azure-Functions/issues/2048))
+
+- Function apps that share storage accounts now fail to start when their host IDs are the same. For more information, see [Host ID considerations](storage-considerations.md#host-id-considerations). ([#2049](https://github.com/Azure/Azure-Functions/issues/2049))
 
 ::: zone pivot="programming-language-csharp" 
 

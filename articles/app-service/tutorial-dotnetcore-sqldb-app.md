@@ -46,7 +46,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 You can run Azure CLI commands in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-First, create a resource group using the [az group create](/cli/azure/group#az_group_create) command. The resource group acts as a container for all of the Azure resources related to this application.
+First, create a resource group using the [az group create](/cli/azure/group#az-group-create) command. The resource group acts as a container for all of the Azure resources related to this application.
 
 ```azurecli-interactive
 # Use 'az account list-locations --output table' to list available locations close to you
@@ -54,7 +54,7 @@ First, create a resource group using the [az group create](/cli/azure/group#az_g
 az group create --location eastus --name msdocs-core-sql
 ```
 
-Next, create an App Service plan using the [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) command.
+Next, create an App Service plan using the [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) command.
 
 * The `--sku` parameter defines the size (CPU, memory) and cost of the app service plan. This example uses the F1 (Free) service plan. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/) page.
 
@@ -67,10 +67,10 @@ az appservice plan create \
     --sku F1
 ```
 
-Finally, create the App Service web app using the [az webapp create](/cli/azure/webapp#az_webapp_create) command.  
+Finally, create the App Service web app using the [az webapp create](/cli/azure/webapp#az-webapp-create) command.  
 
 * The App Service name is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of `https://<app service name>.azurewebsites.com`.
-* The runtime specifies what version of .NET your app is running. This example uses .NET 6.0 LTS. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table` for Linux and `az webapp list-runtimes --output table` for Windows.
+* The runtime specifies what version of .NET your app is running. This example uses .NET 6.0 LTS. To list all available runtimes, use the command `az webapp list-runtimes --os linux --output table` for Linux and `az webapp list-runtimes --os windows --output table` for Windows.
 
 ```azurecli-interactive
 
@@ -103,7 +103,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 ### [Azure CLI](#tab/azure-cli)
 
-First, create an Azure SQL Server to host the database. A new Azure SQL Server is created by using the [az sql server create ](/cli/azure/sql/server#az_sql_server_create) command.
+First, create an Azure SQL Server to host the database. A new Azure SQL Server is created by using the [az sql server create ](/cli/azure/sql/server#az-sql-server-create) command.
 
 Replace the *server-name* placeholder with a unique SQL Database name. The SQL Database name is used as part of the globally unique SQL Database endpoint. Also, replace *db-username* and *db-username* with a username and password of your choice.
 
@@ -116,7 +116,7 @@ az sql server create \
     --admin-password <db-password>
 ```
 
-Setting up an SQL Server might take a few minutes. When the resource is available, we can create a database with the [az sql db create](/cli/azure/sql/db#az_sql_db_create) command.
+Setting up an SQL Server might take a few minutes. When the resource is available, we can create a database with the [az sql db create](/cli/azure/sql/db#az-sql-db-create) command.
 
 ```azurecli-interactive
 az sql db create \
@@ -157,7 +157,7 @@ We're now ready to deploy our .NET app to the App Service.
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Deploy app service step 1](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-app-service-01.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-01-240px.png" alt-text="A screenshot showing how to install the Azure Account and App Service extensions in Visual Studio Code." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-01.png"::: |
-| [!INCLUDE [Deploy app service step 2](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-app-service-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-02-240px.png" alt-text="A screenshot showing how to use the Azure App Service extension to deploy an app to Azure from Visual Studio Code." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-02.png"::: |
+| [!INCLUDE [Deploy app service step 2](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-app-service-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-publish-folder-small.png" alt-text="A screenshot showing how to deploy using the publish folder." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-publish-folder.png"::: :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-publish-workflow-small.png" alt-text="A screenshot showing the command palette deployment workflow." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-publish-workflow.png"::: |
 
 ### [Deploy using Local Git](#tab/azure-cli-deploy)
 
@@ -184,7 +184,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow the steps to
 
 Run Azure CLI commands in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-We can retrieve the Connection String for our database using the [az sql db show-connection-string](/cli/azure/sql/db#az_sql_db_show_connection_string) command. This command allows us to add the Connection String to our App Service configuration settings. Copy this Connection String value for later use.
+We can retrieve the Connection String for our database using the [az sql db show-connection-string](/cli/azure/sql/db#az-sql-db-show-connection-string) command. This command allows us to add the Connection String to our App Service configuration settings. Copy this Connection String value for later use.
 
 ```azurecli-interactive
 az sql db show-connection-string \
@@ -223,19 +223,19 @@ In the Azure portal:
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run the [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) command to add a firewall rule to your SQL Server instance.
+Run the [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) command to add a firewall rule to your SQL Server instance.
 
 ```azurecli-interactive
-az sql server firewall-rule create -resource-group msdocs-core-sql --server <yoursqlserver> --name LocalAccess --start-ip-address <your-ip> --end-ip-address <your-ip>
+az sql server firewall-rule create --resource-group msdocs-core-sql --server <yoursqlserver> --name LocalAccess --start-ip-address <your-ip> --end-ip-address <your-ip>
 ```
 
 ---
 
-Next, update the appsettings.json file in our local app code with the Connection String of our Azure SQL Database. The update allows us to run migrations locally against our database hosted in Azure. Replace the username and password placeholders with the values you chose when creating your database.
+Next, update the appsettings.json file in our local app code with the [Connection String of our Azure SQL Database](#5---connect-the-app-to-the-database). The update allows us to run migrations locally against our database hosted in Azure. Replace the username and password placeholders with the values you chose when creating your database.
 
 ```json
 "ConnectionStrings": {
-    "MyDbConnection": "Server=tcp:coredbserver456.database.windows.net,1433;
+    "MyDbConnection": "Server=tcp:<your-server-name>.database.windows.net,1433;
         Initial Catalog=coredb;
         Persist Security Info=False;
         User ID=<username>;Password=<password>;
@@ -294,7 +294,7 @@ Azure App Service captures messages logged to the console to assist you in diagn
 
 ### [Azure CLI](#tab/azure-cli-logs)
 
-You can configure Azure App Service to output logs to the App Service filesystem using the [az webapp log config](/cli/azure/webapp/log#az_webapp_log_config) command.
+You can configure Azure App Service to output logs to the App Service filesystem using the [az webapp log config](/cli/azure/webapp/log#az-webapp-log-config) command.
 
 ```azurecli
 az webapp log config \
@@ -303,7 +303,7 @@ az webapp log config \
     --resource-group $RESOURCE_GROUP_NAME
 ```
 
-You can also stream logs directly to the console using the [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail) command.
+You can also stream logs directly to the console using the [az webapp log tail](/cli/azure/webapp/log#az-webapp-log-tail) command.
 
 ```azurecli
 az webapp log tail \
@@ -347,7 +347,7 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 
 ### [Azure CLI](#tab/azure-cli-resources)
 
-You can delete the resource group you created by using the [az group delete](/cli/azure/group#az_group_delete) command. Deleting the resource group deletes all of the resources contained within it.
+You can delete the resource group you created by using the [az group delete](/cli/azure/group#az-group-delete) command. Deleting the resource group deletes all of the resources contained within it.
 
 ```azurecli
 az group delete --name msdocs-core-sql

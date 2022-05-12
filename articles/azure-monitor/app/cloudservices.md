@@ -12,6 +12,8 @@ ms.date: 09/05/2018
 
 ![Overview dashboard](./media/cloudservices/overview-graphs.png)
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Prerequisites
 Before you begin, you need:
 

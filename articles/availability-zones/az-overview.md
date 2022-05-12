@@ -4,7 +4,7 @@ description: Learn about regions and availability zones and how they work to hel
 author: awysza
 ms.service: azure
 ms.topic: conceptual
-ms.date: 1/17/2022
+ms.date: 03/30/2022
 ms.author: rarco
 ms.reviewer: cynthn
 ms.custom: references_regions
@@ -42,7 +42,7 @@ Some organizations require high availability of availability zones and protectio
 
 ## Azure regions with availability zones
 
-Azure provides the most extensive global footprint of any cloud provider and is rapidly opening new regions and availability zones.
+Azure provides the most extensive global footprint of any cloud provider and is rapidly opening new regions and availability zones. The following regions currently support availability zones.
 
 | Americas | Europe | Africa | Asia Pacific |
 |--------------------|----------------------|---------------------|----------------|
@@ -52,9 +52,11 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 | East US | Norway East | | Korea Central |
 | East US 2 | UK South | | Southeast Asia |
 | South Central US | West Europe | | East Asia |
-| US Gov Virginia | Sweden Central| | China North 3 |
-| West US 2 | | | |
+| US Gov Virginia | Sweden Central | | China North 3 |
+| West US 2 | Switzerland North* | | |
 | West US 3 | | | |
+
+\* To learn more about Availability Zones and available services support in these regions, contact your Microsoft sales or customer representative. For the upcoming regions that will support Availability Zones, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ## Next steps
 

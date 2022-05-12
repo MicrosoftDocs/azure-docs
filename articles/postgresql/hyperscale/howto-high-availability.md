@@ -1,8 +1,8 @@
 ---
 title: Configure high availability - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: How to enable or disable high availability
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to

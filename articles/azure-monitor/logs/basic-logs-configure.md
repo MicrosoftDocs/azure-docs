@@ -103,15 +103,13 @@ For example:
 - To set Basic Logs:
 
     ```azurecli
-    az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
-       --name ContainerLog  --plan Basic
+    az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name ContainerLog  --plan Basic
     ```
 
 - To set Analytics Logs:
 
     ```azurecli
-    az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
-   --name ContainerLog  --plan Analytics
+    az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name ContainerLog  --plan Analytics
     ```
    
 ---
@@ -183,8 +181,7 @@ To check the configuration of a table, run the [az monitor log-analytics workspa
 For example:
 
 ```azurecli
-az monitor log-analytics workspace table show --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
-   --name Syslog  --output table \ 
+az monitor log-analytics workspace table show --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name Syslog --output table  
 ```
 
 ---
