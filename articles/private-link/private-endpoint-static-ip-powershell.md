@@ -150,78 +150,61 @@ New-AzPrivateEndpoint @pe
 
 A private DNS zone is used to resolve the DNS name of the private endpoint in the virtual network. For this example, we are using the DNS information for an Azure WebApp, for more information on the DNS configuration of private endpoints, see [Azure Private Endpoint DNS configuration](private-endpoint-dns.md)].
 
-1. Create and configure the private DNS zone by using:
+In this section, you'll:
 
-    * [New-AzPrivateDnsZone](/powershell/module/az.privatedns/new-azprivatednszone)
-    * [New-AzPrivateDnsVirtualNetworkLink](/powershell/module/az.privatedns/new-azprivatednsvirtualnetworklink)
-    * [New-AzPrivateDnsZoneConfig](/powershell/module/az.network/new-azprivatednszoneconfig)
-    * [New-AzPrivateDnsZoneGroup](/powershell/module/az.network/new-azprivatednszonegroup)
+- Create a new private Azure DNS zone with [New-AzPrivateDnsZone](/powershell/module/az.privatedns/new-azprivatednszone)
 
-1. Place the virtual network into a variable:
+- Link the DNS zone to the virtual network you created previously with [New-AzPrivateDnsVirtualNetworkLink](/powershell/module/az.privatedns/new-azprivatednsvirtualnetworklink)
 
-    ```azurepowershell-interactive
-    $vnet = Get-AzVirtualNetwork -ResourceGroupName 'myResourceGroup' -Name 'myVNet'
-    ```
+- Create a DNS zone configuration with [New-AzPrivateDnsZoneConfig](/powershell/module/az.network/new-azprivatednszoneconfig)
 
-1. Create the private DNS zone:
+- Create a DNS zone group with [New-AzPrivateDnsZoneGroup](/powershell/module/az.network/new-azprivatednszonegroup)
 
-    ```azurepowershell-interactive
-    $parameters1 = @{
-        ResourceGroupName = 'myResourceGroup'
-        Name = 'privatelink.azurewebsites.net'
-    }
-    $zone = New-AzPrivateDnsZone @parameters1
-    ```
+```azurepowershell-interactive
+## Place the virtual network into a variable. ##
+$vnet = Get-AzVirtualNetwork -ResourceGroupName 'myResourceGroup' -Name 'myVNet'
 
-1. Create a DNS network link:
+## Create the private DNS zone. ##
+$zn = @{
+    ResourceGroupName = 'myResourceGroup'
+    Name = 'privatelink.azurewebsites.net'
+}
+$zone = New-AzPrivateDnsZone @zn
 
-    ```azurepowershell-interactive
-    $parameters2 = @{
-        ResourceGroupName = 'myResourceGroup'
-        ZoneName = 'privatelink.azurewebsites.net'
-        Name = 'myLink'
-        VirtualNetworkId = $vnet.Id
-    }
-    $link = New-AzPrivateDnsVirtualNetworkLink @parameters2
-    ```
+## Create a DNS network link. ##
+$lk = @{
+    ResourceGroupName = 'myResourceGroup'
+    ZoneName = 'privatelink.azurewebsites.net'
+    Name = 'myLink'
+    VirtualNetworkId = $vnet.Id
+}
+$link = New-AzPrivateDnsVirtualNetworkLink @lk
 
-1. Configure the DNS zone:
+## Configure the DNS zone. ##
+$cg = @{
+    Name = 'privatelink.azurewebsites.net'
+    PrivateDnsZoneId = $zone.ResourceId
+}
+$config = New-AzPrivateDnsZoneConfig @cg
 
-    ```azurepowershell-interactive
-    $parameters3 = @{
-        Name = 'privatelink.azurewebsites.net'
-        PrivateDnsZoneId = $zone.ResourceId
-    }
-    $config = New-AzPrivateDnsZoneConfig @parameters3
-    ```
+## Create the DNS zone group. ##
+$zg = @{
+    ResourceGroupName = 'myResourceGroup'
+    PrivateEndpointName = 'myPrivateEndpoint'
+    Name = 'myZoneGroup'
+    PrivateDnsZoneConfig = $config
+}
+New-AzPrivateDnsZoneGroup @zg
 
-1. Create the DNS zone group:
-
-    ```azurepowershell-interactive
-    $parameters4 = @{
-        ResourceGroupName = 'myResourceGroup'
-        PrivateEndpointName = 'myPrivateEndpoint'
-        Name = 'myZoneGroup'
-        PrivateDnsZoneConfig = $config
-    }
-    New-AzPrivateDnsZoneGroup @parameters4
-    ```
-
-
-
-<!-- 5. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
+```
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write how-to guides](contribute-how-to-write-howto.md)
-- [Links](links-how-to.md)
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+To learn more about Private Link and Private endpoints, see
+
+- [What is Azure Private Link](private-link-overview.md)
+
+- [Private endpoint overview](private-endpoint-overview.md)
+
 
 
