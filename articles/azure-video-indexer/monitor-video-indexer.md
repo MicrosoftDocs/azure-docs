@@ -73,7 +73,7 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](/a
 |:---|:---|
 |Audit | Read/Write operations| 
 
-:::image type="content" source="./media/monitor/toc-diagnostics-save.png" alt-text="Screenshot of diagnostic settings.":::
+:::image type="content" source="./media/monitor/toc-diagnostics-save.png" alt-text="Screenshot of diagnostic settings." lightbox="./media/monitor/toc-diagnostics-save.png":::
 
 :::image type="content" source="./media/monitor/diagnostics-settings-destination.png" alt-text="Screenshot of where to send lots." lightbox="./media/monitor/diagnostics-settings-destination.png":::
 <!-- OPTIONAL: Add specific examples of configuration for this service. For example, CLI and PowerShell commands for creating diagnostic setting. Ideally, customers should set up a policy to automatically turn on collection for services. Azure monitor has Resource Manager template examples you can point to. See https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings.  Contact azmondocs@microsoft.com if you have questions.   -->
