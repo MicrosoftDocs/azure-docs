@@ -107,7 +107,7 @@ Data in Azure Monitor Logs is stored in tables where each table has its own set 
 
 All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema) The schema for Azure Video Indexer resource logs is found in the [Azure Video Indexer Data Reference](monitor-video-indexer-data-reference.md#schemas) 
 
-The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
+The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of platform sign-in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
 For a list of the types of resource logs collected for Azure Video Indexer, see [Monitoring Azure Video Indexer data reference](monitor-video-indexer-data-reference.md#resource-logs)  
 
@@ -161,7 +161,7 @@ The following table lists common and recommended alert rules for Azure Video Ind
 <!-- Fill in the table with metric and log alerts that would be valuable for your service. Change the format as necessary to make it more readable -->
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-| Log Alert|Failed operation |Send an alerts when a upload failed |
+| Log Alert|Failed operation |Send an alert when an upload failed |
 
 ```kusto
 //All failed uploads, aggregated in one hour window.
