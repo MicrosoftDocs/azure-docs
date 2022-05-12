@@ -148,7 +148,7 @@ The following sections show how to register your custom built-in connector as an
                builder.AddExtension<CosmosDbServiceProvider>)();
 
                // Use dependency injection (DI) for the trigger service operation provider.
-               builder.Services.TryAddSingleton<CosmosDbTriggerServiceOperationProvider>();
+               builder.Services.TryAddSingleton<CosmosDbTriggerServiceOperationsProvider>();
          }
       }
    }
@@ -178,9 +178,9 @@ namespace ServiceProviders.CosmosDb.Extensions
    public class CosmosDbServiceProvider : IExtensionConfigProvider
    {
       // Initialize a new instance for the CosmosDbServiceProvider class.
-      public CosmosDbServiceProvider(ServiceOperationsProvider serviceOperationsProvider, CosmosDbTriggerServiceOperationProvider operationsProvider)
+      public CosmosDbServiceProvider(ServiceOperationsProvider serviceOperationsProvider, CosmosDbTriggerServiceOperationsProvider operationsProvider)
       {
-         serviceOperationsProvider.RegisterService(serviceName: CosmosDBServiceOperationProvider.ServiceName, serviceOperationsProviderId: CosmosDBServiceOperationProvider.ServiceId, serviceOperationsProviderInstance: operationsProvider);
+         serviceOperationsProvider.RegisterService(serviceName: CosmosDBServiceOperationsProvider.ServiceName, serviceOperationsProviderId: CosmosDBServiceOperationsProvider.ServiceId, serviceOperationsProviderInstance: operationsProvider);
       }
 
       // Convert the Cosmos Document array to a generic JObject array.
@@ -217,11 +217,11 @@ context.AddConverter<IReadOnlyList<Document>, JObject[]>(ConvertDocumentToJObjec
 
 ### Class library diagram for implemented classes
 
-When you're done, review the following class library diagram that shows the implementation for all the classes in **Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB**:
+When you're done, review the following class diagram that shows the implementation for all the classes in **Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB**:
 
 * **CosmosDbServiceProviderStartup**
 * **CosmosDbServiceProvider**
-* **CosmosDbServiceOperationProvider**
+* **CosmosDbServiceOperationsProvider**
 
 ![Conceptual code map diagram that shows complete class implementation.](./media/create-custom-built-in-connector-standard/methods-implementation-code-map-diagram.png)
 
