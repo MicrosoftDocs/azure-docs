@@ -55,7 +55,7 @@ You can also add redirect URIs after app registration by the following steps:
 
 ![Add Redirect Uri screen](./media/enterprise/how-to-setup-sso-with-azure-ad/sso-redirect-uri.jpg)
 
-More detailed instructions on Application Registrations can be found [here](../active-directory/develop/quickstart-register-app#quickstart-register-an-application-with-the-microsoft-identity-platform).
+More detailed instructions on Application Registrations can be found [here](../active-directory/develop/quickstart-register-app.md#quickstart-register-an-application-with-the-microsoft-identity-platform).
 
 ## Add a Client Secret
 Client secret is used for the application to authenticate as itself in SSO workflow, which can be created by the following steps:
@@ -68,7 +68,7 @@ Client secret is used for the application to authenticate as itself in SSO workf
 Remember to save the client secret because you cannot retrieve it after you left this page. The client secret should be provided with client ID when sign in as the application.
 
 ## Configure Scope
-The `scope` property of SSO should be a list of scopes to included in JWT identity tokens. They are often referred to permissions. Identity platform supports several [OpenID Connect scopes](../active-directory/develop/v2-permissions-and-consent#openid-connect-scopes), such as `openid`, `email` and `profile`.
+The `scope` property of SSO should be a list of scopes to included in JWT identity tokens. They are often referred to permissions. Identity platform supports several [OpenID Connect scopes](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes), such as `openid`, `email` and `profile`.
 
 ## Configure Issuer URI
 The URI that is asserted as its Issuer Identifier. For example, if the issuer-uri provided is `https://example.com`, then an OpenID Provider Configuration Request will be made to `https://example.com/.well-known/openid-configuration`.
