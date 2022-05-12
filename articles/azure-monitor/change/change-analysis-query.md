@@ -12,9 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Pin and share a Change Analysis query to the Azure dashboard
 
-Let's say you want to curate a change view on specific resources, like all Virtual Machine changes in your subscription, and include it in a report sent periodically. You can pin the view to an Azure dashboard for monitoring or sharing scenarios. In addition, if there is a specific change you want to share with your team members you can use the Share feature in the change-details page.
-
-This document will go through instructions for pining a change data view to Azure dashboard and sharing a specific change with others.
+Let's say you want to curate a change view on specific resources, like all Virtual Machine changes in your subscription, and include it in a report sent periodically. You can pin the view to an Azure dashboard for monitoring or sharing scenarios. If there is a specific change you want to share with your team members, you can use the share feature in the Change Details page.
 
 ## Pin to the Azure dashboard
 
