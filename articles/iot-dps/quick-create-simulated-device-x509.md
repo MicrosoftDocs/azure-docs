@@ -257,11 +257,11 @@ To create the X.509 certificate:
 
 5. When asked **Verifying - Enter PEM pass phrase:**, use the pass phrase `1234` again.
 
-    A test certificate file (*device-cert.pem*) and private key file (*device-key.pem*) should now be generated in the directory where you ran the `openssl` command.
+    A public key certificate file (*device-cert.pem*) and private key file (*device-key.pem*) should now be generated in the directory where you ran the `openssl` command.
 
-    The certificate file has its subject common name (CN) set to `my-x509-device`. For an X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
+    The certificate file has its subject common name (CN) set to `my-x509-device`. For X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
 
-6. To view the common name (CN) and other properties of the certificate file, enter the following command:
+6. The certificate file is Base64 encoded. To view the subject common name (CN) and other properties of the certificate file, enter the following command:
 
     # [Windows](#tab/windows)
 
@@ -418,7 +418,7 @@ This article demonstrates an individual enrollment for a single device to be pro
 
 7. Select **Save**. You'll be returned to **Manage enrollments**.
 
-8. Select **Individual Enrollments**. Your X.509 enrollment entry, *my-x509-device*, should appear in the list of Registration IDs.
+8. Select **Individual Enrollments**. Your X.509 enrollment entry, *my-x509-device*, should appear in the list.
 
 ## Prepare and run the device provisioning code
 
@@ -735,7 +735,9 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
     cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-X509-sample
     ```
 
-1. Enter the provisioning service and X.509 identity information in your code. This is used during provisioning, for attestation of the simulated device, prior to device registration. Open the file `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` in your favorite editor:
+1. Enter the provisioning service and X.509 identity information in the sample code. This is used during provisioning, for attestation of the simulated device, prior to device registration. 
+
+    1. Open the file `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` in your favorite editor.
 
     1. Update the following values with the **ID Scope** and **Provisioning Service Global Endpoint** that you copied previously.
 
@@ -744,9 +746,9 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
         private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
         private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
 
-    1. Update the string value of the `leafPublicPem` constant string the value of your certificate, *device-cert.pem*.
+    1. Update the value of the `leafPublicPem` constant string with the value of your certificate, *device-cert.pem*.
 
-        The syntax of certificate text must follow the pattern below with no extra spaces or parsing done by Visual Studio.
+        The syntax of certificate text must follow the pattern below with no extra spaces or characters.
 
         ```java
         private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
@@ -779,7 +781,7 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
 
     1. Update the string value of the `leafPrivateKey` constant with the private key for your device certificate.
 
-        The syntax of the private key text must follow the pattern below with no extra spaces or parsing done by Visual Studio.
+        The syntax of the private key text must follow the pattern below with no extra spaces or or characters.
 
         ```java
         private static final String leafPrivateKey = "-----BEGIN PRIVATE KEY-----\n" +
