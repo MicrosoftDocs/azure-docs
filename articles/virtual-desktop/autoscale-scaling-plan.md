@@ -141,7 +141,7 @@ To create and assign the custom role on your subscription with the Azure portal:
 
 1. Review the configuration and select **Create**. Once the role has been successfully created, select **OK**. Note that it may take a few minutes to display everywhere.
 
-After the custom role has been created, you'll need to assign it to the Azure Virtual Desktop service principal and grant access.
+After you've created the custom role, you'll need to assign it to the Azure Virtual Desktop service principal and grant access.
 
 ## Assign the custom role with the Azure portal
 
