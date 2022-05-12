@@ -14,9 +14,9 @@ This article outlines the process to register an Azure Data Lake Storage Gen2 da
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Share**|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
 |---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| [Yes](#access-policy)  | Limited** |[Yes](#data-share)|
+| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| [Yes](#access-policy)  | Limited** |[Yes](#data-sharing)|
 
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
@@ -252,7 +252,7 @@ It's important to give your service principal the permission to scan the ADLS Ge
 
 [!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
-## Data share
+## Data sharing
 Purview Data share enables sharing of data in-place from ADLS Gen2 to ADLS Gen2. This section provides details about the ADLS Gen2 specific requirements for sharing and receiving data in-place. Refer to [How to share data](how-to-share-data.md) and [How to receive shared data](how-to-receive-share.md) for step by step guide on how to use Purview Data share.
 
 ### Storage account permissions required to share data

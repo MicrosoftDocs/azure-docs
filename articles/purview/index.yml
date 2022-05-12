@@ -131,9 +131,9 @@ landingContent:
         - text: Receive shared data
           url: how-to-receive-share.md
         - text: Share data from Azure Storage
-          url: register-scan-azure-blob-storage-source.md#data-share
+          url: register-scan-azure-blob-storage-source.md#data-sharing
         - text: Share data from ADLS Gen 2
-          url: register-scan-adls-gen2.md#data-share
+          url: register-scan-adls-gen2.md#data-sharing
   #Card
   - title: Scan non-Azure data sources
     linkLists:
@@ -151,15 +151,6 @@ landingContent:
           url: register-scan-oracle-source.md
         - text: Scan Hive Metastore Database
           url: register-scan-hive-metastore-source.md
-  #Card
-  - title: Share and receive data
-    linkLists:
-    - linkListType: how-to-guide
-      links:
-        - text: Share data
-          url: how-to-share-data.md
-        - text: Receive shared data
-          url: how-to-receive-share.md
   #Card
   - title: Understand your data
     linkLists:
