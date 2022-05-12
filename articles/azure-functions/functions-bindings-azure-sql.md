@@ -3,7 +3,7 @@ title: Azure SQL bindings for Functions
 description: Understand how to use Azure SQL bindings in Azure Functions.
 author: dzsquared
 ms.topic: reference
-ms.date: 5/3/2022
+ms.date: 5/24/2022
 ms.author: drskwier
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -54,17 +54,51 @@ You can install this version of the extension in your function app by registerin
 ::: zone-end 
 
 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-python"  
 
-> [!NOTE]
-> In the current preview, Azure SQL bindings are only supported by [C# class library functions](functions-dotnet-class-library.md). 
 
-<!-- awaiting bundle support 
 ## Install bundle    
 
-The Kafka extension is part of an [extension bundle], which is specified in your host.json project file. When you create a project that targets version 2.x or later, you should already have this bundle installed. To learn more, see [extension bundle].
+The SQL bindings extension is part of a preview [extension bundle], which is specified in your host.json project file.  
 
--->
+# [Preview Bundle v3.x](#tab/extensionv3)
+
+You can add the preview extension bundle by adding or replacing the following code in your `host.json` file:
+
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[3.*, 4.0.0)"
+  }
+}
+```
+
+# [Preview Bundle v4.x](#tab/extensionv4)
+
+You can add the preview extension bundle by adding or replacing the following code in your `host.json` file:
+
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[4.*, 5.0.0)"
+  }
+}
+```
+
+---
+
+::: zone-end
+
+
+
+::: zone pivot="programming-language-java,programming-language-powershell"  
+
+> [!NOTE]
+> In the current preview, Azure SQL bindings are only supported by [C# class library functions](functions-dotnet-class-library.md), [JavaScript functions](functions-reference-node.md), and [Python functions](functions-reference-python.md). 
 
 ::: zone-end
 
