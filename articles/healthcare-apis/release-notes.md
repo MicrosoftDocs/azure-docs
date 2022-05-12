@@ -41,7 +41,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 |Issue | Date discovered | Status | Date resolved |
 | :------------------------------------- | :------------ | :------------- | :------------- |
-|The SQL Provider will cause the `RawResource` column in the database to save incorrectly. This occurs in a small number of cases when a transient exception occurs that causes the provider to use its retry logic. |April 2022 |Does not have a workaround.  |Not resolved  | |
+|The SQL Provider will cause the `RawResource` column in the database to save incorrectly. This occurs in a small number of cases when a transient exception occurs that causes the provider to use its retry logic. |April 2022 |Does not have a workaround.  |Not resolved  |N/A |
 
 ### DICOM service
 
