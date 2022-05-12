@@ -51,7 +51,7 @@ If you have a shared access signature key that you should use to access files, m
 
 ### Can't read, list, or access files in Azure Data Lake Storage
 
-If you use an Azure AD sign-in without explicit credentials, make sure that your Azure AD identity can access the files in storage. Your Azure AD identity must have Blob Data Reader or list/read access control list (ACL) permissions to access the files. For more information, see [Query fails because file cannot be opened](#query-fails-because-file-can't-be-opened).
+If you use an Azure AD sign-in without explicit credentials, make sure that your Azure AD identity can access the files in storage. Your Azure AD identity must have Blob Data Reader or list/read access control list (ACL) permissions to access the files. For more information, see [Query fails because file cannot be opened](#query-fails-because-file-cant-be-opened).
 
 If you access storage by using [credentials](develop-storage-files-storage-access-control.md#credentials), make sure that your [managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) or [SPN](develop-storage-files-storage-access-control.md?tabs=service-principal) has a Data Reader or Contributor role or ACL permissions. If you used a [shared access signature token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature), make sure that it has `rl` permission and that it hasn't expired.
 
@@ -193,7 +193,7 @@ This error might happen if you use the `Latin1_General_100_BIN2_UTF8` collation 
 ### Couldn't allocate tempdb space while transferring data from one distribution to another
 
 The error "Could not allocate tempdb space while transferring data from one distribution to another" is returned when the query execution engine can't process data and transfer it between the nodes that are executing the query.
-It's a special case of the generic [query fails because it cannot be executed due to current resource constraints](#query-fails-because-it-can't-be-executed-due-to-current-resource-constraints) error. This error is returned when the resources allocated to the `tempdb` database are insufficient to run the query.
+It's a special case of the generic [query fails because it cannot be executed due to current resource constraints](#query-fails-because-it-cant-be-executed-due-to-current-resource-constraints) error. This error is returned when the resources allocated to the `tempdb` database are insufficient to run the query.
 
 Apply best practices before you file a support ticket.
 
