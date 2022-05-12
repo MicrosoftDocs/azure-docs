@@ -43,7 +43,7 @@ Known issues and limitations associated with online migrations from PostgreSQL t
 
 - You can migrate up to 1 TB of data from PostgreSQL to Azure Database for PostgreSQL, using a single DMS service.
 - DMS allows the users to pick tables inside a database that they want to migrate.
-:::image type="content" source="./media/known-issues-azure-postgresql-online/DMS_table_selection.png" alt-text="DMS screen that shows the option to pick tables"::: 
+:::image type="content" source="./media/known-issues-azure-postgresql-online/dms-table-selection.png" alt-text="Screenshot of D M S screen that shows the option to pick tables."::: 
 
 Behind the scenes, there is a **pg_dump** command that is used to take the dump of the selected tables using one of the following options:
  - **-T** to include the table names picked in the UI
@@ -57,7 +57,7 @@ For the previous example, the pg_dump command would be:
 pg_dump -h hostname -u username -d databasename -T "\"public\".\"table_1\"" -T "\"public\".\"table_2\""
 ```
 
-Number of characters are 55 (includes double quotes, spaces, -T and slash)
+In the previous command, the number of characters is 55 (includes double quotes, spaces, -T and slash)
  
 ## Datatype limitations
 
