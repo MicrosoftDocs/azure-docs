@@ -144,9 +144,9 @@ string secretValue = secret.Value;
 ### Accessing a Blob in Azure Storage
 ```aspx-csharp
 +DefaultAzureCredentialOptions credentialOptions = new DefaultAzureCredentialOptions { ManagedIdentityClientId = "<Client ID of User-assigned identity>" };          
-DefaultAzureCredential msiCredential = new DefaultAzureCredential(credentialOptions);                        
+var msiCredential = new DefaultAzureCredential(credentialOptions);                        
 
-BlobServiceClient blobServiceClient1 = new BlobServiceClient(new Uri("<URI of Storage account>"), msiCredential);
+var blobServiceClient1 = new BlobServiceClient(new Uri("<URI of Storage account>"), msiCredential);
 BlobContainerClient containerClient1 = blobServiceClient1.GetBlobContainerClient("<name of blob>");
 BlobClient blobClient1 = containerClient1.GetBlobClient("<name of file>");
 
