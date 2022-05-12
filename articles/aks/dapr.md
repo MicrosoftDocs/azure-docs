@@ -5,7 +5,7 @@ author: greenie-msft
 ms.author: nigreenf
 ms.service: container-service
 ms.topic: article
-ms.date: 05/11/2022
+ms.date: 05/12/2022
 ms.custom: devx-track-azurecli, ignite-fall-2021
 ---
 
@@ -39,18 +39,18 @@ Once Dapr is installed on your cluster, you can begin to develop using the Dapr 
 The Dapr extension support varies depending on how you manage the runtime. 
 
 **Self-managed**
-For self-managed runtime, the Dapr extension will follow the [Dapr OSS support policy][dapr-oss-support], supporting:
+For self-managed runtime, the Dapr extension supports:
 - [The latest version of Dapr and 2 previous versions (N-2)][dapr-supported-version]
 - Upgrading minor version incrementally (for example, 1.5 -> 1.6 -> 1.7) 
 
-Self-managed runtime requires manual upgrade to remain in the support window. To upgrade the Dapr extension, follow the [Update extension instance instructions][update-extension].
+Self-managed runtime requires manual upgrade to remain in the support window. To upgrade Dapr via the extension, follow the [Update extension instance instructions][update-extension].
 
 **Auto-upgrade**
 Enabling auto-upgrade keeps your Dapr extension updated to the latest minor version. You may experience breaking changes between updates.
 
 ### Components
 
-Stable components (Azure + OSS) are supported. 
+Stable components (Azure + OSS), alpha, and beta are supported. 
 
 ### Clouds/regions
 
