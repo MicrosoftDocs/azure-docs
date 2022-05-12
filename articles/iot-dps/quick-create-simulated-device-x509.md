@@ -413,9 +413,9 @@ This article demonstrates an individual enrollment for a single device to be pro
 
 ## Prepare and run the device provisioning code
 
-::: zone pivot="programming-language-ansi-c"
+In this section, you'll update the sample code to send the device's boot sequence to your Device Provisioning Service instance. This boot sequence will cause the device to be recognized and assigned to an IoT hub linked to the DPS instance.
 
-In this section, you'll update the sample code to send the device's boot sequence to your Device Provisioning Service instance. This boot sequence will cause the device to be recognized and assigned to an IoT hub linked to the Device Provisioning Service instance.
+::: zone pivot="programming-language-ansi-c"
 
 ### Configure the provisioning device code
 
@@ -539,7 +539,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
     The following output is an example of the simulated device `my-x509-device` successfully booting up, and connecting to the provisioning service. The device is assigned to an IoT hub and registered:
 
-    ```cmd
+    ```output
     Provisioning API Version: 1.3.9
     
     Registering Device
@@ -561,21 +561,21 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
     :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope.png" alt-text="Copy ID Scope from the portal.":::
 
-3. Open a command prompt and change to the X509Sample directory. This is located in the*.\azure-iot-samples-csharp\provisioning\Samples\device\X509Sample* directory off the directory where you cloned the samples on your computer.
+3. In your Windows command prompt, change to the X509Sample directory. This is located in the *.\azure-iot-samples-csharp\provisioning\Samples\device\X509Sample* directory off the directory where you cloned the samples on your computer.
 
-4. Type the following command to build and run the X.509 device provisioning sample (replace the `<IDScope>` value with the ID Scope that you copied in the previous section.). The certificate file will default to *./certificate.pfx* and prompt for the .pfx password. Type in your password.
+4. Enter the following command to build and run the X.509 device provisioning sample (replace the `<IDScope>` value with the ID Scope that you copied in the previous section. The certificate file will default to *./certificate.pfx* and prompt for the .pfx password.
 
     ```cmd
     dotnet run -- -s <IDScope>
     ```
 
-    If you want to pass everything as a parameter, you can use the following example format.
+    If you want to pass the certificate and password as a parameter, you can use the following format.
 
     ```cmd
     dotnet run -- -s 0ne00000A0A -c certificate.pfx -p 1234
     ```
 
-5. The device will now connect to DPS and be assigned to an IoT hub. Then, the device will send a telemetry message to the IoT hub.
+5. The device will connect to DPS and be assigned to an IoT hub. Then, the device will send a telemetry message to the IoT hub.
 
     ```output
     Loading the certificate...
@@ -604,7 +604,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
     :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope-and-global-device-endpoint.png" alt-text="Copy ID Scope from the portal.":::
 
-1. In a command window, from the location where you downloaded the SDK, go to the sample directory, and build the project:
+1. In your Windows command prompt, go to the sample directory, and install the packages needed by the sample. The path shown is relative to the location where you cloned the SDK.
 
     ```cmd
     cd ./azure-iot-sdk-node/provisioning/device/samples
@@ -620,7 +620,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
 1. Save the file.
 
-1. Run the script and verify that the device was provisioned successfully.
+1. Run the sample and verify that the device was provisioned successfully.
 
     ```cmd
     node register_x509.js
@@ -633,39 +633,45 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
 ::: zone pivot="programming-language-python"
 
-The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-device/samples/async-hub-scenarios/provision_x509.py) is located in the `azure-iot-sdk-python/azure-iot-device/samples/async-hub-scenarios` directory. This sample uses six environment variables to authenticate and provision an IoT device using DPS. These environment variables are:
-
-| Variable name              | Description                                     |
-| :------------------------- | :---------------------------------------------- |
-| `PROVISIONING_HOST`        |  This value is the global endpoint used for connecting to your DPS resource |
-| `PROVISIONING_IDSCOPE`     |  This value is the ID Scope for your DPS resource |
-| `DPS_X509_REGISTRATION_ID` |  This value is the ID for your device. It must also match the subject name on the device certificate |
-| `X509_CERT_FILE`           |  Your device certificate filename |
-| `X509_KEY_FILE`            |  The private key filename for your device certificate |
-| `PASS_PHRASE`              |  The pass phrase you used to encrypt the certificate and private key file (`1234`). |
-
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
 
-2. Copy the **ID Scope** and **Global device endpoint** values.
+1. Copy the **ID Scope** and **Global device endpoint** values.
 
     :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope-and-global-device-endpoint.png" alt-text="Copy ID Scope from the portal.":::
 
-3. In a command prompt, use the following commands to add the environment variables for the global device endpoint and ID Scope.
+1. In your Windows command prompt, go to the directory of the [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-device/samples/async-hub-scenarios/provision_x509.py) sample. The path shown is relative to the location where you cloned the SDK.
+
+    ```cmd
+    cd ./azure-iot-sdk-python/azure-iot-device/samples/async-hub-scenarios
+    ```
+
+    This sample uses six environment variables to authenticate and provision an IoT device using DPS. These environment variables are:
+
+    | Variable name              | Description                                     |
+    | :------------------------- | :---------------------------------------------- |
+    | `PROVISIONING_HOST`        |  This value is the global endpoint used for connecting to your DPS resource |
+    | `PROVISIONING_IDSCOPE`     |  This value is the ID Scope for your DPS resource |
+    | `DPS_X509_REGISTRATION_ID` |  This value is the ID for your device. It must also match the subject name on the device certificate |
+    | `X509_CERT_FILE`           |  Your device certificate filename |
+    | `X509_KEY_FILE`            |  The private key filename for your device certificate |
+    | `PASS_PHRASE`              |  The pass phrase you used to encrypt the certificate and private key file (`1234`). |
+
+1. Add the environment variables for the global device endpoint and ID Scope.
 
     ```cmd
     set PROVISIONING_HOST=global.azure-devices-provisioning.net
     set PROVISIONING_IDSCOPE=<ID scope for your DPS resource>
     ```
 
-4. The registration ID for the IoT device must match subject name on its device certificate. If you generated a self-signed test certificate, `my-x509-device` is both the subject name and the registration ID for the device.
+1. The registration ID for the IoT device must match subject name on its device certificate. If you generated a self-signed test certificate, `my-x509-device` is both the subject name and the registration ID for the device.
 
-5. Set the environment variable for the registration ID as follows:
+1. Set the environment variable for the registration ID as follows:
 
     ```cmd
     set DPS_X509_REGISTRATION_ID=my-x509-device
     ```
 
-6. Set the environment variables for the certificate file, private key file, and pass phrase.
+1. Set the environment variables for the certificate file, private key file, and pass phrase.
 
     ```cmd
     set X509_CERT_FILE=./device-cert.pem
@@ -673,11 +679,11 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
     set PASS_PHRASE=1234
     ```
 
-7. Review the code for [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-device/samples/async-hub-scenarios/provision_x509.py). If you're not using **Python version 3.7** or later, make the [code change mentioned here](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples/async-hub-scenarios#advanced-iot-hub-scenario-samples-for-the-azure-iot-hub-device-sdk) to replace `asyncio.run(main())`.
+1. Review the code for [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-device/samples/async-hub-scenarios/provision_x509.py). If you're not using **Python version 3.7** or later, make the [code change mentioned here](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples/async-hub-scenarios#advanced-iot-hub-scenario-samples-for-the-azure-iot-hub-device-sdk) to replace `asyncio.run(main())`.
 
-8. Save your changes.
+1. Save your changes.
 
-9. Run the sample. The sample will connect to DPS, which will provision the device to an IoT hub. After the device is provisioned, the sample will send some test messages to the IoT hub.
+1. Run the sample. The sample will connect to DPS, which will provision the device to an IoT hub. After the device is provisioned, the sample will send some test messages to the IoT hub.
 
     ```cmd
     $ python azure-iot-sdk-python/azure-iot-device/samples/async-hub-scenarios/provision_x509.py
@@ -720,15 +726,15 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
 
     :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope-and-global-device-endpoint.png" alt-text="Copy ID Scope from the portal.":::
 
-1. Open a command prompt. Navigate to the sample project folder of the Java SDK repository.
+1. In your Windows command prompt, navigate to the sample project folder. The path shown is relative to the location where you cloned the SDK
 
     ```cmd
-    cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-X509-sample
+    cd .\azure-iot-sdk-java\provisioning\provisioning-samples\provisioning-X509-sample
     ```
 
 1. Enter the provisioning service and X.509 identity information in the sample code. This is used during provisioning, for attestation of the simulated device, prior to device registration.
 
-    1. Open the file `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` in your favorite editor.
+    1. Open the file `.\src\main\java\samples\com/microsoft\azure\sdk\iot\ProvisioningX509Sample.java` in your favorite editor.
 
     1. Update the following values with the **ID Scope** and **Provisioning Service Global Endpoint** that you copied previously.
 
