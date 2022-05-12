@@ -152,15 +152,6 @@ landingContent:
         - text: Scan Hive Metastore Database
           url: register-scan-hive-metastore-source.md
   #Card
-  - title: Share and receive data
-    linkLists:
-    - linkListType: how-to-guide
-      links:
-        - text: Share data
-          url: how-to-share-data.md
-        - text: Receive shared data
-          url: how-to-receive-share.md
-  #Card
   - title: Understand your data
     linkLists:
     - linkListType: how-to-guide
