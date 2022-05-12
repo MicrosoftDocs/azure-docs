@@ -10,7 +10,7 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
-The Internet of Things (IoT) supports billions of connected devices that use operational technology (OT) networks. IoT/OT devices and networks are often designed without prioritizing security, and therefore can't be protected by traditional systems. With each new wave of innovation, the risk to IoT devices and OT networks increases the possible attack surfaces.
+The Internet of Things (IoT) supports billions of connected devices that use operational technology (OT) networks. IoT and OT devices and networks are often designed without prioritizing security, and therefore can't be protected by traditional systems. With each new wave of innovation, the risk to IoT devices and OT networks increases the possible attack surfaces.
 
 Microsoft Defender for IoT is a unified security solution for identifying IoT and OT devices, vulnerabilities, and threats and managing them through a central interface. This set of documentation describes how end-user organizations can secure their entire IoT/OT environment, including protecting existing devices or building security into new IoT innovations.
 
