@@ -114,12 +114,16 @@
         href: customize-language-model-with-website.md
       - name: using the API
         href: customize-language-model-with-api.md
+  - name: Monitor Video Indexer
+    href: monitor-video-indexer.md
 - name: Reference
   items:
   - name: Azure Video Indexer API
     href: https://api-portal.videoindexer.ai/
   - name: Azure Video Indexer ARM REST API
     href: /rest/api/videoindexer/accounts?branch=videoindex
+  - name: Monitor Video Indexer data reference
+    href: monitor-video-indexer-data-reference.md
 - name: Resources
   items:
   - name: Azure Roadmap
