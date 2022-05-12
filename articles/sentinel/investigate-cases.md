@@ -118,9 +118,9 @@ To use the investigation graph:
 
     :::image type="content" source="media/investigate-cases/use-timeline.png" alt-text="Screenshot: use timeline in map to investigate alerts.'" lightbox="media/investigate-cases/use-timeline.png":::
 
-## Expand incidents
+## Focus your investigation
 
-[Learn how you can add alerts to your incidents or remove alerts from incidents](expand-incidents.md).
+Learn how you can broaden or narrow the scope of your investigation by either [adding alerts to your incidents or removing alerts from incidents](relate-alerts-to-incidents.md).
 
 ## Similar incidents (preview)
 
