@@ -51,7 +51,7 @@ Consider these current limitations when planning your Private Link setup.
 
 On Azure Arc-enabled Kubernetes clusters configured with private links, the following extensions support end-to-end connectivity through private links. Refer to the guidance linked to each cluster extension for additional configuration steps and details on support for private links.
 
-* [Azure GitOps](conceptual-gitops-flux2)
+* [Azure GitOps](conceptual-gitops-flux2.md)
 * [Azure Monitor](/azure/azure-monitor/logs/private-link-security)
 
 ## Planning your Private Link setup
