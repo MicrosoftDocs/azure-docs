@@ -8,7 +8,7 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 05/12/2022
 ms.author: tamram
 ms.reviewer: ozgun 
 ms.custom: devx-track-azurepowershell
@@ -140,7 +140,7 @@ The email also includes details on possible causes and recommended actions to in
 
 :::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert-email.png" alt-text="Microsoft Defender for Storage alert email":::
 
-You can review and manage your current security alerts from Microsoft Defender for Cloud's [Security alerts tile](../../defender-for-cloud/security-center-managing-and-responding-alerts.md). Select an alert for details and actions for investigating the current threat and addressing future threats.
+You can review and manage your current security alerts from Microsoft Defender for Cloud's [Security alerts tile](../../defender-for-cloud/managing-and-responding-alerts.md). Select an alert for details and actions for investigating the current threat and addressing future threats.
 
 :::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert.png" alt-text="Microsoft Defender for Storage alert":::
 
