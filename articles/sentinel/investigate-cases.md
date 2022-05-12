@@ -118,7 +118,7 @@ To use the investigation graph:
 
 ## Similar incidents (preview)
 
-As a security operations analyst, when investigating an incident you'll want to pay attention to its larger context. Among other things, you'll want to see if other incidents like this have happened before or are happening now.
+As a security operations analyst, when investigating an incident you'll want to pay attention to its larger context. For example, you'll want to see if other incidents like this have happened before or are happening now.
 
 - You might want to identify concurrent incidents that may be part of the same larger attack strategy.
 
