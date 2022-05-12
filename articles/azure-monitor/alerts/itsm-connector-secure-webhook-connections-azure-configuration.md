@@ -22,7 +22,7 @@ Follow these steps to register the application with Azure AD:
 
 ## Define service principal
 
-The Action Group service is a first party application therefore it has permission to acquire authentication tokens from your AAD application in order to authentication with ServiceNow.
+The Action group service is a first party application, and has permission to acquire authentication tokens from your Azure AD application in order to authenticate with ServiceNow.
 As an optional step you can define application role in the created app’s manifest, which can allow you to further restrict, access in a way that only certain applications with that specific role can send messages. This role has to be then assigned to the Action Group service principal (Requires tenant admin privileges).
 
 This step can be done through the same [PowerShell commands](../alerts/action-groups.md#secure-webhook-powershell-script).
@@ -55,7 +55,7 @@ Secure Webhook supports connections with the following ITSM tools:
     * [ServiceNow](./itsmc-secure-webhook-connections-servicenow.md)
     * [BMC Helix](./itsmc-secure-webhook-connections-bmc.md)
 
-To configurethe ITSM tool environment:
+To configure the ITSM tool environment:
 1. Get the URI for the secure Webhook definition.
 2. Create definitions based on ITSM tool flow. 
 ## Next steps

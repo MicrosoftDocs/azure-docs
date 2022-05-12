@@ -4,8 +4,9 @@ description: Learn about using Infrastructure double encryption to add a second 
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.author: sumuth
-author: mksuni
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.date: 6/30/2020
 ---
 

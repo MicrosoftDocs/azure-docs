@@ -55,7 +55,7 @@ If you already have a network watcher enabled in at least one region, skip to th
 
 1. In the **Home** portal, select **More services**. In the **Filter box**, enter *Network Watcher*. When **Network Watcher** appears in the results, select it.
 1. Enable a network watcher in the East US region, because that's the region the VM was deployed to in a previous step. Select **Add**, to expand it, and then select **Region** under **Subscription**, as shown in the following picture:
-    :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png" alt-text="Screenshot of how to Enable Network Watcher.":::
+    :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png" alt-text="Screenshot of how to Enable Network Watcher." lightbox="./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png":::
 1. Select your region then select **Add**.
 
 ### Use IP flow verify
@@ -94,7 +94,7 @@ To determine why the rules in steps 3-5 of **Use IP flow verify** allow or deny 
 1. In the search box at the top of the portal, enter *myvm*. When the  **myvm Regular Network Interface** appears in the search results, select it.
 1. Select **Effective security rules** under **Support + troubleshooting**, as shown in the following picture:
     
-    :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/effective-security-rules.png" alt-text="Screenshot of Effective security rules.":::
+    :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/effective-security-rules.png" alt-text="Screenshot of Effective security rules." lightbox="./media/diagnose-vm-network-traffic-filtering-problem/effective-security-rules.png" :::
 
     In step 3 of **Use IP flow verify**, you learned that the reason the communication was allowed is because of the **AllowInternetOutbound** rule. You can see in the previous picture that the **Destination** for the rule is **Internet**. It's not clear how 13.107.21.200, the address you tested in step 3 of **Use IP flow verify**, relates to **Internet** though.
 1. Select the **AllowInternetOutBound** rule, and then scroll down to **Destination**, as shown in the following picture:

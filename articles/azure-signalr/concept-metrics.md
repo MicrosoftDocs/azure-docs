@@ -29,6 +29,7 @@ Metrics provide the running info of the service. The available metrics are:
 |Outbound Traffic|Bytes|Sum|The outbound traffic of service|No Dimensions|
 |System Errors|Percent|Avg|The percentage of system errors|No Dimensions|
 |User Errors|Percent|Avg|The percentage of user errors|No Dimensions|
+|Server Load|Percent|Max / Avg|The percentage of server load|No Dimensions|
 
 ### Understand Dimensions
 
@@ -68,6 +69,12 @@ The Errors are the percentage of failure operations. Operations are consist of c
 
 > [!IMPORTANT]
 > In some cases, the User Error will be always very high, especially in serverless case. In some browser, when user close the web page, the SignalR client doesn't close gracefully. The service will finally close it because of timeout. The timeout closure will be counted into User Error.
+
+### Metrics suitable for autoscaling
+
+Connection Quota Utilization and Server load are percentage metrics which show the usage **under current unit** configuration. So they could be used to set autoscaling rules. For example, you could set a rule to scale up if the server load is greater than 70%.
+
+Learn more about [autoscale](./signalr-howto-scale-autoscale.md)
 
 ## Related resources
 

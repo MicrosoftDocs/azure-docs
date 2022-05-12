@@ -78,6 +78,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Key Vault |[Azure Key Vault logging](../../key-vault/general/logging.md) |
 | Azure Kubernetes Service |[Azure Kubernetes Service logging](../../aks/monitor-aks-reference.md#resource-logs) |
 | Azure Load Balancer |[Log Analytics for Azure Load Balancer](../../load-balancer/monitor-load-balancer.md) |
+| Azure Load Testing |[Azure Load Testing logs](../../load-testing/monitor-load-testing-reference.md#resource-logs) |
 | Azure Logic Apps |[Logic Apps B2B custom tracking schema](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Azure Machine Learning | [Diagnostic logging in Azure Machine Learning](../../machine-learning/monitor-resource-reference.md) |
 | Azure Media Services | [Media Services monitoring schemas](/azure/media-services/latest/monitoring/monitor-media-services#schemas) |

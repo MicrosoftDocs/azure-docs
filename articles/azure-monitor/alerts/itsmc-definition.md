@@ -42,13 +42,11 @@ When the ITSMC resource is deployed, a notification appears at the upper-right c
 
 ## Create an ITSM connection
 
-After you've installed ITSMC, you must prep your ITSM tool to allow the connection from ITSMC. Based on the ITSM product that you're connecting to, select one of the following links for instructions:
-
-- [ServiceNow](./itsmc-connections-servicenow.md)
-- [System Center Service Manager](./itsmc-connections-scsm.md)
+After you've installed ITSMC, follow these steps to create the ITSM connection.
 
 After you've prepped your ITSM tool, complete these steps to create a connection:
 
+1. [Configure ServiceNow](./itsmc-connections-servicenow.md) to allow the connection from ITSMC.
 1. In **All resources**, look for **ServiceDesk(*your workspace name*)**:
 
    ![Screenshot that shows recent resources in the Azure portal.](media/itsmc-definition/create-new-connection-from-resource.png)

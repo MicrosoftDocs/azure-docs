@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 04/26/2022
+ms.date: 05/12/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -15,6 +15,39 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 > [!TIP]
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+
+## May 2022
+
+Updates in May include:
+
+- [General availability (GA) of Defender for SQL for AWS and GCP environments](#general-availability-ga-of-defender-for-sql-for-aws-and-gcp-environments)
+- [Multi-cloud settings of Servers plan are now available in connector level](#multi-cloud-settings-of-servers-plan-are-now-available-in-connector-level)
+
+### General availability (GA) of Defender for SQL for AWS and GCP environments
+
+The database protection capabilities provided by Microsoft Defender for Cloud now include support for your SQL databases hosted in AWS and GCP environments.
+
+Using Defender for SQL, enterprises can now protect their data, whether hosted in Azure, AWS, GCP, or on-premises machines.
+
+Microsoft Defender for SQL now provides a unified cross-environment experience to view security recommendations, security alerts and vulnerability assessment findings encompassing SQL servers and the underlying Windows OS.
+
+Using the multi-cloud onboarding experience, you can enable and enforce databases protection for VMs in AWS and GCP. After enabling multi-cloud protection, all supported resources covered by your subscription are protected. Future resources created within the same subscription will also be protected.
+
+Learn how to protect and connect your [AWS accounts](quickstart-onboard-aws.md) and your [GCP projects](quickstart-onboard-gcp.md) with Microsoft Defender for Cloud.
+
+### Multi-cloud settings of Servers plan are now available in connector level
+
+There are now connector-level settings for Defender for Servers in multi-cloud.
+
+The new connector-level settings provide granularity for pricing and auto-provisioning configuration per connector, independently of the subscription.
+
+All auto-provisioning components available in the connector level (Azure Arc, MDE, and vulnerability assessments) are enabled by default, and the new configuration supports both [Plan 1 and Plan 2 pricing tiers](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans).
+ 
+Updates in the UI include a reflection of the selected pricing tier and the required components configured.
+
+:::image type="content" source="media/release-notes/main-page.png" alt-text="Screenshot of the main plan page with the Server plan multi-cloud settings." lightbox="media/release-notes/main-page.png":::
+
+:::image type="content" source="media/release-notes/auto-provision.png" alt-text="Screenshot of the auto-provision page with the multi-cloud connector enabled.":::
 
 ## April 2022
 
@@ -143,7 +176,7 @@ Changes in our roadmap and priorities have removed the need for the network traf
 
 Defender for Container's image scan now supports Windows images that are hosted in Azure Container Registry. This feature is free while in preview, and will incur a cost when it becomes generally available.
 
-Learn more in [Use Microsoft Defender for Container to scan your images for vulnerabilities](defender-for-container-registries-usage.md).
+Learn more in [Use Microsoft Defender for Container to scan your images for vulnerabilities](defender-for-containers-usage.md).
 
 ### New alert for Microsoft Defender for Storage (preview)
 

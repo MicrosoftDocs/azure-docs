@@ -5,7 +5,7 @@ description: This article provides an overview of the Azure WAF engine.
 services: web-application-firewall
 author: johndowns
 ms.service: web-application-firewall
-ms.date: 04/29/2022
+ms.date: 05/03/2022
 ms.author: jodowns
 ms.topic: conceptual
 ---
@@ -33,7 +33,7 @@ There are many new features that are only supported in the Azure WAF engine. The
   * Increased request body size limit to 2 MB
   * Increased file upload limit to 4 GB
 * [WAF v2 metrics](application-gateway-waf-metrics.md#application-gateway-waf-v2-metrics)
-* [Per rule exclusions](application-gateway-waf-configuration.md) and support for exclusion attributes by name
+* [Per rule exclusions](application-gateway-waf-configuration.md#per-rule-exclusions) and support for [exclusion attributes by name](application-gateway-waf-configuration.md#request-attributes-by-keys-and-values).
 
 New WAF features will only be released with later versions of CRS on the new WAF engine. 
 

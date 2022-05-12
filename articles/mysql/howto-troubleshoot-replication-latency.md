@@ -5,6 +5,7 @@ keywords: mysql, troubleshoot, replication latency in seconds
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: troubleshooting
 ms.date: 01/13/2021
 ---

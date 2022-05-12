@@ -22,7 +22,7 @@ The following are the supported resource types for faults, the target types, and
 | Microsoft.Compute/virtualMachineScaleSets (agent-based) | Microsoft-Agent | Reader |
 | Microsoft.Compute/virtualMachines (service-direct) | Microsoft-VirtualMachine | Virtual Machine Contributor |
 | Microsoft.Compute/virtualMachineScaleSets (service-direct) | Microsoft-VirtualMachineScaleSet | Virtual Machine Contributor |
-| Microsoft.ContainerService/managedClusters (service-direct) | Microsoft-AzureKubernetesServiceChaosMesh | Azure Kubernetes Service Cluster User Role |
+| Microsoft.ContainerService/managedClusters (service-direct) | Microsoft-AzureKubernetesServiceChaosMesh | Azure Kubernetes Service Cluster Admin Role |
 | Microsoft.DocumentDb/databaseAccounts (CosmosDB, service-direct) | Microsoft-CosmosDB | Cosmos DB Operator |
 | Microsoft.KeyVault/vaults (service-direct) | Microsoft-KeyVault | Key Vault Contributor |
 | Microsoft.Network/networkSecurityGroups (service-direct) | Microsoft-NetworkSecurityGroup | Network Contributor |
