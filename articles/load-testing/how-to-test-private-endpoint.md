@@ -1,7 +1,7 @@
 ---
 title: Load test private endpoints
 titleSuffix: Azure Load Testing
-description: Learn how to configure VNET injection in Azure Load Testing to test private endpoints and hybrid applications.
+description: Learn how to deploy Azure Load Testing in a virtual network (VNET injection) to test private application endpoints and hybrid deployments.
 services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
@@ -11,7 +11,7 @@ ms.topic: how-to
 
 ---
 
-# Test private endpoints by deploying Azure Load Testing in your Azure virtual network
+# Test private endpoints by deploying Azure Load Testing in an Azure virtual network
 
 In this article, learn how to test private application endpoints with Azure Load Testing. You'll create an Azure Load Testing resource and enable it to attach load test engines in your virtual network (VNET injection).
 
