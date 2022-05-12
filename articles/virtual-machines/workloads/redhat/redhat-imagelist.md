@@ -27,10 +27,10 @@ This is a list of RHEL images available in Azure. Unless otherwise stated, all i
 
 Offer| SKU | Partitioning | Provisioning | Notes
 :----|:----|:-------------|:-------------|:-----
-RHEL          | 6.7      | RAW    | Linux Agent | Extended Lifecycle Support available from December 1st. [More details here.](redhat-extended-lifecycle-support.md)
-|             | 6.8      | RAW    | Linux Agent | Extended Lifecycle Support available from December 1st. [More details here.](redhat-extended-lifecycle-support.md)
-|             | 6.9      | RAW    | Linux Agent | Extended Lifecycle Support available from December 1st. [More details here.](redhat-extended-lifecycle-support.md)
-|             | 6.10     | RAW    | Linux Agent | Extended Lifecycle Support available from December 1st. [More details here.](redhat-extended-lifecycle-support.md)
+RHEL          | 6.7      | RAW    | Linux Agent | Extended Lifecycle Support available. [More details here.](redhat-extended-lifecycle-support.md)
+|             | 6.8      | RAW    | Linux Agent | Extended Lifecycle Support available. [More details here.](redhat-extended-lifecycle-support.md)
+|             | 6.9      | RAW    | Linux Agent | Extended Lifecycle Support available. [More details here.](redhat-extended-lifecycle-support.md)
+|             | 6.10     | RAW    | Linux Agent | Extended Lifecycle Support available. [More details here.](redhat-extended-lifecycle-support.md)
 |             | 7-RAW    | RAW    | Linux Agent | RHEL 7.x family of images. <br> Attached to regular repositories by default (not EUS).
 |             | 7-LVM    | LVM    | Linux Agent | RHEL 7.x family of images. <br> Attached to regular repositories by default (not EUS). If you are looking for a standard RHEL image to deploy, use this set of images and/or its Generation 2 counterpart.
 |             | 7lvm-gen2| LVM    | Linux Agent | Generation 2, RHEL 7.x family of images. <br> Attached to regular repositories by default (not EUS). If you are looking for a standard RHEL image to deploy, use this set of images and/or its Generation 1 counterpart.
@@ -61,16 +61,12 @@ RHEL          | 6.7      | RAW    | Linux Agent | Extended Lifecycle Support ava
 |             | 82gen2   | LVM    | Linux Agent | Hyper-V Generation 2 - Attached to EUS repositories as of November 2020.
 |             | 8.3   | LVM    | Linux Agent |  Attached to regular repositories (EUS unavailable for RHEL 8.3)
 |             | 83-gen2   | LVM    | Linux Agent |Hyper-V Generation 2 -  Attached to regular repositories (EUS unavailable for RHEL 8.3)
-RHEL-SAP      | 7.4      | LVM    | Linux Agent | RHEL 7.4 for SAP HANA and Business Apps. Attached to E4S repositories, will charge a premium for SAP and RHEL as well as the base compute fee.
-|             | 74sap-gen2| LVM    | Linux Agent | RHEL 7.4 for SAP HANA and Business Apps. Generation 2 image. Attached to E4S repositories, will charge a premium for SAP and RHEL as well as the base compute fee.
-|             | 7.5       | LVM    | Linux Agent | RHEL 7.5 for SAP HANA and Business Apps. Attached to E4S repositories, will charge a premium for SAP and RHEL as well as the base compute fee.
-|             | 75sap-gen2| LVM    | Linux Agent | RHEL 7.5 for SAP HANA and Business Apps. Generation 2 image. Attached to E4S repositories, will charge a premium for SAP and RHEL as well as the base compute fee.
-|             | 7.6       | LVM    | Linux Agent | RHEL 7.6 for SAP HANA and Business Apps. Attached to E4S repositories, will charge a premium for SAP and RHEL as well as the base compute fee.
-|             | 76sap-gen2| LVM    | Linux Agent | RHEL 7.6 for SAP HANA and Business Apps. Generation 2 image. Attached to E4S repositories, will charge a premium for SAP and RHEL as well as the base compute fee.
-|             | 7.7       | LVM    | Linux Agent | RHEL 7.7 for SAP HANA and Business Apps. Attached to E4S repositories, will charge a premium for SAP and RHEL as well as the base compute fee.
-RHEL-SAP-HANA (To be removed  in November 2020) | 6.7       | RAW    | Linux Agent | RHEL 6.7 for SAP HANA. Outdated in favor of the RHEL-SAP images. This image will be removed in November 2020. More details about Red Hat's SAP cloud offerings are available at [SAP offerings on certified cloud providers](https://access.redhat.com/articles/3751271).
-|             | 7.2       | LVM    | Linux Agent | RHEL 7.2 for SAP HANA. Outdated in favor of the RHEL-SAP images. This image will be removed in November 2020. More details about Red Hat's SAP cloud offerings are available at [SAP offerings on certified cloud providers](https://access.redhat.com/articles/3751271).
-|             | 7.3       | LVM    | Linux Agent | RHEL 7.3 for SAP HANA. Outdated in favor of the RHEL-SAP images. This image will be removed in November 2020. More details about Red Hat's SAP cloud offerings are available at [SAP offerings on certified cloud providers](https://access.redhat.com/articles/3751271).
+|             | 8.4   | LVM    | Linux Agent | Attached to EUS repositories 
+|             | 84-gen2   | LVM    | Linux Agent |Hyper-V Generation 2 -  Hyper-V Generation 2 - Attached to EUS repositories
+|             | 8.5  | LVM    | Linux Agent |  Attached to regular repositories (EUS unavailable for RHEL 8.5)
+|             | 85-gen2   | LVM    | Linux Agent |Hyper-V Generation 2 -  Attached to regular repositories (EUS unavailable for RHEL 8.5)
+|             | 8.6   | LVM    | Linux Agent | Attached to EUS repositories 
+|             | 86-gen2   | LVM    | Linux Agent |Hyper-V Generation 2 -  Hyper-V Generation 2 - Attached to EUS repositories
 RHEL-SAP-APPS | 6.8       | RAW    | Linux Agent | RHEL 6.8 for SAP Business Applications. Outdated in favor of the RHEL-SAP images.
 |             | 7.3       | LVM    | Linux Agent | RHEL 7.3 for SAP Business Applications. Outdated in favor of the RHEL-SAP images.
 |             | 7.4       | LVM    | Linux Agent | RHEL 7.4 for SAP Business Applications.
@@ -81,9 +77,10 @@ RHEL-SAP-APPS | 6.8       | RAW    | Linux Agent | RHEL 6.8 for SAP Business App
 |             | 81-gen2      | LVM    | Linux Agent | RHEL 8.1 for SAP Business Applications. Generation 2 image.
 |             | 8.2       | LVM    | Linux Agent | RHEL 8.2 for SAP Business Applications.
 |             | 82-gen2      | LVM    | Linux Agent | RHEL 8.2 for SAP Business Applications. Generation 2 image.
-RHEL-HA       | 7.4       | LVM    | Linux Agent | RHEL 7.4 with HA Add-On. Will charge a premium for HA and RHEL on top of the base compute fee. Outdated in favor of the RHEL-SAP-HA images.
-|             | 7.5       | LVM    | Linux Agent | RHEL 7.5 with HA Add-On. Will charge a premium for HA and RHEL on top of the base compute fee. Outdated in favor of the RHEL-SAP-HA images.
-|             | 7.6       | LVM    | Linux Agent | RHEL 7.6 with HA Add-On. Will charge a premium for HA and RHEL on top of the base compute fee. Outdated in favor of the RHEL-SAP-HA images.
+|             | 8.4       | LVM    | Linux Agent | RHEL 8.4 for SAP Business Applications.
+|             | 84-gen2      | LVM    | Linux Agent | RHEL 8.4 for SAP Business Applications. Generation 2 image.
+|             | 8.6       | LVM    | Linux Agent | RHEL 8.6 for SAP Business Applications.
+|             | 86-gen2      | LVM    | Linux Agent | RHEL 8.6 for SAP Business Applications. Generation 2 image.
 RHEL-SAP-HA   | 7.4          | LVM    | Linux Agent | RHEL 7.4 for SAP with HA and Update Services. Attached to E4S repositories. Will charge a premium for SAP and HA repositories as well as RHEL, on top of the base compute fees.
 |             | 74sapha-gen2 | LVM    | Linux Agent | RHEL 7.4 for SAP with HA and Update Services. Generation 2 image. Attached to E4S repositories. Will charge a premium for SAP and HA repositories as well as RHEL, on top of the base compute fees.
 |             | 7.5          | LVM    | Linux Agent | RHEL 7.5 for SAP with HA and Update Services. Attached to E4S repositories. Will charge a premium for SAP and HA repositories as well as RHEL, on top of the base compute fees.
@@ -95,6 +92,10 @@ RHEL-SAP-HA   | 7.4          | LVM    | Linux Agent | RHEL 7.4 for SAP with HA a
 |             | 81sapha-gen2          | LVM    | Linux Agent | RHEL 8.1 for SAP with HA and Update Services. Generation 2 images Attached to E4S repositories. Will charge a premium for SAP and HA repositories as well as RHEL, on top of the base compute fees.
 |             | 8.2          | LVM    | Linux Agent | RHEL 8.2 for SAP with HA and Update Services. Will charge a premium for SAP and HA repositories as well as RHEL, on top of the base compute fees.
 |             | 82sapha-gen2          | LVM    | Linux Agent | RHEL 8.2 for SAP with HA and Update Services. Generation 2 images Attached to E4S repositories. Will charge a premium for SAP and HA repositories as well as RHEL, on top of the base compute fees.
+|             | 8.4          | LVM    | Linux Agent | RHEL 8.4 for SAP with HA and Update Services. Will charge a premium for SAP and HA repositories as well as RHEL, on top of the base compute fees.
+|             | 84sapha-gen2          | LVM    | Linux Agent | RHEL 8.4 for SAP with HA and Update Services. Generation 2 images Attached to E4S repositories. Will charge a premium for SAP and HA repositories as well as RHEL, on top of the base compute fees.
+|             | 8.6          | LVM    | Linux Agent | RHEL 8.6 for SAP with HA and Update Services. Will charge a premium for SAP and HA repositories as well as RHEL, on top of the base compute fees.
+|             | 86sapha-gen2          | LVM    | Linux Agent | RHEL 8.6 for SAP with HA and Update Services. Generation 2 images Attached to E4S repositories. Will charge a premium for SAP and HA repositories as well as RHEL, on top of the base compute fees.
 rhel-byos     |rhel-lvm74| LVM    | Linux Agent | RHEL 7.4 BYOS images, not attached to any source of updates, will not charge a RHEL premium.
 |             |rhel-lvm75| LVM    | Linux Agent | RHEL 7.5 BYOS images, not attached to any source of updates, will not charge a RHEL premium.
 |             |rhel-lvm76| LVM    | Linux Agent | RHEL 7.6 BYOS images, not attached to any source of updates, will not charge a RHEL premium.
@@ -109,6 +110,27 @@ rhel-byos     |rhel-lvm74| LVM    | Linux Agent | RHEL 7.4 BYOS images, not atta
 |             |rhel-lvm81-gen2 | LVM    | Linux Agent | RHEL 8.1 Generation 2 BYOS images , not attached to any source of updates, will not charge a RHEL premium.
 |             |rhel-lvm82 | LVM    | Linux Agent | RHEL 8.2 BYOS images , not attached to any source of updates, will not charge a RHEL premium.
 |             |rhel-lvm82-gen2 | LVM    | Linux Agent | RHEL 8.2 Generation 2 BYOS images , not attached to any source of updates, will not charge a RHEL premium.
+|             |rhel-lvm83 | LVM    | Linux Agent | RHEL 8.2 BYOS images , not attached to any source of updates, will not charge a RHEL premium.
+|             |rhel-lvm83-gen2 | LVM    | Linux Agent | RHEL 8.2 Generation 2 BYOS images , not attached to any source of updates, will not charge a RHEL premium.
+|             |rhel-lvm84 | LVM    | Linux Agent | RHEL 8.2 BYOS images , not attached to any source of updates, will not charge a RHEL premium.
+|             |rhel-lvm84-gen2 | LVM    | Linux Agent | RHEL 8.2 Generation 2 BYOS images , not attached to any source of updates, will not charge a RHEL premium.
+|             |rhel-lvm85 | LVM    | Linux Agent | RHEL 8.2 BYOS images , not attached to any source of updates, will not charge a RHEL premium.
+|             |rhel-lvm85-gen2 | LVM    | Linux Agent | RHEL 8.2 Generation 2 BYOS images , not attached to any source of updates, will not charge a RHEL premium.
+|             |rhel-lvm86 | LVM    | Linux Agent | RHEL 8.2 BYOS images , not attached to any source of updates, will not charge a RHEL premium.
+|             |rhel-lvm86-gen2 | LVM    | Linux Agent | RHEL 8.2 Generation 2 BYOS images , not attached to any source of updates, will not charge a RHEL premium.
+RHEL-SAP (out of support)        | 7.4      | LVM    | Linux Agent | RHEL 7.4 for SAP HANA and Business Apps. Attached to E4S repositories, will charge a premium for SAP and RHEL as well as the base compute fee.
+|             | 74sap-gen2| LVM    | Linux Agent | RHEL 7.4 for SAP HANA and Business Apps. Generation 2 image. Attached to E4S repositories, will charge a premium for SAP and RHEL as well as the base compute fee.
+|             | 7.5       | LVM    | Linux Agent | RHEL 7.5 for SAP HANA and Business Apps. Attached to E4S repositories, will charge a premium for SAP and RHEL as well as the base compute fee.
+|             | 75sap-gen2| LVM    | Linux Agent | RHEL 7.5 for SAP HANA and Business Apps. Generation 2 image. Attached to E4S repositories, will charge a premium for SAP and RHEL as well as the base compute fee.
+|             | 7.6       | LVM    | Linux Agent | RHEL 7.6 for SAP HANA and Business Apps. Attached to E4S repositories, will charge a premium for SAP and RHEL as well as the base compute fee.
+|             | 76sap-gen2| LVM    | Linux Agent | RHEL 7.6 for SAP HANA and Business Apps. Generation 2 image. Attached to E4S repositories, will charge a premium for SAP and RHEL as well as the base compute fee.
+|             | 7.7       | LVM    | Linux Agent | RHEL 7.7 for SAP HANA and Business Apps. Attached to E4S repositories, will charge a premium for SAP and RHEL as well as the base compute fee.
+RHEL-SAP-HANA (out of support) | 6.7       | RAW    | Linux Agent | RHEL 6.7 for SAP HANA. Outdated in favor of the RHEL-SAP images. This image will be removed in November 2020. More details about Red Hat's SAP cloud offerings are available at [SAP offerings on certified cloud providers](https://access.redhat.com/articles/3751271).
+|             | 7.2       | LVM    | Linux Agent | RHEL 7.2 for SAP HANA. Outdated in favor of the RHEL-SAP images. This image will be removed in November 2020. More details about Red Hat's SAP cloud offerings are available at [SAP offerings on certified cloud providers](https://access.redhat.com/articles/3751271).
+|             | 7.3       | LVM    | Linux Agent | RHEL 7.3 for SAP HANA. Outdated in favor of the RHEL-SAP images. This image will be removed in November 2020. More details about Red Hat's SAP cloud offerings are available at [SAP offerings on certified cloud providers](https://access.redhat.com/articles/3751271).
+RHEL-HA (out of support)       | 7.4       | LVM    | Linux Agent | RHEL 7.4 with HA Add-On. Will charge a premium for HA and RHEL on top of the base compute fee. Outdated in favor of the RHEL-SAP-HA images.
+|             | 7.5       | LVM    | Linux Agent | RHEL 7.5 with HA Add-On. Will charge a premium for HA and RHEL on top of the base compute fee. Outdated in favor of the RHEL-SAP-HA images.
+|             | 7.6       | LVM    | Linux Agent | RHEL 7.6 with HA Add-On. Will charge a premium for HA and RHEL on top of the base compute fee. Outdated in favor of the RHEL-SAP-HA images.
 
 > [!NOTE]
 > The RHEL-SAP-HANA product offering is considered end of life by Red Hat. Existing deployments will continue to work normally, but Red Hat recommends that customers migrate from the RHEL-SAP-HANA images to the RHEL-SAP-HA images which includes the SAP HANA repositories as well as the HA add-on. More details about Red Hat's SAP cloud offerings are available at [SAP offerings on certified cloud providers](https://access.redhat.com/articles/3751271).
