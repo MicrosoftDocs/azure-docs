@@ -74,7 +74,7 @@ You can use traffic analytics for NSGs in any of the following supported regions
    :::column-end:::
 :::row-end:::
 
-# Supported regions: Log Analytics Workspaces
+## Supported regions: Log Analytics Workspaces
 
 The Log Analytics workspace must exist in the following regions:
 :::row:::

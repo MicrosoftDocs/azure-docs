@@ -15,7 +15,7 @@ ms.custom: references_regions, devx-track-azurepowershell
 ---
 # Enable Network Watcher
 
-To analyze traffic, you need to have an existing network watcher, or [enable a network watcher](network-watcher-create.md) in each region that you have NSGs that you want to analyze traffic for. Traffic analytics can be enabled for NSGs hosted in any of the [supported regions](#supported-regions-nsg).
+To analyze traffic, you need to have an existing network watcher, or [enable a network watcher](network-watcher-create.md) in each region that you have NSGs that you want to analyze traffic for. Traffic analytics can be enabled for NSGs hosted in any of the [supported regions](supported-region-traffic-analytics.md).
 
 ## Select a network security group
 
@@ -25,9 +25,9 @@ In Azure portal, go to **Network watcher**, and then select **NSG flow logs**. S
 
 ![Selection of NSGs that require enablement of NSG flow log](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 
-If you try to enable traffic analytics for an NSG that is hosted in any region other than the [supported regions](#supported-regions-nsg), you receive a "Not found" error.
+If you try to enable traffic analytics for an NSG that is hosted in any region other than the [supported regions](supported-region-traffic-analytics.md), you receive a "Not found" error.
 
-# Enable flow log settings
+## Enable flow log settings
 
 Before enabling flow log settings, you must complete the following tasks:
 
@@ -56,7 +56,7 @@ Select the following options, as shown in the picture:
 4. Set **Retention** to the number of days you want to store data for. If you want to store the data forever, set the value to *0*. You incur Azure Storage fees for the storage account. 
 5. Select *On* for **Traffic Analytics Status**.
 6. Select processing interval. Based on your choice, flow logs will be collected from storage account and processed by Traffic Analytics. You can choose processing interval of every 1 hour or every 10 mins. 
-7. Select an existing Log Analytics (OMS) Workspace, or select **Create New Workspace** to create a new one. A Log Analytics workspace is used by Traffic Analytics  to store the aggregated and indexed data that is then used to generate the analytics. If you select an existing workspace, it must exist in one of the [supported regions](#supported-regions-log-analytics-workspaces) and have been upgraded to the new query language. If you do not wish to upgrade an existing workspace, or do not have a workspace in a supported region, create a new one. For more information about query languages, see [Azure Log Analytics upgrade to new log search](../azure-monitor/logs/log-query-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+7. Select an existing Log Analytics (OMS) Workspace, or select **Create New Workspace** to create a new one. A Log Analytics workspace is used by Traffic Analytics  to store the aggregated and indexed data that is then used to generate the analytics. If you select an existing workspace, it must exist in one of the [supported regions](supported-region-traffic-analytics.md) and have been upgraded to the new query language. If you do not wish to upgrade an existing workspace, or do not have a workspace in a supported region, create a new one. For more information about query languages, see [Azure Log Analytics upgrade to new log search](../azure-monitor/logs/log-query-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 > [!NOTE]
 >The log analytics workspace hosting the traffic analytics solution and the NSGs do not have to be in the same region. For example, you may have traffic analytics in a workspace in the West Europe region, while you may have NSGs in East US and West US. Multiple NSGs can be configured in the same workspace.
@@ -69,7 +69,7 @@ Repeat the previous steps for any other NSGs for which you wish to enable traffi
 
 You can also configure traffic analytics using the [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) PowerShell cmdlet in Azure PowerShell. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
 
-# View traffic analytics
+## View traffic analytics
 
 To view Traffic Analytics, search for **Network Watcher** in the portal search bar. Once inside Network Watcher, to explore traffic analytics and its capabilities, select **Traffic Analytics** from the left menu. 
 
