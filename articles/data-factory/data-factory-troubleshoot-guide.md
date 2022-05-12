@@ -400,7 +400,7 @@ The following table applies to U-SQL.
 ### Error code: 3252
 - **Message**: `There is not enough vcore available for your spark job, details: '%errorMessage;'`
 - **Cause**: Insufficient vCores.
-- **Recommendation**: Try reducing the numbers of vCores requested or increasing your  vCores quota. For more information, see [Apache Spark core concepts](../synapse-analytics/synapse-analytics/spark/apache-spark-concepts.md).
+- **Recommendation**: Try reducing the numbers of vCores requested or increasing your vCores quota. For more information, see [Apache Spark core concepts](../synapse-analytics/spark/apache-spark-concepts.md).
 
 ### Error code: 3253
 - **Message**: `There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under the Integration Runtime used for ActivityId: '%activityId;'.`

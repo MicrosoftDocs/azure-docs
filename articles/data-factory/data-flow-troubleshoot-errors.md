@@ -627,7 +627,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: 4507
 - **Message**: Unsupported compute type and/or core count value.
 - **Cause**: Unsupported compute type and/or core count value was provided.
-- **Recommendation**: Use one of the supported compute type and/or core count values given on this [document](control-flow-execute-data-flow-activity.md#type-properties</RecommendedAction).
+- **Recommendation**: Use one of the supported compute type and/or core count values given on this [document](control-flow-execute-data-flow-activity.md#type-properties).
 
 ## Error code: 4508
 - **Message**: Spark cluster not found.
