@@ -18,9 +18,23 @@ In this article, you'll learn about network isolation changes with our new v2 AP
 
 ## What is the New API platform on Azure Resource Manager (ARM)
 
-Our legacy v1 API platform relies on two services, which are __ARM__ and __Azure Machine Learning workspace__. Workspace and compute create/update/delete (CRUD) operations use ARM, and all other operations use the workspace. 
+Our legacy v1 API platform handles two types of operations:
+* __Azure Resource Manager (ARM)__ - Create, update, and delete (CRUD) operations on the workspace and compute.
+* __Azure Machine Learning workspace__. All other operations.
 
-Our new v2 API platform uses ARM for _all_ operations. It provides a consistent API in one place, and the following Azure Resource Manager benefits:
+Our new v2 API platform uses public ARM operations on the following resource types:
+* Workspace
+* Compute
+* Datastore
+* Dataset
+* Job
+* Environment
+* Code
+* Component
+* Endpoints (both batch and online)
+
+
+The v2 API provides a consistent API in one place, and the following Azure Resource Manager benefits:
 * Azure role-based access control (Azure RBAC)
 * Azure Policy
 * Integration with Azure Resource Graph
@@ -29,9 +43,24 @@ The Azure Machine Learning CLI v2 uses our new v2 API platform. New features suc
 
 ## What are the Network Isolation Changes with V2
 
-When you configure an Azure Machine Learning [workspace with a private endpoint](how-to-configure-private-link.md), network isolation works only for workspace operations. Our new API Platform uses ARM, which means the workspace private endpoint can't provide network isolation for our new API Platform. Metadata such as your resource ID and parameters related to your machine learning operations are included in the ARM communication. For example, the [create or update job](/rest/api/azureml/jobs/create-or-update) api sends metadata, and [parameters](/azure/machine-learning/reference-yaml-job-command).
+As mentioned in the previous section, there are two types of operations; with ARM and with the workspace. You can enable network isolation for both types:
 
-If you __don't__ want to use the v2 API, Azure Machine Learning will provide a *v1_legacy_mode* parameter you can set to limit your workspace to only use the v1 legacy API platform.
+| Operation type | Enable network isolation using |
+| ----- | ----- |
+| Azure Resource Manager | Azure Resource Manager Private Link (preview) |
+| Workspace | [Azure Machine Learning workspace private endpoint](how-to-configure-private-link.md) |
+
+With the __legacy v1 API__, most operations used the workspace. Adding a private endpoint to the workspace enabled network isolation for everything except CRUD operations on the workspace or compute resources.
+
+With the __new v2 API__, most operations use ARM. So enabling a private endpoint on your workspace doesn't provide the same level of network isolation that you may be used to with the v1 API.
+
+> [!TIP]
+> * Communications between the workspace and other Azure services such as storage, key vault, and container registry are secured by the private endpoint(s) on the services.
+> * Even without network isolation, your communication with the workspace and ARM is encrypted using TLS 1.2.
+
+While you can use Azure Private Link for ARM to enable network isolation for ARM communication, it's a preview feature and operates at the tenant level. We understand that this feature may not be acceptable for your organization. 
+
+To enable your security team to configure a network isolated workspace to only accepting v1 legacy APIs, we're introducing the *v1_legacy_mode* parameter.
 
 > [!IMPORTANT]
 > Enabling v1_legacy_mode may prevent you from using features provided by the v2 API. For example, some features of Azure Machine Learning studio may be unavailable.
@@ -39,9 +68,14 @@ If you __don't__ want to use the v2 API, Azure Machine Learning will provide a *
 ## Scenarios and Required Actions
 
 >[!WARNING]
->This parameter is not implemented yet. It will be implemented the week of May 15th, 2022.
+>The *v1_legacy_mode* parameter is not implemented yet. It will be implemented the week of May 15th, 2022.
 
-We provide a new workspace level parameter called v1_legacy_mode. By default, if you create a workspace and configure a private endpoint during workspace creation, this parameter will be enabled. The following are the scenarios that are impacted by this behavior:
+We'll provide a new workspace level parameter called v1_legacy_mode. The purpose of this parameter is to allow you to prevent the use of the v2 API with a workspace. For example, if your security policies prevent using a preview or tenant level feature like Azure Resource Manager Private Link.
+
+> [!TIP]
+> If you do not plan to enable network isolation for your workspace, you do not need to enable this parameter.
+
+<!-- By default, if you create a workspace _and configure a private endpoint during workspace creation_, this parameter will be enabled. The following are the scenarios that are impacted by this behavior:
 
 * If you have an __existing__ Azure Machine Learning workspace with a private endpoint, which was created before this parameter was implemented, __this parameter will automatically be enabled for your workspace__. So your existing v1 API communications will continue to be secured using the workspace private endpoint.
 
@@ -51,7 +85,7 @@ We provide a new workspace level parameter called v1_legacy_mode. By default, if
 
 This behavior prevents you from being in a situation where only some of the API communications are secured by the workspace private endpoint.
 
-__If you want to use the v2 API with your private endpoint enabled workspace__, you must __disable__ the v1_legacy_mode parameter.
+__If you want to use the v2 API with your private endpoint enabled workspace__, you must __disable__ the v1_legacy_mode parameter. -->
 
 ## How to update v1_legacy_mode parameter
 
@@ -71,29 +105,9 @@ ws = Workspace.from_config()
 ws.update(v1_legacy_mode=Enabled)
 ```
 
-# [Azure CLI extension v2 preview](#tab/azurecliextensionv2)
-
-When using the Azure CLI [extension v2 CLI preview for machine learning](how-to-configure-cli.md), create a YAML document that sets the `v1_legacy_mode` property to `Disabled`. Then use the `az ml update` command to update the workspace:
-
-```yml
-$schema: https://azuremlschemas.azureedge.net/latest/workspace.schema.json
-name: mlw-privatelink-prod
-location: eastus
-display_name: Private Link endpoint workspace-example
-description: When using private link, you must set the image_build_compute property to a cluster name to use for Docker image environment building. You can also specify whether the workspace should be accessible over the internet.
-image_build_compute: cpu-compute
-v1_legacy_mode: Enabled
-tags:
-  purpose: demonstration
-```
-
-```azurecli
-az ml workspace update -f workspace.yml
-```
-
 # [Azure CLI extension v1](#tab/azurecliextensionv1)
 
-The Azure CLI [extension v1 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace update](/cli/azure/ml/workspace#az-ml-workspace-update) command. To enable public access to the workspace, add the parameter `--v1-legacy-mode disabled`.
+The Azure CLI [extension v1 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace update](/cli/azure/ml/workspace#az-ml-workspace-update) command. To enable the parameter for a workspace, add the parameter `--set v1-legacy-mode=true`.
 
 ---
 
