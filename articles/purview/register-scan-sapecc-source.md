@@ -16,7 +16,7 @@ This article outlines how to register SAP ECC, and how to authenticate and inter
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Share**|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
 |---|---|---|---|---|---|---|---|
 | [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes*](#lineage)| No |
 
