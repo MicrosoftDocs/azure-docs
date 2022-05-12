@@ -208,13 +208,11 @@ In this section, you'll use OpenSSL to create a self-signed X.509 certificate. T
 To create the X.509 certificate:
 
 1. On Windows, open a Git Bash prompt. On Linux, you can use a regular Bash prompt.
-
 ::: zone pivot="programming-language-ansi-c, programming-language-java"
 
 1. Create and navigate to a directory where you'd like to create your certificates.
 
 ::: zone-end
-
 ::: zone pivot="programming-language-csharp"
 
 1. Change directories to the project directory for the X.509 device provisioning sample.
@@ -224,7 +222,6 @@ To create the X.509 certificate:
     ```
 
 ::: zone-end
-
 ::: zone pivot="programming-language-nodejs"
 
 1. From the location where you downloaded the SDK, go to the sample directory:
@@ -234,7 +231,6 @@ To create the X.509 certificate:
     ```
 
 ::: zone-end
-
 ::: zone pivot="programming-language-python"
 
 1. From the location where you downloaded the SDK, go to the sample directory:
