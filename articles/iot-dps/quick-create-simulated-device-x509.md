@@ -91,7 +91,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 5. Open a command prompt or Git Bash shell. Run the following commands to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. (replace `<release-tag>` with the tag you copied in the previous step).
 
-    ```cmd/sh
+    ```cmd
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
     cd azure-iot-sdk-c
     git submodule update --init
@@ -101,7 +101,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 6. When the operation is complete, run the following commands from the `azure-iot-sdk-c` directory:
 
-    ```cmd/sh
+    ```cmd
     mkdir cmake
     cd cmake
     ```
@@ -117,7 +117,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 8. When the build succeeds, the last few output lines look similar to the following output:
 
-    ```cmd/sh
+    ```cmd
     $ cmake -Duse_prov_client:BOOL=ON ..
     -- Building for: Visual Studio 16 2019
     -- The C compiler identification is MSVC 19.23.28107.0
@@ -178,25 +178,18 @@ In this section, you'll prepare a development environment that's used to build t
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-3. Go to the root `azure-iot-sdk-`java` directory and build the project to download all needed packages.
+3. Go to the root `azure-iot-sdk-java` directory and build the project to download all needed packages.
 
-   ```cmd/sh
+   ```cmd
    cd azure-iot-sdk-java
    mvn install -DskipTests=true
    ```
-
-4. Go to the certificate generator project and build the project.
-
-    ```cmd/sh
-    cd azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator
-    mvn clean install
-    ```
 
 ::: zone-end
 
 ## Create a self-signed X.509 device certificate
 
-In this section, you'll use OpenSSL to create a self-signed X.509 certificate. This certificate must be uploaded to your provisioning service, and verified by the service.
+In this section, you'll use OpenSSL to create a self-signed X.509 certificate and a private key. This certificate will be uploaded to your provisioning service instance, and verified by the service.
 
 > [!CAUTION]
 > Use certificates created with OpenSSL in this quickstart for development testing only.
@@ -210,12 +203,12 @@ To create the X.509 certificate:
 1. On Windows, open a Git Bash prompt. On Linux, you can use a regular Bash prompt.
 ::: zone pivot="programming-language-ansi-c, programming-language-java"
 
-1. Create and navigate to a directory where you'd like to create your certificates.
+2. Create and navigate to a directory where you'd like to create your certificates.
 
 ::: zone-end
 ::: zone pivot="programming-language-csharp"
 
-1. Change directories to the project directory for the X.509 device provisioning sample.
+2. Change directories to the project directory for the X.509 device provisioning sample.
 
     ```bash
     cd ./azure-iot-samples-csharp/provisioning/Samples/device/X509Sample
@@ -224,7 +217,7 @@ To create the X.509 certificate:
 ::: zone-end
 ::: zone pivot="programming-language-nodejs"
 
-1. From the location where you downloaded the SDK, go to the sample directory:
+2. From the location where you downloaded the SDK, go to the sample directory:
 
     ```bash
     cd ./azure-iot-sdk-node/provisioning/device/samples
@@ -233,7 +226,7 @@ To create the X.509 certificate:
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-1. From the location where you downloaded the SDK, go to the sample directory:
+2. From the location where you downloaded the SDK, go to the sample directory:
 
     ```bash
     cd ./azure-iot-sdk-python/azure-iot-device/samples/async-hub-scenarios
@@ -241,12 +234,12 @@ To create the X.509 certificate:
 
 ::: zone-end
 
-1. Run the following command:
+3. Run the following command:
 
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device-key.pem -out ./device-cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=my-x509-device"
+    winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout device-key.pem -out device-cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "//CN=my-x509-device"
     ```
 
     > [!IMPORTANT]
@@ -255,31 +248,31 @@ To create the X.509 certificate:
     # [Linux](#tab/linux)
 
     ```bash
-    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./device-key.pem -out ./device-cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=my-x509-device"
+    openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout device-key.pem -out device-cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=my-x509-device"
     ```
 
     ---
 
-1. When asked to **Enter PEM pass phrase:**, use the pass phrase `1234`.
+4. When asked to **Enter PEM pass phrase:**, use the pass phrase `1234`.
 
-1. When asked **Verifying - Enter PEM pass phrase:**, use the pass phrase `1234` again.
+5. When asked **Verifying - Enter PEM pass phrase:**, use the pass phrase `1234` again.
 
     A test certificate file (*device-cert.pem*) and private key file (*device-key.pem*) should now be generated in the directory where you ran the `openssl` command.
 
     The certificate file has its subject common name (CN) set to `my-x509-device`. For an X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
 
-1. To view the common name (CN) and other properties of the certificate file, enter the following command:
+6. To view the common name (CN) and other properties of the certificate file, enter the following command:
 
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl x509 -in ./device-cert.pem -text -noout
+    winpty openssl x509 -in device-cert.pem -text -noout
     ```
 
     # [Linux](#tab/linux)
 
     ```bash
-    openssl x509 -in ./device-cert.pem -text -noout
+    openssl x509 -in device-cert.pem -text -noout
     ```
 
     ---
@@ -373,7 +366,7 @@ On Windows, you won't need the Git Bash prompt for the rest of this quickstart. 
 
 ::: zone pivot="programming-language-java"
 
-1. The Java sample code requires a private key that isn't encrypted. Run the following command to create an unencrypted private key:
+7. The Java sample code requires a private key that isn't encrypted. Run the following command to create an unencrypted private key:
 
     # [Windows](#tab/windows)
 
@@ -581,13 +574,13 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
 4. Type the following command to build and run the X.509 device provisioning sample (replace the `<IDScope>` value with the ID Scope that you copied in the previous section.). The certificate file will default to *./certificate.pfx* and prompt for the .pfx password. Type in your password.
 
-    ```cmd/sh
+    ```cmd
     dotnet run -- -s <IDScope>
     ```
 
     If you want to pass everything as a parameter, you can use the following example format.
 
-    ```cmd/sh
+    ```cmd
     dotnet run -- -s 0ne00000A0A -c certificate.pfx -p 1234
     ```
 
@@ -622,7 +615,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
 1. In a command window, from the location where you downloaded the SDK, go to the sample directory, and build the project:
 
-    ```cmd/sh
+    ```cmd
     cd ./azure-iot-sdk-node/provisioning/device/samples
     npm install
     ```
@@ -638,7 +631,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
 1. Run the script and verify that the device was provisioned successfully.
 
-    ```cmd/sh
+    ```cmd
     node register_x509.js
     ```
 
@@ -668,7 +661,7 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
 
 3. In a command prompt, use the following commands to add the environment variables for the global device endpoint and ID Scope.
 
-    ```cmd/sh
+    ```cmd
     set PROVISIONING_HOST=global.azure-devices-provisioning.net
     set PROVISIONING_IDSCOPE=<ID scope for your DPS resource>
     ```
@@ -677,13 +670,13 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
 
 5. Set the environment variable for the registration ID as follows:
 
-    ```cmd/sh
+    ```cmd
     set DPS_X509_REGISTRATION_ID=my-x509-device
     ```
 
 6. Set the environment variables for the certificate file, private key file, and pass phrase.
 
-    ```cmd/sh
+    ```cmd
     set X509_CERT_FILE=./device-cert.pem
     set X509_KEY_FILE=./device-key.pem
     set PASS_PHRASE=1234
@@ -695,7 +688,7 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
 
 9. Run the sample. The sample will connect, provision the device to a hub, and send some test messages to the hub.
 
-    ```cmd/sh
+    ```cmd
     $ python azure-iot-sdk-python/azure-iot-device/samples/async-hub-scenarios/provision_x509.py
     RegistrationStage(RequestAndResponseOperation): Op will transition into polling after interval 2.  Setting timer.
     The complete registration result is
@@ -738,7 +731,7 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
 
 1. Open a command prompt. Navigate to the sample project folder of the Java SDK repository.
 
-    ```cmd/sh
+    ```cmd
     cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-X509-sample
     ```
 
@@ -819,7 +812,7 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
 
 1. Build the sample, and then go to the `target` folder and execute the created .jar file.
 
-    ```cmd/sh
+    ```cmd
     mvn clean install
     cd target
     java -jar ./provisioning-x509-sample-{version}-with-deps.jar
