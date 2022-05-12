@@ -18,7 +18,7 @@ ms.author: eur
 
 ## Prerequisites
 
-Before you can begin using [Speech Studio](https://speech.microsoft.com), you need to have an Azure account and a Speech resource. If you don't already have an account and a resource, [try Speech service for free](overview.md#try-the-speech-service-for-free).
+Before you can begin using [Speech Studio](https://speech.microsoft.com), you need to have an Azure account and a Speech resource. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Get the keys for your resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource).
 
 After you've created an Azure account and a Speech service resource, do the following:
 
@@ -31,7 +31,7 @@ In Speech Studio, the following Speech service features are available as project
 
 * **Real-time speech-to-text**: Quickly test speech-to-text by dragging audio files here without having to use any code. This is a demo tool for seeing how speech-to-text works on your audio samples. To explore the full functionality, see [What is speech-to-text?](speech-to-text.md).
 
-* **Custom Speech**: Create speech recognition models that are tailored to specific vocabulary sets and styles of speaking. In contrast to the base speech recognition model, Custom Speech models become part of your unique competitive advantage because they're not publicly accessible. To get started with uploading sample audio to create a Custom Speech model, see [Prepare data for Custom Speech](how-to-custom-speech-test-and-train.md).
+* **Custom Speech**: Create speech recognition models that are tailored to specific vocabulary sets and styles of speaking. In contrast to the base speech recognition model, Custom Speech models become part of your unique competitive advantage because they're not publicly accessible. To get started with uploading sample audio to create a Custom Speech model, see [Upload training and testing datasets](how-to-custom-speech-upload-data.md).
 
 * **Pronunciation assessment**: Evaluate speech pronunciation and give speakers feedback on the accuracy and fluency of spoken audio. Speech Studio provides a sandbox for testing this feature quickly, without code. To use the feature with the Speech SDK in your applications, see the [Pronunciation assessment](how-to-pronunciation-assessment.md) article.
 
