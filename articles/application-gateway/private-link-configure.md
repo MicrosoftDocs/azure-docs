@@ -16,6 +16,8 @@ Application Gateway Private Link allows you to connect your workloads over a pri
 
 :::image type="content" source="media/private-link/private-link.png" alt-text="Diagram showing Application Gateway Private Link":::
 
+> [!IMPORTANT]
+> Azure Application Gateway Private Link is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Configuration options
 
