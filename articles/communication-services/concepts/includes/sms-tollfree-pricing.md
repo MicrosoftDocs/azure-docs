@@ -22,21 +22,30 @@ The Toll-free SMS service requires provisioning a toll-free number through the A
 ### Leasing Fee
 Fees for toll-free leasing are charged after provisioning and then recur on a month-to-month basis:
 
-|Number type   |Monthly fee |
-|--------------|-----------|
-|Toll-free (United States) |$2/mo|
+|Country |Number type |Monthly fee|
+|--------|-----------|------------|
+|United States|Toll-free  |$2/mo|
+|Canada| Toll-free |$2/mo|
 
 ### Usage Fee
-SMS offers pay-as-you-go pricing. The price is a per-message segment charge based on the destination of the message. Messages can be sent by toll-free phone numbers to phone numbers located within the United States.
+SMS offers pay-as-you-go pricing. The price is a per-message segment* charge based on the destination of the message. Messages can be sent by toll-free phone numbers to phone numbers located within the United States.
 
 The following prices include required communications taxes and fees:
 
-|Message Type   |Usage Fee |
-|-----------|------------|
-|Send messages (per message segment*) |$0.0075 |
-|Receive messages (per message segment*) |$0.0075 |
+|Country| Send Message | Receive Message|
+|-----------|---------|--------------|
+| United States| $0.0075 | $0.0075|
+| Canada | $0.0075 | $0.0075|
+
 
 *Please see our guide on [SMS character limits](../sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments.
 
 ## Carrier surcharge
-A standard carrier surcharge of $0.0025/sent message segment and $0.0010/received message segment is also applicable. A carrier surcharge is subject to change. See our guide on [Carrier surcharges](https://github.com/Azure/Communication/blob/master/sms-carrier-surcharge.md) for details.
+A standard carrier surcharge is applicable to messages exchanged via toll-free numbers. A carrier surcharge is a per-message segment* charge based on the destination of the message and is subject to change. See our guide on [Carrier surcharges](https://github.com/Azure/Communication/blob/master/sms-carrier-surcharge.md) for details.
+
+|Country| Send Message | Receive Message|
+|-----------|---------|--------------|
+| United States| $0.0025 | $0.0010|
+| Canada | $0.0085 | NA|
+
+*Please see our guide on [SMS character limits](../sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments.
