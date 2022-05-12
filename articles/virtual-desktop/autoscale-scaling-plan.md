@@ -14,7 +14,7 @@ ms.custom: references_regions
 > Autoscale is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down to optimize deployment costs. You create a scaling plan that can be based on:
+Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down to optimize deployment costs. You can create a scaling plan based on:
 
 - Time of day
 - Specific days of the week
@@ -59,7 +59,7 @@ To use scaling plans, make sure you follow these guidelines:
 
 ## Create a custom RBAC role in the Azure portal
 
-Before creating your first scaling plan, you'll need to create a custom role-based access control (RBAC) role with your Azure subscription as the assignable scope. Assigning this custom role at any level lower than your subscription, such as the resource group, host pool or VM, will prevent autoscale from working properly. This custom role and assignment will allow Azure Virtual Desktop to manage the power state of any VMs in your subscription. It will also let the service apply actions on both host pools and VMs when there are no active user sessions. For more information about creating custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md). 
+Before creating your first scaling plan, you'll need to create a custom role-based access control (RBAC) role with your Azure subscription as the assignable scope. Assigning this custom role at any level lower than your subscription, such as the resource group, host pool, or VM, will prevent autoscale from working properly. This custom role and assignment will allow Azure Virtual Desktop to manage the power state of any VMs in your subscription. It will also let the service apply actions on both host pools and VMs when there are no active user sessions. For more information about creating custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md). 
 
 > [!IMPORTANT]
 > You must have the `Microsoft.Authorization/roleAssignments/write` permission on your subscription in order to create and assign the custom role for the service principal on your subscription. This is part of **User Access Administrator** and **Owner** built in roles.
@@ -141,7 +141,7 @@ To create and assign the custom role on your subscription with the Azure portal:
 
 1. Review the configuration and select **Create**. Once the role has been successfully created, select **OK**. Note that it may take a few minutes to display everywhere.
 
-After the custom role has been created, you'll need to assign it to the Azure Virtual Desktop service principal and grant access.
+After you've created the custom role, you'll need to assign it to the Azure Virtual Desktop service principal and grant access.
 
 ## Assign the custom role with the Azure portal
 
@@ -239,7 +239,7 @@ To create or change a schedule:
         >[!NOTE]
         >The load balancing preference you select here will override the one you selected for your original host pool settings.
 
-    - For **Minimum percentage of hosts**, enter the percentage of session hosts you want to always remain on in this phase. If the percentage you enter isn't a whole number, it's rounded up to the nearest whole number. For example, in a host pool of seven session hosts, if you set the minimum percentage of hosts during ramp-up hours to **10%** , one VM will always stay on during ramp-up hours, and it won't be turned off by autoscale.
+    - For **Minimum percentage of hosts**, enter the percentage of session hosts you want to always remain on in this phase. If the percentage you enter isn't a whole number, it's rounded up to the nearest whole number. For example, in a host pool of seven session hosts, if you set the minimum percentage of hosts during ramp-up hours to **10%**, one VM will always stay on during ramp-up hours, and it won't be turned off by autoscale.
     
     - For **Capacity threshold**, enter the percentage of available host pool capacity that will trigger a scaling action to take place. For example, if two session hosts in the host pool with a max session limit of 20 are turned on, the available host pool capacity is 40. If you set the capacity threshold to **75%** and the session hosts have more than 30 user sessions, autoscale will turn on a third session host. This will then change the available host pool capacity from 40 to 60.
 
@@ -298,7 +298,7 @@ To edit an existing scaling plan:
 
 1. To change the scaling plan host pool assignments, under the **Manage** heading select **Host pool assignments** .
 
-1. To edit schedules, under the **Manage** heading select **Schedules**.
+1. To edit schedules, under the **Manage** heading, select **Schedules**.
 
 1. To edit the plan's friendly name, description, time zone, or exclusion tags, go to the **Properties** tab.
 
