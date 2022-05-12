@@ -81,7 +81,9 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
 Assign the correct permissions to the Service Principal: 
 
 ```azurecli
-az role assignment create --assignee <appId> --role "User Access Administrator"
+az role assignment create --assignee <appId> \
+    --scope /subscriptions/<subscriptionID> \
+    --role "User Access Administrator"
 ```
 
 ## Deploying the SAP Workload zone
