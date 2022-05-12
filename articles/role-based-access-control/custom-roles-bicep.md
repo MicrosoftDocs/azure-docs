@@ -1,0 +1,110 @@
+---
+title: Create or update Azure custom roles using Bicep - Azure RBAC
+description: Learn how to create or update Azure custom roles using Bicep and Azure role-based access control (Azure RBAC).
+services: role-based-access-control,azure-resource-manager
+author: schaffererin
+ms.service: role-based-access-control
+ms.topic: how-to
+ms.workload: identity
+ms.date: 05/12/2022
+ms.author: v-eschaffer 
+ms.custom: devx-track-azurepowershell
+
+#Customer intent: As an IT admin, I want to create custom roles using Bicep so that I can start automating custom role processes.
+
+---
+
+# Create Azure custom roles using Bicep
+
+If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own [custom roles](custom-roles.md). This article describes how to create a custom role using Bicep.
+
+[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+
+To create a custom role, you specify a role name, permissions, and where the role can be used. In this article, you create a role named _Custom Role - RG Reader_ with resource permissions that can be assigned at a subscription scope or lower.
+
+## Prerequisites
+
+To create a custom role, you must have:
+
+- Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
+
+## Review the Bicep file
+
+The Bicep file used in this article is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/create-role-def). The Bicep file has four parameters and a resources section. The four parameters are:
+
+- Array of actions with a default value of `["Microsoft.Resources/subscriptions/resourceGroups/read"]`.
+- Array of `notActions` with an empty default value.
+- Role name with a default value of `Custom Role - RG Reader`.
+- Role description with a default value of `Subscription Level Deployment of a Role Definition`.
+
+The scope where this custom role can be assigned is set to the current subscription.
+
+:::code language="bicep" source="~/quickstart-templates/subscription-deployments/create-role-def/main.bicep":::
+
+The resource defined in the Bicep file is:
+
+- [Microsoft.Authorization/roleDefinitions](/azure/templates/Microsoft.Authorization/roleDefinitions)
+
+## Deploy the Bicep file
+
+1. Save the Bicep file as **main.bicep** to your local computer.
+1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+
+    # [CLI](#tab/CLI)
+
+    ```azurecli
+    az group create --name exampleRG --location eastus
+    az deployment group create --resource-group exampleRG --template-file main.bicep
+    ```
+
+    # [PowerShell](#tab/PowerShell)
+
+    ```azurepowershell
+    New-AzResourceGroup -Name exampleRG -Location eastus
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep
+    ```
+
+    ---
+
+ When the deployment finishes, you should see a message indicating the deployment succeeded.
+
+## Review deployed resources
+
+Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+az resource list --resource-group exampleRG
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+Get-AzResource -ResourceGroupName exampleRG
+```
+
+---
+
+## Clean up resources
+
+When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and its resources.
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+az group delete --name exampleRG
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name exampleRG
+```
+
+---
+
+## Next steps
+
+- [Understand Azure role definitions](role-definitions.md)
+- [Bicep documentation](../azure-resource-manager/bicep/overview)
