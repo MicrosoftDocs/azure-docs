@@ -50,7 +50,7 @@ In this article, let's discuss how to address challenges you may face when confi
 
 Let's consider the example network illustrated in the following diagram. In the example, geo-redundant ExpressRoute connectivity is established between a Contoso's on-premises location and Contoso's VNet in an Azure region. In the diagram, solid green line indicates preferred path (via ExpressRoute 1) and the dotted one represents stand-by path (via ExpressRoute 2).
 
-[![1]][1]
+:::image type="content" source="./media/designing-for-disaster-recovery-with-expressroute-pvt/one-region.png" alt-text="Diagram of small to medium size on-premises network considerations.":::
 
 When you are designing ExpressRoute connectivity for disaster recovery, you need to consider:
 
@@ -73,7 +73,7 @@ You can influence Azure to prefer one ExpressRoute circuit over another one usin
 
 The following diagram illustrates influencing ExpressRoute path selection using more specific route advertisement. In the illustrated example, Contoso on-premises /24 IP range is advertised as two /25 address ranges via the preferred path (ExpressRoute 1) and as /24 via the stand-by path (ExpressRoute 2).
 
-[![2]][2]
+:::image type="content" source="./media/designing-for-disaster-recovery-with-expressroute-pvt/specific-route.png" alt-text="Diagram of influencing path selection using more specific routes.":::
 
 Because /25 is more specific, compared to /24, Azure would send the traffic destined to 10.1.11.0/24 via ExpressRoute 1 in the normal state. If both the connections of ExpressRoute 1 go down, then the VNet would see the 10.1.11.0/24 route advertisement only via ExpressRoute 2; and therefore the standby circuit is used in this failure state.
 
@@ -81,11 +81,11 @@ Because /25 is more specific, compared to /24, Azure would send the traffic dest
 
 The following screenshot illustrates configuring the weight of an ExpressRoute connection via Azure portal.
 
-[![3]][3]
+:::image type="content" source="./media/designing-for-disaster-recovery-with-expressroute-pvt/configure-weight.png" alt-text="Screenshot of configuring connection weight via Azure portal.":::
 
 The following diagram illustrates influencing ExpressRoute path selection using connection weight. The default connection weight is 0. In the example below, the weight of the connection for ExpressRoute 1 is configured as 100. When a VNet receives a route prefix advertised via more than one ExpressRoute circuit, the VNet will prefer the connection with the highest weight.
 
-[![4]][4]
+:::image type="content" source="./media/designing-for-disaster-recovery-with-expressroute-pvt/connection-weight.png" alt-text="Diagram of influencing path selection using connection weight.":::
 
 If both the connections of ExpressRoute 1 go down, then the VNet would see the 10.1.11.0/24 route advertisement only via ExpressRoute 2; and therefore the standby circuit is used in this failure state.
 
@@ -93,7 +93,7 @@ If both the connections of ExpressRoute 1 go down, then the VNet would see the 1
 
 The following diagram illustrates influencing ExpressRoute path selection using AS path prepend. In the diagram, the route advertisement over ExpressRoute 1 indicates the default behavior of eBGP. On the route advertisement over ExpressRoute 2, the on-premises network's ASN is prepended additionally on the route's AS path. When the same route is received through multiple ExpressRoute circuits, per the eBGP route selection process, VNet would prefer the route with the shortest AS path. 
 
-[![5]][5]
+:::image type="content" source="./media/designing-for-disaster-recovery-with-expressroute-pvt/aspath.png" alt-text="Diagram of influencing path selection using AS path prepend.":::
 
 If both the connections of ExpressRoute 1 go down, then the VNet would see the 10.1.11.0/24 route advertisement only via ExpressRoute 2. Consequentially, the longer AS path would become irrelevant. Therefore, the standby circuit would be used in this failure state.
 
@@ -148,11 +148,6 @@ In this article, we discussed how to design for disaster recovery of an ExpressR
 - [SMB disaster recovery with Azure Site Recovery][SMB DR]
 
 <!--Image References-->
-[1]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/one-region.png "small to medium size on-premises network considerations"
-[2]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/specificroute.png "influencing path selection using more specific routes"
-[3]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/configure-weight.png "configuring connection weight via Azure portal"
-[4]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/connectionweight.png "influencing path selection using connection weight"
-[5]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/aspath.png "influencing path selection using AS path prepend"
 [6]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region.png "large distributed on-premises network considerations"
 [7]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-arch1.png "scenario 1"
 [8]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-sol1.png "active-active ExpressRoute circuits solution 1"
