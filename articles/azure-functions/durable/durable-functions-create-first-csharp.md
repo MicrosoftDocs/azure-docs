@@ -160,7 +160,7 @@ You have used Visual Studio Code to create and publish a C# durable function app
 
 ::: zone pivot="code-editor-visualstudio"
 
-In this article, you learn how to use Visual Studio 2019 to locally create and test a "hello world" durable function.  This function orchestrates and chains-together calls to other functions. You then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2019.
+In this article, you learn how to use Visual Studio 2022 to locally create and test a "hello world" durable function.  This function orchestrates and chains-together calls to other functions. You then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2022.
 
 ![Screenshot shows a Visual Studio 2019 window with a durable function.](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
@@ -168,7 +168,7 @@ In this article, you learn how to use Visual Studio 2019 to locally create and t
 
 To complete this tutorial:
 
-* Install [Visual Studio 2019](https://visualstudio.microsoft.com/vs/). Make sure that the **Azure development** workload is also installed. Visual Studio 2017 also supports Durable Functions development, but the UI and steps differ.
+* Install [Visual Studio 2022](https://visualstudio.microsoft.com/vs/). Make sure that the **Azure development** workload is also installed. Visual Studio 2019 also supports Durable Functions development, but the UI and steps differ.
 
 * Verify you have the [Azure Storage Emulator](../../storage/common/storage-use-emulator.md) installed and running.
 
@@ -192,7 +192,7 @@ The Azure Functions template creates a project that can be published to a functi
 
     | Setting      | Suggested value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Version** | Azure Functions 3.0 <br />(.NET Core) | Creates a function project that uses the version 3.0 runtime of Azure Functions, which supports .NET Core 3.1. For more information, see [How to target Azure Functions runtime version](../functions-versions.md).   |
+    | **Version** | .NET 6 | Creates a function project that supports .NET 6 and the Azure Functions Runtime 4.0. For more information, see [How to target Azure Functions runtime version](../functions-versions.md).   |
     | **Template** | Empty | Creates an empty function app. |
     | **Storage account**  | Storage Emulator | A storage account is required for durable function state management. |
 
@@ -244,6 +244,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
     ```json
     {
+        "name": "Durable",
         "instanceId": "d495cb0ac10d4e13b22729c37e335190",
         "runtimeStatus": "Completed",
         "input": null,
