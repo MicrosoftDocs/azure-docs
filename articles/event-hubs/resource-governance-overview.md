@@ -41,7 +41,7 @@ These are the key attributes of an application group:
 ## Application group policies
 Each application group can contain zero or more policies that control the data plane access of the client applications that are part of the application group. Application groups currently support throttling policies. 
 
-### Throttling Policies 
+### Throttling policies 
 You can have throttling policies specified using different ingress and egress metrics. Application groups support using the following metrics to throttle ingress or egress workloads of client applications. 
 
 | Parameter | Description | 
