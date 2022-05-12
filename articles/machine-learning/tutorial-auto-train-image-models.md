@@ -63,11 +63,11 @@ This tutorial is also available in the [azureml-examples repository on GitHub](h
 * Use the following commands to install Azure ML Python SDK v2:
    * Uninstall previous preview version:
    ```python
-   pip uninstall azure-ml
+   pip uninstall azure-ai-ml
    ```
    * Install the Azure ML Python SDK v2:
    ```python
-   pip install azure-ml
+   pip install azure-ai-ml
    ```
 
     > [!NOTE]
@@ -113,7 +113,7 @@ compute: azureml:gpu-cluster
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
 ```python
-from azure.ml.entities import AmlCompute
+from azure.ai.ml.entities import AmlCompute
 compute_name = "gpu-cluster"
 cluster_basic = AmlCompute(
     name=compute_name,

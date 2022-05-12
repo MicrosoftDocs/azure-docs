@@ -7,8 +7,26 @@
   - name: Architecture & terms
     displayName: architecture, concepts, definitions, glossary
     href: concept-azure-machine-learning-architecture.md
+  - name: Migrate from ML Studio (classic)
+    items: 
+    - name: Migration overview
+      href: ../migrate-overview.md
+    - name: Migrate datasets
+      href: ../migrate-register-dataset.md
+    - name: Rebuild experiments
+      href: ../migrate-rebuild-experiment.md
+    - name: Rebuild web services
+      href: ../migrate-rebuild-web-service.md
+    - name: Migrate client applications
+      href: ../migrate-rebuild-integrate-with-client-app.md
+    - name: Rebuild Execute R Script components
+      href: ../migrate-execute-r-script.md
 - name: Concepts
   items:
+  - name: Work with data
+    items:
+    - name: Data access
+      href: concept-data.md
   - name: Automated ML overview
     displayName: automl, auto ml
     href: concept-automated-ml-v1.md
@@ -19,6 +37,9 @@
       href: concept-model-management-and-deployment.md
     - name: MLflow
       href: concept-mlflow-v1.md
+    - name: Manage resources VS Code
+      displayName: vscode,resources
+      href: ../how-to-manage-resources-vscode.md
 - name: Tutorials
   expanded: true
   items:
@@ -75,6 +96,14 @@
       - name: Configure secure web services (v1)
         displayName: ssl, tls
         href: ../how-to-secure-web-service.md
+  - name: Work with data
+    items:
+    - name: Access data
+      items:
+      - name: Connect to storage with datastores
+        href: how-to-access-data.md
+      - name: Get data from storage with datasets
+        href: how-to-create-register-datasets.md     
   - name: Train models
     items: 
     - name: Train with SDK v1

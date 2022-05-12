@@ -72,7 +72,7 @@ If you do not explicitly specify either a `validation_data` or `n_cross_validati
 
 ## Provide validation data
 
-In this case, you can either start with a single data file and split it into training data and validation data sets or you can provide a separate data file for the validation set. Either way, the `validation_data` parameter in your `AutoMLConfig` object assigns which data to use as your validation set. This parameter only accepts data sets in the form of an [Azure Machine Learning dataset](how-to-create-register-datasets.md) or pandas dataframe.   
+In this case, you can either start with a single data file and split it into training data and validation data sets or you can provide a separate data file for the validation set. Either way, the `validation_data` parameter in your `AutoMLConfig` object assigns which data to use as your validation set. This parameter only accepts data sets in the form of an [Azure Machine Learning dataset](./v1/how-to-create-register-datasets.md) or pandas dataframe.   
 
 > [!NOTE]
 > The `validation_data` parameter requires the `training_data` and `label_column_name` parameters to be set as well. You can only set one validation parameter, that is you can only specify either `validation_data` or `n_cross_validations`, not both.
@@ -218,7 +218,7 @@ You can also provide test data to evaluate the recommended model that automated 
 >  * [Forecasting tasks where deep learning neural networks (DNN) are enabled](how-to-auto-train-forecast.md#enable-deep-learning)
 >  * [Automated ML runs from local computes or Azure Databricks clusters](how-to-configure-auto-train.md#compute-to-run-experiment)
 
-Test datasets must be in the form of an [Azure Machine Learning TabularDataset](how-to-create-register-datasets.md#tabulardataset). You can specify a test dataset with the `test_data` and `test_size` parameters in your `AutoMLConfig` object.  These parameters are mutually exclusive and can not be specified at the same time or with `cv_split_column_names` or `cv_splits_indices`.
+Test datasets must be in the form of an [Azure Machine Learning TabularDataset](./v1/how-to-create-register-datasets.md#tabulardataset). You can specify a test dataset with the `test_data` and `test_size` parameters in your `AutoMLConfig` object.  These parameters are mutually exclusive and can not be specified at the same time or with `cv_split_column_names` or `cv_splits_indices`.
 
 With the `test_data` parameter, specify an existing dataset to pass into your `AutoMLConfig` object. 
 
