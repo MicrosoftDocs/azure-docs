@@ -9,7 +9,7 @@ ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 04/20/2022
-ms.author: v-ydequadros
+ms.author: v-campisekat
 ---
 
 # What's Entra Permissions Management?
