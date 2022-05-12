@@ -7,7 +7,6 @@ ms.date: 05/09/2022
 
 # What's new in Microsoft Defender for Cloud?
 
-
 Defender for Cloud is in active development and receives improvements on an ongoing basis. To stay up to date with the most recent developments, this page provides you with information about new features, bug fixes, and deprecated functionality.
 
 This page is updated frequently, so revisit it often. 
