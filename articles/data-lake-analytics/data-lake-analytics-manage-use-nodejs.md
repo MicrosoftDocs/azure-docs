@@ -27,10 +27,10 @@ npm install @azure/arm-datalake-analytics
 
 ## Authenticate using Azure Active Directory
  ```javascript
- const { DefaultAzureCredential } = require("@azure/identity");
+ const { ClientSecretCredential } = require("@azure/identity");
 
  //service principal authentication
-const credentials = new DefaultAzureCredential();
+const credentials = new ClientSecretCredential('your-domain', 'your-client-id', 'your-secret');
  ```
 
 ## Create the Data Lake Analytics client
