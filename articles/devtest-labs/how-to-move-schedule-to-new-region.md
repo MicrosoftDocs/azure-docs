@@ -1,6 +1,6 @@
 ---
-title: How to move a DevTest lab schedule to another region
-description: Shows you how to move a DevTest lab schedule to another region.
+title: How to move a DevTest Labs schedule to another region
+description: Shows you how to move a DevTest Labs schedule to another region.
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
@@ -22,21 +22,22 @@ In this article, you'll learn how to:
 
 - Ensure that the services and features that your account uses are supported in the target region.
 - For preview features, ensure that your subscription is allowlisted for the target region.
-- DevTest Labs doesn't store or expose passwords from the exported ARM template. You will need to know the passwords/secrets for:
+- DevTest Labs doesn't store or expose passwords from the exported ARM template. You'll need to know the passwords/secrets for:
   - the VMs
   - the Stored Secrets
   - PAT tokens of the private Artifact Repos to move the private repos together with the lab.
 
 ## Prepare to move
-To get started, you will export and modify a Resource Manager template that contains the schedule settings.
+
+To get started, you'll export and modify a Resource Manager template that contains the schedule settings.
 
 ### Prepare your Virtual Network
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. If you don't have a [Resource Group](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) under the target region, create one now.
+1. If you don't have a [Resource Group](../azure/azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) under the target region, create one now.
 
-1. Move your current DevTest Lab to the new region and resource group by using the steps included in the article, [Move a DevTest lab to another region](./how-to-move-labs.md).
+1. Move your current DevTest Lab to the new region and resource group by using the steps included in the article, [Move a DevTest Labs to another region](./how-to-move-labs.md).
 
 1. Optionally, you can move your current Virtual Network to the new region and resource group by using the steps included in the article, [Move an Azure virtual network to another region](../virtual-network/move-across-regions-vnet-portal.md).
 
@@ -46,7 +47,7 @@ To get started, you will export and modify a Resource Manager template that cont
 
 
 ## Move the schedule 
-There are two ways to move a lab schedule. You can recreate any schedules you want to move on the moved VMs. This manual process can be time consuming, so it is most useful when you have a small number of schedules and VMs. 
+There are two ways to move a lab schedule. You can recreate any schedules you want to move on the moved VMs. This manual process can be time consuming, so it's most useful when you have a few schedules and VMs. 
 
 Alternately, you can move your existing schedules by using the following steps:
 
@@ -54,13 +55,12 @@ Alternately, you can move your existing schedules by using the following steps:
 
 2. Go to the source resource group that held your VMs.
 
-3. On the **Resource Group Overview** page, under **Resources**, select **Show hidden types**.
+3. On the **Resource Group Overview** page, under **Resources**, and then:<br>
+    (1) Select **Show hidden types**<br>
+    (2) Select all resources with the type **Microsoft.DevTestLab/Schedules**<br>
+    (3) Select **Export template**<br>
 
-4. Select all resources with the type **Microsoft.DevTestLab/Schedules** (1) and then select **Export template** (2).
-
-![Screenshot that shows the hidden resources in a resource group, with schedules selected.](./media/how-to-move-schedule-to-new-region/move-compute-schedule.png)
-
-<!-- :::image type="content" source="{./media/how-to-move-schedule-to-new-region/move-schedule-custom-deployment.png}" alt-text="{Screenshot that shows the hidden resources in a resource group, with schedules selected.}"::: -->
+:::image type="content" source="./media/how-to-move-schedule-to-new-region/move-compute-schedule.png" alt-text="Screenshot that shows the hidden resources in a resource group, with schedules selected.":::
 
 5. On the **Export resource group template** page, select **Deploy**.
 
@@ -78,9 +78,7 @@ Alternately, you can move your existing schedules by using the following steps:
    |**Schedule Name**|Must be a different name. |
    |**VirtualMachine_xxx_externalId**|Must be the moved one, or the new one you just created. |
  
-![Screenshot that shows the custom deployment page, with new location values for the relevant settings.](./media/how-to-move-schedule-to-new-region/move-schedule-custom-deployment.png)
-
-<!-- :::image type="content" source="{./media/how-to-move-schedule-to-new-region/move-schedule-custom-deployment.png}" alt-text="{Screenshot that shows the custom deployment page, with new location values for the relevant settings.}"::: -->
+:::image type="content" source="./media/how-to-move-schedule-to-new-region/move-schedule-custom-deployment.png" alt-text="Screenshot that shows the custom deployment page, with new location values for the relevant settings.":::
 
 >[!IMPORTANT]
 >Each schedule must have a globally unique name, so remember to change the schedule name for the new location.
@@ -91,10 +89,12 @@ Alternately, you can move your existing schedules by using the following steps:
 
 ## Discard or clean up
 
+Now you can choose to clean up the original schedules if they're longer used. Go to the original schedule resource group (where you exported templates from in step 3 above), and delete the schedule resource.
 
 ## Next steps
 
-In this article, you moved a DevTest lab schedule from one region to another and cleaned up the source resources.  To learn more about moving resources between regions and disaster recovery in Azure, refer to:
+In this article, you moved a DevTest Labs schedule from one region to another and cleaned up the source resources.  To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
+- [Move a DevTest Labs to another region](./how-to-move-labs)
 - [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 - [Move Azure VMs to another region](../site-recovery/azure-to-azure-tutorial-migrate.md)
