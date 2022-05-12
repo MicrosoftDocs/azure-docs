@@ -268,4 +268,4 @@ Learn how to use the no code editor to address common scenarios using predefined
 - [Capture Event Hubs data in Parquet format](capture-event-hub-data-parquet.md)
 - [Filter and ingest to Azure Synapse SQL](filter-ingest-synapse-sql.md)
 - [Filter and ingest to Azure Data Lake Storage Gen2](filter-ingest-data-lake-storage-gen2.md)
-- [Materialize data to Azure Cosmos DB](no-code-materialize-cosmosdb.md)
+- [Materialize data to Azure Cosmos DB](no-code-materialize-cosmos-db.md)
