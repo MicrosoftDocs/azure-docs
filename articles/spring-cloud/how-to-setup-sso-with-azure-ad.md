@@ -1,7 +1,7 @@
 ---
-title: How to setup Single Sign-On with Azure AD for Spring Cloud Gateway and API Portal for Tanzu
+title: How to set up Single Sign-On with Azure AD for Spring Cloud Gateway and API Portal for Tanzu
 titleSuffix: Azure Spring Cloud Enterprise Tier
-description: How to setup Single Sign-On with Azure Active Directory for Spring Cloud Gateway and API Portal for Tanzu with Azure Spring Cloud Enterprise Tier.
+description: How to set up Single Sign-On with Azure Active Directory for Spring Cloud Gateway and API Portal for Tanzu with Azure Spring Cloud Enterprise Tier.
 author: karlerickson
 ms.author: ninpan
 ms.service: spring-cloud
@@ -10,7 +10,7 @@ ms.date: 05/06/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Setup Single Sign-On using Azure Active Directory for Spring Cloud Gateway or API Portal
+# Set up Single Sign-On using Azure Active Directory for Spring Cloud Gateway or API Portal
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
@@ -26,7 +26,7 @@ To enable SSO either for Spring Cloud Gateway or API Portal, you should provide 
 
 ## Prerequisites
 To enable SSO, you need:
-- A provisioned instance of Azure Spring App Enterprise tier, which has enabled Spring Cloud Gateway or API portal. Please refer to [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
+- A provisioned instance of Azure Spring App Enterprise tier, which has enabled Spring Cloud Gateway or API portal. Refer to [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
 - Sufficient permissions to manage Azure AD applications.
 
 ## Assign endpoint for Spring Cloud Gateway or API Portal
@@ -42,7 +42,7 @@ Registering your application establishes a trust relationship between your app a
 Follow these steps to create the app registration:
 1. Open **Azure Active Directory** under your tenant in Azure Portal.
 1. Under **Manage**, select **App Registrations** > **New registrations**, enter the display name of your application and select the account type to register. 
-1. The redirect URI is the location where Azure AD redirect a user's client and sends security tokens after authentication. Choose the platform **Web** and enter the URI `https://<endpoint>/login/oauth2/code/sso` in the **Redirect URI**. Please replace the `<endpoint>` with the exposed endpoint assigned in the previous section, it can be the assigned public endpoint or your configured custom domain.
+1. The redirect URI is the location where Azure AD redirect a user's client and sends security tokens after authentication. Choose the platform **Web** and enter the URI `https://<endpoint>/login/oauth2/code/sso` in the **Redirect URI**. Replace the `<endpoint>` with the exposed endpoint assigned in the previous section, it can be the assigned public endpoint or your configured custom domain.
 1. Click **Register** to complete the application registration.
 
 ![Add App Registration screen](./media/enterprise/how-to-setup-sso-with-azure-ad/sso-create-app-registration.jpg)
@@ -65,18 +65,18 @@ Client secret is used for the application to authenticate as itself in SSO workf
 
 ![Show Client Secret screen](./media/enterprise/how-to-setup-sso-with-azure-ad/sso-show-client-secret.jpg)
 
-Remember to save the client secret because you cannot retrieve it after you left this page. The client secret should be provided with client ID when sign in as the application.
+Remember to save the client secret because you can't retrieve it after you left this page. The client secret should be provided with client ID when sign in as the application.
 
 ## Configure Scope
-The `scope` property of SSO should be a list of scopes to included in JWT identity tokens. They are often referred to permissions. Identity platform supports several [OpenID Connect scopes](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes), such as `openid`, `email` and `profile`.
+The `scope` property of SSO should be a list of scopes to be included in JWT identity tokens. They're often referred to permissions. Identity platform supports several [OpenID Connect scopes](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes), such as `openid`, `email` and `profile`.
 
 ## Configure Issuer URI
 The URI that is asserted as its Issuer Identifier. For example, if the issuer-uri provided is `https://example.com`, then an OpenID Provider Configuration Request will be made to `https://example.com/.well-known/openid-configuration`.
 
-The issuer URI of Azure AD is like `<authentication-endpoint>/<Your-TenantID>/v2.0`. Please replace `<authentication-endpoint>` with the authentication endpoint for your cloud environment (e.g., `https://login.microsoftonline.com` for global Azure), also replacing `<Your-TenantID>` with the Directory (tenant) ID in which the application was registered.
+The issuer URI of Azure AD is like `<authentication-endpoint>/<Your-TenantID>/v2.0`. Please replace `<authentication-endpoint>` with the authentication endpoint for your cloud environment (for example, `https://login.microsoftonline.com` for global Azure), also replacing `<Your-TenantID>` with the Directory (tenant) ID in which the application was registered.
 
 ## Save SSO Configuration
-After configuring your Azure AD application, you can setup the SSO properties of Spring Cloud Gateway or API Portal.
+After configuring your Azure AD application, you can set up the SSO properties of Spring Cloud Gateway or API Portal.
 1. Open the Enterprise tier instance in Azure Portal
 2. Under **VMware Tanzu components** > **Spring Cloud Gateway**/**API portal** > **Configuration**, enter `Scope`, `Client Id`, `Client Secret` and `Issuer URI`. Multiple scopes should be separated by comma.
 2. Click **Save** to enable SSO configuration.
@@ -84,4 +84,4 @@ After configuring your Azure AD application, you can setup the SSO properties of
 ![Save SSO Configuration screen](./media/enterprise/how-to-setup-sso-with-azure-ad/sso-configuration.jpg)
 
 > [!NOTE]
-> After configuring SSO properties, remember to enable SSO for the Spring Cloud Gateway routes by setting `ssoEnabled=true`. Please refer to [route configuration](./how-to-use-enterprise-spring-cloud-gateway.md#configure-routes).
+> After configuring SSO properties, remember to enable SSO for the Spring Cloud Gateway routes by setting `ssoEnabled=true`. Refer to [route configuration](./how-to-use-enterprise-spring-cloud-gateway.md#configure-routes).
