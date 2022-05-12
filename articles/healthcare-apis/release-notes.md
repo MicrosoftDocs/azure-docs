@@ -6,7 +6,7 @@ author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 05/11/2022
+ms.date: 05/12/2022
 ms.author: mikaelw
 ---
 
@@ -36,6 +36,12 @@ Azure Health Data Services is a set of managed API services based on open standa
 |Bug fixes |Related information |
 | :----------------------------------- | ---------------: |
 |Adds core to resource path |Part of the path to a string resource was accidentally removed in the versioning policy. This fix adds it back in. For more information, see [PR #2470](https://github.com/microsoft/fhir-server/pull/2470). |
+
+### **Known issues**
+
+|Issue | Date discovered | Status | Date resolved |
+| :------------------------------------- | :------------ | :------------- | :------------- |
+|The SQL Provider will cause the `RawResource` column in the database to save incorrectly. This occurs in a small number of cases when a transient exception occurs that causes the provider to use its retry logic. |April 2022 |Does not have a workaround.  |Not resolved  | |
 
 ### DICOM service
 
