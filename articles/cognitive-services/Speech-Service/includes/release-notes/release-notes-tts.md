@@ -16,6 +16,11 @@ ms.author: eur
 * Support these new styles `Excited`, `Friendly`, `Hopeful`, `Shouting`, `Unfriendly`, `Terrified` and `Whispering` in public preview for `en-US-SaraNeural`. See [voice styles and roles](../../language-support.md#voice-styles-and-roles).
 * Released disconnected containers for prebuilt neural TTS voices in public preview. See [use Docker containers in disconnected environments](../../../containers/disconnected-containers.md).
 
+* Released 3 new zh-CN voices in public preview with 3 new styles to optimize for sports event broadcasting and product promoting scenarios. See [full language and voice list](../../language-support.md#prebuilt-neural-voices).
+* Support 2 new styles `sports-commentary`, `sports-commentary-excited` in public preview for `zh-CN-YunjianNeural`. See [voice styles and roles](../../language-support.md#voice-styles-and-roles).
+* Support 1 new style `advertisement-upbeat` in public preview for `zh-CN-YunhaoNeural`. See [voice styles and roles](../../language-support.md#voice-styles-and-roles).
+
+
 ### 2022-March release
 
 #### Prebuilt Neural TTS Voice
