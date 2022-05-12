@@ -33,66 +33,111 @@ Azure Cosmos DB currently supports stored procedures, which also provide the tra
 * **Performance** – Reduced latency on equivalent operations by up to 30% when compared to the stored procedure execution.
 * **Content serialization** – Each operation within a transactional batch can use custom serialization options for its payload.
 
-> [!IMPORTANT]
-> Transactional batch is currently available in the .NET and Java SDKs. The code samples in this article focus on the .NET SDK, but the Java SDK class and method names are similar.
-
 ## How to create a transactional batch operation
 
-When creating a transactional batch operation, you begin from a container instance and call `CreateTransactionalBatch`:
+### [.NET](#tab/dotnet)
+
+When creating a transactional batch operation, start with a container instance and call [CreateTransactionalBatch](/dotnet/api/microsoft.azure.cosmos.container.createtransactionalbatch):
 
 ```csharp
-string partitionKey = "The Family";
-ParentClass parent = new ParentClass(){ Id = "The Parent", PartitionKey = partitionKey, Name = "John", Age = 30 };
-ChildClass child = new ChildClass(){ Id = "The Child", ParentId = parent.Id, PartitionKey = partitionKey };
-TransactionalBatch batch = container.CreateTransactionalBatch(new PartitionKey(parent.PartitionKey)) 
-  .CreateItem<ParentClass>(parent)
-  .CreateItem<ChildClass>(child);
+PartitionKey partitionKey = new PartitionKey("road-bikes");
+
+TransactionalBatch batch = container.CreateTransactionalBatch(partitionKey);
 ```
 
-Next, you'll need to call `ExecuteAsync` on the batch:
+Next, add multiple operations to the batch:
 
 ```csharp
-TransactionalBatchResponse batchResponse = await batch.ExecuteAsync();
+Product bike = new (
+    id: "68719520766",
+    category: "road-bikes",
+    name: "Chropen Road Bike"
+);
+
+batch.CreateItem<Product>(bike);
+
+Part part = new (
+    id: "68719519885",
+    category: "road-bikes",
+    name: "Tronosuros Tire",
+    productId: bike.id
+);
+
+batch.CreateItem<Part>(part);
 ```
 
-Once the response is received, examine if it's successful or not, and extract the results:
+Finally, call [ExecuteAsync](/dotnet/api/microsoft.azure.cosmos.transactionalbatch.executeasync) on the batch:
 
 ```csharp
-using (batchResponse)
+using TransactionalBatchResponse response = await batch.ExecuteAsync();
+```
+
+Once the response is received, examine if the response is successful. If the response indicates a success, extract the results:
+
+```csharp
+if (response.IsSuccessStatusCode)
 {
-  if (batchResponse.IsSuccessStatusCode)
-  {
-    TransactionalBatchOperationResult<ParentClass> parentResult = batchResponse.GetOperationResultAtIndex<ParentClass>(0);
-    ParentClass parentClassResult = parentResult.Resource;
-    TransactionalBatchOperationResult<ChildClass> childResult = batchResponse.GetOperationResultAtIndex<ChildClass>(1);
-    ChildClass childClassResult = childResult.Resource;
-  }
+    TransactionalBatchOperationResult<Product> productResponse;
+    productResponse = response.GetOperationResultAtIndex<Product>(0);
+    Product productResult = productResponse.Resource;
+
+    TransactionalBatchOperationResult<Part> partResponse;
+    partResponse = response.GetOperationResultAtIndex<Part>(1);
+    Part partResult = partResponse.Resource;
 }
 ```
 
-If there's a failure, the failed operation will have a status code of its corresponding error. All the other operations will have a 424 status code (failed dependency). In the example below, the operation fails because it tries to create an item that already exists (409 HttpStatusCode.Conflict). The status code enables one to identify the cause of transaction failure.
+> [!IMPORTANT]
+> If there's a failure, the failed operation will have a status code of its corresponding error. All the other operations will have a 424 status code (failed dependency). In the example below, the operation fails because it tries to create an item that already exists (409 HttpStatusCode.Conflict). The status code enables one to identify the cause of transaction failure.
 
-```csharp
-// Parent's birthday!
-parent.Age = 31;
-// Naming two children with the same name, should abort the transaction
-ChildClass anotherChild = new ChildClass(){ Id = "The Child", ParentId = parent.Id, PartitionKey = partitionKey };
-TransactionalBatchResponse failedBatchResponse = await container.CreateTransactionalBatch(new PartitionKey(partitionKey))
-  .ReplaceItem<ParentClass>(parent.Id, parent)
-  .CreateItem<ChildClass>(anotherChild)
-  .ExecuteAsync();
+### [Java](#tab/java)
 
-using (failedBatchResponse)
+When creating a transactional batch operation, call [CosmosBatch.createCosmosBatch](/java/api/com.azure.cosmos.models.cosmosbatch.createcosmosbatch):
+
+```java
+PartitionKey partitionKey = new PartitionKey("road-bikes");
+
+CosmosBatch batch = CosmosBatch.createCosmosBatch(partitionKey);
+```
+
+Next, add multiple operations to the batch:
+
+```java
+Product bike = new Product();
+bike.setId("68719520766");
+bike.setCategory("road-bikes");
+bike.setName("Chropen Road Bike");
+
+batch.createItemOperation(bike);
+
+Part part = new Part();
+part.setId("68719519885");
+part.setCategory("road-bikes");
+part.setName("Tronosuros Tire");
+part.setProductId(bike.getId());
+
+batch.createItemOperation(part);
+```
+
+Finally, use a container instance to call [executeCosmosBatch](/java/api/com.azure.cosmos.cosmoscontainer.executecosmosbatch) with the batch:
+
+```java
+CosmosBatchResponse response = container.executeCosmosBatch(batch);
+```
+
+Once the response is received, examine if the response is successful. If the response indicates a success, extract the results:
+
+```java
+if (response.isSuccessStatusCode())
 {
-  if (!failedBatchResponse.IsSuccessStatusCode)
-  {
-    TransactionalBatchOperationResult<ParentClass> parentResult = failedBatchResponse.GetOperationResultAtIndex<ParentClass>(0);
-    // parentResult.StatusCode is 424
-    TransactionalBatchOperationResult<ChildClass> childResult = failedBatchResponse.GetOperationResultAtIndex<ChildClass>(1);
-    // childResult.StatusCode is 409
-  }
+    List<CosmosBatchOperationResult> results = response.getResults();
 }
 ```
+
+> [!IMPORTANT]
+> If there's a failure, the failed operation will have a status code of its corresponding error. All the other operations will have a 424 status code (failed dependency). In the example below, the operation fails because it tries to create an item that already exists (409 HttpStatusCode.Conflict). The status code enables one to identify the cause of transaction failure.
+
+---
 
 ## How are transactional batch operations executed
 
