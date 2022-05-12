@@ -76,19 +76,18 @@ Support for the following algorithms, key sizes, and elliptical curves are requi
 
 The following URLs may need to be included in your firewall allowlists to optimize connectivity:
 
-- AIA: http://crl.microsoft.com
-    - http://cacerts.digicert.com/DigiCertGlobalRootG2.crt
-    - http://cacerts.digicert.com/DigiCertGlobalRootG3.crt
-    - http://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt
-- CRL: http://crl.microsoft.com
-- OCSP: http://oneocsp.microsoft.com
+- AIA: `http://crl.microsoft.com`
+    - `http://cacerts.digicert.com/DigiCertGlobalRootG2.crt`
+    - `http://cacerts.digicert.com/DigiCertGlobalRootG3.crt`
+    - `http://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt`
+- CRL: `http://crl.microsoft.com`
+- OCSP: `http://oneocsp.microsoft.com`
 
 ## Client compatibility for public PKIs
 
 | Windows | Firefox | iOS | macOS | Android | Java |
-|--|--|--|--|--|--|
+|:--:|:--:|:--:|:--:|:--:|:--:|
 | Windows XP SP3+ | Firefox 32+ | iOS 7+ | OS X Mavericks (10.9)+ | Android SDK 5.x+ | Java JRE 1.8.0_101+ |
-- - -
 
 ## Past changes
 
@@ -103,5 +102,5 @@ To learn more about Certificate Authorities and PKI, see:
 - [Microsoft PKI Repository](https://www.microsoft.com/pkiops/docs/repository.htm)
 - [Microsoft PKI Repository, including CRL and policy information](https://www.microsoft.com/pki/mscorp/cps/default.htm)
 - [Azure Firewall Premium certificates](../../firewall/premium-certificates.md)
-- [PKI certificates and Configuration Manager](https://docs.microsoft.com/mem/configmgr/core/plan-design/security/plan-for-certificates)
-- [Securing PKI](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn786443(v=ws.11))
+- [PKI certificates and Configuration Manager](/mem/configmgr/core/plan-design/security/plan-for-certificates)
+- [Securing PKI](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn786443(v=ws.11))
