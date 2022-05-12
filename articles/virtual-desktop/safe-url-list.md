@@ -92,8 +92,8 @@ A [Service Tag](../virtual-network/service-tags-overview.md) represents a group 
 > 
 > |Address|Outbound TCP port|Purpose|Service Tag|
 > |---|---|---|---|
-> |gcs.prod.monitoring.core.windows.net|443|Agent traffic (deprecated)|AzureCloud|
-> |production.diagnostics.monitoring.core.windows.net|443|Agent traffic (deprecated)|AzureCloud|
+> |gcs.prod.monitoring.core.windows.net|443|Agent traffic|AzureCloud|
+> |production.diagnostics.monitoring.core.windows.net|443|Agent traffic|AzureCloud|
 > |*xt.blob.core.windows.net|443|Agent traffic|AzureCloud|
 > |*eh.servicebus.windows.net|443|Agent traffic|AzureCloud|
 > |*xt.table.core.windows.net|443|Agent traffic|AzureCloud|
