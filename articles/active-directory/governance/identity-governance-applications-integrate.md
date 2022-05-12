@@ -37,19 +37,19 @@ If neither of those criteria are met for an application, as the application does
 
 ## Integrate the application with Azure AD to ensure only authorized users can access the application
 
-Typically this process of integrating an application begins with configuring that application to rely upon Azure AD for user authentication, with a federated single sign-on (SSO) protocol connection.  The most commonly used protocols for SSO are [SAML and OpenID Connect](../develop/active-directory-v2-protocols.md).  You can read more about the tools and process to [discover and migrate application authentication to Azure AD](../manage-apps/migrate-application-authentication-to-azure-active-directory.md).
+Typically this process of integrating an application begins with configuring that application to rely upon Azure AD for user authentication, with a federated single sign-on (SSO) protocol connection, and then adds provisioning.  The most commonly used protocols for SSO are [SAML and OpenID Connect](../develop/active-directory-v2-protocols.md).  You can read more about the tools and process to [discover and migrate application authentication to Azure AD](../manage-apps/migrate-application-authentication-to-azure-active-directory.md).
 
 If the application permits provisioning, to automatically add, remove or update users, then you should also configure provisioning, so that Azure AD can signal to the application when a user has been granted access or access has been removed.  These provisioning signals permit the application to make automatic corrections, such as to reassign content created by an employee who has left to their manager.
 
 1. Check if your application is on the [list of enterprise applications](../manage-apps/view-applications-portal.md) or [list of app registrations](../develop/app-objects-and-service-principals.md). If the application is already present in your tenant, then skip to step 5 in this section.
 1. If your application is a SaaS application that isn't already registered in your tenant, then check if the application is available the [application gallery](../manage-apps/overview-application-gallery.md) for applications that can be integrated for federated SSO. If it is in the gallery, then use the tutorials to integrate the application with Azure AD.
    1. Follow the [tutorial](../saas-apps/tutorial-list.md) to configure the application for federated SSO with Azure AD.
-   1. if the application supports provisioning, [configure the application for provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md). 
+   1. if the application supports provisioning, [configure the application for provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md).
    1. When complete, skip to the next section in this article.
    If the SaaS application isn't in the gallery, then [ask the SaaS vendor to onboard](../manage-apps/v2-howto-app-gallery-listing.md).  
 1. If this is a private or custom application, you can also select a single sign on integration that's most appropriate, based on the location and capabilities of the application.
 
-   * If this application is in the cloud, and it supports one of these protocols, then configure single sign-on directly from Azure AD to the application.
+   * If this application is in the public cloud, and it supports single sign on, then configure single sign-on directly from Azure AD to the application.
 
      |Application supports| Next steps|
      |----|-----|
@@ -57,7 +57,7 @@ If the application permits provisioning, to automatically add, remove or update 
      | SAML 2.0 | Register the application and configure the application with [the SAML endpoints and certificate of Azure AD](../develop/active-directory-saml-protocol-reference.md) |
      | SAML 1.1 | [Add a SAML-based application](../saas-apps/saml-tutorial.md) |
 
-   * Otherwise, if this is an on-premises or IaaS hosted application, and it supports one of these protocols, then configure single sign-on from Azure AD to the application through the application proxy.
+   * Otherwise, if this is an on-premises or IaaS hosted application that supports single sign on, then configure single sign-on from Azure AD to the application through the application proxy.
 
      |Application supports| Next steps|
      |----|-----|
@@ -65,28 +65,29 @@ If the application permits provisioning, to automatically add, remove or update 
      | Integrated Windows Auth (IWA) | Deploy the [application proxy](../app-proxy/application-proxy.md), configure an application for [Integrated Windows authentication SSO](../app-proxy/application-proxy-configure-single-sign-on-with-kcd.md), and set firewall rules to prevent access to the application's endpoints except via the proxy.|
      | header-based authentication | Deploy the [application proxy](../app-proxy/application-proxy.md) and configure an application for [header-based SSO](../app-proxy/application-proxy-configure-single-sign-on-with-headers.md) |
 
-1. If the application supports provisioning, then configure provisioning from Azure AD to that application.  If this is a private or custom application, you can also select the integration that's most appropriate, based on the location and capabilities of the application.
+1. If your application has multiple roles, and relies upon Azure AD to send a user's role as part of a user signing into the application, then configure those application roles in Azure AD on your application.  Those roles can be added using the [app roles UI](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui).
 
-   * If this application is a SaaS application that supports SCIM, then configure provisioning.
+1. If the application supports provisioning, then [configure provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md) of assigned users and groups from Azure AD to that application.  If this is a private or custom application, you can also select the integration that's most appropriate, based on the location and capabilities of the application.
+
+   * If this application is in the public cloud and supports SCIM, then configure provisioning of users via SCIM.
 
      |Application supports| Next steps|
      |----|-----|
      | SCIM | Configure an application with SCIM [for user provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md) |
 
-   * Otherwise, if this is an on-premises or IaaS hosted application, then configure provisioning to that application.
+   * Otherwise, if this is an on-premises or IaaS hosted application, then configure provisioning to that application, either via SCIM or to the underlying database or directory of the application.
 
      |Application supports| Next steps|
      |----|-----|
      | SCIM | configure an application with the [provisioning agent for on-premises SCIM-based apps](../app-provisioning/on-premises-scim-provisioning.md)|
-     | local user accounts, stored in a SQL database or LDAP directory | configure an application with the [provisioning agent for on-premises SQL-based applications](../app-provisioning/on-premises-sql-connector-configure.md) or the [provisioning agent for on-premises LDAP-based applications](../app-provisioning/on-premises-ldap-connector-configure.md) |
+     | local user accounts, stored in a SQL database |  configure an application with the  [provisioning agent for on-premises SQL-based applications](../app-provisioning/on-premises-sql-connector-configure.md)|
+     | local user accounts, stored in an LDAP directory | configure an application with the [provisioning agent for on-premises LDAP-based applications](../app-provisioning/on-premises-ldap-connector-configure.md) |
 
-1. If your application requires multiple roles, then configure those application roles in Azure AD on your application.  Those roles can be added using the [app roles UI](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) and will later be sent to the application in federation claims, or during provisioning.
-
-## Set the application assignment required policy
+1. If your application uses Microsoft Graph to query groups from Azure AD, then consent to the applications to have the appropriate permissions to read from your tenant.
 
 1. Set that access to the application is only permitted for users assigned to the application.  This will prevent users from seeing and attempting to log into the application prior to Conditional Access policies being enabled.
 
-## Perform an initial access review of users with existing access
+## Perform an initial access review
 
 If this is a new application your organization hasn't used before, and therefore no one has pre-existing access, or if you have already been performing access reviews for this application, then skip to the [next section](identity-governance-applications-deploy.md).
 

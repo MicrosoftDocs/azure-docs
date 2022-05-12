@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 5/9/2022
+ms.date: 5/12/2022
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -44,20 +44,20 @@ Azure AD identity governance can be integrated with many applications, using [st
 
 Before you begin the process of governing application access from Azure AD, you should check your Azure AD environment is appropriately configured.
 
-1. Ensure your Azure AD and Microsoft Online Services environment is ready for the [compliance requirements](../standards/standards-overview.md) for the applications to be integrated.  Compliance is a shared responsibility among Microsoft, cloud service providers (CSPs), and organizations.
-
-1. To use Azure AD to govern access to applications, you must have one of the following licenses in your tenant:
+1. **Ensure your Azure AD and Microsoft Online Services environment is ready for the [compliance requirements](../standards/standards-overview.md) for the applications to be integrated and properly licensed**.  Compliance is a shared responsibility among Microsoft, cloud service providers (CSPs), and organizations.  To use Azure AD to govern access to applications, you must have one of the following licenses in your tenant:
 
    * Azure AD Premium P2
    * Enterprise Mobility + Security (EMS) E5 license
 
    You will need to have at least as many licenses as the number of member (non-guest) users who have or can request access to the applications, approve, or review access to the applications.  With an appropriate license, you can then govern access to up to 1500 applications per user.
 
-1. Check that Azure AD is already sending its audit log, and optionally other logs, to Azure Monitor. Azure Monitor is optional, but useful for governing access to apps, as Azure AD only stores audit events for up to 30 days in its audit log. You can keep the audit data for longer than the default retention period, outlined in [How long does Azure AD store reporting data?](../reports-monitoring/reference-reports-data-retention.md), and use Azure Monitor workbooks and custom queries and reports on historical audit data. You can check the Azure AD configuration to see if it is using Azure Monitor, in **Azure Active Directory** in the Azure portal, by clicking on **Workbooks**. If this integration is not configured, and you have an Azure subscription and are in the `Global Administrator` or `Security Administrator` roles, you can [configure Azure AD to use Azure Monitor](../governance/entitlement-management-logs-and-reporting.md). 
+1. **If you will be governing guest's access to the application, link your Azure AD tenant to a subscription for MAU billing**. This will be necessary prior to having a guest request or review their access. For more information, see [billing model for Azure AD External Identities](../external-identities/external-identities-pricing).
 
-1. Make sure only authorized users are in the highly privileged administrative roles in your Azure AD tenant. Administrators in the `Global Administrator`, `Identity Governance Administrator`, `User Administrator`, `Application Administrator`, `Cloud Application Administrator` and `Privileged Role Administrator` can make changes to users and their application role assignments.  If the memberships of those roles have not yet been recently reviewed, you'll need a user who is in the `Global Administrator` or `Privileged Role Administrator` to ensure that [access review of these directory roles](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md) are started.  You should also ensure that users in Azure roles in subscriptions that hold the Azure Monitor and other resources needed by your Azure AD configuration have also been reviewed.
+1. **Check that Azure AD is already sending its audit log, and optionally other logs, to Azure Monitor.** Azure Monitor is optional, but useful for governing access to apps, as Azure AD only stores audit events for up to 30 days in its audit log. You can keep the audit data for longer than the default retention period, outlined in [How long does Azure AD store reporting data?](../reports-monitoring/reference-reports-data-retention.md), and use Azure Monitor workbooks and custom queries and reports on historical audit data. You can check the Azure AD configuration to see if it is using Azure Monitor, in **Azure Active Directory** in the Azure portal, by clicking on **Workbooks**. If this integration is not configured, and you have an Azure subscription and are in the `Global Administrator` or `Security Administrator` roles, you can [configure Azure AD to use Azure Monitor](../governance/entitlement-management-logs-and-reporting.md). 
 
-1. If your organization is also using Active Directory on-premises, and has connected AD to Azure AD, then check that you have [configure your systems to protect your Microsoft 365 cloud environment from on-premises compromise](../fundamentals/protect-m365-from-on-premises-attacks.md).
+1. **Make sure only authorized users are in the highly privileged administrative roles in your Azure AD tenant.** Administrators in the `Global Administrator`, `Identity Governance Administrator`, `User Administrator`, `Application Administrator`, `Cloud Application Administrator` and `Privileged Role Administrator` can make changes to users and their application role assignments.  If the memberships of those roles have not yet been recently reviewed, you'll need a user who is in the `Global Administrator` or `Privileged Role Administrator` to ensure that [access review of these directory roles](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md) are started.  You should also ensure that users in Azure roles in subscriptions that hold the Azure Monitor and other resources needed by your Azure AD configuration have also been reviewed.
+
+1. **Check your tenant has appropriate isolation.** If your organization is also using Active Directory on-premises, and has connected AD to Azure AD, then check that you have [configure your systems to protect your Microsoft 365 cloud environment from on-premises compromise](../fundamentals/protect-m365-from-on-premises-attacks.md).
 
 ## Next steps
 
