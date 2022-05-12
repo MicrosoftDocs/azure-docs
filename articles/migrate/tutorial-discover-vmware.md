@@ -187,7 +187,7 @@ Before you deploy the OVA file, verify that the file is secure:
     
         **Algorithm** | **Download** | **SHA256**
         --- | --- | ---
-        VMware (11.9 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848) | 8A64806762A37698E7CFFB1D0DCACA91E9082803B5977F49A0ACE32A281DB8A1
+        VMware (11.9 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954) | 8A64806762A37698E7CFFB1D0DCACA91E9082803B5977F49A0ACE32A281DB8A1
 
     - For Azure Government:
     
