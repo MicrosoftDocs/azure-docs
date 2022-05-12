@@ -98,7 +98,7 @@ Follow the steps provided in this section before you get started with the single
 
 - **Target Server Creation** - You need to create the target PostgreSQL flexible server before using the migration feature. Use the creation [QuickStart guide](./flexible-server/quickstart-create-server-portal.md) to create one.
 
-- **Source Server pre-requisites** - You must [enable logical replication](./concepts-logical.md#pre-requisites-for-logical-replication-and-logical-decoding.md) on the source server.
+- **Source Server pre-requisites** - You must [enable logical replication](./concepts-logical.md#pre-requisites-for-logical-replication-and-logical-decoding) on the source server.
 
     :::image type="content" source="./media/concepts-single-to-flex/logical-replication-support.png" alt-text="Logical replication from Azure Portal" lightbox="./media/concepts-single-to-flex/logical-replication-support.png":::
 

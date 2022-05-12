@@ -14,7 +14,7 @@
   items:
   - name: Migration
     items:
-      - name: Single Server to Flexible Server migration
+      - name: Single Server to Flexible Server migration (Preview)
         items:
           - name: Single to Flexible - Concepts
             href: concepts-single-to-flexible.md

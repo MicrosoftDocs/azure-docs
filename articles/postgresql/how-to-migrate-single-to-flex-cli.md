@@ -33,7 +33,7 @@ This quick start article shows you how to use Single to Flexible Server migratio
 
 1. Install the latest Azure CLI for your corresponding operating system from the [Azure CLI install page](/cli/azure/install-azure-cli)
 2. In case Azure CLI is already installed, check the version by issuing **az version** command. The version should be **2.28.0 or above** to use the migration CLI commands. If not, update your Azure CLI using this [link](/cli/azure/update-azure-cli.md).
-3. Once you have the right Azure CLI version, run the **az login** command. That will open your default browser and load an Azure sign-in page to authenticate. Pass in your Azure credentials to do a successful authentication. For other ways to sign with Azure CLI, visit this [link](/cli/azure/authenticate-azure-cli.md).
+3. Once you have the right Azure CLI version, run the **az login** command. A browser page is opened with Azure sign-in page to authenticate. Provide your Azure credentials to do a successful authentication. For other ways to sign with Azure CLI, visit this [link](/cli/azure/authenticate-azure-cli.md).
    
 ```bash
 az login
@@ -146,19 +146,19 @@ Create migration parameters:
 | Parameter | Type | Description |
 | ---- | ---- | ---- |
 | **SourceDBServerResourceId** | Required |  Resource ID of the single server and is mandatory. |
-| **SourceDBServerFullyQualifiedDomainName** | optional | This should only be used when a custom DNS server is used for name resolution for a virtual network. The FQDN of the single server as per the custom DNS server should be provided for this property. |
-| **TargetDBServerFullyQualifiedDomainName** | optional |  This should only be used when a custom DNS server is used for name resolution inside a virtual network. The FQDN of the flexible server as per the custom DNS server should be provided for this property. <br> **_SourceDBServerFullyQualifiedDomainName_**, **_TargetDBServerFullyQualifiedDomainName_** should be included as a part of the JSON only in the rare scenario of a custom DNS server being used for name resolution instead of Azure provided DNS. Otherwise, these parameters should not be included as a part of the JSON file. |
-| **SecretParameters** | Required | All the fields under the SecretParameters sections are mandatory. This includes the passwords for admin user for both single server and flexible server along with the AAD app credentials. They help authenticate against the source and target servers and help in checking proper authorization access to the resources.
-| **MigrationResourceGroup** | optional | This section consists of two properties. <br> **ResourceID (optional)** : The migration feature creates the migration infrastructure and other network infrastructure components on the fly to migrate data and schema from the source to target. By default, all the components created by this tool will be under the resource group of the target server. If you wish to put them under a different resource group, then you can assign the resource ID of that resource group to this property. To know more about the migration feature and how it works behind the scenes, please read this document.<br> **SubnetResourceID (optional)** : In case if your source has public access turned OFF or if your target server is deployed inside a VNet, then specify a subnet under which migration infrastructure needs to be created so that it can connect to both source and target servers. This property comes in handy to specify the subnet in which the migration infrastructure should be created. |
-| **DBsToMigrate** | Required | This is the property where you specify the list of databases you want to migrate to the flexible server. You can include a maximum of 8 database names at a time. |
-| **SetupLogicalReplicationOnSourceDBIfNeeded** | Optional | Logical replication pre-requisite can be enabled on the source server automatically by setting this property to **true**. Note that this change in the server settings requires a server restart with a downtime of few minutes (~ 2-3 mins). |
+| **SourceDBServerFullyQualifiedDomainName** | optional |  Used when a custom DNS server is used for name resolution for a virtual network. The FQDN of the single server as per the custom DNS server should be provided for this property. |
+| **TargetDBServerFullyQualifiedDomainName** | optional |  Used when a custom DNS server is used for name resolution inside a virtual network. The FQDN of the flexible server as per the custom DNS server should be provided for this property. <br> **_SourceDBServerFullyQualifiedDomainName_**, **_TargetDBServerFullyQualifiedDomainName_** should be included as a part of the JSON only in the rare scenario of a custom DNS server being used for name resolution instead of Azure provided DNS. Otherwise, these parameters should not be included as a part of the JSON file. |
+| **SecretParameters** | Required | Passwords for admin user for both single server and flexible server along with the AAD app credentials. They help to authenticate against the source and target servers and help in checking proper authorization access to the resources.
+| **MigrationResourceGroup** | optional | This section consists of two properties. <br> **ResourceID (optional)** : The migration infrastructure and other network infrastructure components are created to migrate data and schema from the source to target. By default, all the components created by this feature are provisioned under the resource group of the target server. If you wish to deploy them under a different resource group, then you can assign the resource ID of that resource group to this property. <br> **SubnetResourceID (optional)** : In case if your source has public access turned OFF or if your target server is deployed inside a VNet, then specify a subnet under which migration infrastructure needs to be created so that it can connect to both source and target servers. |
+| **DBsToMigrate** | Required | Specify the list of databases you want to migrate to the flexible server. You can include a maximum of 8 database names at a time. |
+| **SetupLogicalReplicationOnSourceDBIfNeeded** | Optional | Logical replication can be enabled on the source server automatically by setting this property to **true**. This change in the server settings requires a server restart with a downtime of few minutes (~ 2-3 mins). |
 | **OverwriteDBsinTarget** | Optional | If the target server happens to have an existing database with the same name as the one you are trying to migrate, the migration will pause until you acknowledge that overwrites in the target DBs are allowed. This pause can be avoided by giving the migration feature, permission to automatically overwrite databases by setting the value of this property to **true** |
 
 ### Mode of migrations
 
 The default migration mode for migrations created using CLI commands is **online**. With the above properties filled out in your JSON file, an online migration would be created from your single server to flexible server.
 
-In case you want to opt for **offline** mode, you need to add an additional property **"TriggerCutover":"true"** to your properties JSON file and call the **create** command.
+If you want to migrate in **offline** mode, you need to add an additional property **"TriggerCutover":"true"** to your properties JSON file before initiating the create command.
 
 ### List migrations
 
@@ -199,7 +199,7 @@ The **migration_name** is the name assigned to the migration during the **create
 
 Some important points to note on the command response:
 
-- As soon as the **create** migration command is triggered, the migration moves to the **InProgress** state and **PerformingPreRequisiteSteps** substate. It takes up to 15 minutes for the migration workflow to move out of this substate since it takes time to create and deploy migration infrastructure, add its IP on firewall list of source and target servers and to perform a few maintenance tasks.
+- As soon as the **create** migration command is triggered, the migration moves to the **InProgress** state and **PerformingPreRequisiteSteps** substate. It takes up to 15 minutes for the migration workflow to deploy the migration infrastructure, configure firewall rules with source and target servers, and to perform a few maintenance tasks. 
 - After the **PerformingPreRequisiteSteps** substate is completed, the migration moves to the substate of **Migrating Data** where the dump and restore of the databases take place.
 - Each DB being migrated has its own section with all migration details such as table count, incremental inserts, deletes, pending bytes, etc.
 - The time taken for **Migrating Data** substate to complete is dependent on the size of databases that are being migrated.
@@ -216,7 +216,7 @@ for any additional information.
 
 As soon as the infrastructure setup is complete, the migration activity will pause with appropriate messages seen in the  **show details**  CLI command response if some pre-requisites are missing or if the migration is at a state to perform a cutover. At this point, the migration goes into a state called  **WaitingForUserAction**. The  **update migration**  command is used to set values for parameters, which helps the migration to move to the next stage in the process. Let us look at each of the sub-states.
 
-- **WaitingForLogicalReplicationSetupRequestOnSourceDB** - If the logical replication is not set at the source server or if it was not included as a part of the JSON file, the migration will wait for logical replication to be enabled at the source. A user can enable this manually by changing the replication flag to **Logical**.. This would require a server restart. This can also be enabled by the following CLI command
+- **WaitingForLogicalReplicationSetupRequestOnSourceDB** - If the logical replication is not set at the source server or if it was not included as a part of the JSON file, the migration will wait for logical replication to be enabled at the source. A user can enable the logical replication setting manually by changing the replication flag to **Logical** on the portal. This would require a server restart. This can also be enabled by the following CLI command
 
 ```azurecli
 az postgres flexible-server migration update [--subscription]
@@ -254,7 +254,7 @@ You need to pass the value **true** to the **overwrite-dbs** property to give th
 az postgres flexible-server migration update --subscription 5c5037e5-d3f1-4e7b-b3a9-f6bf9asd2nkh0 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --overwrite-dbs true"
 ```
 
-- **WaitingForCutoverTrigger** - This is state where the dump and restore of the databases have been completed and the ongoing writes at your source single server is being replicated to the target flexible server using the logical decoding feature of PostgreSQL.You should wait for the replication to complete so that the target is in sync with the source. You can monitor the replication lag by using the response from the **show migration** command. There is a metric called **Pending Bytes** associated with each database that is being migrated and this gives you indication of the difference between the source and target database in bytes. This should be nearing zero over time. Once it reaches zero for all the databases, stop any further writes to your single server. This should be followed by the validation of data and schema on your flexible server to make sure it matches exactly with the source server. After completing the above steps, you can trigger **cutover** by using the following CLI command.
+- **WaitingForCutoverTrigger** - Migration gets to this state when the dump and restore of the databases have been completed and the ongoing writes at your source single server is being replicated to the target flexible server.You should wait for the replication to complete so that the target is in sync with the source. You can monitor the replication lag by using the response from the **show migration** command. There is a metric called **Pending Bytes** associated with each database that is being migrated and this gives you indication of the difference between the source and target database in bytes. This should be nearing zero over time. Once it reaches zero for all the databases, stop any further writes to your single server. This should be followed by the validation of data and schema on your flexible server to make sure it matches exactly with the source server. After completing the above steps, you can trigger **cutover** by using the following CLI command.
 
 ```azurecli
 az postgres flexible-server migration update [--subscription]
@@ -280,7 +280,7 @@ for any additional information.
 
 ### Delete/Cancel Migration
 
-Any ongoing migration attempts can be deleted or cancelled using the **delete migration** command. This command just stops any more migration activity on your target server. It will not drop or rollback any changes on your target server that was done by this migration attempt. Below is the CLI command to delete a migration
+Any ongoing migration attempts can be deleted or cancelled using the **delete migration** command. This command stops all migration activities in that task, but does not drop or rollback any changes on your target server. Below is the CLI command to delete a migration
 
 ```azurecli
 az postgres flexible-server migration delete [--subscription]
@@ -303,9 +303,9 @@ for any additional information.
 
 ## Monitoring Migration
 
-The **create migration** command starts a migration between the source and target servers. The migration goes through a set of states and substates before eventually moving into the **completed** state. The **show command** is very helpful to monitor ongoing migrations since it gives the current state and substate of the migration.
+The **create migration** command starts a migration between the source and target servers. The migration goes through a set of states and substates before eventually moving into the **completed** state. The **show command** helps to monitor ongoing migrations since it gives the current state and substate of the migration.
 
-Possible migration **states** include:
+Migration **states**:
 
 | Migration State | Description |
 | ---- | ---- |
@@ -313,9 +313,9 @@ Possible migration **states** include:
 | **Canceled** | The migration has been cancelled or deleted. |
 | **Failed** | The migration has failed. |
 | **Succeeded** | The migration has succeeded and is complete. |
-| **WaitingForUserAction** | Migration is waiting on a user action. This state has a list of substates which were discussed in detail in the previous section. |
+| **WaitingForUserAction** | Migration is waiting on a user action. This state has a list of substates that were discussed in detail in the previous section. |
 
-Possible migration **substates** include
+Migration **substates**:
 
 | Migration substates | Description |
 | ----  | ---- |
