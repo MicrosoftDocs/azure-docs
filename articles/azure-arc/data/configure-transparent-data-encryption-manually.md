@@ -33,62 +33,134 @@ After creating the necessary credentials, it's highly recommended to back up any
 
 When backing up from Azure Arc-enabled SQL Managed Instance, the credentials will be stored within the container. It isn't necessary to store the credentials on a persistent volume, but you may use the mount path for the data volume within the container if you'd like: `/var/opt/mssql/data`. Otherwise, the credentials will be stored in-memory in the container.  Below is an example of backing up a certificate from Azure Arc-enabled SQL Managed Instance.
 
+> [!NOTE]
+> If you use the `kubectl cp` command from Windows, the command may fail when using absolute Windows paths. Use relative paths to workaround this issue.
+
 1. Back up the certificate from the container to `/var/opt/mssql/data`.
 
    ```sql
+   USE master;
+   GO
+
+   BACKUP CERTIFICATE <cert-name> TO FILE = '<cert-path>'
+   WITH PRIVATE KEY ( FILE = '<private-key-path>',
+   ENCRYPTION BY PASSWORD = '<UseStrongPasswordHere>')
+   ```
+
+   Example:
+
+   ```sql
+   USE master;
+   GO
+
    BACKUP CERTIFICATE MyServerCert TO FILE = '/var/opt/mssql/data/servercert.crt'
    WITH PRIVATE KEY ( FILE = '/var/opt/mssql/data/servercert.key',
-   ENCRYPTION BY PASSWORD = '<UseStrongPasswordHere>')
+   ENCRYPTION BY PASSWORD = '<UseStrongPasswordHere>');
    ```
 
 2. Copy the certificate from the container to your file system.
 
    ```console
-   kubectl cp -n arc-ns -c arc-sqlmi sql-0:/var/opt/mssql/data/servercert.crt $HOME/sqlcerts/servercert.crt
+   kubectl cp --namespace <namespace> --container arc-sqlmi <pod-name>:<pod-certificate-path> <local-certificate-path>
+   ```
+
+   Example:
+
+   ```console
+   kubectl cp --namespace arc-ns --container arc-sqlmi sql-0:/var/opt/mssql/data/servercert.crt $HOME/sqlcerts/servercert.crt
    ```
 
 3. Copy the private key from the container to your file system.
 
    ```console
-   kubectl cp -n arc-ns -c arc-sqlmi sql-0:/var/opt/mssql/data/servercert.key $HOME/sqlcerts/servercert.key
+   kubectl cp --namespace <namespace> --container arc-sqlmi <pod-name>:<pod-private-key-path> <local-private-key-path>
+   ```
+
+   Example:
+
+   ```console
+   kubectl cp --namespace arc-ns --container arc-sqlmi sql-0:/var/opt/mssql/data/servercert.key $HOME/sqlcerts/servercert.key
    ```
 
 4. Delete the certificate and private key from the container.
 
    ```console
-   kubectl exec -it -n arc-ns -c arc-sqlmi sql-0 -- bash -c "rm /var/opt/mssql/data/servercert.crt /var/opt/mssql/data/servercert.key"
+   kubectl exec -it --namespace <namespace> --container arc-sqlmi <pod-name> -- bash -c "rm <certificate-path> <private-key-path>
+   ```
+
+   Example:
+
+   ```console
+   kubectl exec -it --namespace arc-ns --container arc-sqlmi sql-0 -- bash -c "rm /var/opt/mssql/data/servercert.crt /var/opt/mssql/data/servercert.key"
    ```
 
 ## Restore a transparent data encryption credential to Azure Arc-enabled SQL Managed Instance
 
 Similar to above, restore the credentials by copying them into the container and running the corresponding T-SQL afterwards.
 
+> [!NOTE]
+> If you use the `kubectl cp` command from Windows, the command may fail when using absolute Windows paths. Use relative paths to workaround this issue.
+
 1. Copy the certificate from your file system to the container.
 
    ```console
-   kubectl cp -n arc-ns -c arc-sqlmi $HOME/sqlcerts/servercert.crt sql-0:/var/opt/mssql/data/servercert.crt
+   kubectl cp --namespace <namespace> --container arc-sqlmi <local-certificate-path> <pod-name>:<pod-certificate-path>
+   ```
+
+   Example:
+
+   ```console
+   kubectl cp --namespace arc-ns --container arc-sqlmi $HOME/sqlcerts/servercert.crt sql-0:/var/opt/mssql/data/servercert.crt
    ```
 
 2. Copy the private key from your file system to the container.
 
    ```console
-   kubectl cp -n arc-ns -c arc-sqlmi $HOME/sqlcerts/servercert.key sql-0:/var/opt/mssql/data/servercert.key
+   kubectl cp --namespace <namespace> --container arc-sqlmi <local-private-key-path> <pod-name>:<pod-private-key-path>
+   ```
+
+   Example:
+
+   ```console
+   kubectl cp --namespace arc-ns --container arc-sqlmi $HOME/sqlcerts/servercert.key sql-0:/var/opt/mssql/data/servercert.key
    ```
 
 3. Create the certificate using file paths from `/var/opt/mssql/data`.
 
    ```sql
+   USE master;
+   GO
+
+   CREATE CERTIFICATE <certicate-name>
+   FROM FILE = '<certificate-path>'
+   WITH PRIVATE KEY ( FILE = '<private-key-path>',
+       DECRYPTION BY PASSWORD = '<UseStrongPasswordHere>' );
+   ```
+
+   Example:
+
+   ```sql
+   USE master;
+   GO
+
    CREATE CERTIFICATE MyServerCertRestored
    FROM FILE = '/var/opt/mssql/data/servercert.crt'
    WITH PRIVATE KEY ( FILE = '/var/opt/mssql/data/servercert.key',
-       DECRYPTION BY PASSWORD = '<UseStrongPasswordHere>' )
+       DECRYPTION BY PASSWORD = '<UseStrongPasswordHere>' );
    ```
 
 4. Delete the certificate and private key from the container.
 
    ```console
-   kubectl exec -it -n arc-ns -c arc-sqlmi sql-0 -- bash -c "rm /var/opt/mssql/data/servercert.crt /var/opt/mssql/data/servercert.key"
+   kubectl exec -it --namespace <namespace> --container arc-sqlmi <pod-name> -- bash -c "rm <certificate-path> <private-key-path>
    ```
+
+   Example:
+
+   ```console
+   kubectl exec -it --namespace arc-ns --container arc-sqlmi sql-0 -- bash -c "rm /var/opt/mssql/data/servercert.crt /var/opt/mssql/data/servercert.key"
+   ```
+
 ## Next steps
 
 [Transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption)
