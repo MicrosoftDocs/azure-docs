@@ -74,7 +74,7 @@ An HTTP 408 response can be observed when client requests to the frontend listen
 
 #### 499 – Client closed the connection
 
-An HTTP 499 response is presented if a client request that is sent to application gateways using v2 sku is closed before the server finished responding. This error can be observed when a large response is returned to the client, but the client may have closed or refreshed their browser/application before the server had a chance to finish responding.
+An HTTP 499 response is presented if a client request that is sent to application gateways using v2 sku is closed before the server finished responding. This error can be observed when a large response is returned to the client, but the client may have closed or refreshed their browser/application before the server had a chance to finish responding. In application gateways using v1 sku, an HTTP 0 response code may be raised for the client closing the connection before the server has finished responding as well.
 
 
 ## 5XX response codes (server error)

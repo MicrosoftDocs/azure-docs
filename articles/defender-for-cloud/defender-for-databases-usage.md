@@ -8,8 +8,6 @@ author: bmansheim
 ---
 # Enable Microsoft Defender for open-source relational databases and respond to alerts
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Microsoft Defender for Cloud detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases for the following services:
 
 - [Azure Database for PostgreSQL](../postgresql/index.yml)

@@ -6,7 +6,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: conceptual
-ms.date: 04/26/2022
+ms.date: 04/28/2022
 ms.author: barclayn
 # Customer intent: As a developer I am looking for information on how to enable my users to control their own information 
 ---
@@ -28,7 +28,7 @@ This page contains commonly asked questions about Verifiable Credentials and Dec
 
 ### What is a DID? 
 
-Decentralized Identifers(DIDs) are identifiers that can be used to secure access to resources, sign and verify credentials, and facilitate application data exchange. Unlike traditional usernames and email addresses, DIDs are owned and controlled by the entity itself (be it a person, device, or company). DIDs exist independently of any external organization or trusted intermediary. [The W3C Decentralized Identifier spec](https://www.w3.org/TR/did-core/) explains this in further detail.
+Decentralized Identifers(DIDs) are unique identifiers that can be used to secure access to resources, sign and verify credentials, and facilitate application data exchange. Unlike traditional usernames and email addresses, DIDs are owned and controlled by the entity itself (be it a person, device, or company). DIDs exist independently of any external organization or trusted intermediary. [The W3C Decentralized Identifier spec](https://www.w3.org/TR/did-core/) explains this in further detail.
 
 ### Why do we need a DID?
 
@@ -159,14 +159,7 @@ Adjust the API scopes used in your application
 
 For the Request API the new scope for your application or Postman is now:
 
-```3db474b9-6a0c-96ac-1fceb342124f/.default```
-
-#### **5. Clean up configuration**
-
-**Suggested after May 6, 2022**. Once you have confirmed that the Azure AD verifiable credentials service is working normally, you can issue, verify, etc after May 6, 2022 you can proceed to clean up your tenant so that the Azure AD Verifiable Credentials service has only the new service principals.
-
-1. Run the following PowerShell command to connect to your Azure AD tenant. Replace ```<your tenant ID>``` with your Azure AD tenant ID.
-1. Run the following commands in the same PowerShell session. The AppId ```603b8c59-ba28-40ff-83d1-408eee9a93e5``` and ```bbb94529-53a3-4be5-a069-7eaf2712b826``` refer to the previous Verifiable Credentials service principals.
+```3db474b9-6a0c-4840-96ac-1fceb342124f/.default ```
 
 ### How do I reset the Azure AD Verifiable credentials service?
 

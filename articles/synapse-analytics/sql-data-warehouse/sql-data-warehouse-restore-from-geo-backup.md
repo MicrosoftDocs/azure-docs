@@ -37,7 +37,7 @@ To restore from a geo-backup, use the [Get-AzSqlDatabaseGeoBackup](/powershell/m
 5. Get the data warehouse you want to recover.
 6. Create the recovery request for the data warehouse.
 7. Verify the status of the geo-restored data warehouse.
-8. To configure your data warehouse after the restore has completed, see [Configure your database after recovery]( ../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
+8. To configure your data warehouse after the restore has completed, see [Configure your database after recovery](/azure/azure-sql/database/disaster-recovery-guidance?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```powershell
 $SubscriptionName="<YourSubscriptionName>"

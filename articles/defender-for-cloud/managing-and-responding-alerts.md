@@ -8,8 +8,6 @@ ms.date: 04/24/2022
 ---
 # Manage and respond to security alerts in Microsoft Defender for Cloud
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This topic shows you how to view and process Defender for Cloud's alerts and protect your resources.
 
 Advanced detections that trigger security alerts are only available with Microsoft Defender for Cloud's enhanced security features enabled. A free trial is available. To upgrade, see [Enable enhanced protections](enable-enhanced-security.md).

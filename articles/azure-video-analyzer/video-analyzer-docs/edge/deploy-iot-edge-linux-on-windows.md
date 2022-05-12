@@ -10,6 +10,8 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [header](includes/edge-env.md)]
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 In this article, you'll learn how to deploy Azure Video Analyzer on an edge device that has [IoT Edge for Linux on Windows (EFLOW)](../../../iot-edge/iot-edge-for-linux-on-windows.md). Once you have finished following the steps in this document, you will be able to run a [pipeline](../pipeline.md) that detects motion in a video and emits such events to the IoT Hub. You can then switch out the pipeline for advanced scenarios and bring the power of Azure Video Analyzer to your Windows-based IoT Edge device.
 
 ## Prerequisites 

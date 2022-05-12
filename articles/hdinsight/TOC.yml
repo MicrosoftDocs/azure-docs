@@ -349,6 +349,9 @@ items:
       href: ./spark/apache-spark-jupyter-spark-sql-use-powershell.md
     - name: Create Apache Spark cluster - Azure CLI
       href: ./spark/apache-spark-create-cluster-cli.md
+    - name: Create Apache Spark cluster - Bicep
+      displayName: ARM, Resource Manager, Template
+      href: ./spark/apache-spark-jupyter-spark-use-bicep.md
     - name: Create Apache Spark cluster - ARM Template
       displayName: Resource Manager
       href: ./spark/apache-spark-jupyter-spark-sql.md
@@ -644,6 +647,9 @@ items:
       href: ./kafka/apache-kafka-get-started.md
     - name: Create Apache Kafka cluster - PowerShell
       href: ./kafka/apache-kafka-quickstart-powershell.md
+    - name: Create Apache Kafka cluster - Bicep
+      displayName: ARM, Resource Manager, Template
+      href: ./kafka/apache-kafka-quickstart-bicep.md
     - name: Create Apache Kafka cluster - ARM Template
       displayName: Resource Manager
       href: ./kafka/apache-kafka-quickstart-resource-manager-template.md
@@ -787,6 +793,8 @@ items:
         href: ./hbase/hbase-troubleshoot-timeouts-hbase-hbck.md
       - name: REST API to query Apache HBase
         href: ./hbase/troubleshoot-rest-api.md
+      - name: Troubleshoot data retention issues
+        href: ./hbase/troubleshoot-data-retention-issues-expired-data.md  
 - name: Interactive Query
   items:
   - name: Overview

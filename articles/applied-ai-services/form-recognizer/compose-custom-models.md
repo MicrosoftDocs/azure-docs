@@ -31,7 +31,7 @@ You can see how data is extracted from custom forms by trying our Sample Labelin
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your API key and endpoint.
+* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -184,7 +184,7 @@ Using the REST API, you can make an [Analyze Form](https://westus.dev.cognitive.
 
 ### [**Client-library SDKs**](#tab/sdks)
 
-Using the programming language of your choice to analyze a form or document with a custom or composed model. You'll need your Form Recognizer endpoint, API key, and model ID.
+Using the programming language of your choice to analyze a form or document with a custom or composed model. You'll need your Form Recognizer endpoint, key, and model ID.
 
 * [**C#/.NET**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/Sample_ModelCompose.md)
 

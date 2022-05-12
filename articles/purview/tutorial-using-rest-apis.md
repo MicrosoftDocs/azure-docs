@@ -68,13 +68,7 @@ Once service principal is created, you need to assign Data plane roles of your p
     >[!NOTE] 
     >You can also assign your service principal permission to any sub-collections, instead of the root collection. However, all APIs will be scoped to that collection (and sub-collections that inherit permissions), and users trying to call the API for another collection will get errors.
 
-1. Select **Access control (IAM)**.
-
-1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
-
-    ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
-
-1. Select the **Role** tab.
+1. Select the **Role assignments** tab.
 
 1. Assign the following roles to the service principal created previously to access various data planes in Microsoft Purview. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
