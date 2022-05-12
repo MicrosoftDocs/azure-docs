@@ -142,7 +142,7 @@ string secretValue = secret.Value;
 ```
 
 ### Accessing a Blob in Azure Storage
-```aspx-csharp
+```csharp
 var credentialOptions = new DefaultAzureCredentialOptions { ManagedIdentityClientId = "<Client ID of User-assigned identity>" };
 var msiCredential = new DefaultAzureCredential(credentialOptions);                        
 
