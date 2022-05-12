@@ -9,14 +9,14 @@ ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: v-campisekat
 ---
 
 # Add and remove roles and tasks for Microsoft Azure and Google Cloud Platform (GCP) identities 
 
 
 > [!IMPORTANT]
-> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 This article describes how you can add and remove roles and tasks for Microsoft Azure and Google Cloud Platform (GCP) identities using the **Remediation** dashboard.
@@ -26,13 +26,13 @@ This article describes how you can add and remove roles and tasks for Microsoft 
 
 ## View permissions
 
-1. On the CloudKnox home page, select the **Remediation** tab, and then select the **Permissions** subtab.
+1. On the Entra home page, select the **Remediation** tab, and then select the **Permissions** subtab.
 1. From the **Authorization System Type** dropdown, select **Azure** or **GCP**.
 1. From the **Authorization System** dropdown, select the accounts you want to access.
 1. From the **Search For** dropdown, select **Group**, **User**, or **APP**.
 1. To search for more parameters, you can make a selection from the **User States**, **Permission Creep Index**, and **Task Usage** dropdowns.
 1. Select **Apply**.
-    CloudKnox displays a list of groups, users, and service accounts that match your criteria.
+    Entra displays a list of groups, users, and service accounts that match your criteria.
 1. In **Enter a username**, enter or select a user.
 1. In **Enter a Group Name**, enter or select a group, then select **Apply**.
 1. Make a selection from the results list.
@@ -42,7 +42,7 @@ This article describes how you can add and remove roles and tasks for Microsoft 
 
 ## Add a role
 
-1. On the CloudKnox home page, select the **Remediation** tab, and then select the **Permissions** subtab.
+1. On the Entra home page, select the **Remediation** tab, and then select the **Permissions** subtab.
 1. From the **Authorization System Type** dropdown, select **Azure** or **GCP**.
 1. From the **Authorization System** dropdown, select the accounts you want to access.
 1. From the **Search For** dropdown, select **Group**, **User**, or **APP/Service Account**, and then select **Apply**.
@@ -58,7 +58,7 @@ This article describes how you can add and remove roles and tasks for Microsoft 
 
 ## Remove a role
 
-1. On the CloudKnox home page, select the **Remediation** tab, and then select the **Permissions** subtab.
+1. On the Entra home page, select the **Remediation** tab, and then select the **Permissions** subtab.
 1. From the **Authorization System Type** dropdown, select **Azure** or **GCP**.
 1. From the **Authorization System** dropdown, select the accounts you want to access.
 1. From the **Search For** dropdown, select **Group**, **User**, or **APP/Service Account**, and then select **Apply**.
@@ -74,7 +74,7 @@ This article describes how you can add and remove roles and tasks for Microsoft 
 
 ## Add a task
 
-1. On the CloudKnox home page, select the **Remediation** tab, and then select the **Permissions** subtab.
+1. On the Entra home page, select the **Remediation** tab, and then select the **Permissions** subtab.
 1. From the **Authorization System Type** dropdown, select **Azure** or **GCP**.
 1. From the **Authorization System** dropdown, select the accounts you want to access.
 1. From the **Search For** dropdown, select **Group**, **User**, or **APP/Service Account**, and then select **Apply**.
@@ -90,7 +90,7 @@ This article describes how you can add and remove roles and tasks for Microsoft 
 
 ## Remove a task
 
-1. On the CloudKnox home page, select the **Remediation** tab, and then select the **Permissions** subtab.
+1. On the Entra home page, select the **Remediation** tab, and then select the **Permissions** subtab.
 1. From the **Authorization System Type** dropdown, select **Azure** or **GCP**.
 1. From the **Authorization System** dropdown, select the accounts you want to access.
 1. From the **Search For** dropdown, select **Group**, **User**, or **APP/Service Account**, and then select **Apply**.
