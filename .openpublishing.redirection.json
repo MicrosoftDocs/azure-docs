@@ -37035,12 +37035,7 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/how-to-customize-speech-models.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-train-model",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-custom-speech-deploy-model.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-train-model",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-choose-model",
       "redirect_document_id": false
     },
     {
