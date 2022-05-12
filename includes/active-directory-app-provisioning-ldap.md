@@ -305,7 +305,7 @@ Now that your attributes are mapped and users are assigned, you can test on-dema
 
 If an error is shown, then select **View provisioning logs**.  Look in the log for a row in which the Status is **Failure**, and click on that row.
 
-Iif the error message is **Failed to create User**, then check the attributes that are shown against the requirements of the directory schema.
+If the error message is **Failed to create User**, then check the attributes that are shown against the requirements of the directory schema.
 
 For more information, change to the **Troubleshooting & Recommendations** tab.
 
