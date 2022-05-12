@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 05/09/2022
+ms.date: 05/12/2022
 ---
 
 # Network Isolation Change with Our New API Platform on Azure Resource Manager
@@ -34,33 +34,21 @@ Our new v2 API platform uses public ARM operations on the following resource typ
 * Endpoints (both batch and online)
 
 
-The v2 API provides a consistent API in one place, and the following Azure Resource Manager benefits:
-* Azure role-based access control (Azure RBAC)
-* Azure Policy
-* Integration with Azure Resource Graph
+The v2 API provides a consistent API in one place. It provides the flexibility to use Azure role-based access control and Azure Policy to enforce access controls and policies across all operations.
 
 The Azure Machine Learning CLI v2 uses our new v2 API platform. New features such as [managed online endpoints](concept-endpoints.md) are only available using the v2 API platform.
 
 ## What are the Network Isolation Changes with V2
 
-As mentioned in the previous section, there are two types of operations; with ARM and with the workspace. You can enable network isolation for both types:
+As mentioned in the previous section, there are two types of operations; with ARM and with the workspace. With the __legacy v1 API__, most operations used the workspace. With the v1 API, adding a private endpoint to the workspace provided network isolation for everything except CRUD operations on the workspace or compute resources.
 
-| Operation type | Enable network isolation using |
-| ----- | ----- |
-| Azure Resource Manager | Azure Resource Manager Private Link (preview) |
-| Workspace | [Azure Machine Learning workspace private endpoint](how-to-configure-private-link.md) |
-
-With the __legacy v1 API__, most operations used the workspace. Adding a private endpoint to the workspace enabled network isolation for everything except CRUD operations on the workspace or compute resources.
-
-With the __new v2 API__, most operations use ARM. So enabling a private endpoint on your workspace doesn't provide the same level of network isolation that you may be used to with the v1 API.
+With the __new v2 API__, most operations use ARM. So enabling a private endpoint on your workspace doesn't provide the same level of network isolation. Operations that use ARM communicate  over public networks, and include any metadata (such as your resource IDs) or parameters used by the operation. For example, the [create or update job](/rest/api/azureml/jobs/create-or-update) api sends metadata, and [parameters](/azure/machine-learning/reference-yaml-job-command).
 
 > [!TIP]
-> * Communications between the workspace and other Azure services such as storage, key vault, and container registry are secured by the private endpoint(s) on the services.
-> * Even without network isolation, your communication with the workspace and ARM is encrypted using TLS 1.2.
+> * Public ARM operations do not surface data in your storage account on public networks. 
+> * Your communication with public ARM is encrypted using TLS 1.2.
 
-While you can use Azure Private Link for ARM to enable network isolation for ARM communication, it's a preview feature and operates at the tenant level. We understand that this feature may not be acceptable for your organization. 
-
-To enable your security team to configure a network isolated workspace to only accepting v1 legacy APIs, we're introducing the *v1_legacy_mode* parameter.
+If you need time to evaluate the new v2 API before adopting it in your enterprise solutions, or have a company policy that prohibits sending communication over public networks, we'll provide a *v1_legacy_mode* parameter. When enabled, this parameter disables the v2 API for your workspace.
 
 > [!IMPORTANT]
 > Enabling v1_legacy_mode may prevent you from using features provided by the v2 API. For example, some features of Azure Machine Learning studio may be unavailable.
@@ -70,22 +58,25 @@ To enable your security team to configure a network isolated workspace to only a
 >[!WARNING]
 >The *v1_legacy_mode* parameter is not implemented yet. It will be implemented the week of May 15th, 2022.
 
-We'll provide a new workspace level parameter called v1_legacy_mode. The purpose of this parameter is to allow you to prevent the use of the v2 API with a workspace. For example, if your security policies prevent using a preview or tenant level feature like Azure Resource Manager Private Link.
+* If you don't plan on using a private endpoint with your workspace, you don't need to enable parameter.
 
-> [!TIP]
-> If you do not plan to enable network isolation for your workspace, you do not need to enable this parameter.
+* If you're OK with operations communicating with public ARM, you don't need to enable the parameter.
 
-<!-- By default, if you create a workspace _and configure a private endpoint during workspace creation_, this parameter will be enabled. The following are the scenarios that are impacted by this behavior:
+* You only need to enable the parameter if you're using a private endpoint with the workspace _and_ don't want to allow operations with ARM over public networks.
 
-* If you have an __existing__ Azure Machine Learning workspace with a private endpoint, which was created before this parameter was implemented, __this parameter will automatically be enabled for your workspace__. So your existing v1 API communications will continue to be secured using the workspace private endpoint.
+Once we implement the parameter, it will be retroactively applied to existing workspaces using the following logic:
 
-* If you create a __new__ Azure Machine Learning workspace with a private endpoint, __this parameter will be enabled for your workspace__. Even if you use the v2 API to create the workspace, the v1_legacy_mode will be enabled if the workspace is created with a private endpoint configuration.
+* If you have __an existing workspace with a private endpoint__, the flag will be __enabled__.
 
-* If you create a new __public__ workspace (no private endpoint), then the v1_legacy_mode is disabled. This behavior is for both the v1 and v2 APIs.
+* If you have __an existing workspace without a private endpoint__ (public workspace), the flag will be __disabled__.
 
-This behavior prevents you from being in a situation where only some of the API communications are secured by the workspace private endpoint.
+After the parameter has been implemented, the default value of the flag depends on the underlying REST API version used when you create a workspace (with a private endpoint):
 
-__If you want to use the v2 API with your private endpoint enabled workspace__, you must __disable__ the v1_legacy_mode parameter. -->
+* If the API version is __older__ than `2022-05-01`, then the flag is enabled by default. 
+* If the API version is `2022-05-01` or __newer__, then the flag is disabled by default.
+
+> [!IMPORTANT]
+> If you want to use the v2 API with your private endpoint enabled workspace, you must __disable__ the v1_legacy_mode parameter.
 
 ## How to update v1_legacy_mode parameter
 
