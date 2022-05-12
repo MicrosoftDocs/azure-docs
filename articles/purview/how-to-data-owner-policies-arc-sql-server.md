@@ -1,5 +1,5 @@
 ---
-title: Provision access for Azure Arc enabled SQL Servers (preview)
+title: Provision access by data owner for SQL Server on Azure Arc-enabled servers (preview)
 description: Step-by-step guide on how data owners can configure access to Arc-enabled SQL servers through Microsoft Purview access policies.
 author: inward-eye
 ms.author: vlrodrig
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 05/10/2022
 ms.custom: references_regions
 ---
-# Provision access for Azure Arc enabled SQL Servers (preview)
+# Provision access by data owner for SQL Server on Azure Arc-enabled servers (preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 

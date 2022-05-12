@@ -1,5 +1,5 @@
 ---
-title: Provision access for Azure SQL DB (preview)
+title: Provision access by data owner for Azure SQL DB (preview)
 description: Step-by-step guide on how data owners can configure access for Azure SQL DB through Microsoft Purview access policies.
 author: inward-eye
 ms.author: vlrodrig
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 05/10/2022
 ms.custom: references_regions
 ---
-# Access provisioning by data owner for Azure SQL DB (preview)
+# Provision access by data owner for Azure SQL DB (preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
