@@ -331,9 +331,7 @@ To create the X.509 certificate:
          ac:d2:49:b9:36:d2:b0:21
     ```
 
-::: zone-end
-
-::: zone pivot="programming-language-csharp"
+::: zone pivot="programming-language-ansi-c"
 
 On Windows, keep the Git Bash command line open. You'll need it later in this quickstart.
 
@@ -367,13 +365,13 @@ The C# sample code is set up to use X.509 certificates that are stored in a pass
 
     A PKCS12 formatted certificate file (*certificate.pfx*) should now be generated in the directory where you ran the `openssl` command.
 
-On Windows, you won't need the Git Bash prompt for the rest of this quickstart. However, you may want to keep it open to check your certificate if you have problems in the rest of the quickstart.
+On Windows, you won't need the Git Bash prompt for the rest of this quickstart. However, you may want to keep it open to check your certificate if you have problems in later steps.
 
 ::: zone-end
 
 ::: zone pivot="programming-language-nodejs, programming-language-python"
 
-On Windows, you won't need the Git Bash prompt for the rest of this quickstart. However, you may want to keep it open to check your certificate if you have problems in the rest of the quickstart.
+On Windows, you won't need the Git Bash prompt for the rest of this quickstart. However, you may want to keep it open to check your certificate if you have problems in later steps.
 
 ::: zone-end
 
