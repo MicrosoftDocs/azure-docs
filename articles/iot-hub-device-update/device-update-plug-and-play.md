@@ -75,7 +75,7 @@ IoT Hub Device Twin sample
                     "deviceProperties": {
                         "manufacturer": "contoso",
                         "model": "virtual-vacuum-v1",
-                        "interfaceId": "dtmi:azure:iot:deviceUpdate;1",
+                        "interfaceId": "dtmi:azure:iot:deviceUpdateModel;1",
                         "aduVer": "DU;agent/0.8.0-rc1-public-preview",
                         "doVer": "DU;lib/v0.6.0+20211001.174458.c8c4051,DU;agent/v0.6.0+20211001.174418.c8c4051"
                     },
