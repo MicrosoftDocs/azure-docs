@@ -126,9 +126,9 @@ As a security operations analyst, when investigating an incident you'll want to 
 
 - You might want to identify the owners of past similar incidents, to find the people in your SOC who can provide more context, or to whom you can escalate the investigation.
 
-The **similar incidents** tab in the incident details page, now in preview, presents up to 20 other incidents that are the most similar to the current one. Similarity is calculated by internal Microsoft Sentinel algorithms.
+The **similar incidents** tab in the incident details page, now in preview, presents up to 20 other incidents that are the most similar to the current one. Similarity is calculated by internal Microsoft Sentinel algorithms, and the incidents are sorted and displayed in descending order of similarity.
 
-:::image type="content" source="media/investigate-cases/similar-incidents.png" alt-text="Screenshot of the similar incidents display.":::
+:::image type="content" source="media/investigate-cases/similar-incidents.png" alt-text="Screenshot of the similar incidents display." lightbox="media/investigate-cases/similar-incidents.png":::
 
 ### Similarity calculation
 
@@ -138,7 +138,7 @@ There are three criteria by which similarity is determined:
 
 - **Similar rule:** An incident is considered similar to another incident if they were both created by the same [analytics rule](detect-threats-built-in.md).
 
-- **Similar alert details:** An incident is considered similar to another incident if they share the same [alert details](customize-alert-details.md) and/or [custom details](surface-custom-details-in-alerts.md).
+- **Similar alert details:** An incident is considered similar to another incident if they share the same title, product name, and/or [custom details](surface-custom-details-in-alerts.md).
 
 The reasons an incident appears in the similar incidents list are displayed in the **Similarity reason** column. Hover over the info icon to show the common items (entities, rule name, or details).
 
