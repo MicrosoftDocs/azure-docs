@@ -21,6 +21,8 @@ For Azure-based applications, Azure Load Testing collects detailed resource metr
 
 You can [automate regression testing](#enable-automated-load-testing) by running load tests as part of your continuous integration and continuous deployment (CI/CD) workflow.
 
+Azure Load Testing allows you to test private application endpoints or applications that you host on-premise. [Configure Azure Load Testing to use a virtual network](./how-to-test-private-endpoint.md) to connect to these endpoints.
+
 Learn more about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).
 
 > [!IMPORTANT]
