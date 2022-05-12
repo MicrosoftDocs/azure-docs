@@ -108,6 +108,12 @@ You will need to replace the variable values for both common variable required t
 ```javascript
 import { FileUploadHandler, FileUploadManager } from '@azure/communication-react';
 import { initializeFileTypeIcons } from '@fluentui/react-file-type-icons'; 
+import {
+  ChatComposite,
+  fromFlatCommunicationIdentifier,
+  useAzureCommunicationChatAdapter
+} from '@azure/communication-react';
+import React, { useMemo } from 'react';
 
 initializeFileTypeIcons();
 
@@ -119,8 +125,6 @@ function App(): JSX.Element {
   const token = 'INSERT_ACCESS_TOKEN';
   const threadId = 'INSERT_THREAD_ID';
 
-  const [chatAdapter, setChatAdapter] = useState<ChatAdapter>();
-
   // We can't even initialize the Chat and Call adapters without a well-formed token.
   const credential = useMemo(() => {
     try {
@@ -131,20 +135,19 @@ function App(): JSX.Element {
     }
   }, [token]);
 
-  useEffect(() => {
-    const createAdapter = async (): Promise<void> => {
-      setChatAdapter(
-        await createAzureCommunicationChatAdapter({
-          endpoint: endpointUrl,
-          userId: { communicationUserId: userId },
-          displayName,
-          credential: new AzureCommunicationTokenCredential(token),
-          threadId
-        })
-      );
-    };
-    createAdapter();
-  }, []);
+  // Memoize arguments to `useAzureCommunicationChatAdapter` so that
+  // a new adapter is only created when an argument changes.
+  const chatAdapterArgs = useMemo(
+    () => ({
+      endpoint: endpointUrl,
+      userId: fromFlatCommunicationIdentifier(userId) as CommunicationUserIdentifier,
+      displayName,
+      credential,
+      threadId
+    }),
+    [userId, displayName, credential, threadId]
+  );
+  const chatAdapter = useAzureCommunicationChatAdapter(chatAdapterArgs);
 
   if (!!chatAdapter) {
     return (
