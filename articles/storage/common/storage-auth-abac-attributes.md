@@ -293,7 +293,7 @@ This section lists the supported Azure Blob storage actions and suboperations yo
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | All data operations for accounts with hierarchical namespace enabled |
-> | **Description** | DataAction for all data operations on storage accounts with hierarchical namespace enabled. |
+> | **Description** | DataAction for all data operations on storage accounts with hierarchical namespace enabled.<br/>If you add a condition on a storage account wih hierarchical namespace enabled, you must add the condition to any role assignments that include this data action. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` |
 > | **Suboperation** |  |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path |
