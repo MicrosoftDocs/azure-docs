@@ -13,6 +13,9 @@
   items:
   - name: Check access for a user
     href: check-access.md
+  - name: Bicep
+    displayName: ARM, Resource Manager, Template
+    href: quickstart-role-assignments-bicep.md
   - name: ARM template
     displayName: Resource Manager
     href: quickstart-role-assignments-template.md

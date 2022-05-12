@@ -107,6 +107,10 @@
     items:
     - name: IoT Hub
       href: ../../iot-hub/quickstart-bicep-route-messages.md?toc=/azure/azure-resource-manager/bicep/toc.json
+  - name: Management and Governance
+    items:
+    - name: Role-based access control - role assignment
+      href: ../../role-based-access-control/quickstart-role-assignments-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Networking
     items:
     - name: Application Gateway
