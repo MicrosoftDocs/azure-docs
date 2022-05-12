@@ -32,7 +32,7 @@ Storage accounts with VNET and private endpoints aren't supported.
 * **Data Source Admin** and **Data Share Contributor** roles to a Purview collection. If you created the Purview account, you're automatically assigned these roles to the root collection. Refer to [Microsoft Purview permissions](catalog-permissions.md) to learn more about the Purview collection and roles.
 * Your recipient's Azure sign-in email address, which you can use to send the invitation to. The recipient's email alias won't work.
 * If the source Azure data store is in a different Azure subscription than the one for Purview account, [register the Microsoft.Purview resource provider](../azure-resource-manager/management/resource-providers-and-types.md) in the Azure subscription where the Azure data store is located.
-* Different Azure data stores have different permission requirements for sharing. To share data from storage account, you need **Owner** or **Blob Storage Data Owner** role to the source storage account. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-share) or [Blob storage](register-scan-azure-blob-storage-source.md#data-share) data source page.
+* Different Azure data stores have different permission requirements for sharing. To share data from storage account, you need **Owner** or **Blob Storage Data Owner** role to the source storage account. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source page.
 
 ## Create a share
 
