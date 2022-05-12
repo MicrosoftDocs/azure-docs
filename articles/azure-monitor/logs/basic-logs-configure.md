@@ -27,6 +27,22 @@ You can currently configure the following tables for Basic Logs:
 
 
 ## Set table configuration
+
+# [Portal](#tab/portal-1)
+
+To configure a table for Basic Logs or Analytics Logs in the Azure portal:
+
+1. From the **Log Analytics workspaces** menu, select **Tables (preview)**.
+
+    The **Tables (preview)** screen lists all of the tables in the workspace.
+
+1. Select the context menu for the table you want to configure and select **Manage table**.
+
+    :::image type="content" source=".media/basic-logs-configure/log-analytics-table-configuration.png" lightbox=".media/basic-logs-configure/log-analytics-table-configuration.png" alt-text="Screenshot showing the Manage table button for one of the tables in a workspace."::: 
+
+1. From the **Table plan** dropdown, select **Basic** or **Analytics**.
+1. Select **Save**.
+
 # [API](#tab/api-1)
 
 To configure a table for Basic Logs or Analytics Logs, call the **Tables - Update** API:
