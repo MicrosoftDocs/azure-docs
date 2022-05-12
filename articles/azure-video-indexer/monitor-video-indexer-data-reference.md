@@ -265,7 +265,7 @@ The following schemas are in use by Azure Video Indexer
   }
   ```
 
-## See Also
+## Next steps
 
 <!-- replace below with the proper link to your main monitoring service article -->
 - See [Monitoring Azure Azure Video Indexer](monitor-video-indexer.md) for a description of monitoring Azure Video Indexer.
