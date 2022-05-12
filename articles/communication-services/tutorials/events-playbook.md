@@ -51,7 +51,7 @@ For event hosts and organizers, they can join a virtual experience that enables 
 
 Throughout the rest of this tutorial, we will focus on how using Azure Communication Services and Microsoft Graph, developers can embed a fully custom event management experience into their application. For this, we will be leveraging the sample architecture below. Based on that architecture we will be focusing on setting up scheduling and registration flows and embedding the attendee experience right on the event platform to join the event.
 
-![image](https://user-images.githubusercontent.com/43075365/165207054-003fc326-1955-475b-b2de-05e39b357970.png)
+![image](https://user-images.githubusercontent.com/43075365/168175440-b7502142-2de4-484b-920a-46b18eb4e58f.png)
 
 ## Leveraging Microsoft Graph to schedule events and register attendees
 
