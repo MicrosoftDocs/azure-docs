@@ -17,7 +17,7 @@ Azure Container Apps implements container app versioning by creating revisions. 
 - The first revision is automatically created when you deploy your container app.
 - New revisions are automatically created when you make a [*revision-scope*](#revision-scope-changes) change to your container app.
 - While revisions are immutable, they're affected by [*application-scope*](#application-scope-changes) changes, which apply to all revisions.
-- Up to 100 revisions are retained giving you a historical record of your container app updates.
+- You can retain up to 100 revisions, giving you a historical record of your container app updates.
 - You can run multiple revisions concurrently.
 - You can split external HTTP traffic between active revisions.
 
@@ -26,7 +26,7 @@ Azure Container Apps implements container app versioning by creating revisions. 
 
 ## Use cases
 
-Container Apps revisions help you manage the release of updates to your container app by creating a new revision each time you make a *revision-scope* change to your app.  You can control which revisions are active, and when external HTTP ingress is enabled, control the traffic that is routed to each active revision. 
+Container Apps revisions help you manage the release of updates to your container app by creating a new revision each time you make a *revision-scope* change to your app.  You can control which revisions are active, and the external traffic that is routed to each active revision. 
 
 You can use revisions to:
 
@@ -42,11 +42,11 @@ The following diagram shows a container app with two revisions.
 The scenario shown above presumes the container app is in the following state:
 
 - [Ingress](ingress.md) is enabled, making the container app available via HTTP.
-- The first revision is deployed as _Revision 1_.
+- The first revision was deployed as _Revision 1_.
 - After the container was updated, a new revision was activated as _Revision 2_.
 - [Traffic splitting](revisions-manage.md#traffic-splitting) rules are configured so that _Revision 1_ receives 80% of the requests, and _Revision 2_ receives the remaining 20%.
 
-## Revision suffix
+## Revision name suffix
 
 Revision names are used to identify a revision, and in the revision's URL.  You can customize the revision name by setting the revision suffix.
 
@@ -72,9 +72,9 @@ A new revision is created when a container app is updated with *revision-scope* 
 
 A *revision-scope* change is any change to the parameters in the [`properties.template`](azure-resource-manager-api-spec.md#propertiestemplate) section of the container app resource template.
 
-These changes include modifications to:
+These parameters include:
 
-- [Revision suffix](#revision-suffix)
+- [Revision suffix](#revision-name-suffix)
 - Container configuration and images
 - Scale rules for the container application
 
@@ -89,8 +89,8 @@ When you deploy a container app with *application-scope* changes:
 
 These parameters include:
 
-- [Secret values](manage-secrets.md) (Revisions must be [restarted](revisions.md) before a container recognizes new secret values.)
-- Revision mode
+- [Secret values](manage-secrets.md) (revisions must be restarted before a container recognizes new secret values)
+- [Revision mode](#revision-modes)
 - Ingress configuration including:
   - Turning [ingress](ingress.md) on or off
   - [Traffic splitting rules](revisions-manage.md#traffic-splitting)
@@ -105,7 +105,7 @@ The revision mode controls whether only a single revision or multiple revisions 
 
 ### Single revision mode
 
-By default, a container app is in *single revision mode*. In this mode, only one revision is active at a time. When a new revision is created in this mode, the latest revision replaces the active revision.
+By default, a container app is in *single revision mode*. In this mode, only one revision is active at a time. When a new revision is created, the latest revision replaces the active revision.
 
 ### Multiple revision mode
 
@@ -125,7 +125,7 @@ For container apps with external HTTP traffic, labels are a portable means to di
 
 Labels are useful for testing new revisions.  For example, when you want to give access to a set of test users, you can give them the label's URL. Then when you want to move your users to a different revision, you can move the label to that revision.
 
-Labels work independently of traffic splitting.  Traffic splitting distributes traffic going to the container app's application URL to revisions based on the percentage of traffic.  While traffic directed to a label's URL is routed to one specific revision.
+Labels work independently of traffic splitting.  Traffic splitting distributes traffic going to the container app's application URL to revisions based on the percentage of traffic.  When traffic is directed to a label's URL, the traffic is routed to one specific revision.
 
 A label name must:
 
