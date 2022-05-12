@@ -13,7 +13,7 @@ ms.custom: include file
 ms.author: prakulka
 ---
 >[!Important] 
->Toll-free availability is currently restricted to Azure subscriptions that have a billing address in the United States.
+>Toll-free availability is currently restricted to Azure subscriptions that have a billing address in the United States and Canada.
 
 The Toll-free SMS service requires provisioning a toll-free number through the Azure portal. Once a toll-free number is provisioned, pay-as-you-go pricing applies to the leasing fee, and the usage fee. The leasing fee, and the usage fee is determined by the short code type, location of the short code, and the destination.
 
