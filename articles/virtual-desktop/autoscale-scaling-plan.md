@@ -59,7 +59,7 @@ To use scaling plans, make sure you follow these guidelines:
 
 ## Create a custom RBAC role in the Azure portal
 
-Before creating your first scaling plan, you'll need to create a custom role-based access control (RBAC) role with your Azure subscription as the assignable scope. Assigning this custom role at any level lower than your subscription, such as the resource group, host pool or VM, will prevent autoscale from working properly. This custom role and assignment will allow Azure Virtual Desktop to manage the power state of any VMs in your subscription. It will also let the service apply actions on both host pools and VMs when there are no active user sessions. For more information about creating custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md). 
+Before creating your first scaling plan, you'll need to create a custom role-based access control (RBAC) role with your Azure subscription as the assignable scope. Assigning this custom role at any level lower than your subscription, such as the resource group, host pool, or VM, will prevent autoscale from working properly. This custom role and assignment will allow Azure Virtual Desktop to manage the power state of any VMs in your subscription. It will also let the service apply actions on both host pools and VMs when there are no active user sessions. For more information about creating custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md). 
 
 > [!IMPORTANT]
 > You must have the `Microsoft.Authorization/roleAssignments/write` permission on your subscription in order to create and assign the custom role for the service principal on your subscription. This is part of **User Access Administrator** and **Owner** built in roles.
