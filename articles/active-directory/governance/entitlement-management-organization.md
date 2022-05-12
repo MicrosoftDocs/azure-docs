@@ -78,14 +78,14 @@ To add an external Azure AD directory or domain as a connected organization, fol
 
 1. In the search box, enter a domain name to search for the Azure AD directory or domain. Be sure to enter the entire domain name.
 
-1. Verify that the organization name and authentication type are correct. How users sign in depends on the authentication type.
+1. Verify that the organization name and authentication type are correct. How users sign in depends on the authentication type.  If the authentication type for a connected organization is Azure AD, then all users with an account in that Azure AD directory will be able to request access to access packages permitting that connected organization. If the authentication type is One-time pass-code, this wll permit users from all subdomains associated with the domain to request.
 
     ![The "Select directories + domains" pane](./media/entitlement-management-organization/organization-select-directories-domains.png)
 
-1. Select **Add** to add the Azure AD directory or domain. Currently, you can add only one Azure AD directory or domain per connected organization.
-
     > [!NOTE]
-    > All users from the Azure AD directory or domain will be able to request this access package. This includes users in Azure AD from all subdomains associated with the directory, unless those domains are blocked by the Azure AD business to business (B2B) allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md).
+    > Access from some domains could be blocked by the Azure AD business to business (B2B) allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md).
+
+1. Select **Add** to add the Azure AD directory or domain. Currently, you can add only one Azure AD directory or domain per connected organization.
 
 1. After you've added the Azure AD directory or domain, select **Select**.
 
