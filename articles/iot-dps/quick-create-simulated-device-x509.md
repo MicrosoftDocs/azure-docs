@@ -726,81 +726,20 @@ This article demonstrates an individual enrollment for a single device to be pro
 
 5. At the top of the page, select **+ Add individual enrollment**.
 
-::: zone pivot="programming-language-ansi-c"
-
 6. In the **Add Enrollment** page, enter the following information.
 
     * **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
-    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *device-cert.pem* that you created in the previous section.
+    * **Primary certificate .pem or .cer file:** Choose **Select a file** and navigate to and select the certificate file, *device-cert.pem* that you created in the previous section.
     * Leave **IoT Hub Device ID:** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, *my-x509-device*. This common name will also be the name used for the registration ID for the individual enrollment entry.
     * Optionally, you can provide the following information:
         * Select an IoT hub linked with your provisioning service.
         * Update the **Initial device twin state** with the desired initial configuration for the device.
 
     :::image type="content" source="./media/quick-create-simulated-device-x509/device-enrollment.png" alt-text="Add device as individual enrollment with X.509 attestation.":::
-
-::: zone-end
-
-::: zone pivot="programming-language-csharp"
-
-6. In the **Add Enrollment** page, enter the following information.
-
-    * **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
-    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *device-cert.pem* that you created in the previous section.
-    * Leave **IoT Hub Device ID:** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, *my-x509-device*. This common name will also be the name used for the registration ID for the individual enrollment entry.
-    * Optionally, you can provide the following information:
-        * Select an IoT hub linked with your provisioning service.
-        * Update the **Initial device twin state** with the desired initial configuration for the device.
-
-    :::image type="content" source="./media/quick-create-simulated-device-x509/device-enrollment.png" alt-text="Add device as individual enrollment with X.509 attestation.":::
-
-::: zone-end
-
-::: zone pivot="programming-language-nodejs"
-
-6. In the **Add Enrollment** page, enter the following information.
-
-    * **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
-    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *device-cert.pem* that you created in the previous section.
-    * Optionally, you can provide the following information:
-        * Select an IoT hub linked with your provisioning service.
-        * Enter a unique device ID. Make sure to avoid sensitive data while naming your device.
-        * Update the **Initial device twin state** with the desired initial configuration for the device.
-    :::image type="content" source="./media/quick-create-simulated-device-x509/device-enrollment.png" alt-text="Add device as individual enrollment with X.509 attestation.":::
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-6. In the **Add Enrollment** page, enter the following information.
-
-    * **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
-    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *device-cert.pem* if you are using the test certificate created earlier.
-    * Optionally, you can provide the following information:
-        * Select an IoT hub linked with your provisioning service.
-        * Update the **Initial device twin state** with the desired initial configuration for the device.
-
-    :::image type="content" source="./media/quick-create-simulated-device-x509/device-enrollment.png" alt-text="Add device as individual enrollment with X.509 attestation.":::
-
-::: zone-end
-
-::: zone pivot="programming-language-java"
-
-6. In the **Add Enrollment** panel, enter the following information:
-   * Select **X.509** as the identity attestation *Mechanism*.
-   * Under the *Primary certificate .pem or .cer file*, choose *Select a file* to select the certificate file *device-certpem* created in the previous steps.
-   * Optionally, you may provide the following information:
-     * Select an IoT hub linked with your provisioning service.
-     * Enter a unique device ID. Make sure to avoid sensitive data while naming your device.
-     * Update the **Initial device twin state** with the desired initial configuration for the device.
-
-    :::image type="content" source="./media/quick-create-simulated-device-x509/device-enrollment.png" alt-text="Add device as individual enrollment with X.509 attestation.":::
-
-::: zone-end
 
 7. Select **Save**. You'll be returned to **Manage enrollments**.
 
-8. Select **Individual Enrollments**. Your X.509 enrollment entry should appear in the registration table.
+8. Select **Individual Enrollments**. Your X.509 enrollment entry, *my-x509-device*, should appear in the list of Registration IDs.
 
 ## Prepare and run the device provisioning code
 
@@ -810,7 +749,7 @@ In this section, we'll update the sample code to send the device's boot sequence
 
 ### Configure the provisioning device code
 
-In this section, you update the sample code with your Device Provisioning Service instance information. 
+In this section, you update the sample code with your Device Provisioning Service instance information.
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
 
@@ -1002,16 +941,16 @@ To update the custom HSM stub code to simulate the identity of the device with I
     npm install
     ```
 
-5. Edit the **register_x509.js** file amd make the following changes:
+1. Edit the **register_x509.js** file amd make the following changes:
 
     * Replace `provisioning host` with the **_Global Device Endpoint_** noted in **Step 1** above.
     * Replace `id scope` with the **_ID Scope_** noted in **Step 1** above.
     * Replace `registration id` with the **_Registration ID_** noted in the previous section.
     * Replace `cert filename` and `key filename` with the files you generated previously, *device-cert.pem* and *device-key.pem*.
 
-6. Save the file.
+1. Save the file.
 
-7. Run the script and verify that the device was provisioned successfully.
+1. Run the script and verify that the device was provisioned successfully.
 
     ```cmd/sh
     node register_x509.js
@@ -1254,37 +1193,9 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
 
 4. In the **Explorers** menu, select **IoT Devices**.
 
-5. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
+5. If your device was provisioned successfully, its device ID, *my-x509-device*, should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
 
-   :::zone pivot="programming-language-ansi-c"
-
-    :::image type="content" source="./media/quick-create-simulated-device-x509/hub-registration.png" alt-text="Device is registered with the IoT hub":::
-
-    ::: zone-end
-    :::zone pivot="programming-language-csharp"
-
-    :::image type="content" source="./media/quick-create-simulated-device-x509/hub-registration-csharp.png" alt-text="CSharp device is registered with the IoT hub":::
-
-    ::: zone-end
-
-    :::zone pivot="programming-language-nodejs"
-
-    :::image type="content" source="./media/quick-create-simulated-device-x509/hub-registration-nodejs.png" alt-text="Node.js device is registered with the IoT hub":::
-
-    ::: zone-end
-
-    :::zone pivot="programming-language-python"
-
-    :::image type="content" source="./media/quick-create-simulated-device-x509/hub-registration-python.png" alt-text="Python device is registered with the IoT hub":::
-
-    ::: zone-end
-
-    ::: zone pivot="programming-language-java"
-
-    :::image type="content" source="./media/quick-create-simulated-device-x509/hub-registration-java.png" alt-text="Java device is registered with the IoT hub":::
-
-    ::: zone-end
-
+    :::image type="content" source="./media/quick-create-simulated-device-x509/hub-registration-csharp.png" alt-text="Screenshot that shows the device is registered with the IoT hub":::
 
 ::: zone pivot="programming-language-csharp,programming-language-nodejs,programming-language-python,programming-language-java"
 
