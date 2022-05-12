@@ -35,7 +35,7 @@ The capabilities that are available to you depend on the country that you're ope
 
 The tables below summarize current availability:
 
-## Customers with US Azure billing addresses
+## Customers with US Azure Billing Addresses
 
 | Number            | Type        | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
 | :---------------- | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
@@ -45,7 +45,7 @@ The tables below summarize current availability:
 
 \* Available through Azure Bot Framework and Dynamics only
 
-## Customers with UK Azure billing addresses
+## Customers with UK Azure Billing Addresses
 
 | Number             | Type           | Send SMS             | Receive SMS          | Make Calls       | Receive Calls    |
 | :----------------- | :------------- | :------------------- | :------------------- | :--------------- | :--------------- |
@@ -58,7 +58,7 @@ The tables below summarize current availability:
 
 \* Available through Azure Bot Framework and Dynamics only
 
-## Customers with Ireland Azure billing addresses
+## Customers with Ireland Azure Billing Addresses
 
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls           | Receive Calls    |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------------- | :--------------- |
