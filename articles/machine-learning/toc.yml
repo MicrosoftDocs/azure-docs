@@ -153,20 +153,35 @@
           href: concept-component.md
         - name: MLflow
           href: concept-mlflow.md
-        - name: Responsible AI
-          items: 
-            - name: Responsible AI overview
-              displayName: responsible,ml
-              href: concept-responsible-ml.md
-            - name: Model interpretability
-              displayName: explainability
-              href: how-to-machine-learning-interpretability.md
-            - name: Fairness in Machine Learning
-              displayName: fairness
-              href: concept-fairness-ml.md
-            - name: Differential Privacy
-              displayName: differential,privacy
-              href: concept-differential-privacy.md
+    - name: Responsible AI
+      items:
+        - name: Responsible AI overview
+          displayName: responsible, ml
+          href: concept-responsible-ml.md
+        - name: Implement Responsible AI in Practice
+          items:
+           - name: Responsible AI dashboard
+             href: concept-responsible-ai-dashboard.md
+           - name: Model interpretability
+             displayName: explainability, explanations, interpretability
+             href: how-to-machine-learning-interpretability.md
+           - name: Fairness in Machine Learning
+             displayName: fairness, bias, model performance, disparity metrics, unfairness
+             href: concept-fairness-ml.md
+           - name: Causal analysis
+             displayName: causal analysis, causal inference
+             href: concept-causal-inference.md
+           - name: Assess errors in ML models
+             displayName: error analysis, model error
+             href: concept-error-analysis.md
+           - name: Understand your datasets
+             displayName: exploratory data analysis, EDA, dataset explorer
+             href: concept-data-analysis.md
+           - name: Counterfactuals analysis and what-if
+             href: concept-counterfactual-analysis.md
+           - name: Differential Privacy
+             displayName: differential,privacy
+             href: concept-differential-privacy.md
     - name: Workspace & compute resources
       items: 
         - name: Workspace
@@ -485,17 +500,6 @@
         - name: Manage environments with the CLI (v2)
           displayName: environment
           href: how-to-manage-environments-v2.md
-        - name: Interpret & explain models
-          displayName: interpretability
-          items: 
-            - name: Interpret ML models
-              displayName: SDK, interpret, explain, explainability, interpretability
-              href: how-to-machine-learning-interpretability-aml.md
-            - name: Explain automated ML models
-              displayName: SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml
-              href: how-to-machine-learning-interpretability-automl.md
-        - name: Assess and mitigate model fairness
-          href: how-to-machine-learning-fairness-aml.md
         - name: Automated machine learning
           displayName: automl, auto ml
           items: 
@@ -537,6 +541,9 @@
             - name: Inference image models with ONNX model
               displayName: automl, image, image model, computer vision
               href: how-to-inference-onnx-automl-image-models.md
+            - name: Explain automated ML models
+              displayName: SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml
+              href: how-to-machine-learning-interpretability-automl.md
             - name: Troubleshoot automated ML
               href: how-to-troubleshoot-auto-ml.md
     - name: Deploy models
@@ -652,7 +659,25 @@
         - name: Manage and optimize cost
           displayName: cost-management,cost-optimization
           href: how-to-manage-optimize-cost.md
-        
+        - name: Manage resources VS Code
+          displayName: vscode,resources
+          href: how-to-manage-resources-vscode.md
+    - name: Implement Responsible AI in Practice
+      items:
+        - name: Generate Responsible AI dashboard
+          items:
+            - name: Responsible AI dashboard (V2)
+              displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
+              href: how-to-responsible-ai-dashboard-sdk-cli.md
+            - name: Responsible AI dashboard (UI)
+              displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
+              href: how-to-responsible-ai-dashboard-ui.md
+        - name: Using the Responsible AI dashboard in studio
+          displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
+          href: how-to-responsible-ai-dashboard.md
+        - name: Responsible AI dashboard scorecard
+          displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
+          href: how-to-responsible-ai-scorecard.md
 - name: Troubleshoot & debug
   items: 
     - name: VS Code interactive debugging

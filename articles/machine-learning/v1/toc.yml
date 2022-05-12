@@ -111,6 +111,11 @@
     - name: Auto-train a natural language processing model
       displayName: nlp, auto ML, automl, SDK
       href: how-to-auto-train-nlp-models-v1.md
+    - name: Interpret ML models
+      displayName: SDK, interpret, explain, explainability, interpretability
+      href: ../how-to-machine-learning-interpretability-aml.md
+    - name: Assess and mitigate model fairness
+      href: ../how-to-machine-learning-fairness-aml.md
     - name: Prepare data for computer vision with AutoML
       displayName: nlp, auto ML, automl, SDK
       href: how-to-prepare-datasets-for-automl-images-v1.md
