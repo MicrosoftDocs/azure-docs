@@ -38,4 +38,4 @@ ms.custom:
 > You can test a subscription in the test console:
 > * Set up a subscription query in the query editor, and then select **Connect** to establish a WebSocket connection to the backend service. 
 > * Review connection details in the **Subscription** pane. 
-> * The WebSocket connection is maintained until you disconnect it or you connect to a new WebSocket subscription..  
+> * The WebSocket connection is maintained until you disconnect it or you connect to a new WebSocket subscription.  

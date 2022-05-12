@@ -49,7 +49,7 @@ If you want to expose an existing GraphQL endpoint as an API, see [Import a Grap
     |----------------|-------|
     | **Display name** | The name by which your GraphQL API will be displayed. |
     | **Name** | Raw name of the GraphQL API. Automatically populates as you type the display name. |
-    | **GraphQL API endpoint** | For this scenario, optionally enter a URL with a GraphQL API endpoint name. This endpoint is used to pass through GraphQL queries when you don't configure custom resolvers for all fields.    |
+    | **Fallback GraphQL endpoint** | For this scenario, optionally enter a URL with a GraphQL API endpoint name. API Management passes GraphQL queries to this endpoint when a custom resolver isn't set for a field.    |
     | **Upload schema file** | Select to browse and upload a valid GraphQL schema file with the `.graphql` extension. |
     | Description | Add a description of your API. |
     | URL scheme | Select **HTTP**, **HTTPS**, or **Both**. Default selection: *Both*. |
