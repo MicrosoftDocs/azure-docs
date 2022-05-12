@@ -28,11 +28,11 @@ Add a new User Assigned Managed Identity.
 
 1. From **Settings** on the left, select **Identity**.
 
-    :::image type="content" source="media/nginx-manage/nginx-identity.png" alt-text="Screenshot of NGINX identity resource in Azure portal.":::
+    :::image type="content" source="media/nginx-manage/nginx-identity.png" alt-text="Screenshot showing how to add a managed identity to NGINX resource.":::
 
 1. To add a User Assigned identity, select **Add** in the working pane. You see a new pane for adding **User assigned managed identities** on the right that are part of the subscription. Select an identity and select **Add**.
 
-    :::image type="content" source="media/nginx-manage/nginx-user-assigned.png" alt-text="Screenshot of user assigned managed identity.":::
+    :::image type="content" source="media/nginx-manage/nginx-user-assigned.png" alt-text="Screenshot after user assigned managed identity is added.":::
 
 ## Changing the configuration
 
