@@ -31,7 +31,6 @@ Using Defender for SQL, enterprises can now protect their data, whether hosted i
 
 Microsoft Defender for SQL now provides a unified cross-environment experience to view security recommendations, security alerts and vulnerability assessment findings encompassing SQL servers and the underlying Windows OS.
 
-
 Using the multi-cloud onboarding experience, you can enable and enforce databases protection for VMs in AWS and GCP. After enabling multi-cloud protection, all supported resources covered by your subscription are protected. Future resources created within the same subscription will also be protected.
 
 Learn how to protect and connect your [AWS accounts](quickstart-onboard-aws.md) and your [GCP projects](quickstart-onboard-gcp.md) with Microsoft Defender for Cloud.
@@ -46,11 +45,9 @@ All auto-provisioning components available in the connector level (Azure Arc, MD
  
 Updates in the UI include a reflection of the selected pricing tier and the required components configured.
 
-:::image type="content" source="media/release-notes/main-page.jpg" alt-text="Screenshot of the main plan page with the Server plan multi-cloud settings." lightbox="media/release-notes/main-page.jpg":::
+:::image type="content" source="media/release-notes/main-page.png" alt-text="Screenshot of the main plan page with the Server plan multi-cloud settings." lightbox="media/release-notes/main-page.png":::
 
 :::image type="content" source="media/release-notes/auto-provision.png" alt-text="Screenshot of the auto-provision page with the multi-cloud connector enabled.":::
-
-:::image type="content" source="media/release-notes/auto-provision-second.png" alt-text="Screenshot of the second auto-provision screen with the multi-cloud setting enabled.":::
 
 ## April 2022
 
