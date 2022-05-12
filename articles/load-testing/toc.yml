@@ -28,6 +28,8 @@
   items: 
     - name: Key concepts
       href: concept-load-testing-concepts.md
+    - name: Scenarios for VNET deployment
+      href: concept-azure-load-testing-vnet-injection.md
 - name: How-to guides
   expanded: true
   items: 
@@ -55,6 +57,8 @@
       href: how-to-use-a-managed-identity.md
     - name: Configure customer-managed keys
       href: how-to-configure-customer-managed-keys.md
+    - name: Test a private endpoint
+      href: how-to-test-private-endpoint.md
     - name: Move between regions
       href: how-to-move-between-regions.md
     - name: Monitor Azure Load Testing
