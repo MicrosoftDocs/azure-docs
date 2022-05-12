@@ -21,7 +21,7 @@ Language support varies by Speech service functionality. The following tables su
 
 The Speech service supports the languages (locales) in the following tables.
 
-To improve accuracy, customization is available for some languages and baseline model versions by uploading audio + human-labeled transcripts, plain text, structured text, and pronunciation. By default, plain text customization is supported for all available baseline models. To learn more about customization, see [Get started with Custom Speech](./custom-speech-overview.md).
+To improve accuracy, customization is available for some languages and base model versions by uploading audio + human-labeled transcripts, plain text, structured text, and pronunciation. By default, plain text customization is supported for all available base models. To learn more about customization, see [Custom Speech](./custom-speech-overview.md).
 
 ### [Speech-to-text](#tab/speechtotext)
 
@@ -922,7 +922,7 @@ The following table lists the released languages and public preview languages.
 > [!NOTE]
 > If you want to use languages that aren't listed here, please contact us by email at [mspafeedback@microsoft.com](mailto:mspafeedback@microsoft.com). 
 >  
-> For pronunciation assessment feature, the released en-US language is available in all [Speech-to-Text regions](regions.md#speech-to-text-pronunciation-assessment-text-to-speech-and-translation), and preview languages are available in one region: West US.
+> For pronunciation assessment supported regions, see [available regions](regions.md#speech-to-text-pronunciation-assessment-text-to-speech-and-translation).
 
 ## Speech translation
 
