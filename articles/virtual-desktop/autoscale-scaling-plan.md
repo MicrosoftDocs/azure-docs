@@ -298,7 +298,7 @@ To edit an existing scaling plan:
 
 1. To change the scaling plan host pool assignments, under the **Manage** heading select **Host pool assignments** .
 
-1. To edit schedules, under the **Manage** heading select **Schedules**.
+1. To edit schedules, under the **Manage** heading, select **Schedules**.
 
 1. To edit the plan's friendly name, description, time zone, or exclusion tags, go to the **Properties** tab.
 
