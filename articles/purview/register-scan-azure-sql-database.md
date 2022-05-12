@@ -367,7 +367,8 @@ Scans can be managed or run again on completion
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-full-inc.png" alt-text="full or incremental scan.":::
 
-## Lineage (Preview)
+## Lineage (Preview) 
+<a id="lineagepreview"></a>
 
 Microsoft Purview supports lineage from Azure SQL Database. At the time of setting up a scan, enable lineage extraction toggle button to extract lineage.  
 
