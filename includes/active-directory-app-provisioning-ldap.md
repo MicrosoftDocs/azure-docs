@@ -37,7 +37,7 @@ For more information, see the [Generic LDAP Connector reference](/microsoft-iden
  - An Azure AD tenant with Azure AD Premium P1 or Premium P2 (or EMS E3 or E5). 
  
     [!INCLUDE [active-directory-p1-license.md](active-directory-p1-license.md)]
- - The Hybrid Administrator role for configuring the provisioning agent and the Application Administrator or Cloud Administrator roles for configuring provisioning in the Azure portal.
+ - The Hybrid Identity Administrator role for configuring the provisioning agent and the Application Administrator or Cloud Administrator roles for configuring provisioning in the Azure portal.
 
 ### More recommendations and limitations
 The following bullet points are more recommendations and limitations.
@@ -137,7 +137,7 @@ Currently, the LDAP connector provisions users with a blank password.  This prov
      >Please use different provisioning agents for on-premises application provisioning and Azure AD Connect Cloud Sync / HR-driven provisioning. All three scenarios should not be managed on the same agent. 
  1. Open the provisioning agent installer, agree to the terms of service, and select **next**.
  1. Open the provisioning agent wizard, and select **On-premises provisioning** when prompted for the extension you want to enable.
- 1. Provide credentials for an Azure AD administrator when you're prompted to authorize. Hybrid administrator or global administrator is required.
+ 1. Provide credentials for an Azure AD administrator when you're prompted to authorize. The Hybrid Identity Administrator or global administrator role is required.
  1. Select **Confirm** to confirm the installation was successful.
  1. Sign in to the Azure portal.
  1. Go to **Enterprise applications** > **Add a new application**.
@@ -265,10 +265,13 @@ Currently, the LDAP connector provisions users with a blank password.  This prov
  6. Select **Save**.
 
 ## Assign users to an application
-Now that you have the Azure AD ECMA Connector Host talking with Azure AD, you can move on to configuring who's in scope for provisioning. 
+Now that you have the Azure AD ECMA Connector Host talking with Azure AD, and the attribute mapping configured, you can move on to configuring who's in scope for provisioning. 
+
+>[!IMPORTANT]
+>If you were signed in using a Hybrid identity administrator role, you need to sign-out and sign-in with an account that has the app administrator or global administrator role, for this section.  The Hybrid identity administrator role does not have permissions to assign users to applications.
 
  1. In the Azure portal, select **Enterprise applications**.
- 2. Select the ***On-premises ECMA app** application.
+ 2. Select the **On-premises ECMA app** application.
  3. On the left, under **Manage**, select **Users and groups**.
  4. Select **Add user/group**.
      [![Screenshot that shows adding a user.](.\media\active-directory-app-provisioning-sql\app-2.png)](.\media\active-directory-app-provisioning-sql\app-2.png#lightbox)
@@ -283,7 +286,7 @@ Now that you have the Azure AD ECMA Connector Host talking with Azure AD, you ca
 
 
 ## Test provisioning
-Now that your attributes are mapped, you can test on-demand provisioning with one of your users.
+Now that your attributes are mapped and users are assigned, you can test on-demand provisioning with one of your users.
  
  1. In the Azure portal, select **Enterprise applications**.
  2. Select the **On-premises ECMA app** application.
@@ -291,11 +294,20 @@ Now that your attributes are mapped, you can test on-demand provisioning with on
  4. Select **Provision on demand**.
  5. Search for one of your test users, and select **Provision**.
  [![Screenshot testing on-demand provisioning](.\media\active-directory-app-provisioning-ldap\test-2.png)](.\media\active-directory-app-provisioning-ldap\test-2.png#lightbox)</br>
+ 6. After several seconds, then the message **Successfully created user in target system** will appear, with a list of the user attributes.
 
 ## Start provisioning users
  1. After on-demand provisioning is successful, change back to the provisioning configuration page. Ensure that the scope is set to only assigned users and groups, turn provisioning **On**, and select **Save**.
  
  2. Wait several minutes for provisioning to start. It might take up to 40 minutes. After the provisioning job has been completed, as described in the next section, if you are done testing with this application, you can change the provisioning status to **Off**, and select **Save**. This action stops the provisioning service from running in the future.
+
+## Troubleshooting provisioning errors
+
+If an error is shown, then select **View provisioning logs**.  Look in the log for a row in which the Status is **Failure**, and click on that row.
+
+Iif the error message is **Failed to create User**, then check the attributes that are shown against the requirements of the directory schema.
+
+For more information, change to the **Troubleshooting & Recommendations** tab.
 
 ## Check that users were successfully provisioned
 After waiting, check your directory to ensure users are being provisioned.  The following instructions illustrate how to check AD LDS.
