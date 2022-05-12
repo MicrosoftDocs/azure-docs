@@ -120,7 +120,7 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
   - Knowing which virtual network is conversing to which virtual network. If the conversation is not expected, it can be corrected.
   - If rogue networks are conversing with a virtual network, you can correct NSG rules to block the rogue networks.
  
-    Select **View VNets** under **Your environment**, as shown in the following picture:
+    Select **View VNets** under **Your environment** as shown in the following picture:
 
     ![Dashboard showcasing virtual network distribution](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 

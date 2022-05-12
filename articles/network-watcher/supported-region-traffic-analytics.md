@@ -136,4 +136,4 @@ The Log Analytics workspace must exist in the following regions:
 :::row-end:::
 
 > [!NOTE]
-> If NSGs support a region but the log analytics workspace does not support that region for traffic analytics as per above lists, then you can use log analytics workspace of any other supported region as a workaround.
+> If NSGs support a region, but the log analytics workspace does not support that region for traffic analytics as per above lists, then you can use log analytics workspace of any other supported region as a workaround.
