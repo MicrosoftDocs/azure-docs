@@ -55,9 +55,9 @@ If you're setting up network monitoring for enterprise IoT systems, you can skip
 
 - Research your own network architecture and monitor bandwidth. Check requirements for creating certificates and other network details, and clarify the sensor appliances you'll need for your own network load.
 
-   Calculate the approximate number of devices you'll be monitoring. Devices can be added in intervals of **1,000**, such as **1000**, **2000**, **3000**. The numbers of monitored devices are called *committed devices*.
+   Calculate the approximate number of devices you'll be monitoring. Devices can be added in intervals of **100**, such as **100**, **200**, **300**. The numbers of monitored devices are called *committed devices*.
 
-Microsoft Defender for IoT supports both physical and virtual deployments. For physical deployments, you'll be able to purchase certified appliances with software pre-installed, or download software to install yourself.
+Microsoft Defender for IoT supports both physical and virtual deployments. For physical deployments, you'll be able to purchase certified, preconfigured appliances, or download software to install yourself.
 
 For more information, see:
 

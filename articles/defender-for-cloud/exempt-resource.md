@@ -9,8 +9,6 @@ ms.date: 01/02/2022
 
 # Exempting resources and recommendations from your secure score 
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 A core priority of every security team is to ensure analysts can focus on the tasks and incidents that matter to the organization. Defender for Cloud has many features for customizing the experience and making sure your secure score reflects your organization's security priorities. The **exempt** option is one such feature.
 
 When you investigate your security recommendations in Microsoft Defender for Cloud, one of the first pieces of information you review is the list of affected resources.

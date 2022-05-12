@@ -118,7 +118,7 @@ Use this metric to:
 
 Reasons for why you may see dropped packets: 
 
-- If you're seeing a high rate of dropped packets, it may be due to outbound connectivity failure. Connectivity failure may happen for various reasons. See the NAT gateway [troubleshooting guide](/azure/virtual-network/nat-gateway/troubleshoot-nat) to help you further diagnose. 
+- If you're seeing a high rate of dropped packets, it may be due to outbound connectivity failure. Connectivity failure may happen for various reasons. See the NAT gateway [troubleshooting guide](./troubleshoot-nat.md) to help you further diagnose. 
 
 ### SNAT connection count
 
@@ -152,7 +152,7 @@ To view the number of attempted and failed connections:
 
 Reasons for why you may see failed connections:
 
-- If you're seeing a pattern of failed connections for your NAT gateway resource, there could be multiple possible reasons. See the NAT gateway [troubleshooting guide](/azure/virtual-network/nat-gateway/troubleshoot-nat) to help you further diagnose.  
+- If you're seeing a pattern of failed connections for your NAT gateway resource, there could be multiple possible reasons. See the NAT gateway [troubleshooting guide](./troubleshoot-nat.md) to help you further diagnose.  
 
 ### Total SNAT connection count
 
@@ -182,13 +182,13 @@ Reasons for why you may see a drop in data path availability include:
 
 - An infrastructure outage has occurred. 
 
-- There aren't healthy VMs available in your NAT gateway configured subnet. For more information, see the NAT gateway [troubleshooting guide](/azure/virtual-network/nat-gateway/troubleshoot-nat). 
+- There aren't healthy VMs available in your NAT gateway configured subnet. For more information, see the NAT gateway [troubleshooting guide](./troubleshoot-nat.md). 
 
 ## Alerts
 
 Alerts can be configured in Azure Monitor for each of the preceding metrics. These alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address potential issues with your NAT gateway resource. 
 
-For more information about how metric alerts work, see [Azure Monitor Metric Alerts](/azure/azure-monitor/alerts/alerts-metric-overview). See guidance below on how to configure some common and recommended types of alerts for your NAT gateway. 
+For more information about how metric alerts work, see [Azure Monitor Metric Alerts](../../azure-monitor/alerts/alerts-metric-overview.md). See guidance below on how to configure some common and recommended types of alerts for your NAT gateway. 
 
 ### Alerts for SNAT port usage
 
@@ -206,7 +206,7 @@ To create the alert, use the following steps:
 
 5. From the **Aggregation type** drop-down menu, select **Total**. 
 
-6. In the **Threshold value** box, enter a percentage value that the Total SNAT connection count must drop below before an alert is fired. When deciding what threshold value to use, keep in mind how much you've scaled out your NAT gateway outbound connectivity with public IP addresses. For more information, see [Scale NAT gateway](/azure/virtual-network/nat-gateway/nat-gateway-resource#scale-nat-gateway). 
+6. In the **Threshold value** box, enter a percentage value that the Total SNAT connection count must drop below before an alert is fired. When deciding what threshold value to use, keep in mind how much you've scaled out your NAT gateway outbound connectivity with public IP addresses. For more information, see [Scale NAT gateway](./nat-gateway-resource.md#scale-nat-gateway). 
 
 7. From the **Unit** drop-down menu, select **Count**. 
 
@@ -219,11 +219,11 @@ To create the alert, use the following steps:
 11. Select **Create** to create the alert rule.
 
 >[!NOTE]
->SNAT exhaustion on your NAT gateway resource is uncommon. If you see SNAT exhaustion, your NAT gateway's idle timeout timer may be holding on to SNAT ports too long or your may need to scale with additional public IPs. To troubleshoot these kinds of issues, refer to the NAT gateway [troubleshooting guide](/azure/virtual-network/nat-gateway/troubleshoot-nat). 
+>SNAT exhaustion on your NAT gateway resource is uncommon. If you see SNAT exhaustion, your NAT gateway's idle timeout timer may be holding on to SNAT ports too long or your may need to scale with additional public IPs. To troubleshoot these kinds of issues, refer to the NAT gateway [troubleshooting guide](./troubleshoot-nat.md). 
 
 ## Network Insights
 
-[Azure Monitor Network Insights](/azure/azure-monitor/insights/network-insights-overview) allows you to visualize your Azure infrastructure setup and to review all metrics for your NAT gateway resource from a pre-configured metrics dashboard. These visual tools help you diagnose and troubleshoot any issues with your NAT gateway resource. 
+[Azure Monitor Network Insights](../../azure-monitor/insights/network-insights-overview.md) allows you to visualize your Azure infrastructure setup and to review all metrics for your NAT gateway resource from a pre-configured metrics dashboard. These visual tools help you diagnose and troubleshoot any issues with your NAT gateway resource. 
 
 ### View the topology of your Azure architectural setup
 
@@ -250,10 +250,6 @@ The metrics dashboard can be used to better understand the performance and healt
     :::image type="content" source="./media/nat-metrics/detailed-metrics.png" alt-text="Screenshot of the view detailed metrics."::: 
 
 For more information on what each metric is showing you and how to analyze these metrics, see [How to use NAT gateway metrics](#how-to-use-nat-gateway-metrics).
-
-## Limitations
-
-- Resource health isn't supported.
 
 ## Next steps
 

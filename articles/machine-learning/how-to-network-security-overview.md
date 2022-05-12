@@ -121,7 +121,7 @@ To secure the training environment, use the following steps:
 1. If your compute cluster or compute instance does not use a public IP address, you must [Allow inbound communication](how-to-secure-training-vnet.md#required-public-internet-access) so that management services can submit jobs to your compute resources. 
 
     > [!TIP]
-    > Compute cluster and compute instance can be created with or without a public IP address. If created with a public IP address, they communicate with the Azure Batch Services over the public IP. If created without a public IP, they communicate with Azure Batch Services over the private IP. When using a private IP, you need to allow inbound communications from Azure Batch.
+    > Compute cluster and compute instance can be created with or without a public IP address. If created with a public IP address, you get a load balancer with a public IP to accept the inbound access from Azure batch service and Azure Machine Learning service. You need to configure User Defined Routing (UDR) if you use a firewall. If created without a public IP, you get a private link service to accept the inbound access from Azure batch service and Azure Machine Learning service without a public IP.
 
 :::image type="content" source="./media/how-to-network-security-overview/secure-training-environment.svg" alt-text="Diagram showing how to secure managed compute clusters and instances.":::
 
@@ -216,7 +216,7 @@ Microsoft Sentinel is a security solution that can integrate with Azure Machine 
 
 Microsoft Sentinel can automatically create a workspace for you if you are OK with a public endpoint. In this configuration, the security operations center (SOC) analysts and system administrators connect to notebooks in your workspace through Sentinel.
 
-For information on this process, see [Create an Azure ML workspace from Microsoft Sentinel](../sentinel/notebooks.md?tabs=public-endpoint#create-an-azure-ml-workspace-from-microsoft-sentinel)
+For information on this process, see [Create an Azure ML workspace from Microsoft Sentinel](../sentinel/notebooks-hunt.md?tabs=public-endpoint#create-an-azure-ml-workspace-from-microsoft-sentinel)
 
 :::image type="content" source="./media/how-to-network-security-overview/common-public-endpoint-deployment.svg" alt-text="Diagram showing Microsoft Sentinel public connection.":::
 
@@ -224,7 +224,7 @@ For information on this process, see [Create an Azure ML workspace from Microsof
 
 If you want to secure your workspace and associated resources in a VNet, you must create the Azure Machine Learning workspace first. You must also create a virtual machine 'jump box' in the same VNet as your workspace, and enable Azure Bastion connectivity to it. Similar to the public configuration, SOC analysts and administrators can connect using Microsoft Sentinel, but some operations must be performed using Azure Bastion to connect to the VM.
 
-For more information on this configuration, see [Create an Azure ML workspace from Microsoft Sentinel](../sentinel/notebooks.md?tabs=private-endpoint#create-an-azure-ml-workspace-from-microsoft-sentinel)
+For more information on this configuration, see [Create an Azure ML workspace from Microsoft Sentinel](../sentinel/notebooks-hunt.md?tabs=private-endpoint#create-an-azure-ml-workspace-from-microsoft-sentinel)
 
 :::image type="content" source="./media/how-to-network-security-overview/private-endpoint-deploy-bastion.svg" alt-text="Daigram showing Microsoft Sentinel connection through a VNet.":::
 

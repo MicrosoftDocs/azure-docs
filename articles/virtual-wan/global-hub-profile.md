@@ -13,7 +13,7 @@ ms.author: cherylmc
 
 # Download a global or hub-based profile for User VPN clients
 
-Azure Virtual WAN offers two types of connectivity for remote users: global and hub-based. Use the following sections to learn about profile types and how to download them.
+Azure Virtual WAN offers two types of connectivity for User VPN (P2S) remote users: global and hub-based. Use the following sections to learn about profile types and how to download them.
 
 
 
@@ -24,7 +24,7 @@ The global profile associated with a User VPN configuration points to a load bal
 For example, you can associate a VPN configuration with two Virtual WAN hubs, one in West US and one in Southeast Asia. If a user connects to the global profile associated with the User VPN configuration, they'll connect to the closest Virtual WAN hub based on their location.
 
 > [!IMPORTANT]
-> If a Point-to-site VPN configuration used for a global profile is configured to authenticate users using the RADIUS protocol, make sure "Use Remote/On-premises RADIUS server" is turned on for all Point-to-site VPN Gateways using that configuration. Additionally, ensure your RADIUS server is configured to accept authentication requests from theRADIUS proxy IP addresses of **all** Point-to-site VPN Gateways using this VPN configuration. 
+> If a Point-to-site VPN configuration used for a global profile is configured to authenticate users using the RADIUS protocol, make sure "Use Remote/On-premises RADIUS server" is turned on for all Point-to-site VPN Gateways using that configuration. Additionally, ensure your RADIUS server is configured to accept authentication requests from the RADIUS proxy IP addresses of **all** Point-to-site VPN Gateways using this VPN configuration. 
 
 To download the global profile:
 
