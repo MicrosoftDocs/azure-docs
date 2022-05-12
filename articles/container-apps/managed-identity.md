@@ -5,7 +5,7 @@ services: container-apps
 author: cebundy
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 05/11/2022
+ms.date: 05/12/2022
 ms.author: v-bcatherine
 ---
 

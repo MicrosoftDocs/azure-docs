@@ -5,14 +5,14 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 05/11/2022
+ms.date: 05/12/2022
 ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---
 
 # Containers in Azure Container Apps Preview
 
-Azure Container Apps manages the details of Kubernetes and container orchestrations for you. Containers in Azure Container Apps can use any runtime, programming language, or development stack of your choice.
+Azure Container Apps manages the details of Kubernetes and container orchestration for you. Containers in Azure Container Apps can use any runtime, programming language, or development stack of your choice.
 
 :::image type="content" source="media/containers/azure-container-apps-containers.png" alt-text="Azure Container Apps: Containers":::
 
@@ -32,31 +32,68 @@ Features include:
 
 ## Configuration
 
-The following example configuration shows the options available when setting up a container.
+The following an example of the `containers` array in the [`properties.template`](azure-resource-manager-api-spec.md#propertiestemplate) section of container app resource template.  The excerpts shows the available configuration options when setting up a container.
 
 ```json
-{
-  ...
-  "template": {
-    "containers": [
+"containers": [
+  {
+       "name": "main",
+       "image": "[parameters('container_image')]",
+    "env": [
       {
-        "image": "myacr.azurecr.io/myrepo/api-service:v1",
-        "name": "my-container-image",
-        "command": ["/bin/queue"],
-        "args": [],
-        "env": [
-          {
-            "name": "HTTP_PORT",
-            "value": "8080"
-          }
-        ],
-        "resources": {
-            "cpu": 0.75,
-            "memory": "1.5Gi"
-        }
-    }]
+        "name": "HTTP_PORT",
+        "value": "80"
+      },
+      {
+        "name": "SECRET_VAL",
+        "secretRef": "mysecret"
+      }
+    ],
+    "resources": {
+      "cpu": 0.5,
+      "memory": "1Gi"
+    },
+    "probes":[
+        {
+            "type":"liveness",
+            "httpGet":{
+            "path":"/health",
+            "port":8080,
+            "httpHeaders":[
+                {
+                    "name":"Custom-Header",
+                    "value":"liveness probe"
+                }]
+            },
+            "initialDelaySeconds":7,
+            "periodSeconds":3
+        },
+        {
+            "type":"readiness",
+            "tcpSocket":
+                {
+                    "port": 8081
+                },
+            "initialDelaySeconds": 10,
+            "periodSeconds": 3
+        },
+        {
+            "type": "startup",
+            "httpGet": {
+                "path": "/startup",
+                "port": 8080,
+                "httpHeaders": [
+                    {
+                        "name": "Custom-Header",
+                        "value": "startup probe"
+                    }]
+            },
+            "initialDelaySeconds": 3,
+            "periodSeconds": 3
+        }]
   }
-}
+],
+
 ```
 
 | Setting | Description | Remarks |
@@ -103,7 +140,7 @@ Reasons to run containers together in a pod include:
 
 You can deploy images hosted on private registries where credentials are provided through the Container Apps configuration.
 
-To use a container registry, you first define the required fields to the [configuration's](azure-resource-manager-api-spec.md) `registries` section.
+To use a container registry, you first define the required fields in `registries` parameters in the [`properties.configuration`](azure-resource-manager-api-spec.md) section of the container app resource template.
 
 ```json
 {
@@ -116,9 +153,9 @@ To use a container registry, you first define the required fields to the [config
 }
 ```
 
-With this set up, the saved credentials can be used when you reference a container image in an `image` in the `containers` array.
+With registry credentials defined, the saved credentials can be used to pull the container image from the private registry.
 
-The following example shows how to deploy an app from the Azure Container Registry.
+The following example shows configure Azure Container Registry credentials in a container app.
 
 ```json
 {
@@ -130,6 +167,7 @@ The following example shows how to deploy an app from the Azure Container Regist
               "value": "my-acr-password"
           }
       ],
+...
       "registries": [
           {
               "server": "myacr.azurecr.io",
@@ -141,9 +179,9 @@ The following example shows how to deploy an app from the Azure Container Regist
 }
 ```
 
-###  Managed identity with Azure Container Registry
+### Managed identity with Azure Container Registry
 
-You can use an Azure managed identity to authenticate with Azure Container Registry instead of using a username and password. To use a managed identity, assign a system-assigned or user-assigned managed identity to your container app, then specify the managed identity you want to use for each registry using the managed identity resource ID for user-assigned, or "system" for system-assigned. 
+You can use an Azure managed identity to authenticate with Azure Container Registry instead of using a username and password. To use a managed identity, assign a system-assigned or user-assigned managed identity to your container app, then specify the managed identity you want to use for each registry using the managed identity resource ID for user-assigned, or "system" for system-assigned. For more information about using managed identities see, [Managed identities in Azure Container Apps Preview](managed-identity.md).
 
 ```json
 {
@@ -170,7 +208,20 @@ You can use an Azure managed identity to authenticate with Azure Container Regis
 }
 ```
 
-The managed identity must have `AcrPull` access on the Azure Container Registry. For more information about assigning Azure Container Registry permissions to managed identities, see [Authenticate with managed identity](../container-registry/container-registry-authentication-managed-identity).
+The managed identity must have `AcrPull` access for the Azure Container Registry. For more information about assigning Azure Container Registry permissions to managed identities, see [Authenticate with managed identity](../container-registry/container-registry-authentication-managed-identity.md).
+
+#### To configure a user-assigned managed identity
+
+You can configure a user-assigned managed identity by:
+
+1. Create the user-assigned identity if it doesn't exist.
+1. Give the user-assigned identity `AcrPull` permission to your private repository.
+1. Add the identity to your container app configuration as shown above.
+
+For more information about configuring user-assigned identities, see [Add a user-assigned identity](managed-identity.md#add-a-user-assigned-identity).
+
+
+#### To configure a system-assigned managed identity
 
 System-assigned identities are created at the time your container app is created, and therefore, won't have `AcrPull` access to your Azure Container Registry.  As a result, the image can't be pulled from your private registry when your app is first deployed.
 
@@ -182,11 +233,14 @@ Use a public registry for the initial deployment:
 1. Give the new system-assigned identity `AcrPull` access to your private Azure Container Registry.
 1. Update your container app replacing the public image with the image from your private Azure Container Registry.
 
-Restart your app after assigning permissions:
+Or restart your app after assigning permissions:
 
 1. Create your container app using a private image and a system-assigned identity. (The deployment will result in a failure to pull the image.)
 1. Give the new system-assigned identity `AcrPull` access to your private Azure Container Registry.
 1. Restart your container app revision.
+
+
+For more information about configuring system-assigned identities, see [Add a system-assigned identity](managed-identity.md#add-a-system-assigned-identity).
 
 ## Limitations
 
