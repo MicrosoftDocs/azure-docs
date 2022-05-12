@@ -211,7 +211,7 @@ Do you have malicious traffic in your environment? Where is it originating from?
     
 ## Frequently asked questions
 
-To get answers to frequently asked questions, see [Traffic analytics FAQ](traffic-analytics-faq.yml).
+For frequent asked questions about Traffic Analytics, see [Traffic analytics FAQ](traffic-analytics-faq.yml).
 
 ## Next steps
 

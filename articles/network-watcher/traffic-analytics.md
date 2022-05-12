@@ -79,3 +79,12 @@ If your account is not assigned to one of the built-in roles, it must be assigne
 - "Microsoft.Network/expressRouteCircuits/read"
 
 For information on how to check user access permissions, see [Traffic analytics FAQ](traffic-analytics-faq.yml).
+
+## Frequently asked questions
+
+For frequent asked questions about Traffic Analytics, see [Traffic analytics FAQ](traffic-analytics-faq.yml).
+
+## Next steps
+
+- To learn how to enable flow logs, see [Enabling NSG flow logging](network-watcher-nsg-flow-logging-portal.md).
+- To understand the schema and processing details of Traffic Analytics, see [Traffic analytics schema](traffic-analytics-schema.md).

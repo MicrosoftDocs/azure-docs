@@ -57,13 +57,14 @@
   - name: Variable packet capture
     href: network-watcher-packet-capture-overview.md
   - name: Traffic Analytics overview 
-    href: traffic-analytics.md
     items:
-    - name: Supported Regions
+    - name: Overview
+      href: traffic-analytics.md
+    - name: Supported regions
       href: supported-region-traffic-analytics.md
-    - name: Enable Network Watcher and Flow Log Settings
+    - name: Network Watcher and flow log settings
       href: enable-network-watcher-flow-log-settings.md
-    - name: Usage Scenarios
+    - name: Usage scenarios
       href: usage-scenarios-traffic-analytics.md
     - name: Frequently asked questions
       href: traffic-analytics-faq.yml
