@@ -471,9 +471,9 @@ To update the custom HSM stub code to simulate the identity of the device with I
     static const char* const COMMON_NAME = "my-x509-device";
     ```
 
-1. In the same file, you need to update the string value of the `CERTIFICATE` constant string using your certificate chain text you saved in *./certs/new-device-01-full-chain.cert.pem* after generating your certificates.
+1. Update the string value of the `CERTIFICATE` constant string using the device certificate, *device-cert.pem*, that you generated previously.
 
-    The syntax of certificate text must follow the pattern below with no extra spaces or parsing done by Visual Studio.
+    The syntax of certificate text in the sample must follow the pattern below with no extra spaces or parsing done by Visual Studio.
 
     ```c
     // <Device/leaf cert>
@@ -486,10 +486,10 @@ To update the custom HSM stub code to simulate the identity of the device with I
     "-----END CERTIFICATE-----";        
     ```
 
-    Updating this string value correctly in this step can be very tedious and subject to error. To generate the proper syntax in your Git Bash prompt, copy and paste the following bash shell commands into your Git Bash command prompt, and press **ENTER**. These commands will generate the syntax for the `CERTIFICATE` string constant value.
+    Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following bash shell commands into your **Git Bash command prompt**, and press **ENTER**. These commands will generate the syntax for the `CERTIFICATE` string constant value and write them to the output.
 
     ```Bash
-    input="./certs/new-device-01-full-chain.cert.pem"
+    input="./device-cert.pem"
     bContinue=true
     prev=
     while $bContinue; do
@@ -505,9 +505,9 @@ To update the custom HSM stub code to simulate the identity of the device with I
     done < "$input"
     ```
 
-    Copy and paste the output certificate text for the new constant value.
+    Copy and paste the output certificate text for the constant value.
 
-1. In the same file, the string value of the `PRIVATE_KEY` constant must also be updated with the private key for your device certificate.
+1. Update the string value of the `PRIVATE_KEY` constant with the private key for your device certificate, *device-key.pem*.
 
     The syntax of the private key text must follow the pattern below with no extra spaces or parsing done by Visual Studio.
 
@@ -519,26 +519,26 @@ To update the custom HSM stub code to simulate the identity of the device with I
     "-----END RSA PRIVATE KEY-----";
     ```
 
-    Updating this string value correctly in this step can also be very tedious and subject to error. To generate the proper syntax in your Git Bash prompt, copy and paste the following bash shell commands, and press **ENTER**. These commands will generate the syntax for the `PRIVATE_KEY` string constant value.
+    Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following bash shell commands into your **Git Bash command prompt**, and press **ENTER**. These commands will generate the syntax for the `PRIVATE_KEY` string constant value and write them to the output.
 
     ```Bash
-    input="./private/new-device-01.key.pem"
+    input="./device-key.pem"
     bContinue=true
     prev=
     while $bContinue; do
         if read -r next; then
-          if [ -n "$prev" ]; then	
+          if [ -n "$prev" ]; then
             echo "\"$prev\\n\""
           fi
           prev=$next  
         else
           echo "\"$prev\";"
           bContinue=false
-        fi	
+        fi
     done < "$input"
     ```
 
-    Copy and paste the output private key text for the new constant value. 
+    Copy and paste the output private key text for the constant value.
 
 1. Save *custom_hsm_example.c*.
 
@@ -546,7 +546,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
 1. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. When prompted to rebuild the project, select **Yes** to rebuild the project before running.
 
-    The following output is an example of simulated device `custom-hsm-device-01` successfully booting up, and connecting to the provisioning service. The device was assigned to an IoT hub and registered:
+    The following output is an example of the simulated device `my-x509-device` successfully booting up, and connecting to the provisioning service. The device is assigned to an IoT hub and registered:
 
     ```cmd
     Provisioning API Version: 1.3.9
@@ -556,7 +556,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
     Provisioning Status: PROV_DEVICE_REG_STATUS_CONNECTED
     Provisioning Status: PROV_DEVICE_REG_STATUS_ASSIGNING
     
-    Registration Information received from service: test-docs-hub.azure-devices.net, deviceId: custom-hsm-device-01
+    Registration Information received from service: test-docs-hub.azure-devices.net, deviceId: my-x509-device
     Press enter key to exit:
     ```
 
@@ -584,7 +584,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
     dotnet run -- -s 0ne00000A0A -c certificate.pfx -p 1234
     ```
 
-5. The device will now connect to DPS and be assigned to an IoT Hub. Then, the device will send a telemetry message to the hub.
+5. The device will now connect to DPS and be assigned to an IoT hub. Then, the device will send a telemetry message to the IoT hub.
 
     ```output
     Loading the certificate...
@@ -686,7 +686,7 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
 
 8. Save your changes.
 
-9. Run the sample. The sample will connect, provision the device to a hub, and send some test messages to the hub.
+9. Run the sample. The sample will connect to DPS, which will provision the device to an IoT hub. After the device is provisioned, the sample will send some test messages to the IoT hub.
 
     ```cmd
     $ python azure-iot-sdk-python/azure-iot-device/samples/async-hub-scenarios/provision_x509.py
@@ -735,7 +735,7 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
     cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-X509-sample
     ```
 
-1. Enter the provisioning service and X.509 identity information in the sample code. This is used during provisioning, for attestation of the simulated device, prior to device registration. 
+1. Enter the provisioning service and X.509 identity information in the sample code. This is used during provisioning, for attestation of the simulated device, prior to device registration.
 
     1. Open the file `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` in your favorite editor.
 
@@ -820,7 +820,7 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
     java -jar ./provisioning-x509-sample-{version}-with-deps.jar
     ```
 
-    The sample will connect, provision the device to a hub, and send some test messages to the IoT hub.
+    The sample will connect to DPS, which will provision the device to an IoT hub. After the device is provisioned, the sample will send some test messages to the IoT hub.
 
     ```output
     Starting...
