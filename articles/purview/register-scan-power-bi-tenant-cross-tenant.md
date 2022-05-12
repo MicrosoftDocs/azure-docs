@@ -238,18 +238,10 @@ To create and run a new scan using Azure runtime, perform the following steps:
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Screenshot of Save and run Power BI source.":::
 
-## Troubleshooting tips
-
-If delegated auth is used:
-- Check your key vault. Make sure there are no typos in the password.
-- Assign proper [Power BI license](/power-bi/admin/service-admin-licensing-organization#subscription-license-types) to Power BI administrator user.
-- Validate if user is assigned to Power BI Administrator role.
-- If user is recently created, make sure password is reset successfully and user can successfully initiate the session.
-
 ## Next steps
 
 Now that you have registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
-- [Data insights in Microsoft Purview](concept-insights.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

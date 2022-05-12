@@ -35,9 +35,10 @@ You can enable availability zone in Azure Spring Cloud using the [Azure CLI](/cl
 To create a service in Azure Spring Cloud with availability zone enabled using the Azure CLI, include the `--zone-redundant` parameter when you create your service in Azure Spring Cloud.
 
 ```azurecli
-az spring-cloud create -name <MyService> \
-    -group <MyResourceGroup> \
-    -location <MyLocation> \
+az spring-cloud create \
+    --resource-group <your-resource-group-name> \
+    --name <your-Azure-Spring-Cloud-instance-name> \
+    --location <location> \
     --zone-redundant true
 ```
 

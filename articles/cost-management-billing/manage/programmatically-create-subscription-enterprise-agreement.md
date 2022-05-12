@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/29/2022
+ms.date: 05/05/2022
 ms.reviewer: andalmia
 ms.author: banders 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -28,7 +28,11 @@ A user must have an Owner role on an Enrollment Account to create a subscription
 * The Enterprise Administrator of your enrollment can [make you an Account Owner](https://ea.azure.com/helpdocs/addNewAccount) (sign in required) which makes you an Owner of the Enrollment Account.
 * An existing Owner of the Enrollment Account can [grant you access](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). 
 
-To use a service principal (SPN) to create an EA subscription, an Owner of the Enrollment Account must [grant that service principal the ability to create subscriptions](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). When using an SPN to create subscriptions, use the ObjectId of the Azure AD Application Registration as the Service Principal ObjectId using [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true ) or [Azure CLI](/cli/azure/ad/sp#az-ad-sp-list). For more information about the EA role assignment API request, see [Assign roles to Azure Enterprise Agreement service principal names](assign-roles-azure-service-principals.md). The article includes a list of roles (and role definition IDs) that can be assigned to an SPN.
+To use a service principal (SPN) to create an EA subscription, an Owner of the Enrollment Account must [grant that service principal the ability to create subscriptions](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). 
+
+When using an SPN to create subscriptions, use the ObjectId of the Azure AD Application Registration as the Service Principal ObjectId using [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true ) or [Azure CLI](/cli/azure/ad/sp#az-ad-sp-list). You can also use the steps at [Find your SPN and tenant ID](assign-roles-azure-service-principals.md#find-your-spn-and-tenant-id) to find the object ID in the Azure portal for an existing SPN.
+
+For more information about the EA role assignment API request, see [Assign roles to Azure Enterprise Agreement service principal names](assign-roles-azure-service-principals.md). The article includes a list of roles (and role definition IDs) that can be assigned to an SPN.
 
   > [!NOTE]
   > - Ensure that you use the correct API version to give the enrollment account owner permissions. For this article and for the APIs documented in it, use the [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put) API. 
