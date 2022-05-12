@@ -524,7 +524,7 @@ IoT Edge fails to start with error message `failed to provision with IoT Hub, an
 
 **Root cause:**
 
-A group enrollment is used to provision an IoT Edge device to an IoT Hub. The IoT Edge device is moved to a different hub. The registration is deleted in DPS. A new registration is created in DPS for the new hub. The device is not reprovisioned.
+A group enrollment is used to provision an IoT Edge device to an IoT Hub. The registration is deleted in DPS. A new registration is created in DPS to link to a different IoT hub. The device is not reprovisioned because reprovisioning is set to false.
 
 **Resolution:**
 
