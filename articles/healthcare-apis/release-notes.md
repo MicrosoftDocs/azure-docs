@@ -41,7 +41,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 |Issue | Date discovered | Status | Date resolved |
 | :------------------------------------- | :------------ | :------------- | :------------- |
-|The SQL Provider will cause the `RawResource` column in the database to save incorrectly. This occurs in a small number of cases when a transient exception occurs that causes the provider to use its retry logic. |April 2022 |Does not have a workaround.  |Not resolved  |
+|The SQL Provider will cause the `RawResource` column in the database to save incorrectly. This occurs in a few cases when a transient exception occurs that causes the provider to use its retry logic. |April 2022 |Doesn't have a workaround.  |Not resolved  |
 
 ### DICOM service
 
@@ -263,6 +263,11 @@ Azure Health Data Services is a set of managed API services based on open standa
 | MedTech service normalized improvements with calculations to support and enhance health data standardization. | See: [Use Device mappings](./../healthcare-apis/iot/how-to-use-device-mappings.md) and [Calculated Functions](./../healthcare-apis/iot/how-to-use-calculated-functions-mappings.md)  |
 
 ## Next steps
+
+For information about the known issues with Azure Health Data Services, See
+
+>[!div class="nextstepaction"]
+>[Known issues: Azure Health Data Services](known-issues.md)
 
 For information about the features and bug fixes in Azure API for FHIR, see
 
