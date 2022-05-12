@@ -389,7 +389,7 @@ Azure Front Door passes the user's original IP address. It's the IP address that
 
 ### Can I use a third-party Web Application Firewall (WAF) with B2C?
 
-Yes, Azure AD B2C supports BYO-WAF (Bring Your Own Web Application Firewall). However, you must test WAF to ensure that it does not block or alert legitimate requests to Azure AD B2C user flows or custom policies. Learn how to configure [Akamai WAF](https://docs.microsoft.com/en-us/azure/active-directory-b2c/partner-akamai) and [Cloudflare WAF](https://docs.microsoft.com/en-us/azure/active-directory-b2c/partner-cloudflare) with Azure AD B2C.
+Yes, Azure AD B2C supports BYO-WAF (Bring Your Own Web Application Firewall). However, you must test WAF to ensure that it does not block or alert legitimate requests to Azure AD B2C user flows or custom policies. Learn how to configure [Akamai WAF](partner-akamai.md) and [Cloudflare WAF](partner-cloudflare.md) with Azure AD B2C.
   
 ### Can my Azure Front Door instance be hosted in a different subscription than my Azure AD B2C tenant?
     
