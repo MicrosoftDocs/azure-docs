@@ -267,7 +267,7 @@ You can now create an Azure Video Indexer paid account in the US North Central, 
 
 ### New source languages support for speech-to-text (STT), translation and search
 
-Azure Video Indexer now support STT, translation and search in Danish ('da-DK'), Norwegian('nb-NO'), Swedish('sv-SE'), Finnish('fi-FI'), Canadian French ('fr-CA'), Thai('th-TH'), Arabic ('ar-BH', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-OM', 'ar-QA', 'ar-S', and 'ar-SY'), and Turkish('tr-TR'). Those languages are available in both API and Azure Video Indexer website.
+Azure Video Indexer now supports STT, translation and search in Danish ('da-DK'), Norwegian('nb-NO'), Swedish('sv-SE'), Finnish('fi-FI'), Canadian French ('fr-CA'), Thai('th-TH'), Arabic ('ar-BH', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-OM', 'ar-QA', 'ar-S', and 'ar-SY'), and Turkish('tr-TR'). Those languages are available in both API and Azure Video Indexer website.
 
 ### Search by Topic in Azure Video Indexer Website
 
@@ -313,7 +313,7 @@ You can now create an Azure Video Indexer paid account in the India Central regi
 
 ### New Dark Mode for the Azure Video Indexer website experience
 
-The Azure Video Indexer website experiences is now available in dark mode.
+The Azure Video Indexer website experience is now available in dark mode.
 To enable the dark mode open the settings panel and toggle on the **Dark Mode** option.
 
 :::image type="content" source="./media/release-notes/dark-mode.png" alt-text="Dark mode setting":::
@@ -350,7 +350,7 @@ The Azure Video Indexer website experience is now supporting mobile devices. The
 
 ### Accessibility improvements and bug fixes
 
-As part of WCAG (Web Content Accessibility guidelines), the Azure Video Indexer website experiences is aligned with grade C, as part of Microsoft Accessibility standards. Several bugs and improvements related to keyboard navigation, programmatic access, and screen reader were solved.
+As part of WCAG (Web Content Accessibility guidelines), the Azure Video Indexer website experience is aligned with grade C, as part of Microsoft Accessibility standards. Several bugs and improvements related to keyboard navigation, programmatic access, and screen reader were solved.
 
 ## July 2020
 
