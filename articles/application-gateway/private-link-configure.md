@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Application Gateway Private Link (Preview)
+title: Configure Azure Application Gateway Private Link (preview)
 description: This article shows you how to configure Application Gateway Private Link.
 services: application-gateway
 author: greglin
@@ -10,7 +10,7 @@ ms.author: greglin
 
 ---
 
-# Configure Azure Application Gateway Private Link (Preview)
+# Configure Azure Application Gateway Private Link (preview)
 
 Application Gateway Private Link allows you to connect your workloads over a private connection spanning across VNets and subscriptions. For more information, see [Application Gateway Private Link](private-link.md).
 
