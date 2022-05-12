@@ -28,11 +28,11 @@ Add a new User Assigned Managed Identity.
 
 1. From **Settings** on the left, select **Identity**.
 
-    :::image type="content" source="media/nginx-manage/nginx-identity.png" alt-text="screenshot of nginx identity resource in Azure portal.":::
+    :::image type="content" source="media/nginx-manage/nginx-identity.png" alt-text="Screenshot of NGINX identity resource in Azure portal.":::
 
 1. To add a User Assigned identity, select **Add** in the working pane. You see a new pane for adding **User assigned managed identities** on the right that are part of the subscription. Select an identity and select **Add**.
 
-    :::image type="content" source="media/nginx-manage/nginx-user-assigned.png" alt-text="screenshot of user assigned identity":::
+    :::image type="content" source="media/nginx-manage/nginx-user-assigned.png" alt-text="Screenshot of user assigned managed identity.":::
 
 ## Changing the configuration
 
@@ -40,19 +40,19 @@ Add a new User Assigned Managed Identity.
 
 1. Select **NGINX configuration** on the left.
 
-    :::image type="content" source="media/nginx-manage/nginx-configuration.png" alt-text="screenshot resources for nginx configuration settings":::
+    :::image type="content" source="media/nginx-manage/nginx-configuration.png" alt-text="Screenshot resources for NGINX configuration settings.":::
 
 1. To upload an existing **NGINX config package**, type the appropriate `.conf file` in **File path** in the working paned and select the **+** button and for config package.
 
-    :::image type="content" source="media/nginx-manage/nginx-config-path.png" alt-text="screenshot of config file for uploading":::
+    :::image type="content" source="media/nginx-manage/nginx-config-path.png" alt-text="Screenshot of config (. C O N F) file for uploading.":::
 
 1. You see the contents of the file in the working pane. Select **Confirm** if correct.
 
-    :::image type="content" source="media/nginx-manage/nginx-config-upload.png" alt-text="screenshot of upload confirmation":::
+    :::image type="content" source="media/nginx-manage/nginx-config-upload.png" alt-text="Screenshot of upload confirmation for config file.":::
 
 1. To edit the config file within the Editor, select the pencil icon. When you're done editing, select **Submit**.
 
-    :::image type="content" source="media/nginx-manage/nginx-config-editor.png" alt-text="asd":::
+    :::image type="content" source="media/nginx-manage/nginx-config-editor.png" alt-text="Screenshot of editor for config file with Intelisense displayed.":::
 
 ## Adding certificates
 
@@ -62,11 +62,11 @@ You can add a certificate by uploading it to Azure Key vault, and then associati
 
 1. Select **NGINX certificates** in **Settings** on the left.
 
-    :::image type="content" source="media/nginx-manage/nginx-certificates.png" alt-text="screenshot of nginx certificate configuration":::
+    :::image type="content" source="media/nginx-manage/nginx-certificates.png" alt-text="Screenshot of NGINX certificate uploading.":::
 
 1. Select **Add certificate**. You see an **Add certificate** pane on the right. Add the appropriate information
 
-    :::image type="content" source="media/nginx-manage/nginx-add-certificate.png" alt-text="screenshot of the add certificate pane":::
+    :::image type="content" source="media/nginx-manage/nginx-add-certificate.png" alt-text="Screenshot of the add certificate pane.":::
 
 1. When you've added the needed information, select **Save**.
 
@@ -76,7 +76,7 @@ You can add a certificate by uploading it to Azure Key vault, and then associati
 
 1. Select **NGINX Monitoring** under the **Settings** on the left.
 
-    :::image type="content" source="media/nginx-manage/nginx-monitoring.png" alt-text="screenshot of nginx monitoring":::
+    :::image type="content" source="media/nginx-manage/nginx-monitoring.png" alt-text="Screenshot of NGINX monitoring in Azure metrics.":::
 
 1. Select **Send metrics to Azure Monitor** to enable metrics and select **Save**.
 
@@ -87,9 +87,13 @@ You can add a certificate by uploading it to Azure Key vault, and then associati
 To delete a deployment of NGINX for Azure (preview):
 
 1. From the Resource menu, select your NGINX deployment.
+
 1. Select **Overview** on the left.
+
 1. Select **Delete**.
+
 1. Confirm that you want to delete the NGINX resource.
+
 1. Select **Delete**.
 
 After the account is deleted, logs are no longer sent to NGINX, and all billing stops for NGINX through Azure Marketplace.
