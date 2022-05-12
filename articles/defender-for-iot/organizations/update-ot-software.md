@@ -5,7 +5,7 @@ ms.date: 05/10/2022
 ms.topic: how-to
 ---
 
-# Update OT system software
+# Update Defender for IoT OT monitoring software
 
 This article describes how to update Defender for IoT software versions on OT sensor and on-premises management console appliances.
 
