@@ -153,11 +153,11 @@ az acr create \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-New-AzContainerRegistry `
-    -ResourceGroupName $RESOURCE_GROUP `
-    -Name $ACR_NAME `
-    -EnableAdminUser `
-    -Sku Basic
+az acr create `
+  --resource-group $RESOURCE_GROUP `
+  --name $ACR_NAME `
+  --sku Basic `
+  --admin-enabled true
 ```
 
 ---
@@ -335,7 +335,7 @@ az group delete --name $RESOURCE_GROUP
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
+az group delete --name $RESOURCE_GROUP
 ```
 
 ---
@@ -348,4 +348,4 @@ Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 This quickstart is the entrypoint for a set of progressive tutorials that showcase the various features within Azure Container Apps. Continue on to learn how to enable communication from a web front end that calls the API you deployed in this article.
 
 > [!div class="nextstepaction"]
-> [Communication between microservices](communicate-between-microservices.md)
+> [Tutorial: Communication between microservices](communicate-between-microservices.md)

@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: tutorial
-ms.date: 04/12/2022
+ms.date: 05/11/2022
 ms.author: cshoe
 zone_pivot_groups: container-apps-image-build-type
 ---
@@ -46,7 +46,7 @@ az login
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Connect-AzAccount
+az login
 ```
 
 ---
@@ -306,14 +306,13 @@ If you're not going to continue to use this application, run the following comma
 # [Bash](#tab/bash)
 
 ```azurecli
-az group delete \
-  --name $RESOURCE_GROUP
+az group delete --name $RESOURCE_GROUP
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
+az group delete --name $RESOURCE_GROUP
 ```
 
 ---
