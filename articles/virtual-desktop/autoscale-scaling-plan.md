@@ -14,7 +14,7 @@ ms.custom: references_regions
 > Autoscale is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down to optimize deployment costs. You create a scaling plan that can be based on:
+Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down to optimize deployment costs. You can create a scaling plan based on:
 
 - Time of day
 - Specific days of the week
