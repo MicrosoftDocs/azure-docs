@@ -38,7 +38,7 @@ Azure Red Hat OpenShift 4 supports stable channels only. For example: stable-4.4
 
 You can use the stable-4.5 channel to upgrade from a previous minor version of Azure Red Hat OpenShift. Clusters upgraded using fast, prerelease, and candidate channels won't be supported.
 
-If you change to a channel that does'nt include your current release, an alert displays and no updates can be recommended. However, you can safely change back to your original channel at any point.
+If you change to a channel that doesn't include your current release, an alert displays and no updates can be recommended. However, you can safely change back to your original channel at any point.
 
 ## Red Hat OpenShift Container Platform version support policy
 
