@@ -2,7 +2,7 @@
 title: Use Azure Service Bus Explorer to run data operations (Preview)
 description: This article provides information on how to use the portal-based Azure Service Bus Explorer to access Azure Service Bus data. 
 ms.topic: how-to
-ms.date: 04/25/2021
+ms.date: 05/24/2022
 ms.author: egrootenboer
 ---
 
@@ -37,7 +37,7 @@ To use the Service Bus Explorer tool, you'll need to do the following tasks:
     > - [Contributor](../role-based-access-control/built-in-roles.md#contributor) 
     > - [Owner](../role-based-access-control/built-in-roles.md#owner)
 
-## Using the Service Bus Explorer
+## Use the Service Bus Explorer
 
 To use the Service Bus Explorer, navigate to the Service Bus namespace on which you want to do data operations.
 
@@ -54,7 +54,7 @@ To use the Service Bus Explorer, navigate to the Service Bus namespace on which 
     > When peeking or receiving from a subscription, first select the specific **Subscription** from the dropdown selector.
     > :::image type="content" source="./media/service-bus-explorer/subscription-selected.png" alt-text="Screenshot of dropdown for topic subscriptions." lightbox="./media/service-bus-explorer/subscription-selected.png":::
 
-### Peeking a message
+## Peek a message
 
 With the peek functionality, you can use the Service Bus Explorer to view the top 100 messages in a queue, subscription or dead-letter queue.
 
@@ -79,7 +79,7 @@ With the peek functionality, you can use the Service Bus Explorer to view the to
     > [!NOTE]
     > Since peek is not a destructive operation the message **won't** be removed from the entity.
 
-### Peeking a message with advanced options
+### Peek a message with advanced options
 
 With the peek with options functionality, you can use the Service Bus Explorer to view the top messages in a queue, subscription or the dead-letter queue, specifying the number of messages to peek, and the sequence number to start peeking from.
 
@@ -104,7 +104,7 @@ With the peek with options functionality, you can use the Service Bus Explorer t
     > [!NOTE]
     > Since peek is not a destructive operation the message **won't** be removed from the queue.
 
-### Receiving a message
+## Receive a message
 
 The receive function on the Service Bus Explorer permits receiving messages from a queue or subscription.
 
@@ -136,7 +136,7 @@ After a message has been received in **PeekLock** mode, there are various action
 > [!NOTE]
 > We can only take these actions as long as we have a lock on the message.
 
-#### Complete a message
+### Complete a message
 
 1. In the grid, select the received message(s) we want to complete.
 1. Select the **Complete** button.
@@ -146,14 +146,14 @@ After a message has been received in **PeekLock** mode, there are various action
     > [!IMPORTANT]
     > Please note that completing a message is a ***destructive receive***, i.e. the message is removed from the queue when **Complete** has been selected in the Service Bus Explorer tool.
 
-#### Defer a message
+### Defer a message
 
 1. In the grid, select the received message(s) we want to [defer](./message-deferral.md).
 1. Select the **Defer** button.
 
     :::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-defer.png" alt-text="Screenshot indicating the Defer button." lightbox="./media/service-bus-explorer/receive-message-from-queue-defer.png":::
 
-#### Abandon lock
+### Abandon lock
 
 1. In the grid, select the received message(s) for which we want to abandon the lock.
 1. Select the **Abandon lock** button.
@@ -162,7 +162,7 @@ After a message has been received in **PeekLock** mode, there are various action
 
 After the lock has been abandoned, the message will be available for receive operations again.
 
-#### Dead-letter
+### Dead-letter
 
 1. In the grid, select the received message(s) we want to [dead-letter](./service-bus-dead-letter-queues.md).
 1. Select the **Dead-letter** button.
@@ -171,7 +171,7 @@ After the lock has been abandoned, the message will be available for receive ope
 
 After a message has been dead-lettered, it will be available from the **Dead-letter** sub-queue.
 
-### Sending a message to a queue or topic
+## Send a message to a queue or topic
 
 To send a message to a **queue** or a **topic**, select the **Send messages** button of the Service Bus Explorer.
 
@@ -189,7 +189,7 @@ To send a message to a **queue** or a **topic**, select the **Send messages** bu
     - If sending to a queue, **Active Messages** metrics counter will increment.
     - If sending to a topic, **Active Messages** metrics counter will increment on the Subscriptions where the message was routed to.  
 
-### Re-send a message
+## Re-send a message
 
 After peeking or receiving a message, we can re-send it, which will send a copy of the message to the same entity, while allowing us to update it's content and properties.
 
@@ -202,7 +202,8 @@ After peeking or receiving a message, we can re-send it, which will send a copy 
 1. Select the **Send** button to send the messages to the entity.
 
     :::image type="content" source="./media/service-bus-explorer/queue-resend-selected-messages.png" alt-text="Screenshot showing the re-send messages experience." lightbox="./media/service-bus-explorer/queue-resend-selected-messages.png":::
-### Switching authentication type
+
+## Switch authentication type
 
 When working with Service Bus Explorer, it's possible to use either **Access Key** or **Azure Active Directory** authentication.
 
