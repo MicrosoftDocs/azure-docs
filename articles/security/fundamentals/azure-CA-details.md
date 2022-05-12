@@ -15,7 +15,7 @@ ms.reviewer: quentinb
 
 # Azure Certificate Authority details
 
-This article provides an overview and details of the Certificate Authorities (CAs) utilized by Azure. This article also includes Public Key Infrastructure (PKI) and SSL/TLS information. You'll find URLs that may need to be added to your firewall allowlists, client compatibility for public PKIs, and Certificate Revocation List (CRL) and related information.
+This article provides the details of the root and subordinate Certificate Authorities (CAs) utilized by Azure. The minimum requirements for public key encryption and signature algorithms as well as links to certificate downloads and revocation lists are provided below the CA details tables.
 
 Looking for CA details specific to Azure Active Directory? See the [Certificate authorities used by Azure Active Directory](../../active-directory/fundamentals/certificate-authorities.md) article.
 
@@ -64,8 +64,17 @@ Looking for CA details specific to Azure Active Directory? See the [Certificate 
 | Microsoft RSA TLS CA 01 | Oct 8, 2024 | 0x0f14965f202069994fd5c7ac788941e2<br>703D7A8F0EBF55AAA59F98EAF4A206004EB2516A | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/ssladmin/microsoftrsatlsca012024-10-08der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/ssladmin/microsoftrsatlsca012024-10-08pem.crt) |
 | Microsoft RSA TLS CA 02 | Oct 8, 2024 | 0x0fa74722c53d88c80f589efb1f9d4a3a<br>B0C2D2D13CDD56CDAA6AB6E2C04440BE4A429C75 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/ssladmin/microsoftrsatlsca022024-10-08der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/ssladmin/microsoftrsatlsca022024-10-08pem.crt) |
 
-## Additional CA details
-The following URLs may need to be included in your firewall allowlists to optimize connectivity. The Authority Information Access (AIA) URL is the link to download the certificate of a CA. The CRL Distribution Point (CDP) URL is the location of the CRL file containing certificates revoked by a CA. The Online Certificate Standard Protocol (OCSP) is also used to request a list of revoked certificates.
+## Public Key Encryption and Signature Algorithms
+
+Support for the following algorithms, key sizes, and elliptical curves are required:
+
+- Signature algorithms: ES256, ES384, ES512, RS256, RS384, RS512
+- Elliptical curves: P256, P384, P521
+- Key sizes: ECDSA 256, 384, and 521 as well as RSA 2048, 3072, and 4096
+
+## Certificate downloads and revocation lists
+
+The following URLs may need to be included in your firewall allowlists to optimize connectivity:
 
 - AIA: http://crl.microsoft.com
     - http://cacerts.digicert.com/DigiCertGlobalRootG2.crt
@@ -76,8 +85,8 @@ The following URLs may need to be included in your firewall allowlists to optimi
 
 ## Client compatibility for public PKIs
 
-| Windows | Firefox | iOS | MacOS | Android | Java |
-|--| -- | -- | --  | -- | -- |
+| Windows | Firefox | iOS | macOS | Android | Java |
+|--|--|--|--|--|--|
 | Windows XP SP3+ | Firefox 32+ | iOS 7+ | OS X Mavericks (10.9)+ | Android SDK 5.x+ | Java JRE 1.8.0_101+ |
 - - -
 
