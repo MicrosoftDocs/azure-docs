@@ -16,9 +16,13 @@ In this article, we'll tell you how to move Azure Virtual Desktop resources betw
 When you move Azure Virtual Desktop resources between regions, these are some things you should keep in mind:
 
 - When exporting resources, you must move them as a set. All resources associated with a specific host pool have to stay together. A host pool and its associated app groups need to be in the same region.
+
 - Workspaces and their associated app groups also need to be in the same region.
+
 - All resources to be moved have to be in the same resource group. Template exports require having resources in the same group, so if you want them to be in a different location, you'll need to modify the exported template to change the location of its resources.
+
 - Once you're done moving your resources to a new region, you must delete the original resources. The resource ID of our resources won't change during the moving process, so there will be a name conflict with your old resources if you don't delete them.
+
 - Existing session hosts attached to a host pool that you move will stop working. You'll need to recreate the session hosts in the new region.
 
 ## Export a template
@@ -28,9 +32,13 @@ The first step to move your resources is to create a template that contains ever
 To export a template:
 
 1. In the Azure portal, go to **Resource Groups**, then select the resource group that contains the resources you want to move.
+
 2. Once you've selected the resource group, go to **Overview** > **Resources** and select all the resources you want to move.
+
 3. Select the **...** button in the upper right-hand corner of the **Resources** tab. Once the drop-down menu opens, select **Export template**.
+
 4. Select **Download** to download a local copy of the generated template.
+
 5. Right-click the zip file and select **Extract All**.
 
 ## Modify the exported template
@@ -40,7 +48,9 @@ Next, you'll need to modify the template to include the region you're moving you
 To modify the template you exported:
 
 1. Open the template.json file you extracted from the zip folder and a text editor of your choice, such as Notepad.
+
 2. In each resource inside the template file, find the "location" property and modify it to the location you want to move them to. For example, if your deployment's currently in the East US region but you want to move it to the West US region, you'd change the "eastus" location to "westus." Learn more about which Azure regions you can use at [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/#geographies).
+
 3. For each host pool, remove the "publicNetworkAccess" parameter, if present.
 
 ## Delete original resources
@@ -50,8 +60,11 @@ Once you have the template ready, you'll need to delete the original resources t
 To delete the original resources:
 
 1. Go back to the **Resources** tab mentioned in [Export a template](#export-a-template) and select all the resources you exported to the template.
+
 2. Next, select the **...** button again, then select **Delete** from the drop-down menu.
+
 3. If you see a message asking you to confirm the deletion, select **Confirm**.
+
 4. Wait a few minutes for the resources to finish deleting. Once you're done, they should disappear from the resource list.
 
 ## Deploy the modified template
@@ -76,5 +89,6 @@ To deploy the template:
 ## Next steps
 
 - Find out which Azure regions are currently available at [Azure Geographies](https://azure.microsoft.com/global-infrastructure/geographies/#overview).
+
 - See [our Azure Resource Manager templates for Azure Virtual Desktop](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates) for more templates you can use in your deployments after you move your resources.
 
