@@ -38,11 +38,11 @@ To configure a table for Basic Logs or Analytics Logs in the Azure portal:
 
 1. Select the context menu for the table you want to configure and select **Manage table**.
 
-    :::image type="content" source="" lightbox="media/basic-logs-configure/log-analytics-table-configuration.png" alt-text="Screenshot showing the Manage table button for one of the tables in a workspace."::: 
+    :::image type="content" source="media/basic-logs-configure/log-analytics-table-configuration.png" lightbox="media/basic-logs-configure/log-analytics-table-configuration.png" alt-text="Screenshot showing the Manage table button for one of the tables in a workspace."::: 
 
 1. From the **Table plan** dropdown on the table configuration screen, select **Basic** or **Analytics**.
 
-    :::image type="content" source="" lightbox="media/basic-logs-configure/log-analytics-configure-table-plan.png" alt-text="Screenshot showing the Table plan dropdown on the table configuration screen."::: 
+    :::image type="content" source="media/basic-logs-configure/log-analytics-configure-table-plan.png" lightbox="media/basic-logs-configure/log-analytics-configure-table-plan.png" alt-text="Screenshot showing the Table plan dropdown on the table configuration screen."::: 
 
 1. Select **Save**.
 
@@ -136,7 +136,9 @@ For example:
 ## Check table configuration
 # [Portal](#tab/portal-2)
 
-To check the configuration of a table in the Azure portal: 
+To check the configuration of a table in the Azure portal, you can check the table configuration screen as described in [Set table configuration](#set-table-configuration). 
+
+Alternatively: 
 
 1. From the **Azure Monitor** menu, select **Logs** and select your workspace for the [scope](scope.md). See [Log Analytics tutorial](log-analytics-tutorial.md#view-table-information) for a walkthrough.
 1. Open the **Tables** tab, which lists all tables in the workspace. 
