@@ -14,7 +14,7 @@ ms.author: mikaelw
 
 This article describes the currently known issues with Azure Health Data Services that includes the different service types (FHIR service, DICOM service, MedTech service) that seamlessly work with one another. 
 
-Use the lists and tables below to find details about resolution dates or possible workarounds. For more information about Azure Health Data Services, see [About Azure Health Data Services](healthcare-apis-overview.md) and [Release notes: Azure Health Data Services](release-notes.md).
+Use the lists and tables below to find details about resolution dates or possible workarounds. For more information about Azure Health Data Services, see [About Azure Health Data Services](healthcare-apis-overview.md).
 
 ### FHIR service
  
