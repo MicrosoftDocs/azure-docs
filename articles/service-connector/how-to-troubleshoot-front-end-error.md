@@ -47,7 +47,7 @@ This article lists error messages and suggestions to troubleshoot Service Connec
 | Only one auth info is needed | User can only provide one authentication information parameter. Check whether it isn't provided or multiple parameters are provided. |
 | Auth info argument should be provided when updating the connection: `{ConnectionName}` | The authentication information should be provided when updating a secret type connection. This error occurs because a user's secret can't be accessed through the Azure Resource Manager API. |
 | Either client type or auth info should be specified to update | Either client type or authentication information should be provided when updating a connection. |
-| Usage error: {} [KEY=VALUE ...] | Check the available keys and provide values for the auth info parameter, usually in the form of `--param key1=val1 key2=val2`. |
+| Usage error: `{} [KEY=VALUE ...]` | Check the available keys and provide values for the auth info parameter, usually in the form of `--param key1=val1 key2=val2`. |
 | Unsupported Key `{Key}` is provided for parameter `{Parameter}`. All possible keys are: `{Keys}` | Check the available keys and provide values for the authentication information parameter, usually in the form of `--param key1=val1 key2=val2`. |
 | Provision failed, please create the target resource manually and then create the connection. Error details: `{ErrorTrace}` | <ul><li>Retry.</li><li>Create the target resource manually and then create the connection.</li></ul> |
 

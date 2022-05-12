@@ -40,7 +40,7 @@ Use Service Connector to create a new service connection in Spring Cloud.
     | **Storage account** | Your storage account | The target storage account you want to connect to. If you choose a different service type, select the corresponding target service instance. |
 
 1. Select **Next: Authentication** to select the authentication type. Then select **Connection string** to use access key to connect your Blob storage account.
-1. Then select **Next: Review + Create** to review the provided information. Then select **Create** to create the service connection. It might take 1 minute to complete the operation.
+1. Then select **Next: Review + Create** to review the provided information. Then select **Create** to create the service connection. It might take one minute to complete the operation.
 
 ## View service connections in Spring Cloud
 
