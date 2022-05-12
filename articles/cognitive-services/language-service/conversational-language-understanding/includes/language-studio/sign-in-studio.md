@@ -15,10 +15,10 @@ ms.author: aahi
 
     |Instance detail  |Required value  |
     |---------|---------|
-    |Azure subscription | "YOUR-AZURE-SUBSCRIPTION"           |
-    |Azure resource group | "YOUR-AZURE-RESOURCE-GROUP "|
-    |Azure resource name |  "YOUR-AZURE-RESOURCE-NAME"        |
-    |Location |            Learn more about [supported regions](../../region-support.md).      |
-    |Pricing tier     | Learn more about [supported pricing tiers](../../service-limits.md#pricing-tiers).  |
+    |Azure subscription | Your Azure subscription.           |
+    |Azure resource group | Your Azure resource group name. |
+    |Azure resource name |  Your Azure resource name.        |
+    |Location | One of the [supported regions](../../service-limits.md#regional-availability) for your Language resource.      |
+    |Pricing tier     | One of the valid [pricing tiers](../../service-limits.md#language-resource-limits) for your Language resource.  |
     
     :::image type="content" source="../../media/quickstart-language-resource.png" alt-text="A screenshot showing the resource selection screen in Language Studio." lightbox="../../media/quickstart-language-resource.png":::
