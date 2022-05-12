@@ -47,7 +47,9 @@ For event hosts and organizers, they can join a virtual experience that enables 
 
 - Teams Client (Web or Desktop): Presenters can join using the fully fledged Teams client for web or mobile. The Teams client provides presenters a full set of capabilities to deliver their content. Learn more about [presenter capabilities for Teams](https://support.microsoft.com/office/present-in-a-live-event-in-teams-d58fc9db-ff5b-4633-afb3-b4b2ddef6c0a). 
 
-## Sample solution architecture
+## Building a custom solution for event management with Azure Communication Services and Microsoft Graph
+
+Throughout the rest of this tutorial, we will focus on how using Azure Communication Services and Microsoft Graph, developers can embed a fully custom event management experience into their application. For this, we will be leveraging the sample architecture below. Based on that architecture we will be focusing on setting up scheduling and registration flows and embedding the attendee experience right on the event platform to join the event.
 
 ![image](https://user-images.githubusercontent.com/43075365/165207054-003fc326-1955-475b-b2de-05e39b357970.png)
 
@@ -58,7 +60,7 @@ Microsoft Graph enables event management platforms to empower organizers to sche
 >[!NOTE]
 >For each required Graph API has different required scopes, ensure that your application has the correct scopes to access the data.
 
-### Scheduling with Microsoft Graph
+### Scheduling registartion-enabled events with Microsoft Graph
 
 1.	Authorize Graph APIs to act on their behalf:
 
@@ -88,7 +90,7 @@ Microsoft Graph enables event management platforms to empower organizers to sche
 
 Event management platforms can use a custom registration flow to register attendees. This flow is powered by the [External Meeting Registrant API](https://docs.microsoft.com/graph/api/externalmeetingregistrant-post?view=graph-rest-beta&tabs=http). By using the API Contoso will receive a unique `Teams Join URL` for each attendee.  This URL will be used as part of the attendee experience either through Teams or Azure Communication Services to have the attendee join the meeting.
 
-## Leverage Azure Communication Services to build a custom attendee experience
+### Leverage Azure Communication Services to build a custom attendee experience
 
 Attendee experience can be directly embedded into an application or platform using [Azure Communication Services](https://docs.microsoft.com/azure/communication-services/overview) so that your attendees never need to leave your platform. It provides low-level calling and chat SDKs which support [interoperability with Teams Events](https://docs.microsoft.com/azure/communication-services/concepts/teams-interop), as well as a turn-key UI Library which can be leveraged to reduce development time and easily embed communications. Azure Communication Services enables developers to have flexibility with the type of solution they need. Review [limitations](https://docs.microsoft.com/azure/communication-services/concepts/join-teams-meeting#limitations-and-known-issues) of using Azure Communication Services for webinar scenarios.
 
@@ -107,4 +109,5 @@ Attendee experience can be directly embedded into an application or platform usi
 
 >[!NOTE]
 >Azure Communication Services is a consumption-based service billed through Azure. For more information on pricing visit our resources.
+
 
