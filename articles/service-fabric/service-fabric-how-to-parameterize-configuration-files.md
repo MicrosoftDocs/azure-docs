@@ -67,6 +67,7 @@ You can access the configuration in your settings.xml file programmatically. Tak
   
 Use the following code to access the parameters:
 
+  ```C#
 CodePackageActivationContext context = FabricRuntime.GetActivationContext();
 var configSettings = context.GetConfigurationPackageObject("Config").Settings;
 var data = configSettings.Sections["MyConfigSection"];
@@ -74,8 +75,9 @@ foreach (var parameter in data.Parameters)
 {
 ServiceEventSource.Current.ServiceMessage(this.Context, "Working-{0} - {1}", parameter.Name, parameter.Value);
 }
+  ```
 
-Here Parameter.Name will be MyParameter and Parameter.Value will be Value1
+Here `Parameter.Name` will be MyParameter and `Parameter.Value` will be Value1
 
 ## Next steps
 For information about other app management capabilities that are available in Visual Studio, see [Manage your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
