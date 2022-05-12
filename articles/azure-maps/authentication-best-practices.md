@@ -25,7 +25,6 @@ When considering best practices for securing your Azure Maps applications, you'l
 
 
 
-For more information about the costs associated with each SKU and what capabilities they support, see [Azure Maps pricing](https://azure.microsoft.com/pricing/details/azure-maps/).
 
 ## Authentication best practices in Azure Maps
 
