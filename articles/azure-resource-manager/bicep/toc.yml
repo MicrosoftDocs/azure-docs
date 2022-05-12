@@ -103,6 +103,10 @@
     items:
     - name: Logic Apps
       href: ../../logic-apps/quickstart-create-deploy-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+  - name: Internet of Things
+    items:
+    - name: IoT Hub
+      href: ../../iot-hub/quickstart-bicep-route-messages.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Networking
     items:
     - name: Application Gateway
