@@ -18,7 +18,7 @@ The following are some tips to keep your Azure Maps application secure. When usi
 
 ## Understanding security threats
 
-If a hacker gains access to your Azure Maps account, they can potentially use it to make thousands of search requests, which could result in decreased performance and billable transactions to your account.
+If a hacker gains access to your Azure Maps account, they can potentially use it to make an unlimited number of unauthorized requests, which could result in decreased performance due to QPS limits and significant billable transactions to your account.
 
 When considering best practices for securing your Azure Maps applications, you'll need to consider the different Azure Maps account SKUs available and their cost structures to limit your financial exposure. You'll also need to understand the different authentication options available.
 
