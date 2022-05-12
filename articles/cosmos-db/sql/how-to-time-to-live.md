@@ -91,6 +91,17 @@ CosmosContainerResponse response = database
 ### [Node SDK](#tab/node-sdk)
 
 ```javascript
+const database = await client.database("database");
+
+const properties = {
+    id: "container",
+    partitionKey: "/customerId",
+    // Never expire by default
+    defaultTtl: -1
+};
+
+const { container } = await database.containers
+    .createIfNotExists(properties);
 
 ```
 
@@ -114,7 +125,7 @@ Database database = client.GetDatabase("database");
 ContainerProperties properties = new ()
 {
     Id = "container",
-    PartitionKeyPath = "/id",
+    PartitionKeyPath = "/customerId",
     // Expire all documents after 90 days
     DefaultTimeToLive = 90 * 60 * 60 * 24
 };
@@ -131,7 +142,7 @@ CosmosDatabase database = client.getDatabase("database");
 
 CosmosContainerProperties properties = new CosmosContainerProperties(
     "container",
-    "/id"
+    "/customerId"
 );
 // Expire all documents after 90 days
 properties.setDefaultTimeToLiveInSeconds(90 * 60 * 60 * 24);
@@ -143,15 +154,17 @@ CosmosContainerResponse response = database
 ### [Node SDK](#tab/node-sdk)
 
 ```javascript
+const database = await client.database("database");
+
 const properties = {
-    id: "sample container1",
+    id: "container",
+    partitionKey: "/customerId",
+    // Expire all documents after 90 days
+    defaultTtl: 90 * 60 * 60 * 24
 };
 
-async function createcontainerWithTTL(db: Database, containerDefinition: ContainerDefinition, collId: any, defaultTtl: number) {
-      containerDefinition.id = collId;
-      containerDefinition.defaultTtl = defaultTtl;
-      await db.containers.create(containerDefinition);
-}
+const { container } = await database.containers
+    .createIfNotExists(properties);
 ```
 
 ### [Python SDK](#tab/python-sdk)
@@ -252,12 +265,16 @@ container.createItem(item);
 ### [Node SDK](#tab/node-sdk)
 
 ```javascript
+const container = await database.container("container");
+
 const item = {
     id: 'SO05',
     customerId: 'CO18009186470',
     // Expire sales order in 30 days using "ttl" property
     ttl: 60 * 60 * 24 * 30
 };
+
+await container.items.create(item);
 ```
 
 ### [Python SDK](#tab/python-sdk)
@@ -318,49 +335,18 @@ container.replaceItem(
 ### [Node SDK](#tab/node-sdk)
 
 ```javascript
+const { resource: item } = await container.item(
+    'SO05',
+    'CO18009186470'
+).read();
 
-```
+// Update ttl to 2 hours
+item.ttl = 60 * 60 * 2;
 
-### [Python SDK](#tab/python-sdk)
-
-```python
-
-```
-
----
-
-## Turn off time to live using an SDK
-
-Suppose time to live has been set on an item and you no longer want that item to expire. First get the item, then remove the TTL field, and finally replace the item on the server. When the TTL field is removed from the item, the default TTL value assigned to the container is applied to the item. Set the TTL value to -1 to prevent an item from expiring and to not inherit the TTL value from the container.
-
-### [.NET SDK v3](#tab/dotnet-sdk-v3)
-
-```csharp
-// This examples leverages the Sales Order class above.
-// Read a document, turn off its override TTL, save it.
-ItemResponse<SalesOrder> itemResponse = await client.GetContainer("database", "container").ReadItemAsync<SalesOrder>("SO05", new PartitionKey("CO18009186470"));
-
-itemResponse.Resource.ttl = null; // inherit the default TTL of the container
-await client.GetContainer("database", "container").ReplaceItemAsync(itemResponse.Resource, "SO05");
-```
-
-### [Java SDK v4](#tab/javav4)
-
-```java
-// This examples leverages the Sales Order class above.
-// Read a document, update its TTL, save it.
-CosmosAsyncItemResponse<SalesOrder> itemResponse = container.readItem("SO05", new PartitionKey("CO18009186470"), SalesOrder.class)
-        .flatMap(readResponse -> {
-            SalesOrder salesOrder = readResponse.getItem();
-            salesOrder.setTtl(null);
-            return container.createItem(salesOrder);
-}).block();
-```
-
-### [Node SDK](#tab/node-sdk)
-
-```javascript
-
+await container.item(
+    'SO05',
+    'CO18009186470'
+).replace(item);
 ```
 
 ### [Python SDK](#tab/python-sdk)
@@ -401,7 +387,12 @@ container.replace(properties);
 ### [Node SDK](#tab/node-sdk)
 
 ```javascript
+const { resource: definition } = await container.read();
 
+// Disable ttl at container-level
+definition.defaultTtl = null;
+
+await container.replace(definition);
 ```
 
 ### [Python SDK](#tab/python-sdk)
