@@ -25,7 +25,7 @@ Use the lists and tables below to find details about resolution dates or possibl
 
 ## Next steps
 
-For information about the features and bug fixes in Azure Health Data Services, see
+In this article, you learned about the currently known issues with Azure Health Data Services. For more information about the feature enhancements and bug fixes made in Azure Health Data Services, see
 
 >[!div class="nextstepaction"]
 >[Release notes: Azure Health Data Services](release-notes.md)

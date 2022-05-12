@@ -264,7 +264,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 ## Next steps
 
-For information about the known issues with Azure Health Data Services, See
+In this article, you learned about the features and enhancements made to Azure Health Data Services. For more information about the known issues with Azure Health Data Services, See
 
 >[!div class="nextstepaction"]
 >[Known issues: Azure Health Data Services](known-issues.md)
