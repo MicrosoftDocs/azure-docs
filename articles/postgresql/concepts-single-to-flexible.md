@@ -26,14 +26,14 @@ Single to Flexible server migration feature provides an inline experience to mig
 
 You choose the source server and can select up to **8** databases from it. This limitation is per migration task. The migration feature automates the following steps:
 
-1. Creation of migration infrastructure in the region of the target flexible server
-2. Creation of public IP address and attaching it to the migration infrastructure
+1. Creates the migration infrastructure in the region of the target flexible server
+2. Creates public IP address and attaches it to the migration infrastructure
 3. Allow-listing of migration infrastructure’s IP address on the firewall rules of both source and target servers
-4. Creation of a migration project with both source and target types as Azure database for PostgreSQL
-5. Creation of migration activity which aims to migrate the databases specified by the user from source to target.
-6. Migration of schema from source to target
-7. Creation of databases on target
-8. Migration of data from source to target
+4. Creates a migration project with both source and target types as Azure database for PostgreSQL
+5. Creates a migration activity to migrate the databases specified by the user from source to target.
+6. Migrates schema from source to target
+7. Creates databases with the same name on the target Flexible server
+8. Migrates data from source to target
 
 Following is the flow diagram for Single to Flexible migration feature.
 :::image type="content" source="./media/concepts-single-to-flex/concepts-flow-diagram.png" alt-text="Single to Flexible Server migration" lightbox="./media/concepts-single-to-flex/concepts-flow-diagram.png":::
@@ -98,7 +98,7 @@ Follow the steps provided in this section before you get started with the single
 
 - **Target Server Creation** - You need to create the target PostgreSQL flexible server before using the migration feature. Use the creation [QuickStart guide](./flexible-server/quickstart-create-server-portal.md) to create one.
 
-- **Source Server pre-requisites** - You must [enable logical replication](./concepts-logical#pre-requisites-for-logical-replication-and-logical-decoding.md) on the source server.
+- **Source Server pre-requisites** - You must [enable logical replication](./concepts-logical.md#pre-requisites-for-logical-replication-and-logical-decoding.md) on the source server.
 
     :::image type="content" source="./media/concepts-single-to-flex/logical-replication-support.png" alt-text="Logical replication from Azure Portal" lightbox="./media/concepts-single-to-flex/logical-replication-support.png":::
 
@@ -118,9 +118,9 @@ Once all these pre-requisites are taken care of, you can do the migration. This 
 
 - All the resources created by this migration tool will be automatically cleaned up irrespective of whether the migration has **succeeded/failed/cancelled**. There is no action required from you.
 
-- If your migration has failed and if you want to retry the migration, then you need to create a new migration with a different name and try running it again. For now, there is no option of retry on a failed migration.
+- If your migration has failed and you want to retry the migration, then you need to create a new migration task with a different name and retry the operation.
 
-- If you have more than eight databases on your single server and want to migrate all of them, it is recommended to create multiple migrations between the same single server and flexible server with each migration migrating a set of eight databases each.
+- If you have more than eight databases on your single server and if you want to migrate them all, then it is recommended to create multiple migration tasks with each task migrating up to eight databases.
 
 - The migration does not move the database users and roles of the source server. This has to be manually created and applied to the target server post migration.
 
@@ -132,15 +132,15 @@ Once all these pre-requisites are taken care of, you can do the migration. This 
 
 ### Size Limitations
 
-- Databases of sizes up to 1TB can be migrated using this feature. For migration of larger databases or heavy write workloads, please reach out to your account team or reach us @ AskAzureDBforPGS2F@microsoft.com.
+- Databases of sizes up to 1TB can be migrated using this feature. To migrate larger databases or heavy write workloads, reach out to your account team or reach us @ AskAzureDBforPGS2F@microsoft.com.
 
 - In one migration attempt, you can migrate up to eight user databases from a single server to flexible server. In case you have more databases to migrate, you can create multiple migrations between the same single and flexible servers.
 
 ### Performance Limitations
 
-- The migration feature is deployed on an infrastructure with 4 VCore. Currently this cannot be increased and hence the scope of making faster migrations is minimized.
+- The migration infrastructure is deployed on a 4 vCore VM which may limit the migration performance. 
 
-- The migration infrastructure deployment takes ~10 minutes before the actual data migration starts. This is irrespective of the size of data or the migration mode (online or offline).
+- The deployment of migration infrastructure takes ~10-15 minutes before the actual data migration starts - irrespective of the size of data or the migration mode (online or offline).
 
 ### Replication Limitations
 
@@ -161,9 +161,9 @@ Once all these pre-requisites are taken care of, you can do the migration. This 
 
 - The migration tool only migrates user databases including Postgres database and not system/maintenance databases.
 
-- In case of a failed migration, there is no option to retry the migration. A new migration with a unique migration name needs to be created.
+- For failed migrations, there is no option to retry the same migration task. A new migration task with a unique name can to be created.
 
-- The migration feature does not include assessment of your single server and its readiness to move to flexible server.
+- The migration feature does not include assessment of your single server. 
 
 ## Best Practices
 

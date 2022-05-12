@@ -18,7 +18,7 @@ This quick start article shows you how to use Single to Flexible Server migratio
 
 ## Before you begin
 
-1. If you are new to Microsoft Azure, please [create an account](https://azure.microsoft.com/free/) to evaluate our offerings. New customers get $200 in free credits to run, test and deploy workloads.
+1. If you are new to Microsoft Azure, [create an account](https://azure.microsoft.com/free/) to evaluate our offerings. New customers get $200 in free credits to run, test and deploy workloads.
 2. Register your subscription for Azure Database Migration Service (DMS). If you have already done it, you can skip this step. Go to Azure portal homepage and navigate to your subscription as shown below.
 
   :::image type="content" source="./media/concepts-single-to-flex/single-to-flex-cli-dms.png" alt-text="CLI DMS" lightbox="./media/concepts-single-to-flex/single-to-flex-cli-dms.png":::
@@ -32,8 +32,8 @@ This quick start article shows you how to use Single to Flexible Server migratio
 ### Setup Azure CLI
 
 1. Install the latest Azure CLI for your corresponding operating system from the [Azure CLI install page](/cli/azure/install-azure-cli)
-2. In case Azure CLI is already installed, check the version by issuing **az version** command. The version should be **2.28.0 or above** to use the migration CLI commands. If not, please update your Azure CLI using this [link](/cli/azure/update-azure-cli.md).
-3. Once you have the right Azure CLI version, run the **az login** command. This will open the default browser and load an Azure sign-in page to authenticate. Pass in your Azure credentials to do a successful authentication. For other ways to sign with Azure CLI, visit this [link](/cli/azure/authenticate-azure-cli.md).
+2. In case Azure CLI is already installed, check the version by issuing **az version** command. The version should be **2.28.0 or above** to use the migration CLI commands. If not, update your Azure CLI using this [link](/cli/azure/update-azure-cli.md).
+3. Once you have the right Azure CLI version, run the **az login** command which will open your default browser and load an Azure sign-in page to authenticate. Pass in your Azure credentials to do a successful authentication. For other ways to sign with Azure CLI, visit this [link](/cli/azure/authenticate-azure-cli.md).
    
 ```bash
 az login
@@ -42,7 +42,7 @@ az login
 
 ## Migration CLI commands
 
-Single to Flexible Server migration feature comes with a list of easy-to-use CLI commands to do migration-related tasks. All the CLI commands start with  **az postgres flexible-server migration**. There are also **help** statements provided that assist you in understanding the various options associated with a command and in framing the right syntax for the same.
+Single to Flexible Server migration feature comes with a list of easy-to-use CLI commands to do migration-related tasks. All the CLI commands start with  **az postgres flexible-server migration**. You can use the **help** parameter to help you with understanding the various options associated with a command and in framing the right syntax for the same.
 
 ```azurecli-interactive
 az postgres flexible-server migration --help
@@ -87,16 +87,16 @@ az postgres flexible-server migration create [--subscription]
 **For example:**
 
 ```azurecli-interactive
-az postgres flexible-server migration create --subscription 5c5037e5-d3f1-4e7b-b3a9-f6bf9asd2nkh0 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --properties "C:\Users\Administrator\Documents\migrationBody.json"
+az postgres flexible-server migration create --subscription 5c5037e5-d3f1-4e7b-b3a9-f6bf9asd2nkh0 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --properties "C:\Users\Administrator\Documents\migrationBody.JSON"
 ```
 
 Note that the **migration-name** argument used in **create migration** command will be used in other CLI commands such as **update, delete, show** to uniquely identify the migration attempt and to perform the corresponding actions.
 
 The migration feature offers online and offline mode of migration. To know more about the migration modes and their differences, visit this [link](./concepts-single-to-flexible.md)
 
-Create a migration between a source and target server with a migration mode of your choice. The **create** command needs a json file to be passed as part of its **properties** argument.
+Create a migration between a source and target server with a migration mode of your choice. The **create** command needs a JSON file to be passed as part of its **properties** argument.
 
-The structure of the json is given below.
+The structure of the JSON is given below.
 
 ```bash
 {
@@ -146,8 +146,8 @@ Create migration parameters:
 | Parameter | Type | Description |
 | ---- | ---- | ---- |
 | **SourceDBServerResourceId** | Required | This is the property for the resource ID of the single server and is mandatory. |
-| **SourceDBServerFullyQualifiedDomainName** | optional | This is an optional property and should only be used when a custom DNS server is used for name resolution for a virtual network. The FQDN of the single server as per the custom DNS server should be provided for this property. |
-| **TargetDBServerFullyQualifiedDomainName** | optional |  This is an optional property and should only be used when a custom DNS server is used for name resolution inside a virtual network. The FQDN of the flexible server as per the custom DNS server should be provided for this property. <br> **_SourceDBServerFullyQualifiedDomainName_**, **_TargetDBServerFullyQualifiedDomainName_** should be included as a part of the json only in the rare scenario of a custom DNS server being used for name resolution instead of Azure provided DNS. Otherwise, these parameters should not be included as a part of the json file. |
+| **SourceDBServerFullyQualifiedDomainName** | optional | This property should only be used when a custom DNS server is used for name resolution for a virtual network. The FQDN of the single server as per the custom DNS server should be provided for this property. |
+| **TargetDBServerFullyQualifiedDomainName** | optional |  This property should only be used when a custom DNS server is used for name resolution inside a virtual network. The FQDN of the flexible server as per the custom DNS server should be provided for this property. <br> **_SourceDBServerFullyQualifiedDomainName_**, **_TargetDBServerFullyQualifiedDomainName_** should be included as a part of the JSON only in the rare scenario of a custom DNS server being used for name resolution instead of Azure provided DNS. Otherwise, these parameters should not be included as a part of the JSON file. |
 | **SecretParameters** | Required | All the fields under the SecretParameters sections are mandatory. This includes the passwords for admin user for both single server and flexible server along with the AAD app credentials. They help authenticate against the source and target servers and help in checking proper authorization access to the resources.
 | **MigrationResourceGroup** | optional | This section consists of two properties. <br> **ResourceID (optional)** : The migration feature creates the migration infrastructure and other network infrastructure components on the fly to migrate data and schema from the source to target. By default, all the components created by this tool will be under the resource group of the target server. If you wish to put them under a different resource group, then you can assign the resource ID of that resource group to this property. To know more about the migration feature and how it works behind the scenes, please read this document.<br> **SubnetResourceID (optional)** : In case if your source has public access turned OFF or if your target server is deployed inside a VNet, then you would want to specify a subnet under which migration infrastructure needs to be created so that it can connect to both source and target servers. This property comes in handy to specify the subnet in which the migration infrastructure should be created. |
 | **DBsToMigrate** | Required | This is the property where you specify the list of databases you want to migrate to the flexible server. You can include a maximum of 8 database names at a time. |
@@ -156,9 +156,9 @@ Create migration parameters:
 
 ### Mode of migrations
 
-The default migration mode for migrations created using CLI commands is **online**. With the above properties filled out in your json file, an online migration would be created from your single server to flexible server.
+The default migration mode for migrations created using CLI commands is **online**. With the above properties filled out in your JSON file, an online migration would be created from your single server to flexible server.
 
-In case you want to opt for **offline** mode, you need to add an additional property **"TriggerCutover":"true"** to your properties json file and call the **create** command.
+In case you want to opt for **offline** mode, you need to add an additional property **"TriggerCutover":"true"** to your properties JSON file and call the **create** command.
 
 ### List migrations
 
@@ -216,7 +216,7 @@ for any additional information.
 
 As soon as the infrastructure setup is complete, the migration activity will pause with appropriate messages seen in the  **show details**  CLI command response if some pre-requisites are missing or if the migration is at a state to perform a cutover. At this point, the migration goes into a state called  **WaitingForUserAction**. The  **update migration**  command is used to set values for parameters, which helps the migration to move to the next stage in the process. Let us look at each of the sub-states.
 
-- **WaitingForLogicalReplicationSetupRequestOnSourceDB** - If the logical replication is not set at the source server or if it was not included as a part of the json file, the migration will wait for logical replication to be enabled at the source. A user can enable this manually by changing the replication flag to **Logical**.. This would require a server restart. This can also be enabled by the following CLI command
+- **WaitingForLogicalReplicationSetupRequestOnSourceDB** - If the logical replication is not set at the source server or if it was not included as a part of the JSON file, the migration will wait for logical replication to be enabled at the source. A user can enable this manually by changing the replication flag to **Logical**.. This would require a server restart. This can also be enabled by the following CLI command
 
 ```azurecli
 az postgres flexible-server migration update [--subscription]
