@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: troubleshooting
-ms.date: 04/29/2022
+ms.date: 05/12/2022
 ---
 
 # Common error codes and messages 
@@ -608,6 +608,41 @@ This article lists common error codes and messages reported by mapping data flow
 - **Message**: Operation timeout while reading data.
 - **Cause**: Operation times out while reading data.
 - **Recommendation**: Increase the value in **Timeout** option in source transformation settings.
+
+## Error code: 4502
+- **Message**: There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under Integration Runtime '%IRName;', ActivityId: '%activityId;'.
+- **Cause**: Throttling threshold was reached.
+- **Recommendation**: Retry the request after a wait period.
+
+## Error code: 4503
+- **Message**: There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under subscription '%subscriptionId;', ActivityId: '%activityId;'.
+- **Cause**: Throttling threshold was reached.
+- **Recommendation**: Retry the request after a wait period.
+
+## Error code: 4506
+- **Message**: Failed to provision cluster for '%activityId;' because the request computer exceeds the maximum concurrent count of 200. Integration Runtime '%IRName;'
+- **Cause**: Transient error.
+- **Recommendation**: Retry the request after a wait period.
+
+## Error code: 4507
+- **Message**: Unsupported compute type and/or core count value.
+- **Cause**: Unsupported compute type and/or core count value was provided.
+- **Recommendation**: Use one of the supported compute type and/or core count values given on this [document](control-flow-execute-data-flow-activity.md#type-properties</RecommendedAction).
+
+## Error code: 4508
+- **Message**: Spark cluster not found.
+- **Recommendation**: Restart the debug session.
+
+## Error code: 4509
+- **Message**: Hit unexpected failure while allocating compute resources, please retry. If the problem persists, please contact Azure Support
+- **Cause**: Transient error.
+- **Recommendation**: Retry the request after a wait period.
+
+## Error code: 4511
+- **Message**: java.sql.SQLTransactionRollbackException. Deadlock found when trying to get lock; try restarting transaction. If the problem persists, please contact Azure Support
+- **Cause**: Transient error.
+- **Recommendation**: Retry the request after a wait period.
+
 
 ## Next steps
 
