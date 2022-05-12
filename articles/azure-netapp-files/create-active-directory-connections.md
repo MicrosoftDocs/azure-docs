@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 04/18/2022
+ms.date: 04/29/2022
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -170,6 +170,10 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         This is the domain name of your Active Directory Domain Services that you want to join.
     * **AD Site Name**  
         This is the site name that the domain controller discovery will be limited to. This should match the site name in Active Directory Sites and Services.
+        
+        > [!IMPORTANT] 
+        > Without an AD Site Name specified, service disruption may occur. Without an AD Site Name specified, the Azure NetApp Files service may attempt to authenticate with a domain controller beyond what your network topology allows and result in a service disruption. See [Understanding Active Directory Site Topology | Microsoft Docs](/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) for more information.
+
     * **SMB server (computer account) prefix**  
         This is the naming prefix for the machine account in Active Directory that Azure NetApp Files will use for creation of new accounts.
 

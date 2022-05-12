@@ -7,7 +7,7 @@ documentationcenter: network-watcher
 author: damendo
 ms.author: damendo
 editor: 
-ms.date: 01/07/2021
+ms.date: 05/03/2022
 ms.assetid: 
 ms.topic: quickstart
 ms.service: network-watcher
@@ -108,7 +108,7 @@ Test-AzNetworkWatcherIPFlow `
   -RemotePort 80
 ```
 
-The result returned informs you that access is denied by a security rule named **DefaultOutboundDenyAll**.
+The result returned informs you that access is denied by a security rule named **DenyAllOutBound**.
 
 Test inbound communication to the VM from 172.31.0.100:
 
@@ -124,7 +124,9 @@ Test-AzNetworkWatcherIPFlow `
   -RemotePort 60000
 ```
 
-The result returned informs you that access is denied because of a security rule named **DefaultInboundDenyAll**. Now that you know which security rules are allowing or denying traffic to or from a VM, you can determine how to resolve the problems.
+The result returned informs you that access is denied because of a security rule named **DenyAllInBound**.
+
+ Now that you know which security rules are allowing or denying traffic to or from a VM, you can determine how to resolve the problems.
 
 ## View details of a security rule
 
@@ -173,7 +175,7 @@ The returned output includes the following text for the **AllowInternetOutbound*
 
 You can see in the output that **DestinationAddressPrefix** is **Internet**. It's not clear how 13.107.21.200, the address you tested in [Use IP flow verify](#use-ip-flow-verify), relates to **Internet** though. You see several address prefixes listed under **ExpandedDestinationAddressPrefix**. One of the prefixes in the list is **12.0.0.0/6**, which encompasses the 12.0.0.1-15.255.255.254 range of IP addresses. Since 13.107.21.200 is within that address range, the **AllowInternetOutBound** rule allows the outbound traffic. Additionally, there are no higher **priority** (lower number) rules listed in the output returned by `Get-AzEffectiveNetworkSecurityGroup`, that override this rule. To deny outbound communication to 13.107.21.200, you could add a security rule with a higher priority, that denies port 80 outbound to the IP address.
 
-When you ran the `Test-AzNetworkWatcherIPFlow` command to test outbound communication to 172.131.0.100 in [Use IP flow verify](#use-ip-flow-verify), the output informed you that the **DefaultOutboundDenyAll** rule denied the communication. The **DefaultOutboundDenyAll** rule equates to the **DenyAllOutBound** rule listed in the following output from the `Get-AzEffectiveNetworkSecurityGroup` command:
+When you ran the `Test-AzNetworkWatcherIPFlow` command to test outbound communication to 172.131.0.100 in [Use IP flow verify](#use-ip-flow-verify), the output informed you that the **DenyAllOutBound** rule denied the communication. The **DenyAllOutBound** rule equates to the **DenyAllOutBound** rule listed in the following output from the `Get-AzEffectiveNetworkSecurityGroup` command:
 
 ```powershell
 {
@@ -201,7 +203,7 @@ When you ran the `Test-AzNetworkWatcherIPFlow` command to test outbound communic
 
 The rule lists **0.0.0.0/0** as the **DestinationAddressPrefix**. The rule denies the outbound communication to 172.131.0.100, because the address is not within the **DestinationAddressPrefix** of any of the other outbound rules in the output from the `Get-AzEffectiveNetworkSecurityGroup` command. To allow the outbound communication, you could add a security rule with a higher priority, that allows outbound traffic to port 80 at 172.131.0.100.
 
-When you ran the `Test-AzNetworkWatcherIPFlow` command to test inbound communication from 172.131.0.100 in [Use IP flow verify](#use-ip-flow-verify), the output informed you that the **DefaultInboundDenyAll** rule denied the communication. The **DefaultInboundDenyAll** rule equates to the **DenyAllInBound** rule listed in the following output from the `Get-AzEffectiveNetworkSecurityGroup` command:
+When you ran the `Test-AzNetworkWatcherIPFlow` command to test inbound communication from 172.131.0.100 in [Use IP flow verify](#use-ip-flow-verify), the output informed you that the **DenyAllInBound** rule denied the communication. The **DenyAllInBound** rule equates to the **DenyAllInBound** rule listed in the following output from the `Get-AzEffectiveNetworkSecurityGroup` command:
 
 ```powershell
 {
