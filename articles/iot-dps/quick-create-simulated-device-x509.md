@@ -196,8 +196,6 @@ In this section, you'll use OpenSSL to create a self-signed X.509 certificate an
 
 Perform the steps in this section in your Git Bash prompt.
 
-To create the X.509 certificate and private key:
-
 1. In your Git Bash prompt, navigate to a directory where you'd like to create your certificates.
 
 2. Run the following command:
