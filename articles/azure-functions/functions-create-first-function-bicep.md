@@ -78,6 +78,8 @@ az resource list --resource-group exampleRG
 Get-AzResource -ResourceGroupName exampleRG
 ```
 
+---
+
 ## Visit function app welcome page
 
 1. Use the output from the previous validation step to retrieve the unique name created for your function app.
@@ -85,7 +87,7 @@ Get-AzResource -ResourceGroupName exampleRG
 
 When you visit the URL, you should see a page like this:
 
-:::image type="content" source=".media/functions-create-first-function-bicep/function-app-bicep.png" alt-text="Function app welcome page" border="false":::
+:::image type="content" source="../azure-functions/media/functions-create-first-function-bicep/function-app-bicep.png" alt-text="Function app welcome page" border="false":::
 
 ## Clean up resources
 
