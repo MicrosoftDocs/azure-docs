@@ -162,7 +162,7 @@ If you opted out of using Azure private DNS zones during private endpoint creati
 ## Configure private links for a Kubernetes cluster when onboarding to Azure Arc
 
 > [!NOTE]
-> Private links is supported in Azure Arc agents with version greater than or equal to Y. If you are configuring existing Azure Arc enabled Kubernetes clusters with private links, ensure that you upgrade your Arc agents following the [upgrade guidance](/azure/azure-arc/kubernetes/agent-upgrade).
+> Configuring private links for Azure Arc enabled Kubernetes clusters is supported starting from version 1.2.9 of connectedk8s CLI extension. Ensure that you are using connectedk8s CLI extension version greater than or equal to 1.2.9.
 
 When connecting a Kubernetes cluster to Azure Arc for the first time, you can optionally configure private links by connecting the Kubernetes cluster to Azure Arc and enabling private connectivity:
 
@@ -175,10 +175,10 @@ az connectedk8s connect -g <resource-group-name> -n <connected-cluster-name> -l 
 | --enable-private-link |Property to enable/disable private links feature. Set it to "True" to enable connectivity with private links. |
 | --private-link-scope-resource-id | id of the private link scope resource created earlier. For example: /subscriptions//resourceGroups//providers/Microsoft.HybridCompute/privateLinkScopes/ |
 
-> [!NOTE]
-> Configuring private links for Azure Arc enabled Kubernetes clusters is supported starting from version X of connectedk8s CLI extension. Ensure that you are using connectedk8s CLI extension version greater than or equal to X.
-
 ## Configure an existing Azure Arc-enabled Kubernetes cluster with private links
+
+> [!NOTE]
+> Configuring private links for Azure Arc enabled Kubernetes clusters is supported starting from version 1.2.9 of connectedk8s CLI extension. Ensure that you are using connectedk8s CLI extension version greater than or equal to 1.2.9.
 
 If you have an existing Azure Arc-enabled Kubernetes cluster, you can enable private link for it by running the following command:
 
@@ -190,9 +190,6 @@ If you have an existing Azure Arc-enabled Kubernetes cluster, you can enable pri
 | -------------- | ----------- |
 | --enable-private-link |Property to enable/disable private links feature. Set it to "True" to enable connectivity with private links. |
 | --private-link-scope-resource-id | id of the private link scope resource created earlier. For example: /subscriptions//resourceGroups//providers/Microsoft.HybridCompute/privateLinkScopes/ |
-
-> [!NOTE]
-> Configuring private links for Azure Arc enabled Kubernetes clusters is supported starting from version X of connectedk8s CLI extension. Ensure that you are using connectedk8s CLI extension version greater than or equal to X.
 
 ## Troubleshooting
 
