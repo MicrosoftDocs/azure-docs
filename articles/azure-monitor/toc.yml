@@ -47,6 +47,10 @@ items:
       href: app/tutorial-app-dashboards.md
     - name: Monitor mobile application
       href: app/mobile-center-quickstart.md
+  - name: Change Analysis
+    items:
+    - name: Track web outages
+      href: change/tutorial-outages.md
   - name: Custom logs
     items:
     - name: Azure portal
@@ -433,8 +437,13 @@ items:
     - name: Resource logs
       href: essentials/resource-logs.md
     - name: Diagnostic settings
-      displayName: Platform logs, Resource logs, Activity log
-      href: essentials/diagnostic-settings.md
+      items:
+      - name: Overview
+        displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
+        href: essentials/diagnostic-settings.md
+      - name: Create with Azure Policy
+        displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
+        href: essentials/diagnostic-settings-policy.md
   - name: Data collection
     items:
     - name: Data collection rules
@@ -1180,6 +1189,8 @@ items:
       href: change/change-analysis-visualizations.md
     - name: Azure PowerShell
       href: change/change-analysis-powershell.md
+    - name: Custom filters
+      href: change/change-analysis-custom-filters.md
     - name: Troubleshoot
       href: change/change-analysis-troubleshoot.md
   - name: VM insights

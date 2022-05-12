@@ -1,158 +1,193 @@
 ---
-title: Use the graph bulk executor .NET library with Azure Cosmos DB Gremlin API
+title: Bulk ingestion in Azure Cosmos DB Gremlin API using BulkExecutor
 description: Learn how to use the bulk executor library to massively import graph data into an Azure Cosmos DB Gremlin API container.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
-ms.date: 05/02/2020
+ms.date: 05/10/2022
 author: manishmsfte
 ms.author: mansha
-ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.devlang: csharp, java
+
 ---
 
-# Using the graph bulk executor .NET library to perform bulk operations in Azure Cosmos DB Gremlin API
+# Bulk ingestion in Azure Cosmos DB Gremlin API using BulkExecutor
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
-This tutorial provides instructions about using Azure Cosmos DB's bulk executor .NET library to import and update graph objects into an Azure Cosmos DB Gremlin API container. This process makes use of the Graph class in the [bulk executor library](../bulk-executor-overview.md) to create Vertex and Edge objects programmatically to then insert multiple of them per network request. This behavior is configurable through the bulk executor library to make optimal use of both database and local memory resources.
+Graph database often has a use case to perform bulk ingestion to refresh the entire graph or update a portion of it. Cosmos DB, which is a distributed database and backbone of Azure Cosmos DB - Gremlin API, is meant to perform if the load is well distributed. BulkExecutor libraries in Cosmos DB designed to exploit this unique capability of Cosmos DB and provide the best performance, refer [here](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk).
 
-As opposed to sending Gremlin queries to a database, where the command is evaluated and then executed one at a time, using the bulk executor library will instead require to create and validate the objects locally. After creating the objects, the library allows you to send graph objects to the database service sequentially. Using this method, data ingestion speeds can be increased up to 100x, which makes it an ideal method for initial data migrations or periodical data movement operations. Learn more by visiting the GitHub page of the [Azure Cosmos DB Graph bulk executor sample application](https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started).
+This tutorial provides instructions about using Azure Cosmos DB's bulk executor library to import and update graph objects into an Azure Cosmos DB Gremlin API container. This process makes use to create Vertex and Edge objects programmatically to then insert multiple of them per network request.
 
-## Bulk operations with graph data
+Instead of sending Gremlin queries to a database, where the command is evaluated and then executed one at a time, using the BulkExecutor library will require to create and validate the objects locally. After initializing, the graph objects, the library allows you to send graph objects to the database service sequentially. Using this method, data ingestion speeds can be increased up to 100x, which makes it an ideal method for initial data migrations or periodical data movement operations. 
 
-The [bulk executor library](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph) contains a `Microsoft.Azure.CosmosDB.BulkExecutor.Graph` namespace to provide functionality for creating and importing graph objects. 
+It's now available in following flavors:
 
-The following process outlines how data migration can be used for a Gremlin API container:
-1. Retrieve records from the data source.
-2. Construct `GremlinVertex` and `GremlinEdge` objects from the obtained records and add them into an `IEnumerable` data structure. In this part of the application the logic to detect and add relationships should be implemented, in case the data source isn't a graph database.
-3. Use the [Graph BulkImportAsync method](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph.graphbulkexecutor.bulkimportasync) to insert the graph objects into the collection.
+## .NET
+### Prerequisites
+* Visual Studio 2019 with the Azure development workload. You can get started with the [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/) for free.
+* An Azure subscription. You can create [a free Azure account here](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Alternatively, you can create a Cosmos database account with [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
+* An Azure Cosmos DB Gremlin API database with an **unlimited collection**. The guide shows how to get started with [Azure Cosmos DB Gremlin API in .NET](./create-graph-dotnet.md).
+* Git. For more information check out the [Git Downloads page](https://git-scm.com/downloads).
+#### Clone
+To run this sample, run the `git clone` command below:
+```bash
+git clone https://github.com/Azure-Samples/azure-cosmos-graph-bulk-executor.git
+```
+The sample is available at path .\azure-cosmos-graph-bulk-executor\dotnet\src\
 
-This mechanism will improve the data migration efficiency as compared to using a Gremlin client. This improvement is experienced because inserting data with Gremlin will require the application send a query at a time that will need to be validated, evaluated, and then executed to create the data. The bulk executor library will handle the validation in the application and send multiple graph objects at a time for each network request.
-
-### Creating Vertices and Edges
-
-`GraphBulkExecutor` provides the `BulkImportAsync` method that requires a `IEnumerable` list of `GremlinVertex` or `GremlinEdge` objects, both defined in the `Microsoft.Azure.CosmosDB.BulkExecutor.Graph.Element` namespace. In the sample, we separated the edges and vertices into two BulkExecutor import tasks. See the example below:
-
+#### Sample
 ```csharp
 
-IBulkExecutor graphbulkExecutor = new GraphBulkExecutor(documentClient, targetCollection);
+IGraphBulkExecutor graphBulkExecutor = new GraphBulkExecutor("MyConnectionString", "myDatabase", "myContainer");
 
-BulkImportResponse vResponse = null;
-BulkImportResponse eResponse = null;
-
-try
-{
-    // Import a list of GremlinVertex objects
-    vResponse = await graphbulkExecutor.BulkImportAsync(
-            Utils.GenerateVertices(numberOfDocumentsToGenerate),
-            enableUpsert: true,
-            disableAutomaticIdGeneration: true,
-            maxConcurrencyPerPartitionKeyRange: null,
-            maxInMemorySortingBatchSize: null,
-            cancellationToken: token);
-
-    // Import a list of GremlinEdge objects
-    eResponse = await graphbulkExecutor.BulkImportAsync(
-            Utils.GenerateEdges(numberOfDocumentsToGenerate),
-            enableUpsert: true,
-            disableAutomaticIdGeneration: true,
-            maxConcurrencyPerPartitionKeyRange: null,
-            maxInMemorySortingBatchSize: null,
-            cancellationToken: token);
-}
-catch (DocumentClientException de)
-{
-    Trace.TraceError("Document client exception: {0}", de);
-}
-catch (Exception e)
-{
-    Trace.TraceError("Exception: {0}", e);
-}
+List<IGremlinElement> gremlinElements = new List<IGremlinElement>();
+gremlinElements.AddRange(Program.GenerateVertices(Program.documentsToInsert));
+gremlinElements.AddRange(Program.GenerateEdges(Program.documentsToInsert));
+BulkOperationResponse bulkOperationResponse = await graphBulkExecutor.BulkImportAsync(
+    gremlinElements: gremlinElements,
+    enableUpsert: true);
 ```
 
-For more information about the parameters of the bulk executor library, see [BulkImportData to Azure Cosmos DB article](../bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account).
+### Execute
+Modify the following parameters as:
 
-The payload needs to be instantiated into `GremlinVertex` and `GremlinEdge` objects. Here's how these objects can be created:
+Parameter|Description
+---|---
+`ConnectionString`|It is **your .NET SDK endpoint** found in the Overview section of your Azure Cosmos DB Gremlin API database account. It has the format of `https://your-graph-database-account.documents.azure.com:443/`
+`DatabaseName`, `ContainerName`|These parameters are the **target database and container names**. 
+`DocumentsToInsert`| Number of documents to be generated (only relevant to generate synthetic data)
+`PartitionKey` | To ensure partition key is specified along with each document while ingestion.
+`NumberOfRUs` | Only relevant if container doesn't exists and needs to be created as part of execution
 
-**Vertices**:
-```csharp
-// Creating a vertex
-GremlinVertex v = new GremlinVertex(
-    "vertexId",
-    "vertexLabel");
+Download the full sample application in .NET from [here](https://github.com/Azure-Samples/azure-cosmos-graph-bulk-executor/tree/main/dotnet).
 
-// Adding custom properties to the vertex
-v.AddProperty("customProperty", "value");
+## JAVA
 
-// Partitioning keys must be specified for all vertices
-v.AddProperty("partitioningKey", "value");
+### Sample usage
+
+The sample application is provided to illustrate how to use the GraphBulkExecutor package. Samples are available for using either the Domain object annotations or using the POJO objects directly. It's recommended, to try both approaches, to determine which better meets your implementation and performance demands.
+
+### Clone
+To run the sample, run the `git clone` command below:
+```bash
+git clone https://github.com/Azure-Samples/azure-cosmos-graph-bulk-executor.git
 ```
-
-**Edges**:
-```csharp
-// Creating an edge
-GremlinEdge e = new GremlinEdge(
-    "edgeId",
-    "edgeLabel",
-    "targetVertexId",
-    "sourceVertexId",
-    "targetVertexLabel",
-    "sourceVertexLabel",
-    "targetVertexPartitioningKey",
-    "sourceVertexPartitioningKey");
-
-// Adding custom properties to the edge
-e.AddProperty("customProperty", "value");
-```
-
-> [!NOTE]
-> The bulk executor utility doesn't automatically check for existing Vertices before adding Edges. This needs to be validated in the application before running the BulkImport tasks.
-
-## Sample application
+The sample is available at .\azure-cosmos-graph-bulk-executor\java\
 
 ### Prerequisites
-* Latest [!INCLUDE [cosmos-db-visual-studio](../includes/cosmos-db-visual-studio.md)]
-* An Azure subscription. You can create [a free Azure account here](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Alternatively, you can create a Cosmos database account with [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
-* An Azure Cosmos DB Gremlin API database with an **unlimited collection**. This guide shows how to get started with [Azure Cosmos DB Gremlin API in .NET](./create-graph-dotnet.md).
-* Git. For more information check out the [Git Downloads page](https://git-scm.com/downloads).
 
-### Clone the sample application
-In this tutorial, we'll follow through the steps for getting started by using the [Azure Cosmos DB Graph bulk executor sample](https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started) hosted on GitHub. This application consists of a .NET solution that randomly generates vertex and edge objects and then executes bulk insertions to the specified graph database account. To get the application, run the `git clone` command below:
+To run this sample, you'll need to have the following software:
 
-```bash
-git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started.git
+* OpenJDK 11
+* Maven
+* An Azure Cosmos DB Account configured to use the Gremlin API
+
+### Sample
+```java
+private static void executeWithPOJO(Stream<GremlinVertex> vertices,
+                                        Stream<GremlinEdge> edges,
+                                        boolean createDocs) {
+        results.transitionState("Configure Database");
+        UploadWithBulkLoader loader = new UploadWithBulkLoader();
+        results.transitionState("Write Documents");
+        loader.uploadDocuments(vertices, edges, createDocs);
+    }
 ```
 
-This repository contains the GraphBulkExecutor sample with the following files:
+To run the sample, refer the configuration as follows and modify as needed:
+### Configuration
 
-File|Description
----|---
-`App.config`|This is where the application and database-specific parameters are specified. This file should be modified first to connect to the destination database and collections.
-`Program.cs`| This file contains the logic behind creating the `DocumentClient` collection, handling the cleanups and sending the bulk executor requests.
-`Util.cs`| This file contains a helper class that contains the logic behind generating test data, and checking if the database and collections exist.
+The /resources/application.properties file defines the data required to configure the Cosmos DB the required values are:
 
-In the `App.config` file, the following are the configuration values that can be provided:
+* **sample.sql.host**: It's the value provided by the Azure Cosmos DB. Ensure you use the ".NET SDK URI", which can be located on the Overview section of the Cosmos DB Account.
+* **sample.sql.key**: You can get the primary or secondary key from the Keys section of the Cosmos DB Account.
+* **sample.sql.database.name**: The name of the database within the Cosmos DB account to run the sample against. If the database isn't found, the sample code will create it.
+* **sample.sql.container.name**: The name of the container within the database to run the sample against. If the container isn't found, the sample code will create it.
+* **sample.sql.partition.path**: If the container needs to be created, this value will be used to define the partitionKey path.
+* **sample.sql.allow.throughput**: The container will be updated to use the throughput value defined here. If you're exploring different throughput options to meet your performance demands, make sure to reset the throughput on the container when done with your exploration. There are costs associated with leaving the container provisioned with a higher throughput.
 
-Setting|Description
----|---
-`EndPointUrl`|This is **your .NET SDK endpoint** found in the Overview page of your Azure Cosmos DB Gremlin API database account. This has the format of `https://your-graph-database-account.documents.azure.com:443/`
-`AuthorizationKey`|This is the Primary or Secondary key listed under your Azure Cosmos DB account. Learn more about [Securing Access to Azure Cosmos DB data](../secure-access-to-data.md#primary-keys)
-`DatabaseName`, `CollectionName`|These are the **target database and collection names**. When `ShouldCleanupOnStart` is set to `true` these values, along with `CollectionThroughput`, will be used to drop them and create a new database and collection. Similarly, if `ShouldCleanupOnFinish` is set to `true`, they'll be used to delete the database as soon as the ingestion is over. The target collection must be **an unlimited collection**.
-`CollectionThroughput`|This is used to create a new collection if the `ShouldCleanupOnStart` option is set to `true`.
-`ShouldCleanupOnStart`|This will drop the database account and collections before the program is run, and then create new ones with the `DatabaseName`, `CollectionName` and `CollectionThroughput` values.
-`ShouldCleanupOnFinish`|This will drop the database account and collections with the specified `DatabaseName` and `CollectionName` after the program is run.
-`NumberOfDocumentsToImport`|This will determine the number of test vertices and edges that will be generated in the sample. This number will apply to both vertices and edges.
-`NumberOfBatches`|This will determine the number of test vertices and edges that will be generated in the sample. This number will apply to both vertices and edges.
-`CollectionPartitionKey`|This will be used to create the test vertices and edges, where this property will be auto-assigned. This will also be used when re-creating the database and collections if the `ShouldCleanupOnStart` option is set to `true`.
+### Execute
 
-### Run the sample application
+Once the configuration is modified as per your environment, then run the command:
 
-1. Add your specific database configuration parameters in `App.config`. This will be used to create a DocumentClient instance. If the database and container haven't been created yet, they'll be created automatically.
-2. Run the application. This will call `BulkImportAsync` two times, one to import Vertices and one to import Edges. If any of the objects generates an error when they're inserted, they'll be added to either `.\BadVertices.txt` or `.\BadEdges.txt`.
-3. Evaluate the results by querying the graph database. If the `ShouldCleanupOnFinish` option is set to true, then the database will automatically be deleted.
+```bash
+mvn clean package 
+```
+
+For added safety, you can also run the integration tests by changing the "skipIntegrationTests" value in the pom.xml to
+false.
+
+Assuming the Unit tests were run successfully. You can run the command line to execute the sample code:
+
+```bash
+java -jar target/azure-cosmos-graph-bulk-executor-1.0-jar-with-dependencies.jar -v 1000 -e 10 -d
+```
+
+Running the above commands will execute the sample with a small batch (1k Vertices and roughly 5k Edges). Use the following command lines arguments to tweak the volumes run and which sample version to run.
+
+### Command line Arguments
+
+There are several command line arguments are available while running this sample, which is detailed as:
+
+* **--vertexCount** (-v): Tells the application how many person vertices to generate.
+* **--edgeMax** (-e): Tells the application what the maximum number of edges to generate for each Vertex. The generator will randomly select a number between 1 and the value provided here.
+* **--domainSample** (-d): Tells the application to run the sample using the Person and Relationship domain structures instead of the GraphBulkExecutors GremlinVertex and GremlinEdge POJOs.
+* **--createDocuments** (-c): Tells the application to use create operations. If not present, the application will default to using upsert operations.
+
+### Details about the sample
+
+#### Person Vertex
+
+The Person class is a fairly simple domain object that has been decorated with several annotations to help the
+transformation into the GremlinVertex class. They are as follows:
+
+* **GremlinVertex**: Notice how we're using the optional "label" parameter to define all Vertices created using this class.
+* **GremlinId**: Being used to define which field will be used as the ID value. While the field name on the Person class is ID, it isn't required.
+* **GremlinProperty**: Is being used on the email field to change the name of the property when stored in the database.
+* **GremlinPartitionKey**: Is being used to define which field on the class contains the partition key. The field name provided here should match the value defined by the partition path on the container.
+* **GremlinIgnore**: Is being used to exclude the isSpecial field from the property being written to the database.
+
+#### Relationship Edge
+
+The RelationshipEdge is a fairly versatile domain object. Using the field level label annotation allows for a dynamic
+collection of edge types to be created. The following annotations are represented in this sample domain edge:
+
+* **GremlinEdge**: The GremlinEdge decoration on the class, defines the name of the field for the specified partition key. The value assigned, when the edge document is created, will come from the source vertex information.
+* **GremlinEdgeVertex**: Notice that there are two instances of GremlinEdgeVertex defined. One for each side of the edge (Source and Destination).  Our sample has the field's data type as GremlinEdgeVertexInfo. The information provided by GremlinEdgeVertex class is required for the edge to be created correctly in the database. Another option would be to have the data type of the vertices be a class that has been decorated with the GremlinVertex annotations.
+* **GremlinLabel**: The sample edge is using a field to define what the label value is. It allows different labels to  be defined while still using the same base domain class.
+
+### Output Explained
+
+The console will finish its run with a json string describing the run times of the sample. The json string contains the
+following information.
+
+* **startTime**: The System.nanoTime() when the process started.
+* **endtime**: The System.nanoTime() when the process completed.
+* **durationInNanoSeconds**: The difference between the endTime and the startTime.
+* **durationInMinutes**: The durationInNanoSeconds converted into minutes. Important to note that durationInMinutes is represented as a float number, not a time value. For example,  a value 2.5 would be 2 minutes and 30 seconds.
+* **vertexCount**: The volume of vertices generated which should match the value passed into the command line execution.
+* **edgeCount**: The volume of edges generated which isn't static and it's built with an element of randomness.
+* **exception**: Only populated when there was an exception thrown when attempting to make the run.
+
+#### States Array
+
+The states array gives insight into how long each step within the execution takes. The steps that occur are:
+
+* **Build sample vertices**: The time it takes to fabricate the requested volume of Person objects.
+* **Build sample edges**: The time it takes to fabricate the Relationship objects.
+* **Configure Database**: The amount of time it took to get the database configured based on the values provided in the
+  application.properties.
+* **Write Documents**: The total time it took to write the documents to the database.
+
+Each state will contain the following values:
+
+* **stateName**: The name of the state being reported.
+* **startTime**: The System.nanoTime() when the state started.
+* **endtime**: The System.nanoTime() when the state completed.
+* **durationInNanoSeconds**: The difference between the endTime and the startTime.
+* **durationInMinutes**: The durationInNanoSeconds converted into minutes. Important to note that durationInMinutes is represented as a float number, not a time value. for example, a value 2.5 would be 2 minutes and 30 seconds.
 
 ## Next steps
 
-* To learn about NuGet package details and release notes of bulk executor .NET library, see [bulk executor SDK details](../sql-api-sdk-bulk-executor-dot-net.md). 
-* Check out the [Performance Tips](../bulk-executor-dot-net.md#performance-tips) to further optimize the usage of bulk executor.
-* Review the [BulkExecutor.Graph Reference article](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph) for more details about the classes and methods defined in this namespace.
+* Review the [BulkExecutor Java, which is Open Source](https://github.com/Azure-Samples/azure-cosmos-graph-bulk-executor/tree/main/java/src/main/java/com/azure/graph/bulk/impl) for more details about the classes and methods defined in this namespace.
+* Review the [BulkMode, which is part of .NET V3 SDK](../sql/tutorial-sql-api-dotnet-bulk-import.md)

@@ -180,6 +180,8 @@ items:
       href: tutorial-managed-virtual-network-on-premise-sql-server.md
     - name: Access SQL Managed Instance
       href: tutorial-managed-virtual-network-sql-managed-instance.md 
+    - name: Move an existing Azure integration runtime to a managed virtual network
+      href: tutorial-managed-virtual-network-migrate.md
   - name: Self-hosted integration runtime
     items:
     - name: Enable remote access from intranet with TLS/SSL certificate (Advanced)
