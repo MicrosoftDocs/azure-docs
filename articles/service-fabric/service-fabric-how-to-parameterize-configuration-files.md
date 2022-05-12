@@ -73,7 +73,7 @@ var configSettings = context.GetConfigurationPackageObject("Config").Settings;
 var data = configSettings.Sections["MyConfigSection"];
 foreach (var parameter in data.Parameters)
 {
-ServiceEventSource.Current.ServiceMessage(this.Context, "Working-{0} - {1}", parameter.Name, parameter.Value);
+    ServiceEventSource.Current.ServiceMessage(this.Context, "Working-{0} - {1}", parameter.Name, parameter.Value);
 }
   ```
 
