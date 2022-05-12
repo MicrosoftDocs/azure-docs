@@ -43,22 +43,6 @@ var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Loc
 
 ## May 2022 release updates
 
-### Audio pipeline updates  
-
-???
-
-### Celebrities gating 
-
-???
-
-### Customer survey   
-
-???
-
-### Rename the widget repository 
-
-???
-
 ### Line breaking in transcripts
 
 Improved line break logic to better split transcript into sentences.
