@@ -45,7 +45,6 @@ This table shows the primary categories and subcategories that map to Azure Mark
 | Security | Identity & Access Management<br>Information Protection<br>Threat Protection |
 | Storage | Backup & Recovery<br>Block File & Object Sharing<br>Data Management<br>Enterprise Hybrid Storage |
 | Web | Blogs & CMS<br>Ecommerce<br>Starter Web Apps<br>Web Apps<br>Web Apps Frameworks |
-|||
 
 ## Microsoft AppSource categories and subcategories
 
@@ -69,4 +68,3 @@ This table shows the primary categories and subcategories that map to Microsoft 
 | Productivity | Blogs<br>Content Creation & Management<br>Document & File management<br>Email Management<br>Gamification<br>Language & Translation<br>Search & Reference<br>Workflow Automation |
 | Project Management | Project Accounting & Revenue Recognition<br>Project Invoicing<br>Project Time & Expense Reporting<br>Project Resource Planning & Utilization Metrics <br>Project Planning & Tracking <br>Project Sales Proposals & Bids |
 | Sales | Business Data Management<br>Configure, Price, Quote (CPQ)<br>Contract Management<br>CRM<br>Sales Enablement<br>Telesales |
-|||
