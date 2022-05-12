@@ -726,6 +726,9 @@ The following neural voices are in public preview.
 
 | Language                         | Locale  | Gender | Voice name                             | Style support |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunjianNeural` <sup>New</sup> | Optimized for broadcasting sports event, 2 new multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunhaoNeural` <sup>New</sup> | Optimized for promoting a product or service, 1 new multiple style available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunfengNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-AbbiNeural` <sup>New</sup> | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-BellaNeural` <sup>New</sup> | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-HollieNeural` <sup>New</sup> | General |
@@ -802,6 +805,9 @@ Use the following table to determine supported styles and roles for each neural 
 |zh-CN-YunxiNeural|`angry`, `assistant`, `cheerful`, `depressed`, `disgruntled`, `embarrassed`, `fearful`, `narration-relaxed`, `sad`, `serious`|Supported|Supported|
 |zh-CN-YunyangNeural|`customerservice`, `narration-professional`, `newscast-casual`|Supported||
 |zh-CN-YunyeNeural|`angry`, `calm`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `sad`, `serious`|Supported|Supported|
+|zh-CN-YunjianNeural <sup>Public preview</sup>|`narration-relaxed`, `sports-commentary`  <sup>Public preview</sup>, `sports-commentary-excited`  <sup>Public preview</sup>|Supported||
+|zh-CN-YunhaoNeural <sup>Public preview</sup>|`general`, `advertisement-upbeat` <sup>Public preview</sup>|Supported||
+|zh-CN-YunfengNeural <sup>Public preview</sup>|`calm`, `angry`, ` disgruntled`, `cheerful`, `fearful`, `sad`, `serious`, `depressed`|Supported||
 
 
 ### Custom Neural Voice
