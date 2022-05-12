@@ -53,7 +53,7 @@ Traditionally, discovering enterprise data sources has been an organic process b
 * Because there's no central location to register data sources, users might be unaware of a data source unless they come into contact with it as part of another process.
 * Unless users know the location of a data source, they can't connect to the data by using a client application. Data-consumption experiences require users to know the connection string or path.
 * The intended use of the data is hidden to users unless they know the location of a data source's documentation. Data sources and documentation might live in several places and be consumed through different kinds of experiences.
-* If users have questions about an information asset, they must locate the expert or team responsible for that data and engage them offline. There is no explicit connection between the data and the experts that understand the data's context.
+* If users have questions about an information asset, they must locate the expert or team responsible for that data and engage them offline. There's no explicit connection between the data and the experts that understand the data's context.
 * Unless users understand the process for requesting access to the data source, discovering the data source and its documentation won't help them access the data.
 
 ## Discovery challenges for data producers
