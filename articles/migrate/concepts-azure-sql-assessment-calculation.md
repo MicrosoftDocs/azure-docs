@@ -70,7 +70,7 @@ The appliance collects performance data for compute settings with these steps:
 
 Here's what's included in Azure SQL assessment properties:
 
-**Section**| **Property** | **Details**
+**Section** | **Property** | **Details**
 | --- | --- | ---
 Target and pricing settings | **Target location** | The Azure region to which you want to migrate. Azure SQL configuration and cost recommendations are based on the location that you specify.
 Target and pricing settings | **Environment type** | The environment for the SQL deployments to apply pricing applicable to Production or Dev/Test.
@@ -87,7 +87,7 @@ Assessment criteria | **Comfort factor** | You can indicate the buffer you want 
 Azure SQL Managed Instance sizing | **Service Tier** | You can choose the most appropriate service tier option to accommodate your business needs for migration to Azure SQL Managed Instance:<br/><br/>Select *Recommended* if you want Azure Migrate to recommend the best suited service tier for your servers. This can be General purpose or Business critical.<br/><br/>Select *General Purpose* if you want an Azure SQL configuration designed for budget-oriented workloads.<br/><br/>Select *Business Critical* if you want an Azure SQL configuration designed for low-latency workloads with high resiliency to failures and fast failovers.
 Azure SQL Managed Instance sizing | **Instance type** | Defaulted to *Single instance*.
 Azure SQL Managed Instance sizing | **Pricing Tier** | Defaulted to *Standard*.
-SQL Server on Azure VM sizing | **VM series** | You can specify the Azure VM series you want to consider for *SQL Server on Azure VM* sizing. Based on the configuration and performance requirements of your SQL Server or SQL Server instance, the assessment will recommend a VM size from the selected list of VM series. <br/>You can edit settings as needed. For example, if you don't want to include D-series VM, you can exclude D-series from this list.<br/> As Azure SQL assessments are intended to give the best performance for your SQL workloads, the VM series list only has VMs that are optimized for running your SQL Server on Azure Virtual Machines (VMs). [Learn more](azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md#vm-size).
+SQL Server on Azure VM sizing | **VM series** | You can specify the Azure VM series you want to consider for *SQL Server on Azure VM* sizing. Based on the configuration and performance requirements of your SQL Server or SQL Server instance, the assessment will recommend a VM size from the selected list of VM series. <br/>You can edit settings as needed. For example, if you don't want to include D-series VM, you can exclude D-series from this list.<br/> As Azure SQL assessments are intended to give the best performance for your SQL workloads, the VM series list only has VMs that are optimized for running your SQL Server on Azure Virtual Machines (VMs). [Learn more](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist#vm-size).
 SQL Server on Azure VM sizing | **Storage Type** | Defaulted to *Recommended*, which means the assessment will recommend the best suited Azure Managed Disk based on the chosen environment type, on-premises disk size, IOPS and throughput.
 Azure SQL Database sizing | **Service Tier** | You can choose the most appropriate service tier option to accommodate your business needs for migration to Azure SQL Database:<br/><br/>Select **Recommended** if you want Azure Migrate to recommend the best suited service tier for your servers. This can be General purpose or Business critical.<br/><br/>Select **General Purpose** if you want an Azure SQL configuration designed for budget-oriented workloads.<br/><br/>Select **Business Critical** if you want an Azure SQL configuration designed for low-latency workloads with high resiliency to failures and fast failovers.
 Azure SQL Database sizing | **Instance type** | Defaulted to *Single database*.
@@ -175,7 +175,7 @@ After it calculates storage requirements, the assessment considers CPU and RAM r
 - If a suitable size is found, Azure Migrate applies the storage calculations. It then applies location and pricing-tier settings for the final VM size recommendation.
 - If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended.
 > [!NOTE]
->As Azure SQL assessments are intended to give the best performance for your SQL workloads, the VM series list only has VMs that are optimized for running your SQL Server on Azure Virtual Machines (VMs). [Learn more](../virtual-machines/windows/performance-guidelines-best-practices-checklist.md#vm-size)
+>As Azure SQL assessments are intended to give the best performance for your SQL workloads, the VM series list only has VMs that are optimized for running your SQL Server on Azure Virtual Machines (VMs). [Learn more](/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist#vm-size)
 
 
 ### Servers to SQL Server on Azure VM configuration
