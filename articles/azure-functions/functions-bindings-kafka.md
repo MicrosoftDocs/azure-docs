@@ -13,7 +13,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 Invoke Azure Functions and write values out to [Apache Kafka](https://kafka.apache.org/) event streams.
 
 > [!IMPORTANT]
-> Kafka bindings are only available for Azure Functions on the [Elastic Premium Plan](functions-premium-plan.md) and [Dedicated (App Service) plan](dedicated-plan.md).
+> Kafka bindings are only available for Functions on the [Elastic Premium Plan](functions-premium-plan.md) and [Dedicated (App Service) plan](dedicated-plan.md). They are only supported on version 3.x and later version of the Functions runtime.
 
 | Action | Type |
 |---------|---------|
