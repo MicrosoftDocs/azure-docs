@@ -59,22 +59,25 @@ Create a Storage Container within the Storage Account using the following comman
 
 You need an Azure service principal credential to authorize Azure login action. To get an Azure credential, execute the following commands:
 
-```azurecli
-az login
-az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth
-```
+    ```azurecli
+    az login
+    az ad sp create-for-rbac \
+        --role contributor \
+        --scopes /subscriptions/<SUBSCRIPTION_ID> \
+        --sdk-auth
+    ```
 
 The command should output a JSON object:
 
-```JSON
-{
-    "clientId": "<GUID>",
-    "clientSecret": "<GUID>",
-    "subscriptionId": "<GUID>",
-    "tenantId": "<GUID>",
-    ...
-}
-```
+    ```json
+    {
+        "clientId": "<GUID>",
+        "clientSecret": "<GUID>",
+        "subscriptionId": "<GUID>",
+        "tenantId": "<GUID>",
+        ...
+    }
+    ```
 
 This example uses the [ACME Fitness Store](https://github.com/Azure-Samples/acme-fitness-store) sample on GitHub.  Fork the sample, open GitHub repository page, and select the **Settings** tab. Open **Secrets** menu, and select **Add a new secret**:
 

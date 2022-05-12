@@ -44,6 +44,9 @@ The following steps describe how to provision an Azure Cache for Redis instance 
       --vm-size c0
     ```
 
+> [!NOTE]
+> Redis Cache creation takes approximately 20 minutes
+
 1. Create an Azure Database for PostgreSQL Flexible Server instance using the following command:
 
     ```azurecli

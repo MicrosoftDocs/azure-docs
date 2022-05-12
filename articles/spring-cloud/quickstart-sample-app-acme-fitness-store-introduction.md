@@ -13,13 +13,15 @@ ms.custom:
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-In this quickstart, we use the sample app [ACME Fitness Store](https://github.com/Azure-Samples/acme-fitness-store) that will show how to deploy polyglot applications to Azure Spring Cloud Enterprise tier. You will see how polyglot applications are built and deployed using Azure Spring Cloud Enterprise Tier capabilities including Tanzu Build Service, Service Discovery, externalized configuration with Application Configuration Service, application routing with Spring Cloud Gateway, logs, metrics, and distributed tracing.
+In this quickstart, we use the [ACME Fitness Store](https://github.com/Azure-Samples/acme-fitness-store) application that will show how to deploy polyglot applications to Azure Spring Cloud Enterprise tier. You will see how polyglot applications are built and deployed using Azure Spring Cloud Enterprise Tier capabilities including Tanzu Build Service, Service Discovery, externalized configuration with Application Configuration Service, application routing with Spring Cloud Gateway, logs, metrics, and distributed tracing.
 
-The following diagram shows the architecture of the ACME Fitness Store application.
+The following diagram shows a common application architecture:
 
 ![Architecture of the ACME Fitness Store](media/acme-store-quickstart-introduction/architecture.jpg)
 
-This application is composed of several services:
+This architecture shows an application composed of smaller applications with a gateway, multiple databases, security services, monitoring, and automation.
+
+This quickstart applies this architecture to a Fitness Store application. This application is composed of several services split up by domain:
 
 - 3 Java Spring Boot applications:
   - **Catalog Service**: contains an API for fetching available products

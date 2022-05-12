@@ -99,26 +99,26 @@ To register the application with Azure Active Directory, follow these steps. If 
         --reply-urls "https://${GATEWAY_URL}/login/oauth2/code/sso" "https://${PORTAL_URL}/oauth2-redirect.html" "https://${PORTAL_URL}/login/oauth2/code/sso"
     ```
 
-1. The Application's `Client ID` is needed for later. The following command will retrieve it and save the output for later:
+1. The Application's `Client ID` is needed for later. Save the output from the following command to be used later:
 
     ```bash
     cat sso.json | jq -r '.appId'
     ```
 
-1. The Application's `Client Secret` is needed for later. The following command will retrieve it and save the output for later:
+1. The Application's `Client Secret` is needed for later. Save the output from the following command to be used later:
 
     ```bash
     cat sso.json | jq -r '.password'
     ```
 
-1. The `Issuer URI` is needed for later. The following command will retrieve it and save the output for later:
+1. The `Issuer URI` is needed for later. Save the output from the following command to be used later:
 
     ```bash
     TENANT_ID=$(cat sso.json | jq -r '.tenant')
     echo "https://login.microsoftonline.com/${TENANT_ID}/v2.0"
     ```
 
-1. The `JSON Web Key (JWK) URI` is needed for later. The following command will retrieve it and save the output for later:
+1. The `JSON Web Key (JWK) URI` is needed for later. Save the output from the following command to be used later:
 
     ```bash
     TENANT_ID=$(cat sso.json | jq -r '.tenant')
