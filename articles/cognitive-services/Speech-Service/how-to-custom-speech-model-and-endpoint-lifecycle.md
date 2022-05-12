@@ -50,11 +50,11 @@ You can get the adaptation and transcription expiration dates for a model via th
 ### Model expiration dates via Speech Studio
 Here's an example adaptation expiration date shown on the train new model dialog:
 
-![Screenshot of train a new model dialog](media/custom-speech/custom-speech-adaptation-end-date.png)
+:::image type="content" source="media/custom-speech/custom-speech-adaptation-end-date.png" alt-text="Screenshot of the train new model dialog that shows the adaptation expiration date.":::
 
 Here's an example transcription expiration date shown on the deployment detail page:
 
-![Screenshot of endpoint deployment detail](media/custom-speech/custom-speech-deploy-details.png)
+:::image type="content" source="media/custom-speech/custom-speech-deploy-details.png" alt-text="Screenshot of the train new model dialog that shows the transcription expiration date.":::
 
 ### Model expiration dates via REST API
 You can also check the expiration dates via the [`GetBaseModel`](https://westus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel) and [`GetModel`](https://westus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel) REST API. The `deprecationDates` property in the JSON response includes the adaptation and transcription expiration dates for each model

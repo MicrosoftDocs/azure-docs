@@ -23,7 +23,7 @@ The only requirement to use the transcription editor is to have audio data uploa
 
 You can find the **Editor** tab next to the **Training and testing dataset** tab on the main **Speech datasets** page. 
 
-:::image type="content" source="media/custom-speech/custom-speech-editor.png" alt-text="Custom speech editor":::
+:::image type="content" source="media/custom-speech/custom-speech-editor.png" alt-text="Screenshot of the Speech datasets page that shows the Editor tab.":::
 
 Datasets in the **Training and testing dataset** tab can't be updated. You can import a copy of a training or testing dataset to the **Editor** tab, add or edit human-labeled transcriptions to match the audio, and then export the edited dataset to the **Training and testing dataset** tab. Please also note that you can't use a dataset that's in the Editor to train or test a model.
 
@@ -39,7 +39,7 @@ To import a dataset to the Editor, follow these steps:
 1. Review your settings, and then select **Import and close** to kick off the import process. After data has been successfully imported, you can select datasets and start editing.
 
 > [!NOTE]
-> You can also select a dataset from the main **Speech datasets** page and export them to the Editor. Select a dataset and than select **Export to Editor**.
+> You can also select a dataset from the main **Speech datasets** page and export them to the Editor. Select a dataset and then select **Export to Editor**.
 
 ## Edit transcription to match audio
 

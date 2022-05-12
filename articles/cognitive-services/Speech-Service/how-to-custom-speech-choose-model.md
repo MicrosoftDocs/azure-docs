@@ -19,12 +19,12 @@ Custom Speech models are created by customizing a base model with data from your
 
 Base models are updated periodically to improve accuracy and quality. We recommend that if you use base models, use the latest default base models. But with Custom Speech you can take a snapshot of a particular base model without training it. In this case, "custom" means that speech recognition is pinned to a base model from a particular point in time.
 
-New base models are released periodically to improve accuracy and quality. We recommend that you chose the latest base model when creating your custom model. If a required customization capability is only available with an older model, then you choose an older base model. 
+New base models are released periodically to improve accuracy and quality. We recommend that you chose the latest base model when creating your custom model. If a required customization capability is only available with an older model, then you can choose an older base model. 
 
 > [!NOTE]
 > The name of the base model corresponds to the date when it was released in YYYYMMDD format. The customization capabilities of the base model are listed in parenthesis after the model name in Speech Studio
 
-A model deployed to an endpoint using Custom Speech is fixed until you decide to update it. You can also chose to deploy a base model without training, which means that base model is fixed. This allows you to lock in the behavior of a specific model until you decide to reevaluate and change to a newer model.
+A model deployed to an endpoint using Custom Speech is fixed until you decide to update it. You can also choose to deploy a base model without training, which means that base model is fixed. This allows you to lock in the behavior of a specific model until you decide to use a newer model.
 
 Whether you train your own model or use a snapshot of a base model, you can use the model for a limited time. For more information, see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md).
 

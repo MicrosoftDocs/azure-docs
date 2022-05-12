@@ -36,7 +36,7 @@ To create a custom endpoint, follow these steps:
 
 1. Optionally, you can check the box to enable audio and diagnostic [logging](#view-logging-data) of the endpoint's traffic.
 
-   ![Screenshot showing the selected `Log content from this endpoint` checkbox on the `New endpoint` page.](./media/custom-speech/custom-speech-deploy-model.png)
+    :::image type="content" source="./media/custom-speech/custom-speech-deploy-model.png" alt-text="Screenshot of the New endpoint page that shows the checkbox to enable logging.":::
 
 1. Select **Add** to save and deploy the endpoint. 
     
