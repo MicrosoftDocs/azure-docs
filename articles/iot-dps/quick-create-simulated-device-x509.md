@@ -67,10 +67,14 @@ The following prerequisites are for a Windows development environment. For Linux
 
 ::: zone-end
 
-* Make sure [OpenSSL](https://www.openssl.org/) is installed on your machine. On Windows, your installation of Git includes an installation of OpenSSL. You can access OpenSSL from the Git Bash command prompt. To verify that OpenSSL is installed, open a Git Bash command prompt and enter `openssl version`.
+* Make sure [OpenSSL](https://www.openssl.org/) is installed on your machine. On Windows, your installation of Git includes an installation of OpenSSL. You can access OpenSSL from the Git Bash prompt. To verify that OpenSSL is installed, open a Git Bash prompt and enter `openssl version`.
 
   >[!NOTE]
   > Unless you're familiar with OpenSSL and already have it installed on your Windows machine, we recommend using OpenSSL from the Git Bash prompt. Alternatively, you can choose to download the source code and build OpenSSL. To learn more, see the [OpenSSL Downloads](https://www.openssl.org/source/) page. Or, you can download OpenSSL pre-built from a third-party. To learn more, see the [OpenSSL wiki](https://wiki.openssl.org/index.php/Binaries). Microsoft makes no guarantees about the validity of packages downloaded from third-parties. If you do choose to build or download OpenSSL make sure that the OpenSSL binary is accessible in your path and that the `OPENSSL_CNF` environment variable is set to the path of your *openssl.cnf* file.
+
+* Open both a Windows command prompt and a Git Bash prompt.
+
+    The steps in this quickstart assume that you're using a Windows machine and the OpenSSL installation that is installed as part of Git. You'll use the Git Bash prompt to issue OpenSSL commands and the Windows command prompt for everything else. If you're using a different installation of OpenSSL on your Windows machine, you can modify the steps accordingly. If you're using Linux, you can issue all commands from a Bash shell.
 
 ## Prepare your development environment
 
@@ -89,7 +93,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 4. Copy the tag name for the latest release of the Azure IoT C SDK.
 
-5. Open a command prompt or Git Bash shell. Run the following commands to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. (replace `<release-tag>` with the tag you copied in the previous step).
+5. In your Windows command prompt, run the following commands to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. (replace `<release-tag>` with the tag you copied in the previous step).
 
     ```cmd
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -134,9 +138,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 ::: zone pivot="programming-language-csharp"
 
-1. Open a Git Bash command line environment.
-
-2. Clone the [Azure IoT Samples for C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository using the following command:
+1. In your Windows command prompt, clone the [Azure IoT Samples for C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository using the following command:
 
     ```cmd
     git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
@@ -146,9 +148,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 ::: zone pivot="programming-language-nodejs"
 
-1. Open a Git Bash command line environment.
-
-2. Clone the [Azure IoT Samples for Node.js](https://github.com/Azure/azure-iot-sdk-node.git) GitHub repository using the following command:
+1. In your Windows command prompt, clone the [Azure IoT Samples for Node.js](https://github.com/Azure/azure-iot-sdk-node.git) GitHub repository using the following command:
 
     ```cmd
     git clone https://github.com/Azure/azure-iot-sdk-node.git
@@ -158,9 +158,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 ::: zone pivot="programming-language-python"
 
-1. Open Git Bash command line environment.
-
-2. Clone the [Azure IoT Samples for Python](https://github.com/Azure/azure-iot-sdk-node.git) GitHub repository using the following command:
+1. In your Windows command prompt, clone the [Azure IoT Samples for Python](https://github.com/Azure/azure-iot-sdk-node.git) GitHub repository using the following command:
 
     ```cmd
     git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
@@ -170,15 +168,13 @@ In this section, you'll prepare a development environment that's used to build t
 
 ::: zone pivot="programming-language-java"
 
-1. Open a Git Bash command line environment.
-
-2. Clone the [Azure IoT Samples for Java](https://github.com/Azure/azure-iot-sdk-java.git) GitHub repository using the following command:
+1. In your Windows command prompt, clone the [Azure IoT Samples for Java](https://github.com/Azure/azure-iot-sdk-java.git) GitHub repository using the following command:
 
     ```cmd
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-3. Go to the root `azure-iot-sdk-java` directory and build the project to download all needed packages.
+2. Go to the root `azure-iot-sdk-java` directory and build the project to download all needed packages.
 
    ```cmd
    cd azure-iot-sdk-java
@@ -189,7 +185,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 ## Create a self-signed X.509 device certificate
 
-In this section, you'll use OpenSSL to create a self-signed X.509 certificate and a private key. This certificate will be uploaded to your provisioning service instance, and verified by the service.
+In this section, you'll use OpenSSL to create a self-signed X.509 certificate and a private key. This certificate will be uploaded to your provisioning service instance and verified by the service.
 
 > [!CAUTION]
 > Use certificates created with OpenSSL in this quickstart for development testing only.
@@ -198,43 +194,13 @@ In this section, you'll use OpenSSL to create a self-signed X.509 certificate an
 > To learn about obtaining certificates suitable for use in production, see [How to get an X.509 CA certificate](../iot-hub/iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate) in the Azure IoT Hub documentation.
 >
 
-To create the X.509 certificate:
+Perform the steps in this section in your Git Bash prompt.
 
-1. On Windows, open a Git Bash prompt. On Linux, you can use a regular Bash prompt.
-::: zone pivot="programming-language-ansi-c, programming-language-java"
+To create the X.509 certificate and private key:
 
-2. Create and navigate to a directory where you'd like to create your certificates.
+1. In your Git Bash prompt, navigate to a directory where you'd like to create your certificates.
 
-::: zone-end
-::: zone pivot="programming-language-csharp"
-
-2. Change directories to the project directory for the X.509 device provisioning sample.
-
-    ```bash
-    cd ./azure-iot-samples-csharp/provisioning/Samples/device/X509Sample
-    ```
-
-::: zone-end
-::: zone pivot="programming-language-nodejs"
-
-2. From the location where you downloaded the SDK, go to the sample directory:
-
-    ```bash
-    cd ./azure-iot-sdk-node/provisioning/device/samples
-    ```
-
-::: zone-end
-::: zone pivot="programming-language-python"
-
-2. From the location where you downloaded the SDK, go to the sample directory:
-
-    ```bash
-    cd ./azure-iot-sdk-python/azure-iot-device/samples/async-hub-scenarios
-    ```
-
-::: zone-end
-
-3. Run the following command:
+2. Run the following command:
 
     # [Windows](#tab/windows)
 
@@ -253,15 +219,15 @@ To create the X.509 certificate:
 
     ---
 
-4. When asked to **Enter PEM pass phrase:**, use the pass phrase `1234`.
+3. When asked to **Enter PEM pass phrase:**, use the pass phrase `1234`.
 
-5. When asked **Verifying - Enter PEM pass phrase:**, use the pass phrase `1234` again.
+4. When asked **Verifying - Enter PEM pass phrase:**, use the pass phrase `1234` again.
 
     A public key certificate file (*device-cert.pem*) and private key file (*device-key.pem*) should now be generated in the directory where you ran the `openssl` command.
 
     The certificate file has its subject common name (CN) set to `my-x509-device`. For X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format.
 
-6. The certificate file is Base64 encoded. To view the subject common name (CN) and other properties of the certificate file, enter the following command:
+5. The certificate file is Base64 encoded. To view the subject common name (CN) and other properties of the certificate file, enter the following command:
 
     # [Windows](#tab/windows)
 
@@ -322,7 +288,7 @@ To create the X.509 certificate:
 
 ::: zone pivot="programming-language-ansi-c"
 
-On Windows, keep the Git Bash command line open. You'll need it later in this quickstart.
+Keep the Git Bash prompt open. You'll need it later in this quickstart.
 
 ::: zone-end
 
@@ -354,19 +320,44 @@ The C# sample code is set up to use X.509 certificates that are stored in a pass
 
     A PKCS12 formatted certificate file (*certificate.pfx*) should now be generated in the directory where you ran the `openssl` command.
 
-On Windows, you won't need the Git Bash prompt for the rest of this quickstart. However, you may want to keep it open to check your certificate if you have problems in later steps.
+1. Copy the PKCS12 formatted certificate file to the project directory for the X.509 device provisioning sample. The path given is relative to the location where you downloaded the sample repo.
+
+    ```bash
+    cp certificate.pfx ./azure-iot-samples-csharp/provisioning/Samples/device/X509Sample
+    ```
+
+You won't need the Git Bash prompt for the rest of this quickstart. However, you may want to keep it open to check your certificate if you have problems in later steps.
 
 ::: zone-end
 
-::: zone pivot="programming-language-nodejs, programming-language-python"
+::: zone pivot="programming-language-nodejs"
 
-On Windows, you won't need the Git Bash prompt for the rest of this quickstart. However, you may want to keep it open to check your certificate if you have problems in later steps.
+6. Copy the device certificate and private key to the project directory for the X.509 device provisioning sample. The path given is relative to the location where you downloaded the SDK.
+
+    ```bash
+    cp device-cert.pem ./azure-iot-sdk-node/provisioning/device/samples
+    cp device-key.pem ./azure-iot-sdk-node/provisioning/device/samples
+    ```
+
+You won't need the Git Bash prompt for the rest of this quickstart. However, you may want to keep it open to check your certificate if you have problems in later steps.
 
 ::: zone-end
 
+::: zone pivot="programming-language-python"
+
+6. Copy the device certificate and private key to the project directory for the X.509 device provisioning sample. The path given is relative to the location where you downloaded the SDK.
+
+    ```bash
+    cp device-cert.pem ./azure-iot-sdk-python/azure-iot-device/samples/async-hub-scenarios
+    cp device-key.pem ./azure-iot-sdk-python/azure-iot-device/samples/async-hub-scenarios
+    ```
+
+You won't need the Git Bash prompt for the rest of this quickstart. However, you may want to keep it open to check your certificate if you have problems in later steps.
+
+::: zone-end
 ::: zone pivot="programming-language-java"
 
-7. The Java sample code requires a private key that isn't encrypted. Run the following command to create an unencrypted private key:
+6. The Java sample code requires a private key that isn't encrypted. Run the following command to create an unencrypted private key:
 
     # [Windows](#tab/windows)
 
@@ -382,7 +373,7 @@ On Windows, you won't need the Git Bash prompt for the rest of this quickstart. 
 
     ---
 
-On Windows, keep the Git Bash command line open. You'll need it later in this quickstart.
+Keep the Git Bash prompt open. You'll need it later in this quickstart.
 
 ::: zone-end
 
@@ -424,7 +415,7 @@ This article demonstrates an individual enrollment for a single device to be pro
 
 ::: zone pivot="programming-language-ansi-c"
 
-In this section, we'll update the sample code to send the device's boot sequence to your Device Provisioning Service instance. This boot sequence will cause the device to be recognized and assigned to an IoT hub linked to the Device Provisioning Service instance.
+In this section, you'll update the sample code to send the device's boot sequence to your Device Provisioning Service instance. This boot sequence will cause the device to be recognized and assigned to an IoT hub linked to the Device Provisioning Service instance.
 
 ### Configure the provisioning device code
 
@@ -486,7 +477,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
     "-----END CERTIFICATE-----";        
     ```
 
-    Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following bash shell commands into your **Git Bash command prompt**, and press **ENTER**. These commands will generate the syntax for the `CERTIFICATE` string constant value and write them to the output.
+    Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following bash shell commands into your **Git Bash prompt**, and press **ENTER**. These commands will generate the syntax for the `CERTIFICATE` string constant value and write it to the output.
 
     ```Bash
     input="./device-cert.pem"
@@ -519,7 +510,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
     "-----END RSA PRIVATE KEY-----";
     ```
 
-    Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following bash shell commands into your **Git Bash command prompt**, and press **ENTER**. These commands will generate the syntax for the `PRIVATE_KEY` string constant value and write them to the output.
+    Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following bash shell commands into your **Git Bash prompt**, and press **ENTER**. These commands will generate the syntax for the `PRIVATE_KEY` string constant value and write it to the output.
 
     ```Bash
     input="./device-key.pem"
@@ -758,7 +749,7 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
         "-----END CERTIFICATE-----";        
         ```
 
-        Updating this string value correctly in this step can be very tedious and subject to error. To generate the proper syntax, copy and paste the following bash shell commands into a Git Bash prompt in Windows or a bash prompt in Linux, and press **ENTER**. These commands will generate the syntax for the `leafPublicPem` string constant value.
+        Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following bash shell commands into your **Git Bash prompt**, and press **ENTER**. These commands will generate the syntax for the `leafPublicPem` string constant value and write it to the output.
 
         ```Bash
         input="device-cert.pem"
@@ -777,7 +768,7 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
         done < "$input"
         ```
 
-        Copy and paste the output certificate text for the new constant value.
+        Copy and paste the output certificate text for the constant value.
 
     1. Update the string value of the `leafPrivateKey` constant with the private key for your device certificate.
 
@@ -791,7 +782,7 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
         "-----END PRIVATE KEY-----";
         ```
 
-        Updating this string value correctly in this step can be very tedious and subject to error. To generate the proper syntax, copy and paste the following bash shell commands into a Git Bash prompt in Windows or a bash prompt in Linux, and press **ENTER**. These commands will generate the syntax for the `leafPrivateKey` string constant value.
+        Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following bash shell commands into your **Git Bash prompt**, and press **ENTER**. These commands will generate the syntax for the `leafPrivateKey` string constant value and write it to the output.
 
         ```Bash
         input="unenc-device-key.pem"
@@ -810,7 +801,7 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
         done < "$input"
         ```
 
-        Copy and paste the output private key text for the new constant value.
+        Copy and paste the output private key text for the constant value.
 
 1. Build the sample, and then go to the `target` folder and execute the created .jar file.
 
