@@ -21,7 +21,7 @@ ms.custom: responsible-ai
 
 The societal implications of AI and the responsibility of organizations to anticipate and mitigate unintended consequences of AI technology are significant. Organizations are finding the need to create internal policies, practices, and tools to guide their AI efforts, whether they're deploying third-party AI solutions or developing their own. At Microsoft, we've recognized six principles that we believe should guide AI development and use: fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability. For us, these principles are the cornerstone of a responsible and trustworthy approach to AI, especially as intelligent technology becomes more prevalent in the products and services we use every day. Azure Machine Learning currently supports tools for various these principles, making it seamless for ML developers and data scientists to implement Responsible AI in practice.
 
-:::image type="content" source="./media/concept-responsible-ml/concept-responsible-ml.png" alt-text="Responsible AI principles - fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability.":::
+:::image type="content" source="./media/concept-responsible-ml/concept-responsible-ml.png" alt-text="Responsible A I principles - fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability.":::
 
 ## Fairness and inclusiveness
 

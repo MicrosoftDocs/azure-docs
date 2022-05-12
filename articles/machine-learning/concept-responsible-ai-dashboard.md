@@ -35,7 +35,7 @@ The Responsible AI dashboard brings together, in a comprehensive view, various n
 
 Together, these components will enable you to debug machine learning models, while informing your data-driven and model-driven decisions.
 
-:::image type="content" source="./media/concept-responsible-ai-dashboard/dashboard.png" alt-text=" Diagram of Responsible AI dashboard components for model debugging and responsible decision making.":::
+:::image type="content" source="./media/concept-responsible-ai-dashboard/dashboard.png" alt-text=" Diagram of Responsible A I dashboard components for model debugging and responsible decision making.":::
 
 ### Model debugging
 
@@ -51,7 +51,7 @@ Assessing and debugging machine learning models is critical for model reliabilit
   - *How can I improve my model?*
   - *What social or technical solutions exist for these issues?*
 
-:::image type="content" source="./media/concept-responsible-ai-dashboard/model-debugging.png" alt-text="Diagram of model debugging via responsible AI dashboard with the information in the table below." lightbox= "./media/concept-responsible-ai-dashboard/model-debugging.png":::
+:::image type="content" source="./media/concept-responsible-ai-dashboard/model-debugging.png" alt-text="Diagram of model debugging via responsible A I dashboard with the information in the table below." lightbox= "./media/concept-responsible-ai-dashboard/model-debugging.png":::
 
 Below are the components of the Responsible AI dashboard supporting model debugging:
 
@@ -73,7 +73,7 @@ Decision-making is one of the biggest promises of machine learning. The Responsi
 - Data-driven insights to further understand heterogeneous treatment effects on an outcome, using historic data only. For example, *“how would a medicine impact a patient’s blood pressure?"*. Such insights are provided through the "Causal Inference" component of the dashboard.
 - Model-driven insights, to answer end-users’ questions such as *“what can I do to get a different outcome from your AI next time?”* to inform their actions. Such insights are provided to data scientists through the "Counterfactual Analysis and What-If" component described above.
 
-:::image type="content" source="./media/concept-responsible-ai-dashboard/decision-making.png" alt-text="Responsible AI dashboard capabilities for responsible business decision making.":::
+:::image type="content" source="./media/concept-responsible-ai-dashboard/decision-making.png" alt-text="Responsible A I dashboard capabilities for responsible business decision making.":::
 
 Exploratory data analysis, counterfactual analysis, and causal inference capabilities can assist you make informed model-driven and data-driven decisions responsibly.
 

@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.topic:  how-to
 ms.author: lagayhar
 author: lgayhardt
-ms.date: 05/24/2022
+ms.date: 05/10/2022
 ms.custom: responsible-ml
 ---
 
@@ -16,15 +16,15 @@ ms.custom: responsible-ml
 
 Responsible AI dashboards are linked to your registered models. To view your Responsible AI dashboard, go into your model registry and select the registered model you've generated a Responsible AI dashboard for. Once you select into your model, select the **Responsible AI (preview)** tab to view a list of generated dashboards.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/dashboard-model-details-tab.png" alt-text="Screenshot of model details tab in studio with Responsible AI tab highlighted." lightbox= "./media/how-to-responsible-ai-dashboard/dashboard-model-details-tab.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/dashboard-model-details-tab.png" alt-text="Screenshot of model details tab in studio with Responsible A I tab highlighted." lightbox= "./media/how-to-responsible-ai-dashboard/dashboard-model-details-tab.png":::
 
 Multiple dashboards can be configured and attached to your registered model. Different combinations of components (explainers, causal analysis, etc.) can be attached to each Responsible AI dashboard. The list below only shows whether a component was generated for your dashboard, but different components can be viewed or hidden within the dashboard itself.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/dashboard-page.png" alt-text="Screenshot of Responsible AI tab with a dashboard name highlighted." lightbox = "./media/how-to-responsible-ai-dashboard/dashboard-page.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/dashboard-page.png" alt-text="Screenshot of Responsible A I tab with a dashboard name highlighted." lightbox = "./media/how-to-responsible-ai-dashboard/dashboard-page.png":::
 
 Selecting the name of the dashboard will open up your dashboard into a full view in your browser. At anytime, select the **Back to models details** to get back to your list of dashboards.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/dashboard-full-view.png" alt-text="Screenshot of a Responsible AI tab dashboard with the back to model details button highlighted." lightbox = "./media/how-to-responsible-ai-dashboard/dashboard-full-view.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/dashboard-full-view.png" alt-text="Screenshot of a Responsible A I tab dashboard with the back to model details button highlighted." lightbox = "./media/how-to-responsible-ai-dashboard/dashboard-full-view.png":::
 
 ## Full functionality with integrated compute resource
 
@@ -45,27 +45,27 @@ Some features of the Responsible AI dashboard require dynamic, real-time computa
 
 The information above can also be found on the Responsible AI dashboard page by selecting the information icon button:
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/compute-view-full-functionality.png" alt-text="Screenshot of a Responsible AI tab dashboard hovering over the information icon button.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/compute-view-full-functionality.png" alt-text="Screenshot of a Responsible A I tab dashboard hovering over the information icon button.":::
 
-### How to enable full functionality of Responsible AI dashboard?
+### How to enable full functionality of Responsible AI dashboard
 
-Select a running compute instance from compute dropdown above your dashboard. If you don’t have a running compute, create a new compute instance by selecting “+ ” button next to the compute dropdown, or  “Start compute” button to start a stopped compute instance. Creating or starting a compute instance may take few minutes.
+1. Select a running compute instance from compute dropdown above your dashboard. If you don’t have a running compute, create a new compute instance by selecting “+ ” button next to the compute dropdown, or  “Start compute” button to start a stopped compute instance. Creating or starting a compute instance may take few minutes.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/select-compute.png" alt-text="Screenshot showing how to selecting a compute." lightbox = "./media/how-to-responsible-ai-dashboard/select-compute.png":::
+    :::image type="content" source="./media/how-to-responsible-ai-dashboard/select-compute.png" alt-text="Screenshot showing how to selecting a compute." lightbox = "./media/how-to-responsible-ai-dashboard/select-compute.png":::
+    
+2. Once compute is in “Running” state, your Responsible AI dashboard will start to connect to the compute instance. To achieve this, a terminal process will be created on the selected compute instance, and Responsible AI endpoint will be started on the terminal. Select **View terminal outputs** to view current terminal process.
 
-Once compute is in “Running” state, your Responsible AI dashboard will start to connect to the compute instance. To achieve this, a terminal process will be created on the selected compute instance, and Responsible AI endpoint will be started on the terminal. Select **View terminal outputs** to view current terminal process.
+    :::image type="content" source="./media/how-to-responsible-ai-dashboard/compute-connect-terminal.png" alt-text="Screenshot showing the responsible A I dashboard is connecting to a compute resource." lightbox = "./media/how-to-responsible-ai-dashboard/compute-connect-terminal.png":::
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/compute-connect-terminal.png" alt-text="Screenshot showing the responsible AI dashboard is connecting to a compute resource." lightbox = "./media/how-to-responsible-ai-dashboard/compute-connect-terminal.png":::
+3. When your Responsible AI dashboard is connected to the compute instance, you'll see a green message bar, and the dashboard is now fully functional.
 
-When your Responsible AI dashboard is connected to the compute instance, you'll see a green message bar, and the dashboard is now fully functional.
+    :::image type="content" source="./media/how-to-responsible-ai-dashboard/compute-terminal-connected.png" alt-text="Screenshot showing that the dashboard is connected to the compute instance." lightbox= "./media/how-to-responsible-ai-dashboard/compute-terminal-connected.png":::
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/compute-terminal-connected.png" alt-text="Screenshot of a connected compute." lightbox= "./media/how-to-responsible-ai-dashboard/compute-terminal-connected.png":::
+4. If it takes a while and your Responsible AI dashboard is still not connected to the compute instance, or a red error message bar shows up, it means there are issues with starting your Responsible AI endpoint. Select **View terminal outputs** and scroll down to the bottom to view the error message.
 
-If it takes a while and your Responsible AI dashboard is still not connected to the compute instance, or a red error message bar shows up, it means there are issues with starting your Responsible AI endpoint. Select **View terminal outputs** and scroll down to the bottom to view the error message.
+    :::image type="content" source="./media/how-to-responsible-ai-dashboard/compute-terminal-error.png" alt-text="Screenshot of an error connecting to a compute." lightbox ="./media/how-to-responsible-ai-dashboard/compute-terminal-error.png":::
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/compute-terminal-error.png" alt-text="Screenshot of an error connecting to a compute." lightbox ="./media/how-to-responsible-ai-dashboard/compute-terminal-error.png":::
-
-If you're having issues with figuring out how to resolve the failed to connect to compute instance issue, select the “smile” icon on the upper right corner, and submit feedback to us to let us know what error or issue you hit. You can include screenshot and/or your email address in the feedback form.
+    If you're having issues with figuring out how to resolve the failed to connect to compute instance issue, select the “smile” icon on the upper right corner, and submit feedback to us to let us know what error or issue you hit. You can include screenshot and/or your email address in the feedback form.
 
 ## UI overview of the Responsible AI dashboard
 
@@ -83,7 +83,7 @@ The Responsible AI dashboard includes a robust and rich set of visualizations an
 
 At the top of the dashboard, you can create cohorts, subgroups of datapoints sharing specified characteristics, to focus your analysis in each component on. The name of the cohort currently applied to the dashboard is always shown on the top left above your dashboard. The default shown in your dashboard will always be your whole dataset denoted by the title **All data (default)**.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/view-dashboard-global-controls.png" alt-text="Screenshot of a responsible AI dashboard showing all data." lightbox = "./media/how-to-responsible-ai-dashboard/view-dashboard-global-controls.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/view-dashboard-global-controls.png" alt-text="Screenshot of a responsible A I dashboard showing all data." lightbox = "./media/how-to-responsible-ai-dashboard/view-dashboard-global-controls.png":::
 
 1. **Cohort settings**: allows you to view and modify the details of each cohort in a side panel.
 2. **Dashboard configuration**: allows you to view and modify the layout of the overall dashboard in a side panel.
@@ -229,15 +229,15 @@ This tab explains how features influence the predictions made on specific datapo
 3. **View absolute values**: Toggle on to sort the bar plot by the absolute values; this allows you to see the top highest impacting features regardless of its positive or negative direction.
 4. **Bar plot**: displays the importance of each feature in the dataset for the model prediction of the selected datapoints.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/individual-feature-importance-ice-plot.png" alt-text="Screenshot of the dashboard showing an ICE plot on the individual feature importances tab." lightbox="./media/how-to-responsible-ai-dashboard/individual-feature-importance-ice-plot.png":::
-
 **Individual conditional expectation (ICE) plot**: switches to the ICE plot showing model predictions across a range of values of a particular feature
 
-1. **Min (numerical features)**: specifies the lower bound of the range of predictions in the ICE plot.
-2. **Max (numerical features)**: specifies the upper bound of the range of predictions in the ICE plot.
-3. **Steps (numerical features)**: specifies the number of points to show predictions for within the interval.
-4. **Feature values (categorical features)**: specifies which categorical feature values to show predictions for.
-5. **Feature**: specifies the feature to make predictions for.
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/individual-feature-importance-ice-plot.png" alt-text="Screenshot of the dashboard showing an ICE plot on the individual feature importances tab." lightbox="./media/how-to-responsible-ai-dashboard/individual-feature-importance-ice-plot.png":::
+
+- **Min (numerical features)**: specifies the lower bound of the range of predictions in the ICE plot.
+- **Max (numerical features)**: specifies the upper bound of the range of predictions in the ICE plot.
+- **Steps (numerical features)**: specifies the number of points to show predictions for within the interval.
+- **Feature values (categorical features)**: specifies which categorical feature values to show predictions for.
+- **Feature**: specifies the feature to make predictions for.
 
 ### Counterfactual what-if
 
@@ -246,25 +246,24 @@ Counterfactual analysis provides a diverse set of “what-if” examples generat
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/counterfactuals.png" alt-text="Screenshot of the dashboard showing counterfactuals." lightbox="./media/how-to-responsible-ai-dashboard/counterfactuals.png":::
 
 1. **Point selection**: selects the point to create a counterfactual for and display in the top-ranking features plot below
-2. **Selected datapoint**: performs the same action as the point selection in the table, except in a dropdown menu
-3. **Desired class for counterfactual(s)**: specifies the class or range to generate counterfactuals for
-4. **Create what-if counterfactual**: opens a panel for counterfactual what-if datapoint creation
+    :::image type="content" source="./media/how-to-responsible-ai-dashboard/counterfactuals-top-ranked-features.png" alt-text="Screenshot of the dashboard showing a the top ranked features plot." lightbox="./media/how-to-responsible-ai-dashboard/counterfactuals-top-ranked-features.png":::
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/counterfactuals-top-ranked-features.png" alt-text="Screenshot of the dashboard showing a the top ranked features plot." lightbox="./media/how-to-responsible-ai-dashboard/counterfactuals-top-ranked-features.png":::
-
-**Top ranked features plot**: displays, in descending order in terms of average frequency, the features to perturb to create a diverse set of counterfactuals of the desired class. You must generate at least 10 diverse counterfactuals per datapoint to enable this chart due to lack of accuracy with a lesser number of counterfactuals.
+    **Top ranked features plot**: displays, in descending order in terms of average frequency, the features to perturb to create a diverse set of counterfactuals of the desired class. You must generate at least 10 diverse counterfactuals per datapoint to enable this chart due to lack of accuracy with a lesser number of counterfactuals.
+2. **Selected datapoint**: performs the same action as the point selection in the table, except in a dropdown menu.
+3. **Desired class for counterfactual(s)**: specifies the class or range to generate counterfactuals for.
+4. **Create what-if counterfactual**: opens a panel for counterfactual what-if datapoint creation.
 
 Selecting the **Create what-if counterfactual** button opens a full window panel.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/counterfactuals-examples.png" alt-text="Screenshot of the dashboard showing what-if counterfactuals." lightbox="./media/how-to-responsible-ai-dashboard/counterfactuals-examples.png":::
 
-5. **Search features**: finds features to observe and change values
-6. **Sort counterfactual by ranked features**: sorts counterfactual examples in order of perturbation effect (see above for top ranked features plot)
+5. **Search features**: finds features to observe and change values.
+6. **Sort counterfactual by ranked features**: sorts counterfactual examples in order of perturbation effect (see above for top ranked features plot).
 7. **Counterfactual Examples**: lists feature values of example counterfactuals with the desired class or range. The first row is the original reference datapoint. Select on “Set value” to set all the values of your own counterfactual datapoint in the bottom row with the values of the pre-generated counterfactual example.  
-8. **Predicted value or class** lists the model prediction of a counterfactual's class given those changed features
+8. **Predicted value or class** lists the model prediction of a counterfactual's class given those changed features.
 9. **Create your own counterfactual**: allows you to perturb your own features to modify the counterfactual, features that have been changed from the original feature value will be denoted by the title being bolded (ex. Employer and Programming language). Clicking on “See prediction delta” will show you the difference in the new prediction value from the original datapoint.
-10. **What-if counterfactual name**: allows you to name the counterfactual uniquely
-11. **Save as new datapoint**: saves the counterfactual you've created
+10. **What-if counterfactual name**: allows you to name the counterfactual uniquely.
+11. **Save as new datapoint**: saves the counterfactual you've created.
 
 ### Causal analysis
 
@@ -302,16 +301,17 @@ Selecting the Treatment policy tab switches to a view to help determine real-wor
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/causal-treatment-policy.png" alt-text="Screenshot of the dashboard showing casual analysis on the treatment policy tab." lightbox= "./media/how-to-responsible-ai-dashboard/causal-treatment-policy.png":::
 
 1. **Set treatment feature**: selects feature to change as a real-world intervention
-2. **Recommended global treatment policy**: displays recommended interventions for data cohorts to improve target feature value. The table can be read from left to right, where the segmentation of the dataset is first in rows and then in columns. For example, 658 individuals whose employer isn't Snapchat, and their Programming language isn't JavaScript, the recommended treatment policy is to increase the number of GitHub repos contributed to.
+2. **Recommended global treatment policy**: displays recommended interventions for data cohorts to improve target feature value. The table can be read from left to right, where the segmentation of the dataset is first in rows and then in columns. For example, 658 individuals whose employer isn't Snapchat, and their programming language isn't JavaScript, the recommended treatment policy is to increase the number of GitHub repos contributed to.
+
+**Average gains of alternative policies over always applying treatment**: plots the target feature value in a bar chart of the average gain in your outcome for the above recommended treatment policy versus always applying treatment.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/causal-treatment-policy-2.png" alt-text="Screenshot of the dashboard showing a bar chart of the average gains of alternative policies over always applying treatment on the treatment policy tab." lightbox= "./media/how-to-responsible-ai-dashboard/causal-treatment-policy-2.png":::
 
-**Average gains of alternative policies over always applying treatment**: plots the target feature value in a bar chart average gain in your outcome for the above recommended treatment policy versus always applying treatment.
-
+**Recommended individual treatment policy**:
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/causal-treatment-policy-3.png" alt-text="Screenshot of the dashboard showing a recommended individual treatment policy table on the treatment policy tab." lightbox= "./media/how-to-responsible-ai-dashboard/causal-treatment-policy-3.png":::
 
-1. **Show top k datapoint samples ordered by causal effects for recommended treatment feature**: selects the number of datapoints to show in the table below.
-2. **Recommended individual treatment policy table**: lists, in descending order of causal effect, the datapoints whose target features would be most improved by an intervention.
+3. **Show top k datapoint samples ordered by causal effects for recommended treatment feature**: selects the number of datapoints to show in the table below.
+4. **Recommended individual treatment policy table**: lists, in descending order of causal effect, the datapoints whose target features would be most improved by an intervention.
 
 ## Next steps
 

@@ -14,10 +14,11 @@ ms.custom: responsible-ml
 
 # Understand your datasets (preview)
 
-Machine learning models "learn" from historical decisions and actions captured in training data. As a result, their performance in real-world scenarios is heavily influenced by the data they're trained on. When feature distribution in a dataset is skewed, this can cause a model to incorrectly predict datapoints belonging to an underrepresented group or to be optimized along an inappropriate metric. For example, while training a housing price prediction AI, the training set was representing 75% of newer houses that have less than median prices. As a result, it was much less successful in successfully identifying more expensive historic houses. The fix was to add older and expensive houses to the training data and augment the features to include insights about the historic value of the house. Upon incorporating that data augmentation, results improved. 
+Machine learning models "learn" from historical decisions and actions captured in training data. As a result, their performance in real-world scenarios is heavily influenced by the data they're trained on. When feature distribution in a dataset is skewed, this can cause a model to incorrectly predict datapoints belonging to an underrepresented group or to be optimized along an inappropriate metric. For example, while training a housing price prediction AI, the training set was representing 75% of newer houses that have less than median prices. As a result, it was much less successful in successfully identifying more expensive historic houses. The fix was to add older and expensive houses to the training data and augment the features to include insights about the historic value of the house. Upon incorporating that data augmentation, results improved.
 
- 
 The Data Explorer component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md) helps visualize datasets based on predicted and actual outcomes, error groups, and specific features. This enables you to identify issues of over- and underrepresentation and to see how data is clustered in the dataset. Data visualizations consist of aggregate plots or individual datapoints.
+
+## When to use Data Explorer
 
 Use Data Explorer when you need to:
 

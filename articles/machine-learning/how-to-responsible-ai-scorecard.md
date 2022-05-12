@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.topic:  how-to
 ms.author: mesameki
 author: mesameki
-ms.date: 05/24/2022
+ms.date: 05/10/2022
 ms.custom: responsible-ml
 ---
 
@@ -197,45 +197,45 @@ You can select from the following metrics, paired with the `fairness_evaluation_
 
 Responsible AI scorecards are linked to your Responsible AI dashboards. To view your Responsible AI scorecard, go into your model registry and select the registered model you've generated a Responsible AI dashboard for. Once you select your model, select the Responsible AI (preview) tab to view a list of generated dashboards. Select which dashboard you’d like to export a Responsible AI scorecard PDF for by selecting **Responsible AI scorecard (preview)**.
 
-:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-studio.png" alt-text="Screenshot of Responsible AI tab in studio with Responsible AI scorecard tab highlights." lightbox = "./media/how-to-responsible-ai-scorecard/scorecard-studio.png":::
+:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-studio.png" alt-text="Screenshot of Responsible A I tab in studio with Responsible AI scorecard tab highlights." lightbox = "./media/how-to-responsible-ai-scorecard/scorecard-studio.png":::
 
-Selecting **Responsible AI scorecard (preview)** will show you a dropdown to view all Responsible AI scorecards generated for this dashboard.
+Selecting **Responsible AI scorecard (preview)** will show you a dropdown to view all Responsible A I scorecards generated for this dashboard.
 
-:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-studio-dropdown.png" alt-text="Screenshot of Responsible AI scorecard dropdown." lightbox ="./media/how-to-responsible-ai-scorecard/scorecard-studio-dropdown.png":::
+:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-studio-dropdown.png" alt-text="Screenshot of Responsible A I scorecard dropdown." lightbox ="./media/how-to-responsible-ai-scorecard/scorecard-studio-dropdown.png":::
 
 Select which scorecard you’d like to download from the list and select Download to download the PDF to your machine.
 
-:::image type="content" source="./media/how-to-responsible-ai-scorecard/studio-select-scorecard.png" alt-text="Screenshot of selecting a Responsible AI scorecard to download." lightbox= "./media/how-to-responsible-ai-scorecard/studio-select-scorecard.png":::
+:::image type="content" source="./media/how-to-responsible-ai-scorecard/studio-select-scorecard.png" alt-text="Screenshot of selecting a Responsible A I scorecard to download." lightbox= "./media/how-to-responsible-ai-scorecard/studio-select-scorecard.png":::
 
 ## How to read your Responsible AI scorecard
 
 The Responsible AI scorecard is a PDF summary of your key insights from the Responsible AI dashboard. The first summary segment of the scorecard gives you an overview of the machine learning model and the key target values you have set to help all stakeholders determine if your model is ready to be deployed.
 
-:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-summary.png" alt-text="Screenshot of the model summary on the Responsible AI scorecard PDF.":::
+:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-summary.png" alt-text="Screenshot of the model summary on the Responsible A I scorecard PDF.":::
 
 The data explorer segment shows you characteristics of your data, as any model story is incomplete without the right understanding of data
 
-:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-data-explorer.png" alt-text="Screenshot of the data explorer on the Responsible AI scorecard PDF.":::
+:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-data-explorer.png" alt-text="Screenshot of the data explorer on the Responsible A I scorecard PDF.":::
 
 The model performance segment displays your model’s most important metrics and characteristics of your predictions and how well they satisfy your desired target values.
 
-:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-model-performance.png" alt-text="Screenshot of the model performance on the Responsible AI scorecard PDF.":::
+:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-model-performance.png" alt-text="Screenshot of the model performance on the Responsible A I scorecard PDF.":::
 
 Next, you can also view the top performing and worst performing data cohorts and subgroups that are automatically extracted for you to see the blind spots of your model.
 
-:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-cohorts.png" alt-text="Screenshot of data cohorts and subgroups on the Responsible AI scorecard PDF.":::
+:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-cohorts.png" alt-text="Screenshot of data cohorts and subgroups on the Responsible A I scorecard PDF.":::
 
 Then you can see the top important factors impacting your model predictions, which is a requirement to build trust with how your model is performing its task.
 
-:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-feature-importance.png" alt-text="Screenshot of the top important factors on the Responsible AI scorecard PDF.":::
+:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-feature-importance.png" alt-text="Screenshot of the top important factors on the Responsible A I scorecard PDF.":::
 
 You can further see your model fairness insights summarized and inspect how well your model is satisfying the fairness target values you had set for your desired sensitive groups.
 
-:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-fairness.png" alt-text="Screenshot of the fairness insights on the Responsible AI scorecard PDF.":::
+:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-fairness.png" alt-text="Screenshot of the fairness insights on the Responsible A I scorecard PDF.":::
 
 Finally, you can observe your dataset’s causal insights summarized, figuring out whether your identified factors/treatments have any causal effect on the real-world outcome.
 
-:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-causal.png" alt-text="Screenshot of the dataset's causal insights on the Responsible AI scorecard PDF.":::
+:::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-causal.png" alt-text="Screenshot of the dataset's causal insights on the Responsible A I scorecard PDF.":::
 
 ## Next steps
 

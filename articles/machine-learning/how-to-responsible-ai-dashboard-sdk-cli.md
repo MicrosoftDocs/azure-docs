@@ -427,11 +427,11 @@ There are two output ports. The `dashboard` port contains the completed `RAIInsi
 
 ---
 
-## Helper Components
+## Helper components
 
 We provide two helper components to aid in connecting the Responsible AI components to your existing assets. 
 
-### Fetch Registered Model
+### Fetch registered model
 
 This component produces information about a registered model, which can be consumed by the `model_info_path` input port of the RAI Insights Dashboard Constructor component. It has a single input parameter – the AzureML ID (`<NAME>:<VERSION>`) of the desired model.
 
@@ -458,7 +458,7 @@ This component produces information about a registered model, which can be consu
 
 ---
 
-### TabularDataset to Parquet File
+### Tabular dataset to parquet file
 
 This component converts the tabular dataset named in its sole input parameter into a Parquet file, which can be consumed by the `train_dataset` and `test_dataset` input ports of the RAI Insights Dashboard Constructor component. Its single input parameter is the name of the desired dataset.
 
@@ -487,7 +487,7 @@ This component converts the tabular dataset named in its sole input parameter in
 
 ---
 
-## Input Constraints
+## Input constraints
 
 ### What model formats and flavors are supported?
 
