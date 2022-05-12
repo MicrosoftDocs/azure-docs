@@ -50,7 +50,7 @@ You can enable transactional consistency across tables for each link connection.
 
 ## <a name="known-issues"></a>Known limitations
 
-A consolidated list of known limitations and issues can be found at [Known limitations and issues with Azure Synapse Link for SQL (Preview)](synapse-link-for-sql-2022-known-issues.md).
+A consolidated list of known limitations and issues can be found at [Known limitations and issues with Azure Synapse Link for SQL (Preview)](synapse-link-for-sql-known-issues.md).
 
 ## Next steps
 
