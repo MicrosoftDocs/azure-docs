@@ -134,13 +134,15 @@ The **similar incidents** tab in the incident details page, now in preview, pres
 
 There are three criteria by which similarity is determined:
 
-- **Entities in common:** An incident is considered similar to another incident if they both include the same [entities](entities.md). The more entities two incidents have in common, the more similar they are considered to be.
+- **Similar entities:** An incident is considered similar to another incident if they both include the same [entities](entities.md). The more entities two incidents have in common, the more similar they are considered to be.
 
-- **Same rule:** An incident is considered similar to another incident if they were both created by the same [analytics rule](./detect-threats-built-in.md).
+- **Similar rule:** An incident is considered similar to another incident if they were both created by the same [analytics rule](detect-threats-built-in.md).
 
-- **Alert details:** An incident is considered similar to another incident if they share the same [custom details](./surface-custom-details-in-alerts.md).
+- **Similar alert details:** An incident is considered similar to another incident if they share the same [alert details](customize-alert-details.md) and/or [custom details](surface-custom-details-in-alerts.md).
 
-The reason an incident appears in the similar incidents list is displayed in the **Similarity reason** column. Hover over the info icon to show the common items (entities, rule name, or details).
+The reasons an incident appears in the similar incidents list are displayed in the **Similarity reason** column. Hover over the info icon to show the common items (entities, rule name, or details).
+
+:::image type="content" source="media/investigate-cases/similarity-popup.png" alt-text="Screenshot of pop-up display of similar incident details.":::
 
 #### Similarity time frame
 
