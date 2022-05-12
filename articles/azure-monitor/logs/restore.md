@@ -98,7 +98,7 @@ Set the query time range by either:
     ```kusto
     let startTime =datetime(01/01/2022 8:00:00 PM);
     let endTime =datetime(01/05/2022 8:00:00 PM);
-    TabelName_RST
+    TableName_RST
     | where TimeGenerated between(startTime .. endTime)
     ```
 
