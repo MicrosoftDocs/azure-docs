@@ -73,7 +73,7 @@ To create and assign the custom role on your subscription with the Azure portal:
 1. Select the **+ Add** button, then select **Add custom role** from the drop-down menu, as shown in the following screenshot:
 
     > [!div class="mx-imgBorder"]
-    > ![A screenshot showing the drop-down menu that appears when you select the plus sign and add button in the Access control (I A M) blade in the Azure portal. The option add custom role is highlighted wtih a red border.](media/add-custom-role.png)
+    > ![A screenshot showing the drop-down menu that appears when you select the plus sign and add button in the Access control (I A M) blade in the Azure portal. The option add custom role is highlighted with a red border.](media/add-custom-role.png)
 
 1. Next, on the **Basics** tab, enter a custom role name and add a description. We recommend you name the role *Azure Virtual Desktop Autoscale* with the description *Scales your Azure Virtual Desktop deployment up or down*.
 
