@@ -6,7 +6,7 @@ author: greglin
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 05/09/2022
-ms.author: greglin
+ms.author: greg-lindsay
 
 ---
 
