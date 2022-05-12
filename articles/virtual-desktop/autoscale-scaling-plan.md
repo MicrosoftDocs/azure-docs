@@ -83,7 +83,7 @@ To create and assign the custom role on your subscription with the Azure portal:
 
 1. On the **Assignable scopes** tab, your subscription will be listed. If you also want to assign this custom role to other subscriptions containing host pools, select **Add assignable scopes** and add the relevant subscriptions.
 
-1. On the **JSON** tab, select **Edit** and add the following permissions as actions. These entries must be enclosed within the square brackets.
+1. On the **JSON** tab, select **Edit** and add the following permissions to the `"actions": []` array. These entries must be enclosed within the square brackets.
 
     ```json
    	"Microsoft.Insights/eventtypes/values/read",
@@ -101,7 +101,7 @@ To create and assign the custom role on your subscription with the Azure portal:
 	"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action"
     ```
 
-1. The completed JSON should look like this, with your subscription ID included as an assignable scope:
+   The completed JSON should look like this, with your subscription ID included as an assignable scope:
 
     ```json
     {
