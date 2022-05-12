@@ -18,53 +18,34 @@ ms.date: 05/11/2022
 
 Azure Database for PostgreSQL Flexible Server provides zone redundant high availability, control over price, and control over maintenance window.  Single to Flexible Server Migration feature enables customers to migrate their databases from Single server to Flexible. See this [documentation](./flexible-server/concepts-compare-single-server-flexible-server.md) to understand the differences between Single and Flexible servers. Customers can initiate migrations for multiple servers and databases in a repeatable fashion using this migration feature. This feature automates most of the steps needed to do the migration and thus making the migration journey across Azure platforms as seamless as possible. The feature is provided free of cost for customers.
 
-Single to Flexible server migration is enabled in the following regions:
+Single to Flexible server migration is enabled in **Preview** in  Australia Southeast, Canada Central, Canada East, East Asia, North Central US, South Central US, Switzerland North, UAE North, UK South, UK West, West US, and Central US.
 
-| Region Name |
-|---------|
-| Central US |
-| UK South |
-| West US |
-| Canada Central |
-| South Central US |
-| North Central US |
-| East Asia |
-| Switzerland North |
-| Australia Southeast |
-| UAE North |
-| UK West |
-| South India |
-| Canada East |
+## How does the migration feature work?
 
-With more regions support planned.
+Single to Flexible server migration feature provides an inline experience to migrate databases from Single Server (source) to Flexible Server (target).
 
-## How does the migration work?
+You choose the source server and can select up to **8** databases from it. This limitation is per migration task. The migration feature automates the following steps:
 
-Single to Flexible server migration provides an inline experience to migrate databases from Single Server (source) to Flexible Server (target).
-
-You choose the source server and can select up to 8 databases from the source server, per migration to  Flexible Server. The migration feature automates the following steps:
-
-- Creation of migration infrastructure in the region of the target flexible server
-- Creation of public IP address and attaching it to the migration infrastructure
-- Allow-listing of migration infrastructure’s IP address on the firewall rules of both source and target servers
-- Creation of a migration project with both source and target types as Azure database for PostgreSQL
-- Creation of migration activity which aims to migrate the databases specified by the user from source to target.
-- Migration of schema from source to target
-- Creation of databases on target
-- Migration of data from source to target
+1. Creation of migration infrastructure in the region of the target flexible server
+2. Creation of public IP address and attaching it to the migration infrastructure
+3. Allow-listing of migration infrastructure’s IP address on the firewall rules of both source and target servers
+4. Creation of a migration project with both source and target types as Azure database for PostgreSQL
+5. Creation of migration activity which aims to migrate the databases specified by the user from source to target.
+6. Migration of schema from source to target
+7. Creation of databases on target
+8. Migration of data from source to target
 
 Following is the flow diagram for Single to Flexible migration feature.
-
-     :::image type="content" source="./media/concepts-single-to-flex/concepts-flow-diagram.png" alt-text="Single to Flexible Server migration flow" lightbox="./media/concepts-single-to-flex/concepts-flow-diagram.png":::
+:::image type="content" source="./media/concepts-single-to-flex/concepts-flow-diagram.png" alt-text="Single to Flexible Server migration" lightbox="./media/concepts-single-to-flex/concepts-flow-diagram.png":::
     
-Steps:
+**Steps:**
 1. Create a Flex PG server
 2. Invoke migration
 3. Migration infrastructure provisioned (DMS)
 4. Initiates migration – (4a) Initial dump/restore (online & offline) (4b) streaming the changes (online only)
-5. Cutover
+5. Cutover to the target
    
-The migration feature is exposed through a wizard-based **Azure portal experience** and via easy-to-use **Azure CLI** commands. It allows you to create migrations, list migrations, display migration details, modify the state of the migration, and delete   migrations
+The migration feature is exposed through **Azure Portal** and via easy-to-use **Azure CLI** commands. It allows you to create migrations, list migrations, display migration details, modify the state of the migration, and delete   migrations
 
 ## Migration modes comparison
 
@@ -190,8 +171,7 @@ Once all these pre-requisites are taken care of, you can do the migration. This 
 - Plan the mode of migration for each database. For less complex migrations and smaller databases, consider offline mode of migrations.
 - Batch similar sized databases in a migration task.  
 - Perform large database migrations with one or two databases at a time to avoid source-side load and migration failures.
-- 
-- Perform test migrations before production.
+- Perform test migrations before migrating for production.
   - **Testing migrations** is a very important aspect of database migration to ensure that all aspects of the migration are taken care of, including application testing. The best practice is to begin by running a migration entirely for testing purposes. Start a migration, and after it enters the continuous replication (CDC) phase with minimal lag, make your flexible server as the primary database server and use it for testing the application to ensure expected performance and results. If you are doing migration to a higher Postgres version, test for your application compatibility.
 
   - **Production migrations** - Once testing is completed, you can migrate the production databases. At this point you need to finalize the day and time of production migration. Ideally, there is low application use at this time. In addition, all stakeholders that need to be involved should be available and ready. The production migration would require close monitoring. It is important that for an online migration, the replication is completed before performing the cutover to prevent data loss.
@@ -201,5 +181,5 @@ Once all these pre-requisites are taken care of, you can do the migration. This 
 
 ## Next steps
 
-- You can test the migration: [Migrate to Flexible server using Azure portal](./how-to-migrate-single-to-flex-portal.md).
-- For CLI mode [Migrate to Flexible server using Azure CLI](./how-to-migrate-single-to-flex-cli.md)
+- [Migrate to Flexible server using Azure portal](./how-to-migrate-single-to-flex-portal.md).
+- [Migrate to Flexible server using Azure CLI](./how-to-migrate-single-to-flex-cli.md)

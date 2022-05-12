@@ -14,15 +14,15 @@
   items:
   - name: Migration
     items:
-      - name: Single Server to Flexible migration
+      - name: Single Server to Flexible Server migration
         items:
-          - name: Concepts, Pre-requisites, and best practices
+          - name: Single to Flexible - Concepts
             href: concepts-single-to-flexible.md
-          - name: Migrate using Portal
+          - name: Single to Flexible - migrate using Portal
             href: how-to-migrate-single-to-flex-portal.md
-          - name: Migrate using CLI
+          - name: Single to Flexible - migrate using CLI
             href: how-to-migrate-single-to-flex-cli.md
-          - name: Configure AAP App using Portal
+          - name: Single to Flexible - Setup AAP App using Portal
             href: how-to-setup-aad-app-portal.md
       - name: Migrate data with pg_dump and pg_restore
         href: howto-migrate-using-dump-and-restore.md

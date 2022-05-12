@@ -68,4 +68,6 @@ Repeat the following for source single server, target flexible server, resource 
  
 ## Next Steps
 
-Proceed with the migration [here](./concepts-single-to-flexible.md)
+- [Single Server to Flexible migration concepts](./concepts-single-to-flexible.md)
+- [Migrate to Flexible server using Azure portal](./how-to-migrate-single-to-flex-portal.md)
+- [Migrate to Flexible server using Azure CLI](./how-to-migrate-single-to-flex-cli.md)

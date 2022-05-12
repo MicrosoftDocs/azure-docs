@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 05/09/2022
 ---
 
-# Migrate PostgreSQL Single Server to Flexible Server using the Azure CLI
+# Migrate Single Server to Flexible Server PostgreSQL using Azure CLI
 
 >[!NOTE]
 > Single Server to Flexible Server migration feature is in public preview.
