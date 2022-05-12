@@ -256,7 +256,7 @@ For a complete set of working .NET examples, see the [Kafka extension repository
 > [!NOTE]
 > For an equivalent set of TypeScript examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/tree/dev/samples/typescript)
 
-The following examples show a Kafka trigger for a function that reads and logs a Kafka message.
+The specific properties of the function.json file depend on your event provider, which in these examples are either Confluent or Azure Event Hubs. The following examples show a Kafka trigger for a function that reads and logs a Kafka message.
 
 The following function.json defines the trigger for the specific provider:
 
@@ -290,23 +290,136 @@ The following code then parses the array of events and logs the event data:
 
 :::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerMany/index.js" :::
 
+The following code also logs the header data:
+
+:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerManyWithHeaders/index.js" :::
 
 For a complete set of working JavaScript examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/javascript/). 
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell" 
 
+The specific properties of the function.json file depend on your event provider, which in these examples are either Confluent or Azure Event Hubs. The following examples show a Kafka trigger for a function that reads and logs a Kafka message.
 
+The following function.json defines the trigger for the specific provider:
 
-::: zone-end 
+# [Confluent](#tab/confluent)
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTrigger/function.confluent.json" :::
+
+# [Event Hubs](#tab/event-hubs)
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTrigger/function.eventhub.json" :::
+
+---
+
+The following code then runs when the function is triggered:
+
+:::code language="powershell" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTrigger/run.ps1" :::
+
+To receive events in a batch, set the `cardinality` value to `many` in the function.json file, as shown in the following examples:
+
+# [Confluent](#tab/confluent)
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTriggerMany/function.confluent.json" :::
+
+# [Event Hubs](#tab/event-hubs)
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTriggerMany/function.eventhub.json" :::
+
+---
+
+The following code then parses the array of events and logs the event data:
+
+:::code language="powershell" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTriggerMany/run.ps1" :::
+
+The following code also logs the header data:
+
+:::code language="powershell" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTriggerManyWithHeaders/run.ps1" :::
+
+For a complete set of working PowerShell examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/powershell/). 
+
+::: zone-end   
 ::: zone pivot="programming-language-python"  
 
+The specific properties of the function.json file depend on your event provider, which in these examples are either Confluent or Azure Event Hubs. The following examples show a Kafka trigger for a function that reads and logs a Kafka message.
 
+The following function.json defines the trigger for the specific provider:
 
+# [Confluent](#tab/confluent)
 
-::: zone-end
-::: zone pivot="programming-language-java"
+:::code language="json" source="~/azure-functions-kafka-extension/samples/python/KafkaTrigger/function.confluent.json" :::
 
+# [Event Hubs](#tab/event-hubs)
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/python/KafkaTrigger/function.eventhub.json" :::
+
+---
+
+The following code then runs when the function is triggered:
+
+:::code language="python" source="~/azure-functions-kafka-extension/samples/python/KafkaTrigger/main.py" :::
+
+To receive events in a batch, set the `cardinality` value to `many` in the function.json file, as shown in the following examples:
+
+# [Confluent](#tab/confluent)
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/python/KafkaTriggerMany/function.confluent.json" :::
+
+# [Event Hubs](#tab/event-hubs)
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/python/KafkaTriggerMany/function.eventhub.json" :::
+
+---
+
+The following code then parses the array of events and logs the event data:
+
+:::code language="python" source="~/azure-functions-kafka-extension/samples/python/KafkaTriggerMany/main.py" :::
+
+The following code also logs the header data:
+
+:::code language="python" source="~/azure-functions-kafka-extension/samples/python/KafkaTriggerManyWithHeaders/main.py" :::
+
+For a complete set of working Python examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/python/). 
+
+::: zone-end  
+::: zone pivot="programming-language-java"  
+
+The annotations you use depend on the specific event provider.
+
+# [Confluent](#tab/confluent/in-process)
+
+The following example shows a Java function that reads and logs the content of the Kafka event:
+
+:::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/SampleKafkaTrigger.java" range="19-35" :::
+
+To receive events in a batch, use an input string as an array, as shown in the following example:
+
+:::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/KafkaTriggerMany.java" range="8-27" :::
+
+The following function logs the message and headers for the Kafka Event:
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/KafkaTriggerManyHeaders.java" range="12-38" :::
+
+For a complete set of working Java examples for Confluent, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/tree/dev/samples/java/confluent/src/main/java/com/contoso/kafka). 
+
+# [Event Hubs](#tab/event-hubs/in-process)
+
+The following example shows a Java function that reads and logs the content of the Kafka event:
+
+:::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/SampleKafkaTrigger.java" range="19-35" :::
+
+To receive events in a batch, use an input string as an array, as shown in the following example:
+
+:::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/KafkaTriggerMany.java" range="8-27" :::
+
+The following function logs the message and headers for the Kafka Event:
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/KafkaTriggerManyHeaders.java" range="12-38" :::
+
+For a complete set of working Java examples for Event Hubs, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/tree/dev/samples/java/confluent/src/main/java/com/contoso/kafka). 
+
+---
 
 ::: zone-end
 ::: zone pivot="programming-language-csharp"
@@ -337,7 +450,24 @@ The following table explains the properties you can set using this trigger attri
 
 ## Annotations
 
-TBD
+The `KafkaTrigger` annotation allows you to create a function that runs when a topic is received. Supported options include the following elements:
+
+|Element | Description|
+|---------|----------------------|
+|**name** | (Required) The name of the variable that represents the queue or topic message in function code. |
+| **brokerList** | (Required) The list of Kafka brokers monitored by the trigger.  |
+| **topic** | (Required) The topic monitored by the trigger. |
+| **consumerGroup** | (Optional) Kafka consumer group used by the trigger. |
+| **avroSchema** | (Optional) Schema of a generic record when using the Avro protocol. |
+| **authenticationMode** | (Optional) The authentication  mode when using Simple Authentication and Security Layer (SASL) authentication. The supported values are `Gssapi`, `Plain` (default), `ScramSha256`, `ScramSha512`. |
+| **username** | (Optional) The username for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. | 
+| **password** | (Optional) The password for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. | 
+| **protocol** | (Optional) The security protocol used when communicating with brokers. The supported values are `plaintext` (default), `ssl`, `sasl_plaintext`, `sasl_ssl`. |
+| **sslCaLocation** | (Optional) Path to CA certificate file for verifying the broker's certificate. |
+| **sslCertificateLocation** | (Optional) Path to the client's certificate. |
+| **sslKeyLocation** | (Optional) Path to client's private key (PEM) used for authentication. |
+| **sslKeyPassword** | (Optional) Password for client's certificate. |
+
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
@@ -348,9 +478,9 @@ The following table explains the binding configuration properties that you set i
 
 | _function.json_ property |Description|
 | --- | --- |
-|**type** | Must be set to `kafkaTrigger`. |
-|**direction** | Must be set to `in`. |
-|**name** | The name of the variable that represents the brokered data in function code. |
+|**type** | (Required) Must be set to `kafkaTrigger`. |
+|**direction** | (Required) Must be set to `in`. |
+|**name** | (Required) The name of the variable that represents the brokered data in function code. |
 | **brokerList** | (Required) The list of Kafka brokers monitored by the trigger.  |
 | **topic** | (Required) The topic monitored by the trigger. |
 | **consumerGroup** | (Optional) Kafka consumer group used by the trigger. |
