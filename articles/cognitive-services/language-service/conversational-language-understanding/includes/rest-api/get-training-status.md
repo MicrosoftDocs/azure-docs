@@ -22,7 +22,7 @@ Use the following **GET** request to get the status of your model's training pro
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.   | `EmailApp` |
 |`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received when submitted your training job.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. Learn more about other available [API versions](../../../concepts/model-lifecycle.md#api-versions)  | `2022-03-01-preview` |
+|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. Learn more about other available [API versions](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data)  | `2022-03-01-preview` |
 
 ### Headers
 
@@ -41,7 +41,7 @@ Once you send the request, you will get the following response. Keep polling thi
 {
   "result": {
     "modelLabel": "{MODEL-LABEL}",
-    "trainingConfigVersion": "{TRAINING-CONGIF-VERSION}",
+    "trainingConfigVersion": "{TRAINING-CONFIG-VERSION}",
     "trainingMode": "{TRAINING-MODE}",
     "trainingStatus": {
       "percentComplete": 2,
@@ -62,8 +62,8 @@ Once you send the request, you will get the following response. Keep polling thi
 |Key  |Value  | Example |
 |---------|----------|--|
 | `modelLabel` |The model name| `Model1` |
-| `trainingConfigVersion` | The training config version. By default, the latest version is used. Learn more about [training config versions]() | `2022-05-01` |
-| `trainingMode` | Your selected [training mode](../../how-to/train-model.md#training-mode).  | `standard` |
+| `trainingConfigVersion` | The training configuration version. By default, the [latest version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data) is used. | `2022-05-01` |
+| `trainingMode` | Your selected [training mode](../../how-to/train-model.md#training-modes).  | `standard` |
 | `startDateTime` | The time training started  |`2022-04-14T10:23:04.2598544Z`|
 | `status` | The status of the training job | `running`|
 |`estimatedEndDateTime` | Estimated time for the training job to finish| `2022-04-14T10:29:38.2598544Z`|
