@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, daviburg, apseth, psrivas, azla
 ms.topic: how-to
-ms.date: 05/08/2022
+ms.date: 05/12/2022
 # As a developer, I want learn how to create my own custom built-in connector operations to use and run in my Standard logic app workflows.
 ---
 
@@ -57,7 +57,62 @@ To create the sample built-in Cosmos DB connector, complete the following tasks:
 
 1. In your project, add the NuGet package named **Microsoft.Azure.Workflows.WebJobs.Extension** as a NuGet reference.
 
-1. To provide the operations for the sample built-in connector, implement the service provider interface named **IServiceOperationsTriggerProvider**.
+## Implement the service provider interface
+
+To provide the operations for the sample built-in connector, in the NuGet package named **Microsoft.Azure.Workflows.WebJobs.Extension** package, implement the service provider interface named **IServiceOperationsTriggerProvider** to provide the operation descriptions for your connector.
+
+![Conceptual class diagram showing method implementation for sample Cosmos DB custom built-in connector.](./media/create-custom-built-in-connector-standard/service-provider-cosmos-db-example.png)
+
+The **IServiceOperationsTriggerProvider** service provider interface has the following methods that your connector must implement. The designer in Azure Logic Apps uses these methods to query the triggers and actions that your connector provides and shows on the designer surface.
+
+#### GetService()
+
+The designer requires this method to get the high-level description for your service, including the service description, connection input parameters, capabilities, brand color, icon URL, and so on, for example:
+
+```csharp
+public ServiceOperationApi GetService()
+{
+   return this.CosmosDBApis.ServiceOperationServiceApi;
+}
+```
+
+#### GetOperations()
+
+The designer requires this method to get the operations implemented by your service. This operations list is based on Swagger schema. The designer also uses operation descriptions to understand the input parameters for specific operations and generate the outputs as property tokens, based on the schema of the output for an operation.
+
+```csharp
+public IEnumerable<ServiceOperation> GetOperations(bool expandManifest)
+{
+   return expandManifest ? serviceOperationsList : GetApiOperations();
+}
+```
+
+#### GetBindingConnectionInformation()
+
+If you want to use the Azure Functions trigger type, this method provides the required connection parameters information to the Azure Functions trigger binding.
+
+```csharp
+return ServiceOperationsProviderUtilities
+   .GetRequiredParameterValue(
+      serviceId: ServiceId,
+      operationId: operationID,
+      parameterName: "connectionString",
+      parameters: connectionParameters)?
+   .ToValue<string>();
+```
+
+#### GetFunctionTriggerType()
+
+If you want to use an Azure Functions built-in trigger as a trigger offered by your custom built-in connector, you have to return the string that's the same as the **type** parameter in the Azure Functions trigger binding.
+
+The following example returns the string, `"type": "cosmosDBTrigger"`:
+
+```csharp
+public string GetFunctionTriggerType()
+{
+   return "CosmosDBTrigger";
+}
+```
 
 <a name="register-connector"></a>
 
@@ -160,9 +215,9 @@ Azure Logic Apps has a generic way to handle any Azure Functions built-in trigge
 context.AddConverter<IReadOnlyList<Document>, JObject[]>(ConvertDocumentToJObject);
 ```
 
-### Code map diagram for implemented classes
+### Class library diagram for implemented classes
 
-When you're done, review the following code map diagram that shows the implementation for all the classes in **Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB**:
+When you're done, review the following class library diagram that shows the implementation for all the classes in **Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB**:
 
 * **CosmosDbServiceProviderStartup**
 * **CosmosDbServiceProvider**
