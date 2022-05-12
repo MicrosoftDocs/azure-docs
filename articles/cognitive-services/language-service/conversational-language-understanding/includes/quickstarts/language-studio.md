@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 03/15/2022
+ms.date: 05/12/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -20,7 +20,7 @@ ms.custom: ignite-fall-2021
 
 ## Create a conversational language understanding project
 
-Once you have a Language resource created, create a conversational language understanding project. A project is a work area for building your custom ML models based on your data. Your project can only be accessed by you and others who have access to the Language resource resource being used.
+Once you have a Language resource created, create a conversational language understanding project. A project is a work area for building your custom ML models based on your data. Your project can only be accessed by you and others who have access to the Language resource being used.
 
 For this quickstart, you can download [this sample project]() and import it. This project can predict the intended commands from user input, such as: reading emails, deleting emails, and attaching a document to an email. 
 
@@ -38,13 +38,13 @@ To train a model, you need to start a training job. The output of a successful t
 
 ## Deploy your model
 
-Generally after training a model you would review it's evaluation details. In this quickstart, you will just deploy your model, and make it available for you to try in the Language studio, or you can call the [predection API](https://aka.ms/clu-apis).
+Generally after training a model you would review its evaluation details. In this quickstart, you will just deploy your model, and make it available for you to try in the Language studio, or you can call the [prediction API](https://aka.ms/clu-apis).
 
 [!INCLUDE [Deploy model](../language-studio/deploy-model.md)]
 
 ## Test model
 
-After your model is deployed, you can start using it to make predections through [Prediction API](https://aka.ms/clu-apis). For this quickstart, you will use the [Language Studio](https://aka.ms/LanguageStudio) to submit an utterance, get predections and visualize the results.
+After your model is deployed, you can start using it to make predictions through the [prediction API](https://aka.ms/clu-apis). For this quickstart, you will use the [Language Studio](https://aka.ms/LanguageStudio) to submit an utterance, get predictions and visualize the results.
 
 
 [!INCLUDE [Test model](../language-studio/test-model.md)]

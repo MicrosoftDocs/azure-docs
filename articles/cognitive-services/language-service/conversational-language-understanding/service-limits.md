@@ -15,11 +15,9 @@ ms.custom: language-service-clu, ignite-fall-2021
 
 # Conversational language understanding limits
 
-Use this article to learn about the data and service limits when using CLU.
+Use this article to learn about the data and service limits when using conversational language understanding.
 
 ## Language resource limits
-
-* Your Language resource has to be created in one of the [supported regions](region-support.md).
 
 * Your Language resource must be one of the following [pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/):
 
@@ -34,7 +32,7 @@ Use this article to learn about the data and service limits when using CLU.
 
 ### Regional availability
 
-Conversational language understanding is only available in some Azure regions. To use CLU, you must choose a Language resource in one of following regions:
+Conversational language understanding is only available in some Azure regions. To use conversational language understanding, you must choose a Language resource in one of following regions:
 * West US 2
 * East US 
 * East US 2
