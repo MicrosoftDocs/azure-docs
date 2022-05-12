@@ -18,7 +18,7 @@ Azure Blob Storage is Microsoft's massively scalable object storage solution for
 Azure Functions is a serverless computer solution that allows you to write and run small blocks of code as highly scalable, serverless, event driven functions. You can read more about Azure Functions on the [overview page](../../azure-functions/functions-overview.md).
 
 
-In this tutorial, you will learn how to:
+In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 > * Upload images and files to Blob Storage
@@ -35,8 +35,49 @@ In this tutorial, you will learn how to:
     - [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage)
     - [Azure Resources extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
 
+
 ## Create the storage account and container
 The first step is to create the storage account that will hold the uploaded blob data, which in this scenario will be images that contain text. A storage account offers several different services, but this tutorial utilizes Blob Storage and Table Storage.
+
+
+### [Visual Studio Code](#tab/visual-studio-code)
+
+1. In Visual Studio Code, select <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> to open the command palette.
+1. Search for **Azure Storage: Create Storage Account (Advanced)**.
+1. Use the following table to create the Storage resource.
+
+    |Setting|Value|   
+    |--|--|
+    |**Name**| Enter *msdocsstoragefunction* or something similar.|
+    |**Resource Group**|Create the `msdocs-storage-function` resource group you created earlier.|
+    |**Static web hosting**|No.|
+    |**Location**|Choose the region closest to you.|
+1. In Visual Studio Code, select <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd> to open the **Azure** Explorer.
+1. Expand the **Storage** section, expand your subscription node and wait for the resource to be created. 
+
+### Create the container in Visual Studio Code
+
+1. Still in the Azure Explorer with your new Storage resource found, expand the resource to see the nodes.
+1. Right-click on **Blob Containers** and select **Create Blob Container**.
+1. Enter the name `imageanalysis`. This creates a private container. 
+
+### Change from private to public container in Azure portal
+
+This procedure expects a public container. To change that configuration, make the change in the Azure portal.
+
+1. Right-click on the Storage Resource in the Azure Explorer and select **Open in Portal**. 
+1. In the **Data Storage** section, select **Containers**.
+1. Find your container, `imageanalysis`, and select the `...` (ellipse) at the end of the line. 
+1. Select **Change access level**.
+1. Select **Blob (anonymous read access for blobs only** then select **Ok**.
+1. Return to Visual Studio Code.
+
+### Retrieve the connection string in Visual Studio Code
+
+1. In Visual Studio Code, select <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd> to open the **Azure** Explorer.
+1. Right-click on your storage resource and select **Copy Connection String**.
+1. paste this somewhere to use for later.  
+1. Also make note of the storage account name `msdocsstoragefunction` for later as well.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -109,7 +150,7 @@ Copy the value of the `connectionString` property and paste it somewhere to use 
 ---
 
 ## Create the Computer Vision service
-Next, create the Computer Vision service account that will process our uploaded files.  Computer Vision is part of Azure Cognitive Services and offers a variety of features for extracting data out of images.  You can learn more about Computer Vision on the [overview page](/azure/cognitive-services/computer-vision/overview).
+Next, create the Computer Vision service account that will process our uploaded files.  Computer Vision is part of Azure Cognitive Services and offers various features for extracting data out of images.  You can learn more about Computer Vision on the [overview page](/azure/cognitive-services/computer-vision/overview).
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -123,7 +164,7 @@ Next, create the Computer Vision service account that will process our uploaded 
 - **Resource Group**: Use the `msdocs-storage-function` resource group you created earlier.
 - **Region**: Select the region that is closest to you.
 - **Name**: Enter in a name of `msdocscomputervision`.
-- **Pricing Tier**: Choose **Free** if it is available, otherwise choose **Standard S1**.
+- **Pricing Tier**: Choose **Free** if it's available, otherwise choose **Standard S1**.
 - Check the **Responsible AI Notice** box if you agree to the terms
 
 :::image type="content" lightbox="./media/blob-upload-storage-function/computer-vision-create.png" source="./media/blob-upload-storage-function/computer-vision-create-small.png" alt-text="A screenshot showing how to create a new Computer Vision service." :::
@@ -188,7 +229,7 @@ The sample project accomplishes the following tasks:
 - Analyzes the blob using the Computer Vision service
 - Sends the analyzed image text to a new table row using output bindings
 
-Once you have downloaded and opened the project, there are a few essential concepts to understand:
+Once you've downloaded and opened the project, there are a few essential concepts to understand:
 
 |Concept|Purpose|
 |--|--|
@@ -224,7 +265,7 @@ Although the Azure Function code runs locally, it connects to the cloud-based se
 
 ## Create Azure Functions app
 
-You are now ready to deploy the application to Azure using a Visual Studio Code extension.  
+You're now ready to deploy the application to Azure using a Visual Studio Code extension.  
 
 1. In Visual Studio Code, select <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd> to open the **Azure** sidebar.
 1. In the **Functions** section, find and right-click the subscription, and select **Create Function App in Azure (Advanced)**.
@@ -250,7 +291,7 @@ You are now ready to deploy the application to Azure using a Visual Studio Code 
 
 ## Add app settings for Storage and Computer Vision
 
-The Azure Function was deployed successfully, but it cannot connect to our Storage account and Computer Vision services yet. The correct keys and connection strings must first be added to the configuration settings of the Azure Functions app.
+The Azure Function was deployed successfully, but it can't connect to our Storage account and Computer Vision services yet. The correct keys and connection strings must first be added to the configuration settings of the Azure Functions app.
 
 1. Find your resource in the **Functions** section of the Azure sidebar, right-click **Application Settings**, and select **Add New Setting**.
 1. Enter a new app setting for the following secrets. Copy and paste your secret values from your local project in the `local.settings.json` file.
@@ -269,7 +310,7 @@ All of the required environment variables to connect our Azure function to diffe
 
 ## Upload an image to Blob Storage
 
-You are now ready to test out our application! You can upload a blob to the container, and then verify that the text in the image was saved to Table Storage.
+You're now ready to test out our application! You can upload a blob to the container, and then verify that the text in the image was saved to Table Storage.
 
 1. In the Azure sidebar in Visual Studio Code, find and expand your Storage resource in the **Storage** section.
 1. Expand **Blob Containers** and right-click your container name, then select **Upload files**.
