@@ -73,6 +73,8 @@ As of late March 2019, Dedicated HSM is available in the 14 regions listed below
 * East US 2
 * West US
 * West US 2
+* Canada East
+* Canada Central
 * South Central US
 * Southeast Asia
 * East Asia
