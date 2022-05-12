@@ -33,7 +33,7 @@ This tutorial uses the [Azure portal](https://portal.azure.com). You can also us
 
 This diagram shows the resources created in this tutorial along with the expected network routes.
 
-![Overview Diagram showing the Public, Private and NVA Virtual Machines for this tutorial](media/tutorial-create-route-table-portal/overview.png)
+:::image type="content" source="./media/tutorial-create-route-table-portal/overview.png" alt-text="Overview Diagram showing the Public, Private and NVA Virtual Machines for this tutorial" border="true":::
 
 ## Prerequisites
 
