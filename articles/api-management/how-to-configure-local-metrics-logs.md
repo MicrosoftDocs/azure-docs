@@ -194,7 +194,7 @@ Make some API calls through the self-hosted gateway, if everything is configured
 | ------------- | ------------- |
 | requests_total  | Number of API requests in the period |
 | request_duration_seconds | Number of milliseconds from the moment gateway received request until the moment response sent in full |
-| request_backend_duration_seconds_count | Number of milliseconds spent on overall backend IO (connecting, sending and receiving bytes)  |
+| request_backend_duration_seconds | Number of milliseconds spent on overall backend IO (connecting, sending and receiving bytes)  |
 | request_client_duration_seconds | Number of milliseconds spent on overall client IO (connecting, sending and receiving bytes)  |
 
 ## Logs
