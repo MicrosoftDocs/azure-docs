@@ -1,11 +1,12 @@
 ---
 title: 'Azure Route Server: Monitoring, Metrics, and Alerts'
 description: Learn about Azure Route Server monitoring, metrics, and alerts using Azure Monitor, the one stop shop for all metrics, alerting, diagnostic logs across Azure.
-author: duongau
-ms.service: routeserver
+services: route-server
+author: halkazwini
+ms.service: route-server
 ms.topic: how-to
-ms.date: 05/10/2022
-ms.author: mialdrid
+ms.date: 05/12/2022
+ms.author: halkazwini
 ---
 # Route Server monitoring, metrics, and alerts
 
@@ -17,7 +18,7 @@ This article helps you understand Route Server monitoring, metrics, and alerts u
 
 ## Route Server metrics
 
-To view **Metrics**, navigate to your *Route Server* in the Azure Portal  and select *Metrics*.
+To view **Metrics**, navigate to your *Route Server* in the Azure portal  and select *Metrics*.
 
 Once a metric is selected, the default aggregation will be applied.
 
@@ -40,9 +41,9 @@ Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](..
 
 | Metric | Category | Unit | Aggregation Type | Description | Dimensions |  Exportable via Diagnostic Settings? | 
 | --- | --- | --- | --- | --- | --- | --- | 
-| [BGP Peer Status](#arp) | Scalability | Count | Average | BGP availability from Route Server to Peer. | BGP Peer IP, BGP Type, Route Server Instance |  Yes | 
-| [Count of Routes Advertised to Peer](#bgp) | Scalability | Count | Average | Count of routes advertised from Route Server to Peer | BGP Peer IP, BGP Type, Route Server Instance |  Yes|
-| [Count of Routes Received from Peer](#circuitbandwidth) | Scalability | Count | Average | Count of routes received from Peer| BGP Peer IP, BGP Type, Route Server Instance | Yes 
+| [BGP Peer Status](#bgp) | Scalability | Count | Average | BGP availability from Route Server to Peer. | BGP Peer IP, BGP Type, Route Server Instance |  Yes | 
+| [Count of Routes Advertised to Peer](#advertised) | Scalability | Count | Average | Count of routes advertised from Route Server to Peer | BGP Peer IP, BGP Type, Route Server Instance |  Yes|
+| [Count of Routes Received from Peer](#received) | Scalability | Count | Average | Count of routes received from Peer| BGP Peer IP, BGP Type, Route Server Instance | Yes 
 
 > [!IMPORTANT]
 > Azure Monitor exposes another metric for Route Server, **Data Processed by the Virtual Hub Router**. This metric doesn't apply to Route Server and should be ignored.
@@ -51,19 +52,19 @@ Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](..
 
 ## Route Server Metrics
 
-### BGP Peer Status
+### <a name = "bgp"></a>BGP Peer Status
 
 Aggregation type: *Max*
 
-You can view the BGP availability of Route Server. This is a binary metric. 1 = BGP is up-and-running. 0 = BGP is unavailabe.
+You can view the BGP availability of Route Server. This is a binary metric. 1 = BGP is up-and-running. 0 = BGP is unavailable.
 
-### Count of Routes Advertised to Peer
+### <a name = "advertised"></a>Count of Routes Advertised to Peer
 
 Aggregation type: *Max*
 
 You can view the count of routes advertised from Route Server to NVA peers.
 
-### Count of Routes Received from the Peer 
+### <a name = "received"></a>Count of Routes Received from the Peer 
 
 Aggregation type: *Max*
 
@@ -76,8 +77,7 @@ You can view the count of routes received from NVA peers.
 
 ## Next steps
 
-Configure Route Server
+Configure Route Server.
   
-* [Create and modify a circuit](expressroute-howto-circuit-arm.md)
-* [Create and modify peering configuration](expressroute-howto-routing-arm.md)
-* [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)
+* [Create and configure Route Server](quickstart-configure-route-server-portal.md)
+* [Configure peering between Azure Route Server and an NVA](tutorial-configure-route-server-with-quagga.md)
