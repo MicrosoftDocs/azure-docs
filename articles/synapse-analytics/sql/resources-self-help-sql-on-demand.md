@@ -57,7 +57,7 @@ If you access storage by using [credentials](develop-storage-files-storage-acces
 
 If you use a SQL sign-in and the `OPENROWSET` function [without a data source](develop-storage-files-overview.md#query-files-using-openrowset), make sure that you have a server-level credential that matches the storage URI and has permission to access the storage.
 
-### Query fails because file cannot be opened
+### Query fails because file can't be opened
 
 If your query fails with the error "File cannot be opened because it does not exist or it is used by another process" and you're sure that both files exist and aren't used by another process, serverless SQL pool can't access the file. This problem usually happens because your Azure AD identity doesn't have rights to access the file or because a firewall is blocking access to the file.
 
@@ -101,7 +101,7 @@ If you want to query data2.csv in this example, the following permissions are ne
 > [!NOTE]
 > For guest users, this step needs to be done directly with Azure Data Lake because it can't be done directly through Azure Synapse.
 
-### Content of directory on the path cannot be listed
+### Content of directory on the path can't be listed
 
 This error indicates that the user who's querying Azure Data Lake can't list the files in storage. There are several scenarios where this error might happen:
 
@@ -117,10 +117,9 @@ For more information, see:
 - [Azure AD access control for storage](../../storage/blobs/assign-azure-role-data-access.md)
 - [Control storage account access for serverless SQL pool in Synapse Analytics](develop-storage-files-storage-access-control.md)
 
-#### Content of Dataverse table cannot be listed
+#### Content of Dataverse table can't be listed
 
-If you use the Azure Synapse link for Dataverse to read the linked Dataverse tables, you must use an Azure AD account to access the linked data by using serverless SQL pool.
-If you try to use a SQL sign-in to read an external table that's referencing the Dataverse table, you'll get the following error:
+If you use the Azure Synapse link for Dataverse to read the linked Dataverse tables, you must use an Azure AD account to access the linked data by using serverless SQL pool. If you try to use a SQL sign-in to read an external table that's referencing the Dataverse table, you'll get the following error:
 
 ```
 External table '???' is not accessible because content of directory cannot be listed.
@@ -128,7 +127,7 @@ External table '???' is not accessible because content of directory cannot be li
 
 Dataverse external tables always use Azure AD passthrough authentication. You *can't* configure them to use a [shared access signature key](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [workspace managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity).
 
-#### Content of Delta Lake transaction log cannot be listed
+#### Content of Delta Lake transaction log can't be listed
 
 The following error is returned when serverless SQL pool can't read the Delta Lake transaction log folder:
 
@@ -154,7 +153,7 @@ You might get errors during the query execution in the following cases:
 - The query [can't access external data](develop-storage-files-storage-access-control.md#storage-permissions).
 - The query contains some functionalities that [aren't supported in serverless SQL pools](overview-features.md).
 
-### Query fails because it cannot be executed due to current resource constraints
+### Query fails because it can't be executed due to current resource constraints
 
 Your query might fail with the error message "This query cannot be executed due to current resource constraints." This message means serverless SQL pool can't execute at this moment because of resource constraints. Here are some troubleshooting options:
 
@@ -182,7 +181,7 @@ The error "Invalid object name 'table name'" indicates that you're using an obje
 
 ### Unclosed quotation mark after the character string
 
-In rare cases, where you use the `LIKE` operator on a string column or some comparison with the string literals, you might get the following error:
+In rare cases, where you use the LIKE operator on a string column or some comparison with the string literals, you might get the following error:
 
 ```
 Msg 105, Level 15, State 1, Line 88
@@ -191,7 +190,7 @@ Unclosed quotation mark after the character string
 
 This error might happen if you use the `Latin1_General_100_BIN2_UTF8` collation on the column. Try to set `Latin1_General_100_CI_AS_SC_UTF8` collation on the column instead of the `Latin1_General_100_BIN2_UTF8` collation to resolve the issue. If the error is still returned, raise a support request through the Azure portal.
 
-### Could not allocate tempdb space while transferring data from one distribution to another
+### Couldn't allocate tempdb space while transferring data from one distribution to another
 
 The error "Could not allocate tempdb space while transferring data from one distribution to another" is returned when the query execution engine can't process data and transfer it between the nodes that are executing the query.
 It's a special case of the generic [query fails because it cannot be executed due to current resource constraints](#query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints) error. This error is returned when the resources allocated to the `tempdb` database are insufficient to run the query.
@@ -272,7 +271,7 @@ FROM
     AS [result]
 ```
 
-### Cannot bulk load because the file could not be opened
+### Can't bulk load because the file couldn't be opened
 
 The error "Cannot bulk load because the file could not be opened" is returned if a file is modified during the query execution. Usually, you might get an error like "Cannot bulk load because the file {file path} could not be opened. Operating system error code 12. (The access code is invalid.)"
 
@@ -462,7 +461,7 @@ returns
 | 4       | David | 
 | 5         | Eva | 
 
-### Column [column-name] of type [type-name] is not compatible with external data type [external-data-type-name]
+### Column of type isn't compatible with external data type
 
 If your query fails with the error message "Column [column-name] of type [type-name] is not compatible with external data type […]," it's likely that a PARQUET data type was mapped to an incorrect SQL data type.
 For instance, if your Parquet file has a column price with float numbers (like 12.89) and you tried to map it to INT, this error message is the one you'll get.
@@ -531,7 +530,7 @@ FROM
     AS [result]
 ```
 
-### The query references an object that is not supported in distributed processing mode
+### Query references an object that isn't supported in distributed processing mode
 
 The error "The query references an object that is not supported in distributed processing mode" indicates that you've used an object or function that can't be used while you query data in Azure Storage or Azure Cosmos DB analytical storage.
 
@@ -668,7 +667,7 @@ If the issue persists, create a support ticket.
 
 ---
 
-### Incorrect syntax near 'NOT'
+### Incorrect syntax near NOT
 
 The error "Incorrect syntax near 'NOT'" indicates there are some external tables with columns that contain the NOT NULL constraint in the column definition. Update the table to remove NOT NULL from the column definition. This error can sometimes also occur transiently with tables created from a CETAS statement. If the problem doesn't resolve, you can try dropping and re-creating the external table.
 
@@ -728,7 +727,7 @@ If you get the error "CREATE DATABASE failed. User database limit has been alrea
 - If you need to separate the objects, use schemas within the databases.
 - If you need to reference Azure Data Lake storage, create lakehouse databases or Spark databases that will be synchronized in serverless SQL pool.
 
-### Please create a master key in the database or open the master key in the session before performing this operation
+### Create a master key in the database or open the master key in the session before performing this operation
 
 If your query fails with the error message "Please create a master key in the database or open the master key in the session before performing this operation," it means that your user database has no access to a master key at the moment.
 
@@ -743,7 +742,7 @@ CREATE MASTER KEY [ ENCRYPTION BY PASSWORD ='password' ];
 > [!NOTE]
 > Replace `'password'` with a different secret here.
 
-### CREATE statement is not supported in master database
+### CREATE statement isn't supported in the master database
 
 If your query fails with the error message "Failed to execute query. Error: CREATE EXTERNAL TABLE/DATA SOURCE/DATABASE SCOPED CREDENTIAL/FILE FORMAT is not supported in master database," it means that the master database in serverless SQL pool doesn't support the creation of:
 
@@ -770,7 +769,7 @@ Here's the solution:
         WITH ( FORMAT_TYPE = PARQUET)
         ```
 
-### Operation is not allowed for a replicated database
+### Operation isn't allowed for a replicated database
 
 If you're trying to create SQL objects, users, or change permissions in a database, you might get errors like "Operation CREATE USER is not allowed for a replicated database." This error is returned when you try to create objects in a database that's [shared with Spark pool](../metadata/database.md). The databases that are replicated from Apache Spark pools are read only. You can't create new objects into a replicated database by using T-SQL.
 
@@ -811,7 +810,7 @@ Some items from Azure Cosmos DB might not be returned by the `OPENROWSET` functi
 - There's a synchronization delay between the transactional and analytical store. The document you entered in the Azure Cosmos DB transactional store might appear in the analytical store after two to three minutes.
 - The document might violate some [schema constraints](../../cosmos-db/analytical-store-introduction.md#schema-constraints).
 
-### Query returns NULL values in some Cosmos DB items
+### Query returns NULL values in some Azure Cosmos DB items
 
 Azure Synapse SQL returns NULL instead of the values that you see in the transaction store in the following cases:
 - There's a synchronization delay between the transactional and analytical store. The value that you entered in the Azure Cosmos DB transactional store might appear in the analytical store after two to three minutes.
@@ -820,11 +819,11 @@ Azure Synapse SQL returns NULL instead of the values that you see in the transac
 - If you use well-defined [schema representation](../../cosmos-db/analytical-store-introduction.md#schema-representation), the value in the transactional store might have a wrong type. Well-defined schema locks the types for each property by sampling the documents. Any value added in the transactional store that doesn't match the type is treated as a wrong value and not migrated to the analytical store.
 - If you use full-fidelity [schema representation](../../cosmos-db/analytical-store-introduction.md#schema-representation), make sure that you're adding the type suffix after the property name like `$.price.int64`. If you don't see a value for the referenced path, maybe it's stored under a different type path, for example, `$.price.float64`. For more information, see [Query Azure Cosmos DB collections in the full-fidelity schema](query-cosmos-db-analytical-store.md#query-items-with-full-fidelity-schema).
 
-### Column is not compatible with external data type
+### Column isn't compatible with external data type
 
 The error "Column `column name` of the type `type name` is not compatible with the external data type `type name`" is returned if the specified column type in the WITH clause doesn't match the type in the Azure Cosmos DB container. Try to change the column type as it's described in the section [Azure Cosmos DB to SQL type mappings](query-cosmos-db-analytical-store.md#azure-cosmos-db-to-sql-type-mappings) or use the VARCHAR type.
 
-### Resolving CosmosDB path has failed with error
+### Resolving Azure Cosmos DB path has failed with error
 
 If you get the error "Resolving CosmosDB path has failed with error 'This request is not authorized to perform this operation'," check to see if you used private endpoints in Azure Cosmos DB. To allow serverless SQL pool to access an analytical store with private endpoints, you must [configure private endpoints for the Azure Cosmos DB analytical store](../../cosmos-db/analytical-store-private-endpoints.md#using-synapse-serverless-sql-pools).
 
@@ -852,7 +851,7 @@ There are some limitations and known issues that you might see in Delta Lake sup
 - Serverless SQL pools in Synapse Analytics don't support the datasets with the [BLOOM filter](/azure/databricks/delta/optimizations/bloom-filters). The serverless SQL pool ignores the BLOOM filters.
 - Delta Lake support isn't available in dedicated SQL pools. Make sure that you use serverless SQL pools to query Delta Lake files.
 
-### JSON text is not properly formatted
+### JSON text isn't properly formatted
 
 This error indicates that serverless SQL pool can't read the Delta Lake transaction log. You'll probably see the following error:
 
@@ -864,7 +863,9 @@ Error reading external metadata.
 ```
 Make sure that your Delta Lake dataset isn't corrupted. Verify that you can read the content of the Delta Lake folder by using Apache Spark pool in Azure Synapse. This way you'll ensure that the `_delta_log` file isn't corrupted.
 
-**Workaround:** Try to create a checkpoint on the Delta Lake dataset by using Apache Spark pool and rerun the query. The checkpoint aggregates transactional JSON log files and might solve the issue.
+**Workaround**
+
+Try to create a checkpoint on the Delta Lake dataset by using Apache Spark pool and rerun the query. The checkpoint aggregates transactional JSON log files and might solve the issue.
 
 If the dataset is valid, [create a support ticket](../../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) and provide more information:
 
@@ -884,14 +885,14 @@ Serverless SQL pool assigns the resources to the queries based on the size of th
 If you have queries with a query duration longer than 30 minutes, the query slowly returning results to the client are slow. Serverless SQL pool has a 30-minute limit for execution. Any more time is spent on result streaming. Try the following workarounds:
 
 - If you use [Synapse Studio](#query-is-slow-when-executed-by-using-synapse-studio), try to reproduce the issues with some other application like SQL Server Management Studio or Azure Data Studio.
-- If your query is slow when executed by using [SQL Server Management Studio, Azure Data Studio, Power BI, or some other application](#query-is-slow-when-executed-by-using-application), check networking issues and best practices.
+- If your query is slow when executed by using [SQL Server Management Studio, Azure Data Studio, Power BI, or some other application](#query-is-slow-when-executed-by-using-an-application), check networking issues and best practices.
 - Put the query in the CETAS command and measure the query duration. The CETAS command stores the results to Azure Data Lake Storage and doesn't depend on the client connection. If the CETAS command finishes faster than the original query, check the network bandwidth between the client and serverless SQL pool.
 
-#### Query is slow when executed by using Synapse studio
+#### Query is slow when executed by using Synapse Studio
 
 If you use Synapse Studio, try using a desktop client such as SQL Server Management Studio or Azure Data Studio. Synapse Studio is a web client that connects to serverless SQL pool by using the HTTP protocol, which is generally slower than the native SQL connections used in SQL Server Management Studio or Azure Data Studio.
 
-#### Query is slow when executed by using application
+#### Query is slow when executed by using an application
 
 Check the following issues if you experience slow query execution:
 
@@ -926,7 +927,7 @@ If the error message persists, file a support ticket through the Azure portal.
 
 See the [Synapse Studio section](#synapse-studio).
 
-### Can't connect to the Synapse pool from a tool
+### Can't connect to the Azure Synapse pool from a tool
 
 Some tools might not have an explicit option that you can use to connect to the Azure Synapse serverless SQL pool. Use an option that you would use to connect to SQL Server or SQL Database. The connection dialog doesn't need to be branded as "Synapse" because the serverless SQL pool uses the same protocol as SQL Server or SQL Database.
 
@@ -940,7 +941,7 @@ Make sure that a user has permissions to access databases, [permissions to execu
 
 You must use a read-only Azure Cosmos DB key to access your analytical storage, so make sure that it didn't expire or that it isn't regenerated.
 
-If you get the ["Resolving CosmosDB path has failed"](#resolving-cosmosdb-path-has-failed) error, make sure that you configured a firewall.
+If you get the error ["Resolving Azure Cosmos DB path has failed with error"](#resolving-azure-cosmos-db-path-has-failed-with-error), make sure that you configured a firewall.
 
 ### Can't access lakehouse or Spark database
 
