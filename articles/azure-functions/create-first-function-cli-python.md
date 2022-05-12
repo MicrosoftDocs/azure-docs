@@ -1,7 +1,7 @@
 ---
 title: Create a Python function from the command line - Azure Functions
 description: Learn how to create a Python function from the command line, then publish the local project to serverless hosting in Azure Functions.
-ms.date: 05/10/2022
+ms.date: 05/12/2022
 ms.topic: quickstart
 ms.devlang: python
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell, mode-api, devdivchpfy22
@@ -65,7 +65,7 @@ Verify your prerequisites, which depend on whether you're using Azure CLI or Azu
 
 ## <a name="create-venv"></a>Create and activate a virtual environment
 
-In a suitable folder, run the following commands to create and activate a virtual environment named `.venv`. Ensure that you use Python 3.8, 3.7 or 3.6, which are supported by Azure Functions.
+In a suitable folder, run the following commands to create and activate a virtual environment named `.venv`. Ensure that you're using Python 3.8, 3.7 or 3.6, which are supported by Azure Functions.
 
 # [bash](#tab/bash)
 
@@ -111,13 +111,13 @@ You run all subsequent commands in this activated virtual environment.
 
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you'll create a function project that contains a single function.
 
-1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:
+1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime.
 
     ```console
     func init LocalFunctionProj --python
     ```
 
-1. Navigate into the project folder:
+1. Navigate into the project folder.
 
     ```console
     cd LocalFunctionProj
@@ -132,7 +132,7 @@ In Azure Functions, a function project is a container for one or more individual
     ```
     `func new` creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
     
-   Get the list of templates by using the following command.
+   Get the list of templates by using the following command:
    
     ```console
     func templates list -l python
@@ -277,7 +277,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
 
 [!INCLUDE [functions-run-remote-azure-cli](../../includes/functions-run-remote-azure-cli.md)]
 
-Run the following command to view near real-time [streaming logs](functions-run-local.md#enable-streaming-logs) in Application Insights in the Azure portal:
+Run the following command to view near real-time [streaming logs](functions-run-local.md#enable-streaming-logs) in Application Insights in the Azure portal.
 
 ```console
 func azure functionapp logstream <APP_NAME> --browser
