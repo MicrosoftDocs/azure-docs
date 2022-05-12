@@ -4,6 +4,7 @@ description: This article describes how to create and manage Azure Database for 
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: single-server
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 02/10/2022 
