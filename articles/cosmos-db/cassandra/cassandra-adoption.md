@@ -1,5 +1,5 @@
 ---
-title: Connect to Apache Cassandra by using the Cassandra API 
+title: How to adapt to the Cassandra API from Apache Cassandra 
 description: Learn best practices and ways to successfully use the Azure Cosmos DB Cassandra API with Apache Cassandra applications.
 author: TheovanKraay
 ms.author: thvankra
@@ -11,7 +11,7 @@ ms.reviewer: wiassaf
 ms.custom: kr2b-contr-experiment
 ---
 
-# Connect to Apache Cassandra by using the Cassandra API
+# How to adapt to the Cassandra API if you are coming from Apache Cassandra
 
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
