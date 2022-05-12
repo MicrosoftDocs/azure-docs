@@ -61,7 +61,7 @@ Database database = client.GetDatabase("database");
 ContainerProperties properties = new ()
 {
     Id = "container",
-    PartitionKeyPath = "/id",
+    PartitionKeyPath = "/customerId",
     // Never expire by default
     DefaultTimeToLive = -1
 };
@@ -78,7 +78,7 @@ CosmosDatabase database = client.getDatabase("database");
 
 CosmosContainerProperties properties = new CosmosContainerProperties(
     "container",
-    "/id"
+    "/customerId"
 );
 // Never expire by default
 properties.setDefaultTimeToLiveInSeconds(-1);
@@ -108,7 +108,14 @@ const { container } = await database.containers
 ### [Python SDK](#tab/python-sdk)
 
 ```python
+database = client.get_database_client('database')
 
+database.create_container(
+    id='container',
+    partition_key=PartitionKey(path='/customerId'),
+    # Never expire by default
+    default_ttl=-1
+)
 ```
 
 ---
@@ -170,7 +177,14 @@ const { container } = await database.containers
 ### [Python SDK](#tab/python-sdk)
 
 ```python
+database = client.get_database_client('database')
 
+database.create_container(
+    id='container',
+    partition_key=PartitionKey(path='/customerId'),
+    # Expire all documents after 90 days
+    default_ttl=90 * 60 * 60 * 24
+)
 ```
 
 ---
@@ -280,7 +294,16 @@ await container.items.create(item);
 ### [Python SDK](#tab/python-sdk)
 
 ```python
+container = database.get_container_client('container')
 
+item = {
+    'id': 'SO05',
+    'customerId': 'CO18009186470',
+    # Expire sales order in 30 days using "ttl" property
+    'ttl': 60 * 60 * 24 * 30
+}
+
+container.create_item(body=item)
 ```
 
 ---
@@ -352,7 +375,18 @@ await container.item(
 ### [Python SDK](#tab/python-sdk)
 
 ```python
+item = container.read_item(
+    item='SO05',
+    partition_key='CO18009186470'
+)
 
+# Update ttl to 2 hours
+item['ttl'] = 60 * 60 * 2 
+
+container.replace_item(
+    item='SO05',
+    body=item
+)
 ```
 
 ---
@@ -398,7 +432,12 @@ await container.replace(definition);
 ### [Python SDK](#tab/python-sdk)
 
 ```python
-
+database.replace_container(
+    container,
+    partition_key=PartitionKey(path='/id'),
+    # Disable ttl at container-level
+    default_ttl=None
+)
 ```
 
 ---
