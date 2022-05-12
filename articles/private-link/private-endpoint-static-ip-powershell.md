@@ -198,6 +198,106 @@ New-AzPrivateDnsZoneGroup @zg
 
 ```
 
+## Create a test virtual machine
+
+To verify the static IP address and the functionality of the private endpoint, a test virtual machine connected to your virtual network is required.
+
+In this section, you'll:
+
+- Create a login credential for the virtual machine with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential)
+
+- Create a network interface for the virtual machine with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)
+
+- Create a virtual machine configuration with [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig), [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem), [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage), and [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface)
+
+- Create the virtual machine with [New-AzVM](/powershell/module/az.compute/new-azvm)
+
+
+1. Get the server admin credentials and password:
+
+```azurepowershell-interactive
+## Create the credential for the virtual machine. Enter a username and password at the prompt. ##
+$cred = Get-Credential
+
+## Place the virtual network into a variable. ##
+$vnet = Get-AzVirtualNetwork -Name myVNet -ResourceGroupName myResourceGroup
+
+## Create a network interface for the virtual machine. ##
+$nic = @{
+    Name = 'myNicVM'
+    ResourceGroupName = 'myResourceGroup'
+    Location = 'eastus'
+    Subnet = $vnet.Subnets[0]
+}
+$nicVM = New-AzNetworkInterface @nic
+
+## Create the configuration for the virtual machine. ##
+$vm1 = @{
+    VMName = 'myVM'
+    VMSize = 'Standard_DS1_v2'
+}
+$vm2 = @{
+    ComputerName = 'myVM'
+    Credential = $cred
+}
+$vm3 = @{
+    PublisherName = 'MicrosoftWindowsServer'
+    Offer = 'WindowsServer'
+    Skus = '2019-Datacenter'
+    Version = 'latest'
+}
+$vmConfig = 
+New-AzVMConfig @vm1 | Set-AzVMOperatingSystem -Windows @vm2 | Set-AzVMSourceImage @vm3 | Add-AzVMNetworkInterface -Id $nicVM.Id
+
+## Create the virtual machine. ##
+New-AzVM -ResourceGroupName 'myResourceGroup' -Location 'eastus' -VM $vmConfig
+
+```
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
+## Test connectivity with the private endpoint
+
+Use the VM you created in the previous step to connect to the webapp across the private endpoint.
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+ 
+2. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines**.
+
+3. Select **myVM**.
+
+4. On the overview page for **myVM**, select **Connect**, and then select **Bastion**.
+
+5. Select the blue **Use Bastion** button.
+
+6. Enter the username and password that you used when you created the VM.
+
+7. After you've connected, open PowerShell on the server.
+
+8. Enter `nslookup <your-webapp-name>.azurewebsites.net`. Replace **\<your-webapp-name>** with the name of the web app that you created earlier.  You'll receive a message that's similar to the following:
+
+    ```powershell
+    Server:  UnKnown
+    Address:  168.63.129.16
+
+    Non-authoritative answer:
+    Name:    mywebapp8675.privatelink.azurewebsites.net
+    Address:  10.0.0.5
+    Aliases:  mywebapp8675.azurewebsites.net
+    ```
+
+    A private IP address of *10.0.0.5* is returned for the web app name. This address is in the subnet of the virtual network that you created earlier.
+
+9. In the bastion connection to **myVM**, open your web browser.
+
+10. Enter the URL of your web app, **https://\<your-webapp-name>.azurewebsites.net**.
+
+   If your web app hasn't been deployed, you'll get the following default web app page:
+
+    :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Screenshot of the default web app page on a browser." border="true":::
+
+1. Close the connection to **myVM**.
+
 ## Next steps
 
 To learn more about Private Link and Private endpoints, see
