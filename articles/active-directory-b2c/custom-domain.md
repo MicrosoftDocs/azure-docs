@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/12/2022
+ms.date: 05/13/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -77,7 +77,7 @@ Follow these steps to add a custom domain to your Azure AD B2C tenant:
     |login   | TXT  | MS=ms12345678  |
     |account | TXT  | MS=ms87654321  |
     
-    The TXT record must be associated with the subdomain, or hostname of the domain. For example, the *login* part of the *contoso.com* domain. If the hostname is empty or `@`, Azure AD will not be able to verify the custom domain you added. In the following examples, both records are configured incorrectly.
+    The TXT record must be associated with the subdomain, or hostname of the domain. For example, the *login* part of the *contoso.com* domain. If the hostname is empty or `@`, Azure AD won't be able to verify the custom domain you added. In the following examples, both records are configured incorrectly.
     
     |Name (hostname)  |Type  |Data  |
     |---------|---------|---------|
@@ -105,14 +105,14 @@ Follow these steps to create an Azure Front Door:
     
     1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch** button next to the directory. 
     
-1. Follow the steps in [Create Front Door profile - Quick Create](../frontdoor/create-front-door-portal.md#create-front-door-profile---quick-create) to create a Front Door for your Azure AD B2C tenant. Use the the following values: 
+1. Follow the steps in [Create Front Door profile - Quick Create](../frontdoor/create-front-door-portal.md#create-front-door-profile---quick-create) to create a Front Door for your Azure AD B2C tenant using the following settings: 
 
     
     |Key  |Value  |
     |---------|---------|
     |Subscription|Select your Azuresubscription.|
-    |Resource group| Select an existing resource group, or create new one.|
-    |Name| Give your profile a name. This example uses `b2cazurefrontdoor`.|
+    |Resource group| Select an existing resource group, or create a new one.|
+    |Name| Give your profile a name such as `b2cazurefrontdoor`.|
     |Tier| Select either Standard or Premium tier. Standard tier is content delivery optimized. Premium tier builds on Standard tier and is focused on security. See [Tier Comparison](../frontdoor/standard-premium/tier-comparison.md).|
     |Endpoint name| Enter a globally unique name for your endpoint, such as `b2cazurefrontdoor`. The **Endpoint hostname** is generated automatically. |
     |Origin type| Select `Custom`.|
@@ -121,18 +121,18 @@ Follow these steps to create an Azure Front Door:
     Leave the **Caching** and **WAF policy** empty.
 
      
-1. Once the Azure Front Door resource is created, select **Overview**, copy the **Endpoint hostname**. It looks something like `b2cazurefrontdoor-ab123e.z01.azurefd.net`. 
+1. Once the Azure Front Door resource is created, select **Overview**, and copy the **Endpoint hostname**. It looks something like `b2cazurefrontdoor-ab123e.z01.azurefd.net`. 
 
 
 ## Step 3. Set up your custom domain on Azure Front Door
 
 In this step, you add the custom domain you registered in [Step 1](#step-1-add-a-custom-domain-name-to-your-azure-ad-b2c-tenant) to your Azure Front Door. 
 
-### 3.1 Create a CNAME DNS record
+### 3.1. Create a CNAME DNS record
 
 To add the custom domain, create a canonical name (CNAME) record with your domain provider. A CNAME record is a type of DNS record that maps a source domain name to a destination domain name (alias). For Azure Front Door, the source domain name is your custom domain name, and the destination domain name is your Front Door default hostname you configure in [Step 2. Create a new Azure Front Door instance](#step-2-create-a-new-azure-front-door-instance). For example, `b2cazurefrontdoor-ab123e.z01.azurefd.net`.
 
-After Front Door verifies the CNAME record that you created, traffic addressed to the source custom domain (such as login.contoso.com) is routed to the specified destination Front Door default frontend host, such as `contoso-frontend.azurefd.net`. For more information, see [add a custom domain to your Front Door](../frontdoor/front-door-custom-domain.md). 
+After Front Door verifies the CNAME record that you created, traffic addressed to the source custom domain (such as `login.contoso.com`) is routed to the specified destination Front Door default frontend host, such as `contoso-frontend.azurefd.net`. For more information, see [add a custom domain to your Front Door](../frontdoor/front-door-custom-domain.md). 
 
 To create a CNAME record for your custom domain:
 
@@ -154,7 +154,7 @@ To create a CNAME record for your custom domain:
 
 1. Save your changes.
 
-### 3.2 Associate the custom domain with your Front Door
+### 3.2. Associate the custom domain with your Front Door
 
 1. In the Azure portal home, search for and select the `myb2cazurefrontdoor` Azure Front Door resource to open it. 
 
@@ -183,9 +183,9 @@ To create a CNAME record for your custom domain:
     
 1. Go back to your Azure portal. Under **Endpoint association** of the domain that you just added, select **Unassociated**. 
 
-1. For **Select endpoint**, select the the hostname endpoint from the dropdown.
+1. For **Select endpoint**, select the hostname endpoint from the dropdown.
 
-1.  For **Select routes** list, and select **default-route**, and then select **Associate**.
+1.  For **Select routes** list, select **default-route**, and then select **Associate**.
 
 ### 3.3 Enable the route
 
@@ -345,7 +345,7 @@ You can use Azure Front Door advanced configuration, such as [Azure Web Applicat
 When using custom domains, consider the following:
 
 - The WAF policy must be the same tier as the Azure Front Door profile. For more information about how to create a WAF policy to use with Azure Front Door, see [Configure WAF policy](../frontdoor/how-to-configure-endpoints.md).
-- The WAF managed rules feature is not officially supported because it can cause false positives and prevent legitimate requests from passing through, but you can use WAF custom rules if they meet your needs.
+- The WAF managed rules feature isn't officially supported because it can cause false positives and prevent legitimate requests from passing through, but you can use WAF custom rules if they meet your needs.
 
 ## Troubleshooting
 
@@ -365,7 +365,7 @@ When using custom domains, consider the following:
 
     ![Screenshot shows the status of the default-route](./media/custom-domain/azure-front-door-route-status.png)
 
-### Azure AD B2C returns the resource you are looking for has been removed, had its name changed, or is temporarily unavailable.
+### Azure AD B2C returns the resource you're looking for has been removed, had its name changed, or is temporarily unavailable.
 
 - **Symptom** - After you configure a custom domain, when you try to sign in with the custom domain, you get *the resource you are looking for has been removed, had its name changed, or is temporarily unavailable* error message.
 - **Possible causes** - This issue could be related to the Azure AD custom domain verification. 
@@ -374,7 +374,7 @@ When using custom domains, consider the following:
 ### Identify provider returns an error
 
 - **Symptom** - After you configure a custom domain, you're able to sign in with local accounts. But when you sign in with credentials from external [social or enterprise identity providers](add-identity-provider.md), the identity provider presents an error message.
-- **Possible causes** - When Azure AD B2C takes the user to sign in with a federated identity provider, it specifies the redirect URI. The redirect URI is the endpoint to where the identity provider returns the token. The redirect URI is the same domain your application uses with the authorization request. If the redirect URI is not yet registered in the identity provider, it may not trust the new redirect URI, which results in an error message. 
+- **Possible causes** - When Azure AD B2C takes the user to sign in with a federated identity provider, it specifies the redirect URI. The redirect URI is the endpoint to where the identity provider returns the token. The redirect URI is the same domain your application uses with the authorization request. If the redirect URI isn't yet registered in the identity provider, it may not trust the new redirect URI, which results in an error message. 
 - **Resolution** -  Follow the steps in [Configure your identity provider](#configure-your-identity-provider) to add the new redirect URI. 
 
 ## Frequently asked questions
@@ -389,7 +389,7 @@ Azure Front Door passes the user's original IP address. It's the IP address that
 
 ### Can I use a third-party Web Application Firewall (WAF) with B2C?
 
-Yes, Azure AD B2C supports BYO-WAF (Bring Your Own Web Application Firewall). However, you must test WAF to ensure that it does not block or alert legitimate requests to Azure AD B2C user flows or custom policies. Learn how to configure [Akamai WAF](partner-akamai.md) and [Cloudflare WAF](partner-cloudflare.md) with Azure AD B2C.
+Yes, Azure AD B2C supports BYO-WAF (Bring Your Own Web Application Firewall). However, you must test WAF to ensure that it doesn't block or alert legitimate requests to Azure AD B2C user flows or custom policies. Learn how to configure [Akamai WAF](partner-akamai.md) and [Cloudflare WAF](partner-cloudflare.md) with Azure AD B2C.
   
 ### Can my Azure Front Door instance be hosted in a different subscription than my Azure AD B2C tenant?
     
