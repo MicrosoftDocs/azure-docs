@@ -2,7 +2,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 05/11/2022
+ ms.date: 05/12/2022
  ms.author: cherylmc
  ms.custom: include file
 
@@ -35,7 +35,7 @@
 
 1. Open *profileinfo.txt* in a text editor. To get the thumbprint of the client (child) certificate, select the text including and between "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----" for the child certificate and copy it. You can identify the child certificate by looking at the subject=/ line.
 
-1. Open the *vpnconfig.ovpn* file and find the section shown below. Replace everything between the and "cert" and "/cert".
+1. Open the *vpnconfig.ovpn* file and find the section shown below. Replace everything between "cert" and "/cert".
 
    ```
    # P2S client certificate
@@ -47,7 +47,7 @@
 
 1. Open the profileinfo.txt in a text editor. To get the private key, select the text including and between "-----BEGIN PRIVATE KEY-----" and "-----END PRIVATE KEY-----" and copy it.
 
-1. Open the vpnconfig.ovpn file in a text editor and find this section. Paste the private key replacing everything between and "key" and "/key".
+1. Open the vpnconfig.ovpn file in a text editor and find this section. Paste the private key replacing everything between "key" and "/key".
 
    ```
    # P2S client root certificate private key
@@ -57,7 +57,7 @@
    </key>
    ```
 
-1. Do not change any other fields. Use the filled in configuration in client input to connect to the VPN.
+1. Don't change any other fields. Use the filled in configuration in client input to connect to the VPN.
 
 1. To connect using the command line, type the following command:
   
@@ -75,6 +75,6 @@
 
 1. Click **Add** on the **Add VPN** window.
   
-   :::image type="content" source="./media/vpn-gateway-vwan-config-openvpn-linux/import.png" alt-text="Screenshot shows Import from file." lightbox="./media/vpn-gateway-vwan-config-openvpn-linux/import.png":::
+   :::image type="content" source="./media/vpn-gateway-vwan-config-openvpn-linux/import.png" alt-text="Screenshot shows Import from file on the Add VPN page." lightbox="./media/vpn-gateway-vwan-config-openvpn-linux/import.png":::
 
 1. You can connect by turning the VPN **ON** on the **Network Settings** page, or under the network icon in the system tray.
