@@ -26,6 +26,9 @@ The following diagram provides a technical overview:
 
 :::image type="content" source="media/concept-azure-load-testing-vnet-injection/azure-load-testing-vnet-injection.png" alt-text="Diagram that shows the Azure Load Testing VNET injection technical overview.":::
 
+> [!IMPORTANT]
+> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Scenario: Load test an Azure-hosted private backend microservice
 
 In this scenario, you've deployed a microservice endpoint in a virtual network on Azure, which isn't publicly accessible. For example, the service could be behind an internal load balancer, running on a VM with a private IP address, etcetera.
