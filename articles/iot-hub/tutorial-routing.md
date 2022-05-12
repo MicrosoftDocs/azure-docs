@@ -13,9 +13,83 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-a
 
 # Tutorial: Use the Azure CLI and Azure portal to configure IoT Hub message routing
 
-[!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
+Use [message routing](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) in Azure IoT Hub to send telemetry data from your IoT devices Azure services such as blob storage, Service Bus Queues, Service Bus Topics, and Event Hubs.
 
-[!INCLUDE [iot-hub-include-routing-create-resources](../../includes/iot-hub-include-routing-create-resources.md)]
+Every IoT hub has a default built-in endpoint that is compatible with Event Hubs. You can also create custom endpoints and route messages to other Azure services by defining  [routing queries](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md). Each message that arrives at the IoT hub is routed to all endpoints whose routing queries it matches. If a message doesn't match any of the defined routing queries, it is routed to the default endpoint.
+
+In this tutorial, you perform the following tasks:
+
+> [!div class="checklist"]
+> * Create an IoT hub and send device messages to it.
+> * Create a storage account.
+> * Configure a custom endpoint and message route in IoT Hub for the storage account.
+> * View device messages arriving in the storage account blob.
+
+## Prerequisites
+
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](iot-hub-create-through-portal.md).
+
+* This tutorial uses sample code from [Azure IoT samples for C#](https://github.com/Azure-Samples/azure-iot-samples-csharp).
+
+  * Download or clone the samples repo to your development machine.
+  * Have .NET Core 3.0.0 or greater on your development machine. Check your version by running `dotnet --version` and [Download .NET](https://dotnet.microsoft.com/download) if necessary. <!-- TODO: update sample to use .NET 6.0 -->
+
+* Make sure that port 8883 is open in your firewall. The sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../articles/iot-hub/iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
+* Optionally, install [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer). This tool isn't necessary for completing the tutorial, but allows you to observe the messages as they arrive at your IoT hub.
+
+[!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
+
+## Register a device and send messages to IoT Hub
+
+Register a new device in your IoT hub.
+
+# [Azure portal](#tab/portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
+1. Select **Devices** from the **Device management** section of the menu.
+1. Select **Add device**.
+1. Provide a device ID and select **Save**.
+1. The new device should be in the list of devices now. If it's not, refresh the page. Select the device ID to open the device details page.
+1. Copy one of the device keys and save it. You'll use this value to configure the sample code that generates simulated device telemetry messages.
+
+# [Azure CLI](#tab/cli)
+
+1. Run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) command in your CLI shell. This creates the device identity.
+
+   *IOTHUB_NAME*. Replace this placeholder with the name of your IoT hub.
+
+   *DEVICE_NAME*. Replace this placeholder with any name you want to use for the device in this tutorial.
+
+    ```azurecli-interactive
+    az iot hub device-identity create --device-id DEVICE_NAME --hub-name IOTHUB_NAME 
+    ```
+
+1. Run the [az iot hub device-identity show](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-show) command.
+
+    ```azurecli-interactive
+    az iot hub device-identity show --device-id DEVICE_NAME --hub-name IOTHUB_NAME
+    ```
+
+1. From the device-identity output, copy the **primaryKey** value and save it. You'll use this value to configure the sample code that generates simulated device telemetry messages.
+
+---
+
+Now that you have a device ID and key, use the sample code to start sending device telemetry messages to IoT Hub.
+<!-- TODO: update sample to use environment variables, not inline variables -->
+
+1. If you didn't as part of the prerequisites, download or clone the [Azure IoT samples for C# repo](https://github.com/Azure-Samples/azure-iot-samples-csharp) from GitHub now.
+1. In the sample folder, navigate to the `/iot-hub/Tutorials/Routing/SimulatedDevice/` folder.
+1. In an editor of your choice, open the `Program.cs` file.
+1. Find the variable definitions at the top of the **Program** class. Update the following variables with your own information:
+
+   * **s_myDeviceId**: The device Id that you assigned when registering the device.
+   * **s_iotHubUri**: The hostname of your IoT hub, which takes the format `IOTHUB_NAME.azure-devices.net`.
+   * **s_deviceKey**: The device key that you copied from the device identity information.
+
+1. Save and close the file.
 
 ## Use the Azure CLI to create the base resources
 
