@@ -240,7 +240,7 @@
       href: service-bus-management-libraries.md
     - name: Suspend and reactivate messaging entities
       href: entity-suspend.md
-    - name: Use Service Bus Explorer to perform data operations on Service Bus
+    - name: Use Service Bus Explorer
       href: explorer.md
     - name: Use ARM templates
       href: service-bus-resource-manager-overview.md
