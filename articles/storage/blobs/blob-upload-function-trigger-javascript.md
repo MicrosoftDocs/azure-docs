@@ -5,7 +5,7 @@ author: diberry
 ms.author: diberry
 ms.service: storage
 ms.topic: tutorial
-ms.date: 3/11/2022
+ms.date: 05/13/2022
 ms.custom: devx-track-js
 ---
 
@@ -179,7 +179,7 @@ Next, we need to find the secret key and endpoint URL for the Computer Vision se
 
 1) On the **Computer Vision** overview page, select **Keys and Endpoint**.
 
-2) On the **Keys and EndPoint** page, copy the **Key 1** value and the **EndPoint** values and paste them somewhere to use for later.
+2) On the **Keys and EndPoint** page, copy the **Key 1** value and the **EndPoint** values and paste them somewhere to use for later. The endpoint should be in the format of `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/`
 
 :::image type="content" source="./media/blob-upload-storage-function/computer-vision-endpoints.png" alt-text="A screenshot showing how to retrieve the Keys and URL Endpoint for a Computer Vision service." :::
 
@@ -215,11 +215,12 @@ Once the Computer Vision service is created, you can retrieve the secret keys an
  
 
 ## Download and configure the sample project
-The code for the Azure Function used in this tutorial can be found in [this GitHub repository](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/tree/main/javascript). You can also clone the project using the command below.
+The code for the Azure Function used in this tutorial can be found in [this GitHub repository](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/tree/main/javascript), in the JavaScript subdirectory. You can also clone the project using the command below.
 
 ```terminal
 git clone https://github.com/Azure-Samples/msdocs-storage-bind-function-service.git \
-cd msdocs-storage-bind-function-service/javascript
+cd msdocs-storage-bind-function-service/javascript \
+code .
 ```
 
 The sample project accomplishes the following tasks:
@@ -234,7 +235,7 @@ Once you've downloaded and opened the project, there are a few essential concept
 |Concept|Purpose|
 |--|--|
 |Function|The Azure Function is defined by both the function code and the bindings. The function code is in [./ProcessImageUpload/index.js](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/blob/main/javascript/ProcessImageUpload/index.js). |
-|Triggers and bindings|The triggers and bindings indicate that data is expected into or out of the function and which service is going to send or receive that data. The trigger and binding for this function is in [./ProcessImageUpload/function.json](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/blob/main/javascript/ProcessImageUpload/function.json).|
+|Triggers and bindings|The triggers and bindings indicate that data which is expected into or out of the function and which service is going to send or receive that data. The trigger and bindings for this function is in [./ProcessImageUpload/function.json](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/blob/main/javascript/ProcessImageUpload/function.json).|
 
 ### Triggers and bindings
 The following [function.json](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/blob/main/javascript/ProcessImageUpload/function.json) file defines the triggers and bindings for this function:
@@ -242,12 +243,13 @@ The following [function.json](https://github.com/Azure-Samples/msdocs-storage-bi
 :::code language="JSON" source="~/msdocs-storage-bind-function-service/javascript/ProcessImageUpload/function.json" :::
 
 * **Data In** - The **BlobTrigger** (`"type": "blobTrigger"`) is used to bind the function to the upload event in Blob Storage. The trigger has two required parameters:
-    * `name`: The name of the blob **container** to monitor for uploads. 
-    * `connection`: The **connection string** of the storage account.
+    * `path`: The path the trigger watches for events. The path includes the container name,`imageanalysis`, and the variable substitution for the blob name. This blob name is retrieved from the `name` property. 
+    * `name`: The name of the blob uploaded. The use of the `myBlob` is the parameter name for the blob coming into the function. Don't change the value `myBlob`. 
+    * `connection`: The **connection string** of the storage account. The value `StorageConnection` matches the name in the `local.settings.json` file.
 
 * **Data Out** - The **TableBinding** (`"type": "table"`) is used to bind the outbound data to a Storage table.  
-    * `tableName`: The name of the table to write the parsed image text value returned by the function. 
-    * `connection`: The Table Storage connection string from the environment variable so that the Azure function has access to it. 
+    * `tableName`: The name of the table to write the parsed image text value returned by the function. The table must already exist. 
+    * `connection`: The **connection string** of the storage account. The value `StorageConnection` matches the name in the `local.settings.json` file.
 
 :::code language="javascript" source="~/msdocs-storage-bind-function-service/javascript/ProcessImageUpload/index.js" highlight="36-60":::
 
@@ -255,7 +257,7 @@ This code also retrieves essential configuration values from environment variabl
 
 The default function also utilizes a second method called `AnalyzeImage`. This code uses the URL Endpoint and Key of the Computer Vision account to make a request to Computer Vision to process the image.  The request returns all of the text discovered in the image. This text is written to Table Storage, using the outbound binding.
 
-### Running locally
+### Configure local settings
 
 To run the project locally, enter the environment variables in the `./local.settings.json` file. Fill in the placeholder values with the values you saved earlier when creating the Azure resources.
 
@@ -267,7 +269,7 @@ Although the Azure Function code runs locally, it connects to the cloud-based se
 
 You're now ready to deploy the application to Azure using a Visual Studio Code extension.  
 
-1. In Visual Studio Code, select <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd> to open the **Azure** sidebar.
+1. In Visual Studio Code, select <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd> to open the **Azure** explorer.
 1. In the **Functions** section, find and right-click the subscription, and select **Create Function App in Azure (Advanced)**.
 1. Use the following table to create the Function resource.
 
@@ -286,14 +288,18 @@ You're now ready to deploy the application to Azure using a Visual Studio Code e
 
 ## Deploy Azure Functions app
 
-1. When the previous resource creation process finishes, right-click the new resource in the **Functions** section of the Azure sidebar, and select **Deploy to Function App**.
+ 
+
+1. When the previous resource creation process finishes, right-click the new resource in the **Functions** section of the Azure explorer, and select **Deploy to Function App**.
 1. If asked **Are you sure you want to deploy...**, select **Deploy**.
+1. When the process completes, a notification appears which a choice which includes **Upload settings**. Select that option. This copies the values from your local.settings.json file into your Azure Function app. If the notification disappeared before you could select it, continue to the next section. 
 
 ## Add app settings for Storage and Computer Vision
+If you selected **Upload settings** in the notification, skip this section.
 
 The Azure Function was deployed successfully, but it can't connect to our Storage account and Computer Vision services yet. The correct keys and connection strings must first be added to the configuration settings of the Azure Functions app.
 
-1. Find your resource in the **Functions** section of the Azure sidebar, right-click **Application Settings**, and select **Add New Setting**.
+1. Find your resource in the **Functions** section of the Azure explorer, right-click **Application Settings**, and select **Add New Setting**.
 1. Enter a new app setting for the following secrets. Copy and paste your secret values from your local project in the `local.settings.json` file.
 
     |Setting|
@@ -312,24 +318,33 @@ All of the required environment variables to connect our Azure function to diffe
 
 You're now ready to test out our application! You can upload a blob to the container, and then verify that the text in the image was saved to Table Storage.
 
-1. In the Azure sidebar in Visual Studio Code, find and expand your Storage resource in the **Storage** section.
-1. Expand **Blob Containers** and right-click your container name, then select **Upload files**.
-1. You can find a few sample images included in the **images** folder at the root of the downloadable sample project, or you can use one of your own. 
+1. In the Azure explorer in Visual Studio Code, find and expand your Storage resource in the **Storage** section.
+1. Expand **Blob Containers** and right-click your container name, `imageanalysis`, then select **Upload files**.
+1. You can find a few sample images included in the **images** folder at the root of the downloadable sample project, or you can use one of your own.
+1. For the **Destination directory**, accept the default value, `/`. 
 1. Wait until the files are uploaded and listed in the container.
 
 ## View text analysis of image
 
 Next, you can verify that the upload triggered the Azure Function, and that the text in the image was analyzed and saved to Table Storage properly.
 
-1. Under the same Storage resource, expand **Tables** to find your resource. 
+1. In Visual Studio Code, in the Azure Explorer, under the same Storage resource, expand **Tables** to find your resource. 
 1. An **ImageText** table should now be available.  Click on the table to preview the data rows inside of it.  You should see an entry for the processed image text of an uploaded file.  You can verify this using either the Timestamp, or by viewing the content of the **Text** column.
 
 Congratulations! You succeeded in processing an image that was uploaded to Blob Storage using Azure Functions and Computer Vision.
+
+## Troubleshooting
+
+Please use the following table to help troubleshoot issues during this procedure.
+
+|Issue|Resolution|
+|--|--|
+|`await computerVisionClient.read(url);` errors with `Only absolute URLs are supported`|Make sure your `ComputerVisionEndPoint` endpoint is in the format of `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/`.|
 
 ## Clean up resources
 
 If you're not going to continue to use this application, you can delete the resources you created by removing the resource group.
 
-1. Select **Resource groups** from the Azure sidebar
+1. Select **Resource groups** from the Azure explorer
 1. Find and right-click the `msdocs-storage-function` resource group from the list.
 1. Select **Delete**. The process to delete the resource group may take a few minutes to complete.
