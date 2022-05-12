@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 05/12/2022
 ms.author: aahi
-ms.custom: language-service-clu, ignite-fall-2021
+ms.custom: language-service-clu, ignite-fall-2021, references_regions
 ---
 
 # Conversational language understanding limits
