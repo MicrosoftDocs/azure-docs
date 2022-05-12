@@ -174,7 +174,7 @@
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.datalake.analytics
   - name: Node.js
-    href: https://www.npmjs.com/package/azure-arm-datalake-analytics
+    href: https://www.npmjs.com/package/@azure/arm-datalake-analytics
   - name: Python
     href: /python/api/overview/azure/data-lake-analytics
   - name: REST

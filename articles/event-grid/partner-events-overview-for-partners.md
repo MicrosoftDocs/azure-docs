@@ -119,7 +119,7 @@ You have two options:
   * [Python](https://pypi.org/project/azure-mgmt-eventgrid/3.0.0rc6/)
   * [Java](https://search.maven.org/artifact/com.microsoft.azure.eventgrid.v2020_04_01_preview/azure-mgmt-eventgrid/1.0.0-beta-3/jar)
   * [Ruby](https://rubygems.org/gems/azure_mgmt_event_grid/versions/0.19.0)
-  * [JS](https://www.npmjs.com/package/@azure/arm-eventgrid/v/7.0.0)
+  * [JS](https://www.npmjs.com/package/@azure/arm-eventgrid/v/13.0.0)
   * [Go](https://github.com/Azure/azure-sdk-for-go)
 
 

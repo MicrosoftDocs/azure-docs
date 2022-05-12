@@ -43,10 +43,10 @@ You will then be presented a series of questions to initialize your project.  Fo
 
 ![NPM init output](./media/cdn-app-dev-node/cdn-npm-init.png)
 
-Our project is now initialized with a *packages.json* file.  Our project is going to use some Azure libraries contained in NPM packages.  We'll use the library for Azure Active Directory authentication in Node.js (@azure/ms-rest-nodeauth) and the Azure CDN Client Library for JavaScript (@azure/arm-cdn).  Let's add those to the project as dependencies.
+Our project is now initialized with a *packages.json* file.  Our project is going to use some Azure libraries contained in NPM packages.  We'll use the library for Azure Active Directory authentication in Node.js (@azure/identity) and the Azure CDN Client Library for JavaScript (@azure/arm-cdn).  Let's add those to the project as dependencies.
 
 ```console
-npm install --save @azure/ms-rest-nodeauth
+npm install --save @azure/identity
 npm install --save @azure/arm-cdn
 ```
 
@@ -64,8 +64,8 @@ After the packages are done installing, the *package.json* file should look simi
   "author": "Cam Soper",
   "license": "MIT",
   "dependencies": {
-    "@azure/arm-cdn": "^5.2.0",
-    "@azure/ms-rest-nodeauth": "^3.0.0"
+    "@azure/arm-cdn": "^7.0.1",
+    "@azure/identity": "^2.0.4"
   }
 }
 ```
@@ -78,7 +78,7 @@ With *app.js* open in our editor, let's get the basic structure of our program w
 1. Add the "requires" for our NPM packages at the top with the following:
    
     ``` javascript
-    var msRestAzure = require('@azure/ms-rest-nodeauth');
+    const { DefaultAzureCredential } = require("@azure/identity");
     const { CdnManagementClient } = require('@azure/arm-cdn');
     ```
 2. We need to define some constants our methods will use.  Add the following.  Be sure to replace the placeholders, including the **&lt;angle brackets&gt;**, with your own values as needed.
@@ -97,8 +97,8 @@ With *app.js* open in our editor, let's get the basic structure of our program w
 3. Next, we'll instantiate the CDN management client and give it our credentials.
    
     ``` javascript
-    var credentials = new msRestAzure.ApplicationTokenCredentials(clientId, tenantId, clientSecret);
-    var cdnClient = new CdnManagementClient(credentials, subscriptionId);
+    const credentials = new DefaultAzureCredential();
+    const cdnClient = new CdnManagementClient(credentials, subscriptionId);
     ```
 
 4. Our Node.js console application is going to take some command-line parameters.  Let's validate that at least one parameter was passed.
