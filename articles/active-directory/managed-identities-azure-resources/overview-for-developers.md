@@ -125,7 +125,7 @@ using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 using Azure.Core;
 
-SecretClientOptions options = new SecretClientOptions()
+var options = new SecretClientOptions
     {
         Retry =
         {
