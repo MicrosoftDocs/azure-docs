@@ -125,7 +125,6 @@ To help create your offer more easily, prepare some of these items ahead of time
 |Getting Started with Azure IoT in Manufacturing |Manufacturing IoT: 2-Day Assessment |
 |Workshop on Smart Toasters |Smart Toasters: 1-Week Workshop |
 |SQL Server Migration PoC by Contoso |SQL Migration: 3-Wk Proof of Concept |
-| | |
 
 **Search results summary**: Describe the purpose or goal of your offer in 200 characters or less. This summary is used in the commercial marketplace listing search results. It shouldn’t be identical to the title. Consider including your top SEO keywords.
 
@@ -140,7 +139,6 @@ When writing the description, follow these criteria, according to your service t
 |Implementation |Include a detailed agenda for implementations longer than a day, and describe what engineering changes, technical artifacts, or other artifacts a customer can expect as outcomes of the engagement. |
 |Proof of concept |Describe what engineering changes, technical artifacts, or other artifacts a customer can expect as outcomes of the engagement. |
 |Workshop |Include a detailed daily, weekly, or monthly agenda depending on the duration of your offer. Articulate the learning goals or other deliverables of your workshop. |
-| | |
 
 Here are some tips for writing your description:
 
@@ -182,7 +180,6 @@ Follow these guidelines for your logos:
 ## Pricing and availability
 
 Your consulting service offer can be made available in one or more countries or regions. In Partner Center, you can decide the price for each market you select. For the complete list of supported markets and currencies, see [Geographic availability and currency support for the commercial marketplace](./marketplace-geo-availability-currencies.md).
-
 
 ## Next steps
 
