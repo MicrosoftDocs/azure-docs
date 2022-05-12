@@ -18,7 +18,7 @@ When you move Azure Virtual Desktop resources between regions, these are some th
 - When exporting resources, you must move them as a set. All resources associated with a specific host pool have to stay together. A host pool and its associated app groups need to be in the same region.
 - Workspaces and their associated app groups also need to be in the same region.
 - All resources to be moved have to be in the same resource group. Template exports require having resources in the same group, so if you want them to be in a different location, you'll need to modify the exported template to change the location of its resources.
-- Once you're done moving your resources to a new region, you must delete the original resources. The resource ID of our resources won't change during the moving process, so there'll be a name conflict with your old resources if you don't delete them.
+- Once you're done moving your resources to a new region, you must delete the original resources. The resource ID of our resources won't change during the moving process, so there will be a name conflict with your old resources if you don't delete them.
 - Existing session hosts attached to a host pool that you move will stop working. You'll need to recreate the session hosts in the new region.
 
 ## Export a template
