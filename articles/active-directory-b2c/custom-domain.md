@@ -345,7 +345,7 @@ You can use Azure Front Door advanced configuration, such as [Azure Web Applicat
 When using custom domains, consider the following:
 
 - The WAF policy must be the same tier as the Azure Front Door profile. For more information about how to create a WAF policy to use with Azure Front Door, see [Configure WAF policy](../frontdoor/how-to-configure-endpoints.md).
-- The Azure Front Door advanced configuration settings are not officially supported. You can use them at your own risk. 
+- The WAF managed rules feature is not officially supported because it can cause false positives and prevent legitimate requests from passing through, but you can use WAF custom rules if they meet your needs.
 
 ## Troubleshooting
 
@@ -387,10 +387,10 @@ Copy the URL, change the domain name manually, and then paste it back to your br
 
 Azure Front Door passes the user's original IP address. It's the IP address that you'll see in the audit reporting or your custom policy.
 
-### Can I use a third-party web application firewall (WAF) with B2C?
+### Can I use a third-party Web Application Firewall (WAF) with B2C?
 
-To use your own web application firewall in front of Azure Front Door, you need to configure and validate that everything works correctly with your Azure AD B2C user flows, or custom policies.  
-
+Yes, Azure AD B2C supports BYO-WAF (Bring Your Own Web Application Firewall). However, you must test WAF to ensure that it does not block or alert legitimate requests to Azure AD B2C user flows or custom policies. Learn how to configure [Akamai WAF](https://docs.microsoft.com/en-us/azure/active-directory-b2c/partner-akamai) and [Cloudflare WAF](https://docs.microsoft.com/en-us/azure/active-directory-b2c/partner-cloudflare) with Azure AD B2C.
+  
 ### Can my Azure Front Door instance be hosted in a different subscription than my Azure AD B2C tenant?
     
 Yes, Azure Front Door can be in a different subscription.
