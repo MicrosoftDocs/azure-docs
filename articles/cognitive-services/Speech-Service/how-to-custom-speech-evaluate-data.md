@@ -19,7 +19,7 @@ In this article, you learn how to quantitatively measure and improve the accurac
 
 ## Create a test
 
-You can test the accuracy of your custom model by creating a test. A test requires a collection of audio files and their corresponding transcriptions. You can compare a custom model's accuracy a Microsoft speech-to-text baseline model or another custom model.
+You can test the accuracy of your custom model by creating a test. A test requires a collection of audio files and their corresponding transcriptions. You can compare a custom model's accuracy a Microsoft speech-to-text base model or another custom model.
 
 Follow these steps to create a test:
 

@@ -17,9 +17,9 @@ ms.custom: contperf-fy21q2, references_regions
 
 With Custom Speech, you can evaluate and improve the Microsoft speech-to-text accuracy for your applications and products. 
 
-Out of the box, speech to text utilizes a Universal Language Model as a baseline model that is trained with Microsoft-owned data and reflects commonly used spoken language. This baseline model is pre-trained with dialects and phonetics representing a variety of common domains. As a result, consuming the baseline model requires no additional configuration and works very well in most scenarios. When you make a speech recognition request, the current baseline model for each [supported language](language-support.md) is used by default.
+Out of the box, speech to text utilizes a Universal Language Model as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. This base model is pre-trained with dialects and phonetics representing a variety of common domains. As a result, consuming the base model requires no additional configuration and works very well in most scenarios. When you make a speech recognition request, the current base model for each [supported language](language-support.md) is used by default.
 
-A custom model can be used to augment the baseline model to improve recognition of domain-specific vocabulary specific to the application by providing text data to train the model. It can also be used to improve recognition based for the specific audio conditions of the application by providing audio data with reference transcriptions
+A custom model can be used to augment the base model to improve recognition of domain-specific vocabulary specific to the application by providing text data to train the model. It can also be used to improve recognition based for the specific audio conditions of the application by providing audio data with reference transcriptions
 
 For more information, see [Choose a model for Custom Speech](how-to-custom-speech-choose-model.md).
 

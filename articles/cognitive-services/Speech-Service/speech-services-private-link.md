@@ -248,7 +248,7 @@ A "standard" endpoint URL looks like: <p/>`{region}.{speech service offering}.sp
 
 A private endpoint URL looks like: <p/>`{your custom name}.cognitiveservices.azure.com/{speech service offering}/{URL path}`
 
-**Example 1.** An application is communicating by using the following URL (speech recognition using the baseline model for US English in West Europe):
+**Example 1.** An application is communicating by using the following URL (speech recognition using the base model for US English in West Europe):
 
 ```
 wss://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US

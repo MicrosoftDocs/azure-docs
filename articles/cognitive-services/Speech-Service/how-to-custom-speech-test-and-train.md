@@ -73,17 +73,17 @@ You can use audio + human-labeled transcript data for both [training](how-to-cus
 - To improve the acoustic aspects like slight accents, speaking styles, and background noises.
 - To measure the accuracy of Microsoft's speech-to-text accuracy when it's processing your audio files. 
 
-For a list of baseline models that support training with audio data, see [Language support](language-support.md#speech-to-text). Even if a baseline model does support training with audio data, the service might use only part of the audio. And it will still use all the transcripts.
+For a list of base models that support training with audio data, see [Language support](language-support.md#speech-to-text). Even if a base model does support training with audio data, the service might use only part of the audio. And it will still use all the transcripts.
 
 > [!IMPORTANT]
-> If a baseline model doesn't support customization with audio data, only the transcription text will be used for training. If you switch to a baseline model that supports customization with audio data, the training time may increase from several hours to several days. The change in training time would be most noticeable when you switch to a baseline model in a [region](regions.md#speech-to-text-pronunciation-assessment-text-to-speech-and-translation) without dedicated hardware for training. If the audio data is not required, you should remove it to decrease the training time. 
+> If a base model doesn't support customization with audio data, only the transcription text will be used for training. If you switch to a base model that supports customization with audio data, the training time may increase from several hours to several days. The change in training time would be most noticeable when you switch to a base model in a [region](regions.md#speech-to-text-pronunciation-assessment-text-to-speech-and-translation) without dedicated hardware for training. If the audio data is not required, you should remove it to decrease the training time. 
 
 Audio with human-labeled transcripts offers the greatest accuracy improvements if the audio comes from the target use case. Samples must cover the full scope of speech. For example, a call center for a retail store would get the most calls about swimwear and sunglasses during summer months. Ensure that your sample includes the full scope of speech that you want to detect.
 
 Consider these details:
 
 * Training with audio will bring the most benefits if the audio is also hard to understand for humans. In most cases, you should start training by using only related text.
-* If you use one of the most heavily used languages, such as US English, it's unlikely that you would need to train with audio data. For such languages, the baseline models already offer very good recognition results in most scenarios, so it's probably enough to train with related text.
+* If you use one of the most heavily used languages, such as US English, it's unlikely that you would need to train with audio data. For such languages, the base models already offer very good recognition results in most scenarios, so it's probably enough to train with related text.
 * Custom Speech can capture word context only to reduce substitution errors, not insertion or deletion errors.
 * Avoid samples that include transcription errors, but do include a diversity of audio quality.
 * Avoid sentences that are unrelated to your problem domain. Unrelated sentences can harm your model.
@@ -143,7 +143,7 @@ Expected utterances often follow a certain pattern. One common pattern is that u
 * "I have a question about `product`," where `product` is a list of possible products. 
 * "Make that `object` `color`," where `object` is a list of geometric shapes and `color` is a list of colors. 
 
-For a list of supported baseline models and locales for training with structured text, see [Language support](language-support.md#speech-to-text). You must use the latest baseline model for these locales. For locales that don't support training with structured text, the service will take any training sentences that don't reference any classes as part of training with plain-text data. 
+For a list of supported base models and locales for training with structured text, see [Language support](language-support.md#speech-to-text). You must use the latest base model for these locales. For locales that don't support training with structured text, the service will take any training sentences that don't reference any classes as part of training with plain-text data. 
 
 The structured-text file should have an .md extension. The maximum file size is 200 MB, and the text encoding must be UTF-8 BOM. The syntax of the Markdown is the same as that from the Language Understanding models, in particular list entities and example utterances. For more information about the complete Markdown syntax, see the <a href="/azure/bot-service/file-format/bot-builder-lu-file-format" target="_blank"> Language Understanding Markdown</a>. 
 
@@ -259,9 +259,9 @@ Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX</a> 
 
 ### Audio data for training
 
-Not all baseline models support [training with audio data](language-support.md#speech-to-text). For a list of baseline models that support training with audio data, see [Language support](language-support.md#speech-to-text). 
+Not all base models support [training with audio data](language-support.md#speech-to-text). For a list of base models that support training with audio data, see [Language support](language-support.md#speech-to-text). 
 
-Even if a baseline model supports training with audio data, the service might use only part of the audio. In [regions](regions.md#speech-to-text-pronunciation-assessment-text-to-speech-and-translation) with dedicated hardware available for training audio data, the Speech service will use up to 20 hours of your audio training data. In other regions, the Speech service uses up to 8 hours of your audio data.
+Even if a base model supports training with audio data, the service might use only part of the audio. In [regions](regions.md#speech-to-text-pronunciation-assessment-text-to-speech-and-translation) with dedicated hardware available for training audio data, the Speech service will use up to 20 hours of your audio training data. In other regions, the Speech service uses up to 8 hours of your audio data.
 
 ## Next steps
 

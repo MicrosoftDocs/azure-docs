@@ -17,7 +17,7 @@ ms.author: eur
 In this article, you'll learn how to deploy an endpoint for a Custom Speech model. A custom endpoint that you deploy is required to use a Custom Speech model. 
 
 > [!NOTE]
-> You can deploy an endpoint to use a baseline model without training or testing. For example, you might want to quickly create a custom endpoint to start testing your application. The endpoint can be [updated](#change-model-and-redeploy-endpoint) later to use a trained and tested model. 
+> You can deploy an endpoint to use a base model without training or testing. For example, you might want to quickly create a custom endpoint to start testing your application. The endpoint can be [updated](#change-model-and-redeploy-endpoint) later to use a trained and tested model. 
 
 ## Add a deployment endpoint
 

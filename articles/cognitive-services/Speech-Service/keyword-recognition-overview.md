@@ -48,8 +48,8 @@ You can use custom keyword to generate two types of on-device models for any key
 
 | Model type | Description |
 | ---------- | ----------- |
-| Basic | Best suited for demo or rapid prototyping purposes. Models are generated with a common baseline model and can take up to 15 minutes to be ready. Models might not have optimal accuracy characteristics. |
-| Advanced | Best suited for product integration purposes. Models are generated with adaptation of a common baseline model by using simulated training data to improve accuracy characteristics. It can take up to 48 hours for models to be ready. |
+| Basic | Best suited for demo or rapid prototyping purposes. Models are generated with a common base model and can take up to 15 minutes to be ready. Models might not have optimal accuracy characteristics. |
+| Advanced | Best suited for product integration purposes. Models are generated with adaptation of a common base model by using simulated training data to improve accuracy characteristics. It can take up to 48 hours for models to be ready. |
 
 > [!NOTE]
 > You can view a list of regions that support the **Advanced** model type in the [keyword recognition region support](regions.md#keyword-recognition) documentation.
