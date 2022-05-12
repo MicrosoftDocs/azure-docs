@@ -32,7 +32,7 @@ Features include:
 
 ## Configuration
 
-The following an example of the `containers` array in the [`properties.template`](azure-resource-manager-api-spec.md#propertiestemplate) section of container app resource template.  The excerpts shows the available configuration options when setting up a container.
+The following is an example of the `containers` array in the [`properties.template`](azure-resource-manager-api-spec.md#propertiestemplate) section of a container app resource template.  The excerpt shows the available configuration options when setting up a container.
 
 ```json
 "containers": [
@@ -105,7 +105,7 @@ The following an example of the `containers` array in the [`properties.template`
 | `env` | An array of key/value pairs that define environment variables. | Use `secretRef` instead of the `value` field to refer to a secret. |
 | `resources.cpu` | The number of CPUs allocated to the container. | Values must adhere to the following rules: the value must be greater than zero and less than or equal to 2, and can be any decimal number, with a maximum of two decimal places. For example, `1.25` is valid, but `1.555` is invalid. The default is 0.5 CPU per container. |
 | `resources.memory` | The amount of RAM allocated to the container. | This value is up to `4Gi`. The only allowed units are [gibibytes](https://simple.wikipedia.org/wiki/Gibibyte) (`Gi`). Values must adhere to the following rules: the value must be greater than zero and less than or equal to `4Gi`, and can be any decimal number, with a maximum of two decimal places. For example, `1.25Gi` is valid, but `1.555Gi` is invalid. The default is `1Gi` per container.  |
-| `probes`| An array of health probes to enable in the container. | Based on Kubernetes health probes. For more information about probes settings see [Health probes in Azure Container Apps](health-probes.md).|
+| `probes`| An array of health probes enabled in the container. | Based on Kubernetes health probes. For more information about probes settings see [Health probes in Azure Container Apps](health-probes.md).|
 
 
 Note that when allocating resources, the total amount of CPUs and memory requested for all the containers in a container app must add up to one of the following combinations.
@@ -121,8 +121,8 @@ Note that when allocating resources, the total amount of CPUs and memory request
 | `1.75` | `3.5Gi` |
 | `2.0` | `4.0Gi` |
 
-- All of the CPU requests in all of your containers must match one of the values in the vCPUs column.
-- All of the memory requests in all your containers must match the memory value in the memory column in the same row of the CPU column.
+- The total of the CPU requests in all of your containers must match one of the values in the vCPUs column.
+- The total of the memory requests in all your containers must match the memory value in the memory column in the same row of the CPU column.
 
 ## Multiple containers
 
@@ -155,7 +155,7 @@ To use a container registry, you define the required fields in `registries` arra
 }
 ```
 
-With registry information set up, the saved credentials can be used to pull a container image from the private registry when your app is deployed.
+With the registry information set up, the saved credentials can be used to pull a container image from the private registry when your app is deployed.
 
 The following example shows how to configure Azure Container Registry credentials in a container app.
 
@@ -183,7 +183,12 @@ The following example shows how to configure Azure Container Registry credential
 
 ### Managed identity with Azure Container Registry
 
-You can use an Azure managed identity to authenticate with Azure Container Registry instead of using a username and password. To use a managed identity, assign a system-assigned or user-assigned managed identity to your container app, then specify the managed identity you want to use for each registry using the managed identity resource ID for user-assigned, or "system" for system-assigned. For more information about using managed identities see, [Managed identities in Azure Container Apps Preview](managed-identity.md).
+You can use an Azure managed identity to authenticate with Azure Container Registry instead of using a username and password. To use a managed identity:
+
+- Assign a system-assigned or user-assigned managed identity to your container app.
+- Specify the managed identity you want to use for each registry.
+
+When assigned a managed identity to a registry, use the managed identity resource ID for a user-assigned identity, or "system" for the system-assigned identity. For more information about using managed identities see, [Managed identities in Azure Container Apps Preview](managed-identity.md).
 
 ```json
 {
@@ -212,9 +217,9 @@ You can use an Azure managed identity to authenticate with Azure Container Regis
 
 The managed identity must have `AcrPull` access for the Azure Container Registry. For more information about assigning Azure Container Registry permissions to managed identities, see [Authenticate with managed identity](../container-registry/container-registry-authentication-managed-identity.md).
 
-#### To configure a user-assigned managed identity
+#### Configure a user-assigned managed identity
 
-You can configure a user-assigned managed identity by:
+To configure a user-assigned managed identity:
 
 1. Create the user-assigned identity if it doesn't exist.
 1. Give the user-assigned identity `AcrPull` permission to your private repository.
@@ -223,23 +228,20 @@ You can configure a user-assigned managed identity by:
 For more information about configuring user-assigned identities, see [Add a user-assigned identity](managed-identity.md#add-a-user-assigned-identity).
 
 
-#### To configure a system-assigned managed identity
+#### Configure a system-assigned managed identity
 
 System-assigned identities are created at the time your container app is created, and therefore, won't have `AcrPull` access to your Azure Container Registry.  As a result, the image can't be pulled from your private registry when your app is first deployed.
 
 To configure a system-assigned identity, you must use one of the following methods.
 
-Use a public registry for the initial deployment:
-
-1. Create your container app using a public image and a system-assigned identity.
-1. Give the new system-assigned identity `AcrPull` access to your private Azure Container Registry.
-1. Update your container app replacing the public image with the image from your private Azure Container Registry.
-
-Or restart your app after assigning permissions:
-
-1. Create your container app using a private image and a system-assigned identity. (The deployment will result in a failure to pull the image.)
-1. Give the new system-assigned identity `AcrPull` access to your private Azure Container Registry.
-1. Restart your container app revision.
+- Use a public registry for the initial deployment:
+  1. Create your container app using a public image and a system-assigned identity.
+  1. Give the new system-assigned identity `AcrPull` access to your private Azure Container Registry.
+  1. Update your container app replacing the public image with the image from your private Azure Container Registry.
+- Or restart your app after assigning permissions:
+  1. Create your container app using a private image and a system-assigned identity. (The deployment will result in a failure to pull the image.)
+  1. Give the new system-assigned identity `AcrPull` access to your private Azure Container Registry.
+  1. Restart your container app revision.
 
 For more information about configuring system-assigned identities, see [Add a system-assigned identity](managed-identity.md#add-a-system-assigned-identity).
 
