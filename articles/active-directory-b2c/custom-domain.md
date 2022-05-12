@@ -166,9 +166,9 @@ To create a CNAME record for your custom domain:
 
 1. For **Custom domain**, enter your custom domain, such as `login.contoso.com`.
 
-1. Keep the other values as defaults, and then select **Add**. A new domain is added to the list. 
+1. Keep the other values as defaults, and then select **Add**. Your custom domain is added to the list. 
 
-1. Under **Validation state**, of the domain that you just added, select **Pending**. A pane with TXT record info opens. 
+1. Under **Validation state** of the domain that you just added, select **Pending**. A pane with a TXT record info opens. 
 
     1. Sign in to the web site of the domain provider for your custom domain.
 
