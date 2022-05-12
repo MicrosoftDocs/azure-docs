@@ -1,6 +1,6 @@
 ---
-title: Access provisioning by data owner for Azure SQL DB
-description: Step-by-step guide on how to configure access for Azure SQL DB through Microsoft Purview access policies.
+title: Provision access by data owner for Azure SQL DB (preview)
+description: Step-by-step guide on how data owners can configure access for Azure SQL DB through Microsoft Purview access policies.
 author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 05/10/2022
 ms.custom: references_regions
 ---
-# Access provisioning by data owner for Azure SQL DB (preview)
+# Provision access by data owner for Azure SQL DB (preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
@@ -88,7 +88,7 @@ The Azure AD Accounts referenced in the access policies should now be able to co
 #### Force policy download
 It is possible to force an immediate download of the latest published policies to the current SQL database by running the following command. The minimal permission required to run it is membership in ##MS_ServerStateManager##-server role.
 
-```syntaxsql
+```sql
 -- Force immediate download of latest published policies
 exec sp_external_policy_refresh reload
 ```  
@@ -96,7 +96,7 @@ exec sp_external_policy_refresh reload
 #### Analyze downloaded policy state from SQL
 The following DMVs can be used to analyze which policies have been downloaded and are currently assigned to Azure AD accounts. The minimal permission required to run them is VIEW DATABASE SECURITY STATE - or assigned Action Group *SQL Security Auditor*.
 
-```syntaxsql
+```sql
 
 -- Lists generally supported actions
 SELECT * FROM sys.dm_server_external_policy_actions
@@ -117,24 +117,24 @@ This section contains a reference of how actions in Microsoft Purview data polic
 | **Microsoft Purview policy action** | **Data source specific actions**     |
 |-------------------------------------|--------------------------------------|
 |                                     |                                      |
-| *Read* |<sub>Microsoft.Sql/sqlservers/Connect |
-||<sub>Microsoft.Sql/sqlservers/databases/Connect |
-||<sub>Microsoft.Sql/Sqlservers/Databases/Schemas/Tables/Rows|
-||<sub>Microsoft.Sql/Sqlservers/Databases/Schemas/Views/Rows |
+| *Read* |Microsoft.Sql/sqlservers/Connect |
+||Microsoft.Sql/sqlservers/databases/Connect |
+||Microsoft.Sql/Sqlservers/Databases/Schemas/Tables/Rows|
+||Microsoft.Sql/Sqlservers/Databases/Schemas/Views/Rows |
 |||
-| *SQL Performance Monitor* |<sub>Microsoft.Sql/sqlservers/Connect |
-||<sub>Microsoft.Sql/sqlservers/databases/Connect |
-||<sub>Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerMetadata/rows/select |
-||<sub>Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseMetadata/rows/select |
-||<sub>Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerState/rows/select |
-||<sub>Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseState/rows/select |
+| *SQL Performance Monitor* |Microsoft.Sql/sqlservers/Connect |
+||Microsoft.Sql/sqlservers/databases/Connect |
+||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerMetadata/rows/select |
+||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseMetadata/rows/select |
+||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerState/rows/select |
+||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseState/rows/select |
 |||               
-| *SQL Security Auditor* |<sub>Microsoft.Sql/sqlservers/Connect |
-||<sub>Microsoft.Sql/sqlservers/databases/Connect |
-||<sub>Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityState/rows/select |
-||<sub>Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseSecurityState/rows/select |
-||<sub>Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityMetadata/rows/select |
-||<sub>Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseSecurityMetadata/rows/select |
+| *SQL Security Auditor* |Microsoft.Sql/sqlservers/Connect |
+||Microsoft.Sql/sqlservers/databases/Connect |
+||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityState/rows/select |
+||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseSecurityState/rows/select |
+||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityMetadata/rows/select |
+||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseSecurityMetadata/rows/select |
 |||
 
 ## Next steps
