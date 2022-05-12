@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Use 3D Scenes Studio (all features)
+title: Use 3D Scenes Studio (preview)
 titleSuffix: Azure Digital Twins
-description: Learn how to use all the features of 3D Scenes Studio for Azure Digital Twins.
+description: Learn how to use all the features of 3D Scenes Studio (preview) for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 05/03/2022
@@ -15,9 +15,9 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Build 3D scenes with 3D Scenes Studio for Azure Digital Twins
+# Build 3D scenes with 3D Scenes Studio (preview) for Azure Digital Twins
 
-Azure Digital Twins [3D Scenes Studio](https://explorer.digitaltwins.azure.net/3dscenes) is an immersive 3D environment, where business and front-line workers can consume and investigate operational data from their Azure Digital Twins solutions with visual context.
+Azure Digital Twins [3D Scenes Studio (preview)](https://explorer.digitaltwins.azure.net/3dscenes) is an immersive 3D environment, where business and front-line workers can consume and investigate operational data from their Azure Digital Twins solutions with visual context.
 
 ## Prerequisites
 

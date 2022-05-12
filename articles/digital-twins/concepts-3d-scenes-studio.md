@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: 3D Scenes Studio for Azure Digital Twins
+title: 3D Scenes Studio (preview) for Azure Digital Twins
 titleSuffix: Azure Digital Twins
-description: Learn about 3D Scenes Studio for Azure Digital Twins.
+description: Learn about 3D Scenes Studio (preview) for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 05/04/2022
@@ -15,9 +15,9 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# 3D Scenes Studio for Azure Digital Twins
+# 3D Scenes Studio (preview) for Azure Digital Twins
 
-Azure Digital Twins [3D Scenes Studio](https://explorer.digitaltwins.azure.net/3dscenes) is an immersive 3D environment, where end users can monitor, diagnose, and investigate operational data with the visual context of 3D assets. 3D Scenes Studio empowers organizations to enrich existing 3D models with visualizations powered by Azure Digital Twins data, without the need for 3D expertise. The visualizations can be easily consumed from web browsers. 
+Azure Digital Twins [3D Scenes Studio (preview)](https://explorer.digitaltwins.azure.net/3dscenes) is an immersive 3D environment, where end users can monitor, diagnose, and investigate operational data with the visual context of 3D assets. 3D Scenes Studio empowers organizations to enrich existing 3D models with visualizations powered by Azure Digital Twins data, without the need for 3D expertise. The visualizations can be easily consumed from web browsers. 
 
 With a digital twin graph and curated 3D model, subject matter experts can leverage the studio's low-code builder to map the 3D elements to the digital twin, and define UI interactivity and business logic for a 3D visualization of a business environment. The 3D scenes can then be consumed in the hosted [Azure Digital Twins Explorer 3D Scenes Studio](concepts-azure-digital-twins-explorer.md), or in a custom application that leverages the embeddable 3D viewer component.
 

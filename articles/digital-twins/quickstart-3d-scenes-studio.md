@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Quickstart - Get started with 3D Scenes Studio
+title: Quickstart - Get started with 3D Scenes Studio (preview)
 titleSuffix: Azure Digital Twins
-description: Learn how to use 3D Scenes Studio for Azure Digital Twins by following this demo, where you'll create a sample scene with elements and behaviors.
+description: Learn how to use 3D Scenes Studio (preview) for Azure Digital Twins by following this demo, where you'll create a sample scene with elements and behaviors.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 05/04/2022
@@ -15,9 +15,9 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Quickstart - Get started with 3D Scenes Studio for Azure Digital Twins
+# Quickstart - Get started with 3D Scenes Studio (preview) for Azure Digital Twins
 
-Azure Digital Twins *3D Scenes Studio* is an immersive 3D environment, where business and front-line workers can consume and investigate operational data from their Azure Digital Twins solutions with visual context.
+Azure Digital Twins *3D Scenes Studio (preview)* is an immersive 3D environment, where business and front-line workers can consume and investigate operational data from their Azure Digital Twins solutions with visual context.
 
 In this article, you'll set up all the required resources for using 3D Scenes Studio, including an Azure Digital Twins instance with sample data, and Azure storage resources. Then, you'll create a scene in the studio that's connected to the sample Azure Digital Twins environment.
 
