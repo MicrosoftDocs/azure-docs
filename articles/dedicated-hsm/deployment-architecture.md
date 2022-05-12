@@ -29,6 +29,8 @@ The HSMs are distributed across Microsoft’s data centers and can be easily pro
 * East US 2
 * West US
 * West US 2
+* Canada East
+* Canada Central
 * South Central US
 * Southeast Asia
 * East Asia
