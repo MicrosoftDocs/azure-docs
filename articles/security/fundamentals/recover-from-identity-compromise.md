@@ -95,7 +95,7 @@ Therefore, we recommend also taking the following actions:
 
 - Make sure that you've applied the [Azure security benchmark documentation](/security/benchmark/azure/), and are monitoring compliance via [Microsoft Defender for Cloud](../../security-center/index.yml).
 
-- Incorporate threat intelligence feeds into your SIEM, such as by configuring Microsoft 365 data connectors in [Microsoft Sentinel](../../sentinel/understand-threat-intelligence.md).
+- Incorporate threat intelligence feeds into your SIEM, such as by configuring Microsoft Purview Data Connectors in [Microsoft Sentinel](../../sentinel/understand-threat-intelligence.md).
 
 For more information, see Microsoft's security documentation:
 
