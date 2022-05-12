@@ -50,7 +50,7 @@ First, you'll need to replicate your VMs to the secondary location. Your options
 - You can create a new host pool in the failover region while keeping all resources in your failover location turned off. For this method, you'd need to set up new app groups and workspaces in the failover region. You can then use an Azure Site Recovery plan to turn host pools on.
 - You can create a host pool that's populated by VMs built in both the primary and failover regions while keeping the VMs in the failover region turned off. In this case, you only need to set up one host pool and its related app groups and workspaces. You can use an Azure Site Recovery plan to power on host pools with this method.
 
-We recommend you use [Azure Site Recovery](../site-recovery/site-recovery-overview.md) to manage replicating VMs to other Azure locations, as described in [Azure-to-Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md). We especially recommend using Azure Site Recovery for personal host pools. We especially recommend using Azure Site Recovery for personal host pools, because personal host pool by their very nature tend to have something that is personal about it for its user. Azure Site Recovery supports both [server-based and client-based SKUs](../site-recovery/azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
+We recommend you use [Azure Site Recovery](../site-recovery/site-recovery-overview.md) to manage replicating VMs to other Azure locations, as described in [Azure-to-Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md). We especially recommend using Azure Site Recovery for personal host pools, because personal host pool by their very nature tend to have something that is personal about it for its user. Azure Site Recovery supports both [server-based and client-based SKUs](../site-recovery/azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 
 If you use Azure Site Recovery, you won't need to register these VMs manually. The Azure Virtual Desktop agent in the secondary VM will automatically use the latest security token to connect to the service instance closest to it. The VM (session host) in the secondary location will automatically become part of the host pool. The end-user will have to reconnect during the process, but apart from that, there are no other manual operations.
 
@@ -107,10 +107,29 @@ Here are some examples of ways you can set up disaster recovery for user profile
     
      >[!NOTE]
      >NetApp replication is automatic after you first set it up. With Azure Site Recovery plans, you can add pre-scripts and post-scripts to fail over non-VM resources replicate Azure Storage resources.
+### S2D
 
-   - Set up disaster recovery for app data only to ensure access to business-critical data at all times. With this method, you can retrieve user data after the outage is over.
+Since S2D handles replication across regions internally, you don't need to manually set up the secondary path.
 
-Let’s take a look at how to configure FSLogix to set up disaster recovery for each option.
+### Network drives (VM with extra drives)
+
+If you replicate the network storage VMs using Azure Site Recovery like the session host VMs, then the recovery keeps the same path, which means you don't need to reconfigure FSlogix.
+If you replicate the network storage VMs using Azure Site Recovery like the session host VMs, then the recovery keeps the same path, which means you don't need to reconfigure FSLogix.
+
+### Azure Files
+
+Azure Files supports cross-region asynchronous replication that you can specify when you create the storage account. If the asynchronous nature of Azure Files already covers your disaster recovery goals, then you don't need to do additional configuration.
+If you need synchronous replication to minimize data loss, then we recommend you use FSLogix Cloud Cache instead.
+
+>[!NOTE]
+>This section doesn't cover the failover authentication mechanism for
+Azure Files.
+>This section doesn't cover the failover authentication mechanism for Azure Files.
+### Azure NetApp Files
+
+Learn more about Azure NetApp Files at [Create replication peering for Azure NetApp Files](../azure-netapp-files/cross-region-replication-create-peering.md).
+
+Let’s take a look at how to configure FSLogix for disaster recovery.
 
 ### FSLogix configuration
 
@@ -134,7 +153,7 @@ To configure the registry entries:
 
 If the first location is unavailable, the FSLogix agent will automatically fail over to the second, and so on.
 
-We recommend you configure the FSLogix agent VHDLocation registry setting with both storage locations in both of the Azure locations you have deployed them. To configure the VHDLocation registry setting, you'll need to set up two different group policies. The first group policy is for the session hosts located in primary region with the corresponding storage locations ordered with the primary first and the secondary second. The second group policy would be for the session hosts in the secondary location with the storage options reversed, so that the secondary storage location is listed first for only the VMs in the secondary or failover site.
+We recommend you configure the FSLogix agent VHDLocation registry setting with both storage locations in both of the Azure locations you have deployed them. To configure the VHDLocation registry setting, you'll need to set up two different group policies. The first group policy is for the session hosts located in the primary region with the corresponding storage locations ordered with the primary first and the secondary second. The second group policy would be for the session hosts in the secondary location with the storage options reversed, so that the secondary storage location is listed first for only the VMs in the secondary or failover site.
 
 For example, let's say your primary session host VMs are in the Central US region, and the profile container is also in the Central US region for performance reasons. In this case, you'd configure the FSLogix agent with a path to the storage in the Central US region listed first. Next, you'd configure the the storage service you used in the previous example to replicate to the West US region. Once the path to Central US fails, the agent will try to load the profile in West US instead.
 

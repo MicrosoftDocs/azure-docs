@@ -97,7 +97,7 @@ When using this disaster recovery strategy, it's important to keep the following
 
 - Having multiple session hosts online across many regions can impact user experience. The managed network load balancer doesn't account for geographic proximity, instead treating all hosts in a host pool equally.
 
-- Having multiple active user sessions across regions using the same FSLogix cloud cache can corrupt user profiles. We recommend you use only one active Azure Virtual Desktop session on the same FSLogix cloud cache at a time. The service evaluates RemoteApps as multi-session occurrences, and desktops as single-session occurrences, which means you should avoid active or active host pool configurations.
+- Having multiple active user sessions across regions using the same FSLogix cloud cache can corrupt user profiles. We recommend you have only one active Azure Virtual Desktop session using the same FSLogix cloud cache at a time. The service evaluates RemoteApps as multi-session occurrences, and desktops as single-session occurrences, which means you should avoid multiple connections to the same FSLogix profile.
 
 - Make sure that you configure your virtual machines (VMs) exactly the same way within your host pool. Also, make sure all VMs within your host pool are the same size. If your VMs aren't the same, the managed network load balancer will distribute user connections evenly across all available VMs. The smaller VMs may become resource-constrained earlier than expected compared to larger VMs, resulting in a negative user experience.
 
