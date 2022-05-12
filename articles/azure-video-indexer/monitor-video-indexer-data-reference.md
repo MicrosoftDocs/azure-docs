@@ -69,7 +69,7 @@ Namespace- [Microsoft.Compute/virtualMachinesscaleset](/azure/azure-monitor/plat
 <!-- Keep this text as-is -->
 For more information, see a list of [all platform metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
-## Metric Dimensions
+## Metric dimensions
 
 Azure Video Indexer currently does not support any monitoring on metrics.
 <!-- REQUIRED. Please  keep headings in this order -->
