@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Pin and share a Change Analysis query to the Azure dashboard
 
-Let's say you want to curate a change view on specific resources, like all Virtual Machine changes in your subscription, and include it in a report sent periodically. You can pin the view to an Azure dashboard for monitoring or sharing scenarios. If there is a specific change you want to share with your team members, you can use the share feature in the Change Details page.
+Let's say you want to curate a change view on specific resources, like all Virtual Machine changes in your subscription, and include it in a report sent periodically. You can pin the view to an Azure dashboard for monitoring or sharing scenarios. If you'd like to share a specific change with your team members, you can use the share feature in the Change Details page.
 
 ## Pin to the Azure dashboard
 
@@ -28,8 +28,8 @@ A side pane will open to configure the dashboard where you'll place your pin. Yo
 
 | Dashboard type | Description |
 | -------------- | ----------- |
-| Private | Only you can access a private dashboard. Choose this option if you are creating the pin for your own easy access to the changes. |
-| Shared | A shared dashboard supports role-based access control for view/read access. Shared dashboards are created as a resource in your subscription with a region and resource group to host it. Choose this option if you are creating the pin to share with your team. |
+| Private | Only you can access a private dashboard. Choose this option if you're creating the pin for your own easy access to the changes. |
+| Shared | A shared dashboard supports role-based access control for view/read access. Shared dashboards are created as a resource in your subscription with a region and resource group to host it. Choose this option if you're creating the pin to share with your team. |
 
 **Select an existing dashboard**
 
@@ -50,12 +50,12 @@ You can create a new dashboard for this pin.
 1. Select the **Create new** tab. 
 1. Select either **Private** or **Shared**. 
 1. Enter the name of the new dashboard.
-1. If you are creating a shared dashboard, enter the resource group and region information. 
+1. If you're creating a shared dashboard, enter the resource group and region information. 
 1. Click **Create and pin**. 
 
    :::image type="content" source="./media/change-analysis/create-pin-dashboard.png" alt-text="Screenshot of creating a new dashboard to pin your changes to.":::
 
-Once the dashboard and pin are created, navigate to the Azure Portal dashboard to view them.
+Once the dashboard and pin are created, navigate to the Azure dashboard to view them.
 
 1. From the Azure portal home menu, select **Dashboard**. Use the **Manage Sharing** button in the top menu to handle access or "unshare". Click on the pin to navigate to the curated view of changes.
 
