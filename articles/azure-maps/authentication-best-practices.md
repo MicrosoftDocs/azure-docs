@@ -26,7 +26,6 @@ When considering best practices for securing your Azure Maps applications, you'l
 
 When creating an Azure Maps account, you must select a SKU. There are currently three different SKUs that you can select, and each has different capabilities as well as cost structures that impact your potential liability if hackers gain access to your account and performs billable transactions.
 
-For example, if you have a *Gen 1 S1* or *Gen 2* SKU account, and a malicious actor obtains a [shared key](azure-maps-authentication.md#shared-key-authentication) from an HTTP request, they may be able to submit a [Batch Search request](/rest/api/maps/search/get-search-address-batch#submit-asynchronous-batch-request) for 10,000 transactions and the account will be charged. This isn't possible if your Azure Maps account SKU is *Gen 1 S0* since batch search requests aren't available. Another way the S0 SKU can lower your risk is by supporting a lower number of [queries per second](azure-maps-qps-rate-limits.md) (QPS). The S0 SKU might be a good choice for someone new to Azure Maps, or for small-scale deployments that don't require the added capabilities offered by the S1 or Gen 2 SKUs.
 
 For more information about the costs associated with each SKU and what capabilities they support, see [Azure Maps pricing](https://azure.microsoft.com/pricing/details/azure-maps/).
 
