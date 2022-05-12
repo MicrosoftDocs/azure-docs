@@ -136,6 +136,20 @@ On this tab, you can select a metric tile and deep dive to understand its trend 
 > [!div class="mx-imgBorder"]
 > [![Screenshot of cluster boundaries.](./media/data-explorer/cluster-boundaries.png)](./media/data-explorer/cluster-boundaries.png#lightbox)
 
+### Ingestion tab (preview tab)
+
+The **Ingestion tab** tab allowes you to  monitor the status of batching ingestion operations to the cluster.
+In the [batching ingestion](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#batching-vs-streaming-ingestion) process, Azure Data Explorer optimizes data ingestion for high throughput by batching incoming small chunks of data into batches based on a configurable [ingestion batching policy](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/management/batchingpolicy). 
+The **Ingestion tab** gives you detailed information about:
+
+* The result of the batching ingestion, by database or table granularity.
+* Ingestion error details by table
+* The amount of ingested data.
+* The latency of the batching ingestion and where it occurs.
+* The batching process itself, including monitoring information about the Ingestion Batching policy
+ (https://docs.microsoft.com/azure/data-explorer/kusto/management/batchingpolicy) and how the batches were (sealed)[https://docs.microsoft.com/azure/data-explorer/kusto/management/batchingpolicy#sealing-a-batch]
+* For Event Hub, Event Grid and IoT Hub ingestion: The number of events received at ADX and the number of events sent for actual ingestion.
+
 ## Pin to an Azure dashboard
 
 You can pin any one of the metric sections (of the "at-scale" perspective) to an Azure dashboard by selecting the pushpin icon at the upper right of the section.
