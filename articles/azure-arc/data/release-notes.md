@@ -56,6 +56,8 @@ Add support for specifying labels and annotations on the secondary service endpo
 - If three replicas, then `REQUIRED_SECONDARIES_TO_COMMIT = 1`.  
 - If one or two replicas, then `REQUIRED_SECONDARIES_TO_COMMIT = 0`.
 
+In this release, the default value of the readable secondary service is `Cluster IP`.  The secondary service type can be set in the Kubernetes yaml/json at `spec.services.readableSecondaries.type`. In the next release, the default value will be the same as the primary service type.
+
 ### User experience improvements
 
 Notifications added in Azure Portal if billing data has not been uploaded to Azure recently.
@@ -92,7 +94,10 @@ You can create a maintenance window on the data controller, and if you have SQL 
 
 Metrics for each replica in a business critical instance are now sent to the Azure portal so you can view them in the monitoring charts.
 
-AD authentication connectors can now be set up in an `automatic mode` which will use a service account to automatically create SQL service accounts, SPNs, and DNS entries as an alternative to the AD authentication connectors which use the `Bring Your Own Keytab` mode.
+AD authentication connectors can now be set up in an `automatic mode` or *system-managed keytab* which will use a service account to automatically create SQL service accounts, SPNs, and DNS entries as an alternative to the AD authentication connectors which use the *customer-managed keytab* mode.
+
+> [!NOTE]
+> In some early releases customer-managed keytab mode was called *bring your own keytab* mode.
 
 Backup and point-in-time-restore when a database has Transparent Data Encryption (TDE) enabled is now supported.
 
@@ -149,10 +154,10 @@ For complete release version information, see [Version log](version-log.md).
 
 - Support for readable secondary replicas:
     - To set readable secondary replicas use `--readable-secondaries` when you create or update an Arc-enabled SQL Managed Instance deployment. 
-    - Set `--readable secondaries` to any value between 0 and the number of replicas minus 1.
+    - Set `--readable-secondaries` to any value between 0 and the number of replicas minus 1.
     - `--readable-secondaries` only applies to Business Critical tier. 
 - Automatic backups are taken on the primary instance in a Business Critical service tier when there are multiple replicas. When a failover happens, backups move to the new primary. 
-- RWX capable storage class is required for backups, for both General Purpose and Business Critical service tiers.
+- [ReadWriteMany (RWX) capable storage class](/azure/aks/concepts-storage#azure-disks) is required for backups, for both General Purpose and Business Critical service tiers. Specifying a non-ReadWriteMany storage class will cause the SQL Managed Instance to be stuck in "Pending" status during deployment.
 - Billing support when using multiple read replicas.
 
 For additional information about service tiers, see [High Availability with Azure Arc-enabled SQL Managed Instance (preview)](managed-instance-high-availability.md).

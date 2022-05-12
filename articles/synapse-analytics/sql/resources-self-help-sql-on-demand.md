@@ -95,7 +95,7 @@ If you would like to query data2.csv in this example, the following permissions 
 
 ### Content of directory on the path cannot be listed
 
-This error indicates that the user who is querying Azure Data Lake cannot list the files on a storage. There are several scenarios where this error might happen:
+This error indicates that the user who is querying Azure Data Lake cannot list the files on storage. There are several scenarios where this error might happen:
 - Azure AD user who is using [Azure AD pass-through authentication](develop-storage-files-storage-access-control.md?tabs=user-identity) does not have permissions to list the files on Azure Data Lake storage.
 - Azure AD or SQL user is reading data using [SAS key](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [workspace Managed Identity](develop-storage-files-storage-access-control.md?tabs=managed-identity), and that key/identity does not have permission to list the files on the storage.
 - User who is accessing DataVerse data does not have permission to query data in DataVerse. This might happen if you are using SQL users.
@@ -336,15 +336,15 @@ FROM
 names.csv
 ```csv
 Id, first name, 
-1,Adam
-2,Bob
-3,Charles
-4,David
-five,Eva
+1, Adam
+2, Bob
+3, Charles
+4, David
+five, Eva
 ```
 
 You might observe that the data has unexpected values for ID in the fifth row. 
-In such circumstances, it is important to align with the business owner of the data to agree on how corrupt data like this can be avoided. If prevention is not possible at application level, reasonable sized VARCHAR might be the only option here.
+In such circumstances, it is important to align with the business owner of the data to agree on how corrupt data like this can be avoided. If prevention isn't possible at application level, reasonable sized VARCHAR might be the only option here.
 
 > [!Tip]
 > Try to make VARCHAR() as short as possible. Avoid VARCHAR(MAX) if possible as this can impair performance. 
@@ -355,16 +355,16 @@ If your query does not fail but you find that your resultset is not as expected,
 To resolve this problem, it is needed to have another look at the data and change those settings. As shown next, debugging this query is easy like in the upcoming example. 
 
 **Example**
-If you would like to query the file ‘names.csv’ with the query in 'Query 1', Azure Synapse SQL serverless will return with result that look odd. 
+If you would like to query the file ‘names.csv’ with the query in 'Query 1', Azure Synapse SQL serverless will return with result that looks odd. 
 
 names.csv
 ```csv
 Id,first name, 
-1,Adam
-2,Bob
-3,Charles
-4,David
-5,Eva
+1, Adam
+2, Bob
+3, Charles
+4, David
+5, Eva
 ```
 
 ```sql
@@ -711,7 +711,7 @@ If you are getting the error '*CREATE DATABASE failed. User database limit has b
 
 If your query fails with the error message '*Please create a master key in the database or open the master key in the session before performing this operation*', it means that your user database has no access to a master key at the moment. 
 
-Most likely, you just created a new user database and did not create a master key yet. 
+Most likely, you just created a new user database and didn't create a master key yet. 
 
 To resolve this problem, create a master key with the following query:
 
@@ -820,9 +820,9 @@ There are some limitations and known issues that you might see in Delta Lake sup
   - Do not specify wildcards to describe the partition schema. Delta Lake query will automatically identify the Delta Lake partitions. 
 - Delta Lake tables created in the Apache Spark pools are not automatically available in serverless SQL pool. To query such Delta Lake tables using T-SQL language, run the [CREATE EXTERNAL TABLE](./create-use-external-tables.md#delta-lake-external-table) statement and specify Delta as format.
 - External tables do not support partitioning. Use [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake folder to use the partition elimination. See known issues and workarounds later in the article.
-- Serverless SQL pools do not support time travel queries. You can vote for this feature on [Azure feedback site](https://feedback.azure.com/d365community/idea/8fa91755-0925-ec11-b6e6-000d3a4f07b8). Use Apache Spark pools in Azure Synapse Analytics to [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
+- Serverless SQL pools do not support time travel queries. Use Apache Spark pools in Azure Synapse Analytics to [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Serverless SQL pools do not support updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Azure Synapse Analytics [to update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
-  - You cannot [store query results to storage in Delta Lake format](create-external-table-as-select.md) using the Create external table as select (CETAS) command. The CETAS command supports only Parquet and CSV as an output formats.
+  - You cannot [store query results to storage in Delta Lake format](create-external-table-as-select.md) using the Create external table as select (CETAS) command. The CETAS command supports only Parquet and CSV as the output formats.
 - Serverless SQL pools in Azure Synapse Analytics do not support the datasets with the [BLOOM filter](/azure/databricks/delta/optimizations/bloom-filters). The serverless SQL pool will ignore the BLOOM filters. 
 - Delta Lake support is not available in dedicated SQL pools. Make sure that you are using serverless pools to query Delta Lake files.
 
@@ -877,7 +877,7 @@ See the best practices for [collocating the resources](best-practices-serverless
 
 If you are executing the same query and observing variations in the query durations, there might be several reasons that can cause this behavior:  
 - Check is this a first execution of a query. The first execution of a query collects the statistics required to create a plan. The statistics are collected by scanning the underlying files and might increase the query duration. In the Synapse studio, you will see the “global statistics creation” queries in the SQL request list, that are executed before your query.
-- Statistics might expire after some time, so periodically you might observe an impact on performance because the serverless pool must scan and re-built the statistics. You might notice additional “global statistics creation” queries in the SQL request list, that are executed before your query.
+- Statistics might expire after some time, so periodically you might observe an impact on performance because the serverless pool must scan and rebuild the statistics. You might notice additional “global statistics creation” queries in the SQL request list, that are executed before your query.
 - Check is there some workload that is running on the same endpoint when you executed the query with the longer duration. The serverless SQL endpoint will equally allocate the resources to all queries that are executed in parallel, and the query might be delayed.
 
 ## Connections
@@ -886,7 +886,7 @@ Serverless SQL pool enables you to connect using TDS protocol and use T-SQL lang
 
 ### SQL pool is warming up
 
-Following a longer period of inactivity Serverless SQL pool will be deactivated. The activation will happen automatically on the first next activity, such as the first connection attempt. Activation process might take a bit longer than a single connection attempt interval, thus the error message is displayed. Re-trying the connection attempt should be enough.  
+Following a longer period of inactivity Serverless SQL pool will be deactivated. The activation will happen automatically on the first next activity, such as the first connection attempt. Activation process might take a bit longer than a single connection attempt interval, thus the error message is displayed. Retrying the connection attempt should be enough.  
 As a best practice, for the clients that support it, use ConnectionRetryCount and ConnectRetryInterval connection string keywords to control the reconnect behavior. 
 
 If the error message persists, file a support ticket through the Azure portal.
@@ -898,7 +898,7 @@ See the [Synapse Studio section](#synapse-studio).
 ### Cannot connect to Synapse pool from a tool
 
 Some tools might not have an explicit option that enables you to connect to the Synapse serverless SQL pool. 
-Use an option that you would use to connect to SQL Server or Azure SQL database. The connection dialog do not need to be branded as "Synapse" because the serverless SQL pool uses the same protocol as SQL Server or Azure SQL database. 
+Use an option that you would use to connect to SQL Server or Azure SQL database. The connection dialog doesn't need to be branded as "Synapse" because the serverless SQL pool uses the same protocol as SQL Server or Azure SQL database. 
 
 Even if a tool enables you to enter only a logical server name and predefines `database.windows.net` domain, put the Synapse workspace name followed by `-ondemand` suffix and `database.windows.net` domain.
 
@@ -908,7 +908,7 @@ Make sure that a user has permissions to access databases, [permissions to execu
 
 ### Cannot access Cosmos DB account
 
-You must use read-only Cosmos DB key to access your analytical storage, so make sure that it did not expire or that it is not re-generated.
+You must use read-only Cosmos DB key to access your analytical storage, so make sure that it didn't expire or that it isn't regenerated.
 
 If you are getting the [Resolving Cosmos DB path has failed](#resolving-cosmos-db-path-has-failed) error, make sure that you configured firewall.
 
@@ -918,7 +918,7 @@ If a user cannot access a lake house or Spark database, it might not have permis
 
 ### SQL user cannot access Dataverse tables
 
-Dataverse tables are accessing storage using the callers Azure AD identity. SQL user with high permissions might try to select data from a table, but the table would not be able to access Dataverse data. This scenario is not supported.
+Dataverse tables are accessing storage using the callers Azure AD identity. SQL user with high permissions might try to select data from a table, but the table would not be able to access Dataverse data. This scenario isn't supported.
 
 ### Azure AD service principal login failures when SPI is creating a role assignment
 If you want to create role assignment for Service Principal Identifier/Azure AD app using another SPI, or have already created one and it fails to log in, you're probably receiving following error:
@@ -974,14 +974,14 @@ There are some general system constraints that might affect your workload:
 
 | Property | Limitation |
 |---|---|
-| Max number of Synapse workspaces per subscription | 20 |
+| Max number of Synapse workspaces per subscription | [See limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#synapse-workspace-limits) |
 | Max number of databases per serverless pool | 20 (not including databases synchronized from Apache Spark pool) |
 | Max number of databases synchronized from Apache Spark pool | Not limited |
 | Max number of databases objects per database | The sum of the number of all objects in a database cannot exceed 2,147,483,647 (see [limitations in SQL Server database engine](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects) ) |
 | Max identifier length (in characters) | 128 (see [limitations in SQL Server database engine](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects) )|
 | Max query duration | 30 min |
 | Max size of the result set | up to 200 GB (shared between concurrent queries) |
-| Max concurrency | Not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1000 active sessions that are executing lightweight queries, but the numbers will drop if the queries are more complex or scan a larger amount of data. |
+| Max concurrency | Not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1000 active sessions that are executing lightweight queries. However, the numbers will drop if the queries are more complex or scan a larger amount of data. |
 
 ### Cannot create a database in serverless SQL pool
 

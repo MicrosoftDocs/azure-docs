@@ -7,7 +7,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 04/19/2022
+ms.date: 05/12/2022
 
 # Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -67,6 +67,9 @@ To learn what's new with Azure Firewall, see [Azure updates](https://azure.micro
 ### Azure Firewall Standard
 
 Azure Firewall Standard has the following known issues:
+
+> [!NOTE]
+> Any issue that applies to Standard also applies to Premium.
 
 |Issue  |Description  |Mitigation  |
 |---------|---------|---------|

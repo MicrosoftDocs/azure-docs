@@ -4,6 +4,7 @@ description: Learn about how to set up Azure Active Directory (Azure AD) for aut
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: how-to
 ms.date: 07/23/2020 
 ms.custom: devx-track-azurepowershell
