@@ -4,6 +4,7 @@ description: Learn how to manage an Azure Database for MySQL server from the Azu
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: how-to
 ms.date: 9/22/2020
 ---

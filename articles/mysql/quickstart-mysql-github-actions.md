@@ -3,9 +3,10 @@ title: 'Quickstart: Connect to Azure MySQL with GitHub Actions'
 description: Use Azure MySQL from a GitHub Actions workflow
 author: juliakm
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: quickstart
 ms.author: jukullam
-ms.date: 02/14/2022
+ms.date: 05/09/2022
 ms.custom: github-actions-azure, mode-other
 ---
 
@@ -37,10 +38,11 @@ The file has two sections:
 
 |Section  |Tasks  |
 |---------|---------|
-|**Authentication** | 1. Define a service principal. <br /> 2. Create a GitHub secret. |
+|**Authentication** | 1. Generate deployment credentials. |
 |**Deploy** | 1. Deploy the database. |
 
 ## Generate deployment credentials
+# [Service principal](#tab/userlevel)
 
 You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac&preserve-view=true) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
@@ -67,6 +69,26 @@ The output is a JSON object with the role assignment credentials that provide ac
 > [!IMPORTANT]
 > It's always a good practice to grant minimum access. The scope in the previous example is limited to the specific server and not the entire resource group.
 
+# [OpenID Connect](#tab/openid)
+
+You need to provide your application's **Client ID**, **Tenant ID**, and **Subscription ID** to the login action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
+
+1. Open your GitHub repository and go to **Settings**.
+
+1. Select **Settings > Secrets > New secret**.
+
+1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your Active Directory application for your GitHub secrets:
+
+    |GitHub Secret  | Active Directory Application  |
+    |---------|---------|
+    |AZURE_CLIENT_ID     |      Application (client) ID   |
+    |AZURE_TENANT_ID     |     Directory (tenant) ID    |
+    |AZURE_SUBSCRIPTION_ID     |     Subscription ID    |
+
+1. Save each secret by selecting **Add secret**.
+
+---
+
 ## Copy the MySQL connection string
 
 In the Azure portal, go to your Azure Database for MySQL server and open **Settings** > **Connection strings**. Copy the **ADO.NET** connection string. Replace the placeholder values for `your_database` and `your_password`. The connection string will look similar to the following.
@@ -83,6 +105,7 @@ In the Azure portal, go to your Azure Database for MySQL server and open **Setti
 You'll use the connection string as a GitHub secret.
 
 ## Configure GitHub secrets
+# [Service principal](#tab/userlevel)
 
 1. In [GitHub](https://github.com/), browse your repository.
 
@@ -102,6 +125,26 @@ You'll use the connection string as a GitHub secret.
 
 5. Paste the connection string value into the secret's value field. Give the secret the name `AZURE_MYSQL_CONNECTION_STRING`.
 
+# [OpenID Connect](#tab/openid)
+
+You need to provide your application's **Client ID**, **Tenant ID**, and **Subscription ID** to the login action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
+
+1. Open your GitHub repository and go to **Settings**.
+
+1. Select **Settings > Secrets > New secret**.
+
+1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your Active Directory application for your GitHub secrets:
+
+    |GitHub Secret  | Active Directory Application  |
+    |---------|---------|
+    |AZURE_CLIENT_ID     |      Application (client) ID   |
+    |AZURE_TENANT_ID     |     Directory (tenant) ID    |
+    |AZURE_SUBSCRIPTION_ID     |     Subscription ID    |
+
+1. Save each secret by selecting **Add secret**.
+
+---
+
 ## Add your workflow
 
 1. Go to **Actions** for your GitHub repository.
@@ -115,22 +158,24 @@ You'll use the connection string as a GitHub secret.
 
     on:
     push:
-        branches: [ master ]
+        branches: [ main ]
     pull_request:
-        branches: [ master ]
+        branches: [ main ]
     ```
 
 4. Rename your workflow `MySQL for GitHub Actions` and add the checkout and login actions. These actions will check out your site code and authenticate with Azure using the `AZURE_CREDENTIALS` GitHub secret you created earlier.
 
+    # [Service principal](#tab/userlevel)
+    
     ```yaml
     name: MySQL for GitHub Actions
-
+    
     on:
         push:
-            branches: [ master ]
+            branches: [ main ]
         pull_request:
-            branches: [ master ]
-
+            branches: [ main ]
+    
     jobs:
         build:
             runs-on: windows-latest
@@ -139,7 +184,32 @@ You'll use the connection string as a GitHub secret.
             - uses: azure/login@v1
                 with:
                     creds: ${{ secrets.AZURE_CREDENTIALS }}
+      ```
+    
+    # [OpenID Connect](#tab/openid)
+    
+    ```yaml
+    name: MySQL for GitHub Actions
+    
+    on:
+        push:
+            branches: [ main ]
+        pull_request:
+            branches: [ main ]
+    
+    jobs:
+        build:
+            runs-on: windows-latest
+            steps:
+            - uses: actions/checkout@v1
+            - uses: azure/login@v1
+                with:
+                  client-id: ${{ secrets.AZURE_CLIENT_ID }}
+                  tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+                  subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
     ```
+    
+    ___
 
 5. Use the Azure MySQL Deploy action to connect to your MySQL instance. Replace `MYSQL_SERVER_NAME` with the name of your server. You should have a MySQL data file named `data.sql` at the root level of your repository.
 
@@ -153,14 +223,16 @@ You'll use the connection string as a GitHub secret.
 
 6. Complete your workflow by adding an action to sign out of Azure. Here's the completed workflow. The file will appear in the `.github/workflows` folder of your repository.
 
+    # [Service principal](#tab/userlevel)
+    
     ```yaml
     name: MySQL for GitHub Actions
-
+    
     on:
       push:
-          branches: [ master ]
+          branches: [ main ]
       pull_request:
-          branches: [ master ]
+          branches: [ main ]
     jobs:
         build:
             runs-on: windows-latest
@@ -169,18 +241,50 @@ You'll use the connection string as a GitHub secret.
               - uses: azure/login@v1
                 with:
                   creds: ${{ secrets.AZURE_CREDENTIALS }}
-
+    
               - uses: azure/mysql@v1
                 with:
                   server-name: MYSQL_SERVER_NAME
                   connection-string: ${{ secrets.AZURE_MYSQL_CONNECTION_STRING }}
                   sql-file: './data.sql'
-
+    
                 # Azure logout
               - name: logout
                 run: |
                   az logout
     ```
+    # [OpenID Connect](#tab/openid)
+    
+    ```yaml
+    name: MySQL for GitHub Actions
+  
+    on:
+      push:
+          branches: [ main ]
+      pull_request:
+          branches: [ main ]
+    jobs:
+        build:
+            runs-on: windows-latest
+            steps:
+              - uses: actions/checkout@v1
+              - uses: azure/login@v1
+                with:
+                  client-id: ${{ secrets.AZURE_CLIENT_ID }}
+                  tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+                  subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+              - uses: azure/mysql@v1
+                with:
+                  server-name: MYSQL_SERVER_NAME
+                  connection-string: ${{ secrets.AZURE_MYSQL_CONNECTION_STRING }}
+                  sql-file: './data.sql'
+  
+                # Azure logout
+              - name: logout
+                run: |
+                  az logout
+    ```
+    ___
 
 ## Review your deployment
 

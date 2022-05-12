@@ -29,7 +29,6 @@ These are the available licensing options for Azure Container offers:
 | --- | --- |
 | Free | List your offer to customers for free. |
 | BYOL | The Bring Your Own Licensing option lets your customers bring existing software licenses to Azure.\* |
-|
 
 \* As the publisher, you support all aspects of the software license transaction, including (but not limited to) order, fulfillment, metering, billing, invoicing, payment, and collection.
 
