@@ -37,6 +37,13 @@ The PostgreSQL project regularly issues minor releases to fix reported bugs. Azu
 
 Automation for major version upgrade is not yet supported. For example, there is currently no automatic upgrade from PostgreSQL 11 to PostgreSQL 12.<!-- To upgrade to the next major version, create a [database dump and restore](howto-migrate-using-dump-and-restore.md) to a server that was created with the new engine version.-->
 
+## Managing PostgreSQL engine defects
+
+Microsoft has a team of committers and contributors who work full time on the open source Postgres project and are long term members of the community. Our contributions include but are not limited to features, performance enhancements, bug fixes, security patches among other things. Our open source team also incorporates feedback from our Azure fleet (and customers) when prioritizing work, however please keep in mind that Postgres project has its own independent contribution guidelines, review process and release schedule.
+
+While working with Azure database for PostgreSQL , if you encounter an PostgreSQL engine defect, Microsoft will take immediate action to mitigate the issue. When possible, Microsoft will fix the defect to address the production issue and work with the community to incorporate it..
+
+
 <!--
 ## Next steps
 
