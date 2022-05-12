@@ -212,16 +212,13 @@ To enable Azure Blob Storage upload, we will modify the `uploadFileToAzureBlob` 
 ```javascript
 
 const uploadFileToAzureBlob = async (fileUpload: FileUploadManager) => {
-  // You need to handle the file upload here and upload it to Azure Blob Storage.
-  // Optionally, you can update the file upload progress.
-  fileUpload.notifyUploadProgressChanged(0.2);
-
   const file = fileUpload.file;
   if (!file) {
     throw new Error('fileUpload.file is undefined');
   }
 
   const filename = file.name;
+  const fileExtension = file.name.split('.').pop();
 
   // Following is an example of calling an Azure Function to handle file upload
   // The https://docs.microsoft.com/en-us/azure/developer/javascript/how-to/with-web-app/azure-function-file-upload
@@ -236,21 +233,23 @@ const uploadFileToAzureBlob = async (fileUpload: FileUploadManager) => {
   
   const formData = new FormData();
   formData.append(file.name, file);
-  const response = await fetch(uri, {
-    method: 'POST',
-    body: formData
+  
+  const response = await axios.request({
+    method: "post",
+    url: uri,
+    data: formData,
+    onUploadProgress: (p) => {
+      // Optionally, you can update the file upload progess.
+      fileUpload.notifyUploadProgressChanged(p.loaded / p.total);
+    },
   });
-
-  if (!response.ok) {
-    throw new Error(`Failed to upload file, status code:${response.status}`);
-  }
-
+  
   const storageBaseUrl = 'https://<YOUR_STORAGE_ACCOUNT>.blob.core.windows.net';
 
   return {
     name: filename,
     url: `${storageBaseUrl}/${username}/${filename}`,
-    extension: getFileExtension(filename)
+    extension: fileExtension
   };
 }
 
