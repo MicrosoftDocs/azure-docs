@@ -31,7 +31,7 @@ A side pane will open to configure the dashboard where you'll place your pin. Yo
 | Private | Only you can access a private dashboard. Choose this option if you're creating the pin for your own easy access to the changes. |
 | Shared | A shared dashboard supports role-based access control for view/read access. Shared dashboards are created as a resource in your subscription with a region and resource group to host it. Choose this option if you're creating the pin to share with your team. |
 
-**Select an existing dashboard**
+### Select an existing dashboard
 
 If you already have a dashboard to place the pin:
 
@@ -41,9 +41,9 @@ If you already have a dashboard to place the pin:
 1. If you've selected **Shared**, select the subscription in which you'd like to place the dashboard.
 1. Select **Pin**.
  
-   :::image type="content" source="./media/change-analysis/existing-dashboard.png" alt-text="Screenshot of selecting an existing dashboard to pin your changes to. ":::
+   :::image type="content" source="./media/change-analysis/existing-dashboard-small.png" alt-text="Screenshot of selecting an existing dashboard to pin your changes to. ":::
 
-**Create a new dashboard**
+### Create a new dashboard
 
 You can create a new dashboard for this pin.
  
@@ -53,7 +53,7 @@ You can create a new dashboard for this pin.
 1. If you're creating a shared dashboard, enter the resource group and region information. 
 1. Click **Create and pin**. 
 
-   :::image type="content" source="./media/change-analysis/create-pin-dashboard.png" alt-text="Screenshot of creating a new dashboard to pin your changes to.":::
+   :::image type="content" source="./media/change-analysis/create-pin-dashboard-small.png" alt-text="Screenshot of creating a new dashboard to pin your changes to.":::
 
 Once the dashboard and pin are created, navigate to the Azure dashboard to view them.
 
@@ -68,12 +68,11 @@ Once the dashboard and pin are created, navigate to the Azure dashboard to view 
 In the Change Analysis homepage, select a line of change to view details on the change.
 
 1. On the Changed properties page, select **Share** from the top menu. 
-
-   :::image type="content" source="./media/change-analysis/share-single-change-1.png" alt-text="Screenshot of selecting the share button on the dashboard":::
-
 1. On the Share Change Details pane, copy the deep link of the page and share with your team in messages, emails, reports, or whichever communication channel your team prefers.
 
-   :::image type="content" source="./media/change-analysis/share-single-change-2.png" alt-text="Screenshot of sharing the pin with your team":::
+   :::image type="content" source="./media/change-analysis/share-single-change.png" alt-text="Screenshot of selecting the share button on the dashboard and copying link.":::
+
+
 
 ## Next steps
 
