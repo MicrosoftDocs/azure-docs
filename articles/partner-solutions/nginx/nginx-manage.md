@@ -92,7 +92,11 @@ To delete a deployment of NGINX for Azure (preview):
 
 1. Select **Delete**.
 
+    :::image type="content" source="media/nginx-manage/nginx-delete-deployment.png" alt-text="Screenshot showing how delete an NGINX resource.":::
+
 1. Confirm that you want to delete the NGINX resource.
+
+    :::image type="content" source="media/nginx-manage/nginx-confirm-delete.png" alt-text="Screenshot showing the final confirmation of delete for NGINX resource.":::
 
 1. Select **Delete**.
 
