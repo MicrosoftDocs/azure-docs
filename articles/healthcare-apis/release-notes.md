@@ -39,9 +39,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 ### **Known issues**
 
-For more information about the known issues with the FHIR service, see [Known issues: FHIR service](known-issues.md).
-
-workaround.  |Not resolved  |
+For more information about the currently known issues with the FHIR service, see [Known issues: FHIR service](known-issues.md).
 
 ### DICOM service
 
