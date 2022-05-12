@@ -209,11 +209,3 @@ Do you have malicious traffic in your environment? Where is it originating from?
 
     ![Top NSG rules statistics details in log search](./media/traffic-analytics/top-nsg-rules-statistics-details-in-log-search.png)
     
-## Frequently asked questions
-
-For frequent asked questions about Traffic Analytics, see [Traffic analytics FAQ](traffic-analytics-faq.yml).
-
-## Next steps
-
-- To learn how to enable flow logs, see [Enabling NSG flow logging](network-watcher-nsg-flow-logging-portal.md).
-- To understand the schema and processing details of Traffic Analytics, see [Traffic analytics schema](traffic-analytics-schema.md).
