@@ -107,4 +107,4 @@ Remove-AzResourceGroup -Name exampleRG
 ## Next steps
 
 - [Understand Azure role definitions](role-definitions.md)
-- [Bicep documentation](../azure-resource-manager/bicep/overview)
+- [Bicep documentation](../azure-resource-manager/bicep/overview.md)
