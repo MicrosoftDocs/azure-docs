@@ -55,15 +55,19 @@ The following items will incur extra cost when using the Dedicated HSM service.
 
 ### Q: Does Azure Dedicated HSM offer Password-based and PED-based authentication?
 
-At this time, Azure Dedicated HSM only provides HSMs with password-based authentication.
-
-### Q: Will Azure Dedicated HSM host my HSMs for me?
-
-Microsoft only offers the Thales Luna 7 HSM model A790 via the Dedicated HSM service and cannot host any customer-provided devices.
+No. Azure Dedicated HSM only provides HSMs with password-based authentication.
 
 ### Q: Does Azure Dedicated HSM support payment (PIN/EFT) features?
 
 The Azure Dedicated HSM service uses Thales Luna 7 HSMs. These devices do not support payment HSM specific functionality (such as PIN or EFT) or certifications. If you would like Azure Dedicated HSM service to support Payment HSMs in future, pass on the feedback to your Microsoft Account Representative.
+
+### Q: Does Azure Dedicated HSM support functionality modules? 
+
+No. Azure Dedicated HSM service does not support functionality modules.
+
+### Q: Will Azure Dedicated HSM host my HSMs for me?
+
+Microsoft only offers the Thales Luna 7 HSM model A790 via the Dedicated HSM service and cannot host any customer-provided devices.
 
 ### Q: Which Azure regions is Dedicated HSM available in?
 
@@ -135,6 +139,10 @@ PKCS#11, Java (JCA/JCE), Microsoft CAPI, and CNG, OpenSSL
 ### Q: Can I import/migrate keys from Luna 5/6 HSMs to Azure Dedicated HSMs?
 
 Yes. Contact your Thales representative for the appropriate Thales migration guide. 
+
+### Q: Can I install functionality modules to Azure Dedicated HSMs? 
+
+No. Azure Dedicated HSM service does not support functionality modules.
 
 ## Using your HSM
 
