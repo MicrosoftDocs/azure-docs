@@ -50,7 +50,7 @@ Enabling auto-upgrade keeps your Dapr extension updated to the latest minor vers
 
 ### Components
 
-Stable components (Azure + OSS), alpha, and beta are supported. 
+Azure + open source components are supported. 
 
 ### Clouds/regions
 
