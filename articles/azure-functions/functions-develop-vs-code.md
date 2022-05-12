@@ -292,11 +292,11 @@ To learn more, see the [Queue storage output binding reference article](function
 
 Update the `Main` definition to add an output parameter `msg: func.Out[func.QueueMessage]` so that the definition looks like the following example:
 
-:::code language="python" range="6" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/**init**.py":::
+:::code language="python" range="6" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/__init__.py":::
 
 The following code adds string data from the request to the output queue:
 
-:::code language="python" range="18" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/**init**.py":::
+:::code language="python" range="18" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/__init__.py":::
 
 This message is sent to the queue when the function completes.
 
