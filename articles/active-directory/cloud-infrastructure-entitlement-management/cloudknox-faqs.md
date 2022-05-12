@@ -9,7 +9,7 @@ ms.subservice: ciem
 ms.workload: identity
 ms.topic: faq
 ms.date: 04/20/2022
-ms.author: v-ydequadros
+ms.author: v-campisekat
 ---
 
 # Frequently asked questions (FAQs)
@@ -156,5 +156,5 @@ You can read our blog and visit our web page. You can also get in touch with you
 
 ## Next steps
 
-- For an overview of Entra, see [What's Entra Permissions Management?](Entra-overview.md).
+- For an overview of Entra, see [What's Entra Permissions Management?](cloudknox-overview.md).
 - For information on how to onboard Entra in your organization, see [Enable Entra in your organization](cloudknox-onboard-enable-tenant.md).
