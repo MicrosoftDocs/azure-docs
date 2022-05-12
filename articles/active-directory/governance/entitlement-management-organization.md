@@ -78,7 +78,7 @@ To add an external Azure AD directory or domain as a connected organization, fol
 
 1. In the search box, enter a domain name to search for the Azure AD directory or domain. Be sure to enter the entire domain name.
 
-1. Verify that the organization name and authentication type are correct. How users sign in depends on the authentication type.  If the authentication type for a connected organization is Azure AD, then all users with an account in any validated domain of that Azure AD directory will be able to request access to access packages permitting that connected organization. If the authentication type is One-time pass-code, this wll permit users from all subdomains associated with the domain to request.
+1. Verify that the organization name and authentication type are correct. How users sign in depends on the authentication type.  If the authentication type for a connected organization is Azure AD, then all users with an account in any validated domain of that Azure AD directory will sign in to their directory, and then will be able to request access to access packages permitting that connected organization. If the authentication type is One-time pass-code, this permits users from all subdomains associated with the domain to visit the myaccess portal, and after they authenticate with the pass-code, can request.
 
     ![The "Select directories + domains" pane](./media/entitlement-management-organization/organization-select-directories-domains.png)
 
