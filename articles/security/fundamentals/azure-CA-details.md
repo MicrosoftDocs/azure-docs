@@ -78,7 +78,7 @@ The following URLs may need to be included in your firewall allowlists to optimi
 
 | Windows | Firefox | iOS | MacOS | Android | Java |
 |--| -- | -- | --  | -- | -- |
-| Windows XP Sp3+ | Firefox 32+ | iOS 7+ | OS X Mavericks (10.9)+ | Android SDK 5.x+ | Java JRE 1.8.0_101+ |
+| Windows XP SP3+ | Firefox 32+ | iOS 7+ | OS X Mavericks (10.9)+ | Android SDK 5.x+ | Java JRE 1.8.0_101+ |
 - - -
 
 ## Past changes
