@@ -55,6 +55,7 @@ You can also add redirect URIs after app registration by the following steps:
 
 ![Add Redirect Uri screen](./media/enterprise/how-to-setup-sso-with-azure-ad/sso-redirect-uri.jpg)
 
+More detailed instructions on Application Registrations can be found [here](../active-directory/develop/quickstart-register-app#quickstart-register-an-application-with-the-microsoft-identity-platform).
 
 ## Add a Client Secret
 Client secret is used for the application to authenticate as itself in SSO workflow, which can be created by the following steps:
