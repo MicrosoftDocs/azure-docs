@@ -1,30 +1,22 @@
 ---
-title: Investigate incidents with Microsoft Sentinel| Microsoft Docs
-description: In this article, learn how to use Microsoft Sentinel to create advanced alert rules that generate incidents you can assign and investigate.
+title: Relate alerts to incidents in Microsoft Sentinel | Microsoft Docs
+description: This article shows you how to relate alerts to your incidents in Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
-ms.date: 03/30/2022
+ms.date: 05/12/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
 
-# Investigate incidents with Microsoft Sentinel
+# Expand your Microsoft Sentinel incidents
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
+This article shows you how to relate alerts to your incidents in Microsoft Sentinel. This feature allows you to manually or automatically add alerts to, or remove them from, existing incidents as part of your investigation processes, refining the incident scope as the investigation unfolds. 
+
 > [!IMPORTANT]
-> Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Incident expansion is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
-
-This article helps you investigate incidents with Microsoft Sentinel. After you connected your data sources to Microsoft Sentinel, you want to be notified when something suspicious happens. To enable you to do this, Microsoft Sentinel lets you create advanced analytics rules that generate incidents that you can assign and investigate.
-
-This article covers:
-> [!div class="checklist"]
-> * Investigate incidents
-> * Use the investigation graph
-> * Respond to threats
-
-An incident can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. An incident is created based on analytics rules that you created in the **Analytics** page. The properties related to the alerts, such as severity and status, are set at the incident level. After you let Microsoft Sentinel know what kinds of threats you're looking for and how to find them, you can monitor detected threats by investigating incidents.
 
 ## Prerequisites
 
@@ -120,7 +112,7 @@ To use the investigation graph:
 
 ## Expand incidents
 
-[Learn how you can add alerts to your incidents or remove alerts from incidents](expand-incidents.md).
+[Learn how you can add alerts to your incidents or remove alerts from incidents](relate-alerts-to-incidents.md).
 
 ## Similar incidents (preview)
 
