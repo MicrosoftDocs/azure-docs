@@ -1,7 +1,7 @@
 ---
 title: Govern resources for client applications with application groups
 description: Learn how to use application groups to govern resources for client applications that connect with Event Hubs. 
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: subject-monitoring
 ms.date: 05/24/2022
 ---
@@ -19,7 +19,7 @@ This article shows you how to perform the following tasks:
 
 You can create an application group using the Azure portal as illustrated below. When you create the application group, you should associate it to either a shared access signatures (SAS) or Azure Active Directory(Azure AD) application ID, which is used by client applications. 
 
-:::image type="content" source="./media/resource-governance-with-app-groups/add-app-group.png" alt-text="Creating Application Group using Azure portal":::
+:::image type="content" source="./media/resource-governance-with-app-groups/add-app-group.png" alt-text="Screenshot of the Create an application group page in the Azure portal.":::
 
 For example, you can create application group `contosoAppGroup` associating it with SAS policy `contososaspolicy`. 
 
@@ -34,7 +34,7 @@ Once you successfully add throttling policies to the application group, you can 
 > [!NOTE]
 > When your client applications are throttled, you should experience a slowness in publishing or consuming data. 
 
-## Enable/disable application groups 
+## Enable or disable application groups 
 You can prevent client applications accessing your Event Hubs namespace by disabling the application group that contains those applications. When the application group is disabled, client applications won't be able to publish or consume data. Any established connections from client applications of that application group will also be terminated. 
 
 
