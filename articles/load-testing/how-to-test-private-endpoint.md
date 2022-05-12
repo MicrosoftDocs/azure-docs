@@ -75,7 +75,7 @@ You first need to register your subscription with the Azure Batch resource provi
 1. Register the Azure Batch resource provider for your subscription:
 
     ```azurecli
-    az provider register -–namespace "Microsoft.Batch" 
+    az provider register --namespace "Microsoft.Batch" 
     ```
 
 ## Configure your load test script
