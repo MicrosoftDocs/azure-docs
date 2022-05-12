@@ -626,7 +626,7 @@ Known issues on Linux:
 | Capability Name | Shutdown-1.0 |
 | Target type | Microsoft-VirtualMachine |
 | Supported OS Types | Windows, Linux |
-| Description | Shuts down a VM for the duration of the fault and optionally restarts the VM at the end of the fault duration or if the experiment is canceled. Only Azure Resource Manager VMs are supported. |
+| Description | Shuts down a VM for the duration of the fault and restarts the VM at the end of the fault duration or if the experiment is canceled. Only Azure Resource Manager VMs are supported. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:virtualMachine:shutdown/1.0 |
 | Parameters (key, value) |  |
@@ -661,7 +661,7 @@ Known issues on Linux:
 | Capability Name | Shutdown-1.0 |
 | Target type | Microsoft-VirtualMachineScaleSet |
 | Supported OS Types | Windows, Linux |
-| Description | Shuts down or kill a virtual machine scale set instance for the duration of the fault and optionally restarts the VM at the end of the fault duration or if the experiment is canceled. |
+| Description | Shuts down or kill a virtual machine scale set instance for the duration of the fault and restarts the VM at the end of the fault duration or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:virtualMachineScaleSet:shutdown/1.0 |
 | Parameters (key, value) |  |
