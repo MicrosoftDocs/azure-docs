@@ -3,7 +3,7 @@ title: Move Azure Virtual Desktop resources between regions - Azure
 description: How to move Azure Virtual Desktop resources between regions.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 05/09/2022
+ms.date: 05/13/2022
 ms.author: helohr
 manager: femila
 ---
