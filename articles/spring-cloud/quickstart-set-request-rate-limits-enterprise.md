@@ -27,7 +27,7 @@ This quickstart shows you how to set request rate limits using Spring Cloud Gate
 
 ## Set Request Rate Limits
 
-Spring Cloud Gateway includes route filters from the Open Source version as well as several additional route filters. One of these additional filters is the `[RateLimit: Limiting user requests filter](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.1/scg-k8s/GUID-route-filters.html#ratelimit-limiting-user-requests-filter). The RateLimit filter limits the number of requests allowed per route during a time window.
+Spring Cloud Gateway includes route filters from the Open Source version as well as several additional route filters. One of these additional filters is the [RateLimit: Limiting user requests filter](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.1/scg-k8s/GUID-route-filters.html#ratelimit-limiting-user-requests-filter). The RateLimit filter limits the number of requests allowed per route during a time window.
 
 When defining a Route, you can add the RateLimit filter by including it in the list of filters for the route. The filter accepts 4 options:
 

@@ -223,13 +223,9 @@ Spring Cloud Gateway can be configured to authenticate requests via Single Sign-
         --env "AcmeServiceSettings__AuthUrl=https://${GATEWAY_URL}"    
     ```
 
-1. Retrieve the URL for Spring Cloud Gateway using the following commands:
+1. Retrieve the URL for Spring Cloud Gateway using the following command:
 
-    ```azurecli
-    GATEWAY_URL=$(az spring-cloud gateway show \
-        --resource-group <resource-group> \
-        --service <spring-cloud-service> | jq -r '.properties.url')
-
+    ```bash
     echo "https://${GATEWAY_URL}"
     ```
 

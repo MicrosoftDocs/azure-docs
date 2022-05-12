@@ -111,7 +111,7 @@ The following instructions describe how to create a Key Vault and to securely sa
 
 ## Enable Access to Secrets in Key Vault
 
-The following instructions describe how to allow access to Key Vault secrets to applications deployed to Azure Spring Cloud.
+The following instructions describe how to allow access to Key Vault secrets to applications deployed to Azure Spring Cloud Enterprise Tier.
 
 1. Enable a System Assigned Identity for the Cart Service Application using the following command:
 
@@ -242,7 +242,7 @@ After granting access to read secrets from Key Vault, the applications must be u
         --resource-group <resource-group> \
         --name order-service \
         --service <spring-cloud-service> \
-        --env "ConnectionStrings__KeyVaultUri=${KEYVAULT_URI}" "AcmeServiceSettings__AuthUrl=https://${GATEWAY_URL}"    
+        --env "ConnectionStrings__KeyVaultUri=${KEYVAULT_URI}" "AcmeServiceSettings__AuthUrl=https://${GATEWAY_URL}" "DatabaseProvider=Postgres"   
     ```
 
 1. Remove the Service Connector binding the Catalog Service application and the Azure Database for PostgreSQL Flexible Server using the following command:

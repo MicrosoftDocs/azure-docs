@@ -34,15 +34,15 @@ Use the following commands to download the sample:
 
 ## Provision a service instance
 
-Use the following steps to provision an Azure Spring Cloud service instance:
+Use the following steps to provision an Azure Spring Cloud service instance.
 
-1. Update Azure CLI with the Azure Spring Cloud extension by using the following command:
+1. Update Azure CLI with the Azure Spring Cloud extension using the following command:
 
    ```azurecli
    az extension update --name spring-cloud
    ```
 
-1. Sign in to the Azure CLI and choose your active subscription by using the following command:
+1. Sign in to the Azure CLI and choose your active subscription using the following command:
 
    ```azurecli
    az login
@@ -290,7 +290,6 @@ Use the following steps to deploy and build applications. For these steps make s
         --resource-group <resource-group> \
         --name frontend \
         --service <spring-cloud-service> \
-        --builder quickstart-builder \
         --source-path apps/acme-shopping
     ```
 
