@@ -20,6 +20,7 @@ In this article, you'll configure a diagnostic setting to collect VMware syslogs
    >Gateway Firewall Logs
    >ESXi Logs
    >vCenter Logs
+   >NSX Edge Logs
  
 
 ## Prerequisites
