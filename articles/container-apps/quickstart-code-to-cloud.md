@@ -280,8 +280,6 @@ az containerapp env create `
 
 Now that you have an environment created, you can create and deploy your container app with the `az containerapp create` command.
 
-By setting `--ingress` to `external`, your container app will be accessible from the public internet.
-
 Create and deploy your container app with the following command.
 
 # [Bash](#tab/bash)
@@ -313,6 +311,12 @@ az containerapp create `
 ```
 
 ---
+
+* By setting `--ingress` to `external`, your container app will be accessible from the public internet.
+
+* The `target-port` is set to `3500` to match the port the that the container is listing to for requests.
+
+* Without a `query` property, the call to `az containerapp create` returns a JSON response that includes a rich set of details about the application. By adding a query, this command filters the response down to just the FQDN.
 
 ## Verify deployment
 

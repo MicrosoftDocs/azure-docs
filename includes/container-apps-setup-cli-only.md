@@ -56,7 +56,7 @@ az extension add --name containerapp --upgrade
 
 ---
 
-Now that the extension is installed, register the `Microsoft.App` namespace.
+Now that the extension is installed, register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces.
 
 # [Bash](#tab/bash)
 
@@ -64,10 +64,18 @@ Now that the extension is installed, register the `Microsoft.App` namespace.
 az provider register --namespace Microsoft.App
 ```
 
+```azurecli
+az provider register --namespace Microsoft.OperationalInsights
+```
+
 # [PowerShell](#tab/powershell)
 
 ```powershell
 az provider register --namespace Microsoft.App
+```
+
+```powershell
+az provider register --namespace Microsoft.OperationalInsights
 ```
 
 ---
