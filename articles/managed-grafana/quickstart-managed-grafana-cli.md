@@ -81,4 +81,4 @@ If you're not going to continue to use this workspace, delete the Azure resource
 
 > [!div class="nextstepaction"]
 > [How to configure data sources for Azure Managed Grafana](./how-to-data-source-plugins-managed-identity.md)
-> [How to modify access permissions to Azure Monitor](./how-to-permissions.md)
+
