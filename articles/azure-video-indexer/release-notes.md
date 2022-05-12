@@ -41,7 +41,43 @@ In order to upload a video from a URL, change your code to send nu
 var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", null);
 ```
 
-## April 2022 release updates
+## May 2022 release updates
+
+### Audio pipeline updates  
+
+???
+
+### Celebrities gating 
+
+???
+
+### Customer survey   
+
+???
+
+### Rename the widget repository 
+
+???
+
+### Line breaking in transcripts
+
+Improved line break logic to better split transcript into sentences.
+
+### Azure Monitor integration
+ 
+Azure Video Indexer now supports Diagnostics settings for Audit events. Logs of Audit events can now be exported through diagnostics settings to Azure Log Analytics, Storage, Event Hubs, or a third-party solution.
+
+The additions enable easier access to analyze the data, monitor resource operation, and create automatically flows to act on an event. For more information, see [Monitor Azure Video Indexer]().
+
+### Video Insights improvements
+
+Object Character Reader (OCR) is improved by 60%. Face Detection is improved by 20%. Label accuracy is improved by 30% over a wide variety of videos. These improvements are available immediately in all regions and do not require any changes by the customer.
+
+### Service tag 
+
+Azure Video Indexer is now part of [Network Service Tags](network-security.md). Video Indexer often needs to access other Azure resources (for example, Storage). If you secure your inbound traffic to your resources with a Network Security Group you can now select Video Indexer as part of the built-in Service Tags. This will simplify security management as we populate the Service Tag with our public IPs.
+
+## April 2022 
 
 ### Renamed **Azure Video Analyzer for Media** back to **Azure Video Indexer**
 
