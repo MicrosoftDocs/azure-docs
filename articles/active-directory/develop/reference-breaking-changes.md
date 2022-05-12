@@ -30,7 +30,7 @@ The authentication system alters and adds features on an ongoing basis to improv
 
 ## Upcoming changes
 
-### ADFS users will see additional login prompts to ensure that the correct user is signed in. 
+### ADFS users will see additional login prompts to ensure that the correct user is signed in.
 
 **Effective date**: December 2021
 
@@ -40,9 +40,9 @@ The authentication system alters and adds features on an ongoing basis to improv
 
 **Change**
 
-Today, when a user is sent to ADFS to authenticate, they will be silently signed into any account that already has a session with ADFS.  This silent sign-in occurs even if the user intended to sign into a different user account. To reduce the frequency of this incorrect sign in occurring, starting in December Azure AD will send the `prompt=login` parameter to ADFS if the Web Account Manager in Windows provides Azure AD a `login_hint` during sign-in, which indicates a specific user is desired for sign-in. 
+Today, when a user is sent to ADFS to authenticate, they will be silently signed into any account that already has a session with ADFS.  This silent sign-in occurs even if the user intended to sign into a different user account. To reduce the frequency of this incorrect sign in occurring, starting in December Azure AD will send the `prompt=login` parameter to ADFS if the Web Account Manager in Windows provides Azure AD a `login_hint` during sign-in, which indicates a specific user is desired for sign-in.
 
-When the above requirements are met (WAM is used to send the user to Azure AD to sign in, a `login_hint` is included, and the [ADFS instance for the user's domain supports `prompt=login`](/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)) the user will not be silently signed in, and instead asked to provide a username to continue signing into ADFS.  If they wish to sign into their existing ADFS session, they can select the "Continue as current user" option displayed below the login prompt. Otherwise, they can continue with the username that they intend to sign in with. 
+When the above requirements are met (WAM is used to send the user to Azure AD to sign in, a `login_hint` is included, and the [ADFS instance for the user's domain supports `prompt=login`](/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)) the user will not be silently signed in, and instead asked to provide a username to continue signing into ADFS.  If they wish to sign into their existing ADFS session, they can select the "Continue as current user" option displayed below the login prompt. Otherwise, they can continue with the username that they intend to sign in with.
 
 This change will be rolled out in December 2021 over the course of several weeks. It does not change sign in behavior for:
 * Applications that use IWA directly
@@ -61,13 +61,13 @@ This change will be rolled out in December 2021 over the course of several weeks
 
 **Change**
 
-Error 50105 (the current designation) is emitted when an unassigned user attempts to sign into an app that an admin has marked as requiring user assignment.  This is a common access control pattern, and users must often find an admin to request assignment to unblock access.  The error had a bug that would cause infinite loops in well-coded applications that correctly handled the `interaction_required` error response. `interaction_required` tells an app to perform interactive authentication, but even after doing so Azure AD would still return an `interaction_required` error response.  
+Error 50105 (the current designation) is emitted when an unassigned user attempts to sign into an app that an admin has marked as requiring user assignment.  This is a common access control pattern, and users must often find an admin to request assignment to unblock access.  The error had a bug that would cause infinite loops in well-coded applications that correctly handled the `interaction_required` error response. `interaction_required` tells an app to perform interactive authentication, but even after doing so Azure AD would still return an `interaction_required` error response.
 
-The error scenario has been updated, so that during non-interactive authentication (where `prompt=none` is used to hide UX), the app will be instructed to perform interactive authentication using an `interaction_required` error response. In the subsequent interactive authentication, Azure AD will now hold the user and show an error message directly, preventing a loop from occurring. 
+The error scenario has been updated, so that during non-interactive authentication (where `prompt=none` is used to hide UX), the app will be instructed to perform interactive authentication using an `interaction_required` error response. In the subsequent interactive authentication, Azure AD will now hold the user and show an error message directly, preventing a loop from occurring.
 
-As a reminder, Azure AD does not support applications detecting individual error codes, such as checking strings for `AADSTS50105`. Instead, [Azure AD guidance](reference-aadsts-error-codes.md#handling-error-codes-in-your-application) is to follow the standards and use the [standardized authentication responses](https://openid.net/specs/openid-connect-core-1_0.html#AuthError) such as `interaction_required` and `login_required`. These are found in the standard `error` field in the response - the other fields are for human consumption during troubleshooting. 
+As a reminder, Azure AD does not support applications detecting individual error codes, such as checking strings for `AADSTS50105`. Instead, [Azure AD guidance](reference-aadsts-error-codes.md#handling-error-codes-in-your-application) is to follow the standards and use the [standardized authentication responses](https://openid.net/specs/openid-connect-core-1_0.html#AuthError) such as `interaction_required` and `login_required`. These are found in the standard `error` field in the response - the other fields are for human consumption during troubleshooting.
 
-You can review the current text of the 50105 error and more on the error lookup service: https://login.microsoftonline.com/error?code=50105 . 
+You can review the current text of the 50105 error and more on the error lookup service: https://login.microsoftonline.com/error?code=50105 .
 
 ### AppId Uri in single tenant applications will require use of default scheme or verified domains
 
@@ -92,27 +92,27 @@ If a request fails the validation check, the application API for create/update w
 
 ### Conditional Access will only trigger for explicitly requested scopes
 
-**Effective date**: August 2021, with gradual rollout starting in April. 
+**Effective date**: August 2021, with gradual rollout starting in April.
 
 **Endpoints impacted**: v2.0
 
 **Protocol impacted**: All flows using [dynamic consent](v2-permissions-and-consent.md#requesting-individual-user-consent)
 
-Applications using dynamic consent today are given all of the permissions they have consent for, even if they were not requested in the `scope` parameter by name.  This can cause an app requesting e.g. only `user.read`, but with consent to `files.read`, to be forced to pass the Conditional Access assigned for the `files.read` permission. 
+Applications using dynamic consent today are given all of the permissions they have consent for, even if they were not requested in the `scope` parameter by name.  This can cause an app requesting e.g. only `user.read`, but with consent to `files.read`, to be forced to pass the Conditional Access assigned for the `files.read` permission.
 
 In order to reduce the number of unnecessary Conditional Access prompts, Azure AD is changing the way that unrequested scopes are provided to applications so that only explicitly requested scopes trigger Conditional Access. This change may cause apps reliant on Azure AD's previous behavior (namely, providing all permissions even when they were not requested) to break, as the tokens they request will be missing permissions.
 
-Apps will now receive access tokens with a mix of permissions in this - those requested, as well as those they have consent for that do not require Conditional Access prompts.  The scopes of the access token is reflected in the token response's `scope` parameter. 
+Apps will now receive access tokens with a mix of permissions in this - those requested, as well as those they have consent for that do not require Conditional Access prompts.  The scopes of the access token is reflected in the token response's `scope` parameter.
 
-This change will be made for all apps except those with an observed dependency on this behavior.  Developers will receive outreach if they are exempted from this change, as them may have a dependency on the additional conditional access prompts. 
+This change will be made for all apps except those with an observed dependency on this behavior.  Developers will receive outreach if they are exempted from this change, as them may have a dependency on the additional conditional access prompts.
 
 **Examples**
 
-An app has consent for `user.read`, `files.readwrite`, and `tasks.read`. `files.readwrite` has Conditional Access policies applied to it, while the other two do not. If an app makes a token request for `scope=user.read`, and the currently signed in user has not passed any Conditional Access policies, then the resulting token will be for the `user.read` and `tasks.read` permissions. `tasks.read` is included because the app has consent for it, and it does not require a Conditional Access policy to be enforced. 
+An app has consent for `user.read`, `files.readwrite`, and `tasks.read`. `files.readwrite` has Conditional Access policies applied to it, while the other two do not. If an app makes a token request for `scope=user.read`, and the currently signed in user has not passed any Conditional Access policies, then the resulting token will be for the `user.read` and `tasks.read` permissions. `tasks.read` is included because the app has consent for it, and it does not require a Conditional Access policy to be enforced.
 
-If the app then requests `scope=files.readwrite`, the Conditional Access required by the tenant will trigger, forcing the app to show an interactive auth prompt where the Conditional Access policy can be satisfied.  The token returned will have all three scopes in it. 
+If the app then requests `scope=files.readwrite`, the Conditional Access required by the tenant will trigger, forcing the app to show an interactive auth prompt where the Conditional Access policy can be satisfied.  The token returned will have all three scopes in it.
 
-If the app then makes one last request for any of the three scopes (say, `scope=tasks.read`), Azure AD will see that the user has already completed the Conditional access policies needed for `files.readwrite`, and again issue a token with all three permissions in it. 
+If the app then makes one last request for any of the three scopes (say, `scope=tasks.read`), Azure AD will see that the user has already completed the Conditional Access policies needed for `files.readwrite`, and again issue a token with all three permissions in it.
 
 
 ## June 2021
@@ -143,23 +143,23 @@ The prompt that appears looks like this:
 
 A bug was found and fixed in the Azure AD authorization response. During the `/authorize` leg of authentication, the `state` parameter from the request is included in the response, in order to preserve app state and help prevent CSRF attacks. Azure AD incorrectly URL-encoded the `state` parameter before inserting it into the response, where it was encoded once more.  This would result in applications incorrectly rejecting the response from Azure AD.
 
-Azure AD will no longer double-encode this parameter, allowing apps to correctly parse the result. This change will be made for all applications. 
+Azure AD will no longer double-encode this parameter, allowing apps to correctly parse the result. This change will be made for all applications.
 
 ### Azure Government endpoints are changing
 
-**Effective date**: May 5th (Finishing June 2020) 
+**Effective date**: May 5th (Finishing June 2020)
 
 **Endpoints impacted**: All
 
 **Protocol impacted**: All flows
 
-On 1 June 2018, the official Azure Active Directory (Azure AD) Authority for Azure Government changed from `https://login-us.microsoftonline.com` to `https://login.microsoftonline.us`. This change also applied to Microsoft 365 GCC High and DoD, which Azure Government Azure AD also services. If you own an application within a US Government tenant, you must update your application to sign users in on the `.us` endpoint.  
+On 1 June 2018, the official Azure Active Directory (Azure AD) Authority for Azure Government changed from `https://login-us.microsoftonline.com` to `https://login.microsoftonline.us`. This change also applied to Microsoft 365 GCC High and DoD, which Azure Government Azure AD also services. If you own an application within a US Government tenant, you must update your application to sign users in on the `.us` endpoint.
 
-Starting May 5th, Azure AD will begin enforcing the endpoint change, blocking government users from signing into apps hosted in US Government tenants using the public endpoint (`microsoftonline.com`).  Impacted apps will begin seeing an error `AADSTS900439` - `USGClientNotSupportedOnPublicEndpoint`. This error indicates that the app is attempting to sign in a US Government user on the public cloud endpoint. If your app is in a public cloud tenant and intended to support US Government users, you will need to [update your app to support them explicitly](./authentication-national-cloud.md). This may require creating a new app registration in the US Government cloud. 
+Starting May 5th, Azure AD will begin enforcing the endpoint change, blocking government users from signing into apps hosted in US Government tenants using the public endpoint (`microsoftonline.com`).  Impacted apps will begin seeing an error `AADSTS900439` - `USGClientNotSupportedOnPublicEndpoint`. This error indicates that the app is attempting to sign in a US Government user on the public cloud endpoint. If your app is in a public cloud tenant and intended to support US Government users, you will need to [update your app to support them explicitly](./authentication-national-cloud.md). This may require creating a new app registration in the US Government cloud.
 
-Enforcement of this change will be done using a gradual rollout based on how frequently users from the US Government cloud sign in to the application - apps signing in US Government users infrequently will see enforcement first, and apps frequently used by US Government users will be last to have enforcement applied. We expect enforcement to be complete across all apps in June 2020. 
+Enforcement of this change will be done using a gradual rollout based on how frequently users from the US Government cloud sign in to the application - apps signing in US Government users infrequently will see enforcement first, and apps frequently used by US Government users will be last to have enforcement applied. We expect enforcement to be complete across all apps in June 2020.
 
-For more details, please see the [Azure Government blog post on this migration](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/). 
+For more details, please see the [Azure Government blog post on this migration](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/).
 
 ## March 2020
 
