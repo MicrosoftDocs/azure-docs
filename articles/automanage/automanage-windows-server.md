@@ -9,21 +9,22 @@ ms.date: 03/22/2022
 ms.author: memccror
 ---
 
-# Azure Automanage for Machines Best Practices - Windows Server
+# Azure Automanage for Machines Best Practices - Windows
 
 These Azure services are automatically onboarded for you when you use Automanage Machine Best Practices on a Windows Server VM. They are essential to our best practices white paper, which you can find in our [Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/azure-server-management).
 
 For all of these services, we will auto-onboard, auto-configure, monitor for drift, and remediate if drift is detected. To learn more, go to [Azure Automanage for virtual machines](automanage-virtual-machines.md).
 
-## Supported Windows Server versions
+## Supported Windows versions
 
-Automanage supports the following Windows Server versions:
+Automanage supports the following Windows versions:
 
-- Windows Server 2012/R2
+- Windows Server 2012 R2
 - Windows Server 2016
 - Windows Server 2019
 - Windows Server 2022
 - Windows Server 2022 Azure Edition
+- Windows 10 
 
 ## Participating services
 
