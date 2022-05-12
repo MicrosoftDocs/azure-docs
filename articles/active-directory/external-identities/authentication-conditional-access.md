@@ -126,14 +126,17 @@ The following PowerShell cmdlets are available to *proof up* or request MFA regi
    Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
    ```
 
-### Device-based Conditional Access
+### Device compliance and hybrid Azure AD joined device policies
 
-In Conditional Access, there's an option to require a user’s [device to be compliant or hybrid Azure AD joined](../conditional-access/howto-conditional-access-policy-compliant-device.md). Because devices can only be managed by the home tenant, additional considerations must be made for external users. As the resource tenant, you can use cross-tenant access settings to trust device (compliant and hybrid Azure AD joined) claims.
+If your organization uses Microsoft Intune, you can create Conditional Access policies to require a user's device to be [compliant or hybrid Azure AD joined](../conditional-access/howto-conditional-access-policy-compliant-device.md) to access a resource. If an internal user in your organization needs to access a resource that has this type of policy applied, they can register and enroll in device management in your organization. However, this option isn't available to external users, because devices can only be managed by a user's home tenant. The solution is to use cross-tenant access settings to trust claims from the external user's home tenant about whether the device meets their device compliance policies or is hybrid Azure AD joined.
 
 >[!Important]
 >
->- Unless you're willing to trust device (compliant or hybrid Azure AD joined) claims for external users, we don't recommend a Conditional Access policy requiring a managed device.
->- When guest users try to access a resource protected by Conditional Access, they can't register and enroll devices in your tenant and will be blocked from accessing your resources.
+>- Unless you're willing to trust claims regarding device compliance or hybrid Azure AD joined status from an external user's home tenant, we don't recommend applying Conditional Access policies that require external users to use managed devices.
+
+### Device filters
+
+Device filters can be used in Conditional Access policies for external users. You can filter by [supported operators and properties](../conditional-access/concept-condition-filters-for-devices#supported-operators-and-device-properties-for-filters), such as personal-owned or company-owned, device model, operating system, and so on. When creating Conditional Access policies, you can target or exclude specific devices. By using the **filter for devices** condition, you can target specific devices using [supported operators and properties](../conditional-access/concept-condition-filters-for-devices#supported-operators-and-device-properties-for-filters) for device filters and the other available assignment conditions in your Conditional Access policies.
 
 ### Mobile application management policies
 
@@ -162,6 +165,36 @@ The [User-risk policy](../conditional-access/concept-conditional-access-conditio
 
 [Session controls](../conditional-access/concept-conditional-access-session.md) behave the same for B2B guest users as they do for any other type of user.
 
+## Identity protection and user risk policies
+
+[Identity Protection](../identity-protection/concept-identity-protection-b2b.md) detects compromised credentials for Azure AD users.  and marks user accounts that may be compromised as "at risk". As a resource tenant, you can apply user risk policies to guest users to block risky 
+
+Identity Protection automatically detects risky users for Azure AD tenants. If you have not previously checked the Identity Protection reports, there may be a large number of users with risk. Since resource tenants can apply user risk policies to guest users, your users can be blocked due to risk even if they were previously unaware of their risky state. If your user reports they have been blocked as a guest user in another tenant due to risk, it is important to remediate the user to protect their account and enable collaboration.
+
+For a B2B collaboration user, the user risk is evaluated at their home directory. The real-time sign-in risk for these users is evaluated at the resource directory when they try to access the resource. With Azure AD B2B collaboration, organizations can enforce risk-based policies for B2B users using Identity Protection. These policies be configured in two ways:
+
+- Administrators can configure the built-in Identity Protection risk-based policies, that apply to all apps, that include guest users.
+- Administrators can configure their Conditional Access policies, using sign-in risk as a condition, that includes guest users.
+
+### Limitations of Identity Protection for B2B collaboration users
+
+There are limitations in the implementation of Identity Protection for B2B collaboration users in a resource directory due to their identity existing in their home directory. The main limitations are as follows:
+
+- If a guest user triggers the Identity Protection user risk policy to force password reset, **they will be blocked**. This block is due to the inability to reset passwords in the resource directory.
+- **Guest users do not appear in the risky users report**. This limitation is due to the risk evaluation occurring in the B2B user's home directory.
+- Administrators **cannot dismiss or remediate a risky B2B collaboration user** in their resource directory. This limitation is due to administrators in the resource directory not having access to the B2B user's home directory.
+
+#### Why can't I remediate risky B2B collaboration users in my directory?
+
+The risk evaluation and remediation for B2B users occurs in their home directory. Due to this fact, the guest users do not appear in the risky users report in the resource directory and admins in the resource directory cannot force a secure password reset for these users.
+
+#### What do I do if a B2B collaboration user was blocked due to a risk-based policy in my organization?
+
+If a risky B2B user in your directory is blocked by your risk-based policy, the user will need to remediate that risk in their home directory. Users can remediate their risk by performing a secure password reset in their home directory [as outlined above](#how-to-unblock-your-account). If they do not have self-service password reset enabled in their home directory, they will need to contact their own organization's IT Staff to have an administrator manually dismiss their risk or reset their password.
+
+#### How do I prevent B2B collaboration users from being impacted by risk-based policies?
+
+Excluding B2B users from your organization's risk-based Conditional Access policies will prevent B2B users from being impacted or blocked by their risk evaluation. To exclude these B2B users, create a group in Azure AD that contains all of your organization's guest users. Then, add this group as an exclusion for your built-in Identity Protection user risk and sign-in risk policies, and any Conditional Access policies that use sign-in risk as a condition.
 ## Next steps
 
 For more information, see the following articles on Azure AD B2B collaboration:
