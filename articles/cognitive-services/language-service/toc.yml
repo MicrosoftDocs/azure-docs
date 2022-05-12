@@ -838,11 +838,13 @@ items:
     items:
     - name: REST API
       items:
-        - name: v3.2-preview.2
+        - name: Document summarization
           href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Analyze
+        - name: Conversation summarization
+          href: https://go.microsoft.com/fwlink/?linkid=2195178
     - name: SDKs
       items:
-      - name: v3.2-preview.2
+      - name: Document summarization
         items:
           - name: .NET
             href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
