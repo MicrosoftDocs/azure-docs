@@ -1,9 +1,9 @@
 ---
-title: Create your first Azure function using Bicep
+title: Create your function app resources in Azure using Bicep
 description: Create and deploy to Azure a simple HTTP triggered serverless function using Bicep.
 author: schaffererin
 ms.author: v-eschaffer
-ms.date: 05/04/2022
+ms.date: 05/12/2022
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
@@ -94,7 +94,7 @@ The following four Azure resources are created by this Bicep file:
     ---
 
     > [!NOTE]
-    > Replace **\<app-location\>** with the location for Application Insights.
+    > Replace **\<app-location\>** with the region for Application Insights, which is usually the same as the resource group.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
