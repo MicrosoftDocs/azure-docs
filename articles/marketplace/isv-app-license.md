@@ -48,7 +48,6 @@ This table illustrates the high-level process to manage ISV app licenses:
 | Step 5: Manage licenses | The license plans will appear in Microsoft 365 Admin Center for the customer to [assign to users or groups](/microsoft-365/commerce/licenses/manage-third-party-app-licenses) in their organization. The customer can also install the application in their tenant via the Power Platform Admin Center. |
 | Step 6: Perform license check | When a user within the customer’s organization tries to run an application, Microsoft checks to ensure that user has a license before permitting them to run it. If they don’t have a license, the user sees a message explaining that they need to contact an administrator for a license. |
 | Step 7: View reports | ISVs can view information on provisioned and assigned licenses over a period of time and by geography. |
-|||
 
 ## Enabling app license management through Microsoft
 
