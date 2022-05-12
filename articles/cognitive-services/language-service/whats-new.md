@@ -37,7 +37,7 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
 
 ## February 2022
 
-* Model improvements for latest model-version for [text summarization](document-summarization/overview.md)
+* Model improvements for latest model-version for [text summarization](summarization/overview.md)
 
 * Model 2021-10-01 is Generally Available (GA) for [Sentiment Analysis and Opinion Mining](sentiment-opinion-mining/overview.md), featuring enhanced modeling for emojis and better accuracy across all supported languages.
 
@@ -59,7 +59,7 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
   * [Named Entity Recognition (NER), Personally Identifying Information (PII)](named-entity-recognition/overview.md)
   * [Language Detection](language-detection/overview.md)
   * [Text Analytics for health](text-analytics-for-health/overview.md)
-  * [Text summarization preview](document-summarization/overview.md)
+  * [Text summarization preview](summarization/overview.md)
   * [Custom Named Entity Recognition (Custom NER) preview](custom-named-entity-recognition/overview.md)
   * [Custom Text Classification preview](custom-classification/overview.md)
   * [Conversational Language Understanding preview](conversational-language-understanding/overview.md)

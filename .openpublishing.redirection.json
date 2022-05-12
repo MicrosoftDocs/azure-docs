@@ -43050,47 +43050,22 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/how-to/call-api.md",
-      "redirect_url": "/azure/cognitive-services/language-service/document-summarization/how-to/call-api",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/includes/quickstarts/csharp-sdk.md",
-      "redirect_url": "/azure/cognitive-services/language-service/document-summarization/includes/quickstarts/csharp-sdk",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/includes/quickstarts/java-sdk.md",
-      "redirect_url": "/azure/cognitive-services/language-service/document-summarization/includes/quickstarts/java-sdk",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/includes/quickstarts/nodejs-sdk.md",
-      "redirect_url": "/azure/cognitive-services/language-service/document-summarization/includes/quickstarts/nodejs-sdk",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/includes/quickstarts/python-sdk.md",
-      "redirect_url": "/azure/cognitive-services/language-service/document-summarization/includes/quickstarts/python-sdk",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/includes/quickstarts/rest-api.md",
-      "redirect_url": "/azure/cognitive-services/language-service/document-summarization/includes/quickstarts/rest-api",
+      "redirect_url": "/azure/cognitive-services/language-service/summarization/how-to/document-summarization",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/language-support.md",
-      "redirect_url": "/azure/cognitive-services/language-service/document-summarization/language-support",
+      "redirect_url": "/azure/cognitive-services/language-service/summarization/language-support",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/overview.md",
-      "redirect_url": "/azure/cognitive-services/language-service/document-summarization/overview",
+      "redirect_url": "/azure/cognitive-services/language-service/summarization/overview",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/quickstart.md",
-      "redirect_url": "/azure/cognitive-services/language-service/document-summarization/quickstart",
+      "redirect_url": "/azure/cognitive-services/language-service/summarization/quickstart",
       "redirect_document_id": true
     }
   ]

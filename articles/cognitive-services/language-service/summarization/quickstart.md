@@ -15,9 +15,9 @@ ms.custom: language-service-summarization, ignite-fall-2021, mode-api
 zone_pivot_groups: programming-languages-text-analytics
 ---
 
-# Quickstart: using the Document Summarization client library and REST API (preview)
+# Quickstart: using document summarization and conversation summarization (preview)
 
-Use this article to get started with Document Summarization using the client library and REST API. Follow these steps to try out examples code for mining text:
+Use this article to get started with document summarization and conversation summarization using the client library and REST API. Follow these steps to try out examples code for mining text:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -58,4 +58,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-* [Document Summarization overview](overview.md)
+* [Summarization overview](overview.md)
