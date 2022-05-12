@@ -158,6 +158,7 @@ The following table has descriptions of each supported style.
 
 |Style|Description|
 |-----------|-------------|
+|`style="advertisement-upbeat"`|Expresses an excited and high-energy tone for promoting a product or service.|
 |`style="affectionate"`|Expresses a warm and affectionate tone, with higher pitch and vocal energy. The speaker is in a state of attracting the attention of the listener. The personality of the speaker is often endearing in nature.|
 |`style="angry"`|Expresses an angry and annoyed tone.|
 |`style="assistant"`|Expresses a warm and relaxed tone for digital assistants.|
@@ -184,9 +185,13 @@ The following table has descriptions of each supported style.
 |`style="sad"`|Expresses a sorrowful tone.|
 |`style="serious"`|Expresses a strict and commanding tone. Speaker often sounds stiffer and much less relaxed with firm cadence.|
 |`style="shouting"`|Speaks like from a far distant or outside and to make self be clearly heard|
+|`style="sports-commentary"`|Expresses a relaxed and interesting tone for broadcasting a sports event.|
+|`style="sports-commentary-excited"`|Expresses an intensive and energetic tone for broadcasting exciting moments in a sports event.|
 |`style="whispering"`|Speaks very softly and make a quiet and gentle sound|
 |`style="terrified"`|Expresses a very scared tone, with faster pace and a shakier voice. It sounds like the speaker is in an unsteady and frantic status.|
 |`style="unfriendly"`|Expresses a cold and indifferent tone.|
+
+
 
 ### Style degree
 
