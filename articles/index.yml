@@ -400,13 +400,6 @@ productDirectory:
         - analytics
       url: /power-bi/developer/azure-pbie-what-is-power-bi-embedded
     # Card
-    - title: R Server for HDInsight
-      summary: Predictive analytics, machine learning, and statistical modeling for big data
-      imageSrc: https://static.docs.com/ui/media/product/azure/hdinsight.svg
-      azureCategories:
-        - analytics
-      url: hdinsight/r-server/r-server-overview.md
-    # Card
     - title: Azure Cosmos DB
       summary: Fast NoSQL database with open APIs for any scale
       imageSrc: https://static.docs.com/ui/media/product/azure/cosmos-db.svg
@@ -1488,7 +1481,7 @@ productDirectory:
       url: storsimple/index.yml
     # Card
     - title: Azure SignalR Service
-      summary: Add real-time web functionalities easily
+      summary: Add real-time web functionality easily
       imageSrc: https://static.docs.com/ui/media/product/azure/signalr-service.svg
       azureCategories:
         - web
@@ -1500,7 +1493,14 @@ productDirectory:
       azureCategories:
         - networking
       url: orbital/index.yml
-
+    # Card
+    - title: Azure Web PubSub
+      summary: Easily build real-time messaging web applications using WebSockets and the publish-subscribe pattern
+      imageSrc: ./media/index/web-pubsub.svg
+      azureCategories:
+        - integration
+        - web
+      url: azure-web-pubsub/index.yml
 tools:
   title: Languages and tools
   items:

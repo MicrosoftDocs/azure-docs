@@ -78,7 +78,7 @@ Watch the following video to learn more about how to monitor device connection s
 
 > [!VIDEO https://www.youtube.com/embed/EUZH_6Ihtto]
 
-You can include connection and disconnection events in [exports from IoT Central](howto-export-data.md#set-up-a-data-export). To learn more, see [React to IoT Hub events > Limitations for device connected and device disconnected events](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events).
+You can include connection and disconnection events in  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md). To learn more, see [React to IoT Hub events > Limitations for device connected and device disconnected events](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events).
 
 ## Add a device
 
