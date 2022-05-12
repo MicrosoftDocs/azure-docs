@@ -76,17 +76,17 @@ This section contains a reference of how actions in Microsoft Purview data polic
 | **Microsoft Purview policy action** | **Data source specific actions**                                                        |
 |---------------------------|-----------------------------------------------------------------------------------------|
 |||
-| *Read*                    |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/read                      |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                |
+| *Read*                    |Microsoft.Storage/storageAccounts/blobServices/containers/read                      |
+|                           |Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                |
 |||
-| *Modify*                  |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write               |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action          |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action         |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete              |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/read                      |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/write                     |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/delete                    |
+| *Modify*                  |Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                |
+|                           |Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write               |
+|                           |Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action          |
+|                           |Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action         |
+|                           |Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete              |
+|                           |Microsoft.Storage/storageAccounts/blobServices/containers/read                      |
+|                           |Microsoft.Storage/storageAccounts/blobServices/containers/write                     |
+|                           |Microsoft.Storage/storageAccounts/blobServices/containers/delete                    |
 |||
 
 
