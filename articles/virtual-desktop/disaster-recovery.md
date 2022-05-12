@@ -46,7 +46,7 @@ Identifying which method works best for your organization is the first thing you
 
 First, you'll need to replicate your VMs to the secondary location. Your options for doing so depend on how your VMs are configured:
 
-- You can configure all your VMs for both pooled and personal host pools with Azure Site Recovery. With this method, you'll only need to set up one host pool and its related app groups and workspaces.
+- You can configure replication for all your VMs in both pooled and personal host pools with Azure Site Recovery. For more information about how this process works, see [Replicate Azure VMs to another Azure region](../site-recovery/azure-to-azure-how-to-enable-replication.md). However, if you have pooled host pools that you built from the same image and don't have any personal user data stored locally, you can choose not to replicate them. Instead, you have the option to build the VMs ahead of time and keep them powered off. You can also choose to only provision new VMs in the secondary region while a disaster is happening. If you choose these methods, you'll only need to set up one host pool and its related app groups and workspaces.
 - You can create a new host pool in the failover region while keeping all resources in your failover location turned off. For this method, you'd need to set up new app groups and workspaces in the failover region. You can then use an Azure Site Recovery plan to turn host pools on.
 - You can create a host pool that's populated by VMs built in both the primary and failover regions while keeping the VMs in the failover region turned off. In this case, you only need to set up one host pool and its related app groups and workspaces. You can use an Azure Site Recovery plan to power on host pools with this method.
 
@@ -68,7 +68,7 @@ To disconnect users in Azure Virtual Desktop, run this cmdlet:
 Remove-AzWvdUserSession
 ```
 
-Once you've signed out all users in the primary region, you can fail over the VMs in the primary region and let users connect to the VMs in the secondary region. For more information about how this process works, see [Replicate Azure VMs to another Azure region](../site-recovery/azure-to-azure-how-to-enable-replication.md).
+Once you've signed out all users in the primary region, you can fail over the VMs in the primary region and let users connect to the VMs in the secondary region.
 
 ## Virtual network
 
@@ -82,13 +82,14 @@ Next, ensure that the domain controller is available at the secondary location.
 
 There are three ways to keep the domain controller available:
 
-   - Have Active Directory Domain Controller at secondary location
+   - Have one or more Active Directory Domain Controllers in the secondary location
    - Use an on-premises Active Directory Domain Controller
    - Replicate Active Directory Domain Controller using [Azure Site Recovery](../site-recovery/site-recovery-active-directory.md)
 
-## User and app profile data
+## Replicating user and app profile data
 
-If you're using profile containers, the next step is to set up data replication to the secondary location. 
+If you're using profile containers, the next step is to set up data replication to the secondary location.
+
 You have five options to store FSLogix profiles:
 
    - Storage Spaces Direct (S2D)
@@ -101,39 +102,39 @@ For more information, check out [Storage options for FSLogix profile containers 
 
 If you're setting up disaster recovery for user profiles, then you'll need to either use the storage service to replicate the data to another region or use FSLogix Cloud Cache to manage the replication without using the underlying storage service to replicate the data.
 
-Here are some examples of ways you can set up disaster recovery for user profiles:
+Let's go over the five options for user profile disaster recovery plans in more detail in the following sections.
 
-   - Set up Native Azure Replication (for example, Azure Files Standard storage account replication, Azure NetApp Files replication, or Azure Files Sync for file servers).
+### Native Azure replication
+
+One way you can set up disaster recovery is to set up native Azure replication. For example, you can set up native replication with  Azure Files Standard storage account replication, Azure NetApp Files replication, or Azure Files Sync for file servers.
     
-     >[!NOTE]
-     >NetApp replication is automatic after you first set it up. With Azure Site Recovery plans, you can add pre-scripts and post-scripts to fail over non-VM resources replicate Azure Storage resources.
-### S2D
+>[!NOTE]
+>NetApp replication is automatic after you first set it up. With Azure Site Recovery plans, you can add pre-scripts and post-scripts to fail over non-VM resources replicate Azure Storage resources.
 
-Since S2D handles replication across regions internally, you don't need to manually set up the secondary path.
+### Storage Spaces Direct
+
+Another option you can use is Storage Spaces Direct. Since Storage Spaces Direct handles replication across regions internally, you don't need to manually set up the secondary path.
 
 ### Network drives (VM with extra drives)
 
-If you replicate the network storage VMs using Azure Site Recovery like the session host VMs, then the recovery keeps the same path, which means you don't need to reconfigure FSlogix.
-If you replicate the network storage VMs using Azure Site Recovery like the session host VMs, then the recovery keeps the same path, which means you don't need to reconfigure FSLogix.
+You can use VMs with extra drives for disaster recovery, too. If you replicate the network storage VMs using Azure Site Recovery like the session host VMs, then the recovery keeps the same path, which means you don't need to reconfigure FSlogix.
 
 ### Azure Files
 
 Azure Files supports cross-region asynchronous replication that you can specify when you create the storage account. If the asynchronous nature of Azure Files already covers your disaster recovery goals, then you don't need to do additional configuration.
+
 If you need synchronous replication to minimize data loss, then we recommend you use FSLogix Cloud Cache instead.
 
 >[!NOTE]
->This section doesn't cover the failover authentication mechanism for
-Azure Files.
 >This section doesn't cover the failover authentication mechanism for Azure Files.
+
 ### Azure NetApp Files
 
-Learn more about Azure NetApp Files at [Create replication peering for Azure NetApp Files](../azure-netapp-files/cross-region-replication-create-peering.md).
-
-Let’s take a look at how to configure FSLogix for disaster recovery.
+You can also use Azure NetApp Files to replicate your Azure resources. Learn more about Azure NetApp Files at [Create replication peering for Azure NetApp Files](../azure-netapp-files/cross-region-replication-create-peering.md).
 
 ### FSLogix configuration
 
-The FSLogix agent can support multiple profile locations using the standard [VHDLocations](/fslogix/profile-container-configuration-reference#vhd-locations) option. This method doesn't have anything to do with the Cloud Cache, so if you'd rather use the cache, skip ahead to [FSLogix Cloud Cache](#fslogix-cloud-cache). This option also doesn't replicate data; it allows you access to multiple storage providers that the FSLogix agent can look in to find or create your user profile. This option separately requires storage replication so that the profile can be made available in the secondary region. 
+The FSLogix agent can support multiple profile locations using the standard [VHDLocations](/fslogix/profile-container-configuration-reference#vhd-locations) option. This method doesn't have anything to do with the Cloud Cache, so if you'd rather use the cache, skip ahead to [FSLogix Cloud Cache](#fslogix-cloud-cache). This option also doesn't replicate data, but instead allows you access to multiple storage providers that the FSLogix agent can look in to find or create your user profile. This option separately requires storage replication so that the profile can be made available in the secondary region.
 
 To configure the registry entries:
 
@@ -165,27 +166,6 @@ You can configure FSlogix Cloud Cache directly in the registry based on the VHDL
 
 > [!div class="mx-imgBorder"]
 > ![A screenshot of the FSLogix Cloud Cache Group Policy Cloud Cache Locations is selected.](media/fslogix-locations.png)
-
-### S2D
-
-Since S2D handles replication across regions internally, you don't need to manually set up the secondary path.
-
-### Network drives (VM with extra drives)
-
-If you replicate the network storage VMs using Azure Site Recovery like the session host VMs, then the recovery keeps the same path, which means you don't need to reconfigure FSLogix.
-
-### Azure Files
-
-Azure Files supports cross-region asynchronous replication that you can specify when you create the storage account. If the asynchronous nature of Azure Files already covers your disaster recovery goals, then you don't need to do additional configuration.
-
-If you need synchronous replication to minimize data loss, then we recommend you use FSLogix Cloud Cache instead.
-
->[!NOTE]
->This section doesn't cover the failover authentication mechanism for Azure Files.
-
-### Azure NetApp Files
-
-Learn more about Azure NetApp Files at [Create replication peering for Azure NetApp Files](../azure-netapp-files/cross-region-replication-create-peering.md).
 
 ## App dependencies
 
