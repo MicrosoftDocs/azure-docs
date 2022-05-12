@@ -147,7 +147,7 @@ Alternatively:
     
     ![Screenshot of the Basic Logs table icon in the table list.](./media/basic-logs-configure/table-icon.png#lightbox)
 
-    You can also hover over a table name for the table information view. This will specify that the table is configured as Basic Logs:
+    You can also hover over a table name for the table information view, which indicates whether the table is configured as Basic Logs:
     
     ![Screenshot of the Basic Logs table indicator in the table details.](./media/basic-logs-configure/table-info.png#lightbox)
 
