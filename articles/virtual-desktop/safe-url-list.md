@@ -94,10 +94,10 @@ A [Service Tag](../virtual-network/service-tags-overview.md) represents a group 
 > |---|---|---|---|
 > |gcs.prod.monitoring.core.windows.net|443|Agent traffic (deprecated)|AzureCloud|
 > |production.diagnostics.monitoring.core.windows.net|443|Agent traffic (deprecated)|AzureCloud|
-> |*xt.blob.core.windows.net|443|Agent traffic (deprecated)|AzureCloud|
-> |*eh.servicebus.windows.net|443|Agent traffic (deprecated)|AzureCloud|
-> |*xt.table.core.windows.net|443|Agent traffic (deprecated)|AzureCloud|
-> |*xt.queue.core.windows.net|443|Agent traffic (deprecated)|AzureCloud|
+> |*xt.blob.core.windows.net|443|Agent traffic|AzureCloud|
+> |*eh.servicebus.windows.net|443|Agent traffic|AzureCloud|
+> |*xt.table.core.windows.net|443|Agent traffic|AzureCloud|
+> |*xt.queue.core.windows.net|443|Agent traffic|AzureCloud|
 
 ### Azure Government cloud
 
@@ -118,12 +118,12 @@ The Azure virtual machines you create for Azure Virtual Desktop must have access
 > 
 > |Address|Outbound TCP port|Purpose|Service Tag|
 > |---|---|---|---|
-> |gcs.monitoring.core.usgovcloudapi.net|443|Agent traffic (deprecated)|AzureCloud|
-> |monitoring.core.usgovcloudapi.net|443|Agent traffic (deprecated)|AzureCloud|
-> |fairfax.warmpath.usgovcloudapi.net|443|Agent traffic (deprecated)|AzureCloud|
-> |*xt.blob.core.usgovcloudapi.net|443|Agent traffic (deprecated)|AzureCloud|
-> |*.servicebus.usgovcloudapi.net|443|Agent traffic (deprecated)|AzureCloud|
-> |*xt.table.core.usgovcloudapi.net|443|Agent traffic (deprecated)|AzureCloud|
+> |gcs.monitoring.core.usgovcloudapi.net|443|Agent traffic|AzureCloud|
+> |monitoring.core.usgovcloudapi.net|443|Agent traffic|AzureCloud|
+> |fairfax.warmpath.usgovcloudapi.net|443|Agent traffic|AzureCloud|
+> |*xt.blob.core.usgovcloudapi.net|443|Agent traffic|AzureCloud|
+> |*.servicebus.usgovcloudapi.net|443|Agent traffic|AzureCloud|
+> |*xt.table.core.usgovcloudapi.net|443|Agent traffic|AzureCloud|
 
 The following table lists optional URLs that your Azure virtual machines can have access to:
 
