@@ -110,6 +110,8 @@
       href: azure-resource-manager-api-spec.md
     - name: Azure CLI reference
       href: /cli/azure/containerapp?view=azure-cli-latest&preserve-view=true
+    - name: Azure policy definitions
+      href: policy-reference.md
 - name: Resources
   items:
     - name: Samples
