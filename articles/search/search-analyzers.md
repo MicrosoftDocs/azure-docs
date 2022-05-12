@@ -8,7 +8,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/08/2021
+ms.date: 05/11/2022
 ms.custom: devx-track-csharp
 ---
 
@@ -16,7 +16,7 @@ ms.custom: devx-track-csharp
 
 An *analyzer* is a component of the [full text search engine](search-lucene-query-architecture.md) that's responsible for processing strings during indexing and query execution. Text processing (also known as lexical analysis) is transformative, modifying a string through actions such as these:
 
-+ Remove non-essential words (stopwords) and punctuation
++ Remove non-essential words ([stopwords](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md)) and punctuation
 + Split up phrases and hyphenated words into component parts
 + Lower-case any upper-case words
 + Reduce words into primitive root forms for storage efficiency and so that matches can be found regardless of tense
