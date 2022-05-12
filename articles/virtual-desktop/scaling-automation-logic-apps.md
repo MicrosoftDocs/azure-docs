@@ -11,7 +11,7 @@ manager: femila
 
 You can reduce your total Azure Virtual Desktop deployment cost by scaling your virtual machines (VMs). This means shutting down and deallocating session host VMs during off-peak usage hours, then turning them back on and reallocating them during peak hours.
 
-In this article, you'll learn about the scaling tool built with the Azure Automation account and Azure Logic App that automatically scales session host VMs in your Azure Virtual Desktop environment. To learn how to use the scaling tool, see [Set up scaling of session hosts using Azure Automation and Azure Logic Apps](set-up-scaling-script.md).
+In this article, you'll learn about the scaling tool built with the Azure Automation account and Azure Logic Apps that automatically scales session host VMs in your Azure Virtual Desktop environment. To learn how to use the scaling tool, see [Set up scaling of session hosts using Azure Automation and Azure Logic Apps](set-up-scaling-script.md).
 
 ## How the scaling tool works
 
