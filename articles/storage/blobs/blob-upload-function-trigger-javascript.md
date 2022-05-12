@@ -251,7 +251,7 @@ The following [function.json](https://github.com/Azure-Samples/msdocs-storage-bi
     * `tableName`: The name of the table to write the parsed image text value returned by the function. The table must already exist. 
     * `connection`: The **connection string** of the storage account. The value `StorageConnection` matches the name in the `local.settings.json` file.
 
-:::code language="javascript" source="~/msdocs-storage-bind-function-service/javascript/ProcessImageUpload/index.js" highlight="36-60":::
+:::code language="javascript" source="~/msdocs-storage-bind-function-service/javascript/ProcessImageUpload/index.js" highlight="43-68":::
 
 This code also retrieves essential configuration values from environment variables, such as the Blob Storage connection string and Computer Vision key. These environment variables are added to the Azure Function environment after it's deployed.
 
