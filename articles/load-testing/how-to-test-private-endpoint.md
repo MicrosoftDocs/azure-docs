@@ -51,7 +51,7 @@ Azure Load Testing requires both inbound and outbound access to the public inter
 
 ### Azure Load Testing outbound IP addresses per region
 
-The following table lists the outbound IP addresses for Azure Load Testing per Azure region. You can use these IP addresses in a network security group (NSG) to allow-list the service in your VNET.
+The following table lists the outbound IP addresses for Azure Load Testing per Azure region. You can use these IP addresses in a network security group (NSG) to allowlist the service in your VNET.
 
 |Azure region  |IP address  |
 |---------|---------|
@@ -100,7 +100,7 @@ For example, for an endpoint in a virtual network with subnet range 10.179.0.0/1
 
 ## Deploy Azure Load Testing in your virtual network
 
-You can attach load test engines to an Azure Virtual Network for a new load test. You use the Azure portal to add a new load test to a Azure Load Testing resource, and configure it for your virtual network in the creation wizard.
+You can attach load test engines to an Azure Virtual Network for a new load test. You use the Azure portal to add a new load test to an Azure Load Testing resource, and configure it for your virtual network in the creation wizard.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) by using the credentials for your Azure subscription.
     
@@ -122,7 +122,7 @@ You can attach load test engines to an Azure Virtual Network for a new load test
 
 1. Select **Review + create**. Review all settings, and then select **Create** to create the load test.
 
-While your load test runs, Azure Load Testing creates the following resources in the virtual network. These resources are ephemeral and exist only for the duration of the load test run.
+While your load test runs, Azure Load Testing creates the following resources in the virtual network. These resources are ephemeral and exist only during the load test run.
 
 - IP address
 - Network Security Group (NSG)
