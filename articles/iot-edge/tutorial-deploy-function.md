@@ -88,7 +88,7 @@ The IoT Edge extension tries to pull your container registry credentials from Az
 
 ### Set target architecture to AMD64
 
-Running Azure Functions modules on IoT Edge is supported only on AMD64 architectures. Although Visual Studio Code can develop C modules for Linux AMD64 and Linux ARM32v7 devices. You need to select which architecture you're targeting with each solution, because the container is built and run differently for each architecture type. The default target architecture is Linux AMD64, but we will set it explicitly to AMD64 here.
+Running Azure Functions modules on IoT Edge is supported only on AMD64 architecture. The default target architecture for Visual Studio Code is Linux AMD64, but we will set it explicitly to AMD64 here.
 
 1. Open the command palette and search for **Azure IoT Edge: Set Default Target Platform for Edge Solution**, or select the shortcut icon in the side bar at the bottom of the window.
 
