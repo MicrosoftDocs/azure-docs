@@ -302,8 +302,6 @@ const fileDownloadHandler: FileDownloadHandler = async (userId, fileData) => {
     return new URL(fileData.url);
   }
 }
-
-)
 ```
 
 Download errors will be displayed to users in an error bar on top of the Chat Composite.
