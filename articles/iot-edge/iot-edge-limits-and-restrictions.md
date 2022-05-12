@@ -67,5 +67,16 @@ IoT Hub only supports file upload APIs for device identities, not module identit
 
 For more information on uploading files with IoT Hub, see [Upload files with IoT Hub](../iot-hub/iot-hub-devguide-file-upload.md).
 
+### Edge agent environment variables
+Changes made in `config.toml` to `edgeAgent` environment variables like the `hostname` aren't applied to `edgeAgent` if the container already existed. To apply these changes, remove the `edgeAgent` container using the command  `sudo docker rm -f edgeAgent`. The IoT Edge daemon recreates the container and starts edgeAgent in about a minute.
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+### AMQP transport
+When using Node.js to send device to cloud messages with the AMQP protocol to an IoT Edge runtime, messages stop sending after 2047 messages. No error is thrown and the messages eventually start sending again, then cycle repeats. If the client connects directly to Azure IoT Hub, there's no issue with sending messages. This issue has been fixed in IoT Edge 1.2.
+
+:::moniker-end
+<!-- end 1.1 -->
+
 ## Next steps
 For more information, see [IoT Hub other limits](../iot-hub/iot-hub-devguide-quotas-throttling.md#other-limits).

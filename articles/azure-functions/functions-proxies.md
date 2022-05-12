@@ -25,7 +25,7 @@ This section shows you how to create a proxy in the Functions portal.
 > Not all languages and operating system combinations support in-portal editing. If you're unable to create a proxy in the portal, you can instead manually create a _proxies.json_ file in the root of your function app project folder. To learn more about portal editing support, see [Language support details](functions-create-function-app-portal.md#language-support-details). 
 
 1. Open the [Azure portal], and then go to your function app.
-2. In the left pane, select **New proxy**.
+2. In the left pane, select **Proxies** and then select **+Add**.
 3. Provide a name for your proxy.
 4. Configure the endpoint that's exposed on this function app by specifying the **route template** and **HTTP methods**. These parameters behave according to the rules for [HTTP triggers].
 5. Set the **backend URL** to another endpoint. This endpoint could be a function in another function app, or it could be any other API. The value does not need to be static, and it can reference [application settings] and [parameters from the original client request].

@@ -5,6 +5,7 @@ author: savjani
 ms.author: pariks
 ms.custom: devx-track-java
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: sample
 ms.date: 02/28/2018
 ---
@@ -12,7 +13,7 @@ ms.date: 02/28/2018
 
 [!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
-The below sample code illustrates connection pooling in java.
+The below sample code illustrates connection pooling in Java.
 
 ```java
 import java.sql.Connection;

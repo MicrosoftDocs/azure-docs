@@ -1,10 +1,11 @@
 ---
 title: Manage read replicas - Azure portal - Azure Database for PostgreSQL - Single Server
 description: Learn how to manage read replicas Azure Database for PostgreSQL - Single Server from the Azure portal.
-author: sr-msft
-ms.author: srranga
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: how-to
+ms.author: srranga
+author: sr-msft
 ms.date: 11/05/2020
 ---
 

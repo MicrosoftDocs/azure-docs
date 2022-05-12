@@ -2,12 +2,12 @@
 title: Alert validation in Microsoft Defender for Cloud | Microsoft Docs
 description: Learn how to validate that your security alerts are correctly configured in Microsoft Defender for Cloud
 ms.topic: how-to
+ms.author: benmansheim
+author: bmansheim
 ms.date: 12/12/2021
 
 ---
 # Alert validation in Microsoft Defender for Cloud
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This document helps you learn how to verify if your system is properly configured for Microsoft Defender for Cloud alerts.
 

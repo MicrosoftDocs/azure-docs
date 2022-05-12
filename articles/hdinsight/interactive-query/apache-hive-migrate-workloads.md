@@ -41,7 +41,7 @@ Migration of Hive tables to a new Storage Account needs to be done as a separate
 
 * If the cluster uses a default Hive metastore, follow this [guide](./hive-default-metastore-export-import.md) to export metadata to an external metastore. Then, create a copy of the external metastore for upgrade.
 
-* If the cluster uses an external Hive metastore, create a copy of it. Options include [export/import](../../azure-sql/database/database-export.md) and [point-in-time restore](../../azure-sql/database/recovery-using-backups.md#point-in-time-restore).
+* If the cluster uses an external Hive metastore, create a copy of it. Options include [export/import](/azure/azure-sql/database/database-export) and [point-in-time restore](/azure/azure-sql/database/recovery-using-backups#point-in-time-restore).
 
 ### 3. Upgrade the metastore schema
 
@@ -66,7 +66,7 @@ This step uses the [`Hive Schema Tool`](https://cwiki.apache.org/confluence/disp
     > [!NOTE]
     > This utility uses client `beeline` to execute SQL scripts in `/usr/hdp/$STACK_VERSION/hive/scripts/metastore/upgrade/mssql/upgrade-*.mssql.sql`.
     >
-    > SQL Syntax in these scripts is not necessarily compatible to other client tools. For example, [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) and [Query Editor on Azure Portal](../../azure-sql/database/connect-query-portal.md) require keyword `GO` after each command.
+    > SQL Syntax in these scripts is not necessarily compatible to other client tools. For example, [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) and [Query Editor on Azure Portal](/azure/azure-sql/database/connect-query-portal) require keyword `GO` after each command.
     >
     > If any script fails due to resource capacity or transaction timeouts, scale up the SQL Database.
 

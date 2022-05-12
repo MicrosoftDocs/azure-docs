@@ -6,7 +6,7 @@ ms.author: sidram
 
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.date: 05/01/2020
+ms.date: 04/08/2022
 ms.custom: seodec18
 ---
 
@@ -41,6 +41,12 @@ Enable resource logs to view the details of the error and the message (payload) 
 ![Input details warning notification](media/stream-analytics-malformed-events/warning-message-with-offset.png)
 
 In cases where the message payload is greater than 32 KB or is in binary format, run the CheckMalformedEvents.cs code available in the [GitHub samples repository](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). This code reads the partition ID, offset, and prints the data that's located in that offset. 
+
+Other common reasons that result in input deserialization errors are:
+1. Integer column having a value greater than 9223372036854775807.
+2. Strings instead of array of objects or line separated objects. Valid example : *[{'a':1}]*. Invalid example : *"'a' :1"*. 
+3. Using Event Hub capture blob in Avro format as input in your job.
+4. Having two columns in a single input event that differ only in case. Example: *column1* and *COLUMN1*.
 
 ## Job exceeds maximum Event Hub receivers
 

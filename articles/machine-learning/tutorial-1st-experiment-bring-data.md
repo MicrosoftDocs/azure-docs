@@ -169,12 +169,14 @@ To run this script in Azure Machine Learning, you need to make your training dat
     ```python
     # upload-data.py
     from azureml.core import Workspace
+    from azureml.core import Dataset
+    from azureml.data.datapath import DataPath
+    
     ws = Workspace.from_config()
     datastore = ws.get_default_datastore()
-    datastore.upload(src_dir='./data',
-                     target_path='datasets/cifar10',
-                     overwrite=True)
-    
+    Dataset.File.upload_directory(src_dir='data', 
+                                  target=DataPath(datastore, "datasets/cifar10")
+                                 )  
     ```
 
     The `target_path` value specifies the path on the datastore where the CIFAR10 data will be uploaded.

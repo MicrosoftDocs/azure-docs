@@ -17,6 +17,8 @@ This quickstart describes how to create an Azure Load Testing Preview resource b
 
 After you complete this quickstart, you'll have a resource and load test that you can use for other tutorials. 
 
+Learn more about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).
+
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -159,11 +161,7 @@ In this section, you'll run the load test that you just created. If you selected
 
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/tests.png" alt-text="Screenshot that shows the list of load tests." :::
 
-1. On the page that shows test details, select **Run** or **Run test**.
-
-    :::image type="content" source="./media/quickstart-create-and-run-loadtest/run-test.png" alt-text="Screenshot that shows the button for running a load test." :::
-
-1. On the **Run** confirmation page, optionally modify the test details. Then, select **Run** to start the load test.
+1. On the test details page, select **Run** or **Run test**. Then, select **Run** on the **Run test** confirmation pane to start the load test.
 
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/run-test-confirm.png" alt-text="Screenshot that shows the run confirmation page." :::
 

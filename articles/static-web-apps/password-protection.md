@@ -9,7 +9,7 @@ ms.date: 03/13/2022
 ms.author: cshoe
 ---
 
-# Configure password protection
+# Configure password protection (preview)
 
 You can use a password to protect your app's pre-production environments or all environments. Scenarios when password protection is useful include:
 

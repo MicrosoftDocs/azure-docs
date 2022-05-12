@@ -31,6 +31,9 @@ In the list of quotas, you can toggle the arrow shown next to **Quota** to expan
 
 You can request quota increases directly from **My quotas**. The process for requesting an increase will depend on the type of quota.
 
+> [!NOTE] 
+> There is no cost associated with requesting a quota increase. Costs are incurred based on resource usage, not the quotas themselves.
+
 ### Request a quota increase
 
 Some quotas display a pencil icon. Select this icon to quickly request an increase for that quota.

@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create Azure Purview Account using .NET SDK'
-description: Create an Azure Purview Account using .NET SDK.
+title: 'Quickstart: Create Microsoft Purview Account using .NET SDK'
+description: Create a Microsoft Purview Account using .NET SDK.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 09/27/2021
 ms.custom: mode-api
 ---
-# Quickstart: Create an Azure Purview account using .NET SDK
+# Quickstart: Create a Microsoft Purview account using .NET SDK
 
-In this quickstart, you'll use the [.NET SDK](/dotnet/api/overview/azure/purviewresourceprovider) to create an Azure Purview account.
+In this quickstart, you'll use the [.NET SDK](/dotnet/api/overview/azure/purviewresourceprovider) to create a Microsoft Purview account.
 
-Azure Purview is a data governance service that helps you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, Azure Purview creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end-to-end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
+Microsoft Purview is a data governance service that helps you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, Microsoft Purview creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end-to-end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
 
-For more information about Azure Purview, [see our overview page](overview.md). For more information about deploying Azure Purview across your organization, [see our deployment best practices](deployment-best-practices.md).
+For more information about Microsoft Purview, [see our overview page](overview.md). For more information about deploying Microsoft Purview across your organization, [see our deployment best practices](deployment-best-practices.md).
 
 [!INCLUDE [purview-quickstart-prerequisites](includes/purview-quickstart-prerequisites.md)]
 
@@ -54,7 +54,7 @@ Next, create a C# .NET console application in Visual Studio:
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     ```
 
-## Create an Azure Purview client
+## Create a Microsoft Purview client
 
 1. Open **Program.cs**, include the following statements to add references to namespaces.
 
@@ -70,7 +70,7 @@ Next, create a C# .NET console application in Visual Studio:
 	  using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Add the following code to the **Main** method that sets the variables. Replace the placeholders with your own values. For a list of Azure regions in which Azure Purview is currently available, search on **Azure Purview** and select the regions that interest you on the following page: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
+2. Add the following code to the **Main** method that sets the variables. Replace the placeholders with your own values. For a list of Azure regions in which Microsoft Purview is currently available, search on **Microsoft Purview** and select the regions that interest you on the following page: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 
    ```csharp
    // Set variables
@@ -84,7 +84,7 @@ Next, create a C# .NET console application in Visual Studio:
        "<specify the name of purview account to create. It must be globally unique.>";
    ```
 
-3. Add the following code to the **Main** method that creates an instance of **PurviewManagementClient** class. You use this object to create an Azure Purview Account.
+3. Add the following code to the **Main** method that creates an instance of **PurviewManagementClient** class. You use this object to create a Microsoft Purview Account.
 
    ```csharp
    // Authenticate and create a purview management client
@@ -99,13 +99,13 @@ Next, create a C# .NET console application in Visual Studio:
    };
    ```
 
-## Create an Azure Purview account
+## Create a Microsoft Purview account
 
-Add the following code to the **Main** method that creates a **Azure Purview Account**.
+Add the following code to the **Main** method that creates a **Microsoft Purview Account**.
 
 ```csharp
 // Create a purview Account
-Console.WriteLine("Creating Azure Purview Account " + purviewAccountName + "...");
+Console.WriteLine("Creating Microsoft Purview Account " + purviewAccountName + "...");
 Account account = new Account()
 {
 Location = region,
@@ -136,12 +136,12 @@ Console.ReadKey();
 
 Build and start the application, then verify the execution.
 
-The console prints the progress of creating Azure Purview Account.
+The console prints the progress of creating Microsoft Purview Account.
 
 ### Sample output
 
 ```json
-Creating Azure Purview Account testpurview...
+Creating Microsoft Purview Account testpurview...
 Succeeded
 {
   "sku": {
@@ -159,18 +159,18 @@ Press any key to exit...
 
 ## Verify the output
 
-Go to the **Azure Purview accounts** page in the [Azure portal](https://portal.azure.com) and verify the account created using the above code.
+Go to the **Microsoft Purview accounts** page in the [Azure portal](https://portal.azure.com) and verify the account created using the above code.
 
-## Delete Azure Purview account
+## Delete Microsoft Purview account
 
-To programmatically delete an Azure Purview Account, add the following lines of code to the program:
+To programmatically delete a Microsoft Purview Account, add the following lines of code to the program:
 
 ```csharp
-Console.WriteLine("Deleting the Azure Purview Account");
+Console.WriteLine("Deleting the Microsoft Purview Account");
 client.Accounts.Delete(resourceGroup, purviewAccountName);
 ```
 
-## Check if Azure Purview account name is available
+## Check if Microsoft Purview account name is available
 
 To check availability of a purview account, use the following code:
 
@@ -180,7 +180,7 @@ CheckNameAvailabilityRequest checkNameAvailabilityRequest = newCheckNameAvailabi
     Name = purviewAccountName,
     Type =  "Microsoft.Purview/accounts"
 };
-Console.WriteLine("Check Azure Purview account name");
+Console.WriteLine("Check Microsoft Purview account name");
 Console.WriteLine(client.Accounts.CheckNameAvailability(checkNameAvailabilityRequest).NameAvailable);
 ```
 
@@ -188,10 +188,10 @@ The above code with print 'True' if the name is available and 'False' if the nam
 
 ## Next steps
 
-The code in this tutorial creates a purview account, deletes a purview account and checks for name availability of purview account. You can now download the .NET SDK and learn about other resource provider actions you can perform for an Azure Purview account.
+The code in this tutorial creates a purview account, deletes a purview account and checks for name availability of purview account. You can now download the .NET SDK and learn about other resource provider actions you can perform for a Microsoft Purview account.
 
-Follow these next articles to learn how to navigate the Azure Purview Studio, create a collection, and grant access to Azure Purview.
+Follow these next articles to learn how to navigate the Microsoft Purview governance portal, create a collection, and grant access to Microsoft Purview.
 
-* [How to use the Azure Purview Studio](use-azure-purview-studio.md)
+* [How to use the Microsoft Purview governance portal](use-azure-purview-studio.md)
 * [Create a collection](quickstart-create-collection.md)
-* [Add users to your Azure Purview account](catalog-permissions.md)
+* [Add users to your Microsoft Purview account](catalog-permissions.md)

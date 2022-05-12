@@ -44,9 +44,11 @@ items:
     href:  create-a-form-recognizer-resource.md
   - name: Migrate to Form Recognizer v3.0 (preview)
     href: v3-migration-guide.md
+  - name: Use the prebuilt-read model
+    href: how-to-guides/use-prebuilt-read.md
   - name: Use SDKs and the REST API (v2.1)
     href: how-to-guides/try-sdk-rest-api.md
-  - name: Generate SAS tokens for Azure Blob containers
+  - name: Create SAS tokens for Azure Blob storage
     href:  generate-sas-tokens.md
   - name: Custom models
     items:
@@ -77,7 +79,7 @@ items:
       href: containers/form-recognizer-container-install-run.md
     - name: Configure containers
       href: containers/form-recognizer-container-configuration.md
-      displayName: docker, container, run, billing, apikey, logging
+      displayName: docker, container, run, billing, key, logging
     - name: Container image tags
       href: containers/form-recognizer-container-image-tags.md
     - name: Use container instances
@@ -97,7 +99,7 @@ items:
   - name: "C#/.NET"
     href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples/
   - name: "Java"
-    href: /java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable#examples
+    href: /java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true#examples
   - name: "Python"
     href: /samples/azure/azure-sdk-for-python/formrecognizer-samples/
   - name: "JavaScript"
@@ -153,7 +155,7 @@ items:
   - name: Use Form Recognizer with Azure Logic Apps
     href: tutorial-logic-apps.md
   - name: Use managed identities to access Azure storage
-    href: /azure/app-service/scenario-secure-app-access-storage?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json  
+    href: ../../app-service/scenario-secure-app-access-storage.md?bc=%2fazure%2fapplied-ai-services%2fform-recognizer%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fapplied-ai-services%2fform-recognizer%2ftoc.json
   - name: "Create Form Recognizer workflows with AI Builder"
     expanded: true
     items:
