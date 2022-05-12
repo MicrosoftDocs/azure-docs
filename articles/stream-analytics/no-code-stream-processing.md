@@ -62,7 +62,7 @@ After you set up your Event Hubs credentials and select **Connect**, you can add
 
 You can always edit the field names, or remove or change the data type, by selecting the three dot symbol next to each field. You can also expand, select, and edit any nested fields from the incoming messages, as shown in the following image.
 
-:::image type="content" source="./media/no-code-stream-processing/event-hub-schema.png" alt-text="Screenshot showing Event Hub fields" lightbox="./media/no-code-stream-processing/event-hub-schema.png" :::
+:::image type="content" source="./media/no-code-stream-processing/event-hub-schema.png" alt-text="Screenshot showing Event Hub fields where you add, remove, and edit the fields." lightbox="./media/no-code-stream-processing/event-hub-schema.png" :::
 
 The available data types are:
 

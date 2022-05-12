@@ -202,10 +202,10 @@
       href: geo-redundancy.md
   - name: Build with no code editor
     items:
-    - name: Capture Event Hub data in Parquet format
+    - name: Capture Event Hubs data in Parquet format
       href: capture-event-hub-data-parquet.md
     - name: Materialize data to Cosmos DB
-      href: no-code-materialize-cosmosdb.md
+      href: no-code-materialize-cosmos-db.md
     - name: Filter and ingest Synapse SQL data
       href: filter-ingest-synapse-sql.md
     - name: Filter and ingest to Data Lake Storage Gen2

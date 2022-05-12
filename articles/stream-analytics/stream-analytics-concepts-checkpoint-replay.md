@@ -46,7 +46,7 @@ In general, the amount of replay needed is proportional to the size of the windo
 ## Estimate replay catch-up time
 To estimate the length of the delay due to a service upgrade, you can follow this technique:
 
-1. Load the input Event Hub with sufficient data to cover the largest window size in your query, at expected event rate. The events’ timestamp should be close to the wall clock time throughout that period of time, as if it’s a live input feed. For example, if you have a 3-day window in your query, send events to Event Hub for three days, and continue to send events. 
+1. Load the input Event Hubs with sufficient data to cover the largest window size in your query, at expected event rate. The events’ timestamp should be close to the wall clock time throughout that period of time, as if it’s a live input feed. For example, if you have a 3-day window in your query, send events to Event Hubs for three days, and continue to send events. 
 
 2. Start the job using **Now** as the start time. 
 

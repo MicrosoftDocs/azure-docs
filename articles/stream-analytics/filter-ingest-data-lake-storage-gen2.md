@@ -26,7 +26,7 @@ This article describes how you can use the no code editor to easily create a Str
 1. Enter a name for the Stream Analytics job, then select **Create**.  
     :::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/create-job.png" alt-text="Screenshot showing where to enter a job name." lightbox="./media/filter-ingest-data-lake-storage-gen2/create-job.png" :::
 1. Specify the **Serialization** type of your data in the Event Hubs window and the **Authentication method** that the job will use to connect to the Event Hubs. Then select **Connect**.  
-    :::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/event-hub-review-connect.png" alt-text="Screenshot showing the Event Hub area where you select Serialization and Authentication method." lightbox="./media/filter-ingest-data-lake-storage-gen2/event-hub-review-connect.png" :::
+    :::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/event-hub-review-connect.png" alt-text="Screenshot showing the Event Hubs area where you select Serialization and Authentication method." lightbox="./media/filter-ingest-data-lake-storage-gen2/event-hub-review-connect.png" :::
 1. If the connection is established successfully and you have data streams flowing in to the Event Hubs instance, you'll immediately see two things:
     1. Fields that are present in the input data. You can choose **Add field** or select the three dot symbol next to each field to remove, rename, or change its type.  
         :::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/add-field.png" alt-text="Screenshot showing where you can add a field or remove, rename, or change a field type." lightbox="./media/filter-ingest-data-lake-storage-gen2/add-field.png" :::
@@ -45,11 +45,11 @@ This article describes how you can use the no code editor to easily create a Str
     :::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/no-code-save-start.png" alt-text="Screenshot showing the job Save and Start options." lightbox="./media/filter-ingest-data-lake-storage-gen2/no-code-save-start.png" :::
 1. To start the job, specify the number of **Streaming Units (SUs)** that the job runs with. SUs represents the amount of compute and memory allocated to the job. We recommended that you start with three and then adjust as needed.
 1. After your select **Start**, the job starts running within two minutes.  
-:::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/no-code-start-job.png" alt-text="Screenshot showing the Start Stream Analytics job window where you select Start." lightbox="./media/filter-ingest-data-lake-storage-gen2/no-code-start-job.png" :::
+:::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/no-code-start-job.png" alt-text="Screenshot showing the Start Stream Analytics job window." lightbox="./media/filter-ingest-data-lake-storage-gen2/no-code-start-job.png" :::
 
 You can see the job under the Process Data section in the **Stream Analytics jobs** tab. Select **Open metrics** to monitor it or stop and restart it, as needed.
 
-:::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/no-code-list-jobs.png" alt-text="Screenshot showing the Stream Analytics jobs tab where you can view the the current job status." lightbox="./media/filter-ingest-data-lake-storage-gen2/no-code-list-jobs.png" :::
+:::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/no-code-list-jobs.png" alt-text="Screenshot showing the Stream Analytics jobs tab." lightbox="./media/filter-ingest-data-lake-storage-gen2/no-code-list-jobs.png" :::
 
 ## Next steps
 

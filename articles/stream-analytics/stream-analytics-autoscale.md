@@ -118,8 +118,8 @@ The previous section shows you how to add a default condition for the autoscale 
 5. Select **+ Add a rule** to add a rule to increase streaming units when the overall SU % utilization goes above 75%. Follow steps from the preceding **Default condition** section.
 6. Set the **minimum** and **maximum** and **default** number of streaming units.
 7. Set **Schedule**, **Timezone**, **Start date**, and **End date** on the custom condition (but not on the default condition). You can either specify start and end dates for the condition (or) select **Repeat specific days** (Monday, Tuesday, and so on.) of a week.
-    1. If you select **Specify start/end dates**, select the **Timezone**, **Start date and time**, and **End date and time** for the condition to be in effect.
-    2. If you select **Repeat specific days**, select the days of the week, timezone, start time, and end time when the condition should apply.
+    - If you select **Specify start/end dates**, select the **Timezone**, **Start date and time**, and **End date and time** for the condition to be in effect.
+    - If you select **Repeat specific days**, select the days of the week, timezone, start time, and end time when the condition should apply.
 
 ### Scale to specific number of streaming units
 

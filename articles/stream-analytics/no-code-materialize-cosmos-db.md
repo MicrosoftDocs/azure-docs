@@ -23,19 +23,19 @@ Use the following steps to develop a Stream Analytics job to materialize data in
 
 1. In the Azure portal, locate and select your Azure Event Hubs instance.
 2.	Under **Features**, select **Process Data**. Then, select **Start** in the card titled **Materialize Data in Cosmos DB**.  
-    :::image type="content" source="./media/no-code-materialize-cosmosdb/no-code-materialize-view-start.png" alt-text="Screenshot showing the Start Materialize Data Flow." lightbox="./media/no-code-materialize-cosmosdb/no-code-materialize-view-start.png" :::
+    :::image type="content" source="./media/no-code-materialize-cosmos-db/no-code-materialize-view-start.png" alt-text="Screenshot showing the Start Materialize Data Flow." lightbox="./media/no-code-materialize-cosmos-db/no-code-materialize-view-start.png" :::
 3.	Enter a name for your job and select **Create**.
 4.	Specify the **Serialization** type of your data in the event hub and the **Authentication method** that the job will use to connect to the Event Hubs. Then select **Connect**.
 5.	If the connection is successful and you have data streams flowing into your Event Hubs instance, you'll immediately see two things:
     -  Fields that are present in your input payload. Select the three dot symbol next to a field optionally remove, rename, or change the data type of the field.  
-        :::image type="content" source="./media/no-code-materialize-cosmosdb/no-code-schema.png" alt-text="Screenshot showing the event hub fields of input for you to review." lightbox="./media/no-code-materialize-cosmosdb/no-code-schema.png" :::    
+        :::image type="content" source="./media/no-code-materialize-cosmos-db/no-code-schema.png" alt-text="Screenshot showing the event hub fields of input for you to review." lightbox="./media/no-code-materialize-cosmos-db/no-code-schema.png" :::    
     - A sample of your input data in the bottom pane under **Data preview** that automatically refreshes periodically. You can select **Pause streaming preview** if you prefer to have a static view of your sample input data.  
-        :::image type="content" source="./media/no-code-materialize-cosmosdb/no-code-sample-input.png" alt-text="Screenshot showing sample input data." lightbox="./media/no-code-materialize-cosmosdb/no-code-sample-input.png" :::
+        :::image type="content" source="./media/no-code-materialize-cosmos-db/no-code-sample-input.png" alt-text="Screenshot showing sample input data." lightbox="./media/no-code-materialize-cosmos-db/no-code-sample-input.png" :::
 6.	In the next step, you specify the field and the **aggregate** you want to calculate, such as Average and Count. You can also specify the field that you want to **Group By** along with the **time window**. Then you can validate the results of the step in the **Data preview** section.  
-    :::image type="content" source="./media/no-code-materialize-cosmosdb/no-code-group-by.png" alt-text="Screenshot showing the Group By area." lightbox="./media/no-code-materialize-cosmosdb/no-code-group-by.png" :::
+    :::image type="content" source="./media/no-code-materialize-cosmos-db/no-code-group-by.png" alt-text="Screenshot showing the Group By area." lightbox="./media/no-code-materialize-cosmos-db/no-code-group-by.png" :::
 7.	Choose the **Cosmos DB database** and **container** where you want results written.
 8.	Start the Stream Analytics job by selecting **Start**.  
-    :::image type="content" source="./media/no-code-materialize-cosmosdb/no-code-cosmosdb-start.png" alt-text="Screenshot showing your definition where you select Start." lightbox="./media/no-code-materialize-cosmosdb/no-code-cosmosdb-start.png" :::  
+    :::image type="content" source="./media/no-code-materialize-cosmos-db/no-code-cosmos-db-start.png" alt-text="Screenshot showing your definition where you select Start." lightbox="./media/no-code-materialize-cosmos-db/no-code-cosmos-db-start.png" :::  
 To start the job, you must specify:
     -  The number of **Streaming Units (SU)** the job runs with. SUs represent the amount of compute and memory allocated to the job. We recommended that you start with three and adjust as needed.
     - **Output data error handling** allows you to specify the behavior you want when a job’s output to your destination fails due to data errors. By default, your job retries until the write operation succeeds. You can also choose to drop  output events.

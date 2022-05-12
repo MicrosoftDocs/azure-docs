@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 05/08/2022
 ---
-# Capture data from Event Hub in Parquet format
+# Capture data from Event Hubs in Parquet format
 
 This article explains how to use the no code editor to automatically capture streaming data in Event Hubs in an Azure Data Lake Storage Gen2 account in Parquet format. You have the flexibility of specifying a time or size interval.
 
@@ -44,7 +44,7 @@ Use the following steps to configure a Stream Analytics job to capture data in A
     1. Choose the output start time.
     1. Select the number of Streaming Units (SU) that the job runs with. SU represents the computing resources that are allocated to execute a Stream Analytics job. For more information, see [Streaming Units in Azure Stream Analytics](stream-analytics-streaming-unit-consumption.md).
     1. In the **Choose Output data error handling** list, select the behavior you want when the output of the job fails due to data error. Select **Retry** to have the job retry until it writes successfully or select another option.  
-        :::image type="content" source="./media/capture-event-hub-data-parquet/start-job.png" alt-text="ALTTEXT" lightbox="./media/capture-event-hub-data-parquet/start-job.png" :::
+        :::image type="content" source="./media/capture-event-hub-data-parquet/start-job.png" alt-text="Screenshot showing the Start Stream Analytics job window where you set the output start time, streaming units, and error handling." lightbox="./media/capture-event-hub-data-parquet/start-job.png" :::
 
 The new job is shown on the **Stream Analytics jobs** tab. Select **Open metrics** to monitor it. 
 
