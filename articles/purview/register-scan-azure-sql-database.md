@@ -404,7 +404,7 @@ Microsoft Purview supports lineage from Azure SQL Database. At the time of setti
 
 ### Search Azure SQL Database assets and view runtime lineage
 
-You can [browse data catalog](how-to-browse-catalog.md) or [search data catalog](how-to-search-catalog.md) to view asset details for Azure SQL Database. Below steps describe how-to view runtime lineage details.
+You can [browse data catalog](how-to-browse-catalog.md) or [search data catalog](how-to-search-catalog.md) to view asset details for Azure SQL Database. The following steps describe how-to view runtime lineage details.
 
 1. Go to asset -> lineage tab, you can see the asset lineage when applicable. Refer to the [supported capabilities](#supported-capabilities) section on the supported Azure SQL Database lineage scenarios. For more information about lineage in general, see [data lineage](concept-data-lineage.md) and [lineage user guide](catalog-lineage-user-guide.md).
 
