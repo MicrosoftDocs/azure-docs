@@ -361,7 +361,7 @@ When using custom domains, consider the following:
 
 - **Symptom** - After you configure a custom domain, when you try to sign in with the custom domain, you get the following error message: *Our services aren't available right now. We're working to restore all services as soon as possible. Please check back soon.*
 - **Possible causes** - This issue could be related to the Azure Front Door route configuration.
-- **Resolution**: Check the status of the **default-route. If it's disabled, [Enable the route](#33-enable-the-route). The following screenshot shows how the default-route should look like:
+- **Resolution**: Check the status of the **default-route**. If it's disabled, [Enable the route](#33-enable-the-route). The following screenshot shows how the default-route should look like:
 
     ![Screenshot shows the status of the default-route](./media/custom-domain/azure-front-door-route-status.png)
 
