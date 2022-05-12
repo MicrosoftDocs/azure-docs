@@ -65,7 +65,7 @@ Clone a Cassandra API app from GitHub, set the connection string, and run it.
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-nodejs-getting-started.git
     ```
 
-1. Install the Node.js dependencies with npm.
+1. Install the Node.js dependencies with `npm`.
 
     ```bash
     npm install
@@ -73,7 +73,7 @@ Clone a Cassandra API app from GitHub, set the connection string, and run it.
 
 ## Review the code
 
-This step is optional. If you're interested to learn how the code creates the database resources, you can review the following snippets. The snippets are all taken from the `uprofile.js` file in the `C:\git-samples\azure-cosmos-db-cassandra-nodejs-getting-started` folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string).
+This step is optional. If you're interested to learn how the code creates the database resources, you can review the following snippets. The snippets are all taken from the `uprofile.js` file in the `C:\git-samples\azure-cosmos-db-cassandra-nodejs-getting-started` folder. Otherwise, skip ahead to [Update your connection string](#update-your-connection-string).
 
 * The username and password values were set using the connection string page in the Azure portal.
 

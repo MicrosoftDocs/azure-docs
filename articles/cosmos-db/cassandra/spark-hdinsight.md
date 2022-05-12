@@ -15,7 +15,7 @@ ms.custom: kr2b-contr-experiment
 # Access Azure Cosmos DB Cassandra API from Spark on YARN with HDInsight
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
-This article covers how to access Azure Cosmos DB Cassandra API from Spark on YARN with HDInsight-Spark from spark-shell. HDInsight is Microsoft's Hortonworks Hadoop PaaS on Azure. It uses object storage for HDFS and comes in several flavors, including [Spark](../../hdinsight/spark/apache-spark-overview.md). While this article refers to HDInsight-Spark, it applies to all Hadoop distributions.  
+This article covers how to access Azure Cosmos DB Cassandra API from Spark on YARN with HDInsight-Spark from `spark-shell`. HDInsight is Microsoft's Hortonworks Hadoop PaaS on Azure. It uses object storage for HDFS and comes in several flavors, including [Spark](../../hdinsight/spark/apache-spark-overview.md). While this article refers to HDInsight-Spark, it applies to all Hadoop distributions.  
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ You can use `cqlsh` for validation. For more information, see [Connecting to Azu
 
 Spark shell is used for testing and exploration.
 
-* Launch spark-shell with the required maven dependencies compatible with your cluster's Spark version.
+* Launch `spark-shell` with the required maven dependencies compatible with your cluster's Spark version.
 
   ```scala
   spark-shell --packages "com.datastax.spark:spark-cassandra-connector_2.11:2.3.0,com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.0.0"
@@ -124,7 +124,7 @@ When you launch Jupyter, navigate to Scala. Create a directory and then upload t
 
 ### How to run
 
-Run through the notebooks, and each notebook cell sequentially.  Select the **Run** button at the top of each notebook to run all cells, or **Shift**+**Enter** for each cell.
+Go through the notebooks, and each notebook cell sequentially.  Select the **Run** button at the top of each notebook to run all cells, or **Shift**+**Enter** for each cell.
 
 ## Access with Azure Cosmos DB Cassandra API from your Spark Scala program
 
