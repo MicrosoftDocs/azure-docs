@@ -122,7 +122,7 @@ The Functions extension lets you create a function app project, along with your 
 
 1. In **Do you trust the authors of the files in this folder?** window, select **yes**.
 
-1. :::image type="content" source="./media/functions-develop-vs-code/select-author-file.png" alt-text="Select author of the file.":::
+    :::image type="content" source="./media/functions-develop-vs-code/select-author-file.png" alt-text="Select author of the file.":::
 
 1. A function is created in your chosen language and in the template for an HTTP-triggered function.
 
@@ -444,7 +444,7 @@ The settings in the local.settings.json file in your project should be the same 
 
 The easiest way to publish the required settings to your function app in Azure is to use the **Upload settings** link that appears after you publish your project:
 
-:::image type="content" source="<./media/functions-develop-vs-code/upload-app-settings.png>" alt-text="< Upload application settings >":::
+:::image type="content" source="./media/functions-develop-vs-code/upload-app-settings.png" alt-text="Upload application settings.":::
 
 You can also publish settings by using the **Azure Functions: Upload Local Setting** command in the command palette. You can add individual settings to application settings in Azure by using the **Azure Functions: Add New Setting** command.
 
