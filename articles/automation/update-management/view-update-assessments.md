@@ -20,7 +20,7 @@ To view update assessment from an Azure VM:
 
 In Update Management, you can view information about your machine, missing updates, update deployments, manage multiple machines, scheduled update deployments and so on.
 
-[ ![Update Management assessment view for Azure VM](./media/view-update-assessments/update-assessment-azure-vm.png)](./media/view-update-assessments/update-assessment-azure-vm-expanded.png#lightbox)
+[ ![Screenshot of Update Management assessment view for Azure VM.](./media/view-update-assessments/update-assessment-azure-vm.png)](./media/view-update-assessments/update-assessment-azure-vm-expanded.png#lightbox)
 
 To view update assessment from an Azure Arc-enabled server:
 
@@ -29,7 +29,7 @@ To view update assessment from an Azure Arc-enabled server:
 
 In Update Management, you can view information about your Azure Arc-enabled machine, total updates, assess updates, scheduled update deployments, and so on.
 
-[ ![Update Management assessment view for Arc-enabled servers](./media/view-update-assessments/update-assessment-arc-server.png)](./media/view-update-assessments/update-assessment-arc-server-expanded.png#lightbox)
+[ ![Screenshot of Update Management assessment view for Arc-enabled servers.](./media/view-update-assessments/update-assessment-arc-server.png)](./media/view-update-assessments/update-assessment-arc-server-expanded.png#lightbox)
 
 To view update assessment across all machines, including Azure Arc-enabled servers from your Automation account:
 
@@ -38,13 +38,13 @@ To view update assessment across all machines, including Azure Arc-enabled serve
 
 The updates for your environment are listed on the **Update management** page. If any updates are identified as missing, a list of them appears in the **Missing updates** tab.
 
-[ ![Update Management default view](./media/overview/update-management-view.png)](./media/overview/update-management-view-expanded.png#lightbox)
+[ ![Screenshot of Update Management default view.](./media/overview/update-management-view.png)](./media/overview/update-management-view-expanded.png#lightbox)
 
 - Under the **Compliance** column, you can see the last time the machine was assessed. 
 - Under the **Update agent readiness** column, you can see the health of the update agent. If there's an issue, select the link to go to troubleshooting documentation that can help you correct the problem.
 - Under **Information link**, select the link for an update to open the support article that gives you important information about the update.
 
-[ ![View update status](./media/view-update-assessments/missing-updates.png)](./media/view-update-assessments/missing-updates-expanded.png#lightbox)
+[ ![Screenshot of View update status.](./media/view-update-assessments/missing-updates.png)](./media/view-update-assessments/missing-updates-expanded.png#lightbox)
 
 The values displayed for each column are:
 
@@ -66,13 +66,13 @@ Windows auto update | Default OS update setting on the machine *applicable to Wi
  
 Click anywhere else on the update to open the Log Search pane. The query for the log search is predefined for that specific update. You can modify this query or create your own query to view detailed information.
 
-[ ![View log query results](./media/view-update-assessments/logsearch-results.png)](./media/view-update-assessments/logsearch-results-expanded.png#lightbox)
+[ ![Screenshot of View log query results.](./media/view-update-assessments/logsearch-results.png)](./media/view-update-assessments/logsearch-results-expanded.png#lightbox)
 
 ## View missing updates
 
 Select **Missing updates** to view the list of updates that are missing from your machines. Each update is listed and can be selected. Information about the number of machines that require the update, operating system details, and a link for more information are all shown. The Log Search pane also shows more details about the updates.
 
-![Missing Updates](./media/view-update-assessments/automation-view-update-assessments-missing-updates.png)
+![Screenshot of Missing Updates.](./media/view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
 ## Work with update classifications
 
