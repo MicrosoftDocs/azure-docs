@@ -40,7 +40,7 @@ In this tutorial, you'll learn how to:
 The first step is to create the storage account that will hold the uploaded blob data, which in this scenario will be images that contain text. A storage account offers several different services, but this tutorial utilizes Blob Storage and Table Storage.
 
 
-### [Visual Studio Code](#tab/visual-studio-code)
+### [Visual Studio Code](#tab/storage-resource-visual-studio-code)
 
 1. In Visual Studio Code, select <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> to open the command palette.
 1. Search for **Azure Storage: Create Storage Account (Advanced)**.
@@ -79,7 +79,7 @@ This procedure expects a public container. To change that configuration, make th
 1. paste this somewhere to use for later.  
 1. Also make note of the storage account name `msdocsstoragefunction` for later as well.
 
-### [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/storage-resource-azure-portal)
 
 Sign in to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount).
 
@@ -123,7 +123,7 @@ The last step is to retrieve our connection string for the storage account.
 
 These values will be necessary when we need to connect our Azure Function to this storage account.
 
-### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/storage-resource-azure-cli)
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
@@ -152,7 +152,7 @@ Copy the value of the `connectionString` property and paste it somewhere to use 
 ## Create the Computer Vision service
 Next, create the Computer Vision service account that will process our uploaded files.  Computer Vision is part of Azure Cognitive Services and offers various features for extracting data out of images.  You can learn more about Computer Vision on the [overview page](/azure/cognitive-services/computer-vision/overview).
 
-### [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/computer-vision-azure-portal)
 
 1) In the search bar at the top of the portal, search for *Computer* and select the result labeled **Computer vision**.
 
@@ -183,7 +183,7 @@ Next, we need to find the secret key and endpoint URL for the Computer Vision se
 
 :::image type="content" source="./media/blob-upload-storage-function/computer-vision-endpoints.png" alt-text="A screenshot showing how to retrieve the Keys and URL Endpoint for a Computer Vision service." :::
 
-### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/computer-vision-azure-cli)
 
 To create the Computer Vision service, we can run the CLI command below.
 
