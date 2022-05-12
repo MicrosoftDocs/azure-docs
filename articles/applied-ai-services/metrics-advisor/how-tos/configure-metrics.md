@@ -34,6 +34,68 @@ You can click the **Incidents** tab to view anomalies, and find a link to the [I
 
 A metric can apply one or more detection configurations. There is a default configuration for each metric, which you can edit or add to, according to your monitoring needs.
 
+### (NEW) Detection configuration auto-tuning based on anomaly preference
+
+Detection configuration auto-tuning is a new feature released in Metrics Advisor, mainly to address the painpoints of following: 
+
+- In different use cases, the interest on types of anomaly is different. Some may be interested in sudden spikes or dips, but in some other cases, spikes/dips or transient anomalies are not critical. Previously it's hard to distinguish the configuration for different anomaly types, the new auto-tuning feature has made this possible. As of now, there're 5 anomaly patterns supported: 
+        
+        1. Spike
+        2. Dip
+        3. Increase
+        4. Decrease
+        5. Steady
+
+- Sometimes, there might be many dimensions within one metric, which would split the metric into hundreds, thousands or even more time series to be monitored. However, they are not equally important. Take revenue as an example, the number on small regions or niche product category would be quite tiny and also not that stable. The new auto-tuning feature has made it possible to fine tune configuration based on series value range. 
+
+Eventually, users don't need to spend long time to fine tune the configuration again and again, and also alert noise will be reduced by applying the 'customized' configuration.
+
+> [!NOTE]
+> The auto-tuning feature is only applied on 'Smart detection' method. 
+
+**Prerequisite on triggering auto-tuning**
+
+After the metrics are onboarded to Metrics Advisor, the system will try to perform statistics on the metrics to categorize 'anomaly pattern' types and 'series value' distribution. By providing those to the users, users can further fine tune the configuration based on their specific preference. At the beginning, it will show a status of 'Initializing'. 
+
+:::image type="content" source="../media/metrics/autotuning-initializing.png" alt-text="Initializing auto-tuning" lightbox="../media/metrics/autotuning-initializing.png":::
+
+**Choose to enable auto-tuning on 'anomaly pattern' and 'series value'**
+
+As the pain-points shared before, the feature enables users to tuning detection configuration from two perspective 'anomaly pattern' and 'series value'. Based on specific use case, users can choose which one to be enabled or both. 
+
+- For 'anomaly pattern' preference, the system will list out different anomaly patterns that observed in the metric. Users can choose which ones they're interested in and select them, the unselected ones their sensitivity will be **reduced** by default. 
+
+- For 'series value' preference, it really depends on specific use case. If users would like to use a higher sensitivity for series with higher values, and decrease sensitivity on low value ones, or vice versa. Then please check the checkbox. 
+
+:::image type="content" source="../media/metrics/autotuning-initializing.png" alt-text="Initializing auto-tuning" lightbox="../media/metrics/autotuning-preference.png":::
+
+**Tune the configuration for selected anomaly patterns**
+
+If interested anomaly patterns have been chosen, the next step is to fine tune the configuration for each. There's a global 'sensitivity' that applied for all series. For each anomaly pattern, users can tune the 'adjustment', which is based on the global 'sensitivity'.
+
+Please remember to tune on each anomaly pattern that been chosen respectively. 
+
+:::image type="content" source="../media/metrics/autotuning-initializing.png" alt-text="Initializing auto-tuning" lightbox="../media/metrics/autotuning-pattern.png":::
+
+**Tune the configuration for each series value group**
+
+After the system performs statistics on all time series within the metric, several series value groups are generated automatically. Same as above, users can fine tune the 'adjustment' for each series value group according to specific business needs. 
+
+There will be a default adjustment been configured to get the best detection results, but it can be further tuned. 
+
+:::image type="content" source="../media/metrics/autotuning-initializing.png" alt-text="Initializing auto-tuning" lightbox="../media/metrics/autotuning-value.png":::
+
+**Set up alert rules**
+
+Even the detection configuration on capturing valid anomalies is tuned, it's still important to input 'alert
+rules' to make sure the final alert rules can meet eventual business needs. There're a bunch of rules can be set, like 'filter rules' or 'snooze continuous alert rules'...
+
+:::image type="content" source="../media/metrics/autotuning-initializing.png" alt-text="Initializing auto-tuning" lightbox="../media/metrics/autotuning-alert.png":::
+
+
+After configuring all above settings, the system will orchestrate them together and automatically detect anomalies based on inputted preference. The goal to get the best configuration that works for each metric can be achieved much easier by the new 'auto-tuning' feature! 
+
+
 ### Tune the configuration for all series in current metric
 
 This configuration will be applied to all the series in this metric, except for ones with a separate configuration. A metric level configuration is applied by default when data is onboarded, and is shown on the left panel. Users can directly edit metric level config on metric page. 
