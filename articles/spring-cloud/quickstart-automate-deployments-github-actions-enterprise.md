@@ -57,17 +57,11 @@ Create a Storage Container within the Storage Account using the following comman
         --auth-mode login
     ```
 
-You need an Azure service principal credential to authorize Azure login action. To get an Azure credential, execute the following commands on your local machine:
+You need an Azure service principal credential to authorize Azure login action. To get an Azure credential, execute the following commands:
 
 ```azurecli
 az login
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth
-```
-
-To access to a specific resource group, you can reduce the scope:
-
-```azurecli
-az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
 ```
 
 The command should output a JSON object:

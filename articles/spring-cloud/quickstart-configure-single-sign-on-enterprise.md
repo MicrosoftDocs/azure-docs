@@ -12,7 +12,7 @@ ms.custom:
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This quickstart shows you how to configure single sign-on for applications running on Azure Spring Cloud using the Enterprise tier.
+This quickstart shows you how to configure Single Sign-On for applications running on Azure Spring Cloud Enterprise tier.
 
 ## Prerequisites
 
@@ -127,7 +127,7 @@ To register the application with Azure Active Directory, follow these steps. If 
 
 ## Deploy the Identity Service Application
 
-To complete the single sign-on experience, deploy the identity service application following these steps. For these steps make sure that the terminal is in the project folder before running any commands.
+To complete the Single Sign-On experience, deploy the Identity Service application. The Identity Service application provides a single route to aid in identifying the user. For these steps make sure that the terminal is in the project folder before running any commands.
 
 1. Create the `identity-service` application using the following command:
 

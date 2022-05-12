@@ -210,7 +210,7 @@ The following steps show how to bind applications running in Azure Spring Cloud 
         --resource-group <resource-group> \
         --name cart-service \
         --service <spring-cloud-service> \
-        --env "CART_PORT=8080" 
+        --env "CART_PORT=8080" "REDIS_CONNECTIONSTRING=${REDIS_CONN_STR}"
     ```
 
 ## Access the Application
