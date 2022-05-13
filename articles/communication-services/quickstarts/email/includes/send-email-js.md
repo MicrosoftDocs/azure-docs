@@ -34,7 +34,6 @@ Completing this quick start incurs a small cost of a few USD cents or less in yo
 ## Setting up
 
 ### Create a new Node.js Application
-
 First, open your terminal or command window, create a new directory for your app, and navigate to it.
 
 ```console
@@ -58,24 +57,21 @@ npm install @azure/communication-email --save
 
 The `--save` option lists the library as a dependency in your **package.json** file.
 
-
-
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Email Client library for C#.
+The following classes and interfaces handle some of the major features of the Azure Communication Services Email Client library for Java Script.
 
 | Name                | Description                                                                                                                                          |
 | --------------------| -----------------------------------------------------------------------------------------------------------------------------------------------------|
 | EmailAddress        | This class contains an email address and an option for a display name.                                                                               |
 | EmailAttachment     | This class creates an email attachment by accepting a unique ID, email attachment type, and a string of content bytes.                               |
-| EmailBody           | This class contains the plain text and/or HTML content of the email body.                                                                            |
 | EmailClient         | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages.                  |
 | EmailClientOptions  | This class can be added to the EmailClient instantiation to target a specific API version.                                                           |
 | EmailContent        | This class contains the subject and the body of the email message. The importance can also be set within the EmailContent class.                     |
 | EmailCustomHeader   | This class allows for the addition of a name and value pair for a custom header.                                                                     |
 | EmailMessage        | This class combines the sender, content, and recipients. Custom headers, attachments, and reply-to email addresses can optionally be added, as well. |
 | EmailRecipients     | This class holds lists of EmailAddress objects for recipients of the email message, including optional lists for CC & BCC recipients.                |
-| StatusFoundResponse | This class holds lists of email addresses for recipients of the email message, including optional CC & .                                             |
+| SendStatusResult | This class holds lists of status of the email message delivery .  
 
 ## Authenticate the client
 
@@ -84,7 +80,11 @@ The following classes and interfaces handle some of the major features of the Az
 Add the following code to **send-email.js**:
 
 ```javascript
-const { EmailClient } = require('@azure/communication-email');
+const { EmailRestApiClient } = require("@azure/communication-email");
+const communication_common = require("@azure/communication-common");
+const core_http = require("@azure/core-http");
+const uuid = require("uuid");
+require("dotenv").config();
 
 // This code demonstrates how to fetch your connection string
 // from an environment variable.
@@ -103,66 +103,78 @@ Please replace with your domain details and modify the content, recipient detail
 
 ```javascript
 
-// Instantiate the Email client
-  const emailClient = new EmailClient(connectionString);
-
-//Replace with your domain and modify the content, recipient details as required
-
-  const repeatabilityRequestId = uuidv4();
-  const repeatabilityFirstSent = new Date().toUTCString();
-
-  const emailMessage: EmailMessage = {
-            sender: 'emailalias@emaildomain.com',
-            content: {
-                subject: 'Your Email Subject Goes Here',
-                body: {
-                    plainText: 'Your Email body Goes Here',
-                    html: 'html content'
-                }
-            },
-            recipients: {
-                toRecipients: [
-                    {
-                        email: 'emailalias@emaildomain.com'
-                    }
-                ]
-            }
-
-  const response = emailClient.sendEmail(repeatabilityRequestId, repeatabilityFirstSent, emailMessage);
+async function main() {
+  try {
+    const { url, credential } = communication_common.parseClientArguments(connectionString);
+    const options = {};
+    options.userAgentOptions = {};
+    options.userAgentOptions.userAgentPrefix = `azsdk-js-communication-email/1.0.0`;
+    const authPolicy = communication_common.createCommunicationAuthPolicy(credential);
+    const pipeline = core_http.createPipelineFromOptions(options, authPolicy);
+    this.api = new EmailRestApiClient(url, pipeline);
+    //send mail
+    const unique_id = uuid.v4();
+    const repeatabilityFirstSent = new Date().toUTCString();
+    const emailMessage = {
+      sender: "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>",
+      content: {
+        subject: "Welcome to Azure Communication Service Email.",
+        body: {
+          plainText: "<This email meessage is sent from Azure Communication Service Email using JS SDK.>"
+        },
+      },
+      recipients: {
+        toRecipients: [
+          {
+            email: "emailalias@emaildomain.com>",
+          },
+        ],
+      },
+    };
+    var response = await this.api.email.sendEmail(
+      unique_id,
+      repeatabilityFirstSent,
+      emailMessage
+    );
+  } catch (e) {
+    console.log(e);
+  }
+}
+main();
 ```
 ## Getting MessageId to track Email Delivery
 
 To track the status of email delivery you need to get the MessageId back from response and track the status. if there is no MessageId retry the request.
 
 ```javascript
+ // check mail status, wait for 5 seconds, check for 60 seconds.
   const messageId = response._response.parsedHeaders.xMsRequestId;
-   if(messageId === null){
-            console.log("Message Id not found.")
-            return
-   }
+  if (messageId === null) {
+    console.log("Message Id not found.");
+    return;
+  }
    
 ```
 ## Getting Status on Email Delivery
 To get the delivery status of email call GetMessageStatus API with MessageId
 ```javascript
    
-   const response = emailClient.getMessageStatus(messageId);
-   console.log(`Email status  : ${response.status}` )
-   const statusInterval = setInterval(async function(){
-
-        counter++;
-        response = emailClient.getMessageStatus(messageId)
-           
-        if(response){
-              console.log(`Email status  : ${response.status}` )` )
-
-             if(response.status.toLowerCase() !== "queued" || counter > 12){
-
-                clearInterval(statusInterval)
-             }
-            }
-
-        },5000)
+  const context = this;
+  let counter = 0;
+  const statusInterval = setInterval(async function () {
+    counter++;
+    try {
+      const response = await context.api.email.getSendStatus(messageId);
+      if (response) {
+        console.log(`Email status for ${messageId}: ${response.status}`);
+        if (response.status.toLowerCase() !== "queued" || counter > 12) {
+          clearInterval(statusInterval);
+        }
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }, 5000);
 
 ```
 
