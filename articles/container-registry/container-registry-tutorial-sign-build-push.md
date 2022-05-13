@@ -201,12 +201,8 @@ If you have an existing certificate, upload to Azure Key Vault and skip to [Crea
 2. Create an ACR Token for notation signing and the ORAS CLI to access the registry
 
     ```azure-cli
-    export NOTATION_USERNAME=$ACR_NAME'-token'
-    export NOTATION_PASSWORD=$(az acr token create -n $NOTATION_USERNAME \
-                        -r $ACR_NAME \
-                        --scope-map _repositories_admin \
-                        --only-show-errors \
-                        -o json | jq -r ".credentials.passwords[0].value")
+    export NOTATION_USERNAME="00000000-0000-0000-0000-000000000000"
+    export NOTATION_PASSWORD=$(az acr login --name $ACR_NAME --expose-token --output tsv --query accessToken)
     ```
 
 3. Sign the container image
