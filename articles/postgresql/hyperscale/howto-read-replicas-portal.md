@@ -35,7 +35,7 @@ To create a read replica, follow these steps:
 
 4. Enter a name for the read replica. 
 
-5. Select a value from the **Location (preview)** drop down.
+5. Select a value from the **Location (preview)** drop-down.
 
 6. Select **OK** to confirm the creation of the replica.
 
