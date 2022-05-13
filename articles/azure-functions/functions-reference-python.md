@@ -2,7 +2,7 @@
 title: Python developer reference for Azure Functions
 description: Understand how to develop functions with Python
 ms.topic: article
-ms.date: 04/29/2022
+ms.date: 05/16/2022
 ms.devlang: python
 ms.custom: devx-track-python, devdivchpfy22
 ---
@@ -15,7 +15,7 @@ As a Python developer, you may also be interested in one of the following articl
 
 | Getting started | Concepts| Scenarios/Samples |
 |--|--|--|
-| <ul><li>[Python function using Visual Studio Code](./create-first-function-vs-code-python.md)</li><li>[Python function with terminal/command prompt](./create-first-function-cli-python.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | <ul><li>[Image classification with PyTorch](machine-learning-pytorch.md)</li><li>[Azure automation sample](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine learning with TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Browse Python samples](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
+| <ul><li>[Python function using Visual Studio Code](./create-first-function-vs-code-python.md)</li><li>[Python function with terminal/command prompt](./create-first-function-cli-python.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | <ul><li>[Image classification with PyTorch](machine-learning-pytorch.md)</li><li>[Azure Automation sample](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine learning with TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Browse Python samples](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
 > [!NOTE]
 > While you can [develop your Python based Azure Functions locally on Windows](create-first-function-vs-code-python.md#run-the-function-locally), Python is only supported on a Linux based hosting plan when running in Azure. See the list of supported [operating system/runtime](functions-scale.md#operating-systemruntime) combinations.
@@ -404,7 +404,7 @@ The host.json file must also be updated to include an HTTP `routePrefix`, as sho
 }
 ```
 
-Update the Python code file `init.py`, depending on the interface used by your framework. The following example shows either an ASGI hander approach or a WSGI wrapper approach for Flask:
+Update the Python code file `init.py`, depending on the interface used by your framework. The following example shows either an ASGI handelr approach or a WSGI wrapper approach for Flask:
 
 # [ASGI](#tab/asgi)
 
@@ -948,7 +948,7 @@ By default, a host instance for Python can process only one function invocation 
 
 ## <a name="shared-memory"></a>Shared memory (preview)
 
-To improve throughput, Functions let your out-of-process Python language worker share memory with the Functions host process. When your function app is hitting bottlenecks, you can enable shared memory by adding an application setting named [FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED](functions-app-settings.md#functions_worker_shared_memory_data_transfer_enabled) with a value of `1`. With shared memory enabled, you can then use the [DOCKER_SHM_SIZE](functions-app-settings.md#docker_shm_size) setting to set the shared memory to something like `268435456`, which is equivalent to 256 MB.
+To improve throughput, Functions lets your out-of-process Python language worker share memory with the Functions host process. When your function app is hitting bottlenecks, you can enable shared memory by adding an application setting named [FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED](functions-app-settings.md#functions_worker_shared_memory_data_transfer_enabled) with a value of `1`. With shared memory enabled, you can then use the [DOCKER_SHM_SIZE](functions-app-settings.md#docker_shm_size) setting to set the shared memory to something like `268435456`, which is equivalent to 256 MB.
 
 For example, you might enable shared memory to reduce bottlenecks when using Blob storage bindings to transfer payloads larger than 1 MB.
 
