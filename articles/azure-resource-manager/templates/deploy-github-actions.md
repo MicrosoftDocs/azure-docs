@@ -167,13 +167,14 @@ The workflow file must be stored in the **.github/workflows** folder at the root
         - run: echo ${{ steps.deploy.outputs.containerName }}
   ```
 
-    > [!NOTE]
-    > You can specify a JSON format parameters file instead in the ARM Deploy action (example: `.azuredeploy.parameters.json`).
+  > [!NOTE]
+  > You can specify a JSON format parameters file instead in the ARM Deploy action (example: `.azuredeploy.parameters.json`).
 
-    The first section of the workflow file includes:
+  The first section of the workflow file includes:
 
-    - **name**: The name of the workflow.
-    - **on**: The name of the GitHub events that triggers the workflow. The workflow is trigger when there is a push event on the main branch, which modifies at least one of the two files specified. The two files are the workflow file and the template file.
+  - **name**: The name of the workflow.
+  - **on**: The name of the GitHub events that triggers the workflow. The workflow is trigger when there is a push event on the main branch, which modifies at least one of the two files specified. The two files are the workflow file and the template file.
+  
   # [OpenID Connect](#tab/openid)
  
   ```yml
@@ -207,14 +208,15 @@ The workflow file must be stored in the **.github/workflows** folder at the root
         - run: echo ${{ steps.deploy.outputs.containerName }}
   ```
 
-    > [!NOTE]
-    > You can specify a JSON format parameters file instead in the ARM Deploy action (example: `.azuredeploy.parameters.json`).
+  > [!NOTE]
+  > You can specify a JSON format parameters file instead in the ARM Deploy action (example: `.azuredeploy.parameters.json`).
 
-    The first section of the workflow file includes:
+  The first section of the workflow file includes:
 
-    - **name**: The name of the workflow.
-    - **on**: The name of the GitHub events that triggers the workflow. The workflow is trigger when there is a push event on the main branch, which modifies at least one of the two files specified. The two files are the workflow file and the template file.
+  - **name**: The name of the workflow.
+  - **on**: The name of the GitHub events that triggers the workflow. The workflow is trigger when there is a push event on the main branch, which modifies at least one of the two files specified. The two files are the workflow file and the template file.
   ---
+
 1. Select **Start commit**.
 1. Select **Commit directly to the main branch**.
 1. Select **Commit new file** (or **Commit changes**).
