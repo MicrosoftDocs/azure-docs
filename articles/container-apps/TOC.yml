@@ -96,6 +96,8 @@
         href: authentication-twitter.md
       - name: Custom OpenID Connect
         href: authentication-openid.md
+    - name: Use storage mounts
+      href: storage-mounts.md
     - name: Plan for disaster recovery
       href: disaster-recovery.md
 - name: Tutorials
