@@ -1,7 +1,7 @@
 ---
  title: include file
  description: include file
- author: daveba
+ author: barclayn
  ms.service: decentralized-identity
  ms.subservice: verifiable-credentials
  ms.topic: include
