@@ -15,7 +15,7 @@ The Kafka trigger runs a function based on a new Kafka event.
 ## Example
 ::: zone pivot="programming-language-csharp"
 
-The usage of the binding depends on the C# modality used in your function app, which can be one of the following:
+The usage of the trigger depends on the C# modality used in your function app, which can be one of the following:
 
 # [In-process](#tab/in-process)
 
@@ -240,6 +240,8 @@ For a complete set of working .NET examples, see the [Kafka extension repository
 
 # [Event Hubs](#tab/event-hubs/isolated-process)
 
+The following example shows a C# function that reads and logs the Kafka message as a Kafka event:
+
 :::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaTrigger.cs" range="12-24" :::
 
 To receive events in a batch, use a string array as input, as shown in the following example:
@@ -378,16 +380,16 @@ The following code then parses the array of events and logs the event data:
 
 The following code also logs the header data:
 
-:::code language="python" source="~/azure-functions-kafka-extension/samples/python/KafkaTriggerManyWithHeaders/main.py" :::
+:::code language="python" source="~/azure-functions-kafka-extension/samples/python/KafkaTriggerManyWithHeaders/__init__.py" :::
 
 For a complete set of working Python examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/python/). 
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 
-The annotations you use depend on the specific event provider.
+The annotations you use to configure your trigger depend on the specific event provider.
 
-# [Confluent](#tab/confluent/in-process)
+# [Confluent](#tab/confluent)
 
 The following example shows a Java function that reads and logs the content of the Kafka event:
 
@@ -399,11 +401,11 @@ To receive events in a batch, use an input string as an array, as shown in the f
 
 The following function logs the message and headers for the Kafka Event:
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/KafkaTriggerManyHeaders.java" range="12-38" :::
+:::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/KafkaTriggerManyWithHeaders.java" range="12-38" :::
 
 For a complete set of working Java examples for Confluent, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/tree/dev/samples/java/confluent/src/main/java/com/contoso/kafka). 
 
-# [Event Hubs](#tab/event-hubs/in-process)
+# [Event Hubs](#tab/event-hubs)
 
 The following example shows a Java function that reads and logs the content of the Kafka event:
 
@@ -415,7 +417,7 @@ To receive events in a batch, use an input string as an array, as shown in the f
 
 The following function logs the message and headers for the Kafka Event:
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/KafkaTriggerManyHeaders.java" range="12-38" :::
+:::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/KafkaTriggerManyWithHeaders.java" range="12-38" :::
 
 For a complete set of working Java examples for Event Hubs, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/tree/dev/samples/java/confluent/src/main/java/com/contoso/kafka). 
 
@@ -457,6 +459,8 @@ The `KafkaTrigger` annotation allows you to create a function that runs when a t
 |**name** | (Required) The name of the variable that represents the queue or topic message in function code. |
 | **brokerList** | (Required) The list of Kafka brokers monitored by the trigger.  |
 | **topic** | (Required) The topic monitored by the trigger. |
+| **cardinality** | (Optional) Indicates the cardinality of the trigger input. The supported values are `ONE` (default) and `MANY`. Use `ONE` when the input is a single message and `MANY` when the input is an array of messages. When you use `MANY`, you must also set a `dataType`. |
+| **dataType** | Defines how Functions handles the parameter value. By default, the value is obtained as a string and Functions tries to  deserialize the string to actual plain-old Java object (POJO). When `string`, the input is treated as just a string. When `binary`, the message is received as binary data, and Functions tries to deserialize it to an actual parameter type byte[]. | 
 | **consumerGroup** | (Optional) Kafka consumer group used by the trigger. |
 | **avroSchema** | (Optional) Schema of a generic record when using the Avro protocol. |
 | **authenticationMode** | (Optional) The authentication  mode when using Simple Authentication and Security Layer (SASL) authentication. The supported values are `Gssapi`, `Plain` (default), `ScramSha256`, `ScramSha512`. |
@@ -483,6 +487,8 @@ The following table explains the binding configuration properties that you set i
 |**name** | (Required) The name of the variable that represents the brokered data in function code. |
 | **brokerList** | (Required) The list of Kafka brokers monitored by the trigger.  |
 | **topic** | (Required) The topic monitored by the trigger. |
+| **cardinality** | (Optional) Indicates the cardinality of the trigger input. The supported values are `ONE` (default) and `MANY`. Use `ONE` when the input is a single message and `MANY` when the input is an array of messages. When you use `MANY`, you must also set a `dataType`. |
+| **dataType** | Defines how Functions handles the parameter value. By default, the value is obtained as a string and Functions tries to  deserialize the string to actual plain-old Java object (POJO). When `string`, the input is treated as just a string. When `binary`, the message is received as binary data, and Functions tries to deserialize it to an actual parameter type byte[]. | 
 | **consumerGroup** | (Optional) Kafka consumer group used by the trigger. |
 | **avroSchema** | (Optional) Schema of a generic record when using the Avro protocol. |
 | **authenticationMode** | (Optional) The authentication  mode when using Simple Authentication and Security Layer (SASL) authentication. The supported values are `Gssapi`, `Plain` (default), `ScramSha256`, `ScramSha512`. |
