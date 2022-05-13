@@ -196,7 +196,7 @@ The **default-route** routes the traffic from the client to Azure Front Door. Th
 
     The following screenshot shows how to select the default-route.
 
-    ![Screenshot of selecting the default route](./media/custom-domain/enable-the-route.png)
+    ![Screenshot of selecting the default route.](./media/custom-domain/enable-the-route.png)
 
 1. Select the **Enable route** checkbox.
 1. Select **Update** to save the changes.
@@ -354,8 +354,8 @@ When using custom domains, consider the following points:
 - **Symptom** - You configure a custom domain, but when you try to sign in with the custom domain, you get an HTTP 404 error message.
 - **Possible causes** - This issue could be related to the DNS configuration or the Azure Front Door backend configuration. 
 - **Resolution**:  
-    1. Make sure the custom domain is [registered and successfully verified](#step-1-add-a-custom-domain-name-to-your-azure-ad-b2c-tenant) in your Azure AD B2C tenant.
-    1. Make sure the [custom domain](../frontdoor/front-door-custom-domain.md) is configured properly. The `CNAME` record for your custom domain must point to your Azure Front Door default frontend host (for example, contoso-frontend.azurefd.net).
+    - Make sure the custom domain is [registered and successfully verified](#step-1-add-a-custom-domain-name-to-your-azure-ad-b2c-tenant) in your Azure AD B2C tenant.
+    - Make sure the [custom domain](../frontdoor/front-door-custom-domain.md) is configured properly. The `CNAME` record for your custom domain must point to your Azure Front Door default frontend host (for example, contoso-frontend.azurefd.net).
 
 ### Our services aren't available right now
 
@@ -363,7 +363,7 @@ When using custom domains, consider the following points:
 - **Possible causes** - This issue could be related to the Azure Front Door route configuration.
 - **Resolution**: Check the status of the **default-route**. If it's disabled, [Enable the route](#33-enable-the-route). The following screenshot shows how the default-route should look like:
 
-    ![Screenshot of the status of the default-route](./media/custom-domain/azure-front-door-route-status.png)
+    ![Screenshot of the status of the default-route.](./media/custom-domain/azure-front-door-route-status.png)
 
 ### Azure AD B2C returns the resource you're looking for has been removed, had its name changed, or is temporarily unavailable.
 
