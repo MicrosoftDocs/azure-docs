@@ -18,7 +18,7 @@ ms.custom: private_preview
 
 An email domain is a unique name that appears after the @ sign in email addresses. It typically takes the form of your organization's name and brand that is recognized in public. Using your domain in email allows users to trust that this message is not a phishing attempt, and that it is coming from a trust source, thereby building credibility for your brand. If you prefer, you can offboard domain management to Azure Communication Services. We offer an email domain that can be used to send emails on behalf of your organization.
 
-## Email Domains and Sender Authentication
+## Email domains and sender authentication
 Email Communication Services allows you to configure email with two types of domains : **Azure Managed Domains** and **Custom Domains**. 
 
 ### Azure Managed Domains
@@ -26,7 +26,7 @@ Getting Azure manged Domains is one click setup. You can add a free Azure Subdom
 ### Custom Domains
 In this option you are adding a domain that you already own.You have to add your domain and verify the ownership to send email and then configure for required authentication support. 
 
-### Sender Authentication for Domains
+### Sender Authentication for domains
 Email authentication (also known as email validation) is a group of standards that tries to stop spoofing (email messages from forged senders). Our email pipeline uses these standards to verify the emails that are sent. Trust in email begins with Authentication and Azure communication Services Email helps senders to properly configure the following email authentication protocols to set proper authentication for the emails.
 
 **SPF (Sender Policy Framework)**
@@ -37,22 +37,22 @@ DKIM [RFC 6376](https://tools.ietf.org/html/rfc6376) allows an organization to c
 
 Please follow the steps [to setup sender authentication for your domain.](../../quickstarts/email/add-custom-verified-domains.md) 
 
-### Choosing the Domain type
+### Choosing the domain type
 You can choose the experience that works best for your business. You can start with development by using the Azure managed domain and switch to a custom domain when you are ready to launch your applications. 
 
-## How to connect a Domain to Send email
+## How to connect a domain to send email
 Email Communication Service resources are designed to enable domain validation steps as decoupled as possible from  application integration. Application Integration linked with Azure Communication Service and each communication service will be allowed to be linked with one of verified domains from Email Communication Services. Please follow the steps [to connect your verified domains](../../quickstarts/email/connect-email-communication-acs-resource.md). To switch from one verified domain to other you need to [disconnect the domain and connect a different domain](../../quickstarts/email/connect-email-communication-acs-resource.md).  
 
 ## Next steps
 
-> [Best Practices for Sender Authentication Support in Azure Communication Services Email](./email-authentication-bestpractice.md)
+> [Best practices for sender authentication support in Azure Communication Services Email](./email-authentication-bestpractice.md)
 
-> [Get started with Creating Email Communication Resource](../../quickstarts/email/create-email-communication-resource.md)
+> [Get started with create and manage Email Communication resources in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
 
-> [Get started by Connecting Email Resource with a Communication Resource](../../quickstarts/email/connect-email-communication-acs-resource.md)
+> [Get started by connecting Email Communication Resource with a Communication Resource](../../quickstarts/email/connect-email-communication-acs-resource.md)
 
 The following documents may be interesting to you:
 
 - Familiarize yourself with the [Email client library](../email/sdk-features.md)
 - How to send emails with custom verified domains?[Add custom domains](../../quickstarts/email/add-custom-verified-domains.md)
-- How to send emails with Azure Communication Service managed domains?[Add Azure Managed domains](../../quickstarts/email/add-azure-managed-domains.md)
+- How to send emails with Azure managed domains?[Add Azure Managed domains](../../quickstarts/email/add-azure-managed-domains.md)
