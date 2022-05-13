@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Communication between microservices'
+title: 'Tutorial: Communication between microservices in Azure Container Apps'
 description: Learn how to communicate between microservices deployed in Azure Container Apps
 services: container-apps
 author: craigshoemaker
@@ -77,7 +77,7 @@ az acr login --name $ACR_NAME
 
 1. In a new browser tab, navigate to the [repository for the UI application](https://github.com/azure-samples/containerapps-albumui) and select the **Fork** button at the top of the page to fork the repo to your account.
 
-Follow the prompts from GitHub to fork the repository and return here once the operation is complete.
+    Follow the prompts from GitHub to fork the repository and return here once the operation is complete.
 
 1. Navigate to the parent of the *code-to-cloud* folder. If you're still in the *code-to-cloud/src* directory, you can use the below command to return to the parent folder.
 
@@ -104,23 +104,21 @@ Follow the prompts from GitHub to fork the repository and return here once the o
 
 ::: zone pivot="acr-remote"
 
-1. Build your Dockerfile with the ACR build command.
+# [Bash](#tab/bash)
 
-    # [Bash](#tab/bash)
+```azurecli
+az acr build --registry $ACR_NAME --image albumapp-ui .
+```
 
-    ```azurecli
-    az acr build --registry $ACR_NAME --image albumapp-ui .
-    ```
+# [PowerShell](#tab/powershell)
 
-    # [PowerShell](#tab/powershell)
+```powershell
+az acr build --registry $ACR_NAME --image albumapp-ui .
+```
 
-    ```powershell
-   az acr build --registry $ACR_NAME --image albumapp-ui .
-    ```
+---
 
-    ---
-
-    Output from the `az acr build` command shows the upload progress of the source code to Azure and the details of the `docker build` operation.
+Output from the `az acr build` command shows the upload progress of the source code to Azure and the details of the `docker build` operation.
 
 ::: zone-end
 
