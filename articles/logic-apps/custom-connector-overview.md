@@ -45,43 +45,21 @@ In [multi-tenant Azure Logic Apps](logic-apps-overview.md), you can create [cust
 
 ## Standard logic apps
 
-In [single-tenant Azure Logic Apps](logic-apps-overview.md), the redesigned Azure Logic Apps runtime powers Standard logic app workflows. This runtime differs from the multi-tenant Azure Logic Apps runtime that powers Consumption logic app workflows. The single-tenant runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md), which provides a key capability for you to create and use your own [built-in connectors](../connectors/built-in.md) in Standard workflows. In most cases, the built-in version provides better performance, capabilities, pricing, and so on.
+In [single-tenant Azure Logic Apps](logic-apps-overview.md), the redesigned Azure Logic Apps runtime powers Standard logic app workflows. This runtime differs from the multi-tenant Azure Logic Apps runtime that powers Consumption logic app workflows. The single-tenant runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md), which provides a key capability for you to create your own [built-in connectors](../connectors/built-in.md) for anyone to use in Standard workflows. In most cases, the built-in version provides better performance, capabilities, pricing, and so on.
 
-When single-tenant Azure Logic Apps officially released, new built-in connector operations included Azure Blob Storage, Azure Event Hubs, Azure Service Bus, and SQL Server. Over time, this list of built-in connectors continues to grow. However, if you need to use connectors that aren't available in Standard logic app workflows, you can [create your own built-in connectors with the Azure Functions extensibility framework](create-custom-built-in-connector-standard.md) that's used by the built-in connectors available for Standard workflows.
-
-The following sections provide more information about how the extensibility model works for built-in connectors.
-
-<a name="built-in-connector-extensibility-model"></a>
-
-### Built-in connector extensibility model
-
-In single-tenant Azure Logic Apps, the built-in connector extensibility model uses the Azure Functions extensibility model, which enables the capability for you to add implementations for custom built-in connectors, such as Azure Functions extensions. You can use this capability to develop and package your own built-in connectors as Azure Functions extensions that anyone can use for their Standard workflows.
-
-In this built-in connector extensibility model, you have to implement the following operation components:
-
-* Operation descriptions
-
-  Operation descriptions are metadata about the operations implemented by your custom built-in connector. The workflow designer primarily uses these descriptions to drive the authoring and monitoring experiences for your connector's operations.
-
-  For example, the designer uses operation descriptions to understand the input parameters required by a specific operation and to facilitate generating the outputs' property tokens, based on the schema for the operation's outputs.
-
-* Operation invocations
-
-  During workflow execution, the Azure Logic Apps runtime uses these implementations to call the specified operation in the workflow definition.
-
-When you're done, you also have to register custom built-in connector with the [Azure Functions runtime extension](../azure-functions/functions-bindings-register.md). For the steps, review [Register your connector as an Azure Functions extension](create-custom-built-in-connector-standard.md#register-connector).
+When single-tenant Azure Logic Apps officially released, new built-in connectors included Azure Blob Storage, Azure Event Hubs, Azure Service Bus, and SQL Server. Over time, this list of built-in connectors continues to grow. However, if you need to use connectors that aren't available in Standard logic app workflows, you can [create your own built-in connectors](create-custom-built-in-connector-standard.md) using the same extensibility model that's used by built-in connectors in Standard workflows.
 
 <a name="service-provider-interface-implementation"></a>
 
 ### Built-in connectors as service providers
 
-In single-tenant Azure Logic Apps, a built-in connector that has the following attributes is also called a *service provider*:
+In single-tenant Azure Logic Apps, a built-in connector that has the following attributes is called a *service provider*:
 
-* Is based on the Azure Functions extensibility model.
+* Is based on the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md).
 
 * Provides access from a Standard logic app workflow to a service, such as Azure Blob Storage, Azure Service Bus, Azure Event Hubs, SFTP, and SQL Server.
 
-  Some might support only a single way to authenticate a connection to the underlying service. Others can offer a choice, such as using a connection string, Azure Active Directory (Azure AD), or a managed identity.
+  Some built-in connectors support only a single way to authenticate a connection to the underlying service. Other built-in connectors can offer a choice, such as using a connection string, Azure Active Directory (Azure AD), or a managed identity.
 
 * Runs in the same process as the redesigned Azure Logic Apps runtime.
 
@@ -93,32 +71,57 @@ A built-in connector that's *not a service provider* has the following attribute
 
 No capability is currently available to create a non-service provider built-in connector or a new job type that runs directly in the Azure Logic Apps runtime. However, you can create your own built-in connectors using the service provider infrastructure.
 
-### Custom built-in connectors
+The following section provides more information about how the extensibility model works for custom built-in connectors.
 
-Based on the service provider infrastructure, you [create your custom built-in connector](create-custom-built-in-connector-standard.md#example-custom-built-in-connector). To build your connector, you create a C# class library project, and add a NuGet package named **Microsoft.Azure.Workflows.WebJobs.Extension** as a NuGet reference to your class library project. To provide the operations and operation descriptions for your own built-in connector, you use this NuGet package to implement the service provider interface named **IServiceOperationsProvider**. In this package, you have to implement the [**GetService()**](#getservice) and [**GetOperations()**](#getoperations) methods, which are described later in this article. The Azure Logic Apps designer requires and uses these methods to query the operations that your connector provides and shows on the designer surface. The **GetService()** method also specifies the connection's input parameters that are required by the designer.
+<a name="built-in-connector-extensibility-model"></a>
 
-The following sections cover the trigger types supported by custom built-in connectors, Azure Functions-based triggers and recurring, polling triggers not based on Azure Functions triggers.
+### Built-in connector extensibility model
+
+Based on the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md), the built-in connector extensibility model in single-tenant Azure Logic Apps has a service provider infrastructure that you can use to [create, package, register, and install your own custom built-in connectors](create-custom-built-in-connector-standard.md) as Azure Functions extensions that anyone can use in their Standard workflows.
 
 #### Azure Functions-based triggers
 
-Custom built-in trigger capabilities currently support adding or exposing an [Azure Functions trigger or action](../azure-functions/functions-bindings-example.md) as a service provider trigger in your custom built-in connector. To use the same Azure Functions binding that's used by the Azure managed connector triggers, provide the connection information and trigger bindings as required by Azure Functions. To do so, your connector needs to implement the [**GetBindingConnectionInformation()**](#getbindingconnectioninformation) and [**GetFunctionTriggerType()**](#getfunctiontriggertype) methods, which the the Azure Logic Apps runtime requires and are described later in this article.
-
-If your connector also has actions, your connector needs to implement the [**InvokeOperation()** method](#invokeoperation), which is called for each action that executes at runtime. Otherwise, you don't have to implement this method.
-
-For Azure Functions-based triggers, the following diagram shows all the method implementations that the Azure Logic Apps designer and runtime expects from custom built-in connectors in Standard workflows:
+The built-in connector extensibility model includes trigger capabilities that support adding or exposing an [Azure Functions trigger or action](../azure-functions/functions-bindings-example.md) as a service provider trigger in your custom built-in connector. The following diagram shows all the method implementations that the Azure Logic Apps designer and runtime expects for a custom built-in connector with an Azure Functions-based trigger:
 
 ![Conceptual diagram showing method implementation required by the Azure Logic Apps designer and runtime.](./media/custom-connector-overview/service-provider-class-diagram.png)
 
-> [!NOTE]
-> The **GetFunctionTriggerDefinition()** method has a default implementation, 
-> you don't need to explicitly implement this method.
-
 #### Recurrence or polling triggers
 
-Custom built-in trigger capabilities currently support triggers that check or *poll* an endpoint based on a specific recurrence schedule and that aren't based on Azure Functions triggers. For a polling trigger, the Azure Logic Apps creates a recurrence trigger job for the polling trigger, You can 
+Custom built-in trigger capabilities currently support triggers that check or *poll* an endpoint based on a specific recurrence schedule and that aren't based on Azure Functions triggers. For a polling trigger, the Azure Logic Apps creates a recurrence trigger job for the polling trigger.
 
+#### IServiceOperationsProvider
 
+This interface includes the methods that provide the operation descriptions and invocations for your custom built-in connector.
 
+* Operation descriptions
+
+  Operation descriptions are metadata about the implemented operations in your custom built-in connector. The Azure Logic Apps designer primarily uses these descriptions to drive the authoring and monitoring experiences for your connector's operations. For example, the designer uses operation descriptions to understand the input parameters required by a specific operation and to facilitate generating the outputs' property tokens, based on the schema for the operation's outputs.
+
+  The designer requires and uses the [**GetService()**](#getservice) and [**GetOperations()**](#getoperations) methods to query the operations that your connector provides and shows on the designer surface. The **GetService()** method also specifies the connection's input parameters that are required by the designer.
+
+  For more information about these methods and their implementation, review the [Methods to implement](#method-implementation) section later in this article.
+
+* Operation invocations
+
+  Operation invocations are the implementations used during workflow execution by the Azure Logic Apps runtime to call the specified operation in the workflow definition.
+
+  * If your trigger is an Azure Functions-based trigger type, the [**GetBindingConnectionInformation()**](#getbindingconnectioninformation) method is used by the runtime in Azure Logic Apps to provide the required connection parameters information to the Azure Functions trigger binding.
+
+  * If your connector has actions, the [**InvokeOperation()**](#invokeoperation) method is used by the runtime to call each action that runs during workflow execution. Otherwise, you don't have to implement this method.
+
+  For more information about these methods and their implementation, review the [Methods to implement](#method-implementation) section later in this article.
+
+#### IServiceOperationsTriggerProvider
+
+Custom built-in trigger capabilities currently support adding or exposing an [Azure Functions trigger or action](../azure-functions/functions-bindings-example.md) as a service provider trigger in your custom built-in connector. If you want to use the Azure Functions trigger type for a trigger in your custom built-in connector, and you want to use the same Azure Functions binding that's used by the Azure managed connector triggers, provide the connection information and trigger bindings as required by Azure Functions.
+
+  * The [**GetFunctionTriggerType()**](#getfunctiontriggertype) method is required to return the string that's the same as the **type** parameter in the Azure Functions trigger binding.
+
+  * The [**GetFunctionTriggerDefinition()**](#getfunctiontriggerdefinition) has a default implementation, so you don't need to explicitly implement this method.
+
+  For more information about these methods and their implementation, review the [Methods to implement](#method-implementation) section later in this article.
+
+<a name="method-implementation"></a>
 
 ### Methods to implement
 
@@ -160,6 +163,18 @@ return ServiceOperationsProviderUtilities
    .ToValue<string>();
 ```
 
+#### InvokeOperation()
+
+If your custom built-in connector only has a trigger, you don't have to implement this method. However, if your connector has actions to implement, you have to implement the **InvokeOperation()** method, which is called for each action that executes during runtime. You can use any client, such as FTPClient, HTTPClient, and so on, as required by your connector's actions.
+
+```csharp
+using (var client = new HttpClient())
+{
+   response = client.SendAsync(httpRequestMessage).ConfigureAwait(false).ToJObject();
+}
+return new ServiceOperationResponse(body: response);
+```
+
 #### GetFunctionTriggerType()
 
 If you want to use an Azure Functions built-in trigger as a trigger offered by your custom built-in connector, you have to return the string that's the same as the **type** parameter in the Azure Functions trigger binding.
@@ -173,17 +188,23 @@ public string GetFunctionTriggerType()
 }
 ```
 
-#### InvokeOperation()
+#### GetFunctionTriggerDefinition()
 
-If your custom built-in connector only has a trigger, you don't have to implement this method. However, if your connector has actions to implement, you have to implement the **InvokeOperation()** method, which is called for each action that executes during runtime. You can use any client, such as FTPClient, HTTPClient, and so on, as required by your connector's actions.
+This method has a default implementation, so you don't need to explicitly implement this method.
 
-```csharp
-using (var client = new HttpClient())
-{
-   response = client.SendAsync(httpRequestMessage).ConfigureAwait(false).ToJObject();
-}
-return new ServiceOperationResponse(body: response);
-```
+### High-level steps
+
+The following outline describes the high-level steps to build your connector:
+
+1. Create a class library project.
+
+1. To your project, add a NuGet package named **Microsoft.Azure.Workflows.WebJobs.Extension** as a NuGet reference.
+
+1. To provide the operations and operation descriptions for your built-in connector, use the NuGet package to implement methods for the interfaces named [**IServiceOperationsProvider**](#iserviceoperationsprovider) and [**IServiceOperationsTriggerProvider**](#iserviceoperationstriggerprovider).
+
+1. Register your custom built-in connector with the [Azure Functions runtime extension](../azure-functions/functions-bindings-register.md).
+
+1. Install the connector for use.
 
 ## Next steps
 

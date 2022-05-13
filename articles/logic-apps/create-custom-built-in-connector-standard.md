@@ -11,11 +11,11 @@ ms.date: 05/12/2022
 
 # Create custom built-in connectors for Standard logic apps in single-tenant Azure Logic Apps
 
-If the connectors that you need aren't available for use in Standard logic app workflows, you can create your own custom built-in connectors with the same Azure Functions extensibility framework that's used by the built-in connectors available for Standard workflows in [single-tenant Azure Logic Apps](single-tenant-overview-compare.md).
+If the connectors that you need aren't available for use in Standard logic app workflows, you can create your own custom built-in connectors with the same Azure Functions extensibility framework that's used by the built-in connectors available for Standard logic apps in [single-tenant Azure Logic Apps](single-tenant-overview-compare.md).
 
 This article shows how to create an example custom built-in connector using the Azure Functions extensibility framework and the sample built-in Azure Cosmos DB connector.
 
-For more information about custom connectors, review [Custom connectors in Azure Logic Apps](custom-connector-overview.md) and [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md).
+For more information about custom connectors, review [Custom connectors for Standard logic apps](custom-connector-overview.md#custom-connector-standard) and [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md).
 
 ## Prerequisites
 
@@ -59,14 +59,21 @@ To create the sample built-in Cosmos DB connector, complete the following tasks:
 
 ## Implement the service provider interface
 
-To provide the operations for the sample built-in connector, in the NuGet package named **Microsoft.Azure.Workflows.WebJobs.Extension** package, implement the service provider interface named **IServiceOperationsTriggerProvider** to provide the operation descriptions for your connector.
+To provide the operations for the sample built-in connector, in the NuGet package named **Microsoft.Azure.Workflows.WebJobs.Extension** package, implement the methods for the following interfaces:
+
+* **IServiceOperationsProvider** to provide descriptions and metadata for your service and operations and has the following methods:
+
+  * The **GetService()** and **GetOperations()** methods are used by the designer in Azure Logic Apps to query the triggers and actions that your connector provides and shows on the designer surface.
+
+  * If your trigger is an Azure Functions-based trigger type, the **GetBindingConnectionInformation()** is used by the runtime in Azure Logic Apps to provide the required connection parameters information to the Azure Functions trigger binding.
+
+  * If your connector has actions, the **InvokeOperation()** method is used by the runtime for each action that runs during workflow execution.
+
+  In this example, the Cosmos DB custom built-in connector doesn't have any actions, so you don't have to implement the **InvokeOperation()** method. Otherwise, if the connector had actions, you need to implement the method for each action that executes at runtime.
+
+* **IServiceOperationsTriggerProvider** to provide the type and definition for triggers
 
 ![Conceptual class diagram showing method implementation for sample Cosmos DB custom built-in connector.](./media/create-custom-built-in-connector-standard/service-provider-cosmos-db-example.png)
-
-In this example, the Cosmos DB custom built-in connector doesn't have any actions, so you don't have to implement the **InvokeOperation()** method. Otherwise, if the connector had actions, you need to implement the method for each action that executes at runtime.
-
-The **IServiceOperationsTriggerProvider** service provider interface has the following methods that your connector must implement. The designer in Azure Logic Apps uses these methods to query the triggers and actions that your connector provides and shows on the designer surface.
-
 
 #### GetService()
 
@@ -116,6 +123,10 @@ public string GetFunctionTriggerType()
    return "CosmosDBTrigger";
 }
 ```
+
+#### GetFunctionTriggerDefinition()
+
+This method has a default implementation, so you don't need to explicitly implement this method.
 
 <a name="register-connector"></a>
 
