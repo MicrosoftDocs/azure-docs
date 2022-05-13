@@ -21,10 +21,10 @@ ms.custom: private_preview
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 - An Azure Email Communication Services Resource created and ready to provision the domains [Get started with Creating Email Communication Resource](../../quickstarts/email/create-email-communication-resource.md)
 
-## Provision Custom Domain
+## Provision custom domain
 
 
-### Verify Custom Domain
+### Verify custom domain
 
 1. Go the overview page of the Email Communications Service resource that you created earlier.
 2. Setup Custom Domain.   
@@ -76,7 +76,7 @@ ms.custom: private_preview
     :::image type="content" source="./media/email-domains-custom-verified.png" alt-text="Domain Verified":::
 
 
-### Configure Sender Authentication for  Custom Domain
+### Configure sender authentication for custom domain
 1. Navigate to  **Provision Domains** and confirm that  **Domain Status** is in "Verified" state. 
 2. You can setup SPF and DKIM  by clicking **Configure**. You need add the following TXT record and CNAME records to your domain's registrar or DNS hosting provider. Click **Next** once you've completed this step. 
 
@@ -102,7 +102,7 @@ ms.custom: private_preview
 
    :::image type="content" source="./media/email-domains-custom-ready.png" alt-text="Domain is ready to Send Email":::
 
-## Changing MailFrom and From Display Name for Custom Domains
+## Changing MailFrom and FROM display name for custom domains
 
 When Azure Manged Domain is provisioned to send mail, it has default Mail From address as donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net and the FROM display name would be the same. You will able to configure and change the MailFrom address and FROM displayname to more user friendly value.
 
@@ -132,9 +132,9 @@ When Azure Manged Domain is provisioned to send mail, it has default Mail From a
 
 ## Next steps
 
-> [Get started by Connecting Email Resource with a Communication Resource](../../quickstarts/email/connect-email-communication-acs-resource.md)
+> [Get started with create and manage Email Communication Service in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
 
-> [Best Practices for Sender Authentication Support in Azure Communication Services Email](../../concepts/email/email-authentication-bestpractice.md)
+> [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-acs-resource.md)
 
 
 The following documents may be interesting to you:
