@@ -44,9 +44,9 @@ With Azure Load Testing, you can run a load test for a URL.
     
 1. On the **Quickstart test** page, enter the **Test URL** with the complete URL that you would like to run the test for. For example, http://contoso-app.azurewebsites.net/login
 
-1. (Optional) You can can update the **Number of virtual users** to the total number of virtual users. The maximum allowed value is 11250. One engine instance can generate up to 250 threads. If the virtual users entered are above this, Azure Load Testing will evenly split it into different engines automatically.
+1. (Optional) You can update the **Number of virtual users** to the total number of virtual users. The maximum allowed value is 11250. One engine instance can generate up to 250 threads. If the virtual users entered are above this, Azure Load Testing will evenly split it into different engines automatically.
 
-1. (Optional) You can can update the **Test duration** and **Ramp up time** for the test.
+1. (Optional) You can update the **Test duration** and **Ramp up time** for the test.
 
 1. Click on Run test.
 
