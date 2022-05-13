@@ -110,7 +110,7 @@ Follow these steps to create an Azure Front Door:
     
     |Key  |Value  |
     |---------|---------|
-    |Subscription|Select your Azuresubscription.|
+    |Subscription|Select your Azure subscription.|
     |Resource group| Select an existing resource group, or create a new one.|
     |Name| Give your profile a name such as `b2cazurefrontdoor`.|
     |Tier| Select either Standard or Premium tier. Standard tier is content delivery optimized. Premium tier builds on Standard tier and is focused on security. See [Tier Comparison](../frontdoor/standard-premium/tier-comparison.md).|
@@ -187,7 +187,7 @@ To create a CNAME record for your custom domain:
 
 1.  For **Select routes** list, select **default-route**, and then select **Associate**.
 
-### 3.3 Enable the route
+### 3.3. Enable the route
 
 The **default-route** routes the traffic from the client to Azure Front Door. Then, Azure Front Door uses your configuration to send the traffic to Azure AD B2C. Follow these steps to enable the default-route.
 
@@ -196,7 +196,7 @@ The **default-route** routes the traffic from the client to Azure Front Door. Th
 
     The following screenshot shows how to select the default-route.
 
-    ![Screenshot shows how to select the default route](./media/custom-domain/enable-the-route.png)
+    ![Screenshot of selecting the default route](./media/custom-domain/enable-the-route.png)
 
 1. Select the **Enable route** checkbox.
 1. Select **Update** to save the changes.
@@ -228,7 +228,7 @@ Configure Azure Blob storage for Cross-Origin Resource Sharing with the followin
 1. For **Application**, select the web application named *webapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
 1. Copy the URL under **Run user flow endpoint**.
 
-    ![Screenshot demonstrates how to copy the authorization request URI.](./media/custom-domain/user-flow-run-now.png)
+    ![Screenshot of how to copy the authorization request U R I.](./media/custom-domain/user-flow-run-now.png)
 
 1. To simulate a sign in with your custom domain, open a web browser and use the URL you copied. Replace the Azure AD B2C domain (_&lt;tenant-name&gt;_.b2clogin.com) with your custom domain.
 
@@ -363,7 +363,7 @@ When using custom domains, consider the following:
 - **Possible causes** - This issue could be related to the Azure Front Door route configuration.
 - **Resolution**: Check the status of the **default-route**. If it's disabled, [Enable the route](#33-enable-the-route). The following screenshot shows how the default-route should look like:
 
-    ![Screenshot shows the status of the default-route](./media/custom-domain/azure-front-door-route-status.png)
+    ![Screenshot of the status of the default-route](./media/custom-domain/azure-front-door-route-status.png)
 
 ### Azure AD B2C returns the resource you're looking for has been removed, had its name changed, or is temporarily unavailable.
 
