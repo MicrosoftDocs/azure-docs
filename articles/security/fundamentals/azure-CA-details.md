@@ -102,5 +102,5 @@ To learn more about Certificate Authorities and PKI, see:
 - [Microsoft PKI Repository](https://www.microsoft.com/pkiops/docs/repository.htm)
 - [Microsoft PKI Repository, including CRL and policy information](https://www.microsoft.com/pki/mscorp/cps/default.htm)
 - [Azure Firewall Premium certificates](../../firewall/premium-certificates.md)
-- [PKI certificates and Configuration Manager](~/mem/configmgr/core/plan-design/security/plan-for-certificates)
+- [PKI certificates and Configuration Manager](/mem/configmgr/core/plan-design/security/plan-for-certificates)
 - [Securing PKI](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn786443(v=ws.11))
