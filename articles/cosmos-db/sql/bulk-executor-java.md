@@ -63,11 +63,13 @@ com.azure.cosmos.examples.bulk.async.SampleBulkQuickStartAsync
 
 2. The `CosmosAsyncClient` object is initialized by using the following statements:  
 
-   ```java
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=CreateAsyncClient)]
+
+   <!-- ```java
         client = new CosmosClientBuilder().endpoint(AccountSettings.HOST).key(AccountSettings.MASTER_KEY)
                 .preferredRegions(preferredRegions).contentResponseOnWriteEnabled(true)
                 .consistencyLevel(ConsistencyLevel.SESSION).buildAsyncClient();
-   ```
+   ``` -->
 
 
 3. The sample creates an async database and container. It then creates multiple documents on which bulk operations will be executed. It adds these documents to a `Flux<Family>` reactive stream object:
