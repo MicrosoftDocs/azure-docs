@@ -46,13 +46,12 @@ Your Azure account has a set of limitation on the number of email messages that 
 
 ## Next steps
 
-> [Get started with create and manage Email Communication resources in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
+> [Get started with create and manage Email Communication Service in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
 
-> [Get started by connecting Email Communication Resource with a Communication Resource](../../quickstarts/email/connect-email-communication-acs-resource.md)
-
+> [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-acs-resource.md)
 
 The following documents may be interesting to you:
 
 - How to send emails with custom verified domains?[Add custom domains](../../quickstarts/email/add-custom-verified-domains.md)
-- How to send emails with Azure Communication Service managed domains?[Add Azure Managed domains](../../quickstarts/email/add-azure-managed-domains.md)
-- How to send emails with Azure Communication Service using Email client library? [How to send an Email](../../quickstarts/email/send-email.md)?
+- How to send emails with Azure Managed Domains?[Add Azure Managed domains](../../quickstarts/email/add-azure-managed-domains.md)
+- How to send emails with Azure Communication Service using Email client library? [How to send an Email?](../../quickstarts/email/send-email.md)
