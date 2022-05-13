@@ -10,7 +10,7 @@ ms.subservice: computer-vision
 ms.topic: how-to
 ms.date: 05/09/2022
 ms.author: pafarley
-ms.custom: non-critical
+ms.custom: cogserv-non-critical-vision
 ---
 
 # Use Computer Vision container with Kubernetes and Helm
