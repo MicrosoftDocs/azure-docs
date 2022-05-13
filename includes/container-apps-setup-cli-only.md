@@ -56,7 +56,7 @@ az extension add --name containerapp --upgrade
 
 ---
 
-Now that the extension is installed, register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces.
+Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces if you haven't already registered them in your Azure subscription.
 
 # [Bash](#tab/bash)
 

@@ -30,7 +30,7 @@
           href: deploy-visual-studio.md
         - name: Visual Studio Code
           href: deploy-visual-studio-code.md
-      - name: With code on your machine
+      - name: With code on your local machine
         href: quickstart-code-to-cloud.md
 - name: Concepts
   items:

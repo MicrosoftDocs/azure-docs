@@ -12,7 +12,7 @@ zone_pivot_groups: container-apps-image-build-type
 
 # Tutorial: Communication between microservices in Azure Container Apps Preview
 
-This tutorial builds on the app deployed in the [Deploy your code to Azure Container Apps](./quickstart-code-to-cloud.md) article and adds a front end microservice to the container app. In this article, you learn how to enable communication between different microservices.
+This tutorial builds on the app deployed in the [Deploy your code to Azure Container Apps](./quickstart-code-to-cloud.md)  quickstart article and adds a front-end microservice to the container app. In this article, you learn how to enable communication between different microservices.
 
 The following screenshot shows the UI application added in this article.
 
@@ -95,7 +95,7 @@ $ACR_PASSWORD=(Get-AzContainerRegistryCredential `
 
     Select the **Fork** button at the top of the page to fork the repo to your account. Follow the prompts from GitHub to fork the repository and return here once the operation is complete.
 
-1. If your terminal is still in the *code-to-cloud\src* folder, back out to the parent folder.
+1. If your terminal is still in the *code-to-cloud/src* folder, back out to the parent folder.
 
     ```console
     cd ../..
@@ -108,7 +108,7 @@ $ACR_PASSWORD=(Get-AzContainerRegistryCredential `
     ```
 
     > [!NOTE]
-    > If the `clone` command fails, then you probably forgot to first fork the repository.
+    > If the `clone` command fails, check that you have successfully forked the repository.
 
 1. Next, change the directory into the root of the cloned repo.
 
@@ -231,7 +231,7 @@ const api = axios.create({
 });
 ```
 
-Notice how the the `baseURL` property get its value from the `API_BASE_URL` environment variable.
+Notice how the `baseURL` property gets its value from the `API_BASE_URL` environment variable.
 
 Next, you'll query for the API endpoint address to pass to the UI application when you create the new container app instance.
 
