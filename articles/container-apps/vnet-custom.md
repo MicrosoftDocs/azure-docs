@@ -77,7 +77,7 @@ $VNET_NAME="my-custom-vnet"
 Now create an Azure virtual network to associate with the Container Apps environment. The virtual network must have a subnet available for the environment deployment.
 
 > [!NOTE]
-> You can use an existing virtual network, but a dedicateed subnet is required for use with Container Apps.
+> You can use an existing virtual network, but a dedicated subnet is required for use with Container Apps.
 
 # [Bash](#tab/bash)
 
