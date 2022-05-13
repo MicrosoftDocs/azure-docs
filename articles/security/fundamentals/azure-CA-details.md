@@ -66,7 +66,7 @@ Looking for CA details specific to Azure Active Directory? See the [Certificate 
 
 ## Public Key Encryption and Signature Algorithms
 
-Support for the following algorithms, key sizes, and elliptical curves are required:
+Support for the following algorithms, elliptical curves, and key sizes are required:
 
 - Signature algorithms: ES256, ES384, ES512, RS256, RS384, RS512
 - Elliptical curves: P256, P384, P521
@@ -91,7 +91,7 @@ The following URLs may need to be included in your firewall allowlists to optimi
 
 ## Past changes
 
-The CA/Browser Forum updated the Baseline Requirements to require all publicly-trusted Public Key Infrastructures (PKIs) to end usage of the SHA-1 hash algorithms for Online Certificate Standard Protocol (OCSP) on May 31, 2022. Microsoft updated all remaining OCSP Responders that used the SHA-1 hash algorithm to use the SHA-256 hash algorithm. View the [Sunset for SHA-1 OCSP signing article](../fundamentals/ocsp-sha-1-sunset.md) for additional information.
+The CA/Browser Forum updated the Baseline Requirements to require all publicly trusted Public Key Infrastructures (PKIs) to end usage of the SHA-1 hash algorithms for Online Certificate Standard Protocol (OCSP) on May 31, 2022. Microsoft updated all remaining OCSP Responders that used the SHA-1 hash algorithm to use the SHA-256 hash algorithm. View the [Sunset for SHA-1 OCSP signing article](../fundamentals/ocsp-sha-1-sunset.md) for additional information.
 
 Microsoft updated Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs) on February 15, 2021, to comply with changes set forth by the CA/Browser Forum Baseline Requirements. Some services may not finalize these updates until 2022. View the [Azure TLS certificate changes article](../fundamentals/tls-certificate-changes.md) for additional information. 
 
@@ -102,5 +102,5 @@ To learn more about Certificate Authorities and PKI, see:
 - [Microsoft PKI Repository](https://www.microsoft.com/pkiops/docs/repository.htm)
 - [Microsoft PKI Repository, including CRL and policy information](https://www.microsoft.com/pki/mscorp/cps/default.htm)
 - [Azure Firewall Premium certificates](../../firewall/premium-certificates.md)
-- [PKI certificates and Configuration Manager](/mem/configmgr/core/plan-design/security/plan-for-certificates)
+- [PKI certificates and Configuration Manager](~/mem/configmgr/core/plan-design/security/plan-for-certificates)
 - [Securing PKI](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn786443(v=ws.11))
