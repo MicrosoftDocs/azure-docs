@@ -18,7 +18,7 @@ This article shows you how to create an RDP connection with an AKS node using th
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster with a Windows Server node. If you need an AKS cluster, see the article on [creating an AKS cluster with a Windows container using the Azure CLI][aks-windows-cli]. You need the Windows administrator username and password for the Windows Server node you want to troubleshoot. You also need an RDP client such as [Microsoft Remote Desktop][rdp-mac].
+This article assumes that you have an existing AKS cluster with a Windows Server node. If you need an AKS cluster, see the article on [creating an AKS cluster with a Windows container using the Azure CLI][aks-quickstart-windows-cli]. You need the Windows administrator username and password for the Windows Server node you want to troubleshoot. You also need an RDP client such as [Microsoft Remote Desktop][rdp-mac].
 
 If you need to reset the password you can use `az aks update` to change the password.
 
@@ -164,7 +164,7 @@ If you need additional troubleshooting data, you can [view the Kubernetes master
 [rdp-mac]: https://aka.ms/rdmac
 
 <!-- INTERNAL LINKS -->
-[aks-windows-cli]: windows-container-cli.md
+[aks-quickstart-windows-cli]: ./learn/quick-windows-container-deploy-cli.md
 [az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [az-vm-delete]: /cli/azure/vm#az_vm_delete

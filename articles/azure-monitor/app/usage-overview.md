@@ -36,8 +36,9 @@ The best experience is obtained by installing Application Insights both in your 
     }});
     </script>
     ```
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-    To learn more advanced configurations for monitoring websites, check out the [JavaScript SDK reference article](./javascript.md).
+To learn more advanced configurations for monitoring websites, check out the [JavaScript SDK reference article](./javascript.md).
 
 3. **Mobile app code:** Use the App Center SDK to collect events from your app, then send copies of these events to Application Insights for analysis by [following this guide](../app/mobile-center-quickstart.md).
 

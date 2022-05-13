@@ -104,8 +104,8 @@ Now that you've enabled access for users in an Azure AD tenant, you can:
 * Control product visibility using Azure AD groups.
 
 Follow these steps to grant:
-* `Directory.Read.All` application permission for Microsoft Graph API and Azure Active Directory Graph API.
-* `User.Read` delegated permission for Microsoft Graph API. 
+* `Directory.Read.All` **application** permission for Microsoft Graph API.
+* `User.Read` **delegated** permission for Microsoft Graph API. 
 
 1. Update the first 3 lines of the following Azure CLI script to match your environment and run it.
 
@@ -116,8 +116,8 @@ Follow these steps to grant:
    #Login and Set the Subscription
    az login
    az account set --subscription $subId
-   #Assign the following permissions: Microsoft Graph Delegated Permission: User.Read, Microsoft Graph Application Permission: Directory.ReadAll,  Azure Active Directory Graph Application Permission: Directory.ReadAll (legacy)
-   az rest --method PATCH --uri "https://graph.microsoft.com/v1.0/$($tenantId)/applications/$($appObjectID)" --body "{'requiredResourceAccess':[{'resourceAccess': [{'id': 'e1fe6dd8-ba31-4d61-89e7-88639da4683d','type': 'Scope'},{'id': '7ab1d382-f21e-4acd-a863-ba3e13f7da61','type': 'Role'}],'resourceAppId': '00000003-0000-0000-c000-000000000000'},{'resourceAccess': [{'id': '5778995a-e1bf-45b8-affa-663a9f3f4d04','type': 'Role'}], 'resourceAppId': '00000002-0000-0000-c000-000000000000'}]}"
+   #Assign the following permissions: Microsoft Graph Delegated Permission: User.Read, Microsoft Graph Application Permission: Directory.ReadAll
+   az rest --method PATCH --uri "https://graph.microsoft.com/v1.0/$($tenantId)/applications/$($appObjectID)" --body "{'requiredResourceAccess':[{'resourceAccess': [{'id': 'e1fe6dd8-ba31-4d61-89e7-88639da4683d','type': 'Scope'},{'id': '7ab1d382-f21e-4acd-a863-ba3e13f7da61','type': 'Role'}],'resourceAppId': '00000003-0000-0000-c000-000000000000'}]}"
    ```
 
 2. Log out and log back in to the Azure portal.

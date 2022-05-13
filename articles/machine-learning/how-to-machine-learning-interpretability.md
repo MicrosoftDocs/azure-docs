@@ -52,7 +52,7 @@ In machine learning, **features** are the data fields used to predict a target d
 
 ## Supported model interpretability techniques
 
- `azureml-interpret` uses the interpretability techniques developed in [Interpret-Community](https://github.com/interpretml/interpret-community/), an open source python package for training interpretable models and helping to explain blackbox AI systems. [Interpret-Community](https://github.com/interpretml/interpret-community/) serves as the host for this SDK's supported explainers, and currently supports the following interpretability techniques:
+ `azureml-interpret` uses the interpretability techniques developed in [Interpret-Community](https://github.com/interpretml/interpret-community/), an open source Python package for training interpretable models and helping to explain blackbox AI systems. [Interpret-Community](https://github.com/interpretml/interpret-community/) serves as the host for this SDK's supported explainers, and currently supports the following interpretability techniques:
 
 |Interpretability Technique|Description|Type|
 |--|--|--------------------|

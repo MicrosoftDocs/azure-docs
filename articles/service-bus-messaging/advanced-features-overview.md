@@ -33,10 +33,13 @@ A queue or subscription client can defer retrieval of a received message until a
 A transaction groups two or more operations together into an execution scope. Service Bus allows you to group operations against multiple messaging entities within the scope of a single transaction. A message entity can be a queue, topic, or subscription. For more information, see [Overview of Service Bus transaction processing](service-bus-transactions.md).
 
 ## Autodelete on idle
-Autodelete on idle enables you to specify an idle interval after which a queue or topic subscription is automatically deleted. The minimum duration is 5 minutes. 
+Autodelete on idle enables you to specify an idle interval after which a queue or topic subscription is automatically deleted. The interval is reset when there is traffic on the entity. The minimum duration is 5 minutes. 
 
 ## Duplicate detection
 The duplicate detection feature enables the sender to resend the same message again and for the broker to drop a potential duplicate. For more information, see [Duplicate detection](duplicate-detection.md).
+
+## Support ordering
+The **Support ordering** feature allows you to specify whether messages that are sent to a topic will be forwarded to the subscription in the same order in which they were sent. This feature doesn't support partitioned topics. For more information, see [TopicProperties.SupportOrdering](/dotnet/api/azure.messaging.servicebus.administration.topicproperties.supportordering) in .NET or [TopicProperties.setOrderingSupported](/java/api/com.azure.messaging.servicebus.administration.models.topicproperties.setorderingsupported) in Java.
 
 ## Geo-disaster recovery
 When an Azure region experiences downtime, the disaster recovery feature enables message processing to continue operating in a different region or data center. The feature keeps a structural mirror of a namespace available in the secondary region and allows the namespace identity to switch to the secondary namespace. Already posted messages remain in the former primary namespace for recovery once the availability episode subsides. For more information, see [Azure Service Bus Geo-disaster recovery](service-bus-geo-dr.md).

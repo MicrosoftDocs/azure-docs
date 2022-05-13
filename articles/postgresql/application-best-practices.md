@@ -1,10 +1,12 @@
 ---
 title: App development best practices - Azure Database for PostgreSQL
 description: Learn about best practices for building an app by using Azure Database for PostgreSQL.
-author: mksuni
-ms.author: sumuth
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: conceptual
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.date: 12/10/2020
 ---
 

@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/04/2021
+ms.date: 05/09/2022
 ms.author: tamram
 ms.subservice: common
 ---
@@ -15,6 +15,8 @@ ms.subservice: common
 # Scalability and performance targets for standard storage accounts
 
 [!INCLUDE [storage-scalability-intro-include](../../../includes/storage-scalability-intro-include.md)]
+
+The service-level agreement (SLA) for Azure Storage accounts is available at [SLA for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
 ## Scale targets for standard storage accounts
 

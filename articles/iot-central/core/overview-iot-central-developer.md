@@ -7,7 +7,8 @@ ms.date: 03/02/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.custom: [mvc, device-developer]
+ms.custom: [mvc, device-developer, iot-central-frontdoor]
+
 
 # This article applies to device developers.
 ---
@@ -68,7 +69,7 @@ There are three ways to register a device in an IoT Central application:
   Optionally, you can require an operator to approve the device before it starts sending data.
 
   > [!TIP]
-  > On the **Administration > Device connection** page, the **Auto approve** option controls whether an operator must manually approve the device before it can start sending data.
+  > On the **Permissions > Device connection groups** page, the **Auto approve** option controls whether an operator must manually approve the device before it can start sending data.
 
 You only need to register a device once in your IoT Central application.
 

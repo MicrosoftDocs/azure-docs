@@ -1,22 +1,29 @@
 ---
 title: Azure Database for PostgreSQL - Flexible Server Release notes
 description: Release notes of Azure Database for PostgreSQL - Flexible Server.
-author: sr-msft
 ms.author: srranga
+author: sr-msft
 ms.custom: references_regions
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 02/28/2022
+ms.date: 04/14/2022
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant for Flexible Server - PostgreSQL.
 
+## Release: April 2022
+
+* Support for [latest PostgreSQL minors](./concepts-supported-versions.md) 13.6, 12.10 and 11.15 with new server creates<sup>$</sup>.
+* Support for updating Private DNS Zone for [Azure Database for PostgreSQL - Flexible Server private networking](./concepts-networking.md) for existing servers<sup>$</sup>.
+
+<sup>**$**</sup> New servers get these features automatically. In your existing servers, these features are enabled during your server's future maintenance window.
+
 ## Release: February 2022
 
-* Support for [latest PostgreSQL minors](./concepts-supported-versions.md) 13.5, 12.7 and 11.12 with new server creates<sup>$</sup>.
+* Support for [latest PostgreSQL minors](./concepts-supported-versions.md) 13.5, 12.9 and 11.14 with new server creates<sup>$</sup>.
 * Support for [US Gov regions](overview.md#azure-regions) - Arizona and Virginia
 * Support for [extensions](concepts-extensions.md) TimescaleDB, orafce, and pg_repack with new servers<sup>$</sup> 
 * Extensions need to be [allow-listed](concepts-extensions.md#how-to-use-postgresql-extensions) before they can be installed.

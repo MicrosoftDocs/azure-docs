@@ -5,8 +5,8 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 02/02/2022
-ms.author: v-nisba
-author: NishthaBabith-V
+ms.author: mtillman
+author: mtillman
 manager: martinco
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management

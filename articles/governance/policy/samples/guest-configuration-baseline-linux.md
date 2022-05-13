@@ -1,7 +1,7 @@
 ---
 title: Reference - Azure Policy guest configuration baseline for Linux
 description: Details of the Linux baseline on Azure implemented through Azure Policy guest configuration.
-ms.date: 02/16/2022
+ms.date: 05/12/2022
 ms.topic: reference
 ms.custom: generated
 ---
@@ -188,7 +188,6 @@ For more information, see [Azure Policy guest configuration](../concepts/guest-c
 |Ensure system accounts are non-login<br /><sub>(157.15)</sub> |Description: It is important to make sure that accounts that are not being used by regular users are prevented from being used to provide an interactive shell. By default, Ubuntu sets the password field for these accounts to an invalid string, but it is also recommended that the shell field in the password file be set to `/usr/sbin/nologin`. This prevents the account from potentially being used to run any commands. |Set the shell for any accounts returned by the audit script to `/sbin/nologin` |
 |Ensure default group for the root account is GID 0<br /><sub>(157.16)</sub> |Description: Using GID 0 for the `_root_ `account helps prevent `_root_`-owned files from accidentally becoming accessible to non-privileged users. |Run the following command to set the `root` user default group to GID `0` : ``` # usermod -g 0 root ``` |
 |Ensure root is the only UID 0 account<br /><sub>(157.18)</sub> |Description: This access must be limited to only the default `root `account and only from the system console. Administrative access must be through an unprivileged account using an approved mechanism. |Remove any users other than `root` with UID `0` or assign them a new UID if appropriate. |
-|Remove unnecessary packages<br /><sub>(158)</sub> |Description:  |Run '/opt/microsoft/omsagent/plugin/omsremediate -r remove-landscape-common |
 |Remove unnecessary accounts<br /><sub>(159)</sub> |Description: For compliance |Remove the unnecessary accounts |
 |Ensure auditd service is enabled<br /><sub>(162)</sub> |Description: The capturing of system events provides system administrators with information to allow them to determine if unauthorized access to their system is occurring. |Install audit package (systemctl enable auditd) |
 |Run AuditD service<br /><sub>(163)</sub> |Description: The capturing of system events provides system administrators with information to allow them to determine if unauthorized access to their system is occurring. |Run AuditD service (systemctl start auditd) |

@@ -92,10 +92,14 @@ Learn how to assign a public IP address to the following resources:
 - [Application Gateway](../../application-gateway/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Site-to-site connection using a VPN gateway](../../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Virtual Machine Scale Set](../../virtual-machine-scale-sets/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [NAT gateway](../nat-gateway/tutorial-create-nat-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [NAT gateway](../nat-gateway/quickstart-create-nat-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure Bastion](../../bastion/quickstart-host-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure Firewall](../../firewall/tutorial-firewall-deploy-portal-policy.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Cross-region load balancer](../../load-balancer/tutorial-cross-region-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+
+## Region availability
+
+Azure Public IP is available in all regions for both Public and US Gov clouds.  Azure Public IP doesn't move or store customer data out of the region it's deployed in.
 
 ## Permissions
 

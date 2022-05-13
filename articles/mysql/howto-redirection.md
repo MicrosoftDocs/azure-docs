@@ -4,6 +4,7 @@ description: This article describes how you can configure you application to con
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: how-to
 ms.date: 6/8/2020
 ---

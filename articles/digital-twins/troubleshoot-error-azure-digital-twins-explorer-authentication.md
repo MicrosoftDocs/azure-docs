@@ -1,29 +1,29 @@
 ---
-title: "Troubleshooting Azure Digital Twins Explorer: Authentication error"
+title: "Troubleshoot Azure Digital Twins Explorer: Authentication error"
 titleSuffix: Azure Digital Twins
 description: Learn how to diagnose and resolve authentication errors in Azure Digital Twins Explorer.
 ms.service: digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
-ms.date: 02/23/2022
+ms.date: 03/29/2022
 ---
 
-# Troubleshooting Azure Digital Twins Explorer: Authentication error
+# Troubleshoot Azure Digital Twins Explorer: Authentication errors
 
-This article describes causes and resolution steps for receiving an 'Authentication failed' error while running the [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sample on your local machine. 
+This article describes causes and resolution steps for receiving authentication errors while running [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). 
 
 ## Symptoms
 
-When setting up and running the Azure Digital Twins Explorer application, attempts to authenticate with the app are met with the following error message:
+When running Azure Digital Twins Explorer, you encounter the following error message:
 
-:::image type="content" source="media/troubleshoot-error-azure-digital-twins-explorer-authentication/authentication-error.png" alt-text="Screenshot of an authentication failure error message in the Azure Digital Twins Explorer.":::
+:::image type="content" source="media/troubleshoot-error-azure-digital-twins-explorer-authentication/permission-error.png" alt-text="Screenshot of an error message in the Azure Digital Twins Explorer, entitled Make sure you have the right permissions.":::
 
 ## Causes
 
 ### Cause #1
 
-This error might occur if your Azure account does not have the required Azure role-based access control (Azure RBAC) permissions set on your Azure Digital Twins instance. In order to access data in your instance, you must have the *Azure Digital Twins Data Reader* or *Azure Digital Twins Data Owner* role on the instance you are trying to read or manage, respectively. 
+This error will occur if your Azure account doesn't have the required Azure role-based access control (Azure RBAC) permissions set on your Azure Digital Twins instance. In order to access data in your instance, you must have the *Azure Digital Twins Data Reader* or *Azure Digital Twins Data Owner* role on the instance you are trying to read or manage, respectively. 
 
 For more information about security and roles in Azure Digital Twins, see [Security for Azure Digital Twins solutions](concepts-security.md).
 
@@ -38,7 +38,7 @@ Note that this role is different from...
 * the *Owner* role on the entire Azure subscription. *Azure Digital Twins Data Owner* is a role within Azure Digital Twins and is scoped to this individual Azure Digital Twins instance.
 * the *Owner* role in Azure Digital Twins. These are two distinct Azure Digital Twins management roles, and *Azure Digital Twins Data Owner* is the role that should be used for management.
 
- If you do not have this role, set it up to resolve the issue.
+If you do not have this role, set it up to resolve the issue.
 
 #### Check current setup
 
@@ -48,7 +48,7 @@ Note that this role is different from...
 
 If you do not have this role assignment, someone with an Owner role in your Azure subscription should run the following command to give your Azure user the appropriate role on the Azure Digital Twins instance. 
 
-If you're an Owner on the subscription, you can run this command yourself. If you're not, contact an Owner to run this command on your behalf. The role name is either *Azure Digital Twins Data Owner* for edit access or *Azure Digital Twins Data Reader* for read access.
+If you're an Owner on the subscription, you can run this command yourself. If you're not, contact an Owner to run this command on your behalf. The role name is *Azure Digital Twins Data Owner* for edit access, or *Azure Digital Twins Data Reader* for read access.
 
 ```azurecli-interactive
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "<role-name>"

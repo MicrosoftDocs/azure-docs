@@ -1,21 +1,21 @@
 ---
-title: Custom classification evaluation metrics
+title: Custom text classification evaluation metrics
 titleSuffix: Azure Cognitive Services
-description: Learn about evaluation metrics in custom entity extraction.
+description: Learn about evaluation metrics in custom text classification.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 01/24/2022
+ms.date: 04/05/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
 
 # Evaluation metrics
 
-Your [dataset is split](../how-to/train-model.md#data-split) into two parts: a set for training, and a set for testing. The training set while building the model and the testing set is used as a blind set to evaluate model performance after training is completed.
+Your [dataset is split](../how-to/train-model.md) into two parts: a set for training, and a set for testing. The training set while building the model and the testing set is used as a blind set to evaluate model performance after training is completed.
 
 Model evaluation is triggered after training is completed successfully. The evaluation process starts by using the trained model to predict user defined classes for files in the test set, and compares them with the provided data tags (which establishes a baseline of truth). The results are returned so you can review the model’s performance. For evaluation, custom text classification uses the following metrics:
 
@@ -104,7 +104,7 @@ So what does it actually mean to have a high precision or a high recall for a ce
 | High | Low | The model predicts this class well, however it is with low confidence. This may be because this class is over represented in the dataset so consider balancing your data distribution. |
 | Low | Low | This class is poorly handled by the model where it is not usually predicted and when it is, it is not with high confidence. |
 
-Custom classification models are expected to experience both false negatives and false positives. You need to consider how each will affect the overall system, and carefully think through scenarios where the model will ignore correct predictions, and recognize incorrect predictions. Depending on your scenario, either *precision* or *recall* could be more suitable evaluating your model's performance.  
+Custom text classification models are expected to experience both false negatives and false positives. You need to consider how each will affect the overall system, and carefully think through scenarios where the model will ignore correct predictions, and recognize incorrect predictions. Depending on your scenario, either *precision* or *recall* could be more suitable evaluating your model's performance.  
 
 For example, if your scenario involves processing technical support tickets, predicting the wrong class could cause it to be forwarded to the wrong department/team. In this example, you should consider making your system more sensitive to false positives, and precision would be a more relevant metric for evaluation. 
 

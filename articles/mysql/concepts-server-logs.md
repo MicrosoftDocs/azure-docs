@@ -4,6 +4,7 @@ description: Describes the slow query logs available in Azure Database for MySQL
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 11/6/2020
 ---
@@ -75,7 +76,7 @@ The following table describes what's in each log. Depending on the output method
 | `query_time_s` | Total time in seconds the query took to execute |
 | `lock_time_s` | Total time in seconds the query was locked |
 | `user_host_s` | Username |
-| `rows_sent_s` | Number of rows sent |
+| `rows_sent_d` | Number of rows sent |
 | `rows_examined_s` | Number of rows examined |
 | `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
 | `insert_id_s` | Insert ID |

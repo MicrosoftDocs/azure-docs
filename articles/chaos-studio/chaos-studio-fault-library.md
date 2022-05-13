@@ -4,7 +4,7 @@ description: Understand the available actions you can use with Chaos Studio incl
 services: chaos-studio
 author: johnkemnetz
 ms.topic: article
-ms.date: 03/03/2022
+ms.date: 04/21/2022
 ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: ignite-fall-2021
@@ -626,7 +626,7 @@ Known issues on Linux:
 | Capability Name | Shutdown-1.0 |
 | Target type | Microsoft-VirtualMachine |
 | Supported OS Types | Windows, Linux |
-| Description | Shuts down a VM for the duration of the fault and optionally restarts the VM at the end of the fault duration or if the experiment is canceled. Only Azure Resource Manager VMs are supported. |
+| Description | Shuts down a VM for the duration of the fault and restarts the VM at the end of the fault duration or if the experiment is canceled. Only Azure Resource Manager VMs are supported. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:virtualMachine:shutdown/1.0 |
 | Parameters (key, value) |  |
@@ -661,7 +661,7 @@ Known issues on Linux:
 | Capability Name | Shutdown-1.0 |
 | Target type | Microsoft-VirtualMachineScaleSet |
 | Supported OS Types | Windows, Linux |
-| Description | Shuts down or kill a virtual machine scale set instance for the duration of the fault and optionally restarts the VM at the end of the fault duration or if the experiment is canceled. |
+| Description | Shuts down or kill a virtual machine scale set instance for the duration of the fault and restarts the VM at the end of the fault duration or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:virtualMachineScaleSet:shutdown/1.0 |
 | Parameters (key, value) |  |
@@ -1090,7 +1090,7 @@ Known issues on Linux:
 | Capability Name | Reboot-1.0 |
 | Target type | Microsoft-AzureClusteredCacheForRedis |
 | Description | Causes a forced reboot operation to occur on the target to simulate a brief outage. |
-| Prerequisites | None. |
+| Prerequisites | The target Azure Cache for Redis resource must be a Redis Cluster, which requires that the cache must be a Premium Tier cache. Standard and Basic Tiers are not supported. |
 | Urn | urn:csci:microsoft:azureClusteredCacheForRedis:reboot/1.0 |
 | Fault type | Discrete |
 | Parameters (key, value) |  |

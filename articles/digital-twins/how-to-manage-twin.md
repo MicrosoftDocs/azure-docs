@@ -146,7 +146,7 @@ You can read more about the serialization helper classes like `BasicDigitalTwin`
 
 ## View all digital twins
 
-To view all of the digital twins in your instance, use a [query](how-to-query-graph.md). You can run a query with the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](/cli/azure/dt/twin#az_dt_twin_query).
+To view all of the digital twins in your instance, use a [query](how-to-query-graph.md). You can run a query with the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](/cli/azure/dt/twin#az-dt-twin-query).
 
 Here is the body of the basic query that will return a list of all digital twins in the instance:
 
@@ -154,25 +154,27 @@ Here is the body of the basic query that will return a list of all digital twins
 
 ## Update a digital twin
 
-To update properties of a digital twin, you write the information you want to replace in [JSON Patch](http://jsonpatch.com/) format. In this way, you can replace multiple properties at once. You then pass the JSON Patch document into an `UpdateDigitalTwin()` method:
+To update properties of a digital twin, write the information you want to replace in [JSON Patch](http://jsonpatch.com/) format. For a full list of JSON Patch operations that can be used, including `replace`, `add` and `remove`, see the [Operations for JSON Patch](http://jsonpatch.com/#operations).
+
+After crafting the JSON Patch document containing update information, pass the document into the `UpdateDigitalTwin()` method:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="UpdateTwinCall":::
 
-A patch call can update as many properties on a single twin as you want (even all of them). If you need to update properties across multiple twins, you'll need a separate update call for each twin.
+A single patch call can update as many properties on a single twin as you want (even all of them). If you need to update properties across multiple twins, you'll need a separate update call for each twin.
 
 > [!TIP]
 > After creating or updating a twin, there may be a latency of up to 10 seconds before the changes will be reflected in [queries](how-to-query-graph.md). The `GetDigitalTwin` API (described [earlier in this article](#get-data-for-a-digital-twin)) does not experience this delay, so use the API call instead of querying to see your newly-updated twins if you need an instant response. 
 
-Here is an example of JSON Patch code. This document replaces the *mass* and *radius* property values of the digital twin it is applied to.
+Here is an example of JSON Patch code. This document replaces the *mass* and *radius* property values of the digital twin it is applied to. This example shows the JSON Patch `replace` operation, which replaces the value of an existing property.
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch.json":::
 
->[!NOTE]
-> This example shows the JSON Patch `replace` operation, which replaces the value of an existing property. For a full list of JSON Patch operations that can be used, including `add` and `remove`, see the [Operations for JSON Patch](http://jsonpatch.com/#operations). 
-
-When updating a twin from a code project using the .NET SDK, you can create JSON patches using the Azure .NET SDK's [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true). Here is an example.
+When updating a twin from a code project using the .NET SDK, you can create JSON patches using the Azure .NET SDK's [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true). Here is an example of creating a JSON Patch document and using `UpdateDigitalTwin()` in project code.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
+
+> [!TIP]
+> You can maintain source timestamps on your digital twins by updating the `$metadata.<property-name>.sourceTime` field with the process described in this section. For more information on this field and other fields that are writable on digital twins, see [Digital twin JSON format](concepts-twins-graph.md#digital-twin-json-format).
 
 ### Update sub-properties in digital twin components
 
@@ -225,6 +227,21 @@ Consider the following example:
 The patch for this situation needs to update both the model and the twin's temperature property, like this:
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch-model-2.json":::
+
+### Update a property's sourceTime
+
+You may optionally decide to use the `sourceTime` field on twin properties to record timestamps for when property updates are observed in the real world. Azure Digital Twins natively supports `sourceTime` in the metadata for each twin property. For more information about this field and other fields on digital twins, see [Digital twin JSON format](concepts-twins-graph.md#digital-twin-json-format).
+
+The minimum REST API version to support this field is the [2021-06-30-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2021-06-30-preview) version. To work with this field using the [Azure Digital Twins SDKs](concepts-apis-sdks.md), we recommend using the latest version of the SDK to make sure this field is included (keep in mind that the latest version of an SDK may be in beta or preview).
+
+The `sourceTime` value must comply to ISO 8601 date and time format.
+
+Here's an example of a JSON Patch document that updates both the value and the `sourceTime` field of a `Temperature` property:
+
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-sourcetime.json":::
+
+>[!TIP]
+>To update the `sourceTime` field on a property that's part of a component, include the component at the start of the path. In the previous example, this would mean changing the path from `/$metadata/Temperature/sourceTime` to `myComponent/$metadata/Temperature/sourceTime`.
 
 ### Handle conflicting update calls
 

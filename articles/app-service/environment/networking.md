@@ -51,19 +51,20 @@ For your app to receive traffic, ensure that inbound network security group (NSG
 
 It's a good idea to configure the following inbound NSG rule:
 
-|Port|Source|Destination|
-|-|-|-|
-|80,443|Virtual network|App Service Environment subnet range|
+|Source / Destination Port(s)|Direction|Source|Destination|Purpose|
+|-|-|-|-|-|
+|* / 80,443|Inbound|VirtualNetwork|App Service Environment subnet range|Allow app traffic and internal health ping traffic|
 
 The minimal requirement for App Service Environment to be operational is:
 
-|Port|Source|Destination|
-|-|-|-|
-|80|Azure Load Balancer|App Service Environment subnet range|
+|Source / Destination Port(s)|Direction|Source|Destination|Purpose|
+|-|-|-|-|-|
+|* / 80|Inbound|AzureLoadBalancer|App Service Environment subnet range|Allow internal health ping traffic|
 
 If you use the minimum required rule, you might need one or more rules for your application traffic. If you're using any of the deployment or debugging options, you must also allow this traffic to the App Service Environment subnet. The source of these rules can be the virtual network, or one or more specific client IPs or IP ranges. The destination is always the App Service Environment subnet range.
+The internal health ping traffic on port 80 is isolated between the Load balancer and the internal servers. No outside traffic can reach the health ping endpoint.
 
-The normal app access ports are as follows:
+The normal app access ports inbound are as follows:
 
 |Use|Ports|
 |-|-|
@@ -76,7 +77,9 @@ The normal app access ports are as follows:
 
 You can set route tables without restriction. You can tunnel all of the outbound application traffic from your App Service Environment to an egress firewall device, such as Azure Firewall. In this scenario, the only thing you have to worry about is your application dependencies.
 
-You can put your web application firewall devices, such as Azure Application Gateway, in front of inbound traffic. Doing so exposes specific apps on that App Service Environment. If you want to customize the outbound address of your applications on an App Service Environment, you can add a NAT gateway to your subnet.
+You can put your web application firewall devices, such as Azure Application Gateway, in front of inbound traffic. Doing so allows you to expose specific apps on that App Service Environment.
+
+Your application will use one of the default outbound addresses for egress traffic to public endpoints. If you want to customize the outbound address of your applications on an App Service Environment, you can add a NAT gateway to your subnet.
 
 ## Private endpoint
 
@@ -116,6 +119,15 @@ To configure DNS in Azure DNS private zones:
 1. Create an A record in that zone that points *.scm to the inbound IP address.
 
 In addition to the default domain provided when an app is created, you can also add a custom domain to your app. You can set a custom domain name without any validation on your apps. If you're using custom domains, you need to ensure they have DNS records configured. You can follow the preceding guidance to configure DNS zones and records for a custom domain name (simply replace the default domain name with the custom domain name). The custom domain name works for app requests, but doesn't work for the `scm` site. The `scm` site is only available at *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*.
+
+### DNS configuration for FTP access
+
+For FTP access to Internal Load balancer (ILB) App Service Environment v3 specifically, you need to ensure DNS is configured. Configure an Azure DNS private zone or equivalent custom DNS with the following settings:
+
+1. Create an Azure DNS private zone named `ftp.appserviceenvironment.net`.
+1. Create an A record in that zone that points `<App Service Environment-name>` to the inbound IP address.
+
+In addition to setting up DNS, you also need to enable it in the [App Service Environment configuration](./configure-network-settings.md#ftp-access) as well as at the [app level](../deploy-ftp.md?tabs=cli#enforce-ftps).
 
 ### DNS configuration from your App Service Environment
 

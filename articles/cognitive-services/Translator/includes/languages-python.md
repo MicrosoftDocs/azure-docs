@@ -23,7 +23,7 @@ import os, requests, uuid, json
 > [!NOTE]
 > If you haven't used these modules you'll need to install them before running your program. To install these packages, run: `pip install requests uuid`.
 
-The first comment tells your Python interpreter to use UTF-8 encoding. Then required modules are imported to read your subscription key from an environment variable, construct the http request, create a unique identifier, and handle the JSON response returned by the Translator.
+The first comment tells your Python interpreter to use UTF-8 encoding. Then required modules are imported to read your key from an environment variable, construct the http request, create a unique identifier, and handle the JSON response returned by the Translator.
 
 ## Set the endpoint and path
 
@@ -181,7 +181,7 @@ This sample has been truncated to show a snippet of the result:
 
 ## Clean up resources
 
-If you've hardcoded your subscription key into your program, make sure to remove the subscription key when you're finished with this quickstart.
+If you've hardcoded your key into your program, make sure to remove the key when you're finished with this quickstart.
 
 ## Next steps
 

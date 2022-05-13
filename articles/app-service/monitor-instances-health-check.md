@@ -19,14 +19,15 @@ This article uses Health check in the Azure portal to monitor App Service instan
 ## What App Service does with Health checks
 
 - When given a path on your app, Health check pings this path on all instances of your App Service app at 1-minute intervals.
-- If an instance doesn't respond with a status code between 200-299 (inclusive) after two or more requests, or fails to respond to the ping, the system determines it's unhealthy and removes it.
+- If an instance doesn't respond with a status code between 200-299 (inclusive) after ten requests, App Service determines it is unhealthy and removes it. (The required number of failed requests for an instance to be deemed unhealthy is configurable to a minimum of 2 requests.)
 - After removal, Health check continues to ping the unhealthy instance. If the instance begins to respond with a healthy status code (200-299) then the instance is returned to the load balancer.
 - If an instance remains unhealthy for one hour, it will be replaced with new instance.
-- Furthermore, when scaling up or out, App Service pings the Health check path to ensure new instances are ready.
+- When scaling out, App Service pings the Health check path to ensure new instances are ready.
 
 > [!NOTE]
->- Health check doesn't follow 302 redirects. At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
->- Note, if your health check is giving the status `Waiting for health check response` then the check is likely failing due to an HTTP status code of 307, which can happen if you have HTTPS redirect enabled but have `HTTPS Only` disabled.
+>- Health check doesn't follow 302 redirects. 
+>- At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
+>- If your health check is giving the status `Waiting for health check response` then the check is likely failing due to an HTTP status code of 307, which can happen if you have HTTPS redirect enabled but have `HTTPS Only` disabled.
 
 ## Enable Health Check
 
@@ -54,11 +55,82 @@ In addition to configuring the Health check options, you can also configure the 
 
 Health check integrates with App Service's [authentication and authorization features](overview-authentication-authorization.md). No additional settings are required if these security features are enabled.
 
-If you're using your own authentication system, the Health check path must allow anonymous access. To secure the Health check endpoint, you should first use features such as [IP restrictions](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [client certificates](app-service-ip-restrictions.md#set-an-ip-address-based-rule), or a Virtual Network to restrict application access. You can secure the Health check endpoint by requiring the `User-Agent` of the incoming request matches `HealthCheck/1.0`. The User-Agent can't be spoofed since the request would already secured by prior security features.
+If you're using your own authentication system, the Health check path must allow anonymous access. To secure the Health check endpoint, you should first use features such as [IP restrictions](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [client certificates](app-service-ip-restrictions.md#set-an-ip-address-based-rule), or a Virtual Network to restrict application access. Once you have those features in-place, you can authenticate the health check request by inspecting the header, `x-ms-auth-internal-token`, and validating that it matches the SHA256 hash of the environment variable `WEBSITE_AUTH_ENCRPYTION_KEY`. If they match, then the health check request is valid and originating from App Service. 
+
+##### [.NET](#tab/dotnet)
+
+```C#
+using System;
+using System.Text;
+
+/// <summary>
+/// Method <c>HeaderMatchesEnvVar</c> returns true if <c>headerValue</c> matches WEBSITE_AUTH_ENCRYPTION_KEY.
+/// </summary>
+public Boolean HeaderMatchesEnvVar(string headerValue) {
+    var sha = System.Security.Cryptography.SHA256.Create();
+    String envVar = Environment.GetEnvironmentVariable("WEBSITE_AUTH_ENCRYPTION_KEY");
+    String hash = System.Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(envVar)));
+    return hash == headerValue;
+}
+```
+
+##### [Python](#tab/python)
+
+```python
+from hashlib import sha256
+import base64
+import os
+
+def header_matches_env_var(header_value):
+    """
+    Returns true if SHA256 of header_value matches WEBSITE_AUTH_ENCRYPTION_KEY.
+    
+    :param header_value: Value of the x-ms-auth-internal-token header.
+    """
+    
+    env_var = os.getenv('WEBSITE_AUTH_ENCRYPTION_KEY')
+    hash = base64.b64encode(sha256(env_var.encode('utf-8')).digest()).decode('utf-8')
+    return hash == header_value
+```
+
+##### [Java](#tab/java)
+
+```java
+import java.io.Console;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
+import java.nio.charset.StandardCharsets;
+
+public static Boolean headerMatchesEnvVar(String headerValue) throws NoSuchAlgorithmException {
+    MessageDigest digest = MessageDigest.getInstance("SHA-256");
+    String envVar = System.getenv("WEBSITE_AUTH_ENCRYPTION_KEY");
+    String hash = new String(Base64.getDecoder().decode(digest.digest(envVar.getBytes(StandardCharsets.UTF_8))));
+    return hash == headerValue;
+}
+```
+
+##### [Node.js](#tab/node)
+
+```javascript
+var crypto = require('crypto');
+
+function envVarMatchesHeader(headerValue) {
+    let envVar = process.env.WEBSITE_AUTH_ENCRYPTION_KEY;
+    let hash = crypto.createHash('sha256').update(envVar).digest('base64');
+    return hash == headerValue;
+}
+```
+
+---
+
+> [!NOTE]
+> The `x-ms-auth-internal-token` header is only available on Windows App Service.
+
 
 ## Monitoring
 
-After providing your application's Health check path, you can monitor the health of your site using Azure Monitor. From the **Health check** blade in the Portal, click the **Metrics** in the top toolbar. This will open a new blade where you can see the site's historical health status and create a new alert rule. For more information on monitoring your sites, [see the guide on Azure Monitor](web-sites-monitor.md).
+After providing your application's Health check path, you can monitor the health of your site using Azure Monitor. From the **Health check** blade in the Portal, click the **Metrics** in the top toolbar. This will open a new blade where you can see the site's historical health status and option to create a new alert rule. Health check metrics will aggregate the successful pings & display failures only when the instance was deemed unhealthy based on the health check configuration. For more information on monitoring your sites, [see the guide on Azure Monitor](web-sites-monitor.md).
 
 ## Limitations
 

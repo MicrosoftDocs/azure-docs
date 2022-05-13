@@ -100,7 +100,7 @@ In the Machine selection pane in the portal, you will notice the **Eligibility**
 - User does not have permissions to the log analytics workspace's subscription. Check out the [required permissions](#required-rbac-permissions)
 - The Automanage resource provider is not registered on the subscription. Check out [how to register a Resource Provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider-1) with the Automanage resource provider: *Microsoft.Automanage*
 - Machine does not have necessary VM agents installed which the Automanage service requires. Check out the [Windows agent installation](../virtual-machines/extensions/agent-windows.md) and the [Linux agent installation](../virtual-machines/extensions/agent-linux.md)
-- Arc machine is not connected. Learn more about the [Arc agent status](../azure-arc/servers/overview.md#agent-status) and [how to connect](../azure-arc/servers/agent-overview.md#connected-machine-agent-technical-overview)
+- Arc machine is not connected. Learn more about the [Arc agent status](../azure-arc/servers/overview.md#agent-status) and [how to connect](../azure-arc/servers/deployment-options.md#agent-installation-details)
 
 Once you have selected your eligible machines, Click **Enable**, and you're done.
 

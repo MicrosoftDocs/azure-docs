@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 04/16/2021
+ms.date: 05/05/2022
 ms.author: jamesmantu
 ms.custom: aaddev, devx-track-js
 ---
@@ -37,9 +37,9 @@ MSAL React supports the authorization code flow in the browser instead of the im
 
 :::image type="content" source="media/tutorial-v2-javascript-auth-code/diagram-01-auth-code-flow.png" alt-text="Diagram showing the authorization code flow in a single-page application":::
 
-The application you create in this tutorial enables a React SPA to query the Microsoft Graph API by acquiring security tokens from the the Microsoft identity platform. It uses the Microsoft Authentication Library (MSAL) for React, a wrapper of the MSAL.js v2 library. MSAL React enables React 16+ applications to authenticate enterprise users by using Azure Active Directory (Azure AD), and also users with Microsoft accounts and social identities like Facebook, Google, and LinkedIn. The library also enables applications to get access to Microsoft cloud services and Microsoft Graph.
+The application you create in this tutorial enables a React SPA to query the Microsoft Graph API by acquiring security tokens from the Microsoft identity platform. It uses the MSAL for React, a wrapper of the MSAL.js v2 library. MSAL React enables React 16+ applications to authenticate enterprise users by using Azure Active Directory (Azure AD), and also users with Microsoft accounts and social identities like Facebook, Google, and LinkedIn. The library also enables applications to get access to Microsoft cloud services and Microsoft Graph.
 
-In this scenario, after a user signs in, an access token is requested and added to HTTP requests in the authorization header. Token acquisition and renewal are handled by the Microsoft Authentication Library for React (MSAL React).
+In this scenario, after a user signs in, an access token is requested and added to HTTP requests in the authorization header. Token acquisition and renewal are handled by the MSAL for React (MSAL React).
 
 ### Libraries
 
@@ -58,7 +58,7 @@ Prefer to download this tutorial's completed sample project instead? To run the 
 
 Then, to configure the code sample before you execute it, skip to the [configuration step](#register-your-application).
 
-To continue with the tutorial and build the application yourself, move on to the next section, [Prerequisites](#prerequisites).
+To continue with the tutorial and build the application yourself, move on to the next section, [Create your project](#create-your-project).
 
 ## Create your project
 
@@ -71,13 +71,13 @@ npm install @azure/msal-browser @azure/msal-react # Install the MSAL packages
 npm install react-bootstrap bootstrap # Install Bootstrap for styling
 ```
 
-You have now bootstrapped a small React project using [Create React App](https://create-react-app.dev/docs/getting-started). This will be the starting point the rest of this tutorial will build on. If you would like to see the changes to your app as you are working through this tutorial you can run the following command: 
+You've now bootstrapped a small React project using [Create React App](https://create-react-app.dev/docs/getting-started). This will be the starting point the rest of this tutorial will build on. If you'd like to see the changes to your app as you're working through this tutorial you can run the following command: 
 
 ```console
 npm start
 ```
 
-A browser window should be opened to your app automatically. If it does not, open your browser and navigate to http://localhost:3000. Each time you save a file with updated code the page will reload to reflect the changes.
+A browser window should be opened to your app automatically. If it doesn't, open your browser and navigate to http://localhost:3000. Each time you save a file with updated code the page will reload to reflect the changes.
 
 ## Register your application
 
@@ -262,7 +262,7 @@ export const SignInButton = () => {
     export default App;
     ```
 
-Your app now has a sign-in button which is only displayed for unauthenticated users!
+Your app now has a sign-in button, which is only displayed for unauthenticated users!
 
 When a user selects the **Sign in using Popup** or **Sign in using Redirect** button for the first time, the `onClick` handler calls `loginPopup` (or `loginRedirect`) to sign in the user. The `loginPopup` method opens a pop-up window with the *Microsoft identity platform endpoint* to prompt and validate the user's credentials. After a successful sign-in, *msal.js* initiates the [authorization code flow](v2-oauth2-auth-code-flow.md).
 
@@ -439,7 +439,7 @@ In order to render certain components only for authenticated or unauthenticated 
     };
     ```
 
-1. Update your imports in *src/App.js* to match the following:
+1. Update your imports in *src/App.js* to match the following snippet:
 
     ```js
     import React, { useState } from "react";
@@ -477,8 +477,7 @@ After a user signs in, your app shouldn't ask users to reauthenticate every time
 
 Calling `acquireTokenPopup` opens a pop-up window (or `acquireTokenRedirect` redirects users to the Microsoft identity platform). In that window, users need to interact by confirming their credentials, giving consent to the required resource, or completing the two-factor authentication.
 
-> [!NOTE]
-> If you're using Internet Explorer, we recommend that you use the `loginRedirect` and `acquireTokenRedirect` methods due to a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/internet-explorer.md#popups) with Internet Explorer and pop-up windows.
+If you're using Internet Explorer, we recommend that you use the `loginRedirect` and `acquireTokenRedirect` methods due to a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/internet-explorer.md#popups) with Internet Explorer and pop-up windows.
 
 ## Call the Microsoft Graph API
 
@@ -527,7 +526,7 @@ Calling `acquireTokenPopup` opens a pop-up window (or `acquireTokenRedirect` red
     };
     ```
 
-1. Next, open *src/App.js* and add these to the imports:
+1. Next, open *src/App.js* and add the following imports:
     
     ```javascript
     import { ProfileData } from "./components/ProfileData";
@@ -583,7 +582,7 @@ You've completed creation of the application and are now ready to launch the web
    ```console
    npm start
    ```
-1. A browser window should be opened to your app automatically. If it does not, open your browser and navigate to `http://localhost:3000`. You should see a page that looks like the one below.
+1. A browser window should be opened to your app automatically. If it doesn't, open your browser and navigate to `http://localhost:3000`. You should see a page that looks like the one below.
 
     :::image type="content" source="media/tutorial-v2-react/react-01-unauthenticated.png" alt-text="Web browser displaying sign-in dialog":::
 

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/04/2022
+ms.date: 03/15/2022
 ms.author: anfdocs
 ---
 # Configure ADDS LDAP over TLS for Azure NetApp Files
@@ -75,4 +75,5 @@ Disabling LDAP over TLS stops encrypting LDAP queries to Active Directory (LDAP 
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) 
 * [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md)
+* [Modify Active Directory connections for Azure NetApp Files](modify-active-directory-connections.md)
 

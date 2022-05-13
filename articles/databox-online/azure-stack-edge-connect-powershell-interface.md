@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 04/14/2022
 ms.author: alkohli
 ---
 # Manage an Azure Stack Edge Pro FPGA device via Windows PowerShell

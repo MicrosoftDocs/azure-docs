@@ -4,7 +4,6 @@ description: Enable Profiler for a Service Fabric application
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 08/06/2018
-ms.reviewer: mbullwin
 ---
 
 # Profile live Azure Service Fabric applications with Application Insights
@@ -20,7 +19,7 @@ Application Insights Profiler is included with Azure Diagnostics. You can instal
 
 To set up your environment, take the following actions:
 
-1. Profiler supports .NET Framework and .Net Core. If you're using .NET Framework, make sure you're using [.NET Framework 4.6.1](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later. It's sufficient to confirm that the deployed OS is `Windows Server 2012 R2` or later. Profiler supports .NET Core 2.1 and newer applications.
+1. Profiler supports .NET Framework and .Net Core. If you're using .NET Framework, make sure you're using [.NET Framework 4.6.1](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later. It's sufficient to confirm that the deployed OS is `Windows Server 2012 R2` or later. Profiler supports .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) and newer applications.
 
 1. Search for the [Azure Diagnostics](../agents/diagnostics-extension-overview.md) extension in the deployment template file.
 
@@ -53,3 +52,5 @@ To set up your environment, take the following actions:
 * Generate traffic to your application (for example, launch an [availability test](monitor-web-app-availability.md)). Then, wait 10 to 15 minutes for traces to start to be sent to the Application Insights instance.
 * See [Profiler traces](profiler-overview.md?toc=/azure/azure-monitor/toc.json) in the Azure portal.
 * For help with troubleshooting Profiler issues, see [Profiler troubleshooting](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]

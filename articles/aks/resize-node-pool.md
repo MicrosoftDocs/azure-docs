@@ -193,10 +193,13 @@ By default, your cluster has AKS_managed pod disruption budgets (such as `coredn
 
 To delete the existing node pool, use the Azure portal or the [az aks delete][az-aks-delete] command:
 
-```bash
-kubectl delete nodepool /
-    --resource-group myResourceGroup /
-    --cluster-name myAKSCluster /
+> [!IMPORTANT]
+> When you delete a node pool, AKS doesn't perform cordon and drain. To minimize the disruption of rescheduling pods currently running on the node pool you are going to delete, perform a cordon and drain on all nodes in the node pool before deleting.
+
+```azurecli-interactive
+az aks nodepool delete \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
     --name nodepool1
 ```
 

@@ -19,18 +19,18 @@ ms.author: eur
 
 ## Recognize speech from a file
 
-At a command prompt, run the following cURL command. Insert the following values into the command. Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+At a command prompt, run the following cURL command. Insert the following values into the command. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and replace `YourAudioFile.wav` with the path and name of your audio file.
 
 ```console
-# curl
-speech_key="YourSubscriptionKey"
+key="YourSubscriptionKey"
 region="YourServiceRegion"
+audio_file=@'YourAudioFile.wav'
 
 curl --location --request POST \
-"https://YourServiceRegion.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US" \
---header "Ocp-Apim-Subscription-Key: YourSubscriptionKey" \
+"https://$region.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US" \
+--header "Ocp-Apim-Subscription-Key: $key" \
 --header "Content-Type: audio/wav" \
---data-binary @'YourAudioFile.wav'
+--data-binary $audio_file
 ```
 
 You should receive a response similar to what is shown here. The `DisplayText` should be the text that was recognized from your audio file.
@@ -44,10 +44,10 @@ You should receive a response similar to what is shown here. The `DisplayText` s
 }
 ```
 
-For more information, see [speech-to-text REST API for short audio](../../../rest-speech-to-text.md).
+For more information, see [speech-to-text REST API for short audio](../../../rest-speech-to-text-short.md).
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Recognize-speech-from-a-file" target="_target">I ran into an issue</a>
 
 
 ## Clean up resources

@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 11/13/2020
+ms.date: 02/15/2022
 ms.author: jasteppe
 ---
 # IoT Connector for FHIR (preview) troubleshooting guide
@@ -56,11 +56,11 @@ In this section, you'll learn about the validation process that Azure IoT Connec
 |Validation failed. Required information is missing or not valid.|API and Azure portal|Attempting to save a conversion mapping missing needed information or element.|Add missing conversion mapping information or element and attempt to save the conversion mapping again.|
 |Regenerate key parameters not defined.|API|Regenerate key request.|Include the parameters in the regeneration key request.|
 |Reached the maximum number of IoT Connector instances that can be provisioned in this subscription.|API and Azure portal|Azure IoT Connector for FHIR subscription quota reached (Default is (2) per subscription).|Delete one of the existing instances of Azure IoT Connector for FHIR.  Use a different subscription that hasn't reached the subscription quota.  Request a subscription quota increase.|
-|Move resource is not supported for IoT Connector enabled Azure API for FHIR resource.|API and Azure portal|Attempting to do a move operation on an Azure API for FHIR resource that has one or more instances of the Azure IoT Connector for FHIR.|Delete existing instance(s) of Azure IoT Connector for FHIR to do the move operation.|
+|Move resource isn't supported for IoT Connector enabled Azure API for FHIR resource.|API and Azure portal|Attempting to do a move operation on an Azure API for FHIR resource that has one or more instances of the Azure IoT Connector for FHIR.|Delete existing instance(s) of Azure IoT Connector for FHIR to do the move operation.|
 |IoT Connector not provisioned.|API|Attempting to use child services (connections & mappings) when parent (Azure IoT Connector for FHIR) hasn't been provisioned.|Provision an Azure IoT Connector for FHIR.|
-|The request is not supported.|API|Specific API request isn't supported.|Use the correct API request.|
-|Account does not exist.|API|Attempting to add an Azure IoT Connector for FHIR and the Azure API for FHIR resource doesn't exist.|Create the Azure API for FHIR resource and then reattempt the operation.|
-|Azure API for FHIR resource FHIR version is not supported for IoT Connector.|API|Attempting to use an Azure IoT Connector for FHIR with an incompatible version of the Azure API for FHIR resource.|Create a new Azure API for FHIR resource (version R4) or use an existing Azure API for FHIR resource (version R4).
+|The request isn't supported.|API|Specific API request isn't supported.|Use the correct API request.|
+|Account doesn't exist.|API|Attempting to add an Azure IoT Connector for FHIR and the Azure API for FHIR resource doesn't exist.|Create the Azure API for FHIR resource and then reattempt the operation.|
+|Azure API for FHIR resource FHIR version isn't supported for IoT Connector.|API|Attempting to use an Azure IoT Connector for FHIR with an incompatible version of the Azure API for FHIR resource.|Create a new Azure API for FHIR resource (version R4) or use an existing Azure API for FHIR resource (version R4).
 
 ## Why is my Azure IoT Connector for FHIR (preview) data not showing up in Azure API for FHIR?
 
@@ -68,28 +68,28 @@ In this section, you'll learn about the validation process that Azure IoT Connec
 |----------------|-----|
 |Data is still being processed.|Data is egressed to the Azure API for FHIR in batches (every ~15 minutes).  It’s possible the data is still being processed and additional time is needed for the data to be persisted in the Azure API for FHIR.|
 |Device conversion mapping JSON hasn't been configured.|Configure and save conforming device conversion mapping JSON.|
-|FHIR conversion mapping JSON has not been configured.|Configure and save conforming FHIR conversion mapping JSON.|
+|FHIR conversion mapping JSON hasn't been configured.|Configure and save conforming FHIR conversion mapping JSON.|
 |The device message doesn't contain an expected expression defined in the device mapping.|Verify JsonPath expressions defined in the device mapping match tokens defined in the device message.|
 |A Device Resource hasn't been created in the Azure API for FHIR (Resolution Type: Lookup only)*.|Create a valid Device Resource in the Azure API for FHIR. Be sure the Device Resource contains an Identifier that matches the device identifier provided in the incoming message.|
-|A Patient Resource has not been created in the Azure API for FHIR (Resolution Type: Lookup only)*.|Create a valid Patient Resource in the Azure API for FHIR.|
+|A Patient Resource hasn't been created in the Azure API for FHIR (Resolution Type: Lookup only)*.|Create a valid Patient Resource in the Azure API for FHIR.|
 |The Device.patient reference isn't set, or the reference is invalid (Resolution Type: Lookup only)*.|Make sure the Device Resource contains a valid [Reference](https://www.hl7.org/fhir/device-definitions.html#Device.patient) to a Patient Resource.| 
 
 *Reference [Quickstart: Deploy Azure IoT Connector (preview) using Azure portal](iot-fhir-portal-quickstart.md#create-new-azure-iot-connector-for-fhir-preview) for a functional description of the Azure IoT Connector for FHIR resolution types (For example: Lookup or Create).
 
 ## Use Metrics to troubleshoot issues in Azure IoT Connector for FHIR (preview)
 
-Azure IoT Connector for FHIR generates multiple metrics to provide insights into the data flow process. One of the supported metrics is called *Total Errors*, which provides the count for all errors that occur within an instance of Azure IoT Connector for FHIR.
+Azure IoT Connector for FHIR generates multiple metrics to provide insights into the data flow process. One of the supported metrics is called *Total Errors, which provide the count for all errors that occur within an instance of Azure IoT Connector for FHIR.
 
 Each error gets logged with a number of associated properties. Every property provides a different aspect about the error, which could help you to identify and troubleshoot issues. This section lists different properties captured for each error in the *Total Errors* metric, and possible values for these properties.
 
 > [!NOTE]
 > You can navigate to the *Total Errors* metric for an instance of Azure IoT Connector for FHIR (preview) as described on the [Azure IoT Connector for FHIR (preview) Metrics page](iot-metrics-display.md).
 
-Click on the *Total Errors* graph and then click on *Add filter* button to slice and dice the error metric using any of the properties mentioned below.
+Select on the *Total Errors* graph and then select the **Add filter** button to slice and dice the error metric using any of the properties mentioned below.
 
 ### The operation performed by the Azure IoT Connector for FHIR (preview)
 
-This property represents the operation being performed by IoT Connector when the error has occurred. An operation generally represents the data flow stage while processing a device message. Here is the list of possible values for this property.
+This property represents the operation being performed by IoT Connector when the error has occurred. An operation generally represents the data flow stage while processing a device message. Here's the list of possible values for this property.
 
 > [!NOTE]
 > You can read more about different stages of data flow in Azure IoT Connector for FHIR (preview) [here](iot-data-flow.md).
@@ -104,7 +104,7 @@ This property represents the operation being performed by IoT Connector when the
 
 ### The severity of the error
 
-This property represents the severity of the occurred error. Here is the list of possible values for this property.
+This property represents the severity of the occurred error. Here's the list of possible values for this property.
 
 |Severity|Description|
 |---------------|-----------|
@@ -114,7 +114,7 @@ This property represents the severity of the occurred error. Here is the list of
 
 ### The type of the error
 
-This property signifies a category for a given error, which basically represents a logical grouping for similar type of errors. Here is the list of possible value for this property.
+This property signifies a category for a given error, which basically represents a logical grouping for similar type of errors. Here's the list of possible value for this property.
 
 |Error type|Description|
 |----------|-----------|
@@ -128,7 +128,7 @@ This property signifies a category for a given error, which basically represents
 
 ### The name of the error
 
-This property provides the name for a specific error. Here is the list of all error names with their description and associated error type(s), severity, and data flow stage(s).
+This property provides the name for a specific error. Here's the list of all error names with their description and associated error type(s), severity, and data flow stage(s).
 
 |Error name|Description|Error type(s)|Error severity|Data flow stage(s)|
 |----------|-----------|-------------|--------------|------------------|

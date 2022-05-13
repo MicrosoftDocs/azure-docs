@@ -259,7 +259,7 @@ A Service Fabric cluster is single tenant by design and hosted applications are 
 
 If you are considering hosting **untrusted applications**, you must take additional steps to define and own the hostile multi-tenant experience for your Service Fabric cluster. This will require you to consider multiple aspects, in the context of your scenario, including, but not limited to, the following:
 * A thorough security review of the untrusted applications' interactions with other applications, the cluster itself, and the underlying compute infrastructure.
-* Use of the strongest sandboxing technology applicable (e.g., appropriate [isolation modes](/virtualization/windowscontainers/manage-containers/hyperv-container.md) for container workloads).
+* Use of the strongest sandboxing technology applicable (e.g., appropriate [isolation modes](/virtualization/windowscontainers/manage-containers/hyperv-container) for container workloads).
 * Risk assessment of the untrusted applications escaping the sandboxing technology, as the next trust and security boundary is the cluster itself.
 * Removal of the untrusted applications' [access to Service Fabric runtime](service-fabric-service-model-schema-complex-types.md#servicefabricruntimeaccesspolicytype-complextype).
 

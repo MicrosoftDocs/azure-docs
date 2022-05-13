@@ -4,8 +4,6 @@ description: Publish a virtual machine offer to Azure Marketplace using your own
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: krsh
-ms.author: krsh
 ms.date: 11/10/2021
 ---
 

@@ -113,7 +113,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Secure communications
-            url: how-to-enable-end-to-end-tls.md
+            url: how-to-enable-ingress-to-app-tls.md
           - text: Use roles and permissions for access
             url: how-to-permissions.md
 
@@ -179,4 +179,4 @@ landingContent:
       - linkListType: reference
         links:
           - text: REST API reference
-            url: https://docs.microsoft.com/rest/api/azurespringcloud/
+            url: /rest/api/azurespringcloud/

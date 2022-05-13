@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path": "expose-apps-gateway.md",
+            "redirect_url": "/azure/spring-cloud/expose-apps-gateway-end-to-end-tls",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "quickstart-setup-service-registry-enterprise.md",
             "redirect_url": "/azure/spring-cloud/quickstart-deploy-apps-enterprise",
             "redirect_document_id": false
@@ -8,6 +13,11 @@
         {
             "source_path": "expose-apps-gateway-azure-firewall.md",
             "redirect_url": "/azure/spring-cloud/expose-apps-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "how-to-enable-end-to-end-tls.md",
+            "redirect_url": "/azure/spring-cloud/how-to-enable-ingress-to-app-tls",
             "redirect_document_id": false
         },
         {

@@ -68,6 +68,9 @@ Azure Extended Network enables you to stretch an on-premises subnet into Azure t
 
 It's important to consider up front, which Automanage for Windows Server capabilities you would like to use, then choose a corresponding VM image that supports all of those capabilities.  Some of the _Windows Server Azure Edition_ images support only a subset of capabilities, see the table below for more details.
 
+> [!NOTE]
+> If you would like to preview the upcoming version of **Windows Server Azure Edition**, see [Windows Server VNext Datacenter: Azure Edition](windows-server-azure-edition-vnext.md).
+
 ### Deciding which image to use 
 
 |Image|Capabilities|

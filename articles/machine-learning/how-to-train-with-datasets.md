@@ -20,6 +20,10 @@ ms.custom: devx-track-python, data4ml
 
 In this article, you learn how to work with [Azure Machine Learning datasets](/python/api/azureml-core/azureml.core.dataset%28class%29) to train machine learning models.  You can use datasets in your local or remote compute target without worrying about connection strings or data paths. 
 
+* For structured data, see [Consume datasets in machine learning training scripts](#consume-datasets-in-machine-learning-training-scripts).
+
+* For unstructured data, see [Mount files to remote compute targets](#mount-files-to-remote-compute-targets).
+
 Azure Machine Learning datasets provide a seamless integration with Azure Machine Learning training functionality like [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig), [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive), and [Azure Machine Learning pipelines](./how-to-create-machine-learning-pipelines.md).
 
 If you are not ready to make your data available for model training, but want to load your data to your notebook for data exploration, see how to [explore the data in your dataset](how-to-create-register-datasets.md#explore-data). 
@@ -33,6 +37,7 @@ To create and train with datasets, you need:
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 * The [Azure Machine Learning SDK for Python installed](/python/api/overview/azure/ml/install) (>= 1.13.0), which includes the `azureml-datasets` package.
+
 
 > [!Note]
 > Some Dataset classes have dependencies on the [azureml-dataprep](https://pypi.org/project/azureml-dataprep/) package. For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux, Ubuntu, Fedora, and CentOS.

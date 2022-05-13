@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 03/03/2022
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
 ---
@@ -39,13 +39,6 @@ They might create an intent to represent each of these actions. They might also 
 * Date
 * Meeting durations
 
-
-For **orchestration workflow** projects, you can only create intents. The orchestration workflow project is intended to route to other target services that may be enabled with entity extraction to complete the conversation flow. You can add new intents that are connected to other services _or_ create intents that aren't connected to any service (a disconnected intent). 
-
-By adding a disconnected intent, you allow the orchestrator to route to that intent, and return without calling into an additional service. You must provide training examples for disconnected intents. You can only connect to projects that are owned by the same Azure resource. 
-
-Continuing the example from earlier, the developers for a bot might realize that for each skill of their bot (which includes: calendar actions, email actions, and a company FAQ), they need an intent that connects to each of those skills.  
-
 ## Build project schema for conversation projects
 
 To build a project schema for conversation projects:
@@ -59,21 +52,6 @@ To build a project schema for conversation projects:
 3. After creating an entity, you'll be routed to the entity details page. Every component is defined by multiple components. You can label examples in the tag utterances page to train a learned component, add a list of values to match against in the list component, or add a set of prebuilt components from the available library. Learn more about components [here](../concepts/entity-components.md)
 
     :::image type="content" source="../media/entity-details.png" alt-text="A screenshot showing the entity details page for conversation projects in Language Studio." lightbox="../media/entity-details.png":::
-
-## Build project schema for orchestration workflow projects
-
-To build a project schema for orchestration workflow projects: 
-
-1. Select **Add** in the **Build Schema** page. You will be prompted for a name and to define a connection for the intent, if any. If you would like to connect an intent you must provide:
-    1. **Service Type**: LUIS, Custom Question Answering (QnA), or Conversational Language Understanding.
-    2. **Project Name**: The project you want the intent to connect to.
-    3. **Version for utterances** (Only for LUIS): which LUIS version should be used to train the orchestrator classification model.
-
-    :::image type="content" source="../media/orchestration-intent.png" alt-text="A screenshot showing the intent creation modal for orchestration projects in Language Studio." lightbox="../media/orchestration-intent.png":::
-
-> [!IMPORTANT]
-> * Connected intents cannot be selected because you cannot add training examples to a connected intent, as it already uses the target project's data to train its intent classification.
-> * You will only be able to connect to target services that are owned by the same resource.
 
 ## Next Steps
 * [Tag utterances](tag-utterances.md)

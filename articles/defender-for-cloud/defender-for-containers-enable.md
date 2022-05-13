@@ -3,8 +3,9 @@ title: How to enable Microsoft Defender for Containers in Microsoft Defender for
 description: Enable the container protections of Microsoft Defender for Containers
 ms.topic: overview
 zone_pivot_groups: k8s-host
-ms.date: 02/28/2022
+ms.date: 05/10/2022
 ---
+
 # Enable Microsoft Defender for Containers
 
 Microsoft Defender for Containers is the cloud-native solution for securing your containers.
@@ -17,8 +18,7 @@ Defender for Containers protects your clusters whether they're running in:
 
 - **Google Kubernetes Engine (GKE) in a connected Google Cloud Platform (GCP) project** - Google’s managed environment for deploying, managing, and scaling applications using GCP infrastructure.
 
-- **An unmanaged Kubernetes distribution** (using Azure Arc-enabled Kubernetes) - Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters hosted on-premises or on IaaS.
-
+- **Other Kubernetes distributions** (using Azure Arc-enabled Kubernetes) - Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters hosted on-premises or on IaaS. For more information, see the **On-prem/IaaS (Arc)** section of [Supported features by environment](supported-machines-endpoint-solutions-clouds-containers.md#supported-features-by-environment).
 
 Learn about this plan in [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
@@ -75,6 +75,18 @@ A full list of supported alerts is available in the [reference table of all Defe
 [!INCLUDE [Remove the extension](./includes/defender-for-containers-remove-extension.md)]
 ::: zone-end
 
+::: zone pivot="defender-for-container-aks,defender-for-container-arc"
+[!INCLUDE [Assign a custom workspace](./includes/defender-for-containers-assign-workspace.md)]
+::: zone-end
+
 ::: zone pivot="defender-for-container-aks"
 [!INCLUDE [Remove the profile](./includes/defender-for-containers-remove-profile.md)]
 ::: zone-end
+
+::: zone pivot="defender-for-container-aks,defender-for-container-arc"
+[!INCLUDE [FAQ](./includes/defender-for-containers-override-faq.md)]
+::: zone-end
+
+## Next steps
+
+[Use Defender for Containers to scan your ACR images for vulnerabilities](defender-for-container-registries-usage.md).

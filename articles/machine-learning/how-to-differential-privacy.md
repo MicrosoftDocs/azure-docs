@@ -38,7 +38,7 @@ Use pip to install the [SmartNoise Python packages](https://pypi.org/project/ope
 
 `pip install opendp-smartnoise`
 
-To verify that the packages are installed, launch a python prompt and type:
+To verify that the packages are installed, launch a Python prompt and type:
 
 ```python
 import opendp.smartnoise.core
