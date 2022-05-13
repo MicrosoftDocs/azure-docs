@@ -1,11 +1,11 @@
 ---
-title: Prepare and upload a Linux VHD 
-description: Learn to prepare and upload an Azure virtual hard disk (VHD) that contains a Linux operating system.
+title: Prepare Linux for imaging
+description: Learn to prepare a Linux system to be used for an image in Azure.
 author: srijang
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 05/06/2022
+ms.date: 05/13/2022
 ms.author: srijangupta
 
 ---
