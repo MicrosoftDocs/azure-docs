@@ -105,10 +105,10 @@ The following is an example of the `containers` array in the [`properties.templa
 | `env` | An array of key/value pairs that define environment variables. | Use `secretRef` instead of the `value` field to refer to a secret. |
 | `resources.cpu` | The number of CPUs allocated to the container. | Values must adhere to the following rules: the value must be greater than zero and less than or equal to 2, and can be any decimal number, with a maximum of two decimal places. For example, `1.25` is valid, but `1.555` is invalid. The default is 0.5 CPU per container. |
 | `resources.memory` | The amount of RAM allocated to the container. | This value is up to `4Gi`. The only allowed units are [gibibytes](https://simple.wikipedia.org/wiki/Gibibyte) (`Gi`). Values must adhere to the following rules: the value must be greater than zero and less than or equal to `4Gi`, and can be any decimal number, with a maximum of two decimal places. For example, `1.25Gi` is valid, but `1.555Gi` is invalid. The default is `1Gi` per container.  |
-| `probes`| An array of health probes enabled in the container. | Based on Kubernetes health probes. For more information about probes settings see [Health probes in Azure Container Apps](health-probes.md).|
+| `probes`| An array of health probes enabled in the container. | This feature is based on Kubernetes health probes. For more information about probes settings see [Health probes in Azure Container Apps](health-probes.md).|
 
 
-Note that when allocating resources, the total amount of CPUs and memory requested for all the containers in a container app must add up to one of the following combinations.
+When allocating resources, the total amount of CPUs and memory requested for all the containers in a container app must add up to one of the following combinations.
 
 | vCPUs (cores) | Memory |
 |---|---|
@@ -234,11 +234,11 @@ System-assigned identities are created at the time your container app is created
 
 To configure a system-assigned identity, you must use one of the following methods.
 
-- Use a public registry for the initial deployment:
+- **Option 1*: Use a public registry for the initial deployment:
   1. Create your container app using a public image and a system-assigned identity.
   1. Give the new system-assigned identity `AcrPull` access to your private Azure Container Registry.
   1. Update your container app replacing the public image with the image from your private Azure Container Registry.
-- Or restart your app after assigning permissions:
+- **Option 2**: Restart your app after assigning permissions:
   1. Create your container app using a private image and a system-assigned identity. (The deployment will result in a failure to pull the image.)
   1. Give the new system-assigned identity `AcrPull` access to your private Azure Container Registry.
   1. Restart your container app revision.
