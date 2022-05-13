@@ -30,11 +30,13 @@ To import a LUIS application JSON file, click on the icon next to **Create a new
 
 :::image type="content" source="../media/import.png" alt-text="A screenshot showing the import button for conversation projects." lightbox="../media/import.png":::
 
-### [REST APIs](#tab/apis)
+### [REST API](#tab/rest-api)
 
 [!INCLUDE [Import LUIS application](../includes/rest-api/import-LUIS-project.md)]
 
-### Supported features
+---
+
+## Supported features
 When you import the LUIS JSON application into conversational language understanding, it will create a **Conversations** project with the following features will be selected:
 
 |**Feature**|**Notes**|
@@ -49,7 +51,7 @@ When you import the LUIS JSON application into conversational language understan
 |Non-required entity features in ML entities|If you had a prebuilt entity or a list entity as a non-required feature to another ML entity, then the ML entity will be transferred as a conversational language understanding entity with the same name and its ML labels will apply. If an ML entity was used as a feature to another ML entity, it will not be transferred over.|
 |Roles|All of your roles will be transferred as conversational language understanding entities with the same names. Each role will be its own conversational language understanding entity. The role’s entity type will determine which component is populated for the role. Roles on prebuilt entities will transfer as conversational language understanding entities with the prebuilt entity component enabled and the role labels transferred over to train the Learned component. Roles on list entities will transfer as conversational language understanding entities with the list entity component populated and the role labels transferred over to train the Learned component. Roles on ML entities will be transferred as conversational language understanding entities with their labels applied to train the Learned component of the entity.  |
 
-### Unsupported features
+## Unsupported features
 
 When you import the LUIS JSON application into conversational language understanding, certain features will be ignored, but they will not block you from importing the application. The following features will be ignored:
 

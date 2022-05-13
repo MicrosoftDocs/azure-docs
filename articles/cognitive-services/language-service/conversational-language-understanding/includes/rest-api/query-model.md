@@ -32,7 +32,7 @@ Use the following header to authenticate your request.
 |--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
 
-### Request Body
+### Request body
 
 ```json
 {
@@ -66,7 +66,7 @@ Use the following header to authenticate your request.
 
 Once you send the request, you will get the following response for the prediction
 
-### Response Body
+### Response body
 
 ```json
 {
