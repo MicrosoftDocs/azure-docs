@@ -13,7 +13,7 @@ ms.reviewer: ktuckerdavis, aniket.adnaik
 
 ## Introduction
 
-The Azure Synapse Dedicated SQL Pool Connector for Apache Spark in Azure Synapse Analytics enables efficient transfer of large data sets between the [Apache Spark runtime](../../synapse-analytics/spark/apache-spark-overview.md) and the [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). The connector is implemented using `Scala` language. The connector is shipped as a default library with Azure Synapse Workspace. The connector supports Python for Spark 3. See [Working with DW Connector in Python](#Using-the-Connector-with-Python). To use the Connector with other notebook language choices, use the Spark magic command - `%%spark`.
+The Azure Synapse Dedicated SQL Pool Connector for Apache Spark in Azure Synapse Analytics enables efficient transfer of large data sets between the [Apache Spark runtime](../../synapse-analytics/spark/apache-spark-overview.md) and the [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). The connector is shipped as a default library with Azure Synapse Workspace. The connector is implemented using `Scala` language. The connector also supports [Python for Spark 3](#Using-the-Connector-with-Python). To use the Connector with other notebook language choices, use the Spark magic command - `%%spark`.
 
 At a high-level, the connector provides the following capabilities:
 
@@ -104,7 +104,7 @@ There are two ways to grant access permissions to Azure Data Lake Storage Gen2 -
     * `Write` enables ability to write.
   * It's important to configure ACLs such that the Connector can successfully write and read from the storage locations.
 
->[!Note]
+> [!Note]
 > * If you'd like to run notebooks using Synapse Workspace pipelines you must also grant above listed access permissions to the Synapse Workspace default managed identity. The workspace's default managed identity name is same as the name of the workspace.
 >
 > * To use the Synapse workspace with secured storage accounts, a managed private end point must be [configured](../../storage/common/storage-network-security.md?tabs=azure-portal) from the notebook. The managed private end point must be approved from the ADLS Gen2 storage account's `Private endpoint connections` section in the `Networking` pane.
@@ -469,7 +469,7 @@ Following is a sample JSON string with post-write metrics:
 
 #### Using the Connector with Python
 
-For Spark 3.1, the Connector supports Python natively. The API is similar to Scala. We use the same [configuration options](#configuration-options). Below are  some code samples that show how to use the Connector with `PySpark (Python)`.
+For Spark 3, the Connector supports Python natively. The API is similar to Scala. We use the same [configuration options](#configuration-options). Below are  some code samples that show how to use the Connector with `PySpark (Python)`.
 
 ##### Read using Azure AD based authentication
 
@@ -657,7 +657,8 @@ from com.microsoft.spark.sqlanalytics.Constants import Constants
 
 ```
 
-Spark 2.4 does not support the Connector in Python natively. However, we can use the Scala connector API to interact with content from a DataFrame in PySpark by using DataFrame.createOrReplaceTempView or DataFrame.createOrReplaceGlobalTempView. See Section [Using materialized data across cells](#using-materialized-data-across-cells).
+> [!NOTE]
+> Spark 2.4 does not support the Connector in Python natively. However, we can use the Scala connector API to interact with content from a DataFrame in PySpark by using DataFrame.createOrReplaceTempView or DataFrame.createOrReplaceGlobalTempView. See Section [Using materialized data across cells](#using-materialized-data-across-cells).
 
 #### Using materialized data across cells
 
