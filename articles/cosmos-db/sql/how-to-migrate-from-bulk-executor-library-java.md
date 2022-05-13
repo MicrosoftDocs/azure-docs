@@ -67,10 +67,6 @@ If you want to do bulk *patch* (similar to using [DocumentBulkExecutor.mergeAll]
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkReplaceItems)]
 
 
-
-
-
-
 And if you want to do bulk *delete* (similar to using [DocumentBulkExecutor.deleteAll](/java/api/com.microsoft.azure.documentdb.bulkexecutor.documentbulkexecutor.deleteall)), you need to use bulk delete:
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkDeleteItems)]
