@@ -243,6 +243,16 @@ Below are some error codes you may encounter and the solutions to help you resol
 
 **Solution:** Reduce the size of your data or consider Azure API for FHIR, which has a higher storage limit.
 
+## Bulk import - another option
+
+As illustrated in this article, $import is one way of doing bulk import. Another way is using an open-source solution, called [FHIR Bulk Loader](https://github.com/microsoft/fhir-loader). FHIR-Bulk Loader is an Azure Function App solution that provides the following services for ingesting FHIR data:
+
+* Imports FHIR Bundles (compressed and non-compressed) and NDJSON files into a FHIR service
+* High Speed Parallel Event Grid that triggers from storage accounts or other event grid resources
+* Complete Auditing, Error logging and Retry for throttled transactions
+
+Regardless of whether you would like to use the $import API on the managed services or the FHIR Bulk Loader in open-source, you can achieve the same import solution.
+
 ## Next steps
 
 In this article, you've learned about how the Bulk import feature enables importing FHIR data to the FHIR server at high throughput using the $import operation. For more information about converting data to FHIR, exporting settings to set up a storage account, and moving data to Azure Synapse, see

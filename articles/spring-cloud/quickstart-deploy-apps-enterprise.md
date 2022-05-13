@@ -125,10 +125,10 @@ To build locally, use the following steps:
    This command produces output similar to the following example:
 
    ```output
-   Name                  Location    ResourceGroup       Public Url                                                 Production Deployment    Provisioning State    CPU    Memory    Running Instance    Registered Instance    Persistent Storage    Bind Service Registry    Bind Application Configuration Service
-   --------------------  ----------  ---------------  ---------------------------------------------------------  -----------------------  --------------------  -----  --------  ------------------  ---------------------  --------------------  -----------------------  ----------------------------------------
-   api-gateway           eastus      <resource group>   https://<service_name>-api-gateway.asc-test.net                    default                  Succeeded             1      2Gi       1/1                1/1                    -                     True                     True
-   customers-service     eastus      <resource group>                                                                      default                  Succeeded             1      2Gi       1/1                1/1                    -                     True                     True
+   Name                  Location    ResourceGroup      Public Url                                                   Production Deployment    Provisioning State    CPU    Memory    Running Instance    Registered Instance    Persistent Storage    Bind Service Registry    Bind Application Configuration Service
+   --------------------  ----------  ----------------   ----------------------------------------------------------   -----------------------  --------------------  -----  --------  ------------------  ---------------------  --------------------  -----------------------  ----------------------------------------
+   api-gateway           eastus      <resource group>   https://<service_name>-api-gateway.azuremicroservices.io     default                  Succeeded             1      2Gi       1/1                 1/1                    -                     True                     True
+   customers-service     eastus      <resource group>                                                                default                  Succeeded             1      2Gi       1/1                 1/1                    -                     True                     True
    ```
 
 ### Verify the applications

@@ -291,7 +291,7 @@ info: Microsoft.Hosting.Lifetime[0]
       Content root path: /netcorepublish/6e4db42a-b160-4b83-a771-c91adec18c60
 2020-09-08 21:00:13 [Information] [10] Start listening...
 info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
-      Request starting HTTP/1.1 GET http://asc-svc-hello-world.azuremicroservices.io/weatherforecast
+      Request starting HTTP/1.1 GET http://asa-svc-hello-world.azuremicroservices.io/weatherforecast
 info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
       Executing endpoint 'hello_world.Controllers.WeatherForecastController.Get (hello-world)'
 info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
