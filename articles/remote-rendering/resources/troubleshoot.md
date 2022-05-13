@@ -152,7 +152,8 @@ Azure Remote Rendering hooks into the Unity render pipeline to do the frame comp
 ## Checkerboard pattern is rendered after model loading
 
 If the rendered image looks like this:
-![Screenshot shows a grid of black and white squares with a Tools menu.](../reference/media/checkerboard.png)
+![Screenshot shows a grid of black and white squares with a Tools menu.](../reference/media/checkerboard.png) 
+
 then the renderer hits the [polygon limits for the standard configuration size](../reference/vm-sizes.md). To mitigate, either switch to **premium** configuration size or reduce the number of visible polygons.
 
 ## The rendered image in Unity is upside-down
@@ -187,7 +188,7 @@ The `AudioPluginMsHRTF.dll` for Arm64 was added to the *Windows Mixed Reality* p
 
 In [Remote pose mode](../overview/features/late-stage-reprojection.md#reprojection-pose-modes), the ARR Unity binding code implicitly creates a proxy camera that performs the actual rendering. In this case, the main camera's culling mask is set to 0 ("nothing") to effectively turn off the rendering for it. However, some third party plugins (like `Cinemachine`) that drive the camera, may rely on at least some layer bits being set.
 
-For this purpose, The binding code allows to programmatically change the layer bitmask for the main camera. Specifically, the following steps are required:
+For this purpose, The binding code allows you to programmatically change the layer bitmask for the main camera. Specifically, the following steps are required:
 
 1. Create a new layer in Unity that isn't used for rendering any local scene geometry. In this example, assume the layer is named "Cam".
 1. Pass this bitmask to ARR so ARR sets it on the main camera:
@@ -195,7 +196,8 @@ For this purpose, The binding code allows to programmatically change the layer b
    RemoteManagerUnity.CameraCullingMask = LayerMask.GetMask("Cam");
    ```
 1. Configure the `Cinemachine` properties to use this new layer:
-![`Cinemachine` camera layer assigned in Unity inspector.](./media/cinemachine-camera-config.png)
+![Screenshot that shows Unity's inspector panel for camera settings in `Cinemachine`.](./media/cinemachine-camera-config.png)
+
 
 The local pose mode isn't affected by this, since in this case the ARR binding doesn't redirect rendering to an internal proxy camera.
 
