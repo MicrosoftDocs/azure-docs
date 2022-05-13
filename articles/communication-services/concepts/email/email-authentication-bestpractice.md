@@ -16,7 +16,7 @@ ms.custom: private_preview
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 
-## Email Authentication
+## Email authentication
 Sending an email requires several steps which includes verifying the sender of the email actually owns the domain, checking the domain reputation, virus scanning, filtering for spam, phishing attempts, malware etc.. Configuring proper email authentication is a foundational principle for establishing trust in email and protecting your domain’s reputation. If an email passes authentication checks, the receiving domain can apply policy to that email in keeping with the reputation already established for the identities associated with those authentication checks, and the recipient can be assured that those identities are valid. 
 
 ### SPF (Sender Policy Framework)
@@ -31,7 +31,7 @@ DMARC [RFC 7489](https://tools.ietf.org/html/rfc7489) is a scalable mechanism by
 ### ARC (Authenticated Received Chain) 
 The ARC protocol [RFC 8617](https://tools.ietf.org/html/rfc8617)  provides an authenticated chain of custody for a message, allowing each entity that handles the message to identify what entities handled it previously as well as the message’s authentication assessment at each hop. ARC is not yet an internet standard, but adoption is increasing. 
 
-### How Email Authentication works
+### How Email authentication works
 Email authentication verifies that email messages from a sender (for example, notification@contoso.com) is legitimate and come from expected sources for that email domain (for example, contoso.com.). 
 An email message may contain multiple originator or sender addresses. These addresses are used for different purposes. For example, consider these addresses:
 
