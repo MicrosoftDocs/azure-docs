@@ -3,7 +3,7 @@ title: "Azure Arc-enabled data services validation"
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 02/05/2022
+ms.date: 13/05/2022
 ms.topic: conceptual
 author: MikeRayMSFT
 ms.author: mikeray
@@ -30,27 +30,33 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 |-----|-----|-----|-----|-----|
 |Cisco Hyperflex on VMware <br/> Cisco IKS ESXi 6.7 U3 |v1.19.5|v1.0.0_2021-07-30|15.0.2148.140| Not validated |
 
+### Dell
+
+|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
+|-----|-----|-----|-----|-----|
+| Dell EMC PowerFlex |1.21.5|v1.4.1_2022-03-08|15.0.2255.119 | Not validated |
+| PowerFlex version 3.6 |1.21.5|v1.4.1_2022-03-08|15.0.2255.119 | Not validated |
+| PowerFlex CSI version 1.4 |1.21.5|v1.4.1_2022-03-08 | Not validated |
+| PowerStore X|1.20.6|v1.0.0_2021-07-30|15.0.2148.140 |postgres 12.3 (Ubuntu 12.3-1) |
+| Powerstore T|1.20.6|v1.0.0_2021-07-30|15.0.2148.140 |postgres 12.3 (Ubuntu 12.3-1)|
+
 ### Docker / Mirantis
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
 | | | | | |
 
-### Dell
-
-|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
-|-----|-----|-----|-----|-----|
-| Dell EMC PowerFlex |1.19.7|v1.0.0_2021-07-30|15.0.2148.140 | Not validated |
-| PowerFlex version 3.6 |1.19.7|v1.0.0_2021-07-30|15.0.2148.140 | Not validated |
-| PowerFlex CSI version 1.4 |1.19.7|v1.0.0_2021-07-30|15.0.2148.140 | Not validated |
-| PowerStore X|1.20.6|v1.0.0_2021-07-30|15.0.2148.140 |postgres 12.3 (Ubuntu 12.3-1) |
-| Powerstore T|1.20.6|v1.0.0_2021-07-30|15.0.2148.140 |postgres 12.3 (Ubuntu 12.3-1)|
-
 ### Kubler
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-| | | | | |
+|Kublr |1.22.0 / 1.20.12 |v1.1.0_2021-11-02 |15.0.2195.191 |PostgreSQL 12.3 (Ubuntu 12.3-1) |
+
+### Lenovo
+
+|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
+|-----|-----|-----|-----|-----|
+|Lenovo ThinkAgile MX3520 |AKS on AzureStack HCI 21H2|v1.0.0_2021-07-30 |15.0.2148.140|Not validated|
 
 ### Nutanix
 
@@ -62,13 +68,13 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-| Platform9  Managed Kubernetes v5.3.0 | 1.20.5 | v1.0.0_2021-07-30| 15.0.2148.140 | Not validated |
+| Platform9  Managed Kubernetes v5.3.0 | 1.20.5 | v1.0.0_2021-07-30| 15.0.2195.191 | PostgreSQL 12.3 (Ubuntu 12.3-1) |
 
 ### PureStorage
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-| Portworx Enterprise 2.7 | 1.20.7 | v1.0.0_2021-07-30 | 15.0.2148.140 | Not validated |
+| Portworx Enterprise 2.7	1.22.5 | 1.20.7 | v1.1.0_2021-11-02 | 15.0.2148.140 | Not validated |
 
 ### Red Hat
 
@@ -80,13 +86,13 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-| TKGm v1.3.1 | 1.20.5 | v1.0.0_2021-07-30 | 15.0.2148.140|postgres 12.3 (Ubuntu 12.3-1)|
+| TKGm v1.5.1 | 1.20.5 | v1.4.1_2022-03-08 | 15.0.2255.119|postgres 12.3 (Ubuntu 12.3-1)|
 
 ### WindRiver
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-| | | | | |
+|WindRiver| 1.18.1|v1.1.0_2021-11-02 |15.0.2195.191|postgres 12.3 (Ubuntu 12.3-1) |
 
 ## Data services validation process
 
