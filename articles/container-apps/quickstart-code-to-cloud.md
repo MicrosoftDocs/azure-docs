@@ -49,7 +49,7 @@ To complete this project, you'll need the following items:
 
 [!INCLUDE [container-apps-setup-cli-only.md](../../includes/container-apps-setup-cli-only.md)]
 
-Now that your Azure CLI setup is complete, you can define the environment variables that used throughout this article.
+Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
 
 [!INCLUDE [container-apps-code-to-cloud-setup.md](../../includes/container-apps-code-to-cloud-setup.md)]
 
