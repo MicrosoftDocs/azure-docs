@@ -33,10 +33,9 @@ For information about the prerequisites to add or edit role assignment condition
 
 This condition allows users to read blobs with a [blob index tag](../blobs/storage-blob-index-how-to.md) key of Project and a value of Cascade. Attempts to access blobs without this key-value tag will not be allowed.
 
-You must add this condition to any role assignments that include the following permissions.
+You must add this condition to any role assignments that include the following permission.
 
 - `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` (for accounts with hierarchical namespace enabled)
 
 ![Diagram of condition showing read access to blobs with a blob index tag.](./media/storage-auth-abac-examples/blob-index-tags-read.png)
 
@@ -307,7 +306,7 @@ There are five permissions for read, write, and delete of existing blobs, so you
 - `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`
 - `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` (update or create)
 - `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` (create)
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` (for accounts with hierarchical namespace enabled)
+- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` (for accounts with hierarchical namespace enabled or might be enabled in the future)
 
 Suboperations are not used in this condition because the subOperation is needed only when conditions are authored based on tags.
 
@@ -323,6 +322,8 @@ Suboperations are not used in this condition because the subOperation is needed 
   !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'})
   AND
   !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action'})
  )
  OR 
  (
@@ -337,7 +338,7 @@ Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | [Delete a blob](storage-auth-abac-attributes.md#delete-a-blob)<br/>[Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[Write to a blob](storage-auth-abac-attributes.md#write-to-a-blob)<br/>[Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#create-a-blob-or-snapshot-or-append-data) |
+| Actions | [Delete a blob](storage-auth-abac-attributes.md#delete-a-blob)<br/>[Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[Write to a blob](storage-auth-abac-attributes.md#write-to-a-blob)<br/>[Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#create-a-blob-or-snapshot-or-append-data)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) |
 | Attribute source | Resource |
 | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
 | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
@@ -350,7 +351,7 @@ Here are the settings to add this condition using the Azure portal.
 Here's how to add this condition using Azure PowerShell.
 
 ```azurepowershell
-$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container'))"
+$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container'))"
 $testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
 $testRa.Condition = $condition
 $testRa.ConditionVersion = "2.0"
@@ -382,7 +383,7 @@ This condition allows read access to storage containers named blobs-example-cont
 You must add this condition to any role assignments that include the following permissions.
 
 - `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` (for accounts with hierarchical namespace enabled)
+- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` (for accounts with hierarchical namespace enabled or might be enabled in the future)
 
 ![Diagram of condition showing read access to blobs in named containers with a path.](./media/storage-auth-abac-examples/containers-path-read.png)
 
@@ -390,6 +391,8 @@ You must add this condition to any role assignments that include the following p
 (
  (
   !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action'})
  )
  OR 
  (
@@ -406,7 +409,7 @@ Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob) |
+| Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) |
 | Attribute source | Resource |
 | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
 | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
@@ -425,7 +428,7 @@ Here are the settings to add this condition using the Azure portal.
 Here's how to add this condition using Azure PowerShell.
 
 ```azurepowershell
-$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container' AND @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path] StringLike 'readonly/*'))"
+$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container' AND @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path] StringLike 'readonly/*'))"
 $testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
 $testRa.Condition = $condition
 $testRa.ConditionVersion = "2.0"
@@ -451,7 +454,7 @@ This condition allows read access and also list access to storage containers nam
 You must add this condition to any role assignments that include the following permissions.
 
 - `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` (for accounts with hierarchical namespace enabled)
+- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` (for accounts with hierarchical namespace enabled or might be enabled in the future)
 
 ![Diagram of condition showing read and list access to blobs in named containers with a path.](./media/storage-auth-abac-examples/containers-path-read.png)
 
@@ -459,6 +462,8 @@ You must add this condition to any role assignments that include the following p
 (
  (
   !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action'})
  )
  OR 
  (
@@ -490,7 +495,7 @@ Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob) |
+| Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) |
 | Attribute source | Resource |
 | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
 | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
@@ -524,7 +529,7 @@ You must add this condition to any role assignments that include the following p
 
 - `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` (create or update)
 - `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` (create)
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` (for accounts with hierarchical namespace enabled)
+- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` (for accounts with hierarchical namespace enabled or might be enabled in the future)
 
 ![Diagram of condition showing write access to blobs in named containers with a path.](./media/storage-auth-abac-examples/containers-path-write.png)
 
@@ -534,6 +539,8 @@ You must add this condition to any role assignments that include the following p
   !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'})
   AND
   !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action'})
  )
  OR 
  (
@@ -550,7 +557,7 @@ Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | [Write to a blob](storage-auth-abac-attributes.md#write-to-a-blob)<br/>[Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#create-a-blob-or-snapshot-or-append-data) |
+| Actions | [Write to a blob](storage-auth-abac-attributes.md#write-to-a-blob)<br/>[Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#create-a-blob-or-snapshot-or-append-data)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) |
 | Attribute source | Resource |
 | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
 | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
@@ -569,7 +576,7 @@ Here are the settings to add this condition using the Azure portal.
 Here's how to add this condition using Azure PowerShell.
 
 ```azurepowershell
-$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'contosocorp' AND @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path] StringLike 'uploads/contoso/*'))"
+$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'contosocorp' AND @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path] StringLike 'uploads/contoso/*'))"
 $testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
 $testRa.Condition = $condition
 $testRa.ConditionVersion = "2.0"
@@ -814,7 +821,7 @@ This condition allows a user to only read blobs in storage accounts with [hierar
 You must add this condition to any role assignments that include the following permissions.
 
 - `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` (for accounts with hierarchical namespace enabled)
+- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action`
 
 ![Diagram of condition showing read access to storage accounts with hierarchical namespace enabled.](./media/storage-auth-abac-examples/hierarchical-namespace-accounts-read.png)
 
@@ -822,6 +829,8 @@ You must add this condition to any role assignments that include the following p
 (
  (
   !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action'})
  )
  OR 
  (
@@ -836,7 +845,7 @@ Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob) |
+| Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) |
 | Attribute source | Resource |
 | Attribute | [Is hierarchical namespace enabled](storage-auth-abac-attributes.md#is-hierarchical-namespace-enabled) |
 | Operator | [BoolEquals](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
@@ -942,7 +951,6 @@ You must add this condition to any role assignments that include the following p
 - `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`
 - `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 - `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action`
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` (for accounts with hierarchical namespace enabled)
 
 For more information, see [Allow read access to blobs based on tags and custom security attributes](../../role-based-access-control/conditions-custom-security-attributes.md).
 

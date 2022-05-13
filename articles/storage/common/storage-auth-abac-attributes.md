@@ -293,12 +293,13 @@ This section lists the supported Azure Blob storage actions and suboperations yo
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | All data operations for accounts with hierarchical namespace enabled |
-> | **Description** | DataAction for all data operations on storage accounts with hierarchical namespace enabled.<br/>If you add a condition on a storage account wih hierarchical namespace enabled, you must add the condition to any role assignments that include this data action. |
+> | **Description** | DataAction for all data operations on storage accounts with hierarchical namespace enabled. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` |
 > | **Suboperation** |  |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path |
 > | **Request attributes** |  |
 > | **Principal attributes support** | True |
+> | **Examples** | [Example: Read only storage accounts with hierarchical namespace enabled](storage-auth-abac-examples.md#example-read-only-storage-accounts-with-hierarchical-namespace-enabled)<br/>[Example: Read, write, or delete blobs in named containers](storage-auth-abac-examples.md#example-read-write-or-delete-blobs-in-named-containers)<br/>[Example: Read blobs in named containers with a path](storage-auth-abac-examples.md#example-read-blobs-in-named-containers-with-a-path)<br/>[Example: Read or list blobs in named containers with a path](storage-auth-abac-examples.md#example-read-or-list-blobs-in-named-containers-with-a-path)<br/>[Example: Write blobs in named containers with a path](storage-auth-abac-examples.md#example-write-blobs-in-named-containers-with-a-path) |
 > | **Learn more** | [Azure Data Lake Storage Gen2 hierarchical namespace](../blobs/data-lake-storage-namespace.md) |
 
 ## Azure Queue storage actions
