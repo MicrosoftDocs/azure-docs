@@ -130,7 +130,7 @@ In this step, you add the custom domain you registered in [Step 1](#step-1-add-a
 
 ### 3.1. Create a CNAME DNS record
 
-To add the custom domain, create a canonical name (CNAME) record with your domain provider. A CNAME record is a type of DNS record that maps a source domain name to a destination domain name (alias). For Azure Front Door, the source domain name is your custom domain name, and the destination domain name is your Front Door default hostname you configure in [Step 2. Create a new Azure Front Door instance](#step-2-create-a-new-azure-front-door-instance). For example, `b2cazurefrontdoor-ab123e.z01.azurefd.net`.
+To add the custom domain, create a canonical name (CNAME) record with your domain provider. A CNAME record is a type of DNS record that maps a source domain name to a destination domain name (alias). For Azure Front Door, the source domain name is your custom domain name, and the destination domain name is your Front Door default hostname that you configured in [Step 2. Create a new Azure Front Door instance](#step-2-create-a-new-azure-front-door-instance). For example, `b2cazurefrontdoor-ab123e.z01.azurefd.net`.
 
 After Front Door verifies the CNAME record that you created, traffic addressed to the source custom domain (such as `login.contoso.com`) is routed to the specified destination Front Door default frontend host, such as `contoso-frontend.azurefd.net`. For more information, see [add a custom domain to your Front Door](../frontdoor/front-door-custom-domain.md). 
 
@@ -342,16 +342,16 @@ After you add the custom domain and configure your application, users will still
 
 You can use Azure Front Door advanced configuration, such as [Azure Web Application Firewall (WAF)](partner-azure-web-application-firewall.md). Azure WAF provides centralized protection of your web applications from common exploits and vulnerabilities.
 
-When using custom domains, consider the following:
+When using custom domains, consider the following points:
 
 - The WAF policy must be the same tier as the Azure Front Door profile. For more information about how to create a WAF policy to use with Azure Front Door, see [Configure WAF policy](../frontdoor/how-to-configure-endpoints.md).
-- The WAF managed rules feature isn't officially supported because it can cause false positives and prevent legitimate requests from passing through, but you can use WAF custom rules if they meet your needs.
+- The WAF managed rules feature isn't officially supported as it can cause false positives and prevent legitimate requests from passing through, so only use WAF custom rules if they meet your needs.
 
 ## Troubleshooting
 
 ### Azure AD B2C returns a page not found error
 
-- **Symptom** - After you configure a custom domain, when you try to sign in with the custom domain, you get an HTTP 404 error message.
+- **Symptom** - You configure a custom domain, but when you try to sign in with the custom domain, you get an HTTP 404 error message.
 - **Possible causes** - This issue could be related to the DNS configuration or the Azure Front Door backend configuration. 
 - **Resolution**:  
     1. Make sure the custom domain is [registered and successfully verified](#step-1-add-a-custom-domain-name-to-your-azure-ad-b2c-tenant) in your Azure AD B2C tenant.
@@ -359,7 +359,7 @@ When using custom domains, consider the following:
 
 ### Our services aren't available right now
 
-- **Symptom** - After you configure a custom domain, when you try to sign in with the custom domain, you get the following error message: *Our services aren't available right now. We're working to restore all services as soon as possible. Please check back soon.*
+- **Symptom** - You configure a custom domain, but when you try to sign in with the custom domain, you get the following error message: *Our services aren't available right now. We're working to restore all services as soon as possible. Please check back soon.*
 - **Possible causes** - This issue could be related to the Azure Front Door route configuration.
 - **Resolution**: Check the status of the **default-route**. If it's disabled, [Enable the route](#33-enable-the-route). The following screenshot shows how the default-route should look like:
 
@@ -367,7 +367,7 @@ When using custom domains, consider the following:
 
 ### Azure AD B2C returns the resource you're looking for has been removed, had its name changed, or is temporarily unavailable.
 
-- **Symptom** - After you configure a custom domain, when you try to sign in with the custom domain, you get *the resource you are looking for has been removed, had its name changed, or is temporarily unavailable* error message.
+- **Symptom** - You configure a custom domain, but when you try to sign in with the custom domain, you get *the resource you are looking for has been removed, had its name changed, or is temporarily unavailable* error message.
 - **Possible causes** - This issue could be related to the Azure AD custom domain verification. 
 - **Resolution**:  Make sure the custom domain is [registered and **successfully verified**](#step-1-add-a-custom-domain-name-to-your-azure-ad-b2c-tenant) in your Azure AD B2C tenant.
 
