@@ -1,6 +1,6 @@
 ---
 title: Partitioning tables in dedicated SQL pool 
-description: Recommendations and examples for using table partitions in Dedicated SQL pool.
+description: Recommendations and examples for using table partitions in dedicated SQL pool.
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
