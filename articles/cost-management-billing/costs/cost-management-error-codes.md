@@ -230,7 +230,7 @@ Error message `InvalidAuthenticationTokenTenant`.
 
 The subscription you're accessing might have been moved to a different directory.
 
-When using the portal, you might have used a link or saved reference, like a dashboard tile, before the subscription was moved.
+When using the Azure portal, you might have used a link or saved reference, like a dashboard tile, before the subscription was moved.
 
 Switch to the correct directory that was mentioned in the error message and try again. Don't forget to remove any old references and update any links.
 
@@ -252,7 +252,7 @@ Error message `InvalidScheduledActionEmailRecipients`.
 
 ### Mitigation
 
-The message indicates that the scheduled action/email for an alert that you're creating or updating doesn't have any email recipients. When using the portal, press ENTER after specifying an email address to ensure it's saved in the form.
+The message indicates that the scheduled action/email for an alert that you're creating or updating doesn't have any email recipients. When using the Azure portal, press ENTER after specifying an email address to ensure it's saved in the form.
 
 ## InvalidView
 
@@ -276,7 +276,7 @@ Error message `MissingSubscription`.
 
 The message indicates that the HTTP request didn't include a valid scope.
 
-If using the portal, [create a support request](#create-a-support-request). The error is likely caused by an internal problem.
+If using the Azure portal, [create a support request](#create-a-support-request). The error is likely caused by an internal problem.
 
 ## NotFound
 
@@ -330,7 +330,7 @@ For more information, see [Reactivate a disabled Azure subscription](../manage/s
 
 The error indicates that a resource group doesn't exist. The resource group might be moved or deleted.
 
-If using the portal, you might see the error when creating budgets or exports. The error is expected and you can ignore it.
+If using the Azure portal, you might see the error when creating budgets or exports. The error is expected and you can ignore it.
 
 ## ResourceRequestsThrottled
 
@@ -397,7 +397,7 @@ Error message `Unauthorized`.
 
 If using the ExternalBillingAccounts or ExternalSubscriptions APIs, verify that the Microsoft.CostManagement resource providerRP was [registered](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) for your Azure Active Directory instance. Resource Provider registration is required to use Cost Management for AWS.
 
-If you get an `Empty GUID user id` error, update the bearer token associated with the request. You might temporarily see the error in the portal, but it should resolve itself. If you continue to see the error in the portal, refresh your browser.
+If you get an `Empty GUID user id` error, update the bearer token associated with the request. You might temporarily see the error in the Azure portal, but it should resolve itself. If you continue to see the error in the Azure portal, refresh your browser.
 
 Also, see [AuthorizationFailed](#AuthorizationFailed).
 
