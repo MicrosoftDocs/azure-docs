@@ -235,7 +235,7 @@ AND     [OrderDateKey] <  20010101;
 ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.FactInternetSales PARTITION 2;
 ```
 
-Once you have completed the movement of the data, it is a good idea to refresh the statistics on the target table and to drop unnecessary tables. Updating statistics ensures the statistics accurately reflect the new distribution of the data in their respective partitions.
+Once you have completed the movement of the data, it is a good idea to refresh the statistics on the target table. Updating statistics ensures the statistics accurately reflect the new distribution of the data in their respective partitions.
 
 ```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
