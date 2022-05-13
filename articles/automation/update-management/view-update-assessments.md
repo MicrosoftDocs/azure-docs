@@ -72,7 +72,7 @@ Click anywhere else on the update to open the Log Search pane. The query for the
 
 Select **Missing updates** to view the list of updates that are missing from your machines. Each update is listed and can be selected. Information about the number of machines that require the update, operating system details, and a link for more information are all shown. The Log Search pane also shows more details about the updates.
 
-![Screenshot of Missing Updates.](./media/view-update-assessments/automation-view-update-assessments-missing-updates.png)
+![Screenshot of Missing Updates in your Automation account.](./media/view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
 ## Work with update classifications
 
