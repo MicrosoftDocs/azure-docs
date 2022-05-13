@@ -205,7 +205,7 @@ To complete these steps, you'll need the values you recorded earlier:
    > The Sign on URL under Basic SAML Configuration is not used in the FortiGate configurations. It is used to trigger SP-initiated single sign on to redirect the user to the SSL VPN portal page.
 
 1. Establish an SSH session to your FortiGate appliance, and sign in with a FortiGate Administrator account.
-1. Run these commands and substitute the <values> with the information that you collected previously:
+1. Run these commands and substitute the `<values>` with the information that you collected previously:
 
    ```console
     config user saml
