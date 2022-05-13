@@ -160,7 +160,7 @@ long start = DateTime.Now.Ticks;
 do
 {
     messageStatus = emailClient.GetSendStatus(messageId);
-    if (messageStatus.Value.Status != MessageStatus.Queued )
+    if (messageStatus.Value.Status != SendStatus.Queued )
     {
         Console.WriteLine($"MessageStatus = {messageStatus.Value.Status}");
         break;
