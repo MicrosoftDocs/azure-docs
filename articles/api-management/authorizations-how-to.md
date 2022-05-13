@@ -106,7 +106,7 @@ Four steps are needed to set up an authorization with the authorization code gra
     :::image type="content" source="media/authorizations-how-to/add-operation.png" alt-text="Screenshot of adding a getdata operation to the API in the portal."::: 
 
 1. In the **Inbound processing** section, select the (**</>**) (code editor) icon.
-1. Copy the following, and paste in the policy editor. Make sure the provider-id and authorization-id corresponds to the names in step 2.3. Select **Save**. 
+1. Copy the following, and paste in the policy editor. Make sure the provider-id and authorization-id correspond to the names in step 2.3. Select **Save**. 
 
     ```xml
     <policies>

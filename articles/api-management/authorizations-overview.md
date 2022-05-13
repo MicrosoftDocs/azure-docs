@@ -51,7 +51,7 @@ For public preview the following limitations exist.
 - Maximum requests per minute per authorization: 100
 - Authorization code PKCE flow with code challenge isn't supported
 - Authorizations feature isn't supported on self-hosted gateway
-- No API documentation is available please see [this](scripts/authorizations_collection.json) Postman collection.   
+- No API documentation is available. Please see [this](scripts/authorizations_collection.json) Postman collection.   
 
 ### Authorization providers
  
@@ -121,7 +121,7 @@ The following image shows the process flow to fetch and store authorization and 
 
 If acquiring the authorization context results in an error, the outcome depends on how the attribute `ignore-error` is configured in the policy `get-authorization-context`. If the value is set to `false` (default), an error with `500 Internal Server Error` will be returned. If the value is set to `true`, the error will be ignored and execution will proceed with the context variable set to `null`.
 
-If the value is set to `false` and the on-error section in the policy is configured, the error will be available in the property `context.LastError`. By using the on-error section, the error that is sent back to the client could be adjusted. Errors from API Management could be caught using standard Azure alerts. Read more about how-to handle policy errors [here](https://docs.microsoft.com/en-us/azure/api-management/api-management-error-handling-policies).  
+If the value is set to `false` and the on-error section in the policy is configured, the error will be available in the property `context.LastError`. By using the on-error section, the error that is sent back to the client could be adjusted. Errors from API Management could be caught using standard Azure alerts. Read more about [handling errors in policies](api-management-error-handling-policies.md).  
 
 
 
