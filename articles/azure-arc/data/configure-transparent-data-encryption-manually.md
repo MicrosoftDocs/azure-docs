@@ -34,7 +34,7 @@ After creating the necessary credentials, it's highly recommended to back up any
 When backing up from Azure Arc-enabled SQL Managed Instance, the credentials will be stored within the container. It isn't necessary to store the credentials on a persistent volume, but you may use the mount path for the data volume within the container if you'd like: `/var/opt/mssql/data`. Otherwise, the credentials will be stored in-memory in the container.  Below is an example of backing up a certificate from Azure Arc-enabled SQL Managed Instance.
 
 > [!NOTE]
-> If you use the `kubectl cp` command from Windows, the command may fail when using absolute Windows paths. Use relative paths to workaround this issue.
+> If the `kubectl cp` command is run from Windows, the command may fail when using absolute Windows paths. `kubectl` can mistake the drive in the path as a pod name. For example, `kubectl` might mistake `C` to be a pod name in `C:\folder`. Users can avoid this issue by using relative paths or removing the `C:` from the provided path while in the `C:` drive.
 
 1. Back up the certificate from the container to `/var/opt/mssql/data`.
 
@@ -99,7 +99,7 @@ When backing up from Azure Arc-enabled SQL Managed Instance, the credentials wil
 Similar to above, restore the credentials by copying them into the container and running the corresponding T-SQL afterwards.
 
 > [!NOTE]
-> If you use the `kubectl cp` command from Windows, the command may fail when using absolute Windows paths. Use relative paths to workaround this issue.
+> If the `kubectl cp` command is run from Windows, the command may fail when using absolute Windows paths. `kubectl` can mistake the drive in the path as a pod name. For example, `kubectl` might mistake `C` to be a pod name in `C:\folder`. Users can avoid this issue by using relative paths or removing the `C:` from the provided path while in the `C:` drive.
 
 1. Copy the certificate from your file system to the container.
 
