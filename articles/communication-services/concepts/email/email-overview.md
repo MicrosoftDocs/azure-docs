@@ -33,7 +33,7 @@ Key principles of Azure Communication Services Email Service include:
 - **SDKs** to add rich collaboration capabilities to your applications.
 - **Security and Compliance** to honor and respect data handling and privacy requirements that Azure promises to our customers. 
 
-## Key Features
+## Key features
 Key features include:
 
 - **Azure Managed Domain** - Customers will be able to send mail from the pre-provisioned domain (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net) 
