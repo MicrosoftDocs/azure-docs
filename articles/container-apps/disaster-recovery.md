@@ -11,7 +11,7 @@ ms.date: 5/10/2022
 
 # Disaster recovery guidance for Azure Container Apps
 
-Azure Container Apps uses [availability zones](../availability-zones/az-overview.md#availability-zones) to offer high-availability protection for your applications and data from data center failures.
+Azure Container Apps uses [availability zones](../availability-zones/az-overview.md#availability-zones) where offered to provide high-availability protection for your applications and data from data center failures.
 
 Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more data centers equipped with independent power, cooling, and networking. To ensure resiliency, there's a minimum of three separate zones in all enabled regions. You can build high availability into your application architecture by co-locating your compute, storage, networking, and data resources within a zone and replicating in other zones.
 

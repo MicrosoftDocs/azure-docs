@@ -23,7 +23,7 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 - **Minor version upgrade for Azure Database for MySQL - Flexible server to 8.0.28**
     Azure Database for MySQL - Flexible Server 8.0 now is running on minor version 8.0.28*, to learn more about changes coming in this minor version [visit Changes in MySQL 8.0.28 (2022-01-18, General Availability)](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-28.html)
 
-- **Minor version upgrade for Azure Database for MySQL - Single server to 5.7.37**
+- **Minor version upgrade for Azure Database for MySQL - Flexible server to 5.7.37**
     Azure Database for MySQL - Flexible Server 5.7 now is running on minor version 5.7.37*, to learn more about changes coming in this minor version [visit Changes in MySQL 5.7.37 (2022-01-18, General Availability](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-37.html)
 
 * Please note that some regions are still running older minor versions of the Azure Database for MySQL and will be patched by end of April 2022.
