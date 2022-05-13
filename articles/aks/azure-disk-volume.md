@@ -3,13 +3,13 @@ title: Create a static volume for pods in Azure Kubernetes Service (AKS)
 description: Learn how to manually create a volume with Azure disks for use with a pod in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 05/13/2022
 
 
 #Customer intent: As a developer, I want to learn how to manually create and attach storage to a specific pod in AKS.
 ---
 
-# Manually create and use a volume with Azure disks in Azure Kubernetes Service (AKS)
+# Create a static volume with Azure disks in Azure Kubernetes Service (AKS)
 
 Container-based applications often need to access and persist data in an external data volume. If a single pod needs access to storage, you can use Azure disks to present a native volume for application use. This article shows you how to manually create an Azure disk and attach it to a pod in AKS.
 
@@ -22,13 +22,24 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 This article assumes that you have an existing AKS cluster with 1.21 or later version. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
-If you want to interact with Azure Disks on an AKS cluster with 1.20 or previous version, see the [Kubernetes plugin for Azure Disks][kubernetes-disks].
+If you want to interact with Azure disks on an AKS cluster with 1.20 or previous version, see the [Kubernetes plugin for Azure disks][kubernetes-disks].
+
+## Storage class static provisioning
+
+The following table describes the StorageClass parameters for the Azure disk CSI driver static provisioning:
+
+|Name | Meaning | Available Value | Mandatory | Default value|
+|--- | --- | --- | --- | ---|
+|volumeHandle| Azure disk URI | `/subscriptions/{sub-id}/resourcegroups/{group-name}/providers/microsoft.compute/disks/{disk-id}` | Yes | N/A|
+|volumeAttributes.fsType | File system type | `ext4`, `ext3`, `ext2`, `xfs`, `btrfs` for Linux, `ntfs` for Windows | No | `ext4` for Linux, `ntfs` for Windows |
+|volumeAttributes.partition | Partition number of the existing disk (only supported on Linux) | `1`, `2`, `3` | No | Empty (no partition) </br>- Make sure partition format is like `-part1` |
+|volumeAttributes.cachingMode | [Disk host cache setting](../virtual-machines/windows/premium-storage-performance.md#disk-caching)| `None`, `ReadOnly`, `ReadWrite` | No  | `ReadOnly`|
 
 ## Create an Azure disk
 
-When you create an Azure disk for use with AKS, you can create the disk resource in the **node** resource group. This approach allows the AKS cluster to access and manage the disk resource. If you instead create the disk in a separate resource group, you must grant the Azure Kubernetes Service (AKS) managed identity for your cluster the `Contributor` role to the disk's resource group.
+When you create an Azure disk for use with AKS, you can create the disk resource in the **node** resource group. This approach allows the AKS cluster to access and manage the disk resource. If instead you created the disk in a separate resource group, you must grant the Azure Kubernetes Service (AKS) managed identity for your cluster the `Contributor` role to the disk's resource group.
 
-For this article, create the disk in the node resource group. First, get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster name *myAKSCluster* in the resource group name *myResourceGroup*:
+In this article, you'll create the disk in the same resource group as your cluster. First, get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster name *myAKSCluster* in the resource group name *myResourceGroup*:
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -56,6 +67,7 @@ The disk resource ID is displayed once the command has successfully completed, a
 ```
 
 ## Mount disk as volume
+
 Create a *pv-azuredisk.yaml* file with a *PersistentVolume*. Update `volumeHandle` with disk resource ID. For example:
 
 ```yaml

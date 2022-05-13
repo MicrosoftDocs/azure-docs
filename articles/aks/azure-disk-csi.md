@@ -31,9 +31,34 @@ In addition to in-tree driver features, Azure disk CSI driver supports the follo
 - [Volume clone](#clone-volumes)
 - [Resize disk PV without downtime](#resize-a-persistent-volume-without-downtime)
 
+## Storage class driver dynamic disk parameters
+
+|Name | Meaning | Available Value | Mandatory | Default value
+|--- | --- | --- | --- | ---
+|skuName | Azure disk storage account type (alias: `storageAccountType`)| `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `Premium_ZRS`, `StandardSSD_ZRS` | No | `StandardSSD_LRS`|
+|kind | Managed or unmanaged (blob based) disk | `managed` (`dedicated` and `shared` are deprecated) | No | `managed`|
+|fsType | File System Type | `ext4`, `ext3`, `ext2`, `xfs`, `btrfs` for Linux, `ntfs` for Windows | No | `ext4` for Linux, `ntfs` for Windows|
+|cachingMode | [Azure Data Disk Host Cache Setting](../virtual-machines/windows/premium-storage-performance.md#disk-caching) | `None`, `ReadOnly`, `ReadWrite` | No | `ReadOnly`|
+|location | Specify Azure region where Azure disks will be created | `eastus`, `westus`, etc. | No | If empty, driver will use the same location name as current AKS cluster|
+|resourceGroup | Specify the resource group where the Azure disk will be created | Existing resource group name | No | If empty, driver will use the same resource group name as current AKS cluster|
+|DiskIOPSReadWrite | [UltraSSD disk](../virtual-machines/linux/disks-ultra-ssd.md) IOPS Capability (minimum: 2 IOPS/GiB ) | 100~160000 | No | `500`|
+|DiskMBpsReadWrite | [UltraSSD disk](../virtual-machines/linux/disks-ultra-ssd.md) Throughput Capability(minimum: 0.032/GiB) | 1~2000 | No | `100`|
+|LogicalSectorSize | Logical sector size in bytes for Ultra disk. Supported values are 512 ad 4096. 4096 is the default. | `512`, `4096` | No | `4096`|
+|tags | Azure disk [tags](../azure-resource-manager/management/tag-resources.md) | Tag format: `key1=val1,key2=val2` | No | ""|
+|diskEncryptionSetID | ResourceId of the disk encryption set to use for [enabling encryption at rest](../virtual-machines/windows/disk-encryption.md) | format: `/subscriptions/{subs-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/diskEncryptionSets/{diskEncryptionSet-name}` | No | ""|
+|diskEncryptionType | Encryption type of the disk encryption set | `EncryptionAtRestWithCustomerKey`(by default), `EncryptionAtRestWithPlatformAndCustomerKeys` | No | ""|
+|writeAcceleratorEnabled | [Write Accelerator on Azure Disks](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) | `true`, `false` | No | ""|
+|perfProfile | [Block device performance tuning using perfProfiles](./perf-profiles.md) | `none`, `basic` | No | `none`|
+|networkAccessPolicy | NetworkAccessPolicy property to prevent generation of the SAS URI for a disk or a snapshot | `AllowAll`, `DenyAll`, `AllowPrivate` | No | `AllowAll`|
+|diskAccessID | ARM ID of the DiskAccess resource to use private endpoints on disks | | No  | ``|
+|enableBursting | [Enable on-demand bursting](../virtual-machines/disk-bursting.md) beyond the provisioned performance target of the disk. On-demand bursting should only be applied to Premium disk and when the disk size > 512GB. Ultra and shared disk is not supported. Bursting is disabled by default. | `true`, `false` | No | `false`|
+|useragent | User agent used for [customer usage attribution](../marketplace/azure-partner-customer-usage-attribution.md)| | No  | Generated Useragent formatted `driverName/driverVersion compiler/version (OS-ARCH)`|
+|enableAsyncAttach | Allow multiple disk attach operations (in batch) on one node in parallel.<br> While this can speed up disk attachment, you may encounter Azure API throttling limit when there are large number of volume attachments. | `true`, `false` | No | `false`|
+|subscriptionID | Specify Azure subscription ID where the Azure disk will be created  | Azure subscription ID | No | If not empty, `resourceGroup` must be provided.|
+
 ## Use CSI persistent volumes with Azure disks
 
-A [persistent volume](concepts-storage.md#persistent-volumes) (PV) represents a piece of storage that's provisioned for use with Kubernetes pods. A PV can be used by one or many pods and can be dynamically or statically provisioned. This article shows you how to dynamically create PVs with Azure disks for use by a single pod in an AKS cluster. For static provisioning, see [Manually create and use a volume with Azure disks](azure-disk-volume.md).
+A [persistent volume](concepts-storage.md#persistent-volumes) (PV) represents a piece of storage that's provisioned for use with Kubernetes pods. A PV can be used by one or many pods and can be dynamically or statically provisioned. This article shows you how to dynamically create PVs with Azure disks for use by a single pod in an AKS cluster. For static provisioning, see [Create a static volume with Azure disks](azure-disk-volume.md).
 
 For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 
@@ -78,14 +103,13 @@ test.txt
 
 ## Create a custom storage class
 
-The default storage classes suit the most common scenarios, but not all. For some cases, you might want to have your own storage class customized with your own parameters. For example, we have a scenario where you might want to change the `volumeBindingMode` class.
+The default storage classes suit the most common scenarios, but not all. For some cases, you might want to have your own storage class customized with your own parameters. For example, you might want to change the `volumeBindingMode` class.
 
-You can use a `volumeBindingMode: Immediate` class that guarantees that occurs immediately once the PVC is created. In cases where your node pools are topology constrained, for example, using availability zones, PVs would be bound or provisioned without knowledge of the pod's scheduling requirements (in this case to be in a specific zone).
+You can use a `volumeBindingMode: Immediate` class that guarantees it occurs immediately once the PVC is created. In cases where your node pools are topology constrained, for example when using availability zones, PVs would be bound or provisioned without knowledge of the pod's scheduling requirements (in this case to be in a specific zone).
 
-To address this scenario, you can use `volumeBindingMode: WaitForFirstConsumer`, which delays the binding and provisioning of a PV until a pod that uses the PVC is created. In this way, the PV will conform and be provisioned in the availability zone (or other topology) that's specified by the pod's scheduling constraints. The default storage classes use `volumeBindingMode: WaitForFirstConsumer` class.
+To address this scenario, you can use `volumeBindingMode: WaitForFirstConsumer`, which delays the binding and provisioning of a PV until a pod that uses the PVC is created. This way, the PV conforms and is provisioned in the availability zone (or other topology) that's specified by the pod's scheduling constraints. The default storage classes use `volumeBindingMode: WaitForFirstConsumer` class.
 
-Create a file named `sc-azuredisk-csi-waitforfirstconsumer.yaml`, and paste the following manifest.
-The storage class is the same as our `managed-csi` storage class, but with a different `volumeBindingMode` class.
+Create a file named `sc-azuredisk-csi-waitforfirstconsumer.yaml`, and then paste the following manifest. The storage class is the same as our `managed-csi` storage class, but with a different `volumeBindingMode` class.
 
 ```yaml
 kind: StorageClass

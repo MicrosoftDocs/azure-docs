@@ -33,7 +33,7 @@ This section describes the changes and high-level implementation details of the 
 
 ### StorageClass
 
-In addition to the existing StorageClass parameters described in [driver-parameters](driver-parameters.md), the Azure disk CSI Driver v2 (preview) supports the following:
+In addition to the existing StorageClass parameters described in [driver-parameters](driver-parameters.md), the Azure disk CSI driver v2 (preview) supports the following:
 
 | Name | Meaning  | Available Value | Mandatory | Default value |
 |------|----------|-----------------|-----------|---------------|
