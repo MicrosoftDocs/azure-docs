@@ -83,7 +83,7 @@ com.azure.cosmos.examples.bulk.async.SampleBulkQuickStartAsync
 
 6. Additionally, there are bulk create methods in the sample which illustrate how to add response processing, and set execution options:
 
-    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkCreateItemsWithResponseProcessing)]
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkCreateItemsWithResponseProcessingAndExecutionOptions)]
 
 
    <!-- The importAll method accepts the following parameters:
@@ -198,4 +198,4 @@ Consider the following points for better performance when using bulk executor li
 
     
 ## Next steps
-* For an overview of bulk executor functionality, see [bulk executor overview](bulk-executor-overview.md).
+* For an overview of bulk executor functionality, see [bulk executor overview](../bulk-executor-overview.md).
