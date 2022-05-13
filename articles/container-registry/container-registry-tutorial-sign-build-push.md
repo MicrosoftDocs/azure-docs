@@ -46,8 +46,8 @@ This article can be run in the [Azure Cloud Shell](https://portal.azure.com/#clo
     tar xvzf notation.tar.gz
     tar xvzf notation_0.0.0-SNAPSHOT-${commit}_linux_amd64.tar.gz -C ~/bin notation
         
-    # Copy the notation cli to the bin directory in your PATH
-    cp ~/bin /usr/local/bin
+    # Copy the notation cli to the desired bin directory in your PATH
+    cp ~/bin/notation /usr/local/bin
     ```
 
 2. Install the notation-Azure-kv plugin for remote signing and verification
@@ -141,7 +141,7 @@ To ease the execution of the commands to complete this article, provide values f
 
 In this step, create or provide an x509 signing certificate, storing it in Azure Key Vault for remote signing.
 
-If you have an existing certificate, upload to Azure Key Vault and skip to [Create a service principal and assign permissions to the key](#Create-a-service-principal-and-assign-permissions-to-the-key)
+If you have an existing certificate, upload to Azure Key Vault and skip to [Create a service principal and assign permissions to the key](#create-a-service-principal-and-assign-permissions-to-the-key)
 
 ### Create a self-signed Certificate (Azure Azure CLI)
 
