@@ -44,7 +44,7 @@ The following table shows which content is restored when you restore a snapshot:
 > [!NOTE]
 > Maximum supported size for snapshot restore is 30GB. Snapshot restore fails if your storage size is greater than 30GB. To reduce your storage size, consider moving files like logs, images, audios, and videos to [Azure Storage](../storage/index.yml), for example.
 
-The following table shows which app configuration is restored:
+The following table shows which site configuration is restored:
 
 |Settings| Restored?|
 |-|-|
