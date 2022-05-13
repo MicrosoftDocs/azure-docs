@@ -282,7 +282,7 @@
         "articles/cognitive-services/LUIS/**/*.md": "aahill",
         "articles/applied-ai-services/metrics-advisor/**/*.md": "mrbullwinkle",
         "articles/cognitive-services/personalizer/**/*.md": "edjez",
-        "articles/cognitive-services/QnAMaker/**/*.md": "mrbullwinkle",
+        "articles/cognitive-services/QnAMaker/**/*.md": "jboback",
         "articles/cognitive-services/Speech-Service/**/*.md": "eric-urban",
         "articles/cognitive-services/language-service/**/*.md": "aahill",
         "articles/cognitive-services/Translator/**/*.md": "laujan",
@@ -331,7 +331,7 @@
         "articles/azure-video-indexer/*.md": "Juliako",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "Juliako",
         "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "Juliako",
-        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "Juliako"        
+        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "Juliako"
       },
       "featureFlags": {
         "articles/**/*.md": [
