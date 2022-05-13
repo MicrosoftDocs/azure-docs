@@ -11,11 +11,18 @@ ms.topic: conceptual
 ms.date: 04/20/2022
 ---
 
-# User defined functions in mapping data flow
+# User defined functions (Preview) in mapping data flow 
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 A user defined function is a customized expression you can define to be able to reuse logic across multiple mapping data flows. User defined functions live in a collection called a data flow library to be able to easily group up common sets of customized functions.
 
 Whenever you find yourself building the same logic in an expression in across multiple mapping data flows this would be a good opportunity to turn that into a user defined function.
+
+> [!IMPORTANT]
+> User defined functions and mapping data flow libraries are currently in public preview.
 
 ## Getting started
 
