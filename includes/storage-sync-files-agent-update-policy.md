@@ -13,7 +13,7 @@ The Azure File Sync agent is updated on a regular basis to add new functionality
 
 #### Upgrade paths
 There are five approved and tested ways to install the Azure File Sync agent updates. 
-1. **Azure File Sync agent auto-upgrade**  
+1. **Use Azure File Sync agent auto-upgrade feature to install agent updates.**  
     The Azure File Sync agent will auto-upgrade. You can select to install the latest agent version when available or update when the currently installed agent is near expiration. To learn more, see [Automatic agent lifecycle management](#automatic-agent-lifecycle-management).
 2. **Configure Microsoft Update to automatically download and install agent updates.**  
     We recommend installing every Azure File Sync update to ensure you have access to the latest fixes for the server agent. Microsoft Update makes this process seamless, by automatically downloading and installing updates for you.
