@@ -47,7 +47,7 @@ ms.custom: private_preview
 
     :::image type="content" source="./media/email-azuredomain-overview.png"  alt-text="Navigate to Azure Managed Domain Overview":::
 
-## Sender Authentication for Azure Managed Domain
+## Sender authentication for Azure Managed Domain
 Azure communication Services Email automatically configures the required email authentication protocols to set proper authentication for the email as detailed in [Email Authentication Best Practices](../../concepts/email/email-authentication-bestpractice.md). 
 
 ## Changing MailFrom and FROM display name for Azure Managed Domain
@@ -78,11 +78,11 @@ When Azure Manged Domain is provisioned to send mail, it has default Mail From a
 
 ## Next steps
 
-> [Get started by Connecting Email Resource with a Communication Resource](../../quickstarts/email/connect-email-communication-acs-resource.md)
+> [Get started with create and manage Email Communication Service in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
 
-> [Best Practices for Sender Authentication Support in Azure Communication Services Email](../../concepts/email/email-authentication-bestpractice.md)
+> [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-acs-resource.md)
 
 The following documents may be interesting to you:
 
-- Familiarize yourself with the [Email client library](../../concepts/email/sdk-features.md)
+- Familiarize yourself with the [Email client library](../email/sdk-features.md)
 - How to send emails with custom verified domains?[Add custom domains](../../quickstarts/email/add-custom-verified-domains.md)
