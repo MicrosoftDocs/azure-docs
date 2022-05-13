@@ -169,9 +169,6 @@ To configure Start VM on Connect using the Azure portal:
 
 1. In the configuration section, you'll see **Start VM on connect**. Select **Yes** to enable it, or **No** to disable it.
 
-    > [!div class="mx-imgBorder"]
-    > ![A screenshot of the Properties blade. The Start VM on Connect option is highlighted in red.](media/properties-start-vm-on-connect.png)
-
 1. Select **Save**. The new setting is applied.
 
 # [PowerShell](#tab/azure-powershell)
