@@ -52,7 +52,7 @@ ms.custom: private_preview
 
 > [How to send an Email](../../quickstarts/email/send-email.md)
 
-> [Best Practices for Sender Authentication Support in Azure Communication Services Email](../../concepts/email/email-authentication-bestpractice.md)
+> [Preparing Email Communication Resource for Azure Communication Service](./Understanding-email-communication-resource.md)
 
 
 The following documents may be interesting to you:
