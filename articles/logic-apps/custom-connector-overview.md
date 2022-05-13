@@ -79,15 +79,13 @@ The following section provides more information about how the extensibility mode
 
 Based on the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md), the built-in connector extensibility model in single-tenant Azure Logic Apps has a service provider infrastructure that you can use to [create, package, register, and install your own custom built-in connectors](create-custom-built-in-connector-standard.md) as Azure Functions extensions that anyone can use in their Standard workflows.
 
-#### Azure Functions-based triggers
-
-The built-in connector extensibility model includes trigger capabilities that support adding or exposing an [Azure Functions trigger or action](../azure-functions/functions-bindings-example.md) as a service provider trigger in your custom built-in connector. The following diagram shows all the method implementations that the Azure Logic Apps designer and runtime expects for a custom built-in connector with an Azure Functions-based trigger:
+The following diagram shows the method implementations that the Azure Logic Apps designer and runtime expects for a custom built-in connector with an Azure Functions-based trigger:
 
 ![Conceptual diagram showing method implementation required by the Azure Logic Apps designer and runtime.](./media/custom-connector-overview/service-provider-class-diagram.png)
 
-#### Recurrence or polling triggers
+This model includes custom built-in trigger capabilities that support exposing an [Azure Functions trigger or action](../azure-functions/functions-bindings-example.md) as a service provider trigger in your custom built-in connector. The model also supports non-Azure Functions triggers that check or *poll* an endpoint based on a specific recurrence schedule. For a polling trigger, the Azure Logic Apps runtime creates a recurrence trigger job for the polling trigger.
 
-Custom built-in trigger capabilities currently support triggers that check or *poll* an endpoint based on a specific recurrence schedule and that aren't based on Azure Functions triggers. For a polling trigger, the Azure Logic Apps creates a recurrence trigger job for the polling trigger.
+The following sections provide more information about the interfaces that your connector needs to implement.
 
 #### IServiceOperationsProvider
 
