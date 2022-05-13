@@ -58,11 +58,6 @@ To join a Teams meeting, use the `join` method on `callAgent` and pass either on
 2. `meetingLink`
 3. Combination of `threadId`, `organizerId`, `tenantId`, `messageId`
 
-#### Join using `meetingId`
-```js
-const meetingCall = callAgent.join({ meetingId: '<MEETING_ID>' });
-```
-
 #### Join using `meetingLink`
 ```js
 const meetingCall = callAgent.join({ meetingLink: '<MEETING_LINK>' });
