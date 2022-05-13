@@ -1,20 +1,23 @@
 ---
-title: Enable Container Storage Interface (CSI) drivers on Azure Kubernetes Service (AKS)
+title: Container Storage Interface (CSI) drivers in Azure Kubernetes Service (AKS)
 description: Learn how to enable the Container Storage Interface (CSI) drivers for Azure disks and Azure Files in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 05/06/2022
+ms.date: 05/13/2022
 author: palma21
 
 ---
 
-# Enable Container Storage Interface (CSI) drivers on Azure Kubernetes Service (AKS)
+# Container Storage Interface (CSI) drivers in Azure Kubernetes Service (AKS)
 
 The Container Storage Interface (CSI) is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, Azure Kubernetes Service (AKS) can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes without having to touch the core Kubernetes code and wait for its release cycles.
 
 The CSI storage driver support on AKS allows you to natively use:
 
 - [**Azure disks**](azure-disk-csi.md) can be used to create a Kubernetes *DataDisk* resource. Disks can use Azure Premium Storage, backed by high-performance SSDs, or Azure Standard Storage, backed by regular HDDs or Standard SSDs. For most production and development workloads, use Premium Storage. Azure disks are mounted as *ReadWriteOnce* and are only available to a single pod. For storage volumes that can be accessed by multiple pods simultaneously, use Azure Files.
+
+   Azure Disk CSI Driver v2 (preview) improves scalability and reduces pod failover latency. It uses shared disks to provision attachment replicas on multiple cluster nodes, and integrates with the pod scheduler to ensure a node with an attachment replica is chosen on pod failover.
+
 - [**Azure Files**](azure-files-csi.md) can be used to mount an SMB 3.0/3.1 share backed by an Azure storage account to pods. With Azure Files, you can share data across multiple nodes and pods. Azure Files can use Azure Standard storage backed by regular HDDs or Azure Premium storage backed by high-performance SSDs.
 
 > [!IMPORTANT]
@@ -61,7 +64,7 @@ parameters:
 ## Migrate in-tree persistent volumes
 
 > [!IMPORTANT]
-> If your in-tree persistent volume `reclaimPolicy` is set to **Delete**, you need to change its policy to **Retain** to persist your data.  This can be achieved using a [patch operation on the PV](https://kubernetes.io/docs/tasks/administer-cluster/change-pv-reclaim-policy/). For example:
+> If your in-tree persistent volume `reclaimPolicy` is set to **Delete**, you need to change its policy to **Retain** to persist your data. This can be achieved using a [patch operation on the PV](https://kubernetes.io/docs/tasks/administer-cluster/change-pv-reclaim-policy/). For example:
 >
 > ```console
 > $ kubectl patch pv pv-azuredisk --type merge --patch '{"spec": {"persistentVolumeReclaimPolicy": "Retain"}}'
