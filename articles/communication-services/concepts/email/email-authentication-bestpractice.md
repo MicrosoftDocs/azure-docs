@@ -61,11 +61,11 @@ A DMARC policy record allows a domain to announce that their email uses authenti
   
 > [Troubleshooting your DMARC implementation](https://docs.microsoft.com/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?view=o365-worldwide#troubleshooting-your-dmarc-implementation&preserve-view=true) 
 
-> [Understanding Email Domains in Azure Communication Services](./Understanding-email-domain-setup.md)
+> [Email domains and sender authentication for Azure Communication Services](./Understanding-email-domain-setup.md)
 
-> [Get started with Creating Email Communication Resource](../../quickstarts/email/create-email-communication-resource.md)
+> [Get started with create and manage Email Communication resources in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
 
-> [Get started by Connecting Email Resource with a Communication Resource](../../quickstarts/email/connect-email-communication-acs-resource.md)
+> [Get started by connecting Email Communication Resource with a Communication Resource](../../quickstarts/email/connect-email-communication-acs-resource.md)
 
 The following documents may be interesting to you:
 
