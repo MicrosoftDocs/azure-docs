@@ -17,14 +17,14 @@ A container app has access to different types of storage. A single app can take 
 | Storage type | Description | Usage examples |
 |--|--|--|
 | [Container file system](#container-filesystem) | Temporary storage scoped to the environment | Writing a local app cache.  |
-| [Temporary storage](#temporary-storage) | Ephemeral storage scoped to an individual replica | Sharing files between containers in a replica. For instance, the main app container can write log files that are processed by a sidecar container. |
-| [Azure Files](#azure-files) | Permanent storage | Write files to a file share to make data accessible by other systems. |
+| [Temporary storage](#temporary-storage) | Temporary storage scoped to an individual replica | Sharing files between containers in a replica. For instance, the main app container can write log files that are processed by a sidecar container. |
+| [Azure Files](#azure-files) | Permanent storage | Writing files to a file share to make data accessible by other systems. |
 
-## Container filesystem
+## Container file system
 
 A container can write to its own file system.
 
-Container filesystem storage has the following characteristics:
+Container file system storage has the following characteristics:
 
 * The storage is temporary and disappears when the container is shut down or restarted.
 * Files written to this storage are only visible to processes running in the current container.
@@ -39,7 +39,7 @@ Temporary storage has the following characteristics:
 * Files are persisted for the lifetime of the replica.
     * If a container in a replica restarts, the files in the volume remain.
 * Any containers in the replica can mount the same volume.
-* More than one temporary volume can be mounted in a container.
+* A container can mount multiple temporary volumes.
 * There are no capacity guarantees. The available storage depends on the amount of disk space available in the replica.
 
 To configure temporary storage, first define an `EmptyDir` volume in the revision. Then define a volume mount in one or more containers in the revision.
@@ -57,7 +57,13 @@ To configure temporary storage, first define an `EmptyDir` volume in the revisio
 
 When using temporary storage, you must use the Azure CLI with a YAML definition to create or update your container app.
 
-1. Make the following changes to your container app definition.
+1. To update an existing container app to use temporary storage, export your app's specification to a YAML file named *app.yaml*.
+
+    ```azure-cli
+    az containerapp show -n <app_name> -g <resource_group_name> -o yaml > app.yaml
+    ```
+
+1. Make the following changes to your container app specification.
 
     - Add a `volumes` array to the `template` section of your container app definition and define a volume.
         - The `name` is an identifier for the volume.
@@ -68,7 +74,7 @@ When using temporary storage, you must use the Azure CLI with a YAML definition 
 
     ```yaml
     properties:
-      managedEnvironmentId: /subscriptions/<subscription_id>/resourceGroups/<rg_name>/providers/Microsoft.App/managedEnvironments/<env_name>
+      managedEnvironmentId: /subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.App/managedEnvironments/<env_name>
       configuration:
         activeRevisionsMode: Single
       template:
@@ -83,23 +89,18 @@ When using temporary storage, you must use the Azure CLI with a YAML definition 
           storageType: EmptyDir
     ```
 
-1. Create or update your container app using the YAML file.
+1. Update your container app using the YAML file.
 
     ```azure-cli
-    # Create a container app
-    az containerapp create --name my-app --resource-group my-rg --environment my-env \
-        --yaml my-app.yaml
-
-    # Update a container app
-    az containerapp update --name my-app --resource-group my-rg \
-        --yaml my-app.yaml
+    az containerapp update --name <app_name> --resource-group <resource_group_name> \
+        --yaml app.yaml
     ```
 
 ::: zone-end
 
 ::: zone pivot="aca-arm"
 
-To create a temporary volume and mount it in a container, make the following changes to the container apps resource:
+To create a temporary volume and mount it in a container, make the following changes to the container apps resource in an ARM template:
 
 - Add a `volumes` array to the `template` section of your container app definition and define a volume.
     - The `name` is an identifier for the volume.
@@ -166,7 +167,7 @@ Azure Files storage has the following characteristics:
 * Files written under the mount location are persisted to the file share.
 * Files in the share are available via the mount location.
 * Multiple containers can mount the same file share, including ones that are in another replica, revision, or container app.
-* All containers that mount the share can see files written by any other container or method.
+* All containers that mount the share can access files written by any other container or method.
 * More than one Azure Files volume can be mounted in a single container.
 
 To enable Azure Files storage in your container, you need to set up your container in the following ways:
@@ -200,11 +201,21 @@ When using Azure Files, you must use the Azure CLI with a YAML definition to cre
         --access-mode ReadWrite
     ```
 
-1. Make the following changes to your container app definition.
+    Replace `<storage_account_name>` and `<storage_account_key>` with the name and key of your storage account. Replace `<storage_share_name>` with the name of the file share in the storage account.
+
+    Valid values for `--access-mode` are `ReadWrite` and `ReadOnly`.
+
+1. To update an existing container app to mount a file share, export your app's specification to a YAML file named *app.yaml*.
+
+    ```azure-cli
+    az containerapp show -n <app_name> -g <resource_group_name> -o yaml > app.yaml
+    ```
+
+1. Make the following changes to your container app specification.
 
     - Add a `volumes` array to the `template` section of your container app definition and define a volume.
         - The `name` is an identifier for the volume.
-        - Use `AzureFile` as the `storageType`.
+        - For `storageType`, use `AzureFile`.
         - For `storageName`, use the name of the storage you defined in the environment.
     - For each container in the template that you want to mount Azure Files storage, add a `volumeMounts` array to the container definition and define a volume mount.
         - The `volumeName` is the name defined in the `volumes` array.
@@ -212,7 +223,7 @@ When using Azure Files, you must use the Azure CLI with a YAML definition to cre
 
     ```yaml
     properties:
-      managedEnvironmentId: /subscriptions/<subscription_id>/resourceGroups/<rg_name>/providers/Microsoft.App/managedEnvironments/<env_name>
+      managedEnvironmentId: /subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.App/managedEnvironments/<env_name>
       configuration:
       template:
         containers:
@@ -227,15 +238,10 @@ When using Azure Files, you must use the Azure CLI with a YAML definition to cre
           storageName: mystorage
     ```
 
-1. Create or update your container app using the YAML file.
+1. Update your container app using the YAML file.
 
     ```azure-cli
-    # Create a container app
-    az containerapp create --name my-app --resource-group my-rg --environment my-env \
-        --yaml my-app.yaml
-
-    # Update a container app
-    az containerapp update --name my-app --resource-group my-rg \
+    az containerapp update --name <app_name> --resource-group <resource_group_name> \
         --yaml my-app.yaml
     ```
 
@@ -332,7 +338,7 @@ The following ARM template snippets demonstrate how to add an Azure Files share 
 
     - Add a `volumes` array to the `template` section of your container app definition and define a volume.
         - The `name` is an identifier for the volume.
-        - Use `AzureFile` as the `storageType`.
+        - For `storageType`, use `AzureFile`.
         - For `storageName`, use the name of the storage you defined in the environment.
     - For each container in the template that you want to mount Azure Files storage, add a `volumeMounts` array to the container definition and define a volume mount.
         - The `volumeName` is the name defined in the `volumes` array.
