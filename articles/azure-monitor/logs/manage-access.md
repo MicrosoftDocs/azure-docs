@@ -1,5 +1,5 @@
 ---
-title: Manage Log Analytics workspaces in Azure Monitor | Microsoft Docs
+title: Manage access to Log Analytics workspaces
 description: You can manage access to data stored in a Log Analytics workspace in Azure Monitor using resource, workspace, or table-level permissions. This article details how to complete.
 ms.topic: conceptual
 ms.reviewer: MeirMen
@@ -9,7 +9,7 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # Manage access to Log Analytics workspaces
- The data in a Log Analytics workspace that a user can access is determined by a combination of factors including settings on the workspace itself, the user's access to resources sending data to the workspace, and the method that the user accesses the workspace. This article describes how to access is managed and how to perform any configuration.
+ The data in a Log Analytics workspace that a user can access is determined by a combination of factors including settings on the workspace itself, the user's access to resources sending data to the workspace, and the method that the user accesses the workspace. This article describes how access is managed and how to perform any required configuration.
 
 ## Overview
 The factors that define the data a user can access are briefly described in the following table. Each is further described in the sections below.
@@ -56,13 +56,13 @@ The following table summarizes the access modes:
 
 The *Access control mode* is a setting on each workspace that defines how permissions are determined for the workspace.
 
-* **Require workspace permissions**: This control mode does not allow granular Azure RBAC. For a user to access the workspace, they must be [granted permissions to the workspace](#azure-rbac) or to [specific tables](#table-level-azure-rbac).
+* **Require workspace permissions**. This control mode does not allow granular Azure RBAC. For a user to access the workspace, they must be [granted permissions to the workspace](#azure-rbac) or to [specific tables](#table-level-azure-rbac).
 
     If a user accesses the workspace in [workspace-context mode](#access-mode), they have access to all data in any table they've been granted access to. If a user accesses the workspace in [resource-context mode](#access-mode), they have access to only data for that resource in any table they've been granted access to.
 
     This is the default setting for all workspaces created before March 2019.
 
-* **Use resource or workspace permissions**: This control mode allows granular Azure RBAC. Users can be granted access to only data associated with resources they can view by assigning Azure `read` permission. 
+* **Use resource or workspace permissions**. This control mode allows granular Azure RBAC. Users can be granted access to only data associated with resources they can view by assigning Azure `read` permission. 
 
     When a user accesses the workspace in [workspace-context mode](#access-mode), workspace permissions apply. When a user accesses the workspace in [resource-context mode](#access-mode), only resource permissions are verified, and workspace permissions are ignored. Enable Azure RBAC for a user by removing them from workspace permissions and allowing their resource permissions to be recognized.
 
@@ -71,22 +71,7 @@ The *Access control mode* is a setting on each workspace that defines how permis
     > [!NOTE]
     > If a user has only resource permissions to the workspace, they are only able to access the workspace using resource-context mode assuming the workspace access mode is set to **Use resource or workspace permissions**.
 
-To learn how to change the access control mode in the portal, with PowerShell, or using a Resource Manager template, see [Configure access control mode](./manage-access.md#configure-access-control-mode).
-
-
-
-
-Azure Monitor stores [log](../logs/data-platform-logs.md) data in a Log Analytics workspace. A workspace is a container that includes data and configuration information. To manage access to log data, you perform various administrative tasks related to your workspace.
-
-This article explains how to manage access to logs and to administer the workspaces that contain them, including how to grant access to: 
-
-* The workspace using workspace permissions.
-* Users who need access to log data from specific resources using Azure role-based access control (Azure RBAC) - also known as [resource-context](#access-mode)
-* Users who need access to log data in a specific table in the workspace using Azure RBAC.
-
-To understand the Logs concepts around Azure RBAC and access strategies, read Design a Log Analytics workspace configuration(../logs/workspace-design.md)
-
-### Configure access control mode
+### Configure access control mode for a workspace
 
 
 # [Azure portal](#tab/portal)
@@ -171,11 +156,6 @@ Each workspace can have multiple accounts associated with it, and each account c
 | View data in the *Backup* and *Site Recovery* solution tiles | Administrator / Co-administrator<br><br>Accesses resources deployed using the classic deployment model |
 
 ### Built-in roles
-
-
-> [!NOTE]
-> To add and remove users to a user role, you must to have `Microsoft.Authorization/*/Delete` and `Microsoft.Authorization/*/Write` permission.
-
 Assign users to these roles to give them access at different scopes:
 
 * Subscription - Access to all workspaces in the subscription
@@ -184,34 +164,42 @@ Assign users to these roles to give them access at different scopes:
 
 Create assignments at the resource level (workspace) to assure accurate access control. Use [custom roles](../../role-based-access-control/custom-roles.md) to create roles with the specific permissions needed.
 
+> [!NOTE]
+> To add and remove users to a user role, you must to have `Microsoft.Authorization/*/Delete` and `Microsoft.Authorization/*/Write` permission.
 
-Azure has two built-in user roles for Log Analytics workspaces:
 
 #### Log Analytics Reader
 Members of the *Log Analytics Reader* role can view all monitoring data and monitoring settings, including the configuration of Azure diagnostics on all Azure resources.
 
-Log Analytics Reader includes the following Azure actions:
+Members of the *Log Analytics Reader* role can:
+
+- View and search all monitoring data
+- View monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources.
+
+*Log Analytics Reader* includes the following Azure actions:
 
 | Type    | Permission | Description |
 | ------- | ---------- | ----------- |
-| Action | `*/read`   | Ability to view all Azure resources and resource configuration.<br><br>Includes viewing:<br>- Virtual machine extension status<br>- Configuration of Azure diagnostics on resources<br>- All properties and settings of all resources.<br><br>For workspaces, allows full unrestricted permissions to read the workspace settings and query data. See more granular options above. |
+| Action | `*/read`   | Ability to view all Azure resources and resource configuration.<br>Includes viewing:<br>- Virtual machine extension status<br>- Configuration of Azure diagnostics on resources<br>- All properties and settings of all resources.<br><br>For workspaces, allows full unrestricted permissions to read the workspace settings and query data. See more granular options above. |
 | Action | `Microsoft.Support/*` | Ability to open support cases |
 |Not Action | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Prevents reading of workspace key required to use the data collection API and to install agents. This prevents the user from adding new resources to the workspace |
 | Action | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Deprecated. |
 | Action | `Microsoft.OperationalInsights/workspaces/search/action` | Deprecated. |
 
 #### Log Analytics Contributor
+Members of the *Log Analytics Contributor* role can:
 
-- All the privileges of the *Log Analytics Reader role*, allowing the user to read all monitoring data
+- Read all monitoring data granted by the *Log Analytics Reader role*.
+- Edit monitoring settings for Azure resources, including
+  - Adding the VM extension to VMs
+  - Configuring Azure diagnostics on all Azure resources
 - Create and configure Automation accounts. Permission needs to be granted at the resource group or subscription level.
 - Add and remove management solutions. Permission needs to be granted at the resource group or subscription level.
 - Read storage account keys
 - Configure the collection of logs from Azure Storage
-- Edit monitoring settings for Azure resources, including
-  - Adding the VM extension to VMs
-  - Configuring Azure diagnostics on all Azure resources
 
-> [!NOTE]
+
+> [!WARNING]
 > You can use the permission to add a virtual machine extension to a virtual machine to gain full control over a virtual machine.
 
 The Log Analytics Contributor role includes the following Azure actions:
@@ -233,7 +221,7 @@ The Log Analytics Contributor role includes the following Azure actions:
 
 ### Resource permissions
 
-When users query logs from a workspace using resource-context access, they'll have the following permissions on the resource:
+When users query logs from a workspace using [resource-context access](#access-mode), they'll have the following permissions on the resource:
 
 | Permission | Description |
 | ---------- | ----------- |
@@ -242,7 +230,6 @@ When users query logs from a workspace using resource-context access, they'll ha
 
 `/read` permission is usually granted from a role that includes _\*/read or_ _\*_ permissions such as the built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) and [Contributor](../../role-based-access-control/built-in-roles.md#contributor) roles. Custom roles that include specific actions or dedicated built-in roles might not include this permission.
 
-See [Defining per-table access control](#table-level-azure-rbac) below if you want to create different access control for different tables.
 
 ### Custom role examples
 In addition to using the built-in roles for Log Analytics workspace, you can create custom roles to assign more granular permissions. Following are some common examples.
@@ -279,7 +266,7 @@ In addition to using the built-in roles for Log Analytics workspace, you can cre
 - Grant users the following permissions to their resources: `*/read`, assigned to the Reader role, or `Microsoft.Insights/logs/*/read`. 
 
 ## Table level Azure RBAC
-**Table level Azure RBAC** allows you to define more granular control to data in a Log Analytics workspace by defining specific data types that are accessible only to a specific set of users.
+Table level Azure RBAC allows you to define more granular control to data in a Log Analytics workspace by defining specific data types that are accessible only to a specific set of users.
 
 Implement table access control with [Azure custom roles](../../role-based-access-control/custom-roles.md) to either grant access to specific [tables](../logs/data-platform-logs.md) in the workspace. These roles are applied to workspaces with either workspace-context or resource-context [access control modes](#access-control-mode) regardless of the user's [access mode](#access-mode).
 
