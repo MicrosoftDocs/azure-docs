@@ -96,4 +96,4 @@ Remove-AzResourceGroup -Name exampleRG
 In this tutorial, you learned how to use Bicep to deploy an Azure Cache for Redis. To learn more about Azure Cache for Redis and Bicep, continue on to the articles below:
 
 - Learn more about [Azure Cache for Redis](../azure-cache-for-redis/cache-overview.md).
-- Learn more about [Bicep](../../azure-resource-manager/bicep/overview.md).
+- Learn more about [Bicep](../../articles/azure-resource-manager/bicep/overview.md).
