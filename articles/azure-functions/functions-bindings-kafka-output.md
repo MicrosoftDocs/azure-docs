@@ -27,8 +27,6 @@ An [isolated process class library](dotnet-isolated-process-guide.md) compiled C
 
 ---
 
-# [In-process](#tab/in-process)
-
 <!--- Original draft content.---
 ```csharp
 [FunctionName("ProduceStringTopic")]
@@ -123,11 +121,11 @@ In the class `MultipleOutputType`, `Kevent` is the output binding variable for t
 
 To send a batch of events, pass a string array to the output type, as shown in the following example:
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaTriggerMany.cs" range="11-30" :::
+:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaOutputMany.cs" range="11-30" :::
 
 The string array is defined as `Kevents` property on the class, on which the output binding is defined:  
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaTriggerMany.cs" range="33-45" :::
+:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaOutputMany.cs" range="33-45" :::
 
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet-isolated/confluent). 
 
@@ -144,11 +142,11 @@ In the class `MultipleOutputType`, `Kevent` is the output binding variable for t
 
 To send a batch of events, pass a string array to the output type, as shown in the following example:
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaTriggerMany.cs" range="11-30" :::
+:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaOutputMany.cs" range="11-30" :::
 
 The string array is defined as `Kevents` property on the class, on which the output binding is defined:  
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaTriggerMany.cs" range="33-45" :::
+:::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaOutputMany.cs" range="33-45" :::
 
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet-isolated/eventhub). 
 
@@ -184,7 +182,7 @@ The following code sends multiple messages as an array to the same topic:
 
 The following example shows how to send an event message with headers to the same Kafka topic: 
 
-:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaOutputWithHeaders/index.js" :::
+:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaOutputWithHeader/index.js" :::
 
 For a complete set of working JavaScript examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/javascript/). 
 
@@ -407,13 +405,11 @@ The offset, partition, and timestamp for the event are generated at runtime. Onl
 
 In application settings or in the _local.settings.json_ file during local development, set the authentication credentials for your Confluent Cloud environment.
 
-    - **BootstrapServer**: Contains the value of bootstrap server found in Confluent Cloud settings page. The value will resemble `xyz-xyzxzy.westeurope.azure.confluent.cloud:9092`.
+- **BootstrapServer**: Contains the value of bootstrap server found in Confluent Cloud settings page. The value will resemble `xyz-xyzxzy.westeurope.azure.confluent.cloud:9092`.
 
-    - **ConfluentCloudUsername**: The API access key obtained from the Confluent Cloud web site.
+- **ConfluentCloudUsername**: The API access key obtained from the Confluent Cloud web site.
 
-    - **ConfluentCloudPassword**: The API secret obtained from the Confluent Cloud web site.
-
-See the host.json section for settings that apply to Kafka output bindings.
+- **ConfluentCloudPassword**: The API secret obtained from the Confluent Cloud web site.
 
 In a Premium plan, you must enable runtime scale monitoring for the Kafka output to be able to scale out to multiple instances. To learn more, see [Premium plan with virtual network triggers](functions-networking-options.md#premium-plan-with-virtual-network-triggers).
 
