@@ -12,7 +12,7 @@ zone_pivot_groups: container-apps-image-build-type
 
 # Tutorial: Communication between microservices in Azure Container Apps Preview
 
-This tutorial builds on the app deployed in the [Deploy your code to Azure Container Apps](./quickstart-code-to-cloud.md)  quickstart article and adds a front-end microservice to the container app. In this article, you learn how to enable communication between different microservices.
+This tutorial builds on the app deployed in the [Deploy your code to Azure Container Apps](./quickstart-code-to-cloud.md)  quickstart article and adds a front end microservice to the container app. In this article, you learn how to enable communication between different microservices.
 
 The following screenshot shows the UI application added in this article.
 
@@ -21,8 +21,8 @@ The following screenshot shows the UI application added in this article.
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
-> * Deploy a front-end application to Azure Container Apps
-> * Link the front-end app to the API endpoint deployed in the previous quickstart
+> * Deploy a front end application to Azure Container Apps
+> * Link the front end app to the API endpoint deployed in the previous quickstart
 > * Verify both container apps communicate together
 
 ## Prerequisites
@@ -96,25 +96,7 @@ az acr login --name $ACR_NAME
     cd code-to-cloud-ui/src
     ```
 
-## Build the frontend application
-
-1. Create the following variables to help you deploy your new container app.
-
-    # [Bash](#tab/bash)
-
-    ```bash
-    FRONTEND_NAME=albumapp-ui
-    CONTAINER_IMAGE_NAME=$ACR_NAME.azurecr.io/$FRONTEND_NAME
-    ```
-
-    # [PowerShell](#tab/powershell)
-
-    ```powershell
-    $FRONTEND_NAME="albumapp-ui"
-    $CONTAINER_IMAGE_NAME="$ACR_NAME.azurecr.io/$FRONTEND_NAME"
-    ```
-
-    ---
+## Build the front end application
 
 ::: zone pivot="acr-remote"
 
@@ -196,7 +178,7 @@ az acr login --name $ACR_NAME
 
 In the previous quickstart, the album API was deployed by creating a container app and enabling external ingress. Setting the container app's ingress to *external* made its HTTP endpoint URL publicly available.
 
-Now you can configure the front-end application to call the API endpoint by going through the following steps:
+Now you can configure the front end application to call the API endpoint by going through the following steps:
 
 * Query the API application for its fully qualified domain name (FQDN).
 * Pass the API FQDN to `az containerapp create` so the UI app can use the API endpoint location.
@@ -213,7 +195,7 @@ const api = axios.create({
 
 Notice how the `baseURL` property gets its value from the `API_BASE_URL` environment variable.
 
-Next, you'll query for the API endpoint address to pass to the UI application when you create the new container app instance.
+Run the following command to query for the API endpoint address.
 
 # [Bash](#tab/bash)
 
@@ -231,7 +213,7 @@ $API_ENDPOINT=$(az containerapp show --resource-group $RESOURCE_GROUP --name $AP
 
 Now that you have set the `API_ENDPOINT` variable with the FQDN of the API endpoint, you can now pass it to the UI application to link the two container apps together.
 
-## Deploy front-end application
+## Deploy front end application
 
 Create and deploy your container app with the following command.
 
@@ -267,11 +249,11 @@ az containerapp create `
 
 ---
 
-By adding the argument `--env-vars "API_BASE_URL=https://$API_ENDPOINT"` to `az containerapp create`, you define an environment variable for your front-end application. With this syntax, the environment variable named `API_BASE_URL` is set to the API's FQDN.
+By adding the argument `--env-vars "API_BASE_URL=https://$API_ENDPOINT"` to `az containerapp create`, you define an environment variable for your front end application. With this syntax, the environment variable named `API_BASE_URL` is set to the API's FQDN.
 
 ## View website
 
-The `az containerapp create` CLI command returns the fully qualified domain name (FQDN) of your new container app. Open this location in a browser, and you're presented with a web application that resembles the following screenshot.
+The `az containerapp create` CLI command returns the fully qualified domain name of your new container app. Open this location in a browser, and you're presented with a web application that resembles the following screenshot.
 
 :::image type="content" source="media/communicate-between-microservices/azure-container-apps-album-ui.png" alt-text="Screenshot of album list UI microservice.":::
 

@@ -14,7 +14,7 @@ zone_pivot_groups: container-apps-image-build-type
 
 This article demonstrates how to build and deploy a microservice to Azure Container Apps from a source repository using the programming language of your choice.
 
-This quickstart is the first in a series of articles that walk you through how to use core capabilities within Azure Container Apps. The first step is to create a backend web API service that returns a static collection of music albums.
+This quickstart is the first in a series of articles that walk you through how to use core capabilities within Azure Container Apps. The first step is to create a back end web API service that returns a static collection of music albums.
 
 The following screenshot shows the output from the album API deployed in this quickstart.
 
