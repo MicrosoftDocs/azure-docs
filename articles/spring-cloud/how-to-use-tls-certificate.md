@@ -36,14 +36,18 @@ You need to grant Azure Spring Cloud access to your key vault before you import 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Key vaults**, then select the Key Vault you'll import your certificate from.
-1. In the left navigation pane, select **Access policies**, then select **+ Add Access Policies**.
+1. In the left navigation pane, select **Access policies**, then select **Create**.
 1. Select **Certificate permissions**, then select **Get** and **List**.
-1. Under **Select Principal**, select **None selected**, then select your security principal.
-1. Select **Select**, then select **Add**.
 
-:::image type="content" source="media/use-tls-certificates/grant-key-vault-permission.png" alt-text="Screenshot of where to grant access to key vault before importing a certificate" lightbox="media/use-tls-certificates/grant-key-vault-permission.png":::
+   :::image type="content" source="media/use-tls-certificates/grant-key-vault-permission.png" alt-text="Screenshot of Azure portal 'Create an access policy' page with Permission pane showing and Get and List permissions highlighted." lightbox="media/use-tls-certificates/grant-key-vault-permission.png":::
 
-Once you grant access to your key vault, you can import your certificate using these steps:
+1. Under **Principal**, select your **Azure Spring Cloud Resource Provider**.
+
+   :::image type="content" source="media/use-tls-certificates/select-service-principal.png" alt-text="Screenshot of Azure portal 'Create an access policy' page with Principal pane showing and Azure Spring Cloud Resource Provider highlighted." lightbox="media/use-tls-certificates/select-service-principal.png":::
+
+1. Select **Review + Create**, then select **Create**.
+
+After you grant access to your key vault, you can import your certificate using these steps:
 
 1. Go to your service instance.
 1. From the left navigation pane of your instance, select **TLS/SSL settings**.
@@ -68,7 +72,7 @@ To load a certificate into your application in Azure Spring Cloud, start with th
 1. From the left navigation pane of your app, select **Certificate management**.
 1. Select **Add certificate** to choose certificates accessible for the app.
 
-:::image type="content" source="media/use-tls-certificates/load-certificate.png" alt-text="Screenshot of where to load a certificate into your application" lightbox="media/use-tls-certificates/load-certificate.png":::
+:::image type="content" source="media/use-tls-certificates/load-certificate.png" alt-text="Screenshot of Azure portal 'Certificate management' page with 'Add certificate' button highlighted." lightbox="media/use-tls-certificates/load-certificate.png":::
 
 ### Load a certificate from code
 
@@ -88,11 +92,11 @@ For a Java application, you can choose **Load into trust store** for the selecte
 
 The following log from your app shows that the certificate is successfully loaded.
 
-```
+```output
 Load certificate from specific path. alias = <certificate alias>, thumbprint = <certificate thumbprint>, file = <certificate name>
 ```
 
 ## Next steps
 
-* [Enable end-to-end Transport Layer Security](./how-to-enable-end-to-end-tls.md)
-* [Access Config Server and Service Registry](./how-to-access-data-plane-azure-ad-rbac.md)
+- [Enable ingress-to-app Transport Layer Security](./how-to-enable-ingress-to-app-tls.md)
+- [Access Config Server and Service Registry](./how-to-access-data-plane-azure-ad-rbac.md)

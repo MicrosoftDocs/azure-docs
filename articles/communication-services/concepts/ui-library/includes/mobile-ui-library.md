@@ -69,5 +69,5 @@ Details about the feature availability in the [UI Library is available here](../
 
 ## Known issues
 
-- [iOS known issues](https://github.com/Azure/communication-ui-toolkit-ios-pr/wiki/Known-Issues)
-- [Android known issues](https://github.com/Azure/communication-ui-toolkit-android-pr/wiki/Known-Issues)
+- [iOS known issues](https://github.com/Azure/communication-ui-library-ios/wiki/Known-Issues)
+- [Android known issues](https://github.com/Azure/communication-ui-library-android/wiki/Known-Issues)

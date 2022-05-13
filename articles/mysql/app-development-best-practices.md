@@ -4,6 +4,7 @@ description: Learn about best practices for building an app by using Azure Datab
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 08/11/2020
 ---

@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 03/28/2022
+ms.date: 04/18/2022
 ---
 
 # Create a Dynamics 365 apps on Dataverse and Power Apps offer
@@ -17,7 +17,7 @@ Before you start, create a commercial marketplace account in [Partner Center](./
 
 ## Before you begin
 
-Review [Plan a Dynamics 365 offer](marketplace-dynamics-365.md). It will explain the technical requirements for this offer and list the information and assets you’ll need when you create it.
+Review [Plan a Microsoft Dynamics 365 offer](marketplace-dynamics-365.md). It will explain the technical requirements for this offer and list the information and assets you’ll need when you create it.
 
 ## Create a new offer
 
@@ -38,7 +38,7 @@ Review [Plan a Dynamics 365 offer](marketplace-dynamics-365.md). It will explain
 1. Enter an **Offer ID**. This is a unique identifier for each offer in your account.
 
     - This ID is visible to customers in the web address for the offer and in Azure Resource Manager templates, if applicable.
-    - Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if your Publisher ID is `testpublisherid` and you enter **test-offer-1**, the offer web address will be `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
+    - Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces. The combined sum of the Offer ID and Publisher ID is limited to 40 characters. For example, if your Publisher ID is `testpublisherid` and you enter **test-offer-1**, the offer web address will be `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`. In this case, the segment, “testpublisherid.test-offer-1” is 28 characters long, which is within the 40-character limit.
     - The Offer ID can't be changed after you select **Create**.
 
 1. Enter an **Offer alias**. This is the name used for the offer in Partner Center.

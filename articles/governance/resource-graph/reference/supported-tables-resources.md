@@ -1,9 +1,11 @@
 ---
 title: Supported Azure Resource Manager resource types
 description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 03/08/2022
+ms.date: 04/18/2022
 ms.topic: reference
 ms.custom: generated
+author: timwarner-msft
+ms.author: timwarner
 ---
 # Azure Resource Graph table and resource type reference
 
@@ -605,7 +607,6 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.migrate/migrateprojects
 - microsoft.migrate/movecollections
 - Microsoft.Migrate/projects (Migration projects)
-- microsoft.mixedreality/holographicsbroadcastaccounts
 - Microsoft.MixedReality/objectAnchorsAccounts (Object Anchors Accounts)
 - Microsoft.MixedReality/objectUnderstandingAccounts (Object Understanding Accounts)
 - Microsoft.MixedReality/remoteRenderingAccounts (Remote Rendering Accounts)
@@ -748,7 +749,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.powerplatform/enterprisepolicies
 - microsoft.projectbabylon/accounts
 - microsoft.providerhubdevtest/regionalstresstests
-- Microsoft.Purview/Accounts (Azure Purview accounts)
+- Microsoft.Purview/Accounts (Microsoft Purview accounts)
 - Microsoft.Quantum/Workspaces (Quantum Workspaces)
 - Microsoft.RecommendationsService/accounts (Intelligent Recommendations Accounts)
 - Microsoft.RecommendationsService/accounts/modeling (Modeling)

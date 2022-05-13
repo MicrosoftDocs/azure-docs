@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/28/2021
+ms.date: 05/02/2022
 ms.author: arcrowe
 ms.reviewer: 
 ms.custom: aaddev
@@ -45,7 +45,7 @@ If you can't safely constrain your test app in your production tenant, you can c
 If you don't already have a dedicated test tenant, you can create one for free using the Microsoft 365 Developer Program or manually create one yourself. 
 
 #### Join the Microsoft 365 Developer Program (recommended) 
-The [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program) is free and can have test user accounts and sample data packs automatically added to the tenant.
+The [Microsoft 365 Developer Program](/office/developer-program/microsoft-365-developer-program) is free and can have test user accounts and sample data packs automatically added to the tenant.
 1. Click on the **Join now** button on the screen.
 2. Sign in with a new Microsoft Account or use an existing (work) account you already have.
 3. On the sign-up page select your region, enter a company name and accept the terms and conditions of the program before you click **Next**.
