@@ -14,9 +14,9 @@ ms.date: 09/17/2021
 
 # Tutorial: Use the REST APIs
 
-In this tutorial, you will learn how to use the Microsoft Purview REST APIs. Anyone who wants to submit data to Microsoft Purview, include Microsoft Purview as part of an automated process, or build their own user experience on Microsoft Purview can use the REST APIs to do so.
+In this tutorial, you learn how to use the Microsoft Purview REST APIs. Anyone who wants to submit data to Microsoft Purview, include Microsoft Purview as part of an automated process, or build their own user experience on Microsoft Purview can use the REST APIs to do so.
 
-If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 ## Prerequisites
 
