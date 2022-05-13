@@ -53,6 +53,8 @@ The templates used in this quickstart are from the [Azure Spring Cloud reference
 
 :::code language="json" source="~/azure-spring-cloud-reference-architecture/ARM/brownfield-deployment/azuredeploySpringEnterprise.json":::
 
+---
+
 Two Azure resources are defined in the template:
 
 * [Microsoft.AppPlatform/Spring](/azure/templates/microsoft.appplatform/spring): Create an Azure Spring Cloud instance.
