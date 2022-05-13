@@ -63,19 +63,10 @@ foreach ($softitem in $containerSoftDelete)
 {
     Undo-AzRecoveryServicesBackupItemDeletion -Item $softitem -VaultId $VaultToDelete.ID -Force #undelete items in soft delete state
 }
-#Invoking API to disable enhanced security
-$azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
-$profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
-$accesstoken = Get-AzAccessToken
-$token = $accesstoken.Token
-$authHeader = @{
-    'Content-Type'='application/json'
-    'Authorization'='Bearer ' + $token
-}
-$body = @{properties=@{enhancedSecurityState= "Disabled"}}
-$restUri = 'https://management.azure.com/subscriptions/'+$SubscriptionId+'/resourcegroups/'+$ResourceGroup+'/providers/Microsoft.RecoveryServices/vaults/'+$VaultName+'/backupconfig/vaultconfig?api-version=2019-05-13' #Replace "management.azure.com" with "management.usgovcloudapi.net" if your subscription is in USGov.
-$response = Invoke-RestMethod -Uri $restUri -Headers $authHeader -Body ($body | ConvertTo-JSON -Depth 9) -Method PATCH
 
+#Invoking API to disable Security features (Enhanced Security) to remove MARS/MAB/DPM servers.
+Set-AzRecoveryServicesVaultProperty -VaultId $VaultToDelete.ID -DisableHybridBackupSecurityFeature $true
+Write-Host "Disabled Security features for the vault"
 
 #Fetch all protected items and servers
 $backupItemsVM = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $VaultToDelete.ID
