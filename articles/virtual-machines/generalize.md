@@ -33,7 +33,7 @@ Distribution specific instructions for preparing Linux images for Azure are avai
 - [SUSE](./linux/suse-create-upload-vhd.md)
 - [Ubuntu](./linux/create-upload-ubuntu.md)
 
-The following instuctions only cover setting the VM to generalized. We recommend you follow the distro specific instructions for production workloads.
+The following instructions only cover setting the VM to generalized. We recommend you follow the distro specific instructions for production workloads.
 
 First you'll deprovision the VM by using the Azure VM agent to delete machine-specific files and data. Use the `waagent` command with the `-deprovision+user` parameter on your source Linux VM. For more information, see the [Azure Linux Agent user guide](./extensions/agent-linux.md). This process can't be reversed.
 

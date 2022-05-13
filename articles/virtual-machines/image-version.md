@@ -71,7 +71,7 @@ For [generalized](generalize.md) images, see the OS specific guidance before cap
 
 If you will be sharing your images using a [community gallery (preview)](azure-compute-gallery.md#community), make sure that you create your gallery, image definitions, and image versions in the same region. 
 
-When users search for community gallery images, only the latest version of an image are shown.
+When users search for community gallery images, only the latest version of an image is shown.
 
 
 ## Create an image 
