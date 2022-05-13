@@ -86,7 +86,7 @@ To migrate SQL Server partition definitions to dedicated SQL pool simply:
 - Eliminate the SQL Server [partition scheme](/sql/t-sql/statements/create-partition-scheme-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 - Add the [partition function](/sql/t-sql/statements/create-partition-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) definition to your CREATE TABLE.
 
-If you are migrating a partitioned table from a SQL Server instance, the following SQL can help you to figure out the number of rows that resides in each partition. Keep in mind that if the same partitioning granularity is used in dedicated SQL pool, the number of rows per partition decreases by a factor of 60.  
+If you are migrating a partitioned table from a SQL Server instance, the following SQL can help you to figure out the number of rows in each partition. Keep in mind that if the same partitioning granularity is used in dedicated SQL pool, the number of rows per partition decreases by a factor of 60.  
 
 ```sql
 -- Partition information for a SQL Server Database
