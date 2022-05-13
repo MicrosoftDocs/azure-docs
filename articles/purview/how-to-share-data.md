@@ -37,7 +37,7 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
 
     The *RegistrationState* should be **Registered**.
 
-    For additional details, refer to [Register preview feature](../azure-resource-manager/management/preview-features?tabs=azure-portal#register-preview-feature).
+    For additional details, refer to [Register preview feature](../azure-resource-manager/management/preview-features.md?tabs=azure-portal#register-preview-feature).
 
 * A source storage account created after the registration step is completed. 
 * The following are supported storage account configurations:
