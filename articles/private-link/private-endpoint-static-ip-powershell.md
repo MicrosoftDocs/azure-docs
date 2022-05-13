@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: private-link
 ms.topic: how-to
-ms.date: 05/12/2022
+ms.date: 05/13/2022
 ms.custom:
 ---
 
@@ -267,7 +267,7 @@ Use the VM you created in the previous step to connect to the webapp across the 
 
 6. After you've connected, open PowerShell on the server.
 
-8. Enter `nslookup mywebapp1979.azurewebsites.net`. Replace **mywebapp1979** with the name of the web app that you created earlier. You'll receive a message that's similar to the following:
+7. Enter `nslookup mywebapp1979.azurewebsites.net`. Replace **mywebapp1979** with the name of the web app that you created earlier. You'll receive a message that's similar to the following:
 
     ```powershell
     Server:  UnKnown
@@ -281,15 +281,15 @@ Use the VM you created in the previous step to connect to the webapp across the 
 
     A static private IP address of *10.0.0.10* is returned for the web app name.
 
-9. In the bastion connection to **myVM**, open the web browser.
+8. In the bastion connection to **myVM**, open the web browser.
 
-10. Enter the URL of your web app, **https://mywebapp1979.azurewebsites.net**.
+9. Enter the URL of your web app, **https://mywebapp1979.azurewebsites.net**.
 
    If your web app hasn't been deployed, you'll get the following default web app page:
 
    :::image type="content" source="./media/private-endpoint-static-ip-powershell/web-app-default-page.png" alt-text="Screenshot of the default web app page on a browser." border="true":::
 
-11. Close the connection to **myVM**.
+10. Close the connection to **myVM**.
 
 ## Next steps
 
