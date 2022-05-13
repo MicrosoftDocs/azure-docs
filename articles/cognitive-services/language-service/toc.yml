@@ -224,6 +224,8 @@ items:
         href: conversational-language-understanding/how-to/deploy-query-model.md
       - name: Back up and recover your models
         href: conversational-language-understanding/fail-over.md
+      - name: Call the API to make predictions
+        href: conversational-language-understanding/how-to/call-api.md
   - name: Concepts
     items:
       - name: Backwards compatibility
@@ -232,6 +234,8 @@ items:
         href: conversational-language-understanding/concepts/entity-components.md
       - name: Evaluation metrics
         href: conversational-language-understanding/concepts/evaluation-metrics.md
+      - name: Data formats
+        href: conversational-language-understanding/concepts/data-formats.md
       - name: None intent
         href: conversational-language-understanding/concepts/none-intent.md
       - name: Using multiple languages
