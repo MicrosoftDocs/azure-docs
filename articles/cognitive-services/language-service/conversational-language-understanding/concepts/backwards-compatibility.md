@@ -58,7 +58,7 @@ When you import the LUIS JSON application into conversational language understan
 |Application Settings|The settings such as Normalize Punctuation, Normalize Diacritics, and Use All Training Data were meant to improve predictions for intents and entities. The new models in conversational language understanding are not sensitive to small changes such as punctuation and are therefore not available as settings.|
 |Features|Phrase list features and features to intents will all be ignored. Features were meant to introduce semantic understanding for LUIS that conversational language understanding can provide out of the box with its new models.|
 |Patterns|Patterns were used to cover for lack of quality in intent classification. The new models in conversational language understanding are expected to perform better without needing patterns.|
-|Pattern.Any Entities|Pattern.Any entities were used to cover for lack of quality in ML entity extraction. The new models in conversational language understanding are expected to perform better without needing pattern.Any entities.|
+|`Pattern.Any` Entities|`Pattern.Any` entities were used to cover for lack of quality in ML entity extraction. The new models in conversational language understanding are expected to perform better without needing `Pattern.Any` entities.|
 |Regex Entities| Not currently supported |
 |Structured ML Entities| Not currently supported |
 
