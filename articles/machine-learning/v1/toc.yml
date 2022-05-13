@@ -104,6 +104,17 @@
         href: how-to-access-data.md
       - name: Get data from storage with datasets
         href: how-to-create-register-datasets.md     
+      - name: Manage & consume data
+        items:
+        - name: Train with datasets
+          displayName: data, dataset, mount
+          href: ../how-to-train-with-datasets.md
+        - name: Detect drift on datasets
+          displayName: data, dataset
+          href: ../how-to-monitor-datasets.md
+        - name: Version & track datasets
+          displayName: data, data set
+          href: ../how-to-version-track-datasets.md
   - name: Train models
     items: 
     - name: Train with SDK v1

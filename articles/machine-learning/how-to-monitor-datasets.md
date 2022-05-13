@@ -16,6 +16,8 @@ ms.custom: data4ml, contperf-fy21q2, sdkv1
 
 # Detect data drift (preview) on datasets
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 Learn how to monitor data drift and set alerts when drift is high.  
 
 With Azure Machine Learning dataset monitors (preview), you can:
