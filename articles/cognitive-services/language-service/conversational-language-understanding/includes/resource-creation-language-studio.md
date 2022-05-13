@@ -19,11 +19,11 @@ Create a Language resource with following details.
 
 |Instance detail  |Required value  |
 |---------|---------|
-|Azure subscription| **Your Azure subscription**|
-|Azure resource group| **Your Azure resource group**|
-|Azure resource name| **Your Azure resource name**|
-|Location | Learn more about [supported regions](../../region-support.md).        |
-|Pricing tier     | Learn more about [supported pricing tiers](../../service-limits.md#pricing-tiers).        |
+|Azure subscription| Your Azure subscription|
+|Azure resource group| Your Azure resource group|
+|Azure resource name| Your Language resource name|
+|Location | A [supported regions](../service-limits.md#regional-availability) for your Language resource.        |
+|Pricing tier     | A [supported pricing tiers](../service-limits.md#language-resource-limits) for your Language resource.        |
 
 > [!IMPORTANT]
 > * Make sure to to enable **Managed Identity** when you create a Language resource. 
