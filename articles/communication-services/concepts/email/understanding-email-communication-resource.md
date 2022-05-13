@@ -56,7 +56,6 @@ Your Azure Administrators will create a new resource of type “Email Communicat
 
 > [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-acs-resource.md)
 
-
 The following documents may be interesting to you:
 
 - Familiarize yourself with the [Email client library](../email/sdk-features.md)
