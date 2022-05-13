@@ -118,10 +118,6 @@ $privateEndpointConnection = New-AzPrivateLinkServiceConnection @pec
 ## Place the virtual network you created previously into a variable. ##
 $vnet = Get-AzVirtualNetwork -ResourceGroupName 'myResourceGroup' -Name 'myVNet'
 
-## Disable the private endpoint network policy. ##
-$vnet.Subnets[0].PrivateEndpointNetworkPolicies = "Disabled"
-$vnet | Set-AzVirtualNetwork
-
 ## Create the static IP configuration. ##
 $ip = @{
     Name = 'myIPconfig'
