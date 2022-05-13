@@ -35,7 +35,7 @@ This article provides a quick start guide on how to share and receive data from 
 
     The *RegistrationState* should be **Registered**.
 
-    For additional details, refer to [Register preview feature](../azure-resource-manager/management/preview-features?tabs=azure-portal#register-preview-feature).
+    For additional details, refer to [Register preview feature](../azure-resource-manager/management/preview-features.md?tabs=azure-portal#register-preview-feature).
 
 * Source and target storage accounts created after the registration step is completed. 
 * Both storage accounts must be in the same Azure region. 
