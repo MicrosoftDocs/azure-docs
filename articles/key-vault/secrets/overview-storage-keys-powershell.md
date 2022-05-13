@@ -228,7 +228,7 @@ $sasTemplate="sv=2018-03-28&ss=bfqt&srt=sco&sp=rw&spr=https"
 ```
 
 For more information about account SAS, see:
-[Create an account SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/create-account-sas)
+[Create an account SAS](https://docs.microsoft.com/rest/api/storageservices/create-account-sas)
 
 > [!NOTE]
 > Key Vault ignores lifetime parameters like 'Signed Expiry', 'Signed Start' and parameters introduced after 2018-03-28 version
