@@ -151,7 +151,7 @@ To assign the custom role with the Azure portal to the Azure Virtual Desktop ser
 >    New-AzRoleAssignment -RoleDefinitionName "Azure Virtual Desktop Start VM on Connect" -ObjectId $objId -Scope /subscriptions/$subId
 >    ```
 
-## Configure Start VM on Connect
+## Enable or disable Start VM on Connect
 
 Now that you've assigned the custom role to the service principal on your subscriptions, you can configure Start VM on Connect using the Azure portal or PowerShell.
 
