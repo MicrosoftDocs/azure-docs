@@ -56,20 +56,6 @@ For more information about enterprise agreements, see [Troubleshoot enterprise c
 
 For more information about Microsoft Customer Agreements, see [Understand Microsoft Customer Agreement administrative roles in Azure](../manage/understand-mca-roles.md).
 
-## AuthorizationFailed
-
-Error message `AuthorizationFailed`.
-
-<a name="AuthorizationFailed"></a>
-
-### Mitigation
-
-Confirm that you have access to the specified scope or object. For example, budget or export.
-
-### More information
-
-For more information, see [Assign access to Cost Management data](assign-access-acm-data.md)
-
 ## 404
 
 Error message `404`.
@@ -121,6 +107,20 @@ The message indicates that the Enterprise Agreement administrator hasn't enabled
 ### More information
 
 For more information, see [Troubleshoot Azure enterprise cost views](../manage/enterprise-mgmt-grp-troubleshoot-cost-view.md).
+
+## AuthorizationFailed
+
+Error message `AuthorizationFailed`.
+
+<a name="AuthorizationFailed"></a>
+
+### Mitigation
+
+Confirm that you have access to the specified scope or object. For example, budget or export.
+
+### More information
+
+For more information, see [Assign access to Cost Management data](assign-access-acm-data.md)
 
 ## BadRequest
 
