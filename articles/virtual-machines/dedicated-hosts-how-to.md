@@ -24,6 +24,7 @@ This article guides you through how to create an Azure [dedicated host](dedicate
 ## Limitations
 
 - The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
+- The fault domain count of the virtual machine scale set cannot exceed the fault domain count of the host group.
 
 ## Create a host group
 
