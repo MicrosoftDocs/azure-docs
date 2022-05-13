@@ -227,7 +227,7 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
        sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
        sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
        ```
-       If you are migrating a specific virtual machine and do not wish to create a generalized image, set Provisioning.Agent=disabled on the /etc/waagent.conf config.
+       If you are migrating a specific virtual machine and do not wish to create a generalized image, set `Provisioning.Agent=disabled` in the `/etc/waagent.conf` config.
     1. Configure mounts:
        ```
        echo "Adding mounts and disk_setup to init stage"
@@ -266,13 +266,13 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
          ```
 
 10.	Swap configuration. Do not create swap space on the operating system disk.
-     Previously, the Azure Linux Agent was used automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. However, this is now handled by cloud-init, you must not use the Linux Agent to format the resource disk create the swap file, modify the following parameters in /etc/waagent.conf appropriately:
+     Previously, the Azure Linux Agent automatically configured swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. However, this is now handled by cloud-init, you must not use the Linux Agent to format the resource disk create the swap file, modify the following parameters in /etc/waagent.conf appropriately:
      ``` 
      ResourceDisk.Format=n
      ResourceDisk.EnableSwap=n
      ```
      If you want to mount, format and create swap you can either:
-        1. Pass this in as a cloud-init config every time you create a VM through customdata. This is the recommended method.
+        1. Pass this in as a cloud-init config every time you create a VM through `customdata`. This is the recommended method.
         2. Use a cloud-init directive baked into the image that will do this every time the VM is created.
            ```
            echo 'DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"' >> /etc/systemd/system.conf
