@@ -73,7 +73,7 @@ To build a project schema within [Language Studio](https://aka.ms/languageStudio
 
 To add a **prebuilt** component, select **Add new prebuilt** and from the drop-down menu, select the prebuilt type to you want to add to this entity.
 
-   :::image type="content" source="../media/add-prebuilt-component.png" alt-text="A screenshot showing the entity details page for conversation projects in Language Studio." lightbox="../media/add-prebuilt-component.png":::
+   <!--:::image type="content" source="../media/add-prebuilt-component.png" alt-text="A screenshot showing a prebuilt-component in Language Studio." lightbox="../media/add-prebuilt-component.png":::-->
    
 ### Add list component
 
@@ -83,15 +83,14 @@ To add a **list** component, select **Add new list**. You can add multiple lists
 
 2. From the *language* drop-down menu, select the language of the synonyms list and start typing in your synonyms and hit enter after each one. It is recommended to have synonyms lists in multiple languages.
 
-   :::image type="content" source="../media/add-list-component.png" alt-text="A screenshot showing the entity details page for conversation projects in Language Studio." lightbox="../media/add-list-component.png":::
+   <!--:::image type="content" source="../media/add-list-component.png" alt-text="A screenshot showing a list component in Language Studio." lightbox="../media/add-list-component.png":::-->
    
 ### Define entity options
 
-Change to the **Entity options** pivot in the entity details page. When multiple components are defined for an entity, their predictions may overlap. When an overlap occurs, each entity's final prediction is determined based on the entity option you select in this step. Learn more about[entity options](../concepts/entity-components.md#Entity-options) and select the one that you want to apply to this entity and click on the **Save** button at the top.
+Change to the **Entity options** pivot in the entity details page. When multiple components are defined for an entity, their predictions may overlap. When an overlap occurs, each entity's final prediction is determined based on the [entity option](../concepts/entity-components.md#entity-options) you select in this step. Select the one that you want to apply to this entity and click on the **Save** button at the top.
 
-   :::image type="content" source="../media/entity-options.png" alt-text="A screenshot showing the entity details page for conversation projects in Language Studio." lightbox="../media/entity-options.png":::
+   <!--:::image type="content" source="../media/entity-options.png" alt-text="A screenshot showing an entity option in Language Studio." lightbox="../media/entity-options.png":::-->
 
----
 
 After you create your entities, you can come back and edit them. You can **Edit entity components** or **delete** them by selecting this option from the top menu.
  

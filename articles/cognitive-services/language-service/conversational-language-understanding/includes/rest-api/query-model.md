@@ -21,7 +21,7 @@ Create a **POST** request using the following URL, headers, and JSON body to sta
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. Learn more about other available [API versions](../../../concepts/model-lifecycle.md#api-versions)  | `2022-03-01-preview` |
+|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data). | `2022-03-01-preview` |
 
 
 ### Headers
@@ -56,11 +56,11 @@ Use the following header to authenticate your request.
 
 |Key  |Placeholder  |Value  | Example |
 |---------|---------|----------|--|
-| `participantId` | `{JOB-NAME}` | ............. | `"MyJobName` |
-| `id` | `{JOB-NAME}` | ................ | `"MyJobName` |
+| `participantId` | `{JOB-NAME}` |  | `"MyJobName` |
+| `id` | `{JOB-NAME}` |  | `"MyJobName` |
 | `text` | `{TEST-UTTERANCE}` | The utterance that you want to predict its intent and extract entities from. | `"Read Matt's email` |
 | `language` | `{LANGUAGE-CODE}` | A string specifying the language code for the utterance submitted. Learn more about supported language codes [here](../../language-support.md) |`en-us`|
-| `id` | `{JOB-NAME}` | ................ | `"MyJobName` |
+| `id` | `{JOB-NAME}` |  | `"MyJobName` |
 | `projectName` | `{PROJECT-NAME}` | The name of your project. This value is case-sensitive.   | `myProject` |
 | `deploymentName` | `{DEPLOYMENT-NAME}` | The name of your deployment. This value is case-sensitive.  | `staging` |
 

@@ -1,7 +1,7 @@
 ---
-title: How to send a Conversational Language Understanding job
+title: Send prediction requests to a conversational language understanding deployment
 titleSuffix: Azure Cognitive Services
-description: Learn about sending a request for Conversational Language Understanding.
+description: Learn about sending prediction requests for conversational language understanding.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,10 +13,10 @@ ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
 ---
 
-# Query deployment for intent and entities predictions
+# Send prediction requests to a deployment
 
 After the deployment is added successfully, you can query the deployment for intent and entities predictions from your utterance based on the model you assigned to the deployment.
-You can query the deployment programatically [Prediction API](https://aka.ms/ct-runtime-swagger) or through the [Client libraries (Azure SDK)](#client-libraries). 
+You can query the deployment programmatically through the [prediction API](https://aka.ms/ct-runtime-swagger) or through the client libraries (Azure SDK). 
 
 ## Test deployed model
 
