@@ -205,10 +205,10 @@ This table shows the assessment confidence ratings, which depend on the percenta
 #### Low confidence ratings
 Here are a few reasons why an assessment could get a low confidence rating:
 - You didn't profile your environment for the duration for which you're creating the assessment. For example, if you create the assessment with performance duration set to one day, you must wait at least a day after you start discovery for all the data points to get collected.
-- Assessment is not able to collect the performance data for some or all the servers in the assessment period. For a high confidence rating, ensure that:
-    - Servers are powered on for the duration of the assessment
+- The Assessment is not able to collect the performance data for some or all the servers in the assessment period. For a high confidence rating, ensure that:
+    - Servers are powered on for the duration of the assessment.
     - Outbound connections on ports 443 are allowed.
-    - If Azure Migrate connection status of the SQL agent in Azure Migrate is 'Connected', and check the last heartbeat.
+    - If Azure Migrate connection status of the SQL agent in Azure Migrate is "Connected", and check the last heartbeat.
     - If Azure Migrate connection status for all SQL instances is "Connected" in the discovered SQL instance blade.
 
     **Recalculate** the assessment to reflect the latest changes in confidence rating.
