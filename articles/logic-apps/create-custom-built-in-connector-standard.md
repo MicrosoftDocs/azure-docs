@@ -63,7 +63,10 @@ To provide the operations for the sample built-in connector, in the NuGet packag
 
 ![Conceptual class diagram showing method implementation for sample Cosmos DB custom built-in connector.](./media/create-custom-built-in-connector-standard/service-provider-cosmos-db-example.png)
 
+In this example, the Cosmos DB custom built-in connector doesn't have any actions, so you don't have to implement the **InvokeOperation()** method. Otherwise, if the connector had actions, you need to implement the method for each action that executes at runtime.
+
 The **IServiceOperationsTriggerProvider** service provider interface has the following methods that your connector must implement. The designer in Azure Logic Apps uses these methods to query the triggers and actions that your connector provides and shows on the designer surface.
+
 
 #### GetService()
 

@@ -67,7 +67,7 @@ In this built-in connector extensibility model, you have to implement the follow
 
 * Operation invocations
 
-  At runtime, the Azure Logic Apps runtime uses these implementations to call the specified operation in the workflow definition.
+  During workflow execution, the Azure Logic Apps runtime uses these implementations to call the specified operation in the workflow definition.
 
 When you're done, you also have to register custom built-in connector with the [Azure Functions runtime extension](../azure-functions/functions-bindings-register.md). For the steps, review [Register your connector as an Azure Functions extension](create-custom-built-in-connector-standard.md#register-connector).
 
@@ -115,14 +115,14 @@ For Azure Functions-based triggers, the following diagram shows all the method i
 
 #### Recurrence or polling triggers
 
-Custom built-in trigger capabilities currently support triggers that check or *poll* an endpoint based on a specific recurrence schedule and that aren't based on Azure Functions triggers.
+Custom built-in trigger capabilities currently support triggers that check or *poll* an endpoint based on a specific recurrence schedule and that aren't based on Azure Functions triggers. For a polling trigger, the Azure Logic Apps creates a recurrence trigger job for the polling trigger, You can 
 
 
-defining adding or exposing an [Azure Functions trigger or action](../azure-functions/functions-bindings-example.md) as a service provider trigger in your custom built-in connector.
+
 
 ### Methods to implement
 
-For more information about the methods that your connector needs to implement, review the following sections and the documentation that shows how to create a sample custom built-in connector for Azure Cosmos DB, [Create custom built-in connectors for Standard logic apps in single-tenant Azure Logic Apps](create-custom-built-in-connector-standard.md).
+The following sections provide more information about the methods that your connector needs to implement. For an example that creates a sample custom built-in connector for Azure Cosmos DB, review [Create custom built-in connectors for Standard logic apps in single-tenant Azure Logic Apps](create-custom-built-in-connector-standard.md).
 
 #### GetService()
 
