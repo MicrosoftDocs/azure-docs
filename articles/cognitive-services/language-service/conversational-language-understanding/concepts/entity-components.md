@@ -8,35 +8,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 05/13/2022
 ms.author: aahi
-ms.custom: language-service-clu, ignite-fall-2021
+ms.custom: language-service-clu
 ---
 
 # Entity components
 
-In Conversational Language Understanding, entities are relevant pieces of information that are extracted from your utterances. An entity can be extracted by different methods. They can be learned through context, matched from a list, or detected by a prebuilt recognized entity. Every entity in your project is composed of one or more of these methods, which are defined as your entity's components. When an entity is defined by more than one component, their predictions can overlap. You can determine the behavior of an entity prediction when its components overlap by using a fixed set of options in the **Overlap Method**.
+In conversational language understanding, entities are relevant pieces of information that are extracted from your utterances. An entity can be extracted by different methods. They can be learned through context, matched from a list, or detected by a prebuilt recognized entity. Every entity in your project is composed of one or more of these methods, which are defined as your entity's components. When an entity is defined by more than one component, their predictions can overlap. You can determine the behavior of an entity prediction when its components overlap by using a fixed set of options in the **Overlap Method**.
 
 ## Component types
 
-An entity component determines a way you can extract the entity. An entity can simply contain one component, which would determine the only method that would be used to extract the entity, or multiple components to expand the ways in which the entity is defined and extracted.
+An entity component determines a way you can extract the entity. An entity can contain one component, which would determine the only method that would be used to extract the entity, or multiple components to expand the ways in which the entity is defined and extracted.
 
 ### Learned component
 
-The learned component uses the entity tags you label your utterances with to train a machine learned model. The model learns to predict where the entity is, based on the context within the utterance. Your labels provide examples of where the entity is expected to be present in an utterance, based on the meaning of the words around it and as the words that were labeled. This component is only defined if you add labels by tagging utterances for the entity. If you do not tag any utterances with the entity, it will not have a learned component.
+The learned component uses the entity labels you add to your utterances to train a machine learned model. The model learns to predict where the entity is, based on the context within the utterance. Your labels provide examples of where the entity is expected to be present in an utterance, based on the meaning of the words around it and as the words that were labeled. This component is only defined if you add labels by tagging utterances for the entity. If you do not tag any utterances with the entity, it will not have a learned component.
 
 :::image type="content" source="../media/learned-component.png" alt-text="A screenshot showing an example of learned components for entities." lightbox="../media/learned-component.png":::
 
 ### List component
 
-The list component represents a fixed, closed set of related words along with their synonyms. The component performs an exact text match against the list of values you provide as synonyms. Each synonym belongs to a "list key" which can be used as the normalized, standard value for the synonym that will return in the output if the list component is matched. List keys are **not** used for matching.
+The list component represents a fixed, closed set of related words along with their synonyms. The component performs an exact text match against the list of values you provide as synonyms. Each synonym belongs to a "list key", which can be used as the normalized, standard value for the synonym that will return in the output if the list component is matched. List keys are **not** used for matching.
 
 
 :::image type="content" source="../media/list-component.png" alt-text="A screenshot showing an example of list components for entities." lightbox="../media/list-component.png":::
 
 ### Prebuilt component
 
-The prebuilt component allows you to select from a library of common types such as numbers, datetimes, and names. When added, a prebuilt component is automatically detected. You can have up to 5 prebuilt components per entity. See [the list of supported prebuilt components](../prebuilt-component-reference.md) for more information.
+The prebuilt component allows you to select from a library of common types such as numbers, datetimes, and names. When added, a prebuilt component is automatically detected. You can have up to five prebuilt components per entity. See [the list of supported prebuilt components](../prebuilt-component-reference.md) for more information.
 
 
 :::image type="content" source="../media/prebuilt-component.png" alt-text="A screenshot showing an example of prebuilt components for entities." lightbox="../media/prebuilt-component.png":::
@@ -62,7 +62,7 @@ If "Palm Beach" was matched by the List component and "Beach Extension" was pred
 
 :::image type="content" source="../media/return-longest-overlap-example-2.svg" alt-text="A screenshot showing a second example of longest overlap results for components." lightbox="../media/return-longest-overlap-example-2.svg":::
 
-If "Palm Beach" was matched from the List component and "Extension" was predicted by the Learned component, then 2 separate instances of the entities are returned, as there is no overlap between them: one for "**Palm Beach**" and one for "**Extension**", as no overlap has occurred in this instance.
+If "Palm Beach" was matched from the List component and "Extension" was predicted by the Learned component, then two separate instances of the entities are returned, as there is no overlap between them: one for "**Palm Beach**" and one for "**Extension**", as no overlap has occurred in this instance.
 
 :::image type="content" source="../media/return-longest-overlap-example-3.svg" alt-text="A screenshot showing a third example of longest overlap results for components." lightbox="../media/return-longest-overlap-example-3.svg":::
 
@@ -118,7 +118,7 @@ If "Palm Beach" was matched by the list component and "Palm Beach Extension" was
 
 :::image type="content" source="../media/return-all-overlaps-example-1.svg" alt-text="A screenshot showing an example of returning all overlap results for components." lightbox="../media/return-all-overlaps-example-1.svg":::
 
-If "New York" was predicted by the prebuilt component, "York Beach" was matched by the list component, and "Beach Extension" was predicted by the learned component, then the entity returns with 3 instances: one for "**New York**", one for "**York Beach**", and one for "**Beach Extension**".
+If "New York" was predicted by the prebuilt component, "York Beach" was matched by the list component, and "Beach Extension" was predicted by the learned component, then the entity returns with three instances: one for "**New York**", one for "**York Beach**", and one for "**Beach Extension**".
 
 :::image type="content" source="../media/return-all-overlaps-example-2.svg" alt-text="A screenshot showing a second example of returning all overlap results for components." lightbox="../media/return-all-overlaps-example-2.svg":::
 
