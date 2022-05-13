@@ -268,7 +268,7 @@ ACR support for ORAS Artifacts creates a linked graph of supply chain artifacts 
 3. Search for the image name
 4. Expand the node
 
-![Viewing ORAS Artifacts in the Azure Portal](./media/container-registry-tutorial-sign-build-push/portal-oras-artifacts.png)
+TODO: Viewing ORAS Artifacts in the Azure Portal
 
 ## Summary
 
