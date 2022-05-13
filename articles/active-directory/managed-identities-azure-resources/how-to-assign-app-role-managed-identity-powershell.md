@@ -60,7 +60,7 @@ In this article, you learn how to assign a managed identity to an application ro
 1. Find the object ID of the service application's service principal. You can find this using the Azure portal. Go to Azure Active Directory and open the **Enterprise applications** page, then find the application and look for the **Object ID**. You can also find the service principal's object ID by its display name using the following PowerShell script:
 
     ```powershell
-    $serverServicePrincipalObjectId = (Get-MgServicePrincipal -Filter "DisplayName eq '$applicationName'").ObjectId
+    $serverServicePrincipalObjectId = (Get-MgServicePrincipal -Filter "DisplayName eq '$applicationName'").Id
     ```
 
     > [!NOTE]
@@ -89,7 +89,11 @@ In this article, you learn how to assign a managed identity to an application ro
    Execute the following PowerShell command to add the role assignment:
 
     ```powershell
-    New-MgServicePrincipalAppRoleAssignment -PrincipalId $managedIdentityObjectId -Id $appRoleId -ResourceId $serverServicePrincipalObjectId
+    New-MgServicePrincipalAppRoleAssignment `
+        -ServicePrincipalId $managedIdentityObjectId `
+        -PrincipalId $managedIdentityObjectId `
+        -ResourceId $serverServicePrincipalObjectId `
+        -AppRoleId $appRoleId
     ```
 
 ## Complete script
@@ -125,9 +129,10 @@ $appRoleId = ($serverServicePrincipal.AppRoles | Where-Object {$_.Value -eq $app
 
 # Assign the managed identity access to the app role.
 New-MgServicePrincipalAppRoleAssignment `
+    -ServicePrincipalId $managedIdentityObjectId `
     -PrincipalId $managedIdentityObjectId `
-    -Id $appRoleId `
-    -ResourceId $serverServicePrincipalObjectId
+    -ResourceId $serverServicePrincipalObjectId `
+    -AppRoleId $appRoleId
 ```
 
 ## Next steps
