@@ -4,7 +4,7 @@ description: Learn how to create a streaming pipeline using Apache Storm and Apa
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 06/25/2019
+ms.date: 05/13/2022
 #Customer intent: As a developer, I want to learn how to build a streaming pipeline that uses Storm and Kafka to process streaming data.
 ---
 
