@@ -1,4 +1,4 @@
-- name: NGINX for Azure Documentation
+- name: NGINX for Azure (preview) Documentation
   href: index.yml
 - name: Overview
   items:

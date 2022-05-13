@@ -11,5 +11,5 @@
     href: ./elastic/index.yml
   - name: Logz.io
     href: ./logzio/index.yml
-  - name: NGINX
+  - name: NGINX for Azure (preview)
     href: ./nginx/index.yml
