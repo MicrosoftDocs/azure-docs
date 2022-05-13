@@ -2,7 +2,7 @@
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: include
-ms.date: 01/24/2022
+ms.date: 05/13/2022
 ms.author: cshoe
 ---
 
@@ -22,13 +22,17 @@ In the *Basics* tab, do the following actions.
 
 #### Enter project details
 
-| Setting | Action |
-|---|---|
-| Subscription | Select your Azure subscription. |
-| Resource group | Select **Create new** and enter **my-container-apps**. |
-| Container app name |  Enter **my-container-app**. |
+1. Enter the following values in the *Project details* section.
+
+    | Setting | Action |
+    |---|---|
+    | Subscription | Select your Azure subscription. |
+    | Resource group | Select **Create new** and enter **my-container-apps**. |
+    | Container app name |  Enter **my-container-app**. |
 
 #### Create an environment
+
+Next, create an environment for your container app.
 
 1. Select the appropriate region.
 
