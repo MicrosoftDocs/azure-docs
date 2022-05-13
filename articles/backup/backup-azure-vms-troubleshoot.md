@@ -28,7 +28,7 @@ This section covers backup operation failure of Azure Virtual machine.
   * If Azure Backup is working, then the issue is likely with another backup solution.
   * Here is an example of an Event Viewer error 517 where Azure Backup was working fine but "Windows Server Backup" was failing:
     ![Windows Server Backup failing](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
-  * If Azure Backup is failing, then look for the corresponding error code in the section Common VM backup errors in this article.
+  * If Azure Backup is failing, then look for the corresponding error code in the section [Common VM backup](#common-issues).
   * If you see Azure Backup option greyed out on an Azure VM, hover over the disabled menu to find the reason. The reasons could be  "Not available with EphemeralDisk" or "Not available with Ultra Disk".
     ![Reasons for the disablement of Azure Backup option](media/backup-azure-vms-troubleshoot/azure-backup-disable-reasons.png)
 
