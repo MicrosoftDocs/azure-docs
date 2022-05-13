@@ -1,7 +1,7 @@
 ---
 title: Reference - Azure Policy guest configuration baseline for Windows
 description: Details of the Windows baseline on Azure implemented through Azure Policy guest configuration.
-ms.date: 03/08/2022
+ms.date: 05/12/2022
 ms.topic: reference
 ms.custom: generated
 ---
@@ -199,7 +199,7 @@ For more information, see [Azure Policy guest configuration](../concepts/guest-c
 |Name<br /><sub>(ID)</sub> |Details |Expected value<br /><sub>(Type)</sub> |Severity |
 |---|---|---|---|
 |Audit PNP Activity<br /><sub>(AZ-WIN-00182)</sub> |**Description**: This policy setting allows you to audit when plug and play detects an external device. The recommended state for this setting is: `Success`. **Note:** A Windows 10, Server 2016 or higher OS is required to access and set this value in Group Policy.<br />**Key Path**: {0CCE9248-69AE-11D9-BED3-505054503030}<br />**OS**: WS2016, WS2019, WS2022<br />**Server Type**: Domain Controller, Domain Member, Workgroup Member |\>\= Success<br /><sub>(Audit)</sub> |Critical |
-|Audit Process Creation<br /><sub>(CCE-36059-4)</sub> |**Description**: This subcategory reports the creation of a process and the name of the program or user that created it. Events for this subcategory include: - 4688: A new process has been created. - 4696: A primary token was assigned to process. For more information please see: [Threats and Countermeasures Guide: Security Settings in Windows Server 2008 and Windows Vista](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349791(v=ws.10)?redirectedfrom=MSDN) for the most recent information about this setting. The recommended state for this setting is: `Success`.<br />**Key Path**: {0CCE922B-69AE-11D9-BED3-505054503030}<br />**OS**: WS2008, WS2008R2, WS2012, WS2012R2, WS2016, WS2019, WS2022<br />**Server Type**: Domain Controller, Domain Member, Workgroup Member |\>\= Success<br /><sub>(Audit)</sub> |Critical |
+|Audit Process Creation<br /><sub>(CCE-36059-4)</sub> |**Description**: This subcategory reports the creation of a process and the name of the program or user that created it. Events for this subcategory include: - 4688: A new process has been created. - 4696: A primary token was assigned to process. Refer to Microsoft Knowledge Base article 947226: [Description of security events in Windows Vista and in Windows Server 2008](https://support.microsoft.com/en-us/kb/947226) for the most recent information about this setting. The recommended state for this setting is: `Success`.<br />**Key Path**: {0CCE922B-69AE-11D9-BED3-505054503030}<br />**OS**: WS2008, WS2008R2, WS2012, WS2012R2, WS2016, WS2019, WS2022<br />**Server Type**: Domain Controller, Domain Member, Workgroup Member |\>\= Success<br /><sub>(Audit)</sub> |Critical |
 
 ## System Audit Policies - Logon-Logoff
 
