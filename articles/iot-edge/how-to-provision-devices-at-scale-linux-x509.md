@@ -107,8 +107,8 @@ Have the following information ready:
    #   registration_id: "OPTIONAL_REGISTRATION_ID_LEAVE_COMMENTED_OUT_TO_REGISTER_WITH_CN_OF_IDENTITY_CERT"
        identity_cert: "REQUIRED_URI_TO_DEVICE_IDENTITY_CERTIFICATE_HERE"
        identity_pk: "REQUIRED_URI_TO_DEVICE_IDENTITY_PRIVATE_KEY_HERE"
-   #  always_reprovision_on_startup: true
-   #  dynamic_reprovisioning: false
+   # always_reprovision_on_startup: true
+   # dynamic_reprovisioning: false
    ```
 
 1. Update the values of `scope_id`, `identity_cert`, and `identity_pk` with your DPS and device information.
@@ -165,8 +165,7 @@ Have the following information ready:
 
    identity_pk = "DEVICE_IDENTITY_PRIVATE_KEY_HERE"
 
-   #  always_reprovision_on_startup: true
-   #  dynamic_reprovisioning: false
+   # auto_reprovisioning_mode = Dynamic
    ```
 
 1. Update the value of `id_scope` with the scope ID you copied from your instance of DPS.
