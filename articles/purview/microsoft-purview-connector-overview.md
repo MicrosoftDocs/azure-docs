@@ -25,7 +25,7 @@ The table below shows the supported capabilities for each data source. Select th
 ||    [Azure Data Explorer](register-scan-azure-data-explorer.md)| [Yes](register-scan-azure-data-explorer.md#register) | [Yes](register-scan-azure-data-explorer.md#scan)| No* | No |No|
 || [Azure Data Factory](how-to-link-azure-data-factory.md) | [Yes](how-to-link-azure-data-factory.md) | No | [Yes](how-to-link-azure-data-factory.md) | No |No|
 ||    [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md)| [Yes](register-scan-adls-gen1.md#register) | [Yes](register-scan-adls-gen1.md#scan)| Limited* | No |No|
-||    [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)| [Yes](register-scan-adls-gen2.md#register) | [Yes](register-scan-adls-gen2.md#scan)| Limited* | [Yes](how-to-access-policies-storage.md) |[Yes](how-to-access-policies-storage.md#data-sharing) |
+||    [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)| [Yes](register-scan-adls-gen2.md#register) | [Yes](register-scan-adls-gen2.md#scan)| Limited* | [Yes](how-to-access-policies-storage.md) |[Yes](register-scan-adls-gen2.md#data-sharing) |
 || [Azure Data Share](how-to-link-azure-data-share.md) | [Yes](how-to-link-azure-data-share.md) | No | [Yes](how-to-link-azure-data-share.md) | No | No |
 || [Azure Database for MySQL](register-scan-azure-mysql-database.md) | [Yes](register-scan-azure-mysql-database.md#register) | [Yes](register-scan-azure-mysql-database.md#scan) | No* | No | No |
 || [Azure Database for PostgreSQL](register-scan-azure-postgresql.md) | [Yes](register-scan-azure-postgresql.md#register) | [Yes](register-scan-azure-postgresql.md#scan) | No* | No | No |
