@@ -213,8 +213,6 @@ In this section, you'll:
 - Create the virtual machine with [New-AzVM](/powershell/module/az.compute/new-azvm)
 
 
-1. Get the server admin credentials and password:
-
 ```azurepowershell-interactive
 ## Create the credential for the virtual machine. Enter a username and password at the prompt. ##
 $cred = Get-Credential
@@ -294,9 +292,9 @@ Use the VM you created in the previous step to connect to the webapp across the 
 
    If your web app hasn't been deployed, you'll get the following default web app page:
 
-    :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Screenshot of the default web app page on a browser." border="true":::
+   :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Screenshot of the default web app page on a browser." border="true":::
 
-1. Close the connection to **myVM**.
+11. Close the connection to **myVM**.
 
 ## Next steps
 
