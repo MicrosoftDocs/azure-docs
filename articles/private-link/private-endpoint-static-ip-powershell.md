@@ -24,7 +24,7 @@ ms.custom:
     
    - For a detailed tutorial on creating a web app and an endpoint, see [Tutorial: Connect to a web app by using a private endpoint](tutorial-private-endpoint-webapp-portal.md). 
    
-   - The example webapp in this article is named **myWebApp**. Replace the example with your webapp name.
+   - The example webapp in this article is named **myWebApp1979**. Replace the example with your webapp name.
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. To find the installed version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
@@ -107,7 +107,7 @@ In this section, you'll:
 
 ```azurepowershell-interactive
 ## Place the previously created webapp into a variable. ##
-$webapp = Get-AzWebApp -ResourceGroupName myResourceGroup -Name myWebApp
+$webapp = Get-AzWebApp -ResourceGroupName myResourceGroup -Name myWebApp1979
 
 ## Create the private endpoint connection. ## 
 $pec = @{
@@ -266,33 +266,31 @@ Use the VM you created in the previous step to connect to the webapp across the 
 
 4. On the overview page for **myVM**, select **Connect**, and then select **Bastion**.
 
-5. Select the blue **Use Bastion** button.
+5. Enter the username and password that you used when you created the VM. Select **Connect**.
 
-6. Enter the username and password that you used when you created the VM.
+6. After you've connected, open PowerShell on the server.
 
-7. After you've connected, open PowerShell on the server.
-
-8. Enter `nslookup <your-webapp-name>.azurewebsites.net`. Replace **\<your-webapp-name>** with the name of the web app that you created earlier.  You'll receive a message that's similar to the following:
+8. Enter `nslookup mywebapp1979.azurewebsites.net`. Replace **mywebapp1979** with the name of the web app that you created earlier. You'll receive a message that's similar to the following:
 
     ```powershell
     Server:  UnKnown
     Address:  168.63.129.16
 
     Non-authoritative answer:
-    Name:    mywebapp8675.privatelink.azurewebsites.net
-    Address:  10.0.0.5
-    Aliases:  mywebapp8675.azurewebsites.net
+    Name:    mywebapp1979.privatelink.azurewebsites.net
+    Address:  10.0.0.10
+    Aliases:  mywebapp1979.azurewebsites.net
     ```
 
-    A private IP address of *10.0.0.5* is returned for the web app name. This address is in the subnet of the virtual network that you created earlier.
+    A static private IP address of *10.0.0.10* is returned for the web app name.
 
-9. In the bastion connection to **myVM**, open your web browser.
+9. In the bastion connection to **myVM**, open the web browser.
 
-10. Enter the URL of your web app, **https://\<your-webapp-name>.azurewebsites.net**.
+10. Enter the URL of your web app, **https://mywebapp1979.azurewebsites.net**.
 
    If your web app hasn't been deployed, you'll get the following default web app page:
 
-   :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Screenshot of the default web app page on a browser." border="true":::
+   :::image type="content" source="./media/private-endpoint-static-ip-powershell/web-app-default-page.png" alt-text="Screenshot of the default web app page on a browser." border="true":::
 
 11. Close the connection to **myVM**.
 
