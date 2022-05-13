@@ -16,7 +16,7 @@ This article describes the currently known issues with Azure Health Data Service
 
 Refer to the table below to find details about resolution dates or possible workarounds. For more information about the different feature enhancements and bug fixes in Azure Health Data Services, see [Release notes: Azure Health Data Services](release-notes.md).
 
-### FHIR service
+## FHIR service
  
 |Issue | Date discovered | Status | Date resolved |
 | :------------------------------------- | :------------ | :------------- | :------------- |
