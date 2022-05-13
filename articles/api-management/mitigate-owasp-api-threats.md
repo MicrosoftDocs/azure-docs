@@ -32,9 +32,9 @@ More information about this threat: [API1:2019 Broken Object Level Authorization
 
     * Customers can implement a custom policy to map identifiers from request to backend and from backend to client, so that internal identifiers aren't exposed. 
 
-        In both cases, the custom policy could be a [policy expression](api-management-policy-expressions.md) with a look-up (for example, a dictionary) or integration with another service through the [`send-request`](api-management-advanced-policies#SendRequest) policy.
+        In both cases, the custom policy could be a [policy expression](api-management-policy-expressions.md) with a look-up (for example, a dictionary) or integration with another service through the [`send-request`](api-management-advanced-policies.md#SendRequest) policy.
 
-* API Management can validate GraphQL requests through the [validate GraphQL request](https://docs.microsoft.com/azure/api-management/graphql-validation-policies#validate-graphql-request) policy, which can also be used to enforce object-level authorization, using the `authorize` element.  
+* API Management can validate GraphQL requests through the [validate GraphQL request](graphql-validation-policies.md#validate-graphql-request) policy, which can also be used to enforce object-level authorization, using the `authorize` element.  
 
 ### More information
  * [Using external services from the Azure API Management service](api-management-sample-send-request.md)
@@ -117,13 +117,13 @@ More information about this threat: [API7:2019 Security misconfiguration](https:
 
         * Enforce claims, audiences, token expiration, and token signature through more policy configuration. 
 
-    * Configure the [CORS](https://docs.microsoft.com/en-us/azure/api-management/api-management-cross-domain-policies#CORS) policy and don't use wildcard `*` for any element. Instead, explicitly list allowed values. 
+    * Configure the [CORS](api-management-cross-domain-policies.md#CORS) policy and don't use wildcard `*` for any element. Instead, explicitly list allowed values. 
 
-    * Set [validation policies](hvalidation-policies.md) to `prevent` in production environments to validate JSON and XML schemas, headers, query parameters, and status codes, and to enforce the maximum size for request or response. 
+    * Set [validation policies](validation-policies.md) to `prevent` in production environments to validate JSON and XML schemas, headers, query parameters, and status codes, and to enforce the maximum size for request or response. 
 
     * If API Management is outside a network boundary, client IP validation is still possible using the [ip-filter](api-management-access-restriction-policies.md#RestrictCallerIPs)policy. Ensure this is an allowlist, not a blocklist. 
 
-    * If client certificates are utilized between caller and API Management use the [validate-client-certificate](hapi-management-access-restriction-policies.md#validate-client-certificate) policy. Ensure that the     `validate-revocation`, `validate-trust`, `validate-not-before`, and `validate-not-after` attributes are all set to `true`. 
+    * If client certificates are utilized between caller and API Management use the [validate-client-certificate](api-management-access-restriction-policies.md#validate-client-certificate) policy. Ensure that the `validate-revocation`, `validate-trust`, `validate-not-before`, and `validate-not-after` attributes are all set to `true`. 
 
         Client certificate (mutual TLS) can also be applied between API Management and the backend. The backend should:
 
@@ -133,13 +133,13 @@ More information about this threat: [API7:2019 Security misconfiguration](https:
 
         * Validate the certificate name where applicable. 
 
-* For Graph QL scenarios use the [validate-graphql-request](graphql-validation-policies.md#validate-graphql-request) policy. Ensure that the `authorization" element` and `max-size` and `max-depth` attributes are set. 
+* For Graph QL scenarios use the [validate-graphql-request](graphql-validation-policies.md#validate-graphql-request) policy. Ensure that the `authorization` element and `max-size` and `max-depth` attributes are set. 
 
 * Don't store secrets in policy files, or source control. Always use API Management [named values](api-management-howto-properties.md) or fetch the secrets at runtime using custom policy expressions.	 
 
     * Named values can be [integrated with Key Vault](api-management-howto-properties.md#key-vault-secrets) 
 
-    * Named values can also be encrypted within API Management by marking them “secret”. Don't store secrets in named values unless the values are marked as “secret”. 
+    * Named values can also be encrypted within API Management by marking them "secret". Don't store secrets in named values unless the values are marked as "secret". 
 
 * Publish APIs through [products](api-management-howto-add-products.md), which require subscriptions. Don't use open products without subscription. 
 
@@ -153,7 +153,7 @@ More information about this threat: [API7:2019 Security misconfiguration](https:
 
     * If you choose to self-host the developer portal, ensure there's a process in place to periodically update the self-hosted developer portal to the latest version. Updates for the default managed version are automatic. 
 
-    * Use [Azure Active Directory (Azure AD)](api-management-howto-aad.md) or [Azure Active Directory B2C](hapi-management-howto-aad-b2c.md) for user sign-up and sign-in. Disable the default username and password authentication, which is less secure. 
+    * Use [Azure Active Directory (Azure AD)](api-management-howto-aad.md) or [Azure Active Directory B2C](api-management-howto-aad-b2c.md) for user sign-up and sign-in. Disable the default username and password authentication, which is less secure. 
 
     * Assign [user groups](api-management-howto-create-groups.md#-associate-a-group-with-a-product) to products, to control the visibility of APIs in the portal.  
 
@@ -210,7 +210,7 @@ More information about this threat: [API9:2019 Improper assets management](https
 
 Use the [revisions](api-management-revisions.md) and [versions](api-management-versions.md) in API Management to govern and control your API endpoints. Have a strong backend versioning strategy and commit to the maximum number of supported API versions (for example, 2 or 3 prior versions). Plan to quickly deprecate and ultimately remove older, often less secure, API versions. 
 
-* Use an API Management instance per environment (such as development, test, and production). Ensure that each API Management instance connects to the dependencies for the same environment. For example, in staging the “stage” API Management resource should connect to a staging Azure Key Vault resource and the “stage” versions of backend services. Using [DevOps automation and infrastructure-as-code practices](hdevops-api-development-templates.md) helps maintain consistency and accuracy between environments and reduce human errors. 
+* Use an API Management instance per environment (such as development, test, and production). Ensure that each API Management instance connects to the dependencies for the same environment. For example, in staging the “stage” API Management resource should connect to a staging Azure Key Vault resource and the “stage” versions of backend services. Using [DevOps automation and infrastructure-as-code practices](devops-api-development-templates.md) helps maintain consistency and accuracy between environments and reduce human errors. 
 
 * Use tags to organize APIs and products and group them for publishing. 
 
