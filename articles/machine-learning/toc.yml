@@ -556,11 +556,11 @@
               items:
                 - name: Authenticate to endpoints
                   href: how-to-authenticate-online-endpoint.md
-                - name: Managed online endpoints VM SKU list
-                  href: reference-managed-online-endpoints-vm-sku-list.md
                 - name: Network isolation with managed online endpoints
                   displayName: network, vnet, secure
                   href: how-to-secure-online-endpoint.md
+                - name: Managed online endpoints VM SKU list
+                  href: reference-managed-online-endpoints-vm-sku-list.md
             - name: Safe rollout for online endpoints
               href: how-to-safely-rollout-managed-endpoints.md
             - name: Autoscale managed online endpoints
