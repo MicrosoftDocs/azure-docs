@@ -62,7 +62,7 @@ If you want to do bulk *update* (similar to using [DocumentBulkExecutor.updateAl
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkUpsertItems)]
 
-If you want to do bulk *patch* (similar to using [DocumentBulkExecutor.mergeAll](/java/api/com.microsoft.azure.documentdb.bulkexecutor.documentbulkexecutor.mergeall)), you cannot do a partial update of the documents when the root parent does not exist. You need to read the document first, using replace:
+If you want to do bulk *patch* (similar to using [DocumentBulkExecutor.mergeAll](/java/api/com.microsoft.azure.documentdb.bulkexecutor.documentbulkexecutor.mergeall)), you can't do a partial update of the documents when the root parent doesn't exist. You need to read the document first, using replace:
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkReplaceItems)]
 
@@ -78,7 +78,7 @@ And if you want to do bulk *delete* (similar to using [DocumentBulkExecutor.dele
 
 ## Retries, timeouts, and throughput control
 
-The bulk support in Java V4 SDK does not handle these natively. Please see guidance in [Bulk Executor - Java Library](bulk-executor-java.md). The sample also has examples for local and global throughput control. 
+The bulk support in Java V4 SDK doesn't handle retries and timeouts natively. Please see guidance in [Bulk Executor - Java Library](bulk-executor-java.md). The sample also has examples for local and global throughput control. 
 
 
 ## Next steps
