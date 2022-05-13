@@ -15,7 +15,7 @@ The Kafka trigger runs a function based on a new Kafka event.
 ## Example
 ::: zone pivot="programming-language-csharp"
 
-The usage of the trigger depends on the C# modality used in your function app, which can be one of the following:
+The usage of the trigger depends on the C# modality used in your function app, which can be one of the following modes:
 
 # [In-process](#tab/in-process)
 

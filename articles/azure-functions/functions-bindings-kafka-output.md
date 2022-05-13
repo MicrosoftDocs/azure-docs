@@ -113,7 +113,7 @@ For a complete set of working .NET examples, see the [Kafka extension repository
 
 # [Confluent](#tab/confluent/isolated-process)
 
-The following example has a custom return type which is `MultipleOutputType`, which consists of an HTTP response and a Kafka output. 
+The following example has a custom return type that is `MultipleOutputType`, which consists of an HTTP response and a Kafka output. 
 
 :::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaOutput.cs" range="11-31" :::
 
@@ -134,7 +134,7 @@ For a complete set of working .NET examples, see the [Kafka extension repository
 # [Event Hubs](#tab/event-hubs/isolated-process)
 
 
-The following example has a custom return type which is `MultipleOutputType`, which consists of an HTTP response and a Kafka output. 
+The following example has a custom return type that is `MultipleOutputType`, which consists of an HTTP response and a Kafka output. 
 
 :::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaOutput.cs" range="11-31" :::
 
@@ -274,7 +274,7 @@ The last example uses to these `KafkaEntity` and `KafkaHeader` classes:
 
 :::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/entity/KafkaHeaders.java" range="3-10" :::
 
-The following example function send a message with headers to a Kafka topic.
+The following example function sends a message with headers to a Kafka topic.
 
 :::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/KafkaOutputWithHeaders.java" range="11-35" :::
 
@@ -298,7 +298,7 @@ The last example uses to these `KafkaEntity` and `KafkaHeader` classes:
 
 :::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/entity/KafkaHeaders.java" range="3-10" :::
 
-The following example function send a message with headers to a Kafka topic.
+The following example function sends a message with headers to a Kafka topic.
 
 :::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/KafkaOutputWithHeaders.java" range="11-35" :::
 
@@ -322,8 +322,8 @@ The following table explains the properties you can set using this attribute:
 | **MaxMessageBytes** | (Optional) The maximum size of the output message being sent (in MB), with a default value of `1`. |
 | **BatchSize** | (Optional) Maximum number of messages batched in a single message set, with a default value of `10000`.  |
 | **EnableIdempotence** | (Optional) When set to `true`, guarantees that messages are successfully produced exactly once and in the original produce order, with a default value of `false`|
-| **MessageTimeoutMs** | (Optional) The local message timeout, in milliseconds. This value is only enforced locally and limits the time a produced message waits for successful delivery, with a default `300000`. A time of `0` is infinite. This is the maximum time used to deliver a message (including retries). Delivery error occurs when either the retry count or the message timeout are exceeded. |
-| **RequestTimeoutMs** | (Optional) The acknowledgement timeout of the output request, in milliseconds, with a default of `5000`. |
+| **MessageTimeoutMs** | (Optional) The local message timeout, in milliseconds. This value is only enforced locally and limits the time a produced message waits for successful delivery, with a default `300000`. A time of `0` is infinite. This value is the maximum time used to deliver a message (including retries). Delivery error occurs when either the retry count or the message timeout are exceeded. |
+| **RequestTimeoutMs** | (Optional) The acknowledgment timeout of the output request, in milliseconds, with a default of `5000`. |
 | **MaxRetries** | (Optional) The number of times to retry sending a failing Message, with a default of `2`. Retrying may cause reordering, unless `EnableIdempotence` is set to `true`.|
 | **AuthenticationMode** | (Optional) The authentication  mode when using Simple Authentication and Security Layer (SASL) authentication. The supported values are `Gssapi`, `Plain` (default), `ScramSha256`, `ScramSha512`. |
 | **Username** | (Optional) The username for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. | 
@@ -352,7 +352,7 @@ The `KafkaOutput` annotation allows you to create a function that writes to a sp
 | **batchSize** | (Optional) Maximum number of messages batched in a single message set, with a default value of `10000`.  |
 | **enableIdempotence** | (Optional) When set to `true`, guarantees that messages are successfully produced exactly once and in the original produce order, with a default value of `false`|
 | **messageTimeoutMs** | (Optional) The local message timeout, in milliseconds. This value is only enforced locally and limits the time a produced message waits for successful delivery, with a default `300000`. A time of `0` is infinite. This is the maximum time used to deliver a message (including retries). Delivery error occurs when either the retry count or the message timeout are exceeded. |
-| **requestTimeoutMs** | (Optional) The acknowledgement timeout of the output request, in milliseconds, with a default of `5000`. |
+| **requestTimeoutMs** | (Optional) The acknowledgment timeout of the output request, in milliseconds, with a default of `5000`. |
 | **maxRetries** | (Optional) The number of times to retry sending a failing Message, with a default of `2`. Retrying may cause reordering, unless `EnableIdempotence` is set to `true`.|
 | **authenticationMode** | (Optional) The authentication  mode when using Simple Authentication and Security Layer (SASL) authentication. The supported values are `Gssapi`, `Plain` (default), `ScramSha256`, `ScramSha512`. |
 | **username** | (Optional) The username for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. | 
@@ -382,7 +382,7 @@ The following table explains the binding configuration properties that you set i
 | **batchSize** | (Optional) Maximum number of messages batched in a single message set, with a default value of `10000`.  |
 | **enableIdempotence** | (Optional) When set to `true`, guarantees that messages are successfully produced exactly once and in the original produce order, with a default value of `false`|
 | **messageTimeoutMs** | (Optional) The local message timeout, in milliseconds. This value is only enforced locally and limits the time a produced message waits for successful delivery, with a default `300000`. A time of `0` is infinite. This is the maximum time used to deliver a message (including retries). Delivery error occurs when either the retry count or the message timeout are exceeded. |
-| **requestTimeoutMs** | (Optional) The acknowledgement timeout of the output request, in milliseconds, with a default of `5000`. |
+| **requestTimeoutMs** | (Optional) The acknowledgment timeout of the output request, in milliseconds, with a default of `5000`. |
 | **maxRetries** | (Optional) The number of times to retry sending a failing Message, with a default of `2`. Retrying may cause reordering, unless `EnableIdempotence` is set to `true`.|
 | **authenticationMode** | (Optional) The authentication  mode when using Simple Authentication and Security Layer (SASL) authentication. The supported values are `Gssapi`, `Plain` (default), `ScramSha256`, `ScramSha512`. |
 | **username** | (Optional) The username for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. | 
