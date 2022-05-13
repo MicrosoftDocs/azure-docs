@@ -23,7 +23,7 @@ ms.author: aahi
 
     |Instance detail  |Required value  |
     |---------|---------|
-    |Region | Learn more about [supported regions](../../region-support.md).          |
+    |Region | One of the [supported regions](../service-limits.md#regional-availability) for your Language resource.          |
     |Name| Required name for your Language resource|
-    |Pricing tier     | Learn more about [supported pricing tiers](../../service-limits.md#pricing-tiers).        |
+    |Pricing tier     | One of the [supported pricing tiers](../service-limits.md#language-resource-limits) for your Language resource.       |
 

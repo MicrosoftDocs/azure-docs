@@ -107,14 +107,14 @@ For the metadata key:
 
 |Key  |Value  | Example |
 |---------|---------|---------|
-| `modelType  `    | Your Model type. | Extraction |
+| `modelType`    | Your Model type. | Extraction |
 |`storageInputContainerName`   | The name of your Azure blob storage container.   | `myContainer` |
 
 For the documents key: 
 
 |Key  |Value  | Example |
 |---------|---------|---------|
-| `location `    | Document name on the blob store. | `doc2.txt` |
+| `location`    | Document name on the blob store. | `doc2.txt` |
 |`language`   | The language of the document.   | `en-us` |
 |`dataset`   |  Optional field to specify the dataset which this document will belong to. | `Train` or `Test` | 
 

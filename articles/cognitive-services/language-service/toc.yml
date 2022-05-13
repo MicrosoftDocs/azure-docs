@@ -242,6 +242,8 @@ items:
       href: conversational-language-understanding/prebuilt-component-reference.md
     - name: Service limits
       href: conversational-language-understanding/service-limits.md
+    - name: Glossary
+      href: conversational-language-understanding/glossary.md
     - name: REST API
       items:
       - name: Authoring

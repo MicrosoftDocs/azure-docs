@@ -45,11 +45,11 @@ Before you start using CLU, you will need an Azure Language resource.
 
 Once you have a Language resource created, create a Conversational Language Understanding project. 
 
-### [Language Studio](#tab/Language-Studio)
+### [Language Studio](#tab/language-studio)
 
 [!INCLUDE [Create project](../includes/language-studio/create-project.md)]
 
-### [REST APIs](#tab/apis)
+### [REST APIs](#tab/rest-api)
 
 [!INCLUDE [create project](../includes/rest-api/create-project.md)]
 
@@ -57,7 +57,7 @@ Once you have a Language resource created, create a Conversational Language Unde
 
 ## Import project
 
-### [Language Studio](#tab/Language-Studio)
+### [Language Studio](#tab/language-studio)
 
 You can export a Conversational Language Understanding project as a JSON file at any time by going to the conversation projects page, selecting a project, and from the top menu, clicking on **Export**.
 
@@ -71,7 +71,7 @@ To import a project, click on the arrow button next to **Create a new project** 
 
 :::image type="content" source="../media/import.png" alt-text="A screenshot showing the Conversational Language Understanding import button." lightbox="../media/import.png":::
 
-### [REST APIs](#tab/apis)
+### [REST APIs](#tab/rest-api)
 
 You can import a CLU JSON into the service
 
@@ -95,11 +95,11 @@ You can export a Conversational Language Understanding project as a JSON file at
 
 ## Get CLU project details
 
-### [Language Studio](#tab/studio)
+### [Language Studio](#tab/language-studio)
 
 [!INCLUDE [Language Studio project details](../includes/language-studio/project-details.md)]
 
-### [Rest APIs](#tab/apis)
+### [Rest APIs](#tab/rest-api)
 
 [!INCLUDE [Rest APIs project details](../includes/rest-api/project-details.md)]
 
@@ -107,11 +107,11 @@ You can export a Conversational Language Understanding project as a JSON file at
 
 ## Delete resources 
 
-### [Language Studio](#tab/Language-Studio)
+### [Language Studio](#tab/language-studio)
 
 [!INCLUDE [Delete project](../includes/language-studio/delete-project.md)]
 
-### [REST APIs](#tab/apis)
+### [REST APIs](#tab/rest-api)
 
 When you don't need your project anymore, you can delete your project using the APIs.
 
