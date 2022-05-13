@@ -4,7 +4,7 @@ description: Learn how to develop and test Azure Functions by using Azure Functi
 ms.devlang: csharp
 ms.custom: devdivchpfy22
 ms.topic: conceptual
-ms.date: 05/11/2022
+ms.date: 05/13/2022
 ---
 
 # Develop Azure Functions using Visual Studio  
@@ -175,7 +175,7 @@ For a full list of the bindings supported by Functions, see [Supported bindings]
 
 ## Run functions locally
 
-Azure Functions Core Tools lets you run Azure Functions project on your local development computer. When you press F5 to debug a Functions project, the local Functions host (func.exe) is started listening on a local port (usually 7071). Any callable function endpoints are written to the output, and you can use these for testing your functions. For more information, see [Work with Azure Functions Core Tools](functions-run-local.md). You're prompted to install these tools the first time you start a function from Visual Studio. 
+Azure Functions Core Tools lets you run Azure Functions project on your local development computer. When you press F5 to debug a Functions project, the local Functions host (func.exe) starts to listen on a local port (usually 7071). Any callable function endpoints are written to the output, and you can use these for testing your functions. For more information, see [Work with Azure Functions Core Tools](functions-run-local.md). You're prompted to install these tools the first time you start a function from Visual Studio.
 
 To start your function in Visual Studio in debug mode:
 
@@ -189,7 +189,7 @@ For a more detailed testing scenario using Visual Studio, see [Testing functions
 
 ## Publish to Azure
 
-When you publish from Visual Studio, it uses one of two deployment methods:
+When you publish from Visual Studio, it uses one of the two deployment methods:
 
 * [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy): Packages and deploys Windows apps to any IIS server.
 * [Zip Deploy with run-From-package enabled](functions-deployment-technologies.md#zip-deploy): Recommended for Azure Functions deployments.
@@ -229,7 +229,7 @@ To learn more about monitoring using Application Insights, see [Monitor Azure Fu
 
 ## Testing functions
 
-This section describes how to create a C# function app project in Visual Studio and run and tests with [xUnit](https://github.com/xunit/xunit).
+This section describes how to create a C# function app project in Visual Studio and to run and test with [xUnit](https://github.com/xunit/xunit).
 
 ![Testing Azure Functions with C# in Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
@@ -250,7 +250,7 @@ Now that the projects are created, you can create the classes used to run the au
 
 Each function takes an instance of [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) to handle message logging. Some tests either don't log messages or have no concern for how logging is implemented. Other tests need to evaluate messages logged to determine whether a test is passing.
 
-You'll create a new class named `ListLogger`, which holds an internal list of messages to evaluate during a testing. To implement the required `ILogger` interface, the class needs a scope. The following class mocks a scope for the test cases to pass to the `ListLogger` class.
+You'll create a new class named `ListLogger`, which holds an internal list of messages to evaluate during testing. To implement the required `ILogger` interface, the class needs a scope. The following class mocks a scope for the test cases to pass to the `ListLogger` class.
 
 Create a new class in *Functions.Tests* project named **NullScope.cs** and enter the following code:
 
@@ -469,4 +469,4 @@ To debug the tests, set a breakpoint on a test, navigate to the **Test Explorer*
 
 For more information about the Azure Functions Core Tools, see [Work with Azure Functions Core Tools](functions-run-local.md).
 
-For more information about developing functions as .NET class libraries, see [Azure Functions C# developer reference](functions-dotnet-class-library.md). This article also links to examples of how to use attributes to declare the various types of bindings supported by Azure Functions.    
+For more information about developing functions as .NET class libraries, see [Azure Functions C# developer reference](functions-dotnet-class-library.md). This article also links to examples on how to use attributes to declare the various types of bindings supported by Azure Functions.    

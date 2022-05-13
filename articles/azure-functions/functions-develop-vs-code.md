@@ -4,7 +4,7 @@ description: Learn how to develop and test Azure Functions by using the Azure Fu
 ms.topic: conceptual
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devdivchpfy22
-ms.date: 05/11/2022
+ms.date: 05/13/2022
 #Customer intent: As an Azure Functions developer, I want to understand how Visual Studio Code supports Azure Functions so that I can more efficiently create, publish, and maintain my Functions projects.
 ---
 
@@ -78,7 +78,7 @@ These prerequisites are only required to [run and debug your functions locally](
 
 # [PowerShell](#tab/powershell)
 
-* The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools include the entire Azure Functions runtime, so download and installation might take some time.
+* The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
 
 * [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows) recommended. For version information, see [PowerShell versions](functions-reference-powershell.md#powershell-versions).
 
@@ -108,7 +108,7 @@ The Functions extension lets you create a function app project, along with your 
 
 1. Select the folder for your function app project, and then **Select a language for your function project**.
 
-1. Select the **HTTP trigger** function template, or you can select **Skip for now** to create a project awithout a function. You can always [add a function to your project](#add-a-function-to-your-project) later.
+1. Select the **HTTP trigger** function template, or you can select **Skip for now** to create a project without a function. You can always [add a function to your project](#add-a-function-to-your-project) later.
 
     :::image type="content" source="./media/functions-develop-vs-code/select-http-trigger.png" alt-text="Choose the HTTP trigger template.":::
 
@@ -120,7 +120,7 @@ The Functions extension lets you create a function app project, along with your 
 
     :::image type="content" source="./media/functions-develop-vs-code/add-to-workplace.png" alt-text=" Select Add to workplace.":::
 
-1. In **Do you trust the authors of the files in this folder?** window, select **yes**.
+1. In **Do you trust the authors of the files in this folder?** window, select **Yes**.
 
     :::image type="content" source="./media/functions-develop-vs-code/select-author-file.png" alt-text="Select author of the file.":::
 
