@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 05/12/2022
+ms.date: 05/13/2022
 ---
 
 # Network Isolation Change with Our New API Platform on Azure Resource Manager
@@ -18,23 +18,17 @@ In this article, you'll learn about network isolation changes with our new v2 AP
 
 ## What is the New API platform on Azure Resource Manager (ARM)
 
-Our legacy v1 API platform handles two types of operations:
-* __Azure Resource Manager (ARM)__ - Create, update, and delete (CRUD) operations on the workspace and compute.
-* __Azure Machine Learning workspace__. All other operations.
+There are two two types of operations used by the v1 and v2 APIs, __Azure Resource Manager (ARM)__ and __Azure Machine Learning workspace__.
 
-Our new v2 API platform uses public ARM operations on the following resource types:
-* Workspace
-* Compute
-* Datastore
-* Dataset
-* Job
-* Environment
-* Code
-* Component
-* Endpoints (both batch and online)
+With the v1 API, most operations used the workspace. For v2, we've moved most operations to use public ARM.
+
+| API version | Public ARM | Workspace |
+| ----- | ----- | ----- |
+| v1 | Workspace and compute create, update, and delete (CRUD) operations. | Other operations such as experiments. |
+| v2 | Most operations such as workspace, compute, datastore, dataset, job, environment, code, component, endpoints. | Remaining operations. |
 
 
-The v2 API provides a consistent API in one place. It provides the flexibility to use Azure role-based access control and Azure Policy to enforce access controls and policies across all operations.
+The v2 API provides a consistent API in one place. You can more easily use Azure role-based access control and Azure Policy for resources with the v2 API because it's based on Azure Resource Manager.
 
 The Azure Machine Learning CLI v2 uses our new v2 API platform. New features such as [managed online endpoints](concept-endpoints.md) are only available using the v2 API platform.
 
@@ -66,17 +60,17 @@ If you need time to evaluate the new v2 API before adopting it in your enterpris
 
 Once we implement the parameter, it will be retroactively applied to existing workspaces using the following logic:
 
-* If you have __an existing workspace with a private endpoint__, the flag will be __enabled__.
+* If you have __an existing workspace with a private endpoint__, the flag will be __true__.
 
-* If you have __an existing workspace without a private endpoint__ (public workspace), the flag will be __disabled__.
+* If you have __an existing workspace without a private endpoint__ (public workspace), the flag will be __false__.
 
 After the parameter has been implemented, the default value of the flag depends on the underlying REST API version used when you create a workspace (with a private endpoint):
 
-* If the API version is __older__ than `2022-05-01`, then the flag is enabled by default. 
-* If the API version is `2022-05-01` or __newer__, then the flag is disabled by default.
+* If the API version is __older__ than `2022-05-01`, then the flag is __true__ by default. 
+* If the API version is `2022-05-01` or __newer__, then the flag is __false__ by default.
 
 > [!IMPORTANT]
-> If you want to use the v2 API with your private endpoint enabled workspace, you must __disable__ the v1_legacy_mode parameter.
+> If you want to use the v2 API with your workspace, you must set the v1_legacy_mode parameter to false.
 
 ## How to update v1_legacy_mode parameter
 
@@ -87,13 +81,13 @@ To update v1_legacy_mode, use the following steps:
 
 # [Python](#tab/python)
 
-To disable v1_legacy_mode, use [Workspace.update](/python/api/azureml-core/azureml.core.workspace(class)#update-friendly-name-none--description-none--tags-none--image-build-compute-none--service-managed-resources-settings-none--primary-user-assigned-identity-none--allow-public-access-when-behind-vnet-none-) and set `v1_legacy_mode=Disabled`.
+To disable v1_legacy_mode, use [Workspace.update](/python/api/azureml-core/azureml.core.workspace(class)#update-friendly-name-none--description-none--tags-none--image-build-compute-none--service-managed-resources-settings-none--primary-user-assigned-identity-none--allow-public-access-when-behind-vnet-none-) and set `v1_legacy_mode=false`.
 
 ```python
 from azureml.core import Workspace
 
 ws = Workspace.from_config()
-ws.update(v1_legacy_mode=Enabled)
+ws.update(v1_legacy_mode=false)
 ```
 
 # [Azure CLI extension v1](#tab/azurecliextensionv1)
