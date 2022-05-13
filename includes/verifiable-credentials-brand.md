@@ -17,7 +17,7 @@
 >Verifiable credentials in Azure AD is now Microsoft Entra Verified ID. [Learn more](aka.ms/EntraAnnouncement) about the Microsoft Entra family of identity & access solutions and get started in the [unified Microsoft Entra admin center](entra.microsoft.com).
 
 >[!NOTE]
->Verifiable credentials in Azure AD is now Microsoft Entra Verified ID. You'll see our articles getting updated with this new naming on the way to General Availability (GA) in late July.Learn more about the Microsoft Entra family of identity & access solutions > aka.ms/EntraAnnouncementGet started in the unified Microsoft Entra admin center > entra.microsoft.com
+>Verifiable credentials in Azure AD is now Microsoft Entra Verified ID. Our content will be receiving updates to use this new name as we get closer to General Availability (GA). Learn more about the Microsoft Entra family of identity & access solutions > aka.ms/EntraAnnouncementGet started in the [unified Microsoft Entra admin center](entra.microsoft.com).
 
 >[!NOTE] 
 >Our verifiable credentials service is now Microsoft Entra Verified ID.Learn more about the [Microsoft Entra](aka.ms/EntraAnnouncement) family of identity & access solutions.
