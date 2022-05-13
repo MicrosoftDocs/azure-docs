@@ -18,14 +18,14 @@ This quick start article shows you how to use Single to Flexible Server migratio
 
 ## Before you begin
 
-1. If you are new to Microsoft Azure, [create an account](https://azure.microsoft.com/free/) to evaluate our offerings. New customers get $200 in free credits to run, test and deploy workloads.
+1. If you are new to Microsoft Azure, [create an account](https://azure.microsoft.com/free/) to evaluate our offerings. 
 2. Register your subscription for Azure Database Migration Service (DMS). If you have already done it, you can skip this step. Go to Azure portal homepage and navigate to your subscription as shown below.
 
-  :::image type="content" source="./media/concepts-single-to-flex/single-to-flex-cli-dms.png" alt-text="CLI DMS" lightbox="./media/concepts-single-to-flex/single-to-flex-cli-dms.png":::
+  :::image type="content" source="./media/concepts-single-to-flex/single-to-flex-cli-dms.png" alt-text="Screenshot of C L I DMS" lightbox="./media/concepts-single-to-flex/single-to-flex-cli-dms.png":::
 
 3. In your subscription, navigate to **Resource Providers** from the left navigation menu. Search for "**Microsoft.DataMigration**"; as shown below and click on **Register**.
 
-  :::image type="content" source="./media/concepts-single-to-flex/single-to-flex-cli-dms-register.png" alt-text="CLI DMS Register" lightbox="./media/concepts-single-to-flex/single-to-flex-cli-dms-register.png":::
+  :::image type="content" source="./media/concepts-single-to-flex/single-to-flex-cli-dms-register.png" alt-text="Screenshot of C L I DMS register" lightbox="./media/concepts-single-to-flex/single-to-flex-cli-dms-register.png":::
 
 ## Pre-requisites
 
@@ -35,9 +35,9 @@ This quick start article shows you how to use Single to Flexible Server migratio
 2. In case Azure CLI is already installed, check the version by issuing **az version** command. The version should be **2.28.0 or above** to use the migration CLI commands. If not, update your Azure CLI using this [link](/cli/azure/update-azure-cli.md).
 3. Once you have the right Azure CLI version, run the **az login** command. A browser page is opened with Azure sign-in page to authenticate. Provide your Azure credentials to do a successful authentication. For other ways to sign with Azure CLI, visit this [link](/cli/azure/authenticate-azure-cli.md).
    
-```bash
-az login
-```
+  ```bash
+  az login
+  ```
 1. Take care of the pre-requisites listed in this [**document**](./concepts-single-to-flexible.md#pre-requisites) which are necessary to get started with the Single to Flexible migration feature.
 
 ## Migration CLI commands
@@ -50,7 +50,7 @@ az postgres flexible-server migration --help
 
   gives you the following output.
 
-  :::image type="content" source="./media/concepts-single-to-flex/single-to-flex-cli-help.png" alt-text="CLI help" lightbox="./media/concepts-single-to-flex/single-to-flex-cli-help.png":::
+  :::image type="content" source="./media/concepts-single-to-flex/single-to-flex-cli-help.png" alt-text="Screenshot of C L I help" lightbox="./media/concepts-single-to-flex/single-to-flex-cli-help.png":::
 
 It lists the set of migration commands that are supported along with their actions. Let us look into these commands in detail.
 
@@ -64,7 +64,7 @@ az postgres flexible-server migration create -- help
 
 gives the following result
 
-:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-cli-create.png" alt-text="CLI create" lightbox="./media/concepts-single-to-flex/single-to-flex-cli-create.png":::
+:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-cli-create.png" alt-text="Screenshot of C L I create" lightbox="./media/concepts-single-to-flex/single-to-flex-cli-create.png":::
 
 It calls out the expected arguments and has an example syntax that needs to be used to create a successful migration from the source to target server. The CLI command to create a migration is given below
 
@@ -148,7 +148,7 @@ Create migration parameters:
 | **SourceDBServerResourceId** | Required |  Resource ID of the single server and is mandatory. |
 | **SourceDBServerFullyQualifiedDomainName** | optional |  Used when a custom DNS server is used for name resolution for a virtual network. The FQDN of the single server as per the custom DNS server should be provided for this property. |
 | **TargetDBServerFullyQualifiedDomainName** | optional |  Used when a custom DNS server is used for name resolution inside a virtual network. The FQDN of the flexible server as per the custom DNS server should be provided for this property. <br> **_SourceDBServerFullyQualifiedDomainName_**, **_TargetDBServerFullyQualifiedDomainName_** should be included as a part of the JSON only in the rare scenario of a custom DNS server being used for name resolution instead of Azure provided DNS. Otherwise, these parameters should not be included as a part of the JSON file. |
-| **SecretParameters** | Required | Passwords for admin user for both single server and flexible server along with the AAD app credentials. They help to authenticate against the source and target servers and help in checking proper authorization access to the resources.
+| **SecretParameters** | Required | Passwords for admin user for both single server and flexible server along with the Azure AD app credentials. They help to authenticate against the source and target servers and help in checking proper authorization access to the resources.
 | **MigrationResourceGroup** | optional | This section consists of two properties. <br> **ResourceID (optional)** : The migration infrastructure and other network infrastructure components are created to migrate data and schema from the source to target. By default, all the components created by this feature are provisioned under the resource group of the target server. If you wish to deploy them under a different resource group, then you can assign the resource ID of that resource group to this property. <br> **SubnetResourceID (optional)** : In case if your source has public access turned OFF or if your target server is deployed inside a VNet, then specify a subnet under which migration infrastructure needs to be created so that it can connect to both source and target servers. |
 | **DBsToMigrate** | Required | Specify the list of databases you want to migrate to the flexible server. You can include a maximum of 8 database names at a time. |
 | **SetupLogicalReplicationOnSourceDBIfNeeded** | Optional | Logical replication can be enabled on the source server automatically by setting this property to **true**. This change in the server settings requires a server restart with a downtime of few minutes (~ 2-3 mins). |
@@ -195,7 +195,7 @@ az postgres flexible-server migration list [--subscription]
 
 The **migration_name** is the name assigned to the migration during the **create migration** command. Here is a snapshot of the sample response from the **Show Details** CLI command.
 
-:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-cli-migration-name.png" alt-text="CLI migration name" lightbox="./media/concepts-single-to-flex/single-to-flex-cli-migration-name.png":::
+:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-cli-migration-name.png" alt-text="Screenshot of C L I migration name" lightbox="./media/concepts-single-to-flex/single-to-flex-cli-migration-name.png":::
 
 Some important points to note on the command response:
 
@@ -336,3 +336,7 @@ Navigate to your Virtual network where you deployed your source or the target se
 ## Post Migration Steps
 
 Make sure the post migration steps listed [here](./concepts-single-to-flexible.md) are followed for a successful end to end migration.
+
+## Next steps
+
+- [Single Server to Flexible migration concepts](./concepts-single-to-flexible.md)

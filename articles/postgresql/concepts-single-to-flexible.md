@@ -7,11 +7,10 @@ ms.author: shriramm
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/11/2022
+ms.custom: "mvc, references_regions"
 ---
 
 # Migrate from Azure Database for PostgreSQL Single Server to Flexible Server (Preview)
-
-## Overview
 
 >[!NOTE]
 > Single Server to Flexible Server migration feature is in public preview.
@@ -20,7 +19,7 @@ Azure Database for PostgreSQL Flexible Server provides zone redundant high avail
 
 Single to Flexible server migration is enabled in **Preview** in  Australia Southeast, Canada Central, Canada East, East Asia, North Central US, South Central US, Switzerland North, UAE North, UK South, UK West, West US, and Central US.
 
-## How does the migration feature work?
+## Overview
 
 Single to Flexible server migration feature provides an inline experience to migrate databases from Single Server (source) to Flexible Server (target).
 
@@ -100,18 +99,18 @@ Follow the steps provided in this section before you get started with the single
 
 - **Source Server pre-requisites** - You must [enable logical replication](./concepts-logical.md) on the source server.
 
-    :::image type="content" source="./media/concepts-single-to-flex/logical-replication-support.png" alt-text="Logical replication from Azure Portal" lightbox="./media/concepts-single-to-flex/logical-replication-support.png":::
+    :::image type="content" source="./media/concepts-single-to-flex/logical-replication-support.png" alt-text="Logical replication from Azure portal" lightbox="./media/concepts-single-to-flex/logical-replication-support.png":::
 
 >[!NOTE]
 > Enabling logical replication will require a server reboot for the change to take effect.
 
-- **Azure Active Directory App set up** - It is a critical component of the migration feature. AAD App helps with role-based access control as the migration feature needs access to both the source and target servers. See [How to setup and configure AAD App](./how-to-setup-aad-app-portal.md) for step-by-step process.
+- **Azure Active Directory App set up** - It is a critical component of the migration feature. Azure AD App helps with role-based access control as the migration feature needs access to both the source and target servers. See [How to setup and configure Azure AD App](./how-to-setup-aad-app-portal.md) for step-by-step process.
 
 ### Data and schema migration
 
-Once all these pre-requisites are taken care of, you can do the migration. This automated step involves schema and data migration using Azure Portal or Azure CLI.
+Once all these pre-requisites are taken care of, you can do the migration. This automated step involves schema and data migration using Azure portal or Azure CLI.
 
-- [Migrate using Azure Portal](./how-to-migrate-single-to-flex-portal.md)
+- [Migrate using Azure portal](./how-to-migrate-single-to-flex-portal.md)
 - [Migrate using Azure CLI](./how-to-migrate-single-to-flex-cli.md)
 
 ### Post migration
@@ -130,19 +129,19 @@ Once all these pre-requisites are taken care of, you can do the migration. This 
 
 ## Limitations
 
-### Size Limitations
+### Size limitations
 
 - Databases of sizes up to 1TB can be migrated using this feature. To migrate larger databases or heavy write workloads, reach out to your account team or reach us @ AskAzureDBforPGS2F@microsoft.com.
 
 - In one migration attempt, you can migrate up to eight user databases from a single server to flexible server. In case you have more databases to migrate, you can create multiple migrations between the same single and flexible servers.
 
-### Performance Limitations
+### Performance limitations
 
 - The migration infrastructure is deployed on a 4 vCore VM which may limit the migration performance. 
 
 - The deployment of migration infrastructure takes ~10-15 minutes before the actual data migration starts - irrespective of the size of data or the migration mode (online or offline).
 
-### Replication Limitations
+### Replication limitations
 
 - Single to Flexible Server migration feature uses logical decoding feature of PostgreSQL to perform the online migration and it comes with the following limitations. See PostgreSQL documentation for [logical replication limitations](https://www.postgresql.org/docs/10/logical-replication-restrictions.html).
   - **DDL commands** are not replicated.
@@ -153,7 +152,7 @@ Once all these pre-requisites are taken care of, you can do the migration. This 
 
 - Logical decoding will use resources in the source single server. Consider reducing the workload or plan to scale CPU/memory resources at the Source Single Server during the migration.
 
-### Other Limitations
+### Other limitations
 
 - The migration feature migrates only data and schema of the single server databases to flexible server. It does not migrate other features such as server parameters, connection security details, firewall rules, users, roles and permissions. In other words, everything except data and schema must be manually configured in the target flexible server.
 
@@ -165,7 +164,7 @@ Once all these pre-requisites are taken care of, you can do the migration. This 
 
 - The migration feature does not include assessment of your single server. 
 
-## Best Practices
+## Best practices
 
 - As part of discovery and assessment, take the server SKU,  CPU usage, storage, database sizes, and extensions usage as some of the critical data to help with migrations.
 - Plan the mode of migration for each database. For less complex migrations and smaller databases, consider offline mode of migrations.
