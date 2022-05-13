@@ -39,7 +39,7 @@ To get started, you'll export and modify a Resource Manager template that contai
 
 1. Move your current DevTest Lab to the new region and resource group by using the steps included in the article, [Move a DevTest Labs to another region](./how-to-move-labs.md).
 
-1. Optionally, you can move your current Virtual Network to the new region and resource group by using the steps included in the article, [Move an Azure virtual network to another region](../virtual-network/move-across-regions-vnet-portal.md).
+1. Optionally, move your current virtual network to the new region and resource group by using the steps included in the article, [Move an Azure virtual network to another region](../virtual-network/move-across-regions-vnet-portal.md).
 
    Alternately, you can create a new virtual network, if you don't have to keep the original one.
 
