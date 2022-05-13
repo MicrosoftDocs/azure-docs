@@ -138,9 +138,9 @@ Also, see [SubscriptionTypeNotSupported](#SubscriptionTypeNotSupported).
 
 ### More information
 
-For more information about the Query - Usage API body examples, see [Query - Usage](/api/cost-management/query/usage).
+For more information about the Query - Usage API body examples, see [Query - Usage](/rest/api/cost-management/query/usage).
 
-For more information about the Forecast - Usage API body examples, see [Forecast - Usage](https://docs.microsoft.com/en-us/rest/api/cost-management/forecast/usage).
+For more information about the Forecast - Usage API body examples, see [Forecast - Usage](/rest/api/cost-management/forecast/usage).
 
 ## BillingAccessDenied
 
@@ -320,7 +320,7 @@ The subscription is disabled. You can't create or update Cost Management objects
 
 ### More information
 
-For more information, see [Reactivate a disabled Azure subscription](../manage/subscription-disabled).
+For more information, see [Reactivate a disabled Azure subscription](../manage/subscription-disabled.md).
 
 ## ResourceGroupNotFound
 
@@ -344,7 +344,7 @@ The error is caused by excessive use within a short timeframe. Wait five minutes
 
 ### More information
 
-For more information, see [Error code 429 - Call count has exceeded rate limits](../manage-automation.md#error-code-429---call-count-has-exceeded-rate-limits).
+For more information, see [Error code 429 - Call count has exceeded rate limits](manage-automation.md#error-code-429---call-count-has-exceeded-rate-limits).
 
 ## ServerTimeout
 
@@ -407,8 +407,8 @@ For more information, see [Set up AWS integration with Cost Management](aws-inte
 
 ## Create a support request
 
-If you're facing an error not listed above or need more help, file a [support request](../azure-portal/supportability/how-to-create-azure-support-request.md) and specify the issue type as **Billing**.
+If you're facing an error not listed above or need more help, file a [support request](../../azure-portal/supportability/how-to-create-azure-support-request.md) and specify the issue type as **Billing**.
 
 ## Next steps
 
-- Read the [Cost Management + Billing frequently asked questions (FAQ)](../cost-management-billing-faq.md).
+- Read the [Cost Management + Billing frequently asked questions (FAQ)](../cost-management-billing-faq.yml).
