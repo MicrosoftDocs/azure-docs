@@ -7,7 +7,7 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, devx-track-java, mode-api
 ms.author: vramasubbu
-ms.date: 11/12/2021
+ms.date: 05/13/2022
 ---
 
 # Quickstart: Provision Azure Spring Cloud using Azure CLI
@@ -29,6 +29,11 @@ Azure Spring Cloud makes it easy to deploy Spring applications to Azure without 
   * Network and fully qualified domain name (FQDN) rules. For more information, see [Virtual network requirements](how-to-deploy-in-azure-virtual-network.md#virtual-network-requirements).
   * A unique User Defined Route (UDR) applied to each of the service runtime and Spring application subnets. For more information about UDRs, see [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md). The UDR should be configured with a route for *0.0.0.0/0* with a destination of your NVA before deploying the Spring Cloud cluster. For more information, see the [Bring your own route table](how-to-deploy-in-azure-virtual-network.md#bring-your-own-route-table) section of [Deploy Azure Spring Cloud in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 * [Azure CLI](/cli/azure/install-azure-cli)
+* If deploying Azure Spring Enterprise for the first time in the the target subscription, you are required to register the provider, and accept the legal terms for the Enterprise tier
+```azurecli
+az provider register --namespace Microsoft.SaaS
+az term accept --publisher vmware-inc --product azure-spring-cloud-vmware-tanzu-2 --plan tanzu-asc-ent-mtr
+```
 
 ## Review the Azure CLI deployment script
 
