@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  how-to
-ms.date: 2/18/2022
+ms.date: 5/13/2022
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -27,25 +27,16 @@ The following example shows you how to create a Container Apps environment in an
 9. Next to the *Virtual network* box, select the **Create new** link.
 10. Enter **my-custom-vnet** in the name box.
 11. Select the **OK** button.
-12. Next to the *Control plane subnet* box, select the **Create new** link and enter the following values:
+12. Next to the *Infrastructure subnet* box, select the **Create new** link and enter the following values:
 
     | Setting | Value |
     |---|---|
-    | Subnet name | Enter **my-control-plane-vnet**. |
+    | Subnet Name | Enter **my-vnet-subnet**. |
     | Virtual Network Address Block | Keep the default values. |
     | Subnet Address Block | Keep the default values. |
 
-13. Select the **OK** button.
-14. Next to the *Control plane subnet* box, select the **Create new** link and enter the following values:
-
-    | Setting | Value |
-    |---|---|
-    | Subnet name | Enter **my-apps-vnet**. |
-    | Virtual Network Address Block | Keep the default values. |
-    | Subnet Address Block | Keep the default values. |
-
-15. Under *Virtual IP*, select **Internal**.
-16. Select **Create**.
+13. Under *Virtual IP*, select **Internal**.
+14. Select **Create**.
 
 <!-- Deploy -->
 [!INCLUDE [container-apps-create-portal-deploy.md](../../includes/container-apps-create-portal-deploy.md)]

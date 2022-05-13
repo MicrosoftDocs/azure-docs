@@ -30,15 +30,22 @@ In the *Basics* tab, do the following actions.
 
 #### Create an environment
 
-1. In the *Create Container App environment* field, select **Create new**.
-1. In the *Create Container App Environment* page on the *Basics* tab, enter the following values:
+1. Select the appropriate region.
 
     | Setting | Value |
-    |---|---|
+    |--|--|
+    | Region | Select **Canada Central**. |
+
+1. In the *Create Container Apps environment* field, select the **Create new** link.
+1. In the *Create Container Apps Environment* page on the *Basics* tab, enter the following values:
+
+    | Setting | Value |
+    |--|--|
     | Environment name | Enter **my-environment**. |
+    | Zone redundancy | Select **Disabled** |
 
 1. Select the **Monitoring** tab to create a Log Analytics workspace.
-1. Select **Create new** in the *Log Analytics workspace* field.
+1. Select the **Create new** link in the *Log Analytics workspace* field.
 1. Enter **my-container-apps-logs** in the *Name* field of the *Create new Log Analytics Workspace* dialog.
   
     The *Location* field is pre-filled with *Canada Central* for you.
