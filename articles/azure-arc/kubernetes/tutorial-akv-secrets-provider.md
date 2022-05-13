@@ -3,7 +3,7 @@ title: Azure Key Vault Secrets Provider extension
 description: Tutorial for setting up Azure Key Vault provider for Secrets Store CSI Driver interface as an extension on Azure Arc enabled Kubernetes cluster
 services: azure-arc
 ms.service: azure-arc
-ms.date: 11/15/2021
+ms.date: 5/13/2022
 ms.topic: article
 author: mayurigupta13
 ms.author: mayg
@@ -40,6 +40,16 @@ The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integra
 ## Install AKV secrets provider extension on an Arc enabled Kubernetes cluster
 
 The following steps assume that you already have a cluster with supported Kubernetes distribution connected to Azure Arc.
+
+To deploy using Azure portal, go to the cluster's **Extensions** blade under **Settings**. Click on **+Add** button.
+
+[![Extensions located under Settings for Arc enabled Kubernetes cluster](media/tutorial-akv-secrets-provider/extension-install-add-button.jpg)](media/tutorial-akv-secrets-provider/extension-install-add-button.jpg#lightbox)
+
+From the list of available extensions, select the **Azure Key Vault Secrets Provider** to deploy the latest version of the extension. You can also choose to customize the installation through the portal by changing the defaults on **Configuration** tab.
+
+[![AKV Secrets Provider available as an extension by clicking on Add button on Extensions blade](media/tutorial-akv-secrets-provider/extension-install-new-resource.jpg)](media/tutorial-akv-secrets-provider/extension-install-new-resource.jpg#lightbox)
+
+Alternatively, you can use the CLI experience captured below.
 
 Set the environment variables:
 ```azurecli-interactive
