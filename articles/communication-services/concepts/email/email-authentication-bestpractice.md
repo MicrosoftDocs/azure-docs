@@ -1,5 +1,5 @@
 ---
-title: Best Practices for Sender Authentication Support in Azure Communication Services Email
+title: Best practices for sender authentication support in Azure Communication Services Email
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the best practices for Sender Authentication Support.
 author: bashan-git
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ms.custom: private_preview
 ---
-# Best Practices for Sender Authentication Support in Azure Communication Services Email
+# Best practices for sender authentication support in Azure Communication Services Email
 > [!IMPORTANT]
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
