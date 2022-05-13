@@ -463,7 +463,7 @@
           href: open-service-mesh-troubleshoot.md
         - name: Uninstall the Open Service Mesh AKS add-on
           href: open-service-mesh-uninstall-add-on.md
-    - name: Use cluster extensions (preview)
+    - name: Use cluster extensions
       href: cluster-extensions.md
     - name: DevOps
       items:
