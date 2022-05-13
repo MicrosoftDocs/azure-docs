@@ -198,7 +198,7 @@ The following steps, demonstrate how to build your container image locally using
 
 ### Build the container with Docker
 
-The following command builds a container image for the album API using the Dockerfile and tags it with the fully qualified name of the ACR login server. The `.` at the end of the command represents the docker build context, meaning this command should be run within the *src* folder where the Dockerfile is located.
+The following command builds a container image for the album API and tags it with the fully qualified name of the ACR login server. The `.` at the end of the command represents the docker build context, meaning this command should be run within the *src* folder where the Dockerfile is located.
 
 # [Bash](#tab/bash)
 
