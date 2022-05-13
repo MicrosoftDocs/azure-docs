@@ -21,8 +21,6 @@ ms.custom:
 - An Azure web app with a **PremiumV2-tier** or higher app service plan, deployed in your Azure subscription.  
 
    - For more information and an example, see [Quickstart: Create an ASP.NET Core web app in Azure](../app-service/quickstart-dotnetcore.md). 
-    
-   - For a detailed tutorial on creating a web app and an endpoint, see [Tutorial: Connect to a web app by using a private endpoint](tutorial-private-endpoint-webapp-portal.md). 
    
    - The example webapp in this article is named **myWebApp1979**. Replace the example with your webapp name.
 
