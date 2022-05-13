@@ -151,6 +151,9 @@
       href: cache-how-to-manage-redis-cache-powershell.md
     - name: Deploy and Manage using Azure CLI
       href: cli-samples.md
+    - name: Create Redis cache - Bicep
+      displayName: ARM, Resource Manager, Template
+      href: cache-redis-cache-bicep-provision.md
     - name: Create Redis cache - ARM template
       displayName: Resource Manager
       href: cache-redis-cache-arm-provision.md
