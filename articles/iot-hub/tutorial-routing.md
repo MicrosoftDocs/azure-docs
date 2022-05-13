@@ -58,21 +58,35 @@ Register a new device in your IoT hub.
 
 # [Azure CLI](#tab/cli)
 
+>[!TIP]
+>Many of the CLI commands used throughout this tutorial use the same parameters. For your convenience, we have you define local variables that can be called as needed. Be sure to run all the commands in the same session, or else you will have to redefine the variables with your values.
+
+1. Define variables for your IoT hub and device.
+
+   *IOTHUB_NAME*: Replace this placeholder with the name of your IoT hub.
+
+   *DEVICE_NAME*: Replace this placeholder with any name you want to use for the device in this tutorial.
+
+   ```azurecli-interactive
+   iotHubName=IOTHUB_NAME
+   iotDeviceName=DEVICE_NAME
+   ```
+
 1. Run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) command in your CLI shell. This creates the device identity.
 
-   **IOTHUB_NAME**. Replace this placeholder with the name of your IoT hub.
-
-   **DEVICE_NAME**. Replace this placeholder with any name you want to use for the device in this tutorial.
-
-    ```azurecli-interactive
-    az iot hub device-identity create --device-id DEVICE_NAME --hub-name IOTHUB_NAME 
-    ```
+   ```azurecli-interactive
+   az iot hub device-identity create \
+     --device-id $iotDeviceName \
+     --hub-name $iotHubName 
+   ```
 
 1. Run the [az iot hub device-identity show](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-show) command.
 
-    ```azurecli-interactive
-    az iot hub device-identity show --device-id DEVICE_NAME --hub-name IOTHUB_NAME
-    ```
+   ```azurecli-interactive
+   az iot hub device-identity show \
+     --device-id $iotDeviceName \
+     --hub-name $iotHubName
+   ```
 
 1. From the device-identity output, copy the **primaryKey** value and save it. You'll use this value to configure the sample code that generates simulated device telemetry messages.
 
@@ -80,6 +94,9 @@ Register a new device in your IoT hub.
 
 Now that you have a device ID and key, use the sample code to start sending device telemetry messages to IoT Hub.
 <!-- TODO: update sample to use environment variables, not inline variables -->
+
+>[!TIP]
+>If you're following the Azure CLI steps for this tutorial, run the sample code in a separate session. That way, you can allow the sample code to continue running while you follow the rest of the CLI steps.
 
 1. If you didn't as part of the prerequisites, download or clone the [Azure IoT samples for C# repo](https://github.com/Azure-Samples/azure-iot-samples-csharp) from GitHub now.
 1. In the sample folder, navigate to the `/iot-hub/Tutorials/Routing/SimulatedDevice/` folder.
@@ -123,7 +140,7 @@ First, retrieve the connection string for your IoT hub.
 1. Run the [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az-iot-hub-connection-string-show) command:
 
    ```azurecli-interactive
-   az iot hub connection-string show --hub-name IOTHUB_NAME
+   az iot hub connection-string show --hub-name $iotHubName
    ```
 
 2. Copy the connection string without the surrounding quotation characters.
@@ -176,22 +193,35 @@ Create an Azure Storage account and a container within that account which will h
 
 # [Azure CLI](#tab/cli)
 
-1. Use the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command to create a standard general-purpose v2 storage account.
+1. Define the variables for your storage account and container.
 
-   **STORAGE_NAME**. Replace this placeholder with a name for your storage account. Storage account names must be lowercase and globally unique.
+   *GROUP_NAME*: Replace this placeholder with the name of the resource group that contains your IoT hub.
 
-   **GROUP_NAME**. Replace this placeholder with the name of the resource group that contains your IoT hub.
+   *STORAGE_NAME*: Replace this placeholder with a name for your storage account. Storage account names must be lowercase and globally unique.
+
+   *CONTAINER_NAME*: Replace this placeholder with a name for your container.
 
    ```azurecli-interactive
-   az storage account create --name STORAGE_NAME --resource-group GROUP_NAME
+   resourceGroup=GROUP_NAME
+   storageAccountName=STORAGE_NAME
+   storageContainerName=CONTAINER_NAME
+   ```
+
+1. Use the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command to create a standard general-purpose v2 storage account.
+
+   ```azurecli-interactive
+   az storage account create \
+     --name $storageAccountName \
+     --resource-group $resourceGroup
    ```
 
 1. Use the [az storage container create](/cli/azure/storage/container#az-storage-container-create) to add a container to your storage account.
 
-   **CONTAINER_NAME**. Replace this placeholder with a name for your container.
-
    ```azurecli-interactive
-   az storage container create --auth-mode login --account-name STORAGE_NAME --name CONTAINER_NAME
+   az storage container create \
+     --auth-mode login \
+     --account-name $storageAccountName \
+     --name $storageContainerName
    ```
 
 ---
@@ -228,7 +258,7 @@ Now set up the routing for the storage account. In this section you define a new
 
 1. Continue creating the new route, now that you've added the storage endpoint. Provide the following information for the new route:
 
-   | Paramter | Value |
+   | Parameter | Value |
    | -------- | ----- |
    | **Name** | Create a name for your route. |
    | **Data source** | Choose **Device Telemetry Messages** from the dropdown list. |
@@ -241,13 +271,108 @@ Now set up the routing for the storage account. In this section you define a new
 
 # [Azure CLI](#tab/cli)
 
+1. Configure the variables that you need for the endpoint and route commands.
 
+   *ENDPOINT_NAME*: Provide a name for the endpoint that represents your storage container.
+
+   *ROUTE_NAME*: Provide a name for the route that filters messages for the storage endpoint
+
+   ```azurecli-interactive
+   endpointName=ENDPOINT_NAME
+   routeName=ROUTE_NAME
+   ```
+
+1. Use the [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint#az-iot-hub-routing-endpoint-create) command to create a custom endpoint that points to the storage container you made in the previous section.
+
+   ```azurecli-interactive
+   az iot hub routing-endpoint create \
+     --connection-string $(az storage account show-connection-string --name $storageAccountName --query connectionString -o tsv) \
+     --endpoint-name $endpointName \
+     --endpoint-resource-group $resourceGroup \
+     --endpoint-subscription-id $(az account show --query id -o tsv) \
+     --endpoint-type azurestoragecontainer
+     --hub-name $iotHubName \
+     --container $containerName \
+     --resource-group $resourceGroup \
+     --encoding json
+   ```
+
+1. Use the [az iot hub route create](/cli/azure/iot/hub/route#az-iot-hub-route-create) command to create a route that passes any message where `level=storage` to the storage container endpoint.
+
+   ```azurecli-interactive
+   az iot hub route create \
+     --name $routeName \
+     --hub-name $iotHubName \
+     --resource-group $resourceGroup \
+     --source devicemessages \
+     --endpoint-name $endpointName \
+     --enabled true \
+     --condition 'level="storage"'
+   ```
+
+---
+
+## View routed messages
+
+Once the route is created in IoT Hub and enabled, it will immediately start routing messages that meet its query condition to the storage endpoint.
+
+### Monitor the built-in endpoint with IoT Explorer
+
+Return to the IoT Explorer session on your development machine. Recall that the IoT Explorer monitors the built-in endpoing for your IoT hub. That means that now you should be seeing only the messages that are *not* being routed by the custom route we created. Watch the incoming messages for a few moments and you should only see messages where `level` is set to `normal` or `critical`.
+
+### View messages in the storage container
+
+Verify that the messages are arriving in the storage container.
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your storage account.
+1. Select **Containers** from the **Data storage** section of the menu.
+1. Select the container that you created for this tutorial.
+1. Drill down through the file structure until you get to a **.json** file.
+1. Download the JSON file and confirm that it contains messages from your device that have the `level` property set to `storage`.
+
+## Clean up resources
+
+If you want to remove all of the Azure resources you used for this tutorial, delete the resource group. This action deletes all resources contained within the group. If you don't want to delete the entire resource group, use the Azure portal to locate and delete the individual resources.
+
+# [Azure portal](#tab/portal)
+
+1. In the Azure portal, navigate to the resource group that contains the IoT hub and storage account for this tutorial.
+1. Review all the resources that are in the resource group to determine which ones you want to clean up.
+   * If you want to delete all the resource, select **Delete resource group**.
+   * If you only want to delete certain resource, use the check boxes next to each resource name to select the ones you want to delete. Then select **Delete**.
+
+# [Azure CLI](#tab/cli)
+
+1. Use the [az resource list](/cli/azure/resource#az-resource-list) command to view all the resources in your resource group.
+
+   ```azurecli-interactive
+   az resource list \
+     --resource-group $resourceGroup \
+     --output table
+   ```
+
+1. Review all the resources that are in the resource group to determine which ones you want to clean up.
+
+   * If you want to delete all the resources, use the [az group delete](/cli/azure/groupt#az-group-delete) command.
+
+     ```azurecli-interactive
+     az group delete \
+       --name $resourceGroup
+     ```
+
+   * If you only want to delete certain resources, use the [az resource delete](/cli/azure/resource#az-resource-delete) command. For example:
+
+     ```azurecli-interactive
+     az resource delete \
+       --resource-group $resourceGroup \
+       --name $storageAccountName
+     ```
 
 ---
 
 ## Next steps
 
-Now that you have the resources set up and the message routes configured, advance to the next tutorial to learn how to send messages to the IoT hub and see them be routed to the different destinations.
+In this tutorial you learned how to create a custom endpoint for an Azure resource and then create a route to send device messages to that endpoint. Continue to the next tutorial to learn how to enrich messages with additional data that can be used to simplify downstream processing
 
 > [!div class="nextstepaction"]
-> [Part 2 - View the message routing results](tutorial-routing-view-message-routing-results.md)
+> [Use Azure IoT Hub message enrichments](tutorial-message-enrichments.md)
