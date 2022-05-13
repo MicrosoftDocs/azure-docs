@@ -1,5 +1,5 @@
 ---
-title: Network Isolation Change with Our New API Platform on Azure Resource Manager
+title: Network isolation change with our new API platform on Azure Resource Manager
 titleSuffix: Azure Machine Learning
 description: 'Explain network isolation changes with our new API platform on Azure Resource Manager and how to maintain network isolation'
 services: machine-learning
@@ -16,9 +16,9 @@ ms.date: 05/13/2022
 
 In this article, you'll learn about network isolation changes with our new v2 API platform on Azure Resource Manager (ARM) and its effect on network isolation.
 
-## What is the New API platform on Azure Resource Manager (ARM)
+## What is the new API platform on Azure Resource Manager (ARM)
 
-There are two two types of operations used by the v1 and v2 APIs, __Azure Resource Manager (ARM)__ and __Azure Machine Learning workspace__.
+There are two types of operations used by the v1 and v2 APIs, __Azure Resource Manager (ARM)__ and __Azure Machine Learning workspace__.
 
 With the v1 API, most operations used the workspace. For v2, we've moved most operations to use public ARM.
 
@@ -32,7 +32,7 @@ The v2 API provides a consistent API in one place. You can more easily use Azure
 
 The Azure Machine Learning CLI v2 uses our new v2 API platform. New features such as [managed online endpoints](concept-endpoints.md) are only available using the v2 API platform.
 
-## What are the Network Isolation Changes with V2
+## What are the network isolation changes with V2
 
 As mentioned in the previous section, there are two types of operations; with ARM and with the workspace. With the __legacy v1 API__, most operations used the workspace. With the v1 API, adding a private endpoint to the workspace provided network isolation for everything except CRUD operations on the workspace or compute resources.
 
