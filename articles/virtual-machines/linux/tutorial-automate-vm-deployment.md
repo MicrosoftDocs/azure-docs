@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: tutorial
-ms.date: 09/12/2019
+ms.date: 05/13/2022
 ms.author: cynthn
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 
