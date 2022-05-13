@@ -37,19 +37,19 @@ As a delegated approver, you'll receive an email notification when an Azure AD r
 
     In the **Requests for role activations** section, you'll see a list of requests pending your approval.
 
-## View pending requests using Graph API
+## View pending requests using Microsoft Graph API
 
 ### HTTP request
 
 ````HTTP
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentScheduleRequests/filterByCurrentUser(on='approver')?$filter=status eq 'PendingApproval' 
+GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignmentScheduleRequests/filterByCurrentUser(on='approver')?$filter=status eq 'PendingApproval' 
 ````
 
 ### HTTP response
 
 ````HTTP
 { 
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#Collection(unifiedRoleAssignmentScheduleRequest)", 
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Collection(unifiedRoleAssignmentScheduleRequest)", 
     "value": [ 
         { 
             "@odata.type": "#microsoft.graph.unifiedRoleAssignmentScheduleRequest", 
@@ -105,7 +105,7 @@ GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentSche
 
     ![Approve notification showing request was approved](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
-## Approve pending requests using Graph API
+## Approve pending requests using Microsoft Graph API
 
 ### Get IDs for the steps that require approval
 
@@ -114,16 +114,16 @@ For a specific activation request, this command gets all the approval steps that
 #### HTTP request
 
 ````HTTP
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentApprovals/<request-ID-GUID> 
+GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignmentApprovals/<request-ID-GUID> 
 ````
 
 #### HTTP response
 
 ````HTTP
 { 
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignmentApprovals/$entity", 
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#roleManagement/directory/roleAssignmentApprovals/$entity", 
     "id": "<request-ID-GUID>",
-    "steps@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignmentApprovals('<request-ID-GUID>')/steps", 
+    "steps@odata.context": "https://graph.microsoft.com/v1.0/$metadata#roleManagement/directory/roleAssignmentApprovals('<request-ID-GUID>')/steps", 
     "steps": [ 
         { 
             "id": "<approval-step-ID-GUID>", 
@@ -145,7 +145,7 @@ GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentAppr
 
 ````HTTP
 PATCH 
-https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentApprovals/<request-ID-GUID>/steps/<approval-step-ID-GUID> 
+https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignmentApprovals/<request-ID-GUID>/steps/<approval-step-ID-GUID> 
 { 
     "reviewResult": "Approve", 
     "justification": "abcdefg" 
