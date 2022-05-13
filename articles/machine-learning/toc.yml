@@ -177,7 +177,7 @@
            - name: Understand your datasets
              displayName: exploratory data analysis, EDA, dataset explorer
              href: concept-data-analysis.md
-           - name: Counterfactuals analysis and what-if
+           - name: Counterfactual analysis and what-if
              href: concept-counterfactual-analysis.md
            - name: Differential Privacy
              displayName: differential,privacy
