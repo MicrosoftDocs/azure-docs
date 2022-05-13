@@ -21,7 +21,7 @@ Here are some frequently asked questions for Microsoft Purview Data Sharing.
 * **Recipient**	A recipient is a user or service principal to which the share is sent to. 
 
 ###	Can I use API or SDK for storage in-place sharing?
-Yes, you can use [REST API](/rest/api/purview/) or [.NET SDK](/dotnet/api/overview/azure/purviewresourceprovider?view=azure-dotnet) for programmatic experience to share data. 
+Yes, you can use [REST API](/rest/api/purview/) or [.NET SDK](/dotnet/api/overview/azure/purviewresourceprovider/) for programmatic experience to share data. 
 
 ###	What are the roles and permissions required to share data or receive shares?
 
