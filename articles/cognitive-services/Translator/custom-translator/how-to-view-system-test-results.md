@@ -1,5 +1,5 @@
 ---
-title: View system test results and deployment - Custom Translator
+title: "Legacy: View system test results and deployment - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: When your training is successful, review system tests to analyze your training results. If you're satisfied with the training results, place a deployment request for the trained model.
 author: laujan
