@@ -70,7 +70,7 @@ Looking for CA details specific to Azure Active Directory? See the [Certificate 
 |:--:|:--:|:--:|:--:|:--:|:--:|
 | Windows XP SP3+ | Firefox 32+ | iOS 7+ | OS X Mavericks (10.9)+ | Android SDK 5.x+ | Java JRE 1.8.0_101+ |
 
-## Public Key Encryption and Signature Algorithms
+## Public key encryption and signature algorithms
 
 Support for the following algorithms, elliptical curves, and key sizes are required:
 
