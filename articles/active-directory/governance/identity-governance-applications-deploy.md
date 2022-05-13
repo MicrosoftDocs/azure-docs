@@ -77,7 +77,7 @@ At regular intervals, such as weekly, monthly or quarterly, based on the volume 
 
 1. **Check that provisioning and deprovisioning are working as expected.** If you had previously configured provisioning of users to the application, then when the results of a review are applied, or a user's assignment to an access package expires, Azure AD will begin deprovisioning denied users from the application. You can [monitor the process of deprovisioning users](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). If provisioning indicates an error with the application, you can [download the provisioning log](../reports-monitoring/concept-provisioning-logs.md) to investigate if there was a problem with the application.
 
-1. **Update the Azure AD configuration with any role or group changes in the application.**  If the application adds new roles, or relies upon additional groups, then you will need to update the access packages and access reviews to account for those new roles or groups.
+1. **Update the Azure AD configuration with any role or group changes in the application.**  If the application adds new roles, updates existing roles, or relies upon additional groups, then you will need to update the access packages and access reviews to account for those new roles or groups.
 
 ## Next steps
 
