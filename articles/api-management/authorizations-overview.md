@@ -11,19 +11,19 @@ ms.author: danlep
 # Authorizations overview
 
 API Management authorizations (preview) simplify the process of managing authorization tokens to OAuth 2.0 backend services. 
-By configuring any of the supported identity providers and create an authorization using the standardized Oauth2 flow, API Management can retrieve and refresh access tokens to be used inside of API management or sent back to a client. 
-This feature enables APIs to be exposed with a subscription key and the authorization to the backend service is using Oauth2.
+By configuring any of the supported identity providers and create an authorization using the standardized OAuth 2.0 flow, API Management can retrieve and refresh access tokens to be used inside of API management or sent back to a client. 
+This feature enables APIs to be exposed with or without a subscription key and the authorization to the backend service is using OAuth 2.0.
 
 Some example scenarios that will be possible through this feature are: 
 
--	Citizen/low code developers using Power Apps or Power Automate can easily connect to SaaS providers that are using Oauth2. 
--	Unattended scenarios such as an Azure function using a Timer trigger can utilize this feature to connect to a backend API using Oauth2. 
--	A marketing team on an enterprise company could use the same authorization for interacting with a social media platform using Oauth2.
--	Exposing APIs in API Management as a Logic Apps Custom Connector in Logic Apps where the backend service requires Oauth2 flow.  
--	On behalf of scenario where a service such as Dropbox or any other service protected by Oauth2 flow are being used by multiple clients.  
--	Connect to different services that requires authorization Oauth2 using GraphQL federation in API Management. 
--	Enterprise Application Integration (EAI) patterns using service-to-service authorization can use client credentials grant type against backend APIs that are using Oauth2. 
--	SPA applications that only want to retrieve an access token to be used in a client SDK’s against a API using Oauth2. 
+-	Citizen/low code developers using Power Apps or Power Automate can easily connect to SaaS providers that are using OAuth 2.0. 
+-	Unattended scenarios such as an Azure function using a Timer trigger can utilize this feature to connect to a backend API using OAuth 2.0. 
+-	A marketing team on an enterprise company could use the same authorization for interacting with a social media platform using OAuth 2.0.
+-	Exposing APIs in API Management as a Logic Apps Custom Connector in Logic Apps where the backend service requires OAuth 2.0 flow.  
+-	On behalf of scenario where a service such as Dropbox or any other service protected by OAuth 2.0 flow are being used by multiple clients.  
+-	Connect to different services that requires authorization OAuth 2.0 using GraphQL federation in API Management. 
+-	Enterprise Application Integration (EAI) patterns using service-to-service authorization can use client credentials grant type against backend APIs that are using OAuth 2.0. 
+-	SPA applications that only want to retrieve an access token to be used in a client SDK’s against a API using OAuth 2.0. 
 
 The feature consists of two parts, management and runtime:
 
@@ -38,6 +38,7 @@ The feature consists of two parts, management and runtime:
 ### Requirements
 
 - Managed System assigned identity must be enabled for the API Management instance.
+- To manage Authorizations the Contributor RBAC role is required.  
 - API Management instance must have outbound connectivity to internet on port `443` (HTTPS).
 
 ### Limitations
@@ -49,8 +50,8 @@ For public preview the following limitations exist.
 - Maximum configured number of authorizations per Authorization provider: 500
 - Max configured number of access policies per authorization: 100
 - Maximum requests per minute per authorization: 100
-- Authorization code PKCE flow with code challenge isn't supported
-- Authorizations feature isn't supported on self-hosted gateway
+- Authorization code PKCE flow with code challenge isn't supported.
+- Authorizations feature isn't supported on self-hosted gateways.
 - No API documentation is available. Please see [this](scripts/authorizations_collection.json) Postman collection.   
 
 ### Authorization providers
@@ -91,14 +92,14 @@ The following image shows the process flow for creating an authorization in API 
 
 :::image type="content" source="media/authorizations-overview/get-token.png" alt-text="Process flow for creating authorizations" border="false":::
 
-1. Client sends a request to create an authorization provider. For public preview, Contributor role of API Management instance is required. 
+1. Client sends a request to create an authorization provider. 
 1. Authorization provider is created and a response is sent back.
 1. Client sends a request to create an authorization.
 1. Authorization is created and a response is sent back with the information that the authorization is not "connected". 
-1. Client sends a request to retrieve a login link to start the OAuth 2.0 consent at the identity provider. The request includes a post redirect link to be used in the last step.  
-1. Response is returned with a URL that should be used to start the consent flow. 
-1. Client opens a browser with the URL that was provided in the previous step. The browser is redirected to the identity provider OAuth 2.0 consent flow. 
-1. After the consent is approved, the browser is redirected with an authorization code to the redirect URL configured at the identity provider. 
+1. Client sends a request to retrieve a login url to start the OAuth 2.0 consent at the identity provider. The request includes a post redirect url to be used in the last step.  
+1. Response is returned with a login url that should be used to start the consent flow. 
+1. Client opens a browser with the login url that was provided in the previous step. The browser is redirected to the identity provider OAuth 2.0 consent flow. 
+1. After the consent is approved, the browser is redirected with an authorization code to the  redirect url configured at the identity provider. 
 1. API Management uses the authorization code to fetch access and refresh tokens. 
 1. API Management receives the tokens and encrypts them.
 1. API Management redirects to the provided URL from step 5.
@@ -113,7 +114,7 @@ The following image shows the process flow to fetch and store authorization and 
 1. The policy [`get-authorization-context`](api-management-access-restriction-policies.md#GetAuthorizationContext) checks if the access token is valid for the current authorization.
 1. If the access token has expired but the refresh token is valid, API Management tries to fetch new access and refresh token from the configured identity provider.
 1. The identity provider returns both an access token and a refresh token, which are encrypted and saved to API Management. 
-1. After the tokens has been retrieved the access token is attached using the `set-header` policy as an authorization header to the outgoing request to the backend API.
+1. After the tokens has been retrieved, the access token is attached using the `set-header` policy as an authorization header to the outgoing request to the backend API.
 1. Response is returned to API Management.
 1. Response is returned to the client.
 
