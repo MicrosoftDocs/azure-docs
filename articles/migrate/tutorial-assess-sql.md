@@ -157,8 +157,10 @@ In this strategy, you can see how you can migrate individual databases to Azure 
 ### Review readiness
 You can review readiness reports for different migration strategies: 
 
-1. Click **Readiness** report for any of the migration strategies.
-    :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-readiness.png" alt-text="Azure SQL readiness details":::
+1. Click the **Readiness** report for any of the migration strategies.
+
+    :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-readiness.png" alt-text="Details of Azure SQL readiness.":::
+
 1.Review the readiness columns in the respective reports:
     **Migration strategy** | **Readiness Columns (Respective deployment target)** 
     --- | --- 

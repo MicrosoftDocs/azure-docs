@@ -13,6 +13,13 @@ ms.custom: mvc
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (May 2022)
+- Upgraded the Azure SQL assessment experience to help you identify the ideal migration target for your SQL deployments across Azure SQL MI, SQL Server on Azure VM and Azure SQL DB:
+   - Recommended strategy for migrating "Instances to SQL Server on Azure VM" as per Azure best practices.
+   - Right sized Lift and Shift, that is, "Server to SQL Server on Azure VM" recommendations when SQL Server credentials are not available.
+   - Enhanced user experience covering readiness and cost estimates for multiple migration targets for SQL deployments in one assessment.
+ 
+
 ## Update (March 2022)
 - Perform agentless VMware VM discovery, assessments, and migrations over a private network using Azure Private Link. [Learn more.](how-to-use-azure-migrate-with-private-endpoints.md)
 - General Availability: Support to select subnets for each Network Interface Card of a replicating virtual machine in VMware agentless migration scenario.
