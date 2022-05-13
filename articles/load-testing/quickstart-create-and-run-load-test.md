@@ -38,9 +38,9 @@ To create a Load Testing resource:
 
 ## <a name="create_test"></a> Run a load test
 
-With Azure Load Testing, you can run a load test for a URL.
+With Azure Load Testing, you can run a load test for a website.
 
-1. Go to your Azure Load Testing resource overview. On the Get started tab, click on the **Quickstart** button.
+1. Go to your Azure Load Testing resource overview. On the **Get started** tab, click on the **Quickstart** button.
     
 1. On the **Quickstart test** page, enter the **Test URL** with the complete URL that you would like to run the test for. For example, http://contoso-app.azurewebsites.net/login
 
@@ -48,7 +48,7 @@ With Azure Load Testing, you can run a load test for a URL.
 
 1. (Optional) You can update the **Test duration** and **Ramp up time** for the test.
 
-1. Click on Run test.
+1. Click on **Run test**.
 
 ## <a name="view"></a> View the test results
 
