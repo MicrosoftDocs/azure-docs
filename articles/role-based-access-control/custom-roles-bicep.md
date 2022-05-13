@@ -126,6 +126,8 @@ az deployment group create --resource-group exampleRG --template-file main.bicep
 New-AzDeployment -ResourceGroupName exampleRG -Location eastus -TemplateFile ./main.bicep -Actions <actions> -roleDefName <role-name>
 ```
 
+---
+
 > [!NOTE]
 > Replace **\<actions\>** with . Replace **\<role-name\>** with
 
