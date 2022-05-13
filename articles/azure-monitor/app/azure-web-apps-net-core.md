@@ -18,7 +18,7 @@ Enabling monitoring on your ASP.NET Core based web applications running on [Azur
 # [Windows](#tab/Windows)
 
 > [!IMPORTANT]
-> The following versions of ASP.NET Core are supported for auto-instrumentation on Windows: ASP.NET Core 3.1, 5.0 and 6.0. Versions 2.0, 2.1, 2.2, and 3.0 have been retired and are no longer supported. Please upgrade to a [supported version](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) of .NET Core for auto-instrumentation to work.
+> Only .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) is supported for auto-instrumentation on Windows.
 
 > [!NOTE] 
 > Auto-instrumentation used to be known as "codeless attach" before October 2021.
@@ -256,7 +256,6 @@ The table below provides a more detailed explanation of what these values mean, 
 |Problem Value |Explanation |Fix |
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | This value indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off. It can be due to a reference to `Microsoft.ApplicationInsights.AspNetCore`, or `Microsoft.ApplicationInsights`  | Remove the references. Some of these references are added by default from certain Visual Studio templates, and older versions of Visual Studio may add references to `Microsoft.ApplicationInsights`. |
-|`AppAlreadyInstrumented:true` | If the application is targeting ASP.NET Core 2.1 or 2.2, this value indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off | Customers on .NET Core 2.1,2.2 are [recommended](https://github.com/aspnet/Announcements/issues/287) to use Microsoft.AspNetCore.App meta-package instead. In addition, turn on "Interop with Application Insights SDK" in portal (see the instructions above).|
 |`AppAlreadyInstrumented:true` | This value can also be caused by the presence of Microsoft.ApplicationsInsights dll in the app folder from a previous deployment. | Clean the app folder to ensure that these dlls are removed. Check both your local app's bin directory, and the wwwroot directory on the App Service. (To check the wwwroot directory of your App Service web app: Advanced Tools (Kudu) > Debug console > CMD > home\site\wwwroot). |
 |`IKeyExists:false`|This value indicates that the instrumentation key is not present in the AppSetting, `APPINSIGHTS_INSTRUMENTATIONKEY`. Possible causes: The values may have been accidentally removed, forgot to set the values in automation script, etc. | Make sure the setting is present in the App Service application settings. |
 
