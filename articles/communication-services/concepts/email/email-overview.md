@@ -45,13 +45,13 @@ Key features include:
 
 ## Next steps
 
-> [Understanding Email Communication Services](./Understanding-email-communication-resource.md)
+> [Preparing Email Communication Resource for Azure Communication Service](./Understanding-email-communication-resource.md)
 
-> [Understanding Email Domains in Email Communication Services](./Understanding-email-domain-setup.md)
+> [Email domains and sender authentication for Azure Communication Services](./Understanding-email-domain-setup.md)
 
-> [Get started with Creating Email Communication Resource](../../quickstarts/email/create-email-communication-resource.md)
+> [Get started with create and manage Email Communication resources in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
 
-> [Get started by Connecting Email Resource with a Communication Resource](../../quickstarts/email/connect-email-communication-acs-resource.md)
+> [Get started by connecting Email Communication Resource with a Communication Resource](../../quickstarts/email/connect-email-communication-acs-resource.md)
 
 
 The following documents may be interesting to you:
