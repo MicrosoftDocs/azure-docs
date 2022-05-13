@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 05/06/2022
+ms.date: 05/13/2022
 ms.author: cshoe
 zone_pivot_groups: container-apps-config-types
 ---
@@ -60,7 +60,7 @@ When using temporary storage, you must use the Azure CLI with a YAML definition 
 1. To update an existing container app to use temporary storage, export your app's specification to a YAML file named *app.yaml*.
 
     ```azure-cli
-    az containerapp show -n <app_name> -g <resource_group_name> -o yaml > app.yaml
+    az containerapp show -n <APP_NAME> -g <RESOURCE_GROUP_NAME> -o yaml > app.yaml
     ```
 
 1. Make the following changes to your container app specification.
@@ -74,12 +74,12 @@ When using temporary storage, you must use the Azure CLI with a YAML definition 
 
     ```yaml
     properties:
-      managedEnvironmentId: /subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.App/managedEnvironments/<env_name>
+      managedEnvironmentId: /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.App/managedEnvironments/<ENVIRONMENT_NAME>
       configuration:
         activeRevisionsMode: Single
       template:
         containers:
-        - image: <image_name>
+        - image: <IMAGE_NAME>
           name: my-container
           volumeMounts:
           - mountPath: /myempty
@@ -92,7 +92,7 @@ When using temporary storage, you must use the Azure CLI with a YAML definition 
 1. Update your container app using the YAML file.
 
     ```azure-cli
-    az containerapp update --name <app_name> --resource-group <resource_group_name> \
+    az containerapp update --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> \
         --yaml app.yaml
     ```
 
@@ -195,20 +195,20 @@ When using Azure Files, you must use the Azure CLI with a YAML definition to cre
     ```azure-cli
     az containerapp env storage set --name my-env -resource-group my-group \
         --storage-name mystorage \
-        --azure-file-account-name <storage_account_name> \
-        --azure-file-account-key <storage_account_key> \
-        --azure-file-share-name <storage_share_name> \
+        --azure-file-account-name <STORAGE_ACCOUNT_NAME> \
+        --azure-file-account-key <STORAGE_ACCOUNT_KEY> \
+        --azure-file-share-name <STORAGE_SHARE_NAME> \
         --access-mode ReadWrite
     ```
 
-    Replace `<storage_account_name>` and `<storage_account_key>` with the name and key of your storage account. Replace `<storage_share_name>` with the name of the file share in the storage account.
+    Replace `<STORAGE_ACCOUNT_NAME>` and `<STORAGE_ACCOUNT_KEY>` with the name and key of your storage account. Replace `<STORAGE_SHARE_NAME>` with the name of the file share in the storage account.
 
     Valid values for `--access-mode` are `ReadWrite` and `ReadOnly`.
 
 1. To update an existing container app to mount a file share, export your app's specification to a YAML file named *app.yaml*.
 
     ```azure-cli
-    az containerapp show -n <app_name> -g <resource_group_name> -o yaml > app.yaml
+    az containerapp show -n <APP_NAME> -g <RESOURCE_GROUP_NAME> -o yaml > app.yaml
     ```
 
 1. Make the following changes to your container app specification.
@@ -223,11 +223,11 @@ When using Azure Files, you must use the Azure CLI with a YAML definition to cre
 
     ```yaml
     properties:
-      managedEnvironmentId: /subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.App/managedEnvironments/<env_name>
+      managedEnvironmentId: /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.App/managedEnvironments/<ENVIRONMENT_NAME>
       configuration:
       template:
         containers:
-        - image: <image_name>
+        - image: <IMAGE_NAME>
           name: my-container
           volumeMounts:
           - volumeName: azure-files-volume
@@ -241,7 +241,7 @@ When using Azure Files, you must use the Azure CLI with a YAML definition to cre
 1. Update your container app using the YAML file.
 
     ```azure-cli
-    az containerapp update --name <app_name> --resource-group <resource_group_name> \
+    az containerapp update --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> \
         --yaml my-app.yaml
     ```
 
