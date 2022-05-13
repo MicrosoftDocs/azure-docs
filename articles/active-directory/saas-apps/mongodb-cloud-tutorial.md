@@ -54,9 +54,9 @@ Configure and test Azure AD SSO with MongoDB Cloud, by using a test user called 
 To configure and test Azure AD SSO with MongoDB Cloud, perform the following steps:
 
 1. [Configure Azure AD SSO](#configure-azure-ad-sso) to enable your users to use this feature.
-    1. [Create an Azure AD test user and test group](#create-an-azure-ad-test-user) to test Azure AD single sign-on with B.Simon.
-    1. [Assign the Azure AD test user or test group](#assign-the-azure-ad-test-user) to enable B.Simon to use Azure AD single sign-on.
-1. [Configure MongoDB Cloud SSO](#configure-mongodb-cloud-sso) to configure the single sign-on settings on the application side.
+    1. [Create an Azure AD test user and test group](#create-an-azure-ad-test-user-and-test-group) to test Azure AD single sign-on with B.Simon.
+    1. [Assign the Azure AD test user or test group](#assign-the-azure-ad-test-user-or-test-group) to enable B.Simon to use Azure AD single sign-on.
+1. [Configure MongoDB Atlas SSO](#configure-mongodb-atlas-sso) to configure the single sign-on settings on the application side.
     1. [Create a MongoDB Cloud test user](#create-a-mongodb-cloud-test-user) to have a counterpart of B.Simon in MongoDB Cloud, linked to the Azure AD representation of the user.
 1. [Test SSO](#test-sso) to verify whether the configuration works.
 
