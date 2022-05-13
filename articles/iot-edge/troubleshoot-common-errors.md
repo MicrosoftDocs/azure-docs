@@ -329,10 +329,10 @@ A group enrollment is used to provision an IoT Edge device to an IoT Hub. The Io
 
 **Resolution:**
 
-1. Verify your your DPS credentials are correct.
+1. Verify your DPS credentials are correct.
 1. Apply your configuration using `sudo iotedge apply config`.
-1. If the device is not reprovisioned, restart the device using `sudo iotedge system restart`.
-1. If the device is not reprovisioned, force reprovisioning using `sudo iotedge system reprovision`.
+1. If the device isn't reprovisioned, restart the device using `sudo iotedge system restart`.
+1. If the device isn't reprovisioned, force reprovisioning using `sudo iotedge system reprovision`.
 
 To automatically reprovision, set `dynamic_reprovisioning: true` in the device configuration file. Setting this flag to true opts in to the dynamic re-provisioning feature. IoT Edge detects situations where the device appears to have been reprovisioned in the cloud by monitoring its own IoT Hub connection for certain errors. IoT Edge responds by shutting itself and all Edge modules down. The next time the daemon starts up, it will attempt to reprovision this device with Azure to receive the new IoT Hub provisioning information.
 
@@ -442,7 +442,7 @@ On Windows:
 
    1. If the parameter exists, set the value of the parameter to **1**.
 
-   1. If the paramter doesn't exist, add it as a new parameter with the following settings:
+   1. If the parameter doesn't exist, add it as a new parameter with the following settings:
 
       | Setting | Value |
       | ------- | ----- |
@@ -545,7 +545,7 @@ IoT Edge fails to start with error message `failed to provision with IoT Hub, an
 
 **Root cause:**
 
-A group enrollment is used to provision an IoT Edge device to an IoT Hub. The registration is deleted in DPS. A new registration is created in DPS to link to a different IoT hub. The device is not reprovisioned because reprovisioning is set to false.
+A group enrollment is used to provision an IoT Edge device to an IoT Hub. The registration is deleted in DPS. A new registration is created in DPS to link to a different IoT hub. The device isn't reprovisioned because reprovisioning is set to false.
 
 **Resolution:**
 
