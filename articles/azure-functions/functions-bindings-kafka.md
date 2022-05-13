@@ -3,29 +3,22 @@ title: Apache Kafka bindings for Azure Functions
 description: Learn to integrate Azure Functions with an Apache Kafka stream.
 author: ggailey777
 ms.topic: reference
-ms.date: 03/14/2022
+ms.date: 05/14/2022
 ms.author: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Apache Kafka bindings for Azure Functions overview
 
-Invoke Azure Functions and write values out to [Apache Kafka](https://kafka.apache.org/) event streams.
+The Kafka extension for Azure Functions lets you write values out to [Apache Kafka](https://kafka.apache.org/) topics by using an output binding. You can also use a trigger to invoke your functions in response to messages in Kafka topics. 
 
 > [!IMPORTANT]
 > Kafka bindings are only available for Functions on the [Elastic Premium Plan](functions-premium-plan.md) and [Dedicated (App Service) plan](dedicated-plan.md). They are only supported on version 3.x and later version of the Functions runtime.
 
 | Action | Type |
 |---------|---------|
-| Run a function based on a new Kafka event | [Trigger](./functions-bindings-kafka-trigger.md) |
-| Write to the Kafka event stream  |[Output binding](./functions-bindings-kafka-output.md) |
-
-<!--<<requirements here>>
-## Prerequisites
-
-Before working with the Kafka extension...
-
--->
+| Run a function based on a new Kafka event. | [Trigger](./functions-bindings-kafka-trigger.md) |
+| Write to the Kafka event stream.  |[Output binding](./functions-bindings-kafka-output.md) |
 
 ::: zone pivot="programming-language-csharp"
 
@@ -61,13 +54,13 @@ The Kafka extension is part of an [extension bundle], which is specified in your
 
 ## Install bundle    
 
-The Kafka extension is part of an [extension bundle], which is specified in your host.json project file. When you create a project that targets version 2.x or later, you should already have this bundle installed. To learn more, see [extension bundle].
+The Kafka extension is part of an [extension bundle], which is specified in your host.json project file. When you create a project that targets Functions version 3.x or later, you should already have this bundle installed. To learn more, see [extension bundle].
 
 ::: zone-end
 
 ## host.json settings
 
-This section describes the configuration settings available for this binding.
+This section describes the configuration settings available for this binding in versions 3.x and higher. Settings in the host.json file apply to all functions in a function app instance. For more information about function app configuration settings in versions 3.x and later versions, see the [host.json reference for Azure Functions](functions-host-json.md).
 
 ```json
 {
@@ -91,7 +84,7 @@ This section describes the configuration settings available for this binding.
 | MaxBatchSize | 64 | Trigger | Maximum batch size when calling a Kafka triggered function. | 
 | SubscriberIntervalInSeconds | 1 | Trigger | Defines the minimum frequency incoming messages are executed, per function in seconds. Only when the message volume is less than `MaxBatchSize` / `SubscriberIntervalInSeconds`| 
 
-The following properties are inherited from the [Apache Kafka C/C++ client library](https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md).
+The following properties, which are inherited from the [Apache Kafka C/C++ client library](https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md), are also supported in the `kafka` section of host.json:
 
 |Property  | Type | librdkafka equivalent |
 |---------|---------|---------| 
@@ -108,10 +101,6 @@ The following properties are inherited from the [Apache Kafka C/C++ client libra
 | SessionTimeoutMs	| Trigger | `session.timeout.ms` |
 | SocketKeepaliveEnable	| Both | `socket.keepalive.enable` |
 | StatisticsIntervalMs	| Trigger | `statistics.interval.ms` |
-
-
-
-
 
 
 ## Next steps

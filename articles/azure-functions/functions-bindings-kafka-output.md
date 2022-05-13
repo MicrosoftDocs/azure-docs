@@ -1,9 +1,9 @@
 ---
 title: Apache Kafka output binding for Azure Functions
-description: Learn to write to an Apache Kafka stream from an Azure Functions app.
+description: Use Azure Functions to write messages to an Apache Kafka stream.
 author: ggailey777
 ms.topic: reference
-ms.date: 03/14/2022
+ms.date: 05/14/2022
 ms.author: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -11,6 +11,9 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 # Apache Kafka output binding for Azure Functions
 
 The output binding allows an Azure Functions app to write messages to a Kafka topic. 
+
+> [!IMPORTANT]
+> Kafka bindings are only available for Functions on the [Elastic Premium Plan](functions-premium-plan.md) and [Dedicated (App Service) plan](dedicated-plan.md). They are only supported on version 3.x and later version of the Functions runtime.
 
 ## Example
 ::: zone pivot="programming-language-csharp"
@@ -403,17 +406,13 @@ Both keys and values types are supported with built-in [Avro](http://avro.apache
 The offset, partition, and timestamp for the event are generated at runtime. Only value and headers can be set inside the function. Topic is set in the function.json.
 ::: zone-end
 
-In application settings or in the _local.settings.json_ file during local development, set the authentication credentials for your Confluent Cloud environment.
-
-- **BootstrapServer**: Contains the value of bootstrap server found in Confluent Cloud settings page. The value will resemble `xyz-xyzxzy.westeurope.azure.confluent.cloud:9092`.
-
-- **ConfluentCloudUsername**: The API access key obtained from the Confluent Cloud web site.
-
-- **ConfluentCloudPassword**: The API secret obtained from the Confluent Cloud web site.
+Please make sure to have access to the Kafka topic to which you are trying to write. You configure the binding with access and connection credentials to the Kafka topic. 
 
 In a Premium plan, you must enable runtime scale monitoring for the Kafka output to be able to scale out to multiple instances. To learn more, see [Premium plan with virtual network triggers](functions-networking-options.md#premium-plan-with-virtual-network-triggers).
 
 For a complete set of supported host.json settings for the Kafka trigger, see [host.json settings](functions-bindings-kafka.md#hostjson-settings). 
+
+[!INCLUDE [functions-bindings-kafka-connections](../../includes/functions-bindings-kafka-connections.md)]
 
 ## Next steps
 
