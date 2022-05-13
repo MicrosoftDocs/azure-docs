@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Send an email
+title: Quickstart - How to send an email using Azure Communication Service.
 titleSuffix: An Azure Communication Services Quickstart
 description: Learn how to send an email message using Azure Communication Services.
 author: bashan-git
@@ -13,7 +13,7 @@ ms.custom: private_preview
 zone_pivot_groups: acs-js-csharp
 ---
 
-# Quickstart: How to send an Email using Azure Communication Services.
+# Quickstart: How to send an email using Azure Communication Service.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Send email with .NET SDK](./includes/send-email-net.md)]
