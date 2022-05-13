@@ -1180,12 +1180,8 @@
           href: mongodb/create-mongodb-java.md
         - name: Node.js
           href: mongodb/create-mongodb-nodejs.md
-        - name: Xamarin
-          href: mongodb/create-mongodb-xamarin.md
         - name: Golang
           href: mongodb/create-mongodb-go.md
-        - name: Rust
-          href: mongodb/create-mongodb-rust.md 
     - name: Tutorials
       items:
         - name: 1 - Create and manage data
