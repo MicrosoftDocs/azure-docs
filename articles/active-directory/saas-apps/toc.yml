@@ -215,6 +215,8 @@
         href: attendancemanagementservices-tutorial.md
       - name: AuditBoard
         href: auditboard-tutorial.md
+      - name: Authomize
+        href: authomize-tutorial.md
       - name: Autodesk SSO
         href: autodesk-sso-tutorial.md
       - name: Autotask Endpoint Backup
@@ -601,10 +603,14 @@
         href: datasite-tutorial.md
       - name: Datava Enterprise Service Platform
         href: datava-enterprise-service-platform-tutorial.md
+      - name: Datto File Protection Single Sign On
+        href: datto-file-protection-tutorial.md
       - name: Datto Workplace Single Sign On
         href: datto-workplace-tutorial.md
       - name: Dealpath
         href: dealpath-tutorial.md
+      - name: deBroome Brand Portal
+        href: debroome-brand-portal-tutorial.md
       - name: Degreed
         href: degreed-tutorial.md
       - name: Deputy
@@ -814,6 +820,8 @@
         href: field-id-tutorial.md
       - name: Fidelity NetBenefits
         href: fidelitynetbenefits-tutorial.md
+      - name: Fidelity PlanViewer
+        href: fidelity-planviewer-tutorial.md
       - name: Fieldglass
         href: fieldglass-tutorial.md
       - name: Figma
@@ -874,6 +882,8 @@
         href: fortiweb-web-application-firewall-tutorial.md 
       - name: foundU
         href: foundu-tutorial.md
+      - name: Framer
+        href: framer-tutorial.md
       - name: Freedcamp
         href: freedcamp-tutorial.md
       - name: FreshDesk
@@ -898,6 +908,8 @@
         href: fuse-tutorial.md
       - name: Fuze
         href: fuze-tutorial.md  
+      - name: gamba!
+        href: gamba-tutorial.md
       - name: G Suite
         href: google-apps-tutorial.md
       - name: GaggleAMP
@@ -1350,6 +1362,8 @@
         href: luum-tutorial.md
       - name: Lynda.com
         href: lynda-tutorial.md
+      - name: Lyve Cloud
+        href: lyve-cloud-tutorial.md
       - name: M-Files
         href: m-files-tutorial.md
       - name: Mail Luck!
@@ -2014,6 +2028,8 @@
         href: skillsmanager-tutorial.md
       - name: Skills Workflow
         href: skills-workflow-tutorial.md
+      - name: Skopenow
+        href: skopenow-tutorial.md
       - name: SkyDesk Email
         href: skydeskemail-tutorial.md
       - name: SKYSITE
@@ -2168,6 +2184,8 @@
         href: teamphoria-tutorial.md
       - name: TeamSeer
         href: teamseer-tutorial.md
+      - name: TeamSlide
+        href: teamslide-tutorial.md
       - name: TeamSticker by Communitio
         href: teamsticker-by-communitio-tutorial.md  
       - name: TeamViewer

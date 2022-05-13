@@ -103,12 +103,16 @@
     href: pricing-concepts.md
 - name: How-to guides
   items:
-  - name: Upgrade a virtual WAN SKU
+  - name: Upgrade from Basic to Standard
     href: upgrade-virtual-wan.md
   - name: Create an NVA in a virtual hub
     href: How-to-nva-hub.md
   - name: Connect a VNet to a virtual hub
-    href: howto-connect-vnet-hub.md
+    items:
+    - name: Azure portal
+      href: howto-connect-vnet-hub.md
+    - name: Azure PowerShell
+      href: howto-connect-vnet-hub-powershell.md
   - name: Create a cross-tenant VNet connection
     href: cross-tenant-vnet.md
   - name: ExpressRoute
@@ -160,7 +164,7 @@
     - name: VPN clients
       items:
         - name: OpenVPN
-          href: howto-openvpn-clients.md?
+          href: howto-openvpn-clients.md
         - name: Azure AD authentication
           items:
             - name: Windows 10

@@ -5,7 +5,7 @@ description: Configure a client application to communicate with Azure Service Bu
 services: service-bus
 author: EldertGrootenboer
 
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 04/22/2022
 ms.author: egrootenboer

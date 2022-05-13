@@ -55,11 +55,13 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Azure CLI
-            url: kubernetes-walkthrough.md
+            url: ./learn/quick-kubernetes-deploy-cli.md
+          - text: Azure PowerShell
+            url: ./learn/quick-kubernetes-deploy-powershell.md
           - text: Azure Portal
-            url: kubernetes-walkthrough-portal.md
+            url: ./learn/quick-kubernetes-deploy-portal.md
           - text: Resource Manager template
-            url: kubernetes-walkthrough-rm-template.md
+            url: ./learn/quick-kubernetes-deploy-rm-template.md
 
   # Card
   - title: Develop and debug applications
