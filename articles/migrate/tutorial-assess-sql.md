@@ -66,7 +66,7 @@ Run an assessment as follows:
     - The **Sizing criteria** is defaulted to *Performance-based*, which means Azure migrate will collect performance metrics pertaining to SQL instances and the databases managed by it to recommend an optimal-sized SQL Server on Azure VM and/or Azure SQL Database and/or Azure SQL Managed Instance configuration. You can specify:
         - **Performance history** to indicate the data duration on which you want to base the assessment. (Default is one day)
         - **Percentile utilization**, to indicate the percentile value you want to use for the performance sample. (Default is 95th percentile)
-    - In **Comfort factor**, indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, the following table displayes values if you use a comfort factor of two: 
+    - In **Comfort factor**, indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, the following table displays values if you use a comfort factor of two: 
         
         **Component** | **Effective utilization** | **Add comfort factor (2.0)**
         --- | --- | ---
@@ -144,7 +144,7 @@ You can see the SQL Server instance readiness for different recommended deployme
     - You can go to the cost estimates report to review cost of each of the SQL instance after migrating to the recommended deployment target.
 
 > [!NOTE]
-> In the recommended deployment strategy, migrating innstances to SQL Server on Azure VM is the recommended strategy for migrating SQL Server instances. Though when SQL Server credentials are not available, the Azure SQL assessment provides right-sized lift-and-shift, that is, "Server to SQL Server on Azure VM" recommendations.
+> In the recommended deployment strategy, migrating instances to SQL Server on Azure VM is the recommended strategy for migrating SQL Server instances. Though when SQL Server credentials are not available, the Azure SQL assessment provides right-sized lift-and-shift, that is, "Server to SQL Server on Azure VM" recommendations.
 
 1. **Migrate all instances to Azure SQL MI**: 
 In this strategy, you can see the readiness and cost estimates for migrating all SQL Server instances to Azure SQL Managed Instance. 

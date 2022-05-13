@@ -112,7 +112,7 @@ Azure SQL readiness for SQL instances and databases is based on a feature compat
 1. If there are non-critical compatibility issues, such as deprecated or unsupported features that do not block the migration to a specific target deployment type, the readiness is marked as **Ready** (hyperlinked) with **warning** details and recommended remediation guidance.
 1. If there are any compatibility issues that may block the migration to a specific target deployment type, the readiness is marked as **Ready with conditions** with **issue** details and recommended remediation guidance.
     - In the Recommended deployment, Instances to Azure SQL MI, and Instances to SQL Server on Azure VM readiness reports, if there is even one database in an SQL instance, which is not ready for a particular target deployment type, the instance is marked as **Ready with conditions** for that deployment type.
-1. **Not ready**: The assessment could not find a SQL Server on Azure VM/Azure SQL MI/Azure SQL DB configuration meeting the desired configuration and performance characteristics. You can review the recommendation to make the instance/sever ready for the desired target deployment type.
+1. **Not ready**: The assessment could not find a SQL Server on Azure VM/Azure SQL MI/Azure SQL DB configuration meeting the desired configuration and performance characteristics. You can review the recommendation to make the instance/server ready for the desired target deployment type.
 1. If the discovery is still in progress or there are any discovery issues for a SQL instance or database, the readiness is marked as **Unknown** as the assessment could not compute the readiness for that SQL instance.
 
 > [!NOTE]
@@ -128,7 +128,7 @@ For the recommended deployment migration strategy, the assessment recommends an 
 If you select the target deployment type as **Recommended** in the Azure SQL assessment properties, Azure Migrate recommends an Azure SQL deployment type that is compatible with your SQL instance. Migrating to a Microsoft-recommended target reduces your overall migration effort. 
 
 > [!NOTE]
-> In the recommended deployment stratgey, if the source SQL Server is good fit for all three deployment targets- SQL Server on Azure VM, Azure SQL Managed Instance and Azure SQL Database, the assessment recommends a specific option that optimizes your cost and fits within the size and performance boundaries.
+> In the recommended deployment strategy, if the source SQL Server is good fit for all three deployment targets- SQL Server on Azure VM, Azure SQL Managed Instance and Azure SQL Database, the assessment recommends a specific option that optimizes your cost and fits within the size and performance boundaries.
 
 ## Calculate sizing
 
@@ -150,7 +150,7 @@ After the assessment determines the readiness and the recommended Azure SQL depl
 
 ### Instances to SQL Server on Azure VM configuration
 
-"Instance to SQL Server on Azure VM" assessment report covers the ideal approach for migrating SQL Server instances and databases to SQL Server on Azure VM, adhering to the best practices. [Learn more](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist?view=azuresql#vm-size&preserve-view=true)
+"Instance to SQL Server on Azure VM" assessment report covers the ideal approach for migrating SQL Server instances and databases to SQL Server on Azure VM, adhering to the best practices. [Learn more](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist?view=azuresql#vm-size&preserve-view=true).
 
 #### Storage sizing
 For storage sizing, the assessment maps each of the instance disk to an Azure disk. Sizing works as follows:
