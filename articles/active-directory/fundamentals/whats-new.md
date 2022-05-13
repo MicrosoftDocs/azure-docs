@@ -34,7 +34,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## April 2022
 
-### General Availability- Microsoft Defender for Endpoint Signal in Identity Protection
+### General Availability - Microsoft Defender for Endpoint Signal in Identity Protection
 
 
 **Type:** New feature  
