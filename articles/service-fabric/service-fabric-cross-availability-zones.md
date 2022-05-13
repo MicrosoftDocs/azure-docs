@@ -206,9 +206,9 @@ You don't need to configure the `FaultDomain` and `UpgradeDomain` overrides.
 >[!NOTE]
 >
 > * Service Fabric clusters should have at least one primary node type. The durability level of primary node types should be Silver or higher.
-> * An AZ-spanning virtual machine scale set should be configured with at least three Availability Zones, no matter the durability level.
-> * An AZ-spanning virtual machine scale set with Silver or higher durability should have at least 15 VMs.
-> * An AZ-spanning virtual machine scale set with Bronze durability should have at least six VMs.
+> * An Availability Zone spanning virtual machine scale set should be configured with at least three Availability Zones, no matter the durability level.
+> * An Availability Zone spanning virtual machine scale set with Silver or higher durability should have at least 15 VMs.
+> * An Availaibility Zone spanning virtual machine scale set with Bronze durability should have at least six VMs.
 
 ### Enable support for multiple zones in the Service Fabric node type
 
