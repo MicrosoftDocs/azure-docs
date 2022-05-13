@@ -74,7 +74,7 @@ Create a private flexible server and a database inside a virtual network (VNET) 
 ```azurecli
 # Create Flexible server in a VNET
 
-az postgres flexible-server create --resource-group myresourcegroup --location westus2
+az postgres flexible-server create --resource-group myresourcegroup --location westus2 --vnet VNETName
 
 ```
 
