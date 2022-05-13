@@ -43,9 +43,15 @@ az term accept --publisher vmware-inc --product azure-spring-cloud-vmware-tanzu-
 
 ## Review the template
 
-The template used in this quickstart is from the [Azure Spring Cloud reference architecture](reference-architecture.md).
+The templates used in this quickstart are from the [Azure Spring Cloud reference architecture](reference-architecture.md).
 
-:::code language="json" source="~/azure-spring-cloud-reference-architecture/ARM/brownfield-deployment/azuredeploy.json":::
+# [Azure Spring Standard](#tab/azure-spring-standard)
+
+:::code language="json" source="~/azure-spring-cloud-reference-architecture/ARM/brownfield-deployment/azuredeploySpringStandard.json":::
+
+# [Azure Spring Enterprise](#tab/azure-spring-enterprise)
+
+:::code language="json" source="~/azure-spring-cloud-reference-architecture/ARM/brownfield-deployment/azuredeploySpringEnterprise.json":::
 
 Two Azure resources are defined in the template:
 
