@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ms.custom: private_preview
 ---
-# Preparing Email Communication Resource for Azure Communication Service 
+# Preparing Email Communication resource for Azure Communication Service 
 
 > [!IMPORTANT]
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
@@ -30,7 +30,7 @@ One of the key principles for Azure Communication Services is to have a simplifi
 
 Your Azure Administrators will create a new resource of type “Email Communication Services” and add the allowed email sender domains under this resource. The domains added under this resource type will contain all the sender authentication and engagement tracking configurations that are required to be completed before start sending emails. Once the sender domain is configured and verified you  will able to link these domains with your Azure Communication Services resource and you can select which  of the verified domains is suitable for your application and connect them to send emails from your application.  
 
-## Organization Admins \ Admin Developers Responsibility 
+## Organization Admins \ Admin developers responsibility 
 
 - Plan all the required Email Domains for the applications in the organization
 - Create the new resource of type “Email Communication Services”
@@ -38,7 +38,7 @@ Your Azure Administrators will create a new resource of type “Email Communicat
 - Perform the sender verification steps for Custom Domains
 - Setup DMARC Policy for the verified Sender Domains.
 
-## Developers Responsibility 
+## Developers responsibility 
 - Connect the preferred domain to Azure Communication Service resources.
 - Generate email payload and define the required
   - Email headers 
@@ -50,17 +50,17 @@ Your Azure Administrators will create a new resource of type “Email Communicat
 
 ## Next steps
 
-> [Understanding Email Domains in Azure Communication Services](./Understanding-email-domain-setup.md)
+> [Email domains and sender authentication for Azure Communication Services](./Understanding-email-domain-setup.md)
 
-> [Get started with Creating Email Communication Resource](../../quickstarts/email/create-email-communication-resource.md)
+> [Get started with create and manage Email Communication Service in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
 
-> [Get started by Connecting Email Resource with a Communication Resource](../../quickstarts/email/connect-email-communication-acs-resource.md)
+> [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-acs-resource.md)
 
 
 The following documents may be interesting to you:
 
 - Familiarize yourself with the [Email client library](../email/sdk-features.md)
 - How to send emails with custom verified domains?[Add custom domains](../../quickstarts/email/add-custom-verified-domains.md)
-- How to send emails with Azure Communication Service managed domains?[Add Azure Managed domains](../../quickstarts/email/add-azure-managed-domains.md)
+- How to send emails with Azure Managed Domains?[Add Azure Managed domains](../../quickstarts/email/add-azure-managed-domains.md)
 
 
