@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault Secrets Provider extension (Preview)
+title: Azure Key Vault Secrets Provider extension
 description: Tutorial for setting up Azure Key Vault provider for Secrets Store CSI Driver interface as an extension on Azure Arc enabled Kubernetes cluster
 services: azure-arc
 ms.service: azure-arc
@@ -9,7 +9,7 @@ author: mayurigupta13
 ms.author: mayg
 ---
 
-# Using Azure Key Vault Secrets Provider extension to fetch secrets into Arc clusters (Preview)
+# Using Azure Key Vault Secrets Provider extension to fetch secrets into Arc clusters
 
 The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integration of Azure Key Vault as a secrets store with a Kubernetes cluster via a [CSI volume](https://kubernetes-csi.github.io/docs/).
 
@@ -25,9 +25,8 @@ The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integra
     - OpenShift Kubernetes Distribution
     - Canonical Kubernetes Distribution
     - Elastic Kubernetes Service
+    - Tanzu Kubernetes Grid
 
-
-[!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
 ## Features
 
@@ -47,10 +46,9 @@ Set the environment variables:
 export CLUSTER_NAME=<arc-cluster-name>
 export RESOURCE_GROUP=<resource-group-name>
 ```
-While AKV secrets provider extension is in preview, the `az k8s-extension create` command only accepts `preview` for the `--release-train` flag.
 
 ```azurecli-interactive
-az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.AzureKeyVaultSecretsProvider --release-train preview --name akvsecretsprovider
+az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.AzureKeyVaultSecretsProvider --name akvsecretsprovider
 ```
 
 The above will install the Secrets Store CSI Driver and the Azure Key Vault Provider on your cluster nodes. You should see output similar to the output shown below. It may take 3-5 minutes for the actual AKV secrets provider helm chart to get deployed to the cluster.
@@ -62,7 +60,11 @@ Note that only one instance of AKV secrets provider extension can be deployed on
   "aksAssignedIdentity": null,
   "autoUpgradeMinorVersion": true,
   "configurationProtectedSettings": {},
-  "configurationSettings": {},
+  "configurationSettings": {
+    "secrets-store-csi-driver.enableSecretRotation": "true",
+    "secrets-store-csi-driver.rotationPollInterval": "2m",
+    "secrets-store-csi-driver.syncSecret.enabled": "true"
+  },
   "customLocationSettings": null,
   "errorInfo": null,
   "extensionType": "microsoft.azurekeyvaultsecretsprovider",
@@ -73,10 +75,10 @@ Note that only one instance of AKV secrets provider extension can be deployed on
     "type": "SystemAssigned"
   },
   "location": null,
-  "name": "sscsi",
+  "name": "akvsecretsprovider",
   "packageUri": null,
   "provisioningState": "Succeeded",
-  "releaseTrain": "preview",
+  "releaseTrain": "Stable",
   "resourceGroup": "$RESOURCE_GROUP",
   "scope": {
     "cluster": {
@@ -86,15 +88,15 @@ Note that only one instance of AKV secrets provider extension can be deployed on
   },
   "statuses": [],
   "systemData": {
-    "createdAt": "2021-11-15T18:55:33.952130+00:00",
+    "createdAt": "2022-05-12T18:35:56.552889+00:00",
     "createdBy": null,
     "createdByType": null,
-    "lastModifiedAt": "2021-11-15T18:55:33.952130+00:00",
+    "lastModifiedAt": "2022-05-12T18:35:56.552889+00:00",
     "lastModifiedBy": null,
     "lastModifiedByType": null
   },
   "type": "Microsoft.KubernetesConfiguration/extensions",
-  "version": "1.0.0"
+  "version": "1.1.3"
 }
 ```
 
@@ -135,7 +137,7 @@ After connecting your cluster to Azure Arc, create a json file with the followin
             }
         },
         "ReleaseTrain": {
-            "defaultValue": "preview",
+            "defaultValue": "stable",
             "type": "String",
             "metadata": {
                 "description": "The release train."
@@ -185,7 +187,11 @@ You should see a JSON output similar to the output below:
   "aksAssignedIdentity": null,
   "autoUpgradeMinorVersion": true,
   "configurationProtectedSettings": {},
-  "configurationSettings": {},
+  "configurationSettings": {
+    "secrets-store-csi-driver.enableSecretRotation": "true",
+    "secrets-store-csi-driver.rotationPollInterval": "2m",
+    "secrets-store-csi-driver.syncSecret.enabled": "true"
+  },
   "customLocationSettings": null,
   "errorInfo": null,
   "extensionType": "microsoft.azurekeyvaultsecretsprovider",
@@ -199,7 +205,7 @@ You should see a JSON output similar to the output below:
   "name": "akvsecretsprovider",
   "packageUri": null,
   "provisioningState": "Succeeded",
-  "releaseTrain": "preview",
+  "releaseTrain": "Stable",
   "resourceGroup": "$RESOURCE_GROUP",
   "scope": {
     "cluster": {
@@ -209,15 +215,15 @@ You should see a JSON output similar to the output below:
   },
   "statuses": [],
   "systemData": {
-    "createdAt": "2021-11-15T21:17:52.751916+00:00",
+    "createdAt": "2022-05-12T18:35:56.552889+00:00",
     "createdBy": null,
     "createdByType": null,
-    "lastModifiedAt": "2021-11-15T21:17:52.751916+00:00",
+    "lastModifiedAt": "2022-05-12T18:35:56.552889+00:00",
     "lastModifiedBy": null,
     "lastModifiedByType": null
   },
   "type": "Microsoft.KubernetesConfiguration/extensions",
-  "version": "1.0.0"
+  "version": "1.1.3"
 }
 ```
 
@@ -349,7 +355,7 @@ These settings can be changed either at the time of extension installation using
 
 Use following command to add configuration settings while creating extension instance:
 ```azurecli-interactive
-az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.AzureKeyVaultSecretsProvider --release-train preview --name akvsecretsprovider --configuration-settings secrets-store-csi-driver.enableSecretRotation=true secrets-store-csi-driver.rotationPollInterval=3m secrets-store-csi-driver.syncSecret.enabled=true
+az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.AzureKeyVaultSecretsProvider --name akvsecretsprovider --configuration-settings secrets-store-csi-driver.enableSecretRotation=true secrets-store-csi-driver.rotationPollInterval=3m secrets-store-csi-driver.syncSecret.enabled=true
 ```
 
 Use following command to update configuration settings of existing extension instance:
