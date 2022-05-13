@@ -36,7 +36,7 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
 
     The *RegistrationState* should be **Registered**.
 
-    For additional details, refer to [Register preview feature](../azure-resource-manager/management/preview-features?tabs=azure-portal#register-preview-feature).
+    For additional details, refer to [Register preview feature](../azure-resource-manager/management/preview-features.md?tabs=azure-portal#register-preview-feature).
 
 
 * A target storage account created after the registration step is completed. The target storage account must be in the same Azure region as the source storage account. If you do not know the Azure region of the source storage account, you will be able to find out during the asset mapping step later in the process.
