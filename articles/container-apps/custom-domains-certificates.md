@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 04/28/2022
+ms.date: 05/15/2022
 ms.author: cshoe
 ---
 
@@ -33,7 +33,7 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
     | Setting | Value | Notes |
     |--|--|--|
     | Domain | Enter your domain name. | Make sure the value is just the domain without the protocol. For instance, `example.com`, or `www.example.com`. |
-    | Hostname record type | Verify the default value. | The value selected automatically is Azure's best guess based on the form of the domain name you entered. For an apex domain, the value should be `CNAME`, for a subdomain the value should be an `A` record. |
+    | Hostname record type | Verify the default value. | The value selected automatically is Azure's best guess based on the form of the domain name you entered. For an apex domain, the value should be an `A` record, for a subdomain the value should be `CNAME`. |
 
 1. Next, you need to add the DNS records shown on this window to your domain via your domain provider's website. Open a new browser window to add the DNS records and return here once you're finished.
 
