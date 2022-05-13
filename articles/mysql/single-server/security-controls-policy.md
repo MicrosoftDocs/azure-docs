@@ -13,12 +13,8 @@ ms.custom: subject-policy-compliancecontrols
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-[Regulatory Compliance in Azure Policy](../../governance/policy/concepts/regulatory-compliance.md)
-provides Microsoft created and managed initiative definitions, known as _built-ins_, for the
-**compliance domains** and **security controls** related to different compliance standards. This
-page lists the **compliance domains** and **security controls** for Azure Database for MySQL. You
-can assign the built-ins for a **security control** individually to help make your Azure resources
-compliant with the specific standard.
+[Regulatory Compliance in Azure Policy](../../governance/policy/concepts/regulatory-compliance.md) provides Microsoft created and managed initiative definitions, known as _built-ins_, for the **compliance domains** and **security controls** related to different compliance standards. This
+page lists the **compliance domains** and **security controls** for Azure Database for MySQL. You can assign the built-ins for a **security control** individually to help make your Azure resources compliant with the specific standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../../includes/policy/standards/intro-warning.md)]
 
