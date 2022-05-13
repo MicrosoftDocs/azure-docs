@@ -5,7 +5,7 @@ services: container-apps
 author: cebundy
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 05/11/2022
+ms.date: 04/11/2022
 ms.author: v-bcatherine
 ---
 
@@ -28,7 +28,6 @@ With managed identities:
 - You can use role-based access control to grant specific permissions to a managed identity.
 - System-assigned identities are automatically created and managed. They're deleted when your container app is deleted.
 - You can add and delete user-assigned identities and assign them to multiple resources. They're independent of your container app's life cycle.
-- You can use managed identity to [authenticate with a private Azure Container Registry](container.md#container-registries) without a username and password to pull containers for your Container App.
 
 ### Common use cases
 
@@ -44,7 +43,11 @@ User-assigned identities are ideal for workloads that:
 
 ## Limitations
 
-The identity is only available within a running container, which means you can't use a managed identity in scaling rules or Dapr configuration.  To access resources that require a connection string or key, such as  storage resources, you'll still need to include the connection string or key in the `secretRef` of the scaling rule.
+The identity is only available within a running container, which means you can't use a managed identity to:
+
+- Pull an image from Azure Container Registry
+- Define scaling rules or Dapr configuration
+  - To access resources that require a connection string or key, such as  storage resources, you'll still need to include the connection string or key in the `secretRef` of the scaling rule.
 
 ## Configure managed identities
 
@@ -265,11 +268,11 @@ A container app with a managed identity exposes the identity endpoint by definin
 - IDENTITY_ENDPOINT - local URL from which your container app can request tokens.
 - IDENTITY_HEADER - a header used to help mitigate server-side request forgery (SSRF) attacks. The value is rotated by the platform.
 
-To get a token for a resource, make an HTTP GET request to the endpoint, including the following parameters:
+To get a token for a resource, make an HTTP GET request to this endpoint, including the following parameters:
 
 | Parameter name    | In     | Description|
 |---------|---------|---------|
-| resource          | Query  | The Azure AD resource URI of the resource for which a token should be obtained. The resource could be one of the [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) or any other resource URI.    |
+| resource          | Query  | The Azure AD resource URI of the resource for which a token should be obtained. This could be one of the [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) or any other resource URI.    |
 | api-version       | Query  | The version of the token API to be used. Use "2019-08-01" or later. |
 | X-IDENTITY-HEADER | Header | The value of the `IDENTITY_HEADER` environment variable. This header mitigates server-side request forgery (SSRF) attacks. |
 | client_id         | Query  | (Optional) The client ID of the user-assigned identity to be used. Can't be used on a request that includes `principal_id`, `mi_res_id`, or `object_id`. If all ID parameters  (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.|
