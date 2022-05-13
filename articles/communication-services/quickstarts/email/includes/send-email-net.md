@@ -105,7 +105,6 @@ The following classes and interfaces handle some of the major features of the Az
 // from an environment variable.
 string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
 
-EmailClient emailClient = new EmailClient(connectionString);
 ```
 ## Send an Email message
 
