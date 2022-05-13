@@ -621,7 +621,7 @@ This article lists common error codes and messages reported by mapping data flow
 
 ## Error code: 4506
 - **Message**: Failed to provision cluster for '%activityId;' because the request computer exceeds the maximum concurrent count of 200. Integration Runtime '%IRName;'
-- **Cause**: Transient error.
+- **Cause**: Transient error
 - **Recommendation**: Retry the request after a wait period.
 
 ## Error code: 4507
@@ -635,12 +635,12 @@ This article lists common error codes and messages reported by mapping data flow
 
 ## Error code: 4509
 - **Message**: Hit unexpected failure while allocating compute resources, please retry. If the problem persists, please contact Azure Support
-- **Cause**: Transient error.
+- **Cause**: Transient error
 - **Recommendation**: Retry the request after a wait period.
 
 ## Error code: 4511
 - **Message**: java.sql.SQLTransactionRollbackException. Deadlock found when trying to get lock; try restarting transaction. If the problem persists, please contact Azure Support
-- **Cause**: Transient error.
+- **Cause**: Transient error
 - **Recommendation**: Retry the request after a wait period.
 
 

@@ -391,7 +391,7 @@ The following table applies to U-SQL.
 
 - **Message**: `There is not enough resource available in the workspace, details: '%errorMessage;'`
 
-- **Cause**: Insufficient resources.
+- **Cause**: Insufficient resources
 
 - **Recommendation**: Try ending the running job(s) in the workspace, reducing the numbers of vCores requested, increasing the workspace quota or using another workspace.
 
@@ -399,7 +399,7 @@ The following table applies to U-SQL.
 
 - **Message**: `There is not enough resource available in the pool, details: '%errorMessage;'`
 
-- **Cause**: Insufficient resources.
+- **Cause**: Insufficient resources
 
 - **Recommendation**: Try ending the running job(s) in the pool, reducing the numbers of vCores requested, increasing the pool maximum size or using another pool.
 
@@ -407,7 +407,7 @@ The following table applies to U-SQL.
 
 - **Message**: `There is not enough vcore available for your spark job, details: '%errorMessage;'`
 
-- **Cause**: Insufficient vCores.
+- **Cause**: Insufficient vcores
 
 - **Recommendation**: Try reducing the numbers of vCores requested or increasing your vCores quota. For more information, see [Apache Spark core concepts](../synapse-analytics/spark/apache-spark-concepts.md).
 
