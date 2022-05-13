@@ -10,13 +10,13 @@ ms.date: 05/12/2022
 ms.author: v-eschaffer 
 ms.custom: devx-track-azurepowershell
 
-#Customer intent: As an IT admin, I want to create custom roles using Bicep so that I can start automating custom role processes.
+#Customer intent: As an IT admin, I want to create custom and/or roles using Bicep so that I can start automating custom role processes.
 
 ---
 
-# Create Azure custom roles using Bicep
+# Create or update Azure custom roles using Bicep
 
-If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own [custom roles](custom-roles.md). This article describes how to create a custom role using Bicep.
+If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own [custom roles](custom-roles.md). This article describes how to create or update a custom role using Bicep.
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -85,6 +85,49 @@ Get-AzResource -ResourceGroupName exampleRG
 ```
 
 ---
+
+## Update a custom role
+
+Similar to creating a custom role, you can update an existing custom role using Bicep. To update a custom role, you need to specify the role you want to update.
+
+Here are the changes you would need to make to the previous Bicep file to update the custom role:
+
+- Include the role ID as a parameter.
+
+    ```bicep
+    ...
+    @description('ID of the role definition)
+    param roleDefName string = '<ID-name>'
+    ...
+
+    ```
+
+- Include the role ID parameter in the role definition.
+
+    ```bicep
+    ...
+    resource roleDef 'Microsoft.Authorization/roleDefinitions@2018-07-01' = {
+        name: '[parameters('roleDefName')]'
+        properties : {
+        ...
+    ```
+
+Then, use Azure CLI or Azure PowerShell to deploy the updated Bicep file.
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+az deployment group create --resource-group exampleRG --template-file main.bicep --actions <actions> --roleDefName <role-name>
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+New-AzDeployment -ResourceGroupName exampleRG -Location eastus -TemplateFile ./main.bicep -Actions <actions> -roleDefName <role-name>
+```
+
+> [!NOTE]
+> Replace **\<actions\>** with . Replace **\<role-name\>** with
 
 ## Clean up resources
 
