@@ -114,16 +114,16 @@ For a specific activation request, this command gets all the approval steps that
 #### HTTP request
 
 ````HTTP
-GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignmentApprovals/<request-ID-GUID> 
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentApprovals/<request-ID-GUID> 
 ````
 
 #### HTTP response
 
 ````HTTP
 { 
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#roleManagement/directory/roleAssignmentApprovals/$entity", 
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignmentApprovals/$entity", 
     "id": "<request-ID-GUID>",
-    "steps@odata.context": "https://graph.microsoft.com/v1.0/$metadata#roleManagement/directory/roleAssignmentApprovals('<request-ID-GUID>')/steps", 
+    "steps@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignmentApprovals('<request-ID-GUID>')/steps", 
     "steps": [ 
         { 
             "id": "<approval-step-ID-GUID>", 
@@ -145,7 +145,7 @@ GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignmentAppr
 
 ````HTTP
 PATCH 
-https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignmentApprovals/<request-ID-GUID>/steps/<approval-step-ID-GUID> 
+https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentApprovals/<request-ID-GUID>/steps/<approval-step-ID-GUID> 
 { 
     "reviewResult": "Approve", 
     "justification": "abcdefg" 

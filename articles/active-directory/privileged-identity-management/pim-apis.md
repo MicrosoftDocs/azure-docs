@@ -92,9 +92,9 @@ These entities work alongside pre-existing **roleDefinition** and **roleAssignme
 
 - To create a persistent (active) assignment with a schedule (start or end time), you can use the write operation on the  [unifiedRoleAssignmentScheduleRequest](/graph/api/resources/unifiedroleassignmentschedulerequest) resource
 
-- To activate an eligible assignment, you should also use the [write operation on roleAssignmentScheduleRequest](/graph/api/rbacapplication-post-roleassignmentschedulerequests) with a `selfActivate` **action** parameter.
+- To activate an eligible assignment, you should also use the [write operation on roleAssignmentScheduleRequest](/graph/api/rbacapplication-post-roleassignmentschedulerequests) with a `selfActivate` **action** property.
 
-Each of the request objects would either create the following read-only objects:
+Each of the request objects would create the following read-only objects:
 
 - [unifiedRoleAssignmentSchedule](/graph/api/resources/unifiedroleassignmentschedule)
 - [unifiedRoleEligibilitySchedule](/graph/api/resources/unifiedroleeligibilityschedule)
@@ -118,13 +118,13 @@ To manage the settings of Azure AD roles, we provide the following entities:
 
 The [unifiedroleManagementPolicy](/graph/api/resources/unifiedrolemanagementpolicy) resource through it's **rules** relationship defines the rules or settings of the Azure AD role. For example, whether MFA/approval is required, whether and who to send the email notifications to, or whether permanent assignments are allowed or not. The [unifiedroleManagementPolicyAssignment](/graph/api/resources/unifiedrolemanagementpolicyassignment) object attaches the policy to a specific role.
 
-Use these APIs is to get a list of all the roleManagementPolicyAssignments, filter it by the roleDefinitionID you want to modify, and then update the policy associated with the policyAssignment.
+Use the APIs supported by these resources retrieve role management policy assignments for all Azure AD role or filter the list by a **roleDefinitionId**, and then update the rules or settings in the policy associated with the Azure AD role.
 
 For more information about the policy settings APIs, see [role settings and PIM](/graph/api/resources/privilegedidentitymanagementv3-overview?view=graph-rest-1.0#role-settings-and-pim).
 
 ## Relationship between PIM entities and role assignment entities
 
-The only link between the PIM entity and the role assignment entity for persistent (active) assignment for either Azure AD roles or Azure roles is the roleAssignmentScheduleInstance. There is a one-to-one mapping between the two entities. That mapping means roleAssignment and roleAssignmentScheduleInstance would both include:  
+The only link between the PIM entity and the role assignment entity for persistent (active) assignment for either Azure AD roles or Azure roles is the unifiedRoleAssignmentScheduleInstance. There is a one-to-one mapping between the two entities. That mapping means roleAssignment and unifiedRoleAssignmentScheduleInstance would both include:  
 
 - Persistent (active) assignments made outside of PIM
 - Persistent (active) assignments with a schedule made inside PIM
