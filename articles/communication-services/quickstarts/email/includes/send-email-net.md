@@ -88,14 +88,13 @@ The following classes and interfaces handle some of the major features of the Az
 | --------------------| -----------------------------------------------------------------------------------------------------------------------------------------------------|
 | EmailAddress        | This class contains an email address and an option for a display name.                                                                               |
 | EmailAttachment     | This class creates an email attachment by accepting a unique ID, email attachment type, and a string of content bytes.                               |
-| EmailBody           | This class contains the plain text and/or HTML content of the email body.                                                                            |
 | EmailClient         | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages.                  |
 | EmailClientOptions  | This class can be added to the EmailClient instantiation to target a specific API version.                                                           |
 | EmailContent        | This class contains the subject and the body of the email message. The importance can also be set within the EmailContent class.                     |
 | EmailCustomHeader   | This class allows for the addition of a name and value pair for a custom header.                                                                     |
 | EmailMessage        | This class combines the sender, content, and recipients. Custom headers, attachments, and reply-to email addresses can optionally be added, as well. |
 | EmailRecipients     | This class holds lists of EmailAddress objects for recipients of the email message, including optional lists for CC & BCC recipients.                |
-| StatusFoundResponse | This class holds lists of email addresses for recipients of the email message, including optional CC & .                                             |
+| SendStatusResult | This class holds lists of status of the email message delivery .                                             |
 
 ## Authenticate the client
 
@@ -120,14 +119,16 @@ To send an Email message, you need to
 Please replace with your domain details and modify the content, recipient details as required
 ```csharp
 
-EmailClient emailClient = new EmailClient(connectionString);
-
 //Replace with your domain and modify the content, recipient details as required
 
-EmailContent emailContent = new EmailContent("Your Email Subject Goes Here", new EmailBody { PlainText = "Your Email body Goes Here" });
-EmailRecipients emailRecipients = new EmailRecipients(new List<EmailAddress> { new EmailAddress("emailalias@emaildomain.com") { DisplayName = "Friendly Display Name" } });
+EmailContent emailContent = new EmailContent();
+emailContent.Subject = "Welcome to Azure Communication Service Email.";
+emailContent.PlainText = "This email meessage is sent from Azure Communication Service Email using .NET SDK.";
+List<EmailAddress> emailAddresses = new List<EmailAddress> { new EmailAddress("emailalias@emaildomain.com") { DisplayName = "Friendly Display Name" }};
+EmailRecipients emailRecipients = new EmailRecipients(emailAddresses);
 EmailMessage emailMessage = new EmailMessage("donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net", emailContent, emailRecipients);
-var response = emailClient.SendEmail(emailMessage, Guid.NewGuid().ToString(), DateTime.Now.ToString());
+var response = emailClient.Send(emailMessage, Guid.NewGuid(), DateTime.Now);
+
 ```
 ## Getting MessageId to track Email Delivery
 
@@ -151,14 +152,14 @@ if (!response.IsError)
 ## Getting Status on Email Delivery
 To get the delivery status of email call GetMessageStatus API with MessageId
 ```csharp
-Response<StatusFoundResponse> messageStatus = null;
-messageStatus = emailClient.GetMessageStatus(messageId);
+Response<SendStatusResult> messageStatus = null;
+messageStatus = emailClient.GetSendStatus(messageId);
 Console.WriteLine($"MessageStatus = {messageStatus.Value.Status}");
 TimeSpan duration = TimeSpan.FromMinutes(3);
 long start = DateTime.Now.Ticks;
 do
 {
-    messageStatus = emailClient.GetMessageStatus(messageId);
+    messageStatus = emailClient.GetSendStatus(messageId);
     if (messageStatus.Value.Status != MessageStatus.Queued )
     {
         Console.WriteLine($"MessageStatus = {messageStatus.Value.Status}");
