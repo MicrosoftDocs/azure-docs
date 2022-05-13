@@ -75,6 +75,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	b. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://ziflow-production.auth0.com/login/callback?connection=<UNIQUE_ID>`
 
+	c. In the **Reply URL** text box, type the same value as in **Sign on URL** text box.
+
 	> [!NOTE]
 	> The preceding values are not real. You will update the unique ID value in the Identifier and Sign on URL with actual value, which is explained later in the tutorial.
 
