@@ -9,8 +9,6 @@ ms.date: 03/22/2022
 
 # Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Microsoft Defender for Endpoint is a holistic, cloud-delivered, endpoint security solution. Its main features are:
 
 - Risk-based vulnerability management and assessment 

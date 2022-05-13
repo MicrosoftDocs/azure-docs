@@ -1,16 +1,16 @@
 ---
-title: Generate shared access signature (SAS) tokens for containers and blobs with Microsoft Storage Explorer 
-description: How to generate Shared Access Signature tokens (SAS) for containers and blobs with Microsoft Storage Explorer and the Azure portal.
+title: Create shared access signature (SAS) tokens for containers and blobs with Microsoft Storage Explorer 
+description: How to create Shared Access Signature tokens (SAS) for containers and blobs with Microsoft Storage Explorer and the Azure portal.
 ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 12/06/2021
+ms.date: 04/26/2022
 ---
 
-# Generate SAS tokens for your storage containers
+# Create SAS tokens for your storage containers
 
-In this article, you'll learn how to create shared access signature (SAS) tokens using the Azure Storage Explorer or the Azure portal. An SAS token provides secure, delegated access to resources in your Azure storage account.
+In this article, you'll learn how to create shared access signature (SAS) tokens using the Azure Storage Explorer or the Azure portal. A SAS token provides secure, delegated access to resources in your Azure storage account.
 
 ## Create your SAS tokens with Azure Storage Explorer
 
@@ -29,14 +29,14 @@ In this article, you'll learn how to create shared access signature (SAS) tokens
 1. Select **Get Shared Access Signature...** from options menu.
 1. In the **Shared Access Signature** window, make the following selections:
     * Select your **Access policy** (the default is none).
-    * Specify the signed key **Start** and **Expiry** date and time. A short lifespan is recommended because, once generated, an SAS can't be revoked.
+    * Specify the signed key **Start** and **Expiry** date and time. A short lifespan is recommended because, once generated, a SAS can't be revoked.
     * Select the **Time zone** for the Start and Expiry date and time (default is Local).
     * Define your container **Permissions** by checking and/or clearing the appropriate check box.
     * Review and select **Create**.
 
 1. A new window will appear with the **Container** name, **URI**, and **Query string** for your container.  
 1. **Copy and paste the container, URI, and query string values in a secure location. They'll only be displayed once and can't be retrieved once the window is closed.**
-1. To construct an SAS URL, append the SAS token (URI) to the URL for a storage service.
+1. To construct a SAS URL, append the SAS token (URI) to the URL for a storage service.
 
 ### [SAS tokens for blobs](#tab/blobs)
 
@@ -47,13 +47,13 @@ In this article, you'll learn how to create shared access signature (SAS) tokens
 1. Select **Get Shared Access Signature...** from options menu.
 1. In the **Shared Access Signature** window, make the following selections:
     * Select your **Access policy** (the default is none).
-    * Specify the signed key **Start** and **Expiry** date and time. A short lifespan is recommended because, once generated, an SAS can't be revoked.
+    * Specify the signed key **Start** and **Expiry** date and time. A short lifespan is recommended because, once generated, a SAS can't be revoked.
     * Select the **Time zone** for the Start and Expiry date and time (default is Local).
     * Define your container **Permissions** by checking and/or clearing the appropriate check box.
     * Review and select **Create**.
 1. A new window will appear with the **Blob** name, **URI**, and **Query string** for your blob.  
 1. **Copy and paste the blob, URI, and query string values in a secure location. They will only be displayed once and cannot be retrieved once the window is closed.**
-1. To construct an SAS URL, append the SAS token (URI) to the URL for a storage service.
+1. To construct a SAS URL, append the SAS token (URI) to the URL for a storage service.
 
 ---
 
@@ -92,7 +92,7 @@ Go to the [Azure portal](https://portal.azure.com/#home) and navigate as follows
 
 1. **Copy and paste the Blob SAS token and URL values in a secure location. They'll only be displayed once and cannot be retrieved once the window is closed.**
 
-1. To construct an SAS URL, append the SAS token (URI) to the URL for a storage service.
+1. To construct a SAS URL, append the SAS token (URI) to the URL for a storage service.
 
 ## Learn more
 

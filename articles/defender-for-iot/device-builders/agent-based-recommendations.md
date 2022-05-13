@@ -7,11 +7,6 @@ ms.date: 03/28/2022
 
 # Security recommendations for IoT devices
 
-> [!NOTE]
-> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Tutorial: Investigate security recommendations](tutorial-investigate-security-recommendations.md).
->
-
-
 Defender for IoT scans your Azure resources and IoT devices and provides security recommendations to reduce your attack surface.
 Security recommendations are actionable and aim to aid customers in complying with security best practices.
 

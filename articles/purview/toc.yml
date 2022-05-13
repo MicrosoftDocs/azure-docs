@@ -26,29 +26,27 @@ items:
   items:
   - name: Microsoft Purview deployment checklist
     href: tutorial-azure-purview-checklist.md
+  - name: Data owner policies for Azure Storage
+    href: tutorial-data-owner-policies-storage.md
+  - name: Integrate with Microsoft Sentinel
+    href: ../sentinel/purview-solution.md?toc=/azure/purview/toc.json&bc=/azure/purview/breadcrumb/toc.json
   - name: Onboard Azure sources at scale
     items:
     - name: Azure source readiness at scale
       href: tutorial-data-sources-readiness.md
     - name: Microsoft Purview MSI configuration at scale
       href: tutorial-msi-configuration.md
-  - name: Data owner policies for Azure Storage
-    href: tutorial-data-owner-policies-storage.md
   - name: Onboard an on-premises SQL Server instance
     href: tutorial-register-scan-on-premises-sql-server.md
+  - name: Use Atlas 2.2 APIs
+    href: tutorial-atlas-2-2-apis.md
   - name: Use REST APIs for data planes
     href: tutorial-using-rest-apis.md
   - name: Use REST APIs for collections
     href: tutorial-metadata-policy-collections-apis.md
-  - name: Use Atlas 2.2 APIs
-    href: tutorial-atlas-2-2-apis.md
-  - name: Data owner policies on resource groups or subscriptions
-    href: tutorial-access-policies-resource-group.md
-  - name: Integrate with Microsoft Sentinel
-    href: ../sentinel/purview-solution.md?toc=/azure/purview/toc.json&bc=/azure/purview/breadcrumb/toc.json
 - name: Concepts
   items:
-  - name: Use Microsoft Purview Studio
+  - name: Use the Microsoft Purview governance portal
     href: use-azure-purview-studio.md
   - name: Best practices and guidelines
     items:
@@ -82,7 +80,7 @@ items:
         href: concept-best-practices-scanning.md
       - name: Security best practices
         href: concept-best-practices-security.md  
-  - name: Microsoft Purview permissions
+  - name: Permissions and access
     href: catalog-permissions.md
   - name: Data map
     items:
@@ -110,7 +108,7 @@ items:
       href: concept-data-owner-policies.md
     - name: Self-service data access policy
       href: concept-self-service-data-access-policy.md
-  - name: Data insights
+  - name: Data Estate Insights
     href: concept-insights.md
 - name: How-to guides
   items:
@@ -191,8 +189,14 @@ items:
       href: register-scan-oracle-source.md
     - name: PostgreSQL
       href: register-scan-postgresql.md
-    - name: Power BI tenant - Portal
-      href: register-scan-power-bi-tenant.md
+    - name: Power BI tenant
+      items:
+      - name: Power BI same-tenant
+        href: register-scan-power-bi-tenant.md
+      - name: Power BI cross-tenant
+        href: register-scan-power-bi-tenant-cross-tenant.md
+      - name: Troubleshoot Power BI scans
+        href: register-scan-power-bi-tenant-troubleshoot.md
     - name: Salesforce
       href: register-scan-salesforce.md
     - name: SAP Business Warehouse
@@ -269,7 +273,7 @@ items:
       href: how-to-automatically-label-your-content.md
     - name: Sensitivity labels FAQ
       href: sensitivity-labels-frequently-asked-questions.yml
-  - name: Insights
+  - name: Data Estate Insights
     items:
     - name: View asset insights
       href: asset-insights.md
@@ -295,7 +299,7 @@ items:
         href: catalog-private-link-name-resolution.md
       - name: Troubleshoot private endpoints
         href: catalog-private-link-troubleshoot.md                     
-      - name: Private endpoint FAQ
+      - name: Private endpoint and Managed VNets FAQ
         href: catalog-private-link-faqs.md
     - name: Microsoft Purview deployment exceptions
       href: create-azure-purview-portal-faq.md
@@ -303,8 +307,8 @@ items:
       href: catalog-conditional-access.md
   - name: Data policies
     items:
-    - name: Register data sources for Data use governance
-      href: how-to-enable-data-use-governance.md
+    - name: Register data sources for Data Use Management
+      href: how-to-enable-data-use-management.md
     - name: Author and publish data owner access policies
       href: how-to-data-owner-policy-authoring-generic.md
     - name: Data owner policies for Azure Storage

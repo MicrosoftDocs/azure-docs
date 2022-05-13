@@ -273,7 +273,7 @@ Learn more about [Network Security Group - NSGFlowLogsenableTA (Enable Traffic A
 
 Full mode installs the SQL IaaS Agent to the VM to deliver full functionality. Use it for managing a SQL Server VM with a single instance. There is no cost associated with using the full manageability mode. System administrator permissions are required. Note that installing or upgrading to full mode is an online operation, there is no restart required.
 
-Learn more about [SQL virtual machine - UpgradeToFullMode (SQL IaaS Agent should be installed in full mode)](../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md?tabs=azure-powershell).
+Learn more about [SQL virtual machine - UpgradeToFullMode (SQL IaaS Agent should be installed in full mode)](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management?tabs=azure-powershell).
 
 ## Storage
 

@@ -26,11 +26,11 @@ This article outlines how to register multiple Azure sources and how to authenti
 
 * An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview Studio. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 
-This section describes how to register multiple Azure sources in Microsoft Purview using the [Microsoft Purview Studio](https://web.purview.azure.com/).
+This section describes how to register multiple Azure sources in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Prerequisites for registration
 
@@ -85,7 +85,7 @@ Follow the steps below to scan multiple Azure sources to automatically identify 
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in the Microsoft Purview Studio.
+1. Select the **Data Map** tab on the left pane in the Microsoft Purview governance portal.
 1. Select the data source that you registered.
 1. Select **View details** > **+ New scan**, or use the **Scan** quick-action icon on the source tile.
 1. For **Name**, fill in the name.
@@ -156,6 +156,6 @@ To manage a scan, do the following:
 
 Now that you have registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
-- [Data insights in Microsoft Purview](concept-insights.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

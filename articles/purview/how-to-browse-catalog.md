@@ -71,7 +71,7 @@ A native browsing experience with hierarchical namespace is provided for each co
 
 1. To view the details of an asset, select the name or the ellipses button on the far right.
 
-    :::image type="content" source="media/how-to-browse-catalog/view-asset-detail-click-ellipses.png" alt-text="Select the ellipses button to see asset details page" border="true":::
+    :::image type="content" source="media/how-to-browse-catalog/view-asset-detail-click-ellipses-inline.png" alt-text="Select the ellipses button to see asset details page" lightbox="media/how-to-browse-catalog/view-asset-detail-click-ellipses-expanded.png" border="true":::
 
 ## Next steps
 

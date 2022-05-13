@@ -49,12 +49,15 @@ To add a custom role, you must have `Microsoft.Authorization/roleAssignments/wri
 1. Replace these two lines with:
     
     ```json
-                    "actions": [
-                        "Microsoft.MachineLearningServices/workspaces/read",
-                        "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
-                        "Microsoft.MachineLearningServices/workspaces/labeling/labels/write"],
-                    "notActions": [
-                        "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"],
+                        "actions": [
+                            "Microsoft.MachineLearningServices/workspaces/read",
+                            "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
+                            "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read",
+                            "Microsoft.MachineLearningServices/workspaces/labeling/labels/read",
+                            "Microsoft.MachineLearningServices/workspaces/labeling/labels/write"   
+                        ],
+                        "notActions": [        
+                        ],
     ```
 
 1. Select **Save** at the top of the edit box to save your changes.

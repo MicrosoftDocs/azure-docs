@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 04/18/2022
+ms.date: 05/12/2022
 ms.custom:
 ---
 
@@ -14,7 +14,7 @@ ms.custom:
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[Access policies](concept-data-owner-policies.md) allow you to enable access to data sources that have been registered for *Data use governance* in Microsoft Purview.
+[Access policies](concept-data-owner-policies.md) allow you to enable access to data sources that have been registered for *Data Use Management* in Microsoft Purview.
 This article describes how a data owner can delegate in Microsoft Purview management of access to Azure Storage datasets. Currently, these two Azure Storage sources are supported:
 
 - Blob storage
@@ -28,7 +28,7 @@ This article describes how a data owner can delegate in Microsoft Purview manage
 ## Configuration
 [!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
-### Register the data sources in Microsoft Purview for Data use governance
+### Register the data sources in Microsoft Purview for Data Use Management
 The Azure Storage resources need to be registered first with Microsoft Purview to later define access policies.
 
 To register your resources, follow the **Prerequisites** and **Register** sections of these guides:
@@ -37,11 +37,11 @@ To register your resources, follow the **Prerequisites** and **Register** sectio
 
 -   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Microsoft Purview](register-scan-adls-gen2.md#prerequisites)
 
-After you've registered your resources, you'll need to enable *Data use governance*. Data use governance can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to data sources that have been registered. Secure practices related to *Data use governance* are described in this guide:
+After you've registered your resources, you'll need to enable *Data Use Management*. Data Use Management can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to data sources that have been registered. Secure practices related to *Data Use Management* are described in this guide:
 
-- [How to enable data use governance](./how-to-enable-data-use-governance.md) 
+- [How to enable Data Use Management](./how-to-enable-data-use-management.md) 
 
-Once your data source has the  **Data use governance** toggle **Enabled**, it will look like this picture:
+Once your data source has the  **Data Use Management** toggle **Enabled**, it will look like this picture:
 
 :::image type="content" source="./media/how-to-data-owner-policies-storage/register-data-source-for-policy-storage.png" alt-text="Screenshot that shows how to register a data source for policy by toggling the enable tab in the resource editor.":::
 
@@ -58,7 +58,8 @@ Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owne
   - [*abfs* for ADLS Gen2](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md#access-files-from-the-cluster)
   - [*az storage blob download* for Blob Storage](../storage/blobs/storage-quickstart-blobs-cli.md#download-a-blob)
 - Creating a policy at Storage account level will enable the Subjects to access system containers, for example *$logs*.  If this is undesired, first scan the data source(s) and then create finer-grained policies for each (that is, at container or subcontainer level).
-
+- The root blob in a container will be accessible to the Azure AD principals in a Microsoft Purview *allow*-type RBAC policy if the scope of such policy is either subscription, resource group, Storage account or container in Storage account.
+- The root container in a Storage account will be accessible to the Azure AD principals in a Microsoft Purview *allow*-type RBAC policy if the scope of such policy is either subscription, resource group, or Storage account.
 
 ### Limits
 - The limit for Microsoft Purview policies that can be enforced by Storage accounts is 100 MB per subscription, which roughly equates to 5000 policies.
@@ -92,7 +93,7 @@ This section contains a reference of how actions in Microsoft Purview data polic
 ## Next steps
 Check blog, demo and related tutorials:
 
-* [Demo of access policy for Azure Storage](/video/media/8ce7c554-0d48-430f-8f63-edf94946947c/purview-policy-storage-dataowner-scenario_mid.mp4)
+* [Demo of access policy for Azure Storage](https://www.youtube.com/watch?v=CFE8ltT19Ss)
 * [Concepts for Microsoft Purview data owner policies](./concept-data-owner-policies.md)
 * [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md)
 * [Blog: What's New in Microsoft Purview at Microsoft Ignite 2021](https://techcommunity.microsoft.com/t5/azure-purview/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954)

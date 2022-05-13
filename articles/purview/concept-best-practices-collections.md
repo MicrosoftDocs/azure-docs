@@ -42,7 +42,7 @@ Consider deploying collections in Microsoft Purview to fulfill the following req
 
 - Consider security and access management as part of your design decision-making process when you build collections in Microsoft Purview. 
 
-- Each collection has a name attribute and a friendly name attribute. If you use [Microsoft Purview Studio](https://web.purview.azure.com/resource/) to deploy a collection, the system automatically assigns a random six-letter name to the collection to avoid duplication. To reduce complexity, avoid using duplicated friendly names across your collections, especially in the same level.  
+- Each collection has a name attribute and a friendly name attribute. If you use [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/) to deploy a collection, the system automatically assigns a random six-letter name to the collection to avoid duplication. To reduce complexity, avoid using duplicated friendly names across your collections, especially in the same level.  
 
 - When you can, avoid duplicating your organizational structure into a deeply nested collection hierarchy. If you can't avoid doing so, be sure to use different names for every collection in the hierarchy to make the collections easy to distinguish.
 
@@ -87,7 +87,7 @@ Consider deploying collections in Microsoft Purview to fulfill the following req
 
 ## Define an authorization model
 
-Microsoft Purview data-plane roles are managed in Microsoft Purview. After you deploy a Microsoft Purview account, the creator of the Microsoft Purview account is automatically assigned the following roles at the root collection. You can use [Microsoft Purview Studio](https://web.purview.azure.com/resource/) or a programmatic method to directly assign and manage roles in Microsoft Purview.
+Microsoft Purview data-plane roles are managed in Microsoft Purview. After you deploy a Microsoft Purview account, the creator of the Microsoft Purview account is automatically assigned the following roles at the root collection. You can use [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/) or a programmatic method to directly assign and manage roles in Microsoft Purview.
 
   - **Collection Admins** can edit Microsoft Purview collections and their details and add subcollections. They can also add users to other Microsoft Purview roles on collections where they're admins.
   - **Data Source Admins** can manage data sources and data scans.

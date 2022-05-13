@@ -28,9 +28,9 @@ This article outlines how to register and Azure SQL Database Managed Instance, a
 
 * An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview Studio. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
-* [Configure public endpoint in Azure SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md)
+* [Configure public endpoint in Azure SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure)
 
     > [!Note]
     > We now support scanning Azure SQL Database Managed Instances over the private connection using Microsoft Purview ingestion private endpoints and a self-hosted integration runtime VM.
@@ -38,11 +38,11 @@ This article outlines how to register and Azure SQL Database Managed Instance, a
 
 ## Register
 
-This section describes how to register an Azure SQL Database Managed Instance in Microsoft Purview using the [Microsoft Purview Studio](https://web.purview.azure.com/).
+This section describes how to register an Azure SQL Database Managed Instance in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Authentication for registration
 
-If you need to create new authentication, you need to [authorize database access to SQL Database Managed Instance](../azure-sql/database/logins-create-manage.md). There are three authentication methods that Microsoft Purview supports today:
+If you need to create new authentication, you need to [authorize database access to SQL Database Managed Instance](/azure/azure-sql/database/logins-create-manage). There are three authentication methods that Microsoft Purview supports today:
 
 - [System or user assigned managed identity](#system-or-user-assigned-managed-identity-to-register)
 - [Service Principal](#service-principal-to-register)
@@ -66,7 +66,7 @@ For user-assigned managed identity (preview):
 1. The object (principal) ID is displayed in the overview essential section.
 
 Either managed identity will need permission to get metadata for the database, schemas and tables, and to query the tables for classification.
-- Create an Azure AD user in Azure SQL Database Managed Instance by following the prerequisites and tutorial on [Create contained users mapped to Azure AD identities](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
+- Create an Azure AD user in Azure SQL Database Managed Instance by following the prerequisites and tutorial on [Create contained users mapped to Azure AD identities](/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
 - Assign `db_datareader` permission to the identity.
 
 #### Service Principal to register
@@ -90,8 +90,8 @@ If you have to create a new Service Principal, follow these steps:
 #### Configure Azure AD authentication in the database account
 
 The service principal must have permission to get metadata for the database, schemas, and tables. It must also be able to query the tables to sample for classification.
-- [Configure and manage Azure AD authentication with Azure SQL](../azure-sql/database/authentication-aad-configure.md)
-- Create an Azure AD user in Azure SQL Database Managed Instance by following the prerequisites and tutorial on [Create contained users mapped to Azure AD identities](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
+- [Configure and manage Azure AD authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure)
+- Create an Azure AD user in Azure SQL Database Managed Instance by following the prerequisites and tutorial on [Create contained users mapped to Azure AD identities](/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
 - Assign `db_datareader` permission to the identity.
 
 #### Add service principal to key vault and Microsoft Purview's credential
@@ -123,7 +123,7 @@ You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-l
 
 ### Steps to register
 
-1. Navigate to your [Microsoft Purview Studio](https://web.purview.azure.com/resource/)
+1. Navigate to your [Microsoft Purview governance portal](https://web.purview.azure.com/resource/)
 
 1. Select **Data Map** on the left navigation.
 
@@ -149,7 +149,7 @@ Follow the steps below to scan an Azure SQL Database Managed Instance to automat
 
 To create and run a new scan, complete the following steps:
 
-1. Select the **Data Map** tab on the left pane in the Microsoft Purview Studio.
+1. Select the **Data Map** tab on the left pane in the Microsoft Purview governance portal.
 
 1. Select the Azure SQL Database Managed Instance source that you registered.
 
@@ -179,6 +179,6 @@ To create and run a new scan, complete the following steps:
 
 Now that you have registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
-- [Data insights in Microsoft Purview](concept-insights.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

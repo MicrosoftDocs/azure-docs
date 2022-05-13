@@ -10,7 +10,6 @@ ZRS for standard general-purpose v2 storage accounts is available for a subset o
 
 - (Africa) South Africa North
 - (Asia Pacific) Australia East
-- (Asia Pacific) Australia Southeast
 - (Asia Pacific) Central India
 - (Asia Pacific) East Asia
 - (Asia Pacific) Japan East
@@ -29,9 +28,6 @@ ZRS for standard general-purpose v2 storage accounts is available for a subset o
 - (North America) East US
 - (North America) East US 2
 - (North America) South Central US
-- (North America) West Central US
-- (North America) US Gov Arizona
-- (North America) US Gov Texas
 - (North America) US Gov Virginia
 - (North America) West US 2
 - (North America) West US 3

@@ -86,7 +86,7 @@ CREATE INDEX zipCodeIndex ON myTable (zipCode);
 
 ## Optimizing clustered columnstore indexes
 
-Clustered columnstore tables are organized in data into segments.  Having high segment quality is critical to achieving optimal query performance on a columnstore table.  Segment quality can be measured by the number of rows in a compressed row group.  Segment quality is most optimal where there are at least 100 K rows per compressed row group and gain in performance as the number of rows per row group approach 1,048,576 rows, which is the most rows a row group can contain.
+Clustered columnstore tables organize data into segments.  Having high segment quality is critical to achieving optimal query performance on a columnstore table.  Segment quality can be measured by the number of rows in a compressed row group.  Segment quality is most optimal where there are at least 100 K rows per compressed row group and gain in performance as the number of rows per row group approach 1,048,576 rows, which is the most rows a row group can contain.
 
 The below view can be created and used on your system to compute the average rows per row group and identify any suboptimal cluster columnstore indexes.  The last column on this view generates a SQL statement that can be used to rebuild your indexes.
 

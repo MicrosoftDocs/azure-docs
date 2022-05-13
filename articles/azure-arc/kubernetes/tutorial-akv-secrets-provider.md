@@ -24,6 +24,7 @@ The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integra
     - Google Kubernetes Engine
     - OpenShift Kubernetes Distribution
     - Canonical Kubernetes Distribution
+    - Elastic Kubernetes Service
 
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
@@ -375,6 +376,12 @@ Azure Key Vault secrets provider extension is self-healing. All extension compon
 Some common issues and troubleshooting steps for Azure Key Vault secrets provider are captured in the open source documentation [here](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/troubleshooting/) for your reference.
 
 Additional troubleshooting steps that are specific to the Secrets Store CSI Driver Interface can be referenced [here](https://secrets-store-csi-driver.sigs.k8s.io/troubleshooting.html).
+
+## Frequently asked questions
+
+### Is the extension of Azure Key Vault Secrets Provider zone redundant?
+
+Yes, all components of Azure Key Vault Secrets Provider are deployed on availability zones and are hence zone redundant.
 
 ## Next steps
 

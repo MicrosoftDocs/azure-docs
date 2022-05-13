@@ -11,6 +11,8 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [header](includes/edge-env.md)]
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 This article shows you how you can wrap AI model(s) of your choice within a gRPC inference server, so that it can be integrated with Azure Video Analyzer (AVA) via pipeline extension.
 
 ## Suggested pre-reading

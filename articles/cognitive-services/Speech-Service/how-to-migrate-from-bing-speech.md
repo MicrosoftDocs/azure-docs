@@ -63,7 +63,7 @@ The Speech service uses a time-based pricing model (rather than a transaction-ba
 
 If you or your organization have applications in development or production that use a Bing Speech API, you should update them to use the Speech service as soon as possible. See the [Speech service documentation](index.yml) for available SDKs, code samples, and tutorials.
 
-The Speech service [REST APIs](./overview.md#reference-docs) are compatible with the Bing Speech APIs. If you're currently using the Bing Speech REST APIs, you need only change the REST endpoint, and switch to a Speech service subscription key.
+The Speech service REST APIs are compatible with the Bing Speech APIs. If you're currently using the Bing Speech REST APIs, you need only change the REST endpoint, and switch to a Speech service subscription key.
 
 If you're using a Bing Speech client library for a specific programming language, migrating to the [Speech SDK](speech-sdk.md) requires changes to your application, because the API is different. The Speech SDK can make your code simpler, while also giving you access to new features. The Speech SDK is available in a wide variety of programming languages. APIs on all platforms are similar, easing multi-platform development.
 
@@ -83,6 +83,5 @@ For Speech service, SDK, and API support, visit the Speech service [support page
 
 ## Next steps
 
-* [Try out Speech service for free](overview.md#try-the-speech-service-for-free)
 * [Get started with speech-to-text](get-started-speech-to-text.md)
 * [Get started with text-to-speech](get-started-text-to-speech.md)
