@@ -1,5 +1,5 @@
 ---
-title: Email Pricing 
+title: Email pricing 
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services Email pricing.
 author: bashan-git
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ms.custom: private_preview
 ---
-# Email Pricing in Azure Communication Services
+# Email pricing in Azure Communication Services
 
 > [!IMPORTANT]
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 
-### Email Price
+### Email price
 
 Email offers pay-as-you-go pricing. The price is based on number of messages sent to the reciepient and amount of data transfered to each recipient which includes headers, message content (including text and images), and attachments.
 Messages can be sent to one more recipeints.
@@ -27,7 +27,7 @@ Messages can be sent to one more recipeints.
 |------------|------------|
 |0.00025/email   | $0.00012/MB|
 
-### Pricing example: A user of the Communication Services Virtual Visit Solution sends Appointment Reminder 
+### Pricing example: A user of the Communication Services Virtual Visit Solution sends Appointment Reminders 
 
 Alice is managing virtual visit solution for all the patients. Alice will be scheduling the visit and sends email invites to all patients reminding about their upcoming visit.
 
