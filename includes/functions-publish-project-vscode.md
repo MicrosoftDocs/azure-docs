@@ -42,6 +42,6 @@ In this section, you'll create a function app and related resources in your Azur
 
     [!INCLUDE [functions-vs-code-create-tip](functions-vs-code-create-tip.md)]
 
-1. Select **View Output** in the notification to view the creation and deployment results, including the Azure resources that you created. If you miss the notification, select the bell icon in the lower right corner to see it again.
+1. Select **View Output** in the notification to view the creation and deployment results, including the Azure resources that you created. If you miss the notification, select the bell icon in the lower-right corner to see it again.
 
     :::image type="content" source="media/functions-publish-project-vscode/function-create-notifications.png" alt-text="Screenshot of the View Output window.":::
