@@ -15,7 +15,7 @@ These Azure services are automatically onboarded for you when you use Automanage
 
 For all of these services, we will auto-onboard, auto-configure, monitor for drift, and remediate if drift is detected. To learn more, go to [Azure Automanage for virtual machines](automanage-virtual-machines.md).
 
-## Supported Windows versions
+## Supported Windows Server versions
 
 Automanage supports the following Windows versions:
 
