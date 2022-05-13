@@ -20,8 +20,6 @@ To create your container app, start at the Azure portal home page.
 
 In the *Basics* tab, do the following actions.
 
-#### Enter project details
-
 1. Enter the following values in the *Project details* section.
 
     | Setting | Action |
@@ -49,8 +47,11 @@ Next, create an environment for your container app.
     | Zone redundancy | Select **Disabled** |
 
 1. Select the **Monitoring** tab to create a Log Analytics workspace.
-1. Select the **Create new** link in the *Log Analytics workspace* field.
-1. Enter **my-container-apps-logs** in the *Name* field of the *Create new Log Analytics Workspace* dialog.
+1. Select the **Create new** link in the *Log Analytics workspace* field and enter the following values.
+
+    | Setting | Value |
+    |--|--|
+    | Name | Enter **my-container-apps-logs**. |
   
     The *Location* field is pre-filled with *Canada Central* for you.
 

@@ -24,10 +24,14 @@ The following example shows you how to create a Container Apps environment in an
 
 7. Select the **Networking** tab to create a VNET.
 8. Select **Yes** next to *Use your own virtual network*.
-9. Next to the *Virtual network* box, select the **Create new** link.
-10. Enter **my-custom-vnet** in the name box.
-11. Select the **OK** button.
-12. Next to the *Infrastructure subnet* box, select the **Create new** link and enter the following values:
+9. Next to the *Virtual network* box, select the **Create new** link and enter the following value.
+
+    | Setting | Value |
+    |--|--|
+    | Name | Enter **my-custom-vnet**. |
+
+10. Select the **OK** button.
+11. Next to the *Infrastructure subnet* box, select the **Create new** link and enter the following values:
 
     | Setting | Value |
     |---|---|
@@ -35,9 +39,9 @@ The following example shows you how to create a Container Apps environment in an
     | Virtual Network Address Block | Keep the default values. |
     | Subnet Address Block | Keep the default values. |
 
-13. Select the **OK** button.
-14. Under *Virtual IP*, select **External**.
-15. Select **Create**.
+12. Select the **OK** button.
+13. Under *Virtual IP*, select **External**.
+14. Select **Create**.
 
 <!-- Deploy -->
 [!INCLUDE [container-apps-create-portal-deploy.md](../../includes/container-apps-create-portal-deploy.md)]
