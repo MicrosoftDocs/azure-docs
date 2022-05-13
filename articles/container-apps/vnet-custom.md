@@ -35,7 +35,7 @@ The following example shows you how to create a Container Apps environment in an
 
     | Setting | Value |
     |---|---|
-    | Subnet Name | Enter **my-vnet-subnet**. |
+    | Subnet Name | Enter **infrastructure-subnet**. |
     | Virtual Network Address Block | Keep the default values. |
     | Subnet Address Block | Keep the default values. |
 
@@ -74,10 +74,10 @@ $VNET_NAME="my-custom-vnet"
 
 ---
 
-Now create an instance of the virtual network to associate with the Container Apps environment. The virtual network must have and single subnet available for the container apps instance.
+Now create an Azure virtual network to associate with the Container Apps environment. The virtual network must have a subnet available for the environment deployment.
 
 > [!NOTE]
-> You can use an existing virtual network, but an empty subnet is required to use with Container Apps.
+> You can use an existing virtual network, but a dedicateed subnet is required for use with Container Apps.
 
 # [Bash](#tab/bash)
 
@@ -93,7 +93,7 @@ az network vnet create \
 az network vnet subnet create \
   --resource-group $RESOURCE_GROUP \
   --vnet-name $VNET_NAME \
-  --name infrastructure \
+  --name infrastructure-subnet \
   --address-prefixes 10.0.0.0/23
 ```
 
@@ -111,13 +111,13 @@ az network vnet create `
 az network vnet subnet create `
   --resource-group $RESOURCE_GROUP `
   --vnet-name $VNET_NAME `
-  --name infrastructure `
+  --name infrastructure-subnet `
   --address-prefixes 10.0.0.0/23
 ```
 
 ---
 
-With the VNET established, you can now query for the VNET and infrastructure subnet ID.
+With the virtual network created, you can retrieve the IDs for both the VNET and the infrastructure subnet.
 
 # [Bash](#tab/bash)
 
@@ -126,7 +126,7 @@ VNET_RESOURCE_ID=`az network vnet show --resource-group ${RESOURCE_GROUP} --name
 ```
 
 ```bash
-INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name infrastructure --query "id" -o tsv | tr -d '[:space:]'`
+INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name infrastructure-subnet --query "id" -o tsv | tr -d '[:space:]'`
 ```
 
 # [PowerShell](#tab/powershell)
@@ -136,12 +136,12 @@ $VNET_RESOURCE_ID=(az network vnet show --resource-group $RESOURCE_GROUP --name 
 ```
 
 ```powershell
-$INFRASTRUCTURE_SUBNET=(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name infrastructure --query "id" -o tsv)
+$INFRASTRUCTURE_SUBNET=(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name infrastructure-subnet --query "id" -o tsv)
 ```
 
 ---
 
-Finally, create the Container Apps environment with the VNET and subnet.
+Finally, create the Container Apps environment using the custom VNET deployed in the preceding steps.
 
 # [Bash](#tab/bash)
 
@@ -177,7 +177,7 @@ The following table describes the parameters used in `containerapp env create`.
 | `location` | The Azure location where the environment is to deploy.  |
 | `infrastructure-subnet-resource-id` | Resource ID of a subnet for infrastructure components and user application containers. |
 
-With your environment created in your custom virtual network, you can deploy container apps into the environment using the `az containerapp create` command.
+With your environment created using a custom virtual network, you can now deploy container apps using the `az containerapp create` command.
 
 ### Optional configuration
 

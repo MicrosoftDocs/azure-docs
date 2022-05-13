@@ -35,7 +35,7 @@ The following example shows you how to create a Container Apps environment in an
 
     | Setting | Value |
     |---|---|
-    | Subnet Name | Enter **my-vnet-subnet**. |
+    | Subnet Name | Enter **infrastructure-subnet**. |
     | Virtual Network Address Block | Keep the default values. |
     | Subnet Address Block | Keep the default values. |
 
