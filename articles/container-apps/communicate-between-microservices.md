@@ -12,30 +12,30 @@ zone_pivot_groups: container-apps-image-build-type
 
 # Tutorial: Communication between microservices in Azure Container Apps Preview
 
-Azure Container Apps exposes each container app through a domain name if [ingress](https://docs.microsoft.com/en-us/azure/container-apps/ingress) is enabled. Ingress endpoints for container apps within an external environment can be publicly accessible or only available to other container apps in the same [environment](https://docs.microsoft.com/en-us/azure/container-apps/environment). 
+Azure Container Apps exposes each container app through a domain name if [ingress](ingress.md) is enabled. Ingress endpoints for container apps within an external environment can be either publicly accessible or only available to other container apps in the same [environment](environment.md).
 
-Once you know the fully-qualified domain name for a given container app, you can make direct calls to the service from other container apps within the shared environment. 
+Once you know the fully qualified domain name for a given container app, you can make direct calls to the service from other container apps within the shared environment.
 
 In this tutorial, you deploy a second container app that makes a direct service call to the API deployed in the [Deploy your code to Azure Container Apps](./quickstart-code-to-cloud.md) quickstart.
 
-The following screenshot shows the UI microservice which will be deployed to container apps in this article.
+The following screenshot shows the UI microservice deploys to container apps at the end of this article.
 
 :::image type="content" source="media/communicate-between-microservices/azure-container-apps-album-ui.png" alt-text="Screenshot of album list UI microservice.":::
 
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
-> * Deploy a front-end application to Azure Container Apps
-> * Link the front-end app to the API endpoint deployed in the previous quickstart
-> * Verify the frontend app can communicate with the backend API
+> * Deploy a front end application to Azure Container Apps
+> * Link the front end app to the API endpoint deployed in the previous quickstart
+> * Verify the frontend app can communicate with the back end API
 
 ## Prerequisites
 
-In [the "code to cloud" quickstart](./quickstart-code-to-cloud.md), a backend web API was created to return a list of music albums. If you have not deployed the album API microservice, return to [Quickstart: Deploy your code to Azure Container Apps](quickstart-code-to-cloud.md) to continue. 
+In the [code to cloud quickstart](./quickstart-code-to-cloud.md), a back end web API is deployed to return a list of music albums. If you haven't deployed the album API microservice, return to [Quickstart: Deploy your code to Azure Container Apps](quickstart-code-to-cloud.md) to continue.
 
 ## Setup
 
-If you are still authenticated to Azure and have the environment variables defined from the quickstart, you can skip the following steps and go directly to the [Prepare the GitHub repository](#prepare-the-github-repository) section.
+If you're still authenticated to Azure and still have the environment variables defined from the quickstart, you can skip the following steps and go directly to the [Prepare the GitHub repository](#prepare-the-github-repository) section.
 
 [!INCLUDE [container-apps-code-to-cloud-setup.md](../../includes/container-apps-code-to-cloud-setup.md)]
 
@@ -79,7 +79,7 @@ az acr login --name $ACR_NAME
 
 Follow the prompts from GitHub to fork the repository and return here once the operation is complete.
 
-1. Navigate to the root directory where the *code-to-cloud* folder was created. If you are still in the *code-to-cloud/src* directory, you can use the below command to return to the parent folder.
+1. Navigate to the parent of the *code-to-cloud* folder. If you're still in the *code-to-cloud/src* directory, you can use the below command to return to the parent folder.
 
     ```console
     cd ../..
@@ -126,18 +126,18 @@ Follow the prompts from GitHub to fork the repository and return here once the o
 
 ::: zone pivot="docker-local"
 
-1. The following command builds a container image for the album UI and tags it with the fully qualified name of the ACR login server. The `.` at the end of the command represents the docker build context, meaning this command should be run within the *src* folder where the Dockerfile is located.
+1. The following command builds a container image for the album UI and tags it with the fully qualified name of the ACR log in server. The `.` at the end of the command represents the docker build context, meaning this command should be run within the *src* folder where the Dockerfile is located.
 
     # [Bash](#tab/bash)
 
     ```azurecli
-docker build --tag $ACR_NAME.azurecr.io/albumapp-ui . 
+    docker build --tag $ACR_NAME.azurecr.io/albumapp-ui . 
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```powershell
-docker build --tag $ACR_NAME.azurecr.io/albumapp-ui . 
+    docker build --tag $ACR_NAME.azurecr.io/albumapp-ui . 
     ```
 
     ---
@@ -165,13 +165,13 @@ docker build --tag $ACR_NAME.azurecr.io/albumapp-ui .
     # [Bash](#tab/bash)
 
     ```azurecli
- docker push $ACR_NAME.azurecr.io/albumapp-ui . 
+     docker push $ACR_NAME.azurecr.io/albumapp-ui . 
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```powershell
-docker push $ACR_NAME.azurecr.io/albumapp-ui . 
+    docker push $ACR_NAME.azurecr.io/albumapp-ui . 
     ```
 
     ---
@@ -187,7 +187,7 @@ Now you can configure the front end application to call the API endpoint by goin
 * Query the API application for its fully qualified domain name (FQDN).
 * Pass the API FQDN to `az containerapp create` as an environment variable so the UI app can set the base URL for the album API call within the code.
 
-The [UI application](https://github.com/Azure-Samples/containerapps-albumui) uses the endpoint provided to invoke the album API. The following is an excerpt from the code used in the *routes > index.js* file.
+The [UI application](https://github.com/Azure-Samples/containerapps-albumui) uses the endpoint provided to invoke the album API. The following code is an excerpt from the code used in the *routes > index.js* file.
 
 ```javascript
 const api = axios.create({
@@ -257,7 +257,7 @@ By adding the argument `--env-vars "API_BASE_URL=https://$API_ENDPOINT"` to `az 
 
 ## View website
 
-The `az containerapp create` CLI command returns the fully qualified domain name (FQDN) of your album UI container app. Open this location in a browser to navigate to the web application resembling the below:
+The `az containerapp create` CLI command returns the fully qualified domain name (FQDN) of your album UI container app. Open this location in a browser to navigate to the web application resembling the following screenshot.
 
 :::image type="content" source="media/communicate-between-microservices/azure-container-apps-album-ui.png" alt-text="Screenshot of album list UI microservice.":::
 
