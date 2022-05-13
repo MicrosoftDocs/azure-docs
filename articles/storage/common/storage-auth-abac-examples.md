@@ -33,9 +33,12 @@ For information about the prerequisites to add or edit role assignment condition
 
 This condition allows users to read blobs with a [blob index tag](../blobs/storage-blob-index-how-to.md) key of Project and a value of Cascade. Attempts to access blobs without this key-value tag will not be allowed.
 
-You must add this condition to any role assignments that include the following permission.
+You must add this condition to any role assignments that include the following action.
 
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
 
 ![Diagram of condition showing read access to blobs with a blob index tag.](./media/storage-auth-abac-examples/blob-index-tags-read.png)
 
@@ -89,10 +92,13 @@ Get-AzStorageBlob -Container <containerName> -Blob <blobName> -Context $bearerCt
 
 This condition requires that any new blobs must include a [blob index tag](../blobs/storage-blob-index-how-to.md) key of Project and a value of Cascade.
 
-There are two permissions that allow you to create new blobs, so you must target both. You must add this condition to any role assignments that include one of the following permissions.
+There are two actions that allow you to create new blobs, so you must target both. You must add this condition to any role assignments that include one of the following actions.
 
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` (create or update)
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` (create)
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` |  |
 
 ![Diagram of condition showing new blobs must include a blob index tag.](./media/storage-auth-abac-examples/blob-index-tags-new-blobs.png)
 
@@ -155,10 +161,13 @@ $content = Set-AzStorageBlobContent -File $localSrcFile -Container example2 -Blo
 
 This condition requires that any existing blobs be tagged with at least one of the allowed [blob index tag](../blobs/storage-blob-index-how-to.md) keys: Project or Program. This condition is useful for adding governance to existing blobs.
 
-There are two permissions that allow you to update tags on existing blobs, so you must target both. You must add this condition to any role assignments that include one of the following permissions.
+There are two actions that allow you to update tags on existing blobs, so you must target both. You must add this condition to any role assignments that include one of the following actions.
 
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` (update or create, cannot exclude create)
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write`
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` |  |
 
 ![Diagram of condition showing existing blobs must have blob index tag keys.](./media/storage-auth-abac-examples/blob-index-tags-keys.png)
 
@@ -220,10 +229,13 @@ $content = Set-AzStorageBlobContent -File $localSrcFile -Container example3 -Blo
 
 This condition requires that any existing blobs to have a [blob index tag](../blobs/storage-blob-index-how-to.md) key of Project and values of Cascade, Baker, or Skagit. This condition is useful for adding governance to existing blobs.
 
-There are two permissions that allow you to update tags on existing blobs, so you must target both. You must add this condition to any role assignments that include one of the following permissions.
+There are two actions that allow you to update tags on existing blobs, so you must target both. You must add this condition to any role assignments that include one of the following actions.
 
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` (update or create, cannot exclude create)
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write`
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` |  |
 
 ![Diagram of condition showing existing blobs must have a blob index tag key and values.](./media/storage-auth-abac-examples/blob-index-tags-key-values.png)
 
@@ -300,17 +312,22 @@ Set-AzStorageBlobTag -Container example4 -Blob "Example4.txt" -Tag $grantedTag3 
 
 This condition allows users to read, write, or delete blobs in storage containers named blobs-example-container. This condition is useful for sharing specific storage containers with other users in a subscription.
 
-There are five permissions for read, write, and delete of existing blobs, so you must target all permissions. You must add this condition to any role assignments that include one of the following permissions.
+There are five actions for read, write, and delete of existing blobs. You must add this condition to any role assignments that include one of the following actions.
 
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete`
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` (update or create)
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` (create)
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` (for accounts with hierarchical namespace enabled or might be enabled in the future)
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | If role definition includes this action, such as Storage Blob Data Owner.<br/>If the storage accounts included in this condition have hierarchical namespace enabled or might be enabled in the future. |
 
 Suboperations are not used in this condition because the subOperation is needed only when conditions are authored based on tags.
 
 ![Diagram of condition showing read, write, or delete blobs in named containers.](./media/storage-auth-abac-examples/containers-read-write-delete.png)
+
+Storage Blob Data Owner
 
 ```
 (
@@ -332,13 +349,34 @@ Suboperations are not used in this condition because the subOperation is needed 
 )
 ```
 
+Storage Blob Data Contributor
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'})
+ )
+ OR 
+ (
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container'
+ )
+)
+```
+
+
 #### Azure portal
 
 Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | [Delete a blob](storage-auth-abac-attributes.md#delete-a-blob)<br/>[Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[Write to a blob](storage-auth-abac-attributes.md#write-to-a-blob)<br/>[Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#create-a-blob-or-snapshot-or-append-data)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) |
+| Actions | [Delete a blob](storage-auth-abac-attributes.md#delete-a-blob)<br/>[Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[Write to a blob](storage-auth-abac-attributes.md#write-to-a-blob)<br/>[Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#create-a-blob-or-snapshot-or-append-data)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) (if applicable) |
 | Attribute source | Resource |
 | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
 | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
@@ -380,12 +418,17 @@ $content = Remove-AzStorageBlob -Container $grantedContainer -Blob "Example5.txt
 
 This condition allows read access to storage containers named blobs-example-container with a blob path of readonly/*. This condition is useful for sharing specific parts of storage containers for read access with other users in the subscription.
 
-You must add this condition to any role assignments that include the following permissions.
+You must add this condition to any role assignments that include the following actions.
 
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` (for accounts with hierarchical namespace enabled or might be enabled in the future)
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | If role definition includes this action, such as Storage Blob Data Owner.<br/>If the storage accounts included in this condition have hierarchical namespace enabled or might be enabled in the future. |
 
 ![Diagram of condition showing read access to blobs in named containers with a path.](./media/storage-auth-abac-examples/containers-path-read.png)
+
+Storage Blob Data Owner
 
 ```
 (
@@ -403,13 +446,29 @@ You must add this condition to any role assignments that include the following p
 )
 ```
 
+Storage Blob Data Reader, Storage Blob Data Contributor
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})
+ )
+ OR 
+ (
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container'
+  AND
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path] StringLike 'readonly/*'
+ )
+)
+```
+
 #### Azure portal
 
 Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) |
+| Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) (if applicable) |
 | Attribute source | Resource |
 | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
 | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
@@ -451,12 +510,17 @@ $content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "readonly
 
 This condition allows read access and also list access to storage containers named blobs-example-container with a blob path of readonly/*. Condition #1 applies to read actions excluding list blobs. Condition #2 applies to list blobs. This condition is useful for sharing specific parts of storage containers for read or list access with other users in the subscription.
 
-You must add this condition to any role assignments that include the following permissions.
+You must add this condition to any role assignments that include the following actions.
 
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` (for accounts with hierarchical namespace enabled or might be enabled in the future)
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | If role definition includes this action, such as Storage Blob Data Owner.<br/>If the storage accounts included in this condition have hierarchical namespace enabled or might be enabled in the future. |
 
 ![Diagram of condition showing read and list access to blobs in named containers with a path.](./media/storage-auth-abac-examples/containers-path-read.png)
+
+Storage Blob Data Owner
 
 ```
 (
@@ -464,6 +528,36 @@ You must add this condition to any role assignments that include the following p
   !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})
   AND
   !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action'})
+ )
+ OR 
+ (
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container'
+  AND
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path] StringStartsWith 'readonly/'
+ )
+)
+AND
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.List'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action'})
+ )
+ OR 
+ (
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container'
+  AND
+  @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:prefix] StringStartsWith 'readonly/'
+ )
+)
+```
+
+Storage Blob Data Reader, Storage Blob Data Contributor
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})
  )
  OR 
  (
@@ -495,7 +589,7 @@ Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) |
+| Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) (if applicable) |
 | Attribute source | Resource |
 | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
 | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
@@ -509,7 +603,7 @@ Here are the settings to add this condition using the Azure portal.
 
 | Condition #2 | Setting |
 | --- | --- |
-| Actions | List blobs |
+| Actions | [List blobs](storage-auth-abac-attributes.md#list-blobs)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) (if applicable) |
 | Attribute source | Resource |
 | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
 | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
@@ -525,13 +619,18 @@ Here are the settings to add this condition using the Azure portal.
 
 This condition allows a partner (an Azure AD guest user) to drop files into storage containers named Contosocorp with a path of uploads/contoso/*. This condition is useful for allowing other users to put data in storage containers.
 
-You must add this condition to any role assignments that include the following permissions.
+You must add this condition to any role assignments that include the following actions.
 
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` (create or update)
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` (create)
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` (for accounts with hierarchical namespace enabled or might be enabled in the future)
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | If role definition includes this action, such as Storage Blob Data Owner.<br/>If the storage accounts included in this condition have hierarchical namespace enabled or might be enabled in the future. |
 
 ![Diagram of condition showing write access to blobs in named containers with a path.](./media/storage-auth-abac-examples/containers-path-write.png)
+
+Storage Blob Data Owner
 
 ```
 (
@@ -551,13 +650,31 @@ You must add this condition to any role assignments that include the following p
 )
 ```
 
+Storage Blob Data Contributor
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'})
+ )
+ OR 
+ (
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'contosocorp'
+  AND
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path] StringLike 'uploads/contoso/*'
+ )
+)
+```
+
 #### Azure portal
 
 Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | [Write to a blob](storage-auth-abac-attributes.md#write-to-a-blob)<br/>[Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#create-a-blob-or-snapshot-or-append-data)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) |
+| Actions | [Write to a blob](storage-auth-abac-attributes.md#write-to-a-blob)<br/>[Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#create-a-blob-or-snapshot-or-append-data)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) (if applicable) |
 | Attribute source | Resource |
 | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
 | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
@@ -599,9 +716,12 @@ $content = Set-AzStorageBlobContent -Container $grantedContainer -Blob "uploads/
 
 This condition allows a user to read blobs with a [blob index tag](../blobs/storage-blob-index-how-to.md) key of Program, a value of Alpine, and a blob path of logs*. The blob path of logs* also includes the blob name.
 
-You must add this condition to any role assignments that include the following permission.
+You must add this condition to any role assignments that include the following action.
 
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
 
 ![Diagram of condition showing read access to blobs with a blob index tag and a path.](./media/storage-auth-abac-examples/blob-index-tags-path-read.png)
 
@@ -688,9 +808,12 @@ This condition allows a user to read current blob versions as well as read blobs
 > [!NOTE]
 > The condition includes a `NOT Exists` expression for the version ID attribute. This expression is included so that the Azure portal can list list the current version of the blob.
 
-You must add this condition to any role assignments that include the following permission.
+You must add this condition to any role assignments that include the following action.
 
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
 
 ![Diagram of condition showing read access to a specific blob version.](./media/storage-auth-abac-examples/version-id-specific-blob-read.png)
 
@@ -730,10 +853,13 @@ Here are the settings to add this condition using the Azure portal.
 
 This condition allows a user to delete versions of a blob that are older than 06/01/2022 to perform clean up.
 
-You must add this condition to any role assignments that include the following permissions.
+You must add this condition to any role assignments that include the following actions.
 
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete`
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action`
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action` |  |
 
 ![Diagram of condition showing delete access to old blob versions.](./media/storage-auth-abac-examples/version-id-blob-delete.png)
 
@@ -767,9 +893,12 @@ Here are the settings to add this condition using the Azure portal.
 
 This condition allows a user to read current blob versions and any blob snapshots.
 
-You must add this condition to any role assignments that include the following permission.
+You must add this condition to any role assignments that include the following action.
 
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
 
 ![Diagram of condition showing read access to current blob versions and any blob snapshots.](./media/storage-auth-abac-examples/version-id-snapshot-blob-read.png)
 
@@ -818,12 +947,17 @@ Here are the settings to add this condition using the Azure portal.
 
 This condition allows a user to only read blobs in storage accounts with [hierarchical namespace](../blobs/data-lake-storage-namespace.md) enabled. This condition is applicable only at resource group scope or above.
 
-You must add this condition to any role assignments that include the following permissions.
+You must add this condition to any role assignments that include the following actions.
 
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action`
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | If role definition includes this action, such as Storage Blob Data Owner. |
 
 ![Diagram of condition showing read access to storage accounts with hierarchical namespace enabled.](./media/storage-auth-abac-examples/hierarchical-namespace-accounts-read.png)
+
+Storage Blob Data Owner
 
 ```
 (
@@ -839,13 +973,27 @@ You must add this condition to any role assignments that include the following p
 )
 ```
 
+Storage Blob Data Reader, Storage Blob Data Contributor
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})
+ )
+ OR 
+ (
+  @Resource[Microsoft.Storage/storageAccounts:isHnsEnabled] BoolEquals true
+ )
+)
+```
+
 #### Azure portal
 
 Here are the settings to add this condition using the Azure portal.
 
 | Condition #1 | Setting |
 | --- | --- |
-| Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) |
+| Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) (if applicable) |
 | Attribute source | Resource |
 | Attribute | [Is hierarchical namespace enabled](storage-auth-abac-attributes.md#is-hierarchical-namespace-enabled) |
 | Operator | [BoolEquals](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
@@ -857,9 +1005,12 @@ Here are the settings to add this condition using the Azure portal.
 
 This condition allows a user to read blobs encrypted with encryption scope `validScope1` or `validScope2`.
 
-You must add this condition to any role assignments that include the following permission.
+You must add this condition to any role assignments that include the following action.
 
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
 
 ![Diagram of condition showing read access to blobs with encryption scope validScope1 or validScope2.](./media/storage-auth-abac-examples/encryption-scope-read-blobs.png)
 
@@ -891,11 +1042,14 @@ Here are the settings to add this condition using the Azure portal.
 
 This condition allows a user to read or write blobs in a storage account named `sampleaccount` and encrypted with encryption scope `ScopeCustomKey1`. If blobs are not encrypted or decrypted with `ScopeCustomKey1`, request will return forbidden.
 
-You must add this condition to any role assignments that include the following permissions.
+You must add this condition to any role assignments that include the following actions.
 
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action`
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` |  |
 
 > [!NOTE]
 > Since encryption scopes for different storage accounts could be different, it's recommended to use the `storageAccounts:name` attribute with the `encryptionScopes:name` attribute to restrict the specific encryption scope to be allowed.
@@ -946,11 +1100,14 @@ This condition allows read or write access to blobs if the user has a [custom se
  
 For example, if Brenda has the attribute `Project=Baker`, she can only read or write blobs with the `Project=Baker` blob index tag. Similarly, Chandra can only read or write blobs with `Project=Cascade`.
 
-You must add this condition to any role assignments that include the following permissions.
+You must add this condition to any role assignments that include the following actions.
 
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action`
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` |  |
 
 For more information, see [Allow read access to blobs based on tags and custom security attributes](../../role-based-access-control/conditions-custom-security-attributes.md).
 
@@ -1012,9 +1169,12 @@ This condition allows read access to blobs if the user has a [custom security at
  
 For example, if Chandra has the Project attribute with the values Baker and Cascade, she can only read blobs with the `Project=Baker` or `Project=Cascade` blob index tag.
 
-You must add this condition to any role assignments that include the following permission.
+You must add this condition to any role assignments that include the following action.
 
-- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
 
 For more information, see [Allow read access to blobs based on tags and custom security attributes](../../role-based-access-control/conditions-custom-security-attributes.md).
 
