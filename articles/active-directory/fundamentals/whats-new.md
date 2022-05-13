@@ -133,17 +133,17 @@ We're announcing the public preview of following MS Graph APIs and PowerShell cm
 
 |Action  |MS Graph API  |PowerShell cmdlet  |
 |---------|---------|---------|
-|Get federation settings for a federated domain        | [Get internalDomainFederation](/graph/api/internaldomainfederation-get?view=graph-rest-beta&preserve-view=true)           | [Get-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdomainfederationconfiguration?view=graph-powershell-beta&preserve-view=true)        |
-|Create federation settings for a federated domain     | [Create internalDomainFederation](/graph/api/domain-post-federationconfiguration?view=graph-rest-beta&preserve-view=true)        | [New-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdomainfederationconfiguration?view=graph-powershell-beta&preserve-view=true)        |
-|Remove federation settings for a federated domain     | [Delete internalDomainFederation](/graph/api/internaldomainfederation-delete?view=graph-rest-beta&preserve-view=true)        | [Remove-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/remove-mgdomainfederationconfiguration?view=graph-powershell-beta&preserve-view=true)     |
-|Update federation settings for a federated domain     | [Update internalDomainFederation](/graph/api/internaldomainfederation-update?view=graph-rest-beta&preserve-view=true)        | [Update-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdomainfederationconfiguration?view=graph-powershell-beta&preserve-view=true)     |
+|Get federation settings for a federated domain        | [Get internalDomainFederation](https://docs.microsoft.com/graph/api/internaldomainfederation-get?view=graph-rest-beta)           | [Get-MgDomainFederationConfiguration](https://docs.microsoft.com/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdomainfederationconfiguration?view=graph-powershell-beta)        |
+|Create federation settings for a federated domain     | [Create internalDomainFederation](https://docs.microsoft.com/graph/api/domain-post-federationconfiguration?view=graph-rest-beta)        | [New-MgDomainFederationConfiguration](https://docs.microsoft.com/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdomainfederationconfiguration?view=graph-powershell-beta)        |
+|Remove federation settings for a federated domain     | [Delete internalDomainFederation](https://docs.microsoft.com/graph/api/internaldomainfederation-delete?view=graph-rest-beta)        | [Remove-MgDomainFederationConfiguration](https://docs.microsoft.com/powershell/module/microsoft.graph.identity.directorymanagement/remove-mgdomainfederationconfiguration?view=graph-powershell-beta)     |
+|Update federation settings for a federated domain     | [Update internalDomainFederation](https://docs.microsoft.com/graph/api/internaldomainfederation-update?view=graph-rest-beta)        | [Update-MgDomainFederationConfiguration](https://docs.microsoft.com/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdomainfederationconfiguration?view=graph-powershell-beta)     |
 
 
 
-If using older MSOnline cmdlets ([Get-MsolDomainFederationSettings](/powershell/module/msonline/get-msoldomainfederationsettings?view=azureadps-1.0&preserve-view=true) and [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0&preserve-view=true)), we highly recommend transitioning to the latest MS Graph APIs and PowerShell cmdlets. 
+If using older MSOnline cmdlets ([Get-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/get-msoldomainfederationsettings?view=azureadps-1.0) and [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)), we highly recommend transitioning to the latest MS Graph APIs and PowerShell cmdlets. 
 
 
-For more information, see [internalDomainFederation resource type - Microsoft Graph beta | Microsoft Docs](/graph/api/resources/internaldomainfederation?view=graph-rest-beta&preserve-view=true).
+For more information, see [internalDomainFederation resource type - Microsoft Graph beta | Microsoft Docs](https://docs.microsoft.com/graph/api/resources/internaldomainfederation?view=graph-rest-beta).
 
 
 ---
@@ -166,9 +166,9 @@ Added functionality to session controls allowing admins to reauthenticate a user
 **Product capability:** Identity Security & Protection  
 **Clouds impacted:** Public (Microsoft 365, GCC)
 
-We're delighted to announce a new security protection that prevents bypassing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD. When enabled for a federated domain in your Azure AD tenant, it ensures that a compromised federated account can't bypass Azure AD Multi-Factor Authentication by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-beta&preserve-view=true). 
+We're delighted to announce a new security protection that prevents bypassing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD. When enabled for a federated domain in your Azure AD tenant, it ensures that a compromised federated account can't bypass Azure AD Multi-Factor Authentication by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, [federatedIdpMfaBehavior](https://docs.microsoft.com/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values). 
 
-We highly recommend enabling this new protection when using Azure AD Multi-Factor Authentication as your multi factor authentication for your federated users. To learn more about the protection and how to enable it, visit [Enable protection to prevent by-passing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs).
+We highly recommend enabling this new protection when using Azure AD Multi-Factor Authentication as your multi factor authentication for your federated users. To learn more about the protection and how to enable it, visit [Enable protection to prevent by-passing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#enable-protection-to-prevent-by-passing-of-cloud-azure-ad-multi-factor-authentication-when-federated-with-azure-ad).
 
 ---
 
