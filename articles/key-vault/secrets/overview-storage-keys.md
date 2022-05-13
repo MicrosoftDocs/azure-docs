@@ -113,6 +113,13 @@ The commands in this section complete the following actions:
 
 Key Vault uses SAS definition template to generate tokens for client applications. 
 
+SAS definition template example:
+```console
+"sv=2018-03-28&ss=bfqt&srt=sco&sp=rw&spr=https"
+```
+
+SAS definition template will be the passed to the `--template-uri` parameter in the next step.
+
 #### Account SAS parameters required in SAS definition template for Key Vault
 
 |SAS Query Parameter|Description|  
@@ -122,13 +129,6 @@ Key Vault uses SAS definition template to generate tokens for client application
 |`SignedResourceTypes (srt)`|Required. Specifies the signed resource types that are accessible with the account SAS.<br /><br /> - Service (`s`): Access to service-level APIs (*for example*, Get/Set Service Properties, Get Service Stats, List Containers/Queues/Tables/Shares)<br />- Container (`c`): Access to container-level APIs (*for example*, Create/Delete Container, Create/Delete Queue, Create/Delete Table, Create/Delete Share, List Blobs/Files and Directories)<br />- Object (`o`): Access to object-level APIs for  blobs, queue messages,  table entities, and files(*for example,* Put Blob, Query Entity, Get Messages, Create File, etc.)<br /><br /> You can combine values to provide access to more than one resource type. For example, `srt=sc` specifies access to service and container resources.|  
 |`SignedPermission (sp)`|Required. Specifies the signed permissions for the account SAS. Permissions are only valid if they match the specified signed resource type; otherwise they're ignored.<br /><br /> - Read (`r`): Valid for all signed resources types (Service, Container, and Object). Permits read permissions to the specified resource type.<br />- Write (`w`): Valid for all signed resources types (Service, Container, and Object). Permits write permissions to the specified resource type.<br />- Delete (`d`): Valid for Container and Object resource types, except for queue messages.<br />- Permanent Delete (`y`): Valid for Object resource type of Blob only.<br />- List (`l`): Valid for Service and Container resource types only.<br />- Add (`a`): Valid for the following Object resource types only: queue messages, table entities, and append blobs.<br />- Create (`c`): Valid for the following Object resource types only: blobs and files. Users can create new blobs or files, but may not overwrite existing blobs or files.<br />- Update (`u`): Valid for the following Object resource types only: queue messages and table entities.<br />- Process (`p`): Valid for the following Object resource type only: queue messages.<br/>- Tag (`t`): Valid for the following Object resource type only: blobs. Permits blob tag operations.<br/>- Filter (`f`): Valid for the following Object resource type only: blob. Permits filtering by blob tag.<br/>- Set Immutability Policy (`i`): Valid for the following Object resource type only: blob. Permits set/delete immutability policy and legal hold on a blob.|
 |`SignedProtocol (spr)`|Optional. Specifies the protocol permitted for a request made with the account SAS. Possible values are both HTTPS and HTTP (`https,http`) or HTTPS only (`https`).  The default value is `https,http`.<br /><br /> Note that HTTP only isn't a permitted value.|    
-
-SAS definition template example:
-```console
-"sv=2018-03-28&ss=bfqt&srt=sco&sp=rw&spr=https"
-```
-
-SAS definition template will be the passed to the `--template-uri` parameter in the next step.
 
 For more information about account SAS, see:
 [Create an account SAS](https://docs.microsoft.com/rest/api/storageservices/create-account-sas)
@@ -141,7 +141,7 @@ For more information about account SAS, see:
 Use the Azure CLI [az keyvault storage sas-definition create](/cli/azure/keyvault/storage/sas-definition?#az-keyvault-storage-sas-definition-create) command, passing the SAS definition template from the previous step to the `--template-uri` parameter, to create a shared access signature definition.  You can provide the name of your choice to the `-n` parameter.
 
 ```azurecli-interactive
-az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --account-name <YourStorageAccountName> -n <YourSASDefinitionName> --validity-period P2D --sas-type account --template-uri <OutputOfSasTokenCreationStep>
+az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --account-name <YourStorageAccountName> -n <YourSASDefinitionName> --validity-period P2D --sas-type account --template-uri <sasDefinitionTemplate>
 ```
 
 ### Verify the shared access signature definition
