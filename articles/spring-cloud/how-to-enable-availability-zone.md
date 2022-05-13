@@ -21,7 +21,7 @@ This article explains availability zones in Azure Spring Cloud, and how to enabl
 
 In Microsoft Azure, [Availability Zones (AZ)](../availability-zones/az-overview.md) are unique physical locations within an Azure region. Each zone is made up of one or more data centers that are equipped with independent power, cooling, and networking. Availability zones protect your applications and data from data center failures.
 
-When a Azure Spring Cloud service was created with availability zone enabled, Azure spring cloud would automatically distribute fundamental resources across logical sections of underlying Azure infrastructure, which provides a higher level of availability to protect against a hardware failure or a planned maintenance event.
+When an Azure Spring Cloud service instance is created with availability zone enabled, Azure Spring Cloud will automatically distribute fundamental resources across logical sections of underlying Azure infrastructure. This distribution provides a higher level of availability to protect against a hardware failure or a planned maintenance event.
 
 ## How to create an instance in Azure Spring Cloud with availability zone enabled
 
@@ -75,13 +75,14 @@ Azure Spring Cloud currently supports availability zones in the following region
 
 > [!NOTE]
 > The following regions could only be created with availability zone enabled by using Azure CLI, and Azure Portal will coming soon.
- - Canada Central
- - Germany West Central
- - Japan East
- - Korea Central
- - South Africa North
- - Southeast Asia
- - West US 3
+>
+> - Canada Central
+> - Germany West Central
+> - Japan East
+> - Korea Central
+> - South Africa North
+> - Southeast Asia
+> - West US 3
 
 ## Pricing
 
@@ -89,4 +90,4 @@ There's no extra cost for enabling the availability zone.
 
 ## Next steps
 
-* [Plan for disaster recovery](disaster-recovery.md)
+- [Plan for disaster recovery](disaster-recovery.md)
