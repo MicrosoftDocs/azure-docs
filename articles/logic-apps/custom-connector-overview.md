@@ -83,9 +83,6 @@ The following diagram shows the method implementations that the Azure Logic Apps
 
 ![Conceptual diagram showing Azure Functions-based service provider infrastructure.](./media/custom-connector-overview/service-provider-azure-functions-based.png)
 
-
-The extensibility model also supports recurrence-based triggers that aren't based on Azure Functions triggers. These triggers can check or *poll* an endpoint based on a specific recurrence schedule. For a polling trigger, the Azure Logic Apps runtime creates a recurrence trigger job for the polling trigger.
-
 The following sections provide more information about the interfaces that your connector needs to implement.
 
 #### IServiceOperationsProvider
@@ -108,23 +105,21 @@ This interface includes the methods that provide the operation descriptions and 
 
   * If your connector has actions, the [**InvokeOperation()**](#invokeoperation) method is used by the runtime to call each action that runs during workflow execution. Otherwise, you don't have to implement this method.
 
-  For more information about these methods and their implementation, review the [Methods to implement](#method-implementation) section later in this article.
+For more information about these methods and their implementation, review the [Methods to implement](#method-implementation) section later in this article.
 
 #### IServiceOperationsTriggerProvider
 
-Custom built-in trigger capabilities currently support adding or exposing an [Azure Functions trigger or action](../azure-functions/functions-bindings-example.md) as a service provider trigger in your custom built-in connector. If you want to use the Azure Functions trigger type for a trigger in your custom built-in connector, and you want to use the same Azure Functions binding that's used by the Azure managed connector triggers, provide the connection information and trigger bindings as required by Azure Functions.
+Custom built-in trigger capabilities support adding or exposing an [Azure Functions trigger or action](../azure-functions/functions-bindings-example.md) as a service provider trigger in your custom built-in connector. If you want to use the Azure Functions trigger type for a trigger in your custom built-in connector, and you want to use the same Azure Functions binding that's used by the Azure managed connector triggers, provide the connection information and trigger bindings as required by Azure Functions.
 
   * The [**GetFunctionTriggerType()**](#getfunctiontriggertype) method is required to return the string that's the same as the **type** parameter in the Azure Functions trigger binding.
 
   * The [**GetFunctionTriggerDefinition()**](#getfunctiontriggerdefinition) has a default implementation, so you don't need to explicitly implement this method.
 
-  For more information about these methods and their implementation, review the [Methods to implement](#method-implementation) section later in this article.
-
 <a name="method-implementation"></a>
 
 ### Methods to implement
 
-The following sections provide more information about the methods that your connector needs to implement. For an example that creates a sample custom built-in connector for Azure Cosmos DB, review [Create custom built-in connectors for Standard logic apps in single-tenant Azure Logic Apps](create-custom-built-in-connector-standard.md).
+The following sections provide more information about the methods that your connector needs to implement. For the complete example that shows sample implementations for these methods, review [Sample CosmosDbServiceOperationProvider.cs](https://github.com/Azure/logicapps-connector-extensions/blob/CosmosDB/src/CosmosDB/Providers/CosmosDbServiceOperationProvider.cs) and [Create custom built-in connectors for Standard logic apps in single-tenant Azure Logic Apps](create-custom-built-in-connector-standard.md).
 
 #### GetService()
 
@@ -133,9 +128,11 @@ The designer requires this method to get the high-level description for your ser
 ```csharp
 public ServiceOperationApi GetService()
 {
-   return this.{custom-service-name}Apis.ServiceOperationServiceApi;
+   return this.{custom-service-name-apis}.ServiceOperationServiceApi();
 }
 ```
+
+For more information, review [Sample CosmosDbServiceOperationProvider.cs](https://github.com/Azure/logicapps-connector-extensions/blob/CosmosDB/src/CosmosDB/Providers/CosmosDbServiceOperationProvider.cs).
 
 #### GetOperations()
 
@@ -148,31 +145,43 @@ public IEnumerable<ServiceOperation> GetOperations(bool expandManifest)
 }
 ```
 
+For more information, review [Sample CosmosDbServiceOperationProvider.cs](https://github.com/Azure/logicapps-connector-extensions/blob/CosmosDB/src/CosmosDB/Providers/CosmosDbServiceOperationProvider.cs).
+
 #### GetBindingConnectionInformation()
 
 If you want to use the Azure Functions trigger type, this method provides the required connection parameters information to the Azure Functions trigger binding.
 
 ```csharp
-return ServiceOperationsProviderUtilities
-   .GetRequiredParameterValue(
-      serviceId: ServiceId,
-      operationId: operationID,
-      parameterName: "connectionString",
-      parameters: connectionParameters)?
-   .ToValue<string>();
+public string GetBindingConnectionInformation(string operationId, InsensitiveDictionary<JToken> connectionParameters)
+{
+   return ServiceOperationsProviderUtilities
+      .GetRequiredParameterValue(
+         serviceId: ServiceId,
+         operationId: operationID,
+         parameterName: "connectionString",
+         parameters: connectionParameters)?
+      .ToValue<string>();
+}
 ```
+
+For more information, review [Sample CosmosDbServiceOperationProvider.cs](https://github.com/Azure/logicapps-connector-extensions/blob/CosmosDB/src/CosmosDB/Providers/CosmosDbServiceOperationProvider.cs).
 
 #### InvokeOperation()
 
-If your custom built-in connector only has a trigger, you don't have to implement this method. However, if your connector has actions to implement, you have to implement the **InvokeOperation()** method, which is called for each action that executes during runtime. You can use any client, such as FTPClient, HTTPClient, and so on, as required by your connector's actions.
+If your custom built-in connector only has a trigger, you don't have to implement this method. However, if your connector has actions to implement, you have to implement the **InvokeOperation()** method, which is called for each action that executes during runtime. You can use any client, such as FTPClient, HTTPClient, and so on, as required by your connector's actions. This example uses HTTPClient.
 
 ```csharp
-using (var client = new HttpClient())
+public Task<ServiceOperationResponse> InvokeOperation(string operationId, InsensitiveDictionary<JToken> connectionParameters, ServiceOperationRequest serviceOperationRequest)
 {
-   response = client.SendAsync(httpRequestMessage).ConfigureAwait(false).ToJObject();
+   using (var client = new HttpClient())
+   {
+      response = client.SendAsync(httpRequestMessage).ConfigureAwait(false).ToJObject();
+   }
+   return new ServiceOperationResponse(body: response);
 }
-return new ServiceOperationResponse(body: response);
 ```
+
+For more information, review [Sample CosmosDbServiceOperationProvider.cs](https://github.com/Azure/logicapps-connector-extensions/blob/CosmosDB/src/CosmosDB/Providers/CosmosDbServiceOperationProvider.cs).
 
 #### GetFunctionTriggerType()
 
@@ -186,6 +195,8 @@ public string GetFunctionTriggerType()
    return "CosmosDBTrigger";
 }
 ```
+
+For more information, review [Sample CosmosDbServiceOperationProvider.cs](https://github.com/Azure/logicapps-connector-extensions/blob/CosmosDB/src/CosmosDB/Providers/CosmosDbServiceOperationProvider.cs).
 
 #### GetFunctionTriggerDefinition()
 
@@ -204,6 +215,8 @@ The following outline describes the high-level steps to build your connector:
 1. Register your custom built-in connector with the [Azure Functions runtime extension](../azure-functions/functions-bindings-register.md).
 
 1. Install the connector for use.
+
+For the detailed steps, review [Create custom built-in connectors for Standard logic apps in single-tenant Azure Logic Apps](create-custom-built-in-connector-standard.md).
 
 ## Next steps
 

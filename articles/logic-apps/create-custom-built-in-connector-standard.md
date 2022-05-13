@@ -67,9 +67,9 @@ To provide the operations for the sample built-in connector, in the NuGet packag
 
   * If your trigger is an Azure Functions-based trigger type, the **GetBindingConnectionInformation()** is used by the runtime in Azure Logic Apps to provide the required connection parameters information to the Azure Functions trigger binding.
 
-  * If your connector has actions, the **InvokeOperation()** method is used by the runtime for each action that runs during workflow execution.
+  * If your connector has actions, the **InvokeOperation()** method is used to call each action that runs during workflow execution. If your connector doesn't have actions, you don't have to implement the **InvokeOperation()** method.
 
-  In this example, the Cosmos DB custom built-in connector doesn't have any actions, so you don't have to implement the **InvokeOperation()** method. Otherwise, if the connector had actions, you need to implement the method for each action that executes at runtime.
+    In this example, the Cosmos DB custom built-in connector doesn't have any actions. However, the method is included in this example for completeness.
 
 * **IServiceOperationsTriggerProvider** to provide the type and definition for triggers
 
@@ -82,7 +82,7 @@ The designer requires this method to get the high-level description for your ser
 ```csharp
 public ServiceOperationApi GetService()
 {
-   return this.CosmosDBApis.ServiceOperationServiceApi;
+   return this.CosmosDBApis.ServiceOperationServiceApi();
 }
 ```
 
@@ -102,13 +102,25 @@ public IEnumerable<ServiceOperation> GetOperations(bool expandManifest)
 If you want to use the Azure Functions trigger type, this method provides the required connection parameters information to the Azure Functions trigger binding.
 
 ```csharp
-return ServiceOperationsProviderUtilities
-   .GetRequiredParameterValue(
-      serviceId: ServiceId,
-      operationId: operationID,
-      parameterName: "connectionString",
-      parameters: connectionParameters)?
-   .ToValue<string>();
+public string GetBindingConnectionInformation(string operationId, InsensitiveDictionary<JToken> connectionParameters)
+{
+   return ServiceOperationsProviderUtilities
+      .GetRequiredParameterValue(
+         serviceId: ServiceId,
+         operationId: operationID,
+         parameterName: "connectionString",
+         parameters: connectionParameters)?
+      .ToValue<string>();
+}
+```
+
+#### InvokeOperation()
+
+```csharp
+public Task<ServiceOperationResponse> InvokeOperation(string operationId, InsensitiveDictionary<JToken> connectionParameters, ServiceOperationRequest serviceOperationRequest)
+{
+   throw new NotImplementedException();
+}
 ```
 
 #### GetFunctionTriggerType()
