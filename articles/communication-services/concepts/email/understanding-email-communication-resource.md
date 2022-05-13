@@ -1,5 +1,5 @@
 ---
-title: Email Communication Service overview for Azure Communication Services
+title:  Preparing Email Communication Resource for Azure Communication Service
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the Azure Communication Services Email Communication Resources and Domains.
 author: bashan-git
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ms.custom: private_preview
 ---
-# Email Communication Service overview for Azure Communication Services
+# Preparing Email Communication Resource for Azure Communication Service 
 
 > [!IMPORTANT]
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 
-Similar to Chat, VoIP and SMS modalities under the Azure Communication Services , you will be able to send an email using an Azure Communication Resource. However
+Similar to Chat, VoIP and SMS modalities under the Azure Communication Services, you will be able to send an email using an Azure Communication Resource. However
 sending an email requires certain pre-configuration steps and you have to rely on your organization admins help setting that up. The administrator of your organization need to, 
 - Approve the domain that your organization allows you to send mail from 
 - Define the sender domain they will use as the P1 sender email address (also known as MailFrom email address) that shows up on the envelope of the email [RFC 5321](https://tools.ietf.org/html/rfc5321)
