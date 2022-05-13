@@ -193,7 +193,7 @@ When using Azure Files, you must use the Azure CLI with a YAML definition to cre
 1. Add a storage definition of type `AzureFile` to your Container Apps environment.
   
     ```azure-cli
-    az containerapp env storage set --name my-env -resource-group my-group \
+    az containerapp env storage set --name my-env --resource-group my-group \
         --storage-name mystorage \
         --azure-file-account-name <STORAGE_ACCOUNT_NAME> \
         --azure-file-account-key <STORAGE_ACCOUNT_KEY> \
