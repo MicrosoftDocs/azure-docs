@@ -164,12 +164,12 @@ Get-AzSubscription
 Select-AzSubscription -SubscriptionName $SourceSubscriptionName
 
 # list all restore points
-Get-AzSynapseSqlPoolRestorePoint -ResourceGroupName $ResourceGroupName -WorkspaceName $SourceWorkspaceName -Name $SourceSQLPoolName
+Get-AzSynapseSqlPoolRestorePoint -ResourceGroupName $SourceResourceGroupName -WorkspaceName $SourceWorkspaceName -Name $SourceSQLPoolName
 # Pick desired restore point using RestorePointCreationDate "xx/xx/xxxx xx:xx:xx xx"
 $PointInTime="<RestorePointCreationDate>"
 
 # Get the specific SQL pool to restore
-$SQLPool = Get-AzSynapseSqlPool -ResourceGroupName $ResourceGroupName -WorkspaceName $SourceWorkspaceName -Name $SourceSQLPoolName
+$SQLPool = Get-AzSynapseSqlPool -ResourceGroupName $SourceResourceGroupName -WorkspaceName $SourceWorkspaceName -Name $SourceSQLPoolName
 # Transform Synapse SQL pool resource ID to SQL database ID because currently the restore command only accepts the SQL database ID format.
 $DatabaseID = $SQLPool.Id -replace "Microsoft.Synapse", "Microsoft.Sql" `
 	-replace "workspaces", "servers" `
@@ -200,9 +200,9 @@ $RestoredDatabase.status
 
 ## Troubleshooting
 A restore operation can result in a deployment failure based on a "RequestTimeout" exception. 
-![Screenshot of timeout exception.](../media/sql-pools/restore-sql-pool-troubleshooting-01.png)
+![Screenshot from resource group deployments dialog of a timeout exception.](../media/sql-pools/restore-sql-pool-troubleshooting-01.png)  
 This timeout can be ignored. Review the dedicated SQL pool blade in the portal and it may still have status of "Restoring" and eventually will transition to "Online". 
-![Screenshot of SQL pool restoring.](../media/sql-pools/restore-sql-pool-troubleshooting-02.png)
+![Screenshot of SQL pool dialog with the status that shows restoring.](../media/sql-pools/restore-sql-pool-troubleshooting-02.png)  
 
 ## Next Steps
 
