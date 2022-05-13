@@ -31,24 +31,21 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
-
 ## April 2022
 
 ### General Availability - Microsoft Defender for Endpoint Signal in Identity Protection
-
 
 **Type:** New feature  
 **Service category:** Identity Protection  
 **Product capability:** Identity Security & Protection  
  
 
-Identity Protection now integrates a signal from Microsoft Defender for Cloud for Endpoint (MDE) that will protect against PRT theft detection. To learn more, see: [What is risk? Azure AD Identity Protection | Microsoft Docs](../identity-protection/concept-identity-protection-risks.md).
+Identity Protection now integrates a signal from Microsoft Defender for Endpoint (MDE) that will protect against PRT theft detection. To learn more, see: [What is risk? Azure AD Identity Protection | Microsoft Docs](../identity-protection/concept-identity-protection-risks.md).
  
 
 ---
 
 ### General availability - Entitlement management 3 stages of approval
-
 
 **Type:** Changed feature  
 **Service category:** Other  
@@ -63,7 +60,6 @@ This update extends the Azure AD entitlement management access package policy to
 
 ### General Availability - Improvements to Azure AD Smart Lockout
 
-
 **Type:** Changed feature  
 **Service category:** Identity Protection  
 **Product capability:** User Management  
@@ -74,7 +70,6 @@ With a recent improvement, Smart Lockout now synchronizes the lockout state acro
  
 
 ---
-
 
 ### Public Preview - Enabling customization capabilities for the Self-Service Password Reset (SSPR) hyperlinks, footer hyperlinks and browser icons in Company Branding.
 
@@ -87,7 +82,6 @@ Updating the Company Branding functionality on the Azure AD/Microsoft 365 sign-i
 ---
 
 ### Public Preview - Integration of Microsoft 365 App Certification details into AAD UX and Consent Experiences
-
 
 **Type:** New feature  
 **Service category:** User Access Management  
@@ -110,11 +104,9 @@ Updating the Company Branding functionality on the Azure AD/Microsoft 365 sign-i
 
 ### Public preview - Use Azure AD access reviews to review access of B2B direct connect users in Teams shared channels
 
-
 **Type:** New feature  
 **Service category:** Access Reviews  
 **Product capability:** Identity Governance
-
 
 Use Azure AD access reviews to review access of B2B direct connect users in Teams shared channels. For more information, see: [Include B2B direct connect users and teams accessing Teams Shared Channels in access reviews (preview)](../governance/create-access-review.md#include-b2b-direct-connect-users-and-teams-accessing-teams-shared-channels-in-access-reviews-preview).
 
@@ -127,24 +119,19 @@ Use Azure AD access reviews to review access of B2B direct connect users in Team
 **Product capability:** Identity Security & Protection  
 **Clouds impacted:** Public (Microsoft 365, GCC)
 
-
 We're announcing the public preview of following MS Graph APIs and PowerShell cmdlets for configuring federated settings when federated with Azure AD:
-
 
 |Action  |MS Graph API  |PowerShell cmdlet  |
 |---------|---------|---------|
-|Get federation settings for a federated domain        | [Get internalDomainFederation](https://docs.microsoft.com/graph/api/internaldomainfederation-get?view=graph-rest-beta)           | [Get-MgDomainFederationConfiguration](https://docs.microsoft.com/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdomainfederationconfiguration?view=graph-powershell-beta)        |
-|Create federation settings for a federated domain     | [Create internalDomainFederation](https://docs.microsoft.com/graph/api/domain-post-federationconfiguration?view=graph-rest-beta)        | [New-MgDomainFederationConfiguration](https://docs.microsoft.com/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdomainfederationconfiguration?view=graph-powershell-beta)        |
-|Remove federation settings for a federated domain     | [Delete internalDomainFederation](https://docs.microsoft.com/graph/api/internaldomainfederation-delete?view=graph-rest-beta)        | [Remove-MgDomainFederationConfiguration](https://docs.microsoft.com/powershell/module/microsoft.graph.identity.directorymanagement/remove-mgdomainfederationconfiguration?view=graph-powershell-beta)     |
-|Update federation settings for a federated domain     | [Update internalDomainFederation](https://docs.microsoft.com/graph/api/internaldomainfederation-update?view=graph-rest-beta)        | [Update-MgDomainFederationConfiguration](https://docs.microsoft.com/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdomainfederationconfiguration?view=graph-powershell-beta)     |
+|Get federation settings for a federated domain        | [Get internalDomainFederation](/graph/api/internaldomainfederation-get?view=graph-rest-beta&preserve-view=true)           | [Get-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdomainfederationconfiguration?view=graph-powershell-beta&preserve-view=true)        |
+|Create federation settings for a federated domain     | [Create internalDomainFederation](/graph/api/domain-post-federationconfiguration?view=graph-rest-beta&preserve-view=true)        | [New-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdomainfederationconfiguration?view=graph-powershell-beta&preserve-view=true)        |
+|Remove federation settings for a federated domain     | [Delete internalDomainFederation](/graph/api/internaldomainfederation-delete?view=graph-rest-beta&preserve-view=true)        | [Remove-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/remove-mgdomainfederationconfiguration?view=graph-powershell-beta&preserve-view=true)     |
+|Update federation settings for a federated domain     | [Update internalDomainFederation](/graph/api/internaldomainfederation-update?view=graph-rest-beta&preserve-view=true)        | [Update-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdomainfederationconfiguration?view=graph-powershell-beta&preserve-view=true)     |
 
 
+If using older MSOnline cmdlets ([Get-MsolDomainFederationSettings](/powershell/module/msonline/get-msoldomainfederationsettings?view=azureadps-1.0&preserve-view=true) and [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0&preserve-view=true)), we highly recommend transitioning to the latest MS Graph APIs and PowerShell cmdlets. 
 
-If using older MSOnline cmdlets ([Get-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/get-msoldomainfederationsettings?view=azureadps-1.0) and [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)), we highly recommend transitioning to the latest MS Graph APIs and PowerShell cmdlets. 
-
-
-For more information, see [internalDomainFederation resource type - Microsoft Graph beta | Microsoft Docs](https://docs.microsoft.com/graph/api/resources/internaldomainfederation?view=graph-rest-beta).
-
+For more information, see [internalDomainFederation resource type - Microsoft Graph beta | Microsoft Docs](/graph/api/resources/internaldomainfederation?view=graph-rest-beta&preserve-view=true).
 
 ---
 
@@ -166,9 +153,9 @@ Added functionality to session controls allowing admins to reauthenticate a user
 **Product capability:** Identity Security & Protection  
 **Clouds impacted:** Public (Microsoft 365, GCC)
 
-We're delighted to announce a new security protection that prevents bypassing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD. When enabled for a federated domain in your Azure AD tenant, it ensures that a compromised federated account can't bypass Azure AD Multi-Factor Authentication by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, [federatedIdpMfaBehavior](https://docs.microsoft.com/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values). 
+We're delighted to announce a new security protection that prevents bypassing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD. When enabled for a federated domain in your Azure AD tenant, it ensures that a compromised federated account can't bypass Azure AD Multi-Factor Authentication by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values&preserve-view=true). 
 
-We highly recommend enabling this new protection when using Azure AD Multi-Factor Authentication as your multi factor authentication for your federated users. To learn more about the protection and how to enable it, visit [Enable protection to prevent by-passing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#enable-protection-to-prevent-by-passing-of-cloud-azure-ad-multi-factor-authentication-when-federated-with-azure-ad).
+We highly recommend enabling this new protection when using Azure AD Multi-Factor Authentication as your multi factor authentication for your federated users. To learn more about the protection and how to enable it, visit [Enable protection to prevent by-passing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#enable-protection-to-prevent-by-passing-of-cloud-azure-ad-multi-factor-authentication-when-federated-with-azure-ad).
 
 ---
 
@@ -183,7 +170,6 @@ In April 2022 we added the following 24 new applications in our App gallery with
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial.
 
-
 For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
 
 ---
@@ -197,9 +183,7 @@ For listing your application in the Azure AD app gallery, please read the detail
 
 From April 15, 2022, Microsoft began storing Azure AD’s Customer Data for new tenants with a Japan billing address within the Japanese data centers.  For more information, see: [Customer data storage for Japan customers in Azure Active Directory](active-directory-data-storage-japan.md).
 
-
 ---
-
 
 
 ### Public Preview - New provisioning connectors in the Azure AD Application Gallery - April 2022
@@ -216,7 +200,6 @@ You can now automate creating, updating, and deleting user accounts for these ne
 - [NordPass](../saas-apps/nordpass-provisioning-tutorial.md)
 
 For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md)
-
 
 ---
 
@@ -261,7 +244,6 @@ For more information about how to better secure your organization by using autom
 
 ---
  
-
 
 ### Public preview - Azure AD Recommendations
 
@@ -320,7 +302,6 @@ You can also find the documentation of all the applications from here https://ak
 
 For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
 
-
 ---
  
 
@@ -342,13 +323,11 @@ For listing your application in the Azure AD app gallery, please read the detail
 ---
  
 
-
 ## February 2022
  
 
 ---
  
-
 
 ### General Availability - France digital accessibility requirement
 
@@ -363,7 +342,6 @@ This change provides users who are signing into Azure Active Directory on iOS, A
 ---
  
 
-
 ### General Availability - Downloadable access review history report
 
 **Type:** New feature  
@@ -376,10 +354,8 @@ With Azure Active Directory (Azure AD) Access Reviews, you can create a download
 
 ---
 
-
 ---
  
-
 
 ### Public Preview of Identity Protection for Workload Identities
 
@@ -394,7 +370,6 @@ Azure AD Identity Protection is extending its core capabilities of detecting, in
 ---
  
 
-
 ### Public Preview - Cross-tenant access settings for B2B collaboration
 
 **Type:** New feature  
@@ -408,7 +383,6 @@ Cross-tenant access settings enable you to control how users in your organizatio
 
 ---
  
-
 
 ### Public preview - Create Azure AD access reviews with multiple stages of reviewers
 
@@ -437,7 +411,6 @@ In February 2022 we added the following 20 new applications in our App gallery w
 You can also find the documentation of all the applications from here: [https://aka.ms/AppsTutorial](../saas-apps/tutorial-list.md),
 
 For listing your application in the Azure AD app gallery, please read the details here: [https://aka.ms/AzureADAppRequest](../manage-apps/v2-howto-app-gallery-listing.md)
-
 
  
 
@@ -492,7 +465,6 @@ We have improved the Privileged Identity management (PIM) time to role activatio
 
  
  
-
 
 ## January 2022
 
@@ -662,7 +634,7 @@ We’re no longer publishing sign-in logs with the following error codes because
 
 |Error code | Failure reason|
 | --- | --- |
-|50058|	Session information isn’t sufficient for single-sign-on.|
+|50058| Session information isn’t sufficient for single-sign-on.|
 |16000| Either multiple user identities are available for the current request or selected account isn’t supported for the scenario.|
 |500581| Rendering JavaScript. Fetching sessions for single-sign-on on V2 with prompt=none requires JavaScript to verify if any MSA accounts are signed in.|
 |81012| The user trying to sign in to Azure AD is different from the user signed into the device.|
@@ -865,3 +837,5 @@ Updated "switch organizations" user interface in My Account. This visually impro
  
 ---
  
+
+
