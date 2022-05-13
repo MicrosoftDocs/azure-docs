@@ -157,12 +157,28 @@ if (blobClient1.Exists())
 }
 ```
 
-### Accessing MS SQL Database
-```aspx-csharp
-function doTheThing()
-{
+### Accessing Azure SQL Database
+```csharp
+using Azure.Identity;
+using Microsoft.Data.SqlClient;
 
+AccessToken accessToken = await new DefaultAzureCredential().GetTokenAsync(new TokenRequestContext(new string[] { "https://database.windows.net//.default" }));                        
+
+using SqlConnection connection = new SqlConnection("Server=<DB Server>; Database=<DB Name>;")
+{
+    AccessToken = accessToken.Token
+};
+await connection.OpenAsync();
+
+SqlCommand cmd = new SqlCommand("select top 1 ColumnName from TableName");
+cmd.Connection = connection;
+SqlDataReader dr = cmd.ExecuteReader();
+var rowValue = "";
+while(dr.HasRows)
+{
+    rowValue = dr.GetValue(0).ToString();
 }
+connection.Close();	
 ```
 
 ## Connecting to resources that don't support Azure Active Directory or token based authentication in libraries
