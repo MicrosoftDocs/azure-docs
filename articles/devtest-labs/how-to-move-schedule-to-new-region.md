@@ -22,7 +22,7 @@ In this article, you'll learn how to:
 
 - Ensure that the services and features that your account uses are supported in the target region.
 - For preview features, ensure that your subscription is allowlisted for the target region.
-- DevTest Labs doesn't store or expose passwords from the exported ARM template. You'll need to know the passwords/secrets for:
+- DevTest Labs doesn't include secrets and passwords in the exported ARM template. You'll need the following:
   - the VMs
   - the Stored Secrets
   - PAT tokens of the private Artifact Repos to move the private repos together with the lab.
