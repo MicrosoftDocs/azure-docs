@@ -58,14 +58,18 @@ If you want to do bulk import (similar to using [DocumentBulkExecutor.importAll]
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkCreateItems)]
 
-If you want to do bulk *update* (similar to using [DocumentBulkExecutor.updateAll](/java/api/com.microsoft.azure.documentdb.bulkexecutor.documentbulkexecutor.updateall)), you need to use bulk replace:
+If you want to do bulk *update* (similar to using [DocumentBulkExecutor.updateAll](/java/api/com.microsoft.azure.documentdb.bulkexecutor.documentbulkexecutor.updateall)), you need to use bulk upsert:
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkUpsertItems)]
+
+If you want to do bulk *patch* (similar to using [DocumentBulkExecutor.mergeAll](/java/api/com.microsoft.azure.documentdb.bulkexecutor.documentbulkexecutor.mergeall)), you cannot do a partial update of the documents when the root parent does not exist. You need to read the document first, using replace:
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkReplaceItems)]
 
 
-If you want to do bulk *patch* (similar to using [DocumentBulkExecutor.mergeAll](/java/api/com.microsoft.azure.documentdb.bulkexecutor.documentbulkexecutor.mergeall)), you need to use bulk upsert:
 
-   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkUpsertItems)]
+
+
 
 And if you want to do bulk *delete* (similar to using [DocumentBulkExecutor.deleteAll](/java/api/com.microsoft.azure.documentdb.bulkexecutor.documentbulkexecutor.deleteall)), you need to use bulk delete:
 
