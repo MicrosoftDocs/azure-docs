@@ -252,7 +252,7 @@ It's important to give your service principal the permission to scan the ADLS Ge
 
 [!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
-## Data share
+## Data sharing
 Microsoft Purview Data Sharing (preview) enables sharing of data in-place from ADLS Gen2 to ADLS Gen2. This section provides details about the ADLS Gen2 specific requirements for sharing and receiving data in-place. Refer to [How to share data](how-to-share-data.md) and [How to receive shared data](how-to-receive-share.md) for step by step guide on how to use data share.
 
 ### Storage accounts supported for in-place data sharing
