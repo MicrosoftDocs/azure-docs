@@ -59,21 +59,18 @@ To use scaling plans, make sure you follow these guidelines:
 
 ## Create a custom RBAC role in the Azure portal
 
-Before creating your first scaling plan, you'll need to create a custom role-based access control (RBAC) role with your Azure subscription as the assignable scope. Assigning this custom role at any level lower than your subscription, such as the resource group, host pool, or VM, will prevent autoscale from working properly. This custom role and assignment will allow Azure Virtual Desktop to manage the power state of any VMs in your subscription. It will also let the service apply actions on both host pools and VMs when there are no active user sessions. For more information about creating custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md). 
+Before creating your first scaling plan, you'll need to create a custom role-based access control (RBAC) role with your Azure subscription as the assignable scope. Assigning this custom role at any level lower than your subscription, such as the resource group, host pool, or VM, will prevent autoscale from working properly. You'll need to add each Azure subscription as an assignable scope that contains host pools and session host VMs you want to use with autoscale. This custom role and assignment will allow Azure Virtual Desktop to manage the power state of any VMs in those subscriptions. It will also let the service apply actions on both host pools and VMs when there are no active user sessions. For more information about creating custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md). 
 
 > [!IMPORTANT]
-> You must have the `Microsoft.Authorization/roleAssignments/write` permission on your subscription in order to create and assign the custom role for the service principal on your subscription. This is part of **User Access Administrator** and **Owner** built in roles.
+> You must have the `Microsoft.Authorization/roleAssignments/write` permission on your subscriptions in order to create and assign the custom role for the Azure Virtual Desktop service principal on those subscriptions. This is part of **User Access Administrator** and **Owner** built in roles.
 
-To create and assign the custom role on your subscription with the Azure portal:
+To create the custom role with the Azure portal:
 
-1. Open the Azure portal and go to **Subscriptions** and select the subscription that contains the host pool you want to use with autoscale.
+1. Open the Azure portal and go to **Subscriptions** and select a subscription that contains a host pool and session host VMs you want to use with autoscale.
 
-1. Select **Access control (IAM)**
+1. Select **Access control (IAM)**.
 
-1. Select the **+ Add** button, then select **Add custom role** from the drop-down menu, as shown in the following screenshot:
-
-    > [!div class="mx-imgBorder"]
-    > ![A screenshot showing the drop-down menu that appears when you select the plus sign and add button in the Access control (I A M) blade in the Azure portal. The option add custom role is highlighted with a red border.](media/add-custom-role.png)
+1. Select the **+ Add** button, then select **Add custom role** from the drop-down menu.
 
 1. Next, on the **Basics** tab, enter a custom role name and add a description. We recommend you name the role *Azure Virtual Desktop Autoscale* with the description *Scales your Azure Virtual Desktop deployment up or down*.
 
@@ -81,7 +78,7 @@ To create and assign the custom role on your subscription with the Azure portal:
 
 1. On the **Permissions** tab, select Next. You'll add the permissions later on the JSON tab.
 
-1. On the **Assignable scopes** tab, your subscription will be listed. If you also want to assign this custom role to other subscriptions containing host pools, select **Add assignable scopes** and add the relevant subscriptions.
+1. On the **Assignable scopes** tab, your subscription will be listed. If you also want to assign this custom role to other subscriptions containing host pools and session host VMs, select **Add assignable scopes** and add the relevant subscriptions.
 
 1. On the **JSON** tab, select **Edit** and add the following permissions to the `"actions": []` array. These entries must be enclosed within the square brackets.
 
@@ -101,7 +98,7 @@ To create and assign the custom role on your subscription with the Azure portal:
 	"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action"
     ```
 
-   The completed JSON should look like this, with your subscription ID included as an assignable scope:
+   The completed JSON should look like this, with the subscription ID for each subscription included as assignable scopes:
 
     ```json
     {
@@ -141,19 +138,23 @@ To create and assign the custom role on your subscription with the Azure portal:
 
 1. Review the configuration and select **Create**. Once the role has been successfully created, select **OK**. Note that it may take a few minutes to display everywhere.
 
-After you've created the custom role, you'll need to assign it to the Azure Virtual Desktop service principal and grant access.
+After you've created the custom role, you'll need to assign it to the Azure Virtual Desktop service principal and grant access to each subscription.
 
 ## Assign the custom role with the Azure portal
 
 To assign the custom role with the Azure portal to the Azure Virtual Desktop service principal on the subscription your host pool is deployed to:
 
-1. In the **Access control (IAM) tab**, select **Add role assignments**.
+1. Sign in to the Azure portal and go to **Subscriptions**. Select a subscription that contains a host pool and session host VMs you want to use with autoscale.
+
+1. Select **Access control (IAM)**.
+
+1. Select the **+ Add** button, then select **Add role assignment** from the drop-down menu.
 
 1. Select the role you just created, for example **Azure Virtual Desktop Autoscale** and select **Next**.
 
 1. On the **Members** tab, select **User, group, or service principal**, then select **+Select members**. In the search bar, enter and select either **Azure Virtual Desktop** or **Windows Virtual Desktop**. Which value you have depends on when the *Microsoft.DesktopVirtualization* resource provider was first registered in your Azure tenant. If you see two entries titled Windows Virtual Desktop, please see the tip below.
 
-1. Select **Review + assign** to complete the assignment.
+1. Select **Review + assign** to complete the assignment. Repeat this for any other subscriptions that contain host pools and session host VMs you want to use with autoscale.
 
 > [!TIP]
 > The application ID for the service principal is **9cdead84-a844-4324-93f2-b2e6bb768d07**.
@@ -164,7 +165,7 @@ To assign the custom role with the Azure portal to the Azure Virtual Desktop ser
 >
 > 1. Open [Azure Cloud Shell](../cloud-shell/overview.md) with PowerShell as the shell type.
 >
-> 1. Get the object ID (which is unique in each Azure tenant) and store it in a variable:
+> 1. Get the object ID for the service principal (which is unique in each Azure tenant) and store it in a variable:
 >
 >    ```powershell
 >    $objId = (Get-AzADServicePrincipal -AppId "9cdead84-a844-4324-93f2-b2e6bb768d07").Id
@@ -190,7 +191,7 @@ To assign the custom role with the Azure portal to the Azure Virtual Desktop ser
 
 ## Create a scaling plan
 
-To create a scaling plan:
+Now that you've assigned the custom role to the service principal on your subscriptions, you can create a scaling plan. To create a scaling plan:
 
 1. Open the [Azure portal](https://portal.azure.com).
 

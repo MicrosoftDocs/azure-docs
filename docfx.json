@@ -224,7 +224,7 @@
         "articles/automanage/*md": "daberry",
         "articles/automation/**/*.md": "sgsneha",
         "articles/azure-arc/**/*.md": "JnHs",
-        "articles/azure-arc/servers/**/*.md": "JnHs",
+        "articles/azure-arc/servers/**/*.md": "johnmarco",
         "articles/azure-functions/**/*.md": "ggailey777",
         "articles/azure-fluid-relay/**/*.md": "hickeys",
         "articles/azure-government/**/*.md": "stevevi",
@@ -282,7 +282,7 @@
         "articles/cognitive-services/LUIS/**/*.md": "aahill",
         "articles/applied-ai-services/metrics-advisor/**/*.md": "mrbullwinkle",
         "articles/cognitive-services/personalizer/**/*.md": "edjez",
-        "articles/cognitive-services/QnAMaker/**/*.md": "mrbullwinkle",
+        "articles/cognitive-services/QnAMaker/**/*.md": "jboback",
         "articles/cognitive-services/Speech-Service/**/*.md": "eric-urban",
         "articles/cognitive-services/language-service/**/*.md": "aahill",
         "articles/cognitive-services/Translator/**/*.md": "laujan",
@@ -331,7 +331,7 @@
         "articles/azure-video-indexer/*.md": "Juliako",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "Juliako",
         "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "Juliako",
-        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "Juliako"        
+        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "Juliako"
       },
       "featureFlags": {
         "articles/**/*.md": [
@@ -588,7 +588,7 @@
         "articles/automanage/*md": "daberry",
         "articles/automation/**/*.md": "sudhirsneha",
         "articles/azure-arc/**/*.md": "jenhayes",
-        "articles/azure-arc/servers/**/*.md": "jenhayes",
+        "articles/azure-arc/servers/**/*.md": "johnmarc",
         "articles/azure-functions/**/*.md": "glenga",
         "articles/azure-fluid-relay/**/*.md": "hickeys",
         "articles/azure-government/**/*.md": "stevevi",
