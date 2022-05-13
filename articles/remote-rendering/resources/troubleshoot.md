@@ -183,7 +183,7 @@ We have seen spurious failures when trying to compile Unity samples (quickstart,
 
 The `AudioPluginMsHRTF.dll` for Arm64 was added to the *Windows Mixed Reality* package *(com.unity.xr.windowsmr.metro)* in version 3.0.1. Ensure that you have version 3.0.1 or later installed via the Unity Package Manager. From the Unity menu bar, navigate to *Window > Package Manager* and look for the *Windows Mixed Reality* package.
 
-## The Unity `Cinemachine` plugin does work in Remote pose mode
+## The Unity `Cinemachine` plugin does not work in Remote pose mode
 
 In [Remote pose mode](../overview/features/late-stage-reprojection.md#reprojection-pose-modes), the ARR Unity binding code implicitly creates a proxy camera that performs the actual rendering. In this case, the main camera's culling mask is set to 0 ("nothing") to effectively turn off the rendering for it. However, some third party plugins (like `Cinemachine`) that drive the camera, may rely on at least some layer bits being set.
 
