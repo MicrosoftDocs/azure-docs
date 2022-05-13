@@ -111,7 +111,8 @@ to the replica when the replica is created or afterwards.
 
 Read replicas can be created in the region of the primary server group, or in
 any other region supported by Hyperscale (Citus). The limit of five replicas
-holds no matter which regions you choose.
+per server group counts across all regions, meaning five total, not five per
+region.
 
 ## Next steps
 
