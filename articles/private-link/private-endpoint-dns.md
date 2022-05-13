@@ -96,6 +96,41 @@ For Azure services, use the recommended zone names as described in the following
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hub-compatible-endpoint)
 
+### US Government
+
+| Private link resource type / Subresource |Private DNS zone name | Public DNS zone forwarders |
+|---|---|---|
+| Azure Automation / (Microsoft.Automation/automationAccounts) / Webhook, DSCAndHybridWorker | privatelink.azure-automation.us | azure-automation.us |
+| Azure SQL Database (Microsoft.Sql/servers) / SQL Server | privatelink.database.usgovcloudapi.net | database.usgovcloudapi.net |
+| Storage account (Microsoft.Storage/storageAccounts) / Blob (blob, blob_secondary) | privatelink.blob.core.usgovcloudapi.net | blob.core.usgovcloudapi.net |
+| Storage account (Microsoft.Storage/storageAccounts) / Table (table, table_secondary) | privatelink.table.core.usgovcloudapi.net | table.core.usgovcloudapi.net |
+| Storage account (Microsoft.Storage/storageAccounts) / Queue (queue, queue_secondary) | privatelink.queue.core.usgovcloudapi.net | queue.core.usgovcloudapi.net |
+| Storage account (Microsoft.Storage/storageAccounts) / File (file, file_secondary) | privatelink.file.core.usgovcloudapi.net | file.core.usgovcloudapi.net |
+| Azure Data Lake File System Gen2 (Microsoft.Storage/storageAccounts) / Data Lake File System Gen2 (dfs, dfs_secondary) | privatelink.dfs.core.usgovcloudapi.net | dfs.core.usgovcloudapi.net |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Sql | privatelink.documents.azure.us | documents.azure.us |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / MongoDB | privatelink.mongo.cosmos.azure.us | mongo.cosmos.azure.us |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Cassandra | privatelink.cassandra.cosmos.azure.us | cassandra.cosmos.azure.us |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Gremlin | privatelink.gremlin.cosmos.azure.us | gremlin.cosmos.azure.us |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Table | privatelink.table.cosmos.azure.us | table.cosmos.azure.us |
+| Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) / postgresqlServer | privatelink.postgres.database.usgovcloudapi.net | postgres.database.usgovcloudapi.net |
+| Azure Database for MySQL (Microsoft.DBforMySQL/servers) / mysqlServer | privatelink.mysql.database.usgovcloudapi.net  | mysql.database.usgovcloudapi.net  |
+| Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) / mariadbServer | privatelink.mariadb.database.usgovcloudapi.net | mariadb.database.usgovcloudapi.net |
+| Azure Key Vault (Microsoft.KeyVault/vaults) / vault | privatelink.vaultcore.usgovcloudapi.net | vault.usgovcloudapi.net |
+| Azure Event Hubs (Microsoft.EventHub/namespaces) / namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net |
+| Azure Service Bus (Microsoft.ServiceBus/namespaces) / namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net |
+| Azure IoT Hub (Microsoft.Devices/IotHubs) / iotHub | privatelink.azure-devices.us | azure-devices.us |
+| Azure Relay (Microsoft.Relay/namespaces) / namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net |
+| Azure Event Grid (Microsoft.EventGrid/topics) / topic | privatelink.eventgrid.azure.us | eventgrid.azure.us |
+| Azure Event Grid (Microsoft.EventGrid/domains) / domain | privatelink.eventgrid.azure.us | eventgrid.azure.us |
+| Azure Web Apps (Microsoft.Web/sites) / sites | privatelink.azurewebsites.us | azurewebsites.us |
+| Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) / amlworkspace | privatelink.api.ml.azure.us<br/>privatelink.notebooks.usgovcloudapi.net | api.ml.azure.us<br/>notebooks.usgovcloudapi.net |
+| SignalR (Microsoft.SignalRService/SignalR) / signalR | privatelink.signalr.azure.us | signalr.azure.us |
+| Azure File Sync (Microsoft.StorageSync/storageSyncServices) / afs |  privatelink.afs.azure.us  |  afs.azure.us  |
+| Azure Data Factory (Microsoft.DataFactory/factories) / dataFactory |  privatelink.datafactory.azure.us  |  datafactory.azure.us  |
+| Azure Data Factory (Microsoft.DataFactory/factories) / portal |  privatelink.adf.azure.us  |  adf.azure.us  |
+| Azure Cache for Redis (Microsoft.Cache/Redis) / redisCache | privatelink.redis.cache.usgovcloudapi.net | redis.cache.usgovcloudapi.net |
+| Azure HDInsight (Microsoft.HDInsight) | privatelink.azurehdinsight.us | azurehdinsight.us |
+
 ### China
 
 | Private link resource type / Subresource |Private DNS zone name | Public DNS zone forwarders |
