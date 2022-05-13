@@ -136,6 +136,10 @@ you can use the `az vm update` command to update existing license type on runnin
     ```bash
         systemctl start azure-hybrid-benefit.service
     ```
+ 1. You can the below command in your RHEL VM to get the current status of the service. This can definitely help 
+    ```bash
+        ahb-service -status
+    ```
 
 ## Enable and disable the benefit for SLES
 
