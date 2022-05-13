@@ -19,19 +19,19 @@ zone_pivot_groups: programming-languages-spring-cloud
 
 This article shows you how to register your application using Spring Cloud Service Registry.
 
-Service registration and discovery are key requirements for maintaining a list of live app instances to call, and routing and load balancing inbound requests. Configuring each client manually takes time and introduces the possibility of human error. Azure Spring Cloud provides two options for you to solve this problem:
+Service registration and discovery are key requirements for maintaining a list of live app instances to call, and routing and load balancing inbound requests. Configuring each client manually takes time and introduces the possibility of human error. Azure Spring Apps provides two options for you to solve this problem:
 
 * Use Kubernetes Service Discovery approach to invoke calls among your apps.
 
-  Azure Spring Cloud creates a corresponding kubernetes service for every app running in it using app name as the kubernetes service name. So you can invoke calls in one app to another app by using app name in a http/https request like http(s)://{app name}/path. And this approach is also suitable for Enterprise tier.
+  Azure Spring Apps creates a corresponding kubernetes service for every app running in it using app name as the kubernetes service name. So you can invoke calls in one app to another app by using app name in a http/https request like http(s)://{app name}/path. And this approach is also suitable for Enterprise tier.
 
-* Use Managed Spring Cloud Service Registry (OSS) in Azure Spring Cloud.
+* Use Managed Spring Cloud Service Registry (OSS) in Azure Spring Apps.
 
   After configuration, a Service Registry server will control service registration and discovery for your applications. The Service Registry server maintains a registry of live app instances, enables client-side load-balancing, and decouples service providers from clients without relying on DNS.
 
 ::: zone pivot="programming-language-csharp"
 
-For information about how to set up service registration for a Steeltoe app, see [Prepare a Java Spring application for deployment in Azure Spring Cloud](how-to-prepare-app-deployment.md).
+For information about how to set up service registration for a Steeltoe app, see [Prepare a Java Spring application for deployment in Azure Spring Apps](how-to-prepare-app-deployment.md).
 
 ::: zone-end
 

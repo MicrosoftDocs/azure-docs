@@ -32,7 +32,7 @@ After you deploy an application, you can start, stop, and delete it by using the
 ## Using the Azure CLI
 
 > [!NOTE]
-> You can use optional parameters and configure defaults with the Azure CLI. Learn more about the Azure CLI by reading [our reference documentation](/cli/azure/spring-cloud).
+> You can use optional parameters and configure defaults with the Azure CLI. Learn more about the Azure CLI by reading [our reference documentation](/cli/azure/spring).
 
 First, install the Azure Spring Apps extension for the Azure CLI as follows:
 

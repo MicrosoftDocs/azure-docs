@@ -263,7 +263,7 @@ items:
 - name: Reference
   items:
   - name: Azure CLI plugin
-    href: /cli/azure/spring-cloud?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
+    href: /cli/azure/spring?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
   - name: Azure PowerShell
     href: /powershell/module/az.springcloud?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
   - name: Azure Pipelines task
