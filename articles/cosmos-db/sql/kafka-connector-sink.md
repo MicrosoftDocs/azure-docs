@@ -232,7 +232,7 @@ For more information on using this SMT, see the [InsertUUID repository](https://
 
 ### Using SMTs to configure Time to live (TTL)
 
-Using both the `InsertField` and `Cast` SMTs, you can configure TTL on each item created in Azure Cosmos DB. Enable TTL on the container before enabling TTL at an item level. For more information, see the [time-to-live](how-to-time-to-live.md#enable-time-to-live-on-a-container-using-azure-portal) doc.
+Using both the `InsertField` and `Cast` SMTs, you can configure TTL on each item created in Azure Cosmos DB. Enable TTL on the container before enabling TTL at an item level. For more information, see the [time-to-live](how-to-time-to-live.md#enable-time-to-live-on-a-container-using-the-azure-portal) doc.
 
 Inside your Sink connector config, add the following properties to set the TTL in seconds. In this following example, the TTL is set to 100 seconds. If the message already contains the `TTL` field, the `TTL` value will be overwritten by these SMTs.
 
