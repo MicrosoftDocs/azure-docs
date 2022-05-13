@@ -1,6 +1,6 @@
 ---
 title: How to move a Microsoft.DevtestLab/schedules to another region
-description: This article explains how to move a Microsoft.DevtestLab/schedules to another Azure region.
+description: This article explains how to move Microsoft.DevtestLab/schedules to another Azure region.
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
