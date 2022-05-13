@@ -212,7 +212,6 @@ In this section, you'll:
 
 - Create the virtual machine with [New-AzVM](/powershell/module/az.compute/new-azvm)
 
-
 ```azurepowershell-interactive
 ## Create the credential for the virtual machine. Enter a username and password at the prompt. ##
 $cred = Get-Credential
