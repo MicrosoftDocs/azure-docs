@@ -14,7 +14,7 @@ This article outlines the process to register an Azure Cosmos database (SQL API)
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Share**|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
 |---|---|---|---|---|---|---|
 | [Yes](#register) | [Yes](#scan)|[No](#scan) | [Yes](#scan)|[Yes](#scan)|No|No** | No |
 
