@@ -53,6 +53,12 @@ Below is an example of the `containers` array in the [`properties.template`](azu
       "cpu": 0.5,
       "memory": "1Gi"
     },
+    "volumeMounts": [
+      {
+        "mountPath": "/myfiles",
+        "volumeName": "azure-files-volume"
+      }
+    ]
     "probes":[
         {
             "type":"liveness",
@@ -105,6 +111,7 @@ Below is an example of the `containers` array in the [`properties.template`](azu
 | `env` | An array of key/value pairs that define environment variables. | Use `secretRef` instead of the `value` field to refer to a secret. |
 | `resources.cpu` | The number of CPUs allocated to the container. | Values must adhere to the following rules: the value must be greater than zero and less than or equal to 2, and can be any decimal number, with a maximum of two decimal places. For example, `1.25` is valid, but `1.555` is invalid. The default is 0.5 CPU per container. |
 | `resources.memory` | The amount of RAM allocated to the container. | This value is up to `4Gi`. The only allowed units are [gibibytes](https://simple.wikipedia.org/wiki/Gibibyte) (`Gi`). Values must adhere to the following rules: the value must be greater than zero and less than or equal to `4Gi`, and can be any decimal number, with a maximum of two decimal places. For example, `1.25Gi` is valid, but `1.555Gi` is invalid. The default is `1Gi` per container.  |
+| `volumeMounts` | An array of volume mount definitions. | You can define a temporary volume or multiple permanent storage volumes for your container.  For more information about storage volumes, see [Use storage mounts in Azure Container Apps](storage-mounts.md).|
 | `probes`| An array of health probes enabled in the container. | This feature is based on Kubernetes health probes. For more information about probes settings, see [Health probes in Azure Container Apps](health-probes.md).|
 
 
