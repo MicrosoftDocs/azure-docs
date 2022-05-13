@@ -132,7 +132,7 @@ The app creation steps are same as Standard Tier.
 
 In Enterprise tier, Application Configuration Service provides external configuration support for your apps. Managed Spring Cloud Config Server is only available in Basic and Standard tiers and is not available in Enterprise tier. 
 
-| | Standard Tier | Enterprise Tier |
+| Component | Standard Tier | Enterprise Tier |
 | - | - | - |
 | Config Server | OSS config server <br> Auto bound (always injection) <br>Always provisioned | Application Configuration Service for Tanzu <br> Need manual binding to app <br> Enable on demand |
 
@@ -172,7 +172,7 @@ az spring-cloud application-configuration-service git repo add \
 
 ---
 
-## Bind application to Application Configuration Service for Tanzu and configure patterns
+## Bind application to Application Configuration Service for Tanzu
 
 When you use Application Configuration Service for Tanzu with a Git backend, you must bind the app to Application Configuration Service for Tanzu. After binding the app, you'll need to configure which pattern will be used by the app. Follow these steps to bind and configure the pattern for the app.
 
@@ -207,7 +207,7 @@ For more information, see [Use Application Configuration Service for Tanzu](./ho
 
 [Service Registry](https://docs.pivotal.io/spring-cloud-services/2-1/common/service-registry/index.html) is one of the proprietary VMware Tanzu components. It provides your apps with an implementation of the Service Discovery pattern, one of the key concepts of a microservice-based architecture. In Enterprise tier, Service Registry for Tanzu provides service registry and discover support for your apps. Managed Spring Cloud Eureka is only available in Basic and Standard tiers and is not available in Enterprise tier. 
 
-| | Standard Tier | Enterprise Tier |
+| Component | Standard Tier | Enterprise Tier |
 | - | - | - |
 | Service Registry | OSS eureka <br> Auto bound (always injection) <br>Always provisioned | Service Registry for Tanzu <br> Need manual binding to app <br> Enable on demand |
 
@@ -245,12 +245,14 @@ For more information, see [Use Tanzu Service Registry](./how-to-enterprise-servi
 
 ## Build and deploy applications
 
-In Enterprise tier, Tanzu Build Service is used to build apps. It provides more features like polyglot app to deploy from artifacts (source code, zip, etc.), support static frontend files to deploy directly, etc. To use Tanzu Build Service, you need to specify resource for build task and builder to use. You can also specify `--build-env` param to set build envs.
+In Enterprise tier, Tanzu Build Service is used to build apps. It provides more features like polyglot app to deploy from artifacts (source code, zip, etc.), support static frontend files to deploy directly, etc. 
+To use Tanzu Build Service, you need to specify resource for build task and builder to use. You can also specify `--build-env` param to set build envs.
+
 If the app binds with ACS, need specify an additional arg “—config-file-pattern”
 
 The following sections show how to build and deploy applications.
 
-### Build the applications locally
+## Build the applications locally
 
 To build locally, use the following steps:
 
@@ -366,6 +368,9 @@ az spring-cloud build-service builder buildpack-binding delete \
     --builder-name <your-builder-name> \
 ```
 For more information, see [Use Application Insights Java In-Process Agent in Azure Spring Cloud](./how-to-application-insights.md).
+
+
+---
 
 ## Next steps
 
