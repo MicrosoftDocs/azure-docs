@@ -5,7 +5,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 08/16/2021
+ms.date: 05/12/2022
 ms.author: kgremban
 ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. This step of the tutorial needs to show me how to set up my base resources using CLI and the Azure Portal.
@@ -41,7 +41,7 @@ In this tutorial, you perform the following tasks:
 
 * Optionally, install [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer). This tool isn't necessary for completing the tutorial, but allows you to observe the messages as they arrive at your IoT hub.
 
-[!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Register a device and send messages to IoT Hub
 
@@ -219,7 +219,8 @@ Now set up the routing for the storage account. In this section you define a new
    | Parameter | Value |
    | --------- | ----- |
    | **Endpoint name** | Create a name for this endpoint. |
-   | **Azure Storage container** | Select **Pick a container**, which takes you to a list of storage accounts. Choose the storage account that you created in the previous section, then choose the container that you created in that account. Select **Select**. | **Encoding** | Select **JSON**. If this field is greyed out, then your storage account region does not support JSON. In that case, continue with the default **AVRO**. |
+   | **Azure Storage container** | Select **Pick a container**, which takes you to a list of storage accounts. Choose the storage account that you created in the previous section, then choose the container that you created in that account. Select **Select**.|
+   | **Encoding** | Select **JSON**. If this field is greyed out, then your storage account region does not support JSON. In that case, continue with the default **AVRO**. |
 
    ![Pick a container.](./media/tutorial-routing/02-add-a-storage-endpoint.png)
 
