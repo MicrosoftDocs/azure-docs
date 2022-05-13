@@ -60,11 +60,7 @@ Note that only one instance of AKV secrets provider extension can be deployed on
   "aksAssignedIdentity": null,
   "autoUpgradeMinorVersion": true,
   "configurationProtectedSettings": {},
-  "configurationSettings": {
-    "secrets-store-csi-driver.enableSecretRotation": "true",
-    "secrets-store-csi-driver.rotationPollInterval": "2m",
-    "secrets-store-csi-driver.syncSecret.enabled": "true"
-  },
+  "configurationSettings": {},
   "customLocationSettings": null,
   "errorInfo": null,
   "extensionType": "microsoft.azurekeyvaultsecretsprovider",
@@ -187,11 +183,7 @@ You should see a JSON output similar to the output below:
   "aksAssignedIdentity": null,
   "autoUpgradeMinorVersion": true,
   "configurationProtectedSettings": {},
-  "configurationSettings": {
-    "secrets-store-csi-driver.enableSecretRotation": "true",
-    "secrets-store-csi-driver.rotationPollInterval": "2m",
-    "secrets-store-csi-driver.syncSecret.enabled": "true"
-  },
+  "configurationSettings": {},
   "customLocationSettings": null,
   "errorInfo": null,
   "extensionType": "microsoft.azurekeyvaultsecretsprovider",
