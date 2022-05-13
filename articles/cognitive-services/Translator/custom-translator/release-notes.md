@@ -1,5 +1,5 @@
 ---
-title: Release notes - Custom Translator
+title: "Legacy: Release notes - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: Custom Translator releases, improvements, bug fixes, and known issues.
 author: laujan

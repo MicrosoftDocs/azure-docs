@@ -1,5 +1,5 @@
 ---
-title: Train a model - Custom Translator
+title: "Legacy: Train a model - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: How to train and build a custom translation model.
 author: laujan

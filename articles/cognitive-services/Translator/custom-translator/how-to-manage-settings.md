@@ -1,5 +1,5 @@
 ---
-title: How to manage settings? - Custom Translator
+title: "Legacy: How to manage settings? - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: How to manage settings, create workspace, share workspace, and manage key in Custom Translator.
 author: laujan

@@ -1,5 +1,5 @@
 ---
-title: Document details - Custom Translator
+title: "Legacy: Document details - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: The document list page shows the first 10 document in your workspace. For each of the documents, it displays the name, pairing, type, language, upload time stamp, and the email address of the user who uploaded the document.  
 author: laujan

@@ -1,5 +1,5 @@
 ---
-title: Sentence pairing and alignment - Custom Translator
+title: "Legacy: Sentence pairing and alignment - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: During the training execution, sentences present in parallel documents are paired or aligned. Custom Translator learns translations one sentence at a time, by reading a sentence, the translation of this sentence. Then it aligns words and phrases in these two sentences to each other.
 author: laujan

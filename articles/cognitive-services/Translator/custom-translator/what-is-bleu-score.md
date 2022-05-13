@@ -1,5 +1,5 @@
 ---
-title: What is a BLEU score? - Custom Translator
+title: "Legacy: What is a BLEU score? - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: BLEU is a measurement of the differences between machine translation and human-created reference translations of the same source sentence.
 author: laujan
@@ -27,7 +27,7 @@ the reference translation, and higher score. Intelligibility and grammatical cor
 
 ## How BLEU works?
 
-BLEU’s strength is that it correlates well with human judgment by averaging out
+BLEU's strength is that it correlates well with human judgment by averaging out
 individual sentence judgment errors over a test corpus, rather than attempting
 to devise the exact human judgment for every sentence.
 

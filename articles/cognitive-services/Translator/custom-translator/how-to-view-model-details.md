@@ -1,5 +1,5 @@
 ---
-title: View model details - Custom Translator
+title: "Legacy: View model details - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: Models tab under any project shows details of each model such as model name, model status, BLEU score, training, tuning, testing sentence count.
 author: laujan
