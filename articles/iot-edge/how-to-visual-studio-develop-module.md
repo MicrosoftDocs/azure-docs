@@ -148,7 +148,7 @@ The IoT Edge extension defaults to the latest stable version of the IoT Edge run
 
 1. In the Solution Explorer, right-click the name of your project and select **Set IoT Edge runtime version**.
 
-   :::image type="content" source="./media/how-to-visual-studio-develop-module/set-iot-edge-runtime-version.png" alt-text="Right-click your project name and select set IoT Edge runtime version.":::
+   :::image type="content" source="./media/how-to-visual-studio-develop-module/set-iot-edge-runtime-version.png" alt-text="Screenshot of how to find and select the menu item named Set IoT Edge Runtime version.":::
 
 1. Use the drop-down menu to choose the runtime version that your IoT Edge devices are running, then select **OK** to save your changes. If no change was made select **Cancel** to exit.
 
@@ -194,7 +194,7 @@ Typically, you'll want to test and debug each module before running it within an
 
 >[!TIP]
 >Depending on the type of IoT Edge module you are developing, you may need to enable the correct Docker container mode: either Linux or Windows. From the Docker Desktop menu, you can toggle between the two types of modes. Select **Switch to Windows containers** or select **Switch to Linux containers**. 
->   :::image type="content" source="./media/how-to-visual-studio-develop-module/system-tray.png" alt-text="Right-click your project name and select set IoT Edge runtime version.":::
+>   :::image type="content" source="./media/how-to-visual-studio-develop-module/system-tray.png" alt-text="Screenshot of how to find and select the menu item named Switch to Windows containers.":::
 
 1. In **Solution Explorer**, right-click the module folder and select **Set as StartUp Project** from the menu.
 
@@ -356,20 +356,20 @@ In the quickstart article that you used to set up your IoT Edge device, you depl
 
 To check that your IoT Edge modules were deployed to Azure, sign in to your device (or virtual machine), for example through SSH or Azure Bastion, and run the IoT Edge list command. 
 
-    ```azurecli
-        iotedge list
-    ```
+```azurecli
+   iotedge list
+```
 
-   You should see a list of your modules running on your device or virtual machine.
+You should see a list of your modules running on your device or virtual machine.
 
-    ```azurecli
-        NAME                        STATUS           DESCRIPTION      CONFIG
-        IotEdgeModule1              running          Up 2 hours       myregistry.azurecr.io/iotedgemodule2022:0.0.1-amd64.debug
-        IotEdgeModule2              running          Up 2 hours       myregistry.azurecr.io/iotedgemodule2022b:0.0.1-amd64.debug
-        SimulatedTemperatureSensor  running          Up a day         mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
-        edgeAgent                   running          Up a day         mcr.microsoft.com/azureiotedge-agent:1.2
-        edgeHub                     running          Up a day         mcr.microsoft.com/azureiotedge-hub:1.2
-    ```
+```azurecli
+   NAME                        STATUS           DESCRIPTION      CONFIG
+   IotEdgeModule1              running          Up 2 hours       myregistry.azurecr.io/iotedgemodule2022:0.0.1-amd64.debug
+   IotEdgeModule2              running          Up 2 hours       myregistry.azurecr.io/iotedgemodule2022b:0.0.1-amd64.debug
+   SimulatedTemperatureSensor  running          Up a day         mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
+   edgeAgent                   running          Up a day         mcr.microsoft.com/azureiotedge-agent:1.2
+   edgeHub                     running          Up a day         mcr.microsoft.com/azureiotedge-hub:1.2
+```
 
 <!-- ## View generated data
 
