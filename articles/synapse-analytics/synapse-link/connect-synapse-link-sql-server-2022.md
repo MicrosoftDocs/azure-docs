@@ -43,7 +43,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 1. From the **Data** hub, under **Workspace**, you should see your new Synapse SQL database listed under **Databases**. From your new Synapse SQL database, select **New SQL script**, then **Empty script**.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/studio-new-empty-sql-script.png" alt-text="Screenshot of creating a new empty SQL script from Synapse Studio.":::
+   :::image type="content" source="../media/connect-synapse-link-sql-server-2022/studio-new-empty-sql-script.png" alt-text="Screenshot of creating a new empty SQL script from Synapse Studio.":::
 
 1. Paste the following script and select **Run** to create the master key for your target Synapse SQL database. You also need to create a schema if your expected schema is not available in target Synapse SQL database.
 
