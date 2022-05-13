@@ -47,7 +47,6 @@ If you wish, you can modify the variable values to your preference. For example,
 > [!NOTE]
 > Key vault names should be universally unique, as they are accessed as https://{vault-name}.vault.azure.net.
 >
-
 ```azurecli
 #!/bin/bash
 
