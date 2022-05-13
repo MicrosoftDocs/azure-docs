@@ -29,30 +29,29 @@ Bulk support in the Java SDK works by adding documents to a reactive stream obje
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=AddDocsToStream)]
 
-Or you can add the documents to the stream from a list with `fromIterable`:
+Or you can add the documents to the stream from a list, using `fromIterable`:
 
 ```java
-
-        class SampleDoc {
-            public SampleDoc() {
-            }
-            public String getId() {
-                return id;
-            }
-            public void setId(String id) {
-                this.id = id;
-            }
-            private String id="";
+    class SampleDoc {
+        public SampleDoc() {
         }
-        List<SampleDoc> docList = new ArrayList<>();
-        SampleDoc doc = new SampleDoc();
-        for (int i = 1; i <= 5; i++){            
-            String id = "id-"+i;
-            doc.setId(id);
-            docList.add(doc);
+        public String getId() {
+            return id;
         }
-        
-        Flux<SampleDoc> docs = Flux.fromIterable(docList);
+        public void setId(String id) {
+            this.id = id;
+        }
+        private String id="";
+    }
+    List<SampleDoc> docList = new ArrayList<>();
+    SampleDoc doc = new SampleDoc();
+    for (int i = 1; i <= 5; i++){            
+        String id = "id-"+i;
+        doc.setId(id);
+        docList.add(doc);
+    }
+           
+    Flux<SampleDoc> docs = Flux.fromIterable(docList);
 ```
 
 If you want to do bulk import (similar to using [DocumentBulkExecutor.importAll](/java/api/com.microsoft.azure.documentdb.bulkexecutor.documentbulkexecutor.importall)), you need to pass the reactive stream to a method like the following:
