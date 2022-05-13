@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: tutorial
-ms.date: 05/11/2022
+ms.date: 05/13/2022
 ms.author: cshoe
 zone_pivot_groups: container-apps-image-build-type
 ---
@@ -68,26 +68,6 @@ az acr login --name $ACR_NAME
 ---
 
 ::: zone-end
-
-# [Bash](#tab/bash)
-
-Next, store your ACR password in an environment variable.
-
-```azurecli
-ACR_PASSWORD=$(az acr credential show -n $ACR_NAME --query passwords[0].value)
-```
-
-# [PowerShell](#tab/powershell)
-
-Next, store your ACR password in an environment variable.
-
-```powershell
-$ACR_PASSWORD=(Get-AzContainerRegistryCredential `
- -ResourceGroupName $RESOURCE_GROUP `
- -Name $ACR_NAME | Select -Property Password).Password
-```
-
----
 
 ## Prepare the GitHub repository
 
@@ -266,8 +246,6 @@ az containerapp create \
   --target-port 3000 \
   --env-vars API_BASE_URL=https://$API_ENDPOINT \
   --ingress 'external' \
-  --registry-password $ACR_PASSWORD \
-  --registry-username $ACR_NAME \
   --registry-server $ACR_NAME.azurecr.io \
   --query configuration.ingress.fqdn
 ```
@@ -283,8 +261,6 @@ az containerapp create `
   --env-vars API_BASE_URL=https://$API_ENDPOINT `
   --target-port 3000 `
   --ingress 'external' `
-  --registry-password $ACR_PASSWORD `
-  --registry-username $ACR_NAME `
   --registry-server "$ACR_NAME.azurecr.io"  `
   --query configuration.ingress.fqdn
 ```
