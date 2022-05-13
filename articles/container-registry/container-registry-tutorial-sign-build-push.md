@@ -25,16 +25,16 @@ In this article you learn:
 This article requires the following to be completed or installed:
 
 - [Complete the steps in this article at least up to **Sign in with ORAS**](/articles/container-registry/container-registry-oras-artifacts#sign-in-with-oras-1)
-- [Install the notation CLI][notation-cli]
-- [Install the notation Azure Key Vault plugin][notation-akv-plugin]
+- [An Azure Key Vault](/azure/key-vault/general/quick-create-cli)
+- [Install the notation CLI and Azure Key Vault plugin](#install-the-notation-cli-and-akv-plugin)
 
 This article can be run in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell/)
 
 ## Install the notation CLI and AKV plugin
 
-> NOTE: The walkthrough uses pre-released versions of notation, notation plugins and ratify.  
+> NOTE: The walk-through uses pre-released versions of notation and notation plugins.  
 
-1. Install notation with plugin support from <https://github.com/notaryproject/notation/releases/tag/feat-kv-extensibility>
+1. Install notation with plugin support from [this release](https://github.com/notaryproject/notation/releases/tag/feat-kv-extensibility)
 
     ```bash
     # Choose a binary
@@ -70,7 +70,7 @@ This article can be run in the [Azure Cloud Shell](https://portal.azure.com/#clo
     notation plugin add azure-kv ~/.config/notation/plugins/azure-kv/notation-azure-kv
     ```
 
-4. List the available plugins and verify that the plug in available
+4. List the available plugins and verify that the plug in is available
 
     ```bash
     notation plugin ls
@@ -80,36 +80,33 @@ This article can be run in the [Azure Cloud Shell](https://portal.azure.com/#clo
 
 To ease the execution of the commands to complete this article, provide values for the Azure resources.
 
-1. Configure Azure Resource Names and Locations
+>  NOTE: This should match the existing Azure Container Registry and Azure Key Vault resources already created in the pre-requisite steps.
 
-    > TODO: Remove wabbitnetworks names
+1. Configure Azure Key Vault resource names
 
     ```bash
-    # location resources will be created in. During Preview of ORAS Artifact support, SouthCentralUS is the only supported region.
-    LOCATION=southcentralus
-
-    # Name of the registry example: myregistry.azurecr.io
-    ACR_NAME=myregistry
-    # Name of the ACR Resource Group
-    ACR_RG=${ACR_NAME}-rg
-    # Full domain of the ACR
-    REGISTRY=$ACR_NAME.azurecr.io
-    
-    # Name of the Azure Key Vault used to store the signing keys
-    AKV_NAME=myakv
-    # Key name used to sign and verify
+    # Name of the existing AKV Resource Group
+    AKV_RG=myResourceGroup
+    # Name of the existing Azure Key Vault used to store the signing keys
+    AKV_NAME=<your-unique-keyvault-name>
+    # New desired key name used to sign and verify
     KEY_NAME=wabbit-networks-io
     KEY_SUBJECT_NAME=wabbit-networks.io
-    # Name of the AKV Resource Group
-    AKV_RG=${AKV_NAME}-rg
     ```
 
-2. Configure container image resources
+1. Configure Azure Container Registry and image resource names
+
     ```bash
-    ACR_REPO=net-monitor
+    # Name of the existing registry example: myregistry.azurecr.io
+    ACR_NAME=myregistry
+    # Existing full domain of the ACR
+    REGISTRY=$ACR_NAME.azurecr.io
+    # Container name inside ACR where image will be stored
+    REPO=net-monitor
+    TAG=v1
+    IMAGE=$REGISTRY/${REPO}:$TAG
+    # Source code directory containing Dockerfile to build
     IMAGE_SOURCE=https://github.com/wabbit-networks/net-monitor.git#main
-    IMAGE_TAG=v1
-    IMAGE=$REGISTRY/${ACR_REPO}:$IMAGE_TAG
     ```
 
 ## Create a service principal and assign permissions to the key
@@ -123,7 +120,7 @@ To ease the execution of the commands to complete this article, provide values f
     # Create the service principal, capturing the password
     export AZURE_CLIENT_SECRET=$(az ad sp create-for-rbac --skip-assignment --name $SP_NAME --query "password" --output tsv)
 
-    # Capture the service srincipal appId
+    # Capture the service principal appId
     export AZURE_CLIENT_ID=$(az ad sp list --display-name $SP_NAME --query "[].appId" --output tsv)
 
     # Capture the Azure Tenant ID
@@ -239,7 +236,7 @@ ACR support for ORAS Artifacts creates a linked graph of supply chain artifacts 
     ```azure-cli
     az acr repository show-manifests \
       --name $ACR_NAME \
-      --repository $ACR_REPO \
+      --repository $REPO \
       --detail -o jsonc
     ```
 
