@@ -283,7 +283,7 @@ POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleEligibilitySc
 
 ````HTTP
 { 
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity", 
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity", 
     "id": "fc7bb2ca-b505-4ca7-ad2a-576d152633de", 
     "status": "Revoked", 
     "createdDateTime": "2021-07-15T20:23:23.85453Z", 

@@ -76,7 +76,7 @@ When a user gets their role eligibility via group membership, this Microsoft Gra
 #### HTTP request
 
 ````HTTP
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleEligibilityScheduleRequests/filterByCurrentUser(on='principal')  
+GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleEligibilityScheduleRequests/filterByCurrentUser(on='principal')  
 ````
 
 #### HTTP response

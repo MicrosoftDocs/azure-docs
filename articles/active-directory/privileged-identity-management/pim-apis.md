@@ -39,7 +39,7 @@ Under the `/beta/privilegedAccess` endpoint, Microsoft supported both `/aadRoles
 
 ### Current iteration – Azure AD roles in Microsoft Graph and Azure resource roles in Azure Resource Manager
 
-Currently in general availability, this is the final iteration of the PIM API. Based on customer feedback, the Azure AD PIM API is now under the unifiedRoleManagement set of APIs and the Azure Resource PIM API is now under the Azure Resource Manager role assignment API. These locations also provide a few additional benefits including:
+Currently in general availability, this is the final iteration of the PIM API. Based on customer feedback, the PIM API for managing Azure AD roles is now under the **unifiedRoleManagement** set of APIs and the Azure Resource PIM API is now under the Azure Resource Manager role assignment API. These locations also provide a few additional benefits including:
 
 - Alignment of the PIM API for regular role assignment API for both Azure AD roles and Azure Resource roles.
 - Reducing the need to call additional PIM API to onboard a resource, get a resource, or get role definition.
@@ -107,7 +107,7 @@ When an eligible assignment is activated, the **unifiedRoleEligibilityScheduleIn
 
 The instance objects are the actual assignments that currently exist whether it is an eligible assignment or an active assignment. You should use the GET operation on the instance entity to retrieve a list of eligible assignments / active assignments to a role/user.
 
-For more information about assignment and activation APIs, see [PIM API for managing role assignments and eligibilities](/graph/api/resources/privilegedidentitymanagementv3-overview?view=graph-rest-1.0#pim-api-for-managing-role-assignment).
+For more information about assignment and activation APIs, see [PIM API for managing role assignments and eligibilities](/graph/api/resources/privilegedidentitymanagementv3-overview#pim-api-for-managing-role-assignment).
 
 ### Policy settings APIs
 
@@ -120,7 +120,7 @@ The [unifiedroleManagementPolicy](/graph/api/resources/unifiedrolemanagementpoli
 
 Use the APIs supported by these resources retrieve role management policy assignments for all Azure AD role or filter the list by a **roleDefinitionId**, and then update the rules or settings in the policy associated with the Azure AD role.
 
-For more information about the policy settings APIs, see [role settings and PIM](/graph/api/resources/privilegedidentitymanagementv3-overview?view=graph-rest-1.0#role-settings-and-pim).
+For more information about the policy settings APIs, see [role settings and PIM](/graph/api/resources/privilegedidentitymanagementv3-overview#role-settings-and-pim).
 
 ## Relationship between PIM entities and role assignment entities
 
