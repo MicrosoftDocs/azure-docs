@@ -155,7 +155,7 @@ To track the status of email delivery you need to get the MessageId back from re
   }
    
 ```
-## Getting Status on email delivery
+## Getting status on email delivery
 To get the delivery status of email call GetMessageStatus API with MessageId
 ```javascript
    
