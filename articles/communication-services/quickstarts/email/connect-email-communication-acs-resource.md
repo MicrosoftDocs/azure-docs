@@ -17,7 +17,7 @@ ms.custom: private_preview
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 
-## Connect an email domain to an Communication Service Resource
+## Connect an email domain to a Communication Service Resource
 
 - [Create a Communication Services Resources](../create-communication-resource.md) to connect to a verified domain.
 - In the Azure Communication Service Resource overview page, click **Domains** on the left navigation panel under Email.
