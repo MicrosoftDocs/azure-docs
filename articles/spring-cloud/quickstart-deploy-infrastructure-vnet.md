@@ -39,7 +39,7 @@ az term accept --publisher vmware-inc --product azure-spring-cloud-vmware-tanzu-
 
 ## Review the template
 
-The templates used in this quickstart are from the [Azure Spring Cloud reference architecture](reference-architecture.md).
+The templates used in this quickstart are from the [Azure Spring Cloud Reference Architecture](reference-architecture.md).
 
 # [Azure Spring Standard](#tab/azure-spring-standard)
 
