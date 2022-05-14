@@ -17,7 +17,7 @@ Azure Files provides two distinct billing models: provisioned and pay-as-you-go.
         <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/m5_-GsKv4-o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     :::column-end:::
     :::column:::
-        This video is an interview discussing covering the basics of the Azure Files billing model, including how to optimize Azure file shares to achieve the lowest costs possible and how to compare Azure Files to other file storage offerings on-premises and in the cloud.
+        This video is an interview that discusses the basics of the Azure Files billing model, including how to optimize Azure file shares to achieve the lowest costs possible and how to compare Azure Files to other file storage offerings on-premises and in the cloud.
    :::column-end:::
 :::row-end:::
 
@@ -40,7 +40,7 @@ Azure Files uses the base-2 units of measurement to represent storage capacity: 
 | GiB     | 1024 MiB (1,073,741,824 bytes)     | gibibyte |
 | TiB     | 1024 GiB (1,099,511,627,776 bytes) | tebibyte |
 
-Although these are the units commonly used by most operating systems and tools, they are frequently mislabeled as the base-10 units, which you may be more familiar with: KB, MB, GB, and TB. Although the rationale may vary, the common reason why operating systems like Windows mislabel the storage units is because many operating systems began using these acronyms before they were standardized by the IEC, BIPM, and NIST.
+Although the base-2 units of measure are commonly used by most operating systems and tools to measure storage quantities, they are frequently mislabeled as the base-10 units, which you may be more familiar with: KB, MB, GB, and TB. Although the reasons for the mislabeling may vary, the common reason why operating systems like Windows mislabel the storage units is because many operating systems began using these acronyms before they were standardized by the IEC, BIPM, and NIST.
 
 The following table shows how common operating systems measure and label storage:
 
@@ -137,7 +137,7 @@ When you create a standard file share, you pick between the following tiers: tra
 - Hot is for active workloads that do not involve a large number of transactions, and has a slightly lower data at-rest storage price, but slightly higher transaction prices as compared to transaction optimized. Think of it as the middle ground between the transaction optimized and cool tiers.
 - Cool optimizes the price for workloads that do not have much activity, offering the lowest data at-rest storage price, but the highest transaction prices.
 
-If you put an infrequently accessed workload in the transaction optimized tier, you will pay almost nothing for the few times in a month that you make transactions against your share, but you will pay a high amount for the data storage costs. If you were to move this same share to the cool tier, you would still pay almost nothing for the transaction costs, simply because you are very infrequently making transactions for this workload, but the cool tier has a much cheaper data storage price. Selecting the appropriate tier for your use case allows you to considerably reduce your costs.
+If you put an infrequently accessed workload in the transaction optimized tier, you will pay almost nothing for the few times in a month that you make transactions against your share, but you will pay a high amount for the data storage costs. If you were to move this same share to the cool tier, you would still pay almost nothing for the transaction costs, simply because you are infrequently making transactions for this workload, but the cool tier has a much cheaper data storage price. Selecting the appropriate tier for your use case allows you to considerably reduce your costs.
 
 Similarly, if you put a highly accessed workload in the cool tier, you will pay a lot more in transaction costs, but less for data storage costs. This can lead to a situation where the increased costs from the transaction prices increase outweigh the savings from the decreased data storage price, leading you to pay more money on cool than you would have on transaction optimized. For some usage levels, it's possible that the hot tier will be the most cost efficient, and the cool tier will be more expensive than transaction optimized.
 
