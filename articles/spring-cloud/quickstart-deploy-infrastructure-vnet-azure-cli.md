@@ -101,7 +101,7 @@ To deploy the Azure Spring Cloud cluster using the Azure CLI script, follow thes
    ./azuredeploySpringStandard.sh
    ```
 
-# [Azure Spring Enterprise(#tab/azure-spring-enterprise-script)
+# [Azure Spring Enterprise](#tab/azure-spring-enterprise-script)
 
    ```azurecli
    ./azuredeploySpringEnterprise.sh
