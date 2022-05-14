@@ -57,7 +57,7 @@ The following outline describes the high-level steps to build the example connec
 
 1. IN your project, add a NuGet package named **Microsoft.Azure.Workflows.WebJobs.Extension** as a NuGet reference.
 
-1. Provide the operations and operation descriptions for your built-in connector by using the NuGet package to implement methods for the interfaces named [**IServiceOperationsProvider**](custom-connector-overview.md#iserviceoperationsprovider) and [**IServiceOperationsTriggerProvider**](custom-connector-overview.md##iserviceoperationstriggerprovider).
+1. Provide the operations and operation descriptions for your built-in connector by using the NuGet package to implement methods for the interfaces named [**IServiceOperationsProvider**](custom-connector-overview.md#iserviceoperationsprovider) and [**IServiceOperationsTriggerProvider**](custom-connector-overview.md#iserviceoperationstriggerprovider).
 
 1. Register your custom built-in connector with the Azure Functions runtime extension.
 
