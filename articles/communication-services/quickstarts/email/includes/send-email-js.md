@@ -90,7 +90,7 @@ require("dotenv").config();
 // from an environment variable.
 const connectionString = process.env['COMMUNICATION_SERVICES_CONNECTION_STRING'];
 ```
-## Send an Email message
+## Send an email message
 
 To send an Email message, you need to
 - Construct the email content and body using EmailContent 
@@ -142,7 +142,7 @@ async function main() {
 }
 main();
 ```
-## Getting MessageId to track Email Delivery
+## Getting MessageId to track email delivery
 
 To track the status of email delivery you need to get the MessageId back from response and track the status. if there is no MessageId retry the request.
 
@@ -155,7 +155,7 @@ To track the status of email delivery you need to get the MessageId back from re
   }
    
 ```
-## Getting Status on Email Delivery
+## Getting Status on email delivery
 To get the delivery status of email call GetMessageStatus API with MessageId
 ```javascript
    
@@ -196,6 +196,6 @@ use the node command to run the code you added to the send-email.js file.
 ```console
 node ./send-email.js
 ```
-## Sample Code
+## Sample code
 
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmail)
