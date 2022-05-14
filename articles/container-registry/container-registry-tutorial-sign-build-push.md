@@ -198,11 +198,11 @@ If you have an existing certificate, upload to Azure Key Vault and skip to [Crea
     az acr build -r $ACR_NAME -t $IMAGE $IMAGE_SOURCE
     ```
 
-2. Create an ACR Token for notation signing and the ORAS CLI to access the registry
+2. Authenticate with your individual Azure AD identity to use an AD token
 
     ```azure-cli
-    export NOTATION_USERNAME="00000000-0000-0000-0000-000000000000"
-    export NOTATION_PASSWORD=$(az acr login --name $ACR_NAME --expose-token --output tsv --query accessToken)
+    export USER_NAME="00000000-0000-0000-0000-000000000000"
+    export PASSWORD=$(az acr login --name $ACR_NAME --expose-token --output tsv --query accessToken)
     ```
 
 3. Sign the container image
@@ -213,27 +213,21 @@ If you have an existing certificate, upload to Azure Key Vault and skip to [Crea
 
 ## View the Graph of Artifacts with the ORAS CLI
 
-ACR support for ORAS Artifacts creates a linked graph of supply chain artifacts that can be viewed through the ORAS CLI, the Azure CLI, or the Azure portal.
+ACR support for ORAS Artifacts creates a linked graph of supply chain artifacts that can be viewed through the ORAS CLI or the Azure CLI
 
 1. Signed images can be view with the ORAS CLI
 
     ```azure-cli
-    oras login -u $NOTATION_USERNAME -p $NOTATION_PASSWORD $REGISTRY
+    oras login -u $USER_NAME -p $PASSWORD $REGISTRY
     oras discover -o tree $IMAGE
     ```
 
 ## View the Graph of Artifacts with the Azure CLI
 
-> TODO: Call out the expected `az acr repository show` commands and output  
-> NOTE: This work is not yet complete, rather the target experience
-
-1. List the manifests within the repo
+1. List the manifest details for the container image
 
     ```azure-cli
-    az acr repository show-manifests \
-      --name $ACR_NAME \
-      --repository $REPO \
-      --detail -o jsonc
+    az acr manifest list-metadata $REGISTRY/$REPO -o jsonc
     ```
 
     generates a result, showing the `subject` in the artifact, representing the notary v2 signature, that points to the container image. Notice, the `"tags": []` collection is empty.
@@ -261,25 +255,16 @@ ACR support for ORAS Artifacts creates a linked graph of supply chain artifacts 
     ]
     ```
 
-## View the Graph of Artifacts in the Azure Portal
-
-1. Navigate to the Azure Portal for the configured ACR
-2. Select repositories
-3. Search for the image name
-4. Expand the node
-
-TODO: Viewing ORAS Artifacts in the Azure Portal
-
 ## Summary
 
-In step 1, the following were completed:
+The following were completed:
 
 - 1
 - 2
 - 3
 ## Next steps
 
-- Enable policy to only deploy signed images to AKS 
+- Enable policy to only deploy signed images to AKS
 
 [notation-cli]:         https://github.com/notaryproject/notation/releases
 [notation-akv-plugin]: https://github.com/Azure/notation-akv/releases
