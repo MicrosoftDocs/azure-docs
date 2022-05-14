@@ -23,7 +23,7 @@ Completing this quick start incurs a small cost of a few USD cents or less in yo
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
-- An Azure Email Communication Services Resource created and ready with a provisioned domains [Get started with Creating Email Communication Resource](../create-email-communication-resource.md)
+- An Azure Email Communication Services resource created and ready with a provisioned domain [Get started with Creating Email Communication Resource](../create-email-communication-resource.md)
 - An active Communication Services resource connected with Email Domain and a Connection String. [Get started by Connecting Email Resource with a Communication Resource](../connect-email-communication-acs-resource.md)
 
 ### Prerequisite check
@@ -71,7 +71,7 @@ The following classes and interfaces handle some of the major features of the Az
 | EmailCustomHeader   | This class allows for the addition of a name and value pair for a custom header.                                                                     |
 | EmailMessage        | This class combines the sender, content, and recipients. Custom headers, attachments, and reply-to email addresses can optionally be added, as well. |
 | EmailRecipients     | This class holds lists of EmailAddress objects for recipients of the email message, including optional lists for CC & BCC recipients.                |
-| SendStatusResult | This class holds lists of status of the email message delivery .  
+| SendStatusResult | This class holds lists of status of the email message delivery.  
 
 ## Authenticate the client
 
@@ -99,7 +99,7 @@ To send an Email message, you need to
 - Include your Email Content and Recipients and include attachments if any 
 - Calling the SendEmail method:
 
-Please replace with your domain details and modify the content, recipient details as required
+Replace with your domain details and modify the content, recipient details as required
 
 ```javascript
 
@@ -144,7 +144,7 @@ main();
 ```
 ## Getting MessageId to track email delivery
 
-To track the status of email delivery you need to get the MessageId back from response and track the status. if there is no MessageId retry the request.
+To track the status of email delivery, you need to get the MessageId back from response and track the status. if there is no MessageId retry the request.
 
 ```javascript
  // check mail status, wait for 5 seconds, check for 60 seconds.
@@ -183,7 +183,7 @@ To get the delivery status of email call GetMessageStatus API with MessageId
 | None                | An email with this messageId could not be found.                                                                                                     |
 | Queued              | The email has been placed in the queue for delivery.                                                                                                 |
 | OutForDelivery      | The email is currently en route to its recipient(s).                                                                                                 |
-| InternalError       | An error occurred internally during the delivery of this message. Please try again.                                                                  |
+| InternalError       | An error occurred internally during the delivery of this message. Try again.                                                                  |
 | Dropped             | The email message was dropped before the delivery could be successfully completed.                                                                   |
 | InvalidEmailAddress | The sender and/or recipient email address(es) is/are not valid.                                                                                      |
 | InvalidAttachments  | The content bytes string for the attachment is not valid.                                                                                            |
