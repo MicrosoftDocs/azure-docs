@@ -44,7 +44,7 @@ The updates for your environment are listed on the **Update management** page. I
 - Under the **Update agent readiness** column, you can see the health of the update agent. If there's an issue, select the link to go to troubleshooting documentation that can help you correct the problem.
 - Under **Information link**, select the link for an update to open the support article that gives you important information about the update.
 
-[ ![Screenshot of View update status.](./media/view-update-assessments/missing-updates.png)](./media/view-update-assessments/missing-updates-expanded.png#lightbox)
+[ ![Screenshot of View update status of Automation account.](./media/view-update-assessments/missing-updates.png)](./media/view-update-assessments/missing-updates-expanded.png#lightbox)
 
 The values displayed for each column are:
 
@@ -66,7 +66,7 @@ Windows auto update | Default OS update setting on the machine *applicable to Wi
  
 Click anywhere else on the update to open the Log Search pane. The query for the log search is predefined for that specific update. You can modify this query or create your own query to view detailed information.
 
-[ ![Screenshot of View log query results.](./media/view-update-assessments/logsearch-results.png)](./media/view-update-assessments/logsearch-results-expanded.png#lightbox)
+[ ![Screenshot of View log query results of Automation account.](./media/view-update-assessments/logsearch-results.png)](./media/view-update-assessments/logsearch-results-expanded.png#lightbox)
 
 ## View missing updates
 
