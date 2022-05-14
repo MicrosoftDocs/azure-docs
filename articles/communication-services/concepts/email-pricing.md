@@ -19,8 +19,7 @@ ms.custom: private_preview
 
 ### Email price
 
-Email offers pay-as-you-go pricing. The price is based on number of messages sent to the reciepient and amount of data transfered to each recipient which includes headers, message content (including text and images), and attachments.
-Messages can be sent to one more recipeints.
+Email offers pay-as-you-go pricing. The price is based on number of messages sent to the recipient and amount of data transferred to each recipient which includes headers, message content (including text and images), and attachments. Messages can be sent to one more recipients.
 
 
 |Email Send |Data Transferred|
