@@ -23,7 +23,7 @@ Completing this quick start incurs a small cost of a few USD cents or less in yo
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
-- An Azure Email Communication Services Resource created and ready with a provisioned domains [Get started with Creating Email Communication Resource](../create-email-communication-resource.md)
+- An Azure Email Communication Services Resource created and ready with a provisioned domain [Get started with Creating Email Communication Resource](../create-email-communication-resource.md)
 - An active Communication Services resource connected with Email Domain and a Connection String. [Get started by Connecting Email Resource with a Communication Resource](../connect-email-communication-acs-resource.md)
 
 ### Prerequisite check
@@ -115,7 +115,7 @@ To send an Email message, you need to
 - Include your Email Content and Recipients and include attachments if any 
 - Calling the SendEmail method. Add this code to the end of `Main` method in **Program.cs**:
 
-Please replace with your domain details and modify the content, recipient details as required
+Replace with your domain details and modify the content, recipient details as required
 ```csharp
 
 //Replace with your domain and modify the content, recipient details as required
@@ -131,7 +131,7 @@ var response = emailClient.Send(emailMessage, Guid.NewGuid(), DateTime.Now);
 ```
 ## Getting MessageId to track email delivery
 
-To track the status of email delivery you need to get the MessageId back from response and track the status. if there is no MessageId retry the request.
+To track the status of email delivery, you need to get the MessageId back from response and track the status. If there's no MessageId retry the request.
 
 ```csharp
 string messageId = string.Empty;
@@ -172,14 +172,14 @@ do
 
 | Status Name         | Description                                                                                                                                          |
 | --------------------| -----------------------------------------------------------------------------------------------------------------------------------------------------|
-| None                | An email with this messageId could not be found.                                                                                                     |
+| None                | An email with this messageId couldn't be found.                                                                                                     |
 | Queued              | The email has been placed in the queue for delivery.                                                                                                 |
 | OutForDelivery      | The email is currently en route to its recipient(s).                                                                                                 |
 | InternalError       | An error occurred internally during the delivery of this message. Please try again.                                                                  |
 | Dropped             | The email message was dropped before the delivery could be successfully completed.                                                                   |
 | InvalidEmailAddress | The sender and/or recipient email address(es) is/are not valid.                                                                                      |
-| InvalidAttachments  | The content bytes string for the attachment is not valid.                                                                                            |
-| InvalidSenderDomain | The sender's email address domain is not valid.                                                                                                      |
+| InvalidAttachments  | The content bytes string for the attachment isn't valid.                                                                                           |
+| InvalidSenderDomain | The sender's email address domain isn't valid.                                                                                                     |
 
 ## Run the code
 
