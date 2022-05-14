@@ -13,7 +13,7 @@ ms.custom: private_preview
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 
-## Create Azure Email Communication Service Resource
+## Create an Azure Email Communication Service resource
 
 To create an Azure Email Communication Services resource, first sign in to the [Azure portal](https://portal.azure.com). In the upper-left corner of the page, select **+ Create a resource**. 
 
