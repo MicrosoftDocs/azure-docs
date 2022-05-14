@@ -32,7 +32,7 @@ Use these steps to update an offer that's been successfully published to Preview
 1. When you're ready to publish your updated offer, select **Review and publish** from any page. The **Review and publish** page will open. On this page you'll see the completion status for the sections of the offer that you updated: 
     - **Unpublished changes**: The section has been updated and is complete. All required data has been provided and there were no errors introduced in the updates.
     - **Incomplete**: The updates made to the section introduced errors that need to be fixed or requires more information to be provided.
-2. Select **Publish** to submit the updated offer for publishing. Your offer will then go through the standard [validation and publishing steps](review-publish-offer.md#validation-and-publishing-steps).
+1. Select **Publish** to submit the updated offer for publishing. Your offer will then go through the standard [validation and publishing steps](review-publish-offer.md#validation-and-publishing-steps).
 
 > [!IMPORTANT]
 > You must review your offer preview once it's available and select **Go-live** to publish your updated offer to your intended audience (public or private).
