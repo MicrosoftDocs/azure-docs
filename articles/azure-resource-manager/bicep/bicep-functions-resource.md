@@ -323,8 +323,8 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](/rest/api/eventhub) |
 | Microsoft.ImportExport/jobs | [listBitLockerKeys](/rest/api/storageimportexport/bitlockerkeys/list) |
 | Microsoft.Kusto/Clusters/Databases | [ListPrincipals](/rest/api/azurerekusto/databases/listprincipals) |
-| Microsoft.LabServices/users | [ListEnvironments](/rest/api/labservices/globalusers/listenvironments) |
-| Microsoft.LabServices/users | [ListLabs](/rest/api/labservices/globalusers/listlabs) |
+| Microsoft.LabServices/labs/users | [list](/rest/api/labservices/users/list-by-lab) |
+| Microsoft.LabServices/labs/virtualMachines | [list](/rest/api/labservices/virtual-machines/list-by-lab) |
 | Microsoft.Logic/integrationAccounts/agreements | [listContentCallbackUrl](/rest/api/logic/agreements/listcontentcallbackurl) |
 | Microsoft.Logic/integrationAccounts/assemblies | [listContentCallbackUrl](/rest/api/logic/integrationaccountassemblies/listcontentcallbackurl) |
 | Microsoft.Logic/integrationAccounts | [listCallbackUrl](/rest/api/logic/integrationaccounts/getcallbackurl) |

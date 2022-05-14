@@ -1,7 +1,7 @@
 ---
 title: Create an index alias
 titleSuffix: Azure Cognitive Search
-description: Create an alias to define a secondary name that can be used to refer to an index for querying and indexing.
+description: Create an Azure Cognitive Search index alias to define a static secondary name that can be used for referencing a search index for querying and indexing.
 
 author: dereklegenzoff
 ms.author: delegenz
@@ -15,7 +15,7 @@ ms.date: 03/01/2022
 > [!IMPORTANT]
 > Index aliases are currently in public preview and available under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In Azure Cognitive Search, an alias is a secondary name that can be used to refer to an index for querying, indexing, and other operations. You can create an alias that maps to a search index and substitute the alias name in places where you would otherwise reference an index name. This gives you added flexibility if you ever need to change which index your application is pointing to. Instead of updating the references to the index name in your application, you can just update the mapping for your alias.
+In Azure Cognitive Search, an index alias is a secondary name that can be used to refer to an index for querying, indexing, and other operations. You can create an alias that maps to a search index and substitute the alias name in places where you would otherwise reference an index name. An alias adds flexibility if you need to change which index your application is pointing to. Instead of updating the references in your application, you can just update the mapping for your alias.
 
 The main goal of index aliases is to make it easier to manage your production indexes. For example, if you need to make a change to your index definition, such as editing a field or adding a new analyzer, you'll have to create a new search index because all search indexes are immutable. This means you either need to [drop and rebuild your index](search-howto-reindex.md) or create a new index and then migrate your application over to that index.
 
@@ -27,7 +27,7 @@ Instead of dropping and rebuilding your index, you can use index aliases. A typi
 1. When you need to make a change to your index that requires a rebuild, create a new search index 
 1. When your new index is ready to go, update the alias to map to the new index and requests will automatically be routed to the new index
 
-## Create an alias
+## Create an index alias
 
 You can create an alias using the preview REST API, the preview SDKs, or through [Visual Studio Code](search-get-started-vs-code.md). An alias consists of the `name` of the alias and the name of the search index that the alias is mapped to. Only one index name can be specified in the `indexes` array.
 
@@ -55,8 +55,7 @@ To create an alias in Visual Studio Code:
 
 ---
 
-
-## Send requests
+## Send requests to an index alias
 
 Once you've created your alias, you're ready to start using it. Aliases can be used for [querying](/rest/api/searchservice/search-documents) and [indexing](/rest/api/searchservice/addupdate-or-delete-documents).
 
@@ -92,7 +91,7 @@ PUT /aliases/my-alias?api-version=2021-04-30-preview
 After you make the update to the alias, requests will automatically start to be routed to the new index.
 
 > [!NOTE]
-> An update to an alias may take up to 10 seconds to propogate through the system so you should wait at least 10 seconds before deleting the index that the alias was previously mapped to.
+> An update to an alias may take up to 10 seconds to propagate through the system so you should wait at least 10 seconds before deleting the index that the alias was previously mapped to.
 
 ## See also
 
