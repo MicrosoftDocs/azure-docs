@@ -77,8 +77,6 @@ To deploy the template, follow these steps:
 
 :::code language="json" source="~/azure-spring-cloud-reference-architecture/ARM/brownfield-deployment/azuredeploySpringEnterprise.json":::
 
----
-
 Two Azure resources are defined in the template:
 
 * [Microsoft.AppPlatform/Spring](/azure/templates/microsoft.appplatform/spring): Create an Azure Spring Cloud instance.
@@ -106,6 +104,8 @@ To deploy the template, follow these steps:
    * **tags:** Enter any custom tags.
 
 3. Select **Review + Create** and then **Create**.
+
+---
 
 ## Review deployed resources
 
