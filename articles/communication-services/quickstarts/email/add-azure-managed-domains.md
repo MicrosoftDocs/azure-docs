@@ -84,5 +84,5 @@ When Azure Manged Domain is provisioned to send mail, it has default Mail From a
 
 The following documents may be interesting to you:
 
-- Familiarize yourself with the [Email client library](../email/sdk-features.md)
+- Familiarize yourself with the [Email client library](../../concepts/email/sdk-features.md)
 - How to send emails with custom verified domains?[Add custom domains](../../quickstarts/email/add-custom-verified-domains.md)
