@@ -39,7 +39,7 @@ ms.custom: private_preview
  
     :::image type="content" source="./media/email-add-azuredomain-progress.png" alt-text="Deployment Progress":::
 
-4. After domain creation is completed, you will see a list view with the created domain.
+4. After domain creation is completed, you'll see a list view with the created domain.
 
     :::image type="content" source="./media/email-add-azuredomain-created.png" alt-text="Provisioned Domains List":::
 
@@ -51,7 +51,7 @@ ms.custom: private_preview
 Azure communication Services Email automatically configures the required email authentication protocols to set proper authentication for the email as detailed in [Email Authentication Best Practices](../../concepts/email/email-authentication-bestpractice.md). 
 
 ## Changing MailFrom and FROM display name for Azure Managed Domain
-When Azure Manged Domain is provisioned to send mail, it has default Mail From address as donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net and the FROM display name would be the same. You will able to configure and change the Mail from address and FROM display name to more user friendly value.
+When Azure Manged Domain is provisioned to send mail, it has default Mail From address as donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net and the FROM display name would be the same. You'll able to configure and change the Mail from address and FROM display name to more user friendly value.
 
 1. Go the overview page of the Email Communications Service resource that you created earlier.
 2. Click **Provision Domains** on the left navigation panel. You'll see list of provisioned domains.
@@ -66,7 +66,7 @@ When Azure Manged Domain is provisioned to send mail, it has default Mail From a
 
     :::image type="content" source="./media/email-domains-mailfrom.png" alt-text="Change Mail From Address and Display Name":::
 
-6. You will able to modify the Display Name and MailFrom address. 
+6. You'll able to modify the Display Name and MailFrom address. 
  
     :::image type="content" source="./media/email-domains-mailfrom-change.png" alt-text="Submit Changes":::
 
