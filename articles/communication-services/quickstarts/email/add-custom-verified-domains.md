@@ -57,7 +57,7 @@ ms.custom: private_preview
 
     :::image type="content" source="./media/email-domains-custom-added.png" alt-text="Custom Domain Added":::.
 
-10. If you would like to resume the verification later you can click **Close** and resume the verification from **Provision Domains** by clicking **Configure** link
+10. If you would like to resume the verification later, you can click **Close** and resume the verification from **Provision Domains** by clicking **Configure** link
 
     :::image type="content" source="./media/email-domains-custom-configure.png" alt-text="Provisioned Domains":::
 11. Clicking **Verify Domain** or **Configure** will navigate to "Verify Domain via TXT record" to follow. 
