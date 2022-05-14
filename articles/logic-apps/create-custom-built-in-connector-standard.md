@@ -5,15 +5,15 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, daviburg, apseth, psrivas, azla
 ms.topic: how-to
-ms.date: 05/12/2022
+ms.date: 05/17/2022
 # As a developer, I want learn how to create my own custom built-in connector operations to use and run in my Standard logic app workflows.
 ---
 
 # Create custom built-in connectors for Standard logic apps in single-tenant Azure Logic Apps
 
-If the connectors that you need aren't available for use in Standard logic app workflows, you can create your own custom built-in connectors with the same Azure Functions extensibility framework that's used by the built-in connectors available for Standard logic apps in [single-tenant Azure Logic Apps](single-tenant-overview-compare.md).
+If you need connectors that aren't available in Standard logic app workflows, you can create your own built-in connectors using the same built-in connector extensibility model, which is based on the Azure Functions extensibility model, that's used by built-in connectors available for Standard workflows in [single-tenant Azure Logic Apps](single-tenant-overview-compare.md).
 
-This article shows how to create an example custom built-in connector using the Azure Functions extensibility framework and the sample built-in Azure Cosmos DB connector.
+This article shows how to create an example custom built-in connector that's based on the Azure Functions extensibility framework. The example creates a sample custom built-in Azure Cosmos DB connector.
 
 For more information about custom connectors, review [Custom connectors for Standard logic apps](custom-connector-overview.md#custom-connector-standard) and [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md).
 
@@ -39,7 +39,7 @@ For more information about custom connectors, review [Custom connectors for Stan
 
 ## Example custom built-in connector
 
-This example creates a sample custom built-in Cosmos DB connector that has only one trigger and no actions. The trigger fires when a new document is added to the lease collection or container in Cosmos DB and then runs a workflow that uses the input payload as the Cosmos document.
+This example creates a sample custom built-in Cosmos DB connector that has a single Azure Functions-based trigger and no actions. The trigger fires when a new document is added to the lease collection or container in Cosmos DB and then runs a workflow that uses the input payload as the Cosmos document.
 
 | Operation | Operation details | Description |
 |-----------|-------------------|-------------|
@@ -48,6 +48,20 @@ This example creates a sample custom built-in Cosmos DB connector that has only 
 ||||
 
 The sample connector uses the functionality from the [Azure Functions capability for the Cosmos DB trigger](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md), based on the Azure Functions trigger binding. For the complete sample, review [Sample custom built-in Cosmos DB connector - Azure Logic Apps Connector Extensions](https://github.com/Azure/logicapps-connector-extensions/tree/CosmosDB/src/CosmosDB).
+
+## High-level steps
+
+The following outline describes the high-level steps to build the example connector:
+
+1. Create a class library project.
+
+1. IN your project, add a NuGet package named **Microsoft.Azure.Workflows.WebJobs.Extension** as a NuGet reference.
+
+1. Provide the operations and operation descriptions for your built-in connector by using the NuGet package to implement methods for the interfaces named [**IServiceOperationsProvider**](custom-connector-overview.md#iserviceoperationsprovider) and [**IServiceOperationsTriggerProvider**](custom-connector-overview.md##iserviceoperationstriggerprovider).
+
+1. Register your custom built-in connector with the Azure Functions runtime extension.
+
+1. Install the connector for use.
 
 ## Create your class library project
 
@@ -59,25 +73,51 @@ To create the sample built-in Cosmos DB connector, complete the following tasks:
 
 ## Implement the service provider interface
 
-To provide the operations for the sample built-in connector, in the NuGet package named **Microsoft.Azure.Workflows.WebJobs.Extension** package, implement the methods for the following interfaces:
+To provide the operations and their descriptions for the sample built-in connector, in the NuGet package named **Microsoft.Azure.Workflows.WebJobs.Extension** package, implement the methods for the following interfaces.
 
-* **IServiceOperationsProvider** to provide descriptions and metadata for your service and operations and has the following methods:
-
-  * The **GetService()** and **GetOperations()** methods are used by the designer in Azure Logic Apps to query the triggers and actions that your connector provides and shows on the designer surface.
-
-  * If your trigger is an Azure Functions-based trigger type, the **GetBindingConnectionInformation()** is used by the runtime in Azure Logic Apps to provide the required connection parameters information to the Azure Functions trigger binding.
-
-  * If your connector has actions, the **InvokeOperation()** method is used to call each action that runs during workflow execution. If your connector doesn't have actions, you don't have to implement the **InvokeOperation()** method.
-
-    In this example, the Cosmos DB custom built-in connector doesn't have any actions. However, the method is included in this example for completeness.
-
-* **IServiceOperationsTriggerProvider** to provide the type and definition for triggers
+The following diagram shows the interfaces with the method implementations that the Azure Logic Apps designer and runtime expect for a custom built-in connector that has an Azure Functions-based trigger:
 
 ![Conceptual class diagram showing method implementation for sample Cosmos DB custom built-in connector.](./media/create-custom-built-in-connector-standard/service-provider-cosmos-db-example.png)
 
+### IServiceOperationsProvider
+
+This interface includes the following methods that provide the operation descriptions and operation invocations required from your custom built-in connector. For more information, review [IServiceOperationsProvider](custom-connector-overview.md#iserviceoperationsprovider).
+
+* [**GetService()**](#getservice)
+
+  The designer in Azure Logic Apps requires the [**GetService()**](#getservice) method to retrieve the high-level description for your custom service, including the service description, connection input parameters required on the designer, capabilities, brand color, icon URL, and so on.
+
+* [**GetOperations()**](#getoperations)
+
+  The designer in Azure Logic Apps requires the [**GetOperations()**](#getoperations) method to retrieve the operations implemented by your custom service. The operations list is based on Swagger schema. The designer also uses operation descriptions to understand the input parameters for specific operations and generate the outputs as property tokens, based on the schema of the output for an operation.
+
+* [**GetBindingConnectionInformation()**](#getbindingconnectioninformation)
+
+  If your trigger is an Azure Functions-based trigger type, the runtime in Azure Logic Apps requires the [**GetBindingConnectionInformation()**](#getbindingconnectioninformation) method to provide the required connection parameters information to the Azure Functions trigger binding.
+
+* [**InvokeOperation()**](#invokeoperation)
+
+  If your connector has actions, the runtime in Azure Logic Apps requires the [**InvokeOperation()**](#invokeoperation) method to call each action in your connector that runs during workflow execution. If your connector doesn't have actions, you don't have to implement the **InvokeOperation()** method.
+
+  In this example, the Cosmos DB custom built-in connector doesn't have actions. However, the method is included in this example for completeness.
+
+For more information about these methods and their implementation, review these methods later in this article.
+
+### IServiceOperationsTriggerProvider
+
+You can add or expose an [Azure Functions trigger or action](../azure-functions/functions-bindings-example.md) as a service provider trigger in your custom built-in connector. To use the Azure Functions-based trigger type and the same Azure Functions binding as the Azure managed connector trigger, implement the following methods to provide the connection information and trigger bindings as required by Azure Functions. For more information, review [IServiceOperationsTriggerProvider](custom-connector-overview.md#iserviceoperationstriggerprovider).
+
+* The [**GetFunctionTriggerType()**](#getfunctiontriggertype) method is required to return the string that's the same as the **type** parameter in the Azure Functions trigger binding.
+
+* The [**GetFunctionTriggerDefinition()**](#getfunctiontriggerdefinition) has a default implementation, so you don't need to explicitly implement this method.
+
+### Methods to implement
+
+The following sections describe the methods that the example connector implements. For the complete sample, review [Sample CosmosDbServiceOperationProvider.cs](https://github.com/Azure/logicapps-connector-extensions/blob/CosmosDB/src/CosmosDB/Providers/CosmosDbServiceOperationProvider.cs).
+
 #### GetService()
 
-The designer requires this method to get the high-level description for your service, including the service description, connection input parameters, capabilities, brand color, icon URL, and so on, for example:
+The designer requires the following method to get the high-level description for your service:
 
 ```csharp
 public ServiceOperationApi GetService()
@@ -88,7 +128,7 @@ public ServiceOperationApi GetService()
 
 #### GetOperations()
 
-The designer requires this method to get the operations implemented by your service. This operations list is based on Swagger schema. The designer also uses operation descriptions to understand the input parameters for specific operations and generate the outputs as property tokens, based on the schema of the output for an operation.
+The designer requires the following method to get the operations implemented by your service. This operations list is based on Swagger schema.
 
 ```csharp
 public IEnumerable<ServiceOperation> GetOperations(bool expandManifest)
@@ -99,7 +139,7 @@ public IEnumerable<ServiceOperation> GetOperations(bool expandManifest)
 
 #### GetBindingConnectionInformation()
 
-If you want to use the Azure Functions trigger type, this method provides the required connection parameters information to the Azure Functions trigger binding.
+To use the Azure Functions-based trigger type, the following method provides the required connection parameters information to the Azure Functions trigger binding.
 
 ```csharp
 public string GetBindingConnectionInformation(string operationId, InsensitiveDictionary<JToken> connectionParameters)
@@ -116,6 +156,8 @@ public string GetBindingConnectionInformation(string operationId, InsensitiveDic
 
 #### InvokeOperation()
 
+The example Cosmos DB custom built-in connector doesn't have actions, but the following method is included for completeness:
+
 ```csharp
 public Task<ServiceOperationResponse> InvokeOperation(string operationId, InsensitiveDictionary<JToken> connectionParameters, ServiceOperationRequest serviceOperationRequest)
 {
@@ -125,9 +167,9 @@ public Task<ServiceOperationResponse> InvokeOperation(string operationId, Insens
 
 #### GetFunctionTriggerType()
 
-If you want to use an Azure Functions built-in trigger as a trigger offered by your custom built-in connector, you have to return the string that's the same as the **type** parameter in the Azure Functions trigger binding.
+To use an Azure Functions-based trigger as a trigger in your connector, you have to return the string that's the same as the **type** parameter in the Azure Functions trigger binding.
 
-The following example returns the string, `"type": "cosmosDBTrigger"`:
+The following example returns the string for the out-of-the-box built-in Azure Cosmos DB trigger, `"type": "cosmosDBTrigger"`:
 
 ```csharp
 public string GetFunctionTriggerType()
@@ -148,7 +190,7 @@ To load your custom built-in connector extension during the Azure Functions runt
 
 The following sections show how to register your custom built-in connector as an Azure Functions extension.
 
-### 1. Create the startup job
+### Create the startup job
 
 1. Create a startup class by using the assembly attribute **[assembly:WebJobsStartup]**.
 
@@ -182,9 +224,9 @@ The following sections show how to register your custom built-in connector as an
 
    For more information, review [Register services - Use dependency injection in .NET Azure Functions](../azure-functions/functions-dotnet-dependency-injection.md#register-services).
 
-### 2. Register the service provider
+### Register the service provider
 
-Now, register the service provider implementation as an Azure Functions extension. This example uses the built-in [Azure Cosmos DB trigger for Azure Functions](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=in-process%2Cfunctionsv2&pivots=programming-language-csharp) as a new trigger. This example also registers the new Cosmos DB service provider for an existing list of service providers, which is already part of the Azure Logic Apps extension.
+Now, register the service provider implementation as an Azure Functions extension. This example uses the built-in [Azure Cosmos DB trigger for Azure Functions](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=in-process%2Cfunctionsv2&pivots=programming-language-csharp) as a new trigger. This example also registers the new Cosmos DB service provider for an existing list of service providers, which is already part of the Azure Logic Apps extension. For more information, review [Register Azure Functions binding extensions](../azure-functions/functions-bindings-register.md).
 
 ```csharp
 using Microsoft.Azure.Documents;
@@ -232,7 +274,7 @@ namespace ServiceProviders.CosmosDb.Extensions
 }
 ```
 
-### 3. Add a converter
+### Add a converter
 
 Azure Logic Apps has a generic way to handle any Azure Functions built-in trigger by using the **JObject** array. However, if you want to convert the read-only list of Azure Cosmos DB documents into a **JObject** array, you can add a converter. When the converter is ready, register the converter as part of **ExtensionConfigContext** as shown earlier in this example:
 
