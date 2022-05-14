@@ -28,9 +28,9 @@ This article covers copying an incremental snapshot from one region to another. 
 
 # [Azure CLI](#tab/azure-cli)
 
-You can use the Azure CLI to copy an incremental snapshot. You will need the latest version of the Azure CLI. See the following articles to learn how to either [install](/cli/azure/install-azure-cli) or [update](/cli/azure/update-azure-cli) the Azure CLI.
+You can use the Azure CLI to copy an incremental snapshot. You need the latest version of the Azure CLI. See the following articles to learn how to either [install](/cli/azure/install-azure-cli) or [update](/cli/azure/update-azure-cli) the Azure CLI.
 
-The following script will copy an incremental snapshot from one region to another:
+The following script copies an incremental snapshot from one region to another:
 
 ```azurecli
 subscriptionId=<yourSubscriptionID>
