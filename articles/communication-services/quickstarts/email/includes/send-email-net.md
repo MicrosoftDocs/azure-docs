@@ -148,7 +148,7 @@ if (!response.IsError)
     }
 }
 ```
-## Getting Status on email delivery
+## Getting status on email delivery
 To get the delivery status of email call GetMessageStatus API with MessageId
 ```csharp
 Response<SendStatusResult> messageStatus = null;
