@@ -397,13 +397,13 @@ This article demonstrates an individual enrollment for a single device to be pro
 6. In the **Add Enrollment** page, enter the following information.
 
     * **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
-    * **Primary certificate .pem or .cer file:** Choose **Select a file** and navigate to and select the certificate file, *device-cert.pem* that you created in the previous section.
+    * **Primary certificate .pem or .cer file:** Choose **Select a file** and navigate to and select the certificate file, *device-cert.pem*, that you created in the previous section.
     * Leave **IoT Hub Device ID:** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, *my-x509-device*. This common name will also be the name used for the registration ID for the individual enrollment entry.
     * Optionally, you can provide the following information:
         * Select an IoT hub linked with your provisioning service.
         * Update the **Initial device twin state** with the desired initial configuration for the device.
 
-    :::image type="content" source="./media/quick-create-simulated-device-x509/device-enrollment.png" alt-text="Add device as individual enrollment with X.509 attestation.":::
+    :::image type="content" source="./media/quick-create-simulated-device-x509/add-individual-enrollment-with-cert.png" alt-text="Add device as individual enrollment with X.509 attestation.":::
 
 7. Select **Save**. You'll be returned to **Manage enrollments**.
 
@@ -444,6 +444,8 @@ In this section, you update the sample code with your Device Provisioning Servic
     //hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
+1. Save your changes.
+
 1. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**.
 
 ### Configure the custom HSM stub code
@@ -465,9 +467,6 @@ To update the custom HSM stub code to simulate the identity of the device with I
     The syntax of certificate text in the sample must follow the pattern below with no extra spaces or parsing done by Visual Studio.
 
     ```c
-    // <Device/leaf cert>
-    // <intermediates>
-    // <root>
     static const char* const CERTIFICATE = "-----BEGIN CERTIFICATE-----\n"
     "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n"
         ...
@@ -475,23 +474,10 @@ To update the custom HSM stub code to simulate the identity of the device with I
     "-----END CERTIFICATE-----";        
     ```
 
-    Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following bash shell commands into your **Git Bash prompt**, and press **ENTER**. These commands will generate the syntax for the `CERTIFICATE` string constant value and write it to the output.
+    Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command will generate the syntax for the `CERTIFICATE` string constant value and write it to the output.
 
     ```Bash
-    input="./device-cert.pem"
-    bContinue=true
-    prev=
-    while $bContinue; do
-        if read -r next; then
-          if [ -n "$prev" ]; then	
-            echo "\"$prev\\n\""
-          fi
-          prev=$next  
-        else
-          echo "\"$prev\";"
-          bContinue=false
-        fi	
-    done < "$input"
+    sed 's/^/"/;/$/!s/$/\\n"/;/$/s/$/"/' device-cert.pem
     ```
 
     Copy and paste the output certificate text for the constant value.
@@ -508,23 +494,10 @@ To update the custom HSM stub code to simulate the identity of the device with I
     "-----END RSA PRIVATE KEY-----";
     ```
 
-    Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following bash shell commands into your **Git Bash prompt**, and press **ENTER**. These commands will generate the syntax for the `PRIVATE_KEY` string constant value and write it to the output.
+    Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command  will generate the syntax for the `PRIVATE_KEY` string constant value and write it to the output.
 
     ```Bash
-    input="./device-key.pem"
-    bContinue=true
-    prev=
-    while $bContinue; do
-        if read -r next; then
-          if [ -n "$prev" ]; then
-            echo "\"$prev\\n\""
-          fi
-          prev=$next  
-        else
-          echo "\"$prev\";"
-          bContinue=false
-        fi
-    done < "$input"
+    sed 's/^/"/;/$/!s/$/\\n"/;/$/s/$/"/' device-key.pem
     ```
 
     Copy and paste the output private key text for the constant value.
@@ -753,23 +726,10 @@ To update the custom HSM stub code to simulate the identity of the device with I
         "-----END CERTIFICATE-----";        
         ```
 
-        Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following bash shell commands into your **Git Bash prompt**, and press **ENTER**. These commands will generate the syntax for the `leafPublicPem` string constant value and write it to the output.
+        Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command  will generate the syntax for the `leafPublicPem` string constant value and write it to the output.
 
         ```Bash
-        input="device-cert.pem"
-        bContinue=true
-        prev=
-        while $bContinue; do
-            if read -r next; then
-              if [ -n "$prev" ]; then
-                echo "\"$prev\\n\" +"
-              fi
-              prev=$next  
-            else
-              echo "\"$prev\";"
-              bContinue=false
-            fi
-        done < "$input"
+        sed 's/^/"/;/$/!s/$/\\n" +/;/$/s/$/"/' device-cert.pem
         ```
 
         Copy and paste the output certificate text for the constant value.
@@ -786,23 +746,10 @@ To update the custom HSM stub code to simulate the identity of the device with I
         "-----END PRIVATE KEY-----";
         ```
 
-        Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following bash shell commands into your **Git Bash prompt**, and press **ENTER**. These commands will generate the syntax for the `leafPrivateKey` string constant value and write it to the output.
+        Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command will generate the syntax for the `leafPrivateKey` string constant value and write it to the output.
 
         ```Bash
-        input="unenc-device-key.pem"
-        bContinue=true
-        prev=
-        while $bContinue; do
-            if read -r next; then
-              if [ -n "$prev" ]; then
-                echo "\"$prev\\n\" +"
-              fi
-              prev=$next  
-            else
-              echo "\"$prev\";"
-              bContinue=false
-            fi
-        done < "$input"
+        sed 's/^/"/;/$/!s/$/\\n" +/;/$/s/$/"/' device-key.pem
         ```
 
         Copy and paste the output private key text for the constant value.
