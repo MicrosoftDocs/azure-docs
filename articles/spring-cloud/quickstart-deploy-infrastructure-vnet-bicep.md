@@ -34,6 +34,18 @@ az provider register --namespace Microsoft.SaaS
 az term accept --publisher vmware-inc --product azure-spring-cloud-vmware-tanzu-2 --plan tanzu-asc-ent-mtr
 ```
 
+## Review the Bicep for deployment
+
+# [Azure Spring Standard](#tab/azure-spring-standard)
+
+:::code language="bicep" source="~/azure-spring-cloud-reference-architecture/Bicep/brownfield-deployment/azuredeploySpringStandard.bicep":::
+
+# [Azure Spring Enterprise](#tab/azure-spring-enterprise)
+
+:::code language="bicep" source="~/azure-spring-cloud-reference-architecture/Bicep/brownfield-deployment/azuredeploySpringEnterprise.bicep":::
+
+---
+
 ## Deploy using Bicep
 
 To deploy the cluster, follow these steps:
