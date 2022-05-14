@@ -37,7 +37,7 @@ Another term for the [client application](#client-application). The actor is the
 
 ## Application (client) ID
 
-The application ID, or _[client ID](https://datatracker.ietf.org/doc/html/rfc6749#section-2.2)_, is a value the Microsoft identity platform assigns an Azure AD application registration that uniquely identifies the application and its configuration within the identity platform. The client ID is used by authentication libraries when performing authentication requests at application runtime. The application (client) ID is not a secret.
+The application ID, or _[client ID](https://datatracker.ietf.org/doc/html/rfc6749#section-2.2)_, is a value the Microsoft identity platform assigns to your application when you register it in Azure AD. The application ID is a GUID value that uniquely identifies the application and its configuration within the identity platform. You add the app ID to your application's code, and authentication libraries include the value in their requests to the identity platform at application runtime. The application (client) ID is not a secret - do not use it as a password or other credential.
 
 ## Application manifest
 
