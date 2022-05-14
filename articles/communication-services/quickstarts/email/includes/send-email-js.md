@@ -59,7 +59,7 @@ The `--save` option lists the library as a dependency in your **package.json** f
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Email Client library for Java Script.
+The following classes and interfaces handle some of the major features of the Azure Communication Services Email Client library for JavaScript.
 
 | Name                | Description                                                                                                                                          |
 | --------------------| -----------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -75,7 +75,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
- Import the **EmailClient** from the client library and instantiate it with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+ Import the **EmailClient** from the client library and instantiate it with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 Add the following code to **send-email.js**:
 
@@ -144,7 +144,7 @@ main();
 ```
 ## Getting MessageId to track email delivery
 
-To track the status of email delivery, you need to get the MessageId back from response and track the status. if there is no MessageId retry the request.
+To track the status of email delivery, you need to get the MessageId back from response and track the status. If there's no MessageId retry the request.
 
 ```javascript
  // check mail status, wait for 5 seconds, check for 60 seconds.
@@ -180,14 +180,14 @@ To get the delivery status of email call GetMessageStatus API with MessageId
 
 | Status Name         | Description                                                                                                                                          |
 | --------------------| -----------------------------------------------------------------------------------------------------------------------------------------------------|
-| None                | An email with this messageId could not be found.                                                                                                     |
+| None                | An email with this messageId couldn't be found.                                                                                                     |
 | Queued              | The email has been placed in the queue for delivery.                                                                                                 |
 | OutForDelivery      | The email is currently en route to its recipient(s).                                                                                                 |
 | InternalError       | An error occurred internally during the delivery of this message. Try again.                                                                  |
 | Dropped             | The email message was dropped before the delivery could be successfully completed.                                                                   |
 | InvalidEmailAddress | The sender and/or recipient email address(es) is/are not valid.                                                                                      |
-| InvalidAttachments  | The content bytes string for the attachment is not valid.                                                                                            |
-| InvalidSenderDomain | The sender's email address domain is not valid.                                                                                                      |
+| InvalidAttachments  | The content bytes string for the attachment isn't valid.                                                                                            |
+| InvalidSenderDomain | The sender's email address domain isn't valid.                                                                                                      |
 
 ## Run the code
 
