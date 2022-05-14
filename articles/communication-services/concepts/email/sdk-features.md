@@ -32,7 +32,7 @@ Azure Resource Manager for Email Communication Services are meant for Email Doma
 | Azure Resource Manager | -         | [NuGet](https://www.nuget.org/packages/Azure.ResourceManager.Communication)    |   -   |  -  | -              | -  | [Go via GitHub](https://github.com/Azure/azure-sdk-for-go/releases/tag/v46.3.0) |
 
 ## Email client library capabilities
-The following list presents the set of features which are currently available in the Communication Services Email client libraries.
+The following list presents the set of features that are currently available in the Communication Services Email client libraries.
 
 | Feature | Capability                                                                            | JS  | Java | .NET | Python |
 | ----------------- | ------------------------------------------------------------------------------------- | --- | ---- | ---- | ------ |
@@ -42,7 +42,7 @@ The following list presents the set of features which are currently available in
 
 ## API Throttling and Timeouts
 
-Your Azure account has a set of limitation on the number of email messages that you can send. For all the developers email sending is limited to 10 mails per minute, 25 mails in an hour and 100 mails in day. This will help developers to start building the application and gradullay increase the sending volume as soon as the application is ready to go live. Please submit a support request to increase your sending limit.
+Your Azure account has a set of limitation on the number of email messages that you can send. For all the developers email sending is limited to 10 mails per minute, 25 mails in an hour and 100 mails in day. This sandbox setup is to help developers to start building the application and gradullay and you can request to increase the sending volume as soon as the application is ready to go live. Submit a support request to increase your sending limit.
 
 ## Next steps
 
