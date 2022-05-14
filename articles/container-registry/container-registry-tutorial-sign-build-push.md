@@ -10,7 +10,7 @@ ms.date: 05/08/2022
 
 # Build, Sign, and Verify container images using Notary and Azure Key Vault
 
-Signed containers enables users to assure deployments are built by the entities they trust.
+Signed containers enable users to assure deployments are built by the entities they trust.
 
 In this article you learn:
 
@@ -70,7 +70,7 @@ This article can be run in the [Azure Cloud Shell](https://portal.azure.com/#clo
     notation plugin add azure-kv ~/.config/notation/plugins/azure-kv/notation-azure-kv
     ```
 
-4. List the available plugins and verify that the plug in is available
+4. List the available plugins and verify that the plugin is available
 
     ```bash
     notation plugin ls
@@ -127,7 +127,7 @@ To ease the execution of the commands to complete this article, provide values f
     export AZURE_TENANT_ID=$(az account show --query "tenantId" -o tsv)
     ```
 
-1. Assign key and certificate permissions to the service principal object id
+1. Assign key and certificate permissions to the service principal object ID
 
     ```azure-cli
     az keyvault set-policy --name $AKV_NAME --key-permissions get sign --spn $AZURE_CLIENT_ID
@@ -140,7 +140,7 @@ In this step, create or provide an x509 signing certificate, storing it in Azure
 
 If you have an existing certificate, upload to Azure Key Vault and skip to [Create a service principal and assign permissions to the key](#create-a-service-principal-and-assign-permissions-to-the-key)
 
-### Create a self-signed Certificate (Azure Azure CLI)
+### Create a self-signed Certificate (Azure CLI)
 
 1. Create a certificate policy file
 
@@ -164,26 +164,26 @@ If you have an existing certificate, upload to Azure Key Vault and skip to [Crea
     EOF
     ```
 
-2. Create the certificate
+1. Create the certificate
     ```azure-cli
     az keyvault certificate create -n $KEY_NAME --vault-name $AKV_NAME -p @my_policy.json
     ```
 
-3. Get the Key Id for the certificate
+1. Get the Key ID for the certificate
 
     ```bash
     KEY_ID=$(az keyvault certificate show --vault-name $AKV_NAME \
                         --name $KEY_NAME \
                         --query "kid" -o tsv)
     ```
-3. Add the Key Id to the kms keys and certs
+1. Add the Key ID to the kms keys and certs
 
     ```bash
     notation key add --name $KEY_NAME --plugin azure-kv --id $KEY_ID --kms
     notation cert add --name $KEY_NAME --plugin azure-kv --id $KEY_ID --kms
     ```
 
-4. List the keys and certs to confirm
+1. List the keys and certs to confirm
 
     ```bash
     notation key ls
@@ -257,11 +257,8 @@ ACR support for ORAS Artifacts creates a linked graph of supply chain artifacts 
 
 ## Summary
 
-The following were completed:
 
-- 1
-- 2
-- 3
+
 ## Next steps
 
 - Enable policy to only deploy signed images to AKS
