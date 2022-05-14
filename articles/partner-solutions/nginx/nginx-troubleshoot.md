@@ -31,4 +31,4 @@ The NGINX for Azure integration can only be set up by users who have Owner acces
 
 ## Next steps
 
-Learn about [managing your instance](nginx-manage.md) of nginx.
+Learn about [managing your instance](nginx-manage.md) of NGINX.
