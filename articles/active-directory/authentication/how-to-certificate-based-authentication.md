@@ -106,8 +106,29 @@ For additional details see: [Understanding the certificate revocation process](.
 
 [!INCLUDE [Set-AzureAD](../../../includes/active-directory-authentication-set-trusted-azuread.md)]
 
+## Step 2: Enable CBA on the tenant
 
-## Step 2: Configure authentication binding policy 
+To enable the certificate-based authentication in the Azure Portal, complete the following steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) as an Authentication Policy Administrator.
+1. Select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
+1. Under **Manage**, select **Authentication methods** > **Certificate-based Authentication**.
+1.	Under **Basics**, select **Yes** to enable CBA.
+1. CBA can be enabled for a targeted set of users.
+   1. Click **All users** to enable all users.
+   1. Click **Select users** to enable selected users or groups. 
+   1. Click **+ Add users**, select specific users and groups.
+   1. Click **Select** to add them.
+
+   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/enable.png" alt-text="Screenshot of how to enable CBA.":::
+ 
+Once certificate-based authentication is enabled on the tenant, all users in the tenant will see the option to sign in with a certificate. Only users who are enabled for certificate-based authentication will be able to authenticate using the X.509 certificate. 
+
+>[!NOTE]
+>The network administrator should allow access to certauth endpoint for the customer’s cloud environment in addition to login.microsoftonline.com. Disable TLS inspection on the certauth endpoint to make sure the client certificate request succeeds as part of the TLS handshake.
+
+
+## Step 3: Configure authentication binding policy 
 
 The authentication binding policy helps determine the strength of authentication to either a single factor or multi factor. An admin can change the default value from single-factor to multifactor and configure custom policy rules by mapping to issuer Subject or policy OID fields in the certificate.
 
@@ -154,7 +175,7 @@ To enable the certificate-based authentication and configure user bindings in th
 
 1. Click **Ok** to save any custom rule.
 
-## Step 3: Configure username binding policy
+## Step 4: Configure username binding policy
 
 The username binding policy helps determine the user in the tenant. By default, we map Principal Name in the certificate to onPremisesUserPrincipalName in the user object to determine the user.
 
@@ -186,27 +207,6 @@ Currently supported set of username bindings:
 The final configuration will look like this image:
 
 :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/final.png" alt-text="Screenshot of the final configuration.":::
-
-## Step 4: Enable CBA on the tenant
-
-To enable the certificate-based authentication in the Azure MyApps portal, complete the following steps:
-
-1. Sign in to the [MyApps portal](https://myapps.microsoft.com/) as an Authentication Policy Administrator.
-1. Select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
-1. Under **Manage**, select **Authentication methods** > **Certificate-based Authentication**.
-1.	Under **Basics**, select **Yes** to enable CBA.
-1. CBA can be enabled for a targeted set of users.
-   1. Click **All users** to enable all users.
-   1. Click **Select users** to enable selected users or groups. 
-   1. Click **+ Add users**, select specific users and groups.
-   1. Click **Select** to add them.
-
-   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/enable.png" alt-text="Screenshot of how to enable CBA.":::
- 
-Once certificate-based authentication is enabled on the tenant, all users in the tenant will see the option to sign in with a certificate. Only users who are enabled for certificate-based authentication will be able to authenticate using the X.509 certificate. 
-
->[!NOTE]
->The network administrator should allow access to certauth endpoint for the customer’s cloud environment in addition to login.microsoftonline.com. Disable TLS inspection on the certauth endpoint to make sure the client certificate request succeeds as part of the TLS handshake.
 
 ## Step 5: Test your configuration
 
