@@ -106,7 +106,7 @@ The following classes and interfaces handle some of the major features of the Az
 string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
 
 ```
-## Send an Email message
+## Send an email message
 
 To send an Email message, you need to
 - Construct the email content and body using EmailContent 
@@ -129,7 +129,7 @@ EmailMessage emailMessage = new EmailMessage("donotreply@xxxxxxxx-xxxx-xxxx-xxxx
 var response = emailClient.Send(emailMessage, Guid.NewGuid(), DateTime.Now);
 
 ```
-## Getting MessageId to track Email Delivery
+## Getting MessageId to track email delivery
 
 To track the status of email delivery you need to get the MessageId back from response and track the status. if there is no MessageId retry the request.
 
@@ -148,7 +148,7 @@ if (!response.IsError)
     }
 }
 ```
-## Getting Status on Email Delivery
+## Getting Status on email delivery
 To get the delivery status of email call GetMessageStatus API with MessageId
 ```csharp
 Response<SendStatusResult> messageStatus = null;
@@ -188,6 +188,6 @@ Run the application from your application directory with the `dotnet run` comman
 ```console
 dotnet run
 ```
-## Sample Code
+## Sample code
 
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmail)
