@@ -17,7 +17,7 @@ ms.custom: private_preview
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 
 ## Email authentication
-Sending an email requires several steps which includes verifying the sender of the email actually owns the domain, checking the domain reputation, virus scanning, filtering for spam, phishing attempts, malware etc.. Configuring proper email authentication is a foundational principle for establishing trust in email and protecting your domain’s reputation. If an email passes authentication checks, the receiving domain can apply policy to that email in keeping with the reputation already established for the identities associated with those authentication checks, and the recipient can be assured that those identities are valid. 
+Sending an email requires several steps which include verifying the sender of the email actually owns the domain, checking the domain reputation, virus scanning, filtering for spam, phishing attempts, malware etc. Configuring proper email authentication is a foundational principle for establishing trust in email and protecting your domain’s reputation. If an email passes authentication checks, the receiving domain can apply policy to that email in keeping with the reputation already established for the identities associated with those authentication checks, and the recipient can be assured that those identities are valid. 
 
 ### SPF (Sender Policy Framework)
 SPF  [RFC 7208](https://tools.ietf.org/html/rfc7208)  is a mechanism that allows domain owners to publish and maintain, via a standard DNS TXT record, a list of systems authorized to send email on their behalf.
@@ -32,7 +32,7 @@ DMARC [RFC 7489](https://tools.ietf.org/html/rfc7489) is a scalable mechanism by
 The ARC protocol [RFC 8617](https://tools.ietf.org/html/rfc8617)  provides an authenticated chain of custody for a message, allowing each entity that handles the message to identify what entities handled it previously as well as the message’s authentication assessment at each hop. ARC is not yet an internet standard, but adoption is increasing. 
 
 ### How Email authentication works
-Email authentication verifies that email messages from a sender (for example, notification@contoso.com) is legitimate and come from expected sources for that email domain (for example, contoso.com.). 
+Email authentication verifies that email messages from a sender (for example, notification@contoso.com) are legitimate and come from expected sources for that email domain (for example, contoso.com.) 
 An email message may contain multiple originator or sender addresses. These addresses are used for different purposes. For example, consider these addresses:
 
 **Mail From** address: Identifies the sender and specifies where to send return notices if any problems occur with the delivery of the message, such as non-delivery notices. This appears in the envelope portion of an email message and is not displayed by your email application. This is sometimes called the 5321.MailFrom address or the reverse-path address.
@@ -53,7 +53,7 @@ Like the DNS records for SPF, the record for DMARC is a DNS text (TXT) record th
 A DMARC policy record allows a domain to announce that their email uses authentication; provides an email address to gather feedback about the use of their domain; and specifies a requested policy for the handling of messages that do not pass authentication checks. We recommend that 
 - Policy statements domains publishing DMARC records be “p=reject” where possible, “p=quarantine” otherwise. 
 - The policy statement of “p=none”, “sp=none”, and pct<100 should only be viewed as transitional states, with the goal of removing them as quickly as possible. 
-- Any published DMARC policy record should include, at a minimum, a rua tag that points to a mailbox for receiving DMARC aggregate reports and should send no replies back when receiving reports due to privacy concerns.
+- Any published DMARC policy record should include, at a minimum, a "rua" tag that points to a mailbox for receiving DMARC aggregate reports and should send no replies back when receiving reports due to privacy concerns.
 
 ## Next steps
 
