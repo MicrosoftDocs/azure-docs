@@ -39,12 +39,12 @@ ms.custom: private_preview
 
     - Click **Add domain** on the upper navigation bar.
     - Select **Custom domain** from the dropdown.
-3. You will be navigating to "Add a custom Domain". 
+3. You'll be navigating to "Add a custom Domain". 
 4. Enter  your "Domain Name" and re enter domain name
 5. Click **Confirm**.   
 
     :::image type="content" source="./media/email-domains-custom-add.png" alt-text="Enter the Custom Domain":::
-6. Please ensure that domain name is not misspelled or click edit to correct the domain name and confirm.
+6. Ensure that domain name isn't misspelled or click edit to correct the domain name and confirm.
 7. Click **Add**.
 
     :::image type="content" source="./media/email-domains-custom-add-confirm.png" alt-text="Add a Custom Domain":::
@@ -71,14 +71,14 @@ ms.custom: private_preview
 14. DNS changes will take up to 15 to 30 minutes.  Click **Close**. 
 
     :::image type="content" source="./media/email-domains-custom-verify-progress.png" alt-text="Verification in progress for Sender Authentication":::
-15. Once your domain is verified, you can setup your SPF, DKIM, and DMARC records to authenticate your domains. 
+15. Once your domain is verified, you can add your SPF, DKIM, and DMARC records to authenticate your domains. 
 
     :::image type="content" source="./media/email-domains-custom-verified.png" alt-text="Domain Verified":::
 
 
 ### Configure sender authentication for custom domain
 1. Navigate to  **Provision Domains** and confirm that  **Domain Status** is in "Verified" state. 
-2. You can setup SPF and DKIM  by clicking **Configure**. You need add the following TXT record and CNAME records to your domain's registrar or DNS hosting provider. Click **Next** once you've completed this step. 
+2. You can add SPF and DKIM  by clicking **Configure**. You need add the following TXT record and CNAME records to your domain's registrar or DNS hosting provider. Click **Next** once you've completed this step. 
 
     :::image type="content" source="./media/email-domains-custom-senderauth-spf.png" alt-text="Sender Authentication Setup":::
 
@@ -104,15 +104,15 @@ ms.custom: private_preview
 
 ## Changing MailFrom and FROM display name for custom domains
 
-When Azure Manged Domain is provisioned to send mail, it has default Mail From address as donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net and the FROM display name would be the same. You will able to configure and change the MailFrom address and FROM displayname to more user friendly value.
+When Azure Manged Domain is provisioned to send mail, it has default Mail from address as donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net and the FROM display name would be the same. You'll able to configure and change the Mail from address and FROM display name to more user friendly value.
 
 1. Go the overview page of the Email Communications Service resource that you created earlier.
-2. Click **Provision Domains** on the left navigation panel. You will be see list of provisioned domains.
+2. Click **Provision Domains** on the left navigation panel. You'll see list of provisioned domains.
 3. Click on the Custom Domain name that you would like to update.
 
     :::image type="content" source="./media/email-domains-custom-provision-domains.png" alt-text="Click Custom Domain in provisioned Domains":::
 
-4. The navigation lands in Domain Overview page where you will able to see Mailfrom and From attributes.
+4. The navigation lands in Domain Overview page where you'll able to see Mailfrom and From attributes.
  
     :::image type="content" source="./media/email-domains-custom-overview.png" alt-text="Navigate to Custom Domains Overview":::
 
@@ -120,11 +120,11 @@ When Azure Manged Domain is provisioned to send mail, it has default Mail From a
 
     :::image type="content" source="./media/email-domains-custom-mailfrom.png" alt-text="Edit MailFrom and Display name":::
 
-6. You will able to modify the Display Name and MailFrom address. 
+6. You'll  able to modify the Display Name and MailFrom address. 
 
     :::image type="content" source="./media/email-domains-custom-mailfrom-change.png" alt-text="Changes MailFrom and Display name":::
 
-7. Click **Save**. You will see the updated values in the overview page. 
+7. Click **Save**. You'll see the updated values in the overview page. 
 
     :::image type="content" source="./media/email-domains-overview-updated.png" alt-text="Save changes":::
 
