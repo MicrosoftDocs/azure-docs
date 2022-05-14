@@ -51,14 +51,14 @@ ms.custom: private_preview
 Azure communication Services Email automatically configures the required email authentication protocols to set proper authentication for the email as detailed in [Email Authentication Best Practices](../../concepts/email/email-authentication-bestpractice.md). 
 
 ## Changing MailFrom and FROM display name for Azure Managed Domain
-When Azure Manged Domain is provisioned to send mail, it has default Mail From address as donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net and the FROM display name would be the same. You will able to configure and change the MailFrom address and FROM displayname to more user friendly value.
+When Azure Manged Domain is provisioned to send mail, it has default Mail From address as donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net and the FROM display name would be the same. You will able to configure and change the Mail from address and FROM display name to more user friendly value.
 
 1. Go the overview page of the Email Communications Service resource that you created earlier.
-2. Click **Provision Domains** on the left navigation panel. You will be see list of provisioned domains.
+2. Click **Provision Domains** on the left navigation panel. You'll see list of provisioned domains.
 3. Click on the Azure Manged Domain link
  
     :::image type="content" source="./media/email-provisioned-domains.png" alt-text="Click Azure Managed Domain link  in provisioned Domains":::
-4. The navigation lands in Azure Managed Domain Overview page where you will able to see Mailfrom and From attributes.
+4. The navigation lands in Azure Managed Domain Overview page where you'll able to see Mailfrom and From attributes.
  
    :::image type="content" source="./media/email-provisioned-domains-overview.png" alt-text="Provisioned Domain Overview":::
 
@@ -70,7 +70,7 @@ When Azure Manged Domain is provisioned to send mail, it has default Mail From a
  
     :::image type="content" source="./media/email-domains-mailfrom-change.png" alt-text="Submit Changes":::
 
-7. Click **Save**. You will see the updated values in the overview page. 
+7. Click **Save**. You'll see the updated values in the overview page. 
 
     :::image type="content" source="./media/email-domains-overview-updated.png" alt-text="Azure Managed Domain Overview":::
 
