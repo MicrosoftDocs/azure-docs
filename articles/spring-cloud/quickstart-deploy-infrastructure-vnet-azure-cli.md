@@ -93,11 +93,20 @@ To deploy the Azure Spring Cloud cluster using the Azure CLI script, follow thes
    az group create --name <your-resource-group-name> --location <location-name>
    ```
 
-1. Save the [deploySpringCloud.sh](https://raw.githubusercontent.com/Azure/azure-spring-cloud-reference-architecture/main/CLI/brownfield-deployment/deploySpringCloud.sh) Bash script locally, then execute it from the Bash prompt.
+1. Save the script for Azure Spring [Standard](https://raw.githubusercontent.com/Azure/azure-spring-cloud-reference-architecture/main/CLI/brownfield-deployment/azuredeploySpringStandard.sh) or [Enterprise](https://raw.githubusercontent.com/Azure/azure-spring-cloud-reference-architecture/main/CLI/brownfield-deployment/azuredeploySpringEnterprise.sh) locally, then execute it from the Bash prompt.
+
+# [Azure Spring Standard](#tab/azure-spring-standard-script)
 
    ```azurecli
-   ./deploySpringCloud.sh
+   ./azuredeploySpringStandard.sh
    ```
+
+# [Azure Spring Enterprise(#tab/azure-spring-enterprise-script)
+
+   ```azurecli
+   ./azuredeploySpringEnterprise.sh
+   ```
+---
 
 1. Enter the following values when prompted by the script:
 
