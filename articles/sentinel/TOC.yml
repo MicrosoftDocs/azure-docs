@@ -157,10 +157,8 @@
     items:
     - name: Plan and design your migration
       items:
-      - name: Overview
-        href: migration-overview.md
-      - name: Migration phases
-        href: migration-phases.md
+      - name: Plan your migration
+        href: migration-overview.md      
       - name: Track migration with a workbook
         href: migration-track.md    
       - name: Compare and contrast SIEMs
