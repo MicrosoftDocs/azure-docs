@@ -22,6 +22,7 @@ Updates in May include:
 
 - [General availability (GA) of Defender for SQL for AWS and GCP environments](#general-availability-ga-of-defender-for-sql-for-aws-and-gcp-environments)
 - [Multi-cloud settings of Servers plan are now available in connector level](#multi-cloud-settings-of-servers-plan-are-now-available-in-connector-level)
+- | [Changes to vulnerability assessment](#changes-to-vulnerability-assessment)  
 
 ### General availability (GA) of Defender for SQL for AWS and GCP environments
 
@@ -48,6 +49,16 @@ Updates in the UI include a reflection of the selected pricing tier and the requ
 :::image type="content" source="media/release-notes/main-page.png" alt-text="Screenshot of the main plan page with the Server plan multi-cloud settings." lightbox="media/release-notes/main-page.png":::
 
 :::image type="content" source="media/release-notes/auto-provision.png" alt-text="Screenshot of the auto-provision page with the multi-cloud connector enabled.":::
+
+### Changes to vulnerability assessment
+
+Before these changes, Defender for Containers didn't show vulnerabilities that have medium and low level severities that are not patchable.
+
+As part of this update, vulnerabilities that have medium and low severities, that don't have patches are now shown. This update provides maximum visibility, while still allowing you to filter undesired vulnerabilities by using the provided Disable rule.
+
+:::image type="content" source="media/release-notes/disable-rule.png" alt-text="Screenshot of the disable rule screen.":::
+
+Learn more about [vulnerability management](deploy-vulnerability-assessment-tvm.md)
 
 ## April 2022
 

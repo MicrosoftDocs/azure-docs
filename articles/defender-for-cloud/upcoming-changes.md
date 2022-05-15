@@ -20,7 +20,6 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | Planned change | Estimated date for change |
 |--|--|
 | [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | May 2022 |
-| [Changes to vulnerability assessment](#changes-to-vulnerability-assessment) | May 2022 |
 | [Key Vault recommendations changed to "audit"](#key-vault-recommendations-changed-to-audit) | May 2022 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | June 2022 |
 | [Deprecating three VM alerts](#deprecating-three-vm-alerts) | June 2022|
@@ -44,18 +43,6 @@ When the recommendations are released to general availability, they will replace
 Learn more:
 - [Defender for Cloud's supported endpoint protection solutions](supported-machines-endpoint-solutions-clouds-servers.md#endpoint-supported)
 - [How these recommendations assess the status of your deployed solutions](endpoint-protection-recommendations-technical.md)
-
-### Changes to vulnerability assessment
-
-**Estimated date for change:** May 2022
-
-Currently, Defender for Containers doesn't show vulnerabilities that have medium and low level severities that are not patchable.
-
-As part of this update, vulnerabilities that have medium and low severities, that don't have patches will be shown. This update will provide maximum visibility, while still allowing you to filter undesired vulnerabilities by using the provided Disable rule.
-
-:::image type="content" source="media/upcoming-changes/disable-rule.png" alt-text="Screenshot of the disable rule screen.":::
-
-Learn more about [vulnerability management](deploy-vulnerability-assessment-tvm.md)
 
 ### Key Vault recommendations changed to "audit"
 
