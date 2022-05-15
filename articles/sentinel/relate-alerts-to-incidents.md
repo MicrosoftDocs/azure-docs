@@ -68,7 +68,7 @@ When adding an alert to an incident, depending on the circumstances, you might b
 
     In this case you'll see a message that the alert is part of another incident or incidents, and asked if you want to proceed. Select **OK** to add the alert or **Cancel** to leave things as they were.
 
-    Adding the alert to this incident *will not remove it* from any other incidents. Alerts can be related to more than one incident.
+    Adding the alert to this incident *will not remove it* from any other incidents. Alerts can be related to more than one incident. If you want, you can remove the alert manually from the other incident(s) by following the link(s) in the message prompt above.
 
 - The alert you want to add belongs to another incident, and it's the only alert in the other incident.
 
@@ -92,8 +92,73 @@ When adding an alert to an incident, depending on the circumstances, you might b
 
 - An incident can contain a maximum of 150 alerts. If you try to add an alert to an incident with 150 alerts in it, you will get an error message.
 
-## Next steps
-In this article, you learned how to get started investigating incidents using Microsoft Sentinel. For more information, see:
+## Add/remove alerts using playbooks
 
-- [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md)
-- [Investigate incidents with UEBA data](investigate-with-ueba.md)
+Adding and removing alerts to incidents are also available as actions in Logic Apps, and therefore in Microsoft Sentinel playbooks. 
+
+Here's an example of using the **Add alert to incident (Preview)** action in a playbook:
+
+:::image type="content" source="media/relate-alerts-to-incidents/add-alert-using-playbook.png" alt-text="Screenshot of adding an alert to an incident using a playbook action.":::
+
+## Add/remove alerts using the API
+
+You're not limited to the portal to use this feature. It's also accessible through the Microsoft Sentinel API, through the [Incident relations](/rest/api/securityinsights/preview/incident-relations) operation group. It allows you to get, create, update, and delete relationships between alerts and incidents.
+
+### Create a relationship
+
+You add an alert to an incident by creating a relationship between them. Use the following endpoint to add an alert to an existing incident. After this request is made, the alert joins the incident and will be visible in the list of alerts in the incident in the portal.
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/Incidents/{incidentId}/relations/{incidentId}_{SystemAlertId}?api-version=2019-01-01-preview 
+
+```
+
+The request body looks like this:
+
+```json
+{ 
+    "properties": { 
+        "relatedResourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/entities/{alertSystemId}" 
+    } 
+} 
+```
+
+### Delete a relationship
+
+You remove an alert from an incident by deleting the relationship between them. Use the following endpoint to remove an alert from an existing incident. After this request is made, the alert will no longer be connected to or appear in the incident.
+
+```http
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/Incidents/{incidentId}/relations/{incidentId}_{SystemAlertId }?api-version=2019-01-01-preview
+
+```
+
+### List alert relationships
+
+You can also list all the alerts that are related to a particular incident, with this endpoint and request:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/Incidents/{incidentId}/relations?api-version=2019-01-01-preview
+
+```
+
+### Expected responses
+
+Here are the possible response codes and results of these requests:
+
+| Code    | Response   | Result of operation |
+| ------- | ---------- | ------------------- |
+| **204** | No content | Success             |
+| **400** | BadRequest | Failed to create relation. Different relation type with name {relationName} already exists in incident {incidentIdentifier}. |
+| **400** | BadRequest | Failed to create relation. Alert {systemAlertId} already exists in incident {incidentIdentifier}. |
+| **400** | BadRequest | Failed to create relation. Related resource and incident should belong to the same workspace. |
+| **400** | BadRequest | Failed to create relation. Microsoft 365 Defender alerts cannot be added to Microsoft 365 Defender incidents. |
+| **400** | BadRequest | Failed to delete relation. Microsoft 365 Defender alerts cannot be removed from Microsoft 365 Defender incidents. |
+| **409** | Conflict   | Failed to create relation. Relation with name {relationName} already exists in incident {incidentIdentifier} to different alert {relationAlertId}. |
+| **404** | Not found  | Resource '{alertId}' does not exist. |
+| **404** | Not found  | Incident doesn’t exist. |
+
+## Next steps
+In this article, you learned how to add alerts to incidents and remove them using the Microsoft Sentinel portal and API. For more information, see:
+
+- [Investigate incidents with Microsoft Sentinel](investigate-cases.md)
+- [Incident relations group in the Microsoft Sentinel REST API](/rest/api/securityinsights/preview/incident-relations)

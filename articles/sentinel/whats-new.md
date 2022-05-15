@@ -27,6 +27,19 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 
+## May 2022
+
+- [Relate alerts to incidents](#relate-alerts-to-incidents)
+- [Similar incidents](#similar-incidents)
+
+### Relate alerts to incidents
+
+### Similar incidents
+
+## April 2022
+
+
+
 ## March 2022
 
 - [Automation rules now generally available](#automation-rules-now-generally-available)
