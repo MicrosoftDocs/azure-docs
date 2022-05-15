@@ -40,7 +40,7 @@ While you're reviewing your site architecture to determine whether or not to mon
 
 - What is the cost/benefit versus the importance of monitoring this switch?
 
-- If a switch is unmanaged, can you monitor the traffic from a higher-level switch? If the ICS architecture is a [ring topology](#sample-ring-topology), only one switch in the ring needs monitoring.
+- If a switch is unmanaged, can you monitor the traffic from a higher-level switch? If the ICS architecture is a [ring topology](sample-connectivity-models.md#sample-ring-topology), only one switch in the ring needs monitoring.
 
 - What is the security or operational risk in the network?
 

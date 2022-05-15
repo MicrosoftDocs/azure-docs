@@ -31,7 +31,7 @@ For more information, see [Active and passive OT monitoring in Defender for IoT]
 
         # [PLC discovery and enrichment](#tab/plc)
 
-        - **Scan protocol**.  The protocol to use for your scan. Options depend on the use case selected. For more information, see [Supported protocols](#supported-protocols).
+        - **Scan protocol**.  The protocol to use for your scan. Options depend on the use case selected. For more information, see [Supported protocols for active monitoring](best-practices/passive-active-monitoring.md#supported-protocols-for-active-monitoring).
 
         - **Port**. The port value is automatically populated with the default port for your selected protocol. Modify the value as needed.
 
@@ -45,7 +45,7 @@ For more information, see [Active and passive OT monitoring in Defender for IoT]
 
         - **Switch vendor**. Select a switch vendor.
 
-        - **Scan protocol**. The protocol to use for your scan. Options depend on the use case selected. For more information, see [Supported protocols](#supported-protocols).
+        - **Scan protocol**. The protocol to use for your scan. Options depend on the use case selected. For more information, see [Supported protocols for active monitoring](best-practices/passive-active-monitoring.md#supported-protocols-for-active-monitoring).
 
         Other scan fields differ, depending on the scan protocol you select. Enter community strings and credential details as needed.
 
@@ -68,7 +68,7 @@ After your active discovery scan completes, scanning results are shown in the **
 
 Select a scan to view detailed results in a pane on the right.
 
-:::image type="content" source="../media/configure-active-monitoring/active-discovery-results.png" alt-text="Screenshot of the active discovery scan results." lightbox="media/active-discovery/active-discovery-results.png":::
+:::image type="content" source="media/configure-active-monitoring/active-discovery-results.png" alt-text="Screenshot of the active discovery scan results." lightbox="media/active-discovery/active-discovery-results.png":::
 
 Newly discovered or enriched devices are numbered in the **Update device** column. Select the linked number to view details about the new or enhanced devices.
 

@@ -15,6 +15,8 @@ WEM can provide more focused and accurate information about your Windows devices
 
 Currently the only protocol supported for Windows Endpoint Monitoring with Defender for IoT is WMI, Microsoft's standard scripting language for managing Windows systems.
 
+For more information, see [Supported protocols for active monitoring](best-practices/passive-active-monitoring.md#supported-protocols-for-active-monitoring).
+
 ## Prerequisites
 
 Make sure that you've completed the prerequisites listed in [Configure active monitoring for OT networks](configure-active-monitoring.md), and have confirmed that active monitoring is right for your network.
