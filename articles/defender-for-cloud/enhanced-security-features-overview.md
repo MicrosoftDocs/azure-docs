@@ -154,7 +154,7 @@ You can view your data usage in two different ways, the Azure portal, or by runn
 
 1. Select **Usage and estimated costs**.
 
-    :::image type="content" source="media/enhanced-security-features-overview/data-usage.png" alt-text="Screenshot of your data usage of your log analytics workspace. ":::
+    :::image type="content" source="media/enhanced-security-features-overview/data-usage.png" alt-text="Screenshot of your data usage of your log analytics workspace. " lightbox="media/enhanced-security-features-overview/data-usage.png":::
 
 **To view your usage by using a script**:
 
@@ -169,10 +169,7 @@ project TimeGenerated, DataType, Solution, Quantity, QuantityUnit
 summarize DataConsumedPerDataType = sum(Quantity)/1024 by  DataType, DataUnit = Unit
 sort by DataConsumedPerDataType desc
 ```
-
-**INSERT SCREENSHOT HERE**
-
-Based on your usage, you will not be billed until you have used your daily allowance. If you are receiving a bill, it is only for the data used after the 500mb has been consumed.
+Based on your usage, you will not be billed until you have used your daily allowance. If you are receiving a bill, it is only for the data used after the 500mb has been consumed, or for other service that do not fall under the coverage of Defender for Cloud.
 
 ## Next steps
 This article explained Defender for Cloud's pricing options. For related material, see:
