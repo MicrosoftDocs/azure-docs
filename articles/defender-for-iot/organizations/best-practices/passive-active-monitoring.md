@@ -42,10 +42,10 @@ Active discovery scans are supported for the following protocols:
 
 |Scan type  |Supported protocols  | Method |
 |---------|---------|---------|
-|**Switch discovery scans**     |  - SNMPv1<br>- SNMPv2<br>- SNMPv3<br>- HTTP       | Configure active discovery scans |
-|**PLC discovery and enrichment scans**     | - S7 (Siemens) <br>- CIP (Rockwell)        | Configure active discovery scans |
-|**Windows event scans** | - WMI | Configure Windows Event Monitoring |
-|**DNS lookup scans** | - DNS | Configure DNS lookup |
+|**Switch discovery scans**     |  - SNMPv1<br>- SNMPv2<br>- SNMPv3<br>- HTTP       | [Configure active discovery scans](../configure-active-discovery-scans.md) |
+|**PLC discovery and enrichment scans**     | - S7 (Siemens) <br>- CIP (Rockwell)        | [Configure active discovery scans](../configure-active-discovery-scans.md) |
+|**Windows event scans** | - WMI | [Configure Windows Endpoint Monitoring](../configure-windows-endpoint-monitoring.md) |
+|**DNS lookup scans** | - DNS | [Configure reverse DNS lookup](../configure-reverse-dns-lookup.md) |
 
 ## Challenges with active monitoring
 
