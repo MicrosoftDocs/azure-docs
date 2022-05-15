@@ -1,10 +1,8 @@
 ---
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers
-author: bmansheim
-ms.author: benmansheim
 ms.topic: overview
-ms.date: 05/08/2022
+ms.date: 05/15/2022
 ---
 
 # Overview of Microsoft Defender for Containers
@@ -104,7 +102,7 @@ Defender for Containers protects your clusters whether they're running in:
 - **An unmanaged Kubernetes distribution** (using Azure Arc-enabled Kubernetes) - Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters hosted on-premises or on IaaS.
 
 > [!NOTE]
-> Defender for Containers' support for Arc-enabled Kubernetes clusters (AWS EKS and GCP GKE clusters) is a preview feature.
+> Defender for Container's support for Arc-enabled Kubernetes clusters (including AWS EKS and GCP GKE clusters) is a preview feature.
 
 For high-level diagrams of each scenario, see the relevant tabs below. 
 
