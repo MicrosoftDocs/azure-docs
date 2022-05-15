@@ -101,13 +101,13 @@ No. When you enable [Microsoft Defender for Servers](defender-for-servers-introd
 
 ### If I enable Defender for Clouds Servers plan on the Subscription level, do I need to enable it on the workspace level?
 
-Yes, you need to enable on the Servers plan on the subscription level for your default, or custom workspace level. If you only enable the plan on the subscription level you will see the `Microsoft Defender for servers should be enabled on workspaces` recommendation, on the recommendations page. This recommendation will advise you to enable the servers plan on the workspace level as well.
+Yes, you need to enable on the Servers plan on the subscription level for your custom workspace(s) on the workspace level. If you only enable the plan on the subscription level you will see the `Microsoft Defender for servers should be enabled on workspaces` recommendation, on the recommendations page. This recommendation will advise you to enable the servers plan on the workspace level as well.
 
-By enabling the Servers plan on your default, or custom workspace, you will gain full access to Microsoft Defender for Endpoint, VA solution (TVM/Qualys), just-in-time VM access, and more. Enabling the Servers plan only on the subscription level, will result in limited security protections.
+By enabling the Servers plan on your custom workspace(s), you will gain full access to Microsoft Defender for Endpoint, VA solution (TVM/Qualys), just-in-time VM access, and more. Enabling the Servers plan only on the subscription level, will result in limited security protections.
 
-Enabling the Servers plan on the workspace level after enabling the Servers plan on your Subscription level, will not result in a double charge. The system compares the VM UUID, if they match they will be treated as one and billed as one.
+Enabling the Servers plan on the workspace level after having enabled the Servers plan on your Subscription level, will not result in a double charge. The system compares the VM UUID, if they match they will be treated as one and billed as one.
 
-By default when you enable the Servers plan on the subscription level, workspaces will not have the Servers plan automatically enabled. You may not want to enable the Servers plan on singular workspaces that are connected to cross enabled subscriptions with multiple solutions attached to them that may have multiple VMS connected to them. If you do connect a workspace with multiple attached VMs that is cross enabled, you will be billed for each VM that is attached. Therefore you may only want to enable the Servers plan on the workspaces that you know it will be relevant to.
+By default, when you enable the Servers plan on the subscription level, workspaces will not have the Servers plan automatically enabled. You may not want to enable the Servers plan on singular workspaces that are connected to cross enabled subscriptions with multiple solutions attached to them that may have multiple VMs connected to them. If you do connect a workspace with multiple attached VMs, that is cross enabled, you will be billed for each VM that is attached. Therefore you may only want to enable the Servers plan on the workspaces that you know it will be relevant to.
 
 ### Will I be charged for machines without the Log Analytics agent installed?
 
@@ -161,19 +161,36 @@ You can view your data usage in two different ways, the Azure portal, or by runn
 
     :::image type="content" source="media/enhanced-security-features-overview/data-usage.png" alt-text="Screenshot of your data usage of your log analytics workspace. " lightbox="media/enhanced-security-features-overview/data-usage.png":::
 
+You can also view estimated costs under different pricing tiers by selecting :::image type="icon" source="media/enhanced-security-features-overview/drop-down-icon.png" border="false":::.
+
+:::image type="content" source="media/enhanced-security-features-overview/estimated-costs.png" alt-text="Screenshot showing how to view estimated costs under additional pricing tiers.":::
+
 **To view your usage by using a script**:
 
-Run the following script.
+1. Sign in to the [Azure portal](https://portal.azure.com). 
 
-```bash
+1. Navigate to **Log Analytics workspaces** > **Logs**.
+
+1. Select your time range. Learn about [time ranges](../azure-monitor/logs/log-analytics-tutorial.md).
+
+1. Copy and past the following query into the **Type your query here** section.
+
+    ```azurecli
     let Unit= 'GB';
-Usage
-where IsBillable == 'TRUE'
-where DataType in ('SecurityAlert', 'SecurityBaseline', 'SecurityBaselineSummary', 'SecurityDetection', 'SecurityEvent', 'WindowsFirewall', 'MaliciousIPCommunication', 'SysmonEvent', 'ProtectionStatus', 'Update', 'UpdateSummary')
-project TimeGenerated, DataType, Solution, Quantity, QuantityUnit
-summarize DataConsumedPerDataType = sum(Quantity)/1024 by  DataType, DataUnit = Unit
-sort by DataConsumedPerDataType desc
-```
+    Usage
+    | where IsBillable == 'TRUE'
+    | where DataType in ('SecurityAlert', 'SecurityBaseline', 'SecurityBaselineSummary', 'SecurityDetection', 'SecurityEvent', 'WindowsFirewall', 'MaliciousIPCommunication', 'SysmonEvent', 'ProtectionStatus', 'Update', 'UpdateSummary')
+    | project TimeGenerated, DataType, Solution, Quantity, QuantityUnit
+    | summarize DataConsumedPerDataType = sum(Quantity)/1024 by  DataType, DataUnit = Unit
+    | sort by DataConsumedPerDataType desc
+    ```
+
+1. Select **Run**.
+
+    :::image type="content" source="media/enhanced-security-features-overview/select-run.png" alt-text=":::image type="content" source="media/enhanced-security-features-overview/select-run.png" alt-text="Screenshot showing where to enter your query and where the select run button is located.":::":::
+
+You can learn how to [Analyze usage in Log Analytics workspace](../azure-monitor/logs/analyze-usage.md).
+
 Based on your usage, you will not be billed until you have used your daily allowance. If you are receiving a bill, it is only for the data used after the 500mb has been consumed, or for other service that do not fall under the coverage of Defender for Cloud.
 
 ## Next steps
