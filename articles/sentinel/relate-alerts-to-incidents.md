@@ -26,7 +26,7 @@ This feature is built into the latest version of the Microsoft Sentinel API, whi
 
 You can also use this automation to create custom correlations, or to define custom criteria for grouping alerts into incidents when they're created.
 
-## Add and remove alerts using the investigation graph
+## Add alerts using the investigation graph
 
 The [investigation graph](investigate-cases.md) is a visual, intuitive tool that presents connections and patterns and enables your analysts to ask the right questions and follow leads. You can use it to add alerts to and remove them from your incidents, broadening or narrowing the scope of your investigation.
 
@@ -55,7 +55,7 @@ The [investigation graph](investigate-cases.md) is a visual, intuitive tool that
     - The line connecting it to the entity in the investigation graph has changed from dotted to solid.
     - The alert now appears in this incident's timeline, together with the alerts that were already there.
 
-
+### Special situations
 
 
 1. At this point you might see a confirmation dialog asking what you want to do. For example, you could see this dialog telling you that the alert you want to add is the only alert in another incident, and asking what you want to do with the other incident. Answer according to your own determination.
