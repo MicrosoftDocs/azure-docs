@@ -162,11 +162,7 @@
       - name: Track migration with a workbook
         href: migration-track.md    
       - name: Compare and contrast SIEMs
-        href: migration-compare-siems.md
-      - name: Identify your migration priorities
-        href: migration-priorities.md
-      - name: Identify use cases
-        href: migration-identify-use-cases.md 
+        href: migration-compare-siems.md      
     - name: Migrate from ArcSight      
       items: 
       - name: Migrate detection rules
@@ -209,7 +205,7 @@
         href: migration-convert-dashboards.md
     - name: Update SOC operations
       items:
-      - name: Overview
+      - name: Update SOC operations
         href: migration-soc-overview.md        
       - name: Incident triage
         href: migration-incident-triage.md
