@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: rolyon
 ms.reviewer: 
 ms.subservice: common
-ms.date: 05/09/2022
+ms.date: 05/16/2022
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
