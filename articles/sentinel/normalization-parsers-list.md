@@ -1,6 +1,6 @@
 ---
 title: List of Microsoft Sentinel Advanced Security Information Model (ASIM) parsers | Microsoft Docs
-description: This article list Advanced Security Information Model (ASIM) parsers .
+description: This article lists Advanced Security Information Model (ASIM) parsers.
 author: oshezaf
 ms.topic: reference
 ms.date: 05/02/2022
@@ -125,7 +125,7 @@ Learn more about ASIM parsers:
 - [Develop custom ASIM parsers](normalization-develop-parsers.md)
 - [Manage ASIM parsers](normalization-manage-parsers.md)
 
-For more about ASIM, in general, see: 
+Learn more about ASIM: 
 
 - Watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
 - [Advanced Security Information Model (ASIM) overview](normalization.md)
