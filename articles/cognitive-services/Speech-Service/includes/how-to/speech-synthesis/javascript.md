@@ -299,7 +299,7 @@ function synthesizeSpeech() {
     const speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
 
     // Set the output format
-    speechConfig.speechSynthesisOutputFormat = SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm;
+    speechConfig.speechSynthesisOutputFormat = sdk.SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm;
 
     const synthesizer = new sdk.SpeechSynthesizer(speechConfig, null);
     synthesizer.speakTextAsync(
