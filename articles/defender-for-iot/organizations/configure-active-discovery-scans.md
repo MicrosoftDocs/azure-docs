@@ -68,7 +68,7 @@ After your active discovery scan completes, scanning results are shown in the **
 
 Select a scan to view detailed results in a pane on the right.
 
-:::image type="content" source="media/configure-active-monitoring/active-discovery-results.png" alt-text="Screenshot of the active discovery scan results." lightbox="media/active-discovery/active-discovery-results.png":::
+:::image type="content" source="media/configure-active-monitoring/active-discovery-results.png" alt-text="Screenshot of the active discovery scan results." lightbox="media/configure-active-monitoring/active-discovery-results.png":::
 
 Newly discovered or enriched devices are numbered in the **Update device** column. Select the linked number to view details about the new or enhanced devices.
 

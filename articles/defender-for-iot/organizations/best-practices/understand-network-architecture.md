@@ -21,7 +21,7 @@ The Purdue Reference Model is a model for Industrial Control System (ICS)/OT net
 
 Each device type in your OT network falls in a specific level of the Purdue model. The following image shows how devices in your network spread across the Purdue model and connect to Defender for IoT services.
 
-:::image type="content" source="../media/how-to-set-up-your-network/purdue-model.png" alt-text="Diagram of the Purdue model." border="false" lightbox="media/how-to-set-up-your-network/purdue-model.png":::
+:::image type="content" source="../media/how-to-set-up-your-network/purdue-model.png" alt-text="Diagram of the Purdue model." border="false" lightbox="../media/how-to-set-up-your-network/purdue-model.png":::
 
 The following table describes each level of the Purdue model when applied to Defender for IoT devices:
 
