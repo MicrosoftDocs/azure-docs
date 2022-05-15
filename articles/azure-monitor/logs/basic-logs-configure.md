@@ -2,7 +2,7 @@
 title: Configure Basic Logs in Azure Monitor (Preview)
 description: Configure a table for Basic Logs in Azure Monitor.
 ms.topic: conceptual
-ms.date: 01/13/2022
+ms.date: 05/15/2022
 
 ---
 
@@ -11,7 +11,7 @@ ms.date: 01/13/2022
 Setting a table's [log data plan](log-analytics-workspace-overview.md#log-data-plans-preview) to *Basic Logs* lets you save on the cost of storing high-volume verbose logs you use for debugging, troubleshooting and auditing, but not for analytics and alerts. This article describes how to configure Basic Logs for a particular table in your Log Analytics workspace.
 
 > [!IMPORTANT]
-> You can switch plans once a week.
+> You can switch a table's plan once a week. The Basic Logs feature is not available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
 
 ## Which tables support Basic Logs?
 All tables in your Log Analytics are Analytics tables, by default. You can configure particular tables to use Basic Logs. You can't configure a table for Basic Logs if Azure Monitor relies on that table for specific features.
