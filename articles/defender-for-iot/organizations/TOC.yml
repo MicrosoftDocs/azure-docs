@@ -147,6 +147,8 @@
         items:
         - name: Manage individual sensors
           href: how-to-manage-individual-sensors.md
+        - name: Update OT sensor software
+          href: update-ot-software.md
         - name: Control OT traffic monitoring
           href: how-to-control-what-traffic-is-monitored.md
         - name: Manage sensors from the on-premises management console

@@ -13,17 +13,15 @@ You onboard the on-premises management console from the Azure portal.
 
 ## Download software for the on-premises management console
 
-This procedure describes how to use the Azure portal to download software for you to install on your own appliances for an on-premises management console.
+You may need to download software for your on-premises management console if you're installing Defender for IoT software on your own appliances, or updating software versions.
 
-1. In the Azure portal, go to **Defender for IoT** > **Getting started** > **On-premises management console**.
+**To download on-premises management console software**:
 
-1. Make sure that you have a supported appliance available. For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
+1. In the Azure portal, go to **Defender for IoT** > **Getting started** > **On-premises management console** or **Updates**.
 
-1. Under **Select version**, select the software version you want to install. We recommend that you always select the most recent version.
+1. Select **Download** for your on-premises management console software update. Save your `management-secured-patcher-<version>.tar` file locally. For example:
 
-1. Select **Download**. Download the sensor software and save it in a location that you can access from your selected appliance.
-
-1. Install your software. For more information, see [Defender for IoT installation](how-to-install-software.md).
+    :::image type="content" source="media/update-ot-software/on-premises-download.png" alt-text="Screenshot of the Download option for the on-premises management console." lightbox="media/update-ot-software/on-premises-download.png":::
 
 ## Upload an activation file
 
@@ -210,27 +208,6 @@ To reset your password:
 > [!NOTE]
 > The sensor is linked to the subscription that it was originally connected to. You can recover the password only by using the same subscription that it's attached to.
 
-## Update the software version
-
-The following procedure describes how to update the on-premises management console software version. The update process takes about 30 minutes.
-
-If you are working with an on-premises management console and managed sensors, **update the management console first**.
-
-1. Go to the [Azure portal](https://portal.azure.com/).
-
-1. Go to Defender for IoT.
-
-1. Go to the **Updates** page.
-
-1. Select a version from the on-premises management console section.
-
-1. Select **Download** and save the file.
-
-1. Sign into the on-premises management console and select **System Settings** from the side menu.
-
-1. On the **Version Update** pane, select **Update**.
-
-1. Select the file that you downloaded from the Defender for IoT **Updates** page.
 
 ## Mail server settings
 
@@ -246,10 +223,13 @@ To define:
    `mail.sender=`
 1. Enter the SMTP server name  and sender and select enter.
 
+
 ## Next steps
 
 For more information, see:
 
-- [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
-
+- [Install OT system software](how-to-install-software.md)
+- [Update OT system software](update-ot-software.md)
 - [Manage individual sensors](how-to-manage-individual-sensors.md)
+- [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
+- [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

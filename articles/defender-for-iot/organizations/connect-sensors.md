@@ -413,11 +413,11 @@ If you're an existing customer with a production deployment and sensors connecte
 
     For any connectivity resources outside of Defender for IoT, such as a VPN or proxy, consult with Microsoft solution architects to ensure correct configurations, security, and high availability.
 
-1. **If you have legacy sensor versions installed**, we recommend that you update your sensors at least to a version 22.1.x or higher. In this case, make sure that you reactivate each sensor and update your firewall rules.
+1. **If you have legacy sensor versions installed**, we recommend that you update your sensors at least to a version 22.1.x or higher. In this case, make sure that you've updated your firewall rules and activated your sensor with a new activation file.
 
     Sign in to each sensor after the update to verify that the activation file was applied successfully. Also check the Defender for IoT **Sites and sensors** page in the Azure portal to make sure that the updated sensors show as **Connected**.
 
-    For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version) and [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
+    For more information, see [Update OT system software](update-ot-software.md) and [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
 
 1. **Start migrating with a test lab or reference project** where you can validate your connection and fix any issues found.
 
