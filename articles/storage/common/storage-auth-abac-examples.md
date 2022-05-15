@@ -325,7 +325,7 @@ There are five actions for read, write, and delete of existing blobs. You must a
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` |  |
-> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | If role definition includes this action, such as Storage Blob Data Owner.<br/>If the storage accounts included in this condition have hierarchical namespace enabled or might be enabled in the future. |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner.<br/>Add if the storage accounts included in this condition have hierarchical namespace enabled or might be enabled in the future. |
 
 Suboperations are not used in this condition because the subOperation is needed only when conditions are authored based on tags.
 
@@ -429,7 +429,7 @@ You must add this condition to any role assignments that include the following a
 > | Action | Notes |
 > | --- | --- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
-> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | If role definition includes this action, such as Storage Blob Data Owner.<br/>If the storage accounts included in this condition have hierarchical namespace enabled or might be enabled in the future. |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner.<br/>Add if the storage accounts included in this condition have hierarchical namespace enabled or might be enabled in the future. |
 
 ![Diagram of condition showing read access to blobs in named containers with a path.](./media/storage-auth-abac-examples/containers-path-read.png)
 
@@ -522,7 +522,7 @@ You must add this condition to any role assignments that include the following a
 > | Action | Notes |
 > | --- | --- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
-> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | If role definition includes this action, such as Storage Blob Data Owner.<br/>If the storage accounts included in this condition have hierarchical namespace enabled or might be enabled in the future. |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner.<br/>Add if the storage accounts included in this condition have hierarchical namespace enabled or might be enabled in the future. |
 
 ![Diagram of condition showing read and list access to blobs in named containers with a path.](./media/storage-auth-abac-examples/containers-path-read.png)
 
@@ -634,7 +634,7 @@ You must add this condition to any role assignments that include the following a
 > | --- | --- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` |  |
-> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | If role definition includes this action, such as Storage Blob Data Owner.<br/>If the storage accounts included in this condition have hierarchical namespace enabled or might be enabled in the future. |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner.<br/>Add if the storage accounts included in this condition have hierarchical namespace enabled or might be enabled in the future. |
 
 ![Diagram of condition showing write access to blobs in named containers with a path.](./media/storage-auth-abac-examples/containers-path-write.png)
 
@@ -967,7 +967,7 @@ You must add this condition to any role assignments that include the following a
 > | Action | Notes |
 > | --- | --- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
-> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | If role definition includes this action, such as Storage Blob Data Owner. |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
 ![Diagram of condition showing read access to storage accounts with hierarchical namespace enabled.](./media/storage-auth-abac-examples/hierarchical-namespace-accounts-read.png)
 
