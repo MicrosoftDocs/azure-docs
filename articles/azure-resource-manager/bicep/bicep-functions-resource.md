@@ -323,8 +323,8 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](/rest/api/eventhub) |
 | Microsoft.ImportExport/jobs | [listBitLockerKeys](/rest/api/storageimportexport/bitlockerkeys/list) |
 | Microsoft.Kusto/Clusters/Databases | [ListPrincipals](/rest/api/azurerekusto/databases/listprincipals) |
-| Microsoft.LabServices/users | [ListEnvironments](/rest/api/labservices/globalusers/listenvironments) |
-| Microsoft.LabServices/users | [ListLabs](/rest/api/labservices/globalusers/listlabs) |
+| Microsoft.LabServices/labs/users | [list](/rest/api/labservices/users/list-by-lab) |
+| Microsoft.LabServices/labs/virtualMachines | [list](/rest/api/labservices/virtual-machines/list-by-lab) |
 | Microsoft.Logic/integrationAccounts/agreements | [listContentCallbackUrl](/rest/api/logic/agreements/listcontentcallbackurl) |
 | Microsoft.Logic/integrationAccounts/assemblies | [listContentCallbackUrl](/rest/api/logic/integrationaccountassemblies/listcontentcallbackurl) |
 | Microsoft.Logic/integrationAccounts | [listCallbackUrl](/rest/api/logic/integrationaccounts/getcallbackurl) |
@@ -651,7 +651,7 @@ The identifier is returned in the following format:
 
 You use this function to get the resource ID for resources that are [deployed to the management group](deploy-to-management-group.md) rather than a resource group. The returned ID differs from the value returned by the [resourceId](#resourceid) function by not including a subscription ID and a resource group value.
 
-### managementGrouopResourceID example
+### managementGroupResourceID example
 
 The following template creates a policy definition, and assign the policy defintion. It uses the `managementGroupResourceId` function to get the resource ID for policy definition.
 
