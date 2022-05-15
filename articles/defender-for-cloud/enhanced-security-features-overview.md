@@ -71,18 +71,21 @@ You can use any of the following ways to enable enhanced security for your subsc
 
 
 ### Can I enable Microsoft Defender for Servers on a subset of servers in my subscription?
+
 No. When you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) on a subscription, all the machines in the subscription will be protected by Defender for Servers.
 
 An alternative is to enable Microsoft Defender for Servers at the Log Analytics workspace level. If you do this, only servers reporting to that workspace will be protected and billed. However, several capabilities will be unavailable. These include Microsoft Defender for Endpoint, VA solution (TVM/Qualys), just-in-time VM access, and more. 
 
 ### If I already have a license for Microsoft Defender for Endpoint can I get a discount for Defender for Servers?
+
 If you've already got a license for **Microsoft Defender for Endpoint for Servers Plan 2**, you won't have to pay for that part of your Microsoft Defender for Servers license. Learn more about [this license](/microsoft-365/security/defender-endpoint/minimum-requirements#licensing-requirements).
 
 To request your discount, [contact Defender for Cloud's support team](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). You'll need to provide the relevant workspace ID, region, and number of Microsoft Defender for Endpoint for servers licenses applied for machines in the given workspace.
 
 The discount will be effective starting from the approval date, and won't take place retroactively.
 
-### My subscription has Microsoft Defender for Servers enabled, do I pay for not-running servers? 
+### My subscription has Microsoft Defender for Servers enabled, do I pay for not-running servers?
+
 No. When you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) on a subscription, you won't be charged for any machines that are in the deallocated power state while they're in that state. Machines are billed according to their power state as shown in the following table:
 
 | State        | Description                                                                                                                                      | Instance usage billed |
@@ -98,20 +101,20 @@ No. When you enable [Microsoft Defender for Servers](defender-for-servers-introd
 
 ### If I enable Defender for Clouds Servers plan on the Subscription level, do I need to enable it on the workspace level?
 
-Yes, you need to enable on the Servers plan on the subscription level for your user, or custom workspace level. If you only enable the plan on the subscription level you will see the `Microsoft Defender for servers should be enabled on workspaces` recommendation, on the recommendations page. This recommendation will advise you to enable the servers plan on the workspace level as well.
+Yes, you need to enable on the Servers plan on the subscription level for your default, or custom workspace level. If you only enable the plan on the subscription level you will see the `Microsoft Defender for servers should be enabled on workspaces` recommendation, on the recommendations page. This recommendation will advise you to enable the servers plan on the workspace level as well.
 
-By enabling the Servers plan on your user or custom workspace, you will gain full access to Microsoft Defender for Endpoint, VA solution (TVM/Qualys), just-in-time VM access, and more. Enabling the Servers plan only on the subscription level, will result in limited security protections.
+By enabling the Servers plan on your default, or custom workspace, you will gain full access to Microsoft Defender for Endpoint, VA solution (TVM/Qualys), just-in-time VM access, and more. Enabling the Servers plan only on the subscription level, will result in limited security protections.
 
-When you enable the Servers plan on the workspace level after enabling the Servers plan on your Subscription level, will not result in a double charge. The system compares the VM UUID, if they match they will be treated as one and billed as one 
+Enabling the Servers plan on the workspace level after enabling the Servers plan on your Subscription level, will not result in a double charge. The system compares the VM UUID, if they match they will be treated as one and billed as one.
 
 By default when you enable the Servers plan on the subscription level, workspaces will not have the Servers plan automatically enabled. You may not want to enable the Servers plan on singular workspaces that are connected to cross enabled subscriptions with multiple solutions attached to them that may have multiple VMS connected to them. If you do connect a workspace with multiple attached VMs that is cross enabled, you will be billed for each VM that is attached. Therefore you may only want to enable the Servers plan on the workspaces that you know it will be relevant to.
 
-Enabling on the workspace level after enabling on the subscription level will not result in a double charge, the system compares the UUID of the subscription, to the workspace. If they match they will be treated as one and billed as one.
-
 ### Will I be charged for machines without the Log Analytics agent installed?
+
 Yes. When you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) on a subscription, the machines in that subscription get a range of protections even if you haven't installed the Log Analytics agent. This is applicable for Azure virtual machines, Azure virtual machine scale sets instances, and Azure Arc-enabled servers.
 
-### If a Log Analytics agent reports to multiple workspaces, will I be charged twice? 
+### If a Log Analytics agent reports to multiple workspaces, will I be charged twice?
+
 Yes. If you've configured your Log Analytics agent to send data to two or more different Log Analytics workspaces (multi-homing), you'll be charged for every workspace that has a 'Security' or 'AntiMalware' solution installed.
 
 > [!Note]
@@ -120,9 +123,11 @@ Yes. If you've configured your Log Analytics agent to send data to two or more d
 > There is no practical reason to have both solutions deployed. We recommend customers to remove Antimalware Assessment and replace it with Defender for Cloud's Servers plan. The price is the same ($15 per VM) and Defender for Cloud's Servers plan offers additional protections and features than the Antimalware Assessment solution.
 
 ### If a Log Analytics agent reports to multiple workspaces, is the 500 MB free data ingestion available on all of them?
+
 Yes. If you've configured your Log Analytics agent to send data to two or more different Log Analytics workspaces (multi-homing), you'll get 500 MB free data ingestion. It's calculated per node, per reported workspace, per day, and available for every workspace that has a 'Security' or 'AntiMalware' solution installed. You'll be charged for any data ingested over the 500 MB limit.
 
 ### Is the 500 MB free data ingestion calculated for an entire workspace or strictly per machine?
+
 You'll get 500 MB free data ingestion per day, for every VM connected to the workspace. Specifically for the [security data types](#what-data-types-are-included-in-the-500-mb-data-daily-allowance) that are directly collected by Defender for Cloud. 
 
 This data is a daily rate averaged across all nodes. Your total daily free limit is equal to **[number of machines] x 500 MB**. So even if some machines send 100-MB and others send 800-MB, if the total doesn't exceed your total daily free limit, you won't be charged extra.
@@ -146,7 +151,7 @@ You can view your data usage in two different ways, the Azure portal, or by runn
 
 **To view your usage in the Azure portal**:
 
-. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com). 
 
 1. Navigate to **Log Analytics workspaces**.
 
