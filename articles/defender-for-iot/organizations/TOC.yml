@@ -37,7 +37,6 @@
         href: best-practices/sample-connectivity-models.md
       - name: Passive vs active monitoring
         href: best-practices/passive-active-monitoring.md
-      href: plan-network-monitoring.md
     - name: OT threat monitoring in enterprise SOCs
       href: concept-sentinel-integration.md
     - name: OT security system architecture
@@ -68,8 +67,6 @@
       href: how-to-view-information-per-zone.md
     - name: View OT assets from an on-premises management console
       href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
-    - name: Configure active monitoring for more visibility
-      href: active-monitoring.md
   - name: Manage alerts
     items:
     - name: Manage alerts from the Azure portal

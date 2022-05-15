@@ -58,9 +58,9 @@ Active monitoring requires direct access to your network, and can affect network
 
 If you've determined that active monitoring is right for your organization, complete the [prerequisites](../configure-active-monitoring.md) and then use one of the following methods:
 
-- [Configure active discovery scans](configure-active-discovery-scans.md)
-- [Configure Windows Endpoint monitoring](configure-windows-endpoint-monitoring.md)
-- [Configure DNS servers for reverse lookup resolution for OT monitoring](configure-reverse-dns-lookup.md)
+- [Configure active discovery scans](../configure-active-discovery-scans.md)
+- [Configure Windows Endpoint monitoring](../configure-windows-endpoint-monitoring.md)
+- [Configure DNS servers for reverse lookup resolution for OT monitoring](../configure-reverse-dns-lookup.md)
 
 For more information, see:
 

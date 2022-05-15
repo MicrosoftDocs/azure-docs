@@ -11,7 +11,7 @@ To see only relevant information for traffic analysis, you need to connect the D
 
 For example:
 
-:::image type="content" source="media/how-to-set-up-your-network/switch.jpg" alt-text="Use this switch for your setup.":::
+:::image type="content" source="../media/how-to-set-up-your-network/switch.jpg" alt-text="Use this switch for your setup.":::
 
 You can monitor switch traffic using a switch SPAN port, by report SPAN (RSPAN), or active and passive aggregation TAP. Use the following tabs to learn more about each method.
 
@@ -93,7 +93,7 @@ Consider the following when configuring RSPAN:
 
 The following diagram shows an example of a remote VLAN architecture:
 
-:::image type="content" source="media/how-to-set-up-your-network/remote-vlan.jpg" alt-text="Diagram of remote VLAN.":::
+:::image type="content" source="../media/how-to-set-up-your-network/remote-vlan.jpg" alt-text="Diagram of remote VLAN.":::
 
 For example, use the following steps to set up an RSPAN for a Cisco 2960 switch with 24 ports running IOS.
 
@@ -147,7 +147,7 @@ TAP aggregators can also be used for port monitoring. These devices are processo
 
 The following diagram shows an example of a network setup with an active and passive TAP:
 
-:::image type="content" source="media/how-to-set-up-your-network/active-passive-tap-v2.png" alt-text="Diagram of active and passive TAPs.":::
+:::image type="content" source="../media/how-to-set-up-your-network/active-passive-tap-v2.png" alt-text="Diagram of active and passive TAPs.":::
 
 ### Common TAP models
 
@@ -155,19 +155,19 @@ The following TAP models have been tested for compatibility with Defender for Io
 
 - **Garland P1GCCAS**
 
-    :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Screenshot of Garland P1GCCAS." border="false":::
+    :::image type="content" source="../media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Screenshot of Garland P1GCCAS." border="false":::
 
     When using a Garland TAP, make sure jumpers are set as follows:
 
-    :::image type="content" source="media/how-to-set-up-your-network/jumper-setup-v2.jpg" alt-text="Screenshot of US Robotics switch.":::
+    :::image type="content" source="../media/how-to-set-up-your-network/jumper-setup-v2.jpg" alt-text="Screenshot of US Robotics switch.":::
 
 - **IXIA TPA2-CU3**
 
-    :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Screenshot of IXIA TPA2-CU3." border="false":::
+    :::image type="content" source="../media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Screenshot of IXIA TPA2-CU3." border="false":::
 
 - **US Robotics USR 4503**
 
-    :::image type="content" source="media/how-to-set-up-your-network/us-robotics-usr-4503-v2.png" alt-text="Screenshot of US Robotics USR 4503.":::
+    :::image type="content" source="../media/how-to-set-up-your-network/us-robotics-usr-4503-v2.png" alt-text="Screenshot of US Robotics USR 4503.":::
 
     When using a US Robotics TAP, make sure **Aggregation mode** is active.
 
@@ -180,9 +180,3 @@ For more information, see:
 
 - [Sample OT network connectivity models](sample-connectivity-models.md)
 - [Active and passive OT monitoring in Defender for IoT](passive-active-monitoring.md)
-
-To get started with Defender for IoT:
-
-- [Welcome to Microsoft Defender for IoT for organizations](overview.md)
-- [Quickstart: Get started with Defender for IoT](getting-started.md)
-- [About Microsoft Defender for IoT network setup](how-to-set-up-your-network.md)

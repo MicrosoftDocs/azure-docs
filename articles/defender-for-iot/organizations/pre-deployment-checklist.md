@@ -184,5 +184,5 @@ Review your industrial network architecture to define the proper location for th
 For more information, see:
 
 - [Quickstart: Get started with Defender for IoT](getting-started.md)
-- [Best practices for planning your OT network monitoring](plan-network-monitoring.md)
+- [Best practices for planning your OT network monitoring](best-practices/plan-network-monitoring.md)
 - [Prepare your network for Microsoft Defender for IoT](how-to-set-up-your-network.md)

@@ -84,8 +84,3 @@ For more information, see:
 - [Sample OT network connectivity models](sample-connectivity-models.md)
 - [Active and passive OT monitoring in Defender for IoT](passive-active-monitoring.md)
 
-To get started with Defender for IoT:
-
-- [Welcome to Microsoft Defender for IoT for organizations](overview.md)
-- [Quickstart: Get started with Defender for IoT](getting-started.md)
-- [About Microsoft Defender for IoT network setup](how-to-set-up-your-network.md)
