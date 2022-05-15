@@ -50,15 +50,24 @@ The [investigation graph](investigate-cases.md) is a visual, intuitive tool that
 
     :::image type="content" source="media/relate-alerts-to-incidents/add-alert-to-incident.png" alt-text="Screenshot of adding an alert to an incident in the investigation graph.":::
 
-1. The alert is added to the incident, and for all intents and purposes is part of the incident, along with all its entities and details. You'll see two visual representations of this:
+1. The alert is added to the incident, and for all purposes is part of the incident, along with all its entities and details. You'll see two visual representations of this:
 
-    - The line connecting it to the entity in the investigation graph has changed from dotted to solid.
+    - The line connecting it to the entity in the investigation graph has changed from dotted to solid, and connections to entities in the added alert have been added to the graph.
+        :::image type="content" source="media/relate-alerts-to-incidents/alert-joined-to-incident.png" alt-text="Screenshot showing an alert added to an incident.":::
     - The alert now appears in this incident's timeline, together with the alerts that were already there.
+        :::image type="content" source="media/relate-alerts-to-incidents/two-alerts.png" alt-text="Screenshot showing an alert added to an incident's timeline.":::
 
 ### Special situations
 
+When adding an alert to an incident, depending on the circumstances, you might be asked to confirm your request or to choose between different options. The following are some examples of these situations, the choices you will be asked to make, and their implications.
 
-1. At this point you might see a confirmation dialog asking what you want to do. For example, you could see this dialog telling you that the alert you want to add is the only alert in another incident, and asking what you want to do with the other incident. Answer according to your own determination.
+- The alert you want to add already belongs to another incident.
+
+    In this case you'll see a message that the alert is part of another incident or incidents, and asked if you want to proceed. Select **OK** to add the alert or **Cancel** to leave things as they were.
+
+    Adding the alert to this incident *will not remove it* from any other incidents.
+
+For example, you could see this dialog telling you that the alert you want to add is the only alert in another incident, and asking what you want to do with the other incident. Answer according to your own determination.
 
     :::image type="content" source="media/relate-alerts-to-incidents/keep-or-close-other-incident.png" alt-text="Screenshot asking whether to keep or close other incident.":::
 
@@ -66,6 +75,13 @@ The [investigation graph](investigate-cases.md) is a visual, intuitive tool that
     - **Close other incident** adds the alert to this incident but removes it from the other incident, closing that incident in the process.
     - **Cancel** leaves the status quo. It keeps the alert in its original incident and does not add it to this one.
 
+### Limitations
+
+- Microsoft Sentinel imports both alerts and incidents from Microsoft 365 Defender. For the most part, you can treat these alerts and incidents like regular Microsoft Sentinel alerts and incidents. 
+
+    However, you can only add Defender alerts to Defender incidents in the Defender portal, not in the Sentinel portal. If you try doing this in Microsoft Sentinel, you will get an error message. You can pivot to the incident in the Microsoft 365 Defender portal using the link in the Microsoft Sentinel incident.
+
+- An incident can contain a maximum of 150 alerts. If you try to add an alert to an incident with 150 alerts in it, you will get an error message.
 
 ## Next steps
 In this article, you learned how to get started investigating incidents using Microsoft Sentinel. For more information, see:
