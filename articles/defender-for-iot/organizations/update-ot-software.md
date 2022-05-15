@@ -147,7 +147,7 @@ The sensor update process won't succeed if you don't update the on-premises mana
     > [!IMPORTANT]
     > - If there are sensors that you do *not* want to update at this time, clear the **Automatic Version Updates** option for those sensors.
     >
-    > - If your **Automatic Version Updates** option is red, you have a update conflict. For example, an update conflict might occur if you have multiple sensors marked for automatic updates but the sensors currently have different software versions installed. Select the option to resolve the conflict. <!--i think we need more clarification here. what might this look like?-->
+    > - If your **Automatic Version Updates** option is red, you have a update conflict. For example, an update conflict might occur if you have multiple sensors marked for automatic updates but the sensors currently have different software versions installed. Select the option to resolve the conflict.
     >
 
 1. Scroll down and on the right, select the **+** in the **Sensor version update** box. Browse to and select the update file you'd downloaded from the Azure portal.
@@ -201,8 +201,6 @@ If you're upgrading from a legacy version to version 22.x or higher, make sure t
 
     - The sensor's **Overview** page shows an activation status of **Valid**.
     - In the Azure portal, on the **Sites and sensors** page, the sensor is listed as **OT cloud connected** and with the updated sensor version.
-
-<!--does this now show "ready for upgrade"?-->
 
 
 ## Remove your previous sensor
