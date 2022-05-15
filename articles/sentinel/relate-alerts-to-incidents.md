@@ -53,8 +53,11 @@ The [investigation graph](investigate-cases.md) is a visual, intuitive tool that
 1. The alert is added to the incident, and for all purposes is part of the incident, along with all its entities and details. You'll see two visual representations of this:
 
     - The line connecting it to the entity in the investigation graph has changed from dotted to solid, and connections to entities in the added alert have been added to the graph.
-        :::image type="content" source="media/relate-alerts-to-incidents/alert-joined-to-incident.png" alt-text="Screenshot showing an alert added to an incident.":::
+
+        :::image type="content" source="media/relate-alerts-to-incidents/alert-joined-to-incident.png" alt-text="Screenshot showing an alert added to an incident." lightbox="media/relate-alerts-to-incidents/alert-joined-to-incident.png":::
+
     - The alert now appears in this incident's timeline, together with the alerts that were already there.
+
         :::image type="content" source="media/relate-alerts-to-incidents/two-alerts.png" alt-text="Screenshot showing an alert added to an incident's timeline.":::
 
 ### Special situations
@@ -65,14 +68,18 @@ When adding an alert to an incident, depending on the circumstances, you might b
 
     In this case you'll see a message that the alert is part of another incident or incidents, and asked if you want to proceed. Select **OK** to add the alert or **Cancel** to leave things as they were.
 
-    Adding the alert to this incident *will not remove it* from any other incidents.
+    Adding the alert to this incident *will not remove it* from any other incidents. Alerts can be related to more than one incident.
 
-For example, you could see this dialog telling you that the alert you want to add is the only alert in another incident, and asking what you want to do with the other incident. Answer according to your own determination.
+- The alert you want to add belongs to another incident, and it's the only alert in the other incident.
+
+    This is different from the case above, since if the alert is alone in the other incident, tracking it in this incident could make the other incident irrelevant. So in this case, you'll see this dialog:
 
     :::image type="content" source="media/relate-alerts-to-incidents/keep-or-close-other-incident.png" alt-text="Screenshot asking whether to keep or close other incident.":::
 
-    - **Keep other incident** preserves the alert in the other incident while also adding it to this one. An alert can be part of more than one incident.
+    - **Keep other incident** preserves the alert in the other incident while also adding it to this one.
+
     - **Close other incident** adds the alert to this incident but removes it from the other incident, closing that incident in the process.
+
     - **Cancel** leaves the status quo. It keeps the alert in its original incident and does not add it to this one.
 
 ### Limitations
