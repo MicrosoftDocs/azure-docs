@@ -22,7 +22,7 @@ Updates in May include:
 
 - [General availability (GA) of Defender for SQL for AWS and GCP environments](#general-availability-ga-of-defender-for-sql-for-aws-and-gcp-environments)
 - [Multi-cloud settings of Servers plan are now available in connector level](#multi-cloud-settings-of-servers-plan-are-now-available-in-connector-level)
-- | [Changes to vulnerability assessment](#changes-to-vulnerability-assessment)  
+- [Changes to vulnerability assessment](#changes-to-vulnerability-assessment)  
 
 ### General availability (GA) of Defender for SQL for AWS and GCP environments
 
