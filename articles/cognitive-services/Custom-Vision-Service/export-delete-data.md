@@ -11,7 +11,7 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.custom: non-critical
+ms.custom: cogserv-non-critical-vision
 ---
 
 # View or delete user data in Custom Vision
