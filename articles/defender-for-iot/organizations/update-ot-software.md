@@ -1,7 +1,7 @@
 ---
 title: Update OT system software
 description: Learn how to update (upgrade) Defender for IoT software on OT sensors and on-premises management servers.
-ms.date: 05/10/2022
+ms.date: 05/15/2022
 ms.topic: how-to
 ---
 
@@ -54,47 +54,6 @@ In such cases, make sure to update your on-premises management consoles *before*
     Sign in when prompted and check the version number listed in the bottom-left corner to confirm that the new version is listed.
 
 
-## Download a new activation file
-
-This procedure is relevant only if you're updating sensors from software versions earlier than 22.1.x. Such updates require a new activation file for each sensor, which you'll use to [activate the sensor](#apply-your-activation-file) before you [update the software](#update-your-sensors).
-
-**To prepare your sensor for update**:
-
-1. In Defender for IoT on the Azure portal, select **Sites and sensors** on the left.
-
-1. Select the site where you want to update your sensor, and then browse to the sensor you want to update.
-
-1. Expand the row for your sensor, select the options **...** menu on the right of the row, and then select **Prepare to update to 22.x**.
-
-    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/prepare-to-update.png" alt-text="Screenshot of the Prepare to update option." lightbox="media/how-to-manage-sensors-on-the-cloud/prepare-to-update.png":::
-
-1. In the **Prepare to update sensor to version 22.X** message, select **Let's go**.
-
-    A new row in the grid is added for sensor you're upgrading. In that added row, select to download the activation file.
-
-1. Verify that the status showing in the new sensor row has switched to **Pending activation**.
-
-
-> [!NOTE]
-> The previous sensor is not automatically deleted after your update. After you've updated the sensor software, make sure to [remove the previous sensor from Defender for IoT](#remove-your-previous-sensor).
-
-## Apply your activation file
-
-**Relevant only when updating from a legacy version to version 22.x or higher**
-
-If you're upgrading from a legacy version to version 22.x or higher, make sure to apply the new activation file to your sensor.
-
-1. On your sensor, select **System settings > Sensor management > Subscription & Mode Activation**.
-
-1. In the **Subscription & Mode Activation** pane that appears on the right, select **Select file**, and then browse to and select the activation file you'd downloaded [earlier](#download-a-new-activation-file).
-
-1. In Defender for IoT on the Azure portal, monitor your sensor's activation status. When the sensor is fully activated:
-
-    - The sensor's **Overview** page shows an activation status of **Valid**.
-    - In the Azure portal, on the **Sites and sensors** page, the sensor is listed as **OT cloud connected** and with the updated sensor version.
-
-<!--does this now show "ready for upgrade"?-->
-
 
 ## Update your sensors
 
@@ -104,8 +63,42 @@ You can update software on your sensors individually, directly from each sensor 
 > If you are updating from software versions earlier than [22.1.x](release-notes.md#update-to-version-221x), note that this version has a large update with more complicated background processes. Expect this update to take more time than earlier updates have required.
 >
 
+> [!IMPORTANT]
+> If you're using an on-premises management console to manage your sensors, make sure to update your on-premises management console software *before* you update your sensor software.
+>
+> On-premises management software is backwards compatible, and can connect to sensors with earlier versions installed, but not later versions. If you update your sensor software before updating your on-premises management console, the updated sensor will be disconnected from the on-premises management console.
+>
+> For more information, see [Update the on-premises management console software version](how-to-manage-the-on-premises-management-console.md#update-the-software-version).
+>
+
+# [From the Azure portal (Public preview)](#tab/portal)
+
+This procedure describes how to download the new sensor software version and then run the update directly from the Azure portal.
+
+**To update your sensor from the Azure portal**:
+
+1. In the Azure portal, go to **Defender for IoT** > **Sites and sensors** and identify the sensors that have legacy versions installed. If you know your site and sensor name, you can browse to it directly. Alternately filter the sensors listed by *Sensor version* and show all sensor versions that contain a number earlier than the most recent version available.
+
+1. Select one or more sensors to update, and then select **Update (Preview)** > **Download package**. For a specific sensor, you can also access the **Download package** option from the **...** options menu to the right of the sensor row.
+
+1. In the **Download package** pane that appears on the right, check to make sure that you're downloading the correct software to the sensor you want to update. To jump to the release notes for the new version, select **Learn more** at the top of the pane.
+
+    When you're ready, select **Download package**. The software download to your sensor machine is started, and you can see the progress in the **Sensor version** column. Hover over the status bar to see details about your upgrade versions.
+
+1. When the **Sensor version** column reads *Ready to update*, select **Update (Preview)** in the toolbar > **Update sensor**.
+
+    > [!TIP]
+    > Depending on your organization's needs, you might want to separate the software download and installation. For example, have the update downloaded overnight and then wait for an administrator to run the installation during a planned maintenance window.
+    >
+
+1. In the **Update sensor** pane that appears on the right, check to verify your update details. When you're ready, select **Update now** > **Confirm update**. In the grid, the **Sensor version** value changes to *Installing* until the update is complete, when the value switches to the new sensor version number instead.
+
+If a sensor fails to update for any reason, the software reverts back to the previous version installed, and a sensor health alert is triggered.
+
+
 # [From each sensor](#tab/sensor)
 
+This procedure describes how to manually download the new sensor software version and then run your update directly on the sensor console.
 
 **To update sensor software directly from the sensor console**:
 
@@ -129,11 +122,11 @@ You can update software on your sensors individually, directly from each sensor 
 
 # [From an on-premises management console](#tab/onprem)
 
-You can update several sensors simultaneously from the on-premises management console.
+This procedure describes how to update several sensors simultaneously from an on-premises management console.
 
 **Prerequisites**:
 
-If you're upgrading an on-premises management console and managed sensors, [first update the management console](#update-an-on-premises-management-console), and then update the sensors. 
+If you're upgrading an on-premises management console and managed sensors, [first update the management console](#update-an-on-premises-management-console), and then update the sensors.
 
 The sensor update process won't succeed if you don't update the on-premises management console first.
 
@@ -168,6 +161,48 @@ If updates fail, you can reattempt the update, or open a support ticket for assi
 > [!NOTE]
 > After upgrading to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
 >
+
+
+## Download and apply a new activation file
+
+**Relevant only when updating from a legacy version to version 22.x or higher**
+
+This procedure is relevant only if you're updating sensors from software versions earlier than 22.1.x. Such updates require a new activation file for each sensor, which you'll use to [activate the sensor](#apply-your-activation-file) before you [update the software](#update-your-sensors).
+
+**To prepare your sensor for update**:
+
+1. In Defender for IoT on the Azure portal, select **Sites and sensors** on the left.
+
+1. Select the site where you want to update your sensor, and then browse to the sensor you want to update.
+
+1. Expand the row for your sensor, select the options **...** menu on the right of the row, and then select **Prepare to update to 22.x**.
+
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/prepare-to-update.png" alt-text="Screenshot of the Prepare to update option." lightbox="media/how-to-manage-sensors-on-the-cloud/prepare-to-update.png":::
+
+1. In the **Prepare to update sensor to version 22.X** message, select **Let's go**.
+
+    A new row in the grid is added for sensor you're upgrading. In that added row, select to download the activation file.
+
+1. Verify that the status showing in the new sensor row has switched to **Pending activation**.
+
+
+> [!NOTE]
+> The previous sensor is not automatically deleted after your update. After you've updated the sensor software, make sure to [remove the previous sensor from Defender for IoT](#remove-your-previous-sensor).
+
+**To apply your activation file**:
+
+If you're upgrading from a legacy version to version 22.x or higher, make sure to apply the new activation file to your sensor.
+
+1. On your sensor, select **System settings > Sensor management > Subscription & Mode Activation**.
+
+1. In the **Subscription & Mode Activation** pane that appears on the right, select **Select file**, and then browse to and select the activation file you'd downloaded [earlier](#download-a-new-activation-file).
+
+1. In Defender for IoT on the Azure portal, monitor your sensor's activation status. When the sensor is fully activated:
+
+    - The sensor's **Overview** page shows an activation status of **Valid**.
+    - In the Azure portal, on the **Sites and sensors** page, the sensor is listed as **OT cloud connected** and with the updated sensor version.
+
+<!--does this now show "ready for upgrade"?-->
 
 
 ## Remove your previous sensor
