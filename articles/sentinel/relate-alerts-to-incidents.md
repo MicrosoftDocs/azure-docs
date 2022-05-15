@@ -82,6 +82,8 @@ When adding an alert to an incident, depending on the circumstances, you might b
 
     - **Cancel** leaves the status quo. It keeps the alert in its original incident and does not add it to this one.
 
+    Which of these options you choose depends on your particular needs; we don't recommend one choice over the other.
+
 ### Limitations
 
 - Microsoft Sentinel imports both alerts and incidents from Microsoft 365 Defender. For the most part, you can treat these alerts and incidents like regular Microsoft Sentinel alerts and incidents. 
