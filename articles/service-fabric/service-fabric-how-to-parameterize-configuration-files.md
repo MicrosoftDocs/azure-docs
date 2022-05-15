@@ -49,5 +49,35 @@ In this example, you override a configuration value using parameters in your app
 >
 >
 
+## Access parameterized configurations in code
+
+You can access the configuration in your settings.xml file programmatically. Take for example, the following configuration XML file:
+
+   ```xml
+<Settings
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://schemas.microsoft.com/2011/01/fabric">
+	<!-- Add your custom configuration sections and parameters here -->
+	<Section Name="MyConfigSection">
+		<Parameter Name="MyParameter" Value="Value1" />
+	</Section>
+</Settings>     
+   ```
+  
+Use the following code to access the parameters:
+
+  ```C#
+CodePackageActivationContext context = FabricRuntime.GetActivationContext();
+var configSettings = context.GetConfigurationPackageObject("Config").Settings;
+var data = configSettings.Sections["MyConfigSection"];
+foreach (var parameter in data.Parameters)
+{
+    ServiceEventSource.Current.ServiceMessage(this.Context, "Working-{0} - {1}", parameter.Name, parameter.Value);
+}
+  ```
+
+Here `Parameter.Name` will be MyParameter and `Parameter.Value` will be Value1
+
 ## Next steps
 For information about other app management capabilities that are available in Visual Studio, see [Manage your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
