@@ -52,9 +52,9 @@ Updates in the UI include a reflection of the selected pricing tier and the requ
 
 ### Changes to vulnerability assessment
 
-Before these changes, Defender for Containers didn't show vulnerabilities that have medium and low level severities that are not patchable.
+Defender for Containers now displays vulnerabilities that have medium and low severities that are not patchable
 
-As part of this update, vulnerabilities that have medium and low severities, that don't have patches are now shown. This update provides maximum visibility, while still allowing you to filter undesired vulnerabilities by using the provided Disable rule.
+As part of this update, vulnerabilities that have medium and low severities are now shown, whether or not patches are available. This update provides maximum visibility, but still allows you to filter out undesired vulnerabilities by using the provided Disable rule.
 
 :::image type="content" source="media/release-notes/disable-rule.png" alt-text="Screenshot of the disable rule screen.":::
 
