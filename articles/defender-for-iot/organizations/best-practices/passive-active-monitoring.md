@@ -7,11 +7,11 @@ ms.topic: conceptual
 
 # Active and passive OT monitoring in Defender for IoT
 
-This article describes how Microsoft Defender for IoT supports both passive monitoring, as the default OT network monitoring method, and active monitoring, which provides additional insights into your network assets and data.
+This article describes how Microsoft Defender for IoT supports both passive monitoring, which is the default OT network monitoring method, and active monitoring, which provides additional insights into your network assets and data.
 
 **Passive monitoring** is Defender for IoT's default method for monitoring and analyzing traffic on your OT network.
 
-Passive monitoring architectures analyze network events and detect risks by running network sniffing on captured metadata. Defender for IoT uses SPAN ports to create copies of your network metadata, such as from PCAP files, and then analyzes the copied data.
+Passive monitoring architectures analyze network events and detect risks by running network sniffing on captured metadata. Defender for IoT uses [SPAN ports](traffic-mirroring-methods.md) to create copies of your network metadata, such as from PCAP files, and then analyzes the copied data.
 
 In contrast, you can configure **active monitoring** to run analysis directly on your actual network data. Active monitoring doesn't use SPAN ports or copies of your metadata, but access your data directly on your network.
 
@@ -20,7 +20,7 @@ Passive monitoring is Defender for IoT's default method because it doesn't requi
 > [!TIP]
 > To illustrate the differences between passive and active scanning, compare a security guard at the entrance to an event hall to a security guard circulating inside the actual event. While the security guard at the entrance will check every person entering or exiting the event, they will certainly miss others inside the event.
 >
-> For example, they may miss kitchen staff who were present before the event began or guests who entered through a back door. Security guards circulating inside the event will have a full picture of all people inside the event.
+> For example, a guard at the entrance may miss kitchen staff who were present before the event began or guests who entered through a back door. Security guards circulating inside the event will have a full picture of all people inside the event.
 
 ## When to configure active monitoring
 
@@ -36,7 +36,7 @@ For example, active monitoring is helpful in the following situations:
 
 - **Deeply hierarchical networks**. Passive monitoring architectures might not create mirrors of the full depth of your network hierarchy, leaving your device visibility with gaps. Use active monitoring to capture the full picture of your devices.
 
-### Supported protocols for active monitoring
+## Supported protocols for active monitoring
 
 Active discovery scans are supported for the following protocols:
 
@@ -54,13 +54,13 @@ If you've decided that you need to add active monitoring to your Defender for Io
 Active monitoring requires direct access to your network, and can affect network bandwidth and latency, cause overloaded devices, and can reach devices at scale. Also consider what other monitoring processes you may have running on your network, and how they and Defender for IoT's active monitoring will need to co-exist.
 
 
-
 ## Next steps
 
-If you've determine that active monitoring is right for your OT network, use one of the following methods:
+If you've determined that active monitoring is right for your organization, complete the [prerequisites](../configure-active-monitoring.md) and then use one of the following methods:
 
-- Configure Windows Endpoint Monitoring
-- Configure active discovery scans
+- [Configure active discovery scans](configure-active-discovery-scans.md)
+- [Configure Windows Endpoint monitoring](configure-windows-endpoint-monitoring.md)
+- [Configure DNS servers for reverse lookup resolution for OT monitoring](configure-reverse-dns-lookup.md)
 
 For more information, see:
 
@@ -69,8 +69,3 @@ For more information, see:
 - [Traffic mirroring methods for OT monitoring](traffic-mirroring-methods.md)
 - [Sample OT network connectivity models](sample-connectivity-models.md)
 
-To get started with Defender for IoT:
-
-- [Welcome to Microsoft Defender for IoT for organizations](overview.md)
-- [Quickstart: Get started with Defender for IoT](getting-started.md)
-- [About Microsoft Defender for IoT network setup](how-to-set-up-your-network.md)

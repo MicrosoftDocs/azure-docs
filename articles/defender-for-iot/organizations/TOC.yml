@@ -158,6 +158,16 @@
           href: how-to-manage-individual-sensors.md
         - name: Control OT traffic monitoring
           href: how-to-control-what-traffic-is-monitored.md
+        - name: Configure active monitoring
+          items:
+          - name: Planning and prerequisites
+            href: configure-active-monitoring.md
+          - name: Configure active discovery scans
+            href: configure-active-discovery-scans.md
+          - name: Configure Windows Endpoint Monitoring
+            href: configure-windows-endpoint-monitoring.md
+          - name: Configure reverse DNS lookup
+            href: configure-reverse-dns-lookup.md
         - name: Manage sensors from the on-premises management console
           href: how-to-manage-sensors-from-the-on-premises-management-console.md
       - name: Manage OT sensor users
