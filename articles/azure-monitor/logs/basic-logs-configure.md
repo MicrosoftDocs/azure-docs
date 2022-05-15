@@ -136,7 +136,7 @@ For example:
 ## Check table configuration
 # [Portal](#tab/portal-2)
 
-To check table configuration in the Azure portal, you can open the table configuration screen as described in [Set table configuration](#set-table-configuration). 
+To check table configuration in the Azure portal, you can open the table configuration screen, as described in [Set table configuration](#set-table-configuration). 
 
 Alternatively: 
 
