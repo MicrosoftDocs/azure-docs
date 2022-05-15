@@ -2,7 +2,7 @@
 title: Understanding just-in-time virtual machine access in Microsoft Defender for Cloud
 description: This document explains how just-in-time VM access in Microsoft Defender for Cloud helps you control access to your Azure virtual machines
 ms.topic: how-to
-ms.date: 05/12/2022
+ms.date: 05/15/2022
 ---
 
 # Understanding just-in-time (JIT) VM access
@@ -25,6 +25,8 @@ To solve this dilemma, Microsoft Defender for Cloud offers JIT. With JIT, you ca
 
 ## How JIT operates with network resources
 
+### In Azure 
+
 In Azure, you can block inbound traffic on specific ports, by enabling just-in-time VM access. Defender for Cloud ensures "deny all inbound traffic" rules exist for your selected ports in the [network security group](../virtual-network/network-security-groups-overview.md#security-rules) (NSG) and [Azure Firewall rules](../firewall/rule-processing.md). These rules restrict access to your Azure VMs’ management ports and defend them from attack. 
 
 If other rules already exist for the selected ports, then those existing rules take priority over the new "deny all inbound traffic" rules. If there are no existing rules on the selected ports, then the new rules take top priority in the NSG and Azure Firewall.
@@ -33,6 +35,10 @@ When a user requests access to a VM, Defender for Cloud checks that the user has
 
 > [!NOTE]
 > JIT does not support VMs protected by Azure Firewalls controlled by [Azure Firewall Manager](../firewall-manager/overview.md).  The Azure Firewall must be configured with Rules (Classic) and cannot use Firewall policies.
+
+### In AWS
+
+In AWS, JIT deletes allow rules and for EC2 Security Groups. When a user requests access, JIT creates a temporary security group with relevant allow rules.
 
 ## How Defender for Cloud identifies which VMs should have JIT applied
 
