@@ -88,13 +88,13 @@ When adding an alert to an incident, depending on the circumstances, you might b
 
 - Microsoft Sentinel imports both alerts and incidents from Microsoft 365 Defender. For the most part, you can treat these alerts and incidents like regular Microsoft Sentinel alerts and incidents. 
 
-    However, you can only add Defender alerts to Defender incidents in the Defender portal, not in the Sentinel portal. If you try doing this in Microsoft Sentinel, you will get an error message. You can pivot to the incident in the Microsoft 365 Defender portal using the link in the Microsoft Sentinel incident.
+    However, you can only add Defender alerts to Defender incidents (or remove them) in the Defender portal, not in the Sentinel portal. If you try doing this in Microsoft Sentinel, you will get an error message. You can pivot to the incident in the Microsoft 365 Defender portal using the link in the Microsoft Sentinel incident.
 
 - An incident can contain a maximum of 150 alerts. If you try to add an alert to an incident with 150 alerts in it, you will get an error message.
 
 ## Add/remove alerts using playbooks
 
-Adding and removing alerts to incidents are also available as actions in Logic Apps, and therefore in Microsoft Sentinel playbooks. 
+Adding and removing alerts to incidents are also available as Logic Apps actions in the Microsoft Sentinel connector, and therefore in Microsoft Sentinel playbooks. You need to supply the **incident ARM ID** and the **system alert ID** as parameters, and you can find them both in the playbook schema for both the alert and incident triggers.
 
 Here's an example of using the **Add alert to incident (Preview)** action in a playbook:
 
