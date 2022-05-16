@@ -82,7 +82,7 @@ And if you want to do bulk *delete* (similar to using [DocumentBulkExecutor.dele
 
 ## Retries, timeouts, and throughput control
 
-The bulk support in Java V4 SDK doesn't handle retries and timeouts natively. Please see guidance in [Bulk Executor - Java Library](bulk-executor-java.md). The sample also has examples for local and global throughput control. 
+The bulk support in Java V4 SDK doesn't handle retries and timeouts natively. You can refer to the guidance in [Bulk Executor - Java Library](bulk-executor-java.md), which includes a [sample](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java) that implements an [abstraction](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/bulk/async/BulkWriter.java) for handling retries and timeouts properly. The sample also has examples for local and global throughput control. You can also refer to the section [should my application retry on errors](conceptual-resilient-sdk-applications.md#should-my-application-retry-on-errors) for more guidance on the different kinds of errors that can occur, and best practices for handling retries. 
 
 
 ## Next steps
