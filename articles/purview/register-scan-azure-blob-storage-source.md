@@ -6,8 +6,7 @@ ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
 ms.date: 05/16/2022
-ms.custom: template-how-to, ignite-fall-2021
-ms.custom: references_regions
+ms.custom: template-how-to, ignite-fall-2021, references_regions
 ---
 
 # Connect to Azure Blob storage in Microsoft Purview

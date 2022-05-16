@@ -32,13 +32,13 @@ This article provides a quick start guide on how to share data and receive share
     For additional details, refer to [Register preview feature](../azure-resource-manager/management/preview-features.md?tabs=azure-portal#register-preview-feature).
 
     # [PowerShell](#tab/powershell)
-    ```azurepowershell-interactive
+    ```azurepowershell
     Set-AzContext -SubscriptionId [Your Azure subscription ID]
     ```
-    ```azurepowershell-interactive
+    ```azurepowershell
     Register-AzProviderFeature -FeatureName "AllowDataSharing" -ProviderNamespace "Microsoft.Storage"​
     ```
-    ```azurepowershell-interactive
+    ```azurepowershell
     Get-AzProviderFeature -FeatureName "AllowDataSharing" -ProviderNamespace "Microsoft.Storage"   
     ```
     The *RegistrationState* should be **Registered**. For additional details, refer to [Register preview feature](../azure-resource-manager/management/preview-features.md?tabs=azure-portal#register-preview-feature).
