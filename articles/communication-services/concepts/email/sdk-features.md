@@ -42,13 +42,13 @@ The following list presents the set of features that are currently available in 
 
 ## API Throttling and Timeouts
 
-Your Azure account has a set of limitation on the number of email messages that you can send. For all the developers email sending is limited to 10 mails per minute, 25 mails in an hour and 100 mails in day. This sandbox setup is to help developers to start building the application and gradullay and you can request to increase the sending volume as soon as the application is ready to go live. Submit a support request to increase your sending limit.
+Your Azure account has a set of limitation on the number of email messages that you can send. For all the developers email sending is limited to 10 mails per minute, 25 mails in an hour and 100 mails in day. This sandbox setup is to help developers to start building the application and gradually you can request to increase the sending volume as soon as the application is ready to go live. Submit a support request to increase your sending limit.
 
 ## Next steps
 
 > [Get started with create and manage Email Communication Service in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
 
-> [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-acs-resource.md)
+> [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
 
 The following documents may be interesting to you:
 

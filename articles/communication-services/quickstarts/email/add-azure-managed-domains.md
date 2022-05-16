@@ -27,28 +27,28 @@ ms.custom: private_preview
 2. Create the Azure Managed Domain.   
     - (Option 1) Click the **1-click add** button under **Add a free Azure subdomain**. Move to the next step.
     
-    :::image type="content" source="./media/email-add-azuredomain.png" alt-text="Add a free Azure subdomain":::
+    :::image type="content" source="./media/email-add-azure-domain.png" alt-text="Diagram that shows adding a free Azure subdomain":::
 
     - (Option 2) Click **Provision Domains** on the left navigation panel.
     
-    :::image type="content" source="./media/email-add-azuredomain-nav.png" alt-text="Navigate to Provision Domains":::
+    :::image type="content" source="./media/email-add-azure-domain-navigation.png" alt-text="Diagram that shows Provision Domains navigation page":::
 
     - Click **Add domain** on the upper navigation bar.
     - Select **Azure domain** from the dropdown.
 3. Wait for the deployment to complete.
  
-    :::image type="content" source="./media/email-add-azuredomain-progress.png" alt-text="Deployment Progress":::
+    :::image type="content" source="./media/email-add-azure-domain-progress.png" alt-text="Diagram that shows Deployment Progress":::
 
 4. After domain creation is completed, you'll see a list view with the created domain.
 
-    :::image type="content" source="./media/email-add-azuredomain-created.png" alt-text="Provisioned Domains List":::
+    :::image type="content" source="./media/email-add-azure-domain-created.png" alt-text="Diagram that shows Provisioned Domains List":::
 
 5. Click the name of the provisioned domain. This will navigate you to the overview page for the domain resource type.
 
-    :::image type="content" source="./media/email-azuredomain-overview.png"  alt-text="Navigate to Azure Managed Domain Overview":::
+    :::image type="content" source="./media/email-azure-domain-overview.png"  alt-text="Diagram that shows Azure Managed Domain Overview":::
 
 ## Sender authentication for Azure Managed Domain
-Azure communication Services Email automatically configures the required email authentication protocols to set proper authentication for the email as detailed in [Email Authentication Best Practices](../../concepts/email/email-authentication-bestpractice.md). 
+Azure communication Services Email automatically configures the required email authentication protocols to set proper authentication for the email as detailed in [Email Authentication Best Practices](../../concepts/email/email-authentication-best-practice.md). 
 
 ## Changing MailFrom and FROM display name for Azure Managed Domain
 When Azure Manged Domain is provisioned to send mail, it has default Mail From address as donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net and the FROM display name would be the same. You'll able to configure and change the Mail from address and FROM display name to more user friendly value.
@@ -57,7 +57,7 @@ When Azure Manged Domain is provisioned to send mail, it has default Mail From a
 2. Click **Provision Domains** on the left navigation panel. You'll see list of provisioned domains.
 3. Click on the Azure Manged Domain link
  
-    :::image type="content" source="./media/email-provisioned-domains.png" alt-text="Click Azure Managed Domain link  in provisioned Domains":::
+    :::image type="content" source="./media/email-provisioned-domains.png" alt-text="Diagram that shows Azure Managed Domain link in provisioned Domains":::
 4. The navigation lands in Azure Managed Domain Overview page where you'll able to see Mailfrom and From attributes.
  
    :::image type="content" source="./media/email-provisioned-domains-overview.png" alt-text="Provisioned Domain Overview":::
@@ -80,7 +80,7 @@ When Azure Manged Domain is provisioned to send mail, it has default Mail From a
 
 > [Get started with create and manage Email Communication Service in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
 
-> [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-acs-resource.md)
+> [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
 
 The following documents may be interesting to you:
 

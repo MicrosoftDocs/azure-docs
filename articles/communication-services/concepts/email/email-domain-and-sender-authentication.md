@@ -41,15 +41,15 @@ Please follow the steps [to setup sender authentication for your domain.](../../
 You can choose the experience that works best for your business. You can start with development by using the Azure Managed domain and switch to a custom domain when you're  ready to launch your applications. 
 
 ## How to connect a domain to send email
-Email Communication Service resources are designed to enable domain validation steps as decoupled as possible from  application integration. Application Integration linked with Azure Communication Service and each communication service will be allowed to be linked with one of verified domains from Email Communication Services. Please follow the steps [to connect your verified domains](../../quickstarts/email/connect-email-communication-acs-resource.md). To switch from one verified domain to other you need to [disconnect the domain and connect a different domain](../../quickstarts/email/connect-email-communication-acs-resource.md).  
+Email Communication Service resources are designed to enable domain validation steps as decoupled as possible from  application integration. Application Integration linked with Azure Communication Service and each communication service will be allowed to be linked with one of verified domains from Email Communication Services. Please follow the steps [to connect your verified domains](../../quickstarts/email/connect-email-communication-resource.md). To switch from one verified domain to other you need to [disconnect the domain and connect a different domain](../../quickstarts/email/connect-email-communication-resource.md).  
 
 ## Next steps
 
-> [Best practices for sender authentication support in Azure Communication Services Email](./email-authentication-bestpractice.md)
+> [Best practices for sender authentication support in Azure Communication Services Email](./email-authentication-best-practice.md)
 
 > [Get started with create and manage Email Communication Service in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
 
-> [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-acs-resource.md)
+> [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
 
 The following documents may be interesting to you:
 

@@ -1,5 +1,5 @@
 ---
-title:  Preparing Email Communication Resource for Azure Communication Service
+title:  Prepare Email Communication Resource for Azure Communication Service
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the Azure Communication Services Email Communication Resources and Domains.
 author: bashan-git
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ms.custom: private_preview
 ---
-# Preparing Email Communication resource for Azure Communication Service 
+# Prepare Email Communication resource for Azure Communication Service 
 
 > [!IMPORTANT]
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
@@ -50,11 +50,11 @@ Your Azure Administrators will create a new resource of type “Email Communicat
 
 ## Next steps
 
-> [Email domains and sender authentication for Azure Communication Services](./Understanding-email-domain-setup.md)
+> [Email domains and sender authentication for Azure Communication Services](./email-domain-and-sender-authentication.md)
 
 > [Get started with create and manage Email Communication Service in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
 
-> [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-acs-resource.md)
+> [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
 
 The following documents may be interesting to you:
 

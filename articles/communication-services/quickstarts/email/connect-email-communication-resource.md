@@ -22,37 +22,37 @@ ms.custom: private_preview
 - [Create a Communication Services Resources](../create-communication-resource.md) to connect to a verified domain.
 - In the Azure Communication Service Resource overview page, click **Domains** on the left navigation panel under Email.
 
-    :::image type="content" source="./media/email-acs-domains.png" alt-text="Email Domains":::
+    :::image type="content" source="./media/email-domains.png" alt-text="Email Domains":::
 
 - Select one of the options below
     - Click **Connect domain** in the upper navigation bar.
     - Click **Connect domain** in the splash screen.
      
-        :::image type="content" source="./media/email-acs-domains-connect.png" alt-text="Connect your email domains":::
+        :::image type="content" source="./media/email-domains-connect.png" alt-text="Connect your email domains":::
 - Select a one of the verified domains by filtering 
     - Subscription
     - Resource Group
     - Email Service
     - Verified Domain
     
-    :::image type="content" source="./media/email-acs-domains-connect-select.png" alt-text="Connect email domains":::
+    :::image type="content" source="./media/email-domains-connect-select.png" alt-text="Connect email domains":::
 - Click Connect
  
-    :::image type="content" source="./media/email-acs-domains-connected.png" alt-text="Domain Connected":::
+    :::image type="content" source="./media/email-domains-connected.png" alt-text="Domain Connected":::
 
 ## Disconnect an email domain from the Communication Service Resource
 
 -  In the Azure Communication Service Resource overview page, click **Domains** on the left navigation panel under Email.
 -  Select the Connected Domains click the ... and click Disconnect.  
 
-    :::image type="content" source="./media/email-acs-domains-connect-disconnect.png" alt-text="Disconnect Domains":::
+    :::image type="content" source="./media/email-domains-connect-disconnect.png" alt-text="Disconnect Domains":::
 
 
 ## Next steps
 
 > [How to send an Email](../../quickstarts/email/send-email.md)
 
-> [Preparing Email Communication Resource for Azure Communication Service](../../concepts/email/Understanding-email-communication-resource.md)
+> [Preparing Email Communication Resource for Azure Communication Service](../../concepts/email/prepare-email-communication-resource.md)
 
 
 The following documents may be interesting to you:

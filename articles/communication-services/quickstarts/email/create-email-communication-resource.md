@@ -24,9 +24,9 @@ Create the Email Communications Service resource using Portal
 1. Navigate to the [Azure Portal](https://portal.azure.com/) to create a new resource.
 2. Search for Email Communication Services and hit enter. Select **Email Communication Services** and press **Create**.
 
-   :::image type="content" source="./media/email-comm-search.png" alt-text="Search Email Communication Service":::
+   :::image type="content" source="./media/email-communication-search.png" alt-text="Search Email Communication Service":::
 
-   :::image type="content" source="./media/email-comm-create.png" alt-text="Create Email Communication Service":::
+   :::image type="content" source="./media/email-communication-create.png" alt-text="Create Email Communication Service":::
 
 3. Complete the required information on the basics tab:
     - Select an existing Azure subscription.
@@ -37,18 +37,18 @@ Create the Email Communications Service resource using Portal
       - Add any name/value pairs. 
     - Click **Next: Review + create**.
     
-      :::image type="content" source="./media/email-comm-create-review.png" alt-text="Review and Create Email Communication Service":::
+      :::image type="content" source="./media/email-communication-create-review.png" alt-text="Review and Create Email Communication Service":::
 
 4. Wait for the validation to pass. Click **Create**. 
 5. Wait for the Deployment to complete. Click **Go to Resource** will land on Email Communication Service Overview Page.
 
-   :::image type="content" source="./media/email-comm-overview.png" alt-text="Overview of Email Communication Service":::
+   :::image type="content" source="./media/email-communication-overview.png" alt-text="Overview of Email Communication Service":::
 
 ## Next steps
 
-> [Email domains and sender authentication for Azure Communication Services](../../concepts/email/Understanding-email-domain-setup.md)
+> [Email domains and sender authentication for Azure Communication Services](../../concepts/email/email-domain-and-sender-authentication.md)
 
-> [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-acs-resource.md)
+> [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
 
 The following documents may be interesting to you:
 
