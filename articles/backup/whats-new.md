@@ -42,7 +42,9 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Archive tier support for Azure Virtual Machines is now generally available
 
-Azure Backup now supports the movement of recovery points to the Vault-archive tier for Azure Virtual Machines from the Azure portal. This also supports the movement databases – SQL Server in Azure VM and SAP HANA in Azure VM. This allows you to move the archivable recovery points corresponding to a particular database to the Vault-archive tier at one go.
+Azure Backup now supports the movement of recovery points to the Vault-archive tier for Azure Virtual Machines from the Azure portal. This allows you to move the archivable/recommended recovery points (corresponding to a backup item) to the Vault-archive tier at one go.
+
+Azure Backup also supports Vault-archive tier for SQL Server in Azure VM and SAP HANA in Azure VM. The support has been extended via Azure portal.
  
 For more information, see [Archive Tier support in Azure Backup](archive-tier-support.md).
 
