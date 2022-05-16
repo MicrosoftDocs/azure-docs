@@ -227,7 +227,7 @@ In this section, you'll map the private link service to a private endpoint. A vi
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
-    | IPv4 address space | Enter **11.1.0.0/16** |
+    | IPv4 address space | Enter **172.16.0.0/16** |
 
 5. Under **Subnet name**, select the word **default**.
 
@@ -236,13 +236,17 @@ In this section, you'll map the private link service to a private endpoint. A vi
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Subnet name | Enter **mySubnetPE** |
-    | Subnet address range | Enter **11.1.0.0/24** |
+    | Subnet address range | Enter **172.16.0.0/24** |
 
 7. Select **Save**.
 
 8. Select the **Review + create** tab or select the **Review + create** button.
 
 9. Select **Create**.
+
+    > [NOTE]
+    > Address space: When creating a VNet, you must specify a custom private IP address space using public and private (RFC 1918) addresses. Azure assigns resources in a virtual network a private IP address from the address space that you assign. For example, if you deploy a VM in a VNet with address space, 10.0.0.0/16, the VM will be assigned a private IP like 10.0.0.4. [Virtual Network overview](../virtual-network/concepts-and-best-practices.md)
+
 
 ### Create private endpoint
 
