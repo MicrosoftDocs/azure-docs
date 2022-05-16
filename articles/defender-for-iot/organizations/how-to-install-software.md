@@ -7,12 +7,12 @@ ms.topic: how-to
 
 # Defender for IoT software installation
 
-This article describes how to install software for OT sensors and on-premises management consoles. You might need the procedures in this article if you're re-installing software on a preconfigured appliance, or if you've chosen to install software on your own appliances.
+This article describes how to install software for OT sensors and on-premises management consoles. You might need the procedures in this article if you're reinstalling software on a preconfigured appliance, or if you've chosen to install software on your own appliances.
 
 
 ## Pre-installation configuration
 
-Each appliance type comes with it's own set of instructions that are required before installing Defender for IoT software.
+Each appliance type comes with its own set of instructions that are required before installing Defender for IoT software.
 
 Make sure that you've completed the procedures as instructed in the **Reference > OT monitoring appliance** section of our documentation before installing Defender for IoT software.
 
@@ -39,7 +39,7 @@ Mount the ISO file using one of the following options:
 This procedure describes how to install OT sensor software on a physical or virtual appliance.
 
 > [!Note]
-> At the end of this process you will be presented with the usernames, and passwords for your device. Make sure to copy these down as these passwords will not be presented again.
+> At the end of this process you will be presented with the usernames and passwords for your device. Make sure to copy these down as these passwords will not be presented again.
 
 **To install the sensor's software**:
 
@@ -47,13 +47,13 @@ This procedure describes how to install OT sensor software on a physical or virt
 
     :::image type="content" source="media/tutorial-install-components/language-select.png" alt-text="Screenshot of the sensor's language select screen.":::
 
-1. Select the sensor's architecture.
+1. Select the sensor's architecture. For example:
 
     :::image type="content" source="media/tutorial-install-components/sensor-architecture.png" alt-text="Screenshot of the sensor's architecture select screen.":::
 
 1. The sensor will reboot, and the **Package configuration** screen will appear. Press the up or down arrows to navigate, and the SPACE bar to select an option. Press ENTER to advance to the next screen.
 
-1. Select the monitor interface, and press the **ENTER** key.
+1. Select the monitor interface and press the **ENTER** key.
 
     :::image type="content" source="media/tutorial-install-components/monitor-interface.png" alt-text="Screenshot of the select monitor interface screen.":::
 
@@ -79,11 +79,11 @@ This procedure describes how to install OT sensor software on a physical or virt
 
 1. Enter the DNS Server IP address, and press the **ENTER** key.
 
-1. Enter the sensor hostname, and press the **ENTER** key.
+1. Enter the sensor hostname and press the **ENTER** key.
 
     :::image type="content" source="media/tutorial-install-components/sensor-hostname.png" alt-text="Screenshot of the screen where you enter a hostname for your sensor.":::
 
-1. The installation process runs.
+    The installation process runs.
 
 1. When the installation process completes, save the appliance ID, and passwords. Copy these credentials to a safe place as you'll need them to access the platform the first time you use it.
 
@@ -95,7 +95,7 @@ This procedure describes how to install on-premises management console software 
 
 The installation process takes about 20 minutes. After the installation, the system is restarted several times.
 
-During the installation process, you can add a secondary NIC. If you choose not to install the secondary NIC during installation, you can [add a secondary NIC](#add-a-secondary-nic-optional) at a later time.
+During the installation process, you can add a secondary NIC. If you choose not to install the secondary Network Interface Card (NIC) during installation, you can [add a secondary NIC](#add-a-secondary-nic-optional) at a later time.
 
 **To install the software**:
 
@@ -115,27 +115,27 @@ During the installation process, you can add a secondary NIC. If you choose not 
    |--|--|
    | **configure management network interface** | For Dell: **eth0, eth1** <br /> For HP: **enu1, enu2** <br>  Or <br />**possible value** |
    | **configure management network IP address** | Enter an IP address |
-   | **configure subnet mask:** | Enter an IP address|
-   | **configure DNS:** | Enter an IP address |
-   | **configure default gateway IP address:** | Enter an IP address|
+   | **configure subnet mask** | Enter an IP address|
+   | **configure DNS** | Enter an IP address |
+   | **configure default gateway IP address** | Enter an IP address|
 
-1. **(Optional)** If you would like to install a secondary Network Interface Card (NIC), define the following appliance profile, and network properties:
+1. **(Optional)** If you would like to install a secondary NIC, define the following appliance profile, and network properties:
 
     :::image type="content" source="media/tutorial-install-components/on-prem-secondary-nic-install.png" alt-text="Screenshot that shows the Secondary NIC install questions.":::
 
    | Parameter | Configuration |
    |--|--|
    | **configure sensor monitoring interface** (Optional) | **eth1** or **possible value** |
-   | **configure an IP address for the sensor monitoring interface:** | Enter an IP address |
-   | **configure a subnet mask for the sensor monitoring interface:** | Enter an IP address |
+   | **configure an IP address for the sensor monitoring interface** | Enter an IP address |
+   | **configure a subnet mask for the sensor monitoring interface** | Enter an IP address |
 
-1. Accept the settlings and continue by typing `Y`.
+1. Accept the settings and continue by typing `Y`.
 
 1. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **Support** user.
 
-   :::image type="content" source="media/tutorial-install-components/credentials-screen.png" alt-text="Copy these credentials as they will not be presented again.":::
+   :::image type="content" source="media/tutorial-install-components/credentials-screen.png" alt-text="Copy these credentials as they won't be presented again.":::
 
-   Save the usernames, and passwords, you'll need these credentials to access the platform the first time you use it.
+   Save the usernames and passwords, you'll need these credentials to access the platform the first time you use it.
 
 1. Select **Enter** to continue.
 
@@ -169,29 +169,29 @@ This procedure describes how to add a secondary NIC if you've already installed 
     | **Subnet mask** | `N` |
     | **DNS** | `N` |
     | **Default gateway IP Address** | `N` |
-    | **Sensor monitoring interface** <br>Optional. Relevant when sensors are on a different network segment.| `Y` and select a possible value |
+    | **Sensor monitoring interface** <br>Optional. Relevant when sensors are on a different network segment.| `Y`, and select a possible value |
     | **An IP address for the sensor monitoring interface** | `Y`, and enter an IP address that's  accessible by the sensors|
     | **A subnet mask for the sensor monitoring interface** | `Y`, and enter an IP address that's  accessible by the sensors|
     | **Hostname** | Enter the hostname |
 
-1. Review all choices, and enter `Y` to accept the changes. The system reboots.
+1. Review all choices and enter `Y` to accept the changes. The system reboots.
 
 ### Find your port
 
-If you are having trouble locating the physical port on your device, you can use the following command to:
+If you are having trouble locating the physical port on your device, you can use the following command to find your port:
 
 ```bash
 sudo ethtool -p <port value> <time-in-seconds>
 ```
 
-This command will cause the light on the port to flash for the specified time period. For example, entering `sudo ethtool -p eno1 120`, will have port eno1 flash for 2 minutes allowing you to find the port on the back of your appliance.
+This command will cause the light on the port to flash for the specified time period. For example, entering `sudo ethtool -p eno1 120`, will have port eno1 flash for 2 minutes, allowing you to find the port on the back of your appliance.
 
 
 ## Post-installation validation
 
 To validate the installation of a physical appliance, you need to perform many tests. The same validation process applies to all the appliance types.
 
-Perform the validation by using the GUI or the CLI. The validation is available to the user **Support** and the user **CyberX**.
+Perform the validation by using the GUI or the CLI. The validation is available to both the **Support** and **CyberX** users.
 
 Post-installation validation must include the following tests:
 
@@ -223,7 +223,7 @@ Check your system health from the sensor or on-premises management console. For 
 
 #### System
 
-- **Core Log**: Provides the last 500 rows of the core log, enabling you to view the recent log rows without exporting the entire system log.
+- **Core Log**: Provides the last 500 rows of the core log, so that you can view the recent log rows without exporting the entire system log.
 
 - **Task Manager**: Translates the tasks that appear in the table of processes to the following layers:
   
@@ -263,7 +263,7 @@ Check your system health from the sensor or on-premises management console. For 
 
 ### Check system health by using the CLI
 
-Verify that the system is up, and running prior to testing the system's sanity.
+Verify that the system is up and running prior to testing the system's sanity.
 
 **To test the system's sanity**:
 
@@ -291,7 +291,7 @@ Verify that all the input interfaces configured during the installation process 
 
 **To validate the system's network status**:
 
-1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user **Support**.
+1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the **Support** user.
 
 1. Enter `network list` (the equivalent of the Linux command `ifconfig`).
 
@@ -353,7 +353,7 @@ Verify that you can access the console web GUI:
 
    1. To apply the settings, select **Y**.
 
-1. After restart, connect with the support user credentials and use the `network list` command to verify that the parameters were changed.
+1. After restart, connect with the **Support** user credentials and use the `network list` command to verify that the parameters were changed.
 
 1. Try to ping and connect from the GUI again.
 
@@ -361,7 +361,7 @@ Verify that you can access the console web GUI:
 
 1. Connect a monitor and keyboard to the appliance, or use PuTTY to connect remotely to the CLI.
 
-1. Use the **Support** user's credentials to sign in.
+1. Use the **Support** user credentials to sign in.
 
 1. Use the `system sanity` command and check that all processes are running.
 
@@ -378,7 +378,7 @@ You can enhance system security by preventing direct user access to the sensor. 
 
 **To enable tunneling**:
 
-1. Sign in to the on-premises management console's CLI with the **CyberX**, or the **Support** user credentials.
+1. Sign in to the on-premises management console's CLI with the **CyberX** or the **Support** user credentials.
 
 1. Enter `sudo cyberx-management-tunnel-enable`.
 

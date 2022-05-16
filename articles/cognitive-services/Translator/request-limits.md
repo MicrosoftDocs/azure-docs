@@ -1,7 +1,7 @@
 ---
 title: Request limits - Translator
 titleSuffix: Azure Cognitive Services
-description: This article lists request limits for the Translator. Charges are incurred based on character count, not request frequency with a limit of 5,000 characters per request. Character limits are subscription-based, with F0 limited to 2 million characters per hour.
+description: This article lists request limits for the Translator. Charges are incurred based on character count, not request frequency with a limit of 50,000 characters per request. Character limits are subscription-based, with F0 limited to 2 million characters per hour.
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -18,13 +18,13 @@ This article provides throttling limits for the Translator translation, translit
 
 ## Character and array limits per request
 
-Each translate request is limited to 10,000 characters, across all the target languages you are translating to. For example, sending a translate request of 3,000 characters to translate to three different languages results in a request size of 3000x3 = 9,000 characters, which satisfy the request limit. You're charged per character, not by the number of requests. It's recommended to send shorter requests.
+Each translate request is limited to 50,000 characters, across all the target languages you are translating to. For example, sending a translate request of 3,000 characters to translate to three different languages results in a request size of 3000x3 = 9,000 characters, which satisfy the request limit. You're charged per character, not by the number of requests. It's recommended to send shorter requests.
 
 The following table lists array element and character limits for each operation of the Translator.
 
 | Operation | Maximum Size of Array Element |    Maximum Number of Array Elements |    Maximum Request Size (characters) |
 |:----|:----|:----|:----|
-| Translate | 10,000| 100| 10,000 |
+| Translate | 50,000| 1,000| 50,000 |
 | Transliterate | 5,000| 10| 5,000 |
 | Detect | 50,000 |100 |50,000 |
 | BreakSentence | 50,000| 100 |50,000 |
