@@ -2,7 +2,7 @@
 title: Understand the enhanced security features of Microsoft Defender for Cloud 
 description: Learn about the benefits of enabling enhanced security in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 05/15/2022
+ms.date: 05/16/2022
 ms.custom: references_regions
 ---
 
@@ -187,7 +187,7 @@ You can also view estimated costs under different pricing tiers by selecting :::
 
 1. Select **Run**.
 
-    :::image type="content" source="media/enhanced-security-features-overview/select-run.png" alt-text=":::image type="content" source="media/enhanced-security-features-overview/select-run.png" alt-text="Screenshot showing where to enter your query and where the select run button is located.":::":::
+    :::image type="content" source="media/enhanced-security-features-overview/select-run.png" alt-text="Screenshot showing where to enter your query and where the select run button is located." lightbox="media/enhanced-security-features-overview/select-run.png":::
 
 You can learn how to [Analyze usage in Log Analytics workspace](../azure-monitor/logs/analyze-usage.md).
 
