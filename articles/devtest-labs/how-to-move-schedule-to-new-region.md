@@ -1,23 +1,25 @@
 ---
-title: How to move a Microsoft.DevtestLab/schedules to another region
-description: This article explains how to move Microsoft.DevtestLab/schedules to another Azure region.
+title: How to move a schedule to another region
+description: This article explains how to move schedules to another Azure region.
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 05/09/2022
 ---
-# Move Microsoft.DevtestLab/schedules to another region
+# Move schedules to another region
 
-Microsoft.DevtestLab/schedules apply only to Compute Virtual Machines (VMs). They are often referred to as top level schedules, or simply schedules. In this article, you'll learn how to move schedules.
+In this article, you'll learn how to move schedules by using an Azure Resource Manager (ARM) template. 
 
-Microsoft.DevTestLab/labs/schedules apply only to DevTest Labs (DTL) VMs. They are often referred to as Lab schedules. This type of schedule is not covered in this article.
+DevTest Labs supports two types of schedules.
 
-To move schedules, use an Azure Resource Manager (ARM) template to create a copy of the existing schedules in another region.
+- Schedules apply only to compute virtual machines (VMs): schedules are stored as microsoft.devtestlab/schedules resources, and often referred to as top level schedules, or simply schedules. 
+
+- Lab schedules apply only to DevTest Labs (DTL) VMs: lab schedules They are stored as microsoft.devtestlab/labs/schedules resources. This type of schedule is not covered in this article.
 
 In this article, you'll learn how to:
 > [!div class="checklist"]
 > >
-> - Export an ARM template that contains your Microsoft.DevtestLab/schedules. 
+> - Export an ARM template that contains your schedules. 
 > - Modify the template by adding or updating the target region and other parameters.
 > - Delete the resources in the source region.
 
@@ -41,7 +43,7 @@ Use the following steps to export and redeploy your schedule in another Azure re
 
 3. On the **Resource Group Overview** page, under **Resources**, select **Show hidden types**.
 
-4. Select all resources with the type **Microsoft.DevTestLab/Schedules**.
+4. Select all resources with the type **microsoft.devtestlab/schedules**.
  
 5. Select **Export template**.
 
@@ -78,7 +80,7 @@ Now you can choose to clean up the original schedules if they're longer used. Go
 
 ## Next steps
 
-In this article, you moved a schedule from one region to another and cleaned up the source resources.  To learn more about moving resources between regions and disaster recovery in Azure, refer to:
+In this article, you moved a schedule from one region to another and cleaned up the source resources. To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
 - [Move a DevTest Labs to another region](./how-to-move-labs.md).
 - [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
