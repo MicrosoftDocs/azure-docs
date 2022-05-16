@@ -100,7 +100,9 @@ The `pubsub.yaml` spec will be scoped to the dapr-enabled container apps with ap
 
 # [Bicep](#tab/bicep)
 
-This resource defines a Dapr component called `dapr-pubsub` via Bicep. The Dapr component is defined as a child resource of your Container Apps environment. The `dapr-pubsub` component is scoped to the Dapr-enabled container apps with app ids `publisher-app` and `subscriber-app`:
+This resource defines a Dapr component called `dapr-pubsub` via Bicep. The Dapr component is defined as a child resource of your Container Apps environment. To define multiple components, you can add a `daprComponent` resource for each Dapr component.
+
+The `dapr-pubsub` component is scoped to the Dapr-enabled container apps with app ids `publisher-app` and `subscriber-app`:
 
 ```bicep
 resource daprComponent 'daprComponents@2022-01-01-preview' = {
@@ -131,7 +133,9 @@ resource daprComponent 'daprComponents@2022-01-01-preview' = {
 
 # [ARM](#tab/arm)
 
-This resource defines a Dapr component called `dapr-pubsub` via ARM. The Dapr component is defined as a child resource of your Container Apps environment. The `dapr-pubsub` component will be scoped to the Dapr-enabled container apps with app ids `publisher-app` and `subscriber-app`:
+A Dapr component is defined as a child resource of your Container Apps environment. To define multiple components, you can add a `daprComponent` resource for each Dapr component.
+
+This resource defines a Dapr component called `dapr-pubsub` via ARM. The `dapr-pubsub` component will be scoped to the Dapr-enabled container apps with app ids `publisher-app` and `subscriber-app`:
 
 ```json
 {
