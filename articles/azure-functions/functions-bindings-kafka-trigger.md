@@ -436,13 +436,13 @@ The following table explains the properties you can set using this trigger attri
 
 | Parameter |Description|
 | --- | --- |
-| **BrokerList** | (Required) The list of Kafka brokers monitored by the trigger.  |
+| **BrokerList** | (Required) The list of Kafka brokers monitored by the trigger. See [Connections](#connections) for more information. |
 | **Topic** | (Required) The topic monitored by the trigger. |
 | **ConsumerGroup** | (Optional) Kafka consumer group used by the trigger. |
 | **AvroSchema** | (Optional) Schema of a generic record when using the Avro protocol. |
 | **AuthenticationMode** | (Optional) The authentication  mode when using Simple Authentication and Security Layer (SASL) authentication. The supported values are `Gssapi`, `Plain` (default), `ScramSha256`, `ScramSha512`. |
-| **Username** | (Optional) The username for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. | 
-| **Password** | (Optional) The password for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. | 
+| **Username** | (Optional) The username for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. See [Connections](#connections) for more information.| 
+| **Password** | (Optional) The password for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. See [Connections](#connections) for more information.| 
 | **Protocol** | (Optional) The security protocol used when communicating with brokers. The supported values are `plaintext` (default), `ssl`, `sasl_plaintext`, `sasl_ssl`. |
 | **SslCaLocation** | (Optional) Path to CA certificate file for verifying the broker's certificate. |
 | **SslCertificateLocation** | (Optional) Path to the client's certificate. |
@@ -460,15 +460,15 @@ The `KafkaTrigger` annotation allows you to create a function that runs when a t
 |Element | Description|
 |---------|----------------------|
 |**name** | (Required) The name of the variable that represents the queue or topic message in function code. |
-| **brokerList** | (Required) The list of Kafka brokers monitored by the trigger.  |
+| **brokerList** | (Required) The list of Kafka brokers monitored by the trigger. See [Connections](#connections) for more information. |
 | **topic** | (Required) The topic monitored by the trigger. |
 | **cardinality** | (Optional) Indicates the cardinality of the trigger input. The supported values are `ONE` (default) and `MANY`. Use `ONE` when the input is a single message and `MANY` when the input is an array of messages. When you use `MANY`, you must also set a `dataType`. |
 | **dataType** | Defines how Functions handles the parameter value. By default, the value is obtained as a string and Functions tries to  deserialize the string to actual plain-old Java object (POJO). When `string`, the input is treated as just a string. When `binary`, the message is received as binary data, and Functions tries to deserialize it to an actual parameter type byte[]. | 
 | **consumerGroup** | (Optional) Kafka consumer group used by the trigger. |
 | **avroSchema** | (Optional) Schema of a generic record when using the Avro protocol. |
 | **authenticationMode** | (Optional) The authentication  mode when using Simple Authentication and Security Layer (SASL) authentication. The supported values are `Gssapi`, `Plain` (default), `ScramSha256`, `ScramSha512`. |
-| **username** | (Optional) The username for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. | 
-| **password** | (Optional) The password for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. | 
+| **username** | (Optional) The username for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. See [Connections](#connections) for more information.| 
+| **password** | (Optional) The password for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. See [Connections](#connections) for more information.| 
 | **protocol** | (Optional) The security protocol used when communicating with brokers. The supported values are `plaintext` (default), `ssl`, `sasl_plaintext`, `sasl_ssl`. |
 | **sslCaLocation** | (Optional) Path to CA certificate file for verifying the broker's certificate. |
 | **sslCertificateLocation** | (Optional) Path to the client's certificate. |
@@ -488,15 +488,15 @@ The following table explains the binding configuration properties that you set i
 |**type** | (Required) Must be set to `kafkaTrigger`. |
 |**direction** | (Required) Must be set to `in`. |
 |**name** | (Required) The name of the variable that represents the brokered data in function code. |
-| **brokerList** | (Required) The list of Kafka brokers monitored by the trigger.  |
+| **brokerList** | (Required) The list of Kafka brokers monitored by the trigger.  See [Connections](#connections) for more information.|
 | **topic** | (Required) The topic monitored by the trigger. |
 | **cardinality** | (Optional) Indicates the cardinality of the trigger input. The supported values are `ONE` (default) and `MANY`. Use `ONE` when the input is a single message and `MANY` when the input is an array of messages. When you use `MANY`, you must also set a `dataType`. |
 | **dataType** | Defines how Functions handles the parameter value. By default, the value is obtained as a string and Functions tries to  deserialize the string to actual plain-old Java object (POJO). When `string`, the input is treated as just a string. When `binary`, the message is received as binary data, and Functions tries to deserialize it to an actual parameter type byte[]. | 
 | **consumerGroup** | (Optional) Kafka consumer group used by the trigger. |
 | **avroSchema** | (Optional) Schema of a generic record when using the Avro protocol. |
 | **authenticationMode** | (Optional) The authentication  mode when using Simple Authentication and Security Layer (SASL) authentication. The supported values are `Gssapi`, `Plain` (default), `ScramSha256`, `ScramSha512`. |
-| **username** | (Optional) The username for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. | 
-| **password** | (Optional) The password for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. | 
+| **username** | (Optional) The username for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. See [Connections](#connections) for more information. | 
+| **password** | (Optional) The password for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. See [Connections](#connections) for more information.| 
 | **protocol** | (Optional) The security protocol used when communicating with brokers. The supported values are `plaintext` (default), `ssl`, `sasl_plaintext`, `sasl_ssl`. |
 | **sslCaLocation** | (Optional) Path to CA certificate file for verifying the broker's certificate. |
 | **sslCertificateLocation** | (Optional) Path to the client's certificate. |

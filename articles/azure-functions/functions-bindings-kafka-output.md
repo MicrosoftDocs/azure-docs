@@ -317,7 +317,7 @@ The following table explains the properties you can set using this attribute:
 
 | Parameter |Description|
 | --- | --- |
-| **BrokerList** | (Required) The list of Kafka brokers to which the output is sent.  |
+| **BrokerList** | (Required) The list of Kafka brokers to which the output is sent. See [Connections](#connections) for more information. |
 | **Topic** | (Required) The topic to which the output is sent. |
 | **AvroSchema** | (Optional) Schema of a generic record when using the Avro protocol. |
 | **MaxMessageBytes** | (Optional) The maximum size of the output message being sent (in MB), with a default value of `1`. |
@@ -327,8 +327,8 @@ The following table explains the properties you can set using this attribute:
 | **RequestTimeoutMs** | (Optional) The acknowledgment timeout of the output request, in milliseconds, with a default of `5000`. |
 | **MaxRetries** | (Optional) The number of times to retry sending a failing Message, with a default of `2`. Retrying may cause reordering, unless `EnableIdempotence` is set to `true`.|
 | **AuthenticationMode** | (Optional) The authentication  mode when using Simple Authentication and Security Layer (SASL) authentication. The supported values are `Gssapi`, `Plain` (default), `ScramSha256`, `ScramSha512`. |
-| **Username** | (Optional) The username for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. | 
-| **Password** | (Optional) The password for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. | 
+| **Username** | (Optional) The username for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. See [Connections](#connections) for more information.| 
+| **Password** | (Optional) The password for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. See [Connections](#connections) for more information.| 
 | **Protocol** | (Optional) The security protocol used when communicating with brokers. The supported values are `plaintext` (default), `ssl`, `sasl_plaintext`, `sasl_ssl`. |
 | **SslCaLocation** | (Optional) Path to CA certificate file for verifying the broker's certificate. |
 | **SslCertificateLocation** | (Optional) Path to the client's certificate. |
@@ -345,7 +345,7 @@ The `KafkaOutput` annotation allows you to create a function that writes to a sp
 |Element | Description|
 |---------|----------------------|
 |**name** | The name of the variable that represents the brokered data in function code. |
-| **brokerList** | (Required) The list of Kafka brokers to which the output is sent.  |
+| **brokerList** | (Required) The list of Kafka brokers to which the output is sent. See [Connections](#connections) for more information. |
 | **topic** | (Required) The topic to which the output is sent. |
 | **dataType** | Defines how Functions handles the parameter value. By default, the value is obtained as a string and Functions tries to  deserialize the string to actual plain-old Java object (POJO). When `string`, the input is treated as just a string. When `binary`, the message is received as binary data, and Functions tries to deserialize it to an actual parameter type byte[]. | 
 | **avroSchema** | (Optional) Schema of a generic record when using the Avro protocol. |
@@ -356,8 +356,8 @@ The `KafkaOutput` annotation allows you to create a function that writes to a sp
 | **requestTimeoutMs** | (Optional) The acknowledgment timeout of the output request, in milliseconds, with a default of `5000`. |
 | **maxRetries** | (Optional) The number of times to retry sending a failing Message, with a default of `2`. Retrying may cause reordering, unless `EnableIdempotence` is set to `true`.|
 | **authenticationMode** | (Optional) The authentication  mode when using Simple Authentication and Security Layer (SASL) authentication. The supported values are `Gssapi`, `Plain` (default), `ScramSha256`, `ScramSha512`. |
-| **username** | (Optional) The username for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. | 
-| **password** | (Optional) The password for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. | 
+| **username** | (Optional) The username for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. See [Connections](#connections) for more information.| 
+| **password** | (Optional) The password for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. See [Connections](#connections) for more information.| 
 | **protocol** | (Optional) The security protocol used when communicating with brokers. The supported values are `plaintext` (default), `ssl`, `sasl_plaintext`, `sasl_ssl`. |
 | **sslCaLocation** | (Optional) Path to CA certificate file for verifying the broker's certificate. |
 | **sslCertificateLocation** | (Optional) Path to the client's certificate. |
@@ -376,7 +376,7 @@ The following table explains the binding configuration properties that you set i
 |**type** | Must be set to `kafka`. |
 |**direction** | Must be set to `out`. |
 |**name** | The name of the variable that represents the brokered data in function code. |
-| **brokerList** | (Required) The list of Kafka brokers to which the output is sent.  |
+| **brokerList** | (Required) The list of Kafka brokers to which the output is sent. See [Connections](#connections) for more information. |
 | **topic** | (Required) The topic to which the output is sent. |
 | **avroSchema** | (Optional) Schema of a generic record when using the Avro protocol. |
 | **maxMessageBytes** | (Optional) The maximum size of the output message being sent (in MB), with a default value of `1`. |
@@ -386,8 +386,8 @@ The following table explains the binding configuration properties that you set i
 | **requestTimeoutMs** | (Optional) The acknowledgment timeout of the output request, in milliseconds, with a default of `5000`. |
 | **maxRetries** | (Optional) The number of times to retry sending a failing Message, with a default of `2`. Retrying may cause reordering, unless `EnableIdempotence` is set to `true`.|
 | **authenticationMode** | (Optional) The authentication  mode when using Simple Authentication and Security Layer (SASL) authentication. The supported values are `Gssapi`, `Plain` (default), `ScramSha256`, `ScramSha512`. |
-| **username** | (Optional) The username for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. | 
-| **password** | (Optional) The password for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. | 
+| **username** | (Optional) The username for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. See [Connections](#connections) for more information.| 
+| **password** | (Optional) The password for SASL authentication. Not supported when `AuthenticationMode` is `Gssapi`. See [Connections](#connections) for more information.| 
 | **protocol** | (Optional) The security protocol used when communicating with brokers. The supported values are `plaintext` (default), `ssl`, `sasl_plaintext`, `sasl_ssl`. |
 | **sslCaLocation** | (Optional) Path to CA certificate file for verifying the broker's certificate. |
 | **sslCertificateLocation** | (Optional) Path to the client's certificate. |
