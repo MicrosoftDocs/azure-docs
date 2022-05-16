@@ -17,7 +17,7 @@ This article helps you understand Azure Route Server monitoring and metrics usin
 
 ## Route Server metrics
 
-To view Azure Route Server Metrics, go to your Route Server resource in the Azure portal and select **Metrics**.
+To view Azure Route Server metrics, go to your Route Server resource in the Azure portal and select **Metrics**.
 
 Once a metric is selected, the default aggregation will be applied. Optionally, you can apply splitting, which will show the metric with different dimensions.
 
@@ -30,13 +30,13 @@ Once a metric is selected, the default aggregation will be applied. Optionally, 
 
 ### Aggregation types
 
-Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](../azure-monitor/essentials/metrics-charts.md#aggregation). You should use the recommended Aggregation type when reviewing the insights for each Route Server metric.
+Metrics explorer supports Sum, Count, Average, Minimum and Maximum as [aggregation types](../azure-monitor/essentials/metrics-charts.md#aggregation). You should use the recommended Aggregation type when reviewing the insights for each Route Server metric.
 
 * Sum: The sum of all values captured during the aggregation interval.
 * Count: The number of measurements captured during the aggregation interval.
 * Average: The average of the metric values captured during the aggregation interval.
-* Min: The smallest value captured during the aggregation interval.
-* Max: The largest value captured during the aggregation interval.
+* Minimum: The smallest value captured during the aggregation interval.
+* Maximum: The largest value captured during the aggregation interval.
 
 
 | Metric | Category | Unit | Aggregation Type | Description | Dimensions |  Exportable via Diagnostic Settings? | 
@@ -52,7 +52,7 @@ Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](..
 
 ### <a name = "bgp"></a>BGP Peer Status
 
-Aggregation type: *Max*
+Aggregation type: **Max**
 
 This metric shows the BGP availability of peer NVA connections. The BGP Peer Status is a binary metric. 1 = BGP is up-and-running. 0 = BGP is unavailable.
 
@@ -64,7 +64,7 @@ To check the BGP status of a specific NVA peer, select **Apply splitting** and c
 
 ### <a name = "advertised"></a>Count of Routes Advertised to Peer
 
-Aggregation type: *Max*
+Aggregation type: **Max**
 
 This metric shows the number of routes the Route Server advertised to NVA peers.
 
@@ -72,7 +72,7 @@ This metric shows the number of routes the Route Server advertised to NVA peers.
 
 ### <a name = "received"></a>Count of Routes Received from Peer 
 
-Aggregation type: *Max*
+Aggregation type: **Max**
 
 This metric shows the number of routes the Route Server received from NVA peers.
 

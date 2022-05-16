@@ -45,7 +45,7 @@
   items:
   - name: Troubleshoot Route Server issues
     href: troubleshoot-route-server.md
-  - name: Route Server monitoring, metrics, and alerts
+  - name: Monitor Route Server
     href: routeserver-monitoring-metrics-alerts.md
 - name: Reference
   items:
